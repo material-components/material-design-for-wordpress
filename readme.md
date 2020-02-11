@@ -2,7 +2,7 @@
 # Material Theme Builder Plugin for WordPress
 
 ![Banner](wp-assets/banner-1544x500.png)
-Material Theme Builder plugin for WordPress.
+@todo short description
 
 **Contributors:** [xwp](https://profiles.wordpress.org/xwp)  
 **Requires at least:** 5.0  
@@ -14,7 +14,7 @@ Material Theme Builder plugin for WordPress.
 
 ## Description ##
 
-@todo
+@todo long description
 
 ## Installation ##
 
