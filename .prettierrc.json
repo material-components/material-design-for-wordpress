@@ -1,0 +1,6 @@
+{
+  "singleQuote": true,
+  "parenSpacing": true,
+  "trailingComma": "es5",
+  "jsxBracketSameLine": false
+}

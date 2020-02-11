@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "plugin:@wordpress/eslint-plugin/recommended"
+  ],
+  "overrides": [
+    {
+      "files":[
+        "**/__tests__/**/*.js",
+        "**/test/*.js",
+        "**/?(*.)test.js",
+        "tests/js/**/*.js"
+      ],
+      "extends": [
+        "plugin:jest/all"
+      ],
+      "rules": {
+        "jest/lowercase-name": [
+          "error",
+          {
+            "ignore": [ "describe" ]
+          }
+        ],
+        "jest/no-hooks": "off",
+        "jest/prefer-expect-assertions": "off",
+        "jest/prefer-inline-snapshots": "off"
+      }
+    }
+  ]
+}
