@@ -3,6 +3,8 @@ ASSETS_DIR=wp-assets
 README_MD_TITLE="Material Theme Builder Plugin for WordPress"
 CHECK_SCOPE=all
 DOCKER_PHPUNIT_BIN=bin/phpunit.sh
+TRAVIS_CI_PRO_BADGE=DzyA3Sey2BLS5sL6HDJq
+COVERALLS_BADGE=hsQNDq
 
 # function run_tests {
 # 	if [ "$TRAVIS" == true ]; then
