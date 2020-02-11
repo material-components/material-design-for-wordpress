@@ -4,10 +4,10 @@ README_MD_TITLE="Material Theme Builder Plugin for WordPress"
 CHECK_SCOPE=all
 DOCKER_PHPUNIT_BIN=bin/phpunit.sh
 
-function run_tests {
-	if [ "$TRAVIS" == true ]; then
-		npm run test:js:coveralls
-	else
-		npm run test:js
-	fi
-}
+# function run_tests {
+# 	if [ "$TRAVIS" == true ]; then
+# 		npm run test:js:coveralls
+# 	else
+# 		npm run test:js
+# 	fi
+# }
