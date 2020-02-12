@@ -33,15 +33,15 @@ class Controls extends Module_Base {
 				'capability'  => 'edit_theme_options',
 				'title'       => esc_html__( 'Your Material Theme', 'material-theme-builder' ),
 				'description' => esc_html__( 'Material Theme Description goes here.', 'material-theme-builder' ),
-			) 
+			)
 		);
 
 		$sections = array(
-			$slug . '_theme'  => __( 'Theme', 'material-theme-builder' ),
-			$slug . '_font'   => __( 'Theme Font Families', 'material-theme-builder' ),
-			$slug . '_corner' => __( 'Corner Styles', 'material-theme-builder' ),
-			$slug . '_icons'  => __( 'System Icon Collections', 'material-theme-builder' ),
-			$slug . '_colors' => __( 'Theme Color Palettes', 'material-theme-builder' ),
+			$slug . '_theme'      => __( 'Theme', 'material-theme-builder' ),
+			$slug . '_typography' => __( 'Typography', 'material-theme-builder' ),
+			$slug . '_corner'     => __( 'Corner Styles', 'material-theme-builder' ),
+			$slug . '_icons'      => __( 'System Icon Collections', 'material-theme-builder' ),
+			$slug . '_colors'     => __( 'Color Palettes', 'material-theme-builder' ),
 		);
 
 		foreach ( $sections as $id => $label ) {
@@ -65,11 +65,11 @@ class Controls extends Module_Base {
 	 *
 	 * @action customize_controls_enqueue_scripts
 	 */
-	public function enqueue_customizer_scripts() {
+	public function scripts() {
 		wp_enqueue_script(
 			'material-theme-builder-customizer',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
-			[ 'customize-controls', 'underscore', 'jquery' ],
+			[ 'customize-controls', 'jquery' ],
 			$this->plugin->asset_version(),
 			false
 		);

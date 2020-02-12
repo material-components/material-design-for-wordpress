@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder;
 
 use MaterialThemeBuilder\BazBar\Sample;
+use MaterialThemeBuilder\Customizer\Controls;
 
 /**
  * Tests for Plugin class.
@@ -41,6 +42,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertInternalType( 'array', $plugin->config );
 		$this->assertArrayHasKey( 'foo', $plugin->config );
 		$this->assertInstanceOf( Sample::class, $plugin->sample );
+		$this->assertInstanceOf( Controls::class, $plugin->customizer_controls );
 	}
 
 	/**
