@@ -45,7 +45,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Create a mock for the WP_Customize_Manager class,
 		// mock the add_panel() and add_section() methods.
 		$wp_customize = $this->getMockBuilder( 'WP_Customize_Manager' )
-			->setMethods( [ 'add_panel', 'add_section' ] )
+			->setMethods( [ 'add_panel', 'add_section', 'add_setting', 'add_control' ] )
 			->getMock();
 
 		// Set up the expectation for the update() method
@@ -61,7 +61,7 @@ class Test_Controls extends \WP_UnitTestCase {
 			->withConsecutive(
 				[ $this->equalTo( 'material_theme_theme' ) ],
 				[ $this->equalTo( 'material_theme_typography' ) ],
-				[ $this->equalTo( 'material_theme_corner' ) ],
+				[ $this->equalTo( 'material_theme_corners' ) ],
 				[ $this->equalTo( 'material_theme_icons' ) ],
 				[ $this->equalTo( 'material_theme_colors' ) ]
 			);
