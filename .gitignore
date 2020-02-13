@@ -9,6 +9,8 @@ assets/css/*
 assets/js/*.js
 assets/js/*.asset.php
 assets/js/*.map
+bin/local-dev/mysql/
+bin/local-dev/wordpress/html/
 build/
 node_modules/
 tests/coverage
