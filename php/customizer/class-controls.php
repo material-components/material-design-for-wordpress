@@ -31,7 +31,7 @@ class Controls extends Module_Base {
 			array(
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
-				'title'       => esc_html__( 'Your Material Theme', 'material-theme-builder' ),
+				'title'       => esc_html__( 'Material Theme Editor', 'material-theme-builder' ),
 				'description' => esc_html__( 'Material Theme Description goes here.', 'material-theme-builder' ),
 			)
 		);
@@ -41,7 +41,7 @@ class Controls extends Module_Base {
 			$slug . '_typography' => __( 'Typography', 'material-theme-builder' ),
 			$slug . '_corners'    => __( 'Corner Styles', 'material-theme-builder' ),
 			$slug . '_icons'      => __( 'System Icon Collections', 'material-theme-builder' ),
-			$slug . '_colors'     => __( 'Color Palettes', 'material-theme-builder' ),
+			$slug . '_colors'     => __( 'Theme Color Palettes', 'material-theme-builder' ),
 		);
 
 		foreach ( $sections as $id => $label ) {
