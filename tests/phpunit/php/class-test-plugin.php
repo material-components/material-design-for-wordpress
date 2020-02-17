@@ -54,6 +54,8 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_editor_assets();
 		$this->assertTrue( wp_script_is( 'material-theme-builder-wp-js', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-theme-builder-wp-fonts-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-theme-builder-wp-css', 'enqueued' ) );
 	}
 
 	/**
@@ -65,6 +67,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_frontend_assets();
 		$this->assertTrue( wp_script_is( 'material-theme-builder-wp-frontend-js', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-theme-builder-wp-fonts-css', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-theme-builder-wp-frontend-css', 'enqueued' ) );
 	}
 

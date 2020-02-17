@@ -56,6 +56,13 @@ class Plugin extends Plugin_Base {
 		);
 
 		wp_enqueue_style(
+			'material-theme-builder-wp-fonts-css',
+			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
+			[],
+			$this->asset_version()
+		);
+
+		wp_enqueue_style(
 			'material-theme-builder-wp-css',
 			$this->asset_url( 'assets/css/block-editor-compiled.css' ),
 			[],
@@ -75,6 +82,13 @@ class Plugin extends Plugin_Base {
 			[],
 			$this->asset_version(),
 			true
+		);
+
+		wp_enqueue_style(
+			'material-theme-builder-wp-fonts-css',
+			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
+			[],
+			$this->asset_version()
 		);
 
 		wp_enqueue_style(
