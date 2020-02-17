@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import Button from '../../../material-components/button';
+import Button from './button';
 
 export default function ButtonSave( { attributes } ) {
 	return <Button { ...attributes }>Button Text</Button>;
