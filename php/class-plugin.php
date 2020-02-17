@@ -54,6 +54,35 @@ class Plugin extends Plugin_Base {
 			$this->asset_version(),
 			false
 		);
+
+		wp_enqueue_style(
+			'material-theme-builder-wp-css',
+			$this->asset_url( 'assets/css/block-editor-compiled.css' ),
+			[],
+			$this->asset_version()
+		);
+	}
+
+	/**
+	 * Enqueue frontend styles and scripts.
+	 *
+	 * @action wp_enqueue_scripts
+	 */
+	public function enqueue_frontend_assets() {
+		wp_enqueue_script(
+			'material-theme-builder-wp-frontend-js',
+			$this->asset_url( 'assets/js/front.js' ),
+			[],
+			$this->asset_version(),
+			true
+		);
+
+		wp_enqueue_style(
+			'material-theme-builder-wp-frontend-css',
+			$this->asset_url( 'assets/css/front-compiled.css' ),
+			[],
+			$this->asset_version()
+		);
 	}
 
 	/**
@@ -73,4 +102,23 @@ class Plugin extends Plugin_Base {
 	 * @param \WP_Styles $wp_styles Instance of \WP_Styles.
 	 */
 	public function register_styles( \WP_Styles $wp_styles ) {}
+
+	/**
+	 * Add custom material block category.
+	 *
+	 * @action block_categories, 10, 2
+	 *
+	 * @param array   $categories Registered categories.
+	 * @param WP_Post $post       The current post object.
+	 *
+	 * @return array
+	 */
+	public function block_category( $categories, $post ) {
+		$categories[] = [
+			'slug'  => 'material',
+			'title' => __( 'Material Blocks', 'material-theme-builder' ),
+		];
+
+		return $categories;
+	}
 }
