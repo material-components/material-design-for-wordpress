@@ -13,6 +13,18 @@ const WebpackBar = require( 'webpackbar' );
  */
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 
+// Exclude `node_modules` folder from `source-map-loader` to prevent webpack warnings.
+if ( defaultConfig.module && Array.isArray( defaultConfig.module.rules ) ) {
+	defaultConfig.module.rules.some( function( rule ) {
+		if ( rule.use && rule.use.includes( 'source-map-loader' ) ) {
+			rule.exclude = /node_modules/;
+			return true;
+		}
+
+		return false;
+	} );
+}
+
 const sharedConfig = {
 	output: {
 		path: path.resolve( process.cwd(), 'assets', 'js' ),
@@ -41,7 +53,10 @@ const blockEditor = {
 	...defaultConfig,
 	...sharedConfig,
 	entry: {
-		'block-editor': './assets/src/block-editor/index.js',
+		'block-editor': [
+			'./assets/src/block-editor/index.js',
+			'./assets/css/src/block-editor.css',
+		],
 	},
 	module: {
 		...defaultConfig.module,
@@ -92,14 +107,74 @@ const customizer = {
 	...defaultConfig,
 	...sharedConfig,
 	entry: {
-		'customize-controls': './assets/src/customizer/customize-controls.js',
+		'customize-controls': [
+			'./assets/src/customizer/customize-controls.js',
+			'./assets/css/src/customizer.css',
+		],
 		'customize-preview': './assets/src/customizer/customize-preview.js',
+	},
+	module: {
+		...defaultConfig.module,
+		rules: [
+			...defaultConfig.module.rules,
+			{
+				test: /\.css$/,
+				use: [
+					// prettier-ignore
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+				],
+			},
+		],
 	},
 	plugins: [
 		...defaultConfig.plugins,
+		new MiniCssExtractPlugin( {
+			filename: '../css/[name]-compiled.css',
+		} ),
+		new RtlCssPlugin( {
+			filename: '../css/[name]-compiled-rtl.css',
+		} ),
 		new WebpackBar( {
 			name: 'Customizer',
 			color: '#f27136',
+		} ),
+	],
+};
+
+const front = {
+	...defaultConfig,
+	...sharedConfig,
+	entry: {
+		front: [ './assets/src/front/index.js', './assets/css/src/front.css' ],
+	},
+	module: {
+		...defaultConfig.module,
+		rules: [
+			...defaultConfig.module.rules,
+			{
+				test: /\.css$/,
+				use: [
+					// prettier-ignore
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+				],
+			},
+		],
+	},
+	plugins: [
+		...defaultConfig.plugins,
+		new MiniCssExtractPlugin( {
+			filename: '../css/[name]-compiled.css',
+		} ),
+		new RtlCssPlugin( {
+			filename: '../css/[name]-compiled-rtl.css',
+		} ),
+		new WebpackBar( {
+			name: 'Front',
+			color: '#36f271',
 		} ),
 	],
 };
@@ -109,4 +184,5 @@ module.exports = [
 	blockEditor,
 	classicEditor,
 	customizer,
+	front,
 ];
