@@ -4,15 +4,34 @@
   overflow-y: scroll;
   overflow-x: hidden;
   flex-wrap: wrap;
+  margin: 0 -1px 0 -1px;
 
   &__icon {
     width: 20%;
-    border: 0;
-    background-color: transparent;
-    align-self: flex-start;
+    max-width: 50px;
+    padding: 2px;
 
-    &--active {
-      color: red;
+    &__icon-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 8px 3px;
+
+      border: 0;
+      color: #575C67;
+      background-color: #F5F5F5;
+      align-self: flex-start;
+      cursor: pointer;
+
+      &:hover:not(&--active) {
+        color: #3F7ABE;
+      }
+  
+      &--active {
+        color: #FFF;
+        background-color: #3F7ABE;
+      }
     }
   }
 }

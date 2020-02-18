@@ -23,6 +23,12 @@ export default function ButtonEdit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
+					title={ __( 'Icon', 'material-theme-builder' ) }
+					initialOpen={ true }
+				>
+					<IconPicker currentIcon={ icon } pickHandler={ setIcon } />
+				</PanelBody>
+				<PanelBody
 					title={ __( 'Link Settings', 'material-theme-builder' ) }
 					initialOpen={ true }
 				>
@@ -33,12 +39,6 @@ export default function ButtonEdit( { attributes, setAttributes } ) {
 							onChange={ () => setAttributes( { linkTarget: ! linkTarget } ) }
 						/>
 					</PanelRow>
-				</PanelBody>
-				<PanelBody
-					title={ __( 'Icon', 'material-theme-builder' ) }
-					initialOpen={ true }
-				>
-					<IconPicker currentIcon={ icon } pickHandler={ setIcon } />
 				</PanelBody>
 			</InspectorControls>
 
