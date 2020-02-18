@@ -1,5 +1,4 @@
 import edit from './edit';
-import save from './save';
 
 /**
  * WordPress dependencies
@@ -9,7 +8,6 @@ import { __ } from '@wordpress/i18n';
 export const name = 'material/recent-posts';
 
 const el = wp.element.createElement;
-// This could allow us complete custom block icon
 const iconEl = el(
 	'svg',
 	{ width: 24, height: 24 },
@@ -28,5 +26,4 @@ export const settings = {
 	category: 'material',
 	icon: iconEl,
 	edit,
-	save,
 };

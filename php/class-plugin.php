@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder;
 
 use MaterialThemeBuilder\BazBar\Sample;
+use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
 
 /**
  * Main plugin bootstrap file.
@@ -20,6 +21,13 @@ class Plugin extends Plugin_Base {
 	 * @var Sample
 	 */
 	public $sample;
+
+	/**
+	 * Recent_Posts_Block class.
+	 *
+	 * @var Recent_Posts_Block
+	 */
+	public $recent_post_block;
 
 	/**
 	 * Initiate the plugin resources.
@@ -35,6 +43,9 @@ class Plugin extends Plugin_Base {
 
 		$this->sample = new Sample( $this );
 		$this->sample->init();
+
+		$this->recent_post_block = new Recent_Posts_Block( $this );
+		$this->recent_post_block->init();
 	}
 
 	/**
