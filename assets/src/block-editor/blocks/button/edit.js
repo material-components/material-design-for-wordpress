@@ -38,7 +38,7 @@ export default function ButtonEdit( { attributes, setAttributes } ) {
 					title={ __( 'Icon', 'material-theme-builder' ) }
 					initialOpen={ true }
 				>
-					<IconPicker currentIcon={ icon } selectHandler={ setIcon } />
+					<IconPicker currentIcon={ icon } pickHandler={ setIcon } />
 				</PanelBody>
 			</InspectorControls>
 

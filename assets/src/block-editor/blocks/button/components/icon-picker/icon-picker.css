@@ -1,0 +1,18 @@
+.icons-container {
+  display: flex;
+  height: 250px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+
+  &__icon {
+    width: 20%;
+    border: 0;
+    background-color: transparent;
+    align-self: flex-start;
+
+    &--active {
+      color: red;
+    }
+  }
+}
