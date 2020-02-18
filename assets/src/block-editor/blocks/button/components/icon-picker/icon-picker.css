@@ -1,10 +1,11 @@
 .icons-container {
   display: flex;
-  height: 250px;
+  max-height: 250px;
   overflow-y: scroll;
   overflow-x: hidden;
   flex-wrap: wrap;
-  margin: 0 -1px 0 -1px;
+  align-items: flex-start;
+  margin: 0 -2px 0 -2px;
 
   &__icon {
     width: 20%;
@@ -18,14 +19,14 @@
       width: 100%;
       padding: 8px 3px;
 
-      border: 0;
+      border: 1px solid transparent;
       color: #575C67;
       background-color: #F5F5F5;
-      align-self: flex-start;
       cursor: pointer;
+      border-radius: 2px;
 
       &:hover:not(&--active) {
-        color: #3F7ABE;
+        border-color: #3F7ABE;
       }
   
       &--active {
