@@ -2,19 +2,22 @@
  * Internal dependencies
  */
 import Button from './button';
+import IconPicker from './components/icon-picker';
 
 /**
  * WordPress dependencies
  */
+import { useCallback } from 'react';
+import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
 
 /**
  * Material button edit component.
  */
 export default function ButtonEdit( { attributes, setAttributes } ) {
-	const { linkTarget } = attributes;
+	const { linkTarget, icon } = attributes;
+	const setIcon = useCallback( newIcon => setAttributes( { icon: newIcon } ) );
 
 	return (
 		<>
@@ -30,6 +33,12 @@ export default function ButtonEdit( { attributes, setAttributes } ) {
 							onChange={ () => setAttributes( { linkTarget: ! linkTarget } ) }
 						/>
 					</PanelRow>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Icon', 'material-theme-builder' ) }
+					initialOpen={ true }
+				>
+					<IconPicker currentIcon={ icon } selectHandler={ setIcon } />
 				</PanelBody>
 			</InspectorControls>
 
