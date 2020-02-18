@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { TextControl } from '@wordpress/components';
-import icons from './mdi.json';
 
-export default ( { currentIcon, selectHandler } ) => {
+import icons from './mdi.json';
+import './icon-picker.css';
+
+export default ( { currentIcon, pickHandler } ) => {
 	const [ filteredIcons, setFilteredIcons ] = useState( icons );
 
 	const filterIcons = filterText => {
@@ -16,14 +18,10 @@ export default ( { currentIcon, selectHandler } ) => {
 			<button
 				key={ icon.class }
 				type="button"
-				style={ {
-					width: '20%',
-					color: currentIcon === icon.class ? 'red' : '',
-					border: 0,
-					backgroundColor: 'transparent',
-					alignSelf: 'flex-start',
-				} }
-				onClick={ selectHandler.bind( this, icon.class ) }
+				className={ `icons-container__icon ${
+					currentIcon === icon.class ? 'icons-container__icon--active' : ''
+				}` }
+				onClick={ pickHandler.bind( this, icon.class ) }
 			>
 				<i className={ `material-icons md-${ icon.class }` }>{ icon.label }</i>
 			</button>
@@ -35,17 +33,7 @@ export default ( { currentIcon, selectHandler } ) => {
 			<section>
 				<TextControl label="Search" onChange={ filterIcons } />
 			</section>
-			<section
-				style={ {
-					display: 'flex',
-					height: '250px',
-					overflowY: 'scroll',
-					overflowX: 'hidden',
-					flexWrap: 'wrap',
-				} }
-			>
-				{ iconsRender }
-			</section>
+			<section className="icons-container">{ iconsRender }</section>
 		</>
 	);
 };
