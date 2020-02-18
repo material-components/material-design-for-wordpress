@@ -11,7 +11,8 @@ import { useRef, useLayoutEffect } from '@wordpress/element';
 /**
  * Internal dependencies.
  */
-import MATERIAL_COLORS from '../../common/material-colors';
+import MATERIAL_COLORS from '../../../common/material-colors';
+import './style.css';
 
 export default function MaterialColorPalette( { onChange, value, label } ) {
 	// Reference of the wrapper.
