@@ -20,9 +20,9 @@ const iconEl = el(
 export const settings = {
 	title: __( 'Recent Posts', 'material-theme-builder' ),
 	description: __(
-		'Recent Posts Block description goes here.',
+		'Display a list of your most recent posts.',
 		'material-theme-builder'
-	), // @todo
+	),
 	category: 'material',
 	icon: iconEl,
 	edit,
