@@ -1,13 +1,17 @@
 /**
+ * External dependencies
+ */
+import { useCallback } from 'react';
+
+/**
  * Internal dependencies
  */
 import Button from './button';
-import IconPicker from './components/icon-picker';
+import IconPicker from '../../components/icon-picker';
 
 /**
  * WordPress dependencies
  */
-import { useCallback } from 'react';
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
