@@ -1,8 +1,16 @@
 /**
+ * External dependencies
+ */
+import classNames from 'classnames';
+
+/**
  * Internal dependencies
  */
 import './style.css';
+import { STYLES_MAP } from './button';
+import StyleBox from './components/style-box';
 import IconPicker from '../../components/icon-picker';
+import * as styleIcons from './components/button-styles';
 
 /**
  * WordPress dependencies
@@ -19,38 +27,18 @@ import {
 
 const NEW_TAB_REL = 'noreferrer noopener';
 
-// const URLPicker = ( {
-// 	url,
-// 	isSelected,
-// 	setAttributes,
-// 	opensInNewTab,
-// 	onToggleOpenInNewTab,
-// } ) => {
-// 	return isSelected ? (
-// 		<LinkControl
-// 			className="wp-block-navigation-link__inline-link-input"
-// 			value={ { url, opensInNewTab } }
-// 			onChange={ ( { url: newURL = '', opensInNewTab: newOpensInNewTab } ) => {
-// 				setAttributes( { url: newURL } );
-
-// 				if ( opensInNewTab !== newOpensInNewTab ) {
-// 					onToggleOpenInNewTab( newOpensInNewTab );
-// 				}
-// 			} }
-// 		/>
-// 	) : null;
-// };
-
 /**
  * Material button edit component.
  */
 const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
-	const { linkTarget, icon, label, url, rel } = attributes;
+	const { linkTarget, icon, label, url, rel, style } = attributes;
 
 	const setIcon = useCallback( newIcon => setAttributes( { icon: newIcon } ) );
-	const blurOnEnter = useCallback(
-		event => event.key === 'Enter' && event.currentTarget.blur()
+
+	const setStyle = useCallback( newStyle =>
+		setAttributes( { style: newStyle } )
 	);
+
 	const setLabel = useCallback( event =>
 		setAttributes( { label: event.currentTarget.textContent } )
 	);
@@ -77,7 +65,11 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 	return (
 		<>
 			<div className={ className }>
-				<div className="mdc-button mdc-button--raised">
+				<div
+					className={ classNames( 'mdc-button', {
+						[ `mdc-button--${ STYLES_MAP[ style ] }` ]: true,
+					} ) }
+				>
 					<span
 						className="mdc-button__label button-label"
 						role="textbox"
@@ -85,7 +77,9 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 						contentEditable
 						suppressContentEditableWarning
 						onBlur={ setLabel }
-						onKeyPress={ blurOnEnter }
+						onKeyPress={ event =>
+							event.key === 'Enter' && event.currentTarget.blur()
+						}
 					>
 						{ label ?? __( 'BUTTON TEXT', 'material-theme-builder' ) }
 					</span>
@@ -103,6 +97,28 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 			</div>
 
 			<InspectorControls>
+				<PanelBody
+					title={ __( 'Styles', 'material-theme-builder' ) }
+					initialOpen={ true }
+				>
+					<div className="styles-container">
+						{ Object.keys( styleIcons ).map( styleIcon => {
+							const StyleIconComponent = styleIcons[ styleIcon ];
+							const name = styleIcons[ styleIcon ].name.replace( 'Icon', '' );
+
+							return (
+								<StyleBox
+									key={ styleIcon }
+									label={ name }
+									active={ style === name.toLowerCase() }
+									handleClick={ setStyle.bind( this, name.toLowerCase() ) }
+								>
+									<StyleIconComponent />
+								</StyleBox>
+							);
+						} ) }
+					</div>
+				</PanelBody>
 				<PanelBody
 					title={ __( 'Icon', 'material-theme-builder' ) }
 					initialOpen={ true }
