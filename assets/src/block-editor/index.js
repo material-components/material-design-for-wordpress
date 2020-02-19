@@ -1,10 +1,10 @@
-// Add the JS code to this file. On running npm run dev, it will compile to assets/js/.
-
 /**
- * Internal dependencies
+ * WordPress dependencies
  */
-import './edit.css';
+import { registerBlockType } from '@wordpress/blocks';
 
-export function add( to, howMuch ) {
-	return to + howMuch;
-}
+const blocks = require.context( './blocks', true, /(?<!test\/)index\.js$/ );
+blocks.keys().forEach( modulePath => {
+	const { name, settings } = blocks( modulePath );
+	registerBlockType( name, settings );
+} );
