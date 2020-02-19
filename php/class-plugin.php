@@ -61,6 +61,8 @@ class Plugin extends Plugin_Base {
 				'lodash',
 				'react',
 				'wp-block-editor',
+				'wp-date',
+				'wp-api-fetch',
 			],
 			$this->asset_version(),
 			false
