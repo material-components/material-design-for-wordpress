@@ -25,5 +25,8 @@
         "jest/prefer-inline-snapshots": "off"
       }
     }
-  ]
+  ],
+  "rules": {
+    "no-console": "off"
+  }
 }
