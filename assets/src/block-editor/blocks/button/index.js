@@ -20,6 +20,15 @@ export const settings = {
 		label: {
 			type: 'string',
 		},
+		url: {
+			type: 'string',
+		},
+		rel: {
+			type: 'string',
+		},
+		linkTarget: {
+			type: 'string',
+		},
 	},
 	edit,
 	save,
