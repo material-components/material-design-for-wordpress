@@ -1,8 +1,8 @@
-export default function Button( { children } ) {
+export default function Button( { to, children } ) {
 	return (
-		<button className="mdc-button mdc-button--raised">
+		<a href={ to } className="mdc-button mdc-button--raised">
 			<div className="mdc-button__ripple"></div>
 			<span className="mdc-button__label">{ children }</span>
-		</button>
+		</a>
 	);
 }

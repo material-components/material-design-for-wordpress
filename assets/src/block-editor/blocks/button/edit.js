@@ -1,9 +1,4 @@
 /**
- * External dependencies
- */
-import { useCallback } from 'react';
-
-/**
  * Internal dependencies
  */
 import './style.css';
@@ -13,14 +8,44 @@ import IconPicker from '../../components/icon-picker';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { useCallback } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
+import {
+	PanelBody,
+	PanelRow,
+	ToggleControl,
+	TextControl,
+} from '@wordpress/components';
+
+const NEW_TAB_REL = 'noreferrer noopener';
+
+// const URLPicker = ( {
+// 	url,
+// 	isSelected,
+// 	setAttributes,
+// 	opensInNewTab,
+// 	onToggleOpenInNewTab,
+// } ) => {
+// 	return isSelected ? (
+// 		<LinkControl
+// 			className="wp-block-navigation-link__inline-link-input"
+// 			value={ { url, opensInNewTab } }
+// 			onChange={ ( { url: newURL = '', opensInNewTab: newOpensInNewTab } ) => {
+// 				setAttributes( { url: newURL } );
+
+// 				if ( opensInNewTab !== newOpensInNewTab ) {
+// 					onToggleOpenInNewTab( newOpensInNewTab );
+// 				}
+// 			} }
+// 		/>
+// 	) : null;
+// };
 
 /**
  * Material button edit component.
  */
-export default function ButtonEdit( { attributes, setAttributes } ) {
-	const { linkTarget, icon, label } = attributes;
+const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
+	const { linkTarget, icon, label, url, rel } = attributes;
 
 	const setIcon = useCallback( newIcon => setAttributes( { icon: newIcon } ) );
 	const blurOnEnter = useCallback(
@@ -30,8 +55,53 @@ export default function ButtonEdit( { attributes, setAttributes } ) {
 		setAttributes( { label: event.currentTarget.textContent } )
 	);
 
+	const onToggleOpenInNewTab = useCallback(
+		value => {
+			const newLinkTarget = value ? '_blank' : undefined;
+
+			let updatedRel = rel;
+			if ( newLinkTarget && ! rel ) {
+				updatedRel = NEW_TAB_REL;
+			} else if ( ! newLinkTarget && rel === NEW_TAB_REL ) {
+				updatedRel = undefined;
+			}
+
+			setAttributes( {
+				linkTarget: newLinkTarget,
+				rel: updatedRel,
+			} );
+		},
+		[ rel, setAttributes ]
+	);
+
 	return (
 		<>
+			<div className={ className }>
+				<div className="mdc-button mdc-button--raised">
+					<span
+						className="mdc-button__label button-label"
+						role="textbox"
+						tabIndex={ 0 }
+						contentEditable
+						suppressContentEditableWarning
+						onBlur={ setLabel }
+						onKeyPress={ blurOnEnter }
+					>
+						{ label ?? __( 'BUTTON TEXT', 'material-theme-builder' ) }
+					</span>
+				</div>
+
+				{ isSelected && (
+					<TextControl
+						value={ url }
+						label={ __( 'Link', 'material-theme-builder' ) }
+						placeholder={ __( 'Paste your URL...', 'material-theme-builder' ) }
+						onChange={ newUrl => setAttributes( { url: newUrl } ) }
+						className="components-base-control wp-block-button__inline-link"
+					/>
+				) }
+			</div>
+
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Icon', 'material-theme-builder' ) }
@@ -46,25 +116,14 @@ export default function ButtonEdit( { attributes, setAttributes } ) {
 					<PanelRow>
 						<ToggleControl
 							label={ __( 'Open in new tab', 'material-theme-builder' ) }
-							checked={ linkTarget }
-							onChange={ () => setAttributes( { linkTarget: ! linkTarget } ) }
+							onChange={ onToggleOpenInNewTab }
+							checked={ linkTarget === '_blank' }
 						/>
 					</PanelRow>
 				</PanelBody>
 			</InspectorControls>
-
-			<div className="mdc-button mdc-button--raised">
-				<span
-					className="mdc-button__label button-label"
-					role="textbox"
-					tabIndex={ 0 }
-					contentEditable
-					onBlur={ setLabel }
-					onKeyPress={ blurOnEnter }
-				>
-					{ label ?? 'BUTTON TEXT' }
-				</span>
-			</div>
 		</>
 	);
-}
+};
+
+export default ButtonEdit;
