@@ -8,6 +8,9 @@
 namespace MaterialThemeBuilder\Blocks;
 
 use MaterialThemeBuilder\Plugin;
+use WP_Post;
+use WP_REST_Request;
+use WP_REST_Response;
 
 /**
  * Recent_Posts_Block class.
@@ -42,7 +45,36 @@ class Recent_Posts_Block {
 	}
 
 	/**
+	 * Add comments count to post rest api.
+	 *
+	 * @access public
+	 *
+	 * @filter rest_prepare_post
+	 *
+	 * @param WP_REST_Response $response Rest API response.
+	 * @param WP_Post          $post     Post data.
+	 * @param WP_REST_Request  $request  Rest API request data.
+	 *
+	 * @return WP_REST_Response
+	 */
+	public function add_comments_count_to_post( WP_REST_Response $response, WP_Post $post, WP_REST_Request $request ) {
+		$context = $request->get_param( 'context' );
+
+		if ( 'edit' === $context ) {
+			// @todo: Review if these are the most efficient methods to get some meta data
+			$response->data['authorDisplayName'] = get_the_author_meta( 'display_name', $post->author );
+			$response->data['authorUrl']         = get_author_posts_url( $post->author, $response->data['authorDisplayName'] );
+			$response->data['commentsCount']     = (int) get_comments_number( $post->id );
+		}
+
+		return $response;
+	}
+
+	/**
 	 * Registers the `material/recent-posts` block on server.
+	 *
+	 * @access public
+	 *
 	 * @action init
 	 */
 	public function register_block_material_recent_posts() {
@@ -50,73 +82,45 @@ class Recent_Posts_Block {
 			'material/recent-posts',
 			[
 				'attributes'      => [
-					'align'                   => [
-						'type' => 'string',
-						'enum' => [ 'left', 'center', 'right', 'wide', 'full' ],
-					],
-					'className'               => [
+					'className'            => [
 						'type' => 'string',
 					],
-					'categories'              => [
-						'type' => 'string',
-					],
-					'postsToShow'             => [
-						'type'    => 'number',
-						'default' => 10,
-					],
-					'displayPostContent'      => [
-						'type'    => 'boolean',
-						'default' => false,
-					],
-					'displayPostContentRadio' => [
+					'style'                => [
 						'type'    => 'string',
-						'default' => 'excerpt',
+						'default' => 'stacked',
 					],
-					'excerptLength'           => [
-						'type'    => 'number',
-						'default' => 55,
-					],
-					'displayPostDate'         => [
-						'type'    => 'boolean',
-						'default' => false,
-					],
-					'postLayout'              => [
-						'type'    => 'string',
-						'default' => 'list',
-					],
-					'columns'                 => [
+					'columns'              => [
 						'type'    => 'number',
 						'default' => 3,
 					],
-					'order'                   => [
-						'type'    => 'string',
-						'default' => 'desc',
+					'postsToShow'          => [
+						'type'    => 'number',
+						'default' => 10,
 					],
-					'orderBy'                 => [
-						'type'    => 'string',
-						'default' => 'date',
+					'displayPostDate'      => [
+						'type'    => 'boolean',
+						'default' => true,
 					],
-					'displayFeaturedImage'    => [
+					'displayPostContent'   => [
+						'type'    => 'boolean',
+						'default' => true,
+					],
+					'displayFeaturedImage' => [
+						'type'    => 'boolean',
+						'default' => true,
+					],
+					'displayCommentsCount' => [
+						'type'    => 'boolean',
+						'default' => true,
+					],
+					'displayPostAuthor'    => [
 						'type'    => 'boolean',
 						'default' => false,
 					],
-					'featuredImageAlign'      => [
+					'categories'           => [
 						'type' => 'string',
-						'enum' => [ 'left', 'center', 'right' ],
 					],
-					'featuredImageSizeSlug'   => [
-						'type'    => 'string',
-						'default' => 'thumbnail',
-					],
-					'featuredImageSizeWidth'  => [
-						'type'    => 'number',
-						'default' => null,
-					],
-					'featuredImageSizeHeight' => [
-						'type'    => 'number',
-						'default' => null,
-					],
-				], // todo: redefine to match requirements
+				],
 				'render_callback' => [ $this, 'render_block_material_recent_posts' ],
 			]
 		);
@@ -124,6 +128,8 @@ class Recent_Posts_Block {
 
 	/**
 	 * Renders the `material/recent-posts` block on server.
+	 *
+	 * @access public
 	 *
 	 * @param array $attributes The block attributes.
 	 *
@@ -133,19 +139,17 @@ class Recent_Posts_Block {
 		$args = [
 			'posts_per_page'   => $attributes['postsToShow'],
 			'post_status'      => 'publish',
-			'order'            => $attributes['order'],
-			'orderby'          => $attributes['orderBy'],
 			'suppress_filters' => false,
-		]; // todo: redefine to match requirements
+		]; // todo: redefine to match requirements.
 
 		if ( isset( $attributes['categories'] ) ) {
 			$args['category'] = $attributes['categories'];
 		}
 
-		$recent_posts = get_posts( $args );
+		// $recent_posts = get_posts( $args ); @todo: Use WP_Query.
 
 		return sprintf(
-			'hello world' // todo: Do the rendering
+			'hello world' // todo: Do the rendering.
 		);
 	}
 
