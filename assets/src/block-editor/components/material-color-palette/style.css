@@ -1,0 +1,63 @@
+/* Material Color Palette */
+.material-component-color-palette {
+	margin-left: -4px;
+	margin-right: -4px;
+	width: calc(100% + 8px);
+
+	& .component-color-indicator {
+		position: relative;
+		top: 4px;
+	}
+
+	& .material-colors-wrap {
+		margin-right: -14px;
+		position: relative;
+		margin-bottom: 35px;
+	}
+
+	& .components-color-palette {
+		margin: 5px 0 0 0;
+		width: 100%;
+		max-height: 196px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+
+	& .components-color-palette__item-wrapper {
+		height: 15px;
+		width: 15px;
+		margin-right: 2px;
+		margin-bottom: 2px;
+	}
+
+	& .components-color-palette__item {
+
+		&.is-active,
+		&:focus {
+
+			&::after {
+				width: 11px;
+				height: 11px;
+				top: 2px;
+				left: 2px;
+				border: none;
+				background: #fff;
+			}
+		}
+
+		&.is-active + .dashicons-saved {
+			left: 1px;
+			top: 1px;
+			z-index: 1;
+			width: 12px;
+			height: 12px;
+		}
+	}
+
+	& .components-color-palette__custom-clear-wrapper {
+		margin-top: 10px;
+		position: absolute;
+		top: 196px;
+		right: 25px;
+	}
+}
