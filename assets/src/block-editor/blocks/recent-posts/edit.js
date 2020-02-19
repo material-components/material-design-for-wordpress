@@ -51,7 +51,7 @@ export default withSelect( ( select, props ) => {
 
 	const posts = getEntityRecords( 'postType', 'post', recentPostsQuery );
 
-	// todo@ implement logic to get the correct image size.
+	// @todo: Implement logic to get the correct image size.
 	return {
 		recentPosts: ! Array.isArray( posts )
 			? posts

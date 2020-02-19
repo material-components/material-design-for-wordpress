@@ -5,6 +5,7 @@ import { RawHTML } from '@wordpress/element';
 import { dateI18n, format, __experimentalGetSettings } from '@wordpress/date';
 import { __ } from '@wordpress/i18n';
 
+// @todo: Refactor Material design layout.
 export default ( { post, postIndex, attributes } ) => {
 	const {
 		// outlined,
