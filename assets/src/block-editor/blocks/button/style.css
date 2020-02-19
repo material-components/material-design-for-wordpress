@@ -1,0 +1,14 @@
+[contenteditable="true"].button-label {
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+[contenteditable="true"].button-label br {
+  display: none;
+
+}
+
+[contenteditable="true"].button-label * {
+  display: inline;
+  white-space: nowrap;
+}

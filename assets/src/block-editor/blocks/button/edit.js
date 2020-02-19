@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 /**
  * Internal dependencies
  */
-import Button from './button';
+import './style.css';
 import IconPicker from '../../components/icon-picker';
 
 /**
@@ -20,8 +20,15 @@ import { PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
  * Material button edit component.
  */
 export default function ButtonEdit( { attributes, setAttributes } ) {
-	const { linkTarget, icon } = attributes;
+	const { linkTarget, icon, label } = attributes;
+
 	const setIcon = useCallback( newIcon => setAttributes( { icon: newIcon } ) );
+	const blurOnEnter = useCallback(
+		event => event.key === 'Enter' && event.currentTarget.blur()
+	);
+	const setLabel = useCallback( event =>
+		setAttributes( { label: event.currentTarget.textContent } )
+	);
 
 	return (
 		<>
@@ -46,9 +53,18 @@ export default function ButtonEdit( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 
-			<>
-				<Button { ...attributes }>Button Text</Button>
-			</>
+			<div className="mdc-button mdc-button--raised">
+				<span
+					className="mdc-button__label button-label"
+					role="textbox"
+					tabIndex={ 0 }
+					contentEditable
+					onBlur={ setLabel }
+					onKeyPress={ blurOnEnter }
+				>
+					{ label ?? 'BUTTON TEXT' }
+				</span>
+			</div>
 		</>
 	);
 }
