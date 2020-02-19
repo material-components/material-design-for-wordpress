@@ -12,3 +12,38 @@
   display: inline;
   white-space: nowrap;
 }
+
+.styles-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px 0 -5px;
+
+  &__style-box {
+    width: 50%;
+    text-align: center;
+    padding: 5px;
+    margin: 5px 0;
+    background: none;
+    outline: none;
+    border: 2px solid transparent;
+
+    &--active {
+      border-color: #565D66;
+      border-radius: 3px;
+    }
+
+    &__icon {
+      height: 82px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #D1D2D3;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    &__text {
+      margin-top: 5px;
+    }
+  }
+}

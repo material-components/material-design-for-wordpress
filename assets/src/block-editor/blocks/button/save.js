@@ -1,12 +1,27 @@
 /**
+ * External dependencies
+ */
+import classNames from 'classnames';
+
+/**
  * Internal dependencies
  */
-import Button from './button';
+import { STYLES_MAP } from './button';
 
-export default function ButtonSave( { attributes: { label, url } } ) {
+const ButtonSave = ( { attributes: { label, url, style }, className } ) => {
 	return (
-		<div>
-			<Button to={ url }>{ label }</Button>
+		<div className={ className }>
+			<a
+				href={ url }
+				className={ classNames( 'mdc-button', {
+					[ `mdc-button--${ STYLES_MAP[ style ] }` ]: true,
+				} ) }
+			>
+				<div className="mdc-button__ripple"></div>
+				<span className="mdc-button__label">{ label }</span>
+			</a>
 		</div>
 	);
-}
+};
+
+export default ButtonSave;
