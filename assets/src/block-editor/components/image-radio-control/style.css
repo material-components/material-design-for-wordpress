@@ -1,0 +1,41 @@
+/* Image Radio component */
+.components-image-radio-control {
+
+	& .components-base-control__label {
+		flex: 0 0 100%;
+	}
+
+	& .components-base-control__field {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	& .components-radio-control__input {
+		display: none;
+	}
+
+	& .components-radio-control__option {
+		flex: 0 50%;
+		text-align: center;
+		width: 50%;
+		border: 2px solid transparent;
+		border-radius: 4px;
+
+		&.active {
+			border-color: #565d66;
+		}
+	}
+
+	& .components-image-radio-control__image {
+		align-items: center;
+		display: flex;
+		height: 83px;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	& .components-image-radio-control__label {
+		display: block;
+		margin: 5px 0;
+	}
+}
