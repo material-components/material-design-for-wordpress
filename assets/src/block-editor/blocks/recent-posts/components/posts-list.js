@@ -4,13 +4,13 @@
 import InspectorControls from './inspector-controls';
 import SinglePost from './single-post';
 
-// @todo: Refactor Material design layout
+// @todo: Refactor Material design layout.
 export default ( { attributes, setAttributes, recentPosts } ) => {
 	const { style, columns } = attributes;
 
 	let columnSpan = 12;
 
-	// @todo: review logic
+	// @todo: Review logic.
 	if ( style === 'stacked' ) {
 		columnSpan = Math.floor( 12 / columns );
 	}
