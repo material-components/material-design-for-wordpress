@@ -17,6 +17,9 @@ export const settings = {
 		icon: {
 			type: 'string',
 		},
+		label: {
+			type: 'string',
+		},
 	},
 	edit,
 	save,

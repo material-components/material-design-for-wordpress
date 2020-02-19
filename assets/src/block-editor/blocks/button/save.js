@@ -3,10 +3,13 @@
  */
 import Button from './button';
 
-export default function ButtonSave( { attributes } ) {
+export default function ButtonSave( {
+	attributes: { label },
+	...otherAttributes
+} ) {
 	return (
 		<div>
-			<Button { ...attributes }>Button Text</Button>
+			<Button { ...otherAttributes }>{ label }</Button>
 		</div>
 	);
 }
