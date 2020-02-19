@@ -1,19 +1,23 @@
 /**
- * WordPress dependencies
+ * External dependencies
  */
 import { useState, useCallback } from 'react';
+
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
 import { TextControl, Tooltip } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
-// import * as otherIcons from './mdi.json';
-import './icon-picker.css';
+import './style.css';
 import { icons as rawIcons } from '!!json-loader!material-design-icons/iconfont/MaterialIcons-Regular.ijmap';
 
 export default ( { currentIcon, pickHandler } ) => {
 	const icons = Object.keys( rawIcons );
+	const toSlug = str => str.replace( ' ', '_' ).toLowerCase();
 	const [ filteredIcons, setFilteredIcons ] = useState( icons );
 
 	const filterIcons = useCallback(
@@ -30,8 +34,9 @@ export default ( { currentIcon, pickHandler } ) => {
 	);
 
 	const iconsRender = filteredIcons.map( icon => {
+		const iconName = toSlug( rawIcons[ icon ].name );
 		const isSelected =
-			currentIcon === rawIcons[ icon ].name
+			currentIcon === iconName
 				? ' icons-container__icon__icon-btn--active'
 				: '';
 
@@ -41,7 +46,7 @@ export default ( { currentIcon, pickHandler } ) => {
 					<button
 						type="button"
 						className={ `icons-container__icon__icon-btn${ isSelected }` }
-						onClick={ pickHandler.bind( this, rawIcons[ icon ].name ) }
+						onClick={ pickHandler.bind( this, iconName ) }
 					>
 						<i className="material-icons">
 							{ String.fromCharCode( parseInt( icon, 16 ) ) }
@@ -60,6 +65,7 @@ export default ( { currentIcon, pickHandler } ) => {
 					onChange={ filterIcons }
 				/>
 			</section>
+
 			<section className="icons-container">{ iconsRender }</section>
 		</>
 	);
