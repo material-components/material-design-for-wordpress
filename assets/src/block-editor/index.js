@@ -1,10 +1,11 @@
-// Add the JS code to this file. On running npm run dev, it will compile to assets/js/.
+/**
+ * WordPress dependencies
+ */
+import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Internal dependencies
  */
-import './edit.css';
+import * as button from './blocks/button';
 
-export function add( to, howMuch ) {
-	return to + howMuch;
-}
+registerBlockType( `material/${ button.name }`, button.settings );
