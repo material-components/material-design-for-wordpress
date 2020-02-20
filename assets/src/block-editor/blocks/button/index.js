@@ -14,24 +14,13 @@ export const settings = {
 	category: 'material',
 	icon: <i className="material-icons md-call-to-action">call_to_action</i>,
 	attributes: {
-		icon: {
-			type: 'string',
-		},
-		style: {
-			type: 'string',
-		},
-		label: {
-			type: 'string',
-		},
-		url: {
-			type: 'string',
-		},
-		rel: {
-			type: 'string',
-		},
-		linkTarget: {
-			type: 'string',
-		},
+		style: { type: 'string' },
+		showIcon: { type: 'string' },
+		icon: { type: 'object' },
+		label: { type: 'string' },
+		url: { type: 'string' },
+		rel: { type: 'string' },
+		linkTarget: { type: 'string' },
 	},
 	edit,
 	save,
