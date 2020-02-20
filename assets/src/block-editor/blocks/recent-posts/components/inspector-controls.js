@@ -73,6 +73,7 @@ export default props => {
 		outlined,
 		displayPostDate,
 		displayPostContent,
+		postContentLength,
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
@@ -136,6 +137,15 @@ export default props => {
 					checked={ displayPostContent }
 					onChange={ value => setAttributes( { displayPostContent: value } ) }
 				/>
+				{ displayPostContent && (
+					<RangeControl
+						label={ __( 'Max number of words in excerpt' ) }
+						value={ postContentLength }
+						onChange={ value => setAttributes( { postContentLength: value } ) }
+						min={ 10 }
+						max={ 100 }
+					/>
+				) }
 				<ToggleControl
 					label={ __( 'Featured Image', 'material-theme-builder' ) }
 					checked={ displayFeaturedImage }

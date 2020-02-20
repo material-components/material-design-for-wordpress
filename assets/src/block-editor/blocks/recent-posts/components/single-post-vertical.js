@@ -10,6 +10,7 @@ export default ( { post, postIndex, attributes } ) => {
 		outlined,
 		displayPostDate,
 		displayPostContent,
+		postContentLength,
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
@@ -99,7 +100,17 @@ export default ( { post, postIndex, attributes } ) => {
 					) }
 					{ displayPostContent && (
 						<div className="single-post-card__secondary mdc-typography mdc-typography--body2">
-							<RawHTML key="html">{ excerpt.trim() }</RawHTML>
+							<RawHTML key="html">
+								{ postContentLength < excerpt.trim().split( ' ' ).length
+									? excerpt
+											.trim()
+											.split( ' ', postContentLength )
+											.join( ' ' ) + ' ...'
+									: excerpt
+											.trim()
+											.split( ' ', postContentLength )
+											.join( ' ' ) }
+							</RawHTML>
 						</div>
 					) }
 				</div>
