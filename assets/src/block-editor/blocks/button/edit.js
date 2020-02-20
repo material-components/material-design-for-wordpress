@@ -23,7 +23,6 @@ import { useCallback } from '@wordpress/element';
 import { InspectorControls, ContrastChecker } from '@wordpress/block-editor';
 import {
 	PanelBody,
-	PanelRow,
 	ToggleControl,
 	TextControl,
 	RangeControl,
@@ -208,13 +207,16 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 					title={ __( 'Link Settings', 'material-theme-builder' ) }
 					initialOpen={ true }
 				>
-					<PanelRow>
-						<ToggleControl
-							label={ __( 'Open in new tab', 'material-theme-builder' ) }
-							onChange={ onToggleOpenInNewTab }
-							checked={ linkTarget === '_blank' }
-						/>
-					</PanelRow>
+					<ToggleControl
+						label={ __( 'Open in new tab', 'material-theme-builder' ) }
+						onChange={ onToggleOpenInNewTab }
+						checked={ linkTarget === '_blank' }
+					/>
+					<TextControl
+						value={ rel }
+						label={ __( 'Link rel', 'material-theme-builder' ) }
+						onChange={ setter( 'rel' ) }
+					/>
 				</PanelBody>
 			</InspectorControls>
 		</>

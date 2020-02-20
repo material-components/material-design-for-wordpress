@@ -15,11 +15,13 @@ import { __ } from '@wordpress/i18n';
 
 const ButtonSave = ( {
 	attributes: {
+		rel,
 		url,
 		icon,
 		label,
 		style,
 		textColor,
+		linkTarget,
 		cornerRadius,
 		iconPosition,
 		backgroundColor,
@@ -28,7 +30,9 @@ const ButtonSave = ( {
 } ) => (
 	<div className={ className }>
 		<a
-			href={ url }
+			href={ url ?? '#' }
+			rel={ rel }
+			target={ linkTarget }
 			style={ {
 				...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
 				...( textColor ? { color: textColor } : {} ),
