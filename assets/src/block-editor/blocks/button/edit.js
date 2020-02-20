@@ -7,17 +7,20 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import './style.css';
+import hasBg from './utils/has-bg';
 import StyleBox from './components/style-box';
 import IconPicker from '../../components/icon-picker';
 import * as styleIcons from './components/style-icons';
+import genericAttributesSet from '../../utils/genericAttributesSet';
 import IconPositionButtons from './components/icon-position-buttons';
+import MaterialColorPalette from '../../components/material-color-palette';
 
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import { useCallback } from '@wordpress/element';
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, ContrastChecker } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	PanelRow,
@@ -31,17 +34,17 @@ const NEW_TAB_REL = 'noreferrer noopener';
  * Material button edit component.
  */
 const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
-	const { linkTarget, icon, label, url, rel, style, iconPosition } = attributes;
-
-	const setIcon = useCallback( newIcon => setAttributes( { icon: newIcon } ) );
-
-	const setStyle = useCallback( newStyle =>
-		setAttributes( { style: newStyle } )
-	);
-
-	const setIconPosition = useCallback( newPosition =>
-		setAttributes( { iconPosition: newPosition } )
-	);
+	const {
+		url,
+		rel,
+		icon,
+		label,
+		style,
+		textColor,
+		linkTarget,
+		iconPosition,
+		backgroundColor,
+	} = attributes;
 
 	const setLabel = useCallback( event =>
 		setAttributes( { label: event.currentTarget.textContent } )
@@ -70,6 +73,10 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 		<>
 			<div className={ className }>
 				<div
+					style={ {
+						...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
+						...( textColor ? { color: textColor } : {} ),
+					} }
 					className={ classNames( 'mdc-button', {
 						[ `mdc-button--${ style }` ]: true,
 					} ) }
@@ -125,7 +132,10 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 									key={ styleIcon }
 									label={ name }
 									active={ style === name.toLowerCase() }
-									handleClick={ setStyle.bind( this, name.toLowerCase() ) }
+									handleClick={ genericAttributesSet(
+										'style',
+										setAttributes
+									).bind( this, name.toLowerCase() ) }
 								>
 									<StyleIconComponent />
 								</StyleBox>
@@ -139,11 +149,44 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 				>
 					<IconPositionButtons
 						currentPosition={ iconPosition }
-						handleClick={ setIconPosition }
+						handleClick={ genericAttributesSet(
+							'iconPosition',
+							setAttributes
+						) }
 					/>
 					{ iconPosition !== 'none' && (
-						<IconPicker currentIcon={ icon } pickHandler={ setIcon } />
+						<IconPicker
+							currentIcon={ icon }
+							onChange={ genericAttributesSet( 'icon', setAttributes ) }
+						/>
 					) }
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Colors', 'material-theme-builder' ) }
+					initialOpen={ true }
+				>
+					{ hasBg( style ) && (
+						<MaterialColorPalette
+							label={ __( 'Background Color', 'material-theme-builder' ) }
+							value={ backgroundColor }
+							onChange={ genericAttributesSet(
+								'backgroundColor',
+								setAttributes
+							) }
+						/>
+					) }
+					<MaterialColorPalette
+						label={ __( 'Text Color', 'material-theme-builder' ) }
+						value={ textColor }
+						onChange={ genericAttributesSet( 'textColor', setAttributes ) }
+					/>
+
+					<ContrastChecker
+						{ ...{
+							textColor,
+							backgroundColor,
+						} }
+					/>
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Link Settings', 'material-theme-builder' ) }

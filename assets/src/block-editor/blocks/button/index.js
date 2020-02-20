@@ -17,6 +17,8 @@ export const settings = {
 		style: { type: 'string' },
 		iconPosition: { type: 'string' },
 		icon: { type: 'object' },
+		backgroundColor: { type: 'string' },
+		textColor: { type: 'string' },
 		label: { type: 'string' },
 		url: { type: 'string' },
 		rel: { type: 'string' },
