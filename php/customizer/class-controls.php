@@ -60,12 +60,12 @@ class Controls extends Module_Base {
 		 */
 		$this->wp_customize->add_panel(
 			$this->slug,
-			array(
+			[
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
 				'title'       => esc_html__( 'Material Theme Editor', 'material-theme-builder' ),
 				'description' => esc_html__( 'Material Theme Description goes here.', 'material-theme-builder' ),
-			)
+			]
 		);
 	}
 
@@ -75,22 +75,22 @@ class Controls extends Module_Base {
 	 * @return void
 	 */
 	public function add_sections() {
-		$sections = array(
+		$sections = [
 			$this->slug . '_theme'      => __( 'Theme', 'material-theme-builder' ),
 			$this->slug . '_typography' => __( 'Typography', 'material-theme-builder' ),
 			$this->slug . '_corners'    => __( 'Corner Styles', 'material-theme-builder' ),
 			$this->slug . '_icons'      => __( 'System Icon Collections', 'material-theme-builder' ),
 			$this->slug . '_colors'     => __( 'Theme Color Palettes', 'material-theme-builder' ),
-		);
+		];
 
 		foreach ( $sections as $id => $label ) {
-			$args = array(
+			$args = [
 				'priority'   => 10,
 				'capability' => 'edit_theme_options',
 				'title'      => esc_html( $label ),
 				'panel'      => $this->slug,
 				'type'       => 'collapse',
-			);
+			];
 
 			/**
 			 * Filters the customizer section args.
@@ -122,48 +122,48 @@ class Controls extends Module_Base {
 		/**
 		 * List of all the control settings in the Theme section.
 		 */
-		$settings = array(
-			$this->slug . '_theme' => array(
+		$settings = [
+			$this->slug . '_theme' => [
 				'default' => 'baseline',
-			),
-		);
+			],
+		];
 
 		$this->add_settings( $settings );
 
 		/**
 		* List of all the controls in the Theme section.
 		 */
-		$controls = array(
+		$controls = [
 			$this->slug . '_theme' => new Image_Radio_Control(
 				$this->wp_customize,
 				$this->slug . '_theme',
-				array(
+				[
 					'section'  => $this->slug . '_theme',
 					'priority' => 10,
-					'choices'  => array(
-						'baseline'    => array(
+					'choices'  => [
+						'baseline'    => [
 							'label' => __( 'Baseline', 'material-theme-builder' ),
 							'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
-						),
-						'crane'       => array(
+						],
+						'crane'       => [
 							'label' => __( 'Crane', 'material-theme-builder' ),
 							'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
-						),
-						'fortnightly' => array(
+						],
+						'fortnightly' => [
 							'label' => __( 'Fortnightly', 'material-theme-builder' ),
 							'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
-						),
-						'shrine'      => array(
+						],
+						'shrine'      => [
 							'label' => __( 'Shrine', 'material-theme-builder' ),
 							'url'   => $this->plugin->asset_url( 'assets/images/shrine.svg' ),
-						),
-						'custom'      => array(
+						],
+						'custom'      => [
 							'label' => __( 'Custom', 'material-theme-builder' ),
-						),
-					),
-				)
+						],
+					],
+				]
 			),
-		);
+		];
 
 		$this->add_controls( $controls );
 	}
@@ -176,16 +176,17 @@ class Controls extends Module_Base {
 	 */
 	public function add_settings( $settings ) {
 
+		// Bail out if settings is empty.
 		if ( empty( $settings ) || ! is_array( $settings ) ) {
 			return;
 		}
 
 		foreach ( $settings as $id => $setting ) {
 			if ( is_array( $setting ) ) {
-				$defaults = array(
+				$defaults = [
 					'capability'        => 'edit_theme_options',
 					'sanitize_callback' => 'sanitize_text_field',
-				);
+				];
 
 				$setting = array_merge( $defaults, $setting );
 			}
@@ -219,6 +220,7 @@ class Controls extends Module_Base {
 	 */
 	public function add_controls( $controls ) {
 
+		// Bail out if controls is empty.
 		if ( empty( $controls ) || ! is_array( $controls ) ) {
 			return;
 		}

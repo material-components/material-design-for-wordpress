@@ -28,11 +28,11 @@ class Test_Controls extends \WP_UnitTestCase {
 	 */
 	public function setUp() {
 		parent::setUp();
-
-		$this->getMockBuilder( 'WP_Customize_Control' )->getMock();
+		require_once ABSPATH . WPINC . '/class-wp-customize-control.php';
+		require_once ABSPATH . WPINC . '/class-wp-customize-setting.php';
 
 		$this->wp_customize = $this->getMockBuilder( 'DummyClass' )
-			->setMethods( [ 'add_panel', 'add_section', 'add_setting', 'add_control' ] )
+			->setMethods( [ 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
 			->getMock();
 	}
 
@@ -146,17 +146,99 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
 
-		// Set up the expectation for the add_settings() method
-		// to be called exactly once.
-		$this->wp_customize->expects( $this->once() )
-			->method( 'add_setting' );
+		// Set up the expectation for the add_setting() method
+		// to be called.
+		$this->wp_customize->expects( $this->any() )
+			->method( 'add_setting' )
+			->withConsecutive(
+				[ $this->equalTo( 'material_theme_theme' ) ]
+			);
 
-		// Set up the expectation for the add_controls() method
-		// to be called exactly once.
-		$this->wp_customize->expects( $this->once() )
-		->method( 'add_control' );
+		// Set up the expectation for the add_control() method
+		// to be called.
+		$this->wp_customize->expects( $this->any() )
+			->method( 'add_control' )
+			->withConsecutive(
+				[
+					$this->callback(
+						function( $control ) {
+							return 'material_theme_theme' === $control->id && [ 'baseline', 'crane', 'fortnightly', 'shrine', 'custom' ] === array_keys( $control->choices );
+						} 
+					),
+				] 
+			);
 
 		$controls->add_theme_controls();
+	}
+
+	/**
+	 * Test for add_settings() method.
+	 *
+	 * @see Controls::add_settings()
+	 */
+	public function test_add_settings() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Set $wp_customize to the mocked object.
+		$controls->wp_customize = $this->wp_customize;
+
+		// add_setting() should be called correctly based on settings args.
+		$this->wp_customize->expects( $this->exactly( 2 ) )
+			->method( 'add_setting' )
+			->withConsecutive(
+				[
+					'test_setting',
+				],
+				$this->callback(
+					function( $setting ) {
+						return $setting instanceof \WP_Customize_Setting && 'material_theme_theme' === $setting->id;
+					} 
+				)
+			);
+
+		// first arg is an array of args
+		// second arg is an instance of WP_Customize_Setting.
+		$controls->add_settings(
+			[
+				'test_setting'         => [],
+				'material_theme_theme' => new \WP_Customize_Setting( $controls->wp_customize, 'material_theme_theme' ),
+			] 
+		);
+	}
+
+	/**
+	 * Test for add_controls() method.
+	 *
+	 * @see Controls::add_controls()
+	 */
+	public function test_add_controls() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Set $wp_customize to the mocked object.
+		$controls->wp_customize = $this->wp_customize;
+
+		// add_setting() should be called correctly based on settings args.
+		$this->wp_customize->expects( $this->exactly( 2 ) )
+			->method( 'add_control' )
+			->withConsecutive(
+				[
+					'test_setting',
+				],
+				$this->callback(
+					function( $setting ) {
+						return $setting instanceof \WP_Customize_Control && 'material_theme_theme' === $setting->id;
+					} 
+				)
+			);
+
+		// first arg is an array of args
+		// second arg is an instance of WP_Customize_Control.
+		$controls->add_controls(
+			[
+				'test_setting'         => [],
+				'material_theme_theme' => new \WP_Customize_Control( $controls->wp_customize, 'material_theme_theme' ),
+			] 
+		);
 	}
 
 	/**
