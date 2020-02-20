@@ -8,11 +8,27 @@
 namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
+use MaterialThemeBuilder\Customizer\Image_Radio_Control;
 
 /**
  * Class Controls.
  */
 class Controls extends Module_Base {
+
+	/**
+	 * The slug used as a prefix for all settings and controls.
+	 *
+	 * @var string
+	 */
+	public $slug = 'material_theme';
+
+	/**
+	 * WP_Customize_Manager object reference.
+	 *
+	 * @var \WP_Customize_Manager
+	 */
+	public $wp_customize;
+
 	/**
 	 * Register customizer options.
 	 *
@@ -21,13 +37,29 @@ class Controls extends Module_Base {
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
 	public function register( $wp_customize ) {
-		$slug = 'material_theme';
+		$this->wp_customize = $wp_customize;
 
+		// Add the panel.
+		$this->add_panel();
+
+		// Add all the customizer sections.
+		$this->add_sections();
+
+		// Add all controls in the "Theme" section.
+		$this->add_theme_controls();
+	}
+
+	/**
+	 * Add the base panel.
+	 *
+	 * @return void
+	 */
+	public function add_panel() {
 		/**
 		 * Add "Your Material Theme" custom panel.
 		 */
-		$wp_customize->add_panel(
-			$slug,
+		$this->wp_customize->add_panel(
+			$this->slug,
 			array(
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
@@ -35,13 +67,20 @@ class Controls extends Module_Base {
 				'description' => esc_html__( 'Material Theme Description goes here.', 'material-theme-builder' ),
 			)
 		);
+	}
 
+	/**
+	 * Add all our customizer sections.
+	 *
+	 * @return void
+	 */
+	public function add_sections() {
 		$sections = array(
-			$slug . '_theme'      => __( 'Theme', 'material-theme-builder' ),
-			$slug . '_typography' => __( 'Typography', 'material-theme-builder' ),
-			$slug . '_corners'    => __( 'Corner Styles', 'material-theme-builder' ),
-			$slug . '_icons'      => __( 'System Icon Collections', 'material-theme-builder' ),
-			$slug . '_colors'     => __( 'Theme Color Palettes', 'material-theme-builder' ),
+			$this->slug . '_theme'      => __( 'Theme', 'material-theme-builder' ),
+			$this->slug . '_typography' => __( 'Typography', 'material-theme-builder' ),
+			$this->slug . '_corners'    => __( 'Corner Styles', 'material-theme-builder' ),
+			$this->slug . '_icons'      => __( 'System Icon Collections', 'material-theme-builder' ),
+			$this->slug . '_colors'     => __( 'Theme Color Palettes', 'material-theme-builder' ),
 		);
 
 		foreach ( $sections as $id => $label ) {
@@ -49,7 +88,7 @@ class Controls extends Module_Base {
 				'priority'   => 10,
 				'capability' => 'edit_theme_options',
 				'title'      => esc_html( $label ),
-				'panel'      => $slug,
+				'panel'      => $this->slug,
 				'type'       => 'collapse',
 			);
 
@@ -64,76 +103,144 @@ class Controls extends Module_Base {
 			$section = apply_filters( 'mtb_customizer_section_args', $args, $id );
 
 			if ( is_array( $section ) ) {
-				$wp_customize->add_section(
+				$this->wp_customize->add_section(
 					$id,
 					$section
 				);
 			} elseif ( $setting instanceof \WP_Customize_Section ) {
-				$wp_customize->add_section( $section );
+				$this->wp_customize->add_section( $section );
 			}
 		}
+	}
 
+	/**
+	 * Add all controls in the "Theme" section.
+	 *
+	 * @return void
+	 */
+	public function add_theme_controls() {
 		/**
-		 * List of all our custom customizer controls.
+		 * List of all the control settings in the Theme section.
 		 */
-		$controls = array(
-			// Example control.
-			// @todo remove.
-			'example_id' => array(
-				'setting' => array(
-					'capability'        => 'edit_theme_options',
-					'sanitize_callback' => 'sanitize_text_field',
-				),
-				'control' => array(
-					'type'     => 'text',
-					'section'  => $slug . '_theme',
-					'priority' => 10,
-					'label'    => __( 'Example Text Field', 'material-theme-builder' ),
-				),
+		$settings = array(
+			$this->slug . '_theme' => array(
+				'default' => 'baseline',
 			),
 		);
 
-		foreach ( $controls as $id => $args ) {
-			if ( array_key_exists( 'setting', $args ) ) {
-				/**
-				 * Filters the customizer setting args.
-				 *
-				 * This allows other plugins/themes to change the customizer controls ards
-				 *
-				 * @param array $args['setting'] Array of setting args.
-				 * @param string   $id       ID of the setting.
-				 */
-				$setting = apply_filters( 'mtb_customizer_setting_args', $args['setting'], $id );
+		$this->add_settings( $settings );
 
-				if ( is_array( $setting ) ) {
-					$wp_customize->add_setting(
-						$id,
-						$setting
-					);
-				} elseif ( $setting instanceof \WP_Customize_Setting ) {
-					$wp_customize->add_setting( $setting );
-				}
+		/**
+		* List of all the controls in the Theme section.
+		 */
+		$controls = array(
+			$this->slug . '_theme' => new Image_Radio_Control(
+				$this->wp_customize,
+				$this->slug . '_theme',
+				array(
+					'section'  => $this->slug . '_theme',
+					'priority' => 10,
+					'choices'  => array(
+						'baseline'    => array(
+							'label' => __( 'Baseline', 'material-theme-builder' ),
+							'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
+						),
+						'crane'       => array(
+							'label' => __( 'Crane', 'material-theme-builder' ),
+							'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
+						),
+						'fortnightly' => array(
+							'label' => __( 'Fortnightly', 'material-theme-builder' ),
+							'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
+						),
+						'shrine'      => array(
+							'label' => __( 'Shrine', 'material-theme-builder' ),
+							'url'   => $this->plugin->asset_url( 'assets/images/shrine.svg' ),
+						),
+						'custom'      => array(
+							'label' => __( 'Custom', 'material-theme-builder' ),
+						),
+					),
+				)
+			),
+		);
+
+		$this->add_controls( $controls );
+	}
+
+	/**
+	 * Add settings to customizer.
+	 *
+	 * @param  array $settings Array of settings to add to customizer.
+	 * @return void
+	 */
+	public function add_settings( $settings ) {
+
+		if ( empty( $settings ) || ! is_array( $settings ) ) {
+			return;
+		}
+
+		foreach ( $settings as $id => $setting ) {
+			if ( is_array( $setting ) ) {
+				$defaults = array(
+					'capability'        => 'edit_theme_options',
+					'sanitize_callback' => 'sanitize_text_field',
+				);
+
+				$setting = array_merge( $defaults, $setting );
 			}
 
-			if ( array_key_exists( 'control', $args ) ) {
-				/**
-				 * Filters the customizer control args.
-				 *
-				 * This allows other plugins/themes to change the customizer controls ards
-				 *
-				 * @param array $args['control'] Array of control args.
-				 * @param string   $id       ID of the control.
-				 */
-				$control = apply_filters( 'mtb_customizer_control_args', $args['control'], $id );
+			/**
+			 * Filters the customizer setting args.
+			 *
+			 * This allows other plugins/themes to change the customizer controls ards
+			 *
+			 * @param array   $settings[ $id ] Array of setting args.
+			 * @param string   $id       ID of the setting.
+			 */
+			$setting = apply_filters( 'mtb_customizer_setting_args', $setting, $id );
 
-				if ( is_array( $control ) ) {
-					$wp_customize->add_control(
-						$id,
-						$control
-					);
-				} elseif ( $control instanceof \WP_Customize_Control ) {
-					$wp_customize->add_control( $control );
-				}
+			if ( is_array( $setting ) ) {
+				$this->wp_customize->add_setting(
+					$id,
+					$setting
+				);
+			} elseif ( $setting instanceof \WP_Customize_Setting ) {
+				$this->wp_customize->add_setting( $setting );
+			}
+		}
+	}
+
+	/**
+	 * Add controls to customizer.
+	 *
+	 * @param  array $controls Array of controls to add to customizer.
+	 * @return void
+	 */
+	public function add_controls( $controls ) {
+
+		if ( empty( $controls ) || ! is_array( $controls ) ) {
+			return;
+		}
+
+		foreach ( $controls as $id => $control ) {
+			/**
+			 * Filters the customizer control args.
+			 *
+			 * This allows other plugins/themes to change the customizer controls ards
+			 *
+			 * @param array $control Array of control args.
+			 * @param string   $id       ID of the control.
+			 */
+			$control = apply_filters( 'mtb_customizer_control_args', $control, $id );
+
+			if ( is_array( $control ) ) {
+				$this->wp_customize->add_control(
+					$id,
+					$control
+				);
+			} elseif ( $control instanceof \WP_Customize_Control ) {
+				$this->wp_customize->add_control( $control );
 			}
 		}
 	}
@@ -145,11 +252,18 @@ class Controls extends Module_Base {
 	 */
 	public function scripts() {
 		wp_enqueue_script(
-			'material-theme-builder-customizer',
+			'material-theme-builder-customizer-js',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
 			[ 'customize-controls', 'jquery' ],
 			$this->plugin->asset_version(),
 			false
+		);
+
+		wp_enqueue_style(
+			'material-theme-builder-customizer-css',
+			$this->plugin->asset_url( 'assets/css/customizer-compiled.css' ),
+			[],
+			$this->plugin->asset_version()
 		);
 	}
 }
