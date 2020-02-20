@@ -50,7 +50,7 @@
 
 .icon-position {
   display: inline-flex;
-  margin: 0 0 10px 0;
+  margin: 10px 0;
   overflow: hidden;
   border: 1px solid #007EBA;
   border-radius: 3px;
