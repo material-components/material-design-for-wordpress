@@ -2,6 +2,7 @@
  * WordPress dependencies
  */
 import { withSelect } from '@wordpress/data';
+import { createHigherOrderComponent } from '@wordpress/compose';
 
 /**
  * External dependencies
@@ -13,6 +14,25 @@ import { get, isUndefined, pickBy } from 'lodash';
  */
 import NoPosts from './components/no-posts';
 import PostsList from './components/posts-list';
+import './style.css';
+
+const withCustomClassName = createHigherOrderComponent( BlockListBlock => {
+	return props => {
+		if ( 'material/recent-posts' !== props.name ) {
+			return <BlockListBlock { ...props } />;
+		}
+
+		const { style } = props.attributes;
+		const className = style === 'vertical' ? 'recent-posts-block' : '';
+
+		return <BlockListBlock { ...props } className={ className } />;
+	};
+}, 'withCustomClassName' );
+wp.hooks.addFilter(
+	'editor.BlockListBlock',
+	'material/with-custom-class-name',
+	withCustomClassName
+);
 
 /**
  * Material recent posts edit component.

@@ -28,11 +28,9 @@ const CATEGORIES_LIST_QUERY = {
 	per_page: 100, // @todo: Implement lookup of categories using auto complete field.
 };
 
-const MAX_NUMBER_OF_POSTS = 10;
+const MAX_NUMBER_OF_POSTS = 12;
 
-// Since max number of post is limited to 10, no point to allow more than 10 columns
-// @todo: Review the max number of columns
-const MAX_POSTS_COLUMNS = 10;
+const MAX_POSTS_COLUMNS = 4;
 
 /**
  * Recent Posts Inspector Controls
@@ -83,8 +81,8 @@ export default props => {
 
 	const styleOptions = [
 		{
-			label: __( 'Stacked', 'material-theme-builder' ),
-			value: 'stacked',
+			label: __( 'Vertical', 'material-theme-builder' ),
+			value: 'vertical',
 			src: StackedStyleIcon,
 		},
 		{
@@ -104,7 +102,7 @@ export default props => {
 				/>
 			</PanelBody>
 			<PanelBody title={ __( 'Content', 'material-theme-builder' ) }>
-				{ style === 'stacked' && (
+				{ style === 'vertical' && (
 					<RangeControl
 						label={ __( 'Columns', 'material-theme-builder' ) }
 						value={ columns }
