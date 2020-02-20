@@ -10,6 +10,7 @@ import './style.css';
 import StyleBox from './components/style-box';
 import IconPicker from '../../components/icon-picker';
 import * as styleIcons from './components/style-icons';
+import IconPositionButtons from './components/icon-position-buttons';
 
 /**
  * WordPress dependencies
@@ -30,12 +31,16 @@ const NEW_TAB_REL = 'noreferrer noopener';
  * Material button edit component.
  */
 const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
-	const { linkTarget, icon, label, url, rel, style } = attributes;
+	const { linkTarget, icon, label, url, rel, style, iconPosition } = attributes;
 
 	const setIcon = useCallback( newIcon => setAttributes( { icon: newIcon } ) );
 
 	const setStyle = useCallback( newStyle =>
 		setAttributes( { style: newStyle } )
+	);
+
+	const setIconPosition = useCallback( newPosition =>
+		setAttributes( { iconPosition: newPosition } )
 	);
 
 	const setLabel = useCallback( event =>
@@ -69,6 +74,11 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 						[ `mdc-button--${ style }` ]: true,
 					} ) }
 				>
+					{ icon && iconPosition === 'leading' && (
+						<i className="material-icons mdc-button__icon">
+							{ String.fromCharCode( icon?.hex ) }
+						</i>
+					) }
 					<span
 						className="mdc-button__label button-label"
 						role="textbox"
@@ -82,6 +92,11 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 					>
 						{ label ?? __( 'BUTTON TEXT', 'material-theme-builder' ) }
 					</span>
+					{ icon && iconPosition === 'trailing' && (
+						<i className="material-icons mdc-button__icon">
+							{ String.fromCharCode( icon?.hex ) }
+						</i>
+					) }
 				</div>
 
 				{ isSelected && (
@@ -122,7 +137,13 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 					title={ __( 'Icon', 'material-theme-builder' ) }
 					initialOpen={ true }
 				>
-					<IconPicker currentIcon={ icon } pickHandler={ setIcon } />
+					<IconPositionButtons
+						currentPosition={ iconPosition }
+						handleClick={ setIconPosition }
+					/>
+					{ iconPosition !== 'none' && (
+						<IconPicker currentIcon={ icon } pickHandler={ setIcon } />
+					) }
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Link Settings', 'material-theme-builder' ) }
