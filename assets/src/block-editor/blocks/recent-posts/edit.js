@@ -22,14 +22,10 @@ const RecentPostsEdit = ( { recentPosts, attributes, setAttributes } ) => {
 	const props = { recentPosts, attributes, setAttributes };
 
 	if ( ! hasPosts ) {
-		return (
-			<NoPosts { ...props } />
-		);
+		return <NoPosts { ...props } />;
 	}
 
-	return (
-		<PostsList { ...props } />
-	);
+	return <PostsList { ...props } />;
 };
 
 export default withSelect( ( select, props ) => {
