@@ -9,23 +9,21 @@ import { __ } from '@wordpress/i18n';
  */
 import InspectorControls from './inspector-controls';
 
-export default ( { attributes, setAttributes, recentPosts } ) => {
-	return (
-		<>
-			<InspectorControls
-				attributes={ attributes }
-				setAttributes={ setAttributes }
-			/>
-			<Placeholder
-				icon={ 'sticky' }
-				label={ __( 'Recent Posts', 'material-theme-builder' ) }
-			>
-				{ ! Array.isArray( recentPosts ) ? (
-					<Spinner />
-				) : (
-					__( 'No posts found.', 'material-theme-builder' )
-				) }
-			</Placeholder>
-		</>
-	);
-};
+export default ( { attributes, setAttributes, recentPosts } ) => (
+	<>
+		<InspectorControls
+			attributes={ attributes }
+			setAttributes={ setAttributes }
+		/>
+		<Placeholder
+			icon={ 'sticky' }
+			label={ __( 'Recent Posts', 'material-theme-builder' ) }
+		>
+			{ ! Array.isArray( recentPosts ) ? (
+				<Spinner />
+			) : (
+				__( 'No posts found.', 'material-theme-builder' )
+			) }
+		</Placeholder>
+	</>
+);
