@@ -5,7 +5,7 @@ import edit from './edit';
  */
 import { __ } from '@wordpress/i18n';
 
-export const name = 'material/recent-posts';
+export const name = 'recent-posts';
 
 const el = wp.element.createElement;
 const iconEl = el(
