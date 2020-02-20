@@ -44,7 +44,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 		backgroundColor,
 	} = attributes;
 
-	const setter = genericAttributesSetter( setAttributes );
+	const setter = useCallback( genericAttributesSetter( setAttributes ) );
 
 	const onToggleOpenInNewTab = useCallback(
 		value => {
@@ -73,7 +73,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 						...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
 						...( textColor ? { color: textColor } : {} ),
 						...( cornerRadius !== undefined
-							? { borderRadius: cornerRadius }
+							? { borderRadius: `${ cornerRadius }px` }
 							: {} ),
 					} }
 					className={ classNames( 'mdc-button', {
@@ -110,7 +110,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 						value={ url }
 						label={ __( 'Link', 'material-theme-builder' ) }
 						placeholder={ __( 'Paste your URL...', 'material-theme-builder' ) }
-						onChange={ newUrl => setAttributes( { url: newUrl } ) }
+						onChange={ setter( 'url' ) }
 						className="components-base-control wp-block-button__inline-link"
 					/>
 				) }
@@ -121,7 +121,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 					title={ __( 'Styles', 'material-theme-builder' ) }
 					initialOpen={ true }
 				>
-					<ButtonStyles style={ style } onChange={ setter( 'style' ) } />
+					<ButtonStyles style={ style } onClick={ setter( 'style' ) } />
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Icon', 'material-theme-builder' ) }
@@ -129,7 +129,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 				>
 					<IconPositionButtons
 						currentPosition={ iconPosition }
-						handleClick={ setter( 'iconPosition' ) }
+						onClick={ setter( 'iconPosition' ) }
 					/>
 
 					{ iconPosition && iconPosition !== 'none' ? (

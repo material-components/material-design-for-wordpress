@@ -3,14 +3,14 @@
  */
 import classNames from 'classnames';
 
-const IconPositionButtons = ( { currentPosition, handleClick } ) => {
+const IconPositionButtons = ( { currentPosition, onClick } ) => {
 	return (
 		<div>
 			<ul className="icon-position">
 				<li className="icon-position__list-item">
 					<button
 						type="button"
-						onClick={ handleClick.bind( this, 'none' ) }
+						onClick={ onClick.bind( this, 'none' ) }
 						className={ classNames( 'icon-position__list-item__button', {
 							'icon-position__list-item__button--active':
 								currentPosition === 'none',
@@ -22,7 +22,7 @@ const IconPositionButtons = ( { currentPosition, handleClick } ) => {
 				<li className="icon-position__list-item">
 					<button
 						type="button"
-						onClick={ handleClick.bind( this, 'leading' ) }
+						onClick={ onClick.bind( this, 'leading' ) }
 						className={ classNames( 'icon-position__list-item__button', {
 							'icon-position__list-item__button--active':
 								currentPosition === 'leading',
@@ -34,7 +34,7 @@ const IconPositionButtons = ( { currentPosition, handleClick } ) => {
 				<li className="icon-position__list-item">
 					<button
 						type="button"
-						onClick={ handleClick.bind( this, 'trailing' ) }
+						onClick={ onClick.bind( this, 'trailing' ) }
 						className={ classNames( 'icon-position__list-item__button', {
 							'icon-position__list-item__button--active':
 								currentPosition === 'trailing',
