@@ -3,6 +3,11 @@
  */
 import classNames from 'classnames';
 
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
 const IconPositionButtons = ( { currentPosition, onClick } ) => {
 	return (
 		<div>
@@ -16,7 +21,7 @@ const IconPositionButtons = ( { currentPosition, onClick } ) => {
 								currentPosition === 'none',
 						} ) }
 					>
-						None
+						{ __( 'None', 'material-theme-builder' ) }
 					</button>
 				</li>
 				<li className="icon-position__list-item">
@@ -28,7 +33,7 @@ const IconPositionButtons = ( { currentPosition, onClick } ) => {
 								currentPosition === 'leading',
 						} ) }
 					>
-						Leading
+						{ __( 'Leading', 'material-theme-builder' ) }
 					</button>
 				</li>
 				<li className="icon-position__list-item">
@@ -40,7 +45,7 @@ const IconPositionButtons = ( { currentPosition, onClick } ) => {
 								currentPosition === 'trailing',
 						} ) }
 					>
-						Trailing
+						{ __( 'Trailing', 'material-theme-builder' ) }
 					</button>
 				</li>
 			</ul>
