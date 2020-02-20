@@ -2,6 +2,7 @@
 .material-component-color-palette {
 	margin-left: -4px;
 	margin-right: -4px;
+	margin-bottom: 50px !important;
 	width: calc(100% + 8px);
 
 	& .component-color-indicator {

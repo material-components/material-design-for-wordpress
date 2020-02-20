@@ -4,17 +4,34 @@
 import classNames from 'classnames';
 
 /**
+ * Internal dependencies
+ */
+import hasBg from './utils/has-bg';
+
+/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 
 const ButtonSave = ( {
-	attributes: { label, url, style, iconPosition, icon },
+	attributes: {
+		label,
+		url,
+		style,
+		iconPosition,
+		icon,
+		backgroundColor,
+		textColor,
+	},
 	className,
 } ) => (
 	<div className={ className }>
 		<a
 			href={ url }
+			style={ {
+				...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
+				...( textColor ? { color: textColor } : {} ),
+			} }
 			className={ classNames( 'mdc-button', {
 				[ `mdc-button--${ style }` ]: true,
 			} ) }

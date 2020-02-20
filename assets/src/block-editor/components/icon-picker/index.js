@@ -15,7 +15,7 @@ import { TextControl, Tooltip } from '@wordpress/components';
 import './style.css';
 import { icons as rawIcons } from '!!json-loader!material-design-icons/iconfont/MaterialIcons-Regular.ijmap';
 
-export default ( { currentIcon, pickHandler } ) => {
+export default ( { currentIcon, onChange } ) => {
 	const icons = Object.keys( rawIcons );
 	const toSlug = str => str.replace( ' ', '_' ).toLowerCase();
 	const [ filteredIcons, setFilteredIcons ] = useState( icons );
@@ -48,7 +48,7 @@ export default ( { currentIcon, pickHandler } ) => {
 					<button
 						type="button"
 						className={ `icons-container__icon__icon-btn${ isSelected }` }
-						onClick={ pickHandler.bind( this, {
+						onClick={ onChange.bind( this, {
 							name: iconName,
 							hex: iconHex,
 						} ) }
