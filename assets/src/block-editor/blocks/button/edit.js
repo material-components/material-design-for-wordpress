@@ -7,10 +7,9 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import './style.css';
-import { STYLES_MAP } from './button';
 import StyleBox from './components/style-box';
 import IconPicker from '../../components/icon-picker';
-import * as styleIcons from './components/button-styles';
+import * as styleIcons from './components/style-icons';
 
 /**
  * WordPress dependencies
@@ -67,7 +66,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 			<div className={ className }>
 				<div
 					className={ classNames( 'mdc-button', {
-						[ `mdc-button--${ STYLES_MAP[ style ] }` ]: true,
+						[ `mdc-button--${ style }` ]: true,
 					} ) }
 				>
 					<span

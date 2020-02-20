@@ -4,24 +4,24 @@
 import classNames from 'classnames';
 
 /**
- * Internal dependencies
+ * WordPress dependencies
  */
-import { STYLES_MAP } from './button';
+import { __ } from '@wordpress/i18n';
 
-const ButtonSave = ( { attributes: { label, url, style }, className } ) => {
-	return (
-		<div className={ className }>
-			<a
-				href={ url }
-				className={ classNames( 'mdc-button', {
-					[ `mdc-button--${ STYLES_MAP[ style ] }` ]: true,
-				} ) }
-			>
-				<div className="mdc-button__ripple"></div>
-				<span className="mdc-button__label">{ label }</span>
-			</a>
-		</div>
-	);
-};
+const ButtonSave = ( { attributes: { label, url, style }, className } ) => (
+	<div className={ className }>
+		<a
+			href={ url }
+			className={ classNames( 'mdc-button', {
+				[ `mdc-button--${ style }` ]: true,
+			} ) }
+		>
+			<div className="mdc-button__ripple"></div>
+			<span className="mdc-button__label">
+				{ label ?? __( 'BUTTON TEXT', 'material-theme-builder' ) }
+			</span>
+		</a>
+	</div>
+);
 
 export default ButtonSave;
