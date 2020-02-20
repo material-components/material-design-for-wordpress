@@ -1,3 +1,20 @@
 /*
  * Put Customizer CSS here.
  */
+
+.customize-control-image-radio-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.customize-control-image-radio-control {
+	box-sizing: border-box;
+	flex: 0 50%;
+	margin-bottom: 10px;
+	padding: 0 6px;
+
+	& img {
+		margin-top: 4px;
+		width: 100%;
+	}
+}

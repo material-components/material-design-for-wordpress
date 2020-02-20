@@ -13,6 +13,29 @@ use MaterialThemeBuilder\Plugin;
  * Tests for Controls class.
  */
 class Test_Controls extends \WP_UnitTestCase {
+
+	/**
+	 * WP_Customize_Manager object reference.
+	 *
+	 * @var \WP_Customize_Manager
+	 */
+	protected $wp_customize;
+
+	/**
+	 * Set up required includes.
+	 *
+	 * @see WP_UnitTestCase::setup()
+	 */
+	public function setUp() {
+		parent::setUp();
+
+		$this->getMockBuilder( 'WP_Customize_Control' )->getMock();
+
+		$this->wp_customize = $this->getMockBuilder( 'DummyClass' )
+			->setMethods( [ 'add_panel', 'add_section', 'add_setting', 'add_control' ] )
+			->getMock();
+	}
+
 	/**
 	 * Test constructor.
 	 *
@@ -40,23 +63,65 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::register()
 	 */
 	public function test_register() {
+		$controls = $this->getMockBuilder( Controls::class )
+			->disableOriginalConstructor()
+			->setMethods( [ 'add_panel', 'add_sections', 'add_theme_controls' ] )
+			->getMock( null );
+
+		$controls->plugin = \MaterialThemeBuilder\get_plugin_instance();
+
+		// Set up the expectation for the add_panel() method
+		// to be called only once.
+		$controls->expects( $this->once() )
+			->method( 'add_panel' );
+
+		// Set up the expectation for the add_sections() method
+		// to be called only once.
+		$controls->expects( $this->once() )
+			->method( 'add_sections' );
+
+		// Set up the expectation for the add_theme_controls() method
+		// to be called only once.
+		$controls->expects( $this->once() )
+			->method( 'add_theme_controls' );
+
+		$controls->register( $this->wp_customize );
+	}
+
+	/**
+	 * Test for add_panel() method.
+	 *
+	 * @see Controls::add_panel()
+	 */
+	public function test_add_panel() {
 		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
 
-		// Create a mock for the WP_Customize_Manager class,
-		// mock the add_panel() and add_section() methods.
-		$wp_customize = $this->getMockBuilder( 'WP_Customize_Manager' )
-			->setMethods( [ 'add_panel', 'add_section', 'add_setting', 'add_control' ] )
-			->getMock();
+		// Set $wp_customize to the mocked object.
+		$controls->wp_customize = $this->wp_customize;
 
 		// Set up the expectation for the update() method
 		// to be called only once and with the id 'material_theme'.
-		$wp_customize->expects( $this->once() )
+		$this->wp_customize->expects( $this->once() )
 			->method( 'add_panel' )
 			->with( $this->equalTo( 'material_theme' ) );
 
+		$controls->add_panel();
+	}
+
+	/**
+	 * Test for add_sections() method.
+	 *
+	 * @see Controls::add_sections()
+	 */
+	public function test_add_sections() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Set $wp_customize to the mocked object.
+		$controls->wp_customize = $this->wp_customize;
+
 		// Set up the expectation for the add_section() method
 		// to be called 5 times, once for each section.
-		$wp_customize->expects( $this->exactly( 5 ) )
+		$this->wp_customize->expects( $this->exactly( 5 ) )
 			->method( 'add_section' )
 			->withConsecutive(
 				[ $this->equalTo( 'material_theme_theme' ) ],
@@ -66,7 +131,32 @@ class Test_Controls extends \WP_UnitTestCase {
 				[ $this->equalTo( 'material_theme_colors' ) ]
 			);
 
-		$controls->register( $wp_customize );
+
+		$controls->add_sections();
+	}
+
+	/**
+	 * Test for add_theme_controls() method.
+	 *
+	 * @see Controls::add_theme_controls()
+	 */
+	public function test_add_theme_controls() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Set $wp_customize to the mocked object.
+		$controls->wp_customize = $this->wp_customize;
+
+		// Set up the expectation for the add_settings() method
+		// to be called exactly once.
+		$this->wp_customize->expects( $this->once() )
+			->method( 'add_setting' );
+
+		// Set up the expectation for the add_controls() method
+		// to be called exactly once.
+		$this->wp_customize->expects( $this->once() )
+		->method( 'add_control' );
+
+		$controls->add_theme_controls();
 	}
 
 	/**
@@ -77,6 +167,7 @@ class Test_Controls extends \WP_UnitTestCase {
 	public function test_scripts() {
 		\MaterialThemeBuilder\get_plugin_instance()->customizer_controls->scripts();
 
-		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer', 'enqueued' ) );
+		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
 	}
 }
