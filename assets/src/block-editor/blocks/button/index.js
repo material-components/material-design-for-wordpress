@@ -15,7 +15,7 @@ export const settings = {
 	icon: <i className="material-icons md-call-to-action">call_to_action</i>,
 	attributes: {
 		style: { type: 'string' },
-		showIcon: { type: 'string' },
+		iconPosition: { type: 'string' },
 		icon: { type: 'object' },
 		label: { type: 'string' },
 		url: { type: 'string' },
