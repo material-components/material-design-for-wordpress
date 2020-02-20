@@ -96,7 +96,7 @@ export default props => {
 
 	return (
 		<InspectorControls>
-			<PanelBody title={ __( 'Style', 'material-theme-builder' ) }>
+			<PanelBody title={ __( 'Styles', 'material-theme-builder' ) }>
 				<ImageRadioControl
 					selected={ style }
 					options={ styleOptions }
