@@ -8,9 +8,8 @@ import classNames from 'classnames';
  */
 import './style.css';
 import hasBg from './utils/has-bg';
-import StyleBox from './components/style-box';
+import ButtonStyles from './components/button-styles';
 import IconPicker from '../../components/icon-picker';
-import * as styleIcons from './components/style-icons';
 import IconPositionButtons from './components/icon-position-buttons';
 import genericAttributesSetter from '../../utils/genericAttributesSetter';
 import MaterialColorPalette from '../../components/material-color-palette';
@@ -27,8 +26,6 @@ import {
 	TextControl,
 	RangeControl,
 } from '@wordpress/components';
-
-const NEW_TAB_REL = 'noreferrer noopener';
 
 /**
  * Material button edit component.
@@ -49,18 +46,14 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 
 	const setter = genericAttributesSetter( setAttributes );
 
-	const setLabel = useCallback( event =>
-		setAttributes( { label: event.currentTarget.textContent } )
-	);
-
 	const onToggleOpenInNewTab = useCallback(
 		value => {
 			const newLinkTarget = value ? '_blank' : undefined;
 
 			let updatedRel = rel;
 			if ( newLinkTarget && ! rel ) {
-				updatedRel = NEW_TAB_REL;
-			} else if ( ! newLinkTarget && rel === NEW_TAB_REL ) {
+				updatedRel = 'noreferrer noopener';
+			} else if ( ! newLinkTarget && rel === 'noreferrer noopener' ) {
 				updatedRel = undefined;
 			}
 
@@ -98,7 +91,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 						tabIndex={ 0 }
 						contentEditable
 						suppressContentEditableWarning
-						onBlur={ setLabel }
+						onBlur={ setter( 'label', e => e.currentTarget.textContent ) }
 						onKeyPress={ event =>
 							event.key === 'Enter' && event.currentTarget.blur()
 						}
@@ -128,26 +121,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 					title={ __( 'Styles', 'material-theme-builder' ) }
 					initialOpen={ true }
 				>
-					<div className="styles-container">
-						{ Object.keys( styleIcons ).map( styleIcon => {
-							const StyleIconComponent = styleIcons[ styleIcon ];
-							const name = styleIcons[ styleIcon ].name.replace( 'Icon', '' );
-
-							return (
-								<StyleBox
-									key={ styleIcon }
-									label={ name }
-									active={ style === name.toLowerCase() }
-									handleClick={ setter( 'style' ).bind(
-										this,
-										name.toLowerCase()
-									) }
-								>
-									<StyleIconComponent />
-								</StyleBox>
-							);
-						} ) }
-					</div>
+					<ButtonStyles style={ style } onChange={ setter( 'style' ) } />
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Icon', 'material-theme-builder' ) }
@@ -157,6 +131,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 						currentPosition={ iconPosition }
 						handleClick={ setter( 'iconPosition' ) }
 					/>
+
 					{ iconPosition && iconPosition !== 'none' ? (
 						<IconPicker currentIcon={ icon } onChange={ setter( 'icon' ) } />
 					) : null }
