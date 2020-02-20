@@ -4,5 +4,9 @@
 import Button from './button';
 
 export default function ButtonSave( { attributes } ) {
-	return <Button { ...attributes }>Button Text</Button>;
+	return (
+		<div>
+			<Button { ...attributes }>Button Text</Button>
+		</div>
+	);
 }
