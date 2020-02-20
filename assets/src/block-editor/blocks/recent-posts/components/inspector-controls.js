@@ -35,7 +35,7 @@ const MAX_POSTS_COLUMNS = 4;
 /**
  * Recent Posts Inspector Controls
  *
- * @param props
+ * @param {Object} props
  */
 export default props => {
 	const [ categoriesList, setCategoriesList ] = useState( [] );
