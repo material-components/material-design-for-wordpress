@@ -24,7 +24,7 @@ import StackedStyleIcon from './stacked-style-icon';
  * Module Constants
  */
 const CATEGORIES_LIST_QUERY = {
-	per_page: -1,
+	per_page: 100, // @todo: Implement lookup of categories using auto complete field.
 };
 
 const MAX_NUMBER_OF_POSTS = 10;
