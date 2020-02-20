@@ -1,7 +1,7 @@
 import StyleBox from './style-box';
 import * as styleIcons from './style-icons';
 
-const ButtonStyles = ( { style, onChange } ) => (
+const ButtonStyles = ( { style, onClick } ) => (
 	<div className="styles-container">
 		{ Object.keys( styleIcons ).map( styleIcon => {
 			const StyleIconComponent = styleIcons[ styleIcon ];
@@ -12,7 +12,7 @@ const ButtonStyles = ( { style, onChange } ) => (
 					key={ styleIcon }
 					label={ name }
 					active={ style === name.toLowerCase() }
-					handleClick={ onChange.bind( this, name.toLowerCase() ) }
+					onClick={ onClick.bind( this, name.toLowerCase() ) }
 				>
 					<StyleIconComponent />
 				</StyleBox>
