@@ -1,6 +1,5 @@
-export default (
+export default setAttributes => (
 	attribute,
-	setAttributes,
 	callback = () => {}
 ) => newValue => {
 	callback( newValue );

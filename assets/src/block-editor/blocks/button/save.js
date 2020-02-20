@@ -15,13 +15,14 @@ import { __ } from '@wordpress/i18n';
 
 const ButtonSave = ( {
 	attributes: {
-		label,
 		url,
-		style,
-		iconPosition,
 		icon,
-		backgroundColor,
+		label,
+		style,
 		textColor,
+		cornerRadius,
+		iconPosition,
+		backgroundColor,
 	},
 	className,
 } ) => (
@@ -31,6 +32,7 @@ const ButtonSave = ( {
 			style={ {
 				...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
 				...( textColor ? { color: textColor } : {} ),
+				...( cornerRadius !== undefined ? { borderRadius: cornerRadius } : {} ),
 			} }
 			className={ classNames( 'mdc-button', {
 				[ `mdc-button--${ style }` ]: true,

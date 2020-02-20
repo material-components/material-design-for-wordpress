@@ -11,8 +11,8 @@ import hasBg from './utils/has-bg';
 import StyleBox from './components/style-box';
 import IconPicker from '../../components/icon-picker';
 import * as styleIcons from './components/style-icons';
-import genericAttributesSet from '../../utils/genericAttributesSet';
 import IconPositionButtons from './components/icon-position-buttons';
+import genericAttributesSetter from '../../utils/genericAttributesSetter';
 import MaterialColorPalette from '../../components/material-color-palette';
 
 /**
@@ -26,6 +26,7 @@ import {
 	PanelRow,
 	ToggleControl,
 	TextControl,
+	RangeControl,
 } from '@wordpress/components';
 
 const NEW_TAB_REL = 'noreferrer noopener';
@@ -42,9 +43,12 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 		style,
 		textColor,
 		linkTarget,
+		cornerRadius,
 		iconPosition,
 		backgroundColor,
 	} = attributes;
+
+	const setter = genericAttributesSetter( setAttributes );
 
 	const setLabel = useCallback( event =>
 		setAttributes( { label: event.currentTarget.textContent } )
@@ -76,6 +80,9 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 					style={ {
 						...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
 						...( textColor ? { color: textColor } : {} ),
+						...( cornerRadius !== undefined
+							? { borderRadius: cornerRadius }
+							: {} ),
 					} }
 					className={ classNames( 'mdc-button', {
 						[ `mdc-button--${ style }` ]: true,
@@ -132,10 +139,10 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 									key={ styleIcon }
 									label={ name }
 									active={ style === name.toLowerCase() }
-									handleClick={ genericAttributesSet(
-										'style',
-										setAttributes
-									).bind( this, name.toLowerCase() ) }
+									handleClick={ setter( 'style' ).bind(
+										this,
+										name.toLowerCase()
+									) }
 								>
 									<StyleIconComponent />
 								</StyleBox>
@@ -149,17 +156,11 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 				>
 					<IconPositionButtons
 						currentPosition={ iconPosition }
-						handleClick={ genericAttributesSet(
-							'iconPosition',
-							setAttributes
-						) }
+						handleClick={ setter( 'iconPosition' ) }
 					/>
-					{ iconPosition !== 'none' && (
-						<IconPicker
-							currentIcon={ icon }
-							onChange={ genericAttributesSet( 'icon', setAttributes ) }
-						/>
-					) }
+					{ iconPosition && iconPosition !== 'none' ? (
+						<IconPicker currentIcon={ icon } onChange={ setter( 'icon' ) } />
+					) : null }
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Colors', 'material-theme-builder' ) }
@@ -169,24 +170,39 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 						<MaterialColorPalette
 							label={ __( 'Background Color', 'material-theme-builder' ) }
 							value={ backgroundColor }
-							onChange={ genericAttributesSet(
-								'backgroundColor',
-								setAttributes
-							) }
+							onChange={ setter( 'backgroundColor' ) }
 						/>
 					) }
 					<MaterialColorPalette
 						label={ __( 'Text Color', 'material-theme-builder' ) }
 						value={ textColor }
-						onChange={ genericAttributesSet( 'textColor', setAttributes ) }
+						onChange={ setter( 'textColor' ) }
 					/>
 
 					<ContrastChecker
-						{ ...{
-							textColor,
-							backgroundColor,
-						} }
+						textColor={ textColor }
+						backgroundColor={ backgroundColor }
 					/>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Rounded Corners', 'material-theme-builder' ) }
+					initialOpen={ true }
+				>
+					{ style !== 'text' ? (
+						<RangeControl
+							value={ cornerRadius ?? 4 }
+							onChange={ setter( 'cornerRadius' ) }
+							min={ 0 }
+							max={ 36 }
+						/>
+					) : (
+						<p>
+							{ __(
+								'Current button style does not support rounded corners.',
+								'material-theme-builder'
+							) }
+						</p>
+					) }
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Link Settings', 'material-theme-builder' ) }
