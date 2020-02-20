@@ -23,16 +23,12 @@ const RecentPostsEdit = ( { recentPosts, attributes, setAttributes } ) => {
 
 	if ( ! hasPosts ) {
 		return (
-			<>
-				<NoPosts { ...props } />
-			</>
+			<NoPosts { ...props } />
 		);
 	}
 
 	return (
-		<>
-			<PostsList { ...props } />
-		</>
+		<PostsList { ...props } />
 	);
 };
 
