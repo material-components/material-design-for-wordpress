@@ -18,8 +18,7 @@ import { addQueryArgs } from '@wordpress/url';
  * Internal dependencies
  */
 import ImageRadioControl from '../../../components/image-radio-control';
-import HorizontalStyleIcon from './horizontal-style-icon';
-import StackedStyleIcon from './stacked-style-icon';
+import { HorizontalIcon, VerticalIcon } from './style-icons';
 
 /**
  * Module Constants
@@ -84,12 +83,12 @@ export default props => {
 		{
 			label: __( 'Vertical', 'material-theme-builder' ),
 			value: 'vertical',
-			src: StackedStyleIcon,
+			src: VerticalIcon,
 		},
 		{
 			label: __( 'Horizontal', 'material-theme-builder' ),
 			value: 'horizontal',
-			src: HorizontalStyleIcon,
+			src: HorizontalIcon,
 		},
 	];
 
