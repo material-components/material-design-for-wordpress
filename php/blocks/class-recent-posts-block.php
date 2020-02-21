@@ -113,6 +113,10 @@ class Recent_Posts_Block {
 						'type'    => 'boolean',
 						'default' => true,
 					],
+					'featuredImageSizeSlug'   => array(
+						'type'    => 'string',
+						'default' => 'large',
+					),
 					'displayCommentsCount' => [
 						'type'    => 'boolean',
 						'default' => true,

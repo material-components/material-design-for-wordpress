@@ -10,6 +10,7 @@ import {
 	RangeControl,
 	ToggleControl,
 	QueryControls,
+	SelectControl,
 } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { addQueryArgs } from '@wordpress/url';
@@ -41,7 +42,11 @@ const MAX_POST_CONTENT_LENGTH = 30;
  *
  * @param {Object} props
  */
-const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
+const RecentPostsInspectorControls = ( {
+	attributes,
+	setAttributes,
+	imageSizeOptions,
+} ) => {
 	const [ categoriesList, setCategoriesList ] = useState( [] );
 	const [ isStillMounted, setStillMounted ] = useState( true );
 
@@ -75,6 +80,7 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 		displayPostContent,
 		postContentLength,
 		displayFeaturedImage,
+		featuredImageSizeSlug,
 		displayCommentsCount,
 		displayPostAuthor,
 		categories,
@@ -140,6 +146,15 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 					label={ __( 'Featured Image', 'material-theme-builder' ) }
 					checked={ displayFeaturedImage }
 					onChange={ value => setAttributes( { displayFeaturedImage: value } ) }
+				/>
+
+				<SelectControl
+					label={ __( 'Image size', 'material-theme-builder' ) }
+					value={ featuredImageSizeSlug }
+					onChange={ value =>
+						setAttributes( { featuredImageSizeSlug: value } )
+					}
+					options={ imageSizeOptions }
 				/>
 				<ToggleControl
 					label={ __( 'Comments Count', 'material-theme-builder' ) }

@@ -9,11 +9,17 @@ import { __ } from '@wordpress/i18n';
  */
 import InspectorControls from './inspector-controls';
 
-const NoPosts = ( { attributes, setAttributes, recentPosts } ) => (
+const NoPosts = ( {
+	attributes,
+	setAttributes,
+	recentPosts,
+	imageSizeOptions,
+} ) => (
 	<>
 		<InspectorControls
 			attributes={ attributes }
 			setAttributes={ setAttributes }
+			imageSizeOptions={ imageSizeOptions }
 		/>
 		<Placeholder
 			icon={ 'sticky' }
