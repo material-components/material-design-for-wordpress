@@ -27,7 +27,7 @@ const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 					columnClassName="masonry-grid_column"
 				>
 					{ recentPosts.map( ( post, postIndex ) => {
-						const props = { post, postIndex, attributes };
+						const props = { post, postIndex, style, attributes };
 						return (
 							<div key={ postIndex }>
 								<SinglePost { ...props } />
