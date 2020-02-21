@@ -87,7 +87,7 @@ class Recent_Posts_Block {
 					],
 					'style'                => [
 						'type'    => 'string',
-						'default' => 'vertical',
+						'default' => 'masonry',
 					],
 					'columns'              => [
 						'type'    => 'number',

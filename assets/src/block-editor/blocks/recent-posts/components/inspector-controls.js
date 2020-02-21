@@ -18,7 +18,7 @@ import { addQueryArgs } from '@wordpress/url';
  * Internal dependencies
  */
 import ImageRadioControl from '../../../components/image-radio-control';
-import { HorizontalIcon, VerticalIcon } from './style-icons';
+import { GridIcon, ListIcon, MasonryIcon } from './style-icons';
 
 /**
  * Module Constants
@@ -86,14 +86,19 @@ const RecentPostsInspectorControls = props => {
 
 	const styleOptions = [
 		{
-			label: __( 'Vertical', 'material-theme-builder' ),
-			value: 'vertical',
-			src: VerticalIcon,
+			label: __( 'Masonry', 'material-theme-builder' ),
+			value: 'masonry',
+			src: MasonryIcon,
 		},
 		{
-			label: __( 'Horizontal', 'material-theme-builder' ),
-			value: 'horizontal',
-			src: HorizontalIcon,
+			label: __( 'List', 'material-theme-builder' ),
+			value: 'list',
+			src: ListIcon,
+		},
+		{
+			label: __( 'Grid', 'material-theme-builder' ),
+			value: 'grid',
+			src: GridIcon,
 		},
 	];
 
@@ -107,7 +112,7 @@ const RecentPostsInspectorControls = props => {
 				/>
 			</PanelBody>
 			<PanelBody title={ __( 'Content', 'material-theme-builder' ) }>
-				{ style === 'vertical' && (
+				{ ( style === 'masonry' || style === 'grid' ) && (
 					<RangeControl
 						label={ __( 'Columns', 'material-theme-builder' ) }
 						value={ columns }

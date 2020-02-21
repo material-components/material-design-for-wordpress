@@ -5,7 +5,7 @@ import { RawHTML } from '@wordpress/element';
 import { dateI18n, format, __experimentalGetSettings } from '@wordpress/date';
 import { __ } from '@wordpress/i18n';
 
-const HorizontalStyle = props => {
+const HorizontalCardLayout = props => {
 	const {
 		post,
 		postIndex,
@@ -24,7 +24,7 @@ const HorizontalStyle = props => {
 			className={
 				'mdc-card ' +
 				( outlined ? 'mdc-card--outlined' : '' ) +
-				' single-post-card single-post-card__horizontal single-post-basic'
+				' single-post-card single-post-card__list single-post-basic'
 			}
 		>
 			<div
@@ -93,7 +93,7 @@ const HorizontalStyle = props => {
 	);
 };
 
-const VerticalStyle = props => {
+const VerticalCardLayout = props => {
 	const {
 		post,
 		postIndex,
@@ -115,7 +115,7 @@ const VerticalStyle = props => {
 			className={
 				'mdc-card ' +
 				( outlined ? 'mdc-card--outlined' : '' ) +
-				' single-post-card single-post-basic-with-header'
+				' single-post-card single-post-card__masonry single-post-basic'
 			}
 		>
 			<div
@@ -199,7 +199,6 @@ const VerticalStyle = props => {
 	);
 };
 
-// @todo: Refactor Material design layout.
 const SinglePost = ( { post, postIndex, style, attributes } ) => {
 	const titleTrimmed = post.title.rendered.trim();
 	let excerpt = post.excerpt.rendered;
@@ -223,8 +222,9 @@ const SinglePost = ( { post, postIndex, style, attributes } ) => {
 
 	return (
 		<>
-			{ style === 'vertical' && <VerticalStyle { ...styleProps } /> }
-			{ style === 'horizontal' && <HorizontalStyle { ...styleProps } /> }
+			{ style === 'grid' && <VerticalCardLayout { ...styleProps } /> }
+			{ style === 'list' && <HorizontalCardLayout { ...styleProps } /> }
+			{ style === 'masonry' && <VerticalCardLayout { ...styleProps } /> }
 		</>
 	);
 };
