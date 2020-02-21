@@ -143,7 +143,7 @@ const RecentPostsInspectorControls = props => {
 				/>
 				{ displayPostContent && (
 					<RangeControl
-						label={ __( 'Max number of words in post content' ) }
+						label={ __( 'Max number of words in post content', 'material-theme-builder' ) }
 						value={ postContentLength }
 						onChange={ value => setAttributes( { postContentLength: value } ) }
 						min={ MIN_POST_CONTENT_LENGTH }
