@@ -93,13 +93,13 @@
 	color: #fff;
 }
 
-.single-post-card__horizontal .single-post-card__primary-action {
+.single-post-card__list .single-post-card__primary-action {
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-direction: row;
 	flex-direction: row;
 }
 
-.single-post-card__horizontal .single-post-card__primary {
+.single-post-card__list .single-post-card__primary {
 	flex: 1;
 }
