@@ -70,9 +70,10 @@ const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 			: posts.map( post => {
 					if ( displayFeaturedImage && post.featured_media ) {
 						const image = getMedia( post.featured_media );
+						// @todo: Refactor to make sure to pick the relevant size of the feature image.
 						let url = get(
 							image,
-							[ 'media_details', 'sizes', 'source_url' ],
+							[ 'media_details', 'sizes', 'large', 'source_url' ],
 							null
 						);
 						if ( ! url ) {
