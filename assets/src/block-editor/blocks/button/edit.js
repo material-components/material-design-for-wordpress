@@ -159,10 +159,12 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 						onChange={ setter( 'textColor' ) }
 					/>
 
-					<ContrastChecker
-						textColor={ textColor }
-						backgroundColor={ backgroundColor }
-					/>
+					{ hasBg( style ) && (
+						<ContrastChecker
+							textColor={ textColor }
+							backgroundColor={ backgroundColor }
+						/>
+					) }
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Rounded Corners', 'material-theme-builder' ) }
