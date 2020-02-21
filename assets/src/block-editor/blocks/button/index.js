@@ -10,7 +10,10 @@ export const name = 'button';
 
 export const settings = {
 	title: __( 'Button', 'material-theme-builder' ),
-	description: __( 'Button description goes here.', 'material-theme-builder' ), // @todo
+	description: __(
+		'Buttons allow users to take actions, and make choices, with a single tap.',
+		'material-theme-builder'
+	), // @todo
 	category: 'material',
 	icon: <i className="material-icons md-call-to-action">call_to_action</i>,
 	attributes: {

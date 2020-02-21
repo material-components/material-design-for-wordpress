@@ -8,9 +8,9 @@ import classNames from 'classnames';
  */
 import './style.css';
 import hasBg from './utils/has-bg';
-import { BUTTON_STYLES, ICON_POSITIONS } from './options';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
+import { BUTTON_STYLES, ICON_POSITIONS } from './options';
 import ImageRadioControl from '../../components/image-radio-control';
 import genericAttributesSetter from '../../utils/genericAttributesSetter';
 import MaterialColorPalette from '../../components/material-color-palette';
