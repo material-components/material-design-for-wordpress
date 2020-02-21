@@ -76,11 +76,6 @@
 	height: 110px;
 }
 
-.single-post-basic-with-header .single-post-card__secondary,
-.single-post-basic-with-text-over-media .single-post-card__secondary {
-	padding-top: 1rem;
-}
-
 .single-post-basic-with-text-over-media .single-post-card__media-content {
 	display: -ms-flexbox;
 	display: flex;
