@@ -107,7 +107,7 @@ class Recent_Posts_Block {
 					],
 					'postContentLength'    => [
 						'type'    => 'number',
-						'default' => 55,
+						'default' => 20,
 					],
 					'displayFeaturedImage' => [
 						'type'    => 'boolean',
