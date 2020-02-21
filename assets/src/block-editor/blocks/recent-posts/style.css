@@ -3,18 +3,7 @@
 	max-width: 100% !important;
 }
 
-.mdc-card__link {
-	text-decoration: none;
-	color: rgba(0, 0, 0, 0.87);
-
-	&:hover {
-		color: rgba(0, 0, 0, 0.87);
-	}
-}
-
 .masonry-grid {
-	display: -webkit-box; /* Not needed if autoprefixing */
-	display: -ms-flexbox; /* Not needed if autoprefixing */
 	display: flex;
 	margin-left: -30px; /* gutter size offset */
 	width: auto;
@@ -25,7 +14,7 @@
 	background-clip: padding-box;
 }
 
-.masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
+.masonry-grid_column > div {
 	margin-bottom: 20px;
 }
 
@@ -54,44 +43,14 @@
 	letter-spacing: .0071428571em !important;
 }
 
-.single-post-card__meta {
-	padding: 1rem 0 0 1rem;
-	margin: 0 !important;
-
-	button {
-		padding: 0 16px 0 0;
-	}
-}
-
 .single-post-card__secondary {
 	color: rgba(0, 0, 0, 0.54);
 	padding: 0 1rem 8px 1rem;
 }
 
-.single-post-card-shaped {
-	border-radius: 24px 8px;
-}
-
-[dir="rtl"] .single-post-card-shaped,
-.single-post-card-shaped[dir="rtl"] {
-	border-radius: 8px 24px;
-}
-
 .single-post-card__media.mdc-card__media--square {
 	width: 110px;
 	height: 110px;
-}
-
-.single-post-basic-with-text-over-media .single-post-card__media-content {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-align: end;
-	align-items: flex-end;
-}
-
-.single-post-basic-with-text-over-media .single-post-card__media-content .single-post-card__title,
-.single-post-basic-with-text-over-media .single-post-card__media-content .single-post-card__subtitle {
-	color: #fff;
 }
 
 .single-post-card__list .single-post-card__primary-action {
