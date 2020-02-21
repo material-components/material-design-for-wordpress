@@ -73,6 +73,7 @@
 
 .single-post-card__media.mdc-card__media--square {
 	width: 110px;
+	height: 110px;
 }
 
 .single-post-basic-with-header .single-post-card__secondary,
@@ -99,4 +100,6 @@
 	flex-direction: row;
 }
 
-
+.single-post-card__horizontal .single-post-card__primary {
+	flex: 1;
+}
