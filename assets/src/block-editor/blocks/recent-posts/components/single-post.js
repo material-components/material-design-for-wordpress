@@ -10,13 +10,10 @@ const HorizontalStyle = props => {
 		post,
 		postIndex,
 		titleTrimmed,
-		excerpt,
 		imageSourceUrl,
 		dateFormat,
 		outlined,
 		displayPostDate,
-		displayPostContent,
-		postContentLength,
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
@@ -57,21 +54,6 @@ const HorizontalStyle = props => {
 					) }
 				</div>
 			</div>
-			{ displayPostContent && (
-				<div className="single-post-card__secondary mdc-typography mdc-typography--body2">
-					<RawHTML key="html">
-						{ postContentLength < excerpt.trim().split( ' ' ).length
-							? excerpt
-									.trim()
-									.split( ' ', postContentLength )
-									.join( ' ' ) + ' ...'
-							: excerpt
-									.trim()
-									.split( ' ', postContentLength )
-									.join( ' ' ) }
-					</RawHTML>
-				</div>
-			) }
 			{ ( displayPostAuthor || displayCommentsCount ) && (
 				<div className="mdc-card__actions">
 					<div className="mdc-card__action-buttons">
