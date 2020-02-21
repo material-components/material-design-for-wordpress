@@ -18,7 +18,7 @@ import { addQueryArgs } from '@wordpress/url';
  * Internal dependencies
  */
 import ImageRadioControl from '../../../components/image-radio-control';
-import { GridIcon, ListIcon, MasonryIcon } from './style-icons';
+import { styleOptions } from '../styles';
 
 /**
  * Module Constants
@@ -79,24 +79,6 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 		displayPostAuthor,
 		categories,
 	} = attributes;
-
-	const styleOptions = [
-		{
-			label: __( 'Masonry', 'material-theme-builder' ),
-			value: 'masonry',
-			src: MasonryIcon,
-		},
-		{
-			label: __( 'List', 'material-theme-builder' ),
-			value: 'list',
-			src: ListIcon,
-		},
-		{
-			label: __( 'Grid', 'material-theme-builder' ),
-			value: 'grid',
-			src: GridIcon,
-		},
-	];
 
 	return (
 		<InspectorControls>
