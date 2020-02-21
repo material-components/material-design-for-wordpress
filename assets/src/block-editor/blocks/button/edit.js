@@ -8,9 +8,10 @@ import classNames from 'classnames';
  */
 import './style.css';
 import hasBg from './utils/has-bg';
-import ButtonStyles from './components/button-styles';
+import styleOptions from './styles';
 import IconPicker from '../../components/icon-picker';
 import IconPositionButtons from './components/icon-position-buttons';
+import ImageRadioControl from '../../components/image-radio-control';
 import genericAttributesSetter from '../../utils/genericAttributesSetter';
 import MaterialColorPalette from '../../components/material-color-palette';
 
@@ -96,7 +97,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 							event.key === 'Enter' && event.currentTarget.blur()
 						}
 					>
-						{ label ?? __( 'BUTTON TEXT', 'material-theme-builder' ) }
+						{ label }
 					</span>
 					{ icon && iconPosition === 'trailing' && (
 						<i className="material-icons mdc-button__icon">
@@ -121,7 +122,11 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 					title={ __( 'Styles', 'material-theme-builder' ) }
 					initialOpen={ true }
 				>
-					<ButtonStyles style={ style } onClick={ setter( 'style' ) } />
+					<ImageRadioControl
+						selected={ style }
+						options={ styleOptions }
+						onChange={ setter( 'style' ) }
+					/>
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Icon', 'material-theme-builder' ) }
@@ -132,9 +137,9 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 						onClick={ setter( 'iconPosition' ) }
 					/>
 
-					{ iconPosition && iconPosition !== 'none' ? (
+					{ iconPosition !== 'none' && (
 						<IconPicker currentIcon={ icon } onChange={ setter( 'icon' ) } />
-					) : null }
+					) }
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Colors', 'material-theme-builder' ) }
@@ -164,7 +169,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 				>
 					{ style !== 'text' ? (
 						<RangeControl
-							value={ cornerRadius ?? 4 }
+							value={ cornerRadius }
 							onChange={ setter( 'cornerRadius' ) }
 							min={ 0 }
 							max={ 36 }

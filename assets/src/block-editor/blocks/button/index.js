@@ -14,14 +14,26 @@ export const settings = {
 	category: 'material',
 	icon: <i className="material-icons md-call-to-action">call_to_action</i>,
 	attributes: {
-		label: { type: 'string' },
+		label: {
+			type: 'string',
+			default: __( 'BUTTON LABEL', 'material-theme-builder' ),
+		},
+		style: {
+			type: 'string',
+			default: 'text',
+		},
+		iconPosition: {
+			type: 'string',
+			default: 'none',
+		},
+		cornerRadius: {
+			type: 'number',
+			default: 4,
+		},
 		url: { type: 'string' },
-		style: { type: 'string' },
-		iconPosition: { type: 'string' },
 		icon: { type: 'object' },
 		backgroundColor: { type: 'string' },
 		textColor: { type: 'string' },
-		cornerRadius: { type: 'number' },
 		rel: { type: 'string' },
 		linkTarget: { type: 'string' },
 	},

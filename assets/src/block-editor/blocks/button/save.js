@@ -8,11 +8,6 @@ import classNames from 'classnames';
  */
 import hasBg from './utils/has-bg';
 
-/**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
-
 const ButtonSave = ( {
 	attributes: {
 		rel,
@@ -32,7 +27,7 @@ const ButtonSave = ( {
 		<a
 			href={ url ?? '#' }
 			rel={ rel }
-			target={ linkTarget }
+			target={ linkTarget ?? undefined }
 			style={ {
 				...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
 				...( textColor ? { color: textColor } : {} ),
@@ -48,9 +43,7 @@ const ButtonSave = ( {
 				</i>
 			) }
 			<div className="mdc-button__ripple"></div>
-			<span className="mdc-button__label">
-				{ label ?? __( 'BUTTON TEXT', 'material-theme-builder' ) }
-			</span>
+			<span className="mdc-button__label">{ label }</span>
 			{ icon && iconPosition === 'trailing' && (
 				<i className="material-icons mdc-button__icon">
 					{ String.fromCharCode( icon?.hex ) }
