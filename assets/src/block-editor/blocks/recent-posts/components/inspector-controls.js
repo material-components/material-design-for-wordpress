@@ -41,7 +41,7 @@ const MAX_POST_CONTENT_LENGTH = 30;
  *
  * @param {Object} props
  */
-const RecentPostsInspectorControls = props => {
+const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 	const [ categoriesList, setCategoriesList ] = useState( [] );
 	const [ isStillMounted, setStillMounted ] = useState( true );
 
@@ -67,8 +67,6 @@ const RecentPostsInspectorControls = props => {
 			setStillMounted( false );
 		};
 	}, [] );
-
-	const { attributes, setAttributes } = props;
 
 	const {
 		style,
