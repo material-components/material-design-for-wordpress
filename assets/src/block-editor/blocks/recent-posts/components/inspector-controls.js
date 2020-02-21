@@ -60,9 +60,7 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 					setCategoriesList( [] );
 				}
 			} );
-	}, [] );
 
-	useEffect( () => {
 		return () => {
 			setStillMounted( false );
 		};
