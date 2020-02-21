@@ -6,7 +6,7 @@ import {
 	UnelevatedIcon,
 } from './components/style-icons';
 
-export default [
+export const BUTTON_STYLES = [
 	{
 		label: __( 'Text', 'material-theme-builder' ),
 		value: 'text',
@@ -26,5 +26,20 @@ export default [
 		label: __( 'Unelevated', 'material-theme-builder' ),
 		value: 'unelevated',
 		src: UnelevatedIcon,
+	},
+];
+
+export const ICON_POSITIONS = [
+	{
+		label: __( 'None', 'material-theme-builder' ),
+		value: 'none',
+	},
+	{
+		label: __( 'Leading', 'material-theme-builder' ),
+		value: 'leading',
+	},
+	{
+		label: __( 'Trailing', 'material-theme-builder' ),
+		value: 'trailing',
 	},
 ];

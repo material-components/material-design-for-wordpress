@@ -8,7 +8,7 @@ import classNames from 'classnames';
  */
 import './style.css';
 import hasBg from './utils/has-bg';
-import styleOptions from './styles';
+import { BUTTON_STYLES, ICON_POSITIONS } from './options';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
@@ -124,7 +124,7 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 				>
 					<ImageRadioControl
 						selected={ style }
-						options={ styleOptions }
+						options={ BUTTON_STYLES }
 						onChange={ setter( 'style' ) }
 					/>
 				</PanelBody>
@@ -133,22 +133,9 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 					initialOpen={ true }
 				>
 					<ButtonGroup
+						buttons={ ICON_POSITIONS }
 						current={ iconPosition }
 						onClick={ setter( 'iconPosition' ) }
-						buttons={ [
-							{
-								label: __( 'None', 'material-theme-builder' ),
-								value: 'none',
-							},
-							{
-								label: __( 'Leading', 'material-theme-builder' ),
-								value: 'leading',
-							},
-							{
-								label: __( 'Trailing', 'material-theme-builder' ),
-								value: 'trailing',
-							},
-						] }
 					/>
 
 					{ iconPosition !== 'none' && (
