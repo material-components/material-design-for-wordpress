@@ -103,4 +103,3 @@ export const HorizontalIcon = () => (
 		/>
 	</svg>
 );
-
