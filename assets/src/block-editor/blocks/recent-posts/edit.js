@@ -23,7 +23,7 @@ const withCustomClassName = createHigherOrderComponent( BlockListBlock => {
 		}
 
 		const { style } = props.attributes;
-		const className = style === 'vertical' ? 'recent-posts-block' : '';
+		const className = `recent-posts-block-${ style }`;
 
 		return <BlockListBlock { ...props } className={ className } />;
 	};

@@ -1,3 +1,8 @@
+.recent-posts-block-grid,
+.recent-posts-block-masonry {
+	max-width: 100% !important;
+}
+
 .mdc-card__link {
 	text-decoration: none;
 	color: rgba(0, 0, 0, 0.87);
@@ -24,12 +29,12 @@
 	margin-bottom: 20px;
 }
 
-.recent-posts-block {
-	max-width: 100% !important;
-}
-
 .single-post-card__primary {
 	padding: 1rem;
+}
+
+.single-post-card .mdc-button__label {
+	white-space: nowrap;
 }
 
 .single-post-card__title {

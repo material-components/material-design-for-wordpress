@@ -9,9 +9,14 @@ import SinglePost from './single-post';
  */
 import Masonry from 'react-masonry-css';
 
-// @todo: Refactor Material design layout.
 const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 	const { style, columns } = attributes;
+
+	let columnSpan = 12;
+
+	if ( style === 'grid' ) {
+		columnSpan = Math.floor( 12 / columns );
+	}
 
 	return (
 		<>
@@ -20,10 +25,28 @@ const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 				setAttributes={ setAttributes }
 			/>
 
-			{ style === 'vertical' && (
+			{ ( style === 'grid' || style === 'list' ) && (
+				<div className={ `mdc-layout-grid layout-${ style }` }>
+					<div className="mdc-layout-grid__inner">
+						{ recentPosts.map( ( post, postIndex ) => {
+							const props = { post, postIndex, style, attributes };
+							return (
+								<div
+									key={ postIndex }
+									className={ `mdc-layout-grid__cell--span-${ columnSpan }` }
+								>
+									<SinglePost { ...props } />
+								</div>
+							);
+						} ) }
+					</div>
+				</div>
+			) }
+
+			{ style === 'masonry' && (
 				<Masonry
 					breakpointCols={ columns }
-					className="masonry-grid"
+					className={ `masonry-grid layout-${ style }` }
 					columnClassName="masonry-grid_column"
 				>
 					{ recentPosts.map( ( post, postIndex ) => {
@@ -35,24 +58,6 @@ const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 						);
 					} ) }
 				</Masonry>
-			) }
-
-			{ style === 'horizontal' && (
-				<div className="mdc-layout-grid">
-					<div className="mdc-layout-grid__inner">
-						{ recentPosts.map( ( post, postIndex ) => {
-							const props = { post, postIndex, style, attributes };
-							return (
-								<div
-									key={ postIndex }
-									className={ `mdc-layout-grid__cell--span-12` }
-								>
-									<SinglePost { ...props } />
-								</div>
-							);
-						} ) }
-					</div>
-				</div>
 			) }
 		</>
 	);
