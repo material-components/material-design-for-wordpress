@@ -26,6 +26,7 @@
 	white-space: nowrap;
 }
 
+/* @todo: Will need refactoring. */
 .single-post-card__title {
 	margin: 0 !important;
 	font-size: 1.25rem !important;
@@ -33,6 +34,7 @@
 	letter-spacing: .0125em !important;
 }
 
+/* @todo: Will need refactoring. */
 .single-post-card__subtitle {
 	padding: 1rem 1rem 0 0;
 	color: rgba(0, 0, 0, 0.54) !important;
@@ -43,6 +45,7 @@
 	letter-spacing: .0071428571em !important;
 }
 
+/* @todo: Will need refactoring. */
 .single-post-card__secondary {
 	color: rgba(0, 0, 0, 0.54);
 	padding: 0 1rem 8px 1rem;
