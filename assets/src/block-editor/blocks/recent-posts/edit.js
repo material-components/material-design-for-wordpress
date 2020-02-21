@@ -37,9 +37,9 @@ wp.hooks.addFilter(
 /**
  * Material recent posts edit component.
  */
-const RecentPostsEdit = ( { recentPosts, attributes, setAttributes } ) => {
+const RecentPostsEdit = props => {
+	const { recentPosts } = props;
 	const hasPosts = Array.isArray( recentPosts ) && recentPosts.length;
-	const props = { recentPosts, attributes, setAttributes };
 
 	if ( ! hasPosts ) {
 		return <NoPosts { ...props } />;
@@ -49,10 +49,16 @@ const RecentPostsEdit = ( { recentPosts, attributes, setAttributes } ) => {
 };
 
 const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
-	const { postsToShow, categories, displayFeaturedImage } = props.attributes;
+	const {
+		postsToShow,
+		categories,
+		displayFeaturedImage,
+		featuredImageSizeSlug,
+	} = props.attributes;
 
 	const { getEntityRecords, getMedia } = select( 'core' );
-
+	const { getSettings } = select( 'core/block-editor' );
+	const { imageSizes } = getSettings();
 	const recentPostsQuery = pickBy(
 		{
 			categories,
@@ -63,17 +69,20 @@ const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 
 	const posts = getEntityRecords( 'postType', 'post', recentPostsQuery );
 
-	// @todo: Implement logic to get the correct image size.
+	const imageSizeOptions = imageSizes
+		.filter( ( { slug } ) => slug !== 'full' )
+		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
+
 	return {
+		imageSizeOptions,
 		recentPosts: ! Array.isArray( posts )
 			? posts
 			: posts.map( post => {
 					if ( displayFeaturedImage && post.featured_media ) {
 						const image = getMedia( post.featured_media );
-						// @todo: Refactor to make sure to pick the relevant size of the feature image.
 						let url = get(
 							image,
-							[ 'media_details', 'sizes', 'large', 'source_url' ],
+							[ 'media_details', 'sizes', featuredImageSizeSlug, 'source_url' ],
 							null
 						);
 						if ( ! url ) {

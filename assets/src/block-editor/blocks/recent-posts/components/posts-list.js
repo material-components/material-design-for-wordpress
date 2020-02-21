@@ -9,7 +9,12 @@ import SinglePost from './single-post';
  */
 import Masonry from 'react-masonry-css';
 
-const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
+const PostsList = ( {
+	attributes,
+	setAttributes,
+	recentPosts,
+	imageSizeOptions,
+} ) => {
 	const { style, columns } = attributes;
 
 	let columnSpan = 12;
@@ -28,6 +33,7 @@ const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 			<InspectorControls
 				attributes={ attributes }
 				setAttributes={ setAttributes }
+				imageSizeOptions={ imageSizeOptions }
 			/>
 
 			{ ( style === 'grid' || style === 'list' ) && (
