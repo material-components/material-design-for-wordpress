@@ -10,7 +10,7 @@ import './style.css';
 import hasBg from './utils/has-bg';
 import styleOptions from './styles';
 import IconPicker from '../../components/icon-picker';
-import IconPositionButtons from './components/icon-position-buttons';
+import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
 import genericAttributesSetter from '../../utils/genericAttributesSetter';
 import MaterialColorPalette from '../../components/material-color-palette';
@@ -132,9 +132,23 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 					title={ __( 'Icon', 'material-theme-builder' ) }
 					initialOpen={ true }
 				>
-					<IconPositionButtons
-						currentPosition={ iconPosition }
+					<ButtonGroup
+						current={ iconPosition }
 						onClick={ setter( 'iconPosition' ) }
+						buttons={ [
+							{
+								label: __( 'None', 'material-theme-builder' ),
+								value: 'none',
+							},
+							{
+								label: __( 'Leading', 'material-theme-builder' ),
+								value: 'leading',
+							},
+							{
+								label: __( 'Trailing', 'material-theme-builder' ),
+								value: 'trailing',
+							},
+						] }
 					/>
 
 					{ iconPosition !== 'none' && (
