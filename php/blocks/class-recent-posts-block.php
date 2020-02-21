@@ -82,50 +82,50 @@ class Recent_Posts_Block {
 			'material/recent-posts',
 			[
 				'attributes'      => [
-					'className'            => [
+					'className'             => [
 						'type' => 'string',
 					],
-					'style'                => [
+					'style'                 => [
 						'type'    => 'string',
 						'default' => 'masonry',
 					],
-					'columns'              => [
+					'columns'               => [
 						'type'    => 'number',
 						'default' => 3,
 					],
-					'postsToShow'          => [
+					'postsToShow'           => [
 						'type'    => 'number',
 						'default' => 10,
 					],
-					'displayPostDate'      => [
+					'displayPostDate'       => [
 						'type'    => 'boolean',
 						'default' => true,
 					],
-					'displayPostContent'   => [
+					'displayPostContent'    => [
 						'type'    => 'boolean',
 						'default' => true,
 					],
-					'postContentLength'    => [
+					'postContentLength'     => [
 						'type'    => 'number',
 						'default' => 20,
 					],
-					'displayFeaturedImage' => [
+					'displayFeaturedImage'  => [
 						'type'    => 'boolean',
 						'default' => true,
 					],
-					'featuredImageSizeSlug'   => array(
+					'featuredImageSizeSlug' => [
 						'type'    => 'string',
 						'default' => 'large',
-					),
-					'displayCommentsCount' => [
+					],
+					'displayCommentsCount'  => [
 						'type'    => 'boolean',
 						'default' => true,
 					],
-					'displayPostAuthor'    => [
+					'displayPostAuthor'     => [
 						'type'    => 'boolean',
 						'default' => false,
 					],
-					'categories'           => [
+					'categories'            => [
 						'type' => 'string',
 					],
 				],
