@@ -5,7 +5,7 @@ import { RawHTML } from '@wordpress/element';
 import { dateI18n, format, __experimentalGetSettings } from '@wordpress/date';
 import { __ } from '@wordpress/i18n';
 
-export default ( { post, postIndex, attributes } ) => {
+const SinglePostVertical = ( { post, postIndex, attributes } ) => {
 	const {
 		outlined,
 		displayPostDate,
@@ -118,3 +118,6 @@ export default ( { post, postIndex, attributes } ) => {
 		</a>
 	);
 };
+
+export default SinglePostVertical;
+

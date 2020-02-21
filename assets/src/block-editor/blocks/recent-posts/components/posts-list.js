@@ -11,7 +11,7 @@ import SinglePostHorizontal from './single-post-horizontal';
 import Masonry from 'react-masonry-css';
 
 // @todo: Refactor Material design layout.
-export default ( { attributes, setAttributes, recentPosts } ) => {
+const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 	const { style, columns } = attributes;
 
 	return (
@@ -58,3 +58,5 @@ export default ( { attributes, setAttributes, recentPosts } ) => {
 		</>
 	);
 };
+
+export default PostsList;

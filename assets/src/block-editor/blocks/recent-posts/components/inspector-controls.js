@@ -36,7 +36,7 @@ const MAX_POSTS_COLUMNS = 4;
  *
  * @param {Object} props
  */
-export default props => {
+const RecentPostsInspectorControls = props => {
 	const [ categoriesList, setCategoriesList ] = useState( [] );
 	const [ isStillMounted, setStillMounted ] = useState( true );
 
@@ -176,3 +176,5 @@ export default props => {
 		</InspectorControls>
 	);
 };
+
+export default RecentPostsInspectorControls;
