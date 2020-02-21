@@ -2,8 +2,7 @@
  * Internal dependencies
  */
 import InspectorControls from './inspector-controls';
-import SinglePostVertical from './single-post-vertical';
-import SinglePostHorizontal from './single-post-horizontal';
+import SinglePost from './single-post';
 
 /**
  * External dependencies
@@ -31,7 +30,7 @@ const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 						const props = { post, postIndex, attributes };
 						return (
 							<div key={ postIndex }>
-								<SinglePostVertical { ...props } />
+								<SinglePost { ...props } />
 							</div>
 						);
 					} ) }
@@ -42,13 +41,13 @@ const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 				<div className="mdc-layout-grid">
 					<div className="mdc-layout-grid__inner">
 						{ recentPosts.map( ( post, postIndex ) => {
-							const props = { post, postIndex, attributes };
+							const props = { post, postIndex, style, attributes };
 							return (
 								<div
 									key={ postIndex }
 									className={ `mdc-layout-grid__cell--span-12` }
 								>
-									<SinglePostHorizontal { ...props } />
+									<SinglePost { ...props } />
 								</div>
 							);
 						} ) }
