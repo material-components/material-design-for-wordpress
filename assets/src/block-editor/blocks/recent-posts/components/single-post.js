@@ -5,15 +5,65 @@ import { RawHTML } from '@wordpress/element';
 import { dateI18n, format, __experimentalGetSettings } from '@wordpress/date';
 import { __ } from '@wordpress/i18n';
 
+const CardActions = ( { displayPostAuthor, displayCommentsCount, post } ) => (
+	<div className="mdc-card__actions">
+		<div className="mdc-card__action-buttons">
+			{ displayPostAuthor && (
+				<button className="mdc-button mdc-card__action mdc-card__action--button">
+					<span className="mdc-button__ripple"></span>
+					<i className="material-icons mdc-button__icon" aria-hidden="true">
+						face
+					</i>
+					<span className="mdc-button__label">{ post.authorDisplayName }</span>
+				</button>
+			) }
+			{ displayCommentsCount && (
+				<button className="mdc-button mdc-card__action mdc-card__action--button">
+					<span className="mdc-button__ripple"></span>
+					<i className="material-icons mdc-button__icon" aria-hidden="true">
+						comment
+					</i>
+					<span className="mdc-button__label">
+						{ post.commentsCount }{ ' ' }
+						{ __( 'comments', 'material-theme-builder' ) }
+					</span>
+				</button>
+			) }
+		</div>
+	</div>
+);
+
+const CardImage = ( { imageSourceUrl, type } ) => (
+	<div
+		className={ `mdc-card__media mdc-card__media--${ type } single-post-card__media }` }
+		style={ { backgroundImage: `url(${ imageSourceUrl })` } }
+	/>
+);
+
+const CardPrimary = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
+	<div className="single-post-card__primary">
+		<h2 className="single-post-card__title mdc-typography mdc-typography--headline6">
+			{ titleTrimmed ? (
+				<RawHTML>{ titleTrimmed }</RawHTML>
+			) : (
+				__( '(no title)', 'material-theme-builder' )
+			) }
+		</h2>
+		{ displayPostDate && (
+			<h3 className="single-post-card__subtitle mdc-typography mdc-typography--subtitle2">
+				<time dateTime={ format( 'c', post.date_gmt ) }>
+					{ dateI18n( dateFormat, post.date_gmt ) }
+				</time>
+			</h3>
+		) }
+	</div>
+);
+
 const HorizontalCardLayout = props => {
 	const {
-		post,
 		postIndex,
-		titleTrimmed,
 		imageSourceUrl,
-		dateFormat,
 		outlined,
-		displayPostDate,
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
@@ -32,62 +82,12 @@ const HorizontalCardLayout = props => {
 				tabIndex={ postIndex }
 			>
 				{ displayFeaturedImage && imageSourceUrl && (
-					<div
-						className="mdc-card__media mdc-card__media--square demo-card__media single-post-card__media"
-						style={ { backgroundImage: `url(${ imageSourceUrl })` } }
-					/>
+					<CardImage imageSourceUrl={ imageSourceUrl } type="square" />
 				) }
-				<div className="single-post-card__primary">
-					<h2 className="single-post-card__title mdc-typography mdc-typography--headline6">
-						{ titleTrimmed ? (
-							<RawHTML>{ titleTrimmed }</RawHTML>
-						) : (
-							__( '(no title)', 'material-theme-builder' )
-						) }
-					</h2>
-					{ displayPostDate && (
-						<h3 className="single-post-card__subtitle mdc-typography mdc-typography--subtitle2">
-							<time dateTime={ format( 'c', post.date_gmt ) }>
-								{ dateI18n( dateFormat, post.date_gmt ) }
-							</time>
-						</h3>
-					) }
-				</div>
+				<CardPrimary { ...props } />
 			</div>
 			{ ( displayPostAuthor || displayCommentsCount ) && (
-				<div className="mdc-card__actions">
-					<div className="mdc-card__action-buttons">
-						{ displayPostAuthor && (
-							<button className="mdc-button mdc-card__action mdc-card__action--button">
-								<span className="mdc-button__ripple"></span>
-								<i
-									className="material-icons mdc-button__icon"
-									aria-hidden="true"
-								>
-									face
-								</i>
-								<span className="mdc-button__label">
-									{ post.authorDisplayName }
-								</span>
-							</button>
-						) }
-						{ displayCommentsCount && (
-							<button className="mdc-button mdc-card__action mdc-card__action--button">
-								<span className="mdc-button__ripple"></span>
-								<i
-									className="material-icons mdc-button__icon"
-									aria-hidden="true"
-								>
-									comment
-								</i>
-								<span className="mdc-button__label">
-									{ post.commentsCount }{ ' ' }
-									{ __( 'comments', 'material-theme-builder' ) }
-								</span>
-							</button>
-						) }
-					</div>
-				</div>
+				<CardActions { ...props } />
 			) }
 		</div>
 	);
@@ -95,14 +95,10 @@ const HorizontalCardLayout = props => {
 
 const VerticalCardLayout = props => {
 	const {
-		post,
 		postIndex,
-		titleTrimmed,
 		excerpt,
 		imageSourceUrl,
-		dateFormat,
 		outlined,
-		displayPostDate,
 		displayPostContent,
 		postContentLength,
 		displayFeaturedImage,
@@ -123,27 +119,9 @@ const VerticalCardLayout = props => {
 				tabIndex={ postIndex }
 			>
 				{ displayFeaturedImage && imageSourceUrl && (
-					<div
-						className="mdc-card__media mdc-card__media--16-9 single-post-card__media"
-						style={ { backgroundImage: `url(${ imageSourceUrl })` } }
-					/>
+					<CardImage imageSourceUrl={ imageSourceUrl } type="16-9" />
 				) }
-				<div className="single-post-card__primary">
-					<h2 className="single-post-card__title mdc-typography mdc-typography--headline6">
-						{ titleTrimmed ? (
-							<RawHTML>{ titleTrimmed }</RawHTML>
-						) : (
-							__( '(no title)', 'material-theme-builder' )
-						) }
-					</h2>
-					{ displayPostDate && (
-						<h3 className="single-post-card__subtitle mdc-typography mdc-typography--subtitle2">
-							<time dateTime={ format( 'c', post.date_gmt ) }>
-								{ dateI18n( dateFormat, post.date_gmt ) }
-							</time>
-						</h3>
-					) }
-				</div>
+				<CardPrimary { ...props } />
 				{ displayPostContent && (
 					<div className="single-post-card__secondary mdc-typography mdc-typography--body2">
 						<RawHTML key="html">
@@ -161,39 +139,7 @@ const VerticalCardLayout = props => {
 				) }
 			</div>
 			{ ( displayPostAuthor || displayCommentsCount ) && (
-				<div className="mdc-card__actions">
-					<div className="mdc-card__action-buttons">
-						{ displayPostAuthor && (
-							<button className="mdc-button mdc-card__action mdc-card__action--button">
-								<span className="mdc-button__ripple"></span>
-								<i
-									className="material-icons mdc-button__icon"
-									aria-hidden="true"
-								>
-									face
-								</i>
-								<span className="mdc-button__label">
-									{ post.authorDisplayName }
-								</span>
-							</button>
-						) }
-						{ displayCommentsCount && (
-							<button className="mdc-button mdc-card__action mdc-card__action--button">
-								<span className="mdc-button__ripple"></span>
-								<i
-									className="material-icons mdc-button__icon"
-									aria-hidden="true"
-								>
-									comment
-								</i>
-								<span className="mdc-button__label">
-									{ post.commentsCount }{ ' ' }
-									{ __( 'comments', 'material-theme-builder' ) }
-								</span>
-							</button>
-						) }
-					</div>
-				</div>
+				<CardActions { ...props } />
 			) }
 		</div>
 	);
