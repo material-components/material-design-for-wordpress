@@ -18,7 +18,7 @@ import { addQueryArgs } from '@wordpress/url';
  * Internal dependencies
  */
 import ImageRadioControl from '../../../components/image-radio-control';
-import { styleOptions } from '../styles';
+import styleOptions from '../styles';
 
 /**
  * Module Constants
