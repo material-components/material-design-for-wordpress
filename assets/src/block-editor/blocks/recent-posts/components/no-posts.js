@@ -9,7 +9,7 @@ import { __ } from '@wordpress/i18n';
  */
 import InspectorControls from './inspector-controls';
 
-export default ( { attributes, setAttributes, recentPosts } ) => (
+const NoPosts = ( { attributes, setAttributes, recentPosts } ) => (
 	<>
 		<InspectorControls
 			attributes={ attributes }
@@ -27,3 +27,5 @@ export default ( { attributes, setAttributes, recentPosts } ) => (
 		</Placeholder>
 	</>
 );
+
+export default NoPosts;

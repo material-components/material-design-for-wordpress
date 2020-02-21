@@ -48,7 +48,7 @@ const RecentPostsEdit = ( { recentPosts, attributes, setAttributes } ) => {
 	return <PostsList { ...props } />;
 };
 
-export default withSelect( ( select, props ) => {
+const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 	const { postsToShow, categories, displayFeaturedImage } = props.attributes;
 
 	const { getEntityRecords, getMedia } = select( 'core' );
@@ -84,3 +84,5 @@ export default withSelect( ( select, props ) => {
 			  } ),
 	};
 } )( RecentPostsEdit );
+
+export default RecentPostsEditWithSelect;

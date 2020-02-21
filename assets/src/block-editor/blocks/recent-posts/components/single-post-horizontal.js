@@ -6,7 +6,7 @@ import { dateI18n, format, __experimentalGetSettings } from '@wordpress/date';
 import { __ } from '@wordpress/i18n';
 
 // @todo: Refactor Material design layout.
-export default ( { post, postIndex, attributes } ) => {
+const SinglePostHorizontal = ( { post, postIndex, attributes } ) => {
 	const {
 		outlined,
 		displayPostDate,
@@ -120,3 +120,5 @@ export default ( { post, postIndex, attributes } ) => {
 		</a>
 	);
 };
+
+export default SinglePostHorizontal;
