@@ -235,15 +235,10 @@ const SinglePost = ( { post, postIndex, style, attributes } ) => {
 	};
 
 	return (
-		<a
-			href={ post.link }
-			className="mdc-card__link"
-			target="_blank"
-			rel="noreferrer noopener"
-		>
+		<>
 			{ style === 'vertical' && <VerticalStyle { ...styleProps } /> }
 			{ style === 'horizontal' && <HorizontalStyle { ...styleProps } /> }
-		</a>
+		</>
 	);
 };
 
