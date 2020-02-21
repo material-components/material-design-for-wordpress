@@ -1,6 +1,7 @@
 [contenteditable="true"].button-label {
   white-space: nowrap;
   overflow: hidden;
+  cursor: text;
 }
 
 [contenteditable="true"].button-label br {
@@ -11,4 +12,8 @@
 [contenteditable="true"].button-label * {
   display: inline;
   white-space: nowrap;
+}
+
+.mdc-button--outlined:not(:disabled) {
+  border-color: inherit !important;
 }
