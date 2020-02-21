@@ -27,9 +27,14 @@ const CATEGORIES_LIST_QUERY = {
 	per_page: 100, // @todo: Implement lookup of categories using auto complete field.
 };
 
+const MIN_NUMBER_OF_POSTS = 1;
 const MAX_NUMBER_OF_POSTS = 12;
 
+const MIN_POSTS_COLUMNS = 2;
 const MAX_POSTS_COLUMNS = 4;
+
+const MIN_POST_CONTENT_LENGTH = 10;
+const MAX_POST_CONTENT_LENGTH = 30;
 
 /**
  * Recent Posts Inspector Controls
@@ -107,7 +112,7 @@ const RecentPostsInspectorControls = props => {
 						label={ __( 'Columns', 'material-theme-builder' ) }
 						value={ columns }
 						onChange={ value => setAttributes( { columns: value } ) }
-						min={ 2 }
+						min={ MIN_POSTS_COLUMNS }
 						max={ MAX_POSTS_COLUMNS }
 					/>
 				) }
@@ -115,7 +120,7 @@ const RecentPostsInspectorControls = props => {
 					label={ __( 'Number of posts', 'material-theme-builder' ) }
 					value={ postsToShow }
 					onChange={ value => setAttributes( { postsToShow: value } ) }
-					min={ 1 }
+					min={ MIN_NUMBER_OF_POSTS }
 					max={ MAX_NUMBER_OF_POSTS }
 				/>
 				<ToggleControl
@@ -141,8 +146,8 @@ const RecentPostsInspectorControls = props => {
 						label={ __( 'Max number of words in excerpt' ) }
 						value={ postContentLength }
 						onChange={ value => setAttributes( { postContentLength: value } ) }
-						min={ 10 }
-						max={ 100 }
+						min={ MIN_POST_CONTENT_LENGTH }
+						max={ MAX_POST_CONTENT_LENGTH }
 					/>
 				) }
 				<ToggleControl
