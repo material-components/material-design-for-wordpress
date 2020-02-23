@@ -9,6 +9,7 @@ namespace MaterialThemeBuilder\Blocks;
 
 use MaterialThemeBuilder\Plugin;
 use WP_Post;
+use WP_Query;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -78,6 +79,7 @@ class Recent_Posts_Block {
 	 * @action init
 	 */
 	public function register_block_material_recent_posts() {
+
 		register_block_type(
 			'material/recent-posts',
 			[
@@ -96,6 +98,10 @@ class Recent_Posts_Block {
 					'postsToShow'           => [
 						'type'    => 'number',
 						'default' => 10,
+					],
+					'outlined'              => [
+						'type'    => 'boolean',
+						'default' => false,
 					],
 					'displayPostDate'       => [
 						'type'    => 'boolean',
@@ -129,7 +135,7 @@ class Recent_Posts_Block {
 						'type' => 'string',
 					],
 				],
-				'render_callback' => [ $this, 'render_block_material_recent_posts' ],
+				'render_callback' => [ $this, 'render_block' ],
 			]
 		);
 	}
@@ -143,18 +149,37 @@ class Recent_Posts_Block {
 	 *
 	 * @return string Returns the post content with latest posts added.
 	 */
-	public function render_block_material_recent_posts( $attributes ) {
+	public function render_block( $attributes ) {
 		$args = [
-			'posts_per_page'   => $attributes['postsToShow'],
-			'post_status'      => 'publish',
-			'suppress_filters' => false,
-		]; // todo: redefine to match requirements.
+			'posts_per_page'         => $attributes['postsToShow'],
+			'post_status'            => 'publish',
+			'no_found_rows'          => true,
+			'update_post_meta_cache' => false,
+			'ignore_sticky_posts'    => true,
+		];
 
-		if ( isset( $attributes['categories'] ) ) {
+		if ( ! empty( $attributes['categories'] ) ) {
 			$args['category'] = $attributes['categories'];
 		}
 
-		// $recent_posts = get_posts( $args ); @todo: Use WP_Query.
+		$posts_query = new WP_Query( apply_filters( 'mtb_recent_posts_query_args', $args, $attributes ) );
+
+		if ( $posts_query->have_posts() && in_array( $attributes['style'], [ 'grid', 'list', 'masonry' ], true ) ) {
+			ob_start();
+
+			$template = in_array( $attributes['style'], [ 'grid', 'list' ], true ) ? 'list-grid' : 'masonry';
+
+			$this->plugin->get_template(
+				"posts-{$template}.php",
+				[
+					'posts_query' => $posts_query,
+					'attributes'  => $attributes,
+				] 
+			);
+
+			return ob_get_clean();
+		}
+
 
 		return sprintf(
 			'hello world' // todo: Do the rendering.

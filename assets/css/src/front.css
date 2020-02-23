@@ -2,3 +2,4 @@
  * All Frontend CSS.
  */
 @import "./material-components.css";
+@import "../../src/block-editor/blocks/recent-posts/style.css";

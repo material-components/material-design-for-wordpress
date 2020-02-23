@@ -19,7 +19,7 @@
 }
 
 .single-post-card__primary {
-	padding: 1rem;
+	padding: 1em;
 }
 
 .single-post-card .mdc-button__label {
@@ -29,18 +29,18 @@
 /* @todo: Will need refactoring. */
 .single-post-card__title {
 	margin: 0 !important;
-	font-size: 1.25rem !important;
+	font-size: 1.25em !important;
 	font-weight: 500 !important;
 	letter-spacing: .0125em !important;
 }
 
 /* @todo: Will need refactoring. */
 .single-post-card__subtitle {
-	padding: 1rem 1rem 0 0;
+	padding: 1em 1em 0 0;
 	color: rgba(0, 0, 0, 0.54) !important;
 	margin: 0 !important;
-	font-size: .875rem !important;
-	line-height: 1.375rem !important; /* stylelint-disable-line */
+	font-size: .875em !important;
+	line-height: 1.375em !important; /* stylelint-disable-line */
 	font-weight: 500 !important;
 	letter-spacing: .0071428571em !important;
 }
@@ -48,7 +48,11 @@
 /* @todo: Will need refactoring. */
 .single-post-card__secondary {
 	color: rgba(0, 0, 0, 0.54);
-	padding: 0 1rem 8px 1rem;
+	padding: 0 1em 8px 1em;
+}
+
+.mdc-typography--body2 {
+	font-size: .875em !important;
 }
 
 .single-post-card__media.mdc-card__media--square {
@@ -63,6 +67,6 @@
 	flex-direction: row;
 }
 
-.single-post-card__list .single-post-card__primary {
-	flex: 1;
+.mdc-card__action-buttons, .mdc-card__action-icons {
+	flex-wrap: wrap;
 }
