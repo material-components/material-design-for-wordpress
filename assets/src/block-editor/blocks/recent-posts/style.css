@@ -14,6 +14,28 @@
 	background-clip: padding-box;
 }
 
+/* @todo adjust width based on breakpoints */
+.layout-masonry-2 {
+
+	& .masonry-grid_column {
+		width: 50%;
+	}
+}
+
+.layout-masonry-3 {
+
+	& .masonry-grid_column {
+		width: 33.33%;
+	}
+}
+
+.layout-masonry-4 {
+
+	& .masonry-grid_column {
+		width: 25%;
+	}
+}
+
 .masonry-grid_column > div {
 	margin-bottom: 20px;
 }
@@ -67,6 +89,7 @@
 	flex-direction: row;
 }
 
-.mdc-card__action-buttons, .mdc-card__action-icons {
+.mdc-card__action-buttons,
+ .mdc-card__action-icons {
 	flex-wrap: wrap;
 }

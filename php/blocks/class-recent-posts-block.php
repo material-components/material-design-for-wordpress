@@ -174,7 +174,7 @@ class Recent_Posts_Block {
 				[
 					'posts_query' => $posts_query,
 					'attributes'  => $attributes,
-				] 
+				]
 			);
 
 			return ob_get_clean();
