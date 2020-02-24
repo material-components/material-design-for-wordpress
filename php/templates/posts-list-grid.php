@@ -5,7 +5,7 @@
  * @package MaterialThemeBuilder
  */
 
-use function MaterialThemeBuilder\get_plugin_instance;
+use MaterialThemeBuilder\Template;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -24,7 +24,7 @@ $style      = isset( $attributes['style'] ) ? $attributes['style'] : 'grid';
 				?>
 
 				<?php
-				get_plugin_instance()->get_template(
+				Template::get_template(
 					'partials/single-post.php',
 					[
 						'attributes' => $attributes,
