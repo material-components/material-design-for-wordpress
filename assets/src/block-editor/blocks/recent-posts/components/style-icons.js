@@ -1,3 +1,8 @@
+/**
+ * Grid Icon component.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 export const GridIcon = () => (
 	<svg
 		width="37"
@@ -17,6 +22,11 @@ export const GridIcon = () => (
 	</svg>
 );
 
+/**
+ * List Icon component.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 export const ListIcon = () => (
 	<svg
 		width="39"
@@ -37,6 +47,11 @@ export const ListIcon = () => (
 	</svg>
 );
 
+/**
+ * Masonry Icon component.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 export const MasonryIcon = () => (
 	<svg
 		width="37"

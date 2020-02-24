@@ -5,6 +5,17 @@ import { __ } from '@wordpress/i18n';
 import { dateI18n, format } from '@wordpress/date';
 import { RawHTML } from '@wordpress/element';
 
+/**
+ * Card Primary component.
+ *
+ * @param {Object} props - Props.
+ * @param {string} props.titleTrimmed - Post title trimmed.
+ * @param {boolean} props.displayPostDate - Whether or not to display the post date field.
+ * @param {Object} props.post - Post data.
+ * @param {string} props.dateFormat - Date format.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 const CardPrimary = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
 	<div className="single-post-card__primary">
 		<h2 className="single-post-card__title mdc-typography mdc-typography--headline6">

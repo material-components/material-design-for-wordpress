@@ -1,14 +1,25 @@
 /**
+ * External dependencies
+ */
+import Masonry from 'react-masonry-css';
+
+/**
  * Internal dependencies
  */
 import InspectorControls from './inspector-controls';
 import SinglePost from './single-post';
 
 /**
- * External dependencies
+ * Posts List component.
+ *
+ * @param {Object} props
+ * @param {Object} props.attributes - Block attributes.
+ * @param {Function} props.setAttributes - Function to set block attributes value.
+ * @param {Object} props.recentPosts - Posts.
+ * @param {{value: string, label: string}[]} props.imageSizeOptions - Image sizes.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
  */
-import Masonry from 'react-masonry-css';
-
 const PostsList = ( {
 	attributes,
 	setAttributes,

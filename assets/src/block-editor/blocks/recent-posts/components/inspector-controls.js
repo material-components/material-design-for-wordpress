@@ -38,9 +38,14 @@ const MIN_POST_CONTENT_LENGTH = 10;
 const MAX_POST_CONTENT_LENGTH = 30;
 
 /**
- * Recent Posts Inspector Controls
+ * Recent Posts Inspector Controls component.
  *
  * @param {Object} props
+ * @param {Object} props.attributes - Block attributes.
+ * @param {Function} props.setAttributes - Function to set block attributes value.
+ * @param {Array} props.imageSizeOptions - Image sizes.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
  */
 const RecentPostsInspectorControls = ( {
 	attributes,
