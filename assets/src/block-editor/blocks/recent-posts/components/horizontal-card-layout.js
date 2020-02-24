@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import classnames from 'classnames';
+
+/**
  * Internal dependencies
  */
 import CardImage from './card-image';
@@ -17,11 +22,13 @@ const HorizontalCardLayout = props => {
 
 	return (
 		<div
-			className={
-				'mdc-card ' +
-				( outlined ? 'mdc-card--outlined' : '' ) +
-				' single-post-card single-post-card__list single-post-basic'
-			}
+			className={ classnames(
+				'mdc-card',
+				{ 'mdc-card--outlined': outlined },
+				'single-post-card',
+				'single-post-card__list',
+				'single-post-basic'
+			) }
 		>
 			<div
 				className="mdc-card__primary-action single-post-card__primary-action"

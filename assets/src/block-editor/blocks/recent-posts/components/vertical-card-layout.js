@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import classnames from 'classnames';
+
+/**
  * WordPress dependencies
  */
 import { RawHTML } from '@wordpress/element';
@@ -25,11 +30,13 @@ const VerticalCardLayout = props => {
 
 	return (
 		<div
-			className={
-				'mdc-card ' +
-				( outlined ? 'mdc-card--outlined' : '' ) +
-				' single-post-card single-post-card__masonry single-post-basic'
-			}
+			className={ classnames(
+				'mdc-card',
+				{ 'mdc-card--outlined': outlined },
+				'single-post-card',
+				'single-post-card__masonry',
+				'single-post-basic'
+			) }
 		>
 			<div
 				className="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
