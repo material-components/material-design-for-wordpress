@@ -14,7 +14,7 @@ $class_name = isset( $attributes['className'] ) ? $attributes['className'] : '';
 $columns    = absint( isset( $attributes['columns'] ) ? $attributes['columns'] : 3 );
 ?>
 
-<div class="masonry-grid layout-masonry-<?php echo esc_attr( $columns ); ?> <?php echo esc_attr( $class_name ); ?>">
+<div class="masonry-grid <?php echo esc_attr( Template::classnames( [ "layout-masonry-$columns", $class_name ] ) ); ?>">
 	<?php if ( ! empty( $posts_query ) && $posts_query->have_posts() ) : ?>
 
 		<?php

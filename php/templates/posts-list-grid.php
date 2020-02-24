@@ -14,7 +14,7 @@ $class_name = isset( $attributes['className'] ) ? $attributes['className'] : '';
 $style      = isset( $attributes['style'] ) ? $attributes['style'] : 'grid';
 ?>
 
-<div class="mdc-layout-grid layout-<?php echo esc_attr( implode( ' ', [ $style, $class_name ] ) ); ?>">
+<div class="mdc-layout-grid <?php echo esc_attr( Template::classnames( [ "layout-$style", $class_name ] ) ); ?>">
 	<div class="mdc-layout-grid__inner">
 		<?php if ( ! empty( $posts_query ) && $posts_query->have_posts() ) : ?>
 

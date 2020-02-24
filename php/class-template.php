@@ -80,4 +80,28 @@ class Template {
 	public static function template_path() {
 		return apply_filters( 'mtb_template_path', 'material-theme/' );
 	}
+
+	/**
+	 * Conditionally return classnames.
+	 *
+	 * @param  array $classes Array of classnames or class => condition checks.
+	 * @return string
+	 */
+	public static function classnames( $classes ) {
+
+		if ( empty( $classes ) || ! is_array( $classes ) ) {
+			return (string) $classes;
+		}
+
+		$classnames = [];
+		foreach ( $classes as $key => $value ) {
+			if ( is_numeric( $key ) ) {
+				$classnames[] = $value;
+			} elseif ( ! empty( $value ) ) {
+				$classnames[] = $key;
+			}
+		}
+
+		return implode( ' ', $classnames );
+	}
 }
