@@ -1,13 +1,13 @@
 /**
+ * External dependencies
+ */
+import Masonry from 'react-masonry-css';
+
+/**
  * Internal dependencies
  */
 import InspectorControls from './inspector-controls';
 import SinglePost from './single-post';
-
-/**
- * External dependencies
- */
-import Masonry from 'react-masonry-css';
 
 const PostsList = ( {
 	attributes,

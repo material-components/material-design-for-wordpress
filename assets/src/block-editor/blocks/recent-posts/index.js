@@ -1,10 +1,13 @@
-import edit from './edit';
-
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import BlockIcon from './components/block-icon';
+
+/**
+ * Internal dependencies
+ */
+import edit from './edit';
 
 export const name = 'recent-posts';
 
