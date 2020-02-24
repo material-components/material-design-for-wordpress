@@ -11,11 +11,16 @@ $attributes     = isset( $attributes ) ? $attributes : [];
 $comments_count = isset( $attributes['displayCommentsCount'] ) ? $attributes['displayCommentsCount'] : false;
 $post_author    = isset( $attributes['displayPostAuthor'] ) ? $attributes['displayPostAuthor'] : false;
 
+if ( ! empty( $post_author ) ) {
+	$author_name = get_the_author_meta( 'display_name' );
+	$author_url  = get_author_posts_url( get_the_author_meta( 'ID' ), $author_name );
+}
+
 if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 	<div class="mdc-card__actions">
 		<div class="mdc-card__action-buttons">
 			<?php if ( ! empty( $post_author ) ) : ?>
-				<button class="mdc-button">
+				<a class="mdc-button" class="post-author" href="<?php echo esc_url( $author_url ); ?>">
 					<i
 						class="material-icons mdc-button__icon"
 						aria-hidden="true"
@@ -23,13 +28,13 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 						face
 					</i>
 					<span class="mdc-button__label">
-						<?php echo esc_html( get_the_author() ); ?>
+						<?php echo esc_html( $author_name ); ?>
 					</span>
-				</button>
+				</a>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $comments_count ) ) : ?>
-				<button class="mdc-button">
+				<a class="mdc-button" class="comment-count" href="<?php get_the_permalink(); ?>">
 					<i
 						class="material-icons mdc-button__icon"
 						aria-hidden="true"
@@ -37,10 +42,10 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 						comment
 					</i>
 					<span class="mdc-button__label">
-						<?php echo esc_html( wp_count_comments( get_the_ID() )->approved ); ?>
+						<?php echo esc_html( get_comments_number( get_the_ID() ) ); ?>
 						<?php echo esc_html__( 'comments', 'material-theme-builder' ); ?>
 					</span>
-				</button>
+				</a>
 			<?php endif; ?>
 		</div> <!-- mdc-card__action-buttons -->
 	</div> <!-- mdc-card__actions -->
