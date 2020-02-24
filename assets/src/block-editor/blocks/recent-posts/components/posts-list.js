@@ -9,6 +9,17 @@ import Masonry from 'react-masonry-css';
 import InspectorControls from './inspector-controls';
 import SinglePost from './single-post';
 
+/**
+ * Posts List component.
+ *
+ * @param {Object} props
+ * @param {Object} props.attributes - Block attributes.
+ * @param {Function} props.setAttributes - Function to set block attributes value.
+ * @param {Object} props.recentPosts - Posts.
+ * @param {{value: string, label: string}[]} props.imageSizeOptions - Image sizes.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 const PostsList = ( {
 	attributes,
 	setAttributes,

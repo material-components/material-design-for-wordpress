@@ -3,6 +3,16 @@
  */
 import { __ } from '@wordpress/i18n';
 
+/**
+ * Card Actions component.
+ *
+ * @param {Object} props - Props.
+ * @param {boolean} props.displayPostAuthor - Whether or not to display the post author field.
+ * @param {boolean} props.displayCommentsCount - Whether or not to display the post comments count field.
+ * @param {Object} props.post - Post data.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 const CardActions = ( { displayPostAuthor, displayCommentsCount, post } ) => (
 	<div className="mdc-card__actions">
 		<div className="mdc-card__action-buttons">

@@ -16,6 +16,9 @@ import NoPosts from './components/no-posts';
 import PostsList from './components/posts-list';
 import './style.css';
 
+/**
+ * @type {WPComponent}
+ */
 const withCustomClassName = createHigherOrderComponent( BlockListBlock => {
 	return props => {
 		if ( 'material/recent-posts' !== props.name ) {
@@ -35,7 +38,11 @@ wp.hooks.addFilter(
 );
 
 /**
- * Material recent posts edit component.
+ * Recent Posts Edit component.
+ *
+ * @param {Object} props - Component props
+ *
+ * @return {Function} Function returning the HTML markup for the component.
  */
 const RecentPostsEdit = props => {
 	const { recentPosts } = props;
@@ -48,6 +55,9 @@ const RecentPostsEdit = props => {
 	return <PostsList { ...props } />;
 };
 
+/**
+ * @type {Function} Function returning the HTML markup for the component.
+ */
 const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 	const {
 		postsToShow,
