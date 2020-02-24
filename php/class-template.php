@@ -13,7 +13,7 @@ namespace MaterialThemeBuilder;
 class Template {
 
 	/**
-	 * Include template from plugin.
+	 * Include template from theme or plugin.
 	 *
 	 * @param string $template_name Name of the template.
 	 * @param array  $args Vars to be passed to the template.
@@ -34,12 +34,11 @@ class Template {
 	}
 
 	/**
-	 * Locate a template file and retunr the path.
+	 * Locate a template file and return the path.
 	 *
 	 * This is the load order:
 	 *
 	 * yourtheme/{$template_path OR material-theme}/$template_name
-	 * yourtheme/$template_name
 	 * $default_path/$template_name
 	 *
 	 * @param  string $template_name Name of the template.
@@ -58,15 +57,10 @@ class Template {
 		}
 
 		// Look within passed path within the theme - this is priority.
-		$template = locate_template(
-			array(
-				trailingslashit( $template_path ) . $template_name,
-				$template_name,
-			)
-		);
+		$template = locate_template( trailingslashit( $template_path ) . $template_name );
 
 		if ( empty( $template ) ) {
-			$template = $default_path . $template_name;
+			$template = trailingslashit( $default_path ) . $template_name;
 		}
 
 		return apply_filters( 'mtb_locate_template', $template, $template_name, $default_path );
