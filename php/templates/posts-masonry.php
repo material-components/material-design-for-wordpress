@@ -5,7 +5,7 @@
  * @package MaterialThemeBuilder
  */
 
-use function MaterialThemeBuilder\get_plugin_instance;
+use MaterialThemeBuilder\Template;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -18,7 +18,7 @@ $columns    = absint( isset( $attributes['columns'] ) ? $attributes['columns'] :
 	<?php if ( ! empty( $posts_query ) && $posts_query->have_posts() ) : ?>
 
 		<?php
-		// Split each post into a column for masonry layout.
+		// Divide posts into columns for masonry layout.
 		$i            = 0;
 		$column_items = [];
 		while ( $posts_query->have_posts() ) :
@@ -29,7 +29,7 @@ $columns    = absint( isset( $attributes['columns'] ) ? $attributes['columns'] :
 			?>
 
 			<?php
-			get_plugin_instance()->get_template(
+			Template::get_template(
 				'partials/single-post.php',
 				[
 					'attributes' => $attributes,

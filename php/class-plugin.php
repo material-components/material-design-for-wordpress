@@ -148,37 +148,4 @@ class Plugin extends Plugin_Base {
 
 		return $categories;
 	}
-
-	/**
-	 * Include template from plugin.
-	 *
-	 * @param string $template_name Name of the template.
-	 * @param array  $args Vars to be passed to the template.
-	 * @return void
-	 */
-	public function get_template( $template_name, $args = [] ) {
-		if ( is_array( $args ) && isset( $args ) ) {
-			extract( $args );
-		}
-
-		$template_file = $this->locate_template( $template_name );
-
-		if ( file_exists( $template_file ) ) {
-			include $template_file;
-		}
-	}
-
-	/**
-	 * Locate a tempalte file.
-	 *
-	 * @param  string $template_name Name of the template.
-	 * @return string
-	 */
-	public function locate_template( $template_name ) {
-		$default_path = plugin_dir_path( __FILE__ ) . 'templates/';
-
-		$template = $default_path . $template_name;
-
-		return apply_filters( 'mtb_locate_template', $template, $template_name, $default_path );
-	}
 }

@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder\Blocks;
 
 use MaterialThemeBuilder\Plugin;
+use MaterialThemeBuilder\Template;
 use WP_Post;
 use WP_Query;
 use WP_REST_Request;
@@ -162,14 +163,24 @@ class Recent_Posts_Block {
 			$args['category'] = $attributes['categories'];
 		}
 
-		$posts_query = new WP_Query( apply_filters( 'mtb_recent_posts_query_args', $args, $attributes ) );
+		/**
+		 * Filters the args for recent posts WP_Query.
+		 *
+		 * @param array $args The args for the WP_Query.
+		 * @param array $attributes The block's attributes.
+		 */
+		$args = apply_filters( 'mtb_recent_posts_query_args', $args, $attributes );
 
+		$posts_query = new WP_Query( $args );
+
+		// If we have posts and a valid layout style, load the template.
 		if ( $posts_query->have_posts() && in_array( $attributes['style'], [ 'grid', 'list', 'masonry' ], true ) ) {
 			ob_start();
 
+			// Determine the template to show.
 			$template = in_array( $attributes['style'], [ 'grid', 'list' ], true ) ? 'list-grid' : 'masonry';
 
-			$this->plugin->get_template(
+			Template::get_template(
 				"posts-{$template}.php",
 				[
 					'posts_query' => $posts_query,
@@ -180,10 +191,7 @@ class Recent_Posts_Block {
 			return ob_get_clean();
 		}
 
-
-		return sprintf(
-			'hello world' // todo: Do the rendering.
-		);
+		return '<!-- No posts found -->';
 	}
 
 }
