@@ -1,3 +1,8 @@
+/**
+ * Block Icon component.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 const BlockIcon = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"

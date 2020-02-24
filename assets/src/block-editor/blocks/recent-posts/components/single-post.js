@@ -9,6 +9,17 @@ import { __experimentalGetSettings } from '@wordpress/date';
 import VerticalCardLayout from './vertical-card-layout';
 import HorizontalCardLayout from './horizontal-card-layout';
 
+/**
+ * Single Post component.
+ *
+ * @param {Object} props
+ * @param {Object} props.post - Post data.
+ * @param {number} props.postIndex - Post index.
+ * @param {string} props.style - Card layout style.
+ * @param {Object} props.attributes - Block attributes.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 const SinglePost = ( { post, postIndex, style, attributes } ) => {
 	const titleTrimmed = post.title.rendered.trim();
 	let excerpt = post.excerpt.rendered;

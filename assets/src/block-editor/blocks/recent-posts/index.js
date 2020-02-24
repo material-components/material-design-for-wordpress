@@ -11,6 +11,9 @@ import edit from './edit';
 
 export const name = 'recent-posts';
 
+/**
+ * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
+ */
 export const settings = {
 	title: __( 'Recent Posts', 'material-theme-builder' ),
 	description: __(
