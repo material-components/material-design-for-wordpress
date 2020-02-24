@@ -1,13 +1,13 @@
 /**
+ * External dependencies
+ */
+import { get, isUndefined, pickBy } from 'lodash';
+
+/**
  * WordPress dependencies
  */
 import { withSelect } from '@wordpress/data';
 import { createHigherOrderComponent } from '@wordpress/compose';
-
-/**
- * External dependencies
- */
-import { get, isUndefined, pickBy } from 'lodash';
 
 /**
  * Internal dependencies
