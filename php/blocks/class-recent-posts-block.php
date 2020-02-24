@@ -59,13 +59,12 @@ class Recent_Posts_Block {
 	 *
 	 * @return WP_REST_Response
 	 */
-	public function add_comments_count_to_post( WP_REST_Response $response, WP_Post $post, WP_REST_Request $request ) {
+	public function add_comments_count( WP_REST_Response $response, WP_Post $post, WP_REST_Request $request ) {
 		$context = $request->get_param( 'context' );
 
-		if ( 'edit' === $context ) {
-			// @todo: Review if these are the most efficient methods to get some meta data
-			$response->data['authorDisplayName'] = get_the_author_meta( 'display_name', $post->author );
-			$response->data['authorUrl']         = get_author_posts_url( $post->author, $response->data['authorDisplayName'] );
+		if ( 'edit' === $context && 'post' === $post->post_type ) {
+			$response->data['authorDisplayName'] = get_the_author_meta( 'display_name', $post->post_author );
+			$response->data['authorUrl']         = get_author_posts_url( $post->post_author, $response->data['authorDisplayName'] );
 			$response->data['commentsCount']     = (int) get_comments_number( $post->id );
 		}
 
@@ -79,7 +78,7 @@ class Recent_Posts_Block {
 	 *
 	 * @action init
 	 */
-	public function register_block_material_recent_posts() {
+	public function register_block() {
 
 		register_block_type(
 			'material/recent-posts',
@@ -160,7 +159,7 @@ class Recent_Posts_Block {
 		];
 
 		if ( ! empty( $attributes['categories'] ) ) {
-			$args['category'] = $attributes['categories'];
+			$args['cat'] = absint( $attributes['categories'] );
 		}
 
 		/**
