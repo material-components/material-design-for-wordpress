@@ -50,5 +50,8 @@ $columns    = absint( isset( $attributes['columns'] ) ? $attributes['columns'] :
 			<?php echo implode( "</div>\n<div class='masonry-grid_column'>", $column_items ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
 
+		<?php // reset the main query loop. ?>
+		<?php wp_reset_postdata(); ?>
+
 	<?php endif; ?>
 </div>

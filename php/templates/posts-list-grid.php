@@ -34,6 +34,9 @@ $style      = isset( $attributes['style'] ) ? $attributes['style'] : 'grid';
 
 			<?php endwhile; ?>
 
+			<?php // reset the main query loop. ?>
+			<?php wp_reset_postdata(); ?>
+
 		<?php endif; ?>
 	</div>
 </div>
