@@ -1,8 +1,3 @@
-.recent-posts-block-grid,
-.recent-posts-block-masonry {
-	max-width: 100% !important;
-}
-
 .masonry-grid {
 	display: flex;
 	margin-left: -30px; /* gutter size offset */
@@ -40,6 +35,11 @@
 	margin-bottom: 20px;
 }
 
+/* @todo: Will need refactoring. */
+.single-post-card {
+	font-size: 16px;
+}
+
 .single-post-card__primary {
 	padding: 1em;
 }
@@ -54,6 +54,7 @@
 	font-size: 1.25em !important;
 	font-weight: 500 !important;
 	letter-spacing: .0125em !important;
+	font-family: Roboto, sans-serif !important;
 }
 
 /* @todo: Will need refactoring. */
@@ -65,6 +66,7 @@
 	line-height: 1.375em !important; /* stylelint-disable-line */
 	font-weight: 500 !important;
 	letter-spacing: .0071428571em !important;
+	font-family: Roboto, sans-serif !important;
 }
 
 /* @todo: Will need refactoring. */
@@ -77,9 +79,27 @@
 	font-size: .875em !important;
 }
 
+/* @todo: Will need refactoring. */
+.single-post-card__secondary-text-over-media,
+.single-post-card__secondary-text-above-media {
+	padding-top: 1em !important;
+}
+
 .single-post-card__media.mdc-card__media--square {
 	width: 110px;
 	height: 110px;
+}
+
+.single-post-card-with-text-over-media .mdc-card__media-content {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: end;
+	align-items: flex-end;
+}
+
+.single-post-card-with-text-over-media .mdc-card__media-content .single-post-card__title,
+.single-post-card-with-text-over-media .mdc-card__media-content .single-post-card__subtitle {
+	color: #fff !important;
 }
 
 .single-post-card__list .single-post-card__primary {
@@ -91,6 +111,11 @@
 	display: flex;
 	-ms-flex-direction: row;
 	flex-direction: row;
+}
+
+.mdc-card__action-buttons,
+.mdc-card__action-icons {
+	flex-wrap: wrap;
 }
 
 .mdc-card__action-buttons,
