@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 $attributes     = isset( $attributes ) ? $attributes : [];
 $post_content   = isset( $attributes['displayPostContent'] ) ? $attributes['displayPostContent'] : false;
-$content_length = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 50;
+$content_length = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 20;
 
 if ( ! empty( $post_content ) ) : ?>
 	<div class="single-post-card__secondary mdc-typography mdc-typography--body2">

@@ -45,7 +45,7 @@ $columns    = absint( isset( $attributes['columns'] ) ? $attributes['columns'] :
 			?>
 		<?php endwhile; ?>
 
-		<?php // Build the output by combining all the generated columns with the colum markup. ?>
+		<?php // Build the output by combining all the generated columns with the column markup. ?>
 		<div class="masonry-grid_column">
 			<?php echo implode( "</div>\n<div class='masonry-grid_column'>", $column_items ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>

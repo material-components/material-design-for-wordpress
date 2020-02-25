@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __, _n, sprintf } from '@wordpress/i18n';
 
 /**
  * Card Actions component.
@@ -32,8 +32,17 @@ const CardActions = ( { displayPostAuthor, displayCommentsCount, post } ) => (
 						comment
 					</i>
 					<span className="mdc-button__label">
-						{ post.commentsCount }{ ' ' }
-						{ __( 'comments', 'material-theme-builder' ) }
+						{ post.commentsCount > 0
+							? sprintf(
+									_n(
+										'%s comment',
+										'%s comments',
+										post.commentsCount,
+										'material-theme-builder'
+									),
+									post.commentsCount
+							  )
+							: __( 'No comments', 'material-theme-builder' ) }
 					</span>
 				</button>
 			) }

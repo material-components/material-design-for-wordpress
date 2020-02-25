@@ -51,13 +51,15 @@ $class_names = Template::classnames(
 		</div> <!-- mdc-card__primary-action -->
 
 		<?php
+		if ( 'list' !== $style ) {
 			Template::get_template(
 				'partials/card-content.php',
 				[
 					'attributes' => $attributes,
 				]
 			);
-			?>
+		}
+		?>
 
 		<?php
 			Template::get_template(
