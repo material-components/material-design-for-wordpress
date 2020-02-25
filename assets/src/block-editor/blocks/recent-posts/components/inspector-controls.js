@@ -11,6 +11,7 @@ import {
 	ToggleControl,
 	QueryControls,
 	SelectControl,
+	RadioControl,
 } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { addQueryArgs } from '@wordpress/url';
@@ -78,6 +79,7 @@ const RecentPostsInspectorControls = ( {
 
 	const {
 		style,
+		contentLayout,
 		columns,
 		postsToShow,
 		outlined,
@@ -102,13 +104,36 @@ const RecentPostsInspectorControls = ( {
 			</PanelBody>
 			<PanelBody title={ __( 'Content', 'material-theme-builder' ) }>
 				{ ( style === 'masonry' || style === 'grid' ) && (
-					<RangeControl
-						label={ __( 'Columns', 'material-theme-builder' ) }
-						value={ columns }
-						onChange={ value => setAttributes( { columns: value } ) }
-						min={ MIN_POSTS_COLUMNS }
-						max={ MAX_POSTS_COLUMNS }
-					/>
+					<>
+						<RangeControl
+							label={ __( 'Columns', 'material-theme-builder' ) }
+							value={ columns }
+							onChange={ value => setAttributes( { columns: value } ) }
+							min={ MIN_POSTS_COLUMNS }
+							max={ MAX_POSTS_COLUMNS }
+						/>
+						<RadioControl
+							label={ __( 'Content layout', 'material-theme-builder' ) }
+							selected={ contentLayout }
+							options={ [
+								{
+									label: __( 'Text above media', 'material-theme-builder' ),
+									value: 'text-above-media',
+								},
+								{
+									label: __( 'Text over media', 'material-theme-builder' ),
+									value: 'text-over-media',
+								},
+								{
+									label: __( 'Text under media', 'material-theme-builder' ),
+									value: 'text-under-media',
+								},
+							] }
+							onChange={ value => {
+								setAttributes( { contentLayout: value } );
+							} }
+						/>
+					</>
 				) }
 				<RangeControl
 					label={ __( 'Number of posts', 'material-theme-builder' ) }
