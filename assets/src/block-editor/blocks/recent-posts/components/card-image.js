@@ -14,7 +14,7 @@ import CardPrimary from './card-primary';
  * @param {Object} props - Props.
  * @param {string} props.imageSourceUrl - Image source URL.
  * @param {string} props.type - Media type ('16-9' or 'square').
- * @param {string} props.contentLayout - Content layout ('text-above-media', 'text-on-media' or text-under-media).
+ * @param {string} props.contentLayout - Content layout ('text-above-media', 'text-over-media' or text-under-media).
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
