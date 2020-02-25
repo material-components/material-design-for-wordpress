@@ -35,7 +35,8 @@ const CardImage = props => {
 				<div className="mdc-card__media-content">
 					<CardPrimary { ...props } />
 				</div>
-			)}
+			) }
+			;
 		</div>
 	);
 };
