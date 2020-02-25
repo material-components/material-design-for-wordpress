@@ -76,11 +76,11 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			$this->slug . '_theme'      => __( 'Theme', 'material-theme-builder' ),
+			$this->slug . '_style'      => __( 'Design Style', 'material-theme-builder' ),
+			$this->slug . '_colors'     => __( 'Color Palettes', 'material-theme-builder' ),
 			$this->slug . '_typography' => __( 'Typography', 'material-theme-builder' ),
 			$this->slug . '_corners'    => __( 'Corner Styles', 'material-theme-builder' ),
-			$this->slug . '_icons'      => __( 'System Icon Collections', 'material-theme-builder' ),
-			$this->slug . '_colors'     => __( 'Theme Color Palettes', 'material-theme-builder' ),
+			$this->slug . '_icons'      => __( 'Icon Collections', 'material-theme-builder' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
@@ -107,7 +107,7 @@ class Controls extends Module_Base {
 					$id,
 					$section
 				);
-			} elseif ( $setting instanceof \WP_Customize_Section ) {
+			} elseif ( $section instanceof \WP_Customize_Section ) {
 				$this->wp_customize->add_section( $section );
 			}
 		}
@@ -123,8 +123,8 @@ class Controls extends Module_Base {
 		 * List of all the control settings in the Theme section.
 		 */
 		$settings = [
-			$this->slug . '_theme' => [
-				'default' => 'baseline',
+			'example_id' => [
+				'default' => 'Some Text',
 			],
 		];
 
@@ -134,35 +134,13 @@ class Controls extends Module_Base {
 		* List of all the controls in the Theme section.
 		 */
 		$controls = [
-			$this->slug . '_theme' => new Image_Radio_Control(
-				$this->wp_customize,
-				$this->slug . '_theme',
-				[
-					'section'  => $this->slug . '_theme',
-					'priority' => 10,
-					'choices'  => [
-						'baseline'    => [
-							'label' => __( 'Baseline', 'material-theme-builder' ),
-							'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
-						],
-						'crane'       => [
-							'label' => __( 'Crane', 'material-theme-builder' ),
-							'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
-						],
-						'fortnightly' => [
-							'label' => __( 'Fortnightly', 'material-theme-builder' ),
-							'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
-						],
-						'shrine'      => [
-							'label' => __( 'Shrine', 'material-theme-builder' ),
-							'url'   => $this->plugin->asset_url( 'assets/images/shrine.svg' ),
-						],
-						'custom'      => [
-							'label' => __( 'Custom', 'material-theme-builder' ),
-						],
-					],
-				]
-			),
+			// Example control.
+			// @todo remove.
+			'example_id' => [
+				'type'    => 'text',
+				'section' => $this->slug . '_style',
+				'label'   => __( 'Example Text Field', 'material-theme-builder' ),
+			],
 		];
 
 		$this->add_controls( $controls );
@@ -174,12 +152,7 @@ class Controls extends Module_Base {
 	 * @param  array $settings Array of settings to add to customizer.
 	 * @return void
 	 */
-	public function add_settings( $settings ) {
-
-		// Bail out if settings is empty.
-		if ( empty( $settings ) || ! is_array( $settings ) ) {
-			return;
-		}
+	public function add_settings( $settings = [] ) {
 
 		foreach ( $settings as $id => $setting ) {
 			if ( is_array( $setting ) ) {
@@ -218,12 +191,7 @@ class Controls extends Module_Base {
 	 * @param  array $controls Array of controls to add to customizer.
 	 * @return void
 	 */
-	public function add_controls( $controls ) {
-
-		// Bail out if controls is empty.
-		if ( empty( $controls ) || ! is_array( $controls ) ) {
-			return;
-		}
+	public function add_controls( $controls = [] ) {
 
 		foreach ( $controls as $id => $control ) {
 			/**

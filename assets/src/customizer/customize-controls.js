@@ -151,7 +151,9 @@
 				overlay.addClass( 'section-collapse-open' );
 				section.headContainer.addClass( 'expanded' );
 			} else {
-				section.contentContainer.removeClass( 'open' );
+				setTimeout( () => {
+					section.contentContainer.removeClass( 'open' );
+				}, 200 );
 
 				if ( args.delayed ) {
 					setTimeout( () => {

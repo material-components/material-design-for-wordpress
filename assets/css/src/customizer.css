@@ -2,19 +2,30 @@
  * Put Customizer CSS here.
  */
 
-.customize-control-image-radio-wrap {
-	display: flex;
-	flex-wrap: wrap;
-}
+.control-section-collapse {
+	position: static !important;
+	transform: none !important;
+	transition: height 200ms ease !important;
+	border-bottom: none !important;
+	overflow: hidden !important;
 
-.customize-control-image-radio-control {
-	box-sizing: border-box;
-	flex: 0 50%;
-	margin-bottom: 10px;
-	padding: 0 6px;
+	&.customize-pane-child {
+		padding: 0 12px !important;
 
-	& img {
-		margin-top: 4px;
-		width: 100%;
+		> li:nth-child(2) {
+			margin-top: 12px;
+		}
+	}
+
+	& .accordion-section-title::after {
+		content: "\f132" !important;
+	}
+
+	&.expanded .accordion-section-title::after {
+		content: "\f460" !important;
+	}
+
+	& .customize-section-description-container {
+		display: none;
 	}
 }

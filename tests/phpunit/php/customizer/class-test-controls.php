@@ -30,6 +30,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		parent::setUp();
 		require_once ABSPATH . WPINC . '/class-wp-customize-control.php';
 		require_once ABSPATH . WPINC . '/class-wp-customize-setting.php';
+		require_once ABSPATH . WPINC . '/class-wp-customize-section.php';
 
 		$this->wp_customize = $this->getMockBuilder( 'DummyClass' )
 			->setMethods( [ 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
@@ -119,16 +120,31 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
 
+		// Replace the icons section with an instance to assert it's registered correctly.
+		$icons_section = new \WP_Customize_Section( $this->wp_customize, 'material_theme_icons' );
+		add_filter(
+			'mtb_customizer_section_args',
+			function( $args, $id ) use ( $icons_section ) {
+				if ( 'material_theme_icons' === $id ) {
+					return $icons_section;
+				}
+
+				return $args;
+			},
+			10,
+			2
+		);
+
 		// Set up the expectation for the add_section() method
 		// to be called 5 times, once for each section.
 		$this->wp_customize->expects( $this->exactly( 5 ) )
 			->method( 'add_section' )
 			->withConsecutive(
-				[ $this->equalTo( 'material_theme_theme' ) ],
+				[ $this->equalTo( 'material_theme_style' ) ],
+				[ $this->equalTo( 'material_theme_colors' ) ],
 				[ $this->equalTo( 'material_theme_typography' ) ],
 				[ $this->equalTo( 'material_theme_corners' ) ],
-				[ $this->equalTo( 'material_theme_icons' ) ],
-				[ $this->equalTo( 'material_theme_colors' ) ]
+				[ $this->equalTo( $icons_section ) ]
 			);
 
 
@@ -151,7 +167,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->wp_customize->expects( $this->any() )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( 'material_theme_theme' ) ]
+				[ $this->equalTo( 'example_id' ) ]
 			);
 
 		// Set up the expectation for the add_control() method
@@ -159,13 +175,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->wp_customize->expects( $this->any() )
 			->method( 'add_control' )
 			->withConsecutive(
-				[
-					$this->callback(
-						function( $control ) {
-							return 'material_theme_theme' === $control->id && [ 'baseline', 'crane', 'fortnightly', 'shrine', 'custom' ] === array_keys( $control->choices );
-						} 
-					),
-				] 
+				[ $this->equalTo( 'example_id' ) ]
 			);
 
 		$controls->add_theme_controls();
@@ -191,8 +201,8 @@ class Test_Controls extends \WP_UnitTestCase {
 				],
 				$this->callback(
 					function( $setting ) {
-						return $setting instanceof \WP_Customize_Setting && 'material_theme_theme' === $setting->id;
-					} 
+						return $setting instanceof \WP_Customize_Setting && 'material_theme_style' === $setting->id;
+					}
 				)
 			);
 
@@ -201,8 +211,8 @@ class Test_Controls extends \WP_UnitTestCase {
 		$controls->add_settings(
 			[
 				'test_setting'         => [],
-				'material_theme_theme' => new \WP_Customize_Setting( $controls->wp_customize, 'material_theme_theme' ),
-			] 
+				'material_theme_style' => new \WP_Customize_Setting( $controls->wp_customize, 'material_theme_style' ),
+			]
 		);
 	}
 
@@ -226,8 +236,8 @@ class Test_Controls extends \WP_UnitTestCase {
 				],
 				$this->callback(
 					function( $setting ) {
-						return $setting instanceof \WP_Customize_Control && 'material_theme_theme' === $setting->id;
-					} 
+						return $setting instanceof \WP_Customize_Control && 'material_theme_style' === $setting->id;
+					}
 				)
 			);
 
@@ -236,8 +246,8 @@ class Test_Controls extends \WP_UnitTestCase {
 		$controls->add_controls(
 			[
 				'test_setting'         => [],
-				'material_theme_theme' => new \WP_Customize_Control( $controls->wp_customize, 'material_theme_theme' ),
-			] 
+				'material_theme_style' => new \WP_Customize_Control( $controls->wp_customize, 'material_theme_style' ),
+			]
 		);
 	}
 
