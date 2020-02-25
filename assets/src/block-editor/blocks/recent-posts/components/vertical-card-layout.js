@@ -36,6 +36,7 @@ const VerticalCardLayout = props => {
 		postIndex,
 		excerpt,
 		imageSourceUrl,
+		contentLayout,
 		outlined,
 		displayPostContent,
 		postContentLength,
@@ -43,6 +44,8 @@ const VerticalCardLayout = props => {
 		displayCommentsCount,
 		displayPostAuthor,
 	} = props;
+
+	const cardImageProps = { type: '16-9', ...props };
 
 	return (
 		<div
@@ -58,12 +61,20 @@ const VerticalCardLayout = props => {
 				className="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
 				tabIndex={ postIndex }
 			>
+				{ contentLayout === 'text-above-media' && <CardPrimary { ...props } /> }
 				{ displayFeaturedImage && imageSourceUrl && (
-					<CardImage imageSourceUrl={ imageSourceUrl } type="16-9" />
+					<CardImage { ...cardImageProps } />
 				) }
-				<CardPrimary { ...props } />
+				{ contentLayout === 'text-under-media' && <CardPrimary { ...props } /> }
 				{ displayPostContent && (
-					<div className="single-post-card__secondary mdc-typography mdc-typography--body2">
+					<div
+						className={ classnames(
+							'single-post-card__secondary',
+							`single-post-card__secondary-${ contentLayout }`,
+							'mdc-typography',
+							'mdc-typography--body2'
+						) }
+					>
 						<RawHTML key="html">
 							{ postContentLength < excerpt.trim().split( ' ' ).length
 								? excerpt

@@ -89,6 +89,10 @@ class Recent_Posts_Block {
 						'type'    => 'string',
 						'default' => 'masonry',
 					],
+					'contentLayout'         => [
+						'type'    => 'string',
+						'default' => 'text-above-media',
+					],
 					'columns'               => [
 						'type'    => 'number',
 						'default' => 3,
