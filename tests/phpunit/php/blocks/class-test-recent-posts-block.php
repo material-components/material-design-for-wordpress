@@ -278,8 +278,8 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 		$content = $block->render_block( $attributes );
 
 		// Assert all partials are rendered.
-		$this->assertEquals( 5, substr_count( $content, 'class="post-author"' ) );
-		$this->assertEquals( 5, substr_count( $content, 'class="comment-count"' ) );
+		$this->assertEquals( 5, substr_count( $content, 'class="mdc-button post-author"' ) );
+		$this->assertEquals( 5, substr_count( $content, 'class="mdc-button comment-count"' ) );
 		$this->assertEquals( 5, substr_count( $content, 'class="single-post-card__secondary' ) );
 		$this->assertEquals( 5, substr_count( $content, 'class="single-post-card__subtitle' ) );
 
