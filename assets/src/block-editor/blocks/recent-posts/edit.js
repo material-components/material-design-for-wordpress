@@ -41,12 +41,12 @@ const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 		postsToShow,
 		categories,
 		displayFeaturedImage,
-		featuredImageSizeSlug,
+		style,
 	} = props.attributes;
 
+	const featuredImageSizeSlug = style === 'list' ? 'medium' : 'large';
+
 	const { getEntityRecords, getMedia } = select( 'core' );
-	const { getSettings } = select( 'core/block-editor' );
-	const { imageSizes } = getSettings();
 	const recentPostsQuery = pickBy(
 		{
 			categories,
@@ -57,12 +57,7 @@ const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 
 	const posts = getEntityRecords( 'postType', 'post', recentPostsQuery );
 
-	const imageSizeOptions = imageSizes
-		.filter( ( { slug } ) => slug !== 'full' )
-		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
-
 	return {
-		imageSizeOptions,
 		recentPosts: ! Array.isArray( posts )
 			? posts
 			: posts.map( post => {

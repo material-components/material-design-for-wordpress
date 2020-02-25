@@ -16,16 +16,10 @@ import SinglePost from './single-post';
  * @param {Object} props.attributes - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
  * @param {Object} props.recentPosts - Posts.
- * @param {{value: string, label: string}[]} props.imageSizeOptions - Image sizes.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const PostsList = ( {
-	attributes,
-	setAttributes,
-	recentPosts,
-	imageSizeOptions,
-} ) => {
+const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 	const { style, columns } = attributes;
 
 	let columnSpan = 12;
@@ -44,7 +38,6 @@ const PostsList = ( {
 			<InspectorControls
 				attributes={ attributes }
 				setAttributes={ setAttributes }
-				imageSizeOptions={ imageSizeOptions }
 			/>
 
 			{ ( style === 'grid' || style === 'list' ) && (
