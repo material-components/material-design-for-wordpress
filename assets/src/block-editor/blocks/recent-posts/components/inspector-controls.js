@@ -10,7 +10,7 @@ import {
 	RangeControl,
 	ToggleControl,
 	QueryControls,
-	SelectControl,
+	RadioControl,
 } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { addQueryArgs } from '@wordpress/url';
@@ -43,15 +43,10 @@ const MAX_POST_CONTENT_LENGTH = 30;
  * @param {Object} props
  * @param {Object} props.attributes - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
- * @param {Array} props.imageSizeOptions - Image sizes.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const RecentPostsInspectorControls = ( {
-	attributes,
-	setAttributes,
-	imageSizeOptions,
-} ) => {
+const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 	const [ categoriesList, setCategoriesList ] = useState( [] );
 	const [ isStillMounted, setStillMounted ] = useState( true );
 
@@ -78,6 +73,7 @@ const RecentPostsInspectorControls = ( {
 
 	const {
 		style,
+		contentLayout,
 		columns,
 		postsToShow,
 		outlined,
@@ -85,7 +81,6 @@ const RecentPostsInspectorControls = ( {
 		displayPostContent,
 		postContentLength,
 		displayFeaturedImage,
-		featuredImageSizeSlug,
 		displayCommentsCount,
 		displayPostAuthor,
 		categories,
@@ -102,13 +97,36 @@ const RecentPostsInspectorControls = ( {
 			</PanelBody>
 			<PanelBody title={ __( 'Content', 'material-theme-builder' ) }>
 				{ ( style === 'masonry' || style === 'grid' ) && (
-					<RangeControl
-						label={ __( 'Columns', 'material-theme-builder' ) }
-						value={ columns }
-						onChange={ value => setAttributes( { columns: value } ) }
-						min={ MIN_POSTS_COLUMNS }
-						max={ MAX_POSTS_COLUMNS }
-					/>
+					<>
+						<RangeControl
+							label={ __( 'Columns', 'material-theme-builder' ) }
+							value={ columns }
+							onChange={ value => setAttributes( { columns: value } ) }
+							min={ MIN_POSTS_COLUMNS }
+							max={ MAX_POSTS_COLUMNS }
+						/>
+						<RadioControl
+							label={ __( 'Content layout', 'material-theme-builder' ) }
+							selected={ contentLayout }
+							options={ [
+								{
+									label: __( 'Text above media', 'material-theme-builder' ),
+									value: 'text-above-media',
+								},
+								{
+									label: __( 'Text over media', 'material-theme-builder' ),
+									value: 'text-over-media',
+								},
+								{
+									label: __( 'Text under media', 'material-theme-builder' ),
+									value: 'text-under-media',
+								},
+							] }
+							onChange={ value => {
+								setAttributes( { contentLayout: value } );
+							} }
+						/>
+					</>
 				) }
 				<RangeControl
 					label={ __( 'Number of posts', 'material-theme-builder' ) }
@@ -153,14 +171,6 @@ const RecentPostsInspectorControls = ( {
 					onChange={ value => setAttributes( { displayFeaturedImage: value } ) }
 				/>
 
-				<SelectControl
-					label={ __( 'Image size', 'material-theme-builder' ) }
-					value={ featuredImageSizeSlug }
-					onChange={ value =>
-						setAttributes( { featuredImageSizeSlug: value } )
-					}
-					options={ imageSizeOptions }
-				/>
 				<ToggleControl
 					label={ __( 'Comments Count', 'material-theme-builder' ) }
 					checked={ displayCommentsCount }

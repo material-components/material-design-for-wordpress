@@ -7,7 +7,6 @@ import { get, isUndefined, pickBy } from 'lodash';
  * WordPress dependencies
  */
 import { withSelect } from '@wordpress/data';
-import { createHigherOrderComponent } from '@wordpress/compose';
 
 /**
  * Internal dependencies
@@ -15,27 +14,6 @@ import { createHigherOrderComponent } from '@wordpress/compose';
 import NoPosts from './components/no-posts';
 import PostsList from './components/posts-list';
 import './style.css';
-
-/**
- * @type {WPComponent}
- */
-const withCustomClassName = createHigherOrderComponent( BlockListBlock => {
-	return props => {
-		if ( 'material/recent-posts' !== props.name ) {
-			return <BlockListBlock { ...props } />;
-		}
-
-		const { style } = props.attributes;
-		const className = `recent-posts-block-${ style }`;
-
-		return <BlockListBlock { ...props } className={ className } />;
-	};
-}, 'withCustomClassName' );
-wp.hooks.addFilter(
-	'editor.BlockListBlock',
-	'material/with-custom-class-name',
-	withCustomClassName
-);
 
 /**
  * Recent Posts Edit component.
@@ -63,12 +41,12 @@ const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 		postsToShow,
 		categories,
 		displayFeaturedImage,
-		featuredImageSizeSlug,
+		style,
 	} = props.attributes;
 
+	const featuredImageSizeSlug = style === 'list' ? 'medium' : 'large';
+
 	const { getEntityRecords, getMedia } = select( 'core' );
-	const { getSettings } = select( 'core/block-editor' );
-	const { imageSizes } = getSettings();
 	const recentPostsQuery = pickBy(
 		{
 			categories,
@@ -79,12 +57,7 @@ const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 
 	const posts = getEntityRecords( 'postType', 'post', recentPostsQuery );
 
-	const imageSizeOptions = imageSizes
-		.filter( ( { slug } ) => slug !== 'full' )
-		.map( ( { name, slug } ) => ( { value: slug, label: name } ) );
-
 	return {
-		imageSizeOptions,
 		recentPosts: ! Array.isArray( posts )
 			? posts
 			: posts.map( post => {
