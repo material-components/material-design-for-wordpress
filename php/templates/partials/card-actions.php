@@ -34,7 +34,7 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $comments_count ) ) : ?>
-				<a class="mdc-button" class="comment-count" href="<?php get_the_permalink(); ?>">
+				<a class="mdc-button" class="comment-count" href="<?php esc_url( get_the_permalink() ); ?>">
 					<i
 						class="material-icons mdc-button__icon"
 						aria-hidden="true"
@@ -42,8 +42,20 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 						comment
 					</i>
 					<span class="mdc-button__label">
-						<?php echo esc_html( get_comments_number( get_the_ID() ) ); ?>
-						<?php echo esc_html__( 'comments', 'material-theme-builder' ); ?>
+						<?php
+						$comment_count = absint( get_comments_number( get_the_ID() ) );
+						if ( 0 < $comment_count ) {
+							echo esc_html(
+								sprintf(
+									/* translators: %s: post comments count */
+									_n( '%s comment', '%s comments', $comment_count, 'material-theme-builder' ),
+									$comment_count
+								)
+							);
+						} else {
+							esc_html_e( 'No comments', 'material-theme-builder' );
+						}
+						?>
 					</span>
 				</a>
 			<?php endif; ?>

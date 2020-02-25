@@ -82,6 +82,10 @@
 	height: 110px;
 }
 
+.single-post-card__list .single-post-card__primary {
+	flex: 1;
+}
+
 .single-post-card__list .single-post-card__primary-action {
 	display: -ms-flexbox;
 	display: flex;
@@ -90,6 +94,6 @@
 }
 
 .mdc-card__action-buttons,
- .mdc-card__action-icons {
+.mdc-card__action-icons {
 	flex-wrap: wrap;
 }

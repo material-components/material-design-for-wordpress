@@ -124,8 +124,8 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 			)
 		);
 
-		$post_id       = self::factory()->post->create();
-		$attachment_id = self::factory()->attachment->create_object(
+		$post_id       = $factory->post->create();
+		$attachment_id = $factory->attachment->create_object(
 			'image.jpg',
 			$post_id,
 			array(
@@ -136,6 +136,27 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 
 		// Set a featured image for the last post.
 		set_post_thumbnail( end( self::$post_ids ), $attachment_id );
+
+		$comment_id = $factory->comment->create(
+			array(
+				'comment_post_ID' => end( self::$post_ids ),
+				'user_id'         => self::$author_id,
+			)
+		);
+
+		$comment_id = $factory->comment->create(
+			array(
+				'comment_post_ID' => self::$post_ids[3],
+				'user_id'         => self::$author_id,
+			)
+		);
+
+		$comment_id = $factory->comment->create(
+			array(
+				'comment_post_ID' => self::$post_ids[3],
+				'user_id'         => self::$author_id,
+			)
+		);
 	}
 
 	/**
@@ -264,5 +285,13 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 
 		// Images should be rendered only for the first post.
 		$this->assertEquals( 1, substr_count( $content, 'class="mdc-card__media' ) );
+
+		$content = preg_replace( '#[\n|\t]#', '', $content );
+
+		// Assert an article has only 1 comment.
+		$this->assertEquals( 1, substr_count( $content, '<span class="mdc-button__label">1 comment</span>' ) );
+
+		// Assert an article has 2 comments.
+		$this->assertEquals( 1, substr_count( $content, '<span class="mdc-button__label">2 comments</span>' ) );
 	}
 }

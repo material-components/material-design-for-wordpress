@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder;
 
 use MaterialThemeBuilder\Template;
+use function MaterialThemeBuilder\get_plugin_instance;
 
 /**
  * Tests for Template class.
@@ -110,7 +111,7 @@ class Test_Template extends \WP_UnitTestCase {
 
 		// Assert the template is located from `plugin/php/templates/` as the template does not exist in the theme.
 		$template = Template::locate_template( 'posts-list-grid.php' );
-		$this->assertEquals( WP_CONTENT_DIR . '/plugins/material-theme-builder-wp/php/templates/posts-list-grid.php', $template );
+		$this->assertEquals( get_plugin_instance()->dir_path . '/php/templates/posts-list-grid.php', $template );
 
 		// Assert the template is located from default_path if it's passed.
 		$template = Template::locate_template( 'index.php', '', WP_CONTENT_DIR );
@@ -138,7 +139,7 @@ class Test_Template extends \WP_UnitTestCase {
 			'class-3' => false,
 		];
 
-		// Assert only classnames passing check condition or witout the check condition are returned.
+		// Assert only classnames passing check condition or without the check condition are returned.
 		$this->assertEquals( 'class-1 class-2', Template::classnames( $classnames ) );
 
 		// Assert empty.
