@@ -22,6 +22,7 @@ import CardActions from './card-actions';
  * @param {number} props.postIndex - Post index.
  * @param {string} props.excerpt - Post excerpt.
  * @param {string} props.imageSourceUrl - Image source URL.
+ * @param {string} props.contentLayout - Content layout ('text-above-media', 'text-over-media' or text-under-media).
  * @param {boolean} props.outlined - Whether or not the card has an outlined style.
  * @param {boolean} props.displayPostContent - Whether or not to display the post content.
  * @param {number} props.postContentLength - Post content length.
