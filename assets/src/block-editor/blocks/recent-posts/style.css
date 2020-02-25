@@ -63,3 +63,8 @@
 .single-post-card__list .single-post-card__primary {
 	flex: 1;
 }
+
+.mdc-card__action-buttons,
+.mdc-card__action-icons {
+	flex-wrap: wrap;
+}
