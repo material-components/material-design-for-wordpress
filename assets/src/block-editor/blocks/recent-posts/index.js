@@ -21,6 +21,9 @@ export const settings = {
 		'material-theme-builder'
 	),
 	category: 'material',
+	supports: {
+		align: true,
+	},
 	icon: BlockIcon,
 	edit,
 };
