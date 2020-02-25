@@ -8,11 +8,11 @@
 defined( 'ABSPATH' ) || exit;
 
 $attributes     = isset( $attributes ) ? $attributes : [];
-$style          = isset( $attributes['style'] ) ? $attributes['style'] : 'grid';
-$featured_image = isset( $attributes['displayFeaturedImage'] ) ? $attributes['displayFeaturedImage'] : false;
+$style          = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
+$featured_image = isset( $attributes['displayFeaturedImage'] ) ? $attributes['displayFeaturedImage'] : true;
 
 if ( ! empty( $featured_image ) ) {
-	$featured_image = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+	$featured_image = get_the_post_thumbnail_url( get_the_ID(), 'list' === $style ? 'medium' : 'large' );
 }
 
 // Determine image type.

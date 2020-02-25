@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $attributes     = isset( $attributes ) ? $attributes : [];
-$post_content   = isset( $attributes['displayPostContent'] ) ? $attributes['displayPostContent'] : false;
+$post_content   = isset( $attributes['displayPostContent'] ) ? $attributes['displayPostContent'] : true;
 $content_length = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 20;
 
 if ( ! empty( $post_content ) ) : ?>
