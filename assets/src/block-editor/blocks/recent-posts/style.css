@@ -32,6 +32,7 @@
 	font-size: 1.25rem !important;
 	font-weight: 500 !important;
 	letter-spacing: .0125em !important;
+	font-family: Roboto, sans-serif !important;
 }
 
 /* @todo: Will need refactoring. */
@@ -43,6 +44,7 @@
 	line-height: 1.375rem !important; /* stylelint-disable-line */
 	font-weight: 500 !important;
 	letter-spacing: .0071428571em !important;
+	font-family: Roboto, sans-serif !important;
 }
 
 /* @todo: Will need refactoring. */
