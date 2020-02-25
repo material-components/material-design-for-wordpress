@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $attributes = isset( $attributes ) ? $attributes : [];
-$post_date  = isset( $attributes['displayPostDate'] ) ? $attributes['displayPostDate'] : false;
+$post_date  = isset( $attributes['displayPostDate'] ) ? $attributes['displayPostDate'] : true;
 ?>
 
 <h2 class="single-post-card__title mdc-typography mdc-typography--headline6">

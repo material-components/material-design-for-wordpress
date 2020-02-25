@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 $attributes = isset( $attributes ) ? $attributes : [];
 $class_name = isset( $attributes['className'] ) ? $attributes['className'] : '';
-$style      = isset( $attributes['style'] ) ? $attributes['style'] : 'grid';
+$style      = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
 ?>
 
 <div class="mdc-layout-grid <?php echo esc_attr( Template::classnames( [ "layout-$style", $class_name ] ) ); ?>">

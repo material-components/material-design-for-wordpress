@@ -10,7 +10,7 @@ use MaterialThemeBuilder\Template;
 defined( 'ABSPATH' ) || exit;
 
 $attributes = isset( $attributes ) ? $attributes : [];
-$style      = isset( $attributes['style'] ) ? $attributes['style'] : 'grid';
+$style      = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
 $columns    = absint( isset( $attributes['columns'] ) ? $attributes['columns'] : 3 );
 $outlined   = isset( $attributes['outlined'] ) ? $attributes['outlined'] : false;
 
