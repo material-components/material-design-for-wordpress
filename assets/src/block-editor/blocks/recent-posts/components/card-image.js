@@ -27,7 +27,7 @@ const CardImage = props => {
 				`mdc-card__media mdc-card__media--${ type }`,
 				'single-post-card__media',
 				'single-post-card__media',
-				`single-post-card-with-${ contentLayout }`,
+				`single-post-card-with-${ contentLayout }`
 			) }
 			style={ { backgroundImage: `url(${ imageSourceUrl })` } }
 		>
