@@ -286,12 +286,39 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 		// Images should be rendered only for the first post.
 		$this->assertEquals( 1, substr_count( $content, 'class="mdc-card__media' ) );
 
-		$content = preg_replace( '#[\n|\t]#', '', $content );
+		$content = $this->clean_content( $content );
 
 		// Assert an article has only 1 comment.
 		$this->assertEquals( 1, substr_count( $content, '<span class="mdc-button__label">1 comment</span>' ) );
 
 		// Assert an article has 2 comments.
 		$this->assertEquals( 1, substr_count( $content, '<span class="mdc-button__label">2 comments</span>' ) );
+
+		$attributes['contentLayout'] = 'text-over-media';
+		$content                     = $block->render_block( $attributes );
+		$content                     = $this->clean_content( $content );
+
+		// Assert the article with featured image shows content inside the image container.
+		$this->assertEquals( 1, substr_count( $content, 'style="background-image: url(http://example.org/wp-content/uploads/image.jpg)"><div class="single-post-card__primary">' ) );
+
+		// Assert all 5 posts are rendered.
+		$this->assertEquals( 5, substr_count( $content, 'class="single-post-card__title' ) );
+
+		$attributes['contentLayout'] = 'text-under-media';
+		$content                     = $block->render_block( $attributes );
+		$content                     = $this->clean_content( $content );
+
+		// Assert the article with featured image shows content below the image container.
+		$this->assertEquals( 1, substr_count( $content, '<!-- mdc-card__media --><div class="single-post-card__primary">' ) );
+	}
+
+	/**
+	 * Strip newline and tabs from content
+	 *
+	 * @param  string $content Content to clean.
+	 * @return string
+	 */
+	protected function clean_content( $content ) {
+		return preg_replace( '#[\n|\t]#', '', $content );
 	}
 }
