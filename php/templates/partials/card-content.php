@@ -10,9 +10,11 @@ defined( 'ABSPATH' ) || exit;
 $attributes     = isset( $attributes ) ? $attributes : [];
 $post_content   = isset( $attributes['displayPostContent'] ) ? $attributes['displayPostContent'] : true;
 $content_length = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 20;
+$layout         = isset( $attributes['contentLayout'] ) ? $attributes['contentLayout'] : 'text-above-media';
+$class_name     = "single-post-card__secondary-{$layout}";
 
 if ( ! empty( $post_content ) ) : ?>
-	<div class="single-post-card__secondary mdc-typography mdc-typography--body2">
+	<div class="single-post-card__secondary mdc-typography mdc-typography--body2 <?php echo esc_attr( $class_name ); ?>">
 		<p>
 			<?php echo wp_kses_post( wp_trim_words( get_the_excerpt(), $content_length, ' [&hellip;]' ) ); ?>
 		</p>

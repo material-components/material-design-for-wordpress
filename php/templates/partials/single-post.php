@@ -13,6 +13,7 @@ $attributes = isset( $attributes ) ? $attributes : [];
 $style      = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
 $columns    = absint( isset( $attributes['columns'] ) ? $attributes['columns'] : 3 );
 $outlined   = isset( $attributes['outlined'] ) ? $attributes['outlined'] : false;
+$layout     = isset( $attributes['contentLayout'] ) ? $attributes['contentLayout'] : 'text-above-media';
 
 // Determine column span.
 $column_span = 'grid' === $style ? floor( 12 / $columns ) : 12;
@@ -29,24 +30,33 @@ $class_names = Template::classnames(
 
 		<div class="mdc-card__primary-action single-post-card__primary-action">
 			<?php
+
+			if ( 'text-above-media' === $layout ) {
+				Template::get_template(
+					'partials/card-header.php',
+					[
+						'attributes' => $attributes,
+					]
+				);
+			}
+
 				Template::get_template(
 					'partials/card-image.php',
 					[
 						'attributes' => $attributes,
 					]
 				);
-				?>
 
-			<div class="single-post-card__primary">
-				<?php
+				if ( 'text-under-media' === $layout || ( 'text-over-media' === $layout && ! has_post_thumbnail() ) ) {
 					Template::get_template(
 						'partials/card-header.php',
 						[
 							'attributes' => $attributes,
 						]
 					);
-					?>
-			</div> <!-- single-post-card__primary -->
+				}
+
+				?>
 
 		</div> <!-- mdc-card__primary-action -->
 
