@@ -31,7 +31,7 @@ $class_names = Template::classnames(
 		<div class="mdc-card__primary-action single-post-card__primary-action">
 			<?php
 
-			if ( 'text-above-media' === $layout ) {
+			if ( 'list' !== $style && 'text-above-media' === $layout ) {
 				Template::get_template(
 					'partials/card-header.php',
 					[
@@ -47,7 +47,7 @@ $class_names = Template::classnames(
 					]
 				);
 
-				if ( 'text-under-media' === $layout || ( 'text-over-media' === $layout && ! has_post_thumbnail() ) ) {
+				if ( 'list' === $style || 'text-under-media' === $layout || ( 'text-over-media' === $layout && ! has_post_thumbnail() ) ) {
 					Template::get_template(
 						'partials/card-header.php',
 						[
@@ -56,20 +56,17 @@ $class_names = Template::classnames(
 					);
 				}
 
+				if ( 'list' !== $style ) {
+					Template::get_template(
+						'partials/card-content.php',
+						[
+							'attributes' => $attributes,
+						]
+					);
+				}
 				?>
 
 		</div> <!-- mdc-card__primary-action -->
-
-		<?php
-		if ( 'list' !== $style ) {
-			Template::get_template(
-				'partials/card-content.php',
-				[
-					'attributes' => $attributes,
-				]
-			);
-		}
-		?>
 
 		<?php
 			Template::get_template(

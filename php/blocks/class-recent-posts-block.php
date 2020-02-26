@@ -154,6 +154,14 @@ class Recent_Posts_Block {
 	 * @return string Returns the post content with latest posts added.
 	 */
 	public function render_block( $attributes ) {
+
+		$class = 'wp-block-material-recent-posts';
+		if ( isset( $attributes['align'] ) ) {
+			$class .= ' align' . $attributes['align'];
+		}
+		$content = '<!-- No posts found -->';
+
+
 		$args = [
 			'posts_per_page'         => $attributes['postsToShow'],
 			'post_status'            => 'publish',
@@ -191,10 +199,14 @@ class Recent_Posts_Block {
 				]
 			);
 
-			return ob_get_clean();
+			$content = ob_get_clean();
 		}
 
-		return '<!-- No posts found -->';
+		return sprintf(
+			'<div class="%s">%s</div>',
+			esc_attr( $class ),
+			$content
+		);
 	}
 
 }
