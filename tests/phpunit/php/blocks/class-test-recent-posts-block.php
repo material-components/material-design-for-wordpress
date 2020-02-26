@@ -310,6 +310,12 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 
 		// Assert the article with featured image shows content below the image container.
 		$this->assertEquals( 1, substr_count( $content, '<!-- mdc-card__media --><div class="single-post-card__primary">' ) );
+
+		$attributes['align'] = 'wide';
+		$content             = $block->render_block( $attributes );
+
+		// Assert alignwide class is rendered.
+		$this->assertEquals( 1, substr_count( $content, '<div class="wp-block-material-recent-posts alignwide"' ) );
 	}
 
 	/**
