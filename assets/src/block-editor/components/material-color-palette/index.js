@@ -131,6 +131,7 @@ export default function MaterialColorPalette( {
 							{ ! disableCustomColors && (
 								<>
 									<CircularOptionPicker.DropdownLinkAction
+										className="components-material-color-palette__link"
 										dropdownProps={ {
 											renderContent: materialColorOptions,
 											contentClassName:
