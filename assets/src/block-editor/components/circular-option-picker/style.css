@@ -131,7 +131,7 @@
 
 
 .components-circular-option-picker__dropdown-link-action {
-	margin-right: var(--grid-size-large);
+	margin-right: 10px;
 
 	.components-button {
 		line-height: 22px;
