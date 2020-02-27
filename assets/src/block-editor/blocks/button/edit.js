@@ -31,8 +31,8 @@ import {
 /**
  * Material button edit component.
  */
-const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
-	const {
+const ButtonEdit = ( {
+	attributes: {
 		url,
 		rel,
 		icon,
@@ -43,8 +43,11 @@ const ButtonEdit = ( { attributes, setAttributes, isSelected, className } ) => {
 		cornerRadius,
 		iconPosition,
 		backgroundColor,
-	} = attributes;
-
+	},
+	setAttributes,
+	isSelected,
+	className,
+} ) => {
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
 
 	const onToggleOpenInNewTab = useCallback(
