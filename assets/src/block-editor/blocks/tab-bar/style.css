@@ -1,0 +1,11 @@
+.mdc-tab-scroller__scroll-content .block-editor-block-list__layout {
+  display: flex;
+}
+
+.mdc-tab-scroller__scroll-area {
+  overflow-x: visible !important;
+}
+
+.mdc-tab-scroller {
+  overflow-y: visible !important;
+}
