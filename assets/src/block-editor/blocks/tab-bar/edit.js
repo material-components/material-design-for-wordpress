@@ -9,14 +9,14 @@ import './style.css';
 import { __ } from '@wordpress/i18n';
 import { createBlock } from '@wordpress/blocks';
 import { dispatch, select } from '@wordpress/data';
-import { useCallback } from '@wordpress/components';
+// import { useCallback } from '@wordpress/components';
 import { InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Material button edit component.
  */
 export default function TabBarEdit( { clientId } ) {
-	const addTabHandler = useCallback( () => {
+	const addTabHandler = () => {
 		const innerCount = select( 'core/editor' ).getBlocksByClientId(
 			clientId
 		)[ 0 ].innerBlocks.length;
@@ -29,7 +29,7 @@ export default function TabBarEdit( { clientId } ) {
 			innerCount,
 			clientId
 		);
-	} );
+	};
 
 	return (
 		<div className="mdc-tab-bar" role="tablist">
