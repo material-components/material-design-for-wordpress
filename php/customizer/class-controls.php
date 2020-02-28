@@ -123,9 +123,12 @@ class Controls extends Module_Base {
 		 * List of all the control settings in the Theme section.
 		 */
 		$settings = [
-			'example_id' => [
-				'default' => 'Some Text',
+			$this->slug . '_style'          => [
+				'default' => 'baseline',
 			],
+			$this->slug . '_previous_style' => [
+				'default' => 'baseline',
+			], // This setting does not have an associated control.
 		];
 
 		$this->add_settings( $settings );
@@ -134,13 +137,36 @@ class Controls extends Module_Base {
 		* List of all the controls in the Theme section.
 		 */
 		$controls = [
-			// Example control.
-			// @todo remove.
-			'example_id' => [
-				'type'    => 'text',
-				'section' => $this->slug . '_style',
-				'label'   => __( 'Example Text Field', 'material-theme-builder' ),
-			],
+			$this->slug . '_style' => new Image_Radio_Control(
+				$this->wp_customize,
+				$this->slug . '_style',
+				[
+					'section'  => $this->slug . '_style',
+					'priority' => 10,
+					'choices'  => [
+						'baseline'    => [
+							'label' => __( 'Baseline', 'material-theme-builder' ),
+							'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
+						],
+						'crane'       => [
+							'label' => __( 'Crane', 'material-theme-builder' ),
+							'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
+						],
+						'fortnightly' => [
+							'label' => __( 'Fortnightly', 'material-theme-builder' ),
+							'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
+						],
+						'shrine'      => [
+							'label' => __( 'Shrine', 'material-theme-builder' ),
+							'url'   => $this->plugin->asset_url( 'assets/images/shrine.svg' ),
+						],
+						'custom'      => [
+							'label' => __( 'Custom', 'material-theme-builder' ),
+							'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
+						],
+					],
+				]
+			),
 		];
 
 		$this->add_controls( $controls );

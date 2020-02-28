@@ -167,7 +167,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->wp_customize->expects( $this->any() )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( 'example_id' ) ]
+				[ $this->equalTo( 'material_theme_style' ) ]
 			);
 
 		// Set up the expectation for the add_control() method
@@ -175,7 +175,13 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->wp_customize->expects( $this->any() )
 			->method( 'add_control' )
 			->withConsecutive(
-				[ $this->equalTo( 'example_id' ) ]
+				[
+					$this->callback(
+						function( $control ) {
+							return 'material_theme_style' === $control->id && [ 'baseline', 'crane', 'fortnightly', 'shrine', 'custom' ] === array_keys( $control->choices );
+						}
+					),
+				]
 			);
 
 		$controls->add_theme_controls();
