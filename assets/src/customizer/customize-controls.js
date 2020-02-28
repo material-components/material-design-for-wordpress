@@ -1,4 +1,4 @@
-/* global jQuery, requestAnimationFrame */
+/* global jQuery, requestAnimationFrame, mtb */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -175,5 +175,73 @@
 	 */
 	$.extend( api.sectionConstructor, {
 		collapse: api.CollapsibleSection,
+	} );
+
+	/**
+	 * Callback when a "Design Style" is changed.
+	 *
+	 * @param {string} newValue Updated value.
+	 * @param {string} oldValue Previous Value.
+	 */
+	const onStyleChange = ( newValue, oldValue ) => {
+		// Bail out if custom style is selected or if we don't have a valid style.
+		if (
+			'custom' === newValue ||
+			! mtb.designStyles ||
+			! mtb.designStyles.hasOwnProperty( newValue )
+		) {
+			return;
+		}
+
+		// If a style is selected from custom, show confirm dialogue.
+		if ( 'custom' === oldValue && ! window.confirm( mtb.l10n.confirmChange ) ) { // eslint-disable-line
+			api.control( mtb.styleControl ).setting.set( oldValue );
+			return;
+		}
+
+		const defaults = mtb.designStyles[ newValue ];
+
+		// Iterate through all the default values for the selected style
+		// and update the corresponding control value.
+		Object.keys( defaults ).forEach( name => {
+			const value = defaults[ name ];
+			const control = api.control( `mtb_${ name }` );
+
+			if ( value && control ) {
+				// Unbind the custom value change event.
+				control.setting.unbind( onCustomValueChange );
+
+				// Set the value from style defaults.
+				control.setting.set( value );
+
+				// Rebind the custom value change event.
+				control.setting.bind( onCustomValueChange );
+			}
+		} );
+	};
+
+	/**
+	 * Callback when any of our control value is changed.
+	 */
+	const onCustomValueChange = () => {
+		const styleSetting = api( mtb.styleControl );
+		if ( 'custom' !== styleSetting.get() ) {
+			styleSetting.set( 'custom' );
+		}
+	};
+
+	api.bind( 'ready', () => {
+		// Iterate through our controls and bind events for value change.
+		if ( mtb.controls && Array.isArray( mtb.controls ) ) {
+			mtb.controls.forEach( name => {
+				api( name, setting => {
+					if ( mtb.styleControl === name ) {
+						return setting.bind( onStyleChange );
+					}
+
+					setting.bind( onCustomValueChange );
+				} );
+			} );
+		}
 	} );
 } )( jQuery, wp.customize );

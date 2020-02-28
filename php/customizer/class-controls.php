@@ -20,7 +20,7 @@ class Controls extends Module_Base {
 	 *
 	 * @var string
 	 */
-	public $slug = 'material_theme';
+	public $slug = 'mtb';
 
 	/**
 	 * WP_Customize_Manager object reference.
@@ -28,6 +28,13 @@ class Controls extends Module_Base {
 	 * @var \WP_Customize_Manager
 	 */
 	public $wp_customize;
+
+	/**
+	 * List of added controls.
+	 *
+	 * @var array
+	 */
+	public $added_controls = [];
 
 	/**
 	 * Register customizer options.
@@ -76,14 +83,16 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			$this->slug . '_style'      => __( 'Design Style', 'material-theme-builder' ),
-			$this->slug . '_colors'     => __( 'Color Palettes', 'material-theme-builder' ),
-			$this->slug . '_typography' => __( 'Typography', 'material-theme-builder' ),
-			$this->slug . '_corners'    => __( 'Corner Styles', 'material-theme-builder' ),
-			$this->slug . '_icons'      => __( 'Icon Collections', 'material-theme-builder' ),
+			'style'      => __( 'Design Style', 'material-theme-builder' ),
+			'colors'     => __( 'Color Palettes', 'material-theme-builder' ),
+			'typography' => __( 'Typography', 'material-theme-builder' ),
+			'corners'    => __( 'Corner Styles', 'material-theme-builder' ),
+			'icons'      => __( 'Icon Collections', 'material-theme-builder' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
+			$id = "{$this->slug}_{$id}";
+
 			$args = [
 				'priority'   => 10,
 				'capability' => 'edit_theme_options',
@@ -108,6 +117,7 @@ class Controls extends Module_Base {
 					$section
 				);
 			} elseif ( $section instanceof \WP_Customize_Section ) {
+				$section->id = $id;
 				$this->wp_customize->add_section( $section );
 			}
 		}
@@ -123,12 +133,13 @@ class Controls extends Module_Base {
 		 * List of all the control settings in the Theme section.
 		 */
 		$settings = [
-			$this->slug . '_style'          => [
+			'style'          => [
 				'default' => 'baseline',
 			],
-			$this->slug . '_previous_style' => [
+			'previous_style' => [
 				'default' => 'baseline',
 			], // This setting does not have an associated control.
+			'primary_color'  => [], // Todo: Move this to colors section.
 		];
 
 		$this->add_settings( $settings );
@@ -137,11 +148,11 @@ class Controls extends Module_Base {
 		* List of all the controls in the Theme section.
 		 */
 		$controls = [
-			$this->slug . '_style' => new Image_Radio_Control(
+			'style'         => new Image_Radio_Control(
 				$this->wp_customize,
 				$this->slug . '_style',
 				[
-					'section'  => $this->slug . '_style',
+					'section'  => 'style',
 					'priority' => 10,
 					'choices'  => [
 						'baseline'    => [
@@ -167,6 +178,11 @@ class Controls extends Module_Base {
 					],
 				]
 			),
+			'primary_color' => [
+				'type'    => 'text',
+				'section' => 'style',
+				'label'   => __( 'Primary Color', 'material-theme-builder' ),
+			],
 		];
 
 		$this->add_controls( $controls );
@@ -181,10 +197,13 @@ class Controls extends Module_Base {
 	public function add_settings( $settings = [] ) {
 
 		foreach ( $settings as $id => $setting ) {
+			$id = "{$this->slug}_{$id}";
+
 			if ( is_array( $setting ) ) {
 				$defaults = [
 					'capability'        => 'edit_theme_options',
 					'sanitize_callback' => 'sanitize_text_field',
+					'default'           => $this->get_default( $id ),
 				];
 
 				$setting = array_merge( $defaults, $setting );
@@ -206,6 +225,7 @@ class Controls extends Module_Base {
 					$setting
 				);
 			} elseif ( $setting instanceof \WP_Customize_Setting ) {
+				$setting->id = $id;
 				$this->wp_customize->add_setting( $setting );
 			}
 		}
@@ -220,6 +240,8 @@ class Controls extends Module_Base {
 	public function add_controls( $controls = [] ) {
 
 		foreach ( $controls as $id => $control ) {
+			$id = "{$this->slug}_{$id}";
+
 			/**
 			 * Filters the customizer control args.
 			 *
@@ -231,12 +253,17 @@ class Controls extends Module_Base {
 			$control = apply_filters( 'mtb_customizer_control_args', $control, $id );
 
 			if ( is_array( $control ) ) {
+				$control['section'] = isset( $control['section'] ) ? $this->prepend_slug( $control['section'] ) : '';
 				$this->wp_customize->add_control(
 					$id,
 					$control
 				);
+				$this->added_controls[] = $id;
 			} elseif ( $control instanceof \WP_Customize_Control ) {
+				$control->id      = $id;
+				$control->section = isset( $control->section ) ? $this->prepend_slug( $control->section ) : '';
 				$this->wp_customize->add_control( $control );
+				$this->added_controls[] = $id;
 			}
 		}
 	}
@@ -255,11 +282,98 @@ class Controls extends Module_Base {
 			false
 		);
 
+		wp_localize_script(
+			'material-theme-builder-customizer-js',
+			'mtb',
+			[
+				'designStyles' => $this->get_design_styles(),
+				'controls'     => $this->added_controls,
+				'styleControl' => "{$this->slug}_style",
+				'l10n'         => [
+					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
+				],
+			]
+		);
+
 		wp_enqueue_style(
 			'material-theme-builder-customizer-css',
 			$this->plugin->asset_url( 'assets/css/customizer-compiled.css' ),
 			[],
 			$this->plugin->asset_version()
 		);
+	}
+
+	/**
+	 * Get default value for a setting.
+	 *
+	 * @param  string $setting Name of the setting.
+	 * @return mixed
+	 */
+	public function get_default( $setting ) {
+		$setting  = str_replace( "{$this->slug}_", '', $setting );
+		$styles   = $this->get_design_styles();
+		$baseline = $styles['baseline'];
+
+		return isset( $baseline[ $setting ] ) ? $baseline[ $setting ] : '';
+	}
+
+	/**
+	 * Get the design styles with their default values.
+	 *
+	 * @return array
+	 */
+	public function get_design_styles() {
+		return [
+			'baseline'    => [
+				'primary_color'        => '#6200EE',
+				'secondary_color'      => '#03dac6',
+				'primary_text_color'   => '#ffffff',
+				'secondary_text_color' => '#000000',
+				'font_headlines'       => 'Roboto',
+				'font_body'            => 'Roboto',
+				'corner_styles'        => '4px',
+				'icon_collection'      => 'filled',
+			],
+			'crane'       => [
+				'primary_color'        => '#5d1049',
+				'secondary_color'      => '#e30425',
+				'primary_text_color'   => '#ffffff',
+				'secondary_text_color' => '#ffffff',
+				'font_headlines'       => 'Raleway Light',
+				'font_body'            => 'Raleway Semi-Bold',
+				'corner_styles'        => '4',
+				'icon_collection'      => 'outlined',
+			],
+			'fortnightly' => [
+				'primary_color'        => '#ffffff',
+				'secondary_color'      => '#6b38fb',
+				'primary_text_color'   => '#000000',
+				'secondary_text_color' => '#ffffff',
+				'font_headlines'       => 'Merriweather Black Italic',
+				'font_body'            => 'Merriweather Regular',
+				'corner_styles'        => '0',
+				'icon_collection'      => 'outlined',
+			],
+			'shrine'      => [
+				'primary_color'        => '#fedbd0',
+				'secondary_color'      => '#feeae6',
+				'primary_text_color'   => '#000000',
+				'secondary_text_color' => '#000000',
+				'font_headlines'       => 'Rubik Light',
+				'font_body'            => 'Rubik Regular',
+				'corner_styles'        => '4px',
+				'icon_collection'      => 'outlined',
+			],
+		];
+	}
+
+	/**
+	 * Prepend the slug name if it does not exist.
+	 *
+	 * @param  string $name The name of the setting/control.
+	 * @return string
+	 */
+	public function prepend_slug( $name ) {
+		return false === strpos( $name, "{$this->slug}_" ) ? "{$this->slug}_{$name}" : $name;
 	}
 }
