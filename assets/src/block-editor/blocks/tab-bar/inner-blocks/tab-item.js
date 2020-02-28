@@ -27,8 +27,8 @@ export const ICON_POSITIONS = [
 		value: 'leading',
 	},
 	{
-		label: __( 'Trailing', 'material-theme-builder' ),
-		value: 'trailing',
+		label: __( 'Above', 'material-theme-builder' ),
+		value: 'above',
 	},
 ];
 
@@ -69,6 +69,7 @@ export const settings = {
 				<div
 					className={ classNames( 'mdc-tab', {
 						'mdc-tab--active': isSelected,
+						'mdc-tab--stacked': icon && iconPosition === 'above',
 					} ) }
 				>
 					<span className="mdc-tab__content">
@@ -94,15 +95,12 @@ export const settings = {
 								{ label }
 							</span>
 						</span>
-						{ icon && iconPosition === 'trailing' && (
-							<i className="material-icons mdc-tab__icon">
-								{ String.fromCharCode( icon?.hex ) }
-							</i>
-						) }
 					</span>
-					<span className="mdc-tab-indicator mdc-tab-indicator--active">
-						<span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-					</span>
+					{ isSelected && (
+						<span className="mdc-tab-indicator mdc-tab-indicator--active">
+							<span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+						</span>
+					) }
 				</div>
 
 				<InspectorControls>
