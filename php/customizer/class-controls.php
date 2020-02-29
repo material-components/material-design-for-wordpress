@@ -9,6 +9,7 @@ namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Customizer\Image_Radio_Control;
+use MaterialThemeBuilder\Customizer\Material_Color_Palette_Control;
 
 /**
  * Class Controls.
@@ -46,6 +47,9 @@ class Controls extends Module_Base {
 	public function register( $wp_customize ) {
 		$this->wp_customize = $wp_customize;
 
+		// Register custom control types.
+		$this->wp_customize->register_control_type( Material_Color_Palette_Control::class );
+
 		// Add the panel.
 		$this->add_panel();
 
@@ -54,6 +58,9 @@ class Controls extends Module_Base {
 
 		// Add all controls in the "Theme" section.
 		$this->add_theme_controls();
+
+		// Add all controls in the "Colors" section.
+		$this->add_color_controls();
 	}
 
 	/**
@@ -189,6 +196,59 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Add all controls in the "Colors" section.
+	 *
+	 * @return void
+	 */
+	public function add_color_controls() {
+		/**
+		 * List of all the control settings in the Colors section.
+		 */
+		$settings = [
+			'primary_color'        => [
+				'sanitize_callback' => 'sanitize_hex_color',
+			],
+			'secondary_color'      => [
+				'sanitize_callback' => 'sanitize_hex_color',
+			],
+			'primary_tex_color'    => [
+				'sanitize_callback' => 'sanitize_hex_color',
+			],
+			'secondary_text_color' => [
+				'sanitize_callback' => 'sanitize_hex_color',
+			],
+		];
+
+		$this->add_settings( $settings );
+
+		/**
+		* List of all the controls in the Theme section.
+		 */
+		$controls = [
+			'primary_color'   => new Material_Color_Palette_Control(
+				$this->wp_customize,
+				$this->slug . '_primary_color',
+				[
+					'label'    => __( 'Primary Color', 'material-theme-builder' ),
+					'section'  => 'colors',
+					'priority' => 10,
+				]
+			),
+			'secondary_color' => new Material_Color_Palette_Control(
+				$this->wp_customize,
+				$this->slug . '_secondary_color',
+				[
+					'label'    => __( 'Secondary Color', 'material-theme-builder' ),
+					'section'  => 'colors',
+					'priority' => 10,
+				]
+			),
+		];
+
+		$this->add_controls( $controls );
+	}
+
+	/**
 	 * Add settings to customizer.
 	 *
 	 * @param  array $settings Array of settings to add to customizer.
@@ -301,6 +361,15 @@ class Controls extends Module_Base {
 			[],
 			$this->plugin->asset_version()
 		);
+	}
+
+	/**
+	 * Render custom templates.
+	 *
+	 * @action customize_controls_print_footer_scripts
+	 */
+	public function templates() {
+		Material_Color_Palette_Control::tabs_template();
 	}
 
 	/**

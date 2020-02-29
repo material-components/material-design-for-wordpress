@@ -49,6 +49,8 @@
 		const sectionHeight = element.scrollHeight + 2;
 
 		const removeEvent = () => {
+			element.style.height = 'auto';
+
 			// remove this event listener so it only gets triggered once
 			element.removeEventListener( 'transitionend', removeEvent );
 		};
@@ -134,13 +136,13 @@
 			const overlay = section.headContainer.closest( '.wp-full-overlay' );
 
 			if ( expanded ) {
-				if ( ! args.allowMultiple ) {
-					api.section.each( otherSection => {
-						if ( otherSection !== section ) {
-							otherSection.collapse( { duration: args.duration } );
-						}
-					} );
-				}
+				// if ( ! args.allowMultiple ) {
+				// 	api.section.each( otherSection => {
+				// 		if ( otherSection !== section ) {
+				// 			otherSection.collapse( { duration: args.duration } );
+				// 		}
+				// 	} );
+				// }
 
 				section.contentContainer.addClass( 'open' );
 
@@ -175,6 +177,51 @@
 	 */
 	$.extend( api.sectionConstructor, {
 		collapse: api.CollapsibleSection,
+	} );
+
+	api.MaterialColorControl = api.ColorControl.extend( {
+		template: wp.template( 'customize-control-material_color-tabs' ),
+
+		ready() {
+			const control = this;
+			api.ColorControl.prototype.ready.call( control );
+
+			const picker = control.container.find( '.wp-picker-holder' );
+			const container = control.container.find( '.wp-picker-container' );
+
+			// Append the tabs markup to container.
+			container.append( control.template( { id: control.id } ) );
+
+			// Move picker to the custom tab.
+			container.find( '.tab-custom' ).append( picker );
+
+			container.find( '.mtb-tab-link' ).on( 'click', event => {
+				event.preventDefault();
+
+				const link = $( event.target );
+				const targetId = link
+					.attr( 'href' )
+					.split( '#' )
+					.pop();
+
+				container.find( '.active' ).removeClass( 'active' );
+
+				container.find( `#${ targetId }` ).addClass( 'active' );
+				link.addClass( 'active' );
+			} );
+
+			container
+				.find( '.mtb-tab-link' )
+				.first()
+				.trigger( 'click' );
+		},
+	} );
+
+	/**
+	 * Extends wp.customize.controlConstructor with material color constructor.
+	 */
+	$.extend( api.controlConstructor, {
+		material_color: api.MaterialColorControl,
 	} );
 
 	/**
