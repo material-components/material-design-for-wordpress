@@ -1,8 +1,11 @@
+import { sortBy } from 'lodash';
+
 /**
  * Internal dependencies
  */
 import './style.css';
 import Tab from './components/tab';
+import OrderToolbar from './components/order-toolbar';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 
@@ -10,8 +13,9 @@ import ButtonGroup from '../../components/button-group';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { useState } from '@wordpress/element';
 import { PanelBody } from '@wordpress/components';
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, BlockControls } from '@wordpress/block-editor';
 
 export const ICON_POSITIONS = [
 	{
@@ -35,11 +39,14 @@ export default function TabBarEdit( {
 	attributes: { tabs, iconPosition },
 	setAttributes,
 } ) {
+	const [ activeTabId, setActiveTabId ] = useState( 1 );
+
 	const createTab = () => {
 		const newId = tabs.length + 1;
 
 		tabs.push( {
 			id: newId,
+			position: newId,
 			label: __( 'Tab', 'material-theme-builder' ) + ` ${ newId }`,
 			active: false,
 			icon: null,
@@ -55,7 +62,27 @@ export default function TabBarEdit( {
 			return tab;
 		} );
 
-		setAttributes( { tabs, activeTab: id } );
+		setAttributes( { tabs } );
+		setActiveTabId( id );
+	};
+
+	const moveTab = direction => {
+		const activeTab = tabs.find( t => t.id === activeTabId );
+		let newPos =
+			direction === 'left' ? activeTab.position - 1 : activeTab.position + 1;
+
+		if ( newPos < 1 ) {
+			newPos = 1;
+		} else if ( newPos > tabs.length ) {
+			newPos = tabs.length;
+		}
+
+		const currentTab = tabs.find( t => t.position === newPos );
+
+		currentTab.position = activeTab.position;
+		activeTab.position = newPos;
+
+		setAttributes( { tabs: sortBy( tabs, [ 'position' ] ) } );
 	};
 
 	return (
@@ -67,14 +94,14 @@ export default function TabBarEdit( {
 							className="mdc-tab-scroller__scroll-content"
 							style={ { display: 'flex', position: 'relative' } }
 						>
-							{ tabs.map( props => (
+							{ sortBy( tabs, [ 'position' ] ).map( props => (
 								<Tab key={ props.id } { ...props } onChange={ changeTab } />
 							) ) }
 							<button
 								style={ {
 									alignSelf: 'flex-end',
-									marginBottom: '10px',
-									marginLeft: '30px',
+									marginBottom: '5px',
+									marginLeft: '20px',
 									padding: '4px 6px',
 									backgroundColor: '#F4F5F6',
 									fontSize: '13px',
@@ -97,6 +124,10 @@ export default function TabBarEdit( {
 					</div>
 				</div>
 			</div>
+
+			<BlockControls>
+				<OrderToolbar onChange={ moveTab } />
+			</BlockControls>
 
 			<InspectorControls>
 				<PanelBody
