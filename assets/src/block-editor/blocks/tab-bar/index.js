@@ -1,3 +1,6 @@
+/**
+ * Internal dependencies
+ */
 import edit from './edit';
 import save from './save';
 
@@ -16,7 +19,33 @@ export const settings = {
 	),
 	category: 'material',
 	icon: <i className="material-icons">face</i>,
-	attributes: {},
+	attributes: {
+		iconPosition: {
+			type: 'string',
+			default: 'none',
+		},
+		activeTab: {
+			type: 'string',
+			default: 1,
+		},
+		tabs: {
+			type: 'array',
+			default: [
+				{
+					id: 1,
+					label: 'Tab 1',
+					active: true,
+					icon: null,
+				},
+				{
+					id: 2,
+					label: 'Tab 2',
+					active: false,
+					icon: null,
+				},
+			],
+		},
+	},
 	edit,
 	save,
 };
