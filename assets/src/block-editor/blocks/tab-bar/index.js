@@ -24,22 +24,20 @@ export const settings = {
 			type: 'string',
 			default: 'none',
 		},
-		activeTab: {
-			type: 'string',
-			default: 1,
-		},
 		tabs: {
 			type: 'array',
 			default: [
 				{
 					id: 1,
-					label: 'Tab 1',
+					position: 1,
+					label: __( 'Tab 1', 'material-theme-builder' ),
 					active: true,
 					icon: null,
 				},
 				{
 					id: 2,
-					label: 'Tab 2',
+					position: 2,
+					label: __( 'Tab 2', 'material-theme-builder' ),
 					active: false,
 					icon: null,
 				},
