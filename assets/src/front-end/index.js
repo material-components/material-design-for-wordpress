@@ -4,6 +4,7 @@
  * External dependencies
  */
 import { MDCRipple } from '@material/ripple';
+import { MDCTabBar } from '@material/tab-bar';
 
 /**
  * Internal dependencies
@@ -20,6 +21,16 @@ const initButtons = () => {
 	}
 };
 
+const initTabBar = () => {
+	new MDCTabBar( document.querySelector( '.mdc-tab-bar' ) );
+	const tabs = document.querySelectorAll( '.mdc-tab' );
+
+	for ( const tab of tabs ) {
+		new MDCRipple( tab );
+	}
+};
+
 addEventListener( 'DOMContentLoaded', () => {
 	initButtons();
+	initTabBar();
 } );

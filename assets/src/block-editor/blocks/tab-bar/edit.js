@@ -2,82 +2,121 @@
  * Internal dependencies
  */
 import './style.css';
+import Tab from './components/tab';
+import IconPicker from '../../components/icon-picker';
+import ButtonGroup from '../../components/button-group';
 
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { createBlock } from '@wordpress/blocks';
-import { dispatch, select } from '@wordpress/data';
-// import { useCallback } from '@wordpress/components';
-import { InnerBlocks } from '@wordpress/block-editor';
+import { PanelBody } from '@wordpress/components';
+import { InspectorControls } from '@wordpress/block-editor';
+
+export const ICON_POSITIONS = [
+	{
+		label: __( 'None', 'material-theme-builder' ),
+		value: 'none',
+	},
+	{
+		label: __( 'Leading', 'material-theme-builder' ),
+		value: 'leading',
+	},
+	{
+		label: __( 'Above', 'material-theme-builder' ),
+		value: 'above',
+	},
+];
 
 /**
  * Material button edit component.
  */
-export default function TabBarEdit( { clientId } ) {
-	const addTabHandler = () => {
-		const innerCount = select( 'core/editor' ).getBlocksByClientId(
-			clientId
-		)[ 0 ].innerBlocks.length;
+export default function TabBarEdit( {
+	attributes: { tabs, iconPosition },
+	setAttributes,
+} ) {
+	const createTab = () => {
+		const newId = tabs.length + 1;
 
-		dispatch( 'core/editor' ).insertBlock(
-			createBlock( 'material/tab-item', {
-				label: `${ __( 'Tab ', 'material-theme-builder' ) } ${ innerCount +
-					1 }`,
-			} ),
-			innerCount,
-			clientId
-		);
+		tabs.push( {
+			id: newId,
+			label: __( 'Tab', 'material-theme-builder' ) + ` ${ newId }`,
+			active: false,
+			icon: null,
+		} );
+
+		setAttributes( { tabs } );
+		changeTab( newId );
+	};
+
+	const changeTab = id => {
+		tabs = tabs.map( tab => {
+			tab.active = tab.id === id;
+			return tab;
+		} );
+
+		setAttributes( { tabs, activeTab: id } );
 	};
 
 	return (
-		<div className="mdc-tab-bar" role="tablist">
-			<div className="mdc-tab-scroller">
-				<div className="mdc-tab-scroller__scroll-area">
-					<div
-						className="mdc-tab-scroller__scroll-content"
-						style={ { display: 'flex' } }
-					>
-						<InnerBlocks
-							allowedBlocks={ [ 'material/tab-item' ] }
-							template={ [
-								[
-									'material/tab-item',
-									{ label: __( 'Tab 1', 'material-theme-builder' ) },
-								],
-								[
-									'material/tab-item',
-									{ label: __( 'Tab 2', 'material-theme-builder' ) },
-								],
-							] }
-						/>
-						<button
-							style={ {
-								alignSelf: 'flex-end',
-								marginBottom: '30px',
-								marginLeft: '30px',
-								padding: '4px 6px',
-								backgroundColor: '#F4F5F6',
-								fontSize: '13px',
-								border: '1px solid #639EC7',
-								borderRadius: '2px',
-								color: '#639EC7',
-								cursor: 'pointer',
-							} }
-							onClick={ addTabHandler }
+		<>
+			<div className="mdc-tab-bar" role="tablist">
+				<div className="mdc-tab-scroller">
+					<div className="mdc-tab-scroller__scroll-area">
+						<div
+							className="mdc-tab-scroller__scroll-content"
+							style={ { display: 'flex', position: 'relative' } }
 						>
-							<i
-								className="material-icons"
-								style={ { verticalAlign: 'middle' } }
+							{ tabs.map( props => (
+								<Tab key={ props.id } { ...props } onChange={ changeTab } />
+							) ) }
+							<button
+								style={ {
+									alignSelf: 'flex-end',
+									marginBottom: '10px',
+									marginLeft: '30px',
+									padding: '4px 6px',
+									backgroundColor: '#F4F5F6',
+									fontSize: '13px',
+									border: '1px solid #639EC7',
+									borderRadius: '2px',
+									color: '#639EC7',
+									cursor: 'pointer',
+								} }
+								onClick={ createTab }
 							>
-								add
-							</i>
-							<span>{ __( 'New Tab', 'material-theme-builder' ) }</span>
-						</button>
+								<i
+									className="material-icons"
+									style={ { verticalAlign: 'middle' } }
+								>
+									add
+								</i>
+								<span>{ __( 'New Tab', 'material-theme-builder' ) }</span>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+
+			<InspectorControls>
+				<PanelBody
+					title={ __( 'Icon', 'material-theme-builder' ) }
+					initialOpen={ true }
+				>
+					<ButtonGroup
+						buttons={ ICON_POSITIONS }
+						current={ iconPosition }
+						onClick={ val => setAttributes( { iconPosition: val } ) }
+					/>
+
+					{ iconPosition !== 'none' && (
+						<IconPicker
+							currentIcon=""
+							onChange={ val => setAttributes( { icon: val } ) }
+						/>
+					) }
+				</PanelBody>
+			</InspectorControls>
+		</>
 	);
 }
