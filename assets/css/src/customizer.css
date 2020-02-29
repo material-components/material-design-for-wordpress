@@ -48,3 +48,54 @@
 		width: 100%;
 	}
 }
+
+/* Material color palette control */
+
+
+.customize-control-material_color .wp-picker-container {
+	display: block;
+	width: 100%;
+
+	&.wp-picker-active .mtb-tabs {
+		display: flex;
+	}
+
+	& .wp-picker-input-wrap {
+		display: inline-block;
+	}
+}
+
+.mtb-tabs {
+	display: none;
+	margin: 15px 0;
+}
+
+.mtb-tab-link {
+	display: inline-block;
+	width: 50%;
+	text-align: center;
+	padding: 8px;
+	text-decoration: none;
+	background-color: #fff;
+	border-right: 1px solid #ddd;
+	border-bottom: 3px solid transparent;
+	color: #555d66;
+
+	&.active,
+	&:hover {
+		border-bottom-color: #0073aa;
+		color: #0073aa;
+	}
+
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+.mtb-tab-content {
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}
