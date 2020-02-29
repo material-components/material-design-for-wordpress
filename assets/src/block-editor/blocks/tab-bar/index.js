@@ -33,6 +33,7 @@ export const settings = {
 					label: __( 'Tab 1', 'material-theme-builder' ),
 					active: true,
 					icon: null,
+					content: null,
 				},
 				{
 					id: 2,
@@ -40,6 +41,7 @@ export const settings = {
 					label: __( 'Tab 2', 'material-theme-builder' ),
 					active: false,
 					icon: null,
+					content: null,
 				},
 			],
 		},
