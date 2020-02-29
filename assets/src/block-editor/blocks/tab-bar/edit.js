@@ -15,7 +15,11 @@ import ButtonGroup from '../../components/button-group';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
 import { PanelBody } from '@wordpress/components';
-import { InspectorControls, BlockControls } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	BlockControls,
+	InnerBlocks,
+} from '@wordpress/block-editor';
 
 export const ICON_POSITIONS = [
 	{
@@ -39,7 +43,7 @@ export default function TabBarEdit( {
 	attributes: { tabs, iconPosition },
 	setAttributes,
 } ) {
-	const [ activeTabId, setActiveTabId ] = useState( 1 );
+	const [ activeTab, setActiveTab ] = useState( tabs[ 0 ] );
 
 	const createTab = () => {
 		const newId = tabs.length + 1;
@@ -63,11 +67,10 @@ export default function TabBarEdit( {
 		} );
 
 		setAttributes( { tabs } );
-		setActiveTabId( id );
+		setActiveTab( tabs.find( tab => tab.id === id ) );
 	};
 
 	const moveTab = direction => {
-		const activeTab = tabs.find( t => t.id === activeTabId );
 		let newPos =
 			direction === 'left' ? activeTab.position - 1 : activeTab.position + 1;
 
@@ -85,18 +88,28 @@ export default function TabBarEdit( {
 		setAttributes( { tabs: sortBy( tabs, [ 'position' ] ) } );
 	};
 
+	const setTabIcon = icon => {
+		activeTab.icon = icon;
+		setAttributes( { tabs } );
+	};
+
+	const renderTabs = tabs.map( props => (
+		<Tab
+			key={ props.id }
+			onChange={ changeTab }
+			iconPosition={ iconPosition }
+			activeTab={ activeTab.id }
+			{ ...props }
+		/>
+	) );
+
 	return (
 		<>
 			<div className="mdc-tab-bar" role="tablist">
 				<div className="mdc-tab-scroller">
-					<div className="mdc-tab-scroller__scroll-area">
-						<div
-							className="mdc-tab-scroller__scroll-content"
-							style={ { display: 'flex', position: 'relative' } }
-						>
-							{ sortBy( tabs, [ 'position' ] ).map( props => (
-								<Tab key={ props.id } { ...props } onChange={ changeTab } />
-							) ) }
+					<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
+						<div className="mdc-tab-scroller__scroll-content">
+							{ renderTabs }
 							<button
 								style={ {
 									alignSelf: 'flex-end',
@@ -125,6 +138,10 @@ export default function TabBarEdit( {
 				</div>
 			</div>
 
+			<div>
+				<InnerBlocks />
+			</div>
+
 			<BlockControls>
 				<OrderToolbar onChange={ moveTab } />
 			</BlockControls>
@@ -142,8 +159,8 @@ export default function TabBarEdit( {
 
 					{ iconPosition !== 'none' && (
 						<IconPicker
-							currentIcon=""
-							onChange={ val => setAttributes( { icon: val } ) }
+							currentIcon={ activeTab.icon }
+							onChange={ setTabIcon }
 						/>
 					) }
 				</PanelBody>
