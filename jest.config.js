@@ -1,5 +1,3 @@
-const { defaults } = require( 'jest-config' );
-
 module.exports = {
 	verbose: true,
 	testMatch: [ '**/?(*.)+(spec|test).[jt]s?(x)' ],
@@ -11,5 +9,7 @@ module.exports = {
 		'/bin/',
 		'/tests/e2e/',
 	],
-	moduleFileExtensions: [ ...defaults.moduleFileExtensions, 'ijmap' ],
+	moduleNameMapper: {
+		'^!!json-loader!(.*).ijmap$': '<rootDir>/tests/mocks/ijmap.js',
+	},
 };
