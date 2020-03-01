@@ -231,7 +231,7 @@ class Controls extends Module_Base {
 
 		wp_enqueue_style(
 			'material-theme-builder-customizer-css',
-			$this->plugin->asset_url( 'assets/css/customizer-compiled.css' ),
+			$this->plugin->asset_url( 'assets/css/customize-controls-compiled.css' ),
 			[],
 			$this->plugin->asset_version()
 		);

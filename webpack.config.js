@@ -107,8 +107,10 @@ const customizer = {
 	...defaultConfig,
 	...sharedConfig,
 	entry: {
-		customizer: [ './assets/css/src/customizer.css' ],
-		'customize-controls': [ './assets/src/customizer/customize-controls.js' ],
+		'customize-controls': [
+			'./assets/src/customizer/customize-controls.js',
+			'./assets/css/src/customize-controls.css',
+		],
 		'customize-preview': './assets/src/customizer/customize-preview.js',
 	},
 	module: {
