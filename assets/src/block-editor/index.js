@@ -1,11 +1,11 @@
-/**
- * WordPress dependencies
- */
-import { registerBlockType } from '@wordpress/blocks';
+/* istanbul ignore file */
 
 /**
  * Internal dependencies
  */
-import * as button from './blocks/button';
+import { registerBlocks } from './helpers';
 
-registerBlockType( `material/${ button.name }`, button.settings );
+/**
+ * Register the blocks.
+ */
+registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );

@@ -113,10 +113,11 @@ Lastly, to get the plugin running in your WordPress install, activate the plugin
 wp plugin activate material-theme-builder
 ```
 
-If running this from the including Docker environment:
+If running this from the included Docker environment:
 
 ```bash
-npm run docker -- npm run wp plugin activate material-theme-builder
+npm run wp -- wp plugin activate material-theme-builder
+
 ```
 
 _This command assumes you went through the WordPress install process already_
