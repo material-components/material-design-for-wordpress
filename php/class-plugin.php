@@ -7,20 +7,12 @@
 
 namespace MaterialThemeBuilder;
 
-use MaterialThemeBuilder\BazBar\Sample;
 use MaterialThemeBuilder\Customizer\Controls;
 
 /**
  * Main plugin bootstrap file.
  */
 class Plugin extends Plugin_Base {
-
-	/**
-	 * Sample class.
-	 *
-	 * @var Sample
-	 */
-	public $sample;
 
 	/**
 	 * Controls class.
@@ -40,9 +32,6 @@ class Plugin extends Plugin_Base {
 	 */
 	public function init() {
 		$this->config = apply_filters( 'material_theme_builder_plugin_config', $this->config, $this );
-
-		$this->sample = new Sample( $this );
-		$this->sample->init();
 
 		$this->customizer_controls = new Controls( $this );
 		$this->customizer_controls->init();
