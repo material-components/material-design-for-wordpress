@@ -20,7 +20,7 @@ describe( 'blocks: material/button', () => {
 
 	describe( 'Save', () => {
 		it( 'should equal Button Text', () => {
-			render( <settings.Save /> );
+			render( <settings.save /> );
 			expect( document.querySelector( 'Button' ).textContent ).toStrictEqual(
 				'Button Text'
 			);
