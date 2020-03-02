@@ -9,6 +9,7 @@ namespace MaterialThemeBuilder;
 
 use MaterialThemeBuilder\BazBar\Sample;
 use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
+use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 
 /**
  * Main plugin bootstrap file.
@@ -30,6 +31,13 @@ class Plugin extends Plugin_Base {
 	public $recent_post_block;
 
 	/**
+	 * Hand_Picked_Posts_Block class.
+	 *
+	 * @var Hand_Picked_Posts_Block
+	 */
+	public $hand_picked_post_block;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * Priority is 9 because WP_Customize_Widgets::register_settings() happens at
@@ -46,6 +54,9 @@ class Plugin extends Plugin_Base {
 
 		$this->recent_post_block = new Recent_Posts_Block( $this );
 		$this->recent_post_block->init();
+
+		$this->hand_picked_post_block = new Hand_Picked_Posts_Block( $this );
+		$this->hand_picked_post_block->init();
 	}
 
 	/**
