@@ -83,7 +83,7 @@ jobs:
 
     - name: PHP & JS unit tests (7.4, WordPress latest, with code coverage)
       php: "7.4"
-      env: WP_VERSION=latest DEV_LIB_ONLY=phpunit,coverage COVERALLS_GIT_COMMIT=${TRAVIS_COMMIT:-HEAD}
+      env: WP_VERSION=latest DEV_LIB_ONLY=phpunit,coverage
       before_script:
         - echo "Running PHP & JS unit tests with code coverage ..."
       script:
