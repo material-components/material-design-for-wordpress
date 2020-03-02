@@ -12,7 +12,7 @@ import HorizontalCardLayout from './horizontal-card-layout';
 /**
  * Single Post component.
  *
- * @param {Object} props
+ * @param {Object} props - Component props.
  * @param {Object} props.post - Post data.
  * @param {number} props.postIndex - Post index.
  * @param {string} props.style - Card layout style.

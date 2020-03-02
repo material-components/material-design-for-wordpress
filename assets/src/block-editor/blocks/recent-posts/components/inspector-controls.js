@@ -40,7 +40,7 @@ const MAX_POST_CONTENT_LENGTH = 30;
 /**
  * Recent Posts Inspector Controls component.
  *
- * @param {Object} props
+ * @param {Object} props - Component props.
  * @param {Object} props.attributes - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
  *
