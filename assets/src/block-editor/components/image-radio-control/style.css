@@ -20,6 +20,7 @@
 		width: 50%;
 		border: 2px solid transparent;
 		border-radius: 4px;
+		padding: 5px;
 
 		&.active {
 			border-color: #565d66;
@@ -29,9 +30,11 @@
 	& .components-image-radio-control__image {
 		align-items: center;
 		display: flex;
-		height: 83px;
+		height: 82px;
 		justify-content: center;
 		overflow: hidden;
+		border: 1px solid #D1D2D3;
+		border-radius: 3px;
 	}
 
 	& .components-image-radio-control__label {
