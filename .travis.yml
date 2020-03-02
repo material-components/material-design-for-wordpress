@@ -10,6 +10,7 @@ notifications:
   email:
     on_success: never
     on_failure: change
+  webhooks: "https://coveralls.io/webhook?repo_token=$COVERALLS_REPO_TOKEN"
 
 language: php
 
