@@ -43,4 +43,22 @@ const Tab = ( { id, activeTab, icon, iconPosition, label, onChange } ) => {
 	);
 };
 
-export default Tab;
+class TabSchema {
+	constructor( {
+		id,
+		label,
+		position,
+		active = false,
+		icon = null,
+		content = null,
+	} ) {
+		this.id = id;
+		this.label = label;
+		this.position = position;
+		this.active = active;
+		this.icon = icon;
+		this.content = content;
+	}
+}
+
+export { Tab, TabSchema };

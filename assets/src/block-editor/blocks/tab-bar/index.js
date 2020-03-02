@@ -3,6 +3,7 @@
  */
 import edit from './edit';
 import save from './save';
+import { TabSchema } from './components/tab';
 
 /**
  * WordPress dependencies
@@ -27,22 +28,17 @@ export const settings = {
 		tabs: {
 			type: 'array',
 			default: [
-				{
+				new TabSchema( {
 					id: 1,
 					position: 1,
 					label: __( 'Tab 1', 'material-theme-builder' ),
 					active: true,
-					icon: null,
-					content: null,
-				},
-				{
+				} ),
+				new TabSchema( {
 					id: 2,
 					position: 2,
 					label: __( 'Tab 2', 'material-theme-builder' ),
-					active: false,
-					icon: null,
-					content: null,
-				},
+				} ),
 			],
 		},
 	},

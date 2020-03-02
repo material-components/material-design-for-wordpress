@@ -1,10 +1,13 @@
+/**
+ * External dependencies
+ */
 import { sortBy } from 'lodash';
 
 /**
  * Internal dependencies
  */
 import './style.css';
-import Tab from './components/tab';
+import { Tab, TabSchema } from './components/tab';
 import OrderToolbar from './components/order-toolbar';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
@@ -39,22 +42,22 @@ export const ICON_POSITIONS = [
 /**
  * Material button edit component.
  */
-export default function TabBarEdit( {
+const TabBarEdit = ( {
 	attributes: { tabs, iconPosition },
 	setAttributes,
-} ) {
+} ) => {
 	const [ activeTab, setActiveTab ] = useState( tabs[ 0 ] );
 
 	const createTab = () => {
 		const newId = tabs.length + 1;
 
-		tabs.push( {
-			id: newId,
-			position: newId,
-			label: __( 'Tab', 'material-theme-builder' ) + ` ${ newId }`,
-			active: false,
-			icon: null,
-		} );
+		tabs.push(
+			new TabSchema( {
+				id: newId,
+				position: newId,
+				label: __( 'Tab', 'material-theme-builder' ) + ` ${ newId }`,
+			} )
+		);
 
 		setAttributes( { tabs } );
 		changeTab( newId );
@@ -74,6 +77,7 @@ export default function TabBarEdit( {
 		let newPos =
 			direction === 'left' ? activeTab.position - 1 : activeTab.position + 1;
 
+		// Prevent going out of bounds
 		if ( newPos < 1 ) {
 			newPos = 1;
 		} else if ( newPos > tabs.length ) {
@@ -82,6 +86,7 @@ export default function TabBarEdit( {
 
 		const currentTab = tabs.find( t => t.position === newPos );
 
+		// Swap the tabs positions
 		currentTab.position = activeTab.position;
 		activeTab.position = newPos;
 
@@ -167,4 +172,6 @@ export default function TabBarEdit( {
 			</InspectorControls>
 		</>
 	);
-}
+};
+
+export default TabBarEdit;
