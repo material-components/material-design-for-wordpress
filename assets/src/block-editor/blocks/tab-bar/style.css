@@ -18,6 +18,10 @@
 .tab {
   position: relative;
 
+  &__label-field {
+    cursor: text !important;
+  }
+
   &__delete {
     position: absolute;
     top: calc(50% - 7.5px);

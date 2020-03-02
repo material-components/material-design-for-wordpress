@@ -53,7 +53,7 @@ const TabBarEdit = ( {
 
 	useEffect( () => {
 		// If there's content, put it in the editor
-		if ( activeTab.content && activeTab.content.length ) {
+		if ( activeTab && activeTab.content && activeTab.content.length ) {
 			dispatch( 'core/block-editor' ).replaceInnerBlocks(
 				clientId,
 				activeTab.content,
@@ -67,7 +67,7 @@ const TabBarEdit = ( {
 	}, [ activeTab ] );
 
 	useEffect( () => {
-		if ( ! isEqual( activeTab.content, tabContent ) ) {
+		if ( activeTab && ! isEqual( activeTab.content, tabContent ) ) {
 			activeTab.content = tabContent;
 			setAttributes( { tabs } );
 		}
@@ -78,7 +78,6 @@ const TabBarEdit = ( {
 
 		tabs.push(
 			new TabSchema( {
-				id: newId,
 				position: newId,
 				label: __( 'Tab', 'material-theme-builder' ) + ` ${ newId }`,
 			} )
@@ -88,13 +87,18 @@ const TabBarEdit = ( {
 		changeTab( newId );
 	};
 
-	const changeTab = id => {
-		tabs = tabs.map( tab => {
-			tab.active = tab.id === id;
+	const changeTab = index => {
+		tabs = tabs.map( ( tab, i ) => {
+			tab.active = index === i;
 			return tab;
 		} );
 
-		setActiveTab( tabs.find( tab => tab.id === id ) );
+		setActiveTab( tabs[ index ] );
+	};
+
+	const deleteTab = index => {
+		tabs = tabs.filter( ( _, i ) => index !== i );
+		setAttributes( { tabs } );
 	};
 
 	const moveTab = direction => {
@@ -128,12 +132,12 @@ const TabBarEdit = ( {
 				<div className="mdc-tab-scroller">
 					<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
 						<div className="mdc-tab-scroller__scroll-content">
-							{ tabs.map( props => (
+							{ tabs.map( ( props, index ) => (
 								<Tab
-									key={ props.id }
-									onChange={ changeTab }
+									key={ props.position }
+									onChange={ changeTab.bind( this, index ) }
+									onDelete={ deleteTab.bind( this, index ) }
 									iconPosition={ iconPosition }
-									activeTab={ activeTab.id }
 									{ ...props }
 								/>
 							) ) }
@@ -167,7 +171,7 @@ const TabBarEdit = ( {
 
 					{ iconPosition !== 'none' && (
 						<IconPicker
-							currentIcon={ activeTab.icon }
+							currentIcon={ activeTab?.icon }
 							onChange={ setTabIcon }
 						/>
 					) }
