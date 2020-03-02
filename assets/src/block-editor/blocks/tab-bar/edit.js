@@ -74,17 +74,17 @@ const TabBarEdit = ( {
 	} );
 
 	const createTab = useCallback( () => {
-		const newId = tabs.length + 1;
+		const newPosition = tabs[ tabs.length - 1 ].position + 1;
 
 		tabs.push(
 			new TabSchema( {
-				position: newId,
-				label: __( 'Tab', 'material-theme-builder' ) + ` ${ newId }`,
+				position: newPosition,
+				label: __( 'Tab', 'material-theme-builder' ) + ` ${ newPosition }`,
 			} )
 		);
 
-		setAttributes( { tabs } );
-		changeTab( newId );
+		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
+		changeTab( tabs.length - 1 );
 	} );
 
 	const changeTab = useCallback( index => {
