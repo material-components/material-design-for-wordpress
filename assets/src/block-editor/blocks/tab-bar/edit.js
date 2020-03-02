@@ -43,7 +43,7 @@ export const ICON_POSITIONS = [
  * Material button edit component.
  */
 const TabBarEdit = ( {
-	attributes: { tabs, iconPosition },
+	attributes: { tabs, iconPosition, forceUpdate },
 	setAttributes,
 } ) => {
 	const [ activeTab, setActiveTab ] = useState( tabs[ 0 ] );
@@ -95,7 +95,7 @@ const TabBarEdit = ( {
 
 	const setTabIcon = icon => {
 		activeTab.icon = icon;
-		setAttributes( { tabs } );
+		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
 	};
 
 	const renderTabs = tabs.map( props => (

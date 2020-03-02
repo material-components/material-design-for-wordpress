@@ -21,6 +21,10 @@ export const settings = {
 	category: 'material',
 	icon: <i className="material-icons">face</i>,
 	attributes: {
+		forceUpdate: {
+			type: 'boolean',
+			default: true,
+		},
 		iconPosition: {
 			type: 'string',
 			default: 'none',
