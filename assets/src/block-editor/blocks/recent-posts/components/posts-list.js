@@ -12,7 +12,7 @@ import SinglePost from './single-post';
 /**
  * Posts List component.
  *
- * @param {Object} props
+ * @param {Object} props - Component props.
  * @param {Object} props.attributes - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
  * @param {Object} props.recentPosts - Posts.

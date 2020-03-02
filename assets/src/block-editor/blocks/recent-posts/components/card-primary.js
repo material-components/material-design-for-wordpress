@@ -8,7 +8,7 @@ import { RawHTML } from '@wordpress/element';
 /**
  * Card Primary component.
  *
- * @param {Object} props - Props.
+ * @param {Object} props - Component props.
  * @param {string} props.titleTrimmed - Post title trimmed.
  * @param {boolean} props.displayPostDate - Whether or not to display the post date field.
  * @param {Object} props.post - Post data.
