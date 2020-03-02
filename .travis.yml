@@ -33,6 +33,7 @@ branches:
 env:
   global:
     - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+    - COVERALLS_PARALLEL=true
 
 before_install:
   - nvm install
