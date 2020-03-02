@@ -27,7 +27,6 @@
 	vertical-align: top;
 	transform: scale(1);
 	transition: 100ms transform ease;
-	@include reduce-motion("transition");
 
 	&:hover {
 		transform: scale(1.2);
@@ -52,6 +51,7 @@
 	bottom: 1px;
 	right: 1px;
 	border-radius: var(--radius-round);
+
 	/* Show a thin circular outline in Windows high contrast mode, otherwise the button is invisible. */
 	z-index: z-index(".components-circular-option-picker__option-wrapper::before");
 }
@@ -66,10 +66,10 @@
 	background: transparent;
 	box-shadow: inset 0 0 0 (var(--color-palette-circle-size) / 2);
 	transition: 100ms box-shadow ease;
-	@include reduce-motion("transition");
 	cursor: pointer;
 
 	&:hover {
+
 		/* Override default button hover style. */
 		box-shadow: inset 0 0 0 (var(--color-palette-circle-size) / 2) !important;
 	}
@@ -99,11 +99,13 @@
 		right: -1px;
 		border-radius: var(--radius-round);
 		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+
 		/* Show a thin circular outline in Windows high contrast mode, otherwise the button is invisible. */
 		border: 1px solid transparent;
 	}
 
 	&:focus {
+
 		&::after {
 			content: "";
 			border: 2px solid $dark-gray-400;

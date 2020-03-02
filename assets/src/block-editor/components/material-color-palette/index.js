@@ -45,7 +45,8 @@ const ColorPickerOption = ( { color, value, name, clearColor, onChange } ) => {
 
 /**
  * Determine if the index is at end of color range.
- * @param int i Index of the color
+ *
+ * @param {number} i Index of the color
  */
 const isEndOfColor = i => {
 	// Each color has 14 shades, except the last 3 which only have 10 shades
@@ -138,9 +139,12 @@ export default function MaterialColorPalette( {
 												'components-material-color-palette__picker',
 										} }
 										buttonProps={ {
-											'aria-label': __( 'Color palette' ),
+											'aria-label': __(
+												'Color palette',
+												'material-theme-builder'
+											),
 										} }
-										linkText={ __( 'Color palette' ) }
+										linkText={ __( 'Color palette', 'material-theme-builder' ) }
 									/>
 									<CircularOptionPicker.DropdownLinkAction
 										dropdownProps={ {
@@ -148,15 +152,18 @@ export default function MaterialColorPalette( {
 											contentClassName: 'components-color-palette__picker',
 										} }
 										buttonProps={ {
-											'aria-label': __( 'Custom color picker' ),
+											'aria-label': __(
+												'Custom color picker',
+												'material-theme-builder'
+											),
 										} }
-										linkText={ __( 'Custom Color' ) }
+										linkText={ __( 'Custom Color', 'material-theme-builder' ) }
 									/>
 								</>
 							) }
 							{ !! clearable && (
 								<CircularOptionPicker.ButtonAction onClick={ clearColor }>
-									{ __( 'Clear' ) }
+									{ __( 'Clear', 'material-theme-builder' ) }
 								</CircularOptionPicker.ButtonAction>
 							) }
 						</>
