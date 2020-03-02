@@ -3,7 +3,7 @@
  */
 import { InnerBlocks } from '@wordpress/block-editor';
 
-export default function TabBarSave() {
+const TabBarSave = () => {
 	return (
 		<div className="mdc-tab-bar" role="tablist">
 			<div className="mdc-tab-scroller">
@@ -15,4 +15,6 @@ export default function TabBarSave() {
 			</div>
 		</div>
 	);
-}
+};
+
+export default TabBarSave;
