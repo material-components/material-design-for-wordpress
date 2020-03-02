@@ -15,8 +15,7 @@ const Tab = ( { id, activeTab, icon, iconPosition, label, onChange } ) => {
 			<span className="mdc-tab__content">
 				{ icon && iconPosition !== 'none' && (
 					<i className="material-icons mdc-tab__icon">
-						{ /* { String.fromCharCode( icon?.hex ) } */ }
-						{ icon }
+						{ String.fromCharCode( icon?.hex ) }
 					</i>
 				) }
 				<span className="mdc-tab__text-label">
