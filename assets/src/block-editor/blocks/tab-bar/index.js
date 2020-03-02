@@ -33,13 +33,11 @@ export const settings = {
 			type: 'array',
 			default: [
 				new TabSchema( {
-					id: 1,
 					position: 1,
 					label: __( 'Tab 1', 'material-theme-builder' ),
 					active: true,
 				} ),
 				new TabSchema( {
-					id: 2,
 					position: 2,
 					label: __( 'Tab 2', 'material-theme-builder' ),
 				} ),

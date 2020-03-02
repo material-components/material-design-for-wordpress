@@ -3,15 +3,15 @@
  */
 import classNames from 'classnames';
 
-const Tab = ( { id, activeTab, icon, iconPosition, label, onChange } ) => {
+const Tab = ( { icon, label, active, onChange, onDelete, iconPosition } ) => {
 	return (
 		<div
 			role="tab"
 			tabIndex={ 0 }
 			onKeyDown={ () => {} }
-			onClick={ onChange.bind( this, id ) }
+			onClick={ onChange }
 			className={ classNames( 'mdc-tab', 'tab', {
-				'mdc-tab--active': activeTab === id,
+				'mdc-tab--active': active,
 				'mdc-tab--stacked': icon && iconPosition === 'above',
 			} ) }
 		>
@@ -21,13 +21,12 @@ const Tab = ( { id, activeTab, icon, iconPosition, label, onChange } ) => {
 						{ String.fromCharCode( icon?.hex ) }
 					</i>
 				) }
-				<span className="mdc-tab__text-label">
+				<span className="mdc-tab__text-label tab__label-field">
 					<span
 						role="textbox"
 						tabIndex={ 0 }
 						contentEditable
 						suppressContentEditableWarning
-						style={ { cursor: 'text' } }
 						onKeyPress={ event =>
 							event.key === 'Enter' && event.currentTarget.blur()
 						}
@@ -36,19 +35,20 @@ const Tab = ( { id, activeTab, icon, iconPosition, label, onChange } ) => {
 					</span>
 				</span>
 			</span>
-			{ activeTab === id && (
+			{ active && (
 				<span className="mdc-tab-indicator mdc-tab-indicator--active">
 					<span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
 				</span>
 			) }
-			<button className="material-icons tab__delete">cancel</button>
+			<button className="material-icons tab__delete" onClick={ onDelete }>
+				cancel
+			</button>
 		</div>
 	);
 };
 
 class TabSchema {
-	constructor( { id, label, position, icon, content = null, active = false } ) {
-		this.id = id;
+	constructor( { label, position, icon, content = null, active = false } ) {
 		this.label = label;
 		this.position = position;
 		this.active = active;
