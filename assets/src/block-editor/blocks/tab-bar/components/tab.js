@@ -5,9 +5,12 @@ import classNames from 'classnames';
 
 const Tab = ( { id, activeTab, icon, iconPosition, label, onChange } ) => {
 	return (
-		<button
+		<div
+			role="tab"
+			tabIndex={ 0 }
+			onKeyDown={ () => {} }
 			onClick={ onChange.bind( this, id ) }
-			className={ classNames( 'mdc-tab', {
+			className={ classNames( 'mdc-tab', 'tab', {
 				'mdc-tab--active': activeTab === id,
 				'mdc-tab--stacked': icon && iconPosition === 'above',
 			} ) }
@@ -38,19 +41,13 @@ const Tab = ( { id, activeTab, icon, iconPosition, label, onChange } ) => {
 					<span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
 				</span>
 			) }
-		</button>
+			<button className="material-icons tab__delete">cancel</button>
+		</div>
 	);
 };
 
 class TabSchema {
-	constructor( {
-		id,
-		label,
-		position,
-		active = false,
-		icon = null,
-		content = null,
-	} ) {
+	constructor( { id, label, position, icon, content = null, active = false } ) {
 		this.id = id;
 		this.label = label;
 		this.position = position;

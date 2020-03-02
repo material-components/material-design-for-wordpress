@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { sortBy } from 'lodash';
+import { sortBy, isEqual } from 'lodash';
 
 /**
  * Internal dependencies
@@ -16,15 +16,16 @@ import ButtonGroup from '../../components/button-group';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { useState } from '@wordpress/element';
 import { PanelBody } from '@wordpress/components';
+import { useState, useEffect } from '@wordpress/element';
+import { dispatch, withSelect } from '@wordpress/data';
 import {
 	InspectorControls,
 	BlockControls,
 	InnerBlocks,
 } from '@wordpress/block-editor';
 
-export const ICON_POSITIONS = [
+const ICON_POSITIONS = [
 	{
 		label: __( 'None', 'material-theme-builder' ),
 		value: 'none',
@@ -45,8 +46,32 @@ export const ICON_POSITIONS = [
 const TabBarEdit = ( {
 	attributes: { tabs, iconPosition, forceUpdate },
 	setAttributes,
+	clientId,
+	tabContent,
 } ) => {
 	const [ activeTab, setActiveTab ] = useState( tabs[ 0 ] );
+
+	useEffect( () => {
+		// If there's content, put it in the editor
+		if ( activeTab.content && activeTab.content.length ) {
+			dispatch( 'core/block-editor' ).replaceInnerBlocks(
+				clientId,
+				activeTab.content,
+				false
+			);
+		} else {
+			// Otherwise empty the editor
+			const clientIds = tabContent.map( block => block.clientId );
+			dispatch( 'core/editor' ).removeBlocks( clientIds );
+		}
+	}, [ activeTab ] );
+
+	useEffect( () => {
+		if ( ! isEqual( activeTab.content, tabContent ) ) {
+			activeTab.content = tabContent;
+			setAttributes( { tabs } );
+		}
+	} );
 
 	const createTab = () => {
 		const newId = tabs.length + 1;
@@ -69,7 +94,6 @@ const TabBarEdit = ( {
 			return tab;
 		} );
 
-		setAttributes( { tabs } );
 		setActiveTab( tabs.find( tab => tab.id === id ) );
 	};
 
@@ -98,44 +122,23 @@ const TabBarEdit = ( {
 		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
 	};
 
-	const renderTabs = tabs.map( props => (
-		<Tab
-			key={ props.id }
-			onChange={ changeTab }
-			iconPosition={ iconPosition }
-			activeTab={ activeTab.id }
-			{ ...props }
-		/>
-	) );
-
 	return (
 		<>
 			<div className="mdc-tab-bar" role="tablist">
 				<div className="mdc-tab-scroller">
 					<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
 						<div className="mdc-tab-scroller__scroll-content">
-							{ renderTabs }
-							<button
-								style={ {
-									alignSelf: 'flex-end',
-									marginBottom: '5px',
-									marginLeft: '20px',
-									padding: '4px 6px',
-									backgroundColor: '#F4F5F6',
-									fontSize: '13px',
-									border: '1px solid #639EC7',
-									borderRadius: '2px',
-									color: '#639EC7',
-									cursor: 'pointer',
-								} }
-								onClick={ createTab }
-							>
-								<i
-									className="material-icons"
-									style={ { verticalAlign: 'middle' } }
-								>
-									add
-								</i>
+							{ tabs.map( props => (
+								<Tab
+									key={ props.id }
+									onChange={ changeTab }
+									iconPosition={ iconPosition }
+									activeTab={ activeTab.id }
+									{ ...props }
+								/>
+							) ) }
+							<button className="tab-add" onClick={ createTab }>
+								<i className="material-icons tab-add__icon">add</i>
 								<span>{ __( 'New Tab', 'material-theme-builder' ) }</span>
 							</button>
 						</div>
@@ -174,4 +177,8 @@ const TabBarEdit = ( {
 	);
 };
 
-export default TabBarEdit;
+export default withSelect( ( select, { clientId } ) => {
+	return {
+		tabContent: select( 'core/editor' ).getBlocks( clientId ),
+	};
+} )( TabBarEdit );
