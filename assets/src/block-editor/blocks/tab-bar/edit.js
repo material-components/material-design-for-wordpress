@@ -17,8 +17,8 @@ import ButtonGroup from '../../components/button-group';
  */
 import { __ } from '@wordpress/i18n';
 import { PanelBody } from '@wordpress/components';
-import { useState, useEffect } from '@wordpress/element';
 import { dispatch, withSelect } from '@wordpress/data';
+import { useState, useEffect, useCallback } from '@wordpress/element';
 import {
 	InspectorControls,
 	BlockControls,
@@ -73,7 +73,7 @@ const TabBarEdit = ( {
 		}
 	} );
 
-	const createTab = () => {
+	const createTab = useCallback( () => {
 		const newId = tabs.length + 1;
 
 		tabs.push(
@@ -85,23 +85,18 @@ const TabBarEdit = ( {
 
 		setAttributes( { tabs } );
 		changeTab( newId );
-	};
+	} );
 
-	const changeTab = index => {
-		tabs = tabs.map( ( tab, i ) => {
-			tab.active = index === i;
-			return tab;
-		} );
-
+	const changeTab = useCallback( index => {
 		setActiveTab( tabs[ index ] );
-	};
+	} );
 
-	const deleteTab = index => {
+	const deleteTab = useCallback( index => {
 		tabs = tabs.filter( ( _, i ) => index !== i );
 		setAttributes( { tabs } );
-	};
+	} );
 
-	const moveTab = direction => {
+	const moveTab = useCallback( direction => {
 		let newPos =
 			direction === 'left' ? activeTab.position - 1 : activeTab.position + 1;
 
@@ -119,12 +114,12 @@ const TabBarEdit = ( {
 		activeTab.position = newPos;
 
 		setAttributes( { tabs: sortBy( tabs, [ 'position' ] ) } );
-	};
+	} );
 
-	const setTabIcon = icon => {
+	const setTabIcon = useCallback( icon => {
 		activeTab.icon = icon;
 		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
-	};
+	} );
 
 	return (
 		<>
@@ -134,11 +129,12 @@ const TabBarEdit = ( {
 						<div className="mdc-tab-scroller__scroll-content">
 							{ tabs.map( ( props, index ) => (
 								<Tab
+									{ ...props }
 									key={ props.position }
+									iconPosition={ iconPosition }
 									onChange={ changeTab.bind( this, index ) }
 									onDelete={ deleteTab.bind( this, index ) }
-									iconPosition={ iconPosition }
-									{ ...props }
+									active={ tabs.indexOf( activeTab ) === index }
 								/>
 							) ) }
 							<button className="tab-add" onClick={ createTab }>
@@ -150,9 +146,7 @@ const TabBarEdit = ( {
 				</div>
 			</div>
 
-			<div>
-				<InnerBlocks />
-			</div>
+			<InnerBlocks />
 
 			<BlockControls>
 				<OrderToolbar onChange={ moveTab } />
@@ -181,8 +175,6 @@ const TabBarEdit = ( {
 	);
 };
 
-export default withSelect( ( select, { clientId } ) => {
-	return {
-		tabContent: select( 'core/editor' ).getBlocks( clientId ),
-	};
-} )( TabBarEdit );
+export default withSelect( ( select, { clientId } ) => ( {
+	tabContent: select( 'core/editor' ).getBlocks( clientId ),
+} ) )( TabBarEdit );

@@ -35,7 +35,6 @@ export const settings = {
 				new TabSchema( {
 					position: 1,
 					label: __( 'Tab 1', 'material-theme-builder' ),
-					active: true,
 				} ),
 				new TabSchema( {
 					position: 2,
