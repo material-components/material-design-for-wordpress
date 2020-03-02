@@ -18,7 +18,12 @@ import { Button, Dashicon, Dropdown, Tooltip } from '@wordpress/components';
  */
 import './style.css';
 
-function Option( { className, isSelected, tooltipText, ...additionalProps } ) {
+const Option = ( {
+	className,
+	isSelected,
+	tooltipText,
+	...additionalProps
+} ) => {
 	const optionButton = (
 		<Button
 			isPressed={ isSelected }
@@ -40,14 +45,14 @@ function Option( { className, isSelected, tooltipText, ...additionalProps } ) {
 			{ isSelected && <Dashicon icon="saved" /> }
 		</div>
 	);
-}
+};
 
-function DropdownLinkAction( {
+const DropdownLinkAction = ( {
 	buttonProps,
 	className,
 	dropdownProps,
 	linkText,
-} ) {
+} ) => {
 	return (
 		<Dropdown
 			className={ classnames(
@@ -67,9 +72,9 @@ function DropdownLinkAction( {
 			{ ...dropdownProps }
 		/>
 	);
-}
+};
 
-function ButtonAction( { className, children, ...additionalProps } ) {
+const ButtonAction = ( { className, children, ...additionalProps } ) => {
 	return (
 		<Button
 			className={ classnames(
@@ -83,7 +88,7 @@ function ButtonAction( { className, children, ...additionalProps } ) {
 			{ children }
 		</Button>
 	);
-}
+};
 
 export default function CircularOptionPicker( {
 	actions,

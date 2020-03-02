@@ -1,5 +1,6 @@
 /* Material Color Palette */
 .components-material-color-palette__picker {
+
 	& .components-popover__content {
 		padding: 8px;
 		min-width: 272px !important;
@@ -15,6 +16,7 @@
 	& .components-circular-option-picker__option {
 
 		&:focus {
+
 			&::after {
 				width: 12px;
 				height: 12px;
