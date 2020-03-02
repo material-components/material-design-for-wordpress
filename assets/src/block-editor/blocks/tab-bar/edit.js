@@ -121,6 +121,11 @@ const TabBarEdit = ( {
 		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
 	} );
 
+	const setTabLabel = useCallback( label => {
+		activeTab.label = label;
+		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
+	} );
+
 	return (
 		<>
 			<div className="mdc-tab-bar" role="tablist">
@@ -134,6 +139,7 @@ const TabBarEdit = ( {
 									iconPosition={ iconPosition }
 									onChange={ changeTab.bind( this, index ) }
 									onDelete={ deleteTab.bind( this, index ) }
+									onInput={ setTabLabel }
 									active={ tabs.indexOf( activeTab ) === index }
 								/>
 							) ) }

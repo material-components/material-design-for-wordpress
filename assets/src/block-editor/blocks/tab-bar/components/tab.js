@@ -3,7 +3,15 @@
  */
 import classNames from 'classnames';
 
-const Tab = ( { icon, label, active, onChange, onDelete, iconPosition } ) => (
+const Tab = ( {
+	icon,
+	label,
+	active,
+	onInput,
+	onChange,
+	onDelete,
+	iconPosition,
+} ) => (
 	<div
 		role="tab"
 		tabIndex={ 0 }
@@ -25,6 +33,7 @@ const Tab = ( { icon, label, active, onChange, onDelete, iconPosition } ) => (
 					tabIndex={ 0 }
 					contentEditable
 					suppressContentEditableWarning
+					onBlur={ e => onInput( e.currentTarget.textContent ) }
 					onKeyPress={ event =>
 						event.key === 'Enter' && event.currentTarget.blur()
 					}
