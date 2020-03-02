@@ -13,7 +13,7 @@ import CardActions from './card-actions';
 /**
  * Horizontal Card Layout component.
  *
- * @param {Object} props - Props.
+ * @param {Object} props - Component props.
  * @param {number} props.postIndex - Post index.
  * @param {string} props.imageSourceUrl - Image source URL.
  * @param {boolean} props.outlined - Whether or not the card has an outlined style.
