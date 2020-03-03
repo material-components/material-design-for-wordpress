@@ -1,13 +1,11 @@
-/**
- * WordPress dependencies
- */
-import { registerBlockType } from '@wordpress/blocks';
+/* istanbul ignore file */
 
 /**
  * Internal dependencies
  */
-import * as button from './blocks/button';
-import * as recentPost from './blocks/recent-posts';
+import { registerBlocks } from './helpers';
 
-registerBlockType( `material/${ button.name }`, button.settings );
-registerBlockType( `material/${ recentPost.name }`, recentPost.settings );
+/**
+ * Register the blocks.
+ */
+registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
