@@ -15,7 +15,7 @@ import { TextControl, Tooltip } from '@wordpress/components';
 import './style.css';
 import { icons as rawIcons } from '!!json-loader!material-design-icons/iconfont/MaterialIcons-Regular.ijmap';
 
-export default ( { currentIcon, pickHandler } ) => {
+export default ( { currentIcon, onChange } ) => {
 	const icons = Object.keys( rawIcons );
 	const toSlug = str => str.replace( ' ', '_' ).toLowerCase();
 	const [ filteredIcons, setFilteredIcons ] = useState( icons );
@@ -35,8 +35,10 @@ export default ( { currentIcon, pickHandler } ) => {
 
 	const iconsRender = filteredIcons.map( icon => {
 		const iconName = toSlug( rawIcons[ icon ].name );
+		const iconHex = parseInt( icon, 16 );
+
 		const isSelected =
-			currentIcon === iconName
+			currentIcon?.name === iconName
 				? ' icons-container__icon__icon-btn--active'
 				: '';
 
@@ -46,11 +48,12 @@ export default ( { currentIcon, pickHandler } ) => {
 					<button
 						type="button"
 						className={ `icons-container__icon__icon-btn${ isSelected }` }
-						onClick={ pickHandler.bind( this, iconName ) }
+						onClick={ onChange.bind( this, {
+							name: iconName,
+							hex: iconHex,
+						} ) }
 					>
-						<i className="material-icons">
-							{ String.fromCharCode( parseInt( icon, 16 ) ) }
-						</i>
+						<i className="material-icons">{ String.fromCharCode( iconHex ) }</i>
 					</button>
 				</Tooltip>
 			</div>
@@ -59,11 +62,20 @@ export default ( { currentIcon, pickHandler } ) => {
 
 	return (
 		<>
-			<section>
-				<TextControl
-					label={ __( 'Search icon', 'material-theme-builder' ) }
-					onChange={ filterIcons }
-				/>
+			<section className="icons-search">
+				<div className="icons-search__search-input">
+					<TextControl
+						label={ __( 'Search icon', 'material-theme-builder' ) }
+						onChange={ filterIcons }
+					/>
+				</div>
+				{ currentIcon && (
+					<div className="icons-search__selected-icon">
+						<i className="material-icons">
+							{ String.fromCharCode( currentIcon?.hex ) }
+						</i>
+					</div>
+				) }
 			</section>
 
 			<section className="icons-container">{ iconsRender }</section>
