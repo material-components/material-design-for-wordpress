@@ -63,6 +63,9 @@ const VerticalCardLayout = props => {
 				tabIndex={ postIndex }
 			>
 				{ contentLayout === 'text-above-media' && <CardPrimary { ...props } /> }
+				{ displayFeaturedImage && ! imageSourceUrl && (
+					<CardPrimary { ...props } />
+				) }
 				{ displayFeaturedImage && imageSourceUrl && (
 					<CardImage { ...cardImageProps } />
 				) }
