@@ -236,6 +236,23 @@ To run the full test suite, you can use the following command:
 npm run test:js
 ```
 
+#### JavaScript End-to-End Tests
+
+[Jest](https://jestjs.io/) in combination with [Puppeteer](https://pptr.dev/) is used as the JavaScript end-to-end testing framework.
+
+To run the full end-to-end test suite, you can use the following command:
+
+```bash
+npm run test:e2e
+```
+
+**Note**: If your installation is running on a different domain than `localhost:8088` and a
+and you are using a different username and/or password, you might need to run the following command instead:
+
+ ```bash
+ npm run test:e2e -- --wordpress-base-url=http://your-domain-name:your-port --wordpress-username=your-admin-username --wordpress-password=your-admin-password
+ ```
+
 ## Creating a plugin build
 
 To create a build of the plugin for installing in WordPress as a ZIP package, run:
