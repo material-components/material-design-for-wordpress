@@ -17,21 +17,14 @@ const DIRECTIONS = [
 	},
 ];
 
-export function OrderToolbar( {
-	onChange,
-	label = __( 'Change the tab order' ),
-} ) {
-	return (
-		<Toolbar
-			controls={ DIRECTIONS.map( control => {
-				return {
-					...control,
-					onClick: onChange.bind( this, control.direction ),
-				};
-			} ) }
-			label={ label }
-		/>
-	);
-}
+const OrderToolbar = ( { onChange, label = __( 'Change the tab order' ) } ) => (
+	<Toolbar
+		label={ label }
+		controls={ DIRECTIONS.map( control => ( {
+			...control,
+			onClick: onChange.bind( this, control.direction ),
+		} ) ) }
+	/>
+);
 
 export default OrderToolbar;

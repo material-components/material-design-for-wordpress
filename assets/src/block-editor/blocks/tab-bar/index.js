@@ -19,7 +19,7 @@ export const settings = {
 		'material-theme-builder'
 	),
 	category: 'material',
-	icon: <i className="material-icons">face</i>,
+	icon: <i className="material-icons">tab</i>,
 	attributes: {
 		forceUpdate: {
 			type: 'boolean',
