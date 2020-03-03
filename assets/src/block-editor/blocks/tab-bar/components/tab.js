@@ -11,6 +11,7 @@ const Tab = ( {
 	onChange,
 	onDelete,
 	iconPosition,
+	frontend = false,
 } ) => (
 	<div
 		role="tab"
@@ -29,11 +30,13 @@ const Tab = ( {
 			) }
 			<span className="mdc-tab__text-label tab__label-field">
 				<span
-					role="textbox"
+					role={ ! frontend ? 'textbox' : 'tab' }
 					tabIndex={ 0 }
-					contentEditable
-					suppressContentEditableWarning
-					onBlur={ e => onInput( e.currentTarget.textContent ) }
+					contentEditable={ ! frontend }
+					suppressContentEditableWarning={ ! frontend }
+					onBlur={
+						! frontend ? e => onInput( e.currentTarget.textContent ) : undefined
+					}
 					onKeyPress={ event =>
 						event.key === 'Enter' && event.currentTarget.blur()
 					}
@@ -42,14 +45,19 @@ const Tab = ( {
 				</span>
 			</span>
 		</span>
-		{ active && (
-			<span className="mdc-tab-indicator mdc-tab-indicator--active">
-				<span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-			</span>
+		<span
+			className={ classNames( 'mdc-tab-indicator', {
+				'mdc-tab-indicator--active': active,
+			} ) }
+		>
+			<span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+		</span>
+		{ frontend && <span className="mdc-tab__ripple"></span> }
+		{ ! frontend && (
+			<button className="material-icons tab__delete" onClick={ onDelete }>
+				cancel
+			</button>
 		) }
-		<button className="material-icons tab__delete" onClick={ onDelete }>
-			cancel
-		</button>
 	</div>
 );
 class TabSchema {

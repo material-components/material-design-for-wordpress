@@ -22,12 +22,18 @@ const initButtons = () => {
 };
 
 const initTabBar = () => {
-	new MDCTabBar( document.querySelector( '.mdc-tab-bar' ) );
-	const tabs = document.querySelectorAll( '.mdc-tab' );
+	const tabBar = new MDCTabBar( document.querySelector( '.mdc-tab-bar' ) );
+	const contentElements = document.querySelectorAll( '.mdc-tab-content' );
 
-	for ( const tab of tabs ) {
-		new MDCRipple( tab );
-	}
+	tabBar.listen( 'MDCTabBar:activated', event => {
+		document
+			.querySelector( '.mdc-tab-content--active' )
+			.classList.remove( 'mdc-tab-content--active' );
+
+		contentElements[ event.detail.index ].classList.add(
+			'mdc-tab-content--active'
+		);
+	} );
 };
 
 addEventListener( 'DOMContentLoaded', () => {

@@ -7,3 +7,11 @@
 .mdc-button--outlined:not(:disabled) {
 	border-color: inherit !important;
 }
+
+.mdc-tab-content {
+	display: none;
+
+	&--active {
+		display: block;
+	}
+}
