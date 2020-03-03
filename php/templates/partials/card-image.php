@@ -34,13 +34,17 @@ if ( ! empty( $featured_image ) ) :
 		style="background-image: url(<?php echo esc_url( $featured_image ); ?>)"
 	>
 		<?php
-		if ( 'text-over-media' === $layout ) {
-			Template::get_template(
-				'partials/card-header.php',
-				[
-					'attributes' => $attributes,
-				]
-			);
+		if ( 'text-over-media' === $layout ) { ?>
+			<div class="mdc-card__media-content">
+				<?php
+				Template::get_template(
+					'partials/card-header.php',
+					[
+						'attributes' => $attributes,
+					]
+				);
+				?>
+			</div> <?php
 		}
 		?>
 	</div> <!-- mdc-card__media -->
