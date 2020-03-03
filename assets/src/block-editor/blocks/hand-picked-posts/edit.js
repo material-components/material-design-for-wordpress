@@ -11,6 +11,7 @@ import PostsPicker from './components/posts-picker';
 import HandpickedPostBlockControls from './components/block-controls';
 import HandpickedPostInspectorControls from '../common-posts-list/components/inspector-controls';
 import '../common-posts-list/style.css';
+import './style.css';
 
 /**
  * Recent Posts Edit component.

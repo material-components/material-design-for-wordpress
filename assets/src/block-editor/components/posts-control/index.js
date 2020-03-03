@@ -5,6 +5,7 @@ import { __, _n, sprintf } from '@wordpress/i18n';
 import { SearchListControl } from '@woocommerce/components';
 import withSearchedPosts from '../../hocs/with-searched-posts';
 import ErrorMessage from '../error-message';
+import '@woocommerce/components/build-style/style.css';
 
 /**
  * The posts control exposes a custom selector for searching and selecting
