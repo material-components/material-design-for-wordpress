@@ -1,3 +1,18 @@
+.icons-search {
+	display: flex;
+	align-items: center;
+	margin: 0 -5px 0 -5px;
+
+	&__search-input {
+		padding: 0 5px;
+	}
+
+	&__selected-icon {
+		padding: 0 5px;
+		margin-top: 15px;
+	}
+}
+
 .icons-container {
 	display: flex;
 	max-height: 250px;
