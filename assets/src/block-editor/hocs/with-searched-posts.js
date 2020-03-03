@@ -67,8 +67,8 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		render() {
 			const { error, list, loading } = this.state;
 			const transformedList = list.map( ( { id, title } ) => {
-					return { id, name: title.rendered };
-				} );
+				return { id, name: title.rendered };
+			} );
 			return (
 				<OriginalComponent
 					{ ...this.props }
