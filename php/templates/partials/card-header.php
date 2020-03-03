@@ -13,7 +13,7 @@ $post_date  = isset( $attributes['displayPostDate'] ) ? $attributes['displayPost
 
 <div class="single-post-card__primary">
 	<h2 class="single-post-card__title mdc-typography mdc-typography--headline6">
-		<?php echo esc_html( get_the_title() ); ?>
+		<div><?php echo esc_html( get_the_title() ); ?></div>
 	</h2>
 
 	<?php if ( ! empty( $post_date ) ) : ?>
