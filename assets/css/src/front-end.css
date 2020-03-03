@@ -4,5 +4,5 @@
 @import "./material-components.css";
 
 .mdc-button--outlined:not(:disabled) {
-  border-color: inherit !important;
+	border-color: inherit !important;
 }
