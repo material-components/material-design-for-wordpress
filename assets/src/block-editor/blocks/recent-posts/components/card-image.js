@@ -35,7 +35,6 @@ const CardImage = props => {
 					<CardPrimary { ...props } />
 				</div>
 			) }
-			;
 		</div>
 	);
 };

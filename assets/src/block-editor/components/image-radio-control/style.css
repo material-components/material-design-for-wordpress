@@ -32,6 +32,9 @@
 		height: 83px;
 		justify-content: center;
 		overflow: hidden;
+		border-radius: 5px;
+		border: 1px solid #ddd;
+		margin: 5px;
 	}
 
 	& .components-image-radio-control__label {

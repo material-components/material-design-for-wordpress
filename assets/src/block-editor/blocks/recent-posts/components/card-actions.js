@@ -6,7 +6,7 @@ import { __, _n, sprintf } from '@wordpress/i18n';
 /**
  * Card Actions component.
  *
- * @param {Object} props - Props.
+ * @param {Object} props - Component props.
  * @param {boolean} props.displayPostAuthor - Whether or not to display the post author field.
  * @param {boolean} props.displayCommentsCount - Whether or not to display the post comments count field.
  * @param {Object} props.post - Post data.
