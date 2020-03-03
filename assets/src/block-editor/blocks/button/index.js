@@ -1,12 +1,15 @@
-import edit from './edit';
-import save from './save';
-
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 
-export const name = 'button';
+/**
+ * Internal dependencies
+ */
+import edit from './edit';
+import save from './save';
+
+export const name = 'material/button';
 
 export const settings = {
 	title: __( 'Button', 'material-theme-builder' ),

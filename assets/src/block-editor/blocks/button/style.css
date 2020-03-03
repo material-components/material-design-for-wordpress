@@ -1,19 +1,19 @@
 [contenteditable="true"].button-label {
-  white-space: nowrap;
-  overflow: hidden;
-  cursor: text;
+	white-space: nowrap;
+	overflow: hidden;
+	cursor: text;
 }
 
 [contenteditable="true"].button-label br {
-  display: none;
+	display: none;
 
 }
 
 [contenteditable="true"].button-label * {
-  display: inline;
-  white-space: nowrap;
+	display: inline;
+	white-space: nowrap;
 }
 
 .mdc-button--outlined:not(:disabled) {
-  border-color: inherit !important;
+	border-color: inherit !important;
 }

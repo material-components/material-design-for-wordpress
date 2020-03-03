@@ -3,21 +3,6 @@
 source .env
 source ./bin/includes.sh
 
-##
-# WordPress helper
-#
-# Executes a request in the WordPress container.
-##
-function is_wp_available() {
-	RESULT=`curl -w "%{http_code}" -o /dev/null -s localhost:8088`
-
-	if test "$RESULT" -ge 200 && test "$RESULT" -le 302; then
-		return 0
-	else
-		return 1
-	fi
-}
-
 printf "Starting up containers ..."
 
 # Start the containers.
@@ -32,7 +17,7 @@ if ! command_exists "curl"; then
 else
 
 	# Check for WordPress.
-	until is_wp_available; do
+	until is_wp_available "localhost:8088"; do
 		printf "."
 		sleep 5
 	done
