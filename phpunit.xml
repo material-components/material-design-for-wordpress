@@ -8,7 +8,7 @@
 	>
 
 	<testsuites>
-		<testsuite>
+		<testsuite name="Material Theme Builder">
 			<directory suffix=".php">./tests/phpunit/</directory>
 		</testsuite>
 	</testsuites>
