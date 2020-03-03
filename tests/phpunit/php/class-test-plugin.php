@@ -22,10 +22,8 @@ class Test_Plugin extends \WP_UnitTestCase {
 	public function test_construct() {
 		$plugin = new Plugin();
 		$this->assertEquals( 9, has_action( 'after_setup_theme', [ $plugin, 'init' ] ) );
-		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $plugin, 'enqueue_editor_assets' ] ) );
-		$this->assertEquals( 10, has_action( 'wp_enqueue_scripts', [ $plugin, 'enqueue_frontend_assets' ] ) );
-		$this->assertEquals( 11, has_action( 'wp_default_scripts', [ $plugin, 'register_scripts' ] ) );
-		$this->assertEquals( 11, has_action( 'wp_default_styles', [ $plugin, 'register_styles' ] ) );
+		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $plugin, 'enqueue_block_editor_assets' ] ) );
+		$this->assertEquals( 10, has_action( 'wp_enqueue_scripts', [ $plugin, 'enqueue_front_end_assets' ] ) );
 		$this->assertEquals( 10, has_filter( 'block_categories', [ $plugin, 'block_category' ] ) );
 	}
 
@@ -46,29 +44,29 @@ class Test_Plugin extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Test for enqueue_editor_assets() method.
+	 * Test for enqueue_block_editor_assets() method.
 	 *
-	 * @see Plugin::enqueue_editor_assets()
+	 * @see Plugin::enqueue_block_editor_assets()
 	 */
-	public function test_enqueue_editor_assets() {
+	public function test_enqueue_block_editor_assets() {
 		$plugin = get_plugin_instance();
-		$plugin->enqueue_editor_assets();
-		$this->assertTrue( wp_script_is( 'material-theme-builder-wp-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-theme-builder-wp-fonts-css', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-theme-builder-wp-css', 'enqueued' ) );
+		$plugin->enqueue_block_editor_assets();
+		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
 	}
 
 	/**
-	 * Test for enqueue_frontend_assets() method.
+	 * Test for enqueue_front_end_assets() method.
 	 *
-	 * @see Plugin::enqueue_frontend_assets()
+	 * @see Plugin::enqueue_front_end_assets()
 	 */
-	public function test_enqueue_frontend_assets() {
+	public function test_enqueue_front_end_assets() {
 		$plugin = get_plugin_instance();
-		$plugin->enqueue_frontend_assets();
-		$this->assertTrue( wp_script_is( 'material-theme-builder-wp-frontend-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-theme-builder-wp-fonts-css', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-theme-builder-wp-frontend-css', 'enqueued' ) );
+		$plugin->enqueue_front_end_assets();
+		$this->assertTrue( wp_script_is( 'material-front-end-js', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-front-end-css', 'enqueued' ) );
 	}
 
 	/**
