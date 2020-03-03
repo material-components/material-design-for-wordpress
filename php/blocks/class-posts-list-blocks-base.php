@@ -30,6 +30,16 @@ class Posts_List_Blocks_Base {
 	public $block_name;
 
 	/**
+	 * @var array
+	 */
+	public $block_core_attributes;
+
+	/**
+	 * @var array
+	 */
+	public $block_attributes;
+
+	/**
 	 * Constructor.
 	 *
 	 * @access public
@@ -37,7 +47,58 @@ class Posts_List_Blocks_Base {
 	 * @param Plugin $plugin Plugin instance.
 	 */
 	public function __construct( Plugin $plugin ) {
-		$this->plugin     = $plugin;
+		$this->plugin                = $plugin;
+		$this->block_core_attributes = [
+			'className'             => [
+				'type' => 'string',
+			],
+			'style'                 => [
+				'type'    => 'string',
+				'default' => 'masonry',
+			],
+			'contentLayout'         => [
+				'type'    => 'string',
+				'default' => 'text-above-media',
+			],
+			'columns'               => [
+				'type'    => 'number',
+				'default' => 3,
+			],
+			'postsToShow'           => [
+				'type'    => 'number',
+				'default' => 10,
+			],
+			'displayPostDate'       => [
+				'type'    => 'boolean',
+				'default' => true,
+			],
+			'displayPostContent'    => [
+				'type'    => 'boolean',
+				'default' => true,
+			],
+			'postContentLength'     => [
+				'type'    => 'number',
+				'default' => 20,
+			],
+			'displayFeaturedImage'  => [
+				'type'    => 'boolean',
+				'default' => true,
+			],
+			'featuredImageSizeSlug' => [
+				'type'    => 'string',
+				'default' => 'large',
+			],
+			'displayCommentsCount'  => [
+				'type'    => 'boolean',
+				'default' => true,
+			],
+			'displayPostAuthor'     => [
+				'type'    => 'boolean',
+				'default' => false,
+			],
+		];
+
+		$this->block_attributes = [];
 	}
 
 	/**
@@ -85,58 +146,7 @@ class Posts_List_Blocks_Base {
 		register_block_type(
 			$this->block_name,
 			[
-				'attributes'      => [
-					'className'             => [
-						'type' => 'string',
-					],
-					'style'                 => [
-						'type'    => 'string',
-						'default' => 'masonry',
-					],
-					'contentLayout'         => [
-						'type'    => 'string',
-						'default' => 'text-above-media',
-					],
-					'columns'               => [
-						'type'    => 'number',
-						'default' => 3,
-					],
-					'postsToShow'           => [
-						'type'    => 'number',
-						'default' => 10,
-					],
-					'displayPostDate'       => [
-						'type'    => 'boolean',
-						'default' => true,
-					],
-					'displayPostContent'    => [
-						'type'    => 'boolean',
-						'default' => true,
-					],
-					'postContentLength'     => [
-						'type'    => 'number',
-						'default' => 20,
-					],
-					'displayFeaturedImage'  => [
-						'type'    => 'boolean',
-						'default' => true,
-					],
-					'featuredImageSizeSlug' => [
-						'type'    => 'string',
-						'default' => 'large',
-					],
-					'displayCommentsCount'  => [
-						'type'    => 'boolean',
-						'default' => true,
-					],
-					'displayPostAuthor'     => [
-						'type'    => 'boolean',
-						'default' => false,
-					],
-					'categories'            => [
-						'type' => 'string',
-					],
-				],
+				'attributes'      => array_merge( $this->block_core_attributes, $this->block_attributes ),
 				'render_callback' => [ $this, 'render_block' ],
 			]
 		);

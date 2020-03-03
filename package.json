@@ -33,6 +33,7 @@
     "@material/layout-grid": "^5.0.0",
     "@material/ripple": "^5.0.0",
     "@material/typography": "^5.0.0",
+    "@woocommerce/components": "^4.0.0",
     "@wordpress/block-editor": "3.7.0",
     "@wordpress/browserslist-config": "2.6.0",
     "@wordpress/compose": "^3.11.0",
