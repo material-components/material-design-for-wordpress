@@ -41,7 +41,9 @@ const TabBarSave = ( { attributes: { tabs, iconPosition } } ) => (
 						'mdc-tab-content--active': index === 0,
 					} ) }
 				>
-					{ tab.content !== null && getBlockContent( tab.content[ 0 ] ) }
+					{ tab.content &&
+						tab.content[ 0 ] &&
+						getBlockContent( tab.content[ 0 ] ) }
 				</RawHTML>
 			) ) }
 		</div>
