@@ -10,7 +10,7 @@ import { TabSchema } from './components/tab';
  */
 import { __ } from '@wordpress/i18n';
 
-export const name = 'tab-bar';
+export const name = 'material/tab-bar';
 
 export const settings = {
 	title: __( 'Tab Bar', 'material-theme-builder' ),
