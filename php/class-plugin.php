@@ -53,9 +53,9 @@ class Plugin extends Plugin_Base {
 	 *
 	 * @action enqueue_block_editor_assets
 	 */
-	public function enqueue_editor_assets() {
+	public function enqueue_block_editor_assets() {
 		wp_enqueue_script(
-			'material-theme-builder-wp-js',
+			'material-block-editor-js',
 			$this->asset_url( 'assets/js/block-editor.js' ),
 			[
 				'lodash',
@@ -67,14 +67,14 @@ class Plugin extends Plugin_Base {
 		);
 
 		wp_enqueue_style(
-			'material-theme-builder-wp-fonts-css',
+			'material-icons-css',
 			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
 			[],
 			$this->asset_version()
 		);
 
 		wp_enqueue_style(
-			'material-theme-builder-wp-css',
+			'material-block-editor-css',
 			$this->asset_url( 'assets/css/block-editor-compiled.css' ),
 			[],
 			$this->asset_version()
@@ -82,51 +82,33 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Enqueue frontend styles and scripts.
+	 * Enqueue front-end styles and scripts.
 	 *
 	 * @action wp_enqueue_scripts
 	 */
-	public function enqueue_frontend_assets() {
+	public function enqueue_front_end_assets() {
 		wp_enqueue_script(
-			'material-theme-builder-wp-frontend-js',
-			$this->asset_url( 'assets/js/front.js' ),
+			'material-front-end-js',
+			$this->asset_url( 'assets/js/front-end.js' ),
 			[],
 			$this->asset_version(),
 			true
 		);
 
 		wp_enqueue_style(
-			'material-theme-builder-wp-fonts-css',
+			'material-icons-css',
 			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
 			[],
 			$this->asset_version()
 		);
 
 		wp_enqueue_style(
-			'material-theme-builder-wp-frontend-css',
-			$this->asset_url( 'assets/css/front-compiled.css' ),
+			'material-front-end-css',
+			$this->asset_url( 'assets/css/front-end-compiled.css' ),
 			[],
 			$this->asset_version()
 		);
 	}
-
-	/**
-	 * Register Customizer scripts.
-	 *
-	 * @action wp_default_scripts, 11
-	 *
-	 * @param \WP_Scripts $wp_scripts Instance of \WP_Scripts.
-	 */
-	public function register_scripts( \WP_Scripts $wp_scripts ) {}
-
-	/**
-	 * Register Customizer styles.
-	 *
-	 * @action wp_default_styles, 11
-	 *
-	 * @param \WP_Styles $wp_styles Instance of \WP_Styles.
-	 */
-	public function register_styles( \WP_Styles $wp_styles ) {}
 
 	/**
 	 * Add custom material block category.
