@@ -147,18 +147,18 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 					/>
 				) }
 				<ToggleControl
-					label={ __( 'Featured Image', 'material-theme-builder' ) }
+					label={ __( 'Featured image', 'material-theme-builder' ) }
 					checked={ displayFeaturedImage }
 					onChange={ setter( 'displayFeaturedImage' ) }
 				/>
 
 				<ToggleControl
-					label={ __( 'Comments Count', 'material-theme-builder' ) }
+					label={ __( 'Comments count', 'material-theme-builder' ) }
 					checked={ displayCommentsCount }
 					onChange={ setter( 'displayCommentsCount' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post Author', 'material-theme-builder' ) }
+					label={ __( 'Post author', 'material-theme-builder' ) }
 					checked={ displayPostAuthor }
 					onChange={ setter( 'displayPostAuthor' ) }
 				/>
