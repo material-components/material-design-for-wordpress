@@ -14,7 +14,7 @@ import { RawHTML } from '@wordpress/element';
  * @param {Object} props.post - Post data.
  * @param {string} props.dateFormat - Date format.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const CardHeader = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
 	<div className="single-post-card__primary">

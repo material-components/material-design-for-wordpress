@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  * @param {boolean} props.displayCommentsCount - Whether or not to display the post comments count field.
  * @param {Object} props.post - Post data.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const CardActions = ( { displayPostAuthor, displayCommentsCount, post } ) => (
 	<div className="mdc-card__actions">

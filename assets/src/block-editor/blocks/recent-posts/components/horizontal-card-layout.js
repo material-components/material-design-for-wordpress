@@ -23,7 +23,7 @@ import CardActions from './card-actions';
  * @param {Object} props.post - Post data.
  * @param {string} props.dateFormat - Date format.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const HorizontalCardLayout = props => {
 	const {

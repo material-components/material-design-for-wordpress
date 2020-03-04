@@ -16,7 +16,7 @@ import CardHeader from './card-header';
  * @param {string} props.type - Media type ('16-9' or 'square').
  * @param {string} props.contentLayout - Content layout ('text-above-media', 'text-over-media' or text-under-media).
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const CardImage = props => {
 	const { imageSourceUrl, type, contentLayout } = props;

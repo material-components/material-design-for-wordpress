@@ -17,7 +17,7 @@ import InspectorControls from './inspector-controls';
  * @param {Function} props.setAttributes - Function to set block attributes value.
  * @param {Object} props.recentPosts - Posts.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const NoPosts = ( { attributes, setAttributes, recentPosts } ) => (
 	<>
