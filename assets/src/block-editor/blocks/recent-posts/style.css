@@ -80,6 +80,11 @@
 .single-post-card__secondary {
 	color: rgba(0, 0, 0, 0.54);
 	padding: 0 1em 8px 1em;
+	font-family: Roboto, sans-serif !important;
+
+	p {
+		font-family: Roboto, sans-serif !important;
+	}
 }
 
 .mdc-typography--body2 {
@@ -125,7 +130,13 @@
 	flex-wrap: wrap;
 }
 
-.mdc-card__action-buttons,
-.mdc-card__action-icons {
-	flex-wrap: wrap;
+.single-post-card {
+
+	.mdc-button {
+		font-size: 16px;
+
+		span {
+			font-size: .875em !important;
+		}
+	}
 }

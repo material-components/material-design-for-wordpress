@@ -1,7 +1,7 @@
 /**
  * Grid Icon component.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 export const GridIcon = () => (
 	<svg
@@ -25,7 +25,7 @@ export const GridIcon = () => (
 /**
  * List Icon component.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 export const ListIcon = () => (
 	<svg
@@ -50,7 +50,7 @@ export const ListIcon = () => (
 /**
  * Masonry Icon component.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 export const MasonryIcon = () => (
 	<svg

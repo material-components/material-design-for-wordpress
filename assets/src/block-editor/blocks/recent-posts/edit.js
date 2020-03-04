@@ -18,9 +18,9 @@ import './style.css';
 /**
  * Recent Posts Edit component.
  *
- * @param {Object} props - Component props
+ * @param {Object} props - Component props.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const RecentPostsEdit = props => {
 	const { recentPosts } = props;
@@ -34,7 +34,7 @@ const RecentPostsEdit = props => {
 };
 
 /**
- * @type {Function} Function returning the HTML markup for the component.
+ * @type {Function} A functional component.
  */
 const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 	const {

@@ -7,7 +7,7 @@ import classnames from 'classnames';
  * Internal dependencies
  */
 import CardImage from './card-image';
-import CardPrimary from './card-primary';
+import CardHeader from './card-header';
 import CardActions from './card-actions';
 
 /**
@@ -23,7 +23,7 @@ import CardActions from './card-actions';
  * @param {Object} props.post - Post data.
  * @param {string} props.dateFormat - Date format.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const HorizontalCardLayout = props => {
 	const {
@@ -52,7 +52,7 @@ const HorizontalCardLayout = props => {
 				{ displayFeaturedImage && imageSourceUrl && (
 					<CardImage imageSourceUrl={ imageSourceUrl } type="square" />
 				) }
-				<CardPrimary { ...props } />
+				<CardHeader { ...props } />
 			</div>
 			{ ( displayPostAuthor || displayCommentsCount ) && (
 				<CardActions { ...props } />
