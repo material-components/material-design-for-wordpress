@@ -9,7 +9,7 @@ import BlockIcon from './components/block-icon';
  */
 import edit from './edit';
 
-export const name = 'hand-picked-posts';
+export const name = 'material/hand-picked-posts';
 
 /**
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
