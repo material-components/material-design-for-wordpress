@@ -10,7 +10,7 @@ import { __ } from '@wordpress/i18n';
 import InspectorControls from './inspector-controls';
 
 /**
- * No Posts component.
+ * No Posts component. This component also serves to show a spinner while fetching the recent posts data.
  *
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Block attributes.
