@@ -13,7 +13,7 @@ import PostsControl from '../../../components/posts-control';
 /**
  * Posts Picker component.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 	const onDone = () => {

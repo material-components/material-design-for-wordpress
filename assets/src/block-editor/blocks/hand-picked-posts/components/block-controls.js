@@ -8,7 +8,7 @@ import { BlockControls } from '@wordpress/block-editor';
 /**
  * Block Controls component.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const HandPickedPostsBlockControls = ( { attributes, setAttributes } ) => {
 	const { editMode } = attributes;

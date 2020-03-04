@@ -1,7 +1,7 @@
 /**
  * Widgets Icon component.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const WidgetsIcon = () => (
 	<svg
