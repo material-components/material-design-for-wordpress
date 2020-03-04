@@ -99,7 +99,7 @@ class Recent_Posts_Block {
 					],
 					'postsToShow'           => [
 						'type'    => 'number',
-						'default' => 10,
+						'default' => 12,
 					],
 					'outlined'              => [
 						'type'    => 'boolean',
