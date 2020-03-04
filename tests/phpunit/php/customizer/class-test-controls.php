@@ -101,10 +101,10 @@ class Test_Controls extends \WP_UnitTestCase {
 		$controls->wp_customize = $this->wp_customize;
 
 		// Set up the expectation for the update() method
-		// to be called only once and with the id 'material_theme'.
+		// to be called only once and with the id $controls->slug.
 		$this->wp_customize->expects( $this->once() )
 			->method( 'add_panel' )
-			->with( $this->equalTo( 'material_theme' ) );
+			->with( $this->equalTo( $controls->slug ) );
 
 		$controls->add_panel();
 	}
@@ -121,11 +121,11 @@ class Test_Controls extends \WP_UnitTestCase {
 		$controls->wp_customize = $this->wp_customize;
 
 		// Replace the icons section with an instance to assert it's registered correctly.
-		$icons_section = new \WP_Customize_Section( $this->wp_customize, 'material_theme_icons' );
+		$icons_section = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_icons" );
 		add_filter(
 			'mtb_customizer_section_args',
-			function( $args, $id ) use ( $icons_section ) {
-				if ( 'material_theme_icons' === $id ) {
+			function( $args, $id ) use ( $controls, $icons_section ) {
+				if ( "{$controls->slug}_icons" === $id ) {
 					return $icons_section;
 				}
 
@@ -140,10 +140,10 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->wp_customize->expects( $this->exactly( 5 ) )
 			->method( 'add_section' )
 			->withConsecutive(
-				[ $this->equalTo( 'material_theme_style' ) ],
-				[ $this->equalTo( 'material_theme_colors' ) ],
-				[ $this->equalTo( 'material_theme_typography' ) ],
-				[ $this->equalTo( 'material_theme_corners' ) ],
+				[ $this->equalTo( "{$controls->slug}_style" ) ],
+				[ $this->equalTo( "{$controls->slug}_colors" ) ],
+				[ $this->equalTo( "{$controls->slug}_typography" ) ],
+				[ $this->equalTo( "{$controls->slug}_corners" ) ],
 				[ $this->equalTo( $icons_section ) ]
 			);
 
@@ -167,7 +167,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->wp_customize->expects( $this->any() )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( 'example_id' ) ]
+				[ $this->equalTo( "{$controls->slug}_example_id" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
@@ -175,7 +175,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->wp_customize->expects( $this->any() )
 			->method( 'add_control' )
 			->withConsecutive(
-				[ $this->equalTo( 'example_id' ) ]
+				[ $this->equalTo( "{$controls->slug}_example_id" ) ]
 			);
 
 		$controls->add_theme_controls();
@@ -197,21 +197,23 @@ class Test_Controls extends \WP_UnitTestCase {
 			->method( 'add_setting' )
 			->withConsecutive(
 				[
-					'test_setting',
+					"{$controls->slug}_test_setting",
 				],
-				$this->callback(
-					function( $setting ) {
-						return $setting instanceof \WP_Customize_Setting && 'material_theme_style' === $setting->id;
-					}
-				)
+				[
+					$this->callback(
+						function( $setting ) use ( $controls ) {
+							return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_example_id" === $setting->id;
+						}
+					),
+				]
 			);
 
 		// first arg is an array of args
 		// second arg is an instance of WP_Customize_Setting.
 		$controls->add_settings(
 			[
-				'test_setting'         => [],
-				'material_theme_style' => new \WP_Customize_Setting( $controls->wp_customize, 'material_theme_style' ),
+				'test_setting' => [],
+				'example_id'   => new \WP_Customize_Setting( $controls->wp_customize, "{$controls->slug}_example_id" ),
 			]
 		);
 	}
@@ -232,21 +234,23 @@ class Test_Controls extends \WP_UnitTestCase {
 			->method( 'add_control' )
 			->withConsecutive(
 				[
-					'test_setting',
+					"{$controls->slug}_test_setting",
 				],
-				$this->callback(
-					function( $setting ) {
-						return $setting instanceof \WP_Customize_Control && 'material_theme_style' === $setting->id;
-					}
-				)
+				[
+					$this->callback(
+						function( $setting ) use ( $controls ) {
+							return $setting instanceof \WP_Customize_Control && "{$controls->slug}_example_id" === $setting->id;
+						}
+					),
+				]
 			);
 
 		// first arg is an array of args
 		// second arg is an instance of WP_Customize_Control.
 		$controls->add_controls(
 			[
-				'test_setting'         => [],
-				'material_theme_style' => new \WP_Customize_Control( $controls->wp_customize, 'material_theme_style' ),
+				'test_setting' => [],
+				'example_id'   => new \WP_Customize_Control( $controls->wp_customize, "{$controls->slug}_example_id" ),
 			]
 		);
 	}
@@ -261,5 +265,17 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
+	}
+
+	/**
+	 * Test for prepend_slug() method.
+	 *
+	 * @see Controls::prepend_slug()
+	 */
+	public function test_prepend_slug() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		$this->assertEquals( $controls->prepend_slug( 'style' ), "{$controls->slug}_style" );
+		$this->assertEquals( $controls->prepend_slug( "{$controls->slug}_style" ), "{$controls->slug}_style" );
 	}
 }
