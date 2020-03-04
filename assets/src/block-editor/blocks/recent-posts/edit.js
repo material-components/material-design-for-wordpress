@@ -20,7 +20,7 @@ import './style.css';
  *
  * @param {Object} props - Component props
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const RecentPostsEdit = props => {
 	const { recentPosts } = props;

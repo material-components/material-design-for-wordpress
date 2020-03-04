@@ -44,7 +44,7 @@ const MAX_POST_CONTENT_LENGTH = 30;
  * @param {Object} props.attributes - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 	const [ categoriesList, setCategoriesList ] = useState( [] );
