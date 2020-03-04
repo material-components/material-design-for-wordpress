@@ -28,6 +28,7 @@ class Hand_Picked_Posts_Block extends Posts_List_Blocks_Base {
 			'posts'    => [
 				'type'    => 'array',
 				'default' => [],
+				'items'   => [ 'type' => 'integer' ],
 			],
 			'editMode' => [
 				'type'    => 'boolean',
