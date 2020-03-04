@@ -19,24 +19,17 @@ import { addQueryArgs } from '@wordpress/url';
  */
 import ImageRadioControl from '../../../components/image-radio-control';
 import genericAttributesSetter from '../../../utils/generic-attributes-setter';
-
-import styleOptions from '../styles';
-
-/**
- * Module constants
- */
-const CATEGORIES_LIST_QUERY = {
-	per_page: 100, // @todo: Implement lookup of categories using auto complete field.
-};
-
-const MIN_NUMBER_OF_POSTS = 1;
-const MAX_NUMBER_OF_POSTS = 12;
-
-const MIN_POSTS_COLUMNS = 2;
-const MAX_POSTS_COLUMNS = 4;
-
-const MIN_POST_CONTENT_LENGTH = 10;
-const MAX_POST_CONTENT_LENGTH = 30;
+import {
+	CATEGORIES_LIST_QUERY,
+	MIN_NUMBER_OF_POSTS,
+	MAX_NUMBER_OF_POSTS,
+	MIN_POSTS_COLUMNS,
+	MAX_POSTS_COLUMNS,
+	MIN_POST_CONTENT_LENGTH,
+	MAX_POST_CONTENT_LENGTH,
+	RECENT_POSTS_STYLES,
+	CONTENT_LAYOUTS,
+} from '../options';
 
 /**
  * Recent Posts Inspector Controls component.
@@ -94,7 +87,7 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 			<PanelBody title={ __( 'Styles', 'material-theme-builder' ) }>
 				<ImageRadioControl
 					selected={ style }
-					options={ styleOptions }
+					options={ RECENT_POSTS_STYLES }
 					onChange={ setter( 'style' ) }
 				/>
 			</PanelBody>
@@ -111,20 +104,7 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 						<RadioControl
 							label={ __( 'Content layout', 'material-theme-builder' ) }
 							selected={ contentLayout }
-							options={ [
-								{
-									label: __( 'Text above media', 'material-theme-builder' ),
-									value: 'text-above-media',
-								},
-								{
-									label: __( 'Text over media', 'material-theme-builder' ),
-									value: 'text-over-media',
-								},
-								{
-									label: __( 'Text under media', 'material-theme-builder' ),
-									value: 'text-under-media',
-								},
-							] }
+							options={ CONTENT_LAYOUTS }
 							onChange={ setter( 'contentLayout' ) }
 						/>
 					</>
