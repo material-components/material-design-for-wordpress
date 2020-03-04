@@ -1,8 +1,13 @@
 /*
  * Put Customize Controls CSS here.
  */
+@import "../../src/block-editor/components/material-color-palette/style.css";
 
 /* Collapsible section */
+.control-section-collapse-parent {
+	overflow: hidden !important;
+}
+
 .control-section-collapse {
 	position: static !important;
 	transform: none !important;
@@ -56,8 +61,15 @@
 	display: block;
 	width: 100%;
 
-	&.wp-picker-active .mtb-tabs {
-		display: flex;
+	&.wp-picker-active {
+
+		& .mtb-tabs {
+			display: flex;
+		}
+
+		& .mtb-tab-content.active {
+			display: block;
+		}
 	}
 
 	& .wp-picker-input-wrap {
@@ -94,8 +106,34 @@
 
 .mtb-tab-content {
 	display: none;
+}
 
-	&.active {
-		display: block;
+.components-tooltip.components-popover {
+	z-index: 10000;
+	position: static;
+	font-size: 0.8em !important;
+}
+
+.components-popover:not(.is-without-arrow):not(.is-mobile).is-top::after {
+	bottom: 10px;
+}
+
+.components-material-color-palette__picker {
+	padding: 4px;
+	background: #fff;
+	max-height: 175px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.components-circular-option-picker__option-wrapper {
+
+	&:nth-child(15n+13),
+	&:nth-child(15n+14) {
+
+		.components-popover:not(.is-mobile).is-center .components-popover__content {
+			left: 80%;
+			transform: translateX(-80%);
+		}
 	}
 }

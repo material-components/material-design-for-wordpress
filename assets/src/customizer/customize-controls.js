@@ -7,6 +7,8 @@
  *
  * @since 0.0.1
  */
+import { render } from '@wordpress/element';
+import MaterialColorPalette from '../block-editor/components/material-color-palette';
 
 ( ( $, api ) => {
 	/**
@@ -87,6 +89,14 @@
 
 			// Move the section to it's parent panel.
 			section.headContainer.append( $( '#sub-accordion-section-' + id ) );
+
+			if ( section.panel && section.panel() ) {
+				const panel = api.panel( section.panel() );
+
+				if ( panel ) {
+					panel.container.last().addClass( 'control-section-collapse-parent' );
+				}
+			}
 		},
 
 		/**
@@ -182,8 +192,12 @@
 	api.MaterialColorControl = api.ColorControl.extend( {
 		template: wp.template( 'customize-control-material_color-tabs' ),
 
+		/**
+		 * Callback when the control is ready and inserted into DOM.
+		 */
 		ready() {
 			const control = this;
+
 			api.ColorControl.prototype.ready.call( control );
 
 			const picker = control.container.find( '.wp-picker-holder' );
@@ -195,6 +209,7 @@
 			// Move picker to the custom tab.
 			container.find( '.tab-custom' ).append( picker );
 
+			// Add the tab links click event to show/hide tab content.
 			container.find( '.mtb-tab-link' ).on( 'click', event => {
 				event.preventDefault();
 
@@ -210,10 +225,73 @@
 				link.addClass( 'active' );
 			} );
 
+			// Render the material palette component in the palette tab.
+			control.renderMaterialPalette();
+
+			// Re-render the material palette component if the color is updated.
+			control.setting.bind( value => control.renderMaterialPalette( value ) );
+
+			const colorToggler = container.find( '.wp-color-result' ),
+				colorInput = container.find( '.wp-color-picker' );
+
+			// Add our own custom color picker open/close events.
+			colorToggler.off( 'click' ).on( 'click', () => {
+				if ( colorToggler.hasClass( 'wp-picker-open' ) ) {
+					colorInput.data( 'wpWpColorPicker' ).close();
+				} else {
+					colorInput.data( 'wpWpColorPicker' ).open();
+				}
+			} );
+
+			// Remove the `click.wpcolorpicker` event and add our own.
+			container
+				.off( 'click.wpcolorpicker' )
+				.on( 'click.wpcolorpicker', event => {
+					// Stop prpagation only if the click is not from a material color select
+					// react will handle the event propagation.
+					if (
+						event.originalEvent &&
+						event.originalEvent.target &&
+						event.originalEvent.target.classList.contains( 'components-button' )
+					) {
+						// Remove the body click event and add it back after a second.
+						$( 'body' ).off( 'click.wpcolorpicker' );
+						setTimeout(
+							() =>
+								$( 'body' ).on(
+									'click.wpcolorpicker',
+									colorInput.data( 'wpWpColorPicker' ).close
+								),
+							1000
+						);
+						return true;
+					}
+
+					event.stopPropagation();
+				} );
+
+			// Activate the first tab.
 			container
 				.find( '.mtb-tab-link' )
 				.first()
 				.trigger( 'click' );
+		},
+
+		/**
+		 * Render the `MaterialColorPalette` component in the palette tab.
+		 *
+		 * @param {string} value
+		 */
+		renderMaterialPalette( value ) {
+			const control = this;
+			render(
+				<MaterialColorPalette
+					value={ value || control.setting.get() }
+					onChange={ newValue => control.setting.set( newValue ) }
+					materialColorsOnly={ true }
+				/>,
+				control.container.find( '.tab-palette' ).get( 0 )
+			);
 		},
 	} );
 

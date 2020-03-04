@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Plugin;
+use MaterialThemeBuilder\Customizer\Material_Color_Palette_Control;
 
 /**
  * Tests for Controls class.
@@ -33,7 +34,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		require_once ABSPATH . WPINC . '/class-wp-customize-section.php';
 
 		$this->wp_customize = $this->getMockBuilder( 'DummyClass' )
-			->setMethods( [ 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
+			->setMethods( [ 'register_control_type', 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
 			->getMock();
 	}
 
@@ -64,6 +65,13 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::register()
 	 */
 	public function test_register() {
+
+		// Set up the expectation for the register_control_type() method
+		// to be called only once and with the class `Material_Color_Palette_Control`.
+		$this->wp_customize->expects( $this->once() )
+			->method( 'register_control_type' )
+			->with( $this->equalTo( Material_Color_Palette_Control::class ) );
+
 		$controls = $this->getMockBuilder( Controls::class )
 			->disableOriginalConstructor()
 			->setMethods( [ 'add_panel', 'add_sections', 'add_theme_controls' ] )
