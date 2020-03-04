@@ -23,7 +23,7 @@ import genericAttributesSetter from '../../../utils/generic-attributes-setter';
 import styleOptions from '../styles';
 
 /**
- * Module Constants
+ * Module constants
  */
 const CATEGORIES_LIST_QUERY = {
 	per_page: 100, // @todo: Implement lookup of categories using auto complete field.
