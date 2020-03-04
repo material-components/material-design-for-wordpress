@@ -3,8 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { useState, useEffect } from '@wordpress/element';
-
+import { useState, useEffect, useCallback } from '@wordpress/element';
 import {
 	PanelBody,
 	RangeControl,
@@ -19,6 +18,8 @@ import { addQueryArgs } from '@wordpress/url';
  * Internal dependencies
  */
 import ImageRadioControl from '../../../components/image-radio-control';
+import genericAttributesSetter from '../../../utils/generic-attributes-setter';
+
 import styleOptions from '../styles';
 
 /**
@@ -47,6 +48,8 @@ const MAX_POST_CONTENT_LENGTH = 30;
  * @return {Function} A functional component.
  */
 const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
+	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+
 	const [ categoriesList, setCategoriesList ] = useState( [] );
 	const [ isStillMounted, setStillMounted ] = useState( true );
 
@@ -92,7 +95,7 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 				<ImageRadioControl
 					selected={ style }
 					options={ styleOptions }
-					onChange={ value => setAttributes( { style: value } ) }
+					onChange={ setter( 'style' ) }
 				/>
 			</PanelBody>
 			<PanelBody title={ __( 'Content', 'material-theme-builder' ) }>
@@ -101,7 +104,7 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 						<RangeControl
 							label={ __( 'Columns', 'material-theme-builder' ) }
 							value={ columns }
-							onChange={ value => setAttributes( { columns: value } ) }
+							onChange={ setter( 'columns' ) }
 							min={ MIN_POSTS_COLUMNS }
 							max={ MAX_POSTS_COLUMNS }
 						/>
@@ -122,23 +125,21 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 									value: 'text-under-media',
 								},
 							] }
-							onChange={ value => {
-								setAttributes( { contentLayout: value } );
-							} }
+							onChange={ setter( 'contentLayout' ) }
 						/>
 					</>
 				) }
 				<RangeControl
 					label={ __( 'Number of posts', 'material-theme-builder' ) }
 					value={ postsToShow }
-					onChange={ value => setAttributes( { postsToShow: value } ) }
+					onChange={ setter( 'postsToShow' ) }
 					min={ MIN_NUMBER_OF_POSTS }
 					max={ MAX_NUMBER_OF_POSTS }
 				/>
 				<ToggleControl
 					label={ __( 'Outlined', 'material-theme-builder' ) }
 					checked={ outlined }
-					onChange={ value => setAttributes( { outlined: value } ) }
+					onChange={ setter( 'outlined' ) }
 				/>
 			</PanelBody>
 
@@ -146,12 +147,12 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 				<ToggleControl
 					label={ __( 'Post date', 'material-theme-builder' ) }
 					checked={ displayPostDate }
-					onChange={ value => setAttributes( { displayPostDate: value } ) }
+					onChange={ setter( 'displayPostDate' ) }
 				/>
 				<ToggleControl
 					label={ __( 'Post content', 'material-theme-builder' ) }
 					checked={ displayPostContent }
-					onChange={ value => setAttributes( { displayPostContent: value } ) }
+					onChange={ setter( 'displayPostContent' ) }
 				/>
 				{ displayPostContent && (
 					<RangeControl
@@ -160,7 +161,7 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 							'material-theme-builder'
 						) }
 						value={ postContentLength }
-						onChange={ value => setAttributes( { postContentLength: value } ) }
+						onChange={ setter( 'postContentLength' ) }
 						min={ MIN_POST_CONTENT_LENGTH }
 						max={ MAX_POST_CONTENT_LENGTH }
 					/>
@@ -168,18 +169,18 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 				<ToggleControl
 					label={ __( 'Featured Image', 'material-theme-builder' ) }
 					checked={ displayFeaturedImage }
-					onChange={ value => setAttributes( { displayFeaturedImage: value } ) }
+					onChange={ setter( 'displayFeaturedImage' ) }
 				/>
 
 				<ToggleControl
 					label={ __( 'Comments Count', 'material-theme-builder' ) }
 					checked={ displayCommentsCount }
-					onChange={ value => setAttributes( { displayCommentsCount: value } ) }
+					onChange={ setter( 'displayCommentsCount' ) }
 				/>
 				<ToggleControl
 					label={ __( 'Post Author', 'material-theme-builder' ) }
 					checked={ displayPostAuthor }
-					onChange={ value => setAttributes( { displayPostAuthor: value } ) }
+					onChange={ setter( 'displayPostAuthor' ) }
 				/>
 			</PanelBody>
 
@@ -187,11 +188,9 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 				<QueryControls
 					categoriesList={ categoriesList }
 					selectedCategoryId={ categories }
-					onCategoryChange={ value =>
-						setAttributes( {
-							categories: '' !== value ? value : undefined,
-						} )
-					}
+					onCategoryChange={ setter( 'categories', value =>
+						'' !== value ? value : undefined
+					) }
 				/>
 			</PanelBody>
 		</InspectorControls>
