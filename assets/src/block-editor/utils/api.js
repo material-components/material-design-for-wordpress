@@ -21,7 +21,6 @@ const getPostsRequests = ( { selected = [], search = '', queryArgs = [] } ) => {
 		search,
 		orderby: 'title',
 		order: 'asc',
-		post_type: 'post',
 	};
 
 	const requests = [
