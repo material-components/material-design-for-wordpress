@@ -6,7 +6,7 @@ import { dateI18n, format } from '@wordpress/date';
 import { RawHTML } from '@wordpress/element';
 
 /**
- * Card Primary component.
+ * Card Header component.
  *
  * @param {Object} props - Component props.
  * @param {string} props.titleTrimmed - Post title trimmed.
@@ -16,7 +16,7 @@ import { RawHTML } from '@wordpress/element';
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const CardPrimary = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
+const CardHeader = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
 	<div className="single-post-card__primary">
 		<h2 className="single-post-card__title mdc-typography mdc-typography--headline6">
 			{ titleTrimmed ? (
@@ -35,4 +35,4 @@ const CardPrimary = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
 	</div>
 );
 
-export default CardPrimary;
+export default CardHeader;

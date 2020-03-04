@@ -6,7 +6,7 @@ import classnames from 'classnames';
 /**
  * Internal dependencies
  */
-import CardPrimary from './card-primary';
+import CardHeader from './card-header';
 
 /**
  * Card Image component.
@@ -33,7 +33,7 @@ const CardImage = props => {
 		>
 			{ contentLayout === 'text-over-media' && (
 				<div className="mdc-card__media-content">
-					<CardPrimary { ...props } />
+					<CardHeader { ...props } />
 				</div>
 			) }
 		</div>

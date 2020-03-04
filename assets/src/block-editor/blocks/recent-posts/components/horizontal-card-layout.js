@@ -7,7 +7,7 @@ import classnames from 'classnames';
  * Internal dependencies
  */
 import CardImage from './card-image';
-import CardPrimary from './card-primary';
+import CardHeader from './card-header';
 import CardActions from './card-actions';
 
 /**
@@ -52,7 +52,7 @@ const HorizontalCardLayout = props => {
 				{ displayFeaturedImage && imageSourceUrl && (
 					<CardImage imageSourceUrl={ imageSourceUrl } type="square" />
 				) }
-				<CardPrimary { ...props } />
+				<CardHeader { ...props } />
 			</div>
 			{ ( displayPostAuthor || displayCommentsCount ) && (
 				<CardActions { ...props } />
