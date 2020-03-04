@@ -1,0 +1,31 @@
+.icon-position {
+	display: inline-flex;
+	margin: 10px 0;
+	overflow: hidden;
+	border: 1px solid #007eba;
+	border-radius: 3px;
+
+	&__list-item {
+		margin: 0;
+
+		&__button {
+			display: block;
+			color: #007eba;
+			background: none;
+			border: none;
+			padding: 10px;
+			cursor: pointer;
+			outline: none;
+
+			&--active {
+				background-color: #007eba;
+				color: #fff;
+			}
+		}
+
+		&:not(:first-child):not(:last-child) {
+			border-left: 1px solid #007eba;
+			border-right: 1px solid #007eba;
+		}
+	}
+}

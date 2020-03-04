@@ -17,7 +17,7 @@ import SinglePost from './single-post';
  * @param {Function} props.setAttributes - Function to set block attributes value.
  * @param {Object} props.recentPosts - Posts.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 	const { style, columns } = attributes;

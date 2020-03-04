@@ -18,7 +18,7 @@ import HorizontalCardLayout from './horizontal-card-layout';
  * @param {string} props.style - Card layout style.
  * @param {Object} props.attributes - Block attributes.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const SinglePost = ( { post, postIndex, style, attributes } ) => {
 	const titleTrimmed = post.title.rendered.trim();

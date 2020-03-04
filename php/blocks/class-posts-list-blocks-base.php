@@ -68,6 +68,10 @@ class Posts_List_Blocks_Base {
 				'type'    => 'number',
 				'default' => 10,
 			],
+			'outlined'              => [
+				'type'    => 'boolean',
+				'default' => false,
+			],
 			'displayPostDate'       => [
 				'type'    => 'boolean',
 				'default' => true,
