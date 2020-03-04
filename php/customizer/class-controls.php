@@ -337,7 +337,7 @@ class Controls extends Module_Base {
 		wp_enqueue_script(
 			'material-theme-builder-customizer-js',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
-			[ 'customize-controls', 'jquery' ],
+			[ 'customize-controls', 'jquery', 'wp-element', 'wp-components' ],
 			$this->plugin->asset_version(),
 			false
 		);
@@ -357,8 +357,8 @@ class Controls extends Module_Base {
 
 		wp_enqueue_style(
 			'material-theme-builder-customizer-css',
-			$this->plugin->asset_url( 'assets/css/customizer-compiled.css' ),
-			[],
+			$this->plugin->asset_url( 'assets/css/customize-controls-compiled.css' ),
+			[ 'wp-components' ],
 			$this->plugin->asset_version()
 		);
 	}

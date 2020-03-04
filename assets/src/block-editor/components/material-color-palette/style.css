@@ -1,7 +1,7 @@
 /* Material Color Palette */
 .components-material-color-palette__picker {
 
-	& .components-popover__content {
+	& .components-popover:not(.components-tooltip) .components-popover__content {
 		padding: 8px;
 		min-width: 272px !important;
 	}

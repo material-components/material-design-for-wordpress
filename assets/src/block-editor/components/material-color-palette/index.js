@@ -58,6 +58,7 @@ export default function MaterialColorPalette( {
 	clearable = true,
 	className,
 	disableCustomColors = false,
+	materialColorsOnly = false,
 	onChange,
 	value,
 	label,
@@ -113,6 +114,14 @@ export default function MaterialColorPalette( {
 		),
 		[ value ]
 	);
+
+	if ( materialColorsOnly ) {
+		return (
+			<div className="components-material-color-palette__picker">
+				{ materialColorOptions() }
+			</div>
+		);
+	}
 
 	return (
 		<BaseControl className="material-component-color-palette">
