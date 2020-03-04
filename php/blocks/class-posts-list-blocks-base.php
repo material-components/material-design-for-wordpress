@@ -172,13 +172,11 @@ class Posts_List_Blocks_Base {
 	 * @return string Returns the post content with latest posts added.
 	 */
 	public function render_block( $attributes ) {
-
 		$class = 'wp-block-material-recent-posts';
 		if ( isset( $attributes['align'] ) ) {
 			$class .= ' align' . $attributes['align'];
 		}
 		$content = '<!-- No posts found -->';
-
 
 		$args = [
 			'posts_per_page'         => $attributes['postsToShow'],
@@ -188,14 +186,28 @@ class Posts_List_Blocks_Base {
 			'ignore_sticky_posts'    => true,
 		];
 
-		if ( ! empty( $attributes['categories'] ) ) {
+		if ( ! empty( $attributes['categories'] ) && 'material/recent-posts' === $this->block_name ) {
 			$args['cat'] = absint( $attributes['categories'] );
+		}
+
+		if ( 'material/hand-picked-posts' === $this->block_name ) {
+			if ( empty( $attributes['posts'] ) ) {
+				return sprintf(
+					'<div class="%s">%s</div>',
+					esc_attr( $class ),
+					$content
+				);
+			}
+
+			$ids                    = array_map( 'absint', $attributes['posts'] );
+			$args['post__in']       = $ids;
+			$args['posts_per_page'] = count( $ids );
 		}
 
 		/**
 		 * Filters the args for recent posts WP_Query.
 		 *
-		 * @param array $args The args for the WP_Query.
+		 * @param array $args       The args for the WP_Query.
 		 * @param array $attributes The block's attributes.
 		 */
 		$args = apply_filters( 'mtb_recent_posts_query_args', $args, $attributes );
