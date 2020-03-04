@@ -101,6 +101,10 @@ class Recent_Posts_Block {
 						'type'    => 'number',
 						'default' => 10,
 					],
+					'outlined'              => [
+						'type'    => 'boolean',
+						'default' => false,
+					],
 					'displayPostDate'       => [
 						'type'    => 'boolean',
 						'default' => true,
