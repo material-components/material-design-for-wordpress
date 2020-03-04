@@ -24,13 +24,13 @@ import './style.css';
  */
 const Edit = props => {
 	const { attributes, name } = props;
-	const { editMode } = attributes;
+	const { editMode, posts } = attributes;
 
 	return (
 		<>
 			<HandpickedPostBlockControls { ...props } />
 			<HandpickedPostInspectorControls { ...props } />
-			{ editMode ? (
+			{ editMode || posts.length === 0 ? (
 				<PostsPicker { ...props } />
 			) : (
 				<Disabled>
