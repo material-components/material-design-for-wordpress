@@ -8,7 +8,6 @@
 namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Customizer\Image_Radio_Control;
 
 /**
  * Class Controls.
@@ -20,7 +19,7 @@ class Controls extends Module_Base {
 	 *
 	 * @var string
 	 */
-	public $slug = 'material_theme';
+	public $slug = 'mtb';
 
 	/**
 	 * WP_Customize_Manager object reference.
@@ -76,14 +75,16 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			$this->slug . '_style'      => __( 'Design Style', 'material-theme-builder' ),
-			$this->slug . '_colors'     => __( 'Color Palettes', 'material-theme-builder' ),
-			$this->slug . '_typography' => __( 'Typography', 'material-theme-builder' ),
-			$this->slug . '_corners'    => __( 'Corner Styles', 'material-theme-builder' ),
-			$this->slug . '_icons'      => __( 'Icon Collections', 'material-theme-builder' ),
+			'style'      => __( 'Design Style', 'material-theme-builder' ),
+			'colors'     => __( 'Color Palettes', 'material-theme-builder' ),
+			'typography' => __( 'Typography', 'material-theme-builder' ),
+			'corners'    => __( 'Corner Styles', 'material-theme-builder' ),
+			'icons'      => __( 'Icon Collections', 'material-theme-builder' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
+			$id = "{$this->slug}_{$id}";
+
 			$args = [
 				'priority'   => 10,
 				'capability' => 'edit_theme_options',
@@ -100,7 +101,7 @@ class Controls extends Module_Base {
 			 * @param array $args Array of section args.
 			 * @param string   $id       ID of the setting.
 			 */
-			$section = apply_filters( 'mtb_customizer_section_args', $args, $id );
+			$section = apply_filters( $this->slug . '_customizer_section_args', $args, $id );
 
 			if ( is_array( $section ) ) {
 				$this->wp_customize->add_section(
@@ -108,6 +109,7 @@ class Controls extends Module_Base {
 					$section
 				);
 			} elseif ( $section instanceof \WP_Customize_Section ) {
+				$section->id = $id;
 				$this->wp_customize->add_section( $section );
 			}
 		}
@@ -138,7 +140,7 @@ class Controls extends Module_Base {
 			// @todo remove.
 			'example_id' => [
 				'type'    => 'text',
-				'section' => $this->slug . '_style',
+				'section' => 'style',
 				'label'   => __( 'Example Text Field', 'material-theme-builder' ),
 			],
 		];
@@ -155,6 +157,8 @@ class Controls extends Module_Base {
 	public function add_settings( $settings = [] ) {
 
 		foreach ( $settings as $id => $setting ) {
+			$id = "{$this->slug}_{$id}";
+
 			if ( is_array( $setting ) ) {
 				$defaults = [
 					'capability'        => 'edit_theme_options',
@@ -172,7 +176,7 @@ class Controls extends Module_Base {
 			 * @param array   $settings[ $id ] Array of setting args.
 			 * @param string   $id       ID of the setting.
 			 */
-			$setting = apply_filters( 'mtb_customizer_setting_args', $setting, $id );
+			$setting = apply_filters( $this->slug . '_customizer_setting_args', $setting, $id );
 
 			if ( is_array( $setting ) ) {
 				$this->wp_customize->add_setting(
@@ -180,6 +184,7 @@ class Controls extends Module_Base {
 					$setting
 				);
 			} elseif ( $setting instanceof \WP_Customize_Setting ) {
+				$setting->id = $id;
 				$this->wp_customize->add_setting( $setting );
 			}
 		}
@@ -194,6 +199,8 @@ class Controls extends Module_Base {
 	public function add_controls( $controls = [] ) {
 
 		foreach ( $controls as $id => $control ) {
+			$id = "{$this->slug}_{$id}";
+
 			/**
 			 * Filters the customizer control args.
 			 *
@@ -202,14 +209,17 @@ class Controls extends Module_Base {
 			 * @param array $control Array of control args.
 			 * @param string   $id       ID of the control.
 			 */
-			$control = apply_filters( 'mtb_customizer_control_args', $control, $id );
+			$control = apply_filters( $this->slug . '_customizer_control_args', $control, $id );
 
 			if ( is_array( $control ) ) {
+				$control['section'] = isset( $control['section'] ) ? $this->prepend_slug( $control['section'] ) : '';
 				$this->wp_customize->add_control(
 					$id,
 					$control
 				);
 			} elseif ( $control instanceof \WP_Customize_Control ) {
+				$control->id      = $id;
+				$control->section = isset( $control->section ) ? $this->prepend_slug( $control->section ) : '';
 				$this->wp_customize->add_control( $control );
 			}
 		}
@@ -235,5 +245,15 @@ class Controls extends Module_Base {
 			[],
 			$this->plugin->asset_version()
 		);
+	}
+
+	/**
+	 * Prepend the slug name if it does not exist.
+	 *
+	 * @param  string $name The name of the setting/control.
+	 * @return string
+	 */
+	public function prepend_slug( $name ) {
+		return false === strpos( $name, "{$this->slug}_" ) ? "{$this->slug}_{$name}" : $name;
 	}
 }
