@@ -9,7 +9,9 @@
 namespace MaterialThemeBuilder\Blocks;
 
 use MaterialThemeBuilder\Plugin;
+use MaterialThemeBuilder\Template;
 use WP_Post;
+use WP_Query;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -55,6 +57,10 @@ class Posts_List_Blocks_Base {
 			'style'                 => [
 				'type'    => 'string',
 				'default' => 'masonry',
+			],
+			'align'                 => [
+				'type'    => 'string',
+				'default' => 'center',
 			],
 			'contentLayout'         => [
 				'type'    => 'string',
@@ -157,7 +163,7 @@ class Posts_List_Blocks_Base {
 	}
 
 	/**
-	 * Renders the block on server.
+	 * Renders the `material/recent-posts` block on server.
 	 *
 	 * @access public
 	 *
@@ -166,8 +172,58 @@ class Posts_List_Blocks_Base {
 	 * @return string Returns the post content with latest posts added.
 	 */
 	public function render_block( $attributes ) {
+
+		$class = 'wp-block-material-recent-posts';
+		if ( isset( $attributes['align'] ) ) {
+			$class .= ' align' . $attributes['align'];
+		}
+		$content = '<!-- No posts found -->';
+
+
+		$args = [
+			'posts_per_page'         => $attributes['postsToShow'],
+			'post_status'            => 'publish',
+			'no_found_rows'          => true,
+			'update_post_meta_cache' => false,
+			'ignore_sticky_posts'    => true,
+		];
+
+		if ( ! empty( $attributes['categories'] ) ) {
+			$args['cat'] = absint( $attributes['categories'] );
+		}
+
+		/**
+		 * Filters the args for recent posts WP_Query.
+		 *
+		 * @param array $args The args for the WP_Query.
+		 * @param array $attributes The block's attributes.
+		 */
+		$args = apply_filters( 'mtb_recent_posts_query_args', $args, $attributes );
+
+		$posts_query = new WP_Query( $args );
+
+		// If we have posts and a valid layout style, load the template.
+		if ( $posts_query->have_posts() && in_array( $attributes['style'], [ 'grid', 'list', 'masonry' ], true ) ) {
+			ob_start();
+
+			// Determine the template to show.
+			$template = in_array( $attributes['style'], [ 'grid', 'list' ], true ) ? 'list-grid' : 'masonry';
+
+			Template::get_template(
+				"posts-{$template}.php",
+				[
+					'posts_query' => $posts_query,
+					'attributes'  => $attributes,
+				]
+			);
+
+			$content = ob_get_clean();
+		}
+
 		return sprintf(
-			'hello world' // todo: Do the rendering.
+			'<div class="%s">%s</div>',
+			esc_attr( $class ),
+			$content
 		);
 	}
 
