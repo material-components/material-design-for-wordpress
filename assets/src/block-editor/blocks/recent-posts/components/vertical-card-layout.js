@@ -12,7 +12,7 @@ import { RawHTML } from '@wordpress/element';
  * Internal dependencies
  */
 import CardImage from './card-image';
-import CardPrimary from './card-primary';
+import CardHeader from './card-header';
 import CardActions from './card-actions';
 
 /**
@@ -30,7 +30,7 @@ import CardActions from './card-actions';
  * @param {boolean} props.displayCommentsCount - Whether or not to display the comments count field.
  * @param {boolean} props.displayPostAuthor - Whether or not to display the post author field.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {Function} A functional component.
  */
 const VerticalCardLayout = props => {
 	const {
@@ -62,11 +62,16 @@ const VerticalCardLayout = props => {
 				className="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
 				tabIndex={ postIndex }
 			>
-				{ contentLayout === 'text-above-media' && <CardPrimary { ...props } /> }
+				{ contentLayout === 'text-above-media' && <CardHeader { ...props } /> }
+
+				{ contentLayout === 'text-over-media' &&
+					displayFeaturedImage &&
+					! imageSourceUrl && <CardHeader { ...props } /> }
+
 				{ displayFeaturedImage && imageSourceUrl && (
 					<CardImage { ...cardImageProps } />
 				) }
-				{ contentLayout === 'text-under-media' && <CardPrimary { ...props } /> }
+				{ contentLayout === 'text-under-media' && <CardHeader { ...props } /> }
 				{ displayPostContent && (
 					<div
 						className={ classnames(
