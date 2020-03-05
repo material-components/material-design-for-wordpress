@@ -81,6 +81,12 @@ import colorUtils from '../common/color-utils';
 	 * Extend wp.customize.Section as a collapsible section
 	 */
 	api.CollapsibleSection = api.Section.extend( {
+		defaultExpandedArguments: $.extend(
+			{},
+			api.Section.defaultExpandedArguments,
+			{ allowMultiple: true }
+		),
+
 		/**
 		 * wp.customize.CollapsibleSection
 		 *
@@ -156,13 +162,13 @@ import colorUtils from '../common/color-utils';
 			const overlay = section.headContainer.closest( '.wp-full-overlay' );
 
 			if ( expanded ) {
-				// if ( ! args.allowMultiple ) {
-				// 	api.section.each( otherSection => {
-				// 		if ( otherSection !== section ) {
-				// 			otherSection.collapse( { duration: args.duration } );
-				// 		}
-				// 	} );
-				// }
+				if ( ! args.allowMultiple ) {
+					api.section.each( otherSection => {
+						if ( otherSection !== section ) {
+							otherSection.collapse( { duration: args.duration } );
+						}
+					} );
+				}
 
 				section.contentContainer.addClass( 'open' );
 
@@ -248,13 +254,13 @@ import colorUtils from '../common/color-utils';
 				const colors = [];
 				let color, textColor, colorRange;
 
-				if ( control.params.related_text_setting ) {
+				if ( control.params.relatedTextSetting ) {
 					color = value;
-					textColor = api( control.params.related_text_setting ).get();
+					textColor = api( control.params.relatedTextSetting ).get();
 					colorRange = colorUtils.generateColorFromHex( value );
 				} else {
 					textColor = value;
-					color = api( control.params.related_setting ).get();
+					color = api( control.params.relatedSetting ).get();
 					colorRange = colorUtils.generateColorFromHex( color );
 				}
 
@@ -262,24 +268,21 @@ import colorUtils from '../common/color-utils';
 					colorUtils.getColorAccessibility(
 						color,
 						control.params.label,
-						textColor,
-						__( 'custom', 'material-theme-builder' )
+						textColor
 					)
 				);
 				colors.push(
 					colorUtils.getColorAccessibility(
 						colorRange.range.light.hex,
 						__( 'Light variation', 'material-theme-builder' ),
-						textColor,
-						__( 'custom', 'material-theme-builder' )
+						textColor
 					)
 				);
 				colors.push(
 					colorUtils.getColorAccessibility(
 						colorRange.range.dark.hex,
 						__( 'Dark variation', 'material-theme-builder' ),
-						textColor,
-						__( 'custom', 'material-theme-builder' )
+						textColor
 					)
 				);
 
@@ -344,7 +347,10 @@ import colorUtils from '../common/color-utils';
 			render(
 				<MaterialColorPalette
 					value={ value || control.setting.get() }
-					onChange={ newValue => control.setting.set( newValue ) }
+					onChange={ newValue => {
+						control.setting.set( newValue );
+						control.setting._dirty = true;
+					} }
 					materialColorsOnly={ true }
 				/>,
 				control.container.find( '.tab-palette' ).get( 0 )

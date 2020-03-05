@@ -141,12 +141,13 @@ class Controls extends Module_Base {
 		 */
 		$settings = [
 			'style'          => [
-				'default' => 'baseline',
+				'default'   => 'baseline',
+				'transport' => 'postMessage',
 			],
 			'previous_style' => [
-				'default' => 'baseline',
+				'default'   => 'baseline',
+				'transport' => 'postMessage',
 			], // This setting does not have an associated control.
-			'primary_color'  => [], // Todo: Move this to colors section.
 		];
 
 		$this->add_settings( $settings );
@@ -207,15 +208,19 @@ class Controls extends Module_Base {
 		$settings = [
 			'primary_color'        => [
 				'sanitize_callback' => 'sanitize_hex_color',
+				'transport'         => 'postMessage',
 			],
 			'secondary_color'      => [
 				'sanitize_callback' => 'sanitize_hex_color',
+				'transport'         => 'postMessage',
 			],
 			'primary_text_color'   => [
 				'sanitize_callback' => 'sanitize_hex_color',
+				'transport'         => 'postMessage',
 			],
 			'secondary_text_color' => [
 				'sanitize_callback' => 'sanitize_hex_color',
+				'transport'         => 'postMessage',
 			],
 		];
 
@@ -233,6 +238,7 @@ class Controls extends Module_Base {
 					'section'              => 'colors',
 					'priority'             => 10,
 					'related_text_setting' => $this->slug . '_primary_text_color',
+					'css_var'              => '--mdc-theme-primary',
 				]
 			),
 			'secondary_color'      => new Material_Color_Palette_Control(
@@ -243,6 +249,7 @@ class Controls extends Module_Base {
 					'section'              => 'colors',
 					'priority'             => 10,
 					'related_text_setting' => $this->slug . '_secondary_text_color',
+					'css_var'              => '--mdc-theme-secondary',
 				]
 			),
 			'primary_text_color'   => new Material_Color_Palette_Control(
@@ -253,6 +260,7 @@ class Controls extends Module_Base {
 					'section'         => 'colors',
 					'priority'        => 10,
 					'related_setting' => $this->slug . '_primary_color',
+					'css_var'         => '--mdc-theme-on-primary',
 				]
 			),
 			'secondary_text_color' => new Material_Color_Palette_Control(
@@ -263,6 +271,7 @@ class Controls extends Module_Base {
 					'section'         => 'colors',
 					'priority'        => 10,
 					'related_setting' => $this->slug . '_secondary_color',
+					'css_var'         => '--mdc-theme-on-secondary',
 				]
 			),
 		];
@@ -382,6 +391,21 @@ class Controls extends Module_Base {
 			$this->plugin->asset_url( 'assets/css/customize-controls-compiled.css' ),
 			[ 'wp-components' ],
 			$this->plugin->asset_version()
+		);
+	}
+
+	/**
+	 * Enqueue Customizer preview scripts.
+	 *
+	 * @action customize_preview_init
+	 */
+	public function preview_scripts() {
+		wp_enqueue_script(
+			'material-theme-builder-customizer-preview-js',
+			$this->plugin->asset_url( 'assets/js/customize-preview.js' ),
+			[ 'customize-controls', 'jquery' ],
+			$this->plugin->asset_version(),
+			false
 		);
 	}
 

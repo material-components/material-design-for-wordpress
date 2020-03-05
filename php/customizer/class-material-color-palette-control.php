@@ -34,6 +34,13 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	public $related_setting = '';
 
 	/**
+	 * Var name in CSS.
+	 *
+	 * @var string
+	 */
+	public $css_var = '';
+
+	/**
 	 * Render a JS template for the Material color palette tabs.
 	 *
 	 * @return void
@@ -83,7 +90,8 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['related_text_setting'] = isset( $this->related_text_setting ) ? $this->related_text_setting : false;
-		$this->json['related_setting']      = isset( $this->related_setting ) ? $this->related_setting : false;
+		$this->json['relatedTextSetting'] = isset( $this->related_text_setting ) ? $this->related_text_setting : false;
+		$this->json['relatedSetting']     = isset( $this->related_setting ) ? $this->related_setting : false;
+		$this->json['cssVar']             = isset( $this->css_var ) ? $this->css_var : false;
 	}
 }
