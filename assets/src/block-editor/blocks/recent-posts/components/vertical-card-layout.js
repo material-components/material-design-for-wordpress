@@ -52,7 +52,6 @@ const VerticalCardLayout = props => {
 				'mdc-card',
 				{ 'mdc-card--outlined': outlined },
 				'single-post-card',
-				'single-post-card__masonry',
 				'single-post-basic'
 			) }
 		>
