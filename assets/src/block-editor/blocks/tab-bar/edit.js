@@ -62,7 +62,7 @@ const TabBarEdit = ( {
 		} else {
 			// Otherwise empty the editor
 			const clientIds = tabContent.map( block => block.clientId );
-			dispatch( 'core/editor' ).removeBlocks( clientIds );
+			dispatch( 'core/block-editor' ).removeBlocks( clientIds );
 		}
 	}, [ activeTab ] );
 
@@ -182,5 +182,5 @@ const TabBarEdit = ( {
 };
 
 export default withSelect( ( select, { clientId } ) => ( {
-	tabContent: select( 'core/editor' ).getBlocks( clientId ),
+	tabContent: select( 'core/block-editor' ).getBlocks( clientId ),
 } ) )( TabBarEdit );
