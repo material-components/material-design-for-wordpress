@@ -39,4 +39,10 @@ describe( 'CardActions', () => {
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();
 	} );
+
+	it( 'matches snapshot when there is not title', () => {
+		baseProps.titleTrimmed = null;
+		const wrapper = setup( baseProps );
+		expect( wrapper ).toMatchSnapshot();
+	} );
 } );
