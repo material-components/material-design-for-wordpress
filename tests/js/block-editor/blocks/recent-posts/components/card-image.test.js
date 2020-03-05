@@ -42,7 +42,7 @@ describe( 'CardImage', () => {
 			...baseProps,
 		};
 
-		props.contentLayout = 'text-over-media'
+		props.contentLayout = 'text-over-media';
 
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();

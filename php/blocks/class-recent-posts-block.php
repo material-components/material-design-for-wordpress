@@ -134,7 +134,7 @@ class Recent_Posts_Block {
 						'default' => false,
 					],
 					'category'              => [
-						'type'    => 'number',
+						'type' => 'number',
 					],
 				],
 				'render_callback' => [ $this, 'render_block_material_recent_posts' ],
