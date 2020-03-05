@@ -19,7 +19,6 @@ import CardActions from './card-actions';
  * Horizontal Card Layout component.
  *
  * @param {Object} props - Component props.
- * @param {number} props.postIndex - Post index.
  * @param {string} props.excerpt - Post excerpt.
  * @param {string} props.imageSourceUrl - Image source URL.
  * @param {string} props.contentLayout - Content layout ('text-above-media', 'text-over-media' or text-under-media).
@@ -60,7 +59,7 @@ const VerticalCardLayout = props => {
 		>
 			<div
 				className="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
-				tabIndex={ postIndex }
+				tabIndex={ 0 }
 			>
 				{ contentLayout === 'text-above-media' && <CardHeader { ...props } /> }
 

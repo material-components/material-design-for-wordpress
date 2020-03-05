@@ -14,7 +14,6 @@ import CardActions from './card-actions';
  * Horizontal Card Layout component.
  *
  * @param {Object} props - Component props.
- * @param {number} props.postIndex - Post index.
  * @param {string} props.imageSourceUrl - Image source URL.
  * @param {boolean} props.outlined - Whether or not the card has an outlined style.
  * @param {boolean} props.displayFeaturedImage - Whether or not to display the featured image.
@@ -27,7 +26,6 @@ import CardActions from './card-actions';
  */
 const HorizontalCardLayout = props => {
 	const {
-		postIndex,
 		imageSourceUrl,
 		outlined,
 		displayFeaturedImage,
@@ -47,7 +45,7 @@ const HorizontalCardLayout = props => {
 		>
 			<div
 				className="mdc-card__primary-action single-post-card__primary-action"
-				tabIndex={ postIndex }
+				tabIndex={ 0 }
 			>
 				{ displayFeaturedImage && imageSourceUrl && (
 					<CardImage imageSourceUrl={ imageSourceUrl } type="square" />
