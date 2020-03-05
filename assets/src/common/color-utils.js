@@ -9,11 +9,17 @@
  * External dependencies
  */
 import chroma from 'chroma-js';
+import { find, memoize } from 'lodash';
 
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
+import MATERIAL_COLORS from './material-colors';
 
 const colorUtils = {
 	round: function( e, t ) {
@@ -447,7 +453,7 @@ const colorUtils = {
 	getCustomTextAlphas: function( size, color, textColor ) {
 		return this.getMinAndRecAlphasFromBgAndTextColors( color, textColor, size );
 	},
-	getColorAccessibility: ( color, name, textColor, textColorName ) => {
+	getColorAccessibility: ( color, name, textColor ) => {
 		return {
 			hex: color,
 			type: name.replace( /Text on\s*|\s*Color/, '' ),
@@ -499,7 +505,7 @@ const colorUtils = {
 				{
 					size: __( 'Large', 'material-theme-builder' ),
 					colorHex: color,
-					textColor: textColorName,
+					textColor: colorUtils.getMaterialColorLabel( color ),
 					textColorHex: textColor,
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
@@ -510,7 +516,7 @@ const colorUtils = {
 				{
 					size: __( 'Normal', 'material-theme-builder' ),
 					colorHex: color,
-					textColor: textColorName,
+					textColor: colorUtils.getMaterialColorLabel( color ),
 					textColorHex: textColor,
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
@@ -520,6 +526,14 @@ const colorUtils = {
 				},
 			],
 		};
+	},
+	getMaterialColorLabel: hex => {
+		const found = find( MATERIAL_COLORS, color => hex === color.color );
+		if ( found ) {
+			return found.name;
+		}
+
+		return 'custom';
 	},
 };
 
