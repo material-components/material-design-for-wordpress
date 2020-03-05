@@ -30,19 +30,22 @@ const baseProps = {
 
 describe( 'CardActions', () => {
 	it( 'matches snapshot when the post date should be displayed', () => {
-		const wrapper = setup( baseProps );
+		const props = { ...baseProps };
+		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
 	it( 'matches snapshot when the post date should not be displayed', () => {
-		baseProps.displayPostDate = false;
-		const wrapper = setup( baseProps );
+		const props = { ...baseProps };
+		props.displayPostDate = false;
+		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
 	it( 'matches snapshot when there is not title', () => {
-		baseProps.titleTrimmed = null;
-		const wrapper = setup( baseProps );
+		const props = { ...baseProps };
+		props.titleTrimmed = null;
+		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 } );
