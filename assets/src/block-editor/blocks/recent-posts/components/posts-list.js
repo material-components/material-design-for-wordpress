@@ -15,7 +15,7 @@ import SinglePost from './single-post';
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
- * @param {Object} props.recentPosts - Posts.
+ * @param {array} props.recentPosts - Posts.
  *
  * @return {Function} A functional component.
  */
