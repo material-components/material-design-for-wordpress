@@ -201,6 +201,15 @@ Object {
         >
           (no title)
         </h2>
+        <h3
+          class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+        >
+          <time
+            datetime="2020-02-25T08:20:38+09:00"
+          >
+            February 25, 2020
+          </time>
+        </h3>
       </div>
     </div>
   </body>,
@@ -213,6 +222,15 @@ Object {
       >
         (no title)
       </h2>
+      <h3
+        class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+      >
+        <time
+          datetime="2020-02-25T08:20:38+09:00"
+        >
+          February 25, 2020
+        </time>
+      </h3>
     </div>
   </div>,
   "debug": [Function],

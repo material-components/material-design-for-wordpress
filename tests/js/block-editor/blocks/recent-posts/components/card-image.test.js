@@ -32,7 +32,6 @@ describe( 'CardImage', () => {
 	} );
 
 	it( 'matches snapshot when the content layout is "Text over media"', () => {
-		baseProps.contentLayout = 'text-over-media';
 		const props = {
 			titleTrimmed: 'Test Title',
 			displayPostDate: true,
@@ -42,6 +41,8 @@ describe( 'CardImage', () => {
 			dateFormat: 'F j, Y',
 			...baseProps,
 		};
+
+		props.contentLayout = 'text-over-media'
 
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
