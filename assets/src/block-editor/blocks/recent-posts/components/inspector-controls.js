@@ -84,14 +84,20 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 
 	return (
 		<InspectorControls>
-			<PanelBody title={ __( 'Styles', 'material-theme-builder' ) }>
+			<PanelBody
+				title={ __( 'Styles', 'material-theme-builder' ) }
+				initialOpen={ true }
+			>
 				<ImageRadioControl
 					selected={ style }
 					options={ RECENT_POSTS_STYLES }
 					onChange={ setter( 'style' ) }
 				/>
 			</PanelBody>
-			<PanelBody title={ __( 'Content', 'material-theme-builder' ) }>
+			<PanelBody
+				title={ __( 'Content', 'material-theme-builder' ) }
+				initialOpen={ true }
+			>
 				{ ( style === 'masonry' || style === 'grid' ) && (
 					<>
 						<RangeControl
@@ -123,7 +129,10 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 				/>
 			</PanelBody>
 
-			<PanelBody title={ __( 'Post meta settings', 'material-theme-builder' ) }>
+			<PanelBody
+				title={ __( 'Post meta settings', 'material-theme-builder' ) }
+				initialOpen={ true }
+			>
 				<ToggleControl
 					label={ __( 'Post date', 'material-theme-builder' ) }
 					checked={ displayPostDate }
@@ -164,7 +173,10 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 				/>
 			</PanelBody>
 
-			<PanelBody title={ __( 'Filtering', 'material-theme-builder' ) }>
+			<PanelBody
+				title={ __( 'Filtering', 'material-theme-builder' ) }
+				initialOpen={ true }
+			>
 				<QueryControls
 					categoriesList={ categoriesList }
 					selectedCategoryId={ categories }
