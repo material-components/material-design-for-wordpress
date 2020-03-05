@@ -211,7 +211,7 @@ class Controls extends Module_Base {
 			'secondary_color'      => [
 				'sanitize_callback' => 'sanitize_hex_color',
 			],
-			'primary_tex_color'    => [
+			'primary_text_color'   => [
 				'sanitize_callback' => 'sanitize_hex_color',
 			],
 			'secondary_text_color' => [
@@ -225,22 +225,44 @@ class Controls extends Module_Base {
 		* List of all the controls in the Theme section.
 		 */
 		$controls = [
-			'primary_color'   => new Material_Color_Palette_Control(
+			'primary_color'        => new Material_Color_Palette_Control(
 				$this->wp_customize,
 				$this->slug . '_primary_color',
 				[
-					'label'    => __( 'Primary Color', 'material-theme-builder' ),
-					'section'  => 'colors',
-					'priority' => 10,
+					'label'                => __( 'Primary Color', 'material-theme-builder' ),
+					'section'              => 'colors',
+					'priority'             => 10,
+					'related_text_setting' => $this->slug . '_primary_text_color',
 				]
 			),
-			'secondary_color' => new Material_Color_Palette_Control(
+			'secondary_color'      => new Material_Color_Palette_Control(
 				$this->wp_customize,
 				$this->slug . '_secondary_color',
 				[
-					'label'    => __( 'Secondary Color', 'material-theme-builder' ),
-					'section'  => 'colors',
-					'priority' => 10,
+					'label'                => __( 'Secondary Color', 'material-theme-builder' ),
+					'section'              => 'colors',
+					'priority'             => 10,
+					'related_text_setting' => $this->slug . '_secondary_text_color',
+				]
+			),
+			'primary_text_color'   => new Material_Color_Palette_Control(
+				$this->wp_customize,
+				$this->slug . '_primary_text_color',
+				[
+					'label'           => __( 'Text on Primary', 'material-theme-builder' ),
+					'section'         => 'colors',
+					'priority'        => 10,
+					'related_setting' => $this->slug . '_primary_color',
+				]
+			),
+			'secondary_text_color' => new Material_Color_Palette_Control(
+				$this->wp_customize,
+				$this->slug . '_secondary_text_color',
+				[
+					'label'           => __( 'Text on Secondary', 'material-theme-builder' ),
+					'section'         => 'colors',
+					'priority'        => 10,
+					'related_setting' => $this->slug . '_secondary_color',
 				]
 			),
 		];
