@@ -7,17 +7,20 @@ import { Toolbar } from '@wordpress/components';
 const DIRECTIONS = [
 	{
 		icon: <i className="material-icons">keyboard_arrow_left</i>,
-		title: __( 'Move left' ),
+		title: __( 'Move left', 'material-theme-builder' ),
 		direction: 'left',
 	},
 	{
 		icon: <i className="material-icons">keyboard_arrow_right</i>,
-		title: __( 'Move right' ),
+		title: __( 'Move right', 'material-theme-builder' ),
 		direction: 'right',
 	},
 ];
 
-const OrderToolbar = ( { onChange, label = __( 'Change the tab order' ) } ) => (
+const OrderToolbar = ( {
+	onChange,
+	label = __( 'Change the tab order', 'material-theme-builder' ),
+} ) => (
 	<Toolbar
 		label={ label }
 		controls={ DIRECTIONS.map( control => ( {
