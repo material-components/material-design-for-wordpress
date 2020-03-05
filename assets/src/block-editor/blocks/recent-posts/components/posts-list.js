@@ -44,7 +44,7 @@ const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 				<div className={ `mdc-layout-grid layout-${ style }` }>
 					<div className="mdc-layout-grid__inner">
 						{ recentPosts.map( ( post, postIndex ) => {
-							const props = { post, postIndex, style, attributes };
+							const props = { post, style, attributes };
 							return (
 								<div
 									key={ postIndex }
@@ -65,7 +65,7 @@ const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 					columnClassName="masonry-grid_column"
 				>
 					{ recentPosts.map( ( post, postIndex ) => {
-						const props = { post, postIndex, style, attributes };
+						const props = { post, style, attributes };
 						return (
 							<div key={ postIndex }>
 								<SinglePost { ...props } />
