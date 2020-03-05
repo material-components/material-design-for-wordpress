@@ -33,7 +33,6 @@ import CardActions from './card-actions';
  */
 const VerticalCardLayout = props => {
 	const {
-		postIndex,
 		excerpt,
 		imageSourceUrl,
 		contentLayout,
