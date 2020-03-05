@@ -16,7 +16,7 @@ Object {
             class="mdc-layout-grid__cell--span-4"
           >
             <div
-              class="mdc-card single-post-card single-post-card__masonry single-post-basic"
+              class="mdc-card single-post-card single-post-basic"
             >
               <div
                 class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
@@ -86,7 +86,7 @@ Object {
             class="mdc-layout-grid__cell--span-4"
           >
             <div
-              class="mdc-card single-post-card single-post-card__masonry single-post-basic"
+              class="mdc-card single-post-card single-post-basic"
             >
               <div
                 class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
@@ -168,7 +168,7 @@ Object {
           class="mdc-layout-grid__cell--span-4"
         >
           <div
-            class="mdc-card single-post-card single-post-card__masonry single-post-basic"
+            class="mdc-card single-post-card single-post-basic"
           >
             <div
               class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
@@ -238,7 +238,7 @@ Object {
           class="mdc-layout-grid__cell--span-4"
         >
           <div
-            class="mdc-card single-post-card single-post-card__masonry single-post-basic"
+            class="mdc-card single-post-card single-post-basic"
           >
             <div
               class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
@@ -709,7 +709,7 @@ Object {
         >
           <div>
             <div
-              class="mdc-card single-post-card single-post-card__masonry single-post-basic"
+              class="mdc-card single-post-card single-post-basic"
             >
               <div
                 class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
@@ -782,7 +782,7 @@ Object {
         >
           <div>
             <div
-              class="mdc-card single-post-card single-post-card__masonry single-post-basic"
+              class="mdc-card single-post-card single-post-basic"
             >
               <div
                 class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
@@ -863,7 +863,7 @@ Object {
       >
         <div>
           <div
-            class="mdc-card single-post-card single-post-card__masonry single-post-basic"
+            class="mdc-card single-post-card single-post-basic"
           >
             <div
               class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
@@ -936,7 +936,7 @@ Object {
       >
         <div>
           <div
-            class="mdc-card single-post-card single-post-card__masonry single-post-basic"
+            class="mdc-card single-post-card single-post-basic"
           >
             <div
               class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
