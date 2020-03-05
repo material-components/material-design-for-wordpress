@@ -12,7 +12,7 @@ import {
 	ColorPicker,
 } from '@wordpress/components';
 import CircularOptionPicker from '../circular-option-picker';
-import { useCallback, useMemo } from '@wordpress/element';
+import { Fragment, useCallback, useMemo } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 /**
@@ -91,7 +91,7 @@ export default function MaterialColorPalette( {
 	// Generate material color palette.
 	const materialColorOptions = useCallback( () => {
 		return map( MATERIAL_COLORS, ( { color, name }, i ) => (
-			<>
+			<Fragment key={ color }>
 				<ColorPickerOption
 					color={ color }
 					value={ value }
@@ -100,7 +100,7 @@ export default function MaterialColorPalette( {
 					onChange={ onChange }
 				/>
 				{ isEndOfColor( i ) && <br /> }
-			</>
+			</Fragment>
 		) );
 	}, [ value, onChange, clearColor ] );
 

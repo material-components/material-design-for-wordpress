@@ -5,10 +5,20 @@
  *
  * Contains extra logic for our Customizer controls & settings.
  *
- * @since 0.0.1
+ * @since 1.0.0
  */
+
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
 import { render } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
+import colorUtils from '../common/color-utils';
 
 ( ( $, api ) => {
 	/**
@@ -191,6 +201,9 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 
 	api.MaterialColorControl = api.ColorControl.extend( {
 		template: wp.template( 'customize-control-material_color-tabs' ),
+		accessibilityTemplate: wp.template(
+			'customize-control-material_color-accessibility'
+		),
 
 		/**
 		 * Callback when the control is ready and inserted into DOM.
@@ -228,8 +241,52 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 			// Render the material palette component in the palette tab.
 			control.renderMaterialPalette();
 
-			// Re-render the material palette component if the color is updated.
-			control.setting.bind( value => control.renderMaterialPalette( value ) );
+			control.setting.bind( value => {
+				// Re-render the material palette component if the color is updated.
+				control.renderMaterialPalette( value );
+
+				const colors = [];
+				let color, textColor, colorRange;
+
+				if ( control.params.related_text_setting ) {
+					color = value;
+					textColor = api( control.params.related_text_setting ).get();
+					colorRange = colorUtils.generateColorFromHex( value );
+				} else {
+					textColor = value;
+					color = api( control.params.related_setting ).get();
+					colorRange = colorUtils.generateColorFromHex( color );
+				}
+
+				colors.push(
+					colorUtils.getColorAccessibility(
+						color,
+						control.params.label,
+						textColor,
+						__( 'custom', 'material-theme-builder' )
+					)
+				);
+				colors.push(
+					colorUtils.getColorAccessibility(
+						colorRange.range.light.hex,
+						__( 'Light variation', 'material-theme-builder' ),
+						textColor,
+						__( 'custom', 'material-theme-builder' )
+					)
+				);
+				colors.push(
+					colorUtils.getColorAccessibility(
+						colorRange.range.dark.hex,
+						__( 'Dark variation', 'material-theme-builder' ),
+						textColor,
+						__( 'custom', 'material-theme-builder' )
+					)
+				);
+
+				container
+					.find( '.mtb-accessibility' )
+					.html( control.accessibilityTemplate( { colors } ) );
+			} );
 
 			const colorToggler = container.find( '.wp-color-result' ),
 				colorInput = container.find( '.wp-color-picker' );
@@ -262,7 +319,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 									'click.wpcolorpicker',
 									colorInput.data( 'wpWpColorPicker' ).close
 								),
-							1000
+							500
 						);
 						return true;
 					}

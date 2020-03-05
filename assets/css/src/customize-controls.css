@@ -55,8 +55,6 @@
 }
 
 /* Material color palette control */
-
-
 .customize-control-material_color .wp-picker-container {
 	display: block;
 	width: 100%;
@@ -68,6 +66,10 @@
 		}
 
 		& .mtb-tab-content.active {
+			display: block;
+		}
+
+		& .mtb-accessibility {
 			display: block;
 		}
 	}
@@ -106,6 +108,44 @@
 
 .mtb-tab-content {
 	display: none;
+}
+
+.mtb-accessibility {
+	display: none;
+	margin: 10px 0;
+
+	& label {
+		font-weight: bold;
+	}
+
+	& .material-color-accessibility-inner {
+		background-color: #fff;
+		margin-top: 5px;
+	}
+
+	& .material-color-accessibility-row {
+		padding: 6px 10px;
+		border-bottom: 1px solid #ddd;
+
+		& .dashicons {
+			font-size: 16px;
+		}
+	}
+
+	& .material-color-accessibility-color {
+		line-height: 16px;
+		margin-bottom: 5px;
+
+		& span {
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			border-radius: 16px;
+			position: relative;
+			top: 3px;
+			margin-right: 4px;
+		}
+	}
 }
 
 .components-tooltip.components-popover {

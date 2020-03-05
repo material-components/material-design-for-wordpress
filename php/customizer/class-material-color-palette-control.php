@@ -20,6 +20,20 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	public $type = 'material_color';
 
 	/**
+	 * Related setting id of text color, applicable only if this is a background color.
+	 *
+	 * @var string
+	 */
+	public $related_text_setting = '';
+
+	/**
+	 * Related setting id of background color, applicable only if this is a text color.
+	 *
+	 * @var string
+	 */
+	public $related_setting = '';
+
+	/**
 	 * Render a JS template for the Material color palette tabs.
 	 *
 	 * @return void
@@ -31,9 +45,39 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 				<a class="mtb-tab-link" href="#mtb-palette-{{data.id}}"><?php esc_html_e( 'Palette', 'material-theme-builder' ); ?></a>
 				<a class="mtb-tab-link" href="#mtb-custom-{{data.id}}"><?php esc_html_e( 'Custom', 'material-theme-builder' ); ?></a>
 			</div>
-			<div class="mtb-tab-content tab-palette" id="mtb-palette-{{data.id}}">Palette Content</div>
+			<div class="mtb-tab-content tab-palette" id="mtb-palette-{{data.id}}"></div>
 			<div class="mtb-tab-content tab-custom" id="mtb-custom-{{data.id}}"></div>
+			<div class="mtb-accessibility"></div>
+		</script>
+		<script type="text/html" id="tmpl-customize-control-material_color-accessibility">
+			<div class="material-color-accessibility">
+				<label><?php esc_html_e( 'Current Scheme', 'material-theme-builder' ); ?></label>
+				<div class="material-color-accessibility-inner">
+					<# _.each( data.colors, function( color ) { #>
+						<div class="material-color-accessibility-row">
+							<div class="material-color-accessibility-color">
+								<span style="background-color: {{ color.hex }}"></span> <strong>{{ color.type }}</strong>
+							</div>
+
+							<# _.each( color.variations, function( variation ) { #>
+								<# if ( null === variation.result ) { #>
+									{{ variation.size }} <?php esc_html_e( 'text', 'material-theme-builder' ); ?>: {{ variation.textColor }} <?php esc_html_e( 'text not legible', 'material-theme-builder' ); ?> <span class="dashicons dashicons-warning"></span><br/>
+								<# } #>
+							<# } ); #>
+						</div>
+					<# } ); #>
+				</div>
+			</div>
 		</script>
 		<?php
+	}
+
+	/**
+	 * Add our custom args for JSON output as params.
+	 */
+	public function to_json() {
+		parent::to_json();
+		$this->json['related_text_setting'] = isset( $this->related_text_setting ) ? $this->related_text_setting : false;
+		$this->json['related_setting']      = isset( $this->related_setting ) ? $this->related_setting : false;
 	}
 }
