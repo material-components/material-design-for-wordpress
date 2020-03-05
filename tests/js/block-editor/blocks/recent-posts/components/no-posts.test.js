@@ -29,6 +29,10 @@ const setup = props => {
 };
 
 describe( 'NoPosts', () => {
+	afterEach( () => {
+		jest.clearAllMocks();
+	} );
+
 	it( 'matches snapshot when recent posts is empty', () => {
 		const wrapper = setup( { attributes: {}, recentPosts: [] } );
 		expect( wrapper ).toMatchSnapshot();
