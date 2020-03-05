@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { map } from 'lodash';
+import { map, groupBy } from 'lodash';
 
 /**
  * WordPress dependencies.
@@ -12,7 +12,7 @@ import {
 	ColorPicker,
 } from '@wordpress/components';
 import CircularOptionPicker from '../circular-option-picker';
-import { Fragment, useCallback, useMemo } from '@wordpress/element';
+import { useCallback, useMemo } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
 /**
@@ -20,6 +20,11 @@ import { __, sprintf } from '@wordpress/i18n';
  */
 import MATERIAL_COLORS from '../../../common/material-colors';
 import './style.css';
+
+// Group material colors based on name.
+const groupedColors = groupBy( MATERIAL_COLORS, color => {
+	return color.name.replace( /\sA?[\d]+/, '' );
+} );
 
 const ColorPickerOption = ( { color, value, name, clearColor, onChange } ) => {
 	return (
@@ -41,17 +46,6 @@ const ColorPickerOption = ( { color, value, name, clearColor, onChange } ) => {
 			}
 		/>
 	);
-};
-
-/**
- * Determine if the index is at end of color range.
- *
- * @param {number} i Index of the color
- */
-const isEndOfColor = i => {
-	// Each color has 14 shades, except the last 3 which only have 10 shades
-	// After index 233 just check for 233 and 243 for color endings.
-	return ( i < 233 && 0 === ( i + 1 ) % 14 ) || [ 233, 243 ].includes( i );
 };
 
 export default function MaterialColorPalette( {
@@ -90,18 +84,28 @@ export default function MaterialColorPalette( {
 
 	// Generate material color palette.
 	const materialColorOptions = useCallback( () => {
-		return map( MATERIAL_COLORS, ( { color, name }, i ) => (
-			<Fragment key={ color }>
-				<ColorPickerOption
-					color={ color }
-					value={ value }
-					name={ name }
-					clearColor={ clearColor }
-					onChange={ onChange }
-				/>
-				{ isEndOfColor( i ) && <br /> }
-			</Fragment>
-		) );
+		return map( Object.keys( groupedColors ), group => {
+			const shades = groupedColors[ group ];
+			return (
+				<div
+					key={ group }
+					className="components-circular-option-picker__option-wrapper__row"
+				>
+					{ map( shades, ( { color, name } ) => {
+						return (
+							<ColorPickerOption
+								key={ color }
+								color={ color }
+								value={ value }
+								name={ name }
+								clearColor={ clearColor }
+								onChange={ onChange }
+							/>
+						);
+					} ) }
+				</div>
+			);
+		} );
 	}, [ value, onChange, clearColor ] );
 
 	const renderCustomColorPicker = useCallback(

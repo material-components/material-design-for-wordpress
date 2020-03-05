@@ -454,7 +454,9 @@ const colorUtils = {
 			variations: [
 				{
 					size: __( 'Large', 'material-theme-builder' ),
+					colorHex: color,
 					textColor: __( 'white', 'material-theme-builder' ),
+					textColorHex: '#ffffff',
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
 						color,
@@ -463,7 +465,9 @@ const colorUtils = {
 				},
 				{
 					size: __( 'Normal', 'material-theme-builder' ),
+					colorHex: color,
 					textColor: __( 'white', 'material-theme-builder' ),
+					textColorHex: '#ffffff',
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
 						color,
@@ -472,7 +476,9 @@ const colorUtils = {
 				},
 				{
 					size: __( 'Large', 'material-theme-builder' ),
+					colorHex: color,
 					textColor: __( 'black', 'material-theme-builder' ),
+					textColorHex: '#000000',
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
 						color,
@@ -481,7 +487,9 @@ const colorUtils = {
 				},
 				{
 					size: __( 'Normal', 'material-theme-builder' ),
+					colorHex: color,
 					textColor: __( 'black', 'material-theme-builder' ),
+					textColorHex: '#000000',
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
 						color,
@@ -490,7 +498,9 @@ const colorUtils = {
 				},
 				{
 					size: __( 'Large', 'material-theme-builder' ),
+					colorHex: color,
 					textColor: textColorName,
+					textColorHex: textColor,
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
 						color,
@@ -499,7 +509,9 @@ const colorUtils = {
 				},
 				{
 					size: __( 'Normal', 'material-theme-builder' ),
+					colorHex: color,
 					textColor: textColorName,
+					textColorHex: textColor,
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
 						color,
