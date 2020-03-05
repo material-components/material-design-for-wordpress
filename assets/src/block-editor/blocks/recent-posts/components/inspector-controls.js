@@ -79,7 +79,7 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
-		categories,
+		category,
 	} = attributes;
 
 	return (
@@ -179,8 +179,8 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 			>
 				<QueryControls
 					categoriesList={ categoriesList }
-					selectedCategoryId={ categories }
-					onCategoryChange={ setter( 'categories', value =>
+					selectedCategoryId={ category }
+					onCategoryChange={ setter( 'category', value =>
 						'' !== value ? value : undefined
 					) }
 				/>

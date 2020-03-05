@@ -133,8 +133,8 @@ class Recent_Posts_Block {
 						'type'    => 'boolean',
 						'default' => false,
 					],
-					'categories'            => [
-						'type' => 'string',
+					'category'              => [
+						'type'    => 'number',
 					],
 				],
 				'render_callback' => [ $this, 'render_block_material_recent_posts' ],
@@ -158,8 +158,8 @@ class Recent_Posts_Block {
 			'suppress_filters' => false,
 		]; // todo: redefine to match requirements.
 
-		if ( isset( $attributes['categories'] ) ) {
-			$args['category'] = $attributes['categories'];
+		if ( isset( $attributes['category'] ) ) {
+			$args['category'] = $attributes['category'];
 		}
 
 		// $recent_posts = get_posts( $args ); @todo: Use WP_Query.
