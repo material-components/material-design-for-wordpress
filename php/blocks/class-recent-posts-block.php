@@ -139,8 +139,8 @@ class Recent_Posts_Block {
 						'type'    => 'boolean',
 						'default' => false,
 					],
-					'categories'            => [
-						'type' => 'string',
+					'category'              => [
+						'type' => 'number',
 					],
 				],
 				'render_callback' => [ $this, 'render_block' ],
@@ -174,8 +174,8 @@ class Recent_Posts_Block {
 			'ignore_sticky_posts'    => true,
 		];
 
-		if ( ! empty( $attributes['categories'] ) ) {
-			$args['cat'] = absint( $attributes['categories'] );
+		if ( ! empty( $attributes['category'] ) ) {
+			$args['cat'] = absint( $attributes['category'] );
 		}
 
 		/**

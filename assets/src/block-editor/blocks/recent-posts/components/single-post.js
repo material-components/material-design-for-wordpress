@@ -14,13 +14,12 @@ import HorizontalCardLayout from './horizontal-card-layout';
  *
  * @param {Object} props - Component props.
  * @param {Object} props.post - Post data.
- * @param {number} props.postIndex - Post index.
  * @param {string} props.style - Card layout style.
  * @param {Object} props.attributes - Block attributes.
  *
  * @return {Function} A functional component.
  */
-const SinglePost = ( { post, postIndex, style, attributes } ) => {
+const SinglePost = ( { post, style, attributes } ) => {
 	const titleTrimmed = post.title.rendered.trim();
 	let excerpt = post.excerpt.rendered;
 
@@ -33,7 +32,6 @@ const SinglePost = ( { post, postIndex, style, attributes } ) => {
 
 	const styleProps = {
 		post,
-		postIndex,
 		titleTrimmed,
 		excerpt,
 		imageSourceUrl,
