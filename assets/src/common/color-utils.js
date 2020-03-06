@@ -453,8 +453,14 @@ const colorUtils = {
 	getCustomTextAlphas: function( size, color, textColor ) {
 		return this.getMinAndRecAlphasFromBgAndTextColors( color, textColor, size );
 	},
-	getColorAccessibility: ( color, name, textColor ) => {
-		return {
+	getColorAccessibility: (
+		color,
+		name,
+		textColor,
+		textColorLabel,
+		isTextColor = false
+	) => {
+		const accessibility = {
 			hex: color,
 			type: name.replace( /Text on\s*|\s*Color/, '' ),
 			variations: [
@@ -505,7 +511,7 @@ const colorUtils = {
 				{
 					size: __( 'Large', 'material-theme-builder' ),
 					colorHex: color,
-					textColor: colorUtils.getMaterialColorLabel( color ),
+					textColor: textColorLabel,
 					textColorHex: textColor,
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
@@ -516,7 +522,7 @@ const colorUtils = {
 				{
 					size: __( 'Normal', 'material-theme-builder' ),
 					colorHex: color,
-					textColor: colorUtils.getMaterialColorLabel( color ),
+					textColor: textColorLabel,
 					textColorHex: textColor,
 					result: colorUtils.getCustomTextColorInfo(
 						'large',
@@ -526,6 +532,13 @@ const colorUtils = {
 				},
 			],
 		};
+
+		// If this is a text color, ignore the white and black text accessibility warnings.
+		if ( isTextColor ) {
+			accessibility.variations = accessibility.variations.slice( 4 );
+		}
+
+		return accessibility;
 	},
 	getMaterialColorLabel: hex => {
 		const found = find( MATERIAL_COLORS, color => hex === color.color );
