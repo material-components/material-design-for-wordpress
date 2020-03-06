@@ -72,7 +72,7 @@ class Posts_List_Blocks_Base {
 			],
 			'postsToShow'           => [
 				'type'    => 'number',
-				'default' => 10,
+				'default' => 12,
 			],
 			'outlined'              => [
 				'type'    => 'boolean',
@@ -186,8 +186,8 @@ class Posts_List_Blocks_Base {
 			'ignore_sticky_posts'    => true,
 		];
 
-		if ( ! empty( $attributes['categories'] ) && 'material/recent-posts' === $this->block_name ) {
-			$args['cat'] = absint( $attributes['categories'] );
+		if ( ! empty( $attributes['category'] ) && 'material/recent-posts' === $this->block_name ) {
+			$args['cat'] = absint( $attributes['category'] );
 		}
 
 		if ( 'material/hand-picked-posts' === $this->block_name ) {
