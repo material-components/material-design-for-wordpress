@@ -1,7 +1,7 @@
 /* global page */
 
 /**
- * Search for block in the global inserter
+ * Clicks a button based on the label on the button.
  *
  * @param {string} label Aria label.
  */
