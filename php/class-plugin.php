@@ -7,6 +7,7 @@
 
 namespace MaterialThemeBuilder;
 
+use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 
 /**
@@ -22,6 +23,13 @@ class Plugin extends Plugin_Base {
 	public $customizer_controls;
 
 	/**
+	 * Recent_Posts_Block class.
+	 *
+	 * @var Recent_Posts_Block
+	 */
+	public $recent_post_block;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * Priority is 9 because WP_Customize_Widgets::register_settings() happens at
@@ -35,6 +43,9 @@ class Plugin extends Plugin_Base {
 
 		$this->customizer_controls = new Controls( $this );
 		$this->customizer_controls->init();
+
+		$this->recent_post_block = new Recent_Posts_Block( $this );
+		$this->recent_post_block->init();
 	}
 
 	/**
@@ -50,6 +61,8 @@ class Plugin extends Plugin_Base {
 				'lodash',
 				'react',
 				'wp-block-editor',
+				'wp-date',
+				'wp-api-fetch',
 			],
 			$this->asset_version(),
 			false

@@ -1,5 +1,8 @@
 /*
- * Material components used in the blocks and frtonend.
+ * Material components used in the blocks and frontend.
  */
 
 @import "@material/button/dist/mdc.button.css";
+@import "@material/card/dist/mdc.card.css";
+@import "@material/typography/dist/mdc.typography.css";
+@import "@material/layout-grid/dist/mdc.layout-grid.css";
