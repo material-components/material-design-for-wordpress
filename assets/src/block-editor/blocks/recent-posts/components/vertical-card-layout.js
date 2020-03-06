@@ -65,6 +65,10 @@ const VerticalCardLayout = props => {
 					displayFeaturedImage &&
 					! imageSourceUrl && <CardHeader { ...props } /> }
 
+				{ contentLayout === 'text-over-media' && ! displayFeaturedImage && (
+					<CardHeader { ...props } />
+				) }
+
 				{ displayFeaturedImage && imageSourceUrl && (
 					<CardImage { ...cardImageProps } />
 				) }
