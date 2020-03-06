@@ -11,7 +11,11 @@ import {
 	ColorIndicator,
 	ColorPicker,
 } from '@wordpress/components';
-import CircularOptionPicker from '../circular-option-picker';
+import CircularOptionPicker, {
+	ButtonAction,
+	DropdownLinkAction,
+	Option,
+} from '../circular-option-picker';
 import { useCallback, useMemo } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
@@ -23,7 +27,7 @@ import './style.css';
 
 const ColorPickerOption = ( { color, value, name, clearColor, onChange } ) => {
 	return (
-		<CircularOptionPicker.Option
+		<Option
 			isSelected={ value === color }
 			tooltipText={
 				name ||
@@ -131,7 +135,7 @@ export default function MaterialColorPalette( {
 						<>
 							{ ! disableCustomColors && (
 								<>
-									<CircularOptionPicker.DropdownLinkAction
+									<DropdownLinkAction
 										className="components-material-color-palette__link"
 										dropdownProps={ {
 											renderContent: materialColorOptions,
@@ -146,7 +150,7 @@ export default function MaterialColorPalette( {
 										} }
 										linkText={ __( 'Color palette', 'material-theme-builder' ) }
 									/>
-									<CircularOptionPicker.DropdownLinkAction
+									<DropdownLinkAction
 										dropdownProps={ {
 											renderContent: renderCustomColorPicker,
 											contentClassName: 'components-color-palette__picker',
@@ -162,9 +166,9 @@ export default function MaterialColorPalette( {
 								</>
 							) }
 							{ !! clearable && (
-								<CircularOptionPicker.ButtonAction onClick={ clearColor }>
+								<ButtonAction onClick={ clearColor }>
 									{ __( 'Clear', 'material-theme-builder' ) }
-								</CircularOptionPicker.ButtonAction>
+								</ButtonAction>
 							) }
 						</>
 					}
