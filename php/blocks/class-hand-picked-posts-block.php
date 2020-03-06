@@ -32,7 +32,7 @@ class Hand_Picked_Posts_Block extends Posts_List_Blocks_Base {
 			],
 			'editMode' => [
 				'type'    => 'boolean',
-				'default' => false,
+				'default' => true,
 				'items'   => [
 					'type' => 'object',
 				],
