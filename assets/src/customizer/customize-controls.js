@@ -5,7 +5,7 @@
  *
  * Contains extra logic for our Customizer controls & settings.
  *
- * @since 0.0.1
+ * @since 1.0.0
  */
 
 ( ( $, api ) => {
@@ -48,16 +48,8 @@
 		// get the height of the element's inner content, regardless of its actual size
 		const sectionHeight = element.scrollHeight + 2;
 
-		const removeEvent = () => {
-			// remove this event listener so it only gets triggered once
-			element.removeEventListener( 'transitionend', removeEvent );
-		};
-
 		// have the element transition to the height of its inner content
 		element.style.height = sectionHeight + 'px';
-
-		// when the next css transition finishes (which should be the one we just triggered)
-		element.addEventListener( 'transitionend', removeEvent );
 
 		// mark the section as "currently not collapsed"
 		element.setAttribute( 'data-collapsed', 'false' );
@@ -96,10 +88,10 @@
 			const section = this;
 			api.Section.prototype.attachEvents.call( section );
 
-			if ( section.panel() ) {
-				const panel = api.panel( section.panel() );
-				panel.container
-					.find( '.customize-panel-back' )
+			if ( section.panel() && api.panel( section.panel() ) ) {
+				api
+					.panel( section.panel() )
+					.container.find( '.customize-panel-back' )
 					.on( 'click keydown', event => {
 						if ( api.utils.isKeydownButNotEnterEvent( event ) ) {
 							return;
