@@ -19,6 +19,8 @@ import { getPosts } from '../utils/api';
  * A higher order component that enhances the provided component with posts
  * from a search query.
  *
+ * This has been heavily inspired from https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/master/assets/js/hocs/with-searched-products.js
+ *
  * @param {Function} OriginalComponent Component being wrapped.
  */
 const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
