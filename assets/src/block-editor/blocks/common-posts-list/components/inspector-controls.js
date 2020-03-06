@@ -34,7 +34,7 @@ import {
 import PostsControl from '../../../components/posts-control';
 
 /**
- * Recent Posts Inspector Controls component.
+ * Common Posts List Inspector Controls component.
  *
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Block attributes.
@@ -43,7 +43,7 @@ import PostsControl from '../../../components/posts-control';
  *
  * @return {Function} A functional component.
  */
-const RecentPostsInspectorControls = ( {
+const CommonPostsListInspectorControls = ( {
 	attributes,
 	setAttributes,
 	name,
@@ -209,4 +209,4 @@ const RecentPostsInspectorControls = ( {
 	);
 };
 
-export default RecentPostsInspectorControls;
+export default CommonPostsListInspectorControls;
