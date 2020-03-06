@@ -39,7 +39,7 @@ const RecentPostsEdit = props => {
 const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 	const {
 		postsToShow,
-		categories,
+		category,
 		displayFeaturedImage,
 		style,
 	} = props.attributes;
@@ -49,7 +49,7 @@ const RecentPostsEditWithSelect = withSelect( ( select, props ) => {
 	const { getEntityRecords, getMedia } = select( 'core' );
 	const recentPostsQuery = pickBy(
 		{
-			categories,
+			categories: category,
 			per_page: postsToShow,
 		},
 		value => ! isUndefined( value )
