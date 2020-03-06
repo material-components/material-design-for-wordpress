@@ -261,14 +261,14 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 		// Assert 5 posts are rendered.
 		$this->assertEquals( 5, substr_count( $content, '<div class="single-post-card single-post-basic' ) );
 
-		$attributes['categories'] = self::$cat_id;
+		$attributes['category'] = self::$cat_id;
 		$content                  = $block->render_block( $attributes );
 
 		// Assert only 2 posts in the test category are rendered.
 		$this->assertEquals( 2, substr_count( $content, '<div class="single-post-card single-post-basic' ) );
 
 
-		unset( $attributes['categories'] );
+		unset( $attributes['category'] );
 		$attributes['displayPostAuthor']    = true;
 		$attributes['displayCommentsCount'] = true;
 		$attributes['displayPostContent']   = true;
@@ -299,7 +299,7 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 		$content                     = $this->clean_content( $content );
 
 		// Assert the article with featured image shows content inside the image container.
-		$this->assertEquals( 1, substr_count( $content, 'style="background-image: url(http://example.org/wp-content/uploads/image.jpg)"><div class="single-post-card__primary">' ) );
+		$this->assertEquals( 1, substr_count( $content, 'style="background-image: url(http://example.org/wp-content/uploads/image.jpg)"><div class="mdc-card__media-content">' ) );
 
 		// Assert all 5 posts are rendered.
 		$this->assertEquals( 5, substr_count( $content, 'class="single-post-card__title' ) );
