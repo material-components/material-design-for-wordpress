@@ -198,10 +198,9 @@ const CommonPostsListInspectorControls = ( {
 				>
 					<PostsControl
 						selected={ attributes.posts }
-						onChange={ ( value = [] ) => {
-							const ids = value.map( ( { id } ) => id );
-							setAttributes( { posts: ids } );
-						} }
+						onChange={ setter( 'posts', ( value = [] ) =>
+							value.map( ( { id } ) => id )
+						) }
 					/>
 				</PanelBody>
 			) }

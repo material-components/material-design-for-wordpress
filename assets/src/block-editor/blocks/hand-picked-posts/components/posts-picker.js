@@ -3,12 +3,13 @@
  */
 import { __ } from '@wordpress/i18n';
 import { Placeholder, Button } from '@wordpress/components';
-
+import { useCallback } from '@wordpress/element';
 /**
  * Internal dependencies
  */
 import WidgetsIcon from './widgets-icon';
 import PostsControl from '../../../components/posts-control';
+import genericAttributesSetter from '../../../utils/generic-attributes-setter';
 
 /**
  * Posts Picker component.
@@ -21,6 +22,8 @@ import PostsControl from '../../../components/posts-control';
  * @return {Function} A functional component.
  */
 const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
+	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+
 	const onDone = () => {
 		setAttributes( { editMode: false } );
 		debouncedSpeak(
@@ -41,10 +44,9 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 			<div className="mtb-block-handpicked-posts__selection">
 				<PostsControl
 					selected={ attributes.posts }
-					onChange={ ( value = [] ) => {
-						const ids = value.map( ( { id } ) => id );
-						setAttributes( { posts: ids } );
-					} }
+					onChange={ setter( 'posts', ( value = [] ) =>
+						value.map( ( { id } ) => id )
+					) }
 				/>
 				<Button isDefault onClick={ onDone }>
 					{ __( 'Done', 'material-theme-builder' ) }
