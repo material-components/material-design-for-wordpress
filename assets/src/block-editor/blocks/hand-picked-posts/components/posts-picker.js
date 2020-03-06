@@ -16,7 +16,7 @@ import genericAttributesSetter from '../../../utils/generic-attributes-setter';
  *
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Block attributes.
- * @param {Object} props.debouncedSpeak - Function to debounce the call to the Speak method for accessibility purpose.
+ * @param {Function} props.debouncedSpeak - Function to debounce the call to the Speak method for accessibility purpose.
  * @param {Function} props.setAttributes - Function to set block attributes value.
  *
  * @return {Function} A functional component.
