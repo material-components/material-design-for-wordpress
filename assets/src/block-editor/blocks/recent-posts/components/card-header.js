@@ -27,7 +27,7 @@ const CardHeader = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
 		</h2>
 		{ displayPostDate && (
 			<h3 className="single-post-card__subtitle mdc-typography mdc-typography--subtitle2">
-				<time dateTime={ format( 'c', post.date_gmt ) }>
+				<time dateTime={ format( 'Y-m-d h:i:s', post.date_gmt ) }>
 					{ dateI18n( dateFormat, post.date_gmt ) }
 				</time>
 			</h3>
