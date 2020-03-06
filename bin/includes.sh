@@ -1,6 +1,25 @@
 #!/bin/bash
 
 ##
+# WordPress helper
+#
+# Executes a request in the WordPress container.
+#
+# @param {string} host The host to check.
+#
+# @return {bool} Whether the host exists or not.
+##
+function is_wp_available() {
+	RESULT=`curl -w "%{http_code}" -o /dev/null -s $1`
+
+	if test "$RESULT" -ge 200 && test "$RESULT" -le 302; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+##
 # Check if the command exists as some sort of executable.
 #
 # The executable form of the command could be an alias, function, builtin, executable file or shell keyword.
