@@ -472,7 +472,7 @@ class Controls extends Module_Base {
 	public function get_design_styles() {
 		return [
 			'baseline'    => [
-				'primary_color'        => '#6200EE',
+				'primary_color'        => '#6200ee',
 				'secondary_color'      => '#03dac6',
 				'primary_text_color'   => '#ffffff',
 				'secondary_text_color' => '#000000',

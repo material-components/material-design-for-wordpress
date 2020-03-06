@@ -69,6 +69,10 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertTrue( wp_script_is( 'material-front-end-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-front-end-css', 'enqueued' ) );
+
+		// Assert inline css vars are added.
+		$inline_css = wp_styles()->get_data( 'material-front-end-css', 'after' );
+		$this->assertNotEmpty( $inline_css );
 	}
 
 	/**
