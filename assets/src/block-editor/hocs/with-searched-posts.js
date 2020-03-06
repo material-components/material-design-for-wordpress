@@ -1,15 +1,19 @@
 /**
  * External dependencies
  */
-import { Component } from '@wordpress/element';
 import { debounce } from 'lodash';
+
+/**
+ * WordPress dependencies
+ */
+import { Component } from '@wordpress/element';
 import { createHigherOrderComponent } from '@wordpress/compose';
-import { getPosts } from '../utils/api';
 
 /**
  * Internal dependencies
  */
 import { formatError } from '../utils/error';
+import { getPosts } from '../utils/api';
 
 /**
  * A higher order component that enhances the provided component with posts
