@@ -33,7 +33,7 @@ Object {
             </h3>
           </div>
           <div
-            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
@@ -120,7 +120,7 @@ Object {
           </h3>
         </div>
         <div
-          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
@@ -264,7 +264,7 @@ Object {
             </h3>
           </div>
           <div
-            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
@@ -351,7 +351,7 @@ Object {
           </h3>
         </div>
         <div
-          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
@@ -475,7 +475,7 @@ Object {
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-over-media"
+            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-over-media"
             style="background-image: url(http://example.com/test.jpg);"
           >
             <div
@@ -567,7 +567,7 @@ Object {
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-over-media"
+          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-over-media"
           style="background-image: url(http://example.com/test.jpg);"
         >
           <div
@@ -716,7 +716,7 @@ Object {
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-under-media"
+            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-under-media"
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
@@ -803,7 +803,7 @@ Object {
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-under-media"
+          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-under-media"
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
@@ -967,7 +967,7 @@ Object {
             </h3>
           </div>
           <div
-            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
             style="background-image: url(http://example.com/test.jpg);"
           />
         </div>
@@ -1047,7 +1047,7 @@ Object {
           </h3>
         </div>
         <div
-          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
           style="background-image: url(http://example.com/test.jpg);"
         />
       </div>
@@ -1305,7 +1305,7 @@ Object {
             </h3>
           </div>
           <div
-            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
@@ -1392,7 +1392,7 @@ Object {
           </h3>
         </div>
         <div
-          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
@@ -1894,7 +1894,7 @@ Object {
             </h3>
           </div>
           <div
-            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+            class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
@@ -1937,7 +1937,7 @@ Object {
           </h3>
         </div>
         <div
-          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card__media single-post-card-with-text-above-media"
+          class="mdc-card__media mdc-card__media--16-9 single-post-card__media single-post-card-with-text-above-media"
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
