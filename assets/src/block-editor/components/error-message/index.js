@@ -23,7 +23,7 @@ import ErrorIcon from './error-icon';
  *
  * @param {Object} props - Component props.
  * @param {string} props.className - Classname to add to placeholder in addition to the defaults.
- * @param {Object} error - The error object.
+ * @param {Object} props.error - The error object.
  * @param {string} props.isLoading -  Whether there is a request running, so the 'Retry' button is hidden and a spinner is shown instead.
  * @param {string} props.onRetry - Callback to retry an action..
  *
