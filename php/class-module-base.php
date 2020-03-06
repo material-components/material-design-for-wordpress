@@ -1,19 +1,18 @@
 <?php
 /**
- * Sample class.
+ * Class Module_Base.
  *
  * @package MaterialThemeBuilder
  */
 
-namespace MaterialThemeBuilder\BazBar;
+namespace MaterialThemeBuilder;
 
 use MaterialThemeBuilder\Plugin;
 
 /**
- * Sample class.
+ * Class Module_Base.
  */
-class Sample {
-
+class Module_Base {
 	/**
 	 * Plugin class.
 	 *
@@ -39,18 +38,5 @@ class Sample {
 	 */
 	public function init() {
 		$this->plugin->add_doc_hooks( $this );
-	}
-
-	/**
-	 * Demonstrate doc hooks.
-	 *
-	 * @filter body_class, 99, 1
-	 *
-	 * @param array $classes Body classes.
-	 *
-	 * @return array
-	 */
-	public function body_class( $classes ) {
-		return array_merge( $classes, [ 'custom-class-name' ] );
 	}
 }

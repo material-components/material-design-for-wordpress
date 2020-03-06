@@ -29,7 +29,7 @@ const baseProps = {
 	post: {
 		authorDisplayName: 'Test user',
 		commentsCount: 1,
-		date_gmt: ' 2020-02-25T08:20:38',
+		date_gmt: ' 2020-02-25 08:20:38',
 	},
 	dateFormat: 'F j, Y',
 	imageSourceUrl: 'http://example.com/test.jpg',
