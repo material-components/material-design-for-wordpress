@@ -98,7 +98,7 @@ class Controls extends Module_Base {
 		];
 
 		foreach ( $sections as $id => $label ) {
-			$id = "{$this->slug}_{$id}";
+			$id = $this->prepend_slug( $id );
 
 			$args = [
 				'priority'   => 10,
@@ -158,7 +158,7 @@ class Controls extends Module_Base {
 		$controls = [
 			'style'         => new Image_Radio_Control(
 				$this->wp_customize,
-				$this->slug . '_style',
+				$this->prepend_slug( 'style' ),
 				[
 					'section'  => 'style',
 					'priority' => 10,
@@ -197,14 +197,43 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Get list of all the control settings in the Colors section.
+	 */
+	public function get_color_controls() {
+		return [
+			[
+				'id'                   => 'primary_color',
+				'label'                => __( 'Primary Color', 'material-theme-builder' ),
+				'related_text_setting' => $this->prepend_slug( 'primary_text_color' ),
+				'css_var'              => '--mdc-theme-primary',
+			],
+			[
+				'id'                   => 'secondary_color',
+				'label'                => __( 'Secondary Color', 'material-theme-builder' ),
+				'related_text_setting' => $this->prepend_slug( 'secondary_text_color' ),
+				'css_var'              => '--mdc-theme-secondary',
+			],
+			[
+				'id'              => 'primary_text_color',
+				'label'           => __( 'Text on Primary', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'primary_color' ),
+				'css_var'         => '--mdc-theme-on-primary',
+			],
+			[
+				'id'              => 'secondary_text_color',
+				'label'           => __( 'Text on Secondary', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'secondary_color' ),
+				'css_var'         => '--mdc-theme-on-secondary',
+			],
+		];
+	}
+
+	/**
 	 * Add all controls in the "Colors" section.
 	 *
 	 * @return void
 	 */
 	public function add_color_controls() {
-		/**
-		 * List of all the control settings in the Colors section.
-		 */
 		$settings = [
 			'primary_color'        => [
 				'sanitize_callback' => 'sanitize_hex_color',
@@ -224,57 +253,39 @@ class Controls extends Module_Base {
 			],
 		];
 
+		/**
+		 * Generate list of all the settings in the colors section.
+		 */
+		$settings = [];
+
+		foreach ( $this->get_color_controls() as $control ) {
+			$settings[ $control['id'] ] = [
+				'sanitize_callback' => 'sanitize_hex_color',
+				'transport'         => 'postMessage',
+			];
+		}
+
 		$this->add_settings( $settings );
 
 		/**
-		* List of all the controls in the Theme section.
+		* Generate list of all the controls in the colors section.
 		 */
-		$controls = [
-			'primary_color'        => new Material_Color_Palette_Control(
+		$controls = [];
+
+		foreach ( $this->get_color_controls() as $control ) {
+			$controls[ $control['id'] ] = new Material_Color_Palette_Control(
 				$this->wp_customize,
-				$this->slug . '_primary_color',
+				$this->prepend_slug( $control['id'] ),
 				[
-					'label'                => __( 'Primary Color', 'material-theme-builder' ),
+					'label'                => $control['label'],
 					'section'              => 'colors',
 					'priority'             => 10,
-					'related_text_setting' => $this->slug . '_primary_text_color',
-					'css_var'              => '--mdc-theme-primary',
+					'related_text_setting' => ! empty( $control['related_text_setting'] ) ? $control['related_text_setting'] : false,
+					'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] : false,
+					'css_var'              => $control['css_var'],
 				]
-			),
-			'secondary_color'      => new Material_Color_Palette_Control(
-				$this->wp_customize,
-				$this->slug . '_secondary_color',
-				[
-					'label'                => __( 'Secondary Color', 'material-theme-builder' ),
-					'section'              => 'colors',
-					'priority'             => 10,
-					'related_text_setting' => $this->slug . '_secondary_text_color',
-					'css_var'              => '--mdc-theme-secondary',
-				]
-			),
-			'primary_text_color'   => new Material_Color_Palette_Control(
-				$this->wp_customize,
-				$this->slug . '_primary_text_color',
-				[
-					'label'           => __( 'Text on Primary', 'material-theme-builder' ),
-					'section'         => 'colors',
-					'priority'        => 10,
-					'related_setting' => $this->slug . '_primary_color',
-					'css_var'         => '--mdc-theme-on-primary',
-				]
-			),
-			'secondary_text_color' => new Material_Color_Palette_Control(
-				$this->wp_customize,
-				$this->slug . '_secondary_text_color',
-				[
-					'label'           => __( 'Text on Secondary', 'material-theme-builder' ),
-					'section'         => 'colors',
-					'priority'        => 10,
-					'related_setting' => $this->slug . '_secondary_color',
-					'css_var'         => '--mdc-theme-on-secondary',
-				]
-			),
-		];
+			);
+		}
 
 		$this->add_controls( $controls );
 	}
@@ -288,7 +299,7 @@ class Controls extends Module_Base {
 	public function add_settings( $settings = [] ) {
 
 		foreach ( $settings as $id => $setting ) {
-			$id = "{$this->slug}_{$id}";
+			$id = $this->prepend_slug( $id );
 
 			if ( is_array( $setting ) ) {
 				$defaults = [
@@ -303,7 +314,7 @@ class Controls extends Module_Base {
 			/**
 			 * Filters the customizer setting args.
 			 *
-			 * This allows other plugins/themes to change the customizer controls ards
+			 * This allows other plugins/themes to change the customizer setting args
 			 *
 			 * @param array   $settings[ $id ] Array of setting args.
 			 * @param string   $id       ID of the setting.
@@ -331,12 +342,12 @@ class Controls extends Module_Base {
 	public function add_controls( $controls = [] ) {
 
 		foreach ( $controls as $id => $control ) {
-			$id = "{$this->slug}_{$id}";
+			$id = $this->prepend_slug( $id );
 
 			/**
 			 * Filters the customizer control args.
 			 *
-			 * This allows other plugins/themes to change the customizer controls ards
+			 * This allows other plugins/themes to change the customizer controls args
 			 *
 			 * @param array $control Array of control args.
 			 * @param string   $id       ID of the control.
@@ -379,7 +390,7 @@ class Controls extends Module_Base {
 			[
 				'designStyles' => $this->get_design_styles(),
 				'controls'     => $this->added_controls,
-				'styleControl' => "{$this->slug}_style",
+				'styleControl' => $this->prepend_slug( 'style' ),
 				'l10n'         => [
 					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
 				],
@@ -407,6 +418,27 @@ class Controls extends Module_Base {
 			$this->plugin->asset_version(),
 			false
 		);
+	}
+
+	/**
+	 * Get custom frontend CSS based on the customizer theme settings.
+	 */
+	public function get_frontend_css() {
+		$color_vars = '';
+
+		foreach ( $this->get_color_controls() as $control ) {
+			$value = get_theme_mod( $this->prepend_slug( $control['id'] ) );
+
+			if ( empty( $value ) ) {
+				$value = $this->get_default( $control['id'] );
+			}
+
+			$color_vars .= "\t{$control['css_var']}: $value;\n";
+		}
+
+		$color_vars = ":root {\n$color_vars}";
+
+		return $color_vars;
 	}
 
 	/**
