@@ -47,7 +47,7 @@
 			).get() };`;
 		} );
 
-		styles = `:root{
+		styles = `:root {
 			${ styles }
 		}`;
 

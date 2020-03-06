@@ -88,8 +88,8 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['relatedTextSetting'] = isset( $this->related_text_setting ) ? $this->related_text_setting : false;
-		$this->json['relatedSetting']     = isset( $this->related_setting ) ? $this->related_setting : false;
-		$this->json['cssVar']             = isset( $this->css_var ) ? $this->css_var : false;
+		$this->json['relatedTextSetting'] = ! empty( $this->related_text_setting ) ? $this->related_text_setting : false;
+		$this->json['relatedSetting']     = ! empty( $this->related_setting ) ? $this->related_setting : false;
+		$this->json['cssVar']             = ! empty( $this->css_var ) ? $this->css_var : false;
 	}
 }

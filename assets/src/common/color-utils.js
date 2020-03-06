@@ -9,7 +9,7 @@
  * External dependencies
  */
 import chroma from 'chroma-js';
-import { find, memoize } from 'lodash';
+import { find } from 'lodash';
 
 /**
  * WordPress dependencies
