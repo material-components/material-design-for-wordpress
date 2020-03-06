@@ -8,7 +8,9 @@
 namespace MaterialThemeBuilder\Blocks;
 
 use MaterialThemeBuilder\Plugin;
+use MaterialThemeBuilder\Template;
 use WP_Post;
+use WP_Query;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -57,13 +59,12 @@ class Recent_Posts_Block {
 	 *
 	 * @return WP_REST_Response
 	 */
-	public function add_comments_count_to_post( WP_REST_Response $response, WP_Post $post, WP_REST_Request $request ) {
+	public function add_comments_count( WP_REST_Response $response, WP_Post $post, WP_REST_Request $request ) {
 		$context = $request->get_param( 'context' );
 
-		if ( 'edit' === $context ) {
-			// @todo: Review if these are the most efficient methods to get some meta data
-			$response->data['authorDisplayName'] = get_the_author_meta( 'display_name', $post->author );
-			$response->data['authorUrl']         = get_author_posts_url( $post->author, $response->data['authorDisplayName'] );
+		if ( 'edit' === $context && 'post' === $post->post_type ) {
+			$response->data['authorDisplayName'] = get_the_author_meta( 'display_name', $post->post_author );
+			$response->data['authorUrl']         = get_author_posts_url( $post->post_author, $response->data['authorDisplayName'] );
 			$response->data['commentsCount']     = (int) get_comments_number( $post->id );
 		}
 
@@ -77,7 +78,8 @@ class Recent_Posts_Block {
 	 *
 	 * @action init
 	 */
-	public function register_block_material_recent_posts() {
+	public function register_block() {
+
 		register_block_type(
 			'material/recent-posts',
 			[
@@ -137,7 +139,7 @@ class Recent_Posts_Block {
 						'type' => 'number',
 					],
 				],
-				'render_callback' => [ $this, 'render_block_material_recent_posts' ],
+				'render_callback' => [ $this, 'render_block' ],
 			]
 		);
 	}
@@ -151,21 +153,59 @@ class Recent_Posts_Block {
 	 *
 	 * @return string Returns the post content with latest posts added.
 	 */
-	public function render_block_material_recent_posts( $attributes ) {
-		$args = [
-			'posts_per_page'   => $attributes['postsToShow'],
-			'post_status'      => 'publish',
-			'suppress_filters' => false,
-		]; // todo: redefine to match requirements.
+	public function render_block( $attributes ) {
 
-		if ( isset( $attributes['category'] ) ) {
-			$args['category'] = $attributes['category'];
+		$class = 'wp-block-material-recent-posts';
+		if ( isset( $attributes['align'] ) ) {
+			$class .= ' align' . $attributes['align'];
+		}
+		$content = '<!-- No posts found -->';
+
+
+		$args = [
+			'posts_per_page'         => $attributes['postsToShow'],
+			'post_status'            => 'publish',
+			'no_found_rows'          => true,
+			'update_post_meta_cache' => false,
+			'ignore_sticky_posts'    => true,
+		];
+
+		if ( ! empty( $attributes['category'] ) ) {
+			$args['cat'] = absint( $attributes['category'] );
 		}
 
-		// $recent_posts = get_posts( $args ); @todo: Use WP_Query.
+		/**
+		 * Filters the args for recent posts WP_Query.
+		 *
+		 * @param array $args The args for the WP_Query.
+		 * @param array $attributes The block's attributes.
+		 */
+		$args = apply_filters( 'mtb_recent_posts_query_args', $args, $attributes );
+
+		$posts_query = new WP_Query( $args );
+
+		// If we have posts and a valid layout style, load the template.
+		if ( $posts_query->have_posts() && in_array( $attributes['style'], [ 'grid', 'list', 'masonry' ], true ) ) {
+			ob_start();
+
+			// Determine the template to show.
+			$template = in_array( $attributes['style'], [ 'grid', 'list' ], true ) ? 'list-grid' : 'masonry';
+
+			Template::get_template(
+				"posts-{$template}.php",
+				[
+					'posts_query' => $posts_query,
+					'attributes'  => $attributes,
+				]
+			);
+
+			$content = ob_get_clean();
+		}
 
 		return sprintf(
-			'hello world' // todo: Do the rendering.
+			'<div class="%s">%s</div>',
+			esc_attr( $class ),
+			$content
 		);
 	}
 

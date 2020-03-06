@@ -36,7 +36,7 @@ describe( 'CardImage', () => {
 			titleTrimmed: 'Test Title',
 			displayPostDate: true,
 			post: {
-				date_gmt: ' 2020-02-25T08:20:38',
+				date_gmt: ' 2020-02-25 08:20:38',
 			},
 			dateFormat: 'F j, Y',
 			...baseProps,
