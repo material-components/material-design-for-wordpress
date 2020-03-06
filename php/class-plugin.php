@@ -41,11 +41,11 @@ class Plugin extends Plugin_Base {
 	public function init() {
 		$this->config = apply_filters( 'material_theme_builder_plugin_config', $this->config, $this );
 
-		$this->recent_post_block = new Recent_Posts_Block( $this );
-		$this->recent_post_block->init();
-
 		$this->customizer_controls = new Controls( $this );
 		$this->customizer_controls->init();
+
+		$this->recent_post_block = new Recent_Posts_Block( $this );
+		$this->recent_post_block->init();
 	}
 
 	/**
