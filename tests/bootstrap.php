@@ -6,7 +6,7 @@
  */
 
 global $_plugin_files;
-$_plugin_files = array();
+$_plugin_files = [];
 
 $_plugin_root = realpath( __DIR__ . '/..' );
 
