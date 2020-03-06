@@ -123,4 +123,12 @@ describe( 'VerticalCardLayout', () => {
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
+
+	it( 'matches snapshot when the content layout is "Text over Media" and the featured image should not be displayed', () => {
+		const props = { ...baseProps };
+		props.contentLayout = 'text-over-media';
+		props.displayFeaturedImage = false;
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
 } );
