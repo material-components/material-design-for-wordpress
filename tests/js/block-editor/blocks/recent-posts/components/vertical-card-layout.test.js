@@ -32,7 +32,7 @@ const baseProps = {
 	post: {
 		authorDisplayName: 'Test user',
 		commentsCount: 1,
-		date_gmt: ' 2020-02-25T08:20:38',
+		date_gmt: ' 2020-02-25 08:20:38',
 	},
 	dateFormat: 'F j, Y',
 	imageSourceUrl: 'http://example.com/test.jpg',
@@ -120,6 +120,14 @@ describe( 'VerticalCardLayout', () => {
 		props.excerpt =
 			'This is a test a long excerpt, at least longer than the allowed content length';
 		props.postContentLength = 5;
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when the content layout is "Text over Media" and the featured image should not be displayed', () => {
+		const props = { ...baseProps };
+		props.contentLayout = 'text-over-media';
+		props.displayFeaturedImage = false;
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );

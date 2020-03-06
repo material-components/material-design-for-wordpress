@@ -26,7 +26,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -113,7 +113,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>
@@ -257,7 +257,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -344,7 +344,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>
@@ -356,6 +356,229 @@ Object {
         />
         <div
           class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+        >
+          <div>
+            This is a test excerpt
+          </div>
+        </div>
+      </div>
+      <div
+        class="mdc-card__actions"
+      >
+        <div
+          class="mdc-card__action-buttons"
+        >
+          <button
+            class="mdc-button mdc-card__action mdc-card__action--button"
+          >
+            <span
+              class="mdc-button__ripple"
+            />
+            <i
+              aria-hidden="true"
+              class="material-icons mdc-button__icon"
+            >
+              face
+            </i>
+            <span
+              class="mdc-button__label"
+            >
+              Test user
+            </span>
+          </button>
+          <button
+            class="mdc-button mdc-card__action mdc-card__action--button"
+          >
+            <span
+              class="mdc-button__ripple"
+            />
+            <i
+              aria-hidden="true"
+              class="material-icons mdc-button__icon"
+            >
+              comment
+            </i>
+            <span
+              class="mdc-button__label"
+            >
+              1 comment
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`VerticalCardLayout matches snapshot when the content layout is "Text over Media" and the featured image should not be displayed 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mdc-card single-post-card single-post-basic"
+      >
+        <div
+          class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
+          tabindex="0"
+        >
+          <div
+            class="single-post-card__primary"
+          >
+            <h2
+              class="single-post-card__title mdc-typography mdc-typography--headline6"
+            >
+              <div>
+                Test Title
+              </div>
+            </h2>
+            <h3
+              class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+            >
+              <time
+                datetime="2020-02-25 08:20:38"
+              >
+                February 25, 2020
+              </time>
+            </h3>
+          </div>
+          <div
+            class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography mdc-typography--body2"
+          >
+            <div>
+              This is a test excerpt
+            </div>
+          </div>
+        </div>
+        <div
+          class="mdc-card__actions"
+        >
+          <div
+            class="mdc-card__action-buttons"
+          >
+            <button
+              class="mdc-button mdc-card__action mdc-card__action--button"
+            >
+              <span
+                class="mdc-button__ripple"
+              />
+              <i
+                aria-hidden="true"
+                class="material-icons mdc-button__icon"
+              >
+                face
+              </i>
+              <span
+                class="mdc-button__label"
+              >
+                Test user
+              </span>
+            </button>
+            <button
+              class="mdc-button mdc-card__action mdc-card__action--button"
+            >
+              <span
+                class="mdc-button__ripple"
+              />
+              <i
+                aria-hidden="true"
+                class="material-icons mdc-button__icon"
+              >
+                comment
+              </i>
+              <span
+                class="mdc-button__label"
+              >
+                1 comment
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-card single-post-card single-post-basic"
+    >
+      <div
+        class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
+        tabindex="0"
+      >
+        <div
+          class="single-post-card__primary"
+        >
+          <h2
+            class="single-post-card__title mdc-typography mdc-typography--headline6"
+          >
+            <div>
+              Test Title
+            </div>
+          </h2>
+          <h3
+            class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+          >
+            <time
+              datetime="2020-02-25 08:20:38"
+            >
+              February 25, 2020
+            </time>
+          </h3>
+        </div>
+        <div
+          class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography mdc-typography--body2"
         >
           <div>
             This is a test excerpt
@@ -495,7 +718,7 @@ Object {
                   class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
                 >
                   <time
-                    datetime="2020-02-25T08:20:38+09:00"
+                    datetime="2020-02-25 08:20:38"
                   >
                     February 25, 2020
                   </time>
@@ -587,7 +810,7 @@ Object {
                 class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
               >
                 <time
-                  datetime="2020-02-25T08:20:38+09:00"
+                  datetime="2020-02-25 08:20:38"
                 >
                   February 25, 2020
                 </time>
@@ -733,7 +956,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -820,7 +1043,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>
@@ -960,7 +1183,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -1040,7 +1263,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>
@@ -1177,7 +1400,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -1209,7 +1432,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>
@@ -1298,7 +1521,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -1385,7 +1608,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>
@@ -1529,7 +1752,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -1612,7 +1835,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>
@@ -1752,7 +1975,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -1791,7 +2014,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>
@@ -1887,7 +2110,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -1930,7 +2153,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>
@@ -2030,7 +2253,7 @@ Object {
               class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
-                datetime="2020-02-25T08:20:38+09:00"
+                datetime="2020-02-25 08:20:38"
               >
                 February 25, 2020
               </time>
@@ -2113,7 +2336,7 @@ Object {
             class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
-              datetime="2020-02-25T08:20:38+09:00"
+              datetime="2020-02-25 08:20:38"
             >
               February 25, 2020
             </time>

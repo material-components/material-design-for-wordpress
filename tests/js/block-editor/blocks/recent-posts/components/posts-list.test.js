@@ -53,7 +53,7 @@ const baseProps = {
 			},
 			authorDisplayName: 'Test user #1',
 			commentsCount: 1,
-			date_gmt: ' 2020-02-25T08:20:38',
+			date_gmt: ' 2020-02-25 08:20:38',
 			featuredImageSourceUrl: 'http://example.com/test1.jpg',
 		},
 		{

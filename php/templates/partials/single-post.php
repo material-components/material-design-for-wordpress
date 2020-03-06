@@ -9,11 +9,16 @@ use MaterialThemeBuilder\Template;
 
 defined( 'ABSPATH' ) || exit;
 
-$attributes = isset( $attributes ) ? $attributes : [];
-$style      = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
-$columns    = absint( isset( $attributes['columns'] ) ? $attributes['columns'] : 3 );
-$outlined   = isset( $attributes['outlined'] ) ? $attributes['outlined'] : false;
-$layout     = isset( $attributes['contentLayout'] ) ? $attributes['contentLayout'] : 'text-above-media';
+$attributes     = isset( $attributes ) ? $attributes : [];
+$style          = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
+$columns        = absint( isset( $attributes['columns'] ) ? $attributes['columns'] : 3 );
+$outlined       = isset( $attributes['outlined'] ) ? $attributes['outlined'] : false;
+$layout         = isset( $attributes['contentLayout'] ) ? $attributes['contentLayout'] : 'text-above-media';
+$featured_image = isset( $attributes['displayFeaturedImage'] ) ? $attributes['displayFeaturedImage'] : true;
+
+if ( empty( $featured_image ) ) {
+	$layout = 'text-above-media';
+}
 
 // Determine column span.
 $column_span = 'grid' === $style ? floor( 12 / $columns ) : 12;
@@ -40,31 +45,31 @@ $class_names = Template::classnames(
 				);
 			}
 
+			Template::get_template(
+				'partials/card-image.php',
+				[
+					'attributes' => $attributes,
+				]
+			);
+
+			if ( 'list' === $style || 'text-under-media' === $layout || ( 'text-over-media' === $layout && ! has_post_thumbnail() ) ) {
 				Template::get_template(
-					'partials/card-image.php',
+					'partials/card-header.php',
 					[
 						'attributes' => $attributes,
 					]
 				);
+			}
 
-				if ( 'list' === $style || 'text-under-media' === $layout || ( 'text-over-media' === $layout && ! has_post_thumbnail() ) ) {
-					Template::get_template(
-						'partials/card-header.php',
-						[
-							'attributes' => $attributes,
-						]
-					);
-				}
-
-				if ( 'list' !== $style ) {
-					Template::get_template(
-						'partials/card-content.php',
-						[
-							'attributes' => $attributes,
-						]
-					);
-				}
-				?>
+			if ( 'list' !== $style ) {
+				Template::get_template(
+					'partials/card-content.php',
+					[
+						'attributes' => $attributes,
+					]
+				);
+			}
+			?>
 
 		</div> <!-- mdc-card__primary-action -->
 
