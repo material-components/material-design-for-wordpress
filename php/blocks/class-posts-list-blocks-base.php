@@ -143,8 +143,8 @@ class Posts_List_Blocks_Base {
 		$context = $request->get_param( 'context' );
 
 		if ( 'edit' === $context ) {
-			$response->data['authorDisplayName'] = get_the_author_meta( 'display_name', $post->author );
-			$response->data['authorUrl']         = get_author_posts_url( $post->author, $response->data['authorDisplayName'] );
+			$response->data['authorDisplayName'] = get_the_author_meta( 'display_name', $post->post_author );
+			$response->data['authorUrl']         = get_author_posts_url( $post->post_author, $response->data['authorDisplayName'] );
 			$response->data['commentsCount']     = (int) get_comments_number( $post->id );
 		}
 
