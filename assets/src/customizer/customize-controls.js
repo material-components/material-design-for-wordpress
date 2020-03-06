@@ -124,10 +124,10 @@ import colorUtils from '../common/color-utils';
 			const section = this;
 			api.Section.prototype.attachEvents.call( section );
 
-			if ( section.panel() ) {
-				const panel = api.panel( section.panel() );
-				panel.container
-					.find( '.customize-panel-back' )
+			if ( section.panel() && api.panel( section.panel() ) ) {
+				api
+					.panel( section.panel() )
+					.container.find( '.customize-panel-back' )
 					.on( 'click keydown', event => {
 						if ( api.utils.isKeydownButNotEnterEvent( event ) ) {
 							return;

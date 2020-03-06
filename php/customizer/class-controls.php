@@ -116,7 +116,7 @@ class Controls extends Module_Base {
 			 * @param array $args Array of section args.
 			 * @param string   $id       ID of the setting.
 			 */
-			$section = apply_filters( 'mtb_customizer_section_args', $args, $id );
+			$section = apply_filters( $this->slug . '_customizer_section_args', $args, $id );
 
 			if ( is_array( $section ) ) {
 				$this->wp_customize->add_section(
@@ -319,7 +319,7 @@ class Controls extends Module_Base {
 			 * @param array   $settings[ $id ] Array of setting args.
 			 * @param string   $id       ID of the setting.
 			 */
-			$setting = apply_filters( 'mtb_customizer_setting_args', $setting, $id );
+			$setting = apply_filters( $this->slug . '_customizer_setting_args', $setting, $id );
 
 			if ( is_array( $setting ) ) {
 				$this->wp_customize->add_setting(
@@ -352,7 +352,7 @@ class Controls extends Module_Base {
 			 * @param array $control Array of control args.
 			 * @param string   $id       ID of the control.
 			 */
-			$control = apply_filters( 'mtb_customizer_control_args', $control, $id );
+			$control = apply_filters( $this->slug . '_customizer_control_args', $control, $id );
 
 			if ( is_array( $control ) ) {
 				$control['section'] = isset( $control['section'] ) ? $this->prepend_slug( $control['section'] ) : '';

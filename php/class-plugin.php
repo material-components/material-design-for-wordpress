@@ -7,7 +7,7 @@
 
 namespace MaterialThemeBuilder;
 
-use MaterialThemeBuilder\BazBar\Sample;
+use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 
 /**
@@ -16,18 +16,18 @@ use MaterialThemeBuilder\Customizer\Controls;
 class Plugin extends Plugin_Base {
 
 	/**
-	 * Sample class.
-	 *
-	 * @var Sample
-	 */
-	public $sample;
-
-	/**
 	 * Controls class.
 	 *
 	 * @var Controls
 	 */
 	public $customizer_controls;
+
+	/**
+	 * Recent_Posts_Block class.
+	 *
+	 * @var Recent_Posts_Block
+	 */
+	public $recent_post_block;
 
 	/**
 	 * Initiate the plugin resources.
@@ -41,11 +41,11 @@ class Plugin extends Plugin_Base {
 	public function init() {
 		$this->config = apply_filters( 'material_theme_builder_plugin_config', $this->config, $this );
 
-		$this->sample = new Sample( $this );
-		$this->sample->init();
-
 		$this->customizer_controls = new Controls( $this );
 		$this->customizer_controls->init();
+
+		$this->recent_post_block = new Recent_Posts_Block( $this );
+		$this->recent_post_block->init();
 	}
 
 	/**
@@ -61,6 +61,8 @@ class Plugin extends Plugin_Base {
 				'lodash',
 				'react',
 				'wp-block-editor',
+				'wp-date',
+				'wp-api-fetch',
 			],
 			$this->asset_version(),
 			false

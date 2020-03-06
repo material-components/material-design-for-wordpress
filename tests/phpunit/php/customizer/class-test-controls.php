@@ -213,11 +213,13 @@ class Test_Controls extends \WP_UnitTestCase {
 				[
 					"{$controls->slug}_test_setting",
 				],
-				$this->callback(
-					function( $setting ) use ( $controls ) {
-						return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_style" === $setting->id;
-					}
-				)
+				[
+					$this->callback(
+						function( $setting ) use ( $controls ) {
+							return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_style" === $setting->id;
+						}
+					),
+				]
 			);
 
 		// first arg is an array of args
@@ -248,11 +250,13 @@ class Test_Controls extends \WP_UnitTestCase {
 				[
 					"{$controls->slug}_test_setting",
 				],
-				$this->callback(
-					function( $setting ) use ( $controls ) {
-						return $setting instanceof \WP_Customize_Control && "{$controls->slug}_style" === $setting->id;
-					}
-				)
+				[
+					$this->callback(
+						function( $setting ) use ( $controls ) {
+							return $setting instanceof \WP_Customize_Control && "{$controls->slug}_style" === $setting->id;
+						}
+					),
+				]
 			);
 
 		// first arg is an array of args
