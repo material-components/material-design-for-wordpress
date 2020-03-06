@@ -425,7 +425,7 @@ Object {
             <span
               class="mdc-button__label"
             >
-              0 comments
+              No comments
             </span>
           </button>
         </div>
@@ -472,7 +472,7 @@ Object {
           <span
             class="mdc-button__label"
           >
-            0 comments
+            No comments
           </span>
         </button>
       </div>
