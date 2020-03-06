@@ -27,16 +27,22 @@ class Posts_List_Blocks_Base {
 	public $plugin;
 
 	/**
+	 * Block name.
+	 *
 	 * @var string
 	 */
 	public $block_name;
 
 	/**
+	 * Block core attributes.
+	 *
 	 * @var array
 	 */
 	public $block_core_attributes;
 
 	/**
+	 * Block attributes.
+	 *
 	 * @var array
 	 */
 	public $block_attributes;
