@@ -13,6 +13,11 @@ import PostsControl from '../../../components/posts-control';
 /**
  * Posts Picker component.
  *
+ * @param {Object} props - Component props.
+ * @param {Object} props.attributes - Block attributes.
+ * @param {Object} props.debouncedSpeak - Function to debounce the call to the Speak method for accessibility purpose.
+ * @param {Function} props.setAttributes - Function to set block attributes value.
+ *
  * @return {Function} A functional component.
  */
 const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {

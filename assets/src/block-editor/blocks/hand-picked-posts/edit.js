@@ -14,7 +14,7 @@ import '../common-posts-list/style.css';
 import './style.css';
 
 /**
- * Recent Posts Edit component.
+ * Hand-picked Posts Edit component.
  *
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Component attributes.

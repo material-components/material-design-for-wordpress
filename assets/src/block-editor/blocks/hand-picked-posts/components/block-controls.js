@@ -8,6 +8,10 @@ import { BlockControls } from '@wordpress/block-editor';
 /**
  * Block Controls component.
  *
+ * @param {Object} props - Component props.
+ * @param {Object} props.attributes - Block attributes.
+ * @param {Function} props.setAttributes - Function to set block attributes value.
+ *
  * @return {Function} A functional component.
  */
 const HandPickedPostsBlockControls = ( { attributes, setAttributes } ) => {
