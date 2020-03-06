@@ -244,51 +244,12 @@ import colorUtils from '../common/color-utils';
 				link.addClass( 'active' );
 			} );
 
-			// Render the material palette component in the palette tab.
-			control.renderMaterialPalette();
+			// Render the material palette component with accessibility warnings.
+			control.renderPaletteWithAccessibilityWarnings();
 
 			control.setting.bind( value => {
-				// Re-render the material palette component if the color is updated.
-				control.renderMaterialPalette( value );
-
-				const colors = [];
-				let color, textColor, colorRange;
-
-				if ( control.params.relatedTextSetting ) {
-					color = value;
-					textColor = api( control.params.relatedTextSetting ).get();
-					colorRange = colorUtils.generateColorFromHex( value );
-				} else {
-					textColor = value;
-					color = api( control.params.relatedSetting ).get();
-					colorRange = colorUtils.generateColorFromHex( color );
-				}
-
-				colors.push(
-					colorUtils.getColorAccessibility(
-						color,
-						control.params.label,
-						textColor
-					)
-				);
-				colors.push(
-					colorUtils.getColorAccessibility(
-						colorRange.range.light.hex,
-						__( 'Light variation', 'material-theme-builder' ),
-						textColor
-					)
-				);
-				colors.push(
-					colorUtils.getColorAccessibility(
-						colorRange.range.dark.hex,
-						__( 'Dark variation', 'material-theme-builder' ),
-						textColor
-					)
-				);
-
-				container
-					.find( '.mtb-accessibility' )
-					.html( control.accessibilityTemplate( { colors } ) );
+				// Re-render the material palette component and accessibility warnings if the color is updated.
+				control.renderPaletteWithAccessibilityWarnings( value );
 			} );
 
 			const colorToggler = container.find( '.wp-color-result' ),
@@ -300,6 +261,9 @@ import colorUtils from '../common/color-utils';
 					colorInput.data( 'wpWpColorPicker' ).close();
 				} else {
 					colorInput.data( 'wpWpColorPicker' ).open();
+
+					// Render the material palette component with accessibility warnings.
+					control.renderPaletteWithAccessibilityWarnings();
 				}
 			} );
 
@@ -340,13 +304,13 @@ import colorUtils from '../common/color-utils';
 		/**
 		 * Render the `MaterialColorPalette` component in the palette tab.
 		 *
-		 * @param {string} value
+		 * @param {string} selectedColor
 		 */
-		renderMaterialPalette( value ) {
+		renderMaterialPalette( selectedColor = false ) {
 			const control = this;
 			render(
 				<MaterialColorPalette
-					value={ value || control.setting.get() }
+					value={ selectedColor || control.setting.get() }
 					onChange={ newValue => {
 						control.setting.set( newValue );
 						control.setting._dirty = true;
@@ -355,6 +319,87 @@ import colorUtils from '../common/color-utils';
 				/>,
 				control.container.find( '.tab-palette' ).get( 0 )
 			);
+		},
+
+		/**
+		 * Render accessibility warnings for a color.
+		 *
+		 * @param {string} selectedColor Hex code of the selected color.
+		 */
+		renderAccessibilityWarnings( selectedColor = false ) {
+			const control = this,
+				colors = [];
+
+			selectedColor = selectedColor || control.setting.get();
+
+			let color,
+				textColor,
+				colorRange,
+				isText = true;
+			const textColorLabel =
+				-1 !== control.id.indexOf( 'primary' )
+					? __( 'primary', 'material-theme-builder' )
+					: __( 'secondary', 'material-theme-builder' );
+
+			if ( control.params.relatedTextSetting ) {
+				color = selectedColor;
+				textColor = api( control.params.relatedTextSetting ).get();
+				colorRange = colorUtils.generateColorFromHex( selectedColor );
+				isText = false;
+			} else {
+				textColor = selectedColor;
+				color = api( control.params.relatedSetting ).get();
+				colorRange = colorUtils.generateColorFromHex( color );
+			}
+
+			const colorRanges = [
+				{
+					color,
+					name: control.params.label,
+				},
+				{
+					color: colorRange.range.light.hex,
+					name: __( 'Light variation', 'material-theme-builder' ),
+				},
+				{
+					color: colorRange.range.dark.hex,
+					name: __( 'Dark variation', 'material-theme-builder' ),
+				},
+			];
+
+			colorRanges.forEach( ( { color: colorHex, name }, i ) => {
+				// For text color ignore light and dark variations.
+				if ( isText && 0 !== i ) {
+					return;
+				}
+
+				colors.push(
+					colorUtils.getColorAccessibility(
+						colorHex,
+						name,
+						textColor,
+						textColorLabel,
+						isText
+					)
+				);
+			} );
+
+			control.container
+				.find( '.mtb-accessibility' )
+				.html( control.accessibilityTemplate( { colors } ) );
+		},
+
+		/**
+		 * Render the material palette and the accessibility warnings.
+		 *
+		 * @param {string} selectedColor Hex code of the selected color.
+		 */
+		renderPaletteWithAccessibilityWarnings( selectedColor = false ) {
+			// Render the material palette component.
+			this.renderMaterialPalette( selectedColor );
+
+			// Render the accessibility warnings.
+			this.renderAccessibilityWarnings( selectedColor );
 		},
 	} );
 

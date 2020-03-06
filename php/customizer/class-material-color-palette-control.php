@@ -69,12 +69,10 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 							<# _.each( color.variations, function( variation ) { #>
 								<# if ( null === variation.result ) { #>
 									{{ variation.size }} <?php esc_html_e( 'text', 'material-theme-builder' ); ?>:
-									<# if ( -1 === [ 'white', 'black' ].indexOf( variation.textColor ) ) { #>
-										<span style="background-color: {{ variation.colorHex }}; color: {{ variation.textColorHex }}">{{ variation.textColor }}</span>
-									<# } else { #>
-										{{ variation.textColor }}
-									<# } #>
-									<?php esc_html_e( ' text not legible', 'material-theme-builder' ); ?> <span class="dashicons dashicons-warning"></span><br/>
+									{{ variation.textColor }}
+									<?php esc_html_e( ' text not legible', 'material-theme-builder' ); ?>
+									<span style="background-color: {{ variation.colorHex }}; color: {{ variation.textColorHex }}"><?php esc_html_e( 'Aa', 'material-theme-builder' ); ?></span>
+									<span class="dashicons dashicons-warning"></span><br/>
 								<# } #>
 							<# } ); #>
 						</div>
