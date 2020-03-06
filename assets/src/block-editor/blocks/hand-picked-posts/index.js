@@ -12,7 +12,7 @@ import edit from './edit';
 export const name = 'material/hand-picked-posts';
 
 /**
- * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
+ * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, supports: Object}}
  */
 export const settings = {
 	title: __( 'Hand-picked Posts', 'material-theme-builder' ),
