@@ -8,7 +8,6 @@
 namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Customizer\Image_Radio_Control;
 
 /**
  * Class Controls.
@@ -106,10 +105,10 @@ class Controls extends Module_Base {
 			 *
 			 * This allows other plugins/themes to change the customizer section args.
 			 *
-			 * @param array $args Array of section args.
-			 * @param string   $id       ID of the setting.
+			 * @param array  $args Array of section args.
+			 * @param string $id   ID of the section.
 			 */
-			$section = apply_filters( 'mtb_customizer_section_args', $args, $id );
+			$section = apply_filters( $this->slug . '_customizer_section_args', $args, $id );
 
 			if ( is_array( $section ) ) {
 				$this->wp_customize->add_section(
@@ -212,12 +211,12 @@ class Controls extends Module_Base {
 			/**
 			 * Filters the customizer setting args.
 			 *
-			 * This allows other plugins/themes to change the customizer controls ards
+			 * This allows other plugins/themes to change the customizer setting args.
 			 *
-			 * @param array   $settings[ $id ] Array of setting args.
-			 * @param string   $id       ID of the setting.
+			 * @param array   $setting Array of setting args.
+			 * @param string  $id      ID of the setting.
 			 */
-			$setting = apply_filters( 'mtb_customizer_setting_args', $setting, $id );
+			$setting = apply_filters( $this->slug . '_customizer_setting_args', $setting, $id );
 
 			if ( is_array( $setting ) ) {
 				$this->wp_customize->add_setting(
@@ -245,12 +244,12 @@ class Controls extends Module_Base {
 			/**
 			 * Filters the customizer control args.
 			 *
-			 * This allows other plugins/themes to change the customizer controls ards
+			 * This allows other plugins/themes to change the customizer controls args.
 			 *
-			 * @param array $control Array of control args.
-			 * @param string   $id       ID of the control.
+			 * @param array  $control Array of control args.
+			 * @param string $id      ID of the control.
 			 */
-			$control = apply_filters( 'mtb_customizer_control_args', $control, $id );
+			$control = apply_filters( $this->slug . '_customizer_control_args', $control, $id );
 
 			if ( is_array( $control ) ) {
 				$control['section'] = isset( $control['section'] ) ? $this->prepend_slug( $control['section'] ) : '';
@@ -297,7 +296,7 @@ class Controls extends Module_Base {
 
 		wp_enqueue_style(
 			'material-theme-builder-customizer-css',
-			$this->plugin->asset_url( 'assets/css/customizer-compiled.css' ),
+			$this->plugin->asset_url( 'assets/css/customize-controls-compiled.css' ),
 			[],
 			$this->plugin->asset_version()
 		);

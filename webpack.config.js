@@ -47,6 +47,30 @@ const sharedConfig = {
 			new OptimizeCSSAssetsPlugin( {} ),
 		],
 	},
+	module: {
+		...defaultConfig.module,
+		rules: [
+			...defaultConfig.module.rules,
+			{
+				test: /\.css$/,
+				use: [
+					// prettier-ignore
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+				],
+			},
+		],
+	},
+	plugins: [
+		...defaultConfig.plugins,
+		new MiniCssExtractPlugin( {
+			filename: '../css/[name]-compiled.css',
+		} ),
+		new RtlCssPlugin( {
+			filename: '../css/[name]-compiled-rtl.css',
+		} ),
+	],
 };
 
 const blockEditor = {
@@ -58,47 +82,11 @@ const blockEditor = {
 			'./assets/css/src/block-editor.css',
 		],
 	},
-	module: {
-		...defaultConfig.module,
-		rules: [
-			...defaultConfig.module.rules,
-			{
-				test: /\.css$/,
-				use: [
-					// prettier-ignore
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'postcss-loader',
-				],
-			},
-		],
-	},
 	plugins: [
-		...defaultConfig.plugins,
-		new MiniCssExtractPlugin( {
-			filename: '../css/[name]-compiled.css',
-		} ),
-		new RtlCssPlugin( {
-			filename: '../css/[name]-compiled-rtl.css',
-		} ),
+		...sharedConfig.plugins,
 		new WebpackBar( {
 			name: 'Block Editor',
 			color: '#1773a8',
-		} ),
-	],
-};
-
-const classicEditor = {
-	...defaultConfig,
-	...sharedConfig,
-	entry: {
-		'classic-editor': './assets/src/classic-editor/index.js',
-	},
-	plugins: [
-		...defaultConfig.plugins,
-		new WebpackBar( {
-			name: 'Classic Editor',
-			color: '#dc3232',
 		} ),
 	],
 };
@@ -107,33 +95,17 @@ const customizer = {
 	...defaultConfig,
 	...sharedConfig,
 	entry: {
-		customizer: [ './assets/css/src/customizer.css' ],
-		'customize-controls': [ './assets/src/customizer/customize-controls.js' ],
-		'customize-preview': './assets/src/customizer/customize-preview.js',
-	},
-	module: {
-		...defaultConfig.module,
-		rules: [
-			...defaultConfig.module.rules,
-			{
-				test: /\.css$/,
-				use: [
-					// prettier-ignore
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'postcss-loader',
-				],
-			},
+		'customize-controls': [
+			'./assets/src/customizer/customize-controls.js',
+			'./assets/css/src/customize-controls.css',
+		],
+		'customize-preview': [
+			'./assets/src/customizer/customize-preview.js',
+			'./assets/css/src/customize-preview.css',
 		],
 	},
 	plugins: [
-		...defaultConfig.plugins,
-		new MiniCssExtractPlugin( {
-			filename: '../css/[name]-compiled.css',
-		} ),
-		new RtlCssPlugin( {
-			filename: '../css/[name]-compiled-rtl.css',
-		} ),
+		...sharedConfig.plugins,
 		new WebpackBar( {
 			name: 'Customizer',
 			color: '#f27136',
@@ -141,37 +113,19 @@ const customizer = {
 	],
 };
 
-const front = {
+const frontEnd = {
 	...defaultConfig,
 	...sharedConfig,
 	entry: {
-		front: [ './assets/src/front/index.js', './assets/css/src/front.css' ],
-	},
-	module: {
-		...defaultConfig.module,
-		rules: [
-			...defaultConfig.module.rules,
-			{
-				test: /\.css$/,
-				use: [
-					// prettier-ignore
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'postcss-loader',
-				],
-			},
+		'front-end': [
+			'./assets/src/front-end/index.js',
+			'./assets/css/src/front-end.css',
 		],
 	},
 	plugins: [
-		...defaultConfig.plugins,
-		new MiniCssExtractPlugin( {
-			filename: '../css/[name]-compiled.css',
-		} ),
-		new RtlCssPlugin( {
-			filename: '../css/[name]-compiled-rtl.css',
-		} ),
+		...sharedConfig.plugins,
 		new WebpackBar( {
-			name: 'Front',
+			name: 'Front End',
 			color: '#36f271',
 		} ),
 	],
@@ -180,7 +134,6 @@ const front = {
 module.exports = [
 	// prettier-ignore
 	blockEditor,
-	classicEditor,
 	customizer,
-	front,
+	frontEnd,
 ];
