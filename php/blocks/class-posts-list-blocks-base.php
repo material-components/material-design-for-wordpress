@@ -66,7 +66,7 @@ class Posts_List_Blocks_Base {
 			],
 			'align'                 => [
 				'type'    => 'string',
-				'default' => 'center',
+				'default' => '',
 			],
 			'contentLayout'         => [
 				'type'    => 'string',
