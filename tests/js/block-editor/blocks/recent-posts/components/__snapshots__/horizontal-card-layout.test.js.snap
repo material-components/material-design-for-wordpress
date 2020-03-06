@@ -13,7 +13,7 @@ Object {
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--square single-post-card__media single-post-card__media single-post-card-with-undefined"
+            class="mdc-card__media mdc-card__media--square single-post-card__media"
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
@@ -93,7 +93,7 @@ Object {
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--square single-post-card__media single-post-card__media single-post-card-with-undefined"
+          class="mdc-card__media mdc-card__media--square single-post-card__media"
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
@@ -230,7 +230,7 @@ Object {
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--square single-post-card__media single-post-card__media single-post-card-with-undefined"
+            class="mdc-card__media mdc-card__media--square single-post-card__media"
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
@@ -310,7 +310,7 @@ Object {
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--square single-post-card__media single-post-card__media single-post-card-with-undefined"
+          class="mdc-card__media mdc-card__media--square single-post-card__media"
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
@@ -777,7 +777,7 @@ Object {
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--square single-post-card__media single-post-card__media single-post-card-with-undefined"
+            class="mdc-card__media mdc-card__media--square single-post-card__media"
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
@@ -813,7 +813,7 @@ Object {
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--square single-post-card__media single-post-card__media single-post-card-with-undefined"
+          class="mdc-card__media mdc-card__media--square single-post-card__media"
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
