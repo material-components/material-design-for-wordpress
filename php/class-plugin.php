@@ -7,8 +7,8 @@
 
 namespace MaterialThemeBuilder;
 
-use MaterialThemeBuilder\BazBar\Sample;
 use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
+use MaterialThemeBuilder\Customizer\Controls;
 
 /**
  * Main plugin bootstrap file.
@@ -16,11 +16,11 @@ use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
 class Plugin extends Plugin_Base {
 
 	/**
-	 * Sample class.
+	 * Controls class.
 	 *
-	 * @var Sample
+	 * @var Controls
 	 */
-	public $sample;
+	public $customizer_controls;
 
 	/**
 	 * Recent_Posts_Block class.
@@ -41,11 +41,11 @@ class Plugin extends Plugin_Base {
 	public function init() {
 		$this->config = apply_filters( 'material_theme_builder_plugin_config', $this->config, $this );
 
-		$this->sample = new Sample( $this );
-		$this->sample->init();
-
 		$this->recent_post_block = new Recent_Posts_Block( $this );
 		$this->recent_post_block->init();
+
+		$this->customizer_controls = new Controls( $this );
+		$this->customizer_controls->init();
 	}
 
 	/**
