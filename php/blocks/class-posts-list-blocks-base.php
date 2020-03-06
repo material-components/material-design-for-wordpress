@@ -41,11 +41,11 @@ class Posts_List_Blocks_Base {
 	public $block_core_attributes;
 
 	/**
-	 * Block attributes.
+	 * Block extra attributes.
 	 *
 	 * @var array
 	 */
-	public $block_attributes;
+	public $block_extra_attributes;
 
 	/**
 	 * Constructor.
@@ -114,7 +114,7 @@ class Posts_List_Blocks_Base {
 			],
 		];
 
-		$this->block_attributes = [];
+		$this->block_extra_attributes = [];
 	}
 
 	/**
@@ -162,7 +162,7 @@ class Posts_List_Blocks_Base {
 		register_block_type(
 			$this->block_name,
 			[
-				'attributes'      => array_merge( $this->block_core_attributes, $this->block_attributes ),
+				'attributes'      => array_merge( $this->block_core_attributes, $this->block_extra_attributes ),
 				'render_callback' => [ $this, 'render_block' ],
 			]
 		);
