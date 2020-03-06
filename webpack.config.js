@@ -104,21 +104,6 @@ const customizer = {
 			'./assets/css/src/customize-preview.css',
 		],
 	},
-	module: {
-		...defaultConfig.module,
-		rules: [
-			...defaultConfig.module.rules,
-			{
-				test: /\.css$/,
-				use: [
-					// prettier-ignore
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'postcss-loader',
-				],
-			},
-		],
-	},
 	plugins: [
 		...defaultConfig.plugins,
 		...sharedConfig.plugins,
