@@ -4,18 +4,6 @@
 import classNames from 'classnames';
 
 /**
- * Internal dependencies
- */
-import './style.css';
-import hasBg from './utils/has-bg';
-import IconPicker from '../../components/icon-picker';
-import ButtonGroup from '../../components/button-group';
-import { BUTTON_STYLES, ICON_POSITIONS } from './options';
-import ImageRadioControl from '../../components/image-radio-control';
-import MaterialColorPalette from '../../components/material-color-palette';
-import genericAttributesSetter from '../../utils/generic-attributes-setter';
-
-/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
@@ -27,6 +15,18 @@ import {
 	TextControl,
 	RangeControl,
 } from '@wordpress/components';
+
+/**
+ * Internal dependencies
+ */
+import './style.css';
+import hasBg from './utils/has-bg';
+import IconPicker from '../../components/icon-picker';
+import ButtonGroup from '../../components/button-group';
+import { BUTTON_STYLES, ICON_POSITIONS } from './options';
+import ImageRadioControl from '../../components/image-radio-control';
+import MaterialColorPalette from '../../components/material-color-palette';
+import genericAttributesSetter from '../../utils/generic-attributes-setter';
 
 /**
  * Material button edit component.
