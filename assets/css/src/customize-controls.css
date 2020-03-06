@@ -1,3 +1,31 @@
 /*
- * Put Customize Preview CSS here.
+ * Put Customize Controls CSS here.
  */
+
+.control-section-collapse {
+	position: static !important;
+	transform: none !important;
+	transition: height 200ms ease !important;
+	border-bottom: none !important;
+	overflow: hidden !important;
+
+	&.customize-pane-child {
+		padding: 0 12px !important;
+
+		> li:nth-child(2) {
+			margin-top: 12px;
+		}
+	}
+
+	& .accordion-section-title::after {
+		content: "\f132" !important;
+	}
+
+	&.expanded .accordion-section-title::after {
+		content: "\f460" !important;
+	}
+
+	& .customize-section-description-container {
+		display: none;
+	}
+}

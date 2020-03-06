@@ -167,8 +167,8 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	public function test_add_doc_hooks() {
 		$object = new Test_Doc_Hooks();
 
-		$this->assertEquals( 10, has_action( 'init', array( $object, 'init_action' ) ) );
-		$this->assertEquals( 10, has_action( 'the_content', array( $object, 'the_content_filter' ) ) );
+		$this->assertEquals( 10, has_action( 'init', [ $object, 'init_action' ] ) );
+		$this->assertEquals( 10, has_action( 'the_content', [ $object, 'the_content_filter' ] ) );
 		$object->remove_doc_hooks( $object );
 	}
 
@@ -179,7 +179,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 */
 	public function test_add_doc_hooks_error() {
 		$mock = $this->getMockBuilder( 'MaterialThemeBuilder\Plugin' )
-			->setMethods( array( 'is_wpcom_vip_prod' ) )
+			->setMethods( [ 'is_wpcom_vip_prod' ] )
 			->getMock();
 
 		$mock->method( 'is_wpcom_vip_prod' )
@@ -209,12 +209,12 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 */
 	public function test_remove_doc_hooks() {
 		$object = new Test_Doc_Hooks();
-		$this->assertEquals( 10, has_action( 'init', array( $object, 'init_action' ) ) );
-		$this->assertEquals( 10, has_action( 'the_content', array( $object, 'the_content_filter' ) ) );
+		$this->assertEquals( 10, has_action( 'init', [ $object, 'init_action' ] ) );
+		$this->assertEquals( 10, has_action( 'the_content', [ $object, 'the_content_filter' ] ) );
 
 		$object->remove_doc_hooks( $object );
-		$this->assertFalse( has_action( 'init', array( $object, 'init_action' ) ) );
-		$this->assertFalse( has_action( 'the_content', array( $object, 'the_content_filter' ) ) );
+		$this->assertFalse( has_action( 'init', [ $object, 'init_action' ] ) );
+		$this->assertFalse( has_action( 'the_content', [ $object, 'the_content_filter' ] ) );
 	}
 
 	/**
@@ -224,12 +224,12 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 */
 	public function test___destruct() {
 		$object = new Test_Doc_Hooks();
-		$this->assertEquals( 10, has_action( 'init', array( $object, 'init_action' ) ) );
-		$this->assertEquals( 10, has_action( 'the_content', array( $object, 'the_content_filter' ) ) );
+		$this->assertEquals( 10, has_action( 'init', [ $object, 'init_action' ] ) );
+		$this->assertEquals( 10, has_action( 'the_content', [ $object, 'the_content_filter' ] ) );
 
 		$object->__destruct( $object );
-		$this->assertFalse( has_action( 'init', array( $object, 'init_action' ) ) );
-		$this->assertFalse( has_action( 'the_content', array( $object, 'the_content_filter' ) ) );
+		$this->assertFalse( has_action( 'init', [ $object, 'init_action' ] ) );
+		$this->assertFalse( has_action( 'the_content', [ $object, 'the_content_filter' ] ) );
 	}
 }
 
