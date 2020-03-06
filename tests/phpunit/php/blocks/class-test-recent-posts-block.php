@@ -181,7 +181,7 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 	public function test_init() {
 		$block = new Recent_Posts_Block( new Plugin() );
 		$block->init();
-		$this->assertEquals( 10, has_filter( 'rest_prepare_post', [ $block, 'add_comments_count' ] ) );
+		$this->assertEquals( 10, has_filter( 'rest_prepare_post', [ $block, 'add_extra_post_meta' ] ) );
 		$this->assertEquals( 10, has_action( 'init', [ $block, 'register_block' ] ) );
 	}
 
@@ -202,18 +202,18 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Test add_comments_count.
+	 * Test add_extra_post_meta.
 	 *
-	 * @see Recent_Posts_Block::add_comments_count()
+	 * @see Recent_Posts_Block::add_extra_post_meta()
 	 */
-	public function test_add_comments_count() {
+	public function test_add_extra_post_meta() {
 		$block = new Recent_Posts_Block( new Plugin() );
 
 		$request  = new \WP_REST_Request( 'GET', '/' );
 		$response = new \WP_REST_Response();
 		$post     = get_post( self::$post_ids[0] );
 
-		$response = $block->add_comments_count( $response, $post, $request );
+		$response = $block->add_extra_post_meta( $response, $post, $request );
 
 		// Assert the extra fields are not set.
 		$this->assertTrue( empty( $response->data['authorDisplayName'] ) );
@@ -222,7 +222,7 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 
 		// Set context param.
 		$request->set_param( 'context', 'edit' );
-		$response = $block->add_comments_count( $response, $post, $request );
+		$response = $block->add_extra_post_meta( $response, $post, $request );
 
 		// Assert the fields are set.
 		$this->assertEquals( 'test', $response->data['authorDisplayName'] );
