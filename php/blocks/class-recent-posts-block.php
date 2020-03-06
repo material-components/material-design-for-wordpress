@@ -25,7 +25,7 @@ class Recent_Posts_Block extends Posts_List_Blocks_Base {
 		$this->block_name = 'material/recent-posts';
 
 		$this->block_attributes = [
-			'category'              => [
+			'category' => [
 				'type' => 'number',
 			],
 		];
