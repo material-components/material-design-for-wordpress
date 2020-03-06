@@ -33,7 +33,7 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 	 *
 	 * @var array
 	 */
-	public static $post_ids = array();
+	public static $post_ids = [];
 
 	/**
 	 * Test category ID.
@@ -45,7 +45,8 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 	/**
 	 * Generate some text fixtures.
 	 *
-	 * @param  WP_UnitTest_Factory $factory WP Factory object.
+	 * @param WP_UnitTest_Factory $factory WP Factory object.
+	 *
 	 * @return void
 	 */
 	public static function wpSetUpBeforeClass( $factory ) {
@@ -64,12 +65,13 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 	/**
 	 * Helper method to generate teh fixtures
 	 *
-	 * @param  WP_UnitTest_Factory $factory WP Factory object.
+	 * @param WP_UnitTest_Factory $factory WP Factory object.
+	 *
 	 * @return void
 	 */
 	public static function generate_fixtures( $factory ) {
 		self::$old_current_user = get_current_user_id();
-		self::$author_id        = $factory->user->create( array( 'user_login' => 'test' ) );
+		self::$author_id        = $factory->user->create( [ 'user_login' => 'test' ] );
 		wp_update_user(
 			[
 				'ID'           => self::$author_id,
@@ -80,82 +82,82 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 		wp_set_current_user( self::$author_id );
 
 		$cat          = $factory->term->create(
-			array(
+			[
 				'taxonomy' => 'category',
 				'name'     => 'test',
-			)
+			]
 		);
 		self::$cat_id = $cat;
 
 		self::$post_ids[] = $factory->post->create(
-			array(
+			[
 				'post_title'    => 'Lorem ipsum dolor sit amet',
 				'post_content'  => 'Consectetur adipiscing elit. In dui quam, egestas nec aliquet ac, hendrerit vitae ligula. Morbi malesuada in lectus vel sollicitudin. Proin tellus ligula, tincidunt at sagittis eget, tempor non est. In et suscipit metus. Cras in lectus a ex ullamcorper eleifend. Aenean convallis lacus et porttitor convallis. Proin iaculis a diam et euismod. Proin lectus ex, bibendum vel pretium ut, pellentesque eget nisl.',
 				'post_category' => [ $cat ],
-			)
+			]
 		);
 
 		self::$post_ids[] = $factory->post->create(
-			array(
+			[
 				'post_title'    => 'Sed rhoncus hendrerit justo',
 				'post_content'  => 'Non accumsan enim dictum ac. Cras lacus libero, porttitor quis tortor et, varius mattis nunc. In quis purus in odio laoreet ultricies in sit amet lectus. Proin varius nisl eget elit auctor hendrerit. Integer vestibulum sed libero nec consectetur. Pellentesque nulla diam, laoreet ac sapien vitae, varius dapibus arcu. Nunc lobortis urna nisl, ornare dictum est consequat ut. Morbi arcu purus, congue vitae elit non, rutrum sollicitudin leo. Pellentesque pulvinar mi quam, a hendrerit purus feugiat sed. Etiam sit amet mauris ut erat blandit auctor. Phasellus mollis sit amet arcu sed dictum. Donec ex justo, consectetur id lacus sed, vulputate porta ligula.',
 				'post_category' => [ $cat ],
-			)
+			]
 		);
 
 		self::$post_ids[] = $factory->post->create(
-			array(
+			[
 				'post_title'   => 'Phasellus non pharetra nibh',
 				'post_content' => 'Aliquam ac leo sit amet ipsum porttitor dictum eu quis purus. Fusce eget semper dolor. Etiam vehicula lectus sit amet erat placerat, eu pulvinar quam accumsan. Nam bibendum hendrerit iaculis. Mauris sapien odio, rutrum id aliquam vehicula, laoreet in massa. Cras gravida at dolor non blandit.',
-			)
+			]
 		);
 
 		self::$post_ids[] = $factory->post->create(
-			array(
+			[
 				'post_title'   => 'Nulla eget lobortis turpis',
 				'post_content' => 'In a laoreet metus. Phasellus sit amet lectus rutrum, vestibulum leo vel, efficitur metus. Cras posuere feugiat purus. In ultrices, eros malesuada rhoncus finibus, mauris quam gravida risus, et pellentesque libero magna ut lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam blandit nunc ac metus consectetur, quis egestas augue elementum. Nullam erat est, eleifend vitae ullamcorper in, iaculis quis purus.',
-			)
+			]
 		);
 
 		self::$post_ids[] = $factory->post->create(
-			array(
+			[
 				'post_title'   => 'Nunc ac malesuada sem',
 				'post_content' => 'Pellentesque non enim ut metus scelerisque condimentum sit amet id ipsum. Pellentesque congue sem orci, a egestas libero maximus et. Nunc mattis sem et lectus lacinia feugiat vel ac tellus. Morbi sed massa nunc. Cras odio purus, maximus ac sapien ut, vestibulum aliquet est.',
-			)
+			]
 		);
 
 		$post_id       = $factory->post->create();
 		$attachment_id = $factory->attachment->create_object(
 			'image.jpg',
 			$post_id,
-			array(
+			[
 				'post_mime_type' => 'image/jpeg',
 				'post_type'      => 'attachment',
-			)
+			]
 		);
 
 		// Set a featured image for the last post.
 		set_post_thumbnail( end( self::$post_ids ), $attachment_id );
 
 		$comment_id = $factory->comment->create(
-			array(
+			[
 				'comment_post_ID' => end( self::$post_ids ),
 				'user_id'         => self::$author_id,
-			)
+			]
 		);
 
 		$comment_id = $factory->comment->create(
-			array(
+			[
 				'comment_post_ID' => self::$post_ids[3],
 				'user_id'         => self::$author_id,
-			)
+			]
 		);
 
 		$comment_id = $factory->comment->create(
-			array(
+			[
 				'comment_post_ID' => self::$post_ids[3],
 				'user_id'         => self::$author_id,
-			)
+			]
 		);
 	}
 
@@ -166,7 +168,7 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 	 */
 	public static function delete_fixtures() {
 		self::$author_id = null;
-		self::$post_ids  = array();
+		self::$post_ids  = [];
 
 		wp_set_current_user( self::$old_current_user );
 	}
@@ -261,14 +263,13 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 		// Assert 5 posts are rendered.
 		$this->assertEquals( 5, substr_count( $content, '<div class="single-post-card single-post-basic' ) );
 
-		$attributes['categories'] = self::$cat_id;
-		$content                  = $block->render_block( $attributes );
+		$attributes['category'] = self::$cat_id;
+		$content                = $block->render_block( $attributes );
 
 		// Assert only 2 posts in the test category are rendered.
 		$this->assertEquals( 2, substr_count( $content, '<div class="single-post-card single-post-basic' ) );
 
-
-		unset( $attributes['categories'] );
+		unset( $attributes['category'] );
 		$attributes['displayPostAuthor']    = true;
 		$attributes['displayCommentsCount'] = true;
 		$attributes['displayPostContent']   = true;
@@ -299,7 +300,7 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 		$content                     = $this->clean_content( $content );
 
 		// Assert the article with featured image shows content inside the image container.
-		$this->assertEquals( 1, substr_count( $content, 'style="background-image: url(http://example.org/wp-content/uploads/image.jpg)"><div class="single-post-card__primary">' ) );
+		$this->assertEquals( 1, substr_count( $content, 'style="background-image: url(http://example.org/wp-content/uploads/image.jpg)"><div class="mdc-card__media-content">' ) );
 
 		// Assert all 5 posts are rendered.
 		$this->assertEquals( 5, substr_count( $content, 'class="single-post-card__title' ) );
@@ -321,7 +322,8 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 	/**
 	 * Strip newline and tabs from content
 	 *
-	 * @param  string $content Content to clean.
+	 * @param string $content Content to clean.
+	 *
 	 * @return string
 	 */
 	protected function clean_content( $content ) {
