@@ -27,6 +27,8 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 	/**
 	 * A Component wrapping the passed in component.
 	 *
+	 * @todo Refector into a functional component.
+	 *
 	 * @class WrappedComponent
 	 * @augments {Component}
 	 */
