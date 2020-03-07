@@ -293,6 +293,21 @@ class Test_Controls extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test for templates() method.
+	 *
+	 * @see Controls::templates()
+	 */
+	public function test_templates() {
+		ob_start();
+		get_plugin_instance()->customizer_controls->templates();
+		$output = ob_get_clean();
+
+		// Basic assertions to ensure we have the two templates.
+		$this->assertContains( sprintf( 'id="tmpl-customize-control-material_color-tabs"' ), $output );
+		$this->assertContains( sprintf( 'id="tmpl-customize-control-material_color-accessibility"' ), $output );
+	}
+
+	/**
 	 * Test for get_frontend_css() method.
 	 *
 	 * @see Controls::get_frontend_css()
@@ -306,21 +321,6 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->assertContains( '--mdc-theme-secondary: #03dac6;', $css );
 		$this->assertContains( '--mdc-theme-on-primary: #ffffff;', $css );
 		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
-	}
-
-	/**
-	 * Test for templates() method.
-	 *
-	 * @see Controls::templates()
-	 */
-	public function test_templates() {
-		ob_start();
-		get_plugin_instance()->customizer_controls->templates();
-		$output = ob_get_clean();
-
-		// Basic assertions to ensure we have the two templates.
-		$this->assertContains( sprintf( 'id="tmpl-customize-control-material_color-tabs"' ), $output );
-		$this->assertContains( sprintf( 'id="tmpl-customize-control-material_color-accessibility"' ), $output );
 	}
 
 	/**
