@@ -1,4 +1,6 @@
+/* istanbul ignore file */
 /* eslint-disable */
+
 /**
  * Utils for color and accessibility.
  *

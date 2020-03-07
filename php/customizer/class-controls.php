@@ -141,12 +141,10 @@ class Controls extends Module_Base {
 		 */
 		$settings = [
 			'style'          => [
-				'default'   => 'baseline',
-				'transport' => 'postMessage',
+				'default' => 'baseline',
 			],
 			'previous_style' => [
-				'default'   => 'baseline',
-				'transport' => 'postMessage',
+				'default' => 'baseline',
 			], // This setting does not have an associated control.
 		];
 
@@ -156,7 +154,7 @@ class Controls extends Module_Base {
 		* List of all the controls in the Theme section.
 		 */
 		$controls = [
-			'style'         => new Image_Radio_Control(
+			'style' => new Image_Radio_Control(
 				$this->wp_customize,
 				$this->prepend_slug( 'style' ),
 				[
@@ -186,46 +184,9 @@ class Controls extends Module_Base {
 					],
 				]
 			),
-			'primary_color' => [
-				'type'    => 'text',
-				'section' => 'style',
-				'label'   => __( 'Primary Color', 'material-theme-builder' ),
-			],
 		];
 
 		$this->add_controls( $controls );
-	}
-
-	/**
-	 * Get list of all the control settings in the Colors section.
-	 */
-	public function get_color_controls() {
-		return [
-			[
-				'id'                   => 'primary_color',
-				'label'                => __( 'Primary Color', 'material-theme-builder' ),
-				'related_text_setting' => $this->prepend_slug( 'primary_text_color' ),
-				'css_var'              => '--mdc-theme-primary',
-			],
-			[
-				'id'                   => 'secondary_color',
-				'label'                => __( 'Secondary Color', 'material-theme-builder' ),
-				'related_text_setting' => $this->prepend_slug( 'secondary_text_color' ),
-				'css_var'              => '--mdc-theme-secondary',
-			],
-			[
-				'id'              => 'primary_text_color',
-				'label'           => __( 'Text on Primary', 'material-theme-builder' ),
-				'related_setting' => $this->prepend_slug( 'primary_color' ),
-				'css_var'         => '--mdc-theme-on-primary',
-			],
-			[
-				'id'              => 'secondary_text_color',
-				'label'           => __( 'Text on Secondary', 'material-theme-builder' ),
-				'related_setting' => $this->prepend_slug( 'secondary_color' ),
-				'css_var'         => '--mdc-theme-on-secondary',
-			],
-		];
 	}
 
 	/**
@@ -234,25 +195,6 @@ class Controls extends Module_Base {
 	 * @return void
 	 */
 	public function add_color_controls() {
-		$settings = [
-			'primary_color'        => [
-				'sanitize_callback' => 'sanitize_hex_color',
-				'transport'         => 'postMessage',
-			],
-			'secondary_color'      => [
-				'sanitize_callback' => 'sanitize_hex_color',
-				'transport'         => 'postMessage',
-			],
-			'primary_text_color'   => [
-				'sanitize_callback' => 'sanitize_hex_color',
-				'transport'         => 'postMessage',
-			],
-			'secondary_text_color' => [
-				'sanitize_callback' => 'sanitize_hex_color',
-				'transport'         => 'postMessage',
-			],
-		];
-
 		/**
 		 * Generate list of all the settings in the colors section.
 		 */
@@ -261,7 +203,6 @@ class Controls extends Module_Base {
 		foreach ( $this->get_color_controls() as $control ) {
 			$settings[ $control['id'] ] = [
 				'sanitize_callback' => 'sanitize_hex_color',
-				'transport'         => 'postMessage',
 			];
 		}
 
@@ -305,6 +246,7 @@ class Controls extends Module_Base {
 				$defaults = [
 					'capability'        => 'edit_theme_options',
 					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'postMessage',
 					'default'           => $this->get_default( $id ),
 				];
 
@@ -421,6 +363,15 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Render custom templates.
+	 *
+	 * @action customize_controls_print_footer_scripts
+	 */
+	public function templates() {
+		Material_Color_Palette_Control::tabs_template();
+	}
+
+	/**
 	 * Get custom frontend CSS based on the customizer theme settings.
 	 */
 	public function get_frontend_css() {
@@ -439,15 +390,6 @@ class Controls extends Module_Base {
 		$color_vars = ":root {\n$color_vars}";
 
 		return $color_vars;
-	}
-
-	/**
-	 * Render custom templates.
-	 *
-	 * @action customize_controls_print_footer_scripts
-	 */
-	public function templates() {
-		Material_Color_Palette_Control::tabs_template();
 	}
 
 	/**
@@ -510,6 +452,38 @@ class Controls extends Module_Base {
 				'font_body'            => 'Rubik Regular',
 				'corner_styles'        => '4px',
 				'icon_collection'      => 'outlined',
+			],
+		];
+	}
+
+	/**
+	 * Get list of all the control settings in the Colors section.
+	 */
+	public function get_color_controls() {
+		return [
+			[
+				'id'                   => 'primary_color',
+				'label'                => __( 'Primary Color', 'material-theme-builder' ),
+				'related_text_setting' => $this->prepend_slug( 'primary_text_color' ),
+				'css_var'              => '--mdc-theme-primary',
+			],
+			[
+				'id'                   => 'secondary_color',
+				'label'                => __( 'Secondary Color', 'material-theme-builder' ),
+				'related_text_setting' => $this->prepend_slug( 'secondary_text_color' ),
+				'css_var'              => '--mdc-theme-secondary',
+			],
+			[
+				'id'              => 'primary_text_color',
+				'label'           => __( 'Text on Primary', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'primary_color' ),
+				'css_var'         => '--mdc-theme-on-primary',
+			],
+			[
+				'id'              => 'secondary_text_color',
+				'label'           => __( 'Text on Secondary', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'secondary_color' ),
+				'css_var'         => '--mdc-theme-on-secondary',
 			],
 		];
 	}
