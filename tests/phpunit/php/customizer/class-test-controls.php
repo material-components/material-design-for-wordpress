@@ -164,15 +164,16 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->any() )
+		$this->wp_customize->expects( $this->exactly( 2 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}_style" ) ]
+				[ $this->equalTo( "{$controls->slug}_style" ) ],
+				[ $this->equalTo( "{$controls->slug}_previous_style" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->any() )
+		$this->wp_customize->expects( $this->once() )
 			->method( 'add_control' )
 			->withConsecutive(
 				[
@@ -205,11 +206,13 @@ class Test_Controls extends \WP_UnitTestCase {
 				[
 					"{$controls->slug}_test_setting",
 				],
-				$this->callback(
-					function( $setting ) use ( $controls ) {
-						return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_style" === $setting->id;
-					}
-				)
+				[
+					$this->callback(
+						function( $setting ) use ( $controls ) {
+							return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_style" === $setting->id;
+						}
+					),
+				]
 			);
 
 		// first arg is an array of args
@@ -240,11 +243,13 @@ class Test_Controls extends \WP_UnitTestCase {
 				[
 					"{$controls->slug}_test_setting",
 				],
-				$this->callback(
-					function( $setting ) use ( $controls ) {
-						return $setting instanceof \WP_Customize_Control && "{$controls->slug}_style" === $setting->id;
-					}
-				)
+				[
+					$this->callback(
+						function( $setting ) use ( $controls ) {
+							return $setting instanceof \WP_Customize_Control && "{$controls->slug}_style" === $setting->id;
+						}
+					),
+				]
 			);
 
 		// first arg is an array of args
