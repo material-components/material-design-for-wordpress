@@ -197,7 +197,7 @@
 		// and update the corresponding control value.
 		Object.keys( defaults ).forEach( name => {
 			const value = defaults[ name ];
-			const control = api.control( `mtb_${ name }` );
+			const control = api.control( `${ mtb.slug }_${ name }` );
 
 			if ( value && control ) {
 				// Unbind the custom value change event.
@@ -227,6 +227,7 @@
 		if ( mtb.controls && Array.isArray( mtb.controls ) ) {
 			mtb.controls.forEach( name => {
 				api( name, setting => {
+					// Design style control has it's own change handler.
 					if ( mtb.styleControl === name ) {
 						return setting.bind( onStyleChange );
 					}

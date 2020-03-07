@@ -90,7 +90,7 @@ class Controls extends Module_Base {
 		];
 
 		foreach ( $sections as $id => $label ) {
-			$id = "{$this->slug}_{$id}";
+			$id = $this->prepend_slug( $id );
 
 			$args = [
 				'priority'   => 10,
@@ -148,7 +148,7 @@ class Controls extends Module_Base {
 		$controls = [
 			'style' => new Image_Radio_Control(
 				$this->wp_customize,
-				$this->slug . '_style',
+				$this->prepend_slug( 'style' ),
 				[
 					'section'  => 'style',
 					'priority' => 10,
@@ -190,7 +190,7 @@ class Controls extends Module_Base {
 	public function add_settings( $settings = [] ) {
 
 		foreach ( $settings as $id => $setting ) {
-			$id = "{$this->slug}_{$id}";
+			$id = $this->prepend_slug( $id );
 
 			if ( is_array( $setting ) ) {
 				$defaults = [
@@ -233,7 +233,7 @@ class Controls extends Module_Base {
 	public function add_controls( $controls = [] ) {
 
 		foreach ( $controls as $id => $control ) {
-			$id = "{$this->slug}_{$id}";
+			$id = $this->prepend_slug( $id );
 
 			/**
 			 * Filters the customizer control args.
@@ -279,9 +279,10 @@ class Controls extends Module_Base {
 			'material-theme-builder-customizer-js',
 			'mtb',
 			[
+				'slug'         => $this->slug,
 				'designStyles' => $this->get_design_styles(),
 				'controls'     => $this->added_controls,
-				'styleControl' => "{$this->slug}_style",
+				'styleControl' => $this->prepend_slug( 'style' ),
 				'l10n'         => [
 					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
 				],
@@ -318,7 +319,7 @@ class Controls extends Module_Base {
 	public function get_design_styles() {
 		return [
 			'baseline'    => [
-				'primary_color'        => '#6200EE',
+				'primary_color'        => '#6200ee',
 				'secondary_color'      => '#03dac6',
 				'primary_text_color'   => '#ffffff',
 				'secondary_text_color' => '#000000',
