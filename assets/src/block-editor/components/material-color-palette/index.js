@@ -1,12 +1,23 @@
 /**
+ * External dependencies
+ */
+import { map } from 'lodash';
+
+/**
  * WordPress dependencies.
  */
 import {
 	BaseControl,
 	ColorIndicator,
-	ColorPalette,
+	ColorPicker,
 } from '@wordpress/components';
-import { useRef, useLayoutEffect } from '@wordpress/element';
+import CircularOptionPicker, {
+	ButtonAction,
+	DropdownLinkAction,
+	Option,
+} from '../circular-option-picker';
+import { useCallback, useMemo } from '@wordpress/element';
+import { __, sprintf } from '@wordpress/i18n';
 
 /**
  * Internal dependencies.
@@ -14,31 +25,98 @@ import { useRef, useLayoutEffect } from '@wordpress/element';
 import MATERIAL_COLORS from '../../../common/material-colors';
 import './style.css';
 
-export default function MaterialColorPalette( { onChange, value, label } ) {
-	// Reference of the wrapper.
-	const wrapper = useRef( null );
-
-	useLayoutEffect( () => {
-		const node = wrapper.current;
-		const colors = node.querySelectorAll( '.components-color-palette > *' );
-
-		if ( 255 !== colors.length ) {
-			return;
-		}
-
-		// Insert <br> tags before end of each color group.
-		let j = 14;
-		for ( let i = j; i <= 245; i += j ) {
-			if ( i > 210 ) {
-				j = 10;
+const ColorPickerOption = ( { color, value, name, clearColor, onChange } ) => {
+	return (
+		<Option
+			isSelected={ value === color }
+			tooltipText={
+				name ||
+				// translators: %s: color hex code e.g: "#f00".
+				sprintf( __( 'Color code: %s' ), color )
 			}
+			style={ { backgroundColor: color, color } }
+			onClick={ value === color ? clearColor : () => onChange( color ) }
+			aria-label={
+				name
+					? // translators: %s: The name of the color e.g: "vivid red".
+					  sprintf( __( 'Color: %s' ), name )
+					: // translators: %s: color hex code e.g: "#f00".
+					  sprintf( __( 'Color code: %s' ), color )
+			}
+		/>
+	);
+};
 
-			colors[ i ].parentNode.insertBefore(
-				document.createElement( 'br' ),
-				colors[ i ]
-			);
-		}
-	}, [] );
+/**
+ * Determine if the index is at end of color range.
+ *
+ * @param {number} i Index of the color
+ */
+const isEndOfColor = i => {
+	// Each color has 14 shades, except the last 3 which only have 10 shades
+	// After index 233 just check for 233 and 243 for color endings.
+	return ( i < 233 && 0 === ( i + 1 ) % 14 ) || [ 233, 243 ].includes( i );
+};
+
+export default function MaterialColorPalette( {
+	clearable = true,
+	className,
+	disableCustomColors = false,
+	onChange,
+	value,
+	label,
+} ) {
+	const colors = [
+		{
+			color: '#6200ee',
+			name: __( 'Primary', 'material-theme-builder' ),
+		},
+		{
+			color: '#018786',
+			name: __( 'Secondary', 'material-theme-builder' ),
+		},
+	];
+
+	const clearColor = useCallback( () => onChange( undefined ), [ onChange ] );
+	const colorOptions = useMemo( () => {
+		return map( colors, ( { color, name } ) => (
+			<ColorPickerOption
+				key={ color }
+				color={ color }
+				value={ value }
+				name={ name }
+				clearColor={ clearColor }
+				onChange={ onChange }
+			/>
+		) );
+	}, [ value, onChange, clearColor ] );
+
+	// Generate material color palette.
+	const materialColorOptions = useCallback( () => {
+		return map( MATERIAL_COLORS, ( { color, name }, i ) => (
+			<>
+				<ColorPickerOption
+					color={ color }
+					value={ value }
+					name={ name }
+					clearColor={ clearColor }
+					onChange={ onChange }
+				/>
+				{ isEndOfColor( i ) && <br /> }
+			</>
+		) );
+	}, [ value, onChange, clearColor ] );
+
+	const renderCustomColorPicker = useCallback(
+		() => (
+			<ColorPicker
+				color={ value }
+				onChangeComplete={ color => onChange( color.hex ) }
+				disableAlpha
+			/>
+		),
+		[ value ]
+	);
 
 	return (
 		<BaseControl className="material-component-color-palette">
@@ -49,11 +127,51 @@ export default function MaterialColorPalette( { onChange, value, label } ) {
 				<ColorIndicator colorValue={ value } aria-label={ label } />
 			</BaseControl.VisualLabel>
 
-			<div className="material-colors-wrap" ref={ wrapper }>
-				<ColorPalette
-					colors={ MATERIAL_COLORS }
-					onChange={ onChange }
-					value={ value }
+			<div className="material-colors-wrap">
+				<CircularOptionPicker
+					className={ className }
+					options={ colorOptions }
+					actions={
+						<>
+							{ ! disableCustomColors && (
+								<>
+									<DropdownLinkAction
+										className="components-material-color-palette__link"
+										dropdownProps={ {
+											renderContent: materialColorOptions,
+											contentClassName:
+												'components-material-color-palette__picker',
+										} }
+										buttonProps={ {
+											'aria-label': __(
+												'Color palette',
+												'material-theme-builder'
+											),
+										} }
+										linkText={ __( 'Color palette', 'material-theme-builder' ) }
+									/>
+									<DropdownLinkAction
+										dropdownProps={ {
+											renderContent: renderCustomColorPicker,
+											contentClassName: 'components-color-palette__picker',
+										} }
+										buttonProps={ {
+											'aria-label': __(
+												'Custom color picker',
+												'material-theme-builder'
+											),
+										} }
+										linkText={ __( 'Custom Color', 'material-theme-builder' ) }
+									/>
+								</>
+							) }
+							{ !! clearable && (
+								<ButtonAction onClick={ clearColor }>
+									{ __( 'Clear', 'material-theme-builder' ) }
+								</ButtonAction>
+							) }
+						</>
+					}
 				/>
 			</div>
 		</BaseControl>
