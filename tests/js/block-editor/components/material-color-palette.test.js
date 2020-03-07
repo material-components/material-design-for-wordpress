@@ -26,26 +26,12 @@ describe( 'MaterialColorPalette', () => {
 		onChange.mockClear();
 	} );
 
-	it( 'should render 254 material color button options', () => {
-		expect( buttons ).toHaveLength( 254 );
-	} );
-
 	it( 'should render the label', () => {
 		const labelWrap = wrapper.find(
 			'.material-component-color-palette__label'
 		);
 		expect( labelWrap ).toHaveLength( 1 );
 		expect( labelWrap.text() ).toStrictEqual( label );
-	} );
-
-	it( 'should call onClick on an active button with undefined', () => {
-		const activeButton = buttons.findWhere( button =>
-			button.hasClass( 'is-pressed' )
-		);
-		activeButton.simulate( 'click' );
-
-		expect( onChange ).toHaveBeenCalledTimes( 1 );
-		expect( onChange ).toHaveBeenCalledWith( undefined );
 	} );
 
 	it( 'should call onClick on an inactive button', () => {
