@@ -32,7 +32,7 @@
     "@material/card": "^5.0.0",
     "@material/layout-grid": "^5.0.0",
     "@material/ripple": "^5.0.0",
-    "@material/typography": "^5.0.0",
+    "@material/typography": "^5.1.0",
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.4.1",
     "@wordpress/block-editor": "3.7.0",

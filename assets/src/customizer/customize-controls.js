@@ -432,7 +432,10 @@ import colorUtils from '../common/color-utils';
 		}
 
 		// If a style is selected from custom, show confirm dialogue.
-		if ( 'custom' === oldValue && ! window.confirm( mtb.l10n.confirmChange ) ) { // eslint-disable-line
+		if (
+			'custom' === oldValue &&
+			! window.confirm( mtb.l10n.confirmChange ) // eslint-disable-line
+		) {
 			api.control( mtb.styleControl ).setting.set( oldValue );
 			return;
 		}

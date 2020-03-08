@@ -265,6 +265,7 @@ class Controls extends Module_Base {
 					'section'  => 'typography',
 					'priority' => 10,
 					'label'    => $control['label'],
+					'css_vars' => $control['css_vars'],
 				]
 			);
 		}
@@ -399,16 +400,12 @@ class Controls extends Module_Base {
 		$font_families = [ 'Material+Icons' ];
 
 		foreach ( $this->get_typography_controls() as $control ) {
-			$value = get_theme_mod( $this->prepend_slug( $control['id'] ) );
-
-			if ( empty( $value ) ) {
-				$value = $this->get_default( $control['id'] );
-			}
+			$value = $this->get_theme_mod( $control['id'] );
 
 			$font_families[] = str_replace( ' ', '+', $value );
 		}
 
-		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/icon' );
+		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
 
 	}
 
@@ -440,21 +437,28 @@ class Controls extends Module_Base {
 	 * Get custom frontend CSS based on the customizer theme settings.
 	 */
 	public function get_frontend_css() {
-		$color_vars = '';
+		$color_vars   = '';
+		$font_vars    = '';
+		$google_fonts = Google_Fonts::get_fonts();
 
 		foreach ( $this->get_color_controls() as $control ) {
-			$value = get_theme_mod( $this->prepend_slug( $control['id'] ) );
+			$value = $this->get_theme_mod( $control['id'] );
 
-			if ( empty( $value ) ) {
-				$value = $this->get_default( $control['id'] );
-			}
-
-			$color_vars .= "\t{$control['css_var']}: $value;\n";
+			$color_vars .= esc_html( "\t{$control['css_var']}: $value;\n" );
 		}
 
-		$color_vars = ":root {\n$color_vars}";
+		foreach ( $this->get_typography_controls() as $control ) {
+			$value    = $this->get_theme_mod( $control['id'] );
+			$fallback = array_key_exists( $value, $google_fonts ) ? $google_fonts[ $value ]['category'] : 'sans-serif';
 
-		return $color_vars;
+			if ( ! empty( $control['css_vars']['family'] ) ) {
+				foreach ( $control['css_vars']['family'] as $var ) {
+					$font_vars .= esc_html( "\t{$var}: {$value}, {$fallback};\n" );
+				}
+			}
+		}
+
+		return ":root {\n{$color_vars}}\nhtml {\n{$font_vars}}";
 	}
 
 	/**
@@ -522,24 +526,6 @@ class Controls extends Module_Base {
 	}
 
 	/**
-	 * Get list of all the control settings in the Typography section.
-	 *
-	 * @return array
-	 */
-	public function get_typography_controls() {
-		return [
-			[
-				'id'    => 'head_font_family',
-				'label' => __( 'Headlines & Subtitles', 'material-theme-builder' ),
-			],
-			[
-				'id'    => 'body_font_family',
-				'label' => __( 'Body & Captions', 'material-theme-builder' ),
-			],
-		];
-	}
-
-	/**
 	 * Get list of all the control settings in the Colors section.
 	 */
 	public function get_color_controls() {
@@ -572,6 +558,45 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Get list of all the control settings in the Typography section.
+	 *
+	 * @return array
+	 */
+	public function get_typography_controls() {
+		return [
+			[
+				'id'       => 'head_font_family',
+				'label'    => __( 'Headlines & Subtitles', 'material-theme-builder' ),
+				'css_vars' => [
+					'family' => [
+						'--mdc-typography-headline1-font-family',
+						'--mdc-typography-headline2-font-family',
+						'--mdc-typography-headline3-font-family',
+						'--mdc-typography-headline4-font-family',
+						'--mdc-typography-headline5-font-family',
+						'--mdc-typography-headline6-font-family',
+						'--mdc-typography-subtitle1-font-family',
+						'--mdc-typography-subtitle2-font-family',
+					],
+				],
+			],
+			[
+				'id'       => 'body_font_family',
+				'label'    => __( 'Body & Captions', 'material-theme-builder' ),
+				'css_vars' => [
+					'family' => [
+						'--mdc-typography-body1-font-family',
+						'--mdc-typography-body2-font-family',
+						'--mdc-typography-caption-font-family',
+						'--mdc-typography-button-font-family',
+						'--mdc-typography-overline-font-family',
+					],
+				],
+			],
+		];
+	}
+
+	/**
 	 * Prepend the slug name if it does not exist.
 	 *
 	 * @param  string $name The name of the setting/control.
@@ -579,5 +604,21 @@ class Controls extends Module_Base {
 	 */
 	public function prepend_slug( $name ) {
 		return false === strpos( $name, "{$this->slug}_" ) ? "{$this->slug}_{$name}" : $name;
+	}
+
+	/**
+	 * Get theme mod with fallback to the default value.
+	 *
+	 * @param  string $name Name of the mod.
+	 * @return mixed
+	 */
+	public function get_theme_mod( $name ) {
+		$value = get_theme_mod( $this->prepend_slug( $name ) );
+
+		if ( empty( $value ) ) {
+			$value = $this->get_default( $name );
+		}
+
+		return $value;
 	}
 }
