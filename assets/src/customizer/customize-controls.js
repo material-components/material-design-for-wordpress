@@ -8,6 +8,8 @@
  * @since 1.0.0
  */
 
+import 'select-woo';
+
 ( ( $, api ) => {
 	/**
 	 * Collapse a DOM node by animating it's height to 0.
@@ -59,6 +61,12 @@
 	 * Extend wp.customize.Section as a collapsible section
 	 */
 	api.CollapsibleSection = api.Section.extend( {
+		defaultExpandedArguments: $.extend(
+			{},
+			api.Section.defaultExpandedArguments,
+			{ allowMultiple: true }
+		),
+
 		/**
 		 * wp.customize.CollapsibleSection
 		 *
@@ -77,6 +85,14 @@
 
 			// Move the section to it's parent panel.
 			section.headContainer.append( $( '#sub-accordion-section-' + id ) );
+
+			if ( section.panel && section.panel() ) {
+				const panel = api.panel( section.panel() );
+
+				if ( panel ) {
+					panel.container.last().addClass( 'control-section-collapse-parent' );
+				}
+			}
 		},
 
 		/**
@@ -236,5 +252,22 @@
 				} );
 			} );
 		}
+
+		$( '.customize-control-google-fonts-wrap select' ).each( ( i, select ) => {
+			const $select = $( select );
+
+			// On value change, trigger a `change` event so select2 can update the selected dropdown option.
+			api( select.id ).bind( value => {
+				$select.val( value ).trigger( 'change' );
+			} );
+
+			$select
+				.selectWoo( {
+					data: mtb.googleFonts,
+					width: '100%',
+				} )
+				.val( $select.data( 'value' ) )
+				.trigger( 'change' );
+		} );
 	} );
 } )( jQuery, wp.customize );

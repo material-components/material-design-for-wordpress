@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
+use MaterialThemeBuilder\Google_Fonts;
 
 /**
  * Class Controls.
@@ -53,6 +54,9 @@ class Controls extends Module_Base {
 
 		// Add all controls in the "Theme" section.
 		$this->add_theme_controls();
+
+		// Add all controls in the "Typography" section.
+		$this->add_typography_controls();
 	}
 
 	/**
@@ -182,6 +186,43 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Add all controls in the "Typography" section.
+	 *
+	 * @return void
+	 */
+	public function add_typography_controls() {
+		/**
+		 * Generate list of all the settings in the Typography section.
+		 */
+		$settings = [];
+
+		foreach ( $this->get_typography_controls() as $control ) {
+			$settings[ $control['id'] ] = [];
+		}
+
+		$this->add_settings( $settings );
+
+		/**
+		* Generate list of all the controls in the Typography section.
+		 */
+		$controls = [];
+
+		foreach ( $this->get_typography_controls() as $control ) {
+			$controls[ $control['id'] ] = new Google_Fonts_Control(
+				$this->wp_customize,
+				$this->prepend_slug( $control['id'] ),
+				[
+					'section'  => 'typography',
+					'priority' => 10,
+					'label'    => $control['label'],
+				]
+			);
+		}
+
+		$this->add_controls( $controls );
+	}
+
+	/**
 	 * Add settings to customizer.
 	 *
 	 * @param  array $settings Array of settings to add to customizer.
@@ -286,6 +327,7 @@ class Controls extends Module_Base {
 				'l10n'         => [
 					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
 				],
+				'googleFonts'  => Google_Fonts::get_font_choices(),
 			]
 		);
 
@@ -295,6 +337,27 @@ class Controls extends Module_Base {
 			[],
 			$this->plugin->asset_version()
 		);
+	}
+
+	/**
+	 * Get Google Fonts CDN URL to be enqueued based on the selected settings.
+	 *
+	 * @return string
+	 */
+	public function get_google_fonts_url() {
+		$font_families = [ 'Material+Icons' ];
+
+		foreach ( $this->get_typography_controls() as $control ) {
+			$value = get_theme_mod( $this->prepend_slug( $control['id'] ) );
+
+			if ( empty( $value ) ) {
+				$value = $this->get_default( $control['id'] );
+			}
+
+			$font_families[] = str_replace( ' ', '+', $value );
+		}
+
+		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/icon' );
 	}
 
 	/**
@@ -323,8 +386,8 @@ class Controls extends Module_Base {
 				'secondary_color'      => '#03dac6',
 				'primary_text_color'   => '#ffffff',
 				'secondary_text_color' => '#000000',
-				'font_headlines'       => 'Roboto',
-				'font_body'            => 'Roboto',
+				'head_font_family'     => 'Roboto',
+				'body_font_family'     => 'Roboto',
 				'corner_styles'        => '4px',
 				'icon_collection'      => 'filled',
 			],
@@ -333,8 +396,8 @@ class Controls extends Module_Base {
 				'secondary_color'      => '#e30425',
 				'primary_text_color'   => '#ffffff',
 				'secondary_text_color' => '#ffffff',
-				'font_headlines'       => 'Raleway Light',
-				'font_body'            => 'Raleway Semi-Bold',
+				'head_font_family'     => 'Raleway',
+				'body_font_family'     => 'Raleway',
 				'corner_styles'        => '4',
 				'icon_collection'      => 'outlined',
 			],
@@ -343,8 +406,8 @@ class Controls extends Module_Base {
 				'secondary_color'      => '#6b38fb',
 				'primary_text_color'   => '#000000',
 				'secondary_text_color' => '#ffffff',
-				'font_headlines'       => 'Merriweather Black Italic',
-				'font_body'            => 'Merriweather Regular',
+				'head_font_family'     => 'Merriweather',
+				'body_font_family'     => 'Merriweather',
 				'corner_styles'        => '0',
 				'icon_collection'      => 'outlined',
 			],
@@ -353,10 +416,28 @@ class Controls extends Module_Base {
 				'secondary_color'      => '#feeae6',
 				'primary_text_color'   => '#000000',
 				'secondary_text_color' => '#000000',
-				'font_headlines'       => 'Rubik Light',
-				'font_body'            => 'Rubik Regular',
+				'head_font_family'     => 'Rubik',
+				'body_font_family'     => 'Rubik',
 				'corner_styles'        => '4px',
 				'icon_collection'      => 'outlined',
+			],
+		];
+	}
+
+	/**
+	 * Get list of all the control settings in the Typography section.
+	 *
+	 * @return array
+	 */
+	public function get_typography_controls() {
+		return [
+			[
+				'id'    => 'head_font_family',
+				'label' => __( 'Headlines & Subtitles', 'material-theme-builder' ),
+			],
+			[
+				'id'    => 'body_font_family',
+				'label' => __( 'Body & Captions', 'material-theme-builder' ),
 			],
 		];
 	}
