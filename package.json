@@ -93,6 +93,7 @@
     "react-masonry-css": "^1.0.14",
     "rtlcss": "2.5.0",
     "rtlcss-webpack-plugin": "4.0.3",
+    "select-woo": "^1.0.1",
     "semver": "7.1.2",
     "source-map-loader": "0.2.4",
     "svg-inline-loader": "0.8.0",

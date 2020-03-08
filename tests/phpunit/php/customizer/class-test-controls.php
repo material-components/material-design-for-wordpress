@@ -189,6 +189,42 @@ class Test_Controls extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test for add_typography_controls() method.
+	 *
+	 * @see Controls::add_typography_controls()
+	 */
+	public function test_add_typography_controls() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Set $wp_customize to the mocked object.
+		$controls->wp_customize = $this->wp_customize;
+
+		// Set up the expectation for the add_setting() method
+		// to be called.
+		$this->wp_customize->expects( $this->exactly( 2 ) )
+			->method( 'add_setting' )
+			->withConsecutive(
+				[ $this->equalTo( "{$controls->slug}_head_font_family" ) ],
+				[ $this->equalTo( "{$controls->slug}_body_font_family" ) ]
+			);
+
+		// Set up the expectation for the add_control() method
+		// to be called.
+		$this->wp_customize->expects( $this->exactly( 2 ) )
+			->method( 'add_control' )
+			->withConsecutive(
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				]
+			);
+
+		$controls->add_typography_controls();
+	}
+
+	/**
 	 * Test for add_settings() method.
 	 *
 	 * @see Controls::add_settings()
@@ -275,6 +311,35 @@ class Test_Controls extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test for get_google_fonts_url() method.
+	 *
+	 * @see Controls::get_google_fonts_url()
+	 */
+	public function test_get_google_fonts_url() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Assert we get default material icons and Roboto font.
+		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/icon?family=Material+Icons|Roboto' );
+
+		// Add filters to return `Raleway` for headings and `Open Sans` for body.
+		add_filter(
+			"theme_mod_{$controls->slug}_head_font_family",
+			function() {
+				return 'Raleway';
+			} 
+		);
+		add_filter(
+			"theme_mod_{$controls->slug}_body_font_family",
+			function() {
+				return 'Open Sans';
+			} 
+		);
+
+		// Assert we get updated fonts.
+		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/icon?family=Material+Icons|Raleway|Open+Sans' );
+	}
+
+	/**
 	 * Test for get_default() method.
 	 *
 	 * @see Controls::get_default()
@@ -284,7 +349,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$baseline = $controls->get_design_styles()['baseline'];
 
 		$this->assertEquals( $controls->get_default( 'primary_color' ), $baseline['primary_color'] );
-		$this->assertEquals( $controls->get_default( 'font_headlines' ), $baseline['font_headlines'] );
+		$this->assertEquals( $controls->get_default( 'head_font_family' ), $baseline['head_font_family'] );
 	}
 
 	/**

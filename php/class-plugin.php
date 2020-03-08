@@ -97,9 +97,10 @@ class Plugin extends Plugin_Base {
 			true
 		);
 
+		$fonts_url = $this->customizer_controls->get_google_fonts_url();
 		wp_enqueue_style(
-			'material-icons-css',
-			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
+			'material-google-fonts-cdn',
+			esc_url( $fonts_url ),
 			[],
 			$this->asset_version()
 		);
