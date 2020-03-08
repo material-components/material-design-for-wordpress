@@ -20,6 +20,13 @@ class Google_Fonts_Control extends \WP_Customize_Control {
 	public $type = 'google-fonts';
 
 	/**
+	 * List of CSS vars.
+	 *
+	 * @var array
+	 */
+	public $css_vars = [];
+
+	/**
 	 * Displays the control content.
 	 *
 	 * @access public
@@ -38,5 +45,13 @@ class Google_Fonts_Control extends \WP_Customize_Control {
 			<select data-value="<?php echo esc_attr( $this->value() ); ?>" name="<?php echo esc_attr( $this->id ); ?>" id="<?php echo esc_attr( $this->id ); ?>" <?php $this->link(); ?>></select>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Add our custom args for JSON output as params.
+	 */
+	public function to_json() {
+		parent::to_json();
+		$this->json['cssVars'] = ! empty( $this->css_vars ) ? $this->css_vars : [];
 	}
 }

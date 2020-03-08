@@ -327,7 +327,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
 
 		// Assert we get default material icons and Roboto font.
-		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/icon?family=Material+Icons|Roboto' );
+		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Roboto' );
 
 		// Add filters to return `Raleway` for headings and `Open Sans` for body.
 		add_filter(
@@ -344,7 +344,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		);
 
 		// Assert we get updated fonts.
-		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/icon?family=Material+Icons|Raleway|Open+Sans' );
+		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway|Open+Sans' );
 	}
 
 	/**

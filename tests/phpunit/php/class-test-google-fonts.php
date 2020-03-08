@@ -27,7 +27,7 @@ class Test_Google_Fonts extends \WP_UnitTestCase {
 			Google_Fonts::get_fonts(),
 			[
 				'Raleway' => [],
-			] 
+			]
 		);
 
 		Google_Fonts::$list = [];
@@ -49,7 +49,7 @@ class Test_Google_Fonts extends \WP_UnitTestCase {
 			[
 				'id'   => 'Raleway',
 				'text' => 'Raleway',
-			] 
+			]
 		);
 	}
 }
