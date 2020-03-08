@@ -9,6 +9,8 @@ namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Google_Fonts;
+use MaterialThemeBuilder\Customizer\Image_Radio_Control;
+use MaterialThemeBuilder\Customizer\Material_Color_Palette_Control;
 
 /**
  * Class Controls.
@@ -46,6 +48,9 @@ class Controls extends Module_Base {
 	public function register( $wp_customize ) {
 		$this->wp_customize = $wp_customize;
 
+		// Register custom control types.
+		$this->wp_customize->register_control_type( Material_Color_Palette_Control::class );
+
 		// Add the panel.
 		$this->add_panel();
 
@@ -54,6 +59,9 @@ class Controls extends Module_Base {
 
 		// Add all controls in the "Theme" section.
 		$this->add_theme_controls();
+
+		// Add all controls in the "Colors" section.
+		$this->add_color_controls();
 
 		// Add all controls in the "Typography" section.
 		$this->add_typography_controls();
@@ -186,6 +194,48 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Add all controls in the "Colors" section.
+	 *
+	 * @return void
+	 */
+	public function add_color_controls() {
+		/**
+		 * Generate list of all the settings in the colors section.
+		 */
+		$settings = [];
+
+		foreach ( $this->get_color_controls() as $control ) {
+			$settings[ $control['id'] ] = [
+				'sanitize_callback' => 'sanitize_hex_color',
+			];
+		}
+
+		$this->add_settings( $settings );
+
+		/**
+		* Generate list of all the controls in the colors section.
+		*/
+		$controls = [];
+
+		foreach ( $this->get_color_controls() as $control ) {
+			$controls[ $control['id'] ] = new Material_Color_Palette_Control(
+				$this->wp_customize,
+				$this->prepend_slug( $control['id'] ),
+				[
+					'label'                => $control['label'],
+					'section'              => 'colors',
+					'priority'             => 10,
+					'related_text_setting' => ! empty( $control['related_text_setting'] ) ? $control['related_text_setting'] : false,
+					'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] : false,
+					'css_var'              => $control['css_var'],
+				]
+			);
+		}
+
+		$this->add_controls( $controls );
+	}
+
+	/**
 	 * Add all controls in the "Typography" section.
 	 *
 	 * @return void
@@ -204,7 +254,7 @@ class Controls extends Module_Base {
 
 		/**
 		* Generate list of all the controls in the Typography section.
-		 */
+		*/
 		$controls = [];
 
 		foreach ( $this->get_typography_controls() as $control ) {
@@ -237,6 +287,7 @@ class Controls extends Module_Base {
 				$defaults = [
 					'capability'        => 'edit_theme_options',
 					'sanitize_callback' => 'sanitize_text_field',
+					'transport'         => 'postMessage',
 					'default'           => $this->get_default( $id ),
 				];
 
@@ -311,7 +362,7 @@ class Controls extends Module_Base {
 		wp_enqueue_script(
 			'material-theme-builder-customizer-js',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
-			[ 'customize-controls', 'jquery' ],
+			[ 'customize-controls', 'jquery', 'wp-element', 'wp-components' ],
 			$this->plugin->asset_version(),
 			false
 		);
@@ -334,7 +385,7 @@ class Controls extends Module_Base {
 		wp_enqueue_style(
 			'material-theme-builder-customizer-css',
 			$this->plugin->asset_url( 'assets/css/customize-controls-compiled.css' ),
-			[],
+			[ 'wp-components' ],
 			$this->plugin->asset_version()
 		);
 	}
@@ -358,6 +409,52 @@ class Controls extends Module_Base {
 		}
 
 		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/icon' );
+
+	}
+
+	/**
+	 * Enqueue Customizer preview scripts.
+	 *
+	 * @action customize_preview_init
+	 */
+	public function preview_scripts() {
+		wp_enqueue_script(
+			'material-theme-builder-customizer-preview-js',
+			$this->plugin->asset_url( 'assets/js/customize-preview.js' ),
+			[ 'customize-controls', 'jquery' ],
+			$this->plugin->asset_version(),
+			false
+		);
+	}
+
+	/**
+	 * Render custom templates.
+	 *
+	 * @action customize_controls_print_footer_scripts
+	 */
+	public function templates() {
+		Material_Color_Palette_Control::tabs_template();
+	}
+
+	/**
+	 * Get custom frontend CSS based on the customizer theme settings.
+	 */
+	public function get_frontend_css() {
+		$color_vars = '';
+
+		foreach ( $this->get_color_controls() as $control ) {
+			$value = get_theme_mod( $this->prepend_slug( $control['id'] ) );
+
+			if ( empty( $value ) ) {
+				$value = $this->get_default( $control['id'] );
+			}
+
+			$color_vars .= "\t{$control['css_var']}: $value;\n";
+		}
+
+		$color_vars = ":root {\n$color_vars}";
+
+		return $color_vars;
 	}
 
 	/**
@@ -438,6 +535,38 @@ class Controls extends Module_Base {
 			[
 				'id'    => 'body_font_family',
 				'label' => __( 'Body & Captions', 'material-theme-builder' ),
+			],
+		];
+	}
+
+	/**
+	 * Get list of all the control settings in the Colors section.
+	 */
+	public function get_color_controls() {
+		return [
+			[
+				'id'                   => 'primary_color',
+				'label'                => __( 'Primary Color', 'material-theme-builder' ),
+				'related_text_setting' => $this->prepend_slug( 'primary_text_color' ),
+				'css_var'              => '--mdc-theme-primary',
+			],
+			[
+				'id'                   => 'secondary_color',
+				'label'                => __( 'Secondary Color', 'material-theme-builder' ),
+				'related_text_setting' => $this->prepend_slug( 'secondary_text_color' ),
+				'css_var'              => '--mdc-theme-secondary',
+			],
+			[
+				'id'              => 'primary_text_color',
+				'label'           => __( 'Text on Primary', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'primary_color' ),
+				'css_var'         => '--mdc-theme-on-primary',
+			],
+			[
+				'id'              => 'secondary_text_color',
+				'label'           => __( 'Text on Secondary', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'secondary_color' ),
+				'css_var'         => '--mdc-theme-on-secondary',
 			],
 		];
 	}

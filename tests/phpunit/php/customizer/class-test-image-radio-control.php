@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Controls class.
+ * Tests for Image_Radio_Control class.
  *
  * @package MaterialThemeBuilder
  */

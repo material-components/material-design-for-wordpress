@@ -8,7 +8,22 @@
  * @since 1.0.0
  */
 
+/**
+ * External dependencies
+ */
 import 'select-woo';
+
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+import { render } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
+import MaterialColorPalette from '../block-editor/components/material-color-palette';
+import colorUtils from '../common/color-utils';
 
 ( ( $, api ) => {
 	/**
@@ -50,8 +65,18 @@ import 'select-woo';
 		// get the height of the element's inner content, regardless of its actual size
 		const sectionHeight = element.scrollHeight + 2;
 
+		const removeEvent = () => {
+			element.style.height = 'auto';
+
+			// remove this event listener so it only gets triggered once
+			element.removeEventListener( 'transitionend', removeEvent );
+		};
+
 		// have the element transition to the height of its inner content
 		element.style.height = sectionHeight + 'px';
+
+		// when the next css transition finishes (which should be the one we just triggered)
+		element.addEventListener( 'transitionend', removeEvent );
 
 		// mark the section as "currently not collapsed"
 		element.setAttribute( 'data-collapsed', 'false' );
@@ -183,6 +208,211 @@ import 'select-woo';
 	 */
 	$.extend( api.sectionConstructor, {
 		collapse: api.CollapsibleSection,
+	} );
+
+	api.MaterialColorControl = api.ColorControl.extend( {
+		template: wp.template( 'customize-control-material_color-tabs' ),
+		accessibilityTemplate: wp.template(
+			'customize-control-material_color-accessibility'
+		),
+
+		/**
+		 * Callback when the control is ready and inserted into DOM.
+		 */
+		ready() {
+			const control = this;
+
+			api.ColorControl.prototype.ready.call( control );
+
+			const picker = control.container.find( '.wp-picker-holder' );
+			const container = control.container.find( '.wp-picker-container' );
+
+			// Append the tabs markup to container.
+			container.append( control.template( { id: control.id } ) );
+
+			// Move picker to the custom tab.
+			container.find( '.tab-custom' ).append( picker );
+
+			// Add the tab links click event to show/hide tab content.
+			container.find( '.mtb-tab-link' ).on( 'click', event => {
+				event.preventDefault();
+
+				const link = $( event.target );
+				const targetId = link
+					.attr( 'href' )
+					.split( '#' )
+					.pop();
+
+				container.find( '.active' ).removeClass( 'active' );
+
+				container.find( `#${ targetId }` ).addClass( 'active' );
+				link.addClass( 'active' );
+			} );
+
+			// Render the material palette component with accessibility warnings.
+			control.renderPaletteWithAccessibilityWarnings();
+
+			control.setting.bind( value => {
+				// Re-render the material palette component and accessibility warnings if the color is updated.
+				control.renderPaletteWithAccessibilityWarnings( value );
+			} );
+
+			const colorToggler = container.find( '.wp-color-result' ),
+				colorInput = container.find( '.wp-color-picker' );
+
+			// Add our own custom color picker open/close events.
+			colorToggler.off( 'click' ).on( 'click', () => {
+				if ( colorToggler.hasClass( 'wp-picker-open' ) ) {
+					colorInput.data( 'wpWpColorPicker' ).close();
+				} else {
+					colorInput.data( 'wpWpColorPicker' ).open();
+
+					// Render the material palette component with accessibility warnings.
+					control.renderPaletteWithAccessibilityWarnings();
+				}
+			} );
+
+			// Remove the `click.wpcolorpicker` event and add our own.
+			container
+				.off( 'click.wpcolorpicker' )
+				.on( 'click.wpcolorpicker', event => {
+					// Stop prpagation only if the click is not from a material color select
+					// react will handle the event propagation.
+					if (
+						event.originalEvent &&
+						event.originalEvent.target &&
+						event.originalEvent.target.classList.contains( 'components-button' )
+					) {
+						// Remove the body click event and add it back after a second.
+						$( 'body' ).off( 'click.wpcolorpicker' );
+						setTimeout(
+							() =>
+								$( 'body' ).on(
+									'click.wpcolorpicker',
+									colorInput.data( 'wpWpColorPicker' ).close
+								),
+							500
+						);
+						return true;
+					}
+
+					event.stopPropagation();
+				} );
+
+			// Activate the first tab.
+			container
+				.find( '.mtb-tab-link' )
+				.first()
+				.trigger( 'click' );
+		},
+
+		/**
+		 * Render the `MaterialColorPalette` component in the palette tab.
+		 *
+		 * @param {string} selectedColor
+		 */
+		renderMaterialPalette( selectedColor = false ) {
+			const control = this;
+			render(
+				<MaterialColorPalette
+					value={ selectedColor || control.setting.get() }
+					onChange={ newValue => {
+						control.setting.set( newValue );
+						control.setting._dirty = true;
+					} }
+					materialColorsOnly={ true }
+				/>,
+				control.container.find( '.tab-palette' ).get( 0 )
+			);
+		},
+
+		/**
+		 * Render accessibility warnings for a color.
+		 *
+		 * @param {string} selectedColor Hex code of the selected color.
+		 */
+		renderAccessibilityWarnings( selectedColor = false ) {
+			const control = this,
+				colors = [];
+
+			selectedColor = selectedColor || control.setting.get();
+
+			let color,
+				textColor,
+				colorRange,
+				isText = true;
+			const textColorLabel =
+				-1 !== control.id.indexOf( 'primary' )
+					? __( 'primary', 'material-theme-builder' )
+					: __( 'secondary', 'material-theme-builder' );
+
+			if ( control.params.relatedTextSetting ) {
+				color = selectedColor;
+				textColor = api( control.params.relatedTextSetting ).get();
+				colorRange = colorUtils.generateColorFromHex( selectedColor );
+				isText = false;
+			} else {
+				textColor = selectedColor;
+				color = api( control.params.relatedSetting ).get();
+				colorRange = colorUtils.generateColorFromHex( color );
+			}
+
+			const colorRanges = [
+				{
+					color,
+					name: control.params.label,
+				},
+				{
+					color: colorRange.range.light.hex,
+					name: __( 'Light variation', 'material-theme-builder' ),
+				},
+				{
+					color: colorRange.range.dark.hex,
+					name: __( 'Dark variation', 'material-theme-builder' ),
+				},
+			];
+
+			colorRanges.forEach( ( { color: colorHex, name }, i ) => {
+				// For text color ignore light and dark variations.
+				if ( isText && 0 !== i ) {
+					return;
+				}
+
+				colors.push(
+					colorUtils.getColorAccessibility(
+						colorHex,
+						name,
+						textColor,
+						textColorLabel,
+						isText
+					)
+				);
+			} );
+
+			control.container
+				.find( '.mtb-accessibility' )
+				.html( control.accessibilityTemplate( { colors } ) );
+		},
+
+		/**
+		 * Render the material palette and the accessibility warnings.
+		 *
+		 * @param {string} selectedColor Hex code of the selected color.
+		 */
+		renderPaletteWithAccessibilityWarnings( selectedColor = false ) {
+			// Render the material palette component.
+			this.renderMaterialPalette( selectedColor );
+
+			// Render the accessibility warnings.
+			this.renderAccessibilityWarnings( selectedColor );
+		},
+	} );
+
+	/**
+	 * Extends wp.customize.controlConstructor with material color constructor.
+	 */
+	$.extend( api.controlConstructor, {
+		material_color: api.MaterialColorControl,
 	} );
 
 	/**
