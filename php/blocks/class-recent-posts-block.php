@@ -26,7 +26,7 @@ class Recent_Posts_Block extends Posts_List_Blocks_Base {
 
 		$this->block_extra_attributes = [
 			'category' => [
-				'type' => 'number',
+				'type' => 'string',
 			],
 		];
 	}
