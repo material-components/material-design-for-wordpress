@@ -6,7 +6,7 @@ import { debounce } from 'lodash';
 /**
  * WordPress dependencies
  */
-import { Component } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import { createHigherOrderComponent } from '@wordpress/compose';
 
 /**
@@ -20,6 +20,7 @@ import { getPosts } from '../utils/api';
  * from a search query.
  *
  * This has been heavily inspired from https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/master/assets/js/hocs/with-searched-products.js
+ * and the Wrapped Component has been re-written as a functional component.
  *
  * @param {Function} OriginalComponent Component being wrapped.
  */
@@ -27,70 +28,74 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 	/**
 	 * A Component wrapping the passed in component.
 	 *
-	 * @todo Refector into a functional component.
-	 *
 	 * @class WrappedComponent
-	 * @augments {Component}
+	 * @param {Object} props - Component props.
+	 * @param {Array} props.selected - Selected Posts Ids
 	 */
-	class WrappedComponent extends Component {
-		constructor() {
-			super( ...arguments );
-			this.state = {
-				list: [],
-				loading: true,
-			};
-			this.setError = this.setError.bind( this );
-			this.debouncedOnSearch = debounce( this.onSearch.bind( this ), 400 );
-		}
+	const WrappedComponent = props => {
+		const [ list, setList ] = useState( [] );
+		const [ loading, setLoading ] = useState( true );
+		const [ error, setErrorState ] = useState();
 
-		componentDidMount() {
-			const { selected } = this.props;
-			getPosts( { selected } )
-				.then( list => {
-					this.setState( { list, loading: false } );
-				} )
-				.catch( this.setError );
-		}
-
-		componentWillUnmount() {
-			this.debouncedOnSearch.cancel();
-		}
-
-		onSearch( search ) {
-			const { selected } = this.props;
+		/**
+		 * On search handler.
+		 *
+		 * @param {string} search - Search
+		 */
+		const onSearch = search => {
+			const { selected } = props;
 
 			getPosts( { selected, search } )
-				.then( list => {
-					this.setState( { list, loading: false } );
+				.then( fetchedList => {
+					setList( fetchedList );
+					setLoading( false );
 				} )
-				.catch( this.setError );
-		}
+				.catch( setError );
+		};
 
-		async setError( e ) {
-			const error = await formatError( e );
+		/**
+		 * Set error handler.
+		 *
+		 * @param {Object} e - Error
+		 */
+		const setError = async e => {
+			const formattedError = await formatError( e );
+			setList( [] );
+			setLoading( false );
+			setErrorState( formattedError );
+		};
 
-			this.setState( { list: [], loading: false, error } );
-		}
+		const debouncedOnSearch = debounce( onSearch, 400 );
 
-		render() {
-			const { error, list, loading } = this.state;
-			const transformedList = list.map( ( { id, title } ) => {
-				return { id, name: title.rendered };
-			} );
-			return (
-				<OriginalComponent
-					{ ...this.props }
-					error={ error }
-					posts={ transformedList }
-					isLoading={ loading }
-					onSearch={ search => {
-						this.setState( { loading: true } );
-						this.debouncedOnSearch( search );
-					} }
-				/>
-			);
-		}
-	}
+		const transformedList = list.map( ( { id, title } ) => {
+			return { id, name: title.rendered };
+		} );
+
+		useEffect( () => {
+			const { selected } = props;
+			getPosts( { selected } )
+				.then( fetchedList => {
+					setList( fetchedList );
+					setLoading( false );
+				} )
+				.catch( setError );
+
+			debouncedOnSearch.cancel();
+		}, [] );
+
+		return (
+			<OriginalComponent
+				{ ...props }
+				error={ error }
+				posts={ transformedList }
+				isLoading={ loading }
+				onSearch={ search => {
+					setLoading( true );
+					debouncedOnSearch( search );
+				} }
+			/>
+		);
+	};
 
 	return WrappedComponent;
 }, 'withSearchedPosts' );
