@@ -6,7 +6,7 @@ import Masonry from 'react-masonry-css';
 /**
  * Internal dependencies
  */
-import InspectorControls from './inspector-controls';
+import InspectorControls from '../../common-posts-list/components/inspector-controls';
 import SinglePost from './single-post';
 
 /**
@@ -15,11 +15,12 @@ import SinglePost from './single-post';
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
+ * @param {string} props.name - Component name.
  * @param {Array} props.recentPosts - Posts.
  *
  * @return {Function} A functional component.
  */
-const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
+const PostsList = ( { attributes, setAttributes, name, recentPosts } ) => {
 	const { style, columns } = attributes;
 
 	let columnSpan = 12;
@@ -38,6 +39,7 @@ const PostsList = ( { attributes, setAttributes, recentPosts } ) => {
 			<InspectorControls
 				attributes={ attributes }
 				setAttributes={ setAttributes }
+				name={ name }
 			/>
 
 			{ ( style === 'grid' || style === 'list' ) && (
