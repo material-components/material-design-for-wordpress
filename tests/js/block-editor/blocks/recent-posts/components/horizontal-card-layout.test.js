@@ -12,7 +12,7 @@ import HorizontalCardLayout from '../../../../../../assets/src/block-editor/bloc
 /**
  * Render the component.
  *
- * @param {Object} props - Component props
+ * @param {Object} props - Component props.
  * @return {Function} A functional component.
  */
 const setup = props => {

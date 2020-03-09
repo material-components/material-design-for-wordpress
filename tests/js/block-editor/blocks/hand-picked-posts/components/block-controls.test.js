@@ -12,7 +12,7 @@ import HandPickedPostsBlockControls from '../../../../../../assets/src/block-edi
 /**
  * Shallow render the component.
  *
- * @param {Object} props - Component props
+ * @param {Object} props - Component props.
  * @return {Function} A functional component.
  */
 const setup = props => {
