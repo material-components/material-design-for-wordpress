@@ -34,7 +34,7 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $comments_count ) ) : ?>
-				<a class="mdc-button comment-count" href="<?php esc_url( get_the_permalink() ); ?>">
+				<a class="mdc-button comment-count" href="<?php the_permalink(); ?>">
 					<i
 						class="material-icons mdc-button__icon"
 						aria-hidden="true"
