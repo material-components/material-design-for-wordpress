@@ -57,6 +57,7 @@
 
 /* @todo: Will need refactoring. */
 .single-post-card__title {
+	color: rgba(0, 0, 0) !important;
 	margin: 0 !important;
 	font-size: 1.25em !important;
 	font-weight: 500 !important;
@@ -139,4 +140,13 @@
 			font-size: .875em !important;
 		}
 	}
+}
+
+.mdc-card__link {
+
+	&:hover {
+		text-decoration: none !important;
+	}
+	text-decoration: none !important;
+
 }
