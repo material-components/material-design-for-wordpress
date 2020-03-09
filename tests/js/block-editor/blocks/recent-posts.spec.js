@@ -6,6 +6,9 @@ import {
 	settings,
 } from '../../../../assets/src/block-editor/blocks/recent-posts';
 
+import BlockIcon from '../../../../assets/src/block-editor/blocks/recent-posts/components/block-icon';
+import Edit from '../../../../assets/src/block-editor/blocks/recent-posts/edit';
+
 // Mock PostsControl component as not relevant in this test and failing to pass tests
 // due to the SearchListControl WooCommerce component.
 jest.mock(
@@ -46,6 +49,18 @@ describe( 'blocks: material/recent-posts', () => {
 	describe( 'supports settings', () => {
 		it( 'should have align set to true', () => {
 			expect( settings.supports ).toStrictEqual( { align: true } );
+		} );
+	} );
+
+	describe( 'icon settings', () => {
+		it( 'should be equal to the BlockIcon component', () => {
+			expect( settings.icon ).toStrictEqual( BlockIcon );
+		} );
+	} );
+
+	describe( 'edit settings', () => {
+		it( 'should be equal to the Edit component', () => {
+			expect( settings.edit ).toStrictEqual( Edit );
 		} );
 	} );
 } );
