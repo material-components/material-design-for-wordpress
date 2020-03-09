@@ -7,6 +7,7 @@ import { sortBy, isEqual } from 'lodash';
  * Internal dependencies
  */
 import './style.css';
+import { ICON_POSITIONS } from './options';
 import { Tab, TabSchema } from './components/tab';
 import OrderToolbar from './components/order-toolbar';
 import IconPicker from '../../components/icon-picker';
@@ -15,7 +16,7 @@ import ButtonGroup from '../../components/button-group';
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 import { PanelBody } from '@wordpress/components';
 import { dispatch, withSelect } from '@wordpress/data';
 import { useState, useEffect, useCallback } from '@wordpress/element';
@@ -24,21 +25,6 @@ import {
 	BlockControls,
 	InnerBlocks,
 } from '@wordpress/block-editor';
-
-const ICON_POSITIONS = [
-	{
-		label: __( 'None', 'material-theme-builder' ),
-		value: 'none',
-	},
-	{
-		label: __( 'Leading', 'material-theme-builder' ),
-		value: 'leading',
-	},
-	{
-		label: __( 'Above', 'material-theme-builder' ),
-		value: 'above',
-	},
-];
 
 /**
  * Material button edit component.
@@ -79,7 +65,7 @@ const TabBarEdit = ( {
 		tabs.push(
 			new TabSchema( {
 				position: newPosition,
-				label: __( 'Tab', 'material-theme-builder' ) + ` ${ newPosition }`,
+				label: sprintf( __( 'Tab %d', 'material-theme-builder' ), newPosition ),
 			} )
 		);
 
@@ -95,6 +81,10 @@ const TabBarEdit = ( {
 		tabs = tabs.filter( ( _, i ) => index !== i );
 		setAttributes( { tabs } );
 	} );
+
+	const setIconPosition = useCallback( val =>
+		setAttributes( { iconPosition: val } )
+	);
 
 	const moveTab = useCallback( direction => {
 		let newPos =
@@ -166,7 +156,7 @@ const TabBarEdit = ( {
 					<ButtonGroup
 						buttons={ ICON_POSITIONS }
 						current={ iconPosition }
-						onClick={ val => setAttributes( { iconPosition: val } ) }
+						onClick={ setIconPosition }
 					/>
 
 					{ iconPosition !== 'none' && (
