@@ -4,15 +4,15 @@
 import {
 	name,
 	settings,
-} from '../../../../assets/src/block-editor/blocks/recent-posts';
+} from '../../../../../assets/src/block-editor/blocks/recent-posts';
 
-import BlockIcon from '../../../../assets/src/block-editor/blocks/recent-posts/components/block-icon';
-import Edit from '../../../../assets/src/block-editor/blocks/recent-posts/edit';
+import BlockIcon from '../../../../../assets/src/block-editor/blocks/recent-posts/components/block-icon';
+import Edit from '../../../../../assets/src/block-editor/blocks/recent-posts/edit';
 
 // Mock PostsControl component as not relevant in this test and failing to pass tests
 // due to the SearchListControl WooCommerce component.
 jest.mock(
-	'../../../../assets/src/block-editor/components/posts-control/index.js',
+	'../../../../../assets/src/block-editor/components/posts-control/index.js',
 	() => {
 		const PostsControl = () => <div />;
 		return PostsControl;
