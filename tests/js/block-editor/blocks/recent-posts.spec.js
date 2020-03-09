@@ -5,6 +5,17 @@ import {
 	name,
 	settings,
 } from '../../../../assets/src/block-editor/blocks/recent-posts';
+// import PostsControl from "../../../../assets/src/block-editor/components/posts-control";
+
+// Mock PostsControl component as not relevant in this test and failing to pass tests
+// due to the SearchListControl WooCommerce component.
+jest.mock(
+	'../../../../assets/src/block-editor/components/posts-control/index.js',
+	() => {
+		const PostsControl = () => <div />;
+		return PostsControl;
+	}
+);
 
 describe( 'blocks: material/recent-posts', () => {
 	describe( 'name', () => {
