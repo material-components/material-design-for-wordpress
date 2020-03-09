@@ -21,10 +21,10 @@ import ErrorMessage from '../error-message';
  * Most of the code has been lifted from https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/master/assets/js/components/products-control/index.js
  *
  * @param {Object} props - Component props.
- * @param {Function} props.onChange  - Callback fired when the selected item changes.
- * @param {Function} props.onSearch  - Callback fired when a search is triggered.
- * @param {Array}    props.selected  - An array of selected posts.
- * @param {Array}    props.posts  - An array of posts to select from.
+ * @param {Function} props.onChange - Callback fired when the selected item changes.
+ * @param {Function} props.onSearch - Callback fired when a search is triggered.
+ * @param {Array}    props.selected - An array of selected posts.
+ * @param {Array}    props.posts - An array of posts to select from.
  * @param {boolean}  props.isLoading - Whether or not the posts are being loaded.
  *
  * @return {Function} A functional component.
