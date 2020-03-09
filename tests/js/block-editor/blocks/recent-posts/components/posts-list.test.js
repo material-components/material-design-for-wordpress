@@ -11,7 +11,7 @@ import PostsList from '../../../../../../assets/src/block-editor/blocks/recent-p
 
 // Mock InspectorControls component as not relevant in this test
 jest.mock(
-	'../../../../../../assets/src/block-editor/blocks/recent-posts/components/inspector-controls',
+	'../../../../../../assets/src/block-editor/blocks/common-posts-list/components/inspector-controls.js',
 	() => {
 		const InspectorControls = () => <div />;
 		return InspectorControls;
