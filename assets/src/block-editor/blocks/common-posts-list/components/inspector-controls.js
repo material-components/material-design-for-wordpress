@@ -122,13 +122,15 @@ const CommonPostsListInspectorControls = ( {
 						/>
 					</>
 				) }
-				<RangeControl
-					label={ __( 'Number of posts', 'material-theme-builder' ) }
-					value={ postsToShow }
-					onChange={ setter( 'postsToShow' ) }
-					min={ MIN_NUMBER_OF_POSTS }
-					max={ MAX_NUMBER_OF_POSTS }
-				/>
+				{ name !== 'material/hand-picked-posts' && (
+					<RangeControl
+						label={ __( 'Number of posts', 'material-theme-builder' ) }
+						value={ postsToShow }
+						onChange={ setter( 'postsToShow' ) }
+						min={ MIN_NUMBER_OF_POSTS }
+						max={ MAX_NUMBER_OF_POSTS }
+					/>
+				) }
 				<ToggleControl
 					label={ __( 'Outlined', 'material-theme-builder' ) }
 					checked={ outlined }

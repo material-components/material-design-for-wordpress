@@ -193,6 +193,7 @@ class Posts_List_Blocks_Base extends Module_Base {
 
 			$ids                    = array_map( 'absint', $attributes['posts'] );
 			$args['post__in']       = $ids;
+			$args['posts_per_page'] = count( $ids );
 		}
 
 		/**

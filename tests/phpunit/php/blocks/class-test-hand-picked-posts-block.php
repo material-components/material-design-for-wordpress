@@ -115,10 +115,9 @@ class Test_Hand_Picked_Posts_Block extends \WP_UnitTestCase {
 		// Assert masonry layout is loaded.
 		$this->assertContains( '<div class="masonry-grid', $content );
 
-		// Assert 3 posts are rendered.
-		$this->assertEquals( 3, substr_count( $content, '<div class="single-post-card single-post-basic' ) );
+		// Assert 4 posts are rendered.
+		$this->assertEquals( 4, substr_count( $content, '<div class="single-post-card single-post-basic' ) );
 
-		$attributes['postsToShow']          = 5;
 		$attributes['displayPostAuthor']    = true;
 		$attributes['displayCommentsCount'] = true;
 		$attributes['displayPostContent']   = true;
