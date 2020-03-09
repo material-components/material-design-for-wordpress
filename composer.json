@@ -61,5 +61,10 @@
     "copy-file": {
       "tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
     }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/phpunit/php/blocks/trait-posts-list-tests-helpers.php"
+    ]
   }
 }
