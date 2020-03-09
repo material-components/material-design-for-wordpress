@@ -55,4 +55,3 @@ describe( 'PostsPicker', () => {
 		expect( wrapper ).toMatchSnapshot();
 	} );
 } );
-
