@@ -49,7 +49,7 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 						value.map( ( { id } ) => id )
 					) }
 				/>
-				<Button isDefault onClick={ onDone }>
+				<Button isPrimary onClick={ onDone }>
 					{ __( 'Done', 'material-theme-builder' ) }
 				</Button>
 			</div>
