@@ -23,7 +23,7 @@ jest.mock(
 /**
  * Render the component.
  *
- * @param {Object} props - Component props
+ * @param {Object} props - Component props.
  * @return {Function} A functional component.
  */
 const fullRender = props => {
@@ -33,7 +33,7 @@ const fullRender = props => {
 /**
  * Shallow render the component.
  *
- * @param {Object} props - Component props
+ * @param {Object} props - Component props.
  * @return {Function} A functional component.
  */
 const shallowRender = props => {
