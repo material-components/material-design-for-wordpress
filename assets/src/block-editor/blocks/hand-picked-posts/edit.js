@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { ServerSideRender } from '@wordpress/editor';
+import ServerSideRender from '@wordpress/server-side-render';
 import { Disabled, withSpokenMessages } from '@wordpress/components';
 
 /**
