@@ -4,10 +4,11 @@
 import { __ } from '@wordpress/i18n';
 import { Placeholder, Button } from '@wordpress/components';
 import { useCallback } from '@wordpress/element';
+
 /**
  * Internal dependencies
  */
-import WidgetsIcon from './widgets-icon';
+import BlockIcon from './block-icon';
 import PostsControl from '../../../components/posts-control';
 import genericAttributesSetter from '../../../utils/generic-attributes-setter';
 
@@ -33,7 +34,7 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 
 	return (
 		<Placeholder
-			icon={ <WidgetsIcon /> }
+			icon={ <BlockIcon /> }
 			label={ __( 'Hand-picked Posts', 'material-theme-builder' ) }
 			className="mtb-block-products-grid mtb-block-handpicked-posts"
 		>
