@@ -87,6 +87,7 @@ const CommonPostsListInspectorControls = ( {
 		displayCommentsCount,
 		displayPostAuthor,
 		category,
+		posts,
 	} = attributes;
 
 	return (
@@ -199,7 +200,7 @@ const CommonPostsListInspectorControls = ( {
 					initialOpen={ false }
 				>
 					<PostsControl
-						selected={ attributes.posts }
+						selected={ posts }
 						onChange={ setter( 'posts', ( value = [] ) =>
 							value.map( ( { id } ) => id )
 						) }
