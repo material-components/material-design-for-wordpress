@@ -13,7 +13,7 @@ import { withSelect } from '@wordpress/data';
  */
 import NoPosts from './components/no-posts';
 import PostsList from './components/posts-list';
-import './style.css';
+import '../common-posts-list/style.css';
 
 /**
  * Recent Posts Edit component.
