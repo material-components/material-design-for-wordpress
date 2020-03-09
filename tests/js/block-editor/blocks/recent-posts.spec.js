@@ -5,7 +5,6 @@ import {
 	name,
 	settings,
 } from '../../../../assets/src/block-editor/blocks/recent-posts';
-// import PostsControl from "../../../../assets/src/block-editor/components/posts-control";
 
 // Mock PostsControl component as not relevant in this test and failing to pass tests
 // due to the SearchListControl WooCommerce component.
