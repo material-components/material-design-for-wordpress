@@ -8,6 +8,7 @@
 
 namespace MaterialThemeBuilder\Blocks;
 
+use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Plugin;
 use MaterialThemeBuilder\Template;
 use WP_Post;
@@ -18,14 +19,7 @@ use WP_REST_Response;
 /**
  * Posts_List_Blocks_Base class.
  */
-class Posts_List_Blocks_Base {
-	/**
-	 * Plugin class.
-	 *
-	 * @var Plugin
-	 */
-	public $plugin;
-
+class Posts_List_Blocks_Base extends Module_Base {
 	/**
 	 * Block name.
 	 *
@@ -55,7 +49,8 @@ class Posts_List_Blocks_Base {
 	 * @param Plugin $plugin Plugin instance.
 	 */
 	public function __construct( Plugin $plugin ) {
-		$this->plugin                = $plugin;
+		parent::__construct( $plugin );
+
 		$this->block_core_attributes = [
 			'className'             => [
 				'type' => 'string',
@@ -115,15 +110,6 @@ class Posts_List_Blocks_Base {
 		];
 
 		$this->block_extra_attributes = [];
-	}
-
-	/**
-	 * Initiate the class.
-	 *
-	 * @access public
-	 */
-	public function init() {
-		$this->plugin->add_doc_hooks( $this );
 	}
 
 	/**
