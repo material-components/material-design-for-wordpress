@@ -8,8 +8,6 @@
 namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Customizer\Image_Radio_Control;
-use MaterialThemeBuilder\Customizer\Material_Color_Palette_Control;
 
 /**
  * Class Controls.
