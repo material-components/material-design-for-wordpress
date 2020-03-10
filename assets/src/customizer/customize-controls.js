@@ -338,8 +338,8 @@ import colorUtils from '../common/color-utils';
 				isText = true;
 			const textColorLabel =
 				-1 !== control.id.indexOf( 'primary' )
-					? __( 'primary', 'material-theme-builder' )
-					: __( 'secondary', 'material-theme-builder' );
+					? __( 'on-primary', 'material-theme-builder' )
+					: __( 'on-secondary', 'material-theme-builder' );
 
 			if ( control.params.relatedTextSetting ) {
 				color = selectedColor;
@@ -378,8 +378,7 @@ import colorUtils from '../common/color-utils';
 						colorHex,
 						name,
 						textColor,
-						textColorLabel,
-						isText
+						textColorLabel
 					)
 				);
 			} );
