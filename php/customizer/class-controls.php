@@ -111,8 +111,8 @@ class Controls extends Module_Base {
 			 *
 			 * This allows other plugins/themes to change the customizer section args.
 			 *
-			 * @param array $args Array of section args.
-			 * @param string   $id       ID of the setting.
+			 * @param array  $args Array of section args.
+			 * @param string $id   ID of the section.
 			 */
 			$section = apply_filters( $this->slug . '_customizer_section_args', $args, $id );
 
@@ -254,10 +254,10 @@ class Controls extends Module_Base {
 			/**
 			 * Filters the customizer setting args.
 			 *
-			 * This allows other plugins/themes to change the customizer setting args
+			 * This allows other plugins/themes to change the customizer setting args.
 			 *
-			 * @param array   $settings[ $id ] Array of setting args.
-			 * @param string   $id       ID of the setting.
+			 * @param array   $setting Array of setting args.
+			 * @param string  $id      ID of the setting.
 			 */
 			$setting = apply_filters( $this->slug . '_customizer_setting_args', $setting, $id );
 
@@ -287,10 +287,10 @@ class Controls extends Module_Base {
 			/**
 			 * Filters the customizer control args.
 			 *
-			 * This allows other plugins/themes to change the customizer controls args
+			 * This allows other plugins/themes to change the customizer controls args.
 			 *
-			 * @param array $control Array of control args.
-			 * @param string   $id       ID of the control.
+			 * @param array  $control Array of control args.
+			 * @param string $id      ID of the control.
 			 */
 			$control = apply_filters( $this->slug . '_customizer_control_args', $control, $id );
 
@@ -328,6 +328,7 @@ class Controls extends Module_Base {
 			'material-theme-builder-customizer-js',
 			'mtb',
 			[
+				'slug'         => $this->slug,
 				'designStyles' => $this->get_design_styles(),
 				'controls'     => $this->added_controls,
 				'styleControl' => $this->prepend_slug( 'style' ),
