@@ -1,4 +1,5 @@
 /* global jQuery, requestAnimationFrame, mtb */
+/* istanbul ignore file */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -186,7 +187,10 @@
 		}
 
 		// If a style is selected from custom, show confirm dialogue.
-		if ( 'custom' === oldValue && ! window.confirm( mtb.l10n.confirmChange ) ) { // eslint-disable-line
+		if (
+			'custom' === oldValue &&
+			! window.confirm( mtb.l10n.confirmChange ) // eslint-disable-line
+		) {
 			api.control( mtb.styleControl ).setting.set( oldValue );
 			return;
 		}

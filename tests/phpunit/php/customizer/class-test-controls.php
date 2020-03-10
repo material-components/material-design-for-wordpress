@@ -164,7 +164,7 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 2 ) )
+		$this->wp_customize->expects( $this->exactly( 3 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
 				[ $this->equalTo( "{$controls->slug}_style" ) ],
@@ -173,7 +173,7 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->once() )
+		$this->wp_customize->expects( $this->exactly( 2 ) )
 			->method( 'add_control' )
 			->withConsecutive(
 				[
