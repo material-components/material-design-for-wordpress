@@ -455,12 +455,7 @@ const colorUtils = {
 	getCustomTextAlphas: function( size, color, textColor ) {
 		return this.getMinAndRecAlphasFromBgAndTextColors( color, textColor, size );
 	},
-	getColorAccessibility: (
-		color,
-		name,
-		textColor,
-		textColorLabel
-	) => {
+	getColorAccessibility: ( color, name, textColor, textColorLabel ) => {
 		const accessibility = {
 			hex: color,
 			type: name.replace( /Text on\s*|\s*Color/, '' ),

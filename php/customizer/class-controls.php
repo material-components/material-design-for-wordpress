@@ -355,7 +355,7 @@ class Controls extends Module_Base {
 		wp_enqueue_script(
 			'material-theme-builder-customizer-preview-js',
 			$this->plugin->asset_url( 'assets/js/customize-preview.js' ),
-			[ 'customize-controls', 'jquery' ],
+			[ 'jquery' ],
 			$this->plugin->asset_version(),
 			false
 		);

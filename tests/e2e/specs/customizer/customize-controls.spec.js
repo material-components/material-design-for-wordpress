@@ -64,7 +64,9 @@ describe( 'customize controls', () => {
 		const crane = await page.$( '#mtb_style-crane' );
 		await page.evaluate( radio => radio.click(), crane );
 
-		const primaryColor = await page.$( '#_customize-input-mtb_primary_color' );
+		const primaryColor = await page.$(
+			'#customize-control-mtb_primary_color .color-picker-hex'
+		);
 
 		// Assert primary color is updated.
 		expect( await page.evaluate( input => input.value, primaryColor ) ).toEqual(
@@ -81,7 +83,9 @@ describe( 'customize controls', () => {
 	} );
 
 	it( 'should update design style to custom if any value is updated', async () => {
-		const primaryColor = await page.$( '#_customize-input-mtb_primary_color' );
+		const primaryColor = await page.$(
+			'#customize-control-mtb_primary_color .color-picker-hex'
+		);
 		await page.evaluate( input => {
 			input.value = '#000000';
 			input.dispatchEvent( new Event( 'change' ) );
