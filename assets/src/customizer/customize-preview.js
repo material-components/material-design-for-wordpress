@@ -8,6 +8,11 @@
  */
 
 ( $ => {
+	// Bail out if this isn't loaded in an iframe.
+	if ( ! window.parent || ! window.parent.wp ) {
+		return;
+	}
+
 	const parentApi = window.parent.wp.customize;
 	const controls = window.parent._wpCustomizeSettings.controls;
 	const colorControls = {};
@@ -31,14 +36,14 @@
 	 * @return {void}
 	 */
 	const generateColorPreviewStyles = () => {
-		const stylesheedID = 'mtb-customizer-preview-styles';
-		let stylesheet = $( '#' + stylesheedID ),
+		const stylesheetID = 'mtb-customizer-preview-styles';
+		let stylesheet = $( '#' + stylesheetID ),
 			styles = '';
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
 		if ( ! stylesheet.length ) {
-			$( 'head' ).append( '<style id="' + stylesheedID + '"></style>' );
-			stylesheet = $( '#' + stylesheedID );
+			$( 'head' ).append( '<style id="' + stylesheetID + '"></style>' );
+			stylesheet = $( '#' + stylesheetID );
 		}
 
 		Object.keys( colorControls ).forEach( control => {
