@@ -1,4 +1,5 @@
 /* global jQuery, requestAnimationFrame, mtb */
+/* istanbul ignore file */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -426,7 +427,10 @@ import colorUtils from '../common/color-utils';
 		}
 
 		// If a style is selected from custom, show confirm dialogue.
-		if ( 'custom' === oldValue && ! window.confirm( mtb.l10n.confirmChange ) ) { // eslint-disable-line
+		if (
+			'custom' === oldValue &&
+			! window.confirm( mtb.l10n.confirmChange ) // eslint-disable-line
+		) {
 			api.control( mtb.styleControl ).setting.set( oldValue );
 			return;
 		}
@@ -437,7 +441,7 @@ import colorUtils from '../common/color-utils';
 		// and update the corresponding control value.
 		Object.keys( defaults ).forEach( name => {
 			const value = defaults[ name ];
-			const control = api.control( `mtb_${ name }` );
+			const control = api.control( `${ mtb.slug }_${ name }` );
 
 			if ( value && control ) {
 				// Unbind the custom value change event.
@@ -467,6 +471,7 @@ import colorUtils from '../common/color-utils';
 		if ( mtb.controls && Array.isArray( mtb.controls ) ) {
 			mtb.controls.forEach( name => {
 				api( name, setting => {
+					// Design style control has it's own change handler.
 					if ( mtb.styleControl === name ) {
 						return setting.bind( onStyleChange );
 					}

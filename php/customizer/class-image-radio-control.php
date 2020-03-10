@@ -17,7 +17,7 @@ class Image_Radio_Control extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'image-radio';
+	public $type = 'image_radio';
 
 	/**
 	 * Displays the control content.
