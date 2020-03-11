@@ -1,4 +1,15 @@
-.list-item-text {
-  white-space: pre-wrap;
-  display: inline !important;
+.list-item {
+	&--with-secondary {
+		height: auto !important;
+		padding-bottom: 10px !important;
+	}
+
+	&__text-container {
+		overflow: visible !important;
+
+		&__text {
+			display: inline !important;
+		}
+	}
 }
+
