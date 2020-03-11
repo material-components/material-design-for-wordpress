@@ -1,0 +1,4 @@
+.list-item-text {
+  white-space: pre-wrap;
+  display: inline !important;
+}

@@ -1,6 +1,8 @@
 /**
  * Internal dependencies
  */
+import { ICON_POSITIONS } from '../options';
+import ButtonGroup from '../../../components/button-group';
 import genericAttributesSetter from '../../../utils/generic-attributes-setter';
 
 /**
@@ -21,49 +23,102 @@ const settings = {
 	icon: <i className="material-icons">list</i>,
 	supports: { inserter: false },
 	attributes: {
-		content: {
+		primaryText: {
 			type: 'string',
 			default: 'List item',
+		},
+		secondaryText: {
+			type: 'string',
+		},
+		iconPosition: {
+			type: 'string',
+			default: 'none',
 		},
 		icon: {
 			type: 'object',
 		},
 	},
-	edit: ( { attributes: { content, icon }, setAttributes } ) => {
+	edit: ( {
+		attributes: { primaryText, secondaryText, icon, iconPosition },
+		setAttributes,
+	} ) => {
 		// eslint-disable-next-line react-hooks/rules-of-hooks
 		const setter = useCallback( genericAttributesSetter( setAttributes ) );
 
 		const handleEnterPress = e => {
-			e.currentTarget.blur();
+			if ( e.key !== 'Enter' ) {
+				return true;
+			}
 
-			if ( e.keyCode === 13 && e.shiftKey ) {
+			if ( e.key === 'Enter' && e.shiftKey ) {
 				// Create help-text line
-			} else if ( e.keyCode === 13 ) {
+				setter( 'secondaryText' )(
+					__( 'Secondary text...', 'material-theme-builder' )
+				);
+			} else {
 				// Create new list item
 			}
 
-			e.preventDefault();
+			e.currentTarget.blur();
 		};
 
 		return (
 			<>
-				<li className="mdc-list-item" tabIndex="0">
-					{ icon && (
+				<li
+					className="mdc-list-item"
+					tabIndex="0"
+					style={ secondaryText && { height: 'auto', paddingBottom: '10px' } }
+				>
+					{ icon && iconPosition === 'leading' && (
 						<i className="mdc-list-item__graphic material-icons">
 							{ String.fromCharCode( icon?.hex ) }
 						</i>
 					) }
 					<span
 						className="mdc-list-item__text"
-						role="textbox"
-						tabIndex={ 0 }
-						contentEditable
-						suppressContentEditableWarning
-						onBlur={ setter( 'content', e => e.currentTarget.textContent ) }
-						onKeyPress={ handleEnterPress }
+						style={ { overflow: 'visible' } }
 					>
-						{ content }
+						<span
+							className="mdc-list-item__primary-text list-item-text"
+							role="textbox"
+							tabIndex={ 0 }
+							contentEditable
+							suppressContentEditableWarning
+							onBlur={ setter(
+								'primaryText',
+								e => e.currentTarget.textContent
+							) }
+							onKeyPress={ handleEnterPress }
+						>
+							{ primaryText }
+						</span>
+
+						{ secondaryText && (
+							<>
+								<br />
+								<span
+									className="mdc-list-item__secondary-text list-item-text"
+									role="textbox"
+									tabIndex={ 0 }
+									contentEditable
+									suppressContentEditableWarning
+									onKeyPress={ e => e.keyCode === 13 && e.currentTarget.blur() }
+									onBlur={ setter(
+										'secondaryText',
+										e => e.currentTarget.textContent
+									) }
+								>
+									{ secondaryText }
+								</span>
+							</>
+						) }
 					</span>
+
+					{ icon && iconPosition === 'trailing' && (
+						<i className="mdc-list-item__meta material-icons">
+							{ String.fromCharCode( icon?.hex ) }
+						</i>
+					) }
 				</li>
 
 				<InspectorControls>
@@ -71,7 +126,15 @@ const settings = {
 						title={ __( 'Icon', 'material-theme-builder' ) }
 						initialOpen={ true }
 					>
-						<IconPicker currentIcon={ icon } onChange={ setter( 'icon' ) } />
+						<ButtonGroup
+							buttons={ ICON_POSITIONS }
+							current={ iconPosition }
+							onClick={ setter( 'iconPosition' ) }
+						/>
+
+						{ iconPosition !== 'none' && (
+							<IconPicker currentIcon={ icon } onChange={ setter( 'icon' ) } />
+						) }
 					</PanelBody>
 				</InspectorControls>
 			</>
