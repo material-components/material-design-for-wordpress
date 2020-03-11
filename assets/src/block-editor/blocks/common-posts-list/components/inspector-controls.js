@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { useState, useEffect, useCallback } from '@wordpress/element';
+import { useCallback } from '@wordpress/element';
 import {
 	PanelBody,
 	RangeControl,
@@ -11,8 +11,6 @@ import {
 	QueryControls,
 	RadioControl,
 } from '@wordpress/components';
-import apiFetch from '@wordpress/api-fetch';
-import { addQueryArgs } from '@wordpress/url';
 
 /**
  * Internal dependencies
@@ -20,7 +18,6 @@ import { addQueryArgs } from '@wordpress/url';
 import ImageRadioControl from '../../../components/image-radio-control';
 import genericAttributesSetter from '../../../utils/generic-attributes-setter';
 import {
-	CATEGORIES_LIST_QUERY,
 	MIN_NUMBER_OF_POSTS,
 	MAX_NUMBER_OF_POSTS,
 	MIN_POSTS_COLUMNS,
@@ -51,30 +48,6 @@ const CommonPostsListInspectorControls = ( {
 } ) => {
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
 
-	const [ categoriesList, setCategoriesList ] = useState( [] );
-	const [ isStillMounted, setStillMounted ] = useState( true );
-
-	useEffect( () => {
-		setStillMounted( true );
-		apiFetch( {
-			path: addQueryArgs( `/wp/v2/categories`, CATEGORIES_LIST_QUERY ),
-		} )
-			.then( fetchedCategoriesList => {
-				if ( isStillMounted ) {
-					setCategoriesList( fetchedCategoriesList );
-				}
-			} )
-			.catch( () => {
-				if ( isStillMounted ) {
-					setCategoriesList( [] );
-				}
-			} );
-
-		return () => {
-			setStillMounted( false );
-		};
-	}, [] );
-
 	const {
 		style,
 		contentLayout,
@@ -88,6 +61,7 @@ const CommonPostsListInspectorControls = ( {
 		displayCommentsCount,
 		displayPostAuthor,
 		category,
+		categoriesList,
 		posts,
 		orderby,
 	} = attributes;

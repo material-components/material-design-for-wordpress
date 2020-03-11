@@ -138,6 +138,22 @@ class Posts_List_Blocks_Base extends Module_Base {
 	}
 
 	/**
+	 * Add comment_count to the list of permitted orderby values
+	 *
+	 * @access public
+	 *
+	 * @filter rest_post_collection_params
+	 *
+	 * @param array $params Rest API parameters.
+	 *
+	 * @return array
+	 */
+	public function add_comment_count_to_rest_orderby_params( $params ) {
+		$params['orderby']['enum'][] = 'comment_count';
+		return $params;
+	}
+
+	/**
 	 * Registers a block on server.
 	 *
 	 * @access public
@@ -184,16 +200,6 @@ class Posts_List_Blocks_Base extends Module_Base {
 			$args['cat'] = absint( $attributes['category'] );
 		}
 
-		if ( ! empty( $attributes['orderby'] ) ) {
-			if ( 'title' === $attributes['orderby'] ) {
-				$args['orderby'] = 'title';
-				$args['order']   = 'asc';
-			} elseif ( 'popularity' === $attributes['orderby'] ) {
-				$args['orderby'] = 'comment_count';
-				$args['order']   = 'desc';
-			}
-		}
-
 		if ( 'material/hand-picked-posts' === $this->block_name ) {
 			if ( empty( $attributes['posts'] ) ) {
 				return sprintf(
@@ -201,6 +207,16 @@ class Posts_List_Blocks_Base extends Module_Base {
 					esc_attr( $class ),
 					$content
 				);
+			}
+
+			if ( ! empty( $attributes['orderby'] ) ) {
+				if ( 'title' === $attributes['orderby'] ) {
+					$args['orderby'] = 'title';
+					$args['order']   = 'asc';
+				} elseif ( 'popularity' === $attributes['orderby'] ) {
+					$args['orderby'] = 'comment_count';
+					$args['order']   = 'desc';
+				}
 			}
 
 			$ids                    = array_map( 'absint', $attributes['posts'] );

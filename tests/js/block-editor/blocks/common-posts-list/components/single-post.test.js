@@ -7,7 +7,7 @@ import { render } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import SinglePost from '../../../../../../assets/src/block-editor/blocks/recent-posts/components/single-post';
+import SinglePost from '../../../../../../assets/src/block-editor/blocks/common-posts-list/components/single-post';
 
 /**
  * Render the component.

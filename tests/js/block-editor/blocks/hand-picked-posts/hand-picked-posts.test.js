@@ -20,6 +20,10 @@ jest.mock(
 );
 
 describe( 'blocks: material/hand-picked-posts', () => {
+	afterEach( () => {
+		jest.clearAllMocks();
+	} );
+
 	describe( 'name', () => {
 		it( 'should equal material/hand-picked-posts', () => {
 			expect( name ).toStrictEqual( 'material/hand-picked-posts' );

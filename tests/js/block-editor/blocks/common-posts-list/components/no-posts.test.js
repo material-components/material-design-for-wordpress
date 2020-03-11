@@ -7,7 +7,7 @@ import { render } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import NoPosts from '../../../../../../assets/src/block-editor/blocks/recent-posts/components/no-posts';
+import NoPosts from '../../../../../../assets/src/block-editor/blocks/common-posts-list/components/no-posts';
 
 // Mock InspectorControls component as not relevant in this test
 jest.mock(

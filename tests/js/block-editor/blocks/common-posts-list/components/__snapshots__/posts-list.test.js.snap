@@ -5,7 +5,6 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div />
       <div
         class="mdc-layout-grid layout-grid"
       >
@@ -157,7 +156,6 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div />
     <div
       class="mdc-layout-grid layout-grid"
     >
@@ -366,7 +364,6 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div />
       <div
         class="mdc-layout-grid layout-list"
       >
@@ -504,7 +501,6 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div />
     <div
       class="mdc-layout-grid layout-list"
     >
@@ -699,7 +695,6 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div />
       <div
         class="masonry-grid layout-masonry"
       >
@@ -853,7 +848,6 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div />
     <div
       class="masonry-grid layout-masonry"
     >
