@@ -21,6 +21,7 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 		<div class="mdc-card__action-buttons">
 			<?php if ( ! empty( $post_author ) ) : ?>
 				<a class="mdc-button post-author" href="<?php echo esc_url( $author_url ); ?>">
+					<span class="mdc-button__ripple"></span>
 					<i
 						class="material-icons mdc-button__icon"
 						aria-hidden="true"
@@ -35,6 +36,7 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 
 			<?php if ( ! empty( $comments_count ) ) : ?>
 				<a class="mdc-button comment-count" href="<?php the_permalink(); ?>">
+					<span class="mdc-button__ripple"></span>
 					<i
 						class="material-icons mdc-button__icon"
 						aria-hidden="true"
