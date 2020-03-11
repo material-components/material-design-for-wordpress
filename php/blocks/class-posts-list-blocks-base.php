@@ -176,10 +176,22 @@ class Posts_List_Blocks_Base extends Module_Base {
 			'no_found_rows'          => true,
 			'update_post_meta_cache' => false,
 			'ignore_sticky_posts'    => true,
+			'orderby'                => 'date',
+			'order'                  => 'desc',
 		];
 
 		if ( ! empty( $attributes['category'] ) && 'material/recent-posts' === $this->block_name ) {
 			$args['cat'] = absint( $attributes['category'] );
+		}
+
+		if ( ! empty( $attributes['orderby'] ) ) {
+			if ( 'title' === $attributes['orderby'] ) {
+				$args['orderby'] = 'title';
+				$args['order']   = 'asc';
+			} elseif ( 'popularity' === $attributes['orderby'] ) {
+				$args['orderby'] = 'comment_count';
+				$args['order']   = 'desc';
+			}
 		}
 
 		if ( 'material/hand-picked-posts' === $this->block_name ) {
@@ -230,5 +242,4 @@ class Posts_List_Blocks_Base extends Module_Base {
 			$content
 		);
 	}
-
 }
