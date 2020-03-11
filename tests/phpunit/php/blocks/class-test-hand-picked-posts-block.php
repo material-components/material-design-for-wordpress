@@ -12,9 +12,7 @@ use MaterialThemeBuilder\Plugin;
 /**
  * Tests for Hand_Picked_Posts_Block class.
  */
-class Test_Hand_Picked_Posts_Block extends \WP_UnitTestCase {
-	use Trait_Posts_List_Tests_Helpers;
-
+class Test_Hand_Picked_Posts_Block extends Posts_Blocks_Tests_Base {
 	/**
 	 * Test init.
 	 *
