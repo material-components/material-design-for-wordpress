@@ -12,7 +12,7 @@ Object {
           class="mdc-card__action-buttons"
         >
           <button
-            class="mdc-button mdc-card__action mdc-card__action--button"
+            class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
           >
             <span
               class="mdc-button__ripple"
@@ -26,7 +26,7 @@ Object {
             <span
               class="mdc-button__label"
             >
-              1 comment
+              1
             </span>
           </button>
         </div>
@@ -41,7 +41,7 @@ Object {
         class="mdc-card__action-buttons"
       >
         <button
-          class="mdc-button mdc-card__action mdc-card__action--button"
+          class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
         >
           <span
             class="mdc-button__ripple"
@@ -55,7 +55,7 @@ Object {
           <span
             class="mdc-button__label"
           >
-            1 comment
+            1
           </span>
         </button>
       </div>
@@ -127,7 +127,7 @@ Object {
           class="mdc-card__action-buttons"
         >
           <button
-            class="mdc-button mdc-card__action mdc-card__action--button"
+            class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
           >
             <span
               class="mdc-button__ripple"
@@ -156,7 +156,7 @@ Object {
         class="mdc-card__action-buttons"
       >
         <button
-          class="mdc-button mdc-card__action mdc-card__action--button"
+          class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
         >
           <span
             class="mdc-button__ripple"
@@ -242,7 +242,7 @@ Object {
           class="mdc-card__action-buttons"
         >
           <button
-            class="mdc-button mdc-card__action mdc-card__action--button"
+            class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
           >
             <span
               class="mdc-button__ripple"
@@ -260,7 +260,7 @@ Object {
             </span>
           </button>
           <button
-            class="mdc-button mdc-card__action mdc-card__action--button"
+            class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
           >
             <span
               class="mdc-button__ripple"
@@ -274,7 +274,7 @@ Object {
             <span
               class="mdc-button__label"
             >
-              2 comments
+              2
             </span>
           </button>
         </div>
@@ -289,7 +289,7 @@ Object {
         class="mdc-card__action-buttons"
       >
         <button
-          class="mdc-button mdc-card__action mdc-card__action--button"
+          class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
         >
           <span
             class="mdc-button__ripple"
@@ -307,7 +307,7 @@ Object {
           </span>
         </button>
         <button
-          class="mdc-button mdc-card__action mdc-card__action--button"
+          class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
         >
           <span
             class="mdc-button__ripple"
@@ -321,7 +321,7 @@ Object {
           <span
             class="mdc-button__label"
           >
-            2 comments
+            2
           </span>
         </button>
       </div>
@@ -393,7 +393,7 @@ Object {
           class="mdc-card__action-buttons"
         >
           <button
-            class="mdc-button mdc-card__action mdc-card__action--button"
+            class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
           >
             <span
               class="mdc-button__ripple"
@@ -411,7 +411,7 @@ Object {
             </span>
           </button>
           <button
-            class="mdc-button mdc-card__action mdc-card__action--button"
+            class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
           >
             <span
               class="mdc-button__ripple"
@@ -425,7 +425,7 @@ Object {
             <span
               class="mdc-button__label"
             >
-              No comments
+              0
             </span>
           </button>
         </div>
@@ -440,7 +440,7 @@ Object {
         class="mdc-card__action-buttons"
       >
         <button
-          class="mdc-button mdc-card__action mdc-card__action--button"
+          class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
         >
           <span
             class="mdc-button__ripple"
@@ -458,7 +458,7 @@ Object {
           </span>
         </button>
         <button
-          class="mdc-button mdc-card__action mdc-card__action--button"
+          class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
         >
           <span
             class="mdc-button__ripple"
@@ -472,7 +472,7 @@ Object {
           <span
             class="mdc-button__label"
           >
-            No comments
+            0
           </span>
         </button>
       </div>
@@ -544,7 +544,7 @@ Object {
           class="mdc-card__action-buttons"
         >
           <button
-            class="mdc-button mdc-card__action mdc-card__action--button"
+            class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
           >
             <span
               class="mdc-button__ripple"
@@ -562,7 +562,7 @@ Object {
             </span>
           </button>
           <button
-            class="mdc-button mdc-card__action mdc-card__action--button"
+            class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
           >
             <span
               class="mdc-button__ripple"
@@ -576,7 +576,7 @@ Object {
             <span
               class="mdc-button__label"
             >
-              1 comment
+              1
             </span>
           </button>
         </div>
@@ -591,7 +591,7 @@ Object {
         class="mdc-card__action-buttons"
       >
         <button
-          class="mdc-button mdc-card__action mdc-card__action--button"
+          class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
         >
           <span
             class="mdc-button__ripple"
@@ -609,7 +609,7 @@ Object {
           </span>
         </button>
         <button
-          class="mdc-button mdc-card__action mdc-card__action--button"
+          class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
         >
           <span
             class="mdc-button__ripple"
@@ -623,7 +623,7 @@ Object {
           <span
             class="mdc-button__label"
           >
-            1 comment
+            1
           </span>
         </button>
       </div>
