@@ -1,12 +1,12 @@
 /**
- * External dependencies
- */
-// import classNames from 'classnames';
-
-/**
  * Internal dependencies
  */
+import { InnerBlocks } from '@wordpress/block-editor';
 
-const ListSave = () => <div></div>;
+const ListSave = () => (
+	<ul className="mdc-list">
+		<InnerBlocks.Content />
+	</ul>
+);
 
 export default ListSave;

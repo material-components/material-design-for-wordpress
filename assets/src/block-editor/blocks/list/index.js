@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { registerBlockType } from '@wordpress/blocks';
 
 /**
  * Internal dependencies
@@ -10,12 +9,6 @@ import { registerBlockType } from '@wordpress/blocks';
 import './style.css';
 import edit from './edit';
 import save from './save';
-import {
-	name as listItemName,
-	settings as listItemSettings,
-} from './inner-blocks/list-item';
-
-registerBlockType( listItemName, listItemSettings );
 
 export const name = 'material/list';
 
