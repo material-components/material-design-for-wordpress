@@ -12,6 +12,7 @@
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/image-list/dist/mdc.image-list.css";
 @import "@material/typography/dist/mdc.typography.css";
+@import "@material/list/dist/mdc.list.css";
 
 /* Material Icons */
 .material-icons {
