@@ -6,12 +6,13 @@
 }
 
 .masonry-grid_column {
-	padding-left: 24px;
-	padding-left: var(--mdc-layout-grid-margin-desktop, 24px);
+	padding-left: 0;
+	margin-left: var(--mdc-layout-grid-margin-desktop, 24px);
 	background-clip: padding-box;
 
 	&:first-child {
 		padding-left: 0;
+		margin-left: 0;
 	}
 }
 
