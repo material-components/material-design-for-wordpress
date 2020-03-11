@@ -121,8 +121,8 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 		$content = $block->render_block( $attributes );
 
 		// Assert all partials are rendered.
-		$this->assertEquals( 5, substr_count( $content, 'class="mdc-button post-author"' ) );
-		$this->assertEquals( 5, substr_count( $content, 'class="mdc-button comment-count"' ) );
+		$this->assertEquals( 5, substr_count( $content, 'class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"' ) );
+		$this->assertEquals( 5, substr_count( $content, 'class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"' ) );
 		$this->assertEquals( 5, substr_count( $content, 'class="single-post-card__secondary' ) );
 		$this->assertEquals( 5, substr_count( $content, 'class="single-post-card__subtitle' ) );
 
@@ -132,10 +132,10 @@ class Test_Recent_Posts_Block extends \WP_UnitTestCase {
 		$content = $this->clean_content( $content );
 
 		// Assert an article has only 1 comment.
-		$this->assertEquals( 1, substr_count( $content, '<span class="mdc-button__label">1 comment</span>' ) );
+		$this->assertEquals( 1, substr_count( $content, '<span class="mdc-button__label">1</span>' ) );
 
 		// Assert an article has 2 comments.
-		$this->assertEquals( 1, substr_count( $content, '<span class="mdc-button__label">2 comments</span>' ) );
+		$this->assertEquals( 1, substr_count( $content, '<span class="mdc-button__label">2</span>' ) );
 
 		$attributes['contentLayout'] = 'text-over-media';
 		$content                     = $block->render_block( $attributes );
