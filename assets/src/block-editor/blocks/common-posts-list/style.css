@@ -151,3 +151,8 @@
 	text-decoration: none !important;
 
 }
+
+.mdc-button__comment-count {
+	justify-content: left !important;
+	min-width: 36px !important;
+}

@@ -1,9 +1,4 @@
 /**
- * WordPress dependencies
- */
-import { __, _n, sprintf } from '@wordpress/i18n';
-
-/**
  * Card Actions component.
  *
  * @param {Object} props - Component props.
@@ -17,7 +12,7 @@ const CardActions = ( { displayPostAuthor, displayCommentsCount, post } ) => (
 	<div className="mdc-card__actions">
 		<div className="mdc-card__action-buttons">
 			{ displayPostAuthor && (
-				<button className="mdc-button mdc-card__action mdc-card__action--button">
+				<button className="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author">
 					<span className="mdc-button__ripple"></span>
 					<i className="material-icons mdc-button__icon" aria-hidden="true">
 						face
@@ -26,25 +21,15 @@ const CardActions = ( { displayPostAuthor, displayCommentsCount, post } ) => (
 				</button>
 			) }
 			{ displayCommentsCount && (
-				<button className="mdc-button mdc-card__action mdc-card__action--button">
-					<span className="mdc-button__ripple"></span>
-					<i className="material-icons mdc-button__icon" aria-hidden="true">
-						comment
-					</i>
-					<span className="mdc-button__label">
-						{ post.commentsCount > 0
-							? sprintf(
-									_n(
-										'%s comment',
-										'%s comments',
-										post.commentsCount,
-										'material-theme-builder'
-									),
-									post.commentsCount
-							  )
-							: __( 'No comments', 'material-theme-builder' ) }
-					</span>
-				</button>
+				<>
+					<button className="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count">
+						<span className="mdc-button__ripple"></span>
+						<i className="material-icons mdc-button__icon" aria-hidden="true">
+							comment
+						</i>
+						<span className="mdc-button__label">{ post.commentsCount }</span>
+					</button>
+				</>
 			) }
 		</div>
 	</div>
