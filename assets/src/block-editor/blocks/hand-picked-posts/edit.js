@@ -1,17 +1,16 @@
 /**
  * WordPress dependencies
  */
-import ServerSideRender from '@wordpress/server-side-render';
-import { Disabled, withSpokenMessages } from '@wordpress/components';
+import { withSpokenMessages } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
 import PostsPicker from './components/posts-picker';
 import HandpickedPostBlockControls from './components/block-controls';
-import HandpickedPostInspectorControls from '../common-posts-list/components/inspector-controls';
-import '../common-posts-list/style.css';
+import InspectorControls from '../common-posts-list/components/inspector-controls';
 import './editor.css';
+import EditWithSelect from '../common-posts-list/edit-with-select';
 
 /**
  * Hand-picked Posts Edit component.
@@ -23,19 +22,19 @@ import './editor.css';
  * @return {Function} Function returning the HTML markup for the component.
  */
 const Edit = props => {
-	const { attributes, name } = props;
+	const { attributes } = props;
 	const { editMode } = attributes;
 
 	return (
 		<>
+			<InspectorControls { ...props } />
 			<HandpickedPostBlockControls { ...props } />
-			<HandpickedPostInspectorControls { ...props } />
 			{ editMode ? (
-				<PostsPicker { ...props } />
+				<>
+					<PostsPicker { ...props } />
+				</>
 			) : (
-				<Disabled>
-					<ServerSideRender block={ name } attributes={ attributes } />
-				</Disabled>
+				<EditWithSelect { ...props } />
 			) }
 		</>
 	);

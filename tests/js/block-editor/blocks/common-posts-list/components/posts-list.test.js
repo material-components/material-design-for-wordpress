@@ -7,7 +7,7 @@ import { render } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import PostsList from '../../../../../../assets/src/block-editor/blocks/recent-posts/components/posts-list';
+import PostsList from '../../../../../../assets/src/block-editor/blocks/common-posts-list/components/posts-list';
 
 // Mock InspectorControls component as not relevant in this test
 jest.mock(
@@ -43,7 +43,7 @@ const baseProps = {
 		displayPostAuthor: false,
 		category: undefined,
 	},
-	recentPosts: [
+	postsToDisplay: [
 		{
 			title: {
 				rendered: 'This is a test post title #1',

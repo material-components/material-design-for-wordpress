@@ -6,7 +6,6 @@ import Masonry from 'react-masonry-css';
 /**
  * Internal dependencies
  */
-import InspectorControls from '../../common-posts-list/components/inspector-controls';
 import SinglePost from './single-post';
 
 /**
@@ -14,13 +13,11 @@ import SinglePost from './single-post';
  *
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Block attributes.
- * @param {Function} props.setAttributes - Function to set block attributes value.
- * @param {string} props.name - Component name.
- * @param {Array} props.recentPosts - Posts.
+ * @param {Array} props.postsToDisplay - Posts.
  *
  * @return {Function} A functional component.
  */
-const PostsList = ( { attributes, setAttributes, name, recentPosts } ) => {
+const PostsList = ( { attributes, postsToDisplay } ) => {
 	const { style, columns } = attributes;
 
 	let columnSpan = 12;
@@ -36,16 +33,10 @@ const PostsList = ( { attributes, setAttributes, name, recentPosts } ) => {
 
 	return (
 		<>
-			<InspectorControls
-				attributes={ attributes }
-				setAttributes={ setAttributes }
-				name={ name }
-			/>
-
 			{ ( style === 'grid' || style === 'list' ) && (
 				<div className={ `mdc-layout-grid layout-${ style }` }>
 					<div className="mdc-layout-grid__inner">
-						{ recentPosts.map( ( post, postIndex ) => {
+						{ postsToDisplay.map( ( post, postIndex ) => {
 							const props = { post, style, attributes };
 							return (
 								<div
@@ -66,7 +57,7 @@ const PostsList = ( { attributes, setAttributes, name, recentPosts } ) => {
 					className={ `masonry-grid layout-${ style }` }
 					columnClassName="masonry-grid_column"
 				>
-					{ recentPosts.map( ( post, postIndex ) => {
+					{ postsToDisplay.map( ( post, postIndex ) => {
 						const props = { post, style, attributes };
 						return (
 							<div key={ postIndex }>

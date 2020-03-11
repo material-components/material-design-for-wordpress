@@ -20,6 +20,10 @@ jest.mock(
 );
 
 describe( 'blocks: material/recent-posts', () => {
+	afterEach( () => {
+		jest.clearAllMocks();
+	} );
+
 	describe( 'name', () => {
 		it( 'should equal material/recent-posts', () => {
 			expect( name ).toStrictEqual( 'material/recent-posts' );
