@@ -32,6 +32,7 @@ import {
 } from '../options';
 
 import PostsControl from '../../../components/posts-control';
+import PostsOrderbyControl from '../../../components/post-order-by-control';
 
 /**
  * Common Posts List Inspector Controls component.
@@ -88,6 +89,7 @@ const CommonPostsListInspectorControls = ( {
 		displayPostAuthor,
 		category,
 		posts,
+		orderby,
 	} = attributes;
 
 	return (
@@ -195,17 +197,28 @@ const CommonPostsListInspectorControls = ( {
 				</PanelBody>
 			) }
 			{ name === 'material/hand-picked-posts' && (
-				<PanelBody
-					title={ __( 'Posts', 'material-theme-builder' ) }
-					initialOpen={ false }
-				>
-					<PostsControl
-						selected={ posts }
-						onChange={ setter( 'posts', ( value = [] ) =>
-							value.map( ( { id } ) => id )
-						) }
-					/>
-				</PanelBody>
+				<>
+					<PanelBody
+						title={ __( 'Order By', 'material-theme-builder' ) }
+						initialOpen={ true }
+					>
+						<PostsOrderbyControl
+							setAttributes={ setAttributes }
+							value={ orderby }
+						/>
+					</PanelBody>
+					<PanelBody
+						title={ __( 'Posts', 'material-theme-builder' ) }
+						initialOpen={ false }
+					>
+						<PostsControl
+							selected={ posts }
+							onChange={ setter( 'posts', ( value = [] ) =>
+								value.map( ( { id } ) => id )
+							) }
+						/>
+					</PanelBody>
+				</>
 			) }
 		</InspectorControls>
 	);

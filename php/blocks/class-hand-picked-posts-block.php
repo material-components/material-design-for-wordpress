@@ -31,6 +31,11 @@ class Hand_Picked_Posts_Block extends Posts_List_Blocks_Base {
 				'default' => [],
 				'items'   => [ 'type' => 'integer' ],
 			],
+			'orderby'  => [
+				'type'    => 'string',
+				'enum'    => [ 'date', 'title', 'popularity' ],
+				'default' => 'date',
+			],
 			'editMode' => [
 				'type'    => 'boolean',
 				'default' => true,
