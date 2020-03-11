@@ -17,6 +17,7 @@ const ListEdit = () => {
 		<ul className="mdc-list">
 			<InnerBlocks
 				template={ [ [ 'material/list-item' ], [ 'material/list-item' ] ] }
+				allowedBlocks={ [ 'material/list-item' ] }
 			/>
 		</ul>
 	);

@@ -7,6 +7,7 @@ import { registerBlockType } from '@wordpress/blocks';
 /**
  * Internal dependencies
  */
+import './style.css';
 import edit from './edit';
 import save from './save';
 import {
@@ -23,12 +24,6 @@ export const settings = {
 	description: __( 'List stuff in a list', 'material-theme-builder' ),
 	category: 'material',
 	icon: <i className="material-icons">list</i>,
-	attributes: {
-		iconPosition: {
-			type: 'string',
-			default: 'none',
-		},
-	},
 	edit,
 	save,
 };
