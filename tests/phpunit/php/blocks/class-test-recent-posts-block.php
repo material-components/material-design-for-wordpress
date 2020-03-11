@@ -12,9 +12,7 @@ use MaterialThemeBuilder\Plugin;
 /**
  * Tests for Recent_Posts_Block class.
  */
-class Test_Recent_Posts_Block extends \WP_UnitTestCase {
-	use Trait_Posts_List_Tests_Helpers;
-
+class Test_Recent_Posts_Block extends Posts_Blocks_Tests_Base {
 	/**
 	 * Test init.
 	 *

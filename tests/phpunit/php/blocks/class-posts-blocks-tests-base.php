@@ -1,16 +1,19 @@
 <?php
 /**
- * Trait_Posts_List_Tests_Helpers trait.
+ * Posts_Blocks_Tests_Base class.
  *
  * @package MaterialThemeBuilder
  */
 
 namespace MaterialThemeBuilder\Blocks;
 
+use WP_UnitTest_Factory;
+use WP_UnitTestCase;
+
 /**
- * Trait_Posts_List_Tests_Helpers trait.
+ * Posts_Blocks_Tests_Base class.
  */
-trait Trait_Posts_List_Tests_Helpers {
+abstract class Posts_Blocks_Tests_Base extends WP_UnitTestCase {
 
 	/**
 	 * Current user.
