@@ -3,8 +3,8 @@
  */
 import { InnerBlocks } from '@wordpress/block-editor';
 
-const ListSave = () => (
-	<ul className="mdc-list">
+const ListSave = ( { className } ) => (
+	<ul className={ `mdc-list mdc-list--two-line ${ className }` }>
 		<InnerBlocks.Content />
 	</ul>
 );

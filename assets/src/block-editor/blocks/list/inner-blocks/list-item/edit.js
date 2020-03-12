@@ -22,6 +22,7 @@ import { InspectorControls } from '@wordpress/block-editor';
 const ListItemEdit = ( {
 	attributes: { primaryText, secondaryText, icon, iconPosition },
 	setAttributes,
+	className,
 } ) => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
@@ -46,7 +47,7 @@ const ListItemEdit = ( {
 	return (
 		<>
 			<li
-				className={ classNames( 'mdc-list-item', 'list-item', {
+				className={ classNames( 'mdc-list-item', 'list-item', className, {
 					'list-item--with-secondary': secondaryText,
 				} ) }
 				tabIndex={ 0 }

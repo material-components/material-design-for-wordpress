@@ -1,14 +1,15 @@
 const ListItemSave = ( {
 	attributes: { primaryText, secondaryText, icon, iconPosition },
+	className,
 } ) => {
 	return (
-		<li className="mdc-list-item" tabIndex="0">
+		<li className={ `mdc-list-item ${ className }` } tabIndex="0">
 			{ icon && iconPosition === 'leading' && (
 				<i className="mdc-list-item__graphic material-icons">
 					{ String.fromCharCode( icon?.hex ) }
 				</i>
 			) }
-			<span className="mdc-list-item__text" style={ { overflow: 'visible' } }>
+			<span className="mdc-list-item__text">
 				<span className="mdc-list-item__primary-text">{ primaryText }</span>
 
 				{ secondaryText && (

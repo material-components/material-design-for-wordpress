@@ -16,7 +16,6 @@ export const settings = {
 	category: 'material',
 	parent: [ 'material/list' ],
 	icon: <i className="material-icons">list</i>,
-	supports: { inserter: false },
 	attributes: {
 		primaryText: {
 			type: 'string',
