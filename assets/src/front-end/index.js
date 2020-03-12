@@ -5,6 +5,7 @@
  * External dependencies
  */
 import { MDCRipple } from '@material/ripple';
+import { MDCList } from '@material/list';
 import { MDCTabBar } from '@material/tab-bar';
 
 /**
@@ -18,6 +19,11 @@ const initButtons = () => {
 
 	buttons.forEach( button => new MDCRipple( button ) );
 	iconButtons.forEach( button => ( new MDCRipple( button ).unbounded = true ) );
+};
+
+const initLists = () => {
+	const list = new MDCList( document.querySelector( '.mdc-list' ) );
+	list.listElements.forEach( listItemEl => new MDCRipple( listItemEl ) );
 };
 
 const initTabBar = () => {
@@ -46,5 +52,6 @@ const initTabBar = () => {
 
 addEventListener( 'DOMContentLoaded', () => {
 	initButtons();
+	initLists();
 	initTabBar();
 } );

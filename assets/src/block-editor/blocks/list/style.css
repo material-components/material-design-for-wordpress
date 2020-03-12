@@ -1,4 +1,5 @@
 .list-item {
+
 	&--with-secondary {
 		height: auto !important;
 		padding-bottom: 10px !important;
