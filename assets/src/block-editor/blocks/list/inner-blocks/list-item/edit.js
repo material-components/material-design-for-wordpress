@@ -32,6 +32,11 @@ const ListItemEdit = ( {
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
 	const { parentClientId } = useContext( ListContext );
 
+	/**
+	 * Handle ENTER key within our primaryText conntentEditable.
+	 *
+	 * @param {Event} e The onKeyPress event object.
+	 */
 	const handleEnterPress = e => {
 		if ( e.key !== 'Enter' ) {
 			return true;
