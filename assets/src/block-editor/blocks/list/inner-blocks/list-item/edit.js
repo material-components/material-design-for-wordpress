@@ -7,9 +7,7 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import { ListContext } from '../../edit';
-import { ICON_POSITIONS } from '../../options';
 import IconPicker from '../../../../components/icon-picker';
-import ButtonGroup from '../../../../components/button-group';
 import genericAttributesSetter from '../../../../utils/generic-attributes-setter';
 
 /**
@@ -20,17 +18,20 @@ import { createBlock } from '@wordpress/blocks';
 import { PanelBody } from '@wordpress/components';
 import { dispatch, select } from '@wordpress/data';
 import { InspectorControls } from '@wordpress/block-editor';
-import { useCallback, useContext } from '@wordpress/element';
+import { useCallback, useContext, useEffect } from '@wordpress/element';
 
 const ListItemEdit = ( {
-	attributes: { primaryText, secondaryText, icon, iconPosition },
+	attributes: { primaryText, secondaryText, leadingIcon, trailingIcon },
 	setAttributes,
 	className,
 	clientId,
 } ) => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
-	const { parentClientId } = useContext( ListContext );
+
+	const { parentClientId, leadingIcons, trailingIcons } = useContext(
+		ListContext
+	);
 
 	/**
 	 * Handle ENTER key within our primaryText conntentEditable.
@@ -64,6 +65,17 @@ const ListItemEdit = ( {
 		e.currentTarget.blur();
 	};
 
+	// Sync with parent icon settings
+	useEffect( () => {
+		if ( ! leadingIcons && leadingIcon ) {
+			setAttributes( { leadingIcon: undefined } );
+		}
+
+		if ( ! trailingIcons && trailingIcon ) {
+			setAttributes( { trailingIcon: undefined } );
+		}
+	}, [ leadingIcons, leadingIcon, trailingIcons, trailingIcon ] );
+
 	return (
 		<>
 			<li
@@ -72,9 +84,9 @@ const ListItemEdit = ( {
 				} ) }
 				tabIndex={ 0 }
 			>
-				{ icon && iconPosition === 'leading' && (
+				{ leadingIcon && leadingIcons && (
 					<i className="mdc-list-item__graphic material-icons">
-						{ String.fromCharCode( icon?.hex ) }
+						{ String.fromCharCode( leadingIcon?.hex ) }
 					</i>
 				) }
 				<span className="mdc-list-item__text list-item__text-container">
@@ -114,28 +126,37 @@ const ListItemEdit = ( {
 					) }
 				</span>
 
-				{ icon && iconPosition === 'trailing' && (
+				{ trailingIcon && trailingIcons && (
 					<i className="mdc-list-item__meta material-icons">
-						{ String.fromCharCode( icon?.hex ) }
+						{ String.fromCharCode( trailingIcon?.hex ) }
 					</i>
 				) }
 			</li>
 
 			<InspectorControls>
-				<PanelBody
-					title={ __( 'Icon', 'material-theme-builder' ) }
-					initialOpen={ true }
-				>
-					<ButtonGroup
-						buttons={ ICON_POSITIONS }
-						current={ iconPosition }
-						onClick={ setter( 'iconPosition' ) }
-					/>
+				{ leadingIcons && (
+					<PanelBody
+						title={ __( 'Leading Icon', 'material-theme-builder' ) }
+						initialOpen={ true }
+					>
+						<IconPicker
+							currentIcon={ leadingIcon }
+							onChange={ setter( 'leadingIcon' ) }
+						/>
+					</PanelBody>
+				) }
 
-					{ iconPosition !== 'none' && (
-						<IconPicker currentIcon={ icon } onChange={ setter( 'icon' ) } />
-					) }
-				</PanelBody>
+				{ trailingIcons && (
+					<PanelBody
+						title={ __( 'Trailing Icon', 'material-theme-builder' ) }
+						initialOpen={ true }
+					>
+						<IconPicker
+							currentIcon={ trailingIcon }
+							onChange={ setter( 'trailingIcon' ) }
+						/>
+					</PanelBody>
+				) }
 			</InspectorControls>
 		</>
 	);
