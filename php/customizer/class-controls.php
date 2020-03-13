@@ -63,6 +63,9 @@ class Controls extends Module_Base {
 
 		// Add all controls in the "Typography" section.
 		$this->add_typography_controls();
+
+		// Add all controls in the "Corner Styles" section.
+		$this->add_corner_styles_controls();
 	}
 
 	/**
@@ -92,11 +95,11 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			'style'      => __( 'Design Style', 'material-theme-builder' ),
-			'colors'     => __( 'Color Palettes', 'material-theme-builder' ),
-			'typography' => __( 'Typography', 'material-theme-builder' ),
-			'corners'    => __( 'Corner Styles', 'material-theme-builder' ),
-			'icons'      => __( 'Icon Collections', 'material-theme-builder' ),
+			'style'         => __( 'Design Style', 'material-theme-builder' ),
+			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
+			'typography'    => __( 'Typography', 'material-theme-builder' ),
+			'corner_styles' => __( 'Corner Styles', 'material-theme-builder' ),
+			'icons'         => __( 'Icon Collections', 'material-theme-builder' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
@@ -272,6 +275,48 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Add all controls in the "Corner Styles" section.
+	 *
+	 * @return void
+	 */
+	public function add_corner_styles_controls() {
+		/**
+		 * Generate list of all the settings in the Corner Styles section.
+		 */
+		$settings = [];
+
+		foreach ( $this->get_corner_styles_controls() as $control ) {
+			$settings[ $control['id'] ] = [];
+		}
+
+		$this->add_settings( $settings );
+
+		/**
+		 * Generate list of all the controls in the Corner Styles section.
+		 */
+		$controls = [];
+
+		foreach ( $this->get_corner_styles_controls() as $control ) {
+			$controls[ $control['id'] ] = new Range_Slider_Control(
+				$this->wp_customize,
+				$this->prepend_slug( $control['id'] ),
+				[
+					'section'       => 'corner_styles',
+					'priority'      => 10,
+					'label'         => isset($control['label']) ? $control['label'] : '',
+					'description'   => isset($control['description']) ? $control['description'] : '',
+					'min'           => isset($control['min']) ? $control['min'] : 0,
+					'max'           => isset($control['max']) ? $control['max'] : 100,
+					'initial_value' => isset($control['initial_value']) ? $control['initial_value'] : 0,
+					'css_var'       => isset($control['css_var']) ? $control['css_var'] : '',
+				]
+			);
+		}
+
+		$this->add_controls( $controls );
+	}
+
+	/**
 	 * Add settings to customizer.
 	 *
 	 * @param array $settings Array of settings to add to customizer.
@@ -434,9 +479,10 @@ class Controls extends Module_Base {
 	 * Get custom frontend CSS based on the customizer theme settings.
 	 */
 	public function get_frontend_css() {
-		$color_vars   = '';
-		$font_vars    = '';
-		$google_fonts = Google_Fonts::get_fonts();
+		$color_vars         = '';
+		$corner_styles_vars = '';
+		$font_vars          = '';
+		$google_fonts       = Google_Fonts::get_fonts();
 
 		foreach ( $this->get_color_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
@@ -455,7 +501,13 @@ class Controls extends Module_Base {
 			}
 		}
 
-		return ":root {\n{$color_vars}}\nhtml {\n{$font_vars}}";
+		foreach ( $this->get_corner_styles_controls() as $control ) {
+			$value = $this->get_theme_mod( $control['id'] );
+
+			$corner_styles_vars .= esc_html( "\t{$control['css_var']}: ${value}px;\n" );
+		}
+
+		return ":root {\n{$color_vars}}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
 	}
 
 	/**
@@ -481,44 +533,52 @@ class Controls extends Module_Base {
 	public function get_design_styles() {
 		return [
 			'baseline'    => [
-				'primary_color'        => '#6200ee',
-				'secondary_color'      => '#03dac6',
-				'primary_text_color'   => '#ffffff',
-				'secondary_text_color' => '#000000',
-				'head_font_family'     => 'Roboto',
-				'body_font_family'     => 'Roboto',
-				'corner_styles'        => '4px',
-				'icon_collection'      => 'filled',
+				'primary_color'           => '#6200ee',
+				'secondary_color'         => '#03dac6',
+				'primary_text_color'      => '#ffffff',
+				'secondary_text_color'    => '#000000',
+				'head_font_family'        => 'Roboto',
+				'body_font_family'        => 'Roboto',
+				'small_component_radius'  => '4',
+				'medium_component_radius' => '4',
+				'large_component_radius'  => '24',
+				'icon_collection'         => 'filled',
 			],
 			'crane'       => [
-				'primary_color'        => '#5d1049',
-				'secondary_color'      => '#e30425',
-				'primary_text_color'   => '#ffffff',
-				'secondary_text_color' => '#ffffff',
-				'head_font_family'     => 'Raleway',
-				'body_font_family'     => 'Raleway',
-				'corner_styles'        => '4',
-				'icon_collection'      => 'outlined',
+				'primary_color'           => '#5d1049',
+				'secondary_color'         => '#e30425',
+				'primary_text_color'      => '#ffffff',
+				'secondary_text_color'    => '#ffffff',
+				'head_font_family'        => 'Raleway',
+				'body_font_family'        => 'Raleway',
+				'small_component_radius'  => '4',
+				'medium_component_radius' => '4',
+				'large_component_radius'  => '24',
+				'icon_collection'         => 'outlined',
 			],
 			'fortnightly' => [
-				'primary_color'        => '#ffffff',
-				'secondary_color'      => '#6b38fb',
-				'primary_text_color'   => '#000000',
-				'secondary_text_color' => '#ffffff',
-				'head_font_family'     => 'Merriweather',
-				'body_font_family'     => 'Merriweather',
-				'corner_styles'        => '0',
-				'icon_collection'      => 'outlined',
+				'primary_color'           => '#ffffff',
+				'secondary_color'         => '#6b38fb',
+				'primary_text_color'      => '#000000',
+				'secondary_text_color'    => '#ffffff',
+				'head_font_family'        => 'Merriweather',
+				'body_font_family'        => 'Merriweather',
+				'small_component_radius'  => '4',
+				'medium_component_radius' => '4',
+				'large_component_radius'  => '24',
+				'icon_collection'         => 'outlined',
 			],
 			'shrine'      => [
-				'primary_color'        => '#fedbd0',
-				'secondary_color'      => '#feeae6',
-				'primary_text_color'   => '#000000',
-				'secondary_text_color' => '#000000',
-				'head_font_family'     => 'Rubik',
-				'body_font_family'     => 'Rubik',
-				'corner_styles'        => '4px',
-				'icon_collection'      => 'outlined',
+				'primary_color'           => '#fedbd0',
+				'secondary_color'         => '#feeae6',
+				'primary_text_color'      => '#000000',
+				'secondary_text_color'    => '#000000',
+				'head_font_family'        => 'Rubik',
+				'body_font_family'        => 'Rubik',
+				'small_component_radius'  => '4',
+				'medium_component_radius' => '4',
+				'large_component_radius'  => '24',
+				'icon_collection'         => 'outlined',
 			],
 		];
 	}
@@ -590,6 +650,43 @@ class Controls extends Module_Base {
 						'--mdc-typography-overline-font-family',
 					],
 				],
+			],
+		];
+	}
+
+	/**
+	 * Get list of all the control settings in the Typography section.
+	 *
+	 * @return array
+	 */
+	public function get_corner_styles_controls() {
+		return [
+			[
+				'id'            => 'small_component_radius',
+				'label'         => __( 'Small Components Radius', 'material-theme-builder' ),
+				'description'   => __( 'This is the description for the small components radius. It will need more details', 'material-theme-builder' ),
+				'min'           => 0,
+				'max'           => 28,
+				'initial_value' => 4,
+				'css_var'       => '--mdc-small-component-radius',
+			],
+			[
+				'id'            => 'medium_component_radius',
+				'label'         => __( 'Medium Components Radius', 'material-theme-builder' ),
+				'description'   => __( 'This is the description for the medium components radius. It will need more details', 'material-theme-builder' ),
+				'min'           => 0,
+				'max'           => 36,
+				'initial_value' => 4,
+				'css_var'       => '--mdc-medium-component-radius',
+			],
+			[
+				'id'            => 'large_component_radius',
+				'label'         => __( 'Large Components Radius', 'material-theme-builder' ),
+				'description'   => __( 'This is the description for the large components radius. It will need more details', 'material-theme-builder' ),
+				'min'           => 0,
+				'max'           => 36,
+				'initial_value' => 24,
+				'css_var'       => '--mdc-large-component-radius',
 			],
 		];
 	}

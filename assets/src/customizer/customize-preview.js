@@ -12,6 +12,7 @@
 	const controls = window.parent._wpCustomizeSettings.controls;
 	const colorControls = {};
 	const typographyControls = {};
+	const cornerStyleControls = {};
 
 	Object.keys( controls ).forEach( control => {
 		const args = controls[ control ];
@@ -26,6 +27,10 @@
 
 		if ( args && !! args.cssVars ) {
 			typographyControls[ control ] = args.cssVars;
+		}
+
+		if ( args && !! args.cssVar && args.type === 'range_slider' ) {
+			cornerStyleControls[ control ] = args.cssVar;
 		}
 	} );
 
@@ -57,6 +62,12 @@
 			styles += `${ colorControls[ control ] }: ${ parentApi(
 				control
 			).get() };`;
+		} );
+
+		Object.keys( cornerStyleControls ).forEach( control => {
+			styles += `${ cornerStyleControls[ control ] }: ${ parentApi(
+				control
+			).get() }px;`;
 		} );
 
 		styles = `:root {
@@ -94,6 +105,15 @@
 
 	// Generate preview styles on any color control change.
 	Object.keys( colorControls ).forEach( control => {
+		parentApi( control, value => {
+			value.bind( () => {
+				generatePreviewStyles();
+			} );
+		} );
+	} );
+
+	// Generate preview styles on any corner styles control change.
+	Object.keys( cornerStyleControls ).forEach( control => {
 		parentApi( control, value => {
 			value.bind( () => {
 				generatePreviewStyles();
