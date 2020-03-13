@@ -30,6 +30,7 @@
     "@babel/plugin-proposal-optional-chaining": "7.8.3",
     "@material/button": "^5.0.0",
     "@material/card": "^5.0.0",
+    "@material/image-list": "^5.1.0",
     "@material/layout-grid": "^5.0.0",
     "@material/ripple": "^5.0.0",
     "@material/typography": "^5.0.0",
