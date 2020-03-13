@@ -12,13 +12,14 @@
  * External dependencies
  */
 import 'select-woo';
-
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import { render } from '@wordpress/element';
-
+import '@wordpress/components/build-style/style.css';
+import RangeControl from './components/RangeControl';
+import { unmountComponentAtNode } from 'react-dom';
 /**
  * Internal dependencies
  */
@@ -415,6 +416,28 @@ import colorUtils from '../common/color-utils';
 		material_color: api.MaterialColorControl,
 	} );
 
+	const renderRangeControl = control => {
+		const props = {
+			id: control.id,
+			label: control.params.label,
+			description: control.params.description,
+			min: control.params.min,
+			max: control.params.max,
+			value: Number( control.setting.get() ) || control.params.initialValue,
+		};
+
+		render(
+			<RangeControl
+				{ ...props }
+				onChange={ newValue => {
+					control.setting.set( newValue );
+					control.setting._dirty = true;
+				} }
+			/>,
+			control.container.find( '.mtb-ranger_slider' ).get( 0 )
+		);
+	};
+
 	/**
 	 * Callback when a "Design Style" is changed.
 	 *
@@ -455,6 +478,13 @@ import colorUtils from '../common/color-utils';
 				// Set the value from style defaults.
 				control.setting.set( value );
 
+				if ( control.params.type === 'range_slider' ) {
+					unmountComponentAtNode(
+						control.container.find( '.mtb-ranger_slider' ).get( 0 )
+					);
+					renderRangeControl( control );
+				}
+
 				// Rebind the custom value change event.
 				control.setting.bind( onCustomValueChange );
 			}
@@ -470,6 +500,20 @@ import colorUtils from '../common/color-utils';
 			styleSetting.set( 'custom' );
 		}
 	};
+
+	api.RangeControl = api.Control.extend( {
+		ready() {
+			const control = this;
+			renderRangeControl( control );
+		},
+	} );
+
+	/**
+	 * Extends wp.customize.controlConstructor with material color constructor.
+	 */
+	$.extend( api.controlConstructor, {
+		range_slider: api.RangeControl,
+	} );
 
 	api.bind( 'ready', () => {
 		// Iterate through our controls and bind events for value change.
