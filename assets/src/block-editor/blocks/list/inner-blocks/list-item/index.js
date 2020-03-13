@@ -28,7 +28,10 @@ export const settings = {
 			type: 'string',
 			default: 'none',
 		},
-		icon: {
+		leadingIcon: {
+			type: 'object',
+		},
+		trailingIcon: {
 			type: 'object',
 		},
 	},

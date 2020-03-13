@@ -4,13 +4,13 @@
 import classNames from 'classnames';
 
 const ListItemSave = ( {
-	attributes: { primaryText, secondaryText, icon, iconPosition },
+	attributes: { primaryText, secondaryText, leadingIcon, trailingIcon },
 	className,
 } ) => (
-	<li className={ classNames( 'mdc-list-item', className ) } tabIndex="0">
-		{ icon && iconPosition === 'leading' && (
+	<li className={ classNames( 'mdc-list-item', className ) } tabIndex={ 0 }>
+		{ leadingIcon && (
 			<i className="mdc-list-item__graphic material-icons">
-				{ String.fromCharCode( icon?.hex ) }
+				{ String.fromCharCode( leadingIcon?.hex ) }
 			</i>
 		) }
 		<span className="mdc-list-item__text">
@@ -21,9 +21,9 @@ const ListItemSave = ( {
 			) }
 		</span>
 
-		{ icon && iconPosition === 'trailing' && (
+		{ trailingIcon && (
 			<i className="mdc-list-item__meta material-icons">
-				{ String.fromCharCode( icon?.hex ) }
+				{ String.fromCharCode( trailingIcon?.hex ) }
 			</i>
 		) }
 	</li>

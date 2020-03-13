@@ -17,6 +17,20 @@ export const settings = {
 	description: __( 'List stuff in a list', 'material-theme-builder' ),
 	category: 'material',
 	icon: <i className="material-icons">list</i>,
+	attributes: {
+		style: {
+			type: 'string',
+			default: 'basic',
+		},
+		leadingIcons: {
+			type: 'boolean',
+			default: false,
+		},
+		trailingIcons: {
+			type: 'boolean',
+			default: false,
+		},
+	},
 	edit,
 	save,
 };
