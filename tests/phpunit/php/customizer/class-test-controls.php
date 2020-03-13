@@ -152,7 +152,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				[ $this->equalTo( "{$controls->slug}_style" ) ],
 				[ $this->equalTo( "{$controls->slug}_colors" ) ],
 				[ $this->equalTo( "{$controls->slug}_typography" ) ],
-				[ $this->equalTo( "{$controls->slug}_corners" ) ],
+				[ $this->equalTo( "{$controls->slug}_corner_styles" ) ],
 				[ $this->equalTo( $icons_section ) ]
 			);
 
