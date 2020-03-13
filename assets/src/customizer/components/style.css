@@ -1,0 +1,63 @@
+.range-control {
+
+	.customize-control-title {
+		margin-right: 10px;
+	}
+
+	.info-icon {
+		font-size: 18px !important;
+		margin-bottom: 4px;
+	}
+
+	.slider {
+		flex-grow: 1;
+		margin-right: 10px;
+	}
+
+	.components-range-control__number {
+		margin-left: 8px !important;
+		width: 54px !important;
+	}
+
+	.components-base-control__field {
+		margin-bottom: 0 !important;
+	}
+
+	.customize-control-description {
+		transition: opacity 1s ease-out;
+		opacity: 0;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.expanded {
+
+		.customize-control-description {
+			opacity: 1;
+			height: auto;
+		}
+	}
+
+}
+
+.range-control-title {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+
+	&:hover {
+		color: #0073aa;
+		cursor: pointer;
+	}
+}
+
+.range-control-body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.range-control-body__item {
+	flex-direction: row;
+	justify-content: space-between;
+}

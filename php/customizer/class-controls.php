@@ -432,6 +432,13 @@ class Controls extends Module_Base {
 			[ 'wp-components' ],
 			$this->plugin->asset_version()
 		);
+
+		wp_enqueue_style(
+			'material-icons-css',
+			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
+			[],
+			$this->plugin->asset_version()
+		);
 	}
 
 	/**
