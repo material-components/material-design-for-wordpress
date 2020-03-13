@@ -153,7 +153,7 @@ class Controls extends Module_Base {
 		$this->add_settings( $settings );
 
 		/**
-		* List of all the controls in the Theme section.
+		 * List of all the controls in the Theme section.
 		 */
 		$controls = [
 			'style' => new Image_Radio_Control(
@@ -211,8 +211,8 @@ class Controls extends Module_Base {
 		$this->add_settings( $settings );
 
 		/**
-		* Generate list of all the controls in the colors section.
-		*/
+		 * Generate list of all the controls in the colors section.
+		 */
 		$controls = [];
 
 		foreach ( $this->get_color_controls() as $control ) {
@@ -251,8 +251,8 @@ class Controls extends Module_Base {
 		$this->add_settings( $settings );
 
 		/**
-		* Generate list of all the controls in the Typography section.
-		*/
+		 * Generate list of all the controls in the Typography section.
+		 */
 		$controls = [];
 
 		foreach ( $this->get_typography_controls() as $control ) {
@@ -274,11 +274,11 @@ class Controls extends Module_Base {
 	/**
 	 * Add settings to customizer.
 	 *
-	 * @param  array $settings Array of settings to add to customizer.
+	 * @param array $settings Array of settings to add to customizer.
+	 *
 	 * @return void
 	 */
 	public function add_settings( $settings = [] ) {
-
 		foreach ( $settings as $id => $setting ) {
 			$id = $this->prepend_slug( $id );
 
@@ -298,8 +298,8 @@ class Controls extends Module_Base {
 			 *
 			 * This allows other plugins/themes to change the customizer setting args.
 			 *
-			 * @param array   $setting Array of setting args.
-			 * @param string  $id      ID of the setting.
+			 * @param array  $setting Array of setting args.
+			 * @param string $id      ID of the setting.
 			 */
 			$setting = apply_filters( $this->slug . '_customizer_setting_args', $setting, $id );
 
@@ -318,11 +318,11 @@ class Controls extends Module_Base {
 	/**
 	 * Add controls to customizer.
 	 *
-	 * @param  array $controls Array of controls to add to customizer.
+	 * @param array $controls Array of controls to add to customizer.
+	 *
 	 * @return void
 	 */
 	public function add_controls( $controls = [] ) {
-
 		foreach ( $controls as $id => $control ) {
 			$id = $this->prepend_slug( $id );
 
@@ -404,7 +404,6 @@ class Controls extends Module_Base {
 		}
 
 		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
-
 	}
 
 	/**
@@ -462,7 +461,8 @@ class Controls extends Module_Base {
 	/**
 	 * Get default value for a setting.
 	 *
-	 * @param  string $setting Name of the setting.
+	 * @param string $setting Name of the setting.
+	 *
 	 * @return mixed
 	 */
 	public function get_default( $setting ) {
@@ -597,7 +597,8 @@ class Controls extends Module_Base {
 	/**
 	 * Prepend the slug name if it does not exist.
 	 *
-	 * @param  string $name The name of the setting/control.
+	 * @param string $name The name of the setting/control.
+	 *
 	 * @return string
 	 */
 	public function prepend_slug( $name ) {
@@ -607,7 +608,8 @@ class Controls extends Module_Base {
 	/**
 	 * Get theme mod with fallback to the default value.
 	 *
-	 * @param  string $name Name of the mod.
+	 * @param string $name Name of the mod.
+	 *
 	 * @return mixed
 	 */
 	public function get_theme_mod( $name ) {
