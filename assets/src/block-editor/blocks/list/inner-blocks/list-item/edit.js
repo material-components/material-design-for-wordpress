@@ -6,6 +6,7 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
+import { ListContext } from '../../edit';
 import { ICON_POSITIONS } from '../../options';
 import IconPicker from '../../../../components/icon-picker';
 import ButtonGroup from '../../../../components/button-group';
@@ -15,17 +16,21 @@ import genericAttributesSetter from '../../../../utils/generic-attributes-setter
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { useCallback } from '@wordpress/element';
+import { createBlock } from '@wordpress/blocks';
 import { PanelBody } from '@wordpress/components';
+import { dispatch, select } from '@wordpress/data';
 import { InspectorControls } from '@wordpress/block-editor';
+import { useCallback, useContext } from '@wordpress/element';
 
 const ListItemEdit = ( {
 	attributes: { primaryText, secondaryText, icon, iconPosition },
 	setAttributes,
 	className,
+	clientId,
 } ) => {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const { parentClientId } = useContext( ListContext );
 
 	const handleEnterPress = e => {
 		if ( e.key !== 'Enter' ) {
@@ -38,7 +43,17 @@ const ListItemEdit = ( {
 				__( 'Secondary text...', 'material-theme-builder' )
 			);
 		} else {
-			// Create new list item
+			// Create list item block under the current selection
+			const block = createBlock( 'material/list-item' );
+			const parent = select( 'core/editor' ).getBlocksByClientId(
+				parentClientId
+			)[ 0 ];
+
+			dispatch( 'core/editor' ).insertBlocks(
+				block,
+				parent.innerBlocks.findIndex( blk => blk.clientId === clientId ) + 1,
+				parent.clientId
+			);
 		}
 
 		e.currentTarget.blur();
@@ -59,7 +74,10 @@ const ListItemEdit = ( {
 				) }
 				<span className="mdc-list-item__text list-item__text-container">
 					<span
-						className="mdc-list-item__primary-text list-item__text-container__text"
+						className={ classNames(
+							'mdc-list-item__primary-text',
+							'list-item__text-container__text'
+						) }
 						role="textbox"
 						tabIndex={ 0 }
 						contentEditable
