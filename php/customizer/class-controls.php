@@ -303,12 +303,12 @@ class Controls extends Module_Base {
 				[
 					'section'       => 'corner_styles',
 					'priority'      => 10,
-					'label'         => isset($control['label']) ? $control['label'] : '',
-					'description'   => isset($control['description']) ? $control['description'] : '',
-					'min'           => isset($control['min']) ? $control['min'] : 0,
-					'max'           => isset($control['max']) ? $control['max'] : 100,
-					'initial_value' => isset($control['initial_value']) ? $control['initial_value'] : 0,
-					'css_var'       => isset($control['css_var']) ? $control['css_var'] : '',
+					'label'         => isset( $control['label'] ) ? $control['label'] : '',
+					'description'   => isset( $control['description'] ) ? $control['description'] : '',
+					'min'           => isset( $control['min'] ) ? $control['min'] : 0,
+					'max'           => isset( $control['max'] ) ? $control['max'] : 100,
+					'initial_value' => isset( $control['initial_value'] ) ? $control['initial_value'] : 0,
+					'css_var'       => isset( $control['css_var'] ) ? $control['css_var'] : '',
 				]
 			);
 		}
