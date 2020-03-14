@@ -29,7 +29,7 @@ const ListItemEdit = ( {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
 
-	const { parentClientId, leadingIcons, trailingIcons } = useContext(
+	const { parentClientId, style, leadingIcons, trailingIcons } = useContext(
 		ListContext
 	);
 
@@ -43,24 +43,17 @@ const ListItemEdit = ( {
 			return true;
 		}
 
-		if ( e.key === 'Enter' && e.shiftKey ) {
-			// Create help-text line
-			setter( 'secondaryText' )(
-				__( 'Secondary text...', 'material-theme-builder' )
-			);
-		} else {
-			// Create list item block under the current selection
-			const block = createBlock( 'material/list-item' );
-			const parent = select( 'core/editor' ).getBlocksByClientId(
-				parentClientId
-			)[ 0 ];
+		// Create list item block under the current selection
+		const block = createBlock( 'material/list-item' );
+		const parent = select( 'core/editor' ).getBlocksByClientId(
+			parentClientId
+		)[ 0 ];
 
-			dispatch( 'core/editor' ).insertBlocks(
-				block,
-				parent.innerBlocks.findIndex( blk => blk.clientId === clientId ) + 1,
-				parent.clientId
-			);
-		}
+		dispatch( 'core/editor' ).insertBlocks(
+			block,
+			parent.innerBlocks.findIndex( blk => blk.clientId === clientId ) + 1,
+			parent.clientId
+		);
 
 		e.currentTarget.blur();
 	};
@@ -76,11 +69,22 @@ const ListItemEdit = ( {
 		}
 	}, [ leadingIcons, leadingIcon, trailingIcons, trailingIcon ] );
 
+	// Sync with parent regarding style and secondaryText
+	useEffect( () => {
+		if ( style !== 'two-line' && secondaryText ) {
+			setAttributes( { secondaryText: undefined } );
+		} else if ( style === 'two-line' && ! secondaryText ) {
+			setAttributes( {
+				secondaryText: __( 'Secondary text...', 'material-theme-builder' ),
+			} );
+		}
+	}, [ style, secondaryText ] );
+
 	return (
 		<>
 			<li
 				className={ classNames( 'mdc-list-item', 'list-item', className, {
-					'list-item--with-secondary': secondaryText,
+					'list-item--with-secondary': style === 'two-line',
 				} ) }
 				tabIndex={ 0 }
 			>
@@ -105,7 +109,7 @@ const ListItemEdit = ( {
 						{ primaryText }
 					</span>
 
-					{ secondaryText && (
+					{ style === 'two-line' && (
 						<>
 							<br />
 							<span
