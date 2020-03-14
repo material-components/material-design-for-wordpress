@@ -22,6 +22,6 @@ export const LIST_STYLES = [
 	},
 	{
 		label: __( 'List Item With Secondary Text', 'material-theme-builder' ),
-		value: 'secondary',
+		value: 'two-line',
 	},
 ];

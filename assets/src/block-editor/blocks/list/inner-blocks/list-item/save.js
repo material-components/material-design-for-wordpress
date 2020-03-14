@@ -1,4 +1,9 @@
 /**
+ * Internal dependencies
+ */
+import ListItemText from '../../components/list-item-text';
+
+/**
  * External dependencies
  */
 import classNames from 'classnames';
@@ -13,13 +18,8 @@ const ListItemSave = ( {
 				{ String.fromCharCode( leadingIcon?.hex ) }
 			</i>
 		) }
-		<span className="mdc-list-item__text">
-			<span className="mdc-list-item__primary-text">{ primaryText }</span>
 
-			{ secondaryText && (
-				<span className="mdc-list-item__secondary-text">{ secondaryText }</span>
-			) }
-		</span>
+		<ListItemText primaryText={ primaryText } secondaryText={ secondaryText } />
 
 		{ trailingIcon && (
 			<i className="mdc-list-item__meta material-icons">
