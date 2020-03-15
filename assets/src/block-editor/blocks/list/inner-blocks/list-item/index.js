@@ -34,6 +34,15 @@ export const settings = {
 		trailingIcon: {
 			type: 'object',
 		},
+		url: {
+			type: 'string',
+		},
+		rel: {
+			type: 'string',
+		},
+		linkTarget: {
+			type: 'string',
+		},
 	},
 	edit,
 	save,

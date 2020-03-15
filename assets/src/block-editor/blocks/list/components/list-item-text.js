@@ -1,9 +1,7 @@
-/**
- * External dependencies
- */
-import classNames from 'classnames';
-
 const ListItemText = ( {
+	url,
+	rel,
+	linkTarget,
 	primaryText,
 	secondaryText,
 	editable = false,
@@ -12,10 +10,10 @@ const ListItemText = ( {
 	onEnterSecondary,
 	onBlurSecondary,
 } ) => {
-	if ( ! secondaryText ) {
-		return (
+	const Linkable = ( { children, className } ) =>
+		editable ? (
 			<span
-				className="mdc-list-item__text"
+				className={ className }
 				role={ editable ? 'textbox' : undefined }
 				tabIndex={ editable ? 0 : undefined }
 				contentEditable={ editable }
@@ -23,30 +21,34 @@ const ListItemText = ( {
 				onKeyPress={ onEnterPrimary }
 				onBlur={ onBlurPrimary }
 			>
-				{ primaryText }
+				{ children }
 			</span>
+		) : (
+			<a
+				href={ url ?? '#' }
+				rel={ rel }
+				target={ linkTarget ?? undefined }
+				className={ className }
+			>
+				{ children }
+			</a>
+		);
+
+	if ( ! secondaryText ) {
+		return (
+			<Linkable className="mdc-list-item__text list-item__text">
+				{ primaryText }
+			</Linkable>
 		);
 	}
 
 	return (
-		<span
-			className={ classNames( 'mdc-list-item__text', {
-				'list-item__text-container': editable,
-			} ) }
-		>
-			<span
-				className="mdc-list-item__primary-text list-item__text-container__text"
-				role={ editable ? 'textbox' : undefined }
-				tabIndex={ editable ? 0 : undefined }
-				contentEditable={ editable }
-				suppressContentEditableWarning={ editable }
-				onKeyPress={ onEnterPrimary }
-				onBlur={ onBlurPrimary }
-			>
+		<span className="mdc-list-item__text">
+			<Linkable className="mdc-list-item__primary-text list-item__text">
 				{ primaryText }
-			</span>
+			</Linkable>
 			<span
-				className="mdc-list-item__secondary-text list-item__text-container__text"
+				className="mdc-list-item__secondary-text list-item__text"
 				role={ editable ? 'textbox' : undefined }
 				tabIndex={ editable ? 0 : undefined }
 				contentEditable={ editable }
