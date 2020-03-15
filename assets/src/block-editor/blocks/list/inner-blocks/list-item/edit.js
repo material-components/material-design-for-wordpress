@@ -7,6 +7,7 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import { ListContext } from '../../edit';
+import ListItemText from '../../components/list-item-text';
 import IconPicker from '../../../../components/icon-picker';
 import genericAttributesSetter from '../../../../utils/generic-attributes-setter';
 
@@ -26,12 +27,14 @@ const ListItemEdit = ( {
 	className,
 	clientId,
 } ) => {
-	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
 
-	const { parentClientId, style, leadingIcons, trailingIcons } = useContext(
-		ListContext
-	);
+	const {
+		parentClientId,
+		style,
+		leadingIconsEnabled,
+		trailingIconsEnabled,
+	} = useContext( ListContext );
 
 	/**
 	 * Handle ENTER key within our primaryText conntentEditable.
@@ -56,18 +59,19 @@ const ListItemEdit = ( {
 		);
 
 		e.currentTarget.blur();
+		return false;
 	};
 
 	// Sync with parent icon settings
 	useEffect( () => {
-		if ( ! leadingIcons && leadingIcon ) {
+		if ( ! leadingIconsEnabled && leadingIcon ) {
 			setAttributes( { leadingIcon: undefined } );
 		}
 
-		if ( ! trailingIcons && trailingIcon ) {
+		if ( ! trailingIconsEnabled && trailingIcon ) {
 			setAttributes( { trailingIcon: undefined } );
 		}
-	}, [ leadingIcons, leadingIcon, trailingIcons, trailingIcon ] );
+	}, [ leadingIconsEnabled, leadingIcon, trailingIconsEnabled, trailingIcon ] );
 
 	// Sync with parent regarding style and secondaryText
 	useEffect( () => {
@@ -88,49 +92,29 @@ const ListItemEdit = ( {
 				} ) }
 				tabIndex={ 0 }
 			>
-				{ leadingIcon && leadingIcons && (
+				{ leadingIcon && leadingIconsEnabled && (
 					<i className="mdc-list-item__graphic material-icons">
 						{ String.fromCharCode( leadingIcon?.hex ) }
 					</i>
 				) }
-				<span className="mdc-list-item__text list-item__text-container">
-					<span
-						className={ classNames(
-							'mdc-list-item__primary-text',
-							'list-item__text-container__text'
-						) }
-						role="textbox"
-						tabIndex={ 0 }
-						contentEditable
-						suppressContentEditableWarning
-						onBlur={ setter( 'primaryText', e => e.currentTarget.textContent ) }
-						onKeyPress={ handleEnterPress }
-					>
-						{ primaryText }
-					</span>
 
-					{ style === 'two-line' && (
-						<>
-							<br />
-							<span
-								className="mdc-list-item__secondary-text list-item__text-container__text"
-								role="textbox"
-								tabIndex={ 0 }
-								contentEditable
-								suppressContentEditableWarning
-								onKeyPress={ e => e.key === 'Enter' && e.currentTarget.blur() }
-								onBlur={ setter(
-									'secondaryText',
-									e => e.currentTarget.textContent || null
-								) }
-							>
-								{ secondaryText }
-							</span>
-						</>
+				<ListItemText
+					editable={ true }
+					primaryText={ primaryText }
+					secondaryText={ secondaryText }
+					onBlurPrimary={ setter(
+						'primaryText',
+						e => e.currentTarget.textContent
 					) }
-				</span>
+					onEnterPrimary={ handleEnterPress }
+					onBlurSecondary={ setter(
+						'secondaryText',
+						e => e.currentTarget.textContent || null
+					) }
+					onEnterSecondary={ e => e.key === 'Enter' && e.currentTarget.blur() }
+				/>
 
-				{ trailingIcon && trailingIcons && (
+				{ trailingIcon && trailingIconsEnabled && (
 					<i className="mdc-list-item__meta material-icons">
 						{ String.fromCharCode( trailingIcon?.hex ) }
 					</i>
@@ -138,7 +122,7 @@ const ListItemEdit = ( {
 			</li>
 
 			<InspectorControls>
-				{ leadingIcons && (
+				{ leadingIconsEnabled && (
 					<PanelBody
 						title={ __( 'Leading Icon', 'material-theme-builder' ) }
 						initialOpen={ true }
@@ -150,7 +134,7 @@ const ListItemEdit = ( {
 					</PanelBody>
 				) }
 
-				{ trailingIcons && (
+				{ trailingIconsEnabled && (
 					<PanelBody
 						title={ __( 'Trailing Icon', 'material-theme-builder' ) }
 						initialOpen={ true }
