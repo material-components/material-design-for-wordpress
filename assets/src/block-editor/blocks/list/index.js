@@ -22,11 +22,11 @@ export const settings = {
 			type: 'string',
 			default: 'basic',
 		},
-		leadingIcons: {
+		leadingIconsEnabled: {
 			type: 'boolean',
 			default: false,
 		},
-		trailingIcons: {
+		trailingIconsEnabled: {
 			type: 'boolean',
 			default: false,
 		},
