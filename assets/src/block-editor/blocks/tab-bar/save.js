@@ -15,15 +15,15 @@ import { RawHTML } from '@wordpress/element';
 import { getBlockContent } from '@wordpress/blocks';
 
 const TabBarSave = ( { attributes: { tabs, iconPosition } } ) => (
-	<>
+	<div className="mdc-tab-bar-container">
 		<div className="mdc-tab-bar" role="tablist">
 			<div className="mdc-tab-scroller">
 				<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
 					<div className="mdc-tab-scroller__scroll-content">
 						{ tabs.map( ( props, index ) => (
 							<Tab
+								frontend
 								{ ...props }
-								frontend={ true }
 								active={ index === 0 }
 								key={ props.position }
 								iconPosition={ iconPosition }
@@ -47,7 +47,7 @@ const TabBarSave = ( { attributes: { tabs, iconPosition } } ) => (
 				</RawHTML>
 			) ) }
 		</div>
-	</>
+	</div>
 );
 
 export default TabBarSave;

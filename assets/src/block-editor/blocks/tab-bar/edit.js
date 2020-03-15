@@ -59,6 +59,9 @@ const TabBarEdit = ( {
 		}
 	} );
 
+	/**
+	 * Initialize and create a new tab. Save it to the Tab Bar.
+	 */
 	const createTab = useCallback( () => {
 		const newPosition = tabs[ tabs.length - 1 ].position + 1;
 
@@ -73,19 +76,39 @@ const TabBarEdit = ( {
 		changeTab( tabs.length - 1 );
 	} );
 
+	/**
+	 * Switch the active tab.
+	 *
+	 * @param {number} index The index of the tab to make active.
+	 */
 	const changeTab = useCallback( index => {
 		setActiveTab( tabs[ index ] );
 	} );
 
+	/**
+	 * Filter out (delete) a tab
+	 *
+	 * @param {number} index The index of the tab to delete.
+	 */
 	const deleteTab = useCallback( index => {
 		tabs = tabs.filter( ( _, i ) => index !== i );
 		setAttributes( { tabs } );
 	} );
 
+	/**
+	 * Set the icon position.
+	 *
+	 * @param {string} val The icon position.
+	 */
 	const setIconPosition = useCallback( val =>
 		setAttributes( { iconPosition: val } )
 	);
 
+	/**
+	 * Move a tab left or right
+	 *
+	 * @param {string} direction The direction to move towards.
+	 */
 	const moveTab = useCallback( direction => {
 		let newPos =
 			direction === 'left' ? activeTab.position - 1 : activeTab.position + 1;
