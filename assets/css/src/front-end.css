@@ -11,3 +11,8 @@
 		display: block;
 	}
 }
+
+.mdc-list-item a {
+	text-decoration: none !important;
+	outline: none !important;
+}

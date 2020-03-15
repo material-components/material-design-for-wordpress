@@ -9,7 +9,7 @@ import ListItemText from '../../components/list-item-text';
 import classNames from 'classnames';
 
 const ListItemSave = ( {
-	attributes: { primaryText, secondaryText, leadingIcon, trailingIcon },
+	attributes: { leadingIcon, trailingIcon, ...textProps },
 	className,
 } ) => (
 	<li className={ classNames( 'mdc-list-item', className ) } tabIndex={ 0 }>
@@ -19,7 +19,7 @@ const ListItemSave = ( {
 			</i>
 		) }
 
-		<ListItemText primaryText={ primaryText } secondaryText={ secondaryText } />
+		<ListItemText { ...textProps } />
 
 		{ trailingIcon && (
 			<i className="mdc-list-item__meta material-icons">

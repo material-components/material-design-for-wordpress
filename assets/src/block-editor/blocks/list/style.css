@@ -1,12 +1,7 @@
 .list-item {
 
-	&__text-container {
-		overflow: visible !important;
-
-		&__text {
-			outline: none;
-			cursor: text;
-		}
+	&__text {
+		outline: none;
+		cursor: text;
 	}
 }
-
