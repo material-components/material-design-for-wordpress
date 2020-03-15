@@ -22,17 +22,26 @@ const initButtons = () => {
 };
 
 const initTabBar = () => {
-	const tabBar = new MDCTabBar( document.querySelector( '.mdc-tab-bar' ) );
-	const contentElements = document.querySelectorAll( '.mdc-tab-content' );
+	const tabBars = document.querySelectorAll( '.mdc-tab-bar-container' );
 
-	tabBar.listen( 'MDCTabBar:activated', event => {
-		document
-			.querySelector( '.mdc-tab-content--active' )
-			.classList.remove( 'mdc-tab-content--active' );
-
-		contentElements[ event.detail.index ].classList.add(
-			'mdc-tab-content--active'
+	tabBars.forEach( tabBarContainer => {
+		const tabBar = new MDCTabBar(
+			tabBarContainer.querySelector( '.mdc-tab-bar' )
 		);
+
+		const contentElements = tabBarContainer.querySelectorAll(
+			'.mdc-tab-content'
+		);
+
+		tabBar.listen( 'MDCTabBar:activated', event => {
+			tabBarContainer
+				.querySelector( '.mdc-tab-content--active' )
+				.classList.remove( 'mdc-tab-content--active' );
+
+			contentElements[ event.detail.index ].classList.add(
+				'mdc-tab-content--active'
+			);
+		} );
 	} );
 };
 
