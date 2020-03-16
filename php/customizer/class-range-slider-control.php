@@ -64,9 +64,9 @@ class Range_Slider_Control extends \WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['cssVar'] = ! empty( $this->css_var ) ? $this->css_var : [];
-		$this->json['min'] = ! empty( $this->min ) ? $this->min : 0;
-		$this->json['max'] = ! empty( $this->max ) ? $this->max : 100;
+		$this->json['cssVar']       = ! empty( $this->css_var ) ? $this->css_var : [];
+		$this->json['min']          = ! empty( $this->min ) ? $this->min : 0;
+		$this->json['max']          = ! empty( $this->max ) ? $this->max : 100;
 		$this->json['initialValue'] = ! empty( $this->initial_value ) ? $this->initial_value : 0;
 	}
 }

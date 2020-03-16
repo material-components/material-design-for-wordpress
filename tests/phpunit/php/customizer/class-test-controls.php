@@ -35,8 +35,8 @@ class Test_Controls extends \WP_UnitTestCase {
 		require_once ABSPATH . WPINC . '/class-wp-customize-section.php';
 
 		$this->wp_customize = $this->getMockBuilder( 'DummyClass' )
-		                           ->setMethods( [ 'register_control_type', 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
-		                           ->getMock();
+			->setMethods( [ 'register_control_type', 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
+			->getMock();
 	}
 
 	/**
@@ -69,35 +69,35 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Set up the expectation for the register_control_type() method
 		// to be called only once and with the class `Material_Color_Palette_Control`.
 		$this->wp_customize->expects( $this->once() )
-		                   ->method( 'register_control_type' )
-		                   ->with( $this->equalTo( Material_Color_Palette_Control::class ) );
+			->method( 'register_control_type' )
+			->with( $this->equalTo( Material_Color_Palette_Control::class ) );
 
 		$controls = $this->getMockBuilder( Controls::class )
-		                 ->disableOriginalConstructor()
-		                 ->setMethods( [ 'add_panel', 'add_sections', 'add_theme_controls', 'add_corner_styles_controls' ] )
-		                 ->getMock( null );
+			->disableOriginalConstructor()
+			->setMethods( [ 'add_panel', 'add_sections', 'add_theme_controls', 'add_corner_styles_controls' ] )
+			->getMock( null );
 
 		$controls->plugin = get_plugin_instance();
 
 		// Set up the expectation for the add_panel() method
 		// to be called only once.
 		$controls->expects( $this->once() )
-		         ->method( 'add_panel' );
+			->method( 'add_panel' );
 
 		// Set up the expectation for the add_sections() method
 		// to be called only once.
 		$controls->expects( $this->once() )
-		         ->method( 'add_sections' );
+			->method( 'add_sections' );
 
 		// Set up the expectation for the add_theme_controls() method
 		// to be called only once.
 		$controls->expects( $this->once() )
-		         ->method( 'add_theme_controls' );
+			->method( 'add_theme_controls' );
 
 		// Set up the expectation for the add_corner_styles_controls() method
 		// to be called only once.
 		$controls->expects( $this->once() )
-		         ->method( 'add_corner_styles_controls' );
+			->method( 'add_corner_styles_controls' );
 
 		$controls->register( $this->wp_customize );
 	}
@@ -116,8 +116,8 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Set up the expectation for the update() method
 		// to be called only once and with the id $controls->slug.
 		$this->wp_customize->expects( $this->once() )
-		                   ->method( 'add_panel' )
-		                   ->with( $this->equalTo( $controls->slug ) );
+		   ->method( 'add_panel' )
+		   ->with( $this->equalTo( $controls->slug ) );
 
 		$controls->add_panel();
 	}
@@ -137,8 +137,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$icons_section = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_icons" );
 		add_filter(
 			'mtb_customizer_section_args',
-			function ( $args, $id ) use ( $controls, $icons_section )
-			{
+			function ( $args, $id ) use ( $controls, $icons_section ) {
 				if ( "{$controls->slug}_icons" === $id ) {
 					return $icons_section;
 				}
@@ -152,14 +151,14 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Set up the expectation for the add_section() method
 		// to be called 5 times, once for each section.
 		$this->wp_customize->expects( $this->exactly( 5 ) )
-		                   ->method( 'add_section' )
-		                   ->withConsecutive(
-			                   [ $this->equalTo( "{$controls->slug}_style" ) ],
-			                   [ $this->equalTo( "{$controls->slug}_colors" ) ],
-			                   [ $this->equalTo( "{$controls->slug}_typography" ) ],
-			                   [ $this->equalTo( "{$controls->slug}_corner_styles" ) ],
-			                   [ $this->equalTo( $icons_section ) ]
-		                   );
+		   ->method( 'add_section' )
+		->withConsecutive(
+			[ $this->equalTo( "{$controls->slug}_style" ) ],
+			[ $this->equalTo( "{$controls->slug}_colors" ) ],
+			[ $this->equalTo( "{$controls->slug}_typography" ) ],
+			[ $this->equalTo( "{$controls->slug}_corner_styles" ) ],
+			[ $this->equalTo( $icons_section ) ]
+		);
 
 		$controls->add_sections();
 	}
@@ -178,26 +177,25 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Set up the expectation for the add_setting() method
 		// to be called.
 		$this->wp_customize->expects( $this->exactly( 2 ) )
-		                   ->method( 'add_setting' )
-		                   ->withConsecutive(
-			                   [ $this->equalTo( "{$controls->slug}_style" ) ],
-			                   [ $this->equalTo( "{$controls->slug}_previous_style" ) ]
-		                   );
+		   ->method( 'add_setting' )
+		->withConsecutive(
+			[ $this->equalTo( "{$controls->slug}_style" ) ],
+			[ $this->equalTo( "{$controls->slug}_previous_style" ) ]
+		);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
 		$this->wp_customize->expects( $this->once() )
-		                   ->method( 'add_control' )
-		                   ->withConsecutive(
-			                   [
-				                   $this->callback(
-					                   function ( $control ) use ( $controls )
-					                   {
-						                   return "{$controls->slug}_style" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'shrine', 'custom' ] === array_keys( $control->choices );
-					                   }
-				                   ),
-			                   ]
-		                   );
+		   ->method( 'add_control' )
+		->withConsecutive(
+			[
+				$this->callback(
+					function ( $control ) use ( $controls ) {
+						return "{$controls->slug}_style" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'shrine', 'custom' ] === array_keys( $control->choices );
+					}
+				),
+			]
+		);
 
 		$controls->add_theme_controls();
 	}
@@ -216,24 +214,24 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Set up the expectation for the add_setting() method
 		// to be called.
 		$this->wp_customize->expects( $this->exactly( 2 ) )
-		                   ->method( 'add_setting' )
-		                   ->withConsecutive(
-			                   [ $this->equalTo( "{$controls->slug}_head_font_family" ) ],
-			                   [ $this->equalTo( "{$controls->slug}_body_font_family" ) ]
-		                   );
+		   ->method( 'add_setting' )
+		->withConsecutive(
+			[ $this->equalTo( "{$controls->slug}_head_font_family" ) ],
+			[ $this->equalTo( "{$controls->slug}_body_font_family" ) ]
+		);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
 		$this->wp_customize->expects( $this->exactly( 2 ) )
-		                   ->method( 'add_control' )
-		                   ->withConsecutive(
-			                   [
-				                   $this->isInstanceOf( Google_Fonts_Control::class ),
-			                   ],
-			                   [
-				                   $this->isInstanceOf( Google_Fonts_Control::class ),
-			                   ]
-		                   );
+		   ->method( 'add_control' )
+		->withConsecutive(
+			[
+				$this->isInstanceOf( Google_Fonts_Control::class ),
+			],
+			[
+				$this->isInstanceOf( Google_Fonts_Control::class ),
+			]
+		);
 
 		$controls->add_typography_controls();
 	}
@@ -258,28 +256,28 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Set up the expectation for the add_setting() method
 		// to be called.
 		$this->wp_customize->expects( $this->exactly( 3 ) )
-		                   ->method( 'add_setting' )
-		                   ->withConsecutive(
-			                   [ $this->equalTo( "{$controls->slug}_small_component_radius" ), array_merge( $baseSetting, [ 'default' => 4 ] ) ],
-			                   [ $this->equalTo( "{$controls->slug}_medium_component_radius" ), array_merge( $baseSetting, [ 'default' => 4 ] ) ],
-			                   [ $this->equalTo( "{$controls->slug}_large_component_radius" ), array_merge( $baseSetting, [ 'default' => 24 ] ) ]
-		                   );
+		   ->method( 'add_setting' )
+		->withConsecutive(
+			[ $this->equalTo( "{$controls->slug}_small_component_radius" ), array_merge( $baseSetting, [ 'default' => 4 ] ) ],
+			[ $this->equalTo( "{$controls->slug}_medium_component_radius" ), array_merge( $baseSetting, [ 'default' => 4 ] ) ],
+			[ $this->equalTo( "{$controls->slug}_large_component_radius" ), array_merge( $baseSetting, [ 'default' => 24 ] ) ]
+		);
 
-//		 Set up the expectation for the add_control() method
-//		 to be called.
+		// Set up the expectation for the add_control() method
+		// to be called.
 		$this->wp_customize->expects( $this->exactly( 3 ) )
-		                   ->method( 'add_control' )
-		                   ->withConsecutive(
-			                   [
-				                   $this->isInstanceOf( Range_Slider_Control::class ),
-			                   ],
-			                   [
-				                   $this->isInstanceOf( Range_Slider_Control::class ),
-			                   ],
-			                   [
-				                   $this->isInstanceOf( Range_Slider_Control::class ),
-			                   ]
-		                   );
+		   ->method( 'add_control' )
+		->withConsecutive(
+			[
+				$this->isInstanceOf( Range_Slider_Control::class ),
+			],
+			[
+				$this->isInstanceOf( Range_Slider_Control::class ),
+			],
+			[
+				$this->isInstanceOf( Range_Slider_Control::class ),
+			]
+		);
 
 		$controls->add_corner_styles_controls();
 	}
@@ -297,20 +295,19 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		// add_setting() should be called correctly based on settings args.
 		$this->wp_customize->expects( $this->exactly( 2 ) )
-		                   ->method( 'add_setting' )
-		                   ->withConsecutive(
-			                   [
-				                   "{$controls->slug}_test_setting",
-			                   ],
-			                   [
-				                   $this->callback(
-					                   function ( $setting ) use ( $controls )
-					                   {
-						                   return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_style" === $setting->id;
-					                   }
-				                   ),
-			                   ]
-		                   );
+		   ->method( 'add_setting' )
+		->withConsecutive(
+			[
+				"{$controls->slug}_test_setting",
+			],
+			[
+				$this->callback(
+					function ( $setting ) use ( $controls ) {
+						return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_style" === $setting->id;
+					}
+				),
+			]
+		);
 
 		// first arg is an array of args
 		// second arg is an instance of WP_Customize_Setting.
@@ -335,20 +332,19 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		// add_setting() should be called correctly based on settings args.
 		$this->wp_customize->expects( $this->exactly( 2 ) )
-		                   ->method( 'add_control' )
-		                   ->withConsecutive(
-			                   [
-				                   "{$controls->slug}_test_setting",
-			                   ],
-			                   [
-				                   $this->callback(
-					                   function ( $setting ) use ( $controls )
-					                   {
-						                   return $setting instanceof \WP_Customize_Control && "{$controls->slug}_style" === $setting->id;
-					                   }
-				                   ),
-			                   ]
-		                   );
+		   ->method( 'add_control' )
+		->withConsecutive(
+			[
+				"{$controls->slug}_test_setting",
+			],
+			[
+				$this->callback(
+					function ( $setting ) use ( $controls ) {
+						return $setting instanceof \WP_Customize_Control && "{$controls->slug}_style" === $setting->id;
+					}
+				),
+			]
+		);
 
 		// first arg is an array of args
 		// second arg is an instance of WP_Customize_Control.
@@ -387,15 +383,13 @@ class Test_Controls extends \WP_UnitTestCase {
 		// Add filters to return `Raleway` for headings and `Open Sans` for body.
 		add_filter(
 			"theme_mod_{$controls->slug}_head_font_family",
-			function ()
-			{
+			function () {
 				return 'Raleway';
 			}
 		);
 		add_filter(
 			"theme_mod_{$controls->slug}_body_font_family",
-			function ()
-			{
+			function () {
 				return 'Open Sans';
 			}
 		);
@@ -474,35 +468,38 @@ class Test_Controls extends \WP_UnitTestCase {
 		$controls = get_plugin_instance()->customizer_controls;
 		$control  = $controls->get_corner_styles_controls();
 
-		$this->assertEquals( [
+		$this->assertEquals(
 			[
-				'id'            => 'small_component_radius',
-				'label'         => 'Small Components Radius',
-				'description'   => 'This is the description for the small components radius. It will need more details',
-				'min'           => 0,
-				'max'           => 28,
-				'initial_value' => 4,
-				'css_var'       => '--mdc-small-component-radius',
+				[
+					'id'            => 'small_component_radius',
+					'label'         => 'Small Components Radius',
+					'description'   => 'This is the description for the small components radius. It will need more details',
+					'min'           => 0,
+					'max'           => 28,
+					'initial_value' => 4,
+					'css_var'       => '--mdc-small-component-radius',
+				],
+				[
+					'id'            => 'medium_component_radius',
+					'label'         => 'Medium Components Radius',
+					'description'   => 'This is the description for the medium components radius. It will need more details',
+					'min'           => 0,
+					'max'           => 36,
+					'initial_value' => 4,
+					'css_var'       => '--mdc-medium-component-radius',
+				],
+				[
+					'id'            => 'large_component_radius',
+					'label'         => 'Large Components Radius',
+					'description'   => 'This is the description for the large components radius. It will need more details',
+					'min'           => 0,
+					'max'           => 36,
+					'initial_value' => 24,
+					'css_var'       => '--mdc-large-component-radius',
+				],
 			],
-			[
-				'id'            => 'medium_component_radius',
-				'label'         => 'Medium Components Radius',
-				'description'   => 'This is the description for the medium components radius. It will need more details',
-				'min'           => 0,
-				'max'           => 36,
-				'initial_value' => 4,
-				'css_var'       => '--mdc-medium-component-radius',
-			],
-			[
-				'id'            => 'large_component_radius',
-				'label'         => 'Large Components Radius',
-				'description'   => 'This is the description for the large components radius. It will need more details',
-				'min'           => 0,
-				'max'           => 36,
-				'initial_value' => 24,
-				'css_var'       => '--mdc-large-component-radius',
-			],
-		], $control );
+			$control 
+		);
 	}
 
 	/**

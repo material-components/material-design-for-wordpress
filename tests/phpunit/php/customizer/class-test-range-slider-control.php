@@ -42,7 +42,7 @@ class Test_Range_Slider_Control extends \WP_UnitTestCase {
 		$font_control->render_content();
 		$output = ob_get_clean();
 
-		// Assert the Range Slider container is rendered
+		// Assert the Range Slider container is rendered.
 		$this->assertContains( '<div class="mtb-range_slider" id="small_component_radius"></div>', $output );
 	}
 
