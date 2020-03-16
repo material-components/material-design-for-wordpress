@@ -55,7 +55,7 @@ class Range_Slider_Control extends \WP_Customize_Control {
 	 */
 	public function render_content() {
 		?>
-		<div class="mtb-ranger_slider" id="<?php echo esc_html( $this->id ); ?>"></div>
+		<div class="mtb-range_slider" id="<?php echo esc_html( $this->id ); ?>"></div>
 		<?php
 	}
 

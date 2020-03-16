@@ -12,14 +12,16 @@
  * External dependencies
  */
 import 'select-woo';
+
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import { render } from '@wordpress/element';
 import '@wordpress/components/build-style/style.css';
-import RangeControl from './components/RangeControl';
+import RangeSliderControl from './components/range-slider-control';
 import { unmountComponentAtNode } from 'react-dom';
+
 /**
  * Internal dependencies
  */
@@ -416,7 +418,12 @@ import colorUtils from '../common/color-utils';
 		material_color: api.MaterialColorControl,
 	} );
 
-	const renderRangeControl = control => {
+	/**
+	 * Render the Range Slider Control.
+	 *
+	 * @param {Object} control Control
+	 */
+	const renderRangeSliderControl = control => {
 		const props = {
 			id: control.id,
 			label: control.params.label,
@@ -427,14 +434,14 @@ import colorUtils from '../common/color-utils';
 		};
 
 		render(
-			<RangeControl
+			<RangeSliderControl
 				{ ...props }
 				onChange={ newValue => {
 					control.setting.set( newValue );
 					control.setting._dirty = true;
 				} }
 			/>,
-			control.container.find( '.mtb-ranger_slider' ).get( 0 )
+			control.container.find( '.mtb-range_slider' ).get( 0 )
 		);
 	};
 
@@ -478,11 +485,12 @@ import colorUtils from '../common/color-utils';
 				// Set the value from style defaults.
 				control.setting.set( value );
 
+				// Force unmount and re render the Ranger Slider control.
 				if ( control.params.type === 'range_slider' ) {
 					unmountComponentAtNode(
-						control.container.find( '.mtb-ranger_slider' ).get( 0 )
+						control.container.find( '.mtb-range_slider' ).get( 0 )
 					);
-					renderRangeControl( control );
+					renderRangeSliderControl( control );
 				}
 
 				// Rebind the custom value change event.
@@ -501,18 +509,18 @@ import colorUtils from '../common/color-utils';
 		}
 	};
 
-	api.RangeControl = api.Control.extend( {
+	api.RangeSliderControl = api.Control.extend( {
 		ready() {
 			const control = this;
-			renderRangeControl( control );
+			renderRangeSliderControl( control );
 		},
 	} );
 
 	/**
-	 * Extends wp.customize.controlConstructor with material color constructor.
+	 * Extends wp.customize.controlConstructor with ranger slider constructor.
 	 */
 	$.extend( api.controlConstructor, {
-		range_slider: api.RangeControl,
+		range_slider: api.RangeSliderControl,
 	} );
 
 	api.bind( 'ready', () => {
