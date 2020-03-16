@@ -10,7 +10,20 @@ import { URLInput } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { LEFT, RIGHT, BACKSPACE, DELETE } from '@wordpress/keycodes';
 
-const Image = ( { caption, url, id, link, cornerRadius } ) => {
+/**
+ * Single Image component.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} props.caption - Image caption.
+ * @param {string} props.url - Image src URL.
+ * @param {string} props.id - WordPress media ID.
+ * @param {string} props.link - Link the iamge should point to.
+ * @param {number} props.cornerRadius - Corder radius.
+ *
+ * @return {Function} A functional component.
+ */
+const Image = ( { caption, url, id, link, cornerRadius, isSaveContext } ) => {
+	const style = ! isSaveContext ? { borderRadius: `${ cornerRadius }px` } : {};
 	return (
 		<img
 			className="mdc-image-list__image"
@@ -18,11 +31,32 @@ const Image = ( { caption, url, id, link, cornerRadius } ) => {
 			src={ url }
 			data-id={ id }
 			data-link={ link }
-			style={ { borderRadius: `${ cornerRadius }px` } }
+			style={ { ...style } }
 		/>
 	);
 };
 
+/**
+ * Gallery component.
+ *
+ * @param {Object} props - Component props.
+ * @param {Array} props.images - List of images in the gallery.
+ * @param {string} props.style - Layout style of the gallery.
+ * @param {number} props.columns - Columns in the gallery.
+ * @param {Object} props.gutter - Column gutter for various devices.
+ * @param {number} props.cornerRadius - Corder radius.
+ * @param {boolean} props.displayCaptions - Display/hide captions.
+ * @param {boolean} props.textProtection - Display/hide captions with text protection.
+ * @param {number} props.selectedImage - Current selected image.
+ * @param {string} props.linkTo - Image should link to.
+ * @param {Function} props.onRemove - Callback when an image is removed.
+ * @param {Function} props.onMove - Callback when an image is moved.
+ * @param {Function} props.onSelect - Callback when an image is selected.
+ * @param {Function} props.onLinkChange - Callback when linkTo is changed.
+ * @param {boolean} props.isSaveContext - Is this `Save` context.
+ *
+ * @return {Function} A functional component.
+ */
 const Gallery = ( {
 	images,
 	style,
@@ -96,76 +130,94 @@ const Gallery = ( {
 			} ) }
 			style={ wrapStyles }
 		>
-			{ images.map( image => (
-				<li
-					key={ image.id }
-					className={ classNames( 'mdc-image-list__item', {
-						'is-selected': ! isSaveContext && selectedImage === image.id,
-					} ) }
-					style={ itemStyles }
-					role="presentation"
-					onClick={ () => onSelect( image.id ) }
-					onKeyDown={ event => onKeyDown( event, image.id ) }
-				>
-					<a
-						className="mdc-image-list__item-wrap"
-						href={ isSaveContext ? image.link : '#' }
+			{ images.map( image => {
+				let href = image.link;
+
+				if ( 'media' === linkTo ) {
+					href = image.url;
+				}
+
+				return (
+					<li
+						key={ image.id }
+						className={ classNames( 'mdc-image-list__item', {
+							'is-selected': ! isSaveContext && selectedImage === image.id,
+						} ) }
+						style={ itemStyles }
+						role="presentation"
+						onClick={ () => onSelect( image.id ) }
+						onKeyDown={ event => onKeyDown( event, image.id ) }
 					>
-						{ 'masonry' !== style ? (
-							<div className="mdc-image-list__image-aspect-container">
-								<Image { ...image } cornerRadius={ cornerRadius } />
-							</div>
-						) : (
-							<Image { ...image } cornerRadius={ cornerRadius } />
-						) }
-
-						{ displayCaptions && '' !== image.caption && (
-							<div className="mdc-image-list__supporting">
-								<span className="mdc-image-list__label">{ image.caption }</span>
-							</div>
-						) }
-
-						{ ! isSaveContext && (
-							<div className="move-image">
-								<button
-									title={ __( 'Move left', 'material-theme-builder' ) }
-									onClick={ () => onMove( image.id, 'left' ) }
-								>
-									<i className="material-icons">arrow_left</i>
-								</button>
-								<button
-									title={ __( 'Move right', 'material-theme-builder' ) }
-									onClick={ () => onMove( image.id, 'right' ) }
-								>
-									<i className="material-icons">arrow_right</i>
-								</button>
-							</div>
-						) }
-
-						{ ! isSaveContext && (
-							<div className="remove-image">
-								<button
-									title={ __( 'Remove image', 'material-theme-builder' ) }
-									onClick={ () => onRemove( image.id ) }
-								>
-									<i className="material-icons">close</i>
-								</button>
-							</div>
-						) }
-
-						{ ! isSaveContext && 'custom' === linkTo && (
-							<div className="custom-url">
-								<i className="material-icons">link</i>
-								<URLInput
-									value={ image.link }
-									onChange={ link => onLinkChange( image.id, link ) }
+						<a
+							className="mdc-image-list__item-wrap"
+							href={ isSaveContext ? href : '#' }
+						>
+							{ 'masonry' !== style ? (
+								<div className="mdc-image-list__image-aspect-container">
+									<Image
+										{ ...image }
+										cornerRadius={ cornerRadius }
+										isSaveContext={ isSaveContext }
+									/>
+								</div>
+							) : (
+								<Image
+									{ ...image }
+									cornerRadius={ cornerRadius }
+									isSaveContext={ isSaveContext }
 								/>
-								<i className="material-icons">keyboard_return</i>
-							</div>
-						) }
-					</a>
-				</li>
-			) ) }
+							) }
+
+							{ displayCaptions && '' !== image.caption && (
+								<div className="mdc-image-list__supporting">
+									<span className="mdc-image-list__label">
+										{ image.caption }
+									</span>
+								</div>
+							) }
+
+							{ ! isSaveContext && (
+								<>
+									<div className="move-image">
+										<button
+											title={ __( 'Move left', 'material-theme-builder' ) }
+											onClick={ () => onMove( image.id, 'left' ) }
+										>
+											<i className="material-icons">arrow_left</i>
+										</button>
+										<button
+											title={ __( 'Move right', 'material-theme-builder' ) }
+											onClick={ () => onMove( image.id, 'right' ) }
+										>
+											<i className="material-icons">arrow_right</i>
+										</button>
+									</div>
+
+									<div className="remove-image">
+										<button
+											title={ __( 'Remove image', 'material-theme-builder' ) }
+											onClick={ () => onRemove( image.id ) }
+										>
+											<i className="material-icons">close</i>
+										</button>
+									</div>
+
+									{ 'custom' === linkTo && (
+										<div className="custom-url">
+											<i className="material-icons">link</i>
+											<URLInput
+												value={ image.link }
+												onChange={ link => onLinkChange( image.id, link ) }
+											/>
+											<i className="material-icons">keyboard_return</i>
+										</div>
+									) }
+								</>
+							) }
+						</a>
+					</li>
+				);
+			} ) }
 		</ul>
 	);
 };
