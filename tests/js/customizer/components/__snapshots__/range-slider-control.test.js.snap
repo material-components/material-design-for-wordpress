@@ -23,7 +23,7 @@ Object {
     <div>
       <div
         class="range-slider-control"
-        id="range-slider-control-mtb-small_component_radius "
+        id="range-slider-control-mtb-small_component_radius"
       >
         <div
           class="range-slider-control-header"
@@ -101,7 +101,7 @@ Object {
   "container": <div>
     <div
       class="range-slider-control"
-      id="range-slider-control-mtb-small_component_radius "
+      id="range-slider-control-mtb-small_component_radius"
     >
       <div
         class="range-slider-control-header"
