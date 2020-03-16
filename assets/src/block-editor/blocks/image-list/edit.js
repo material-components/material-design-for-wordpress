@@ -2,6 +2,7 @@
  * External dependencies
  */
 import { some, find, findIndex } from 'lodash';
+import classNames from 'classnames';
 
 /**
  * WordPress dependencies
@@ -40,6 +41,21 @@ const STYLES = [
 	},
 ];
 
+const GUTTER_DEVICES = [
+	{
+		name: 'desktop',
+		icon: 'computer',
+	},
+	{
+		name: 'mobile',
+		icon: 'smartphone',
+	},
+	{
+		name: 'tablet',
+		icon: 'tablet',
+	},
+];
+
 /**
  * Recent Posts Edit component.
  *
@@ -54,7 +70,6 @@ const ImageListEdit = ( {
 		columns,
 		gutter,
 		cornerRadius,
-		aspectRatio,
 		displayLightbox,
 		displayCaptions,
 		textProtection,
@@ -76,6 +91,8 @@ const ImageListEdit = ( {
 	);
 
 	const [ selectedImage, setSelectedImage ] = useState( 0 );
+	const [ gutterDevice, setGutterDevice ] = useState( 'desktop' );
+
 	useEffect( () => {
 		setSelectedImage( 0 );
 	}, [ isSelected ] );
@@ -84,6 +101,14 @@ const ImageListEdit = ( {
 	const hasImagesWithId = hasImages && some( images, ( { id } ) => id );
 
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const setGutter = useCallback(
+		newGutter => {
+			setAttributes( {
+				gutter: { ...gutter, ...{ [ gutterDevice ]: newGutter } },
+			} );
+		},
+		[ gutterDevice ]
+	);
 
 	const getCaption = id => {
 		const item = find( useCaptions, image => Number( id ) === image.id );
@@ -131,6 +156,16 @@ const ImageListEdit = ( {
 		[ images ]
 	);
 
+	const updateImageLink = useCallback( ( id, link ) => {
+		const newImages = [ ...images ],
+			index = findIndex( newImages, image => id === image.id );
+
+		if ( -1 !== index ) {
+			newImages[ index ].link = link;
+			setAttributes( { images: newImages } );
+		}
+	} );
+
 	const galleryProps = {
 		images: images.map( image => {
 			image.caption = getCaption( image.id ) || image.caption;
@@ -140,13 +175,14 @@ const ImageListEdit = ( {
 		columns,
 		gutter,
 		cornerRadius,
-		aspectRatio,
 		displayCaptions,
 		textProtection,
+		linkTo,
 		selectedImage,
 		onRemove: removeImage,
 		onMove: moveImage,
 		onSelect: setSelectedImage,
+		onLinkChange: updateImageLink,
 	};
 
 	return (
@@ -199,9 +235,26 @@ const ImageListEdit = ( {
 						max={ 5 }
 					/>
 					<RangeControl
-						label={ __( 'Gutter', 'material-theme-builder' ) }
-						value={ gutter }
-						onChange={ setter( 'gutter' ) }
+						label={
+							<>
+								{ __( 'Gutter', 'material-theme-builder' ) }
+								<div className="components-base-control__label-actions">
+									{ GUTTER_DEVICES.map( device => (
+										<button
+											key={ device.name }
+											className={ classNames( '', {
+												'is-selected': device.name === gutterDevice,
+											} ) }
+											onClick={ () => setGutterDevice( device.name ) }
+										>
+											<i className="material-icons">{ device.icon }</i>
+										</button>
+									) ) }
+								</div>
+							</>
+						}
+						value={ gutter[ gutterDevice ] || 0 }
+						onChange={ value => setGutter( value ) }
 						min={ 0 }
 						max={ 24 }
 					/>
@@ -211,13 +264,6 @@ const ImageListEdit = ( {
 						onChange={ setter( 'cornerRadius' ) }
 						min={ 0 }
 						max={ 16 }
-					/>
-					<RangeControl
-						label={ __( 'Image aspect ratio', 'material-theme-builder' ) }
-						value={ aspectRatio }
-						onChange={ setter( 'aspectRatio' ) }
-						min={ 50 }
-						max={ 100 }
 					/>
 					<ToggleControl
 						label={ __( 'Lightbox', 'material-theme-builder' ) }
@@ -235,30 +281,33 @@ const ImageListEdit = ( {
 						onChange={ setter( 'textProtection' ) }
 					/>
 				</PanelBody>
-				<PanelBody
-					title={ __( 'Settings', 'material-theme-builder' ) }
-					initialOpen={ true }
-				>
-					<SelectControl
-						label={ __( 'Link to', 'material-theme-builder' ) }
-						value={ linkTo }
-						options={ [
-							{
-								label: __( 'Media File', 'material-theme-builder' ),
-								value: 'media',
-							},
-							{
-								label: __( 'Attachment Page', 'material-theme-builder' ),
-								value: 'attachment',
-							},
-							{
-								label: __( 'Custom URL', 'material-theme-builder' ),
-								value: 'custom',
-							},
-						] }
-						onChange={ setter( 'linkTo' ) }
-					/>
-				</PanelBody>
+
+				{ ! displayLightbox && (
+					<PanelBody
+						title={ __( 'Settings', 'material-theme-builder' ) }
+						initialOpen={ true }
+					>
+						<SelectControl
+							label={ __( 'Link to', 'material-theme-builder' ) }
+							value={ linkTo }
+							options={ [
+								{
+									label: __( 'Media File', 'material-theme-builder' ),
+									value: 'media',
+								},
+								{
+									label: __( 'Attachment Page', 'material-theme-builder' ),
+									value: 'attachment',
+								},
+								{
+									label: __( 'Custom URL', 'material-theme-builder' ),
+									value: 'custom',
+								},
+							] }
+							onChange={ setter( 'linkTo' ) }
+						/>
+					</PanelBody>
+				) }
 			</InspectorControls>
 		</>
 	);
