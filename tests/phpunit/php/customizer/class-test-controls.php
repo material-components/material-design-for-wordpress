@@ -94,6 +94,11 @@ class Test_Controls extends \WP_UnitTestCase {
 		$controls->expects( $this->once() )
 		         ->method( 'add_theme_controls' );
 
+		// Set up the expectation for the add_corner_styles_controls() method
+		// to be called only once.
+		$controls->expects( $this->once() )
+		         ->method( 'add_corner_styles_controls' );
+
 		$controls->register( $this->wp_customize );
 	}
 
@@ -365,6 +370,7 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
 	}
 
 	/**
@@ -438,6 +444,9 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->assertContains( '--mdc-theme-secondary: #03dac6;', $css );
 		$this->assertContains( '--mdc-theme-on-primary: #ffffff;', $css );
 		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
+		$this->assertContains( '--mdc-small-component-radius: 4px;', $css );
+		$this->assertContains( '--mdc-medium-component-radius: 4px;', $css );
+		$this->assertContains( '--mdc-large-component-radius: 24px;', $css );
 	}
 
 	/**
@@ -451,6 +460,49 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		$this->assertEquals( $controls->get_default( 'primary_color' ), $baseline['primary_color'] );
 		$this->assertEquals( $controls->get_default( 'head_font_family' ), $baseline['head_font_family'] );
+		$this->assertEquals( $controls->get_default( 'small_component_radius' ), $baseline['small_component_radius'] );
+		$this->assertEquals( $controls->get_default( 'medium_component_radius' ), $baseline['medium_component_radius'] );
+		$this->assertEquals( $controls->get_default( 'large_component_radius' ), $baseline['large_component_radius'] );
+	}
+
+	/**
+	 * Test for get_corner_styles_controls() method.
+	 *
+	 * @see Controls::get_corner_styles_controls()
+	 */
+	public function test_get_corner_styles_controls() {
+		$controls = get_plugin_instance()->customizer_controls;
+		$control  = $controls->get_corner_styles_controls();
+
+		$this->assertEquals( [
+			[
+				'id'            => 'small_component_radius',
+				'label'         => 'Small Components Radius',
+				'description'   => 'This is the description for the small components radius. It will need more details',
+				'min'           => 0,
+				'max'           => 28,
+				'initial_value' => 4,
+				'css_var'       => '--mdc-small-component-radius',
+			],
+			[
+				'id'            => 'medium_component_radius',
+				'label'         => 'Medium Components Radius',
+				'description'   => 'This is the description for the medium components radius. It will need more details',
+				'min'           => 0,
+				'max'           => 36,
+				'initial_value' => 4,
+				'css_var'       => '--mdc-medium-component-radius',
+			],
+			[
+				'id'            => 'large_component_radius',
+				'label'         => 'Large Components Radius',
+				'description'   => 'This is the description for the large components radius. It will need more details',
+				'min'           => 0,
+				'max'           => 36,
+				'initial_value' => 24,
+				'css_var'       => '--mdc-large-component-radius',
+			],
+		], $control );
 	}
 
 	/**
