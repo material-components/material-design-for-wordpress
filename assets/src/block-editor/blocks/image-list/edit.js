@@ -93,6 +93,7 @@ const ImageListEdit = ( {
 	const [ selectedImage, setSelectedImage ] = useState( 0 );
 	const [ gutterDevice, setGutterDevice ] = useState( 'desktop' );
 
+	// If `isSelected` is updated unselect images in the gallery.
 	useEffect( () => {
 		setSelectedImage( 0 );
 	}, [ isSelected ] );
@@ -101,6 +102,8 @@ const ImageListEdit = ( {
 	const hasImagesWithId = hasImages && some( images, ( { id } ) => id );
 
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+
+	// Set the gutter for slected device.
 	const setGutter = useCallback(
 		newGutter => {
 			setAttributes( {
@@ -110,6 +113,7 @@ const ImageListEdit = ( {
 		[ gutterDevice ]
 	);
 
+	// Get the caption for an image.
 	const getCaption = id => {
 		const item = find( useCaptions, image => Number( id ) === image.id );
 
@@ -120,6 +124,7 @@ const ImageListEdit = ( {
 		return '';
 	};
 
+	// Pick required image props.
 	const selectImages = newImages => {
 		setAttributes( {
 			images: newImages.map( image => ( {
@@ -133,6 +138,7 @@ const ImageListEdit = ( {
 		} );
 	};
 
+	// Remove an image from the gallery.
 	const removeImage = useCallback(
 		id => {
 			setAttributes( { images: images.filter( image => id !== image.id ) } );
@@ -140,6 +146,7 @@ const ImageListEdit = ( {
 		[ images ]
 	);
 
+	// Move and image in the gallery.
 	const moveImage = useCallback(
 		( id, dir = 'left' ) => {
 			const newImages = [ ...images ],
@@ -156,6 +163,7 @@ const ImageListEdit = ( {
 		[ images ]
 	);
 
+	// Update image link.
 	const updateImageLink = useCallback( ( id, link ) => {
 		const newImages = [ ...images ],
 			index = findIndex( newImages, image => id === image.id );
