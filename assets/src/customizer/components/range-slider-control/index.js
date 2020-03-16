@@ -6,7 +6,7 @@ import classNames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { RangeControl as WpRangeControl } from '@wordpress/components';
+import { RangeControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
 
@@ -15,7 +15,7 @@ import { useState } from '@wordpress/element';
  */
 import './style.css';
 
-const RangeControl = props => {
+const RangeSliderControl = props => {
 	const {
 		id,
 		label,
@@ -36,6 +36,9 @@ const RangeControl = props => {
 		setExpanded( ! expanded );
 	};
 
+	/**
+	 * @param {Object} event Dom event.
+	 */
 	const handleKeyPress = event => {
 		if ( event.key === 'Enter' ) {
 			setExpanded( ! expanded );
@@ -56,24 +59,27 @@ const RangeControl = props => {
 	};
 
 	return (
-		<div id={ `range-control-${ id } ` } className={ 'range-control' }>
+		<div
+			id={ `range-slider-control-${ id } ` }
+			className={ 'range-slider-control' }
+		>
 			<div
-				className={ classNames( 'range-control-header', {
+				className={ classNames( 'range-slider-control-header', {
 					expanded,
 				} ) }
 			>
 				<div
 					tabIndex="0"
 					role="link"
-					className={ 'range-control-title' }
+					className={ 'range-slider-control-title' }
 					onClick={ handleExpansionPanelChange }
 					onKeyPress={ handleKeyPress }
 				>
-					<span className="customize-control-title range-control-title__item">
+					<span className="customize-control-title range-slider-control-title__item">
 						{ label }
 					</span>
 					<i
-						className="material-icons range-control-title__item info-icon"
+						className="material-icons range-slider-control-title__item info-icon"
 						title={ __( 'More info' ) }
 					>
 						info
@@ -81,9 +87,9 @@ const RangeControl = props => {
 				</div>
 				<span className="customize-control-description">{ description }</span>
 			</div>
-			<div className={ 'range-control-body' }>
-				<span className={ 'range-control-body__item slider' }>
-					<WpRangeControl
+			<div className={ 'range-slider-control-body' }>
+				<span className={ 'range-slider-control-body__item slider' }>
+					<RangeControl
 						value={ Number( updatedValue ) }
 						onChange={ handleSliderChange }
 						min={ min }
@@ -91,7 +97,7 @@ const RangeControl = props => {
 						step={ step }
 					/>
 				</span>
-				<span className={ 'range-control-body__item' }>
+				<span className={ 'range-slider-control-body__item' }>
 					<button
 						className="mdc-icon-button material-icons"
 						onClick={ handleUndoClick }
@@ -106,4 +112,4 @@ const RangeControl = props => {
 	);
 };
 
-export default RangeControl;
+export default RangeSliderControl;
