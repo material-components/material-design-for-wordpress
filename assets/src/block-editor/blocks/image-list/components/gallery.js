@@ -63,12 +63,12 @@ const Gallery = ( {
 	}
 
 	/**
-	 * Interprets keyup event intent to remove or move an image.
+	 * Interprets keydown event intent to remove or move an image.
 	 *
-	 * @param {KeyboardEvent} event Keyup event.
+	 * @param {KeyboardEvent} event keydown event.
 	 * @param {number} imageId Id of the Image.
 	 */
-	const onKeyUp = ( event, imageId ) => {
+	const onKeyDown = ( event, imageId ) => {
 		const { keyCode } = event;
 
 		switch ( keyCode ) {
@@ -105,7 +105,7 @@ const Gallery = ( {
 					style={ itemStyles }
 					role="presentation"
 					onClick={ () => onSelect( image.id ) }
-					onKeyUp={ event => onKeyUp( event, image.id ) }
+					onKeyDown={ event => onKeyDown( event, image.id ) }
 				>
 					<a
 						className="mdc-image-list__item-wrap"

@@ -186,8 +186,8 @@ class Image_List_Block extends Module_Base {
 
 			$item_styles[] = sprintf( 'margin-bottom: %spx', absint( $attributes['gutter'][ $device ] ) / 2 );
 		} else {
-			$item_styles[] = sprintf( 'width: calc(100% / %spx)', $attributes['columns'] - ( absint( $attributes['gutter'][ $device ] ) + 1 / $attributes['columns'] ) );
-			$item_styles[] = sprintf( 'margin: %spx', absint( $attributes['gutter'][ $device ] ) / 2 );
+			$item_styles[] = sprintf( 'width: calc(100%% / %spx);', $attributes['columns'] - ( absint( $attributes['gutter'][ $device ] ) + 1 / $attributes['columns'] ) );
+			$item_styles[] = sprintf( 'margin: %spx;', absint( $attributes['gutter'][ $device ] ) / 2 );
 		}
 
 		$styles[]      = "}\n";
