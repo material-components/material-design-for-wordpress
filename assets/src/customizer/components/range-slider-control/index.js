@@ -60,7 +60,7 @@ const RangeSliderControl = props => {
 
 	return (
 		<div
-			id={ `range-slider-control-${ id } ` }
+			id={ `range-slider-control-${ id }` }
 			className={ 'range-slider-control' }
 		>
 			<div
