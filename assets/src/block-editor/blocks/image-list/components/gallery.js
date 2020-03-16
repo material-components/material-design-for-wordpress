@@ -6,6 +6,7 @@ import classNames from 'classnames';
 /**
  * WordPress dependencies
  */
+import { URLInput } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { LEFT, RIGHT, BACKSPACE, DELETE } from '@wordpress/keycodes';
 
@@ -28,47 +29,46 @@ const Gallery = ( {
 	columns,
 	gutter,
 	cornerRadius,
-	aspectRatio,
 	displayCaptions,
 	textProtection,
 	selectedImage,
+	linkTo,
 	onRemove,
 	onMove,
 	onSelect,
+	onLinkChange,
 	isSaveContext = false,
 } ) => {
-	const wrapStyles =
-		'masonry' === style
-			? {
-					columnCount: columns,
-					columnGap: `${ gutter }px`,
-			  }
-			: {};
+	const desktopGutter = gutter.desktop || 0;
+	let wrapStyles = {},
+		itemStyles = {};
 
-	const itemStyles =
-		'masonry' !== style
-			? {
-					width: `calc(100% / ${ columns } - ${ gutter + 1 / columns }px)`,
-					margin: `${ gutter / 2 }px`,
-			  }
-			: {
-					marginBottom: `${ gutter / 2 }px`,
-			  };
+	// Generate styles only if we are not in the save context.
+	if ( ! isSaveContext ) {
+		if ( 'masonry' === style ) {
+			wrapStyles = {
+				columnCount: columns,
+				columnGap: `${ desktopGutter }px`,
+			};
 
-	const aspectStyles =
-		'grid' === style
-			? {
-					paddingBottom: `${ aspectRatio }%`,
-			  }
-			: {};
-	console.log( aspectStyles );
+			itemStyles = {
+				marginBottom: `${ desktopGutter / 2 }px`,
+			};
+		} else {
+			itemStyles = {
+				width: `calc(100% / ${ columns } - ${ desktopGutter + 1 / columns }px)`,
+				margin: `${ desktopGutter / 2 }px`,
+			};
+		}
+	}
+
 	/**
-	 * Interprets keypress event intent to remove or move an image.
+	 * Interprets keyup event intent to remove or move an image.
 	 *
-	 * @param {KeyboardEvent} event Keydown event.
+	 * @param {KeyboardEvent} event Keyup event.
 	 * @param {number} imageId Id of the Image.
 	 */
-	const onKeyPress = ( event, imageId ) => {
+	const onKeyUp = ( event, imageId ) => {
 		const { keyCode } = event;
 
 		switch ( keyCode ) {
@@ -105,17 +105,14 @@ const Gallery = ( {
 					style={ itemStyles }
 					role="presentation"
 					onClick={ () => onSelect( image.id ) }
-					onKeyPress={ event => onKeyPress( event, image.id ) }
+					onKeyUp={ event => onKeyUp( event, image.id ) }
 				>
 					<a
 						className="mdc-image-list__item-wrap"
 						href={ isSaveContext ? image.link : '#' }
 					>
 						{ 'masonry' !== style ? (
-							<div
-								className="mdc-image-list__image-aspect-container"
-								style={ aspectStyles }
-							>
+							<div className="mdc-image-list__image-aspect-container">
 								<Image { ...image } cornerRadius={ cornerRadius } />
 							</div>
 						) : (
@@ -153,6 +150,17 @@ const Gallery = ( {
 								>
 									<i className="material-icons">close</i>
 								</button>
+							</div>
+						) }
+
+						{ ! isSaveContext && 'custom' === linkTo && (
+							<div className="custom-url">
+								<i className="material-icons">link</i>
+								<URLInput
+									value={ image.link }
+									onChange={ link => onLinkChange( image.id, link ) }
+								/>
+								<i className="material-icons">keyboard_return</i>
 							</div>
 						) }
 					</a>
