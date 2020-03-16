@@ -129,11 +129,21 @@ const TabBarEdit = ( {
 		setAttributes( { tabs: sortBy( tabs, [ 'position' ] ) } );
 	} );
 
+	/**
+	 * Set a tab's icon.
+	 *
+	 * @param {Object} icon The icon object
+	 */
 	const setTabIcon = useCallback( icon => {
 		activeTab.icon = icon;
 		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
 	} );
 
+	/**
+	 * Set the tab's label.
+	 *
+	 * @param {string} label The new tab label.
+	 */
 	const setTabLabel = useCallback( label => {
 		activeTab.label = label;
 		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
@@ -148,7 +158,7 @@ const TabBarEdit = ( {
 							{ tabs.map( ( props, index ) => (
 								<Tab
 									{ ...props }
-									key={ props.position }
+									key={ `${ clientId }-${ props.position }` }
 									iconPosition={ iconPosition }
 									onChange={ changeTab.bind( this, index ) }
 									onDelete={ deleteTab.bind( this, index ) }
