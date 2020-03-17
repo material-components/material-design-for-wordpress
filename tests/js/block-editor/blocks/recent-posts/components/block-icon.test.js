@@ -12,7 +12,7 @@ import BlockIcon from '../../../../../../assets/src/block-editor/blocks/recent-p
 /**
  * Render the component.
  *
- * @param {Object} props - Component props
+ * @param {Object} props - Component props.
  * @return {Function} A functional component.
  */
 const setup = props => {
