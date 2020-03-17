@@ -10,7 +10,7 @@ import { ENDPOINTS } from '../constants';
  * Get post query requests.
  *
  * @param {Object} request A query object with the list of selected posts and search term.
- * @param {string} request.selected Currently selected posts.
+ * @param {Array} request.selected Currently selected posts.
  * @param {string} request.search Search string.
  * @param {Array} request.queryArgs Query args to pass in.
  */
@@ -44,7 +44,7 @@ const getPostsRequests = ( { selected = [], search = '', queryArgs = [] } ) => {
  * Get a promise that resolves to a list of posts from the API.
  *
  * @param {Object} request A query object with the list of selected posts and search term.
- * @param {string} request.selected Currently selected posts.
+ * @param {Array} request.selected Currently selected posts.
  * @param {string} request.search Search string.
  * @param {Array} request.queryArgs Query args to pass in.
  */
