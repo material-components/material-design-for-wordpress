@@ -222,6 +222,8 @@
 	 */
 	const onCustomValueChange = () => {
 		const styleSetting = api( mtb.styleControl );
+
+		// If the style is not custom, change it to custom.
 		if ( 'custom' !== styleSetting.get() ) {
 			styleSetting.set( 'custom' );
 		}
