@@ -30,9 +30,7 @@ const Edit = props => {
 			<InspectorControls { ...props } />
 			<HandpickedPostBlockControls { ...props } />
 			{ editMode ? (
-				<>
-					<PostsPicker { ...props } />
-				</>
+				<PostsPicker { ...props } />
 			) : (
 				<EditWithSelect { ...props } />
 			) }
