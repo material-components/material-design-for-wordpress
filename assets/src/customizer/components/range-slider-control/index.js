@@ -66,7 +66,7 @@ const RangeSliderControl = props => {
 				} ) }
 			>
 				<div
-					tabIndex="0"
+					tabIndex={ 0 }
 					role="link"
 					className="range-slider-control-title"
 					onClick={ handleExpansionPanelChange }
