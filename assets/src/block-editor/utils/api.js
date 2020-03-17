@@ -54,11 +54,10 @@ export const getPosts = ( { selected = [], search = '', queryArgs = [] } ) => {
 	return Promise.all( requests.map( path => apiFetch( { path } ) ) )
 		.then( data => {
 			const posts = uniqBy( flatten( data ), 'id' );
-			const list = posts.map( post => ( {
+			return posts.map( post => ( {
 				...post,
 				parent: 0,
 			} ) );
-			return list;
 		} )
 		.catch( e => {
 			throw e;
