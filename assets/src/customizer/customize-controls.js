@@ -195,6 +195,7 @@
 			return;
 		}
 
+		// Get defaults for selected design style.
 		const defaults = mtb.designStyles[ newValue ];
 
 		// Iterate through all the default values for the selected style
