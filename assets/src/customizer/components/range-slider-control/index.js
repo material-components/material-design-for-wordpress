@@ -59,10 +59,7 @@ const RangeSliderControl = props => {
 	};
 
 	return (
-		<div
-			id={ `range-slider-control-${ id }` }
-			className={ 'range-slider-control' }
-		>
+		<div id={ `range-slider-control-${ id }` } className="range-slider-control">
 			<div
 				className={ classNames( 'range-slider-control-header', {
 					expanded,
@@ -71,7 +68,7 @@ const RangeSliderControl = props => {
 				<div
 					tabIndex="0"
 					role="link"
-					className={ 'range-slider-control-title' }
+					className="range-slider-control-title"
 					onClick={ handleExpansionPanelChange }
 					onKeyPress={ handleKeyPress }
 				>
@@ -87,8 +84,8 @@ const RangeSliderControl = props => {
 				</div>
 				<span className="customize-control-description">{ description }</span>
 			</div>
-			<div className={ 'range-slider-control-body' }>
-				<span className={ 'range-slider-control-body__item slider' }>
+			<div className="range-slider-control-body">
+				<span className="range-slider-control-body__item slider">
 					<RangeControl
 						value={ Number( updatedValue ) }
 						onChange={ handleSliderChange }
@@ -97,7 +94,7 @@ const RangeSliderControl = props => {
 						step={ step }
 					/>
 				</span>
-				<span className={ 'range-slider-control-body__item' }>
+				<span className="range-slider-control-body__item">
 					<button
 						className="mdc-icon-button material-icons"
 						onClick={ handleUndoClick }
