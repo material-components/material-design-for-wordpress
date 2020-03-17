@@ -339,8 +339,8 @@ import colorUtils from '../common/color-utils';
 				isText = true;
 			const textColorLabel =
 				-1 !== control.id.indexOf( 'primary' )
-					? __( 'on-primary', 'material-theme-builder' )
-					: __( 'on-secondary', 'material-theme-builder' );
+					? __( 'On Primary', 'material-theme-builder' )
+					: __( 'On Secondary', 'material-theme-builder' );
 
 			if ( control.params.relatedTextSetting ) {
 				color = selectedColor;
