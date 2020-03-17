@@ -13,6 +13,7 @@ import {
 	RangeControl,
 	SelectControl,
 	ToggleControl,
+	withNotices,
 } from '@wordpress/components';
 import { useCallback, useEffect, useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
@@ -78,6 +79,7 @@ const ImageListEdit = ( {
 	className,
 	isSelected,
 	noticeUI,
+	noticeOperations,
 	onFocus,
 	setAttributes,
 } ) => {
@@ -177,6 +179,14 @@ const ImageListEdit = ( {
 		}
 	} );
 
+	/**
+	 * Handle upload errors.
+	 */
+	const onUploadError = useCallback( message => {
+		noticeOperations.removeAllNotices();
+		noticeOperations.createErrorNotice( message );
+	} );
+
 	const galleryProps = {
 		images: images.map( image => {
 			image.caption = getCaption( image.id ) || image.caption;
@@ -198,6 +208,8 @@ const ImageListEdit = ( {
 
 	return (
 		<>
+			{ noticeUI }
+
 			{ hasImages && <Gallery { ...galleryProps } /> }
 
 			<MediaPlaceholder
@@ -218,7 +230,7 @@ const ImageListEdit = ( {
 				allowedTypes={ [ 'image' ] }
 				multiple
 				value={ hasImagesWithId ? images : undefined }
-				onError={ console.error }
+				onError={ onUploadError }
 				notices={ hasImages ? undefined : noticeUI }
 				onFocus={ onFocus }
 			/>
@@ -324,4 +336,4 @@ const ImageListEdit = ( {
 	);
 };
 
-export default ImageListEdit;
+export default withNotices( ImageListEdit );
