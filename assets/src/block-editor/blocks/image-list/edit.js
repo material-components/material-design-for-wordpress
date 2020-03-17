@@ -81,6 +81,9 @@ const ImageListEdit = ( {
 	onFocus,
 	setAttributes,
 } ) => {
+	/**
+	 * Get captions from media library using REST API.
+	 */
 	const useCaptions = useSelect(
 		select => {
 			return select( 'core' ).getEntityRecords( 'root', 'media', {
