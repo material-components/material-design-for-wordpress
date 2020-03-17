@@ -435,6 +435,7 @@ import colorUtils from '../common/color-utils';
 			return;
 		}
 
+		// Get defaults for selected design style.
 		const defaults = mtb.designStyles[ newValue ];
 
 		// Iterate through all the default values for the selected style
@@ -461,6 +462,8 @@ import colorUtils from '../common/color-utils';
 	 */
 	const onCustomValueChange = () => {
 		const styleSetting = api( mtb.styleControl );
+
+		// If the style is not custom, change it to custom.
 		if ( 'custom' !== styleSetting.get() ) {
 			styleSetting.set( 'custom' );
 		}
