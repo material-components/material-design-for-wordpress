@@ -151,7 +151,7 @@ const ImageListEdit = ( {
 		[ images ]
 	);
 
-	// Move and image in the gallery.
+	// Move an image in the gallery.
 	const moveImage = useCallback(
 		( id, dir = 'left' ) => {
 			const newImages = [ ...images ],
@@ -208,7 +208,7 @@ const ImageListEdit = ( {
 
 	return (
 		<>
-			{ noticeUI }
+			{ 'function' === typeof noticeUI ? noticeUI() : noticeUI }
 
 			{ hasImages && <Gallery { ...galleryProps } /> }
 
