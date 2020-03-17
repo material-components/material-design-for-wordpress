@@ -66,6 +66,9 @@ class Controls extends Module_Base {
 
 		// Add all controls in the "Corner Styles" section.
 		$this->add_corner_styles_controls();
+
+		// Add all controls in the "Icon Collections" section.
+		$this->add_icon_collection_controls(); 
 	}
 
 	/**
@@ -318,6 +321,41 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Add all controls in the "Icon Collections" section.
+	 *
+	 * @return void
+	 */
+	public function add_icon_collection_controls() {
+		$settings = [
+			'icon_collections'          => [
+				'default' => 'filled',
+			],
+			'previous_icon_collections' => [
+				'default' => 'filled',
+			], 
+		];
+
+		$this->add_settings( $settings );
+
+		/**
+		* List of all the controls in the Theme section.
+			*/
+		$controls = [
+			'icon_collections' => new Icon_Collection_Control(
+				$this->wp_customize,
+				$this->prepend_slug( 'icon_collections' ),
+				[
+					'section'  => 'icons',
+					'priority' => 10,
+					'choices'  => $this->get_icon_collection_controls(),
+				]
+			),
+		];
+
+		$this->add_controls( $controls );
+	}
+
+	/**
 	 * Add settings to customizer.
 	 *
 	 * @param array $settings Array of settings to add to customizer.
@@ -420,6 +458,8 @@ class Controls extends Module_Base {
 				'designStyles' => $this->get_design_styles(),
 				'controls'     => $this->added_controls,
 				'styleControl' => $this->prepend_slug( 'style' ),
+				'iconCollectionsControl' => $this->prepend_slug( 'icon_collections' ),
+				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'         => [
 					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
 				],
@@ -730,6 +770,37 @@ class Controls extends Module_Base {
 			],
 		];
 	}
+
+	/**
+	 * Get list of all the control settings in the Icon Collections section.
+	 *
+	 * @return array
+	 */
+	public function get_icon_collection_controls() {
+		return [
+			'filled' => [
+				'label' => __( 'Filled', 'material-theme-builder' ),
+				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/filled.svg' ),
+			],
+			'outlined' => [
+				'label' => __( 'Outlined', 'material-theme-builder' ),
+				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/outlined.svg' ),
+			],
+			'rounded' => [
+				'label' => __( 'Rounded', 'material-theme-builder' ),
+				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/rounded.svg' ),
+			],
+			'two-tone' => [
+				'label' => __( 'Two Tone', 'material-theme-builder' ),
+				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/two-tone.svg' ),
+			],
+			'sharp' => [
+				'label' => __( 'Sharp', 'material-theme-builder' ),
+				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/sharp.svg' ),
+			],
+		];
+	}
+
 
 	/**
 	 * Prepend the slug name if it does not exist.

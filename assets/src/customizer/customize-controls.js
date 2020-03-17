@@ -499,6 +499,24 @@ import colorUtils from '../common/color-utils';
 	};
 
 	/**
+	 * Callback when a "Design Style" is changed.
+	 *
+	 * @param {string} newValue Updated value.
+	 */
+	const onIconCollectionsChange = newValue => {
+		const defaults = mtb.iconCollectionsOptions[ newValue ];
+
+		Object.keys( defaults ).forEach( name => {
+			const value = defaults[ name ];
+			const control = api.control( `${ mtb.slug }_${ name }` );
+
+			if ( value && control ) {
+				control.setting.set( value );
+			}
+		} );
+	};
+
+	/**
 	 * Callback when any of our control value is changed.
 	 */
 	const onCustomValueChange = () => {
@@ -532,6 +550,10 @@ import colorUtils from '../common/color-utils';
 					// Design style control has it's own change handler.
 					if ( mtb.styleControl === name ) {
 						return setting.bind( onStyleChange );
+					}
+
+					if ( mtb.iconCollectionsControl === name ) {
+						return setting.bind( onIconCollectionsChange );
 					}
 
 					setting.bind( onCustomValueChange );
