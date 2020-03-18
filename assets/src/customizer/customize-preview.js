@@ -1,0 +1,74 @@
+/* global jQuery */
+/* istanbul ignore file */
+
+/**
+ * Customizer enhancements for a better user experience.
+ *
+ * Contains handlers to make Customizer preview reload changes asynchronously.
+ *
+ * @since 1.0.0
+ */
+
+( $ => {
+	// Bail out if this isn't loaded in an iframe.
+	if ( ! window.parent || ! window.parent.wp ) {
+		return;
+	}
+
+	const parentApi = window.parent.wp.customize;
+	const controls = window.parent._wpCustomizeSettings.controls;
+	const colorControls = {};
+	Object.keys( controls ).forEach( control => {
+		const args = controls[ control ];
+
+		if (
+			args &&
+			!! args.cssVar &&
+			( !! args.relatedTextSetting || !! args.relatedSetting )
+		) {
+			colorControls[ control ] = args.cssVar;
+		}
+	} );
+
+	/**
+	 * Add styles to elements in the preview pane.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return {void}
+	 */
+	const generateColorPreviewStyles = () => {
+		const stylesheetID = 'mtb-customizer-preview-styles';
+		let stylesheet = $( '#' + stylesheetID ),
+			styles = '';
+
+		// If the stylesheet doesn't exist, create it and append it to <head>.
+		if ( ! stylesheet.length ) {
+			$( 'head' ).append( '<style id="' + stylesheetID + '"></style>' );
+			stylesheet = $( '#' + stylesheetID );
+		}
+
+		// Generate the styles.
+		Object.keys( colorControls ).forEach( control => {
+			styles += `${ colorControls[ control ] }: ${ parentApi(
+				control
+			).get() };`;
+		} );
+
+		styles = `:root {
+			${ styles }
+		}`;
+
+		// Add styles.
+		stylesheet.html( styles );
+	};
+
+	Object.keys( colorControls ).forEach( control => {
+		parentApi( control, value => {
+			// If any color control value changes, generate the prview styles.
+			value.bind( () => {
+				generateColorPreviewStyles();
+			} );
+		} );
+	} );
+} )( jQuery );
