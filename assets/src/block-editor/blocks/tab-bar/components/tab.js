@@ -37,9 +37,12 @@ const Tab = ( {
 					onBlur={
 						! frontend ? e => onInput( e.currentTarget.textContent ) : undefined
 					}
-					onKeyPress={ event =>
-						event.key === 'Enter' && event.currentTarget.blur()
-					}
+					onKeyPress={ event => {
+						onChange(); // Set this tab as active.
+						if ( event.key === 'Enter' ) {
+							event.currentTarget.blur();
+						}
+					} }
 				>
 					{ label }
 				</span>
@@ -61,9 +64,8 @@ const Tab = ( {
 	</div>
 );
 class TabSchema {
-	constructor( { label, position, icon, content = null } ) {
+	constructor( { label, icon, content = null } ) {
 		this.label = label;
-		this.position = position;
 		this.icon = icon;
 		this.content = content;
 	}
