@@ -164,18 +164,25 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->any() )
+		$this->wp_customize->expects( $this->exactly( 3 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}_example_id" ) ]
+				[ $this->equalTo( "{$controls->slug}_style" ) ],
+				[ $this->equalTo( "{$controls->slug}_previous_style" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->any() )
+		$this->wp_customize->expects( $this->exactly( 2 ) )
 			->method( 'add_control' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}_example_id" ) ]
+				[
+					$this->callback(
+						function( $control ) use ( $controls ) {
+							return "{$controls->slug}_style" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'shrine', 'custom' ] === array_keys( $control->choices );
+						}
+					),
+				]
 			);
 
 		$controls->add_theme_controls();
@@ -202,7 +209,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				[
 					$this->callback(
 						function( $setting ) use ( $controls ) {
-							return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_example_id" === $setting->id;
+							return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_style" === $setting->id;
 						}
 					),
 				]
@@ -213,7 +220,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$controls->add_settings(
 			[
 				'test_setting' => [],
-				'example_id'   => new \WP_Customize_Setting( $controls->wp_customize, "{$controls->slug}_example_id" ),
+				'style'        => new \WP_Customize_Setting( $controls->wp_customize, "{$controls->slug}_style" ),
 			]
 		);
 	}
@@ -239,7 +246,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				[
 					$this->callback(
 						function( $setting ) use ( $controls ) {
-							return $setting instanceof \WP_Customize_Control && "{$controls->slug}_example_id" === $setting->id;
+							return $setting instanceof \WP_Customize_Control && "{$controls->slug}_style" === $setting->id;
 						}
 					),
 				]
@@ -250,7 +257,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$controls->add_controls(
 			[
 				'test_setting' => [],
-				'example_id'   => new \WP_Customize_Control( $controls->wp_customize, "{$controls->slug}_example_id" ),
+				'style'        => new \WP_Customize_Control( $controls->wp_customize, "{$controls->slug}_style" ),
 			]
 		);
 	}
@@ -265,6 +272,19 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
+	}
+
+	/**
+	 * Test for get_default() method.
+	 *
+	 * @see Controls::get_default()
+	 */
+	public function test_get_default() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$baseline = $controls->get_design_styles()['baseline'];
+
+		$this->assertEquals( $controls->get_default( 'primary_color' ), $baseline['primary_color'] );
+		$this->assertEquals( $controls->get_default( 'font_headlines' ), $baseline['font_headlines'] );
 	}
 
 	/**
