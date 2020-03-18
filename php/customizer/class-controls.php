@@ -454,16 +454,16 @@ class Controls extends Module_Base {
 			'material-theme-builder-customizer-js',
 			'mtb',
 			[
-				'slug'         => $this->slug,
-				'designStyles' => $this->get_design_styles(),
-				'controls'     => $this->added_controls,
-				'styleControl' => $this->prepend_slug( 'style' ),
+				'slug'                   => $this->slug,
+				'designStyles'           => $this->get_design_styles(),
+				'controls'               => $this->added_controls,
+				'styleControl'           => $this->prepend_slug( 'style' ),
 				'iconCollectionsControl' => $this->prepend_slug( 'icon_collections' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
-				'l10n'         => [
+				'l10n'                   => [
 					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
 				],
-				'googleFonts'  => Google_Fonts::get_font_choices(),
+				'googleFonts'            => Google_Fonts::get_font_choices(),
 			]
 		);
 
@@ -778,25 +778,25 @@ class Controls extends Module_Base {
 	 */
 	public function get_icon_collection_controls() {
 		return [
-			'filled' => [
+			'filled'   => [
 				'label' => __( 'Filled', 'material-theme-builder' ),
-				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/filled.svg' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/filled.svg' ),
 			],
 			'outlined' => [
 				'label' => __( 'Outlined', 'material-theme-builder' ),
-				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/outlined.svg' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/outlined.svg' ),
 			],
-			'rounded' => [
+			'rounded'  => [
 				'label' => __( 'Rounded', 'material-theme-builder' ),
-				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/rounded.svg' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/rounded.svg' ),
 			],
 			'two-tone' => [
 				'label' => __( 'Two Tone', 'material-theme-builder' ),
-				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/two-tone.svg' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/two-tone.svg' ),
 			],
-			'sharp' => [
+			'sharp'    => [
 				'label' => __( 'Sharp', 'material-theme-builder' ),
-				'icon' => $this->plugin->asset_url( 'assets/images/icon-collections/sharp.svg' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/sharp.svg' ),
 			],
 		];
 	}
