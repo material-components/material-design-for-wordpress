@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { sortBy, isEqual } from 'lodash';
+import { isEqual } from 'lodash';
 
 /**
  * Internal dependencies
@@ -35,9 +35,25 @@ const TabBarEdit = ( {
 	clientId,
 	tabContent,
 } ) => {
-	const [ activeTab, setActiveTab ] = useState( tabs[ 0 ] );
+	// Set the default tabs when a new block instance is added.
+	if ( 0 === tabs.length ) {
+		tabs = [
+			...[
+				new TabSchema( {
+					label: __( 'Tab 1', 'material-theme-builder' ),
+				} ),
+				new TabSchema( {
+					label: __( 'Tab 2', 'material-theme-builder' ),
+				} ),
+			],
+		];
+		setAttributes( { tabs } );
+	}
+
+	const [ activeTabIndex, setActiveTabIndex ] = useState( 0 );
 
 	useEffect( () => {
+		const activeTab = tabs[ activeTabIndex ] || {};
 		// If there's content, put it in the editor
 		if ( activeTab && activeTab.content && activeTab.content.length ) {
 			dispatch( 'core/block-editor' ).replaceInnerBlocks(
@@ -48,14 +64,19 @@ const TabBarEdit = ( {
 		} else {
 			// Otherwise empty the editor
 			const clientIds = tabContent.map( block => block.clientId );
-			dispatch( 'core/block-editor' ).removeBlocks( clientIds );
+			if ( 0 < clientIds.length ) {
+				dispatch( 'core/block-editor' ).removeBlocks( clientIds );
+			}
 		}
-	}, [ activeTab ] );
+	}, [ activeTabIndex ] );
 
 	useEffect( () => {
+		const newTabs = [ ...tabs ];
+		const activeTab = newTabs[ activeTabIndex ] || false;
+
 		if ( activeTab && ! isEqual( activeTab.content, tabContent ) ) {
 			activeTab.content = tabContent;
-			setAttributes( { tabs } );
+			setAttributes( { tabs: newTabs } );
 		}
 	} );
 
@@ -63,17 +84,19 @@ const TabBarEdit = ( {
 	 * Initialize and create a new tab. Save it to the Tab Bar.
 	 */
 	const createTab = useCallback( () => {
-		const newPosition = tabs[ tabs.length - 1 ].position + 1;
+		const newTabs = [ ...tabs ];
 
-		tabs.push(
+		newTabs.push(
 			new TabSchema( {
-				position: newPosition,
-				label: sprintf( __( 'Tab %d', 'material-theme-builder' ), newPosition ),
+				label: sprintf(
+					__( 'Tab %d', 'material-theme-builder' ),
+					tabs.length + 1
+				),
 			} )
 		);
 
-		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
-		changeTab( tabs.length - 1 );
+		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
+		changeTab( newTabs.length - 1 );
 	} );
 
 	/**
@@ -82,7 +105,9 @@ const TabBarEdit = ( {
 	 * @param {number} index The index of the tab to make active.
 	 */
 	const changeTab = useCallback( index => {
-		setActiveTab( tabs[ index ] );
+		if ( index !== activeTabIndex ) {
+			setActiveTabIndex( index );
+		}
 	} );
 
 	/**
@@ -91,8 +116,15 @@ const TabBarEdit = ( {
 	 * @param {number} index The index of the tab to delete.
 	 */
 	const deleteTab = useCallback( index => {
-		tabs = tabs.filter( ( _, i ) => index !== i );
-		setAttributes( { tabs } );
+		if ( 1 >= tabs.length ) {
+			return;
+		}
+		// If active tab is being deleted, set the prev/next tab as active.
+		if ( activeTabIndex === index ) {
+			setActiveTabIndex( index > 0 ? index - 1 : 1 );
+		}
+
+		setAttributes( { tabs: tabs.filter( ( _, i ) => index !== i ) } );
 	} );
 
 	/**
@@ -110,23 +142,17 @@ const TabBarEdit = ( {
 	 * @param {string} direction The direction to move towards.
 	 */
 	const moveTab = useCallback( direction => {
-		let newPos =
-			direction === 'left' ? activeTab.position - 1 : activeTab.position + 1;
+		const newPos =
+			direction === 'left' ? activeTabIndex - 1 : activeTabIndex + 1;
 
-		// Prevent going out of bounds
-		if ( newPos < 1 ) {
-			newPos = 1;
-		} else if ( newPos > tabs.length ) {
-			newPos = tabs.length;
+		if ( -1 < newPos && newPos < tabs.length ) {
+			const newTabs = [ ...tabs ];
+			const tab = newTabs.splice( activeTabIndex, 1 );
+			newTabs.splice( newPos, 0, tab.pop() );
+
+			setActiveTabIndex( newPos );
+			setAttributes( { tabs: newTabs } );
 		}
-
-		const currentTab = tabs.find( t => t.position === newPos );
-
-		// Swap the tabs positions
-		currentTab.position = activeTab.position;
-		activeTab.position = newPos;
-
-		setAttributes( { tabs: sortBy( tabs, [ 'position' ] ) } );
 	} );
 
 	/**
@@ -135,8 +161,9 @@ const TabBarEdit = ( {
 	 * @param {Object} icon The icon object
 	 */
 	const setTabIcon = useCallback( icon => {
-		activeTab.icon = icon;
-		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
+		const newTabs = [ ...tabs ];
+		newTabs[ activeTabIndex ].icon = icon;
+		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
 	} );
 
 	/**
@@ -145,8 +172,10 @@ const TabBarEdit = ( {
 	 * @param {string} label The new tab label.
 	 */
 	const setTabLabel = useCallback( label => {
-		activeTab.label = label;
-		setAttributes( { tabs, forceUpdate: ! forceUpdate } );
+		const newTabs = [ ...tabs ];
+		newTabs[ activeTabIndex ].label = label;
+
+		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
 	} );
 
 	return (
@@ -158,12 +187,12 @@ const TabBarEdit = ( {
 							{ tabs.map( ( props, index ) => (
 								<Tab
 									{ ...props }
-									key={ `${ clientId }-${ props.position }` }
+									key={ `${ clientId }-${ index }` }
 									iconPosition={ iconPosition }
 									onChange={ changeTab.bind( this, index ) }
 									onDelete={ deleteTab.bind( this, index ) }
 									onInput={ setTabLabel }
-									active={ tabs.indexOf( activeTab ) === index }
+									active={ activeTabIndex === index }
 								/>
 							) ) }
 							<button className="tab-add" onClick={ createTab }>
@@ -194,7 +223,7 @@ const TabBarEdit = ( {
 
 					{ iconPosition !== 'none' && (
 						<IconPicker
-							currentIcon={ activeTab?.icon }
+							currentIcon={ ( tabs[ activeTabIndex ] || {} ).icon }
 							onChange={ setTabIcon }
 						/>
 					) }
