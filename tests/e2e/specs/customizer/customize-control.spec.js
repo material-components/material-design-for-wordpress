@@ -138,7 +138,7 @@ describe( 'Customize controls', () => {
 				return input.value;
 			}, await page.$( '#range-slider-control-mtb_large_component_radius .components-range-control__number' ) );
 
-			expect( inputValue ).toBe( '24' );
+			expect( inputValue ).toBe( '0' );
 		} );
 	} );
 } );
