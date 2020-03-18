@@ -57,7 +57,7 @@ class Icon_Radio_Control extends \WP_Customize_Control {
 					<?php echo esc_html( $args['label'] ); ?>
 				</label>
 			</div>
-		<?php
+			<?php
 		endforeach;
 	}
 }
