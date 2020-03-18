@@ -1,4 +1,6 @@
 /* global jQuery */
+/* istanbul ignore file */
+
 /**
  * Customizer enhancements for a better user experience.
  *
@@ -8,6 +10,11 @@
  */
 
 ( $ => {
+	// Bail out if this isn't loaded in an iframe.
+	if ( ! window.parent || ! window.parent.wp ) {
+		return;
+	}
+
 	const parentApi = window.parent.wp.customize;
 	const controls = window.parent._wpCustomizeSettings.controls;
 	const colorControls = {};
@@ -37,14 +44,14 @@
 	 * @return {void}
 	 */
 	const generatePreviewStyles = () => {
-		const stylesheedID = 'mtb-customizer-preview-styles';
-		let stylesheet = $( '#' + stylesheedID ),
+		const stylesheetID = 'mtb-customizer-preview-styles';
+		let stylesheet = $( '#' + stylesheetID ),
 			styles = '';
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
 		if ( ! stylesheet.length ) {
-			$( 'head' ).append( '<style id="' + stylesheedID + '"></style>' );
-			stylesheet = $( '#' + stylesheedID );
+			$( 'head' ).append( '<style id="' + stylesheetID + '"></style>' );
+			stylesheet = $( '#' + stylesheetID );
 		}
 
 		Object.keys( typographyControls ).forEach( control => {
@@ -53,6 +60,7 @@
 			} );
 		} );
 
+		// Generate the styles.
 		Object.keys( colorControls ).forEach( control => {
 			styles += `${ colorControls[ control ] }: ${ parentApi(
 				control
@@ -95,6 +103,7 @@
 	// Generate preview styles on any color control change.
 	Object.keys( colorControls ).forEach( control => {
 		parentApi( control, value => {
+			// If any color control value changes, generate the prview styles.
 			value.bind( () => {
 				generatePreviewStyles();
 			} );

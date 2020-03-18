@@ -1,4 +1,5 @@
 /* global jQuery, requestAnimationFrame, mtb */
+/* istanbul ignore file */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -32,27 +33,27 @@ import colorUtils from '../common/color-utils';
 	 * @param {Node} element
 	 */
 	const collapseSection = element => {
-		// get the height of the element's inner content, regardless of its actual size
+		// Get the height of the element's inner content, regardless of its actual size.
 		const sectionHeight = element.scrollHeight;
 
-		// temporarily disable all css transitions
+		// Temporarily disable all css transitions.
 		const elementTransition = element.style.transition;
 		element.style.transition = '';
 
-		// on the next frame (as soon as the previous style change has taken effect),
+		// On the next frame (as soon as the previous style change has taken effect),
 		// explicitly set the element's height to its current pixel height, so we
-		// aren't transitioning out of 'auto'
+		// aren't transitioning out of 'auto'.
 		requestAnimationFrame( () => {
 			element.style.height = sectionHeight + 'px';
 			element.style.transition = elementTransition;
 
-			// on the next frame (as soon as the previous style change has taken effect),
-			// have the element transition to height: 0
+			// On the next frame (as soon as the previous style change has taken effect),
+			// have the element transition to height: 0.
 			requestAnimationFrame( () => {
 				element.style.height = 0 + 'px';
 			} );
 		} );
-		// mark the section as "currently collapsed"
+		// Mark the section as "currently collapsed".
 		element.setAttribute( 'data-collapsed', 'true' );
 	};
 
@@ -62,23 +63,23 @@ import colorUtils from '../common/color-utils';
 	 * @param {Node} element
 	 */
 	const expandSection = element => {
-		// get the height of the element's inner content, regardless of its actual size
+		// Get the height of the element's inner content, regardless of its actual size.
 		const sectionHeight = element.scrollHeight + 2;
 
 		const removeEvent = () => {
 			element.style.height = 'auto';
 
-			// remove this event listener so it only gets triggered once
+			// Remove this event listener so it only gets triggered once.
 			element.removeEventListener( 'transitionend', removeEvent );
 		};
 
-		// have the element transition to the height of its inner content
+		// Have the element transition to the height of its inner content.
 		element.style.height = sectionHeight + 'px';
 
-		// when the next css transition finishes (which should be the one we just triggered)
+		// When the next css transition finishes (which should be the one we just triggered).
 		element.addEventListener( 'transitionend', removeEvent );
 
-		// mark the section as "currently not collapsed"
+		// Mark the section as "currently not collapsed".
 		element.setAttribute( 'data-collapsed', 'false' );
 	};
 
@@ -276,7 +277,7 @@ import colorUtils from '../common/color-utils';
 			container
 				.off( 'click.wpcolorpicker' )
 				.on( 'click.wpcolorpicker', event => {
-					// Stop prpagation only if the click is not from a material color select
+					// Stop propagation only if the click is not from a material color select
 					// react will handle the event propagation.
 					if (
 						event.originalEvent &&
@@ -309,7 +310,7 @@ import colorUtils from '../common/color-utils';
 		/**
 		 * Render the `MaterialColorPalette` component in the palette tab.
 		 *
-		 * @param {string} selectedColor
+		 * @param {string|boolean} selectedColor
 		 */
 		renderMaterialPalette( selectedColor = false ) {
 			const control = this;
@@ -343,8 +344,8 @@ import colorUtils from '../common/color-utils';
 				isText = true;
 			const textColorLabel =
 				-1 !== control.id.indexOf( 'primary' )
-					? __( 'primary', 'material-theme-builder' )
-					: __( 'secondary', 'material-theme-builder' );
+					? __( 'On Primary', 'material-theme-builder' )
+					: __( 'On Secondary', 'material-theme-builder' );
 
 			if ( control.params.relatedTextSetting ) {
 				color = selectedColor;
@@ -383,8 +384,7 @@ import colorUtils from '../common/color-utils';
 						colorHex,
 						name,
 						textColor,
-						textColorLabel,
-						isText
+						textColorLabel
 					)
 				);
 			} );
@@ -397,7 +397,7 @@ import colorUtils from '../common/color-utils';
 		/**
 		 * Render the material palette and the accessibility warnings.
 		 *
-		 * @param {string} selectedColor Hex code of the selected color.
+		 * @param {string|boolean} selectedColor Hex code of the selected color.
 		 */
 		renderPaletteWithAccessibilityWarnings( selectedColor = false ) {
 			// Render the material palette component.
@@ -440,6 +440,7 @@ import colorUtils from '../common/color-utils';
 			return;
 		}
 
+		// Get defaults for selected design style.
 		const defaults = mtb.designStyles[ newValue ];
 
 		// Iterate through all the default values for the selected style
@@ -466,6 +467,8 @@ import colorUtils from '../common/color-utils';
 	 */
 	const onCustomValueChange = () => {
 		const styleSetting = api( mtb.styleControl );
+
+		// If the style is not custom, change it to custom.
 		if ( 'custom' !== styleSetting.get() ) {
 			styleSetting.set( 'custom' );
 		}
