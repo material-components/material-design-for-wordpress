@@ -260,7 +260,7 @@ class Test_Controls extends \WP_UnitTestCase {
 			->withConsecutive(
 				[ $this->equalTo( "{$controls->slug}_small_component_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
 				[ $this->equalTo( "{$controls->slug}_medium_component_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_large_component_radius" ), array_merge( $base_setting, [ 'default' => 24 ] ) ]
+				[ $this->equalTo( "{$controls->slug}_large_component_radius" ), array_merge( $base_setting, [ 'default' => 0 ] ) ]
 			);
 
 		// Set up the expectation for the add_control() method
@@ -440,7 +440,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
 		$this->assertContains( '--mdc-small-component-radius: 4px;', $css );
 		$this->assertContains( '--mdc-medium-component-radius: 4px;', $css );
-		$this->assertContains( '--mdc-large-component-radius: 24px;', $css );
+		$this->assertContains( '--mdc-large-component-radius: 0px;', $css );
 	}
 
 	/**
@@ -494,7 +494,7 @@ class Test_Controls extends \WP_UnitTestCase {
 					'description'   => 'This is the description for the large components radius. It will need more details',
 					'min'           => 0,
 					'max'           => 36,
-					'initial_value' => 24,
+					'initial_value' => 0,
 					'css_var'       => '--mdc-large-component-radius',
 				],
 			],
