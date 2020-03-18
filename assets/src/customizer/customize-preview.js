@@ -48,6 +48,7 @@
 			stylesheet = $( '#' + stylesheetID );
 		}
 
+		// Generate the styles.
 		Object.keys( colorControls ).forEach( control => {
 			styles += `${ colorControls[ control ] }: ${ parentApi(
 				control
