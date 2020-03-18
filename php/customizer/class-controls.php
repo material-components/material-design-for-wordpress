@@ -151,6 +151,7 @@ class Controls extends Module_Base {
 			'previous_style' => [
 				'default' => 'baseline',
 			], // This setting does not have an associated control.
+			'primary_color'  => [], // Todo: Move this to colors section.
 		];
 
 		$this->add_settings( $settings );
@@ -159,7 +160,7 @@ class Controls extends Module_Base {
 		 * List of all the controls in the Theme section.
 		 */
 		$controls = [
-			'style' => new Image_Radio_Control(
+			'style'         => new Image_Radio_Control(
 				$this->wp_customize,
 				$this->prepend_slug( 'style' ),
 				[
@@ -189,6 +190,11 @@ class Controls extends Module_Base {
 					],
 				]
 			),
+			'primary_color' => [
+				'type'    => 'text',
+				'section' => 'style',
+				'label'   => __( 'Primary Color', 'material-theme-builder' ),
+			],
 		];
 
 		$this->add_controls( $controls );
