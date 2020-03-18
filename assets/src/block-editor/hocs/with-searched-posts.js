@@ -38,6 +38,23 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		const [ error, setErrorState ] = useState();
 
 		/**
+		 * Fetch Posts.
+		 *
+		 * @param {Object} args Arguments
+		 *
+		 * @return {Promise<void>} Promise
+		 */
+		const fetchPosts = async args => {
+			try {
+				const fetchedList = await getPosts( args );
+				setList( fetchedList );
+				setLoading( false );
+			} catch ( e ) {
+				await setError( e );
+			}
+		};
+
+		/**
 		 * On search handler.
 		 *
 		 * @param {string} search - Search
@@ -45,12 +62,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		const onSearch = search => {
 			const { selected } = props;
 
-			getPosts( { selected, search } )
-				.then( fetchedList => {
-					setList( fetchedList );
-					setLoading( false );
-				} )
-				.catch( setError );
+			fetchPosts( { selected, search } );
 		};
 
 		/**
@@ -73,12 +85,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 
 		useEffect( () => {
 			const { selected } = props;
-			getPosts( { selected } )
-				.then( fetchedList => {
-					setList( fetchedList );
-					setLoading( false );
-				} )
-				.catch( setError );
+			fetchPosts( { selected } );
 
 			debouncedOnSearch.cancel();
 		}, [] );
