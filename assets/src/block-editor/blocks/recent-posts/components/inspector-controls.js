@@ -9,7 +9,10 @@ import { addQueryArgs } from '@wordpress/url';
  * Internal dependencies
  */
 import CommonPostsListInspectorControls from '../../common-posts-list/components/inspector-controls';
-import { CATEGORIES_LIST_QUERY } from '../../common-posts-list/options';
+
+const CATEGORIES_LIST_QUERY = {
+	per_page: 100, // @todo: Implement lookup of categories using auto complete field.
+};
 
 /**
  * Common Posts List Inspector Controls component.
