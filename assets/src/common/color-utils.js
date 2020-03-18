@@ -455,61 +455,11 @@ const colorUtils = {
 	getCustomTextAlphas: function( size, color, textColor ) {
 		return this.getMinAndRecAlphasFromBgAndTextColors( color, textColor, size );
 	},
-	getColorAccessibility: (
-		color,
-		name,
-		textColor,
-		textColorLabel,
-		isTextColor = false
-	) => {
+	getColorAccessibility: ( color, name, textColor, textColorLabel ) => {
 		const accessibility = {
 			hex: color,
 			type: name.replace( /Text on\s*|\s*Color/, '' ),
 			variations: [
-				{
-					size: __( 'Large', 'material-theme-builder' ),
-					colorHex: color,
-					textColor: __( 'white', 'material-theme-builder' ),
-					textColorHex: '#ffffff',
-					result: colorUtils.getCustomTextColorInfo(
-						'large',
-						color,
-						'#ffffff'
-					),
-				},
-				{
-					size: __( 'Normal', 'material-theme-builder' ),
-					colorHex: color,
-					textColor: __( 'white', 'material-theme-builder' ),
-					textColorHex: '#ffffff',
-					result: colorUtils.getCustomTextColorInfo(
-						'large',
-						color,
-						'#ffffff'
-					),
-				},
-				{
-					size: __( 'Large', 'material-theme-builder' ),
-					colorHex: color,
-					textColor: __( 'black', 'material-theme-builder' ),
-					textColorHex: '#000000',
-					result: colorUtils.getCustomTextColorInfo(
-						'large',
-						color,
-						'#000000'
-					),
-				},
-				{
-					size: __( 'Normal', 'material-theme-builder' ),
-					colorHex: color,
-					textColor: __( 'black', 'material-theme-builder' ),
-					textColorHex: '#000000',
-					result: colorUtils.getCustomTextColorInfo(
-						'large',
-						color,
-						'#000000'
-					),
-				},
 				{
 					size: __( 'Large', 'material-theme-builder' ),
 					colorHex: color,
@@ -534,11 +484,6 @@ const colorUtils = {
 				},
 			],
 		};
-
-		// If this is a text color, ignore the white and black text accessibility warnings.
-		if ( isTextColor ) {
-			accessibility.variations = accessibility.variations.slice( 4 );
-		}
 
 		return accessibility;
 	},
