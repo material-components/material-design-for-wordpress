@@ -341,7 +341,7 @@ class Controls extends Module_Base {
 		* List of all the controls in the Theme section.
 			*/
 		$controls = [
-			'icon_collections' => new Icon_Collection_Control(
+			'icon_collections' => new Icon_Radio_Control(
 				$this->wp_customize,
 				$this->prepend_slug( 'icon_collections' ),
 				[

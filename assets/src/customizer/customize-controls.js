@@ -499,24 +499,6 @@ import colorUtils from '../common/color-utils';
 	};
 
 	/**
-	 * Callback when a "Design Style" is changed.
-	 *
-	 * @param {string} newValue Updated value.
-	 */
-	const onIconCollectionsChange = newValue => {
-		const defaults = mtb.iconCollectionsOptions[ newValue ];
-
-		Object.keys( defaults ).forEach( name => {
-			const value = defaults[ name ];
-			const control = api.control( `${ mtb.slug }_${ name }` );
-
-			if ( value && control ) {
-				control.setting.set( value );
-			}
-		} );
-	};
-
-	/**
 	 * Callback when any of our control value is changed.
 	 */
 	const onCustomValueChange = () => {
@@ -552,10 +534,6 @@ import colorUtils from '../common/color-utils';
 						return setting.bind( onStyleChange );
 					}
 
-					if ( mtb.iconCollectionsControl === name ) {
-						return setting.bind( onIconCollectionsChange );
-					}
-
 					setting.bind( onCustomValueChange );
 				} );
 			} );
@@ -577,5 +555,25 @@ import colorUtils from '../common/color-utils';
 				.val( $select.data( 'value' ) )
 				.trigger( 'change' );
 		} );
+	} );
+
+	api.controlConstructor[ 'icon-radio' ] = api.Control.extend( {
+		ready() {
+			const control = this;
+			$( 'input:radio', control.container ).change( function() {
+				const selection = $( this ).val();
+				control.setting.set( selection );
+
+				const mdiClass =
+					'material-icons' +
+					( selection === 'filled' ? '' : `-${ selection }` );
+
+				$( '[class*="material-icons"]' )
+					.removeClass( ( _, className ) =>
+						( className.match( /material-icons(-[a-z]+)?/g ) || [] ).join( ' ' )
+					)
+					.addClass( mdiClass );
+			} );
+		},
 	} );
 } )( jQuery, wp.customize );

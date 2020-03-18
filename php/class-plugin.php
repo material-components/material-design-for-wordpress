@@ -92,7 +92,7 @@ class Plugin extends Plugin_Base {
 
 		wp_enqueue_style(
 			'material-icons-css',
-			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
+			esc_url( '//fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp' ),
 			[],
 			$this->asset_version()
 		);

@@ -10,14 +10,14 @@ namespace MaterialThemeBuilder\Customizer;
 /**
  * Google Fonts control.
  */
-class Icon_Collection_Control extends \WP_Customize_Control {
+class Icon_Radio_Control extends \WP_Customize_Control {
 
 	/**
 	 * The type of customize control being rendered.
 	 *
 	 * @var string
 	 */
-	public $type = 'icon-collection';
+	public $type = 'icon-radio';
 
 	/**
 	 * Displays the control content.
@@ -25,7 +25,6 @@ class Icon_Collection_Control extends \WP_Customize_Control {
 	 * @return void
 	 */
 	public function render_content() {
-		/* If no choices are provided, bail. */
 		if ( empty( $this->choices ) ) {
 			return;
 		}
@@ -61,12 +60,4 @@ class Icon_Collection_Control extends \WP_Customize_Control {
 		<?php
 		endforeach;
 	}
-
-	/**
-	 * Add our custom args for JSON output as params.
-	 */
-	// public function to_json() {
-	// 	parent::to_json();
-	// 	$this->json['cssVars'] = ! empty( $this->css_vars ) ? $this->css_vars : [];
-	// }
 }
