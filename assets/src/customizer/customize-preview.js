@@ -65,6 +65,7 @@
 
 	Object.keys( colorControls ).forEach( control => {
 		parentApi( control, value => {
+			// If any color control value changes, generate the prview styles.
 			value.bind( () => {
 				generateColorPreviewStyles();
 			} );
