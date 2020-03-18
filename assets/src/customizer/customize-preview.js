@@ -165,4 +165,17 @@ import get from 'lodash/get';
 			} );
 		} );
 	} );
+
+	parentApi( 'mtb_icon_collections', function( setting ) {
+		setting.bind( function( iconStyle ) {
+			const mdiClass =
+				'material-icons' + ( iconStyle === 'filled' ? '' : `-${ iconStyle }` );
+
+			$( '[class*="material-icons"]' )
+				.removeClass( ( _, className ) =>
+					( className.match( /material-icons(-[a-z]+)?/g ) || [] ).join( ' ' )
+				)
+				.addClass( mdiClass );
+		} );
+	} );
 } )( jQuery );
