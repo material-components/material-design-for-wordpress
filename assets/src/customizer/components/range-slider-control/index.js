@@ -22,7 +22,7 @@ const RangeSliderControl = props => {
 		description,
 		value,
 		min = 0,
-		max = 36,
+		max = 100,
 		step = 1,
 		onChange,
 	} = props;
