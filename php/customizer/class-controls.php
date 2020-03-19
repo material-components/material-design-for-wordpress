@@ -8,6 +8,9 @@
 namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
+use MaterialThemeBuilder\Google_Fonts;
+use MaterialThemeBuilder\Customizer\Image_Radio_Control;
+use MaterialThemeBuilder\Customizer\Material_Color_Palette_Control;
 
 /**
  * Class Controls.
@@ -59,6 +62,9 @@ class Controls extends Module_Base {
 
 		// Add all controls in the "Colors" section.
 		$this->add_color_controls();
+
+		// Add all controls in the "Typography" section.
+		$this->add_typography_controls();
 	}
 
 	/**
@@ -208,7 +214,7 @@ class Controls extends Module_Base {
 
 		/**
 		* Generate list of all the controls in the colors section.
-		 */
+		*/
 		$controls = [];
 
 		foreach ( $this->get_color_controls() as $control ) {
@@ -222,6 +228,44 @@ class Controls extends Module_Base {
 					'related_text_setting' => ! empty( $control['related_text_setting'] ) ? $control['related_text_setting'] : false,
 					'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] : false,
 					'css_var'              => $control['css_var'],
+				]
+			);
+		}
+
+		$this->add_controls( $controls );
+	}
+
+	/**
+	 * Add all controls in the "Typography" section.
+	 *
+	 * @return void
+	 */
+	public function add_typography_controls() {
+		/**
+		 * Generate list of all the settings in the Typography section.
+		 */
+		$settings = [];
+
+		foreach ( $this->get_typography_controls() as $control ) {
+			$settings[ $control['id'] ] = [];
+		}
+
+		$this->add_settings( $settings );
+
+		/**
+		* Generate list of all the controls in the Typography section.
+		*/
+		$controls = [];
+
+		foreach ( $this->get_typography_controls() as $control ) {
+			$controls[ $control['id'] ] = new Google_Fonts_Control(
+				$this->wp_customize,
+				$this->prepend_slug( $control['id'] ),
+				[
+					'section'  => 'typography',
+					'priority' => 10,
+					'label'    => $control['label'],
+					'css_vars' => $control['css_vars'],
 				]
 			);
 		}
@@ -335,6 +379,7 @@ class Controls extends Module_Base {
 				'l10n'         => [
 					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
 				],
+				'googleFonts'  => Google_Fonts::get_font_choices(),
 			]
 		);
 
@@ -344,6 +389,24 @@ class Controls extends Module_Base {
 			[ 'wp-components' ],
 			$this->plugin->asset_version()
 		);
+	}
+
+	/**
+	 * Get Google Fonts CDN URL to be enqueued based on the selected settings.
+	 *
+	 * @return string
+	 */
+	public function get_google_fonts_url() {
+		$font_families = [ 'Material+Icons' ];
+
+		foreach ( $this->get_typography_controls() as $control ) {
+			$value = $this->get_theme_mod( $control['id'] );
+
+			$font_families[] = str_replace( ' ', '+', $value );
+		}
+
+		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
+
 	}
 
 	/**
@@ -374,21 +437,28 @@ class Controls extends Module_Base {
 	 * Get custom frontend CSS based on the customizer theme settings.
 	 */
 	public function get_frontend_css() {
-		$color_vars = '';
+		$color_vars   = '';
+		$font_vars    = '';
+		$google_fonts = Google_Fonts::get_fonts();
 
 		foreach ( $this->get_color_controls() as $control ) {
-			$value = get_theme_mod( $this->prepend_slug( $control['id'] ) );
+			$value = $this->get_theme_mod( $control['id'] );
 
-			if ( empty( $value ) ) {
-				$value = $this->get_default( $control['id'] );
-			}
-
-			$color_vars .= "\t{$control['css_var']}: $value;\n";
+			$color_vars .= esc_html( "\t{$control['css_var']}: $value;\n" );
 		}
 
-		$color_vars = ":root {\n$color_vars}";
+		foreach ( $this->get_typography_controls() as $control ) {
+			$value    = $this->get_theme_mod( $control['id'] );
+			$fallback = array_key_exists( $value, $google_fonts ) ? $google_fonts[ $value ]['category'] : 'sans-serif';
 
-		return $color_vars;
+			if ( ! empty( $control['css_vars']['family'] ) ) {
+				foreach ( $control['css_vars']['family'] as $var ) {
+					$font_vars .= esc_html( "\t{$var}: {$value}, {$fallback};\n" );
+				}
+			}
+		}
+
+		return ":root {\n{$color_vars}}\nhtml {\n{$font_vars}}";
 	}
 
 	/**
@@ -417,8 +487,8 @@ class Controls extends Module_Base {
 				'secondary_color'      => '#03dac6',
 				'primary_text_color'   => '#ffffff',
 				'secondary_text_color' => '#000000',
-				'font_headlines'       => 'Roboto',
-				'font_body'            => 'Roboto',
+				'head_font_family'     => 'Roboto',
+				'body_font_family'     => 'Roboto',
 				'corner_styles'        => '4px',
 				'icon_collection'      => 'filled',
 			],
@@ -427,8 +497,8 @@ class Controls extends Module_Base {
 				'secondary_color'      => '#e30425',
 				'primary_text_color'   => '#ffffff',
 				'secondary_text_color' => '#ffffff',
-				'font_headlines'       => 'Raleway Light',
-				'font_body'            => 'Raleway Semi-Bold',
+				'head_font_family'     => 'Raleway',
+				'body_font_family'     => 'Raleway',
 				'corner_styles'        => '4',
 				'icon_collection'      => 'outlined',
 			],
@@ -437,8 +507,8 @@ class Controls extends Module_Base {
 				'secondary_color'      => '#6b38fb',
 				'primary_text_color'   => '#000000',
 				'secondary_text_color' => '#ffffff',
-				'font_headlines'       => 'Merriweather Black Italic',
-				'font_body'            => 'Merriweather Regular',
+				'head_font_family'     => 'Merriweather',
+				'body_font_family'     => 'Merriweather',
 				'corner_styles'        => '0',
 				'icon_collection'      => 'outlined',
 			],
@@ -447,8 +517,8 @@ class Controls extends Module_Base {
 				'secondary_color'      => '#feeae6',
 				'primary_text_color'   => '#000000',
 				'secondary_text_color' => '#000000',
-				'font_headlines'       => 'Rubik Light',
-				'font_body'            => 'Rubik Regular',
+				'head_font_family'     => 'Rubik',
+				'body_font_family'     => 'Rubik',
 				'corner_styles'        => '4px',
 				'icon_collection'      => 'outlined',
 			],
@@ -488,6 +558,45 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Get list of all the control settings in the Typography section.
+	 *
+	 * @return array
+	 */
+	public function get_typography_controls() {
+		return [
+			[
+				'id'       => 'head_font_family',
+				'label'    => __( 'Headlines & Subtitles', 'material-theme-builder' ),
+				'css_vars' => [
+					'family' => [
+						'--mdc-typography-headline1-font-family',
+						'--mdc-typography-headline2-font-family',
+						'--mdc-typography-headline3-font-family',
+						'--mdc-typography-headline4-font-family',
+						'--mdc-typography-headline5-font-family',
+						'--mdc-typography-headline6-font-family',
+						'--mdc-typography-subtitle1-font-family',
+						'--mdc-typography-subtitle2-font-family',
+					],
+				],
+			],
+			[
+				'id'       => 'body_font_family',
+				'label'    => __( 'Body & Captions', 'material-theme-builder' ),
+				'css_vars' => [
+					'family' => [
+						'--mdc-typography-body1-font-family',
+						'--mdc-typography-body2-font-family',
+						'--mdc-typography-caption-font-family',
+						'--mdc-typography-button-font-family',
+						'--mdc-typography-overline-font-family',
+					],
+				],
+			],
+		];
+	}
+
+	/**
 	 * Prepend the slug name if it does not exist.
 	 *
 	 * @param  string $name The name of the setting/control.
@@ -495,5 +604,21 @@ class Controls extends Module_Base {
 	 */
 	public function prepend_slug( $name ) {
 		return false === strpos( $name, "{$this->slug}_" ) ? "{$this->slug}_{$name}" : $name;
+	}
+
+	/**
+	 * Get theme mod with fallback to the default value.
+	 *
+	 * @param  string $name Name of the mod.
+	 * @return mixed
+	 */
+	public function get_theme_mod( $name ) {
+		$value = get_theme_mod( $this->prepend_slug( $name ) );
+
+		if ( empty( $value ) ) {
+			$value = $this->get_default( $name );
+		}
+
+		return $value;
 	}
 }
