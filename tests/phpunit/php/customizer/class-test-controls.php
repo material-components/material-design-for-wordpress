@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Plugin;
+use MaterialThemeBuilder\Customizer\Icon_Radio_Control;
 use MaterialThemeBuilder\Customizer\Material_Color_Palette_Control;
 use function MaterialThemeBuilder\get_plugin_instance;
 
@@ -283,6 +284,36 @@ class Test_Controls extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test for add_icon_collection_controls() method.
+	 *
+	 * @see Controls::add_icon_collection_controls()
+	 */
+	public function test_add_icon_collection_controls() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Set $wp_customize to the mocked object.
+		$controls->wp_customize = $this->wp_customize;
+
+		// Set up the expectation for the add_setting() method
+		// to be called.
+		$this->wp_customize->expects( $this->exactly( 2 ) )
+			->method( 'add_setting' );
+
+		// Set up the expectation for the add_control() method
+		// to be called.
+		$this->wp_customize->expects( $this->once() )
+			->method( 'add_control' )
+			->withConsecutive(
+				[
+					$this->isInstanceOf( Icon_Radio_Control::class ),
+				]
+			);
+
+		$controls->add_icon_collection_controls();
+	}
+
+
+	/**
 	 * Test for add_settings() method.
 	 *
 	 * @see Controls::add_settings()
@@ -377,8 +408,9 @@ class Test_Controls extends \WP_UnitTestCase {
 	public function test_get_google_fonts_url() {
 		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
 
-		// Assert we get default material icons and Roboto font.
-		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Roboto' );
+		// Assert we get Roboto font.
+		$this->assertContains( '//fonts.googleapis.com/css?family=Material+Icons', $controls->get_google_fonts_url() );
+		$this->assertContains( '|Roboto', $controls->get_google_fonts_url() );
 
 		// Add filters to return `Raleway` for headings and `Open Sans` for body.
 		add_filter(
@@ -387,6 +419,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				return 'Raleway';
 			}
 		);
+		
 		add_filter(
 			"theme_mod_{$controls->slug}_body_font_family",
 			function () {

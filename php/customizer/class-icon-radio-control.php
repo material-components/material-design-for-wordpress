@@ -41,9 +41,9 @@ class Icon_Radio_Control extends \WP_Customize_Control {
 		<?php foreach ( $this->choices as $value => $args ) : ?>
 			<div class="customize-inside-control-row">
 				<input 
-					id="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>"
 					type="radio" 
 					value="<?php echo esc_attr( $value ); ?>" 
+					id="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>"
 					name="<?php echo esc_attr( "_customize-radio-{$this->id}" ); ?>"
 					<?php checked( $this->value(), $value ); ?>
 				/>
