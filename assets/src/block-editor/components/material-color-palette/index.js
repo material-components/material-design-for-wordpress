@@ -87,7 +87,7 @@ export default function MaterialColorPalette( {
 	}, [ value, onChange, clearColor ] );
 
 	// Generate material color palette.
-	const materialColorOptions = useCallback( () => {
+	const MaterialColorOptions = useCallback( () => {
 		return map( Object.keys( groupedColors ), group => {
 			const shades = groupedColors[ group ];
 			return (
@@ -112,6 +112,8 @@ export default function MaterialColorPalette( {
 		} );
 	}, [ value, onChange, clearColor ] );
 
+	const materialColorOptions = () => <MaterialColorOptions />;
+
 	const renderCustomColorPicker = useCallback(
 		() => (
 			<ColorPicker
@@ -126,7 +128,7 @@ export default function MaterialColorPalette( {
 	if ( materialColorsOnly ) {
 		return (
 			<div className="components-material-color-palette__picker">
-				{ materialColorOptions() }
+				<MaterialColorOptions />
 			</div>
 		);
 	}
