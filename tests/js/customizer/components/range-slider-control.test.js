@@ -53,6 +53,13 @@ describe( 'RangeSliderControl', () => {
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
+	it( 'matches snapshot when no description is provided', () => {
+		const props = { ...baseProps };
+		props.description = '';
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
 	it( 'should have its value changed after the input number field value is changed', () => {
 		const wrapper = setupMount( baseProps );
 
