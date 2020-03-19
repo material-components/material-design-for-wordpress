@@ -24,7 +24,14 @@ import CardStylesPanel from '../../../components/card-styles-panel';
 const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 	const setter = useCallback( genericAttributesSetter( setAttributes ), [] );
 
-	const { style, columns, roundedCorners, lightbox, outlined } = attributes;
+	const {
+		style,
+		columns,
+		gutter,
+		roundedCorners,
+		lightbox,
+		outlined,
+	} = attributes;
 
 	return (
 		<InspectorControls>
@@ -32,6 +39,8 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 				style={ style }
 				columns={ columns }
 				showContentLayout={ false }
+				gutter={ gutter }
+				showGutter={ true }
 				roundedCorners={ roundedCorners }
 				showRoundedCorners={ true }
 				outlined={ outlined }

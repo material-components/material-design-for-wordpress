@@ -34,6 +34,14 @@ export const settings = {
 			type: 'number',
 			default: 2,
 		},
+		gutter: {
+			type: 'object',
+			default: {
+				desktop: 16,
+				tablet: 12,
+				mobile: 12,
+			},
+		},
 		roundedCorners: {
 			type: 'number',
 			default: 4,
