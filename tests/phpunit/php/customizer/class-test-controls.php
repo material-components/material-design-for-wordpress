@@ -473,7 +473,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				[
 					'id'            => 'small_component_radius',
 					'label'         => 'Small Components Radius',
-					'description'   => 'This is the description for the small components radius. It will need more details',
+					'description'   => '',
 					'min'           => 0,
 					'max'           => 28,
 					'initial_value' => 4,
@@ -482,7 +482,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				[
 					'id'            => 'medium_component_radius',
 					'label'         => 'Medium Components Radius',
-					'description'   => 'This is the description for the medium components radius. It will need more details',
+					'description'   => '',
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 4,
@@ -491,7 +491,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				[
 					'id'            => 'large_component_radius',
 					'label'         => 'Large Components Radius',
-					'description'   => 'This is the description for the large components radius. It will need more details',
+					'description'   => '',
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 0,
