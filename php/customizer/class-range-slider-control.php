@@ -38,14 +38,14 @@ class Range_Slider_Control extends \WP_Customize_Control {
 	 *
 	 * @var Number
 	 */
-	public $max = 36;
+	public $max = 100;
 
 	/**
 	 * Slider initial value
 	 *
 	 * @var Number
 	 */
-	public $initial_value = 4;
+	public $initial_value = 0;
 
 	/**
 	 * Displays the control content.
