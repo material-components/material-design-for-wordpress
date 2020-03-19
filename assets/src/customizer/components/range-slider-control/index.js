@@ -29,7 +29,8 @@ const RangeSliderControl = props => {
 
 	const [ updatedValue, setValue ] = useState( value );
 	const [ expanded, setExpanded ] = useState( false );
-	const enableDescriptionToggling = description !== undefined && description !== '';
+	const enableDescriptionToggling =
+		description !== undefined && description !== '';
 	const undoDisabled = updatedValue === value;
 
 	const handleExpansionPanelChange = () => {
