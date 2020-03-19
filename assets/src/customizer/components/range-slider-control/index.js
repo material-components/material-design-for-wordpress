@@ -29,11 +29,13 @@ const RangeSliderControl = props => {
 
 	const [ updatedValue, setValue ] = useState( value );
 	const [ expanded, setExpanded ] = useState( false );
-
+	const enableDescriptionToggling = description !== undefined && description !== '';
 	const undoDisabled = updatedValue === value;
 
 	const handleExpansionPanelChange = () => {
-		setExpanded( ! expanded );
+		if ( enableDescriptionToggling ) {
+			setExpanded( ! expanded );
+		}
 	};
 
 	/**
@@ -68,21 +70,27 @@ const RangeSliderControl = props => {
 				<div
 					tabIndex={ 0 }
 					role="link"
-					className="range-slider-control-title"
+					className={ classNames( 'range-slider-control-title', {
+						'range-slider-control-title-with-description': enableDescriptionToggling,
+					} ) }
 					onClick={ handleExpansionPanelChange }
 					onKeyPress={ handleKeyPress }
 				>
 					<span className="customize-control-title range-slider-control-title__item">
 						{ label }
 					</span>
-					<i
-						className="material-icons range-slider-control-title__item info-icon"
-						title={ __( 'More info', 'material-theme-builder' ) }
-					>
-						info
-					</i>
+					{ enableDescriptionToggling && (
+						<i
+							className="material-icons range-slider-control-title__item info-icon"
+							title={ __( 'More info', 'material-theme-builder' ) }
+						>
+							info
+						</i>
+					) }
 				</div>
-				<span className="customize-control-description">{ description }</span>
+				{ enableDescriptionToggling && (
+					<span className="customize-control-description">{ description }</span>
+				) }
 			</div>
 			<div className="range-slider-control-body">
 				<span className="range-slider-control-body__item slider">
