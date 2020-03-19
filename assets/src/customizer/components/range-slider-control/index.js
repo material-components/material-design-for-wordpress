@@ -77,7 +77,7 @@ const RangeSliderControl = props => {
 					</span>
 					<i
 						className="material-icons range-slider-control-title__item info-icon"
-						title={ __( 'More info' ) }
+						title={ __( 'More info', 'material-theme-builder' ) }
 					>
 						info
 					</i>
@@ -99,7 +99,7 @@ const RangeSliderControl = props => {
 						className="mdc-icon-button material-icons"
 						onClick={ handleUndoClick }
 						disabled={ undoDisabled }
-						title={ __( 'Reset' ) }
+						title={ __( 'Reset', 'material-theme-builder' ) }
 					>
 						undo
 					</button>
