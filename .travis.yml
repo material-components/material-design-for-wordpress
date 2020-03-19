@@ -30,7 +30,6 @@ branches:
     - master
     - develop
     - /^\d+\.\d+$/
-    - feature/deploy-script
 
 env:
   global:
@@ -136,4 +135,4 @@ jobs:
         provider: script
         script: bash bin/deploy.sh
         on:
-          branch: feature/deploy-script
+          branch: develop
