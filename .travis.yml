@@ -56,13 +56,6 @@ script:
 after_script:
   - source "$DEV_LIB_PATH/travis.after_script.sh"
 
-deploy:
-  # deploy develop to the pantheon staging environment
-  - provider: script
-    script: bash deploy-scripts/deploy.sh
-    on:
-      branch: feature/deploy-script
-
 jobs:
   fast_finish: true
   include:
@@ -134,3 +127,12 @@ jobs:
     - name: PHP unit tests (5.6, WordPress trunk)
       php: "5.6"
       env: WP_VERSION=trunk DEV_LIB_ONLY=phpunit
+
+    - stage: deploy to staging
+      script: skip
+      deploy:
+        # deploy develop to the pantheon staging environment
+        - provider: script
+          script: bash bin/deploy.sh
+          on:
+            branch: feature/deploy-script
