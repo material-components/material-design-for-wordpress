@@ -27,6 +27,13 @@ class Range_Slider_Control extends \WP_Customize_Control {
 	public $css_var = [];
 
 	/**
+	 * Extra data.
+	 *
+	 * @var array
+	 */
+	public $extra = [];
+
+	/**
 	 * Slider min value
 	 *
 	 * @var Number
@@ -68,5 +75,6 @@ class Range_Slider_Control extends \WP_Customize_Control {
 		$this->json['min']          = ! empty( $this->min ) ? $this->min : 0;
 		$this->json['max']          = ! empty( $this->max ) ? $this->max : 100;
 		$this->json['initialValue'] = ! empty( $this->initial_value ) ? $this->initial_value : 0;
+		$this->json['extra']        = ! empty( $this->extra ) ? $this->extra : [];
 	}
 }

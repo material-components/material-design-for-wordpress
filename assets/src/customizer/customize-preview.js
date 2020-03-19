@@ -9,6 +9,11 @@
  * @since 1.0.0
  */
 
+/**
+ * External dependencies
+ */
+import get from 'lodash/get';
+
 ( $ => {
 	// Bail out if this isn't loaded in an iframe.
 	if ( ! window.parent || ! window.parent.wp ) {
@@ -20,6 +25,7 @@
 	const colorControls = {};
 	const typographyControls = {};
 	const cornerStyleControls = {};
+	const cornerStyleExtra = {};
 
 	Object.keys( controls ).forEach( control => {
 		const args = controls[ control ];
@@ -38,6 +44,10 @@
 
 		if ( args && !! args.cssVar && args.type === 'range_slider' ) {
 			cornerStyleControls[ control ] = args.cssVar;
+		}
+
+		if ( args && !! args.extra && args.type === 'range_slider' ) {
+			cornerStyleExtra[ control ] = args.extra;
 		}
 	} );
 
@@ -73,9 +83,25 @@
 		} );
 
 		Object.keys( cornerStyleControls ).forEach( control => {
-			styles += `${ cornerStyleControls[ control ] }: ${ parentApi(
-				control
-			).get() }px;`;
+			let settingValue = parentApi( control ).get();
+			const limits = get( cornerStyleExtra, `${ control }.limits`, {} );
+
+			// Impose border radius limits for specific elements.
+			if ( typeof limits === 'object' && Object.keys( limits ).length > 0 ) {
+				for ( const element in limits ) {
+					const limit = limits[ element ];
+					if ( limit.hasOwnProperty( 'min' ) && settingValue < limit.min ) {
+						settingValue = limit.min;
+					}
+					if ( limit.hasOwnProperty( 'max' ) && settingValue > limit.max ) {
+						settingValue = limit.max;
+					}
+
+					styles += `${ cornerStyleControls[ control ] }-${ element }: ${ settingValue }px;`;
+				}
+			} else {
+				styles += `${ cornerStyleControls[ control ] }: ${ settingValue }px;`;
+			}
 		} );
 
 		styles = `:root {
