@@ -13,7 +13,7 @@ import {
  * Internal dependencies
  */
 import ImageRadioControl from '../image-radio-control';
-import { GridIcon, ListIcon, MasonryIcon } from './icons/index';
+import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
 
 const CARD_STYLES = [
 	{
