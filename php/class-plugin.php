@@ -122,6 +122,8 @@ class Plugin extends Plugin_Base {
 			[],
 			$this->asset_version()
 		);
+
+		wp_add_inline_style( 'material-front-end-css', $this->customizer_controls->get_frontend_css() );
 	}
 
 	/**
