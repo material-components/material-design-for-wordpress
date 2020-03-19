@@ -309,6 +309,7 @@ class Controls extends Module_Base {
 					'max'           => isset( $control['max'] ) ? $control['max'] : 100,
 					'initial_value' => isset( $control['initial_value'] ) ? $control['initial_value'] : 0,
 					'css_var'       => isset( $control['css_var'] ) ? $control['css_var'] : '',
+					'extra'         => isset( $control['extra'] ) ? $control['extra'] : '',
 				]
 			);
 		}
@@ -509,9 +510,22 @@ class Controls extends Module_Base {
 		}
 
 		foreach ( $this->get_corner_styles_controls() as $control ) {
-			$value = $this->get_theme_mod( $control['id'] );
+			$value  = $this->get_theme_mod( $control['id'] );
+			$limits = isset( $control['extra']['limits'] ) ? $control['extra']['limits'] : [];
 
-			$corner_styles_vars .= esc_html( "\t{$control['css_var']}: ${value}px;\n" );
+			if ( ! empty ( $limits ) ) {
+				foreach ( $limits as $element => $limit ) {
+					if ( isset( $limit['min'] ) && $value < $limit['min'] ) {
+						$value = $limit['min'];
+					}
+					if ( isset( $limit['max'] ) && $value > $limit['max'] ) {
+						$value = $limit['max'];
+					}
+					$corner_styles_vars .= esc_html( "\t{$control['css_var']}-{$element}: ${value}px;\n" );
+				}
+			} else {
+				$corner_styles_vars .= esc_html( "\t{$control['css_var']}: ${value}px;\n" );
+			}
 		}
 
 		return ":root {\n{$color_vars}}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
@@ -676,6 +690,14 @@ class Controls extends Module_Base {
 				'max'           => 28,
 				'initial_value' => 4,
 				'css_var'       => '--mdc-small-component-radius',
+				'extra'         => [
+					'limits' => [
+						'button' => [
+							'min' => 0,
+							'max' => 20,
+						],
+					],
+				],
 			],
 			[
 				'id'            => 'medium_component_radius',
@@ -685,6 +707,14 @@ class Controls extends Module_Base {
 				'max'           => 36,
 				'initial_value' => 4,
 				'css_var'       => '--mdc-medium-component-radius',
+				'extra'         => [
+					'limits' => [
+						'card' => [
+							'min' => 0,
+							'max' => 24,
+						],
+					],
+				],
 			],
 			[
 				'id'            => 'large_component_radius',
@@ -694,6 +724,9 @@ class Controls extends Module_Base {
 				'max'           => 36,
 				'initial_value' => 0,
 				'css_var'       => '--mdc-large-component-radius',
+				'extra'         => [
+					'limits' => [],
+				],
 			],
 		];
 	}

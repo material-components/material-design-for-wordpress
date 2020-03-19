@@ -438,8 +438,8 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->assertContains( '--mdc-theme-secondary: #03dac6;', $css );
 		$this->assertContains( '--mdc-theme-on-primary: #ffffff;', $css );
 		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
-		$this->assertContains( '--mdc-small-component-radius: 4px;', $css );
-		$this->assertContains( '--mdc-medium-component-radius: 4px;', $css );
+		$this->assertContains( '--mdc-small-component-radius-button: 4px;', $css );
+		$this->assertContains( '--mdc-medium-component-radius-card: 4px;', $css );
 		$this->assertContains( '--mdc-large-component-radius: 0px;', $css );
 	}
 
@@ -478,6 +478,14 @@ class Test_Controls extends \WP_UnitTestCase {
 					'max'           => 28,
 					'initial_value' => 4,
 					'css_var'       => '--mdc-small-component-radius',
+					'extra'         => [
+						'limits' => [
+							'button' => [
+								'min' => 0,
+								'max' => 20,
+							],
+						],
+					],
 				],
 				[
 					'id'            => 'medium_component_radius',
@@ -487,6 +495,14 @@ class Test_Controls extends \WP_UnitTestCase {
 					'max'           => 36,
 					'initial_value' => 4,
 					'css_var'       => '--mdc-medium-component-radius',
+					'extra'         => [
+						'limits' => [
+							'card' => [
+								'min' => 0,
+								'max' => 24,
+							],
+						],
+					],
 				],
 				[
 					'id'            => 'large_component_radius',
@@ -496,6 +512,9 @@ class Test_Controls extends \WP_UnitTestCase {
 					'max'           => 36,
 					'initial_value' => 0,
 					'css_var'       => '--mdc-large-component-radius',
+					'extra'         => [
+						'limits' => [],
+					],
 				],
 			],
 			$control
