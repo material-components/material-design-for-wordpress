@@ -1,39 +1,45 @@
 /* Material Color Palette */
+.components-popover:not(.components-tooltip) .components-popover__content {
+	padding: 8px;
+}
 
 .components-material-color-palette__picker {
 
-	& .components-popover__content {
-		padding: 8px;
-		min-width: 272px !important;
+	& .components-circular-option-picker__option-wrapper__row {
+		display: flex;
 	}
 
 	& .components-circular-option-picker__option-wrapper {
-		height: 16px;
-		width: 16px;
-		margin-right: 2px;
-		margin-bottom: 2px;
+		width: 6.29%;
+		margin-right: 0.85%;
+		margin-bottom: 0.85%;
+		display: block;
+		height: 0;
+		padding-bottom: 6.29%;
 	}
 
 	& .components-circular-option-picker__option {
+		height: 0;
+		padding-bottom: 100%;
 
 		&:focus {
 
 			&::after {
-				width: 12px;
-				height: 12px;
-				top: 2px;
-				left: 2px;
+				top: 15%;
+				left: 15%;
+				width: 70%;
+				height: 70%;
 				border: none;
 				background: #fff;
 			}
 		}
 
 		&.is-pressed + .dashicons-saved {
-			left: 2px;
-			top: 2px;
+			top: 15%;
+			left: 15%;
+			width: 70%;
+			height: 70%;
 			z-index: 1;
-			width: 12px;
-			height: 12px;
 		}
 	}
 }
