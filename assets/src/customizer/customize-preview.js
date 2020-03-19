@@ -114,7 +114,7 @@
 	// Generate preview styles on any color control change.
 	Object.keys( colorControls ).forEach( control => {
 		parentApi( control, value => {
-			// If any color control value changes, generate the prview styles.
+			// If any color control value changes, generate the preview styles.
 			value.bind( () => {
 				generatePreviewStyles();
 			} );
