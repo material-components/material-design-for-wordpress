@@ -671,7 +671,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'small_component_radius',
 				'label'         => __( 'Small Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description
+				'description'   => '', // TODO: Provide description.
 				'min'           => 0,
 				'max'           => 28,
 				'initial_value' => 4,
@@ -680,7 +680,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'medium_component_radius',
 				'label'         => __( 'Medium Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description
+				'description'   => '', // TODO: Provide description.
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 4,
@@ -689,7 +689,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'large_component_radius',
 				'label'         => __( 'Large Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description
+				'description'   => '', // TODO: Provide description.
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 0,
