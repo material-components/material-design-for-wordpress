@@ -17,7 +17,7 @@ class Google_Fonts_Control extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'google-fonts';
+	public $type = 'google_fonts';
 
 	/**
 	 * List of CSS vars.

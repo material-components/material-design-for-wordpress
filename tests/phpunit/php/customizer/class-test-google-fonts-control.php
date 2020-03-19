@@ -84,7 +84,7 @@ class Test_Google_Fonts_Control extends \WP_UnitTestCase {
 
 		$json = $primary_control->json();
 
-		$this->assertEquals( 'google-fonts', $json['type'] );
+		$this->assertEquals( 'google_fonts', $json['type'] );
 		$this->assertContains( '--mdc-typography-headline1-font-family', $json['cssVars']['family'] );
 		$this->assertContains( '--mdc-typography-headline4-font-family', $json['cssVars']['family'] );
 		$this->assertContains( '--mdc-typography-subtitle1-font-family', $json['cssVars']['family'] );
