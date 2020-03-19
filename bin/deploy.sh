@@ -4,10 +4,14 @@
 set -x
 
 # Build the plugin files
-npm run build
+npm run build:js
+npm run build:run
 
 # Delete temp folder if it exists
 rm -rf /tmp/temprepo
+
+# Add host to known_hosts
+ssh-keyscan -p2222 -H codeserver.dev.$PANTHEON_SITE_UUID.drush.in >> ~/.ssh/known_hosts
 
 # Clone the Pantheon Git Repo to a temp folder
 git clone ssh://codeserver.dev.$PANTHEON_SITE_UUID@codeserver.dev.$PANTHEON_SITE_UUID.drush.in:2222/~/repository.git /tmp/temprepo
