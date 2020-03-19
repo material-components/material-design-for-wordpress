@@ -8,6 +8,8 @@
 namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Plugin;
+use MaterialThemeBuilder\Customizer\Material_Color_Palette_Control;
+use function MaterialThemeBuilder\get_plugin_instance;
 
 /**
  * Tests for Controls class.
@@ -33,7 +35,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		require_once ABSPATH . WPINC . '/class-wp-customize-section.php';
 
 		$this->wp_customize = $this->getMockBuilder( 'DummyClass' )
-			->setMethods( [ 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
+			->setMethods( [ 'register_control_type', 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
 			->getMock();
 	}
 
@@ -43,7 +45,7 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::__construct()
 	 */
 	public function test_construct() {
-		$this->assertInstanceOf( Controls::class, \MaterialThemeBuilder\get_plugin_instance()->customizer_controls );
+		$this->assertInstanceOf( Controls::class, get_plugin_instance()->customizer_controls );
 	}
 
 	/**
@@ -64,12 +66,19 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::register()
 	 */
 	public function test_register() {
+
+		// Set up the expectation for the register_control_type() method
+		// to be called only once and with the class `Material_Color_Palette_Control`.
+		$this->wp_customize->expects( $this->once() )
+			->method( 'register_control_type' )
+			->with( $this->equalTo( Material_Color_Palette_Control::class ) );
+
 		$controls = $this->getMockBuilder( Controls::class )
 			->disableOriginalConstructor()
 			->setMethods( [ 'add_panel', 'add_sections', 'add_theme_controls' ] )
 			->getMock( null );
 
-		$controls->plugin = \MaterialThemeBuilder\get_plugin_instance();
+		$controls->plugin = get_plugin_instance();
 
 		// Set up the expectation for the add_panel() method
 		// to be called only once.
@@ -95,7 +104,7 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::add_panel()
 	 */
 	public function test_add_panel() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -115,7 +124,7 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::add_sections()
 	 */
 	public function test_add_sections() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -147,7 +156,6 @@ class Test_Controls extends \WP_UnitTestCase {
 				[ $this->equalTo( $icons_section ) ]
 			);
 
-
 		$controls->add_sections();
 	}
 
@@ -157,14 +165,14 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::add_theme_controls()
 	 */
 	public function test_add_theme_controls() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 3 ) )
+		$this->wp_customize->expects( $this->exactly( 2 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
 				[ $this->equalTo( "{$controls->slug}_style" ) ],
@@ -173,7 +181,7 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 2 ) )
+		$this->wp_customize->expects( $this->once() )
 			->method( 'add_control' )
 			->withConsecutive(
 				[
@@ -194,7 +202,7 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::add_settings()
 	 */
 	public function test_add_settings() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -231,7 +239,7 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::add_controls()
 	 */
 	public function test_add_controls() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -268,10 +276,52 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::scripts()
 	 */
 	public function test_scripts() {
-		\MaterialThemeBuilder\get_plugin_instance()->customizer_controls->scripts();
+		get_plugin_instance()->customizer_controls->scripts();
 
 		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
+	}
+
+	/**
+	 * Test for preview_scripts() method.
+	 *
+	 * @see Controls::preview_scripts()
+	 */
+	public function test_preview_scripts() {
+		get_plugin_instance()->customizer_controls->preview_scripts();
+
+		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-preview-js', 'enqueued' ) );
+	}
+
+	/**
+	 * Test for templates() method.
+	 *
+	 * @see Controls::templates()
+	 */
+	public function test_templates() {
+		ob_start();
+		get_plugin_instance()->customizer_controls->templates();
+		$output = ob_get_clean();
+
+		// Basic assertions to ensure we have the two templates.
+		$this->assertContains( sprintf( 'id="tmpl-customize-control-material_color-tabs"' ), $output );
+		$this->assertContains( sprintf( 'id="tmpl-customize-control-material_color-accessibility"' ), $output );
+	}
+
+	/**
+	 * Test for get_frontend_css() method.
+	 *
+	 * @see Controls::get_frontend_css()
+	 */
+	public function test_get_frontend_css() {
+		$css = get_plugin_instance()->customizer_controls->get_frontend_css();
+
+		// Assert we get the default values as CSS vars.
+		$this->assertContains( ':root {', $css );
+		$this->assertContains( '--mdc-theme-primary: #6200ee;', $css );
+		$this->assertContains( '--mdc-theme-secondary: #03dac6;', $css );
+		$this->assertContains( '--mdc-theme-on-primary: #ffffff;', $css );
+		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
 	}
 
 	/**
@@ -280,7 +330,7 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::get_default()
 	 */
 	public function test_get_default() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = get_plugin_instance()->customizer_controls;
 		$baseline = $controls->get_design_styles()['baseline'];
 
 		$this->assertEquals( $controls->get_default( 'primary_color' ), $baseline['primary_color'] );
@@ -293,7 +343,7 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::prepend_slug()
 	 */
 	public function test_prepend_slug() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = get_plugin_instance()->customizer_controls;
 
 		$this->assertEquals( $controls->prepend_slug( 'style' ), "{$controls->slug}_style" );
 		$this->assertEquals( $controls->prepend_slug( "{$controls->slug}_style" ), "{$controls->slug}_style" );
