@@ -17,7 +17,7 @@ export const name = 'material/card-collections';
 export const settings = {
 	title: __( 'Card Collections', 'material-theme-builder' ),
 	description: __(
-		'Display a list of your hand made cards.',
+		'Display a list of custom cards.',
 		'material-theme-builder'
 	),
 	category: 'material',
