@@ -44,6 +44,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: left;
+}
+
+.range-slider-control-title-with-description {
 
 	&:hover {
 		color: #0073aa;
