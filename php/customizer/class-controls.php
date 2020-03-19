@@ -489,7 +489,8 @@ class Controls extends Module_Base {
 	 */
 	public function get_google_fonts_url() {
 		$icon_type = $this->get_theme_mod( $this->prepend_slug( 'icon_collections' ) );
-		$icon_type = 'filled' !== $icon_type ? '+' . str_replace( '-', '+', ucwords( $icon_type, '-' ) ) : '';
+		$icon_type = $icon_type && 'filled' !== $icon_type 
+			? '+' . str_replace( '-', '+', ucwords( $icon_type, '-' ) ) : '';
 
 		$font_families = [ 'Material+Icons' . $icon_type ];
 
