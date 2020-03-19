@@ -59,6 +59,7 @@
     "babel-loader": "8.0.6",
     "babel-plugin-transform-require-context": "0.1.1",
     "browserslist": "4.8.6",
+    "chroma-js": "^2.1.0",
     "classnames": "^2.2.6",
     "coveralls": "benpetty/node-coveralls#master",
     "cross-env": "7.0.0",
