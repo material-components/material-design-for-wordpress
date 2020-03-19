@@ -167,15 +167,28 @@ import get from 'lodash/get';
 	} );
 
 	parentApi( 'mtb_icon_collections', function( setting ) {
-		setting.bind( function( iconStyle ) {
+		$( 'head' ).append(
+			'<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">'
+		);
+
+		const handleIconSwitch = function( iconStyle ) {
 			const mdiClass =
 				'material-icons' + ( iconStyle === 'filled' ? '' : `-${ iconStyle }` );
 
 			$( '[class*="material-icons"]' )
-				.removeClass( ( _, className ) =>
-					( className.match( /material-icons(-[a-z]+)?/g ) || [] ).join( ' ' )
+				.removeClass( ( _, classes ) =>
+					( classes.match( /material-icons(-[a-z-]+)?/g ) || [] ).join( ' ' )
 				)
 				.addClass( mdiClass );
-		} );
+		};
+
+		const iconsInit = setInterval( function() {
+			if ( $( '[class*="material-icons"]' ).length ) {
+				handleIconSwitch( setting() );
+				clearInterval( iconsInit );
+			}
+		}, 100 );
+
+		setting.bind( handleIconSwitch );
 	} );
 } )( jQuery );

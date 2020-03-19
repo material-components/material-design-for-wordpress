@@ -488,7 +488,10 @@ class Controls extends Module_Base {
 	 * @return string
 	 */
 	public function get_google_fonts_url() {
-		$font_families = [ 'Material+Icons' ];
+		$icon_type = $this->get_theme_mod( $this->prepend_slug( 'icon_collections' ) );
+		$icon_type = 'filled' !== $icon_type ? '+' . str_replace( '-', '+', ucwords( $icon_type, '-' ) ) : '';
+
+		$font_families = [ 'Material+Icons' . $icon_type ];
 
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
@@ -786,7 +789,7 @@ class Controls extends Module_Base {
 				'label' => __( 'Outlined', 'material-theme-builder' ),
 				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/outlined.svg' ),
 			],
-			'rounded'  => [
+			'round'    => [
 				'label' => __( 'Rounded', 'material-theme-builder' ),
 				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/rounded.svg' ),
 			],
