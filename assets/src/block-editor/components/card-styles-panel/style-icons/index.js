@@ -3,5 +3,3 @@ import ListIcon from './list-icon';
 import MasonryIcon from './masonry-icon';
 
 export { GridIcon, ListIcon, MasonryIcon };
-
-// Hello . */
