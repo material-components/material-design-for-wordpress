@@ -24,6 +24,10 @@ export const settings = {
 			type: 'string',
 			default: __( 'BUTTON LABEL', 'material-theme-builder' ),
 		},
+		type: {
+			type: 'string',
+			default: 'text',
+		},
 		style: {
 			type: 'string',
 			default: 'text',
