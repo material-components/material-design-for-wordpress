@@ -17,7 +17,7 @@ class Icon_Radio_Control extends \WP_Customize_Control {
 	 *
 	 * @var string
 	 */
-	public $type = 'icon-radio';
+	public $type = 'icon_radio';
 
 	/**
 	 * Displays the control content.

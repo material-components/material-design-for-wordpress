@@ -90,9 +90,11 @@ class Plugin extends Plugin_Base {
 			false
 		);
 
+		$fonts_url = $this->customizer_controls->get_google_fonts_url();
+		
 		wp_enqueue_style(
-			'material-icons-css',
-			esc_url( '//fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp' ),
+			'material-styles-css',
+			esc_url( $fonts_url ),
 			[],
 			$this->asset_version()
 		);
@@ -120,6 +122,7 @@ class Plugin extends Plugin_Base {
 		);
 
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
+
 		wp_enqueue_style(
 			'material-google-fonts-cdn',
 			esc_url( $fonts_url ),
@@ -139,6 +142,7 @@ class Plugin extends Plugin_Base {
 	 * Output inline styles with css variables at the top of the head.
 	 * 
 	 * @action wp_head, 1
+	 * @action admin_head, 1
 	 */
 	public function frontend_inline_css() {
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped

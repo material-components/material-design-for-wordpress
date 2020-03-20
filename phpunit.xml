@@ -15,7 +15,7 @@
 
 	<filter>
 		<whitelist processUncoveredFilesFromWhitelist="false">
-			<directory suffix=".php">./php</directory>
+			<directory suffix=".php">./</directory>
 			<exclude>
 				<directory suffix=".php">./assets</directory>
 				<directory suffix=".php">./bin</directory>

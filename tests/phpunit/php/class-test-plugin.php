@@ -52,7 +52,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_block_editor_assets();
 		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-styles-css', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
 	}
 
@@ -65,7 +65,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_script_is( 'material-front-end-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-front-end-css', 'enqueued' ) );
 	}
 
