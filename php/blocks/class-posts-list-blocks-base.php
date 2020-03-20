@@ -180,7 +180,7 @@ class Posts_List_Blocks_Base extends Module_Base {
 	 * @return string Returns the post content with latest posts added.
 	 */
 	public function render_block( $attributes ) {
-		$class = 'wp-block-material-recent-posts';
+		$class = 'wp-block-material-posts-list';
 		if ( isset( $attributes['align'] ) ) {
 			$class .= ' align' . $attributes['align'];
 		}
