@@ -19,7 +19,6 @@ import 'select-woo';
  */
 import { __ } from '@wordpress/i18n';
 import { render } from '@wordpress/element';
-import '@wordpress/components/build-style/style.css';
 import RangeSliderControl from './components/range-slider-control';
 import { unmountComponentAtNode } from 'react-dom';
 
