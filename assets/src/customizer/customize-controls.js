@@ -557,9 +557,10 @@ import colorUtils from '../common/color-utils';
 		} );
 	} );
 
-	api.controlConstructor[ 'icon-radio' ] = api.Control.extend( {
+	api.controlConstructor.icon_radio = api.Control.extend( {
 		ready() {
 			const control = this;
+
 			$( 'input:radio', control.container ).change( function() {
 				const selection = $( this ).val();
 				control.setting.set( selection );
