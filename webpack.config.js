@@ -105,6 +105,7 @@ const customizer = {
 		],
 	},
 	plugins: [
+		...defaultConfig.plugins,
 		...sharedConfig.plugins,
 		new WebpackBar( {
 			name: 'Customizer',

@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { map } from 'lodash';
+import { map, groupBy } from 'lodash';
 
 /**
  * WordPress dependencies.
@@ -25,6 +25,11 @@ import { __, sprintf } from '@wordpress/i18n';
 import MATERIAL_COLORS from '../../../common/material-colors';
 import './style.css';
 
+// Group material colors based on name.
+const groupedColors = groupBy( MATERIAL_COLORS, color => {
+	return color.name.replace( /\sA?[\d]+/, '' );
+} );
+
 const ColorPickerOption = ( { color, value, name, clearColor, onChange } ) => {
 	return (
 		<Option
@@ -47,21 +52,11 @@ const ColorPickerOption = ( { color, value, name, clearColor, onChange } ) => {
 	);
 };
 
-/**
- * Determine if the index is at end of color range.
- *
- * @param {number} i Index of the color
- */
-const isEndOfColor = i => {
-	// Each color has 14 shades, except the last 3 which only have 10 shades
-	// After index 233 just check for 233 and 243 for color endings.
-	return ( i < 233 && 0 === ( i + 1 ) % 14 ) || [ 233, 243 ].includes( i );
-};
-
 export default function MaterialColorPalette( {
 	clearable = true,
 	className,
 	disableCustomColors = false,
+	materialColorsOnly = false,
 	onChange,
 	value,
 	label,
@@ -92,20 +87,32 @@ export default function MaterialColorPalette( {
 	}, [ colors, value, clearColor, onChange ] );
 
 	// Generate material color palette.
-	const materialColorOptions = useCallback( () => {
-		return map( MATERIAL_COLORS, ( { color, name }, i ) => (
-			<>
-				<ColorPickerOption
-					color={ color }
-					value={ value }
-					name={ name }
-					clearColor={ clearColor }
-					onChange={ onChange }
-				/>
-				{ isEndOfColor( i ) && <br /> }
-			</>
-		) );
+	const MaterialColorOptions = useCallback( () => {
+		return map( Object.keys( groupedColors ), group => {
+			const shades = groupedColors[ group ];
+			return (
+				<div
+					key={ group }
+					className="components-circular-option-picker__option-wrapper__row"
+				>
+					{ map( shades, ( { color, name } ) => {
+						return (
+							<ColorPickerOption
+								key={ color }
+								color={ color }
+								value={ value }
+								name={ name }
+								clearColor={ clearColor }
+								onChange={ onChange }
+							/>
+						);
+					} ) }
+				</div>
+			);
+		} );
 	}, [ value, onChange, clearColor ] );
+
+	const materialColorOptions = () => <MaterialColorOptions />;
 
 	const renderCustomColorPicker = useCallback(
 		() => (
@@ -117,6 +124,14 @@ export default function MaterialColorPalette( {
 		),
 		[ onChange, value ]
 	);
+
+	if ( materialColorsOnly ) {
+		return (
+			<div className="components-material-color-palette__picker">
+				<MaterialColorOptions />
+			</div>
+		);
+	}
 
 	return (
 		<BaseControl className="material-component-color-palette">

@@ -26,7 +26,6 @@ export const Option = ( {
 } ) => {
 	const optionButton = (
 		<Button
-			isPressed={ isSelected }
 			className={ classnames(
 				className,
 				'components-circular-option-picker__option',
