@@ -2,6 +2,14 @@
  * Put Customize Controls CSS here.
  */
 
+@import "select-woo/dist/css/selectWoo.css";
+@import "../../src/block-editor/components/material-color-palette/style.css";
+
+/* Collapsible section */
+.control-section-collapse-parent {
+	overflow: hidden !important;
+}
+
 .control-section-collapse {
 	position: static !important;
 	transform: none !important;
@@ -27,5 +35,178 @@
 
 	& .customize-section-description-container {
 		display: none;
+	}
+}
+
+/* Image Radio Control */
+.customize-control-image-radio-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.customize-control-image-radio-control {
+	box-sizing: border-box;
+	flex: 0 50%;
+	margin-bottom: 10px;
+	padding: 0 6px;
+
+	& img {
+		margin-top: 4px;
+		width: 100%;
+	}
+}
+
+.customize-control-google-fonts-wrap {
+	position: relative;
+
+	& select {
+		width: 100% !important;
+	}
+}
+
+.select2-dropdown {
+	z-index: 1000000;
+}
+
+/* Material color palette control */
+.customize-control-material_color .wp-picker-container {
+	display: block;
+	width: 100%;
+
+	&.wp-picker-active {
+
+		& .mtb-tabs {
+			display: flex;
+		}
+
+		& .mtb-tab-content.active {
+			display: block;
+		}
+
+		& .mtb-accessibility {
+			display: block;
+		}
+	}
+
+	& .wp-picker-input-wrap {
+		display: inline-block;
+	}
+}
+
+.mtb-tabs {
+	display: none;
+	margin: 15px 0;
+}
+
+.mtb-tab-link {
+	display: inline-block;
+	width: 50%;
+	text-align: center;
+	padding: 8px;
+	text-decoration: none;
+	background-color: #fff;
+	border-right: 1px solid #ddd;
+	border-bottom: 3px solid transparent;
+	color: #555d66;
+
+	&.active,
+	&:hover {
+		border-bottom-color: #0073aa;
+		color: #0073aa;
+	}
+
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+.mtb-tab-content {
+	display: none;
+}
+
+.mtb-accessibility {
+	display: none;
+	margin: 10px 0;
+
+	& label {
+		font-weight: bold;
+	}
+
+	& .material-color-accessibility-inner {
+		background-color: #fff;
+		margin-top: 5px;
+	}
+
+	& .material-color-accessibility-row {
+		padding: 6px 10px;
+		border-bottom: 1px solid #ddd;
+
+		& .dashicons {
+			font-size: 16px;
+		}
+
+		& > span {
+			line-height: 1;
+			vertical-align: middle;
+			padding: 1px 2px 2px;
+			display: inline-block;
+		}
+	}
+
+	& .material-color-accessibility-color {
+		line-height: 16px;
+		margin-bottom: 5px;
+
+		& span {
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			border-radius: 16px;
+			position: relative;
+			top: 3px;
+			margin-right: 4px;
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: -1px;
+				left: -1px;
+				bottom: -1px;
+				right: -1px;
+				border-radius: 50px;
+				box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+				border: 1px solid transparent;
+			}
+		}
+	}
+}
+
+.components-tooltip.components-popover {
+	z-index: 10000;
+	position: static;
+	font-size: 0.8em !important;
+}
+
+.components-popover:not(.is-without-arrow):not(.is-mobile).is-top::after {
+	bottom: 10px;
+}
+
+.components-material-color-palette__picker {
+	padding: 4px;
+	background: #fff;
+	max-height: 175px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.components-circular-option-picker__option-wrapper {
+
+	&:nth-child(15n+13),
+	&:nth-child(15n+14) {
+
+		.components-popover:not(.is-mobile).is-center .components-popover__content {
+			left: 80%;
+			transform: translateX(-80%);
+		}
 	}
 }

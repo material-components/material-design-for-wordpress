@@ -7,8 +7,6 @@
 
 namespace MaterialThemeBuilder;
 
-use MaterialThemeBuilder\Plugin;
-
 /**
  * Class Module_Base.
  */
