@@ -174,26 +174,39 @@ class Image_List_Block extends Module_Base {
 	 */
 	public static function get_device_styles( $id, $attributes, $device = 'desktop' ) {
 		if ( empty( $attributes['gutter'] ) || empty( $attributes['gutter'][ $device ] ) ) {
-			return '';
+			return [];
 		}
 
-		$styles[]      = sprintf( '#%s .mdc-image-list{', $id );
-		$item_styles[] = sprintf( '#%s .mdc-image-list__item {', $id );
+		$styles      = [];
+		$item_styles = [
+			sprintf( '#%s .mdc-image-list__item {', $id ),
+		];
 
 		if ( ! empty( $attributes['style'] ) && 'masonry' === $attributes['style'] ) {
+			$styles[] = sprintf( '#%s .mdc-image-list{', $id );
 			$styles[] = sprintf( 'column-count: %s;', $attributes['columns'] );
 			$styles[] = sprintf( 'column-gap: %spx;', $attributes['gutter'][ $device ] );
+			$styles[] = "}\n";
 
 			$item_styles[] = sprintf( 'margin-bottom: %spx', absint( $attributes['gutter'][ $device ] ) / 2 );
 		} else {
-			$item_styles[] = sprintf( 'width: calc(100%% / %spx);', $attributes['columns'] - ( absint( $attributes['gutter'][ $device ] ) + 1 / $attributes['columns'] ) );
+			$item_styles[] = sprintf( 'width: calc(100%% / %s - %spx);', $attributes['columns'], absint( $attributes['gutter'][ $device ] ) + 1 / $attributes['columns'] );
 			$item_styles[] = sprintf( 'margin: %spx;', absint( $attributes['gutter'][ $device ] ) / 2 );
 		}
 
-		$styles[]      = "}\n";
 		$item_styles[] = "}\n";
 
-		return array_merge( $styles, $item_styles );
+		$image_styles = [
+			sprintf( '#%s .mdc-image-list__image {', $id ),
+			sprintf( 'border-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
+			"}\n",
+			sprintf( '#%s .mdc-image-list__supporting {', $id ),
+			sprintf( 'border-bottom-left-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
+			sprintf( 'border-bottom-right-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
+			"}\n",
+		];
+
+		return array_merge( $styles, $item_styles, $image_styles );
 	}
 
 }

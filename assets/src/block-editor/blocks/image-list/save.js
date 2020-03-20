@@ -12,16 +12,17 @@ import Gallery from './components/gallery';
  * ImageListSave component.
  *
  * @param {Object} props - Component props.
- * @param {Array} props.id - ID of the wrapping div.
- * @param {Array} props.images - List of images in the gallery.
- * @param {string} props.style - Layout style of the gallery.
- * @param {number} props.columns - Columns in the gallery.
- * @param {Object} props.gutter - Column gutter for various devices.
- * @param {number} props.cornerRadius - Corder radius.
- * @param {boolean} props.displayLightbox - Display/hide captions.
- * @param {boolean} props.displayCaptions - Display/hide captions.
- * @param {boolean} props.textProtection - Display/hide captions with text protection.
- * @param {string} props.linkTo - Image should link to.
+ * @param {Array} props.attributes.id - ID of the wrapping div.
+ * @param {Array} props.attributes.images - List of images in the gallery.
+ * @param {string} props.attributes.style - Layout style of the gallery.
+ * @param {number} props.attributes.columns - Columns in the gallery.
+ * @param {Object} props.attributes.gutter - Column gutter for various devices.
+ * @param {number} props.attributes.cornerRadius - Corder radius.
+ * @param {boolean} props.attributes.displayCaptions - Display/hide captions.
+ * @param {boolean} props.attributes.textProtection - Display/hide captions with text protection.
+ * @param {string} props.attributes.linkTo - Image should link to.
+ * @param {string} props.className - Class name for the block.
+ * @param {number} props.instanceId - Unique instance ID.
  *
  * @return {Function} A functional component.
  */
@@ -33,7 +34,6 @@ const ImageListSave = ( {
 		columns,
 		gutter,
 		cornerRadius,
-		displayLightbox,
 		displayCaptions,
 		textProtection,
 		linkTo,
@@ -53,7 +53,6 @@ const ImageListSave = ( {
 				gutter,
 				cornerRadius,
 				displayCaptions,
-				displayLightbox,
 				textProtection,
 				linkTo,
 				isSaveContext: true,

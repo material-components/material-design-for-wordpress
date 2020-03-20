@@ -89,7 +89,7 @@ export default function MaterialColorPalette( {
 				onChange={ onChange }
 			/>
 		) );
-	}, [ value, onChange, clearColor ] );
+	}, [ colors, value, clearColor, onChange ] );
 
 	// Generate material color palette.
 	const materialColorOptions = useCallback( () => {
@@ -115,7 +115,7 @@ export default function MaterialColorPalette( {
 				disableAlpha
 			/>
 		),
-		[ value ]
+		[ onChange, value ]
 	);
 
 	return (
