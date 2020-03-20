@@ -7,6 +7,7 @@
  * @param {string} props.id - WordPress media ID.
  * @param {string} props.link - Link the image should point to.
  * @param {number} props.cornerRadius - Corner radius.
+ * @param {boolean} props.isSaveContext - Determine if this is save context.
  *
  * @return {Function} A functional component.
  */
