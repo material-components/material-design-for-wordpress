@@ -488,11 +488,11 @@ class Controls extends Module_Base {
 	 * @return string
 	 */
 	public function get_google_fonts_url() {
-		$icon_type = $this->get_theme_mod( $this->prepend_slug( 'icon_collections' ) );
-		$icon_type = $icon_type && 'filled' !== $icon_type 
-			? '+' . str_replace( '-', '+', ucwords( $icon_type, '-' ) ) : '';
+		$icons_style = $this->get_theme_mod( $this->prepend_slug( 'icon_collections' ) );
+		$icons_style = $icons_style && 'filled' !== $icons_style 
+			? '+' . str_replace( '-', '+', ucwords( $icons_style, '-' ) ) : '';
 
-		$font_families = [ 'Material+Icons' . $icon_type ];
+		$font_families = [ 'Material+Icons' . $icons_style ];
 
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
@@ -501,6 +501,19 @@ class Controls extends Module_Base {
 		}
 
 		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
+	}
+
+	/**
+	 * Get CSS variable which should set the font-family for material-icons.
+	 *
+	 * @return string
+	 */
+	public function get_icon_collections_css() {
+		$icons_style = $this->get_theme_mod( $this->prepend_slug( 'icon_collections' ) );
+		$icons_style = $icons_style && 'filled' !== $icons_style 
+			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
+
+		return "\t--material-icons-font-family: \"Material Icons{$icons_style}\";";
 	}
 
 	/**
@@ -572,7 +585,9 @@ class Controls extends Module_Base {
 			}
 		}
 
-		return ":root {\n{$color_vars}}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
+		$icon_collections = $this->get_icon_collections_css();
+
+		return ":root {\n{$color_vars}{$icon_collections}\n}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
 	}
 
 	/**
