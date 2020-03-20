@@ -488,7 +488,7 @@ class Controls extends Module_Base {
 	 * @return string
 	 */
 	public function get_google_fonts_url() {
-		$icons_style = $this->get_theme_mod( $this->prepend_slug( 'icon_collections' ) );
+		$icons_style = $this->get_theme_mod( 'icon_collections' );
 		$icons_style = $icons_style && 'filled' !== $icons_style 
 			? '+' . str_replace( '-', '+', ucwords( $icons_style, '-' ) ) : '';
 
@@ -509,7 +509,7 @@ class Controls extends Module_Base {
 	 * @return string
 	 */
 	public function get_icon_collections_css() {
-		$icons_style = $this->get_theme_mod( $this->prepend_slug( 'icon_collections' ) );
+		$icons_style = $this->get_theme_mod( 'icon_collections' );
 		$icons_style = $icons_style && 'filled' !== $icons_style 
 			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
 
