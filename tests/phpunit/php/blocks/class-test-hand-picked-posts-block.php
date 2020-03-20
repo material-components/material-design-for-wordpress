@@ -162,6 +162,6 @@ class Test_Hand_Picked_Posts_Block extends Posts_Blocks_Tests_Base {
 		$content             = $block->render_block( $attributes );
 
 		// Assert alignwide class is rendered.
-		$this->assertEquals( 1, substr_count( $content, '<div class="wp-block-material-recent-posts alignwide"' ) );
+		$this->assertEquals( 1, substr_count( $content, '<div class="wp-block-material-posts-list alignwide"' ) );
 	}
 }
