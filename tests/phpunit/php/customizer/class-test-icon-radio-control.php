@@ -49,11 +49,11 @@ class Test_Icon_Radio_Control extends \WP_UnitTestCase {
 				'choices' => [
 					'foo' => [
 						'label' => 'Foo',
-						'icon'   => 'http://example.com/foo.svg',
+						'icon'  => 'http://example.com/foo.svg',
 					],
-					'bar'    => [
+					'bar' => [
 						'label' => 'Bar',
-						'icon'   => 'http://example.com/bar.svg',
+						'icon'  => 'http://example.com/bar.svg',
 					],
 				],
 			]

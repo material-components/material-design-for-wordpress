@@ -133,8 +133,17 @@ class Plugin extends Plugin_Base {
 			[],
 			$this->asset_version()
 		);
+	}
 
-		wp_add_inline_style( 'material-front-end-css', $this->customizer_controls->get_frontend_css() );
+	/**
+	 * Output inline styles with css variables at the top of the head.
+	 * 
+	 * @action wp_head, 1
+	 */
+	public function frontend_inline_css() {
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<style>' . $this->customizer_controls->get_frontend_css() . '</style>';
+		// phpcs:enable
 	}
 
 	/**
