@@ -4,14 +4,18 @@
 
 @import "@material/button/dist/mdc.button.css";
 @import "@material/card/dist/mdc.card.css";
-@import "@material/typography/dist/mdc.typography.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/image-list/dist/mdc.image-list.css";
+@import "@material/typography/dist/mdc.typography.css";
 
+/* Overrides */
+
+/* @todo move to own file */
 .mdc-image-list__item-wrap {
 	text-decoration: none !important;
 }
 
+/* Image List */
 .mdc-image-list__item {
 	margin: 0;
 }
