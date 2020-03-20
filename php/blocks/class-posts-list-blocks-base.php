@@ -171,7 +171,7 @@ class Posts_List_Blocks_Base extends Module_Base {
 	}
 
 	/**
-	 * Renders the `material/recent-posts` block on server.
+	 * Renders the `material/recent-posts` or `material/hand-picked-posts` block on server.
 	 *
 	 * @access public
 	 *
