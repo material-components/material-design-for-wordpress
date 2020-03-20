@@ -20,11 +20,11 @@ class Range_Slider_Control extends \WP_Customize_Control {
 	public $type = 'range_slider';
 
 	/**
-	 * List of CSS var.
+	 * CSS var.
 	 *
-	 * @var array
+	 * @var string
 	 */
-	public $css_var = [];
+	public $css_var = '';
 
 	/**
 	 * Extra data.
