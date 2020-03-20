@@ -48,13 +48,14 @@ class Test_Image_List_Block extends \WP_UnitTestCase {
 	 */
 	public function test_get_device_styles() {
 		$attributes = [
-			'gutter'  => [
+			'gutter'       => [
 				'desktop' => 24,
 				'tablet'  => 18,
 				'mobile'  => 12,
 			],
-			'style'   => 'masonry',
-			'columns' => 2,
+			'style'        => 'masonry',
+			'columns'      => 2,
+			'cornerRadius' => 8,
 		];
 
 		$plugin = get_plugin_instance();

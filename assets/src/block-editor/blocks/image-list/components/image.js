@@ -5,8 +5,8 @@
  * @param {string} props.caption - Image caption.
  * @param {string} props.url - Image src URL.
  * @param {string} props.id - WordPress media ID.
- * @param {string} props.link - Link the iamge should point to.
- * @param {number} props.cornerRadius - Corder radius.
+ * @param {string} props.link - Link the image should point to.
+ * @param {number} props.cornerRadius - Corner radius.
  *
  * @return {Function} A functional component.
  */

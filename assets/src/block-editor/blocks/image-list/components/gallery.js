@@ -23,7 +23,7 @@ import Image from './image';
  * @param {string} props.style - Layout style of the gallery.
  * @param {number} props.columns - Columns in the gallery.
  * @param {Object} props.gutter - Column gutter for various devices.
- * @param {number} props.cornerRadius - Corder radius.
+ * @param {number} props.cornerRadius - Corner radius.
  * @param {boolean} props.displayCaptions - Display/hide captions.
  * @param {boolean} props.textProtection - Display/hide captions with text protection.
  * @param {number} props.selectedImage - Current selected image.
@@ -54,7 +54,8 @@ const Gallery = ( {
 } ) => {
 	const desktopGutter = gutter.desktop || 0;
 	let wrapStyles = {},
-		itemStyles = {};
+		itemStyles = {},
+		captionStyles = {};
 
 	// Generate styles only if we are not in the save context.
 	if ( ! isSaveContext ) {
@@ -73,6 +74,11 @@ const Gallery = ( {
 				margin: `${ desktopGutter / 2 }px`,
 			};
 		}
+
+		captionStyles = {
+			borderBottomLeftRadius: `${ cornerRadius }px`,
+			borderBottomRightRadius: `${ cornerRadius }px`,
+		};
 	}
 
 	/**
@@ -148,7 +154,10 @@ const Gallery = ( {
 							) }
 
 							{ displayCaptions && '' !== image.caption && (
-								<div className="mdc-image-list__supporting">
+								<div
+									className="mdc-image-list__supporting"
+									style={ captionStyles }
+								>
 									<span className="mdc-image-list__label">
 										{ image.caption }
 									</span>

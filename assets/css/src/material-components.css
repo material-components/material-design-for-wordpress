@@ -8,6 +8,10 @@
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/image-list/dist/mdc.image-list.css";
 
+.mdc-image-list__item-wrap {
+	text-decoration: none !important;
+}
+
 .mdc-image-list__item {
 	margin: 0;
 }
