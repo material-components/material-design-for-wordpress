@@ -17,6 +17,11 @@ export const settings = {
 	description: __( 'List stuff in a list', 'material-theme-builder' ),
 	category: 'material',
 	icon: <i className="material-icons">list</i>,
+	keywords: [
+		__( 'Material List', 'material-theme-builder' ),
+		__( 'MDCList', 'material-theme-builder' ),
+		__( 'MList', 'material-theme-builder' ),
+	],
 	attributes: {
 		style: {
 			type: 'string',
