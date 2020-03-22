@@ -3,14 +3,14 @@ import { TextButton, IconButton } from './components/icon-types';
 
 export const BUTTON_TYPES = [
 	{
-		label: __( 'Icon', 'material-theme-builder' ),
-		value: 'icon',
-		src: IconButton,
-	},
-	{
 		label: __( 'Text', 'material-theme-builder' ),
 		value: 'text',
 		src: TextButton,
+	},
+	{
+		label: __( 'Icon', 'material-theme-builder' ),
+		value: 'icon',
+		src: IconButton,
 	},
 ];
 
