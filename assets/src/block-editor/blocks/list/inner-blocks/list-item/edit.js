@@ -7,6 +7,7 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import { ListContext } from '../../edit';
+import findIcon from '../../../../utils/find-icon';
 import ListItemText from '../../components/list-item-text';
 import IconPicker from '../../../../components/icon-picker';
 import genericAttributesSetter from '../../../../utils/generic-attributes-setter';
@@ -101,10 +102,14 @@ const ListItemEdit = ( {
 	useEffect( () => {
 		if ( ! leadingIconsEnabled && leadingIcon ) {
 			setAttributes( { leadingIcon: undefined } );
+		} else if ( leadingIconsEnabled && ! leadingIcon ) {
+			setAttributes( { leadingIcon: findIcon( 'favorite' ) } );
 		}
 
 		if ( ! trailingIconsEnabled && trailingIcon ) {
 			setAttributes( { trailingIcon: undefined } );
+		} else if ( trailingIconsEnabled && ! trailingIcon ) {
+			setAttributes( { trailingIcon: findIcon( 'link' ) } );
 		}
 	}, [ leadingIconsEnabled, leadingIcon, trailingIconsEnabled, trailingIcon ] );
 
