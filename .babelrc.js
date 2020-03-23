@@ -14,6 +14,6 @@ module.exports = {
 		},
 		teste2e: {
 			plugins: [ 'istanbul' ],
-		}
+		},
 	},
 };
