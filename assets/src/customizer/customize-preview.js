@@ -1,4 +1,5 @@
 /* global jQuery */
+/* istanbul ignore file */
 
 /**
  * Customizer enhancements for a better user experience.
