@@ -1,5 +1,5 @@
 /**
- * Merge JS and e2e coberage reports.
+ * Merge JS and e2e coverage reports.
  */
 
 const fs = require( 'fs-extra' );
