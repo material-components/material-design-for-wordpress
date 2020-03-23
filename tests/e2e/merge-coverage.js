@@ -1,3 +1,7 @@
+/**
+ * Merge JS and e2e coberage reports.
+ */
+
 const fs = require( 'fs-extra' );
 const istanbulReports = require( 'istanbul-reports' );
 const libReport = require( 'istanbul-lib-report' );
