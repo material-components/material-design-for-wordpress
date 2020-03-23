@@ -67,7 +67,7 @@ jobs:
         - npm run lint
 
     - stage: test
-      name: E2E tests with Docker (7.4, WordPress latest)
+      name: E2E tests with Docker (7.4, WordPress latest, with code coverage)
       php: "7.4"
       env: NODE_ENV=teste2e
       before_install:

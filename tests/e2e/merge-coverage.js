@@ -31,25 +31,30 @@ const generateReport = ( coverageMap, type ) => {
 		coverageMap,
 	} );
 
+	const reportType = Array.isArray( type ) ? type.pop() : type;
+
 	// create an instance of the relevant report class
-	const report = istanbulReports.create( type );
+	const report = istanbulReports.create( reportType );
 
 	// call execute to synchronously create and write the report to disk
 	report.execute( context );
 
-	// show the report text summary in console
-	const text = istanbulReports.create( 'text' );
+	if ( ! reportType.includes( 'text' ) ) {
+		// show the report text summary in console
+		const text = istanbulReports.create( 'text' );
 
-	text.execute( context );
+		text.execute( context );
+	}
 };
 
 async function main() {
 	const coverageMap = istanbulCoverage.createCoverageMap( {} );
 
-	const reports = [
-		rootDir + '/e2e/coverage-puppeteer-istanbul.json',
-		rootDir + '/js/coverage-final.json',
-	];
+	const reports = [ rootDir + '/e2e/coverage-puppeteer-istanbul.json' ];
+
+	if ( false !== args.js ) {
+		reports.push( rootDir + '/js/coverage-final.json' );
+	}
 
 	if ( Array.isArray( reports ) ) {
 		mergeAllReports( coverageMap, reports );
