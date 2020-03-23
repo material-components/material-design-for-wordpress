@@ -22,8 +22,12 @@ const initButtons = () => {
 };
 
 const initLists = () => {
-	const list = new MDCList( document.querySelector( '.mdc-list' ) );
-	list.listElements.forEach( listItemEl => new MDCRipple( listItemEl ) );
+	const lists = document.querySelectorAll( '.mdc-list' );
+
+	lists.forEach( list => {
+		const mdcList = new MDCList( list );
+		mdcList.listElements.forEach( listItemEl => new MDCRipple( listItemEl ) );
+	} );
 };
 
 const initTabBar = () => {

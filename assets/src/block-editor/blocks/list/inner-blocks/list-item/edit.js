@@ -103,13 +103,13 @@ const ListItemEdit = ( {
 		if ( ! leadingIconsEnabled && leadingIcon ) {
 			setAttributes( { leadingIcon: undefined } );
 		} else if ( leadingIconsEnabled && ! leadingIcon ) {
-			setAttributes( { leadingIcon: findIcon( 'favorite' ) } );
+			setAttributes( { leadingIcon: findIcon( 'account circle' ) } );
 		}
 
 		if ( ! trailingIconsEnabled && trailingIcon ) {
 			setAttributes( { trailingIcon: undefined } );
 		} else if ( trailingIconsEnabled && ! trailingIcon ) {
-			setAttributes( { trailingIcon: findIcon( 'link' ) } );
+			setAttributes( { trailingIcon: findIcon( 'more vert' ) } );
 		}
 	}, [ leadingIconsEnabled, leadingIcon, trailingIconsEnabled, trailingIcon ] );
 
