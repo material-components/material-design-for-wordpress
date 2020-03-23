@@ -39,8 +39,8 @@ const generateReport = ( coverageMap, type ) => {
 	// call execute to synchronously create and write the report to disk
 	report.execute( context );
 
+	// show the report text summary in console only if the reporter is not a text report.
 	if ( ! reportType.includes( 'text' ) ) {
-		// show the report text summary in console
 		const text = istanbulReports.create( 'text' );
 
 		text.execute( context );
