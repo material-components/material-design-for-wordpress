@@ -18,7 +18,7 @@ describe( 'blocks: material/tab-bar', () => {
 		expect( await page.$( '[data-type="material/tab-bar"]' ) ).not.toBeNull();
 	} );
 
-	it( 'should have "None" selected as the icon position initally', async () => {
+	it( 'should have "None" selected as the icon position initially', async () => {
 		await insertBlock( 'Tab Bar' );
 		await selectBlockByName( 'material/tab-bar' );
 
