@@ -17,7 +17,7 @@ import Gallery from './components/gallery';
  * @param {string} props.attributes.style - Layout style of the gallery.
  * @param {number} props.attributes.columns - Columns in the gallery.
  * @param {Object} props.attributes.gutter - Column gutter for various devices.
- * @param {number} props.attributes.cornerRadius - Corder radius.
+ * @param {number} props.attributes.cornerRadius - Corner radius.
  * @param {boolean} props.attributes.displayCaptions - Display/hide captions.
  * @param {boolean} props.attributes.textProtection - Display/hide captions with text protection.
  * @param {string} props.attributes.linkTo - Image should link to.

@@ -184,8 +184,8 @@ const ImageListEdit = ( {
 	/**
 	 * Update image link.
 	 *
-	 * @param {number} id Image attachmend ID.
-	 * @param {string} link Linkt the image should point to.
+	 * @param {number} id Image attachment ID.
+	 * @param {string} link Link the image should point to.
 	 */
 	const updateImageLink = ( id, link ) => {
 		const newImages = [ ...images ],
