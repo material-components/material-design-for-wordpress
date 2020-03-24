@@ -3,7 +3,6 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { useCallback } from '@wordpress/element';
 import {
 	PanelBody,
 	RangeControl,
@@ -46,7 +45,7 @@ const CommonPostsListInspectorControls = ( {
 	setAttributes,
 	name,
 } ) => {
-	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const setter = genericAttributesSetter( setAttributes );
 
 	const {
 		style,
