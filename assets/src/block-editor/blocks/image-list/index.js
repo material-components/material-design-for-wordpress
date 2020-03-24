@@ -17,7 +17,10 @@ export const name = 'material/image-list';
  */
 export const settings = {
 	title: __( 'Image List', 'material-theme-builder' ),
-	description: __( 'Image List description.', 'material-theme-builder' ),
+	description: __(
+		'Image lists display a collection of images in an organized grid.',
+		'material-theme-builder'
+	),
 	category: 'material',
 	supports: {
 		align: true,
