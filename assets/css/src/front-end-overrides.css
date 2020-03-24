@@ -7,21 +7,50 @@
 
 /*
  * Set the typography vars by calculating with base font-size of 16px (browser default)
+ * to override any theme font rem declartion on html element.
  * Material typography vars can be found at
  * https://github.com/material-components/material-components-web/blob/master/packages/mdc-typography/_variables.scss#L60
  */
 html {
-	--mdc-typography-button-font-size: calc(0.875 * 16)px;
-	--mdc-typography-button-line-height: calc(2.25 * 16)px;
+
+	@mixin fontvars headline1, 6, 6, -1.5;
+	@mixin fontvars headline2, 3.75, 3.75, -.5;
+	@mixin fontvars headline3, 3, 3.125;
+	@mixin fontvars headline4, 2.125, 2.5, .25;
+	@mixin fontvars headline5, 1.5, 2;
+	@mixin fontvars headline6, 1.25, 2, .25;
+	@mixin fontvars subtitle1, 1, 1.75, .15;
+	@mixin fontvars subtitle2, 0.875, 1.375, .1;
+	@mixin fontvars body1, 1, 1.5, .5;
+	@mixin fontvars body2, 0.875, 1.25, .25;
+	@mixin fontvars caption, 0.75, 1.25, .4;
+	@mixin fontvars button, 0.875, 2.25, 1.25;
+	@mixin fontvars overline, 0.75, 2, 2;
 }
 
-.mdc-button {
+@mixin typography headline1, 6, 6;
+@mixin typography headline2, 3.75, 3.75;
+@mixin typography headline3, 3, 3.125;
+@mixin typography headline4, 2.125, 2.5;
+@mixin typography headline5, 1.5, 2;
+@mixin typography headline6, 1.25, 2;
+@mixin typography subtitle1, 1, 1.75;
+@mixin typography subtitle2, 0.875, 1.375;
+@mixin typography body1, 1, 1.5;
+@mixin typography body2, 0.875, 1.25;
+@mixin typography caption, 0.75, 1.25;
+@mixin typography button, 0.875, 2.25;
+@mixin typography overline, 0.75, 2;
 
-	font-size: var(--mdc-typography-button-font-size, 0.875rem) !important;
-	line-height: var(--mdc-typography-button-line-height, 2.25rem) !important;
+/* Button */
+.mdc-button {
 
 	&:hover,
 	&:focus {
 		text-decoration: none !important;
 	}
+}
+
+.mdc-button--outlined:not(:disabled) {
+	border-color: inherit !important;
 }
