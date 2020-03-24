@@ -122,6 +122,7 @@ const frontEnd = {
 			'./assets/src/front-end/index.js',
 			'./assets/css/src/front-end.css',
 		],
+		'front-end-overrides': [ './assets/css/src/front-end-overrides.css' ],
 	},
 	plugins: [
 		...sharedConfig.plugins,
