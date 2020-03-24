@@ -7,6 +7,7 @@ const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
 const RtlCssPlugin = require( 'rtlcss-webpack-plugin' );
 const TerserPlugin = require( 'terser-webpack-plugin' );
 const WebpackBar = require( 'webpackbar' );
+const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 
 /**
  * WordPress dependencies
@@ -122,7 +123,6 @@ const frontEnd = {
 			'./assets/src/front-end/index.js',
 			'./assets/css/src/front-end.css',
 		],
-		'front-end-overrides': [ './assets/css/src/front-end-overrides.css' ],
 	},
 	plugins: [
 		...sharedConfig.plugins,
@@ -133,9 +133,26 @@ const frontEnd = {
 	],
 };
 
+const overrides = {
+	...defaultConfig,
+	...sharedConfig,
+	entry: {
+		overrides: [ './assets/css/src/overrides.css' ],
+	},
+	plugins: [
+		...sharedConfig.plugins,
+		new FixStyleOnlyEntriesPlugin(),
+		new WebpackBar( {
+			name: 'Overrides',
+			color: '#a81773',
+		} ),
+	],
+};
+
 module.exports = [
 	// prettier-ignore
 	blockEditor,
 	customizer,
 	frontEnd,
+	overrides,
 ];

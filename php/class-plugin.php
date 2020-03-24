@@ -84,15 +84,6 @@ class Plugin extends Plugin_Base {
 		);
 
 		wp_add_inline_style( 'material-block-editor-css', $this->customizer_controls->get_frontend_css() );
-
-		if ( false === strpos( get_stylesheet(), 'material-theme' ) ) {
-			wp_enqueue_style(
-				'material-front-end-overrides-css',
-				$this->asset_url( 'assets/css/front-end-overrides-compiled.css' ),
-				[],
-				$this->asset_version()
-			);
-		}
 	}
 
 	/**
@@ -117,21 +108,24 @@ class Plugin extends Plugin_Base {
 			$this->asset_version()
 		);
 
+		/**
+		 * Enqueue material style overrides if the theme is not material.
+		 */
+		if ( false === strpos( get_stylesheet(), 'material-theme' ) ) {
+			wp_enqueue_style(
+				'material-overrides-css',
+				$this->asset_url( 'assets/css/overrides-compiled.css' ),
+				[],
+				$this->asset_version()
+			);
+		}
+
 		wp_enqueue_style(
 			'material-front-end-css',
 			$this->asset_url( 'assets/css/front-end-compiled.css' ),
 			[],
 			$this->asset_version()
 		);
-
-		if ( false === strpos( get_stylesheet(), 'material-theme' ) ) {
-			wp_enqueue_style(
-				'material-front-end-overrides-css',
-				$this->asset_url( 'assets/css/front-end-overrides-compiled.css' ),
-				[],
-				$this->asset_version()
-			);
-		}
 
 		wp_add_inline_style( 'material-front-end-css', $this->customizer_controls->get_frontend_css() );
 	}
