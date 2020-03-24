@@ -3,7 +3,3 @@
  */
 @import "./material-components.css";
 @import "../../src/block-editor/blocks/recent-posts/style.css";
-
-.mdc-button--outlined:not(:disabled) {
-	border-color: inherit !important;
-}
