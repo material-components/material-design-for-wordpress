@@ -128,10 +128,12 @@ jobs:
       env: WP_VERSION=trunk DEV_LIB_ONLY=phpunit
 
     - stage: deploy to staging
-      if: (NOT type IN (pull_request)) AND (branch = develop)
+      if: (NOT type IN (pull_request))
       script: skip
       deploy:
         skip_cleanup: true
         # deploy builds in develop to the pantheon staging environment
         provider: script
         script: bash bin/deploy.sh
+        on:
+          branch: develop
