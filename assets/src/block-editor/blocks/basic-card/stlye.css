@@ -1,0 +1,82 @@
+/* @todo: Will need refactoring. */
+.basic-card {
+	font-size: 16px;
+
+}
+
+.basic-post-card__primary {
+	padding: 1em;
+}
+
+.basic-card__title {
+	color: rgba(0, 0, 0) !important;
+	margin: 0 !important;
+	font-size: 1.25em !important;
+	font-weight: 500 !important;
+	letter-spacing: .0125em !important;
+	font-family: Roboto, sans-serif !important;
+}
+
+/* @todo: Will need refactoring. */
+.basic-card__subtitle {
+	padding: 1em 1em 0 0;
+	color: rgba(0, 0, 0, 0.54) !important;
+	margin: 0 !important;
+	font-size: .875em !important;
+	line-height: 1.375em !important; /* stylelint-disable-line */
+	font-weight: 500 !important;
+	letter-spacing: .0071428571em !important;
+	font-family: Roboto, sans-serif !important;
+}
+
+/* @todo: Will need refactoring. */
+.basic-card__secondary {
+	color: rgba(0, 0, 0, 0.54);
+	padding: 0 1em 8px 1em;
+	font-family: Roboto, sans-serif !important;
+
+	p {
+		font-family: Roboto, sans-serif !important;
+	}
+}
+
+.mdc-typography--body2 {
+	font-size: .875em !important;
+}
+
+.basic-card__media {
+	position: relative;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+	height: 100%;
+	padding: 1em;
+}
+
+
+.mdc-card__action-buttons,
+.mdc-card__action-icons {
+	flex-wrap: wrap;
+}
+
+.basic-card {
+
+	.mdc-button {
+		font-size: 16px;
+
+		span {
+			font-size: .875em !important;
+		}
+	}
+}
+
+.mdc-card__link {
+
+	&:hover {
+		text-decoration: none !important;
+	}
+	text-decoration: none !important;
+
+}
