@@ -126,3 +126,13 @@ jobs:
     - name: PHP unit tests (5.6, WordPress trunk)
       php: "5.6"
       env: WP_VERSION=trunk DEV_LIB_ONLY=phpunit
+
+    - stage: deploy to staging
+      script: skip
+      deploy:
+        skip_cleanup: true
+        # deploy develop to the pantheon staging environment
+        provider: script
+        script: bash bin/deploy.sh
+        on:
+          branch: develop
