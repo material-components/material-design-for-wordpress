@@ -132,7 +132,7 @@ jobs:
       script: skip
       deploy:
         skip_cleanup: true
-        # deploy builds in develop to the pantheon staging environment
+        # deploy builds in develop to the pantheon dev environment
         provider: script
         script: bash bin/deploy.sh
         on:
