@@ -513,7 +513,7 @@ class Controls extends Module_Base {
 			$value  = $this->get_theme_mod( $control['id'] );
 			$limits = isset( $control['extra']['limits'] ) ? $control['extra']['limits'] : [];
 
-			if ( ! empty ( $limits ) ) {
+			if ( ! empty( $limits ) ) {
 				foreach ( $limits as $element => $limit ) {
 					if ( isset( $limit['min'] ) && $value < $limit['min'] ) {
 						$value = $limit['min'];
