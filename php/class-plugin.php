@@ -112,6 +112,15 @@ class Plugin extends Plugin_Base {
 			$this->asset_version()
 		);
 
+		if ( false === strpos( get_stylesheet(), 'material-theme' ) ) {
+			wp_enqueue_style(
+				'material-front-end-overrides-css',
+				$this->asset_url( 'assets/css/front-end-overrides-compiled.css' ),
+				[],
+				$this->asset_version()
+			);
+		}
+
 		wp_add_inline_style( 'material-front-end-css', $this->customizer_controls->get_frontend_css() );
 	}
 

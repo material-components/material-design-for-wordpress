@@ -62,6 +62,7 @@ module.exports = {
 		} ),
 		require( 'postcss-color-function' ),
 		require( 'postcss-import' ),
+		require( 'postcss-mixins' ),
 		require( 'postcss-nested' ),
 		require( 'postcss-preset-env' )( {
 			stage: 0,
@@ -76,5 +77,6 @@ module.exports = {
 				grid: true,
 			},
 		} ),
+		require( 'postcss-calc' ),
 	],
 };

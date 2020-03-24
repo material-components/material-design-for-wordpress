@@ -1,0 +1,16 @@
+/*
+ * Frontend CSS to overide other theme styles
+ * which impact the material components.
+ */
+
+@import "./mixins.css";
+
+.mdc-button {
+
+	@mixin fontSizeInPx 0.875;
+
+	&:hover,
+	&:focus {
+		text-decoration: none !important;
+	}
+}

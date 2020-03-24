@@ -1,0 +1,3 @@
+@define-mixin fontSizeInPx $rem {
+	font-size: calc($rem * 16)px !important; /* stylelint-disable-line */
+}
