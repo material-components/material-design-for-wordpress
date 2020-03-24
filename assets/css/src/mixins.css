@@ -1,3 +1,9 @@
+/* stylelint-disable */
+
 @define-mixin fontSizeInPx $rem {
-	font-size: calc($rem * 16)px !important; /* stylelint-disable-line */
+	font-size: calc($rem * 16)px !important;
+}
+
+@define-mixin lineHeightInPx $rem {
+	line-height: calc($rem * 16)px !important;
 }

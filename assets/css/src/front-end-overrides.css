@@ -5,9 +5,20 @@
 
 @import "./mixins.css";
 
+/*
+ * Set the typography vars by calculating with base font-size of 16px (browser default)
+ * Material typography vars can be found at
+ * https://github.com/material-components/material-components-web/blob/master/packages/mdc-typography/_variables.scss#L60
+ */
+html {
+	--mdc-typography-button-font-size: calc(0.875 * 16)px;
+	--mdc-typography-button-line-height: calc(2.25 * 16)px;
+}
+
 .mdc-button {
 
-	@mixin fontSizeInPx 0.875;
+	font-size: var(--mdc-typography-button-font-size, 0.875rem) !important;
+	line-height: var(--mdc-typography-button-line-height, 2.25rem) !important;
 
 	&:hover,
 	&:focus {
