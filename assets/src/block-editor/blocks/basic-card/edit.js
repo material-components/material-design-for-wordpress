@@ -8,29 +8,20 @@ import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
  */
 import './stlye.css';
 import './editor.css';
-import CardActions from './components/card-actions';
 
 /**
  * Allowed blocks.
  *
  * @type {string[]}
  */
-const ALLOWED_BLOCKS = [
-	'material/card-image',
-	'material/card-title',
-	'material/card-secondary-text',
-];
+const ALLOWED_BLOCKS = [ 'material/card-primary', 'material/card-actions' ];
 
 /**
  * Inner block template.
  *
  * @type {string[][]}
  */
-const TEMPLATE = [
-	[ 'material/card-image' ],
-	[ 'material/card-title' ],
-	[ 'material/card-secondary-text' ],
-];
+const TEMPLATE = [ [ 'material/card-primary' ], [ 'material/card-actions' ] ];
 
 /**
  * Card Edit component.
@@ -40,22 +31,18 @@ const TEMPLATE = [
  * @return {Function} Function returning the HTML markup for the component.
  */
 const Edit = props => {
-	// const { style, columns } = props.attributes;
+	const { className } = props;
 
 	return (
 		<>
 			<InspectorControls { ...props } />
-			<div className="mdc-card basic-card">
-				<div
-					className="mdc-card__primary-action basic-card__primary-action mdc-ripple-upgraded"
-					tabIndex={ 0 }
-				>
-					<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } template={ TEMPLATE } />
-				</div>
-				<div className="mdc-card__actions">
-					<div className="mdc-card__action-buttons">
-						<CardActions />
-					</div>
+			<div className={ className }>
+				<div className="mdc-card basic-card">
+					<InnerBlocks
+						allowedBlocks={ ALLOWED_BLOCKS }
+						template={ TEMPLATE }
+						templateLock={ 'all' }
+					/>
 				</div>
 			</div>
 		</>

@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import edit from './edit';
+import save from './save';
 
 export const name = 'material/card-actions';
 
@@ -16,7 +17,7 @@ export const name = 'material/card-actions';
 export const settings = {
 	title: __( 'Card Actions', 'material-theme-builder' ),
 	description: __(
-		'Provide an area to add a actions to the Card Block.',
+		'Provide an area to add actions to the Card Block.',
 		'material-theme-builder'
 	),
 	category: 'material',
@@ -26,4 +27,5 @@ export const settings = {
 	},
 	attributes: {},
 	edit,
+	save,
 };

@@ -1,12 +1,12 @@
 /**
- * External dependencies
- */
-import classnames from 'classnames';
-
-/**
  * WordPress dependencies
  */
-import { InspectorControls, RichText } from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
+
+/**
+ * Internal dependencies
+ */
+import genericAttributesSetter from '../../../../utils/generic-attributes-setter';
 
 /**
  * Card Title Edit component.
@@ -15,37 +15,30 @@ import { InspectorControls, RichText } from '@wordpress/block-editor';
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const Edit = props => {
-	const { attributes, setAttributes, className } = props;
+const Edit = ( {
+	attributes: { title, subTitle },
+	setAttributes,
+	className,
+} ) => {
+	const setter = genericAttributesSetter( setAttributes );
 
 	return (
-		<>
-			<InspectorControls { ...props } />
+		<div className={ className }>
 			<div className="basic-post-card__primary">
 				<RichText
 					tagName="h2"
-					className={ classnames(
-						className,
-						'basic-card__title',
-						'mdc-typography',
-						'mdc-typography--headline6'
-					) }
-					value={ attributes.title }
-					onChange={ title => setAttributes( { title } ) }
+					className="basic-card__title mdc-typography mdc-typography--headline6"
+					value={ title }
+					onChange={ setter( 'title' ) }
 				/>
 				<RichText
 					tagName="h3"
-					className={ classnames(
-						className,
-						'basic-card__subtitle',
-						'mdc-typography',
-						'mdc-typography--subtitle2'
-					) }
-					value={ attributes.subTitle }
-					onChange={ subTitle => setAttributes( { subTitle } ) }
+					className="basic-card__subtitle mdc-typography mdc-typography--subtitle2"
+					value={ subTitle }
+					onChange={ setter( 'subTitle' ) }
 				/>
 			</div>
-		</>
+		</div>
 	);
 };
 

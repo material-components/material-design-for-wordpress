@@ -8,6 +8,7 @@ import BlockIcon from './components/block-icon';
  * Internal dependencies
  */
 import edit from './edit';
+import save from './save';
 
 export const name = 'material/card-collections';
 
@@ -56,4 +57,5 @@ export const settings = {
 		},
 	},
 	edit,
+	save,
 };

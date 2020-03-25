@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import edit from './edit';
+import save from './save';
 
 export const name = 'material/card-image';
 
@@ -16,7 +17,7 @@ export const name = 'material/card-image';
 export const settings = {
 	title: __( 'Card Image', 'material-theme-builder' ),
 	description: __(
-		'Provide an image in a Card Block.',
+		'Provide an image in a Card Primary Block.',
 		'material-theme-builder'
 	),
 	category: 'material',
@@ -35,4 +36,5 @@ export const settings = {
 		},
 	},
 	edit,
+	save,
 };
