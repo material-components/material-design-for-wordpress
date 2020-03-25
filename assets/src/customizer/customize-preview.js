@@ -166,7 +166,7 @@ import get from 'lodash/get';
 		} );
 	} );
 
-	parentApi( 'mtb_icon_collections', function( setting ) {
+	parentApi( 'mtb_icon_collection', function( setting ) {
 		$( 'head' ).append(
 			'<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">'
 		);

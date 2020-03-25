@@ -327,10 +327,10 @@ class Controls extends Module_Base {
 	 */
 	public function add_icon_collection_controls() {
 		$settings = [
-			'icon_collections'          => [
+			'icon_collection'          => [
 				'default' => 'filled',
 			],
-			'previous_icon_collections' => [
+			'previous_icon_collection' => [
 				'default' => 'filled',
 			], 
 		];
@@ -341,9 +341,9 @@ class Controls extends Module_Base {
 		* List of all the controls in the Theme section.
 			*/
 		$controls = [
-			'icon_collections' => new Icon_Radio_Control(
+			'icon_collection' => new Icon_Radio_Control(
 				$this->wp_customize,
-				$this->prepend_slug( 'icon_collections' ),
+				$this->prepend_slug( 'icon_collection' ),
 				[
 					'section'  => 'icons',
 					'priority' => 10,
@@ -458,7 +458,7 @@ class Controls extends Module_Base {
 				'designStyles'           => $this->get_design_styles(),
 				'controls'               => $this->added_controls,
 				'styleControl'           => $this->prepend_slug( 'style' ),
-				'iconCollectionsControl' => $this->prepend_slug( 'icon_collections' ),
+				'iconCollectionsControl' => $this->prepend_slug( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
 					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
@@ -488,7 +488,7 @@ class Controls extends Module_Base {
 	 * @return string
 	 */
 	public function get_google_fonts_url() {
-		$icons_style = $this->get_theme_mod( 'icon_collections' );
+		$icons_style = $this->get_theme_mod( 'icon_collection' );
 		$icons_style = $icons_style && 'filled' !== $icons_style 
 			? '+' . str_replace( '-', '+', ucwords( $icons_style, '-' ) ) : '';
 
@@ -508,8 +508,8 @@ class Controls extends Module_Base {
 	 *
 	 * @return string
 	 */
-	public function get_icon_collections_css() {
-		$icons_style = $this->get_theme_mod( 'icon_collections' );
+	public function get_icon_collection_css() {
+		$icons_style = $this->get_theme_mod( 'icon_collection' );
 		$icons_style = $icons_style && 'filled' !== $icons_style 
 			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
 
