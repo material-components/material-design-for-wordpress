@@ -1,5 +1,4 @@
 /* global jQuery, requestAnimationFrame, mtb */
-/* istanbul ignore file */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -10,10 +9,17 @@
  */
 
 /**
+ * External dependencies
+ */
+import 'select-woo';
+
+/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import { render } from '@wordpress/element';
+import RangeSliderControl from './components/range-slider-control';
+import { unmountComponentAtNode } from 'react-dom';
 
 /**
  * Internal dependencies
@@ -411,6 +417,33 @@ import colorUtils from '../common/color-utils';
 	} );
 
 	/**
+	 * Render the Range Slider Control.
+	 *
+	 * @param {Object} control Control
+	 */
+	const renderRangeSliderControl = control => {
+		const props = {
+			id: control.id,
+			label: control.params.label,
+			description: control.params.description,
+			min: control.params.min,
+			max: control.params.max,
+			value: Number( control.setting.get() ) || control.params.initialValue,
+		};
+
+		render(
+			<RangeSliderControl
+				{ ...props }
+				onChange={ newValue => {
+					control.setting.set( newValue );
+					control.setting._dirty = true;
+				} }
+			/>,
+			control.container.find( '.mtb-range_slider' ).get( 0 )
+		);
+	};
+
+	/**
 	 * Callback when a "Design Style" is changed.
 	 *
 	 * @param {string} newValue Updated value.
@@ -451,6 +484,14 @@ import colorUtils from '../common/color-utils';
 				// Set the value from style defaults.
 				control.setting.set( value );
 
+				// Force unmount and re render the Ranger Slider control.
+				if ( control.params.type === 'range_slider' ) {
+					unmountComponentAtNode(
+						control.container.find( '.mtb-range_slider' ).get( 0 )
+					);
+					renderRangeSliderControl( control );
+				}
+
 				// Rebind the custom value change event.
 				control.setting.bind( onCustomValueChange );
 			}
@@ -469,6 +510,20 @@ import colorUtils from '../common/color-utils';
 		}
 	};
 
+	api.RangeSliderControl = api.Control.extend( {
+		ready() {
+			const control = this;
+			renderRangeSliderControl( control );
+		},
+	} );
+
+	/**
+	 * Extends wp.customize.controlConstructor with ranger slider constructor.
+	 */
+	$.extend( api.controlConstructor, {
+		range_slider: api.RangeSliderControl,
+	} );
+
 	api.bind( 'ready', () => {
 		// Iterate through our controls and bind events for value change.
 		if ( mtb.controls && Array.isArray( mtb.controls ) ) {
@@ -483,5 +538,22 @@ import colorUtils from '../common/color-utils';
 				} );
 			} );
 		}
+
+		$( '.customize-control-google-fonts-wrap select' ).each( ( i, select ) => {
+			const $select = $( select );
+
+			// On value change, trigger a `change` event so select2 can update the selected dropdown option.
+			api( select.id ).bind( value => {
+				$select.val( value ).trigger( 'change' );
+			} );
+
+			$select
+				.selectWoo( {
+					data: mtb.googleFonts,
+					width: '100%',
+				} )
+				.val( $select.data( 'value' ) )
+				.trigger( 'change' );
+		} );
 	} );
 } )( jQuery, wp.customize );

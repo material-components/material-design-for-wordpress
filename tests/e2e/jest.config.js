@@ -11,6 +11,7 @@ module.exports = {
 		'<rootDir>/tests/e2e/config/bootstrap.js',
 		'@wordpress/jest-puppeteer-axe',
 		'expect-puppeteer',
+		'jest-puppeteer-istanbul/lib/setup',
 	],
 	testPathIgnorePatterns: [
 		'<rootDir>/.git',
@@ -22,4 +23,5 @@ module.exports = {
 		'<rootDir>/vendor',
 	],
 	collectCoverageFrom: [ '<rootDir>/assets/src/**/*.js' ],
+	reporters: [ 'default', 'jest-puppeteer-istanbul/lib/reporter' ],
 };
