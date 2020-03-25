@@ -25,7 +25,7 @@ const TabBarSave = ( { attributes: { tabs, iconPosition } } ) => (
 								frontend
 								{ ...props }
 								active={ index === 0 }
-								key={ props.position }
+								key={ index }
 								iconPosition={ iconPosition }
 							/>
 						) ) }
