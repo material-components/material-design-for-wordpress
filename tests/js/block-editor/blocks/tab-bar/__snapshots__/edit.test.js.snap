@@ -1,0 +1,406 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blocks: material/tab-bar: Edit matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="mdc-tab-bar"
+        role="tablist"
+      >
+        <div
+          class="mdc-tab-scroller"
+        >
+          <div
+            class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+          >
+            <div
+              class="mdc-tab-scroller__scroll-content"
+            >
+              <div
+                class="mdc-tab tab mdc-tab--active"
+                role="tab"
+                tabindex="0"
+              >
+                <span
+                  class="mdc-tab__content"
+                >
+                  <span
+                    class="mdc-tab__text-label tab__label-field"
+                  >
+                    <span
+                      contenteditable="true"
+                      role="textbox"
+                      tabindex="0"
+                    >
+                      Tab 1 Title
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="mdc-tab-indicator mdc-tab-indicator--active"
+                >
+                  <span
+                    class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                  />
+                </span>
+                <button
+                  class="material-icons tab__delete"
+                >
+                  cancel
+                </button>
+              </div>
+              <div
+                class="mdc-tab tab"
+                role="tab"
+                tabindex="0"
+              >
+                <span
+                  class="mdc-tab__content"
+                >
+                  <span
+                    class="mdc-tab__text-label tab__label-field"
+                  >
+                    <span
+                      contenteditable="true"
+                      role="textbox"
+                      tabindex="0"
+                    >
+                      Tab 2 Title
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="mdc-tab-indicator"
+                >
+                  <span
+                    class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                  />
+                </span>
+                <button
+                  class="material-icons tab__delete"
+                >
+                  cancel
+                </button>
+              </div>
+              <button
+                class="tab-add"
+              >
+                <i
+                  class="material-icons tab-add__icon"
+                >
+                  add
+                </i>
+                <span>
+                  New Tab
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div />
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                />
+              </svg>
+            </span>
+            Icon
+          </button>
+        </h2>
+        <ul
+          class="icon-position"
+        >
+          <li
+            class="icon-position__list-item"
+          >
+            <button
+              class="icon-position__list-item__button icon-position__list-item__button--active"
+              type="button"
+            >
+              None
+            </button>
+          </li>
+          <li
+            class="icon-position__list-item"
+          >
+            <button
+              class="icon-position__list-item__button"
+              type="button"
+            >
+              Leading
+            </button>
+          </li>
+          <li
+            class="icon-position__list-item"
+          >
+            <button
+              class="icon-position__list-item__button"
+              type="button"
+            >
+              Above
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-tab-bar"
+      role="tablist"
+    >
+      <div
+        class="mdc-tab-scroller"
+      >
+        <div
+          class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+        >
+          <div
+            class="mdc-tab-scroller__scroll-content"
+          >
+            <div
+              class="mdc-tab tab mdc-tab--active"
+              role="tab"
+              tabindex="0"
+            >
+              <span
+                class="mdc-tab__content"
+              >
+                <span
+                  class="mdc-tab__text-label tab__label-field"
+                >
+                  <span
+                    contenteditable="true"
+                    role="textbox"
+                    tabindex="0"
+                  >
+                    Tab 1 Title
+                  </span>
+                </span>
+              </span>
+              <span
+                class="mdc-tab-indicator mdc-tab-indicator--active"
+              >
+                <span
+                  class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                />
+              </span>
+              <button
+                class="material-icons tab__delete"
+              >
+                cancel
+              </button>
+            </div>
+            <div
+              class="mdc-tab tab"
+              role="tab"
+              tabindex="0"
+            >
+              <span
+                class="mdc-tab__content"
+              >
+                <span
+                  class="mdc-tab__text-label tab__label-field"
+                >
+                  <span
+                    contenteditable="true"
+                    role="textbox"
+                    tabindex="0"
+                  >
+                    Tab 2 Title
+                  </span>
+                </span>
+              </span>
+              <span
+                class="mdc-tab-indicator"
+              >
+                <span
+                  class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                />
+              </span>
+              <button
+                class="material-icons tab__delete"
+              >
+                cancel
+              </button>
+            </div>
+            <button
+              class="tab-add"
+            >
+              <i
+                class="material-icons tab-add__icon"
+              >
+                add
+              </i>
+              <span>
+                New Tab
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div />
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+              />
+            </svg>
+          </span>
+          Icon
+        </button>
+      </h2>
+      <ul
+        class="icon-position"
+      >
+        <li
+          class="icon-position__list-item"
+        >
+          <button
+            class="icon-position__list-item__button icon-position__list-item__button--active"
+            type="button"
+          >
+            None
+          </button>
+        </li>
+        <li
+          class="icon-position__list-item"
+        >
+          <button
+            class="icon-position__list-item__button"
+            type="button"
+          >
+            Leading
+          </button>
+        </li>
+        <li
+          class="icon-position__list-item"
+        >
+          <button
+            class="icon-position__list-item__button"
+            type="button"
+          >
+            Above
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
