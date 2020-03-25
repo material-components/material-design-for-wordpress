@@ -16,6 +16,11 @@
 	}
 }
 
+/* @todo: Will need refactoring. This helps getting the correct padding for single-post-card__primary which is defined in em unit*/
+.single-post-card {
+	font-size: 16px;
+}
+
 /* @todo adjust width based on breakpoints */
 .layout-masonry-2 {
 
