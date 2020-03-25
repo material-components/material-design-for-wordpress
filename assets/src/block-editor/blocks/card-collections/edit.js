@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import classNames from 'classNames';
+import classnames from 'classnames';
 
 /**
  * WordPress dependencies
@@ -56,7 +56,7 @@ const Edit = props => {
 				{ style === 'masonry' && (
 					<div className={ `masonry-grid layout-${ style }` }>
 						<div
-							className={ classNames(
+							className={ classnames(
 								'masonry-grid_column',
 								`layout-masonry-${ columns }`
 							) }
