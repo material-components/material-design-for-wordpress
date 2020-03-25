@@ -8,6 +8,6 @@
     "no-duplicate-selectors": null,
     "number-leading-zero": null,
     "selector-type-no-unknown": [ true, { "ignore": ["custom-elements"] } ],
-    "at-rule-no-unknown": null
+    "at-rule-no-unknown": [ true, { "ignoreAtRules": ["mixin"] } ]
   }
 }
