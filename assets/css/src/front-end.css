@@ -3,6 +3,7 @@
  */
 @import "./material-components.css";
 @import "../../src/block-editor/blocks/common-posts-list/style.css";
+@import "../../src/block-editor/blocks/basic-card/stlye.css";
 
 .mdc-button--outlined:not(:disabled) {
 	border-color: inherit !important;

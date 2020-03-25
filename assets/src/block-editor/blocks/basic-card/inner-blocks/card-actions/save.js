@@ -8,14 +8,12 @@ import { InnerBlocks } from '@wordpress/block-editor';
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const Save = ( { className } ) => {
-	return (
-		<div className={ className }>
-			<div className="mdc-card basic-card">
-				<InnerBlocks.Content />
-			</div>
+const Save = () => (
+	<div className="mdc-card__actions">
+		<div className="mdc-card__action-buttons">
+			<InnerBlocks.Content />
 		</div>
-	);
-};
+	</div>
+);
 
 export default Save;

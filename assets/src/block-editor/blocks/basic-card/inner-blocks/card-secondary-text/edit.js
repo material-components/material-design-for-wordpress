@@ -1,12 +1,12 @@
 /**
- * External dependencies
- */
-import classnames from 'classnames';
-
-/**
  * WordPress dependencies
  */
-import { InspectorControls, RichText } from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
+
+/**
+ * Internal dependencies
+ */
+import genericAttributesSetter from '../../../../utils/generic-attributes-setter';
 
 /**
  * Card Secondary Image Edit component.
@@ -15,24 +15,18 @@ import { InspectorControls, RichText } from '@wordpress/block-editor';
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const Edit = props => {
-	const { attributes, setAttributes, classname } = props;
+const Edit = ( { attributes: { content }, setAttributes, className } ) => {
+	const setter = genericAttributesSetter( setAttributes );
 
 	return (
-		<>
-			<InspectorControls { ...props } />
+		<div className={ className }>
 			<RichText
 				tagName="div"
-				className={ classnames(
-					classname,
-					'basic-card__secondary',
-					'mdc-typography',
-					'mdc-typography--body2'
-				) }
-				value={ attributes.content }
-				onChange={ content => setAttributes( { content } ) }
+				className="basic-card__secondary mdc-typography mdc-typography--body2"
+				value={ content }
+				onChange={ setter( 'content' ) }
 			/>
-		</>
+		</div>
 	);
 };
 

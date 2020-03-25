@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import edit from './edit';
+import save from './save';
 
 export const name = 'material/card-title';
 
@@ -16,11 +17,11 @@ export const name = 'material/card-title';
 export const settings = {
 	title: __( 'Card Title', 'material-theme-builder' ),
 	description: __(
-		'Provide an area to add a title in a Card Block.',
+		'Provide an area to add a title in a Card Primary Block.',
 		'material-theme-builder'
 	),
 	category: 'material',
-	parent: [ 'material/card' ],
+	parent: [ 'material/card-primary' ],
 	supports: {
 		multiple: false,
 	},
@@ -35,4 +36,5 @@ export const settings = {
 		},
 	},
 	edit,
+	save,
 };

@@ -4,6 +4,11 @@
 import { InnerBlocks } from '@wordpress/block-editor';
 
 /**
+ * Internal dependencies.
+ */
+import './editor.css';
+
+/**
  * Allowed blocks.
  *
  * @type {string[]}
@@ -24,16 +29,18 @@ const TEMPLATE = [ [ 'material/button' ] ];
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const Edit = props => {
-	// const { attributes, setAttributes } = props;
-
-	return (
+const Edit = ( { className } ) => (
+	<div className={ className }>
 		<div className="mdc-card__actions">
 			<div className="mdc-card__action-buttons">
-				<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } template={ TEMPLATE } />
+				<InnerBlocks
+					allowedBlocks={ ALLOWED_BLOCKS }
+					template={ TEMPLATE }
+					templateLock={ false }
+				/>
 			</div>
 		</div>
-	);
-};
+	</div>
+);
 
 export default Edit;
