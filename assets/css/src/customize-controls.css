@@ -4,6 +4,8 @@
 
 @import "select-woo/dist/css/selectWoo.css";
 @import "../../src/block-editor/components/material-color-palette/style.css";
+@import "@wordpress/components/build-style/style.css";
+@import "@material/icon-button/dist/mdc.icon-button.css";
 
 /* Collapsible section */
 .control-section-collapse-parent {
