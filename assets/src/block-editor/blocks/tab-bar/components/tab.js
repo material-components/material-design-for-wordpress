@@ -37,7 +37,7 @@ const Tab = ( {
 					onBlur={
 						! frontend ? e => onInput( e.currentTarget.textContent ) : undefined
 					}
-					onKeyPress={ event => {
+					onKeyDown={ event => {
 						onChange(); // Set this tab as active.
 						if ( event.key === 'Enter' ) {
 							event.currentTarget.blur();
