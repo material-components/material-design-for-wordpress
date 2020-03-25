@@ -58,3 +58,31 @@ html {
 .mdc-button--outlined:not(:disabled) {
 	border-color: inherit !important;
 }
+
+/**
+ * TODO: These will need to be revisited.
+ */
+.mdc-button {
+	border-radius: var(--mdc-small-component-radius-button, 4px) !important;
+}
+
+.mdc-button .mdc-button__ripple {
+	border-radius: var(--mdc-small-component-radius-button, 4px) !important;
+}
+
+.mdc-card {
+	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-bottom-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-bottom-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+}
+
+mdc-card__primary-action {
+	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+}
+
+.mdc-card__primary-action:first-child {
+	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+}
