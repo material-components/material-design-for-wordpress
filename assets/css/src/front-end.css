@@ -12,7 +12,11 @@
 	}
 }
 
-.mdc-list-item a {
-	text-decoration: none !important;
-	outline: none !important;
+.list-item__link {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	outline: none;
 }
+

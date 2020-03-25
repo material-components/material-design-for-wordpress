@@ -81,13 +81,13 @@ const ListItemEdit = ( {
 	 */
 	const onToggleOpenInNewTab = useCallback(
 		value => {
-			const newLinkTarget = value ? '_blank' : undefined;
+			const newLinkTarget = value ? '_blank' : '';
 
 			let updatedRel = rel;
 			if ( newLinkTarget && ! rel ) {
 				updatedRel = 'noreferrer noopener';
 			} else if ( ! newLinkTarget && rel === 'noreferrer noopener' ) {
-				updatedRel = undefined;
+				updatedRel = '';
 			}
 
 			setAttributes( {

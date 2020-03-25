@@ -9,15 +9,36 @@ import ListItemText from '../../components/list-item-text';
 import classNames from 'classnames';
 
 const ListItemSave = ( {
-	attributes: { leadingIcon, trailingIcon, ...textProps },
+	attributes: {
+		url,
+		rel,
+		editable,
+		linkTarget,
+		leadingIcon,
+		trailingIcon,
+		...textProps
+	},
 	className,
 } ) => (
-	<li className={ classNames( 'mdc-list-item', className ) } tabIndex={ 0 }>
+	<li
+		className={ classNames( 'mdc-list-item', 'list-item', className ) }
+		tabIndex={ 0 }
+	>
 		{ leadingIcon && (
 			<i className="mdc-list-item__graphic material-icons">
 				{ String.fromCharCode( leadingIcon?.hex ) }
 			</i>
 		) }
+
+		<a
+			rel={ rel }
+			href={ url ?? '#' }
+			editable={ editable }
+			className="list-item__link"
+			target={ linkTarget ?? undefined }
+		>
+			&nbsp;
+		</a>
 
 		<ListItemText { ...textProps } />
 
