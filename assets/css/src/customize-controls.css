@@ -1,7 +1,11 @@
 /*
  * Put Customize Controls CSS here.
  */
+
+@import "select-woo/dist/css/selectWoo.css";
 @import "../../src/block-editor/components/material-color-palette/style.css";
+@import "@wordpress/components/build-style/style.css";
+@import "@material/icon-button/dist/mdc.icon-button.css";
 
 /* Collapsible section */
 .control-section-collapse-parent {
@@ -52,6 +56,18 @@
 		margin-top: 4px;
 		width: 100%;
 	}
+}
+
+.customize-control-google-fonts-wrap {
+	position: relative;
+
+	& select {
+		width: 100% !important;
+	}
+}
+
+.select2-dropdown {
+	z-index: 1000000;
 }
 
 /* Material color palette control */

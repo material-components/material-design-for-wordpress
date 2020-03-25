@@ -66,7 +66,6 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::register()
 	 */
 	public function test_register() {
-
 		// Set up the expectation for the register_control_type() method
 		// to be called only once and with the class `Material_Color_Palette_Control`.
 		$this->wp_customize->expects( $this->once() )
@@ -75,7 +74,7 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		$controls = $this->getMockBuilder( Controls::class )
 			->disableOriginalConstructor()
-			->setMethods( [ 'add_panel', 'add_sections', 'add_theme_controls' ] )
+			->setMethods( [ 'add_panel', 'add_sections', 'add_theme_controls', 'add_corner_styles_controls' ] )
 			->getMock( null );
 
 		$controls->plugin = get_plugin_instance();
@@ -94,6 +93,11 @@ class Test_Controls extends \WP_UnitTestCase {
 		// to be called only once.
 		$controls->expects( $this->once() )
 			->method( 'add_theme_controls' );
+
+		// Set up the expectation for the add_corner_styles_controls() method
+		// to be called only once.
+		$controls->expects( $this->once() )
+			->method( 'add_corner_styles_controls' );
 
 		$controls->register( $this->wp_customize );
 	}
@@ -133,7 +137,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		$icons_section = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_icons" );
 		add_filter(
 			'mtb_customizer_section_args',
-			function( $args, $id ) use ( $controls, $icons_section ) {
+			function ( $args, $id ) use ( $controls, $icons_section ) {
 				if ( "{$controls->slug}_icons" === $id ) {
 					return $icons_section;
 				}
@@ -152,7 +156,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				[ $this->equalTo( "{$controls->slug}_style" ) ],
 				[ $this->equalTo( "{$controls->slug}_colors" ) ],
 				[ $this->equalTo( "{$controls->slug}_typography" ) ],
-				[ $this->equalTo( "{$controls->slug}_corners" ) ],
+				[ $this->equalTo( "{$controls->slug}_corner_styles" ) ],
 				[ $this->equalTo( $icons_section ) ]
 			);
 
@@ -186,7 +190,7 @@ class Test_Controls extends \WP_UnitTestCase {
 			->withConsecutive(
 				[
 					$this->callback(
-						function( $control ) use ( $controls ) {
+						function ( $control ) use ( $controls ) {
 							return "{$controls->slug}_style" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'shrine', 'custom' ] === array_keys( $control->choices );
 						}
 					),
@@ -194,6 +198,88 @@ class Test_Controls extends \WP_UnitTestCase {
 			);
 
 		$controls->add_theme_controls();
+	}
+
+	/**
+	 * Test for add_typography_controls() method.
+	 *
+	 * @see Controls::add_typography_controls()
+	 */
+	public function test_add_typography_controls() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Set $wp_customize to the mocked object.
+		$controls->wp_customize = $this->wp_customize;
+
+		// Set up the expectation for the add_setting() method
+		// to be called.
+		$this->wp_customize->expects( $this->exactly( 2 ) )
+			->method( 'add_setting' )
+			->withConsecutive(
+				[ $this->equalTo( "{$controls->slug}_head_font_family" ) ],
+				[ $this->equalTo( "{$controls->slug}_body_font_family" ) ]
+			);
+
+		// Set up the expectation for the add_control() method
+		// to be called.
+		$this->wp_customize->expects( $this->exactly( 2 ) )
+			->method( 'add_control' )
+			->withConsecutive(
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				]
+			);
+
+		$controls->add_typography_controls();
+	}
+
+	/**
+	 * Test for add_corner_styles_controls() method.
+	 *
+	 * @see Controls::add_corner_styles_controls()
+	 */
+	public function test_add_corner_styles_controls() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Set $wp_customize to the mocked object.
+		$controls->wp_customize = $this->wp_customize;
+
+		$base_setting = [
+			'capability'        => 'edit_theme_options',
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage',
+		];
+
+		// Set up the expectation for the add_setting() method
+		// to be called.
+		$this->wp_customize->expects( $this->exactly( 3 ) )
+			->method( 'add_setting' )
+			->withConsecutive(
+				[ $this->equalTo( "{$controls->slug}_small_component_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}_medium_component_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}_large_component_radius" ), array_merge( $base_setting, [ 'default' => 0 ] ) ]
+			);
+
+		// Set up the expectation for the add_control() method
+		// to be called.
+		$this->wp_customize->expects( $this->exactly( 3 ) )
+			->method( 'add_control' )
+			->withConsecutive(
+				[
+					$this->isInstanceOf( Range_Slider_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Range_Slider_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Range_Slider_Control::class ),
+				]
+			);
+
+		$controls->add_corner_styles_controls();
 	}
 
 	/**
@@ -216,7 +302,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				],
 				[
 					$this->callback(
-						function( $setting ) use ( $controls ) {
+						function ( $setting ) use ( $controls ) {
 							return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_style" === $setting->id;
 						}
 					),
@@ -253,7 +339,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				],
 				[
 					$this->callback(
-						function( $setting ) use ( $controls ) {
+						function ( $setting ) use ( $controls ) {
 							return $setting instanceof \WP_Customize_Control && "{$controls->slug}_style" === $setting->id;
 						}
 					),
@@ -280,6 +366,36 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
+	}
+
+	/**
+	 * Test for get_google_fonts_url() method.
+	 *
+	 * @see Controls::get_google_fonts_url()
+	 */
+	public function test_get_google_fonts_url() {
+		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+
+		// Assert we get default material icons and Roboto font.
+		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Roboto' );
+
+		// Add filters to return `Raleway` for headings and `Open Sans` for body.
+		add_filter(
+			"theme_mod_{$controls->slug}_head_font_family",
+			function () {
+				return 'Raleway';
+			}
+		);
+		add_filter(
+			"theme_mod_{$controls->slug}_body_font_family",
+			function () {
+				return 'Open Sans';
+			}
+		);
+
+		// Assert we get updated fonts.
+		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway|Open+Sans' );
 	}
 
 	/**
@@ -322,6 +438,9 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->assertContains( '--mdc-theme-secondary: #03dac6;', $css );
 		$this->assertContains( '--mdc-theme-on-primary: #ffffff;', $css );
 		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
+		$this->assertContains( '--mdc-small-component-radius-button: 4px;', $css );
+		$this->assertContains( '--mdc-medium-component-radius-card: 4px;', $css );
+		$this->assertContains( '--mdc-large-component-radius: 0px;', $css );
 	}
 
 	/**
@@ -334,7 +453,72 @@ class Test_Controls extends \WP_UnitTestCase {
 		$baseline = $controls->get_design_styles()['baseline'];
 
 		$this->assertEquals( $controls->get_default( 'primary_color' ), $baseline['primary_color'] );
-		$this->assertEquals( $controls->get_default( 'font_headlines' ), $baseline['font_headlines'] );
+		$this->assertEquals( $controls->get_default( 'head_font_family' ), $baseline['head_font_family'] );
+		$this->assertEquals( $controls->get_default( 'small_component_radius' ), $baseline['small_component_radius'] );
+		$this->assertEquals( $controls->get_default( 'medium_component_radius' ), $baseline['medium_component_radius'] );
+		$this->assertEquals( $controls->get_default( 'large_component_radius' ), $baseline['large_component_radius'] );
+	}
+
+	/**
+	 * Test for get_corner_styles_controls() method.
+	 *
+	 * @see Controls::get_corner_styles_controls()
+	 */
+	public function test_get_corner_styles_controls() {
+		$controls = get_plugin_instance()->customizer_controls;
+		$control  = $controls->get_corner_styles_controls();
+
+		$this->assertEquals(
+			[
+				[
+					'id'            => 'small_component_radius',
+					'label'         => 'Small Components Radius',
+					'description'   => '',
+					'min'           => 0,
+					'max'           => 28,
+					'initial_value' => 4,
+					'css_var'       => '--mdc-small-component-radius',
+					'extra'         => [
+						'limits' => [
+							'button' => [
+								'min' => 0,
+								'max' => 20,
+							],
+						],
+					],
+				],
+				[
+					'id'            => 'medium_component_radius',
+					'label'         => 'Medium Components Radius',
+					'description'   => '',
+					'min'           => 0,
+					'max'           => 36,
+					'initial_value' => 4,
+					'css_var'       => '--mdc-medium-component-radius',
+					'extra'         => [
+						'limits' => [
+							'card' => [
+								'min' => 0,
+								'max' => 24,
+							],
+						],
+					],
+				],
+				[
+					'id'            => 'large_component_radius',
+					'label'         => 'Large Components Radius',
+					'description'   => '',
+					'min'           => 0,
+					'max'           => 36,
+					'initial_value' => 0,
+					'css_var'       => '--mdc-large-component-radius',
+					'extra'         => [
+						'limits' => [],
+					],
+				],
+			],
+			$control
+		);
 	}
 
 	/**
