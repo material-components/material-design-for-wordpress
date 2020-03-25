@@ -14,7 +14,7 @@ describe( 'blocks: material/tab-bar', () => {
 	} );
 
 	describe( 'settings', () => {
-		it( 'title should equal Image List', () => {
+		it( 'title should equal Tab Bar', () => {
 			expect( settings.title ).toStrictEqual( 'Tab Bar' );
 		} );
 
