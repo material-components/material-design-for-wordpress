@@ -1,14 +1,14 @@
 /* @todo: Will need refactoring. */
-.basic-card {
+.mtb-card {
 	font-size: 16px;
 
 }
 
-.basic-post-card__primary {
+.mtb-card__primary {
 	padding: 1em;
 }
 
-.basic-card__title {
+.mtb-card__title {
 	color: rgba(0, 0, 0) !important;
 	margin: 0 !important;
 	font-size: 1.25em !important;
@@ -18,7 +18,7 @@
 }
 
 /* @todo: Will need refactoring. */
-.basic-card__subtitle {
+.mtb-card__subtitle {
 	padding: 1em 1em 0 0;
 	color: rgba(0, 0, 0, 0.54) !important;
 	margin: 0 !important;
@@ -30,7 +30,7 @@
 }
 
 /* @todo: Will need refactoring. */
-.basic-card__secondary {
+.mtb-card__secondary {
 	color: rgba(0, 0, 0, 0.54);
 	padding: 0 1em 8px 1em;
 	font-family: Roboto, sans-serif !important;
@@ -44,7 +44,7 @@
 	font-size: .875em !important;
 }
 
-.basic-card__media {
+.mtb-card__media {
 	position: relative;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -55,13 +55,35 @@
 	padding: 1em;
 }
 
+/* @todo: Will need refactoring. */
+.mtb-card__secondary-text-over-media,
+.mtb-card__secondary-text-above-media {
+	padding-top: 1em !important;
+}
+
+.mtb-card__media.mdc-card__media--square {
+	width: 110px;
+	height: 110px;
+}
+
+.mtb-card-with-text-over-media .mdc-card__media-content {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: end;
+	align-items: flex-end;
+}
+
+.mtb-card-with-text-over-media .mdc-card__media-content .mtb-card__title,
+.mtb-card-with-text-over-media .mdc-card__media-content .mtb-card__subtitle {
+	color: #fff !important;
+}
 
 .mdc-card__action-buttons,
 .mdc-card__action-icons {
 	flex-wrap: wrap;
 }
 
-.basic-card {
+.mtb-card {
 
 	.mdc-button {
 		font-size: 16px;

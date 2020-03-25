@@ -1,7 +1,6 @@
 /**
  * WordPress dependencies
  */
-import { InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Card Save component.
@@ -12,7 +11,7 @@ const Save = ( { className } ) => {
 	return (
 		<div className={ className }>
 			<div className="mdc-card basic-card">
-				<InnerBlocks.Content />
+				'Hello'
 			</div>
 		</div>
 	);
