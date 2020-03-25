@@ -1,5 +1,5 @@
 /*
- * Frontend CSS to overide other theme styles
+ * Frontend CSS to override other theme styles
  * which impact the material components.
  */
 
@@ -7,7 +7,7 @@
 
 /*
  * Set the typography vars by calculating with base font-size of 16px (browser default)
- * to override any theme font rem declartion on html element.
+ * to override any theme font rem declaration on html element.
  * Material typography vars can be found at
  * https://github.com/material-components/material-components-web/blob/master/packages/mdc-typography/_variables.scss#L60
  */
