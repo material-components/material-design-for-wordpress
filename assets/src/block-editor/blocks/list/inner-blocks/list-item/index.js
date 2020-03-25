@@ -36,9 +36,11 @@ export const settings = {
 		},
 		url: {
 			type: 'string',
+			default: '',
 		},
 		rel: {
 			type: 'string',
+			default: '',
 		},
 		linkTarget: {
 			type: 'string',

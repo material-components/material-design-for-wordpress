@@ -1,7 +1,4 @@
 const ListItemText = ( {
-	url,
-	rel,
-	linkTarget,
 	primaryText,
 	secondaryText,
 	editable = false,
@@ -10,7 +7,7 @@ const ListItemText = ( {
 	onEnterSecondary,
 	onBlurSecondary,
 } ) => {
-	const Linkable = ( { children, className } ) =>
+	const Label = ( { children, className } ) =>
 		editable ? (
 			<span
 				className={ className }
@@ -24,29 +21,22 @@ const ListItemText = ( {
 				{ children }
 			</span>
 		) : (
-			<a
-				href={ url ?? '#' }
-				rel={ rel }
-				target={ linkTarget ?? undefined }
-				className={ className }
-			>
-				{ children }
-			</a>
+			<span className={ className }>{ children }</span>
 		);
 
 	if ( ! secondaryText ) {
 		return (
-			<Linkable className="mdc-list-item__text list-item__text">
+			<Label className="mdc-list-item__text list-item__text">
 				{ primaryText }
-			</Linkable>
+			</Label>
 		);
 	}
 
 	return (
 		<span className="mdc-list-item__text">
-			<Linkable className="mdc-list-item__primary-text list-item__text">
+			<Label className="mdc-list-item__primary-text list-item__text">
 				{ primaryText }
-			</Linkable>
+			</Label>
 			<span
 				className="mdc-list-item__secondary-text list-item__text"
 				role={ editable ? 'textbox' : undefined }
