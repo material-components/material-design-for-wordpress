@@ -1,4 +1,5 @@
 /* global addEventListener */
+/* istanbul ignore file */
 
 /**
  * External dependencies

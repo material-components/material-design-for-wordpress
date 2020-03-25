@@ -2,7 +2,7 @@
  * External dependencies
  */
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 /**
  * Internal dependencies
@@ -73,5 +73,15 @@ describe( 'blocks: material/tab-bar: Edit', () => {
 	it( 'matches snapshot', () => {
 		const wrapper = setup( tabProps );
 		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'selects a tab if the title is clicked', () => {
+		const props = { ...tabProps };
+		const { container, getByText } = setup( props );
+
+		fireEvent.click( getByText( 'Tab 2 Title' ) );
+		const tabItems = container.querySelectorAll( '.mdc-tab' );
+
+		expect( tabItems[ 1 ].className ).toContain( 'mdc-tab--active' );
 	} );
 } );
