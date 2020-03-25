@@ -12,6 +12,7 @@
 
 /* @todo move to own file */
 .mdc-image-list__item-wrap {
+	display: block;
 	text-decoration: none !important;
 }
 

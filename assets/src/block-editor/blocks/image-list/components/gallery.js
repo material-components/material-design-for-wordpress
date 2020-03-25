@@ -55,6 +55,7 @@ const Gallery = ( {
 	const desktopGutter = gutter.desktop || 0;
 	let wrapStyles = {},
 		itemStyles = {},
+		anchorStyles = {},
 		captionStyles = {};
 
 	// Generate styles only if we are not in the save context.
@@ -65,7 +66,7 @@ const Gallery = ( {
 				columnGap: `${ desktopGutter }px`,
 			};
 
-			itemStyles = {
+			anchorStyles = {
 				marginBottom: `${ desktopGutter / 2 }px`,
 			};
 		} else {
@@ -125,17 +126,18 @@ const Gallery = ( {
 				return (
 					<li
 						key={ image.id }
-						className={ classNames( 'mdc-image-list__item', {
-							'is-selected': ! isSaveContext && selectedImage === image.id,
-						} ) }
+						className="mdc-image-list__item"
 						style={ itemStyles }
 						role="presentation"
 						onClick={ () => onSelect( image.id ) }
 						onKeyDown={ event => onKeyDown( event, image.id ) }
 					>
 						<a
-							className="mdc-image-list__item-wrap"
+							className={ classNames( 'mdc-image-list__item-wrap', {
+								'is-selected': ! isSaveContext && selectedImage === image.id,
+							} ) }
 							href={ isSaveContext ? href : '#' }
+							style={ anchorStyles }
 						>
 							{ 'masonry' !== style ? (
 								<div className="mdc-image-list__image-aspect-container">
