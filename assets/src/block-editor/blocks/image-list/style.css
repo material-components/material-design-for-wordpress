@@ -3,7 +3,7 @@
 	--var-text-color: #fff;
 }
 
-.mdc-image-list__item {
+.mdc-image-list__item-wrap {
 	position: relative;
 	border: 3px solid transparent;
 

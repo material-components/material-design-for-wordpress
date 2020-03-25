@@ -28,11 +28,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 1 caption"
@@ -82,11 +82,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 2 caption"
@@ -692,11 +692,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 1 caption"
@@ -746,11 +746,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 2 caption"

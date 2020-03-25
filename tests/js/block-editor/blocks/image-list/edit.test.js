@@ -109,7 +109,9 @@ describe( 'blocks: material/image-list: Edit', () => {
 		const { container, getByAltText } = setup( props );
 
 		fireEvent.click( getByAltText( 'Example Image 2 caption' ) );
-		const imageItems = container.querySelectorAll( '.mdc-image-list__item' );
+		const imageItems = container.querySelectorAll(
+			'.mdc-image-list__item-wrap'
+		);
 
 		expect( imageItems[ 1 ].className ).toContain( 'is-selected' );
 	} );

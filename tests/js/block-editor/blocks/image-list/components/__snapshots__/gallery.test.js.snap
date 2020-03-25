@@ -28,11 +28,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 1"
@@ -80,13 +80,13 @@ Object {
           </a>
         </li>
         <li
-          class="mdc-image-list__item is-selected"
+          class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
-            class="mdc-image-list__item-wrap"
+            class="mdc-image-list__item-wrap is-selected"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 2"
@@ -144,11 +144,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 1"
@@ -196,13 +196,13 @@ Object {
         </a>
       </li>
       <li
-        class="mdc-image-list__item is-selected"
+        class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
-          class="mdc-image-list__item-wrap"
+          class="mdc-image-list__item-wrap is-selected"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 2"
@@ -333,11 +333,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 1"
@@ -397,11 +397,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 2"
@@ -469,11 +469,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 1"
@@ -533,11 +533,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 2"
@@ -678,11 +678,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 1"
@@ -732,11 +732,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 2"
@@ -794,11 +794,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 1"
@@ -848,11 +848,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 2"
@@ -983,11 +983,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 1"
@@ -1037,11 +1037,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 2"
@@ -1099,11 +1099,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 1"
@@ -1153,11 +1153,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 2"
@@ -1530,11 +1530,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 1"
@@ -1617,11 +1617,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 2"
@@ -1712,11 +1712,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 1"
@@ -1799,11 +1799,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 2"
@@ -1967,11 +1967,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 1"
@@ -2021,11 +2021,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 12px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 12px;"
           >
             <img
               alt="Example Image 2"
@@ -2083,11 +2083,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 1"
@@ -2137,11 +2137,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 12px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 12px;"
         >
           <img
             alt="Example Image 2"
@@ -2272,11 +2272,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 9px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 9px;"
           >
             <img
               alt="Example Image 1"
@@ -2326,11 +2326,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 9px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 9px;"
           >
             <img
               alt="Example Image 2"
@@ -2388,11 +2388,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 9px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 9px;"
         >
           <img
             alt="Example Image 1"
@@ -2442,11 +2442,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 9px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 9px;"
         >
           <img
             alt="Example Image 2"
@@ -2577,11 +2577,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 0px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 0px;"
           >
             <img
               alt="Example Image 1"
@@ -2631,11 +2631,11 @@ Object {
         <li
           class="mdc-image-list__item"
           role="presentation"
-          style="margin-bottom: 0px;"
         >
           <a
             class="mdc-image-list__item-wrap"
             href="#"
+            style="margin-bottom: 0px;"
           >
             <img
               alt="Example Image 2"
@@ -2693,11 +2693,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 0px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 0px;"
         >
           <img
             alt="Example Image 1"
@@ -2747,11 +2747,11 @@ Object {
       <li
         class="mdc-image-list__item"
         role="presentation"
-        style="margin-bottom: 0px;"
       >
         <a
           class="mdc-image-list__item-wrap"
           href="#"
+          style="margin-bottom: 0px;"
         >
           <img
             alt="Example Image 2"
