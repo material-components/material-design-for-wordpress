@@ -172,14 +172,24 @@ import get from 'lodash/get';
 		);
 
 		const handleIconSwitch = function( iconStyle ) {
-			const mdiClass =
-				'material-icons' + ( iconStyle === 'filled' ? '' : `-${ iconStyle }` );
+			const cssVars = $( '#material-css-variables' );
+			const newFontFamily =
+				iconStyle === 'filled'
+					? '"Material Icons";'
+					: `"Material Icons ${ iconStyle
+							.replace( '-', ' ' )
+							.replace( /(^\w{1})|(\s{1}\w{1})/g, match =>
+								match.toUpperCase()
+							) }";`;
 
-			$( '[class*="material-icons"]' )
-				.removeClass( ( _, classes ) =>
-					( classes.match( /material-icons(-[a-z-]+)?/g ) || [] ).join( ' ' )
-				)
-				.addClass( mdiClass );
+			cssVars.html(
+				cssVars
+					.html()
+					.replace(
+						/--material-icons-font-family: "([A-Za-z ]+)";/g,
+						`--material-icons-font-family: ${ newFontFamily }`
+					)
+			);
 		};
 
 		const iconsInit = setInterval( function() {

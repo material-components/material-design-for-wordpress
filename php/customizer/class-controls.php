@@ -591,6 +591,19 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Get CSS variable which should set the font-family for material-icons.
+	 *
+	 * @return string
+	 */
+	public function get_icon_collections_css() {
+		$icons_style = $this->get_theme_mod( 'icon_collections' );
+		$icons_style = $icons_style && 'filled' !== $icons_style 
+			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
+
+		return "\t--material-icons-font-family: \"Material Icons{$icons_style}\";";
+	}
+
+	/**
 	 * Get default value for a setting.
 	 *
 	 * @param string $setting Name of the setting.
