@@ -45,9 +45,10 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 			<div className="mtb-block-handpicked-posts__selection">
 				<PostsControl
 					selected={ attributes.posts }
-					onChange={ setter( 'posts', ( value = [] ) =>
-						value.map( ( { id } ) => id )
-					) }
+					onChange={ setter( 'posts', ( value = [] ) => {
+						/* istanbul ignore next */
+						return value.map( ( { id } ) => id );
+					} ) }
 				/>
 				<Button isPrimary onClick={ onDone }>
 					{ __( 'Done', 'material-theme-builder' ) }
