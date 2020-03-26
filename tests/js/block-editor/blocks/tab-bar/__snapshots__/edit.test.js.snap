@@ -149,40 +149,44 @@ Object {
             Icon
           </button>
         </h2>
-        <ul
-          class="icon-position"
+        <div
+          class="btn-group"
         >
-          <li
-            class="icon-position__list-item"
+          <ul
+            class="btn-group__list"
           >
-            <button
-              class="icon-position__list-item__button icon-position__list-item__button--active"
-              type="button"
+            <li
+              class="btn-group__list__list-item"
             >
-              None
-            </button>
-          </li>
-          <li
-            class="icon-position__list-item"
-          >
-            <button
-              class="icon-position__list-item__button"
-              type="button"
+              <button
+                class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+                type="button"
+              >
+                None
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
             >
-              Leading
-            </button>
-          </li>
-          <li
-            class="icon-position__list-item"
-          >
-            <button
-              class="icon-position__list-item__button"
-              type="button"
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Leading
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
             >
-              Above
-            </button>
-          </li>
-        </ul>
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Above
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </body>,
@@ -315,40 +319,44 @@ Object {
           Icon
         </button>
       </h2>
-      <ul
-        class="icon-position"
+      <div
+        class="btn-group"
       >
-        <li
-          class="icon-position__list-item"
+        <ul
+          class="btn-group__list"
         >
-          <button
-            class="icon-position__list-item__button icon-position__list-item__button--active"
-            type="button"
+          <li
+            class="btn-group__list__list-item"
           >
-            None
-          </button>
-        </li>
-        <li
-          class="icon-position__list-item"
-        >
-          <button
-            class="icon-position__list-item__button"
-            type="button"
+            <button
+              class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+              type="button"
+            >
+              None
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
           >
-            Leading
-          </button>
-        </li>
-        <li
-          class="icon-position__list-item"
-        >
-          <button
-            class="icon-position__list-item__button"
-            type="button"
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Leading
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
           >
-            Above
-          </button>
-        </li>
-      </ul>
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Above
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>,
   "debug": [Function],

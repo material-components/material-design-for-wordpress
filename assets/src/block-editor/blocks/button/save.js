@@ -43,9 +43,9 @@ const ButtonSave = ( {
 	return (
 		<div className={ className }>
 			<a
-				href={ url ?? '#' }
-				rel={ rel }
-				target={ linkTarget ?? undefined }
+				href={ url || '#' }
+				rel={ rel || undefined }
+				target={ linkTarget || undefined }
 				style={ {
 					...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
 					...( textColor ? { color: textColor } : {} ),

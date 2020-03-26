@@ -117,9 +117,7 @@ describe( 'ButtonEdit', () => {
 		setup( { attributes: { type: 'icon' }, isSelected: true } );
 
 		const container = document.body;
-		const matches = container.querySelector(
-			'[placeholder="Paste your URL..."]'
-		);
+		const matches = container.querySelector( '.material-button-link' );
 
 		expect( matches ).toBeInTheDocument();
 	} );
@@ -128,9 +126,7 @@ describe( 'ButtonEdit', () => {
 		setup( { attributes: { type: 'icon' }, isSelected: false } );
 
 		const container = document.body;
-		const matches = container.querySelector(
-			'[placeholder="Paste your URL..."]'
-		);
+		const matches = container.querySelector( '.material-button-link' );
 
 		expect( matches ).toBeNull();
 	} );
