@@ -44,7 +44,7 @@ const InspectorControls = props => {
 		return () => {
 			setStillMounted( false );
 		};
-	}, [] );
+	}, [ isStillMounted ] );
 
 	props.attributes.categoriesList = categoriesList;
 

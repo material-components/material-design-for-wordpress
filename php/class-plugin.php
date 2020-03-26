@@ -7,6 +7,8 @@
 
 namespace MaterialThemeBuilder;
 
+use MaterialThemeBuilder\Blocks\Blocks_Frontend;
+use MaterialThemeBuilder\Blocks\Image_List_Block;
 use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
 use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 use MaterialThemeBuilder\Customizer\Controls;
@@ -24,6 +26,13 @@ class Plugin extends Plugin_Base {
 	public $customizer_controls;
 
 	/**
+	 * Image_List_Block class.
+	 *
+	 * @var Image_List_Block
+	 */
+	public $image_list_block;
+
+	/**
 	 * Recent_Posts_Block class.
 	 *
 	 * @var Recent_Posts_Block
@@ -36,6 +45,13 @@ class Plugin extends Plugin_Base {
 	 * @var Hand_Picked_Posts_Block
 	 */
 	public $hand_picked_post_block;
+
+	/**
+	 * Blocks_Frontend class.
+	 *
+	 * @var Blocks_Frontend
+	 */
+	public $blocks_frontend;
 
 	/**
 	 * Initiate the plugin resources.
@@ -57,6 +73,12 @@ class Plugin extends Plugin_Base {
 
 		$this->hand_picked_post_block = new Hand_Picked_Posts_Block( $this );
 		$this->hand_picked_post_block->init();
+
+		$this->image_list_block = new Image_List_Block( $this );
+		$this->image_list_block->init();
+
+		$this->blocks_frontend = new Blocks_Frontend( $this );
+		$this->blocks_frontend->init();
 	}
 
 	/**
