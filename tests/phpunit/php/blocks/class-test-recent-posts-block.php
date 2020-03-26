@@ -176,5 +176,11 @@ class Test_Recent_Posts_Block extends Posts_Blocks_Tests_Base {
 
 		// Assert alignwide class is rendered.
 		$this->assertEquals( 1, substr_count( $content, '<div class="wp-block-material-posts-list alignwide"' ) );
+
+		$attributes['displayFeaturedImage'] = false;
+		$content                            = $block->render_block( $attributes );
+
+		// Assert layout defaults to `text-above-media`.
+		$this->assertEquals( 5, substr_count( $content, '<h2 class="single-post-card__title' ) );
 	}
 }
