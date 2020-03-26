@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+/* @todo Add JS tests */
 
 /**
  * WordPress dependencies
