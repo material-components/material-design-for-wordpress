@@ -176,7 +176,7 @@ class Test_Hand_Picked_Posts_Block extends Posts_Blocks_Tests_Base {
 		$attributes['orderby'] = 'popularity';
 		$content               = $block->render_block( $attributes );
 
-		// Assert posts with most comments are at the top.
+		// Assert posts with most comments are at the top in desc order.
 		$this->assertGreaterThan( strpos( $content, 'Nulla eget lobortis turpis' ), strpos( $content, 'Nunc ac malesuada sem' ) );
 
 		$this->assertGreaterThan( strpos( $content, 'Nunc ac malesuada sem' ), strpos( $content, 'Lorem ipsum dolor sit amet' ) );
