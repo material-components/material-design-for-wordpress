@@ -8,8 +8,11 @@ import { capitalize } from 'lodash';
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import { useCallback } from '@wordpress/element';
-import { InspectorControls, ContrastChecker } from '@wordpress/block-editor';
+import {
+	URLInput,
+	ContrastChecker,
+	InspectorControls,
+} from '@wordpress/block-editor';
 import {
 	PanelBody,
 	ToggleControl,
@@ -52,25 +55,32 @@ const ButtonEdit = ( {
 } ) => {
 	const setter = genericAttributesSetter( setAttributes );
 
-	const onToggleOpenInNewTab = useCallback(
-		value => {
-			const newLinkTarget = value ? '_blank' : undefined;
+	/**
+	 * Sets ref and linkTarget when the toggle is touched.
+	 *
+	 * @param {boolean} value Whether the toogle is on or off.
+	 */
+	const onToggleOpenInNewTab = value => {
+		const newLinkTarget = value ? '_blank' : '';
 
-			let updatedRel = rel;
-			if ( newLinkTarget && ! rel ) {
-				updatedRel = 'noreferrer noopener';
-			} else if ( ! newLinkTarget && rel === 'noreferrer noopener' ) {
-				updatedRel = undefined;
-			}
+		let updatedRel = rel;
+		if ( newLinkTarget && ! rel ) {
+			updatedRel = 'noreferrer noopener';
+		} else if ( ! newLinkTarget && rel === 'noreferrer noopener' ) {
+			updatedRel = '';
+		}
 
-			setAttributes( {
-				linkTarget: newLinkTarget,
-				rel: updatedRel,
-			} );
-		},
-		[ rel, setAttributes ]
-	);
+		setAttributes( {
+			linkTarget: newLinkTarget,
+			rel: updatedRel,
+		} );
+	};
 
+	/**
+	 * Set the type of the button: icon or text.
+	 *
+	 * @param {string} newType The new type of the button.
+	 */
 	const switchType = newType => {
 		if ( 'icon' === newType && ! icon ) {
 			setAttributes( { icon: { name: 'favorite', hex: 59517 } } );
@@ -79,6 +89,9 @@ const ButtonEdit = ( {
 		setAttributes( { type: newType } );
 	};
 
+	/**
+	 * Small component which either renders an icon button or a text button.
+	 */
 	const MdcButton = () => {
 		if ( 'icon' === type ) {
 			return (
@@ -137,12 +150,11 @@ const ButtonEdit = ( {
 				<MdcButton />
 
 				{ isSelected && (
-					<TextControl
+					<URLInput
 						value={ url }
-						label={ __( 'Link', 'material-theme-builder' ) }
-						placeholder={ __( 'Paste your URL...', 'material-theme-builder' ) }
 						onChange={ setter( 'url' ) }
-						className="components-base-control wp-block-button__inline-link"
+						label={ __( 'Link', 'material-theme-builder' ) }
+						className="material-button-link"
 					/>
 				) }
 			</div>

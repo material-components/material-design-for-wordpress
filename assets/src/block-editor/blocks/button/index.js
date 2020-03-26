@@ -16,7 +16,7 @@ export const settings = {
 	description: __(
 		'Buttons allow users to take actions, and make choices, with a single tap.',
 		'material-theme-builder'
-	), // @todo
+	),
 	category: 'material',
 	icon: <i className="material-icons md-call-to-action">call_to_action</i>,
 	attributes: {
@@ -40,12 +40,20 @@ export const settings = {
 			type: 'number',
 			default: 4,
 		},
-		url: { type: 'string' },
+		url: {
+			type: 'string',
+			default: '',
+		},
+		rel: {
+			type: 'string',
+			default: '',
+		},
+		linkTarget: {
+			type: 'string',
+		},
 		icon: { type: 'object' },
 		backgroundColor: { type: 'string' },
 		textColor: { type: 'string' },
-		rel: { type: 'string' },
-		linkTarget: { type: 'string' },
 	},
 	edit,
 	save,
