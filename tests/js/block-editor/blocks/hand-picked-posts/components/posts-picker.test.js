@@ -3,7 +3,7 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import { shallow } from 'enzyme';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 /**
  * Internal dependencies
@@ -53,5 +53,23 @@ describe( 'PostsPicker', () => {
 			attributes: { posts: [ 1, 2, 3 ] },
 		} );
 		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'invokes setAttributes with editMode on `Done` click', () => {
+		const props = {
+			attributes: { posts: [ 1, 2, 3 ] },
+			setAttributes: jest.fn(),
+			debouncedSpeak: jest.fn(),
+		};
+		const { getByText } = fullRender( props );
+
+		fireEvent.click( getByText( 'Done' ) );
+
+		expect( props.setAttributes.mock.calls[ 0 ][ 0 ].editMode ).toStrictEqual(
+			false
+		);
+		expect( props.debouncedSpeak.mock.calls[ 0 ][ 0 ] ).toContain(
+			'Showing Hand-picked Posts block'
+		);
 	} );
 } );
