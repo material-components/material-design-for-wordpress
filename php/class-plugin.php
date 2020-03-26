@@ -146,7 +146,7 @@ class Plugin extends Plugin_Base {
 	 */
 	public function frontend_inline_css() {
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo '<style>' . $this->customizer_controls->get_frontend_css() . '</style>';
+		echo '<style id="material-css-variables">' . $this->customizer_controls->get_frontend_css() . '</style>';
 		// phpcs:enable
 	}
 

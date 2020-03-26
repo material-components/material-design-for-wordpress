@@ -79,7 +79,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		get_plugin_instance()->frontend_inline_css();
 		$output = ob_get_clean();
 
-		$this->assertContains( '<style>', $output );
+		$this->assertContains( '<style id="material-css-variables">', $output );
 		$this->assertContains( '</style>', $output );
 	}
 
