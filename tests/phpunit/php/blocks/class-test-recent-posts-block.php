@@ -22,6 +22,7 @@ class Test_Recent_Posts_Block extends Posts_Blocks_Tests_Base {
 		$block = new Recent_Posts_Block( new Plugin() );
 		$block->init();
 		$this->assertEquals( 10, has_filter( 'rest_prepare_post', [ $block, 'add_extra_post_meta' ] ) );
+		$this->assertEquals( 10, has_filter( 'rest_post_collection_params', [ $block, 'add_comment_count_to_rest_orderby_params' ] ) );
 		$this->assertEquals( 10, has_action( 'init', [ $block, 'register_block' ] ) );
 	}
 
@@ -68,6 +69,24 @@ class Test_Recent_Posts_Block extends Posts_Blocks_Tests_Base {
 		$this->assertEquals( 'test', $response->data['authorDisplayName'] );
 		$this->assertEquals( 'http://example.org/?author=' . $post->post_author, $response->data['authorUrl'] );
 		$this->assertEquals( 0, $response->data['commentsCount'] );
+	}
+
+	/**
+	 * Test add_comment_count_to_rest_orderby_params.
+	 *
+	 * @see Recent_Posts_Block::add_comment_count_to_rest_orderby_params()
+	 */
+	public function test_add_comment_count_to_rest_orderby_params() {
+		$block  = new Recent_Posts_Block( new Plugin() );
+		$params = $block->add_comment_count_to_rest_orderby_params(
+			[
+				'orderby' => [
+					'enum' => [],
+				],
+			] 
+		);
+
+		$this->assertContains( 'comment_count', $params['orderby']['enum'] );
 	}
 
 	/**
