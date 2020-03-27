@@ -54,6 +54,10 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-styles-css', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
+
+		// Assert inline css vars are added.
+		$inline_css = wp_styles()->get_data( 'material-block-editor-css', 'after' );
+		$this->assertNotEmpty( $inline_css );
 	}
 
 	/**
@@ -62,6 +66,8 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 * @see Plugin::enqueue_front_end_assets()
 	 */
 	public function test_enqueue_front_end_assets() {
+		add_filter( 'stylesheet', [ $this, 'stylesheet' ] );
+
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_script_is( 'material-front-end-js', 'enqueued' ) );
@@ -105,6 +111,15 @@ class Test_Plugin extends \WP_UnitTestCase {
 	public function filter_config( $config, $plugin ) {
 		unset( $config, $plugin ); // Test should actually use these.
 		return [ 'foo' => 'bar' ];
+	}
+
+	/**
+	 * Return the material theme stylesheet.
+	 *
+	 * @return string
+	 */
+	public function stylesheet() {
+		return 'material-theme';
 	}
 
 	/* Put other test functions here... */
