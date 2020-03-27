@@ -16,6 +16,11 @@
 	}
 }
 
+/* @todo: Will need refactoring. This helps getting the correct padding for single-post-card__primary which is defined in em unit*/
+.single-post-card {
+	font-size: 16px;
+}
+
 /* @todo adjust width based on breakpoints */
 .layout-masonry-2 {
 
@@ -43,11 +48,6 @@
 	margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
 }
 
-/* @todo: Will need refactoring. */
-.single-post-card {
-	font-size: 16px;
-}
-
 .single-post-card__primary {
 	padding: 1em;
 }
@@ -59,37 +59,18 @@
 /* @todo: Will need refactoring. */
 .single-post-card__title {
 	margin: 0 !important;
-	font-size: 1.25em !important;
-	font-weight: 500 !important;
-	letter-spacing: .0125em !important;
-	font-family: Roboto, sans-serif !important;
 }
 
 /* @todo: Will need refactoring. */
 .single-post-card__subtitle {
 	padding: 1em 1em 0 0;
-	color: rgba(0, 0, 0, 0.54) !important;
 	margin: 0 !important;
-	font-size: .875em !important;
-	line-height: 1.375em !important; /* stylelint-disable-line */
-	font-weight: 500 !important;
-	letter-spacing: .0071428571em !important;
-	font-family: Roboto, sans-serif !important;
 }
 
 /* @todo: Will need refactoring. */
 .single-post-card__secondary {
-	color: rgba(0, 0, 0, 0.54);
+	color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, .54));
 	padding: 0 1em 8px 1em;
-	font-family: Roboto, sans-serif !important;
-
-	p {
-		font-family: Roboto, sans-serif !important;
-	}
-}
-
-.mdc-typography--body2 {
-	font-size: .875em !important;
 }
 
 /* @todo: Will need refactoring. */
@@ -129,15 +110,4 @@
 .mdc-card__action-buttons,
 .mdc-card__action-icons {
 	flex-wrap: wrap;
-}
-
-.single-post-card {
-
-	.mdc-button {
-		font-size: 16px;
-
-		span {
-			font-size: .875em !important;
-		}
-	}
 }
