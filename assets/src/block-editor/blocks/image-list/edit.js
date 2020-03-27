@@ -23,7 +23,10 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import BlockIcon from './components/block-icon';
-import { GridIcon, MasonryIcon } from '../recent-posts/components/style-icons';
+import {
+	GridIcon,
+	MasonryIcon,
+} from '../common-posts-list/components/style-icons';
 import ImageRadioControl from '../../components/image-radio-control';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import Gallery from './components/gallery';

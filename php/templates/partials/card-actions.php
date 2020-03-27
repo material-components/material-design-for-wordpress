@@ -20,7 +20,8 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 	<div class="mdc-card__actions">
 		<div class="mdc-card__action-buttons">
 			<?php if ( ! empty( $post_author ) ) : ?>
-				<a class="mdc-button post-author" href="<?php echo esc_url( $author_url ); ?>">
+				<a class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author" href="<?php echo esc_url( $author_url ); ?>">
+					<span class="mdc-button__ripple"></span>
 					<i
 						class="material-icons mdc-button__icon"
 						aria-hidden="true"
@@ -34,7 +35,8 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 			<?php endif; ?>
 
 			<?php if ( ! empty( $comments_count ) ) : ?>
-				<a class="mdc-button comment-count" href="<?php esc_url( get_the_permalink() ); ?>">
+				<a class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count" href="<?php the_permalink(); ?>">
+					<span class="mdc-button__ripple"></span>
 					<i
 						class="material-icons mdc-button__icon"
 						aria-hidden="true"
@@ -42,20 +44,7 @@ if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
 						comment
 					</i>
 					<span class="mdc-button__label">
-						<?php
-						$comment_count = absint( get_comments_number( get_the_ID() ) );
-						if ( 0 < $comment_count ) {
-							echo esc_html(
-								sprintf(
-									/* translators: %s: post comments count */
-									_n( '%s comment', '%s comments', $comment_count, 'material-theme-builder' ),
-									$comment_count
-								)
-							);
-						} else {
-							esc_html_e( 'No comments', 'material-theme-builder' );
-						}
-						?>
+						<?php echo absint( get_comments_number( get_the_ID() ) ); ?>
 					</span>
 				</a>
 			<?php endif; ?>
