@@ -49,4 +49,15 @@ describe( 'ErrorMessage', () => {
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
+
+	it( 'matches snapshot when there is an custom error type', () => {
+		const props = {
+			error: {
+				type: 'custom',
+				message: 'Custom test message',
+			},
+		};
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
 } );
