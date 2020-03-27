@@ -61,7 +61,7 @@ const Save = ( { attributes } ) => {
 
 							return (
 								<RichText.Content
-									className={ cellClasses ? cellClasses : undefined }
+									className={ cellClasses }
 									data-align={ align }
 									tagName={ tag }
 									value={ content }
@@ -84,7 +84,7 @@ const Save = ( { attributes } ) => {
 			) }
 		>
 			<div className="mdc-data-table">
-				<table className={ classes === '' ? undefined : classes }>
+				<table className={ classes }>
 					<Section type="head" rows={ head } />
 					<Section type="body" rows={ body } />
 					<Section type="foot" rows={ foot } />
