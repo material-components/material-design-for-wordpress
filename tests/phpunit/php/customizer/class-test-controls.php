@@ -463,7 +463,8 @@ class Test_Controls extends \WP_UnitTestCase {
 	 * @see Controls::get_frontend_css()
 	 */
 	public function test_get_frontend_css() {
-		$css = get_plugin_instance()->customizer_controls->get_frontend_css();
+		$controls = get_plugin_instance()->customizer_controls;
+		$css      = $controls->get_frontend_css();
 
 		// Assert we get the default values as CSS vars.
 		$this->assertContains( ':root {', $css );
@@ -474,6 +475,26 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->assertContains( '--mdc-small-component-radius-button: 4px;', $css );
 		$this->assertContains( '--mdc-medium-component-radius-card: 4px;', $css );
 		$this->assertContains( '--mdc-large-component-radius: 0px;', $css );
+
+		add_filter(
+			"theme_mod_{$controls->slug}_small_component_radius",
+			function( $value ) {
+				return -1;
+			}
+		);
+
+		add_filter(
+			"theme_mod_{$controls->slug}_medium_component_radius",
+			function( $value ) {
+				return 36;
+			}
+		);
+
+		$css = $controls->get_frontend_css();
+
+		// Assert radius is limited to min/max for components.
+		$this->assertContains( '--mdc-small-component-radius-button: 0px', $css );
+		$this->assertContains( '--mdc-medium-component-radius-card: 24px', $css );
 	}
 
 	/**

@@ -73,6 +73,15 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertTrue( wp_script_is( 'material-front-end-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-front-end-css', 'enqueued' ) );
+		$this->assertFalse( wp_style_is( 'material-overrides-css', 'enqueued' ) );
+
+		// Assert inline css vars are added.
+		$inline_css = wp_styles()->get_data( 'material-front-end-css', 'after' );
+		$this->assertNotEmpty( $inline_css );
+
+		remove_filter( 'stylesheet', [ $this, 'stylesheet' ] );
+		$plugin->enqueue_front_end_assets();
+		$this->assertTrue( wp_style_is( 'material-overrides-css', 'enqueued' ) );
 	}
 
 	/**
