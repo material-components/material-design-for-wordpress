@@ -102,9 +102,10 @@ class Plugin extends Plugin_Base {
 			false
 		);
 
+		$fonts_url = $this->customizer_controls->get_google_fonts_url();
 		wp_enqueue_style(
-			'material-icons-css',
-			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
+			'material-google-fonts-cdn',
+			esc_url( $fonts_url ),
 			[],
 			$this->asset_version()
 		);
@@ -115,6 +116,8 @@ class Plugin extends Plugin_Base {
 			[],
 			$this->asset_version()
 		);
+
+		wp_add_inline_style( 'material-block-editor-css', $this->customizer_controls->get_frontend_css() );
 	}
 
 	/**
@@ -138,6 +141,18 @@ class Plugin extends Plugin_Base {
 			[],
 			$this->asset_version()
 		);
+
+		/**
+		 * Enqueue material style overrides if the theme is not material.
+		 */
+		if ( false === strpos( get_stylesheet(), 'material-theme' ) ) {
+			wp_enqueue_style(
+				'material-overrides-css',
+				$this->asset_url( 'assets/css/overrides-compiled.css' ),
+				[],
+				$this->asset_version()
+			);
+		}
 
 		wp_enqueue_style(
 			'material-front-end-css',
