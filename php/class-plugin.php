@@ -10,6 +10,7 @@ namespace MaterialThemeBuilder;
 use MaterialThemeBuilder\Blocks\Blocks_Frontend;
 use MaterialThemeBuilder\Blocks\Image_List_Block;
 use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
+use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 
 /**
@@ -39,6 +40,13 @@ class Plugin extends Plugin_Base {
 	public $recent_post_block;
 
 	/**
+	 * Hand_Picked_Posts_Block class.
+	 *
+	 * @var Hand_Picked_Posts_Block
+	 */
+	public $hand_picked_post_block;
+
+	/**
 	 * Blocks_Frontend class.
 	 *
 	 * @var Blocks_Frontend
@@ -63,6 +71,9 @@ class Plugin extends Plugin_Base {
 		$this->recent_post_block = new Recent_Posts_Block( $this );
 		$this->recent_post_block->init();
 
+		$this->hand_picked_post_block = new Hand_Picked_Posts_Block( $this );
+		$this->hand_picked_post_block->init();
+
 		$this->image_list_block = new Image_List_Block( $this );
 		$this->image_list_block->init();
 
@@ -83,6 +94,7 @@ class Plugin extends Plugin_Base {
 				'lodash',
 				'react',
 				'wp-block-editor',
+				'wp-editor',
 				'wp-date',
 				'wp-api-fetch',
 			],

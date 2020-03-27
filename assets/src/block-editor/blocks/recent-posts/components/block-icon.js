@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 /**
  * Block Icon component.
  *
