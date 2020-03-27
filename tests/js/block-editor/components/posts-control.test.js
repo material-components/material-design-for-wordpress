@@ -37,7 +37,7 @@ const setup = props => {
 	return render( <PostsControl { ...props } /> );
 };
 
-describe( 'PostsOrderbyControl', () => {
+describe( 'PostsControl', () => {
 	it( 'matches snapshot', () => {
 		const props = {
 			error: undefined,
@@ -55,6 +55,19 @@ describe( 'PostsOrderbyControl', () => {
 					id: 3,
 				},
 			],
+			isLoading: false,
+		};
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when there is an error', () => {
+		const props = {
+			error: { type: 'general', message: 'Test error message' },
+			onChange: jest.fn(),
+			onSearch: jest.fn(),
+			selected: [],
+			posts: [],
 			isLoading: false,
 		};
 		const wrapper = setup( props );
