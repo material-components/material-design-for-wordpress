@@ -19,7 +19,7 @@ import ButtonGroup from '../../components/button-group';
 import { __, sprintf } from '@wordpress/i18n';
 import { PanelBody } from '@wordpress/components';
 import { dispatch, withSelect } from '@wordpress/data';
-import { useState, useEffect, useCallback } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import {
 	InspectorControls,
 	BlockControls,
@@ -68,7 +68,7 @@ const TabBarEdit = ( {
 				dispatch( 'core/block-editor' ).removeBlocks( clientIds );
 			}
 		}
-	}, [ activeTabIndex ] );
+	}, [ activeTabIndex ] ); // eslint-disable-line
 
 	useEffect( () => {
 		const newTabs = [ ...tabs ];
@@ -83,7 +83,7 @@ const TabBarEdit = ( {
 	/**
 	 * Initialize and create a new tab. Save it to the Tab Bar.
 	 */
-	const createTab = useCallback( () => {
+	const createTab = () => {
 		const newTabs = [ ...tabs ];
 
 		newTabs.push(
@@ -97,25 +97,25 @@ const TabBarEdit = ( {
 
 		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
 		changeTab( newTabs.length - 1 );
-	} );
+	};
 
 	/**
 	 * Switch the active tab.
 	 *
 	 * @param {number} index The index of the tab to make active.
 	 */
-	const changeTab = useCallback( index => {
+	const changeTab = index => {
 		if ( index !== activeTabIndex ) {
 			setActiveTabIndex( index );
 		}
-	} );
+	};
 
 	/**
 	 * Filter out (delete) a tab
 	 *
 	 * @param {number} index The index of the tab to delete.
 	 */
-	const deleteTab = useCallback( index => {
+	const deleteTab = index => {
 		if ( 1 >= tabs.length ) {
 			return;
 		}
@@ -125,23 +125,21 @@ const TabBarEdit = ( {
 		}
 
 		setAttributes( { tabs: tabs.filter( ( _, i ) => index !== i ) } );
-	} );
+	};
 
 	/**
 	 * Set the icon position.
 	 *
 	 * @param {string} val The icon position.
 	 */
-	const setIconPosition = useCallback( val =>
-		setAttributes( { iconPosition: val } )
-	);
+	const setIconPosition = val => setAttributes( { iconPosition: val } );
 
 	/**
 	 * Move a tab left or right
 	 *
 	 * @param {string} direction The direction to move towards.
 	 */
-	const moveTab = useCallback( direction => {
+	const moveTab = direction => {
 		const newPos =
 			direction === 'left' ? activeTabIndex - 1 : activeTabIndex + 1;
 
@@ -153,30 +151,30 @@ const TabBarEdit = ( {
 			setActiveTabIndex( newPos );
 			setAttributes( { tabs: newTabs } );
 		}
-	} );
+	};
 
 	/**
 	 * Set a tab's icon.
 	 *
 	 * @param {Object} icon The icon object
 	 */
-	const setTabIcon = useCallback( icon => {
+	const setTabIcon = icon => {
 		const newTabs = [ ...tabs ];
 		newTabs[ activeTabIndex ].icon = icon;
 		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
-	} );
+	};
 
 	/**
 	 * Set the tab's label.
 	 *
 	 * @param {string} label The new tab label.
 	 */
-	const setTabLabel = useCallback( label => {
+	const setTabLabel = label => {
 		const newTabs = [ ...tabs ];
 		newTabs[ activeTabIndex ].label = label;
 
 		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
-	} );
+	};
 
 	return (
 		<>

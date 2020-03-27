@@ -1,0 +1,588 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridIcon matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg
+        fill="none"
+        height="45"
+        viewBox="0 0 37 45"
+        width="37"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="#565D66"
+          height="16"
+          width="16"
+          x="0.24646"
+          y="24.8232"
+        />
+        <rect
+          fill="#565D66"
+          height="2"
+          width="10"
+          x="0.24646"
+          y="42.8232"
+        />
+        <rect
+          fill="#565D66"
+          height="16"
+          width="16"
+          x="20.2465"
+          y="24.5835"
+        />
+        <rect
+          fill="#565D66"
+          height="2"
+          width="10"
+          x="20.2465"
+          y="42.5835"
+        />
+        <rect
+          fill="#565D66"
+          height="16"
+          width="16"
+          x="0.24646"
+          y="0.583496"
+        />
+        <rect
+          fill="#565D66"
+          height="2"
+          width="10"
+          x="0.24646"
+          y="18.5835"
+        />
+        <rect
+          fill="#565D66"
+          height="16"
+          width="16"
+          x="20.2465"
+          y="0.583496"
+        />
+        <rect
+          fill="#565D66"
+          height="2"
+          width="10"
+          x="20.2465"
+          y="18.5835"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg
+      fill="none"
+      height="45"
+      viewBox="0 0 37 45"
+      width="37"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        fill="#565D66"
+        height="16"
+        width="16"
+        x="0.24646"
+        y="24.8232"
+      />
+      <rect
+        fill="#565D66"
+        height="2"
+        width="10"
+        x="0.24646"
+        y="42.8232"
+      />
+      <rect
+        fill="#565D66"
+        height="16"
+        width="16"
+        x="20.2465"
+        y="24.5835"
+      />
+      <rect
+        fill="#565D66"
+        height="2"
+        width="10"
+        x="20.2465"
+        y="42.5835"
+      />
+      <rect
+        fill="#565D66"
+        height="16"
+        width="16"
+        x="0.24646"
+        y="0.583496"
+      />
+      <rect
+        fill="#565D66"
+        height="2"
+        width="10"
+        x="0.24646"
+        y="18.5835"
+      />
+      <rect
+        fill="#565D66"
+        height="16"
+        width="16"
+        x="20.2465"
+        y="0.583496"
+      />
+      <rect
+        fill="#565D66"
+        height="2"
+        width="10"
+        x="20.2465"
+        y="18.5835"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`ListIcon matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg
+        fill="none"
+        height="39"
+        viewBox="0 0 39 39"
+        width="39"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="#565D66"
+          height="10"
+          width="10"
+          x="0.386353"
+          y="28.7036"
+        />
+        <rect
+          fill="#545D67"
+          height="2"
+          width="24"
+          x="14.3864"
+          y="30.4526"
+        />
+        <rect
+          fill="#545D67"
+          height="2"
+          width="18"
+          x="14.3864"
+          y="34.4526"
+        />
+        <rect
+          fill="#565D66"
+          height="10"
+          width="10"
+          x="0.386353"
+          y="14.7036"
+        />
+        <rect
+          fill="#545D67"
+          height="2"
+          width="24"
+          x="14.3864"
+          y="16.4526"
+        />
+        <rect
+          fill="#545D67"
+          height="2"
+          width="18"
+          x="14.3864"
+          y="20.4526"
+        />
+        <rect
+          fill="#565D66"
+          height="10"
+          width="10"
+          x="0.386353"
+          y="0.703613"
+        />
+        <rect
+          fill="#545D67"
+          height="2"
+          width="24"
+          x="14.3864"
+          y="2.45264"
+        />
+        <rect
+          fill="#545D67"
+          height="2"
+          width="18"
+          x="14.3864"
+          y="6.45264"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg
+      fill="none"
+      height="39"
+      viewBox="0 0 39 39"
+      width="39"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        fill="#565D66"
+        height="10"
+        width="10"
+        x="0.386353"
+        y="28.7036"
+      />
+      <rect
+        fill="#545D67"
+        height="2"
+        width="24"
+        x="14.3864"
+        y="30.4526"
+      />
+      <rect
+        fill="#545D67"
+        height="2"
+        width="18"
+        x="14.3864"
+        y="34.4526"
+      />
+      <rect
+        fill="#565D66"
+        height="10"
+        width="10"
+        x="0.386353"
+        y="14.7036"
+      />
+      <rect
+        fill="#545D67"
+        height="2"
+        width="24"
+        x="14.3864"
+        y="16.4526"
+      />
+      <rect
+        fill="#545D67"
+        height="2"
+        width="18"
+        x="14.3864"
+        y="20.4526"
+      />
+      <rect
+        fill="#565D66"
+        height="10"
+        width="10"
+        x="0.386353"
+        y="0.703613"
+      />
+      <rect
+        fill="#545D67"
+        height="2"
+        width="24"
+        x="14.3864"
+        y="2.45264"
+      />
+      <rect
+        fill="#545D67"
+        height="2"
+        width="18"
+        x="14.3864"
+        y="6.45264"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`MasonryIcon matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <svg
+        fill="none"
+        height="37"
+        viewBox="0 0 37 37"
+        width="37"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="#565D66"
+          height="16"
+          width="16"
+          x="0.133057"
+          y="16.3413"
+        />
+        <rect
+          fill="#565D66"
+          height="2"
+          width="10"
+          x="0.133057"
+          y="34.3413"
+        />
+        <rect
+          fill="#565D66"
+          height="16"
+          width="16"
+          x="20.3596"
+          y="0.0395508"
+        />
+        <rect
+          fill="#565D66"
+          height="2"
+          width="10"
+          x="20.3596"
+          y="18.0396"
+        />
+        <rect
+          fill="#565D66"
+          height="8"
+          width="16"
+          x="20.1624"
+          y="24.3413"
+        />
+        <rect
+          fill="#565D66"
+          height="2"
+          width="10"
+          x="20.1624"
+          y="34.3413"
+        />
+        <rect
+          fill="#565D66"
+          height="8"
+          width="16"
+          x="0.321533"
+          y="0.0395508"
+        />
+        <rect
+          fill="#565D66"
+          height="2"
+          width="10"
+          x="0.321533"
+          y="10.0396"
+        />
+      </svg>
+    </div>
+  </body>,
+  "container": <div>
+    <svg
+      fill="none"
+      height="37"
+      viewBox="0 0 37 37"
+      width="37"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        fill="#565D66"
+        height="16"
+        width="16"
+        x="0.133057"
+        y="16.3413"
+      />
+      <rect
+        fill="#565D66"
+        height="2"
+        width="10"
+        x="0.133057"
+        y="34.3413"
+      />
+      <rect
+        fill="#565D66"
+        height="16"
+        width="16"
+        x="20.3596"
+        y="0.0395508"
+      />
+      <rect
+        fill="#565D66"
+        height="2"
+        width="10"
+        x="20.3596"
+        y="18.0396"
+      />
+      <rect
+        fill="#565D66"
+        height="8"
+        width="16"
+        x="20.1624"
+        y="24.3413"
+      />
+      <rect
+        fill="#565D66"
+        height="2"
+        width="10"
+        x="20.1624"
+        y="34.3413"
+      />
+      <rect
+        fill="#565D66"
+        height="8"
+        width="16"
+        x="0.321533"
+        y="0.0395508"
+      />
+      <rect
+        fill="#565D66"
+        height="2"
+        width="10"
+        x="0.321533"
+        y="10.0396"
+      />
+    </svg>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
