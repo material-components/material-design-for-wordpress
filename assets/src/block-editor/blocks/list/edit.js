@@ -14,7 +14,7 @@ import genericAttributesSetter from '../../utils/generic-attributes-setter';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { useCallback, createContext } from '@wordpress/element';
+import { createContext } from '@wordpress/element';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
 
@@ -34,7 +34,7 @@ const ListEdit = ( {
 	clientId,
 	setAttributes,
 } ) => {
-	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const setter = genericAttributesSetter( setAttributes );
 
 	return (
 		<ListContext.Provider
@@ -45,7 +45,7 @@ const ListEdit = ( {
 				parentClientId: clientId,
 			} }
 		>
-			<ul
+			<div
 				className={ classNames( 'mdc-list', className, {
 					'mdc-list--two-line': style === 'two-line',
 				} ) }
@@ -54,7 +54,7 @@ const ListEdit = ( {
 					template={ [ [ 'material/list-item' ], [ 'material/list-item' ] ] }
 					allowedBlocks={ [ 'material/list-item' ] }
 				/>
-			</ul>
+			</div>
 
 			<InspectorControls>
 				<PanelBody
