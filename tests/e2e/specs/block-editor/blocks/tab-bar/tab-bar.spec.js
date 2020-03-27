@@ -24,7 +24,7 @@ describe( 'blocks: material/tab-bar', () => {
 
 		expect(
 			await page.$x(
-				"//button[contains(@class, 'icon-position__list-item__button--active') and contains(text(), 'None')]"
+				"//button[contains(@class, 'btn-group__list__list-item__button--active') and contains(text(), 'None')]"
 			)
 		).toHaveLength( 1 );
 	} );
@@ -34,7 +34,7 @@ describe( 'blocks: material/tab-bar', () => {
 		await selectBlockByName( 'material/tab-bar' );
 
 		const [ leadingBtn ] = await page.$x(
-			"//button[contains(@class, 'icon-position__list-item__button') and contains(text(), 'Leading')]"
+			"//button[contains(@class, 'btn-group__list__list-item__button') and contains(text(), 'Leading')]"
 		);
 
 		// Swap icon position
@@ -42,7 +42,7 @@ describe( 'blocks: material/tab-bar', () => {
 
 		expect(
 			await page.$x(
-				"//button[contains(@class, 'icon-position__list-item__button--active') and contains(text(), 'Leading')]"
+				"//button[contains(@class, 'btn-group__list__list-item__button--active') and contains(text(), 'Leading')]"
 			)
 		).toHaveLength( 1 );
 
@@ -65,7 +65,7 @@ describe( 'blocks: material/tab-bar', () => {
 		await selectBlockByName( 'material/tab-bar' );
 
 		const [ leadingBtn ] = await page.$x(
-			"//button[contains(@class, 'icon-position__list-item__button') and contains(text(), 'Above')]"
+			"//button[contains(@class, 'btn-group__list__list-item__button') and contains(text(), 'Above')]"
 		);
 
 		// Swap icon position
@@ -73,7 +73,7 @@ describe( 'blocks: material/tab-bar', () => {
 
 		expect(
 			await page.$x(
-				"//button[contains(@class, 'icon-position__list-item__button--active') and contains(text(), 'Above')]"
+				"//button[contains(@class, 'btn-group__list__list-item__button--active') and contains(text(), 'Above')]"
 			)
 		).toHaveLength( 1 );
 
