@@ -91,7 +91,7 @@ class Plugin extends Plugin_Base {
 		);
 
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
-		
+
 		wp_enqueue_style(
 			'material-styles-css',
 			esc_url( $fonts_url ),
@@ -140,7 +140,7 @@ class Plugin extends Plugin_Base {
 
 	/**
 	 * Output inline styles with css variables at the top of the head.
-	 * 
+	 *
 	 * @action wp_head, 1
 	 * @action admin_head, 1
 	 */

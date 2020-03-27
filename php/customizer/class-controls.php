@@ -68,7 +68,7 @@ class Controls extends Module_Base {
 		$this->add_corner_styles_controls();
 
 		// Add all controls in the "Icon Collections" section.
-		$this->add_icon_collection_controls(); 
+		$this->add_icon_collection_controls();
 	}
 
 	/**
@@ -332,7 +332,7 @@ class Controls extends Module_Base {
 			],
 			'previous_icon_collection' => [
 				'default' => 'filled',
-			], 
+			],
 		];
 
 		$this->add_settings( $settings );
@@ -513,7 +513,7 @@ class Controls extends Module_Base {
 		$icons_style = $icons_style && 'filled' !== $icons_style 
 			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
 
-		return "\t--material-icons-font-family: \"Material Icons{$icons_style}\";";
+		return "\t--mdc-icons-font-family: \"Material Icons{$icons_style}\";";
 	}
 
 	/**
@@ -585,22 +585,9 @@ class Controls extends Module_Base {
 			}
 		}
 
-		$icon_collections = $this->get_icon_collections_css();
+		$icon_collection = $this->get_icon_collection_css();
 
-		return ":root {\n{$color_vars}{$icon_collections}\n}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
-	}
-
-	/**
-	 * Get CSS variable which should set the font-family for material-icons.
-	 *
-	 * @return string
-	 */
-	public function get_icon_collections_css() {
-		$icons_style = $this->get_theme_mod( 'icon_collections' );
-		$icons_style = $icons_style && 'filled' !== $icons_style 
-			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
-
-		return "\t--material-icons-font-family: \"Material Icons{$icons_style}\";";
+		return ":root {\n{$color_vars}{$icon_collection}\n}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
 	}
 
 	/**
