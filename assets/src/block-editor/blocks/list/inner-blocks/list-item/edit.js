@@ -50,53 +50,47 @@ const ListItemEdit = ( {
 	 *
 	 * @param {Event} e The onKeyPress event object.
 	 */
-	const handleEnterPress = useCallback(
-		e => {
-			if ( e.key !== 'Enter' ) {
-				return true;
-			}
+	const handleEnterPress = e => {
+		if ( e.key !== 'Enter' ) {
+			return true;
+		}
 
-			// Create list item block under the current selection
-			const block = createBlock( 'material/list-item' );
-			const parent = select( 'core/editor' ).getBlocksByClientId(
-				parentClientId
-			)[ 0 ];
+		// Create list item block under the current selection
+		const block = createBlock( 'material/list-item' );
+		const parent = select( 'core/editor' ).getBlocksByClientId(
+			parentClientId
+		)[ 0 ];
 
-			dispatch( 'core/editor' ).insertBlocks(
-				block,
-				parent.innerBlocks.findIndex( blk => blk.clientId === clientId ) + 1,
-				parent.clientId
-			);
+		dispatch( 'core/editor' ).insertBlocks(
+			block,
+			parent.innerBlocks.findIndex( blk => blk.clientId === clientId ) + 1,
+			parent.clientId
+		);
 
-			e.currentTarget.blur();
-			return false;
-		},
-		[ parentClientId, clientId ]
-	);
+		e.currentTarget.blur();
+		return false;
+	};
 
 	/**
 	 * Handles setting linkTarget and rel based on the new tab toggle
 	 *
 	 * @param {string} value The value of the toggle.
 	 */
-	const onToggleOpenInNewTab = useCallback(
-		value => {
-			const newLinkTarget = value ? '_blank' : '';
+	const onToggleOpenInNewTab = value => {
+		const newLinkTarget = value ? '_blank' : '';
 
-			let updatedRel = rel;
-			if ( newLinkTarget && ! rel ) {
-				updatedRel = 'noreferrer noopener';
-			} else if ( ! newLinkTarget && rel === 'noreferrer noopener' ) {
-				updatedRel = '';
-			}
+		let updatedRel = rel;
+		if ( newLinkTarget && ! rel ) {
+			updatedRel = 'noreferrer noopener';
+		} else if ( ! newLinkTarget && rel === 'noreferrer noopener' ) {
+			updatedRel = '';
+		}
 
-			setAttributes( {
-				linkTarget: newLinkTarget,
-				rel: updatedRel,
-			} );
-		},
-		[ rel, setAttributes ]
-	);
+		setAttributes( {
+			linkTarget: newLinkTarget,
+			rel: updatedRel,
+		} );
+	};
 
 	// Sync with parent icon settings
 	useEffect( () => {
@@ -111,7 +105,13 @@ const ListItemEdit = ( {
 		} else if ( trailingIconsEnabled && ! trailingIcon ) {
 			setAttributes( { trailingIcon: findIcon( 'more vert' ) } );
 		}
-	}, [ leadingIconsEnabled, leadingIcon, trailingIconsEnabled, trailingIcon ] );
+	}, [
+		leadingIconsEnabled,
+		leadingIcon,
+		trailingIconsEnabled,
+		trailingIcon,
+		setAttributes,
+	] );
 
 	// Sync with parent regarding style and secondaryText
 	useEffect( () => {
@@ -122,11 +122,11 @@ const ListItemEdit = ( {
 				secondaryText: __( 'Secondary text...', 'material-theme-builder' ),
 			} );
 		}
-	}, [ style, secondaryText ] );
+	}, [ style, secondaryText, setAttributes ] );
 
 	return (
 		<>
-			<li
+			<div
 				className={ classNames( 'mdc-list-item', 'list-item', className, {
 					'list-item--with-secondary': style === 'two-line',
 				} ) }
@@ -159,7 +159,7 @@ const ListItemEdit = ( {
 						{ String.fromCharCode( trailingIcon?.hex ) }
 					</i>
 				) }
-			</li>
+			</div>
 
 			<InspectorControls>
 				{ leadingIconsEnabled && (
