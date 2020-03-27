@@ -186,18 +186,11 @@ import get from 'lodash/get';
 				cssVars
 					.html()
 					.replace(
-						/--material-icons-font-family: "([A-Za-z ]+)";/g,
-						`--material-icons-font-family: ${ newFontFamily }`
+						/--mdc-icons-font-family: "([A-Za-z ]+)";/g,
+						`--mdc-icons-font-family: ${ newFontFamily }`
 					)
 			);
 		};
-
-		const iconsInit = setInterval( function() {
-			if ( $( '[class*="material-icons"]' ).length ) {
-				handleIconSwitch( setting() );
-				clearInterval( iconsInit );
-			}
-		}, 100 );
 
 		setting.bind( handleIconSwitch );
 	} );
