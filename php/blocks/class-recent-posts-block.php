@@ -7,7 +7,7 @@
 
 namespace MaterialThemeBuilder\Blocks;
 
-use MaterialThemeBuilder\Plugin;
+use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Template;
 use WP_Post;
 use WP_Query;
@@ -17,35 +17,7 @@ use WP_REST_Response;
 /**
  * Recent_Posts_Block class.
  */
-class Recent_Posts_Block {
-
-	/**
-	 * Plugin class.
-	 *
-	 * @var Plugin
-	 */
-	public $plugin;
-
-	/**
-	 * Constructor.
-	 *
-	 * @access public
-	 *
-	 * @param Plugin $plugin Plugin instance.
-	 */
-	public function __construct( Plugin $plugin ) {
-		$this->plugin = $plugin;
-	}
-
-	/**
-	 * Initiate the class.
-	 *
-	 * @access public
-	 */
-	public function init() {
-		$this->plugin->add_doc_hooks( $this );
-	}
-
+class Recent_Posts_Block extends Module_Base {
 	/**
 	 * Add comments count to post rest api.
 	 *
