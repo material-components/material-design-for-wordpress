@@ -176,7 +176,9 @@ const CommonPostsListInspectorControls = ( {
 						initialOpen={ true }
 					>
 						<PostsOrderbyControl
-							setAttributes={ setAttributes }
+							onChange={ setter( 'orderby', value =>
+								'' !== value ? value : 'date'
+							) }
 							value={ orderby }
 						/>
 					</PanelBody>
