@@ -32,46 +32,47 @@ $class_names = Template::classnames(
 
 <div class="mdc-layout-grid__cell--span-<?php echo esc_attr( $column_span ); ?>">
 	<div class="single-post-card single-post-basic mdc-card <?php echo esc_attr( $class_names ); ?>">
+		<a class="mdc-card__link" href="<?php the_permalink(); ?>">
+			<div class="mdc-card__primary-action single-post-card__primary-action">
+				<?php
 
-		<div class="mdc-card__primary-action single-post-card__primary-action">
-			<?php
+				if ( 'list' !== $style && 'text-above-media' === $layout ) {
+					Template::get_template(
+						'partials/card-header.php',
+						[
+							'attributes' => $attributes,
+						]
+					);
+				}
 
-			if ( 'list' !== $style && 'text-above-media' === $layout ) {
 				Template::get_template(
-					'partials/card-header.php',
+					'partials/card-image.php',
 					[
 						'attributes' => $attributes,
 					]
 				);
-			}
 
-			Template::get_template(
-				'partials/card-image.php',
-				[
-					'attributes' => $attributes,
-				]
-			);
+				if ( 'list' === $style || 'text-under-media' === $layout || ( 'text-over-media' === $layout && ! has_post_thumbnail() ) ) {
+					Template::get_template(
+						'partials/card-header.php',
+						[
+							'attributes' => $attributes,
+						]
+					);
+				}
 
-			if ( 'list' === $style || 'text-under-media' === $layout || ( 'text-over-media' === $layout && ! has_post_thumbnail() ) ) {
-				Template::get_template(
-					'partials/card-header.php',
-					[
-						'attributes' => $attributes,
-					]
-				);
-			}
+				if ( 'list' !== $style ) {
+					Template::get_template(
+						'partials/card-content.php',
+						[
+							'attributes' => $attributes,
+						]
+					);
+				}
+				?>
 
-			if ( 'list' !== $style ) {
-				Template::get_template(
-					'partials/card-content.php',
-					[
-						'attributes' => $attributes,
-					]
-				);
-			}
-			?>
-
-		</div> <!-- mdc-card__primary-action -->
+			</div> <!-- mdc-card__primary-action -->
+		</a> <!-- mdc-card__link -->
 
 		<?php
 			Template::get_template(

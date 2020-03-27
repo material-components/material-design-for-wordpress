@@ -1,0 +1,19 @@
+.mtb-block-error-message {
+	margin-bottom: 16px;
+	margin-top: 8px;
+}
+
+.mtb-block-api-error {
+
+	.components-placeholder__fieldset {
+		display: block;
+	}
+
+	.mtb-block-error-message {
+		margin-top: 0;
+	}
+
+	.components-spinner {
+		float: none;
+	}
+}

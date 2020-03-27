@@ -165,4 +165,33 @@ import get from 'lodash/get';
 			} );
 		} );
 	} );
+
+	parentApi( 'mtb_icon_collection', function( setting ) {
+		$( 'head' ).append(
+			'<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">'
+		);
+
+		const handleIconSwitch = function( iconStyle ) {
+			const cssVars = $( '#material-css-variables' );
+			const newFontFamily =
+				iconStyle === 'filled'
+					? '"Material Icons";'
+					: `"Material Icons ${ iconStyle
+							.replace( '-', ' ' )
+							.replace( /(^\w{1})|(\s{1}\w{1})/g, match =>
+								match.toUpperCase()
+							) }";`;
+
+			cssVars.html(
+				cssVars
+					.html()
+					.replace(
+						/--mdc-icons-font-family: "([A-Za-z ]+)";/g,
+						`--mdc-icons-font-family: ${ newFontFamily }`
+					)
+			);
+		};
+
+		setting.bind( handleIconSwitch );
+	} );
 } )( jQuery );

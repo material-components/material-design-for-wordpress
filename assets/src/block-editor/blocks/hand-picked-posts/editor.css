@@ -1,0 +1,17 @@
+.components-placeholder__label {
+
+	svg {
+		margin-right: 10px;
+	}
+
+}
+
+.editor-styles-wrapper .editor-block-list__layout a.mdc-button {
+	color: var(--mdc-theme-primary, #6200ee) !important;
+	text-decoration: none !important;
+}
+
+.editor-styles-wrapper .single-post-card__secondary p {
+	margin-top: 0;
+	margin-bottom: 0;
+}

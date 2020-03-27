@@ -66,6 +66,9 @@ class Controls extends Module_Base {
 
 		// Add all controls in the "Corner Styles" section.
 		$this->add_corner_styles_controls();
+
+		// Add all controls in the "Icon Collections" section.
+		$this->add_icon_collection_controls();
 	}
 
 	/**
@@ -318,6 +321,41 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Add all controls in the "Icon Collections" section.
+	 *
+	 * @return void
+	 */
+	public function add_icon_collection_controls() {
+		$settings = [
+			'icon_collection'          => [
+				'default' => 'filled',
+			],
+			'previous_icon_collection' => [
+				'default' => 'filled',
+			],
+		];
+
+		$this->add_settings( $settings );
+
+		/**
+		* List of all the controls in the Theme section.
+			*/
+		$controls = [
+			'icon_collection' => new Icon_Radio_Control(
+				$this->wp_customize,
+				$this->prepend_slug( 'icon_collection' ),
+				[
+					'section'  => 'icons',
+					'priority' => 10,
+					'choices'  => $this->get_icon_collection_controls(),
+				]
+			),
+		];
+
+		$this->add_controls( $controls );
+	}
+
+	/**
 	 * Add settings to customizer.
 	 *
 	 * @param array $settings Array of settings to add to customizer.
@@ -416,14 +454,16 @@ class Controls extends Module_Base {
 			'material-theme-builder-customizer-js',
 			'mtb',
 			[
-				'slug'         => $this->slug,
-				'designStyles' => $this->get_design_styles(),
-				'controls'     => $this->added_controls,
-				'styleControl' => $this->prepend_slug( 'style' ),
-				'l10n'         => [
+				'slug'                   => $this->slug,
+				'designStyles'           => $this->get_design_styles(),
+				'controls'               => $this->added_controls,
+				'styleControl'           => $this->prepend_slug( 'style' ),
+				'iconCollectionsControl' => $this->prepend_slug( 'icon_collection' ),
+				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
+				'l10n'                   => [
 					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
 				],
-				'googleFonts'  => Google_Fonts::get_font_choices(),
+				'googleFonts'            => Google_Fonts::get_font_choices(),
 			]
 		);
 
@@ -448,7 +488,11 @@ class Controls extends Module_Base {
 	 * @return string
 	 */
 	public function get_google_fonts_url() {
-		$font_families = [ 'Material+Icons' ];
+		$icons_style = $this->get_theme_mod( 'icon_collection' );
+		$icons_style = $icons_style && 'filled' !== $icons_style 
+			? '+' . str_replace( '-', '+', ucwords( $icons_style, '-' ) ) : '';
+
+		$font_families = [ 'Material+Icons' . $icons_style ];
 
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
@@ -457,6 +501,19 @@ class Controls extends Module_Base {
 		}
 
 		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
+	}
+
+	/**
+	 * Get CSS variable which should set the font-family for material-icons.
+	 *
+	 * @return string
+	 */
+	public function get_icon_collection_css() {
+		$icons_style = $this->get_theme_mod( 'icon_collection' );
+		$icons_style = $icons_style && 'filled' !== $icons_style 
+			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
+
+		return "\t--mdc-icons-font-family: \"Material Icons{$icons_style}\";";
 	}
 
 	/**
@@ -528,7 +585,9 @@ class Controls extends Module_Base {
 			}
 		}
 
-		return ":root {\n{$color_vars}}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
+		$icon_collection = $this->get_icon_collection_css();
+
+		return ":root {\n{$color_vars}{$icon_collection}\n}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
 	}
 
 	/**
@@ -730,6 +789,37 @@ class Controls extends Module_Base {
 			],
 		];
 	}
+
+	/**
+	 * Get list of all the control settings in the Icon Collections section.
+	 *
+	 * @return array
+	 */
+	public function get_icon_collection_controls() {
+		return [
+			'filled'   => [
+				'label' => __( 'Filled', 'material-theme-builder' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/filled.svg' ),
+			],
+			'outlined' => [
+				'label' => __( 'Outlined', 'material-theme-builder' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/outlined.svg' ),
+			],
+			'round'    => [
+				'label' => __( 'Rounded', 'material-theme-builder' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/rounded.svg' ),
+			],
+			'two-tone' => [
+				'label' => __( 'Two Tone', 'material-theme-builder' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/two-tone.svg' ),
+			],
+			'sharp'    => [
+				'label' => __( 'Sharp', 'material-theme-builder' ),
+				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/sharp.svg' ),
+			],
+		];
+	}
+
 
 	/**
 	 * Prepend the slug name if it does not exist.

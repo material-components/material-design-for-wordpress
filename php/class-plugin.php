@@ -10,6 +10,7 @@ namespace MaterialThemeBuilder;
 use MaterialThemeBuilder\Blocks\Blocks_Frontend;
 use MaterialThemeBuilder\Blocks\Image_List_Block;
 use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
+use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 
 /**
@@ -39,6 +40,13 @@ class Plugin extends Plugin_Base {
 	public $recent_post_block;
 
 	/**
+	 * Hand_Picked_Posts_Block class.
+	 *
+	 * @var Hand_Picked_Posts_Block
+	 */
+	public $hand_picked_post_block;
+
+	/**
 	 * Blocks_Frontend class.
 	 *
 	 * @var Blocks_Frontend
@@ -63,6 +71,9 @@ class Plugin extends Plugin_Base {
 		$this->recent_post_block = new Recent_Posts_Block( $this );
 		$this->recent_post_block->init();
 
+		$this->hand_picked_post_block = new Hand_Picked_Posts_Block( $this );
+		$this->hand_picked_post_block->init();
+
 		$this->image_list_block = new Image_List_Block( $this );
 		$this->image_list_block->init();
 
@@ -83,6 +94,7 @@ class Plugin extends Plugin_Base {
 				'lodash',
 				'react',
 				'wp-block-editor',
+				'wp-editor',
 				'wp-date',
 				'wp-api-fetch',
 			],
@@ -90,9 +102,11 @@ class Plugin extends Plugin_Base {
 			false
 		);
 
+		$fonts_url = $this->customizer_controls->get_google_fonts_url();
+
 		wp_enqueue_style(
-			'material-icons-css',
-			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
+			'material-styles-css',
+			esc_url( $fonts_url ),
 			[],
 			$this->asset_version()
 		);
@@ -103,6 +117,8 @@ class Plugin extends Plugin_Base {
 			[],
 			$this->asset_version()
 		);
+
+		wp_add_inline_style( 'material-block-editor-css', $this->customizer_controls->get_frontend_css() );
 	}
 
 	/**
@@ -120,6 +136,7 @@ class Plugin extends Plugin_Base {
 		);
 
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
+
 		wp_enqueue_style(
 			'material-google-fonts-cdn',
 			esc_url( $fonts_url ),
@@ -127,14 +144,36 @@ class Plugin extends Plugin_Base {
 			$this->asset_version()
 		);
 
+		/**
+		 * Enqueue material style overrides if the theme is not material.
+		 */
+		if ( false === strpos( get_stylesheet(), 'material-theme' ) ) {
+			wp_enqueue_style(
+				'material-overrides-css',
+				$this->asset_url( 'assets/css/overrides-compiled.css' ),
+				[],
+				$this->asset_version()
+			);
+		}
+
 		wp_enqueue_style(
 			'material-front-end-css',
 			$this->asset_url( 'assets/css/front-end-compiled.css' ),
 			[],
 			$this->asset_version()
 		);
+	}
 
-		wp_add_inline_style( 'material-front-end-css', $this->customizer_controls->get_frontend_css() );
+	/**
+	 * Output inline styles with css variables at the top of the head.
+	 *
+	 * @action wp_head, 1
+	 * @action admin_head, 1
+	 */
+	public function frontend_inline_css() {
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<style id="material-css-variables">' . $this->customizer_controls->get_frontend_css() . '</style>';
+		// phpcs:enable
 	}
 
 	/**
