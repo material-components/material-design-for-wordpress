@@ -65,7 +65,7 @@ const RecentPostsInspectorControls = ( { attributes, setAttributes } ) => {
 		return () => {
 			setStillMounted( false );
 		};
-	}, [] );
+	}, [ isStillMounted ] );
 
 	const {
 		style,
