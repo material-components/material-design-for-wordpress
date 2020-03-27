@@ -52,7 +52,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_block_editor_assets();
 		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-styles-css', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
 
 		// Assert inline css vars are added.
@@ -82,6 +82,20 @@ class Test_Plugin extends \WP_UnitTestCase {
 		remove_filter( 'stylesheet', [ $this, 'stylesheet' ] );
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_style_is( 'material-overrides-css', 'enqueued' ) );
+	}
+
+	/**
+	 * Test the frontend_inline_css() method.
+	 *
+	 * @see Plugin::frontend_inline_css()
+	 */
+	public function test_frontend_inline_css() {
+		ob_start();
+		get_plugin_instance()->frontend_inline_css();
+		$output = ob_get_clean();
+
+		$this->assertContains( '<style id="material-css-variables">', $output );
+		$this->assertContains( '</style>', $output );
 	}
 
 	/**

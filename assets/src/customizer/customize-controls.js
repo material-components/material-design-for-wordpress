@@ -556,4 +556,13 @@ import colorUtils from '../common/color-utils';
 				.trigger( 'change' );
 		} );
 	} );
+
+	api.controlConstructor.icon_radio = api.Control.extend( {
+		ready() {
+			const control = this;
+			$( 'input:radio', control.container ).change( function() {
+				control.setting.set( $( this ).val() );
+			} );
+		},
+	} );
 } )( jQuery, wp.customize );

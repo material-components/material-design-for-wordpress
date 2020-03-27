@@ -103,8 +103,9 @@ class Plugin extends Plugin_Base {
 		);
 
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
+
 		wp_enqueue_style(
-			'material-google-fonts-cdn',
+			'material-styles-css',
 			esc_url( $fonts_url ),
 			[],
 			$this->asset_version()
@@ -135,6 +136,7 @@ class Plugin extends Plugin_Base {
 		);
 
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
+
 		wp_enqueue_style(
 			'material-google-fonts-cdn',
 			esc_url( $fonts_url ),
@@ -160,8 +162,18 @@ class Plugin extends Plugin_Base {
 			[],
 			$this->asset_version()
 		);
+	}
 
-		wp_add_inline_style( 'material-front-end-css', $this->customizer_controls->get_frontend_css() );
+	/**
+	 * Output inline styles with css variables at the top of the head.
+	 *
+	 * @action wp_head, 1
+	 * @action admin_head, 1
+	 */
+	public function frontend_inline_css() {
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo '<style id="material-css-variables">' . $this->customizer_controls->get_frontend_css() . '</style>';
+		// phpcs:enable
 	}
 
 	/**
