@@ -1,4 +1,5 @@
 /*
  * Put Block Editor CSS here.
  */
+@import "./overrides.css";
 @import "./material-components.css";

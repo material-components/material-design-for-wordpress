@@ -1,3 +1,6 @@
+/* istanbul ignore file */
+/* @todo Add JS tests */
+
 /**
  * WordPress dependencies
  */
@@ -47,7 +50,7 @@ const InspectorControls = props => {
 		return () => {
 			setStillMounted( false );
 		};
-	}, [] );
+	}, [ isStillMounted ] );
 
 	props.attributes.categoriesList = categoriesList;
 

@@ -1,0 +1,43 @@
+.tab-add {
+	align-self: flex-end;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	padding: 4px 6px;
+	background-color: #f4f5f6;
+	font-size: 13px;
+	border: 1px solid #639ec7;
+	border-radius: 2px;
+	color: #639ec7;
+	cursor: pointer;
+
+	&__icon {
+		vertical-align: middle;
+	}
+}
+
+.tab {
+	position: relative;
+
+	&__label-field {
+		cursor: text !important;
+	}
+
+	&__delete {
+		position: absolute;
+		top: calc(50% - 7.5px);
+		display: none;
+		right: 0;
+		font-size: 15px;
+		background: none;
+		padding: 0;
+		margin: 0;
+		border: none;
+		cursor: pointer;
+		color: #62605a;
+	}
+
+	&:hover &__delete,
+	.mdc-tab--active &__delete {
+		display: block;
+	}
+}

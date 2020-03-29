@@ -33,13 +33,27 @@ describe( 'NoPosts', () => {
 		jest.clearAllMocks();
 	} );
 
-	it( 'matches snapshot when recent posts is empty', () => {
-		const wrapper = setup( { attributes: {}, recentPosts: [] } );
+	it( 'matches snapshot when the block is "Recent Posts"', () => {
+		const wrapper = setup( {
+			name: 'material/recent-posts',
+			postsToDisplay: [],
+		} );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
-	it( 'matches snapshot when recent posts is null', () => {
-		const wrapper = setup( { attributes: {}, recentPosts: null } );
+	it( 'matches snapshot when the block is "Hand-picked Posts"', () => {
+		const wrapper = setup( {
+			name: 'material/hand-picked-posts',
+			postsToDisplay: [],
+		} );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when there are no post to display', () => {
+		const wrapper = setup( {
+			name: 'material/recent-posts',
+			postsToDisplay: null,
+		} );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 } );

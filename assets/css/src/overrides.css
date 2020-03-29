@@ -1,0 +1,105 @@
+/*
+ * Frontend CSS to override other theme styles
+ * which impact the material components.
+ */
+
+@import "./mixins.css";
+
+/*
+ * Set the typography vars by calculating with base font-size of 16px (browser default)
+ * to override any theme font rem declaration on html element.
+ * Material typography vars can be found at
+ * https://github.com/material-components/material-components-web/blob/master/packages/mdc-typography/_variables.scss#L60
+ */
+html {
+
+	@mixin fontvars headline1, 6, 6, 300, -1.5;
+	@mixin fontvars headline2, 3.75, 3.75, 300, -.5;
+	@mixin fontvars headline3, 3, 3.125, 400;
+	@mixin fontvars headline4, 2.125, 2.5, 400, .25;
+	@mixin fontvars headline5, 1.5, 2, 400;
+	@mixin fontvars headline6, 1.25, 2, 500, .25;
+	@mixin fontvars subtitle1, 1, 1.75, 400, .15;
+	@mixin fontvars subtitle2, 0.875, 1.375, 500, .1;
+	@mixin fontvars body1, 1, 1.5, 400, .5;
+	@mixin fontvars body2, 0.875, 1.25, 400, .25;
+	@mixin fontvars caption, 0.75, 1.25, 400, .4;
+	@mixin fontvars button, 0.875, 2.25, 500, 1.25;
+	@mixin fontvars overline, 0.75, 2, 500, 2;
+}
+
+@mixin typography headline1, 6, 6, 300;
+@mixin typography headline2, 3.75, 3.75, 300;
+@mixin typography headline3, 3, 3.125, 400;
+@mixin typography headline4, 2.125, 2.5, 400;
+@mixin typography headline5, 1.5, 2, 400;
+@mixin typography headline6, 1.25, 2, 500;
+@mixin typography subtitle1, 1, 1.75, 400;
+@mixin typography subtitle2, 0.875, 1.375, 500;
+@mixin typography body1, 1, 1.5, 400;
+@mixin typography body2, 0.875, 1.25, 400;
+@mixin typography caption, 0.75, 1.25, 400;
+@mixin typography button, 0.875, 2.25, 500;
+@mixin typography overline, 0.75, 2, 500;
+
+/* For `body` types typography should be applied to child elements as well */
+@mixin typography body1, 1, 1.5, 400, *;
+@mixin typography body2, 0.875, 1.25, 400, *;
+
+/* Material Icons */
+.material-icons {
+	font-family: var(--mdc-icons-font-family) !important;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Button */
+.mdc-button {
+
+	&:hover,
+	&:focus {
+		text-decoration: none !important;
+	}
+}
+
+.mdc-button--outlined:not(:disabled) {
+	border-color: inherit !important;
+}
+
+/**
+ * TODO: These will need to be revisited.
+ */
+.mdc-button {
+	border-radius: var(--mdc-small-component-radius-button, 4px) !important;
+}
+
+.mdc-button .mdc-button__ripple {
+	border-radius: var(--mdc-small-component-radius-button, 4px) !important;
+}
+
+.mdc-card {
+	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-bottom-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-bottom-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+}
+
+mdc-card__primary-action {
+	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+}
+
+.mdc-card__primary-action:first-child {
+	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+}

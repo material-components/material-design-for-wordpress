@@ -80,16 +80,16 @@ const EditWithSelect = withSelect( ( select, props ) => {
 		value => ! isUndefined( value )
 	);
 
-	const fetcheddPosts = getEntityRecords(
+	const fetchedPosts = getEntityRecords(
 		'postType',
 		'post',
 		fetchedPostsQuery
 	);
 
 	return {
-		postsToDisplay: ! Array.isArray( fetcheddPosts )
-			? fetcheddPosts
-			: fetcheddPosts.map( post => {
+		postsToDisplay: ! Array.isArray( fetchedPosts )
+			? fetchedPosts
+			: fetchedPosts.map( post => {
 					if ( displayFeaturedImage && post.featured_media ) {
 						const image = getMedia( post.featured_media );
 						let url = get(

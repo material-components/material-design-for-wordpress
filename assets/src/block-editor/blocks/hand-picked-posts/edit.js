@@ -22,8 +22,9 @@ import EditWithSelect from '../common-posts-list/edit-with-select';
  * @return {Function} Function returning the HTML markup for the component.
  */
 const Edit = props => {
-	const { attributes } = props;
-	const { editMode } = attributes;
+	const {
+		attributes: { editMode },
+	} = props;
 
 	return (
 		<>
