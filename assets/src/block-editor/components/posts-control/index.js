@@ -37,6 +37,7 @@ const PostsControl = ( {
 	posts,
 	isLoading,
 } ) => {
+	/* istanbul ignore next */
 	const messages = {
 		clear: __( 'Clear all posts', 'material-theme-builder' ),
 		list: __( 'Posts', 'material-theme-builder' ),

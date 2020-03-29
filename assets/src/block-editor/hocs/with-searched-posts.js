@@ -6,7 +6,7 @@ import { debounce } from 'lodash';
 /**
  * WordPress dependencies
  */
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, useCallback } from '@wordpress/element';
 import { createHigherOrderComponent } from '@wordpress/compose';
 
 /**
@@ -44,7 +44,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		 *
 		 * @return {Promise<void>} Promise
 		 */
-		const fetchPosts = async args => {
+		const fetchPosts = useCallback( async args => {
 			try {
 				const fetchedList = await getPosts( args );
 				setList( fetchedList );
@@ -52,7 +52,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 			} catch ( e ) {
 				await setError( e );
 			}
-		};
+		}, [] );
 
 		/**
 		 * On search handler.
@@ -88,7 +88,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 			fetchPosts( { selected } );
 
 			debouncedOnSearch.cancel();
-		}, [] );
+		}, [ debouncedOnSearch, fetchPosts, props ] );
 
 		return (
 			<OriginalComponent

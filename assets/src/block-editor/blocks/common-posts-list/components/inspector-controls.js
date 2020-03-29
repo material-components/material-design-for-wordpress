@@ -3,7 +3,6 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { useCallback } from '@wordpress/element';
 import {
 	PanelBody,
 	RangeControl,
@@ -40,7 +39,7 @@ const CommonPostsListInspectorControls = ( {
 	setAttributes,
 	name,
 } ) => {
-	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const setter = genericAttributesSetter( setAttributes );
 
 	const {
 		style,
@@ -145,7 +144,9 @@ const CommonPostsListInspectorControls = ( {
 						initialOpen={ true }
 					>
 						<PostsOrderbyControl
-							setAttributes={ setAttributes }
+							onChange={ setter( 'orderby', value =>
+								'' !== value ? value : 'date'
+							) }
 							value={ orderby }
 						/>
 					</PanelBody>

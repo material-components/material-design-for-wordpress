@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HandPickedPostsBlockControls matches snapshot when the edit mode is false 1`] = `
-<IfBlockEditSelected(BlockControlsFill)>
+<BlockControls>
   <Toolbar
     controls={
       Array [
@@ -14,11 +14,11 @@ exports[`HandPickedPostsBlockControls matches snapshot when the edit mode is fal
       ]
     }
   />
-</IfBlockEditSelected(BlockControlsFill)>
+</BlockControls>
 `;
 
 exports[`HandPickedPostsBlockControls matches snapshot when the edit mode is true 1`] = `
-<IfBlockEditSelected(BlockControlsFill)>
+<BlockControls>
   <Toolbar
     controls={
       Array [
@@ -31,5 +31,5 @@ exports[`HandPickedPostsBlockControls matches snapshot when the edit mode is tru
       ]
     }
   />
-</IfBlockEditSelected(BlockControlsFill)>
+</BlockControls>
 `;

@@ -52,8 +52,12 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_block_editor_assets();
 		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-styles-css', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
+
+		// Assert inline css vars are added.
+		$inline_css = wp_styles()->get_data( 'material-block-editor-css', 'after' );
+		$this->assertNotEmpty( $inline_css );
 	}
 
 	/**
@@ -62,15 +66,36 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 * @see Plugin::enqueue_front_end_assets()
 	 */
 	public function test_enqueue_front_end_assets() {
+		add_filter( 'stylesheet', [ $this, 'stylesheet' ] );
+
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_script_is( 'material-front-end-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-front-end-css', 'enqueued' ) );
+		$this->assertFalse( wp_style_is( 'material-overrides-css', 'enqueued' ) );
 
 		// Assert inline css vars are added.
 		$inline_css = wp_styles()->get_data( 'material-front-end-css', 'after' );
 		$this->assertNotEmpty( $inline_css );
+
+		remove_filter( 'stylesheet', [ $this, 'stylesheet' ] );
+		$plugin->enqueue_front_end_assets();
+		$this->assertTrue( wp_style_is( 'material-overrides-css', 'enqueued' ) );
+	}
+
+	/**
+	 * Test the frontend_inline_css() method.
+	 *
+	 * @see Plugin::frontend_inline_css()
+	 */
+	public function test_frontend_inline_css() {
+		ob_start();
+		get_plugin_instance()->frontend_inline_css();
+		$output = ob_get_clean();
+
+		$this->assertContains( '<style id="material-css-variables">', $output );
+		$this->assertContains( '</style>', $output );
 	}
 
 	/**
@@ -95,6 +120,15 @@ class Test_Plugin extends \WP_UnitTestCase {
 	public function filter_config( $config, $plugin ) {
 		unset( $config, $plugin ); // Test should actually use these.
 		return [ 'foo' => 'bar' ];
+	}
+
+	/**
+	 * Return the material theme stylesheet.
+	 *
+	 * @return string
+	 */
+	public function stylesheet() {
+		return 'material-theme';
 	}
 
 	/* Put other test functions here... */

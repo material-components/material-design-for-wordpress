@@ -162,6 +162,23 @@ class Test_Hand_Picked_Posts_Block extends Posts_Blocks_Tests_Base {
 		$content             = $block->render_block( $attributes );
 
 		// Assert alignwide class is rendered.
-		$this->assertEquals( 1, substr_count( $content, '<div class="wp-block-material-recent-posts alignwide"' ) );
+		$this->assertEquals( 1, substr_count( $content, '<div class="wp-block-material-posts-list alignwide"' ) );
+
+		$attributes['style']   = 'grid';
+		$attributes['orderby'] = 'title';
+		$content               = $block->render_block( $attributes );
+
+		// Assert posts are rendered with title asc sort order.
+		$this->assertGreaterThan( strpos( $content, 'Lorem ipsum dolor sit amet' ), strpos( $content, 'Nunc ac malesuada sem' ) );
+
+		$this->assertGreaterThan( strpos( $content, 'Nunc ac malesuada sem' ), strpos( $content, 'Phasellus non pharetra nibh' ) );
+
+		$attributes['orderby'] = 'popularity';
+		$content               = $block->render_block( $attributes );
+
+		// Assert posts with most comments are at the top in desc order.
+		$this->assertGreaterThan( strpos( $content, 'Nulla eget lobortis turpis' ), strpos( $content, 'Nunc ac malesuada sem' ) );
+
+		$this->assertGreaterThan( strpos( $content, 'Nunc ac malesuada sem' ), strpos( $content, 'Lorem ipsum dolor sit amet' ) );
 	}
 }
