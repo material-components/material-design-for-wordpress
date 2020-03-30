@@ -13,17 +13,22 @@
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
 @import "@material/typography/dist/mdc.typography.css";
 
-/* Overrides */
+:root {
 
-/* @todo move to own file */
-.mdc-image-list__item-wrap {
-	display: block;
-	text-decoration: none !important;
+	/* Global material vars which are not customizable within WordPress yet */
+	--mdc-theme-surface: #fff;
+	--mdc-theme-on-surface: #000;
+	--mdc-theme-on-surface-rgb: 0, 0, 0;
 }
 
 /* Image List */
 .mdc-image-list__item {
 	margin: 0;
+}
+
+.mdc-image-list__item-wrap {
+	display: block;
+	text-decoration: none !important;
 }
 
 .mdc-image-list__image-aspect-container .mdc-image-list__image {

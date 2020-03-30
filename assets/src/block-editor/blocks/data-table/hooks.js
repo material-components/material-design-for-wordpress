@@ -11,10 +11,14 @@ import { addFilter } from '@wordpress/hooks';
 import DataTableSave from './save';
 import DataTableEdit from './edit';
 
-registerBlockStyle( 'core/table', {
-	name: 'material',
-	label: 'Material',
-} );
+export const isMaterialTableBlock = ( name, attributes ) => {
+	return (
+		'core/table' === name &&
+		attributes &&
+		attributes.className &&
+		-1 !== attributes.className.indexOf( 'material' )
+	);
+};
 
 /**
  * Maybe use material data table edit component.
@@ -23,30 +27,20 @@ registerBlockStyle( 'core/table', {
  * @param {WPBlock}   blockType  Block type definition.
  * @param {Object}    attributes Block attributes.
  */
-const withInspectorControl = createHigherOrderComponent( BlockEdit => {
+export const withDataTableEdit = createHigherOrderComponent( BlockEdit => {
 	return props => {
-		if (
-			'core/table' === props.name &&
-			props.attributes.className &&
-			-1 !== props.attributes.className.indexOf( 'material' )
-		) {
+		if ( isMaterialTableBlock( props.name, props.attributes ) ) {
 			return (
 				<>
-					<BlockEdit { ...props } />
 					<DataTableEdit { ...props } />
+					<BlockEdit { ...props } />
 				</>
 			);
 		}
 
 		return <BlockEdit { ...props } />;
 	};
-} );
-
-addFilter(
-	'editor.BlockEdit',
-	'material/data-table-edit',
-	withInspectorControl
-);
+}, 'withMaterialDataTableEdit' );
 
 /**
  * Maybe use material data table save component.
@@ -55,16 +49,22 @@ addFilter(
  * @param {WPBlock}   blockType  Block type definition.
  * @param {Object}    attributes Block attributes.
  */
-const maybeSave = ( element, blockType, attributes ) => {
-	if (
-		'core/table' === blockType.name &&
-		attributes.className &&
-		-1 !== attributes.className.indexOf( 'material' )
-	) {
+export const save = ( element, blockType, attributes ) => {
+	if ( isMaterialTableBlock( blockType.name, attributes ) ) {
 		return <DataTableSave { ...{ attributes } } />;
 	}
 
 	return element;
 };
 
-addFilter( 'blocks.getSaveElement', 'material/data-table-save', maybeSave );
+/**
+ * Register `Material` style.
+ */
+registerBlockStyle( 'core/table', {
+	name: 'material',
+	label: 'Material',
+} );
+
+addFilter( 'editor.BlockEdit', 'material/data-table-edit', withDataTableEdit );
+
+addFilter( 'blocks.getSaveElement', 'material/data-table-save', save );

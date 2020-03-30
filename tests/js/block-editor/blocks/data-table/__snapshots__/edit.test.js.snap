@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Data Table Save matches snapshot when table has data 1`] = `
+exports[`Data Table Edit matches snapshot when table has data 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -21,14 +21,14 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
-      <div
+      <figure
         class="wp-block-table is-style-material"
       >
         <div
           class="mdc-data-table"
         >
           <table
-            class="has-subtle-pale-blue-background-color mdc-data-table__table has-fixed-layout has-background"
+            class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
           >
             <thead
               class=""
@@ -39,21 +39,42 @@ Object {
                 <th
                   class="mdc-data-table__header-cell"
                 >
-                  <div>
+                  <div
+                    aria-label="Header label"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Version
                   </div>
                 </th>
                 <th
                   class="mdc-data-table__header-cell"
                 >
-                  <div>
+                  <div
+                    aria-label="Header label"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Jazz Musician
                   </div>
                 </th>
                 <th
                   class="mdc-data-table__header-cell"
                 >
-                  <div>
+                  <div
+                    aria-label="Header label"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Release Date
                   </div>
                 </th>
@@ -68,21 +89,42 @@ Object {
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     5.2
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Jaco Pastorius
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     May 7, 2019
                   </div>
                 </td>
@@ -93,21 +135,42 @@ Object {
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     5.1
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Betty Carter
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     February 21, 2019
                   </div>
                 </td>
@@ -118,21 +181,42 @@ Object {
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     5.0
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Bebo Valdés
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     December 6, 2018
                   </div>
                 </td>
@@ -147,21 +231,42 @@ Object {
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label="Footer label"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Footer Col 1
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label="Footer label"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Footer Col 2
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label="Footer label"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Footer Col 3
                   </div>
                 </td>
@@ -169,18 +274,18 @@ Object {
             </tfoot>
           </table>
         </div>
-      </div>
+      </figure>
     </div>
   </body>,
   "container": <div>
-    <div
+    <figure
       class="wp-block-table is-style-material"
     >
       <div
         class="mdc-data-table"
       >
         <table
-          class="has-subtle-pale-blue-background-color mdc-data-table__table has-fixed-layout has-background"
+          class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
         >
           <thead
             class=""
@@ -191,21 +296,42 @@ Object {
               <th
                 class="mdc-data-table__header-cell"
               >
-                <div>
+                <div
+                  aria-label="Header label"
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Version
                 </div>
               </th>
               <th
                 class="mdc-data-table__header-cell"
               >
-                <div>
+                <div
+                  aria-label="Header label"
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Jazz Musician
                 </div>
               </th>
               <th
                 class="mdc-data-table__header-cell"
               >
-                <div>
+                <div
+                  aria-label="Header label"
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Release Date
                 </div>
               </th>
@@ -220,21 +346,42 @@ Object {
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   5.2
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Jaco Pastorius
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   May 7, 2019
                 </div>
               </td>
@@ -245,21 +392,42 @@ Object {
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   5.1
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Betty Carter
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   February 21, 2019
                 </div>
               </td>
@@ -270,21 +438,42 @@ Object {
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   5.0
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Bebo Valdés
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   December 6, 2018
                 </div>
               </td>
@@ -299,21 +488,42 @@ Object {
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label="Footer label"
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Footer Col 1
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label="Footer label"
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Footer Col 2
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label="Footer label"
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Footer Col 3
                 </div>
               </td>
@@ -321,7 +531,7 @@ Object {
           </tfoot>
         </table>
       </div>
-    </div>
+    </figure>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -377,7 +587,7 @@ Object {
 }
 `;
 
-exports[`Data Table Save matches snapshot when table has no data 1`] = `
+exports[`Data Table Edit matches snapshot when table has no data 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -397,9 +607,33 @@ Object {
       id="a11y-speak-assertive"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
-    <div />
+    <div>
+      <figure
+        class="wp-block-table is-style-material"
+      >
+        <div
+          class="mdc-data-table"
+        >
+          <table
+            class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
+          />
+        </div>
+      </figure>
+    </div>
   </body>,
-  "container": <div />,
+  "container": <div>
+    <figure
+      class="wp-block-table is-style-material"
+    >
+      <div
+        class="mdc-data-table"
+      >
+        <table
+          class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
+        />
+      </div>
+    </figure>
+  </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
@@ -454,7 +688,7 @@ Object {
 }
 `;
 
-exports[`Data Table Save matches snapshot when table has rows 1`] = `
+exports[`Data Table Edit matches snapshot when table has rows 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -475,14 +709,14 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
-      <div
+      <figure
         class="wp-block-table is-style-material"
       >
         <div
           class="mdc-data-table"
         >
           <table
-            class="has-subtle-pale-blue-background-color mdc-data-table__table has-fixed-layout has-background"
+            class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
           >
             <tbody
               class="mdc-data-table__content"
@@ -493,21 +727,42 @@ Object {
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     5.2
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Jaco Pastorius
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     May 7, 2019
                   </div>
                 </td>
@@ -518,21 +773,42 @@ Object {
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     5.1
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Betty Carter
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     February 21, 2019
                   </div>
                 </td>
@@ -543,21 +819,42 @@ Object {
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     5.0
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     Bebo Valdés
                   </div>
                 </td>
                 <td
                   class="mdc-data-table__cell"
                 >
-                  <div>
+                  <div
+                    aria-label=""
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
                     December 6, 2018
                   </div>
                 </td>
@@ -565,18 +862,18 @@ Object {
             </tbody>
           </table>
         </div>
-      </div>
+      </figure>
     </div>
   </body>,
   "container": <div>
-    <div
+    <figure
       class="wp-block-table is-style-material"
     >
       <div
         class="mdc-data-table"
       >
         <table
-          class="has-subtle-pale-blue-background-color mdc-data-table__table has-fixed-layout has-background"
+          class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
         >
           <tbody
             class="mdc-data-table__content"
@@ -587,21 +884,42 @@ Object {
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   5.2
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Jaco Pastorius
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   May 7, 2019
                 </div>
               </td>
@@ -612,21 +930,42 @@ Object {
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   5.1
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Betty Carter
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   February 21, 2019
                 </div>
               </td>
@@ -637,21 +976,42 @@ Object {
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   5.0
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   Bebo Valdés
                 </div>
               </td>
               <td
                 class="mdc-data-table__cell"
               >
-                <div>
+                <div
+                  aria-label=""
+                  aria-multiline="true"
+                  class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
+                  contenteditable="true"
+                  role="textbox"
+                  style="white-space: pre-wrap;"
+                >
                   December 6, 2018
                 </div>
               </td>
@@ -659,7 +1019,7 @@ Object {
           </tbody>
         </table>
       </div>
-    </div>
+    </figure>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

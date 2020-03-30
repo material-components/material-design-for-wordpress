@@ -8,7 +8,7 @@ import classnames from 'classnames';
  */
 import { RichText, getColorClassName } from '@wordpress/block-editor';
 
-const Save = ( { attributes } ) => {
+const Save = ( { attributes, hasCaption } ) => {
 	const {
 		hasFixedLayout,
 		head,
@@ -34,7 +34,7 @@ const Save = ( { attributes } ) => {
 		'has-background': !! backgroundClass,
 	} );
 
-	const hasCaption = ! RichText.isEmpty( caption );
+	hasCaption = hasCaption && ! RichText.isEmpty( caption );
 
 	const Section = ( { type, rows } ) => {
 		if ( ! rows.length ) {
@@ -89,10 +89,13 @@ const Save = ( { attributes } ) => {
 					<Section type="body" rows={ body } />
 					<Section type="foot" rows={ foot } />
 				</table>
-				{ hasCaption && (
-					<RichText.Content tagName="figcaption" value={ caption } />
-				) }
 			</div>
+
+			{ hasCaption && (
+				<div className="mdc-data-table__caption">
+					<RichText.Content tagName="figcaption" value={ caption } />
+				</div>
+			) }
 		</div>
 	);
 };
