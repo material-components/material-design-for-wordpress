@@ -6,6 +6,10 @@
 	overflow: hidden !important;
 }
 
+.mdc-data-table {
+	width: 100%;
+}
+
 .mdc-data-table__caption {
 	padding: 10px 0;
 }
