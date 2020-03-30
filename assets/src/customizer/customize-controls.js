@@ -25,18 +25,19 @@ import { unmountComponentAtNode } from 'react-dom';
 /**
  * Internal dependencies
  */
-import MaterialColorPalette from '../block-editor/components/material-color-palette';
-import KitchenSink from './components/kitchen-sink';
 import colorUtils from '../common/color-utils';
+import KitchenSink from './components/kitchen-sink';
+import { initButtons } from '../common/mdc-components-init';
+import MaterialColorPalette from '../block-editor/components/material-color-palette';
 
 ( ( $, api ) => {
 	/**
-	 * Handle the kitchen sink swap right here.
+	 * Gets all the controls' setting
+	 * values and returns them in an object.
 	 */
-	$( document ).on( 'click', '#_customize-input-mtb_kitchen_sink', function() {
+	const getControlValues = () => {
 		const controlProps = {};
 
-		// Prep all customizer settings to be passed to KitchenSink.
 		if ( mtb.controls && Array.isArray( mtb.controls ) ) {
 			mtb.controls.forEach( name => {
 				const control = api.control( name );
@@ -46,6 +47,28 @@ import colorUtils from '../common/color-utils';
 					controlProps[ prop ] = control.setting.get();
 				}
 			} );
+		}
+
+		return controlProps;
+	};
+
+	/**
+	 * Handle the kitchen sink swap right here.
+	 */
+	let mdcLoaded = false;
+	$( document ).on( 'click', '#_customize-input-mtb_kitchen_sink', function() {
+		// Load MDC assets
+		if ( ! mdcLoaded ) {
+			$( 'head' ).append(
+				'<link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">'
+			);
+
+			$.getScript(
+				'https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js',
+				function() {
+					initButtons();
+				}
+			);
 		}
 
 		let kitchenSink = $( '#mcb-kitchen-sink-preview' );
@@ -61,7 +84,10 @@ import colorUtils from '../common/color-utils';
 				);
 
 				kitchenSink = $( '#mcb-kitchen-sink-preview' );
-				render( <KitchenSink { ...controlProps } />, kitchenSink.get( 0 ) );
+				render(
+					<KitchenSink { ...getControlValues() } />,
+					kitchenSink.get( 0 )
+				);
 			}
 
 			customizePreview.hide();
@@ -70,6 +96,8 @@ import colorUtils from '../common/color-utils';
 			kitchenSink.hide();
 			customizePreview.show();
 		}
+
+		mdcLoaded = true;
 	} );
 
 	/**
