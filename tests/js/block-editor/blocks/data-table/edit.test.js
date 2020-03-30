@@ -3,11 +3,36 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent } from '@testing-library/react';
+import { registerStore } from '@wordpress/data';
 
 /**
  * Internal dependencies
  */
 import Edit from '../../../../../assets/src/block-editor/blocks/data-table/edit';
+
+registerStore( 'core/blocks', {
+	reducer: jest.fn(),
+	selectors: {
+		getBlockType: ( state, blockName ) => {
+			switch ( blockName ) {
+				case 'core/table':
+					return {
+						attributes: {
+							caption: {
+								type: 'string',
+								source: 'html',
+								selector: 'figcaption',
+								default: '',
+							},
+						},
+					};
+
+				default:
+					return {};
+			}
+		},
+	},
+} );
 
 /**
  * Render the component.
@@ -108,7 +133,6 @@ const attributes = {
 		},
 	],
 	backgroundColor: 'subtle-pale-blue',
-	caption: 'Material Data Table',
 	className: 'is-style-material',
 };
 
@@ -128,6 +152,13 @@ describe( 'Data Table Edit', () => {
 	it( 'matches snapshot when table has rows', () => {
 		const wrapper = setup( {
 			attributes: { ...attributes, head: [], foot: [] },
+		} );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when caption is set', () => {
+		const wrapper = setup( {
+			attributes: { ...attributes, caption: 'Material Data Table' },
 		} );
 		expect( wrapper ).toMatchSnapshot();
 	} );
