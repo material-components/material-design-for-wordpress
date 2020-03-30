@@ -8,8 +8,10 @@ import { every, pick, mapValues } from 'lodash';
  * WordPress dependencies
  */
 import { RichText, createCustomColorsHOC } from '@wordpress/block-editor';
-import { __ } from '@wordpress/i18n';
+import { compose } from '@wordpress/compose';
+import { withSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -108,7 +110,7 @@ const updateSelectedCell = ( state, selection, updateCell ) => {
 	} );
 };
 
-const Section = ( { name, rows, onChange, createOnFocus } ) => {
+const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	if ( isEmptyTableSection( rows ) ) {
 		return null;
 	}
@@ -142,6 +144,11 @@ const Section = ( { name, rows, onChange, createOnFocus } ) => {
 							const tdClasses = classnames( {
 								'mdc-data-table__cell': 'head' !== name,
 								'mdc-data-table__header-cell': 'head' === name,
+								'is-selected':
+									selectedCell &&
+									selectedCell.sectionName === cellLocation.sectionName &&
+									selectedCell.rowIndex === cellLocation.rowIndex &&
+									selectedCell.columnIndex === cellLocation.columnIndex,
 							} );
 
 							let placeholder = '';
@@ -152,7 +159,11 @@ const Section = ( { name, rows, onChange, createOnFocus } ) => {
 							}
 
 							return (
-								<CellTag key={ columnIndex } className={ tdClasses }>
+								<CellTag
+									key={ columnIndex }
+									className={ tdClasses }
+									onClick={ createOnFocus( cellLocation ) }
+								>
 									<RichText
 										className={ cellClasses }
 										scope={ CellTag === 'th' ? scope : undefined }
@@ -171,7 +182,12 @@ const Section = ( { name, rows, onChange, createOnFocus } ) => {
 	);
 };
 
-const DataTableEdit = ( { attributes, backgroundColor, setAttributes } ) => {
+const DataTableEdit = ( {
+	attributes,
+	backgroundColor,
+	setAttributes,
+	hasCaption,
+} ) => {
 	const { className, hasFixedLayout, caption, head, body, foot } = attributes;
 	const [ selectedCell, setSelectedCell ] = useState( null );
 
@@ -211,7 +227,10 @@ const DataTableEdit = ( { attributes, backgroundColor, setAttributes } ) => {
 		<figure
 			className={ classnames(
 				'wp-block-table',
-				className.replace( 'wp-block-table', '' )
+				className.replace( 'wp-block-table', '' ),
+				{
+					'is-selected': !! selectedCell,
+				}
 			) }
 		>
 			<div className="mdc-data-table">
@@ -221,33 +240,52 @@ const DataTableEdit = ( { attributes, backgroundColor, setAttributes } ) => {
 						rows={ head }
 						onChange={ onChange }
 						createOnFocus={ createOnFocus }
+						selectedCell={ selectedCell }
 					/>
 					<Section
 						name="body"
 						rows={ body }
 						onChange={ onChange }
 						createOnFocus={ createOnFocus }
+						selectedCell={ selectedCell }
 					/>
 					<Section
 						name="foot"
 						rows={ foot }
 						onChange={ onChange }
 						createOnFocus={ createOnFocus }
+						selectedCell={ selectedCell }
 					/>
 				</table>
-				<RichText
-					tagName="figcaption"
-					placeholder={ __( 'Write caption…' ) }
-					value={ caption }
-					onChange={ value => setAttributes( { caption: value } ) }
-					// Deselect the selected table cell when the caption is focused.
-					unstableOnFocus={ () => setSelectedCell( null ) }
-				/>
 			</div>
+
+			{ hasCaption && (
+				<div className="mdc-data-table__caption">
+					<RichText
+						tagName="figcaption"
+						placeholder={ __( 'Write caption…' ) }
+						value={ caption }
+						onChange={ value => setAttributes( { caption: value } ) }
+						// Deselect the selected table cell when the caption is focused.
+						unstableOnFocus={ () => setSelectedCell( null ) }
+					/>
+				</div>
+			) }
 		</figure>
 	);
 };
 
 const withCustomBackgroundColors = createCustomColorsHOC( BACKGROUND_COLORS );
 
-export default withCustomBackgroundColors( 'backgroundColor' )( DataTableEdit );
+export default compose( [
+	withCustomBackgroundColors( 'backgroundColor' ),
+	withSelect( select => {
+		const tableBlock = select( 'core/blocks' ).getBlockType( 'core/table' );
+		return {
+			hasCaption:
+				tableBlock &&
+				tableBlock.attributes &&
+				'caption' in tableBlock.attributes,
+		};
+	} ),
+] )( DataTableEdit );
