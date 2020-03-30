@@ -12,6 +12,7 @@
  * External dependencies
  */
 import 'select-woo';
+import { camelCase } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -29,10 +30,28 @@ import KitchenSink from './components/kitchen-sink';
 import colorUtils from '../common/color-utils';
 
 ( ( $, api ) => {
+	/**
+	 * Handle the kitchen sink swap right here.
+	 */
 	$( document ).on( 'click', '#_customize-input-mtb_kitchen_sink', function() {
+		const controlProps = {};
+
+		// Prep all customizer settings to be passed to KitchenSink.
+		if ( mtb.controls && Array.isArray( mtb.controls ) ) {
+			mtb.controls.forEach( name => {
+				const control = api.control( name );
+				const prop = camelCase( name.replace( 'mtb_', '' ) );
+
+				if ( control.setting ) {
+					controlProps[ prop ] = control.setting.get();
+				}
+			} );
+		}
+
 		let kitchenSink = $( '#mcb-kitchen-sink-preview' );
 		const customizePreview = $( '#customize-preview' );
 
+		// Toggle between kitchen sink and default customizer view.
 		if ( ! kitchenSink.is( ':visible' ) ) {
 			if ( ! kitchenSink.length ) {
 				customizePreview.before(
@@ -42,7 +61,7 @@ import colorUtils from '../common/color-utils';
 				);
 
 				kitchenSink = $( '#mcb-kitchen-sink-preview' );
-				render( <KitchenSink />, kitchenSink.get( 0 ) );
+				render( <KitchenSink { ...controlProps } />, kitchenSink.get( 0 ) );
 			}
 
 			customizePreview.hide();
