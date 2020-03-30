@@ -25,9 +25,34 @@ import { unmountComponentAtNode } from 'react-dom';
  * Internal dependencies
  */
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
+import KitchenSink from './components/kitchen-sink';
 import colorUtils from '../common/color-utils';
 
 ( ( $, api ) => {
+	$( document ).on( 'click', '#_customize-input-mtb_kitchen_sink', function() {
+		let kitchenSink = $( '#mcb-kitchen-sink-preview' );
+		const customizePreview = $( '#customize-preview' );
+
+		if ( ! kitchenSink.is( ':visible' ) ) {
+			if ( ! kitchenSink.length ) {
+				customizePreview.before(
+					$( '<div></div>' )
+						.attr( { id: 'mcb-kitchen-sink-preview' } )
+						.addClass( 'wp-full-overlay-main' )
+				);
+
+				kitchenSink = $( '#mcb-kitchen-sink-preview' );
+				render( <KitchenSink />, kitchenSink.get( 0 ) );
+			}
+
+			customizePreview.hide();
+			kitchenSink.show();
+		} else {
+			kitchenSink.hide();
+			customizePreview.show();
+		}
+	} );
+
 	/**
 	 * Collapse a DOM node by animating it's height to 0.
 	 *
