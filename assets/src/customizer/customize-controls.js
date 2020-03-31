@@ -12,25 +12,37 @@
  * External dependencies
  */
 import 'select-woo';
-import { camelCase } from 'lodash';
+import { camelCase, debounce } from 'lodash';
 
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import { render } from '@wordpress/element';
-import RangeSliderControl from './components/range-slider-control';
 import { unmountComponentAtNode } from 'react-dom';
+import RangeSliderControl from './components/range-slider-control';
 
 /**
  * Internal dependencies
  */
 import colorUtils from '../common/color-utils';
 import KitchenSink from './components/kitchen-sink';
-import { initButtons } from '../common/mdc-components-init';
+import { initButtons, initTabBar } from '../common/mdc-components-init';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
 
 ( ( $, api ) => {
+	/**
+	 * Renders the kitchen sink with all the settings.
+	 */
+	const renderKitchenSink = () => {
+		render(
+			<KitchenSink { ...getSettings() } />,
+			$( '#mcb-kitchen-sink-preview' ).get( 0 )
+		);
+
+		initMaterialComponents();
+	};
+
 	/**
 	 * Gets all the controls' setting
 	 * values and returns them in an object.
@@ -38,24 +50,63 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	const getSettings = () => {
 		const controlProps = {};
 
-		if ( mtb.controls && Array.isArray( mtb.controls ) ) {
-			mtb.controls.forEach( name => {
-				const control = api.control( name );
-				const prop = camelCase( name.replace( 'mtb_', '' ) );
-
-				if ( control.setting ) {
-					controlProps[ prop ] = control.setting.get();
-				}
-			} );
+		if ( ! mtb.controls || ! Array.isArray( mtb.controls ) ) {
+			return controlProps;
 		}
 
+		mtb.controls.forEach( name => {
+			const control = api.control( name );
+			const prop = camelCase( name.replace( 'mtb_', '' ) );
+
+			if ( control.setting ) {
+				controlProps[ prop ] = control.setting.get();
+			}
+		} );
+
 		return controlProps;
+	};
+
+	/**
+	 * Registers a listener for each setting and re-renders when they change.
+	 */
+	const listenForSettingChanges = () => {
+		if ( ! mtb.controls || ! Array.isArray( mtb.controls ) ) {
+			return;
+		}
+
+		mtb.controls.forEach( name => {
+			const control = api.control( name );
+
+			if ( ! control.setting ) {
+				return;
+			}
+
+			control.setting.bind(
+				debounce( function() {
+					const kitchenSink = $( '#mcb-kitchen-sink-preview' );
+
+					if (
+						kitchenSink.get( 0 ) &&
+						unmountComponentAtNode( kitchenSink.get( 0 ) )
+					) {
+						renderKitchenSink();
+					}
+				}, 500 )
+			);
+		} );
+	};
+
+	const initMaterialComponents = () => {
+		initButtons();
+		initTabBar();
 	};
 
 	/**
 	 * Show/hide kitchen sink button near the "Publish" button.
 	 */
 	$( '#customize-save-button-wrapper' ).ready( function() {
+		listenForSettingChanges();
+
 		$( '#customize-save-button-wrapper' ).prepend(
 			$( '<button></button>' )
 				.attr( { type: 'button' } )
@@ -83,9 +134,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 
 			$.getScript(
 				'https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js',
-				function() {
-					initButtons();
-				}
+				initMaterialComponents
 			);
 		}
 
@@ -102,10 +151,11 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 				);
 
 				kitchenSink = $( '#mcb-kitchen-sink-preview' );
-				render( <KitchenSink { ...getSettings() } />, kitchenSink.get( 0 ) );
 			}
 
 			$( this ).addClass( 'active' );
+			renderKitchenSink();
+
 			customizePreview.hide();
 			kitchenSink.show();
 		} else {
