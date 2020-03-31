@@ -43,6 +43,8 @@ const Edit = props => {
 		displaySecondaryText,
 		buttonActionText,
 		buttonActionUrl,
+		buttonActionNewTab,
+		buttonActionNoFollow,
 		displayActions,
 		outlined,
 		cornerRadius,
@@ -128,6 +130,8 @@ const Edit = props => {
 					<CardActions
 						buttonActionText={ buttonActionText }
 						buttonActionUrl={ buttonActionUrl }
+						buttonActionNewTab={ buttonActionNewTab }
+						buttonActionNoFollow={ buttonActionNoFollow }
 						isSelected={ isSelected }
 						setter={ setter }
 					/>
