@@ -65,11 +65,13 @@ export const settings = {
 		buttonActionUrl: {
 			type: 'string',
 		},
-		actionButtonRel: {
-			type: 'string',
+		buttonActionNewTab: {
+			type: 'bool',
+			default: false,
 		},
-		actionButtonLinkTarget: {
-			type: 'string',
+		buttonActionNoFollow: {
+			type: 'bool',
+			default: false,
 		},
 		displayActions: {
 			type: 'boolean',
