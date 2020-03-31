@@ -35,7 +35,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	 * Gets all the controls' setting
 	 * values and returns them in an object.
 	 */
-	const getControlValues = () => {
+	const getSettings = () => {
 		const controlProps = {};
 
 		if ( mtb.controls && Array.isArray( mtb.controls ) ) {
@@ -53,10 +53,28 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	};
 
 	/**
+	 * Show/hide kitchen sink button near the "Publish" button.
+	 */
+	$( '#customize-save-button-wrapper' ).ready( function() {
+		$( '#customize-save-button-wrapper' ).prepend(
+			$( '<button></button>' )
+				.attr( { type: 'button' } )
+				.css( 'display', 'none' )
+				.addClass( 'button toggle-kitchen-sink' )
+				.text( __( 'Kitchen Sink', 'material-theme-builder' ) )
+		);
+
+		api.panel( 'mtb' ).expanded.bind( function( expanded ) {
+			const showOrHide = expanded ? 'block' : 'none';
+			$( '.toggle-kitchen-sink' ).css( 'display', showOrHide );
+		} );
+	} );
+
+	/**
 	 * Handle the kitchen sink swap right here.
 	 */
 	let mdcLoaded = false;
-	$( document ).on( 'click', '#_customize-input-mtb_kitchen_sink', function() {
+	$( document ).on( 'click', '.toggle-kitchen-sink', function() {
 		// Load MDC assets
 		if ( ! mdcLoaded ) {
 			$( 'head' ).append(
@@ -84,15 +102,14 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 				);
 
 				kitchenSink = $( '#mcb-kitchen-sink-preview' );
-				render(
-					<KitchenSink { ...getControlValues() } />,
-					kitchenSink.get( 0 )
-				);
+				render( <KitchenSink { ...getSettings() } />, kitchenSink.get( 0 ) );
 			}
 
+			$( this ).addClass( 'active' );
 			customizePreview.hide();
 			kitchenSink.show();
 		} else {
+			$( this ).removeClass( 'active' );
 			kitchenSink.hide();
 			customizePreview.show();
 		}

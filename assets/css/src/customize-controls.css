@@ -212,3 +212,9 @@
 		}
 	}
 }
+
+.toggle-kitchen-sink {
+	float: left;
+	margin-right: 4px !important;
+	border-radius: 3px !important;
+}

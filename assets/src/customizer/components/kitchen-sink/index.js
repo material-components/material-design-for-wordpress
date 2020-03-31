@@ -16,7 +16,7 @@
 
 const KitchenSink = props => (
 	<div>
-		<h1>Kitchenn Sink Boi</h1>
+		<h1>Kitchen Sink</h1>
 		<ul>
 			{ Object.keys( props ).map( prop => (
 				<li key={ prop }>
