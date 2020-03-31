@@ -61,6 +61,7 @@ export const settings = {
 		},
 		buttonActionText: {
 			type: 'string',
+			default: 'Button text',
 		},
 		buttonActionUrl: {
 			type: 'string',
