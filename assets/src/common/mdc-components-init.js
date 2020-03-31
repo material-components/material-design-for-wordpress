@@ -2,13 +2,11 @@ import { MDCRipple } from '@material/ripple';
 import { MDCTabBar } from '@material/tab-bar';
 
 export const initButtons = () => {
-	const buttons = document.querySelectorAll(
-		'.mdc-button, .mdc-card__primary-action'
-	);
+	const buttons = document.querySelectorAll( '.mdc-button' );
+	const iconButtons = document.querySelectorAll( '.mdc-icon-button' );
 
-	for ( const button of buttons ) {
-		new MDCRipple( button );
-	}
+	buttons.forEach( button => new MDCRipple( button ) );
+	iconButtons.forEach( button => ( new MDCRipple( button ).unbounded = true ) );
 };
 
 export const initTabBar = () => {

@@ -69,21 +69,6 @@ class Controls extends Module_Base {
 
 		// Add all controls in the "Icon Collections" section.
 		$this->add_icon_collection_controls();
-
-		$controls = [
-			'kitchen_sink' => [
-				'section' => 'style',
-				'type' => 'button',
-				'settings' => [],
-				'priority' => 10,
-				'input_attrs' => [
-					'value' => __( 'Kitchen Sink', 'textdomain' ),
-					'class' => 'button button-primary',
-				],
-			],
-		];
-
-		$this->add_controls( $controls );
 	}
 
 	/**
