@@ -110,9 +110,7 @@ const Edit = props => {
 						<CardPrimary { ...cardPrimaryProps } />
 					) }
 
-					{ displayImage && (
-						<CardImage { ...cardImageProps } />
-					) }
+					{ displayImage && <CardImage { ...cardImageProps } /> }
 
 					{ contentLayout === 'text-under-media' && (
 						<CardPrimary { ...cardPrimaryProps } />
