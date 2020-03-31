@@ -2,7 +2,7 @@
  * External dependencies
  */
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 
 /**
  * Internal dependencies
@@ -31,6 +31,11 @@ describe( 'ButtonEdit', () => {
 		expect( screen.getByText( 'Colors' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Rounded Corners' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Link Settings' ) ).toBeInTheDocument();
+	} );
+
+	it( 'matches snapshot', () => {
+		const wrapper = setup( baseProps );
+		expect( wrapper ).toMatchSnapshot();
 	} );
 
 	it( 'should display an text button with text style initially', () => {
@@ -129,5 +134,70 @@ describe( 'ButtonEdit', () => {
 		const matches = container.querySelector( '.material-button-link' );
 
 		expect( matches ).toBeNull();
+	} );
+
+	it( 'should set link target when `Open in new tab` is selected', async () => {
+		const props = {
+			attributes: { type: 'text' },
+			isSelected: true,
+			setAttributes: jest.fn(),
+		};
+		const { container } = setup( props );
+		const toggle = container.querySelector( '.components-form-toggle__input' );
+
+		await fireEvent.click( toggle );
+		expect( props.setAttributes ).toHaveBeenCalledWith( {
+			linkTarget: '_blank',
+			rel: 'noreferrer noopener',
+		} );
+	} );
+
+	it( 'should set link target when `Open in new tab` is un-selected', async () => {
+		const props = {
+			attributes: {
+				type: 'text',
+				linkTarget: '',
+				rel: '',
+			},
+			isSelected: true,
+			setAttributes: jest.fn(),
+		};
+		const { container } = setup( props );
+		const toggle = container.querySelector( '.components-form-toggle__input' );
+
+		await fireEvent.click( toggle );
+		expect( props.setAttributes ).toHaveBeenCalledWith( {
+			linkTarget: '_blank',
+			rel: 'noreferrer noopener',
+		} );
+	} );
+
+	it( 'should set type when a style is selected', () => {
+		const props = {
+			attributes: { type: 'text' },
+			isSelected: true,
+			setAttributes: jest.fn(),
+		};
+		const { container } = setup( props );
+		const radios = container.querySelectorAll(
+			'.components-radio-control__option label'
+		);
+
+		fireEvent.click( radios[ 1 ] );
+
+		expect( props.setAttributes ).toHaveBeenCalledTimes( 2 );
+
+		// eslint-disable-next-line jest/prefer-strict-equal
+		expect( props.setAttributes.mock.calls[ 0 ][ 0 ] ).toEqual( {
+			icon: {
+				hex: 59517,
+				name: 'favorite',
+			},
+		} );
+
+		// eslint-disable-next-line jest/prefer-strict-equal
+		expect( props.setAttributes.mock.calls[ 1 ][ 0 ] ).toEqual( {
+			type: 'icon',
+		} );
 	} );
 } );
