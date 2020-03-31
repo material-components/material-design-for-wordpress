@@ -31,6 +31,10 @@ export const settings = {
 			type: 'string',
 			default: 'masonry',
 		},
+		align: {
+			type: 'string',
+			default: 'wide',
+		},
 		columns: {
 			type: 'number',
 			default: 2,
