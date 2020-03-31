@@ -28,7 +28,7 @@ const ButtonSave = ( {
 		return (
 			<div className={ className }>
 				<a
-					href={ url ?? '#' }
+					href={ url || '#' }
 					rel={ rel }
 					target={ linkTarget ?? undefined }
 					className="material-icons mdc-icon-button"
@@ -50,7 +50,7 @@ const ButtonSave = ( {
 					...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
 					...( textColor ? { color: textColor } : {} ),
 					...( cornerRadius !== undefined
-						? { borderRadius: cornerRadius }
+						? { borderRadius: `${ cornerRadius }px` }
 						: {} ),
 				} }
 				className={ classNames( 'mdc-button', {
