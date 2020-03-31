@@ -9,6 +9,7 @@ import classnames from 'classnames';
 import { MediaPlaceholder } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
+import { IconButton } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -38,6 +39,8 @@ const CardImage = ( {
 		imageSourceUrl !== undefined && imageSourceUrl !== ''
 	);
 
+	const [ isFocused, setIsFocused ] = useState( false );
+
 	/**
 	 * Image select handler.
 	 *
@@ -49,6 +52,28 @@ const CardImage = ( {
 			imageEditMode: false,
 		} );
 		setHasImage( el.url !== undefined && el.url !== '' );
+	};
+
+	const onRemoveImage = () => {
+		setAttributes( {
+			imageSourceUrl: '',
+			imageEditMode: false,
+		} );
+		setHasImage( false );
+	};
+
+	/**
+	 * Handle image container on blur event.
+	 *
+	 * @param {Object} e
+	 */
+	const handleBlur = e => {
+		const currentTarget = e.currentTarget;
+		setTimeout( () => {
+			if ( ! currentTarget.contains( document.activeElement ) ) {
+				setIsFocused( false );
+			}
+		}, 0 );
 	};
 
 	return (
@@ -67,19 +92,40 @@ const CardImage = ( {
 			{ hasImage && ! imageEditMode && imageSourceUrl && (
 				<>
 					<div
-						className={ classnames(
-							'mdc-card__media',
-							'mdc-card__media--16-9',
-							'mtb-card__media',
-							{ [ `mtb-card-with-${ contentLayout }` ]: contentLayout }
-						) }
-						style={ { backgroundImage: `url(${ imageSourceUrl })` } }
+						className={ classnames( {
+							'mtb-card__media-container-focused': isFocused,
+						} ) }
+						onFocus={ () => setIsFocused( true ) }
+						onBlur={ handleBlur }
 					>
-						{ contentLayout === 'text-over-media' && (
-							<div className="mdc-card__media-content">
-								<CardPrimary { ...cardPrimaryProps } />
-							</div>
-						) }
+						<div
+							tabIndex={ 0 }
+							className={ classnames(
+								'mdc-card__media',
+								'mdc-card__media--16-9',
+								'mtb-card__media',
+								{ [ `mtb-card-with-${ contentLayout }` ]: contentLayout }
+							) }
+							style={ { backgroundImage: `url(${ imageSourceUrl })` } }
+						>
+							{ contentLayout === 'text-over-media' && (
+								<div className="mdc-card__media-content">
+									<CardPrimary { ...cardPrimaryProps } />
+								</div>
+							) }
+						</div>
+						<div
+							className={ classnames( 'mtb-card__media-actions', {
+								'mtb-card__media-actions-shown': isFocused,
+							} ) }
+						>
+							<IconButton
+								className="mtb-card__media-close-button"
+								icon="no"
+								label={ __( 'Remove Card Image', 'material-theme-builder' ) }
+								onClick={ onRemoveImage }
+							/>
+						</div>
 					</div>
 				</>
 			) }

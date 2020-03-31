@@ -1,6 +1,23 @@
-.editor-block-list__block-edit {
+.mtb-card__media-container-focused {
+	border: 4px rgb(0, 113, 161) solid;
 
-	.mdc-card__primary-action {
-		overflow: visible;
-	}
+}
+
+.mtb-card__media-actions {
+	display: none;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: #fff;
+	border: 1px solid rgba(66, 88, 99, 0.4);
+	border-radius: 4px;
+	transition: box-shadow 0.2s ease-out;
+}
+
+.mtb-card__media-actions-shown {
+	display: block !important;
+}
+
+.mtb-card__media-close-button {
+	padding: 2px !important;
 }

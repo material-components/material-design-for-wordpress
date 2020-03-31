@@ -14,6 +14,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import './stlye.css';
+import './editor.css';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import CardInspectorControls from './components/inspector-controls';
 import CardImage from './components/card-image';
