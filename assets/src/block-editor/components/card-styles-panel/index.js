@@ -73,6 +73,8 @@ const GUTTER_DEVICES = [
 const CardStylesPanel = ( {
 	style,
 	columns,
+	allowIndividualStyleOverride = false,
+	showAllowIndividualStyleOverride = false,
 	showColumns = true,
 	minColumns = 2,
 	maxColumns = 4,
@@ -115,7 +117,17 @@ const CardStylesPanel = ( {
 						min={ minColumns }
 						max={ maxColumns }
 					/>
-					{ showContentLayout && (
+					{ showAllowIndividualStyleOverride && (
+						<ToggleControl
+							label={ __(
+								'Allow individual card override',
+								'material-theme-builder'
+							) }
+							checked={ allowIndividualStyleOverride }
+							onChange={ setter( 'allowIndividualStyleOverride' ) }
+						/>
+					) }
+					{ ! allowIndividualStyleOverride && showContentLayout && (
 						<RadioControl
 							label={ __( 'Content layout', 'material-theme-builder' ) }
 							selected={ contentLayout }
@@ -124,6 +136,22 @@ const CardStylesPanel = ( {
 						/>
 					) }
 				</>
+			) }
+			{ ! allowIndividualStyleOverride && showRoundedCorners && (
+				<RangeControl
+					label={ __( 'Rounded Corners', 'material-theme-builder' ) }
+					value={ roundedCorners }
+					onChange={ setter( 'roundedCorners' ) }
+					min={ minRoundedCornersRadius }
+					max={ maxRoundedCornersRadius }
+				/>
+			) }
+			{ ! allowIndividualStyleOverride && showOutlined && (
+				<ToggleControl
+					label={ __( 'Outlined', 'material-theme-builder' ) }
+					checked={ outlined }
+					onChange={ setter( 'outlined' ) }
+				/>
 			) }
 			{ showGutter && (
 				<RangeControl
@@ -149,22 +177,6 @@ const CardStylesPanel = ( {
 					onChange={ value => setGutter( value ) }
 					min={ 0 }
 					max={ 24 }
-				/>
-			) }
-			{ showRoundedCorners && (
-				<RangeControl
-					label={ __( 'Rounded Corners', 'material-theme-builder' ) }
-					value={ roundedCorners }
-					onChange={ setter( 'roundedCorners' ) }
-					min={ minRoundedCornersRadius }
-					max={ maxRoundedCornersRadius }
-				/>
-			) }
-			{ showOutlined && (
-				<ToggleControl
-					label={ __( 'Outlined', 'material-theme-builder' ) }
-					checked={ outlined }
-					onChange={ setter( 'outlined' ) }
 				/>
 			) }
 		</PanelBody>
