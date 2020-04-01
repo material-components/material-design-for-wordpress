@@ -14,12 +14,18 @@ import { RichText } from '@wordpress/block-editor';
  *
  * @param {Object} props - Component props.
  * @param {string} props.secondaryText - Secondary text.
- * @param {string} props.contentLayout - Content Layout.
+ * @param {string} props.contentLayout - Content layout.
+ * @param {number} props.cardIndex - Card index.
  * @param {Function} props.setter - Block attribute setter.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const CardSecondaryText = ( { secondaryText, contentLayout, setter } ) => (
+const CardSecondaryText = ( {
+	secondaryText,
+	contentLayout,
+	cardIndex,
+	setter,
+} ) => (
 	<RichText
 		tagName="div"
 		className={ classnames(
@@ -29,7 +35,7 @@ const CardSecondaryText = ( { secondaryText, contentLayout, setter } ) => (
 			'mdc-typography--body2'
 		) }
 		value={ secondaryText }
-		onChange={ setter( 'secondaryText' ) }
+		onChange={ value => setter( 'secondaryText', value, cardIndex ) }
 		placeholder={ __(
 			'Enter the card secondary text here.',
 			'material-theme-builder'

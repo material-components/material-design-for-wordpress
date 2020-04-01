@@ -23,8 +23,10 @@ import CardPrimary from './card-primary';
  * @param {string} props.imageSourceUrl - Image Source URL.
  * @param {boolean} props.imageEditMode - Image Edit mode.
  * @param {string} props.contentLayout - Content layout.
+ * @param {boolean} props.displayImage - Whether or not to display the image.
  * @param {Object} props.cardPrimaryProps - Card Primary Props.
- * @param {Function} props.setAttributes - Block attributes setter.
+ * @param {boolean} props.cardIndex - Card Index.
+ * @param {Function} props.setter - Block attributes setter.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
@@ -32,8 +34,10 @@ const CardImage = ( {
 	imageSourceUrl,
 	imageEditMode,
 	contentLayout,
+	displayImage,
 	cardPrimaryProps,
-	setAttributes,
+	cardIndex,
+	setter,
 } ) => {
 	const [ hasImage, setHasImage ] = useState(
 		imageSourceUrl !== undefined && imageSourceUrl !== ''
@@ -47,18 +51,14 @@ const CardImage = ( {
 	 * @param {Object} el Element
 	 */
 	const onImageSelect = el => {
-		setAttributes( {
-			imageSourceUrl: el.url,
-			imageEditMode: false,
-		} );
+		setter( 'imageSourceUrl', el.url, cardIndex );
+		setter( 'imageEditMode', false, cardIndex );
 		setHasImage( el.url !== undefined && el.url !== '' );
 	};
 
 	const onRemoveImage = () => {
-		setAttributes( {
-			imageSourceUrl: '',
-			imageEditMode: false,
-		} );
+		setter( 'imageSourceUrl', '', cardIndex );
+		setter( 'imageEditMode', false, cardIndex );
 		setHasImage( false );
 	};
 
@@ -78,7 +78,7 @@ const CardImage = ( {
 
 	return (
 		<>
-			{ ( ! hasImage || imageEditMode ) && (
+			{ ( ! hasImage || imageEditMode ) && displayImage && (
 				<MediaPlaceholder
 					onSelect={ onImageSelect }
 					allowedTypes={ [ 'image' ] }

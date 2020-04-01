@@ -12,6 +12,9 @@ import { useState } from '@wordpress/element';
  * @param {Object} props - Component props.
  * @param {string} props.buttonActionText - Button action text.
  * @param {string} props.buttonActionUrl - Button action URL.
+ * @param {boolean} props.buttonActionNewTab - Whether or not to open the link in a new tab.
+ * @param {boolean} props.buttonActionNoFollow - Whether or not the link rel to be nofollow.
+ * @param {number} props.cardIndex - Card index
  * @param {Function} props.setter - Block attribute setter.
  *
  * @return {Function} Function returning the HTML markup for the component.
@@ -21,6 +24,7 @@ const CardActions = ( {
 	buttonActionUrl,
 	buttonActionNewTab,
 	buttonActionNoFollow,
+	cardIndex,
 	setter,
 } ) => {
 	const [ showUrlInput, setShowUrlInput ] = useState( false );
@@ -37,18 +41,26 @@ const CardActions = ( {
 						<RichText
 							tagName="div"
 							value={ buttonActionText }
-							onChange={ setter( 'buttonActionText' ) }
+							onChange={ value =>
+								setter( 'buttonActionText', value, cardIndex )
+							}
 							placeholder={ __( 'Action text here', 'material-theme-builder' ) }
 						/>
 					</button>
 					{ showUrlInput && (
 						<UrlInputPopover
 							value={ buttonActionUrl }
-							onChange={ setter( 'buttonActionUrl' ) }
+							onChange={ value =>
+								setter( 'buttonActionUrl', value, cardIndex )
+							}
 							newTab={ buttonActionNewTab }
 							noFollow={ buttonActionNoFollow }
-							onChangeNewTab={ setter( 'buttonActionNewTab' ) }
-							onChangeNoFollow={ setter( 'buttonActionNoFollow' ) }
+							onChangeNewTab={ value =>
+								setter( 'buttonActionNewTab', value, cardIndex )
+							}
+							onChangeNoFollow={ value =>
+								setter( 'buttonActionNoFollow', value, cardIndex )
+							}
 							onPopupClose={ () => setShowUrlInput( false ) }
 							disableSuggestions={ false }
 						/>

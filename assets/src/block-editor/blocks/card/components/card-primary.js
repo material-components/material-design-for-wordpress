@@ -12,6 +12,7 @@ import { RichText } from '@wordpress/block-editor';
  * @param {string} props.title - Title.
  * @param {boolean} props.displaySubTitle - Whether or not to display the subtitle.
  * @param {string} props.subTitle - SubTitle.
+ * @param {boolean} props.cardIndex - Card Index.
  * @param {Function} props.setter - Block attribute setter.
  *
  * @return {Function} Function returning the HTML markup for the component.
@@ -21,6 +22,7 @@ const CardPrimary = ( {
 	title,
 	displaySubTitle,
 	subTitle,
+	cardIndex,
 	setter,
 } ) => (
 	<div className="mtb-card__primary">
@@ -29,7 +31,7 @@ const CardPrimary = ( {
 				tagName="h2"
 				className="mtb-card__title mdc-typography mdc-typography--headline6"
 				value={ title }
-				onChange={ setter( 'title' ) }
+				onChange={ value => setter( 'title', value, cardIndex ) }
 				placeholder={ __(
 					'Enter the card title here.',
 					'material-theme-builder'
@@ -42,7 +44,7 @@ const CardPrimary = ( {
 				tagName="h3"
 				className="mtb-card__subtitle mdc-typography mdc-typography--subtitle2"
 				value={ subTitle }
-				onChange={ setter( 'subTitle' ) }
+				onChange={ value => setter( 'subTitle', value, cardIndex ) }
 				placeholder={ __(
 					'Enter the card subtitle here.',
 					'material-theme-builder'
