@@ -89,7 +89,7 @@ const Edit = props => {
 				</div>
 			);
 		} else {
-			items.push( <VerticalCardLayout { ...cardProps } /> );
+			items.push( <VerticalCardLayout key={ cardIndex } { ...cardProps } /> );
 		}
 	}
 
