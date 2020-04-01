@@ -50,3 +50,47 @@
 		margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
 	}
 }
+
+.card-container {
+	position: relative;
+}
+
+.card-container-focused {
+	position: relative;
+	border: 4px rgb(0, 113, 161) solid;
+}
+
+.card-container-actions {
+	color: #fff;
+	background-color: rgb(0, 113, 161);
+	font-size: 12px;
+	font-weight: bold;
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	width: 150px;
+	height: 22px;
+	justify-content: left;
+	top: -26px;
+	left: -4px;
+}
+
+.mtb-card-buttons {
+	padding: 2px !important;
+	color: #fff;
+}
+
+.mtb-card-buttons {
+	padding: 2px !important;
+	color: #fff;
+}
+
+.card-number-title {
+	margin-left: 10px;
+	justify-self: center;
+}
+
+.mtb-card-close-button {
+	justify-self: right;
+	margin-left: 20px;
+}
