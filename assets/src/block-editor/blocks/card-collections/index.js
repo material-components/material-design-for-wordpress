@@ -9,8 +9,15 @@ import BlockIcon from './components/block-icon';
  */
 import edit from './edit';
 import save from './save';
+import { DEFAULT_NUMBER_OF_CARDS, CARD_ATTRIBUTES_VALUE } from './constants';
 
 export const name = 'material/card-collections';
+
+const defaultCardsProps = [];
+
+for ( let index = 0; index < DEFAULT_NUMBER_OF_CARDS; index++ ) {
+	defaultCardsProps.push( CARD_ATTRIBUTES_VALUE );
+}
 
 /**
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
@@ -39,6 +46,14 @@ export const settings = {
 			type: 'number',
 			default: 2,
 		},
+		numberOfCards: {
+			type: 'number',
+			default: DEFAULT_NUMBER_OF_CARDS,
+		},
+		cardsProps: {
+			type: 'array',
+			default: defaultCardsProps,
+		},
 		gutter: {
 			type: 'object',
 			default: {
@@ -47,7 +62,7 @@ export const settings = {
 				mobile: 12,
 			},
 		},
-		roundedCorners: {
+		cornerRadius: {
 			type: 'number',
 			default: 4,
 		},
