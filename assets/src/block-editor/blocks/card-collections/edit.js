@@ -4,6 +4,11 @@
 import Masonry from 'react-masonry-css';
 
 /**
+ * WordPress dependencies
+ */
+import { useEffect, useRef } from '@wordpress/element';
+
+/**
  * Internal dependencies
  */
 import InspectorControls from './components/inspector-controls';
@@ -97,7 +102,40 @@ const Edit = props => {
 		...props,
 	};
 
-	inspectorControlsProps.attributes.setter = setter;
+	const isInitialMount = useRef( true );
+
+	useEffect( () => {
+		if ( isInitialMount.current ) {
+			isInitialMount.current = false;
+		} else {
+			const newCardsProps = [ ...cardsProps ];
+			for ( let index = 0; index < newCardsProps.length; index++ ) {
+				newCardsProps[ index ].contentLayout = attributes.contentLayout;
+				newCardsProps[ index ].cornerRadius = attributes.cornerRadius;
+				newCardsProps[ index ].outlined = attributes.outlined;
+				newCardsProps[ index ].displayTitle = attributes.displayTitle;
+				newCardsProps[ index ].displaySubTitle = attributes.displaySubTitle;
+				newCardsProps[ index ].displayImage = attributes.displayImage;
+				newCardsProps[ index ].displaySecondaryText =
+					attributes.displaySecondaryText;
+				newCardsProps[ index ].displayActions = attributes.displayActions;
+			}
+			setAttributes( {
+				cardsProps: newCardsProps,
+			} );
+		}
+	}, [
+		attributes.contentLayout,
+		attributes.cornerRadius,
+		attributes.outlined,
+		attributes.displayTitle,
+		attributes.displaySubTitle,
+		attributes.displayImage,
+		attributes.displaySecondaryText,
+		attributes.displayActions,
+	] ); // eslint-disable-line
+
+	inspectorControlsProps.attributes.setter =setter;
 
 	return (
 		<>
