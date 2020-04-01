@@ -46,6 +46,10 @@ export const settings = {
 			type: 'number',
 			default: 2,
 		},
+		contentLayout: {
+			type: 'string',
+			default: 'text-under-media',
+		},
 		numberOfCards: {
 			type: 'number',
 			default: DEFAULT_NUMBER_OF_CARDS,
@@ -73,6 +77,34 @@ export const settings = {
 		outlined: {
 			type: 'boolean',
 			default: false,
+		},
+		allowIndividualStyleOverride: {
+			type: 'boolean',
+			default: false,
+		},
+		allowIndividualContentOverride: {
+			type: 'boolean',
+			default: false,
+		},
+		displayTitle: {
+			type: 'boolean',
+			default: true,
+		},
+		displaySubTitle: {
+			type: 'boolean',
+			default: true,
+		},
+		displayImage: {
+			type: 'boolean',
+			default: true,
+		},
+		displaySecondaryText: {
+			type: 'boolean',
+			default: true,
+		},
+		displayActions: {
+			type: 'boolean',
+			default: true,
 		},
 	},
 	edit,
