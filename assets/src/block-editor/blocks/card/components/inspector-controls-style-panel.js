@@ -28,6 +28,7 @@ const MIN_CARD_ROUND_CORNERS = 0;
 const MAX_CARD_ROUND_CORNERS = 20;
 
 const InspectorControlsStylePanel = ( {
+	cardLayoutStyle = 'vertical',
 	contentLayout,
 	displayTitle,
 	displaySubTitle,
@@ -58,12 +59,14 @@ const InspectorControlsStylePanel = ( {
 	return (
 		<>
 			<PanelBody title={ stylePanelTitle } initialOpen={ panelsInitialOpen }>
-				<RadioControl
-					label={ __( 'Content layout', 'material-theme-builder' ) }
-					selected={ contentLayout }
-					options={ CONTENT_LAYOUTS }
-					onChange={ value => setter( 'contentLayout', value, cardIndex ) }
-				/>
+				{ cardLayoutStyle === 'vertical' && (
+					<RadioControl
+						label={ __( 'Content layout', 'material-theme-builder' ) }
+						selected={ contentLayout }
+						options={ CONTENT_LAYOUTS }
+						onChange={ value => setter( 'contentLayout', value, cardIndex ) }
+					/>
+				) }
 				<RangeControl
 					label={ __( 'Rounded Corners', 'material-theme-builder' ) }
 					value={ cornerRadius }
@@ -93,13 +96,15 @@ const InspectorControlsStylePanel = ( {
 					checked={ displayImage }
 					onChange={ value => setter( 'displayImage', value, cardIndex ) }
 				/>
-				<ToggleControl
-					label={ __( 'Show Secondary Text', 'material-theme-builder' ) }
-					checked={ displaySecondaryText }
-					onChange={ value =>
-						setter( 'displaySecondaryText', value, cardIndex )
-					}
-				/>
+				{ cardLayoutStyle === 'vertical' && (
+					<ToggleControl
+						label={ __( 'Show Secondary Text', 'material-theme-builder' ) }
+						checked={ displaySecondaryText }
+						onChange={ value =>
+							setter( 'displaySecondaryText', value, cardIndex )
+						}
+					/>
+				) }
 				<ToggleControl
 					label={ __( 'Show Actions', 'material-theme-builder' ) }
 					checked={ displayActions }

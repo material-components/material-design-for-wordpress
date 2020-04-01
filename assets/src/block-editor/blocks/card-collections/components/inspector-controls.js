@@ -68,6 +68,7 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 			</PanelBody>
 			{ cardsProps.map( ( cardProps, cardIndex ) => {
 				const inspectorControlsStylePanelProps = {
+					cardLayoutStyle: style === 'list' ? 'horizontal' : 'vertical',
 					contentLayout: cardProps.contentLayout,
 					displayTitle: cardProps.displayTitle,
 					displaySubTitle: cardProps.displaySubTitle,
