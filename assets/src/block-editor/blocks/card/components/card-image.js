@@ -8,7 +8,7 @@ import classnames from 'classnames';
  */
 import { MediaPlaceholder } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import { IconButton } from '@wordpress/components';
 
 /**
@@ -44,6 +44,14 @@ const CardImage = ( {
 	const [ hasImage, setHasImage ] = useState(
 		imageSourceUrl !== undefined && imageSourceUrl !== ''
 	);
+
+	useEffect( () => {
+		if ( imageSourceUrl !== undefined && imageSourceUrl !== '' ) {
+			setHasImage( true );
+		} else {
+			setHasImage( false );
+		}
+	}, [ imageSourceUrl ] );
 
 	const [ isFocused, setIsFocused ] = useState( false );
 

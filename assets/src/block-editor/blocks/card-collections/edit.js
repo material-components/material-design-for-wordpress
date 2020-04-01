@@ -2,11 +2,13 @@
  * External dependencies
  */
 import Masonry from 'react-masonry-css';
+import classnames from 'classnames';
 
 /**
  * WordPress dependencies
  */
-import { useEffect, useRef } from '@wordpress/element';
+import { useEffect, useRef, useState } from '@wordpress/element';
+import { IconButton } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -16,7 +18,40 @@ import './editor.css';
 import { CARD_ATTRIBUTES_VALUE } from './constants';
 import VerticalCardLayout from '../card/components/vertical-card-layout';
 import HorizontalCardLayout from '../card/components/horizontal-card-layout';
+import { __, sprintf } from '@wordpress/i18n';
 
+const FocusedCardActions = ( {
+	cardIndex,
+	onMoveLeft,
+	onMoveRight,
+	onRemove,
+} ) => {
+	return (
+		<div className="card-container-actions">
+			<IconButton
+				className="mtb-card-buttons"
+				icon="arrow-left"
+				label={ __( 'Move left', 'material-theme-builder' ) }
+				onClick={ onMoveLeft }
+			/>
+			<IconButton
+				className="mtb-card-buttons"
+				icon="arrow-right"
+				label={ __( 'Move right', 'material-theme-builder' ) }
+				onClick={ onMoveRight }
+			/>
+			<span className="card-number-title">
+				{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }{ ' ' }
+			</span>
+			<IconButton
+				className="mtb-card-buttons mtb-card-close-button"
+				icon="no"
+				label={ __( 'Remove card', 'material-theme-builder' ) }
+				onClick={ onRemove }
+			/>
+		</div>
+	);
+};
 /**
  * Card Collections Edit component.
  *
@@ -58,6 +93,52 @@ const Edit = props => {
 		} );
 	};
 
+	const [ cardsFocus, setCardsFocus ] = useState( [] );
+
+	const onCardFocus = cardIndex => {
+		const newCardFocus = cardsFocus.map( () => {
+			return false;
+		} );
+		newCardFocus[ cardIndex ] = true;
+		setCardsFocus( newCardFocus );
+	};
+
+	const onCardMoveLeft = cardIndex => {
+		const newCardsProps = [ ...cardsProps ];
+		if ( cardIndex > 0 ) {
+			const card = newCardsProps[ cardIndex ];
+			newCardsProps[ cardIndex ] = newCardsProps[ cardIndex - 1 ];
+			newCardsProps[ cardIndex - 1 ] = card;
+			setAttributes( {
+				cardsProps: newCardsProps,
+			} );
+			setCardsFocus( [] );
+		}
+	};
+
+	const onCardMoveRight = cardIndex => {
+		const newCardsProps = [ ...cardsProps ];
+		if ( cardIndex < newCardsProps.length - 1 ) {
+			const card = newCardsProps[ cardIndex ];
+			newCardsProps[ cardIndex ] = newCardsProps[ cardIndex + 1 ];
+			newCardsProps[ cardIndex + 1 ] = card;
+			setAttributes( {
+				cardsProps: newCardsProps,
+			} );
+			setCardsFocus( [] );
+		}
+	};
+
+	const onCardRemove = cardIndex => {
+		const newCardsProps = [ ...cardsProps ];
+		newCardsProps.splice( cardIndex, 1 );
+		setAttributes( {
+			cardsProps: newCardsProps,
+			numberOfCards: numberOfCards - 1,
+		} );
+		setCardsFocus( [] );
+	};
+
 	for ( let cardIndex = 0; cardIndex < numberOfCards; cardIndex++ ) {
 		let baseProps = CARD_ATTRIBUTES_VALUE;
 		let cardsPropsHasIncreased = false;
@@ -87,14 +168,55 @@ const Edit = props => {
 			items.push(
 				<div
 					key={ cardIndex }
-					className={ `mdc-layout-grid__cell--span-${ columnSpan }` }
+					className={ classnames(
+						'card-container',
+						{
+							'card-container-focused':
+								cardsFocus[ cardIndex ] !== undefined
+									? cardsFocus[ cardIndex ]
+									: false,
+						},
+						`mdc-layout-grid__cell--span-${ columnSpan }`
+					) }
+					onFocus={ () => onCardFocus( cardIndex ) }
 				>
 					{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
 					{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
+					{ cardsFocus[ cardIndex ] !== undefined &&
+						cardsFocus[ cardIndex ] && (
+							<FocusedCardActions
+								cardIndex={ cardIndex }
+								onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
+								onMoveRight={ () => onCardMoveRight( cardIndex ) }
+								onRemove={ () => onCardRemove( cardIndex ) }
+							/>
+						) }
 				</div>
 			);
 		} else {
-			items.push( <VerticalCardLayout key={ cardIndex } { ...cardProps } /> );
+			items.push(
+				<div
+					key={ cardIndex }
+					className={ classnames( 'card-container', {
+						'card-container-focused':
+							cardsFocus[ cardIndex ] !== undefined
+								? cardsFocus[ cardIndex ]
+								: false,
+					} ) }
+					onFocus={ () => onCardFocus( cardIndex ) }
+				>
+					<VerticalCardLayout { ...cardProps } />
+					{ cardsFocus[ cardIndex ] !== undefined &&
+						cardsFocus[ cardIndex ] && (
+							<FocusedCardActions
+								cardIndex={ cardIndex }
+								onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
+								onMoveRight={ () => onCardMoveRight( cardIndex ) }
+								onRemove={ () => onCardRemove( cardIndex ) }
+							/>
+						) }
+				</div>
+			);
 		}
 	}
 
@@ -104,42 +226,47 @@ const Edit = props => {
 
 	const isInitialMount = useRef( true );
 
-	useEffect( () => {
-		if ( isInitialMount.current ) {
-			isInitialMount.current = false;
-		} else {
-			const newCardsProps = [ ...cardsProps ];
-			for ( let index = 0; index < newCardsProps.length; index++ ) {
-				newCardsProps[ index ].contentLayout = attributes.contentLayout;
-				newCardsProps[ index ].cornerRadius = attributes.cornerRadius;
-				newCardsProps[ index ].outlined = attributes.outlined;
-				newCardsProps[ index ].displayTitle = attributes.displayTitle;
-				newCardsProps[ index ].displaySubTitle = attributes.displaySubTitle;
-				newCardsProps[ index ].displayImage = attributes.displayImage;
-				newCardsProps[ index ].displaySecondaryText =
-					attributes.displaySecondaryText;
-				newCardsProps[ index ].displayActions = attributes.displayActions;
+	useEffect(
+		() => {
+			if ( isInitialMount.current ) {
+				isInitialMount.current = false;
+			} else {
+				const newCardsProps = [ ...cardsProps ];
+				for ( let index = 0; index < newCardsProps.length; index++ ) {
+					newCardsProps[ index ].contentLayout = attributes.contentLayout;
+					newCardsProps[ index ].cornerRadius = attributes.cornerRadius;
+					newCardsProps[ index ].outlined = attributes.outlined;
+					newCardsProps[ index ].displayTitle = attributes.displayTitle;
+					newCardsProps[ index ].displaySubTitle = attributes.displaySubTitle;
+					newCardsProps[ index ].displayImage = attributes.displayImage;
+					newCardsProps[ index ].displaySecondaryText =
+						attributes.displaySecondaryText;
+					newCardsProps[ index ].displayActions = attributes.displayActions;
+				}
+				setAttributes( {
+					cardsProps: newCardsProps,
+				} );
 			}
-			setAttributes( {
-				cardsProps: newCardsProps,
-			} );
-		}
-	}, [
-		attributes.contentLayout,
-		attributes.cornerRadius,
-		attributes.outlined,
-		attributes.displayTitle,
-		attributes.displaySubTitle,
-		attributes.displayImage,
-		attributes.displaySecondaryText,
-		attributes.displayActions,
-	] ); // eslint-disable-line
+		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[
+			attributes.contentLayout,
+			attributes.cornerRadius,
+			attributes.outlined,
+			attributes.displayTitle,
+			attributes.displaySubTitle,
+			attributes.displayImage,
+			attributes.displaySecondaryText,
+			attributes.displayActions,
+		]
+	);
 
-	inspectorControlsProps.attributes.setter =setter;
+	inspectorControlsProps.attributes.setter = setter;
 
 	return (
 		<>
 			<InspectorControls { ...inspectorControlsProps } />
+			{ /*<div className={ className } onBlur={ () => setCardsFocus( [] ) }>*/ }
 			<div className={ className }>
 				{ ( style === 'grid' || style === 'list' ) && (
 					<div className={ `mdc-layout-grid layout-${ style }` }>
