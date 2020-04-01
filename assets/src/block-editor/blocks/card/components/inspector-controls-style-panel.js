@@ -39,15 +39,25 @@ const InspectorControlsStylePanel = ( {
 	isSingleCard,
 	setter,
 	cardIndex,
+	panelsInitialOpen = true,
 } ) => {
-	let panelTitle = __( 'Style settings', 'material-theme-builder' );
+	let stylePanelTitle = __( 'Style settings', 'material-theme-builder' );
+	let contentPanelTitle = __( 'Content settings', 'material-theme-builder' );
 
 	if ( ! isSingleCard ) {
-		panelTitle = sprintf( __( 'Card #%d Style settings' ), cardIndex + 1 );
+		stylePanelTitle = sprintf( __( 'Card #%d Style settings' ), cardIndex + 1 );
 	}
+
+	if ( ! isSingleCard ) {
+		contentPanelTitle = sprintf(
+			__( 'Card #%d Content settings' ),
+			cardIndex + 1
+		);
+	}
+
 	return (
 		<>
-			<PanelBody title={ panelTitle } initialOpen={ true }>
+			<PanelBody title={ stylePanelTitle } initialOpen={ panelsInitialOpen }>
 				<RadioControl
 					label={ __( 'Content layout', 'material-theme-builder' ) }
 					selected={ contentLayout }
@@ -67,10 +77,7 @@ const InspectorControlsStylePanel = ( {
 					onChange={ value => setter( 'outlined', value, cardIndex ) }
 				/>
 			</PanelBody>
-			<PanelBody
-				title={ __( 'Content settings', 'material-theme-builder' ) }
-				initialOpen={ true }
-			>
+			<PanelBody title={ contentPanelTitle } initialOpen={ panelsInitialOpen }>
 				<ToggleControl
 					label={ __( 'Show Title', 'material-theme-builder' ) }
 					checked={ displayTitle }
