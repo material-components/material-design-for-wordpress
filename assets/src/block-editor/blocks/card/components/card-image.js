@@ -24,6 +24,7 @@ import CardPrimary from './card-primary';
  * @param {boolean} props.imageEditMode - Image Edit mode.
  * @param {string} props.contentLayout - Content layout.
  * @param {boolean} props.displayImage - Whether or not to display the image.
+ * @param {string} props.type - Media type ('16-9' or 'square').
  * @param {Object} props.cardPrimaryProps - Card Primary Props.
  * @param {boolean} props.cardIndex - Card Index.
  * @param {Function} props.setter - Block attributes setter.
@@ -35,6 +36,7 @@ const CardImage = ( {
 	imageEditMode,
 	contentLayout,
 	displayImage,
+	type,
 	cardPrimaryProps,
 	cardIndex,
 	setter,
@@ -102,7 +104,7 @@ const CardImage = ( {
 							tabIndex={ 0 }
 							className={ classnames(
 								'mdc-card__media',
-								'mdc-card__media--16-9',
+								`mdc-card__media--${ type }`,
 								'mtb-card__media',
 								{ [ `mtb-card-with-${ contentLayout }` ]: contentLayout }
 							) }
