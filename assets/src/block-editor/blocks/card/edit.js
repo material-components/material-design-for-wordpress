@@ -9,6 +9,7 @@ import { InspectorControls } from '@wordpress/block-editor';
 import './stlye.css';
 import './editor.css';
 import InspectorControlsStylePanel from './components/inspector-controls-style-panel';
+import InspectorControlsContentPanel from './components/inspector-controls-content-panel';
 import VerticalCardLayout from './components/vertical-card-layout';
 import HorizontalCardLayout from './components/horizontal-card-layout';
 /**
@@ -73,13 +74,19 @@ const Edit = props => {
 
 	const inspectorControlsStylePanelProps = {
 		contentLayout,
+		cornerRadius,
+		outlined,
+		isSingleCard: true,
+		setter,
+		cardIndex,
+	};
+
+	const inspectorControlsContentPanelProps = {
 		displayTitle,
 		displaySubTitle,
 		displayImage,
 		displaySecondaryText,
 		displayActions,
-		cornerRadius,
-		outlined,
 		isSingleCard: true,
 		setter,
 		cardIndex,
@@ -89,6 +96,9 @@ const Edit = props => {
 		<>
 			<InspectorControls>
 				<InspectorControlsStylePanel { ...inspectorControlsStylePanelProps } />
+				<InspectorControlsContentPanel
+					{ ...inspectorControlsContentPanelProps }
+				/>
 			</InspectorControls>
 			<div className={ className }>
 				{ cardLayout === 'vertical' && <VerticalCardLayout { ...cardProps } /> }
