@@ -10,10 +10,9 @@ import '../stlye.css';
 import '../editor.css';
 import CardImage from './card-image';
 import CardPrimary from './card-primary';
-import CardSecondaryText from './card-secondary-text';
 import CardActions from './card-actions';
 
-const Card = ( {
+const HorizontalCardLayout = ( {
 	cardIndex,
 	contentLayout,
 	title,
@@ -23,8 +22,6 @@ const Card = ( {
 	imageSourceUrl,
 	imageEditMode,
 	displayImage,
-	secondaryText,
-	displaySecondaryText,
 	buttonActionText,
 	buttonActionUrl,
 	buttonActionNewTab,
@@ -48,6 +45,7 @@ const Card = ( {
 		imageEditMode,
 		contentLayout,
 		displayImage,
+		type: 'square',
 		cardPrimaryProps,
 		cardIndex,
 		setter,
@@ -55,9 +53,13 @@ const Card = ( {
 
 	return (
 		<div
-			className={ classnames( 'mdc-card', 'mtb-card', {
-				'mdc-card--outlined': outlined,
-			} ) }
+			className={ classnames(
+				'mdc-card',
+				{ 'mdc-card--outlined': outlined },
+				'mtb-card',
+				'mtb-card__list',
+				'mtb-basic'
+			) }
 			style={ {
 				...( cornerRadius !== undefined
 					? { borderRadius: `${ cornerRadius }px` }
@@ -65,35 +67,11 @@ const Card = ( {
 			} }
 		>
 			<div
-				className="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+				className="mdc-card__primary-action mtb-card__primary-action"
 				tabIndex={ 0 }
 			>
-				{ contentLayout === 'text-above-media' && (
-					<CardPrimary { ...cardPrimaryProps } />
-				) }
-
-				{ contentLayout === 'text-over-media' &&
-					displayImage &&
-					! imageSourceUrl && <CardPrimary { ...cardPrimaryProps } /> }
-
-				{ contentLayout === 'text-over-media' && ! displayImage && (
-					<CardPrimary { ...cardPrimaryProps } />
-				) }
-
 				{ displayImage && <CardImage { ...cardImageProps } /> }
-
-				{ contentLayout === 'text-under-media' && (
-					<CardPrimary { ...cardPrimaryProps } />
-				) }
-
-				{ displaySecondaryText && (
-					<CardSecondaryText
-						secondaryText={ secondaryText }
-						contentLayout={ contentLayout }
-						cardIndex={ cardIndex }
-						setter={ setter }
-					/>
-				) }
+				<CardPrimary { ...cardPrimaryProps } />
 			</div>
 			{ displayActions && (
 				<CardActions
@@ -109,4 +87,4 @@ const Card = ( {
 	);
 };
 
-export default Card;
+export default HorizontalCardLayout;

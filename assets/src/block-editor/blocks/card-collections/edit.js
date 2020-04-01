@@ -1,17 +1,16 @@
 /**
  * External dependencies
  */
-import classnames from 'classnames';
-import Masonry from "react-masonry-css";
+import Masonry from 'react-masonry-css';
 
 /**
  * Internal dependencies
  */
 import InspectorControls from './components/inspector-controls';
 import './editor.css';
-import Card from '../card/components/card';
 import { CARD_ATTRIBUTES_VALUE } from './constants';
-import SinglePost from "../common-posts-list/components/single-post";
+import VerticalCardLayout from '../card/components/vertical-card-layout';
+import HorizontalCardLayout from '../card/components/horizontal-card-layout';
 
 /**
  * Card Collections Edit component.
@@ -85,11 +84,12 @@ const Edit = props => {
 					key={ cardIndex }
 					className={ `mdc-layout-grid__cell--span-${ columnSpan }` }
 				>
-					<Card { ...cardProps } />
+					{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
+					{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
 				</div>
 			);
 		} else {
-			items.push( <Card key={ cardIndex } { ...cardProps } /> );
+			items.push( <VerticalCardLayout { ...cardProps } /> );
 		}
 	}
 

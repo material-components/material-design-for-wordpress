@@ -78,6 +78,17 @@
 	color: #fff !important;
 }
 
+.mtb-card__list .mtb-card__primary {
+	flex: 1;
+}
+
+.mtb-card__list .mtb-card__primary-action {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
 .mdc-card__action-buttons,
 .mdc-card__action-icons {
 	flex-wrap: wrap;
