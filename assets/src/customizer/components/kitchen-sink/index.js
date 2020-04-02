@@ -1,5 +1,37 @@
+import { useEffect, useState } from 'react';
+import { startCase } from 'lodash';
+
+import { GlobalFonts, H1, H2 } from './styles';
+import Cards from './sections/cards';
+import Buttons from './sections/buttons';
+import { inlineFontFamily, materialIconClass } from './utils';
+
+/**
+ * Adds link tag with appropriate google fonts to head.
+ *
+ * @param {string} headings Import headings font
+ * @param {string} body Import body font
+ * @param {string} iconCollection The icon collection type
+ */
+const googleFontsUrl = ( headings, body, iconCollection ) => {
+	const join = str => str.replace( ' ', '+' );
+	const link = document.createElement( 'link' );
+
+	const mdiStyle =
+		'Material+Icons' +
+		( iconCollection === 'filled'
+			? ''
+			: '+' + startCase( iconCollection ).replace( ' ', '+' ) );
+
+	link.rel = 'stylesheet';
+	link.href = `https://fonts.googleapis.com/css?family=${ mdiStyle }|${ join(
+		headings
+	) }|${ join( body ) }`;
+
+	return link;
+};
+
 const KitchenSink = ( {
-	style,
 	primaryColor,
 	bodyFontFamily,
 	headFontFamily,
@@ -10,63 +42,48 @@ const KitchenSink = ( {
 	smallComponentRadius,
 	largeComponentRadius,
 	mediumComponentRadius,
-} ) => (
-	<div id="kitchen-sink-preview">
-		<h1 style={ { fontFamily: headFontFamily } }>Kitchen Sink</h1>
-		<section>
-			<h2 style={ { fontFamily: headFontFamily } }>Blocks</h2>
-			<hr />
-			<h3 style={ { fontFamily: headFontFamily } }>Button</h3>
-			<button className="mdc-button" style={ { color: primaryColor } }>
-				<div className="mdc-button__ripple"></div>
-				<span className="mdc-button__label">Text Button</span>
-			</button>
-			<button
-				className="mdc-button mdc-button--outlined"
-				style={ {
-					color: primaryColor,
-					borderColor: primaryColor,
-					borderRadius: smallComponentRadius,
-				} }
+} ) => {
+	const [ link ] = useState(
+		googleFontsUrl( headFontFamily, bodyFontFamily, iconCollection )
+	);
+
+	const iconStyle = materialIconClass( iconCollection );
+
+	useEffect( () => {
+		document.head.appendChild( link );
+		return () => document.head.removeChild( link );
+	}, [ link ] );
+
+	return (
+		<>
+			<GlobalFonts headings={ headFontFamily } body={ bodyFontFamily } />
+
+			<div
+				id="kitchen-sink-preview"
+				style={ { fontFamily: inlineFontFamily( bodyFontFamily ) } }
 			>
-				<div
-					className="mdc-button__ripple"
-					style={ {
-						backgroundColor: primaryColor,
-						borderRadius: smallComponentRadius,
-					} }
-				></div>
-				<span className="mdc-button__label">Outlined Button</span>
-			</button>
-			<button
-				className="mdc-button mdc-button--raised"
-				style={ {
-					backgroundColor: primaryColor,
-					color: primaryTextColor,
-					borderRadius: smallComponentRadius,
-				} }
-			>
-				<div className="mdc-button__ripple"></div>
-				<span className="mdc-button__label">Raised Button</span>
-			</button>
-			<button
-				className="mdc-button mdc-button--unelevated"
-				style={ {
-					backgroundColor: primaryColor,
-					color: primaryTextColor,
-					borderRadius: smallComponentRadius,
-				} }
-			>
-				<div className="mdc-button__ripple"></div>
-				<span className="mdc-button__label">Unelevated Button</span>
-			</button>
-			<button className="mdc-icon-button" style={ { color: primaryColor } }>
-				<i className="material-icons mdc-icon-button__icon">
-					add_shopping_cart
-				</i>
-			</button>
-		</section>
-	</div>
-);
+				<H1>Kitchen Sink</H1>
+				<section>
+					<H2>Blocks</H2>
+					<hr />
+					<Buttons
+						primaryColor={ primaryColor }
+						secondaryColor={ secondaryColor }
+						iconCollection={ iconStyle }
+						primaryTextColor={ primaryTextColor }
+						secondaryTextColor={ secondaryTextColor }
+						smallComponentRadius={ smallComponentRadius }
+						headFontFamily={ inlineFontFamily( headFontFamily ) }
+					/>
+					<hr />
+					<Cards
+						headFontFamily={ inlineFontFamily( headFontFamily ) }
+						mediumComponentRadius={ mediumComponentRadius }
+					/>
+				</section>
+			</div>
+		</>
+	);
+};
 
 export default KitchenSink;
