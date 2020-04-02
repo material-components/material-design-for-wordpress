@@ -327,10 +327,7 @@ class Controls extends Module_Base {
 	 */
 	public function add_icon_collection_controls() {
 		$settings = [
-			'icon_collection'          => [
-				'default' => 'filled',
-			],
-			'previous_icon_collection' => [
+			'icon_collection' => [
 				'default' => 'filled',
 			],
 		];
@@ -339,7 +336,7 @@ class Controls extends Module_Base {
 
 		/**
 		* List of all the controls in the Theme section.
-			*/
+		*/
 		$controls = [
 			'icon_collection' => new Icon_Radio_Control(
 				$this->wp_customize,
@@ -348,6 +345,7 @@ class Controls extends Module_Base {
 					'section'  => 'icons',
 					'priority' => 10,
 					'choices'  => $this->get_icon_collection_controls(),
+					'css_var'  => '--mdc-icons-font-family',
 				]
 			),
 		];
@@ -475,7 +473,7 @@ class Controls extends Module_Base {
 		);
 
 		wp_enqueue_style(
-			'material-icons-css',
+			'material-theme-builder-icons-css',
 			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
 			[],
 			$this->plugin->asset_version()
@@ -489,7 +487,7 @@ class Controls extends Module_Base {
 	 */
 	public function get_google_fonts_url() {
 		$icons_style = $this->get_theme_mod( 'icon_collection' );
-		$icons_style = $icons_style && 'filled' !== $icons_style 
+		$icons_style = $icons_style && 'filled' !== $icons_style
 			? '+' . str_replace( '-', '+', ucwords( $icons_style, '-' ) ) : '';
 
 		$font_families = [ 'Material+Icons' . $icons_style ];
@@ -510,7 +508,7 @@ class Controls extends Module_Base {
 	 */
 	public function get_icon_collection_css() {
 		$icons_style = $this->get_theme_mod( 'icon_collection' );
-		$icons_style = $icons_style && 'filled' !== $icons_style 
+		$icons_style = $icons_style && 'filled' !== $icons_style
 			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
 
 		return "\t--mdc-icons-font-family: \"Material Icons{$icons_style}\";";
