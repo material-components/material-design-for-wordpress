@@ -9,28 +9,30 @@ import classNames from 'classnames';
 import './style.css';
 
 const ButtonGroup = ( { buttons, current, onClick } ) => (
-	<ul className="icon-position">
-		{ buttons.map( ( button, i ) => (
-			<li
-				key={ button.value }
-				className="icon-position__list-item"
-				style={
-					buttons.length > 3 && i > 1 ? { borderLeft: 'none' } : undefined
-				}
-			>
-				<button
-					type="button"
-					onClick={ onClick.bind( this, button.value ) }
-					className={ classNames( 'icon-position__list-item__button', {
-						'icon-position__list-item__button--active':
-							current === button.value,
-					} ) }
+	<div className="btn-group">
+		<ul className="btn-group__list">
+			{ buttons.map( ( button, i ) => (
+				<li
+					key={ button.value }
+					className="btn-group__list__list-item"
+					style={
+						buttons.length > 3 && i > 1 ? { borderLeft: 'none' } : undefined
+					}
 				>
-					{ button.label }
-				</button>
-			</li>
-		) ) }
-	</ul>
+					<button
+						type="button"
+						onClick={ onClick.bind( this, button.value ) }
+						className={ classNames( 'btn-group__list__list-item__button', {
+							'btn-group__list__list-item__button--active':
+								current === button.value,
+						} ) }
+					>
+						{ button.label }
+					</button>
+				</li>
+			) ) }
+		</ul>
+	</div>
 );
 
 export default ButtonGroup;
