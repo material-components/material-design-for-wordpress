@@ -219,18 +219,22 @@
 	border-radius: 3px !important;
 }
 
+#mcb-kitchen-sink-preview {
+	overflow: auto !important;	
+}
+
 #kitchen-sink-preview {
 	padding: 30px 50px;
 	
-	h1 {
+	h1.mcb-heading {
 		font-size: 4rem;
 	}
 
-	h2 {
+	h2.mcb-heading {
 		font-size: 2.5rem;
 	}
 
-	h3 {
+	h3.mcb-heading {
 		font-size: 1.7rem;
 	}
 
