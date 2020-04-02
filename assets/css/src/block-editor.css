@@ -3,3 +3,10 @@
  */
 @import "./overrides.css";
 @import "./material-components.css";
+
+@media (min-width: 600px) {
+
+	.block-editor-url-input {
+		max-width: 300px;
+	}
+}
