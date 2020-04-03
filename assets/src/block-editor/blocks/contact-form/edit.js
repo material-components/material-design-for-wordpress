@@ -1,7 +1,10 @@
 /**
  * WordPress dependencies
  */
-import { InnerBlocks } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
+import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
+import { PanelBody, TextControl } from '@wordpress/components';
+import genericAttributesSetter from '../../utils/generic-attributes-setter';
 
 const ALLOWED_BLOCKS = [
 	'material/name-input-field',
@@ -9,12 +12,22 @@ const ALLOWED_BLOCKS = [
 	'material/website-input-field',
 	'material/telephone-input-field',
 	'core/paragraph',
+	'material/button',
 ];
 
 const TEMPLATES = [
 	[ 'material/name-input-field' ],
 	[ 'material/email-input-field' ],
 	[ 'material/website-input-field' ],
+	[ 'material/message-input-field' ],
+	[
+		'material/button',
+		{
+			label: __( 'Submit', 'material-theme-builder' ),
+			style: 'unelevated',
+			isSubmit: true,
+		},
+	],
 ];
 
 /**
@@ -26,12 +39,35 @@ const TEMPLATES = [
  * @return {Function} Function returning the HTML markup for the component.
  */
 const Edit = props => {
-	const { className } = props;
-
+	const {
+		attributes: { emailTo, subject },
+		className,
+		setAttributes,
+	} = props;
+	const setter = genericAttributesSetter( setAttributes );
 	return (
-		<div className={ className }>
-			<InnerBlocks template={ TEMPLATES } allowedBlocks={ ALLOWED_BLOCKS } />
-		</div>
+		<>
+			<InspectorControls>
+				<PanelBody
+					title={ __( 'Email Feedback Settings', 'material-theme-builder' ) }
+					initialOpen={ true }
+				>
+					<TextControl
+						label={ __( 'Email address ', 'material-theme-builder' ) }
+						value={ emailTo }
+						onChange={ setter( 'emailTo' ) }
+					/>
+					<TextControl
+						label={ __( 'Subject', 'material-theme-builder' ) }
+						value={ subject }
+						onChange={ setter( 'subject' ) }
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<div className={ className }>
+				<InnerBlocks template={ TEMPLATES } allowedBlocks={ ALLOWED_BLOCKS } />
+			</div>
+		</>
 	);
 };
 

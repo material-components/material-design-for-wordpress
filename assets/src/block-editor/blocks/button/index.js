@@ -54,6 +54,10 @@ export const settings = {
 		icon: { type: 'object' },
 		backgroundColor: { type: 'string' },
 		textColor: { type: 'string' },
+		isSubmit: {
+			type: 'boolean',
+			default: false,
+		},
 	},
 	edit,
 	save,

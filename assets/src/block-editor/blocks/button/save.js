@@ -21,6 +21,7 @@ const ButtonSave = ( {
 		cornerRadius,
 		iconPosition,
 		backgroundColor,
+		isSubmit,
 	},
 	className,
 } ) => {
@@ -28,10 +29,12 @@ const ButtonSave = ( {
 		return (
 			<div className={ className }>
 				<a
-					href={ url || '#' }
-					rel={ rel }
-					target={ linkTarget ?? undefined }
-					className="material-icons mdc-icon-button"
+					href={ url && ! isSubmit ? url : '#' }
+					rel={ rel && ! isSubmit ? rel : undefined }
+					target={ linkTarget && ! isSubmit ? linkTarget : undefined }
+					className={ classNames( 'material-icons', 'mdc-icon-button', {
+						'is-submit': isSubmit,
+					} ) }
 					style={ { ...( textColor ? { color: textColor } : {} ) } }
 				>
 					{ String.fromCharCode( icon?.hex ) }
@@ -43,9 +46,9 @@ const ButtonSave = ( {
 	return (
 		<div className={ className }>
 			<a
-				href={ url || '#' }
-				rel={ rel || undefined }
-				target={ linkTarget || undefined }
+				href={ url && ! isSubmit ? url : '#' }
+				rel={ rel && ! isSubmit ? rel : undefined }
+				target={ linkTarget && ! isSubmit ? linkTarget : undefined }
 				style={ {
 					...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
 					...( textColor ? { color: textColor } : {} ),
@@ -54,6 +57,7 @@ const ButtonSave = ( {
 						: {} ),
 				} }
 				className={ classNames( 'mdc-button', {
+					'is-submit': isSubmit,
 					[ `mdc-button--${ style }` ]: true,
 				} ) }
 			>
