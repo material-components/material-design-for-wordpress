@@ -6,7 +6,7 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
 /**
@@ -36,9 +36,9 @@ const CardSecondaryText = ( {
 		) }
 		value={ secondaryText }
 		onChange={ value => setter( 'secondaryText', value, cardIndex ) }
-		placeholder={ __(
-			'Enter the card secondary text here.',
-			'material-theme-builder'
+		placeholder={ sprintf(
+			__( 'Enter the card #%d secondary text here.', 'material-theme-builder' ),
+			cardIndex + 1
 		) }
 	/>
 );

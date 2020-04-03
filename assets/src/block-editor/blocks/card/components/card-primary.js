@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
 /**
@@ -32,9 +32,9 @@ const CardPrimary = ( {
 				className="mtb-card__title mdc-typography mdc-typography--headline6"
 				value={ title }
 				onChange={ value => setter( 'title', value, cardIndex ) }
-				placeholder={ __(
-					'Enter the card title here.',
-					'material-theme-builder'
+				placeholder={ sprintf(
+					__( 'Enter the card #%d title here.', 'material-theme-builder' ),
+					cardIndex + 1
 				) }
 				place
 			/>
@@ -45,9 +45,9 @@ const CardPrimary = ( {
 				className="mtb-card__subtitle mdc-typography mdc-typography--subtitle2"
 				value={ subTitle }
 				onChange={ value => setter( 'subTitle', value, cardIndex ) }
-				placeholder={ __(
-					'Enter the card subtitle here.',
-					'material-theme-builder'
+				placeholder={ sprintf(
+					__( 'Enter the card #%d subtitle here.', 'material-theme-builder' ),
+					cardIndex + 1
 				) }
 			/>
 		) }
