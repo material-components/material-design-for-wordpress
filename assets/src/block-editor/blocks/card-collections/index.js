@@ -16,7 +16,7 @@ export const name = 'material/card-collections';
 const defaultCardsProps = [];
 
 for ( let index = 0; index < DEFAULT_NUMBER_OF_CARDS; index++ ) {
-	defaultCardsProps.push( CARD_ATTRIBUTES_VALUE );
+	defaultCardsProps.push( { ...CARD_ATTRIBUTES_VALUE } );
 }
 
 /**
