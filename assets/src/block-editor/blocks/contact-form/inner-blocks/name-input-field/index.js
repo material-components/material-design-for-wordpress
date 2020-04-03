@@ -6,9 +6,9 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import edit from '../common/components/text-input-edit';
 import BlockIcon from './block-icon';
-import save from './save';
+import edit from '../common/components/text-input-edit';
+import save from '../common/components/text-input-save';
 
 export const name = 'material/name-input-field';
 
@@ -28,6 +28,10 @@ export const settings = {
 		inputType: {
 			type: 'string',
 			default: 'text',
+		},
+		inputRole: {
+			type: 'string',
+			default: 'name',
 		},
 		label: {
 			type: 'string',

@@ -2,23 +2,10 @@
  * External dependencies
  */
 import classnames from 'classnames';
-import { MDCTextField } from '@material/textfield';
-
-/**
- * WordPress dependencies
- */
-import { withInstanceId } from '@wordpress/compose';
-import { useLayoutEffect } from '@wordpress/element';
-import { ToggleControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
-import '../editor.css';
-import '../style.css';
-import genericAttributesSetter from '../../../../../utils/generic-attributes-setter';
-import InputInspectorControls from './inspector-controls';
 import TextareaInputElement from './textarea-input-element';
 
 /**
@@ -26,10 +13,8 @@ import TextareaInputElement from './textarea-input-element';
  *
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Component attributes.
- * @param {Function} props.setAttributes - Function to save component attributes .
  * @param {string} props.className - Component classes.
  * @param {number} props.instanceId - Component instance id.
- * @param {boolean} props.isSelected - Whether or not the component is selected.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
@@ -42,54 +27,26 @@ const TextAreaInputEdit = props => {
 			outlined,
 			fullWidth,
 			displayLabel,
-			isRequired,
 			inputRole,
+			isRequired,
 		},
-		setAttributes,
 		className,
-		instanceId,
-		isSelected,
 	} = props;
 
-	const setter = genericAttributesSetter( setAttributes );
-
-	if ( ! id || id.length === 0 ) {
-		setAttributes( { id: `mtb-${ inputRole }-${ instanceId }` } );
-	}
-
 	const textareaInputProps = {
+		editMode: false,
 		inputValue,
 		id,
 		inputRole,
 		displayLabel,
 		label,
-		onChange: setter( 'inputValue', e => e.target.value ),
+		onChange: () => {},
 		isRequired,
 	};
 
-	useLayoutEffect( () => {
-		const textFields = document.querySelectorAll( '.mdc-text-field' );
-		textFields.forEach( textField => new MDCTextField( textField ) );
-	}, [ outlined, displayLabel, fullWidth ] );
-
 	return (
 		<>
-			<InputInspectorControls { ...props } />
-
 			<div className="text-field-container">
-				{ isSelected ? (
-					<ToggleControl
-						label={ __( 'Required', 'material-theme-builder' ) }
-						checked={ isRequired }
-						onChange={ setter( 'isRequired' ) }
-					/>
-				) : (
-					isRequired && (
-						<div className="required">
-							{ __( '(required)', 'material-theme-builder' ) }
-						</div>
-					)
-				) }
 				{ outlined ? (
 					<div
 						className={ classnames(
@@ -148,4 +105,4 @@ const TextAreaInputEdit = props => {
 	);
 };
 
-export default withInstanceId( TextAreaInputEdit );
+export default TextAreaInputEdit;

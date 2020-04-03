@@ -11,6 +11,7 @@ use MaterialThemeBuilder\Blocks\Blocks_Frontend;
 use MaterialThemeBuilder\Blocks\Image_List_Block;
 use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
 use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
+use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 
 /**
@@ -47,6 +48,13 @@ class Plugin extends Plugin_Base {
 	public $hand_picked_post_block;
 
 	/**
+	 * Contact_Form_Block class.
+	 *
+	 * @var Contact_Form_Block
+	 */
+	public $contact_form_block;
+
+	/**
 	 * Blocks_Frontend class.
 	 *
 	 * @var Blocks_Frontend
@@ -76,6 +84,9 @@ class Plugin extends Plugin_Base {
 
 		$this->image_list_block = new Image_List_Block( $this );
 		$this->image_list_block->init();
+
+		$this->contact_form_block = new Contact_Form_Block( $this );
+		$this->contact_form_block->init();
 
 		$this->blocks_frontend = new Blocks_Frontend( $this );
 		$this->blocks_frontend->init();
@@ -130,10 +141,12 @@ class Plugin extends Plugin_Base {
 		wp_enqueue_script(
 			'material-front-end-js',
 			$this->asset_url( 'assets/js/front-end.js' ),
-			[],
+			['jquery'],
 			$this->asset_version(),
 			true
 		);
+
+		wp_localize_script( 'material-front-end-js', 'mtb', [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ] );
 
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
 

@@ -3,6 +3,7 @@
  */
 @import "./material-components.css";
 @import "../../src/block-editor/blocks/common-posts-list/style.css";
+@import "../../src/block-editor/blocks/contact-form/inner-blocks/common/style.css";
 
 .mdc-tab-content {
 	display: none;

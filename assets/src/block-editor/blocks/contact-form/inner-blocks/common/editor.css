@@ -18,7 +18,7 @@
 	flex-direction: column;
 
 	.mdc-text-field--outlined {
-		background-color: whitesmoke !important;
+		background-color: #f5f5f5 !important;
 	}
 
 	.required {
@@ -54,4 +54,8 @@
 
 .editor-styles-wrapper .mdc-floating-label {
 	font-weight: 400 !important;
+}
+
+.mdc-text-field--custom-full {
+	width: 100%;
 }

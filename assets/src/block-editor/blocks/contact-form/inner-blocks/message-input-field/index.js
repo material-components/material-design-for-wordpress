@@ -6,9 +6,9 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import edit from '../common/components/textarea-input-edit';
 import BlockIcon from './block-icon';
-import save from './save';
+import edit from '../common/components/textarea-input-edit';
+import save from '../common/components/textarea-input-save';
 
 export const name = 'material/message-input-field';
 
@@ -32,13 +32,17 @@ export const settings = {
 		inputValue: {
 			type: 'string',
 		},
+		inputRole: {
+			type: 'string',
+			default: 'message',
+		},
 		isRequired: {
 			type: 'boolean',
 			default: true,
 		},
 		outlined: {
 			type: 'boolean',
-			default: false,
+			default: true,
 		},
 		fullWidth: {
 			type: 'boolean',

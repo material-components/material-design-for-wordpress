@@ -2,37 +2,23 @@
  * External dependencies
  */
 import classnames from 'classnames';
-import { MDCTextField } from '@material/textfield';
-import { __ } from '@wordpress/i18n';
-
-/**
- * WordPress dependencies
- */
-import { withInstanceId } from '@wordpress/compose';
-import { useLayoutEffect } from '@wordpress/element';
-import { ToggleControl } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
-import '../editor.css';
-import genericAttributesSetter from '../../../../../utils/generic-attributes-setter';
-import InputInspectorControls from './inspector-controls';
 import TextInputElement from './text-input-element';
 
 /**
- * Text Input Field Block Edit component.
+ * Text Input Field Block Save component.
  *
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Component attributes.
- * @param {Function} props.setAttributes - Function to save component attributes .
  * @param {string} props.className - Component classes.
  * @param {number} props.instanceId - Component instance id.
- * @param {boolean} props.isSelected - Whether or not the component is selected.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const TextInputEdit = props => {
+const TextInputSave = props => {
 	const {
 		attributes: {
 			id,
@@ -45,56 +31,28 @@ const TextInputEdit = props => {
 			inputType,
 			inputRole,
 		},
-		setAttributes,
 		className,
-		instanceId,
-		isSelected,
 	} = props;
 
-	const setter = genericAttributesSetter( setAttributes );
-
-	if ( ! id || id.length === 0 ) {
-		setAttributes( { id: `mtb-${ inputRole }-${ instanceId }` } );
-	}
-
-	useLayoutEffect( () => {
-		const textFields = document.querySelectorAll( '.mdc-text-field' );
-		textFields.forEach( textField => new MDCTextField( textField ) );
-	}, [ outlined, displayLabel, fullWidth, isRequired ] );
-
 	const textInputProps = {
+		editMode: false,
 		inputValue,
 		id,
 		inputRole,
 		inputType,
 		displayLabel,
 		label,
-		onChange: setter( 'inputValue', e => e.target.value ),
+		onChange: () => {},
 		isRequired,
 	};
 
 	return (
 		<>
-			<InputInspectorControls { ...props } />
-
 			<div
 				className={ classnames( 'text-field-container', {
 					'text-field-container--not-required': ! isRequired,
 				} ) }
 			>
-				{ isSelected ? (
-					<ToggleControl
-						label={ __( 'Required', 'material-theme-builder' ) }
-						checked={ isRequired }
-						onChange={ setter( 'isRequired' ) }
-					/>
-				) : (
-					isRequired && (
-						<div className="required">
-							{ __( '(required)', 'material-theme-builder' ) }
-						</div>
-					)
-				) }
 				{ outlined ? (
 					<div
 						className={ classnames(
@@ -150,4 +108,4 @@ const TextInputEdit = props => {
 	);
 };
 
-export default withInstanceId( TextInputEdit );
+export default TextInputSave;
