@@ -1,9 +1,14 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-export const GlobalFonts = createGlobalStyle`
+export const Overrides = createGlobalStyle`
   :root {
     --body-font: ${ props => props.body };
     --heading-font: ${ props => props.headings };
+
+		--mdc-theme-primary: ${ props => props.primaryColor };
+		--mdc-theme-secondary: ${ props => props.secondaryColor };
+		--mdc-theme-on-primary: ${ props => props.primaryTextColor };
+		--mdc-theme-on-secondary: ${ props => props.secondaryTextColor };
   }
 
   #mcb-kitchen-sink-preview p, 
@@ -13,11 +18,6 @@ export const GlobalFonts = createGlobalStyle`
 `;
 
 export const RippleColor = styled.div`
-	--mdc-theme-primary: ${props => props.primaryColor};
-	--mdc-theme-secondary: ${props => props.secondaryColor};
-	--mdc-theme-on-primary: ${props => props.primaryTextColor};
-	--mdc-theme-on-secondary: ${props => props.secondaryTextColor};
-
 	[class*='__ripple']::before {
 		background-color: ${props => props.primaryColor} !important;
 	}

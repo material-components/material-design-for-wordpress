@@ -1,10 +1,17 @@
-import { useEffect, useState } from 'react';
 import { startCase } from 'lodash';
+import { useEffect, useState } from 'react';
 
-import { GlobalFonts, H1, H2 } from './styles';
+import Lists from './sections/lists';
 import Cards from './sections/cards';
+import Table from './sections/table';
+import Chips from './sections/chips';
+import Radios from './sections/radios';
+import Fields from './sections/fields';
+import TabBar from './sections/tab-bar';
 import Buttons from './sections/buttons';
-import { inlineFontFamily, materialIconClass } from './utils';
+import Checkboxes from './sections/checkboxes';
+import { materialIconClass } from './utils';
+import { Overrides, H1, H2 } from './styles';
 
 /**
  * Adds link tag with appropriate google fonts to head.
@@ -21,7 +28,7 @@ const googleFontsUrl = ( headings, body, iconCollection ) => {
 		'Material+Icons' +
 		( iconCollection === 'filled'
 			? ''
-			: '+' + startCase( iconCollection ).replace( ' ', '+' ) );
+			: '+' + join( startCase( iconCollection ) ) );
 
 	link.rel = 'stylesheet';
 	link.href = `https://fonts.googleapis.com/css?family=${ mdiStyle }|${ join(
@@ -56,30 +63,51 @@ const KitchenSink = ( {
 
 	return (
 		<>
-			<GlobalFonts headings={ headFontFamily } body={ bodyFontFamily } />
+			<Overrides
+				headings={ headFontFamily }
+				body={ bodyFontFamily }
+				primaryColor={ primaryColor }
+				secondaryColor={ secondaryColor }
+				primaryTextColor={ primaryTextColor }
+				secondaryTextColor={ secondaryTextColor }
+			/>
 
-			<div
-				id="kitchen-sink-preview"
-				style={ { fontFamily: inlineFontFamily( bodyFontFamily ) } }
-			>
+			<div id="kitchen-sink-preview">
 				<H1>Kitchen Sink</H1>
 				<section>
 					<H2>Blocks</H2>
 					<hr />
 					<Buttons
+						iconStyle={ iconStyle }
 						primaryColor={ primaryColor }
-						secondaryColor={ secondaryColor }
-						iconCollection={ iconStyle }
 						primaryTextColor={ primaryTextColor }
-						secondaryTextColor={ secondaryTextColor }
-						smallComponentRadius={ smallComponentRadius }
-						headFontFamily={ inlineFontFamily( headFontFamily ) }
+						radius={ smallComponentRadius }
 					/>
 					<hr />
-					<Cards
-						headFontFamily={ inlineFontFamily( headFontFamily ) }
-						mediumComponentRadius={ mediumComponentRadius }
-					/>
+					<Cards radius={ mediumComponentRadius } />
+					<hr />
+					<Table radius={ largeComponentRadius } />
+					{ /* <hr />
+					<ImageLists /> */ }
+					<hr />
+					<Lists iconStyle={ iconStyle } />
+					<hr />
+					<TabBar iconStyle={ iconStyle } />
+				</section>
+
+				<hr />
+
+				<section style={ { marginTop: '100px' } }>
+					<H2>Components</H2>
+					<hr />
+					<Checkboxes />
+					<hr />
+					<Chips />
+					<hr />
+					<Radios />
+					<hr />
+					<Fields />
+					{ /* <Switch /> */ }
 				</section>
 			</div>
 		</>

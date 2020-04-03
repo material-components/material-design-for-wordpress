@@ -1,66 +1,40 @@
 import { RippleColor, H3 } from '../styles';
 
-const Buttons = ( {
-	primaryColor,
-	iconCollection,
-	secondaryColor,
-	primaryTextColor,
-	secondaryTextColor,
-	smallComponentRadius,
-} ) => (
+const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 	<div>
 		<H3>Button</H3>
-		<button className="mdc-button" style={ { color: primaryColor } }>
+		<button className="mdc-button">
 			<div className="mdc-button__ripple"></div>
 			<span className="mdc-button__label">Text Button</span>
 		</button>
 		<button
 			className="mdc-button mdc-button--outlined"
-			style={ {
-				color: primaryColor,
-				borderColor: primaryColor,
-				borderRadius: smallComponentRadius,
-			} }
+			style={ { borderRadius: radius } }
 		>
-			<RippleColor
-				primaryColor={ primaryColor }
-				secondaryColor={ secondaryColor }
-				primaryTextColor={ primaryTextColor }
-				secondaryTextColor={ secondaryTextColor }
-			>
+			<RippleColor primaryColor={ primaryColor }>
 				<div
 					className="mdc-button__ripple"
-					style={ { borderRadius: smallComponentRadius } }
+					style={ { borderRadius: radius } }
 				></div>
 			</RippleColor>
 			<span className="mdc-button__label">Outlined Button</span>
 		</button>
 		<button
 			className="mdc-button mdc-button--raised"
-			style={ {
-				backgroundColor: primaryColor,
-				color: primaryTextColor,
-				borderRadius: smallComponentRadius,
-			} }
+			style={ { borderRadius: radius } }
 		>
 			<div className="mdc-button__ripple"></div>
 			<span className="mdc-button__label">Raised Button</span>
 		</button>
 		<button
 			className="mdc-button mdc-button--unelevated"
-			style={ {
-				backgroundColor: primaryColor,
-				color: primaryTextColor,
-				borderRadius: smallComponentRadius,
-			} }
+			style={ { borderRadius: radius } }
 		>
 			<div className="mdc-button__ripple"></div>
 			<span className="mdc-button__label">Unelevated Button</span>
 		</button>
-		<button className="mdc-icon-button" style={ { color: primaryColor } }>
-			<i className={ `${ iconCollection } mdc-icon-button__icon` }>
-				add_shopping_cart
-			</i>
+		<button className="mdc-icon-button" style={ { marginTop: '55px' } }>
+			<i className={ `${ iconStyle } mdc-icon-button__icon` }>account_circle</i>
 		</button>
 	</div>
 );
