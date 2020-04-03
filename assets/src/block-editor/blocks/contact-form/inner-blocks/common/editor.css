@@ -1,0 +1,57 @@
+
+.edit-post-visual-editor .mdc-text-field__input {
+
+	&:focus {
+		border: none !important;
+		box-shadow: none !important;
+		outline: none !important;
+	}
+}
+
+.text-field-container--not-required {
+	margin-top: 40px;
+}
+
+.text-field-container {
+	font-size: 8px;
+	display: flex;
+	flex-direction: column;
+
+	.mdc-text-field--outlined {
+		background-color: whitesmoke !important;
+	}
+
+	.required {
+		color: #f00;
+		margin-bottom: 10px;
+		text-align: right;
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
+
+	.components-base-control__field {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	.mdc-text-field__input {
+		display: flex;
+		padding: 20px 16px 6px !important;
+		border: none !important;
+		background-color: transparent;
+		z-index: 1;
+		font-family: Roboto, sans-serif !important;
+		font-size: 1rem !important;
+		font-weight: 400 !important;
+		letter-spacing: .009375em !important;
+
+		&:focus {
+			padding: 20px 16px 6px !important;
+		}
+	}
+}
+
+.editor-styles-wrapper .mdc-floating-label {
+	font-weight: 400 !important;
+}

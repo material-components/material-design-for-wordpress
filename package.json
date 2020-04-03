@@ -23,7 +23,6 @@
     "node": ">=10",
     "npm": ">=6.9"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "7.8.4",
     "@babel/core": "7.8.4",
@@ -36,6 +35,7 @@
     "@material/layout-grid": "^5.0.0",
     "@material/ripple": "^5.0.0",
     "@material/tab-bar": "^5.1.0",
+    "@material/textfield": "^5.1.0",
     "@material/typography": "^5.1.0",
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.4.1",
