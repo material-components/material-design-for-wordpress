@@ -140,12 +140,12 @@ const Edit = props => {
 	};
 
 	for ( let cardIndex = 0; cardIndex < numberOfCards; cardIndex++ ) {
-		let baseProps = CARD_ATTRIBUTES_VALUE;
+		let baseProps = { ...CARD_ATTRIBUTES_VALUE };
 		let cardsPropsHasIncreased = false;
 		if ( numberOfCards <= cardsProps.length ) {
-			baseProps = cardsProps[ cardIndex ];
+			baseProps = { ...cardsProps[ cardIndex ] };
 		} else {
-			cardsProps.push( CARD_ATTRIBUTES_VALUE );
+			cardsProps.push( { ...CARD_ATTRIBUTES_VALUE } );
 			cardsPropsHasIncreased = true;
 		}
 
