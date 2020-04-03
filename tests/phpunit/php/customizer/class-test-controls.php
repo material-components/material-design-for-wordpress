@@ -296,7 +296,7 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 2 ) )
+		$this->wp_customize->expects( $this->exactly( 1 ) )
 			->method( 'add_setting' );
 
 		// Set up the expectation for the add_control() method
@@ -397,7 +397,7 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-icons-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-theme-builder-icons-css', 'enqueued' ) );
 	}
 
 	/**
@@ -419,7 +419,7 @@ class Test_Controls extends \WP_UnitTestCase {
 				return 'Raleway';
 			}
 		);
-		
+
 		add_filter(
 			"theme_mod_{$controls->slug}_body_font_family",
 			function () {
