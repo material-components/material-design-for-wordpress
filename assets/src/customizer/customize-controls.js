@@ -1,4 +1,4 @@
-/* global jQuery, requestAnimationFrame, mtb */
+/* global jQuery, requestAnimationFrame, mtb, mdc */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -96,9 +96,42 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 		} );
 	};
 
-	const initMaterialComponents = () => {
+	const initMaterialComponents = function() {
 		initButtons();
 		initTabBar();
+
+		try {
+			console.log( mdc );
+
+			const states = [
+				{ state: 'checked', value: false },
+				{ state: 'checked', value: true },
+				{ state: 'indeterminate', value: true },
+				{ state: 'disabled', value: true },
+			];
+
+			document
+				.querySelectorAll( '.mdc-checkbox' )
+				.forEach( ( chkbox, index ) => {
+					const checkbox = new mdc.checkbox.MDCCheckbox( chkbox );
+					checkbox[ states[ index ].state ] = states[ index ].value;
+				} );
+
+			const chipSetEl = document.querySelector( '.mdc-chip-set' );
+			new mdc.chips.MDCChipSet( chipSetEl );
+
+			document
+				.querySelectorAll( '.mdc-radio' )
+				.forEach( radio => new mdc.radio.MDCRadio( radio ) );
+
+			new mdc.switchControl.MDCSwitch(
+				document.querySelector( '.mdc-switch' )
+			);
+
+			document
+				.querySelectorAll( '.mdc-text-field' )
+				.forEach( txtField => new mdc.textfield.MDCTextField( txtField ) );
+		} catch ( err ) {}
 	};
 
 	/**

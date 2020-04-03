@@ -226,19 +226,34 @@
 #kitchen-sink-preview {
 	padding: 30px 50px;
 	
-	h1.mcb-heading {
-		font-size: 4rem;
-	}
-
-	h2.mcb-heading {
-		font-size: 2.5rem;
-	}
-
-	h3.mcb-heading {
-		font-size: 1.7rem;
-	}
-
 	button {
 		margin-right: 10px;
+	}
+
+	hr {
+		margin: 50px 0 !important;
+	}
+
+	input[type="checkbox"]:disabled {
+		opacity: 1 !important;
+		border: none;
+		background: none;
+		box-shadow: none;
+	}
+
+	input[type="text"] {
+		box-shadow: none;
+		border-radius: 0;
+		border: inherit;
+		background: none;
+		color: inherit;
+	}
+
+	.mdc-tab-content {
+		display: none;
+	
+		&--active {
+			display: block;
+		}
 	}
 }

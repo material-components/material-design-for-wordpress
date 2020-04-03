@@ -1,6 +1,6 @@
 import { H3 } from '../styles';
 
-const Cards = ( { mediumComponentRadius } ) => (
+const Cards = ( { radius } ) => (
 	<div>
 		<H3>Card</H3>
 		<div style={ { display: 'flex' } }>
@@ -8,7 +8,7 @@ const Cards = ( { mediumComponentRadius } ) => (
 				className="mdc-card"
 				style={ {
 					width: '350px',
-					borderRadius: mediumComponentRadius,
+					borderRadius: radius,
 				} }
 			>
 				<div
@@ -83,7 +83,7 @@ const Cards = ( { mediumComponentRadius } ) => (
 				className="mdc-card"
 				style={ {
 					width: '350px',
-					borderRadius: mediumComponentRadius,
+					borderRadius: radius,
 					justifySelf: 'flex-start',
 				} }
 			>
