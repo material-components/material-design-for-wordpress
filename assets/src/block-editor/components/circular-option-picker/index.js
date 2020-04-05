@@ -81,7 +81,6 @@ export const ButtonAction = ( { className, children, ...additionalProps } ) => {
 				className
 			) }
 			isSmall
-			isSecondary
 			{ ...additionalProps }
 		>
 			{ children }
