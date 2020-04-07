@@ -16,11 +16,13 @@ import HorizontalCardLayout from './components/horizontal-card-layout';
  * Card Edit component.
  *
  * @param {Object} props - Component props.
+ * @param {Object} props.attributes - Component attributes.
+ * @param {Function} props.setAttributes - Function to set component attributes.
+ * @param {string} props.className - Component classes.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const Edit = props => {
-	const { attributes, setAttributes, className } = props;
+const Edit = ( { attributes, setAttributes, className } ) => {
 	const {
 		cardLayout = 'vertical',
 		contentLayout,
@@ -80,6 +82,7 @@ const Edit = props => {
 		outlined,
 		cornerRadius,
 		setter,
+		isEditMode: true,
 	};
 
 	const inspectorControlsStylePanelProps = {

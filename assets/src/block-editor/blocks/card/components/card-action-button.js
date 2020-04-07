@@ -21,35 +21,41 @@ import UrlInputPopover from '../../../components/url-input-popover';
  * @param {Function} props.onPopupClose. - Url input popup close handler.
  * @param {Function} props.onPopupFocusOutside. - Url input popup focus outside handler.
  * @param {boolean} props.isFocused. - Whether or not the button is focused.
+ * @param {boolean} props.isEditMode - Whether or not the edit mode is enabled.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
 const CardActionButton = ( {
 	label,
-	onChangeLabel,
+	onChangeLabel = () => {},
 	url,
-	onChangeUrl,
+	onChangeUrl = () => {},
 	newTab,
-	onChangeNewTab,
+	onChangeNewTab = () => {},
 	noFollow,
-	onChangeNoFollow,
+	onChangeNoFollow = () => {},
 	disableSuggestions = false,
-	onPopupClose,
-	onPopupFocusOutside,
+	onPopupClose = () => {},
+	onPopupFocusOutside = () => {},
 	isFocused = false,
+	isEditMode,
 } ) => {
 	return (
 		<>
 			<button className="mdc-button mdc-card__action mdc-card__action--button">
 				<span className="mdc-button__ripple"></span>
-				<RichText
-					tagName="div"
-					value={ label }
-					onChange={ onChangeLabel }
-					placeholder={ __( 'Button text', 'material-theme-builder' ) }
-				/>
+				{ isEditMode ? (
+					<RichText
+						tagName="div"
+						value={ label }
+						onChange={ onChangeLabel }
+						placeholder={ __( 'Button text', 'material-theme-builder' ) }
+					/>
+				) : (
+					<div> { label }</div>
+				) }
 			</button>
-			{ isFocused && (
+			{ isFocused && isEditMode && (
 				<UrlInputPopover
 					onFocusOutside={ onPopupFocusOutside }
 					value={ url }

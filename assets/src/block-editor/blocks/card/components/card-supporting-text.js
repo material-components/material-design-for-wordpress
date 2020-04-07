@@ -17,6 +17,7 @@ import { RichText } from '@wordpress/block-editor';
  * @param {string} props.contentLayout - Content layout.
  * @param {number} props.cardIndex - Card index.
  * @param {Function} props.setter - Block attribute setter.
+ * @param {boolean} props.isEditMode - Whether or not the edit mode is enabled.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
@@ -25,19 +26,35 @@ const CardSupportingText = ( {
 	contentLayout,
 	cardIndex,
 	setter,
+	isEditMode,
 } ) => (
-	<RichText
-		tagName="div"
-		className={ classnames(
-			'mtb-card__secondary',
-			`single-post-card__secondary-${ contentLayout }`,
-			'mdc-typography',
-			'mdc-typography--body2'
+	<>
+		{ isEditMode ? (
+			<RichText
+				tagName="div"
+				className={ classnames(
+					'mtb-card__secondary',
+					`single-post-card__secondary-${ contentLayout }`,
+					'mdc-typography',
+					'mdc-typography--body2'
+				) }
+				value={ supportingText }
+				onChange={ value => setter( 'supportingText', value, cardIndex ) }
+				placeholder={ __( 'Supporting text', 'material-theme-builder' ) }
+			/>
+		) : (
+			<div
+				className={ classnames(
+					'mtb-card__secondary',
+					`single-post-card__secondary-${ contentLayout }`,
+					'mdc-typography',
+					'mdc-typography--body2'
+				) }
+			>
+				{ supportingText }
+			</div>
 		) }
-		value={ supportingText }
-		onChange={ value => setter( 'supportingText', value, cardIndex ) }
-		placeholder={ __( 'Supporting text', 'material-theme-builder' ) }
-	/>
+	</>
 );
 
 export default CardSupportingText;
