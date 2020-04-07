@@ -1,55 +1,45 @@
 import { H3 } from '../styles';
 
-const Fields = () => (
+const Fields = ( { radius } ) => (
 	<div>
 		<H3>Fields</H3>
 		<p>
 			This is an example of how this component appears in the theme. It is
 			unavailable as a block in WordPress.
 		</p>
-		<div>
-			<label htmlFor="txtfield1" className="mdc-text-field">
-				<div className="mdc-text-field__ripple"></div>
-				<input className="mdc-text-field__input" type="text" />
-				<span className="mdc-floating-label">Hint text</span>
+		<div style={ { display: 'flex' } }>
+			<div
+				className="mdc-text-field mdc-text-field--with-leading-icon"
+				style={ {
+					borderTopLeftRadius: `${ radius }px`,
+					borderTopRightRadius: `${ radius }px`,
+				} }
+			>
+				<i className="material-icons mdc-text-field__icon">account_circle</i>
+				<input className="mdc-text-field__input" id="text-field-hero-input" />
 				<div className="mdc-line-ripple"></div>
-			</label>
-			<div className="mdc-text-field-helper-line">
-				<div
-					className="mdc-text-field-helper-text"
-					id="my-helper-id"
-					aria-hidden="true"
-				>
-					helper text
+				<label htmlFor="text-field-hero-input" className="mdc-floating-label">
+					First name
+				</label>
+			</div>
+
+			<div
+				className="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon"
+				style={ { marginLeft: '10px', borderRadius: `${ radius }px` } }
+			>
+				<i className="material-icons mdc-text-field__icon">account_circle</i>
+				<i className="material-icons mdc-text-field__icon">close</i>
+				<input className="mdc-text-field__input" type="text" />
+				<div className="mdc-notched-outline">
+					<div className="mdc-notched-outline__leading"></div>
+					<div className="mdc-notched-outline__notch">
+						<label htmlFor="outlined-textfield" className="mdc-floating-label">
+							Last name
+						</label>
+					</div>
+					<div className="mdc-notched-outline__trailing"></div>
 				</div>
 			</div>
-			<label htmlFor="txtfield2" className="mdc-text-field">
-				<div className="mdc-text-field__ripple"></div>
-				<input className="mdc-text-field__input" type="text" />
-				<span className="mdc-floating-label">Hint text</span>
-				<div className="mdc-line-ripple"></div>
-			</label>
-		</div>
-
-		<div>
-			<label
-				htmlFor="txtfield3"
-				className="mdc-text-field mdc-text-field--outlined"
-			>
-				<div className="mdc-text-field__ripple"></div>
-				<input className="mdc-text-field__input" type="text" />
-				<span className="mdc-floating-label">Hint text</span>
-				<div className="mdc-line-ripple"></div>
-			</label>
-			<label
-				htmlFor="txtfield4"
-				className="mdc-text-field mdc-text-field--outlined"
-			>
-				<div className="mdc-text-field__ripple"></div>
-				<input className="mdc-text-field__input" type="text" />
-				<span className="mdc-floating-label">Hint text</span>
-				<div className="mdc-line-ripple"></div>
-			</label>
 		</div>
 	</div>
 );

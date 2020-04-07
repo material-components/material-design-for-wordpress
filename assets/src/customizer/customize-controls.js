@@ -101,8 +101,6 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 		initTabBar();
 
 		try {
-			console.log( mdc );
-
 			const states = [
 				{ state: 'checked', value: false },
 				{ state: 'checked', value: true },
@@ -117,20 +115,20 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 					checkbox[ states[ index ].state ] = states[ index ].value;
 				} );
 
-			const chipSetEl = document.querySelector( '.mdc-chip-set' );
-			new mdc.chips.MDCChipSet( chipSetEl );
-
 			document
 				.querySelectorAll( '.mdc-radio' )
 				.forEach( radio => new mdc.radio.MDCRadio( radio ) );
 
+			document
+				.querySelectorAll( '.mdc-text-field' )
+				.forEach( txtField => new mdc.textField.MDCTextField( txtField ) );
+
+			const chipSetEl = document.querySelector( '.mdc-chip-set' );
+			new mdc.chips.MDCChipSet( chipSetEl );
+
 			new mdc.switchControl.MDCSwitch(
 				document.querySelector( '.mdc-switch' )
 			);
-
-			document
-				.querySelectorAll( '.mdc-text-field' )
-				.forEach( txtField => new mdc.textfield.MDCTextField( txtField ) );
 		} catch ( err ) {}
 	};
 

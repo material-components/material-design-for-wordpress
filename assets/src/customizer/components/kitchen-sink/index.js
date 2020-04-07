@@ -5,6 +5,7 @@ import Lists from './sections/lists';
 import Table from './sections/table';
 import Cards from './sections/cards';
 import Chips from './sections/chips';
+import Fields from './sections/fields';
 import Radios from './sections/radios';
 import TabBar from './sections/tab-bar';
 import Buttons from './sections/buttons';
@@ -108,8 +109,8 @@ const KitchenSink = ( {
 					<Chips />
 					<hr />
 					<Radios />
-					{ /* <hr /> */ }
-					{ /* <Fields /> */ }
+					<hr />
+					<Fields radius={ smallComponentRadius } />
 					{ /* <Switch /> */ }
 				</section>
 			</div>
