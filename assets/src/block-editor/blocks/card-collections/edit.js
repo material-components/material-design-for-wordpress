@@ -196,64 +196,37 @@ const Edit = props => {
 			...baseProps,
 		};
 
-		if ( style === 'grid' || style === 'list' ) {
-			items.push(
-				<div
-					key={ cardIndex }
-					data-card-index={ cardIndex }
-					className={ classnames(
-						'card-container',
-						{
-							'card-container-focused':
-								cardsFocus[ cardIndex ] !== undefined
-									? cardsFocus[ cardIndex ]
-									: false,
-						},
-						`mdc-layout-grid__cell--span-${ columnSpan }`
-					) }
-					onFocus={ () => onCardFocus( cardIndex ) }
-				>
-					{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
-					{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
-					{ cardsFocus[ cardIndex ] !== undefined &&
-						cardsFocus[ cardIndex ] && (
-							<FocusedCardActions
-								cardIndex={ cardIndex }
-								numberOfCards={ numberOfCards }
-								onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
-								onMoveRight={ () => onCardMoveRight( cardIndex ) }
-								onRemove={ () => onCardRemove( cardIndex ) }
-							/>
-						) }
-				</div>
-			);
-		} else {
-			items.push(
-				<div
-					key={ cardIndex }
-					data-card-index={ cardIndex }
-					className={ classnames( 'card-container', {
+		const gridClassname = `mdc-layout-grid__cell--span-${ columnSpan }`;
+		items.push(
+			<div
+				key={ cardIndex }
+				data-card-index={ cardIndex }
+				className={ classnames(
+					'card-container',
+					{
 						'card-container-focused':
 							cardsFocus[ cardIndex ] !== undefined
 								? cardsFocus[ cardIndex ]
 								: false,
-					} ) }
-					onFocus={ () => onCardFocus( cardIndex ) }
-				>
-					<VerticalCardLayout { ...cardProps } />
-					{ cardsFocus[ cardIndex ] !== undefined &&
-						cardsFocus[ cardIndex ] && (
-							<FocusedCardActions
-								cardIndex={ cardIndex }
-								numberOfCards={ numberOfCards }
-								onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
-								onMoveRight={ () => onCardMoveRight( cardIndex ) }
-								onRemove={ () => onCardRemove( cardIndex ) }
-							/>
-						) }
-				</div>
-			);
-		}
+					},
+					{ [ gridClassname ]: style === 'grid' || style === 'list' }
+				) }
+				onFocus={ () => onCardFocus( cardIndex ) }
+			>
+				{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
+				{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
+				{ style === 'masonry' && <VerticalCardLayout { ...cardProps } /> }
+				{ cardsFocus[ cardIndex ] !== undefined && cardsFocus[ cardIndex ] && (
+					<FocusedCardActions
+						cardIndex={ cardIndex }
+						numberOfCards={ numberOfCards }
+						onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
+						onMoveRight={ () => onCardMoveRight( cardIndex ) }
+						onRemove={ () => onCardRemove( cardIndex ) }
+					/>
+				) }
+			</div>
+		);
 	}
 
 	const inspectorControlsProps = {
