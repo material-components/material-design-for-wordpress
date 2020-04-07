@@ -4,6 +4,7 @@ import { H3 } from '../styles';
 const Lists = ( { iconStyle } ) => (
 	<div>
 		<H3>Lists</H3>
+		<p>This component can be created as a block in WordPress.</p>
 		<div style={ { display: 'flex' } }>
 			<ul
 				className="wp-block-material-list mdc-list"

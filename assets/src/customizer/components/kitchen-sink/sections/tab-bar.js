@@ -4,6 +4,7 @@ import { H3 } from '../styles';
 const TabBar = ( { iconStyle } ) => (
 	<div>
 		<H3>Tab Bar</H3>
+		<p>This component can be created as a block in WordPress.</p>
 		<div
 			className="wp-block-material-tab-bar mdc-tab-bar-container"
 			style={ { width: '80%' } }

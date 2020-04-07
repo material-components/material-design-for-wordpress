@@ -3,6 +3,10 @@ import { H3 } from '../styles';
 const Radios = () => (
 	<div>
 		<H3>Radio</H3>
+		<p>
+			This is an example of how this component appears in the theme. It is
+			unavailable as a block in WordPress.
+		</p>
 		<div className="mdc-radio">
 			<input
 				className="mdc-radio__native-control"

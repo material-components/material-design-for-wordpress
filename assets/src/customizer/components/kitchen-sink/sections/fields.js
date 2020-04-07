@@ -3,6 +3,10 @@ import { H3 } from '../styles';
 const Fields = () => (
 	<div>
 		<H3>Fields</H3>
+		<p>
+			This is an example of how this component appears in the theme. It is
+			unavailable as a block in WordPress.
+		</p>
 		<div>
 			<label htmlFor="txtfield1" className="mdc-text-field">
 				<div className="mdc-text-field__ripple"></div>

@@ -3,6 +3,10 @@ import { H3 } from '../styles';
 const Chips = () => (
 	<div>
 		<H3>Chips</H3>
+		<p>
+			This is an example of how this component appears in the theme. It is
+			unavailable as a block in WordPress.
+		</p>
 		<div className="mdc-chip-set" role="grid">
 			<div className="mdc-chip" role="row">
 				<div className="mdc-chip__ripple"></div>

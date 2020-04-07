@@ -3,6 +3,7 @@ import { H3 } from '../styles';
 const Table = ( { radius } ) => (
 	<div>
 		<H3>Table</H3>
+		<p>This component can be created as a block in WordPress.</p>
 		<div className="mdc-data-table" style={ { borderRadius: radius } }>
 			<table className="mdc-data-table__table">
 				<thead>

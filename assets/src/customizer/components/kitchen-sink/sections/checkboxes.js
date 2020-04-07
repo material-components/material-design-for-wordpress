@@ -3,6 +3,10 @@ import { H3 } from '../styles';
 const Checkboxes = () => (
 	<div>
 		<H3>Checkbox</H3>
+		<p>
+			This is an example of how this component appears in the theme. It is
+			unavailable as a block in WordPress.
+		</p>
 		<div className="mdc-checkbox">
 			<input type="checkbox" className="mdc-checkbox__native-control" />
 			<div className="mdc-checkbox__background">

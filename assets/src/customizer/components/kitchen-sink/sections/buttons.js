@@ -2,9 +2,13 @@ import { RippleColor, H3 } from '../styles';
 
 const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 	<div>
-		<H3>Button</H3>
+		<H3 style={ { margin: 0 } }>Button</H3>
+		<p>This component can be created as a block in WordPress.</p>
 		<button className="mdc-button">
-			<div className="mdc-button__ripple"></div>
+			<div
+				className="mdc-button__ripple"
+				style={ { borderRadius: radius } }
+			></div>
 			<span className="mdc-button__label">Text Button</span>
 		</button>
 		<button
