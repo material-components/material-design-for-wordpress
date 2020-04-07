@@ -52,6 +52,7 @@ const FocusedCardActions = ( {
 		</div>
 	);
 };
+
 /**
  * Card Collections Edit component.
  *
