@@ -3,6 +3,7 @@ import { H3 } from '../styles';
 const ImageLists = () => (
 	<div>
 		<H3>Image Lists</H3>
+		<p>This component can be created as a block in WordPress.</p>
 		<ul className="mdc-image-list standard-image-list mdc-image-list--with-text-protection">
 			<li className="mdc-image-list__item">
 				<div className="mdc-image-list__image-aspect-container">

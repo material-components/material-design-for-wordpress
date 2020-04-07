@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 import Lists from './sections/lists';
 import Table from './sections/table';
+import Cards from './sections/cards';
 import Chips from './sections/chips';
 import Radios from './sections/radios';
 import TabBar from './sections/tab-bar';
@@ -46,7 +47,7 @@ const KitchenSink = ( {
 	secondaryTextColor,
 	smallComponentRadius,
 	largeComponentRadius,
-	// mediumComponentRadius,
+	mediumComponentRadius,
 } ) => {
 	const [ link ] = useState(
 		googleFontsUrl( headFontFamily, bodyFontFamily, iconCollection )
@@ -81,8 +82,11 @@ const KitchenSink = ( {
 						primaryTextColor={ primaryTextColor }
 						radius={ smallComponentRadius }
 					/>
-					{ /* <hr /> */ }
-					{ /* <Cards radius={ mediumComponentRadius } /> */ }
+					<hr />
+					<Cards
+						radius={ mediumComponentRadius }
+						smallRadius={ smallComponentRadius }
+					/>
 					<hr />
 					<Table radius={ largeComponentRadius } />
 					{ /* <hr />
