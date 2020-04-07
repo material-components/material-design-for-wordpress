@@ -2,11 +2,9 @@ import { startCase } from 'lodash';
 import { useEffect, useState } from 'react';
 
 import Lists from './sections/lists';
-import Cards from './sections/cards';
 import Table from './sections/table';
 import Chips from './sections/chips';
 import Radios from './sections/radios';
-import Fields from './sections/fields';
 import TabBar from './sections/tab-bar';
 import Buttons from './sections/buttons';
 import Checkboxes from './sections/checkboxes';
@@ -48,7 +46,7 @@ const KitchenSink = ( {
 	secondaryTextColor,
 	smallComponentRadius,
 	largeComponentRadius,
-	mediumComponentRadius,
+	// mediumComponentRadius,
 } ) => {
 	const [ link ] = useState(
 		googleFontsUrl( headFontFamily, bodyFontFamily, iconCollection )
@@ -83,8 +81,8 @@ const KitchenSink = ( {
 						primaryTextColor={ primaryTextColor }
 						radius={ smallComponentRadius }
 					/>
-					<hr />
-					<Cards radius={ mediumComponentRadius } />
+					{ /* <hr /> */ }
+					{ /* <Cards radius={ mediumComponentRadius } /> */ }
 					<hr />
 					<Table radius={ largeComponentRadius } />
 					{ /* <hr />
@@ -105,8 +103,8 @@ const KitchenSink = ( {
 					<Chips />
 					<hr />
 					<Radios />
-					<hr />
-					<Fields />
+					{ /* <hr /> */ }
+					{ /* <Fields /> */ }
 					{ /* <Switch /> */ }
 				</section>
 			</div>
