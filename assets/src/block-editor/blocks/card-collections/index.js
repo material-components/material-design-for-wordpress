@@ -30,7 +30,7 @@ export const settings = {
 	),
 	category: 'material',
 	supports: {
-		align: true,
+		align: [ 'wide', 'full' ],
 	},
 	icon: BlockIcon,
 	attributes: {
