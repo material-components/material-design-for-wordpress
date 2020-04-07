@@ -157,9 +157,9 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 
 							let placeholder = '';
 							if ( name === 'head' ) {
-								placeholder = __( 'Header label' );
+								placeholder = __( 'Header label', 'material-theme-builder' );
 							} else if ( name === 'foot' ) {
-								placeholder = __( 'Footer label' );
+								placeholder = __( 'Footer label', 'material-theme-builder' );
 							}
 
 							return (
@@ -268,7 +268,7 @@ const DataTableEdit = ( {
 				<div className="mdc-data-table__caption">
 					<RichText
 						tagName="figcaption"
-						placeholder={ __( 'Write caption…' ) }
+						placeholder={ __( 'Write caption…', 'material-theme-builder' ) }
 						value={ caption }
 						onChange={
 							/* istanbul ignore next */

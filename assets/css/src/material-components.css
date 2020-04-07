@@ -80,3 +80,8 @@ mdc-card__primary-action {
 	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
 	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
 }
+
+/* Data Table */
+.mdc-data-table__header-cell {
+	font-weight: bold;
+}
