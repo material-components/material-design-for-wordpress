@@ -15,9 +15,14 @@ export const Overrides = createGlobalStyle`
 		font-family: var(--heading-font) !important;
 	}
 
+	#mcb-kitchen-sink-preview .mdc-text-field--focused .mdc-floating-label {
+		color: var(--mdc-theme-primary) !important;
+	}
+
   #mcb-kitchen-sink-preview p, 
   #mcb-kitchen-sink-preview th, 
   #mcb-kitchen-sink-preview td, 
+  #mcb-kitchen-sink-preview input[type="text"], 
   #mcb-kitchen-sink-preview button:not([class*="material-icons"]), 
   #mcb-kitchen-sink-preview span:not([class*="material-icons"]) {
     font-family: var(--body-font) !important;
