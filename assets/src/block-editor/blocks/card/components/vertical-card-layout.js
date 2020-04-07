@@ -25,10 +25,15 @@ const VerticalCardLayout = ( {
 	displayImage,
 	supportingText,
 	displaySupportingText,
-	buttonActionText,
-	buttonActionUrl,
-	buttonActionNewTab,
-	buttonActionNoFollow,
+	primaryActionButtonLabel,
+	primaryActionButtonUrl,
+	primaryActionButtonNewTab,
+	primaryActionButtonNoFollow,
+	secondaryActionButtonLabel,
+	secondaryActionButtonUrl,
+	secondaryActionButtonNewTab,
+	secondaryActionButtonNoFollow,
+	displaySecondaryActionButton,
 	displayActions,
 	outlined,
 	cornerRadius,
@@ -98,10 +103,15 @@ const VerticalCardLayout = ( {
 			</div>
 			{ displayActions && (
 				<CardActions
-					buttonActionText={ buttonActionText }
-					buttonActionUrl={ buttonActionUrl }
-					buttonActionNewTab={ buttonActionNewTab }
-					buttonActionNoFollow={ buttonActionNoFollow }
+					primaryActionButtonLabel={ primaryActionButtonLabel }
+					primaryActionButtonUrl={ primaryActionButtonUrl }
+					primaryActionButtonNewTab={ primaryActionButtonNewTab }
+					primaryActionButtonNoFollow={ primaryActionButtonNoFollow }
+					secondaryActionButtonLabel={ secondaryActionButtonLabel }
+					secondaryActionButtonUrl={ secondaryActionButtonUrl }
+					secondaryActionButtonNewTab={ secondaryActionButtonNewTab }
+					secondaryActionButtonNoFollow={ secondaryActionButtonNoFollow }
+					displaySecondaryActionButton={ displaySecondaryActionButton }
 					cardIndex={ cardIndex }
 					setter={ setter }
 				/>

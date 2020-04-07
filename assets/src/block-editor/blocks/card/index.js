@@ -59,24 +59,43 @@ export const settings = {
 			type: 'boolean',
 			default: true,
 		},
-		buttonActionText: {
+		primaryActionButtonLabel: {
 			type: 'string',
-			default: 'Button text',
+			default: __( 'Button text', 'material-theme-builder' ),
 		},
-		buttonActionUrl: {
+		primaryActionButtonUrl: {
 			type: 'string',
 		},
-		buttonActionNewTab: {
+		primaryActionButtonNewTab: {
 			type: 'bool',
 			default: false,
 		},
-		buttonActionNoFollow: {
+		primaryActionButtonNoFollow: {
+			type: 'bool',
+			default: false,
+		},
+		secondaryActionButtonLabel: {
+			type: 'string',
+			default: __( 'Button text', 'material-theme-builder' ),
+		},
+		secondaryActionButtonUrl: {
+			type: 'string',
+		},
+		secondaryActionButtonNewTab: {
+			type: 'bool',
+			default: false,
+		},
+		secondaryActionButtonNoFollow: {
 			type: 'bool',
 			default: false,
 		},
 		displayActions: {
 			type: 'boolean',
 			default: true,
+		},
+		displaySecondaryActionButton: {
+			type: 'bool',
+			default: false,
 		},
 		cornerRadius: {
 			type: 'number',

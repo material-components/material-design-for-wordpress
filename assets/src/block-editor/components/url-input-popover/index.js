@@ -49,8 +49,9 @@ const UrlInputPopover = withState( {
 	return (
 		<Popover
 			className={ mainClassName }
-			focusOnMount={ false }
+			focusOnMount="firstElement"
 			position="bottom center"
+			onFocusOutside={ props.onFocusOutside }
 		>
 			<PanelBody>
 				<div className="mtb-url-input-popover__input-wrapper">

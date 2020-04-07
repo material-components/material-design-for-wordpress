@@ -11,6 +11,7 @@ const InspectorControlsStylePanel = ( {
 	displayImage,
 	displaySupportingText,
 	displayActions,
+	displaySecondaryActionButton,
 	isSingleCard,
 	setter,
 	cardIndex,
@@ -59,6 +60,18 @@ const InspectorControlsStylePanel = ( {
 					checked={ displayActions }
 					onChange={ value => setter( 'displayActions', value, cardIndex ) }
 				/>
+				{ displayActions && (
+					<ToggleControl
+						label={ __(
+							'Show secondary action button',
+							'material-theme-builder'
+						) }
+						checked={ displaySecondaryActionButton }
+						onChange={ value =>
+							setter( 'displaySecondaryActionButton', value, cardIndex )
+						}
+					/>
+				) }
 			</PanelBody>
 		</>
 	);
