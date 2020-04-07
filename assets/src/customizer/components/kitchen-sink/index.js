@@ -9,6 +9,7 @@ import Radios from './sections/radios';
 import TabBar from './sections/tab-bar';
 import Buttons from './sections/buttons';
 import Checkboxes from './sections/checkboxes';
+import ImageLists from './sections/image-lists';
 import { materialIconClass } from './utils';
 import { Overrides, H1, H2 } from './styles';
 
@@ -89,8 +90,8 @@ const KitchenSink = ( {
 					/>
 					<hr />
 					<Table radius={ largeComponentRadius } />
-					{ /* <hr />
-					<ImageLists /> */ }
+					<hr />
+					<ImageLists radius={ mediumComponentRadius } />
 					<hr />
 					<Lists iconStyle={ iconStyle } />
 					<hr />
