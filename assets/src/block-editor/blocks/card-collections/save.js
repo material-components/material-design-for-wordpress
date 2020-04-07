@@ -16,7 +16,7 @@ const Edit = ( { className } ) => {
 		<>
 			<div className={ className }>
 				<div className="mdc-card basic-card">
-					<InnerBlocks.Content/>
+					<InnerBlocks.Content />
 				</div>
 			</div>
 		</>

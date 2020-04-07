@@ -2,17 +2,14 @@
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import {
-	PanelBody,
-	ToggleControl,
-} from '@wordpress/components';
+import { PanelBody, ToggleControl } from '@wordpress/components';
 
 const InspectorControlsStylePanel = ( {
 	cardLayoutStyle = 'vertical',
 	displayTitle,
-	displaySubTitle,
-	displayImage,
 	displaySecondaryText,
+	displayImage,
+	displaySupportingText,
 	displayActions,
 	isSingleCard,
 	setter,
@@ -37,9 +34,11 @@ const InspectorControlsStylePanel = ( {
 					onChange={ value => setter( 'displayTitle', value, cardIndex ) }
 				/>
 				<ToggleControl
-					label={ __( 'Show Subtitle', 'material-theme-builder' ) }
-					checked={ displaySubTitle }
-					onChange={ value => setter( 'displaySubTitle', value, cardIndex ) }
+					label={ __( 'Show Secondary Text', 'material-theme-builder' ) }
+					checked={ displaySecondaryText }
+					onChange={ value =>
+						setter( 'displaySecondaryText', value, cardIndex )
+					}
 				/>
 				<ToggleControl
 					label={ __( 'Show Image', 'material-theme-builder' ) }
@@ -48,10 +47,10 @@ const InspectorControlsStylePanel = ( {
 				/>
 				{ cardLayoutStyle === 'vertical' && (
 					<ToggleControl
-						label={ __( 'Show Secondary Text', 'material-theme-builder' ) }
-						checked={ displaySecondaryText }
+						label={ __( 'Show Supporting Text', 'material-theme-builder' ) }
+						checked={ displaySupportingText }
 						onChange={ value =>
-							setter( 'displaySecondaryText', value, cardIndex )
+							setter( 'displaySupportingText', value, cardIndex )
 						}
 					/>
 				) }

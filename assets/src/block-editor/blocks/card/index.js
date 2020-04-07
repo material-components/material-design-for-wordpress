@@ -35,10 +35,10 @@ export const settings = {
 			type: 'boolean',
 			default: true,
 		},
-		subTitle: {
+		secondaryText: {
 			type: 'string',
 		},
-		displaySubTitle: {
+		displaySecondaryText: {
 			type: 'boolean',
 			default: true,
 		},
@@ -52,10 +52,10 @@ export const settings = {
 			type: 'boolean',
 			default: true,
 		},
-		secondaryText: {
+		supportingText: {
 			type: 'string',
 		},
-		displaySecondaryText: {
+		displaySupportingText: {
 			type: 'boolean',
 			default: true,
 		},
