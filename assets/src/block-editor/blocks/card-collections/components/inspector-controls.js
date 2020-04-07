@@ -43,8 +43,8 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 		allowIndividualStyleOverride,
 		allowIndividualContentOverride,
 		displayTitle,
-		displaySubTitle,
 		displaySecondaryText,
+		displaySupportingText,
 		displayActions,
 		displayImage,
 		setter,
@@ -101,9 +101,9 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 							onChange={ standardSetter( 'displayTitle' ) }
 						/>
 						<ToggleControl
-							label={ __( 'Show Subtitle', 'material-theme-builder' ) }
-							checked={ displaySubTitle }
-							onChange={ standardSetter( 'displaySubTitle' ) }
+							label={ __( 'Show Secondary Text', 'material-theme-builder' ) }
+							checked={ displaySecondaryText }
+							onChange={ standardSetter( 'displaySecondaryText' ) }
 						/>
 						<ToggleControl
 							label={ __( 'Show Image', 'material-theme-builder' ) }
@@ -112,9 +112,9 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 						/>
 						{ style !== 'list' && (
 							<ToggleControl
-								label={ __( 'Show Secondary Text', 'material-theme-builder' ) }
-								checked={ displaySecondaryText }
-								onChange={ standardSetter( 'displaySecondaryText' ) }
+								label={ __( 'Show Supporting Text', 'material-theme-builder' ) }
+								checked={ displaySupportingText }
+								onChange={ standardSetter( 'displaySupportingText' ) }
 							/>
 						) }
 						<ToggleControl
@@ -139,9 +139,9 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 
 				const inspectorControlsContentPanelProps = {
 					displayTitle: cardProps.displayTitle,
-					displaySubTitle: cardProps.displaySubTitle,
-					displayImage: cardProps.displayImage,
 					displaySecondaryText: cardProps.displaySecondaryText,
+					displayImage: cardProps.displayImage,
+					displaySupportingText: cardProps.displaySupportingText,
 					displayActions: cardProps.displayActions,
 					isSingleCard: false,
 					setter,

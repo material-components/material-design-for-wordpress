@@ -237,10 +237,11 @@ const Edit = props => {
 					newCardsProps[ index ].cornerRadius = attributes.cornerRadius;
 					newCardsProps[ index ].outlined = attributes.outlined;
 					newCardsProps[ index ].displayTitle = attributes.displayTitle;
-					newCardsProps[ index ].displaySubTitle = attributes.displaySubTitle;
-					newCardsProps[ index ].displayImage = attributes.displayImage;
 					newCardsProps[ index ].displaySecondaryText =
 						attributes.displaySecondaryText;
+					newCardsProps[ index ].displayImage = attributes.displayImage;
+					newCardsProps[ index ].displaySupportingText =
+						attributes.displaySupportingText;
 					newCardsProps[ index ].displayActions = attributes.displayActions;
 				}
 				setAttributes( {
@@ -254,9 +255,9 @@ const Edit = props => {
 			attributes.cornerRadius,
 			attributes.outlined,
 			attributes.displayTitle,
-			attributes.displaySubTitle,
-			attributes.displayImage,
 			attributes.displaySecondaryText,
+			attributes.displayImage,
+			attributes.displaySupportingText,
 			attributes.displayActions,
 		]
 	);

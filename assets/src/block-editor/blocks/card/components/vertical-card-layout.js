@@ -10,7 +10,7 @@ import '../stlye.css';
 import '../editor.css';
 import CardImage from './card-image';
 import CardPrimary from './card-primary';
-import CardSecondaryText from './card-secondary-text';
+import CardSupportingText from './card-supporting-text';
 import CardActions from './card-actions';
 
 const VerticalCardLayout = ( {
@@ -18,13 +18,13 @@ const VerticalCardLayout = ( {
 	contentLayout,
 	title,
 	displayTitle,
-	subTitle,
-	displaySubTitle,
+	secondaryText,
+	displaySecondaryText,
 	imageSourceUrl,
 	imageEditMode,
 	displayImage,
-	secondaryText,
-	displaySecondaryText,
+	supportingText,
+	displaySupportingText,
 	buttonActionText,
 	buttonActionUrl,
 	buttonActionNewTab,
@@ -37,8 +37,8 @@ const VerticalCardLayout = ( {
 	const cardPrimaryProps = {
 		title,
 		displayTitle,
-		subTitle,
-		displaySubTitle,
+		secondaryText,
+		displaySecondaryText,
 		cardIndex,
 		setter,
 	};
@@ -87,9 +87,9 @@ const VerticalCardLayout = ( {
 					<CardPrimary { ...cardPrimaryProps } />
 				) }
 
-				{ displaySecondaryText && (
-					<CardSecondaryText
-						secondaryText={ secondaryText }
+				{ displaySupportingText && (
+					<CardSupportingText
+						supportingText={ supportingText }
 						contentLayout={ contentLayout }
 						cardIndex={ cardIndex }
 						setter={ setter }

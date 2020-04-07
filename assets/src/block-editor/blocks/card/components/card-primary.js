@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
 /**
@@ -10,8 +10,8 @@ import { RichText } from '@wordpress/block-editor';
  * @param {Object} props - Component props.
  * @param {boolean} props.displayTitle - Whether or not to display the title.
  * @param {string} props.title - Title.
- * @param {boolean} props.displaySubTitle - Whether or not to display the subtitle.
- * @param {string} props.subTitle - SubTitle.
+ * @param {boolean} props.displaySecondaryText - Whether or not to display the secondary text.
+ * @param {string} props.secondaryText - Secondary text.
  * @param {boolean} props.cardIndex - Card Index.
  * @param {Function} props.setter - Block attribute setter.
  *
@@ -20,8 +20,8 @@ import { RichText } from '@wordpress/block-editor';
 const CardPrimary = ( {
 	displayTitle,
 	title,
-	displaySubTitle,
-	subTitle,
+	displaySecondaryText,
+	secondaryText,
 	cardIndex,
 	setter,
 } ) => (
@@ -32,23 +32,17 @@ const CardPrimary = ( {
 				className="mtb-card__title mdc-typography mdc-typography--headline6"
 				value={ title }
 				onChange={ value => setter( 'title', value, cardIndex ) }
-				placeholder={ sprintf(
-					__( 'Enter the card #%d title here.', 'material-theme-builder' ),
-					cardIndex + 1
-				) }
+				placeholder={ __( 'Title goes here', 'material-theme-builder' ) }
 				place
 			/>
 		) }
-		{ displaySubTitle && (
+		{ displaySecondaryText && (
 			<RichText
 				tagName="h3"
 				className="mtb-card__subtitle mdc-typography mdc-typography--subtitle2"
-				value={ subTitle }
-				onChange={ value => setter( 'subTitle', value, cardIndex ) }
-				placeholder={ sprintf(
-					__( 'Enter the card #%d subtitle here.', 'material-theme-builder' ),
-					cardIndex + 1
-				) }
+				value={ secondaryText }
+				onChange={ value => setter( 'secondaryText', value, cardIndex ) }
+				placeholder={ __( 'Secondary text', 'material-theme-builder' ) }
 			/>
 		) }
 	</div>

@@ -90,7 +90,7 @@ export const settings = {
 			type: 'boolean',
 			default: true,
 		},
-		displaySubTitle: {
+		displaySecondaryText: {
 			type: 'boolean',
 			default: true,
 		},
@@ -98,7 +98,7 @@ export const settings = {
 			type: 'boolean',
 			default: true,
 		},
-		displaySecondaryText: {
+		displaySupportingText: {
 			type: 'boolean',
 			default: true,
 		},

@@ -17,8 +17,8 @@ const HorizontalCardLayout = ( {
 	contentLayout,
 	title,
 	displayTitle,
-	subTitle,
-	displaySubTitle,
+	secondaryText,
+	displaySecondaryText,
 	imageSourceUrl,
 	imageEditMode,
 	displayImage,
@@ -34,8 +34,8 @@ const HorizontalCardLayout = ( {
 	const cardPrimaryProps = {
 		title,
 		displayTitle,
-		subTitle,
-		displaySubTitle,
+		secondaryText,
+		displaySecondaryText,
 		cardIndex,
 		setter,
 	};
