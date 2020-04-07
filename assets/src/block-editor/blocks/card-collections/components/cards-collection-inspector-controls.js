@@ -25,7 +25,7 @@ import { MIN_NUMBER_OF_CARDS, MAX_NUMBER_OF_CARDS } from '../constants';
  *
  * @return {Function} A functional component.
  */
-const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
+const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 	const standardSetter = useCallback(
 		genericAttributesSetter( setAttributes ),
 		[]
@@ -179,4 +179,4 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 	);
 };
 
-export default CardCollectionsInspectorControls;
+export default CardsCollectionInspectorControls;

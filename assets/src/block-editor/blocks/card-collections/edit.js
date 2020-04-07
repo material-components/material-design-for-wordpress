@@ -13,7 +13,7 @@ import { IconButton } from '@wordpress/components';
 /**
  * Internal dependencies
  */
-import InspectorControls from './components/inspector-controls';
+import CardsCollectionInspectorControls from './components/cards-collection-inspector-controls';
 import './editor.css';
 import { CARD_ATTRIBUTES_VALUE } from './constants';
 import VerticalCardLayout from '../card/components/vertical-card-layout';
@@ -324,7 +324,7 @@ const Edit = props => {
 
 	return (
 		<>
-			<InspectorControls { ...inspectorControlsProps } />
+			<CardsCollectionInspectorControls { ...inspectorControlsProps } />
 			<div className={ className }>
 				{ ( style === 'grid' || style === 'list' ) && (
 					<div className={ `mdc-layout-grid layout-${ style }` }>
