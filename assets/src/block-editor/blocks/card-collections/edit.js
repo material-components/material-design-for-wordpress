@@ -92,6 +92,11 @@ const Edit = props => {
 
 	const items = [];
 
+	/**
+	 * @param {string} attributeName - Attribute name.
+	 * @param {string} attributeValue - Attribute value.
+	 * @param {number} cardIndex - Card index
+	 */
 	const setter = ( attributeName, attributeValue, cardIndex ) => {
 		const newCardsProps = [ ...cardsProps ];
 
