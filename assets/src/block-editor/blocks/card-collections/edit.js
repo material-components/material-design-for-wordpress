@@ -195,6 +195,7 @@ const Edit = props => {
 			items.push(
 				<div
 					key={ cardIndex }
+					data-card-index={ cardIndex }
 					className={ classnames(
 						'card-container',
 						{
@@ -225,6 +226,7 @@ const Edit = props => {
 			items.push(
 				<div
 					key={ cardIndex }
+					data-card-index={ cardIndex }
 					className={ classnames( 'card-container', {
 						'card-container-focused':
 							cardsFocus[ cardIndex ] !== undefined
@@ -254,6 +256,25 @@ const Edit = props => {
 	};
 
 	const isInitialMount = useRef( true );
+
+	/**
+	 * Handle the click outside a card to remove the focus highlight on all cards.
+	 *
+	 * @param {Object} event - Click event.
+	 */
+	const handleClickOutsideCard = event => {
+		const cardContainer = event.target.closest( '.card-container' );
+		if ( ! cardContainer ) {
+			setCardsFocus( [] );
+		}
+	};
+
+	useEffect( () => {
+		document.addEventListener( 'click', handleClickOutsideCard, true );
+		return () => {
+			document.removeEventListener( 'click', handleClickOutsideCard, true );
+		};
+	} );
 
 	useEffect(
 		() => {
@@ -299,7 +320,6 @@ const Edit = props => {
 	return (
 		<>
 			<InspectorControls { ...inspectorControlsProps } />
-			{ /*<div className={ className } onBlur={ () => setCardsFocus( [] ) }>*/ }
 			<div className={ className }>
 				{ ( style === 'grid' || style === 'list' ) && (
 					<div className={ `mdc-layout-grid layout-${ style }` }>
