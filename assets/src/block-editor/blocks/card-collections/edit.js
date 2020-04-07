@@ -161,6 +161,7 @@ const Edit = props => {
 			cardIndex,
 			setAttributes,
 			setter,
+			isEditMode: true,
 			...baseProps,
 		};
 
