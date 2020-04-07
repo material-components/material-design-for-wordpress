@@ -256,4 +256,9 @@
 			display: block;
 		}
 	}
+
+	.image-list-item {
+		width: calc(100% / 5 - 5px);
+		margin: 5px;
+	}
 }
