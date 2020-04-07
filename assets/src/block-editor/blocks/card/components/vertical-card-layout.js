@@ -6,8 +6,6 @@ import classnames from 'classnames';
 /**
  * Internal dependencies
  */
-import '../stlye.css';
-import '../editor.css';
 import CardImage from './card-image';
 import CardPrimary from './card-primary';
 import CardSupportingText from './card-supporting-text';
@@ -38,6 +36,7 @@ const VerticalCardLayout = ( {
 	outlined,
 	cornerRadius,
 	setter,
+	isEditMode,
 } ) => {
 	const cardPrimaryProps = {
 		title,
@@ -46,6 +45,7 @@ const VerticalCardLayout = ( {
 		displaySecondaryText,
 		cardIndex,
 		setter,
+		isEditMode,
 	};
 
 	const cardImageProps = {
@@ -57,6 +57,7 @@ const VerticalCardLayout = ( {
 		cardPrimaryProps,
 		cardIndex,
 		setter,
+		isEditMode,
 	};
 
 	return (
@@ -98,6 +99,7 @@ const VerticalCardLayout = ( {
 						contentLayout={ contentLayout }
 						cardIndex={ cardIndex }
 						setter={ setter }
+						isEditMode={ isEditMode }
 					/>
 				) }
 			</div>
@@ -114,6 +116,7 @@ const VerticalCardLayout = ( {
 					displaySecondaryActionButton={ displaySecondaryActionButton }
 					cardIndex={ cardIndex }
 					setter={ setter }
+					isEditMode={ isEditMode }
 				/>
 			) }
 		</div>
