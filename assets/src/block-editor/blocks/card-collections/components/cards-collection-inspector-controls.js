@@ -3,7 +3,6 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { useCallback } from '@wordpress/element';
 import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
 
 /**
@@ -26,10 +25,7 @@ import { MIN_NUMBER_OF_CARDS, MAX_NUMBER_OF_CARDS } from '../constants';
  * @return {Function} A functional component.
  */
 const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
-	const standardSetter = useCallback(
-		genericAttributesSetter( setAttributes ),
-		[]
-	);
+	const standardSetter = genericAttributesSetter( setAttributes );
 
 	const {
 		style,
