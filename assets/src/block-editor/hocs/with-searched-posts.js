@@ -36,6 +36,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		const [ list, setList ] = useState( [] );
 		const [ loading, setLoading ] = useState( true );
 		const [ error, setErrorState ] = useState();
+		const { selected } = props;
 
 		/**
 		 * Fetch Posts.
@@ -44,15 +45,18 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		 *
 		 * @return {Promise<void>} Promise
 		 */
-		const fetchPosts = useCallback( async args => {
-			try {
-				const fetchedList = await getPosts( args );
-				setList( fetchedList );
-				setLoading( false );
-			} catch ( e ) {
-				await setError( e );
-			}
-		}, [] );
+		const fetchPosts = useCallback(
+			async args => {
+				try {
+					const fetchedList = await getPosts( args );
+					setList( fetchedList );
+					setLoading( false );
+				} catch ( e ) {
+					await setError( e );
+				}
+			},
+			[ setList, setLoading ]
+		);
 
 		/**
 		 * On search handler.
@@ -60,8 +64,6 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		 * @param {string} search - Search
 		 */
 		const onSearch = search => {
-			const { selected } = props;
-
 			fetchPosts( { selected, search } );
 		};
 
@@ -83,12 +85,20 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 			return { id, name: title.rendered };
 		} );
 
-		useEffect( () => {
-			const { selected } = props;
-			fetchPosts( { selected } );
+		useEffect(
+			() => {
+				fetchPosts( { selected } );
 
-			debouncedOnSearch.cancel();
-		}, [ debouncedOnSearch, fetchPosts, props ] );
+				return () => {
+					debouncedOnSearch.cancel();
+				};
+			},
+			// Important debouncedOnSearch SHOULD NOT be in the dependencies list as it will
+			// create an endless loop fetching the post. Also no other dependencies should be added
+			// fetchPosts should be fired only after the component has mounted.
+			//eslint-disable-next-line react-hooks/exhaustive-deps
+			[]
+		);
 
 		return (
 			<OriginalComponent
