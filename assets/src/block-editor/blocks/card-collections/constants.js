@@ -5,14 +5,14 @@ import { __ } from '@wordpress/i18n';
 
 export const CARD_ATTRIBUTES_VALUE = {
 	contentLayout: 'text-under-media',
-	title: '',
+	title: __( 'Title goes here', 'material-theme-builder' ),
 	displayTitle: true,
-	secondaryText: '',
+	secondaryText: __( 'Secondary text', 'material-theme-builder' ),
 	displaySecondaryText: true,
 	imageSourceUrl: '',
 	imageEditMode: false,
 	displayImage: true,
-	supportingText: '',
+	supportingText: __( 'Supporting text', 'material-theme-builder' ),
 	displaySupportingText: true,
 	primaryActionButtonLabel: __( 'Button text', 'material-theme-builder' ),
 	primaryActionButtonUrl: '',
