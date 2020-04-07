@@ -243,6 +243,8 @@ const Edit = props => {
 					newCardsProps[ index ].displaySupportingText =
 						attributes.displaySupportingText;
 					newCardsProps[ index ].displayActions = attributes.displayActions;
+					newCardsProps[ index ].displaySecondaryActionButton =
+						attributes.displaySecondaryActionButton;
 				}
 				setAttributes( {
 					cardsProps: newCardsProps,
@@ -259,6 +261,7 @@ const Edit = props => {
 			attributes.displayImage,
 			attributes.displaySupportingText,
 			attributes.displayActions,
+			attributes.displaySecondaryActionButton,
 		]
 	);
 
