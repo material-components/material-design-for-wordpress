@@ -106,6 +106,10 @@ export const settings = {
 			type: 'boolean',
 			default: true,
 		},
+		displaySecondaryActionButton: {
+			type: 'boolean',
+			default: false,
+		},
 	},
 	edit,
 	save,

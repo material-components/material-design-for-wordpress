@@ -46,6 +46,7 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 		displaySecondaryText,
 		displaySupportingText,
 		displayActions,
+		displaySecondaryActionButton,
 		displayImage,
 		setter,
 	} = attributes;
@@ -122,6 +123,16 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 							checked={ displayActions }
 							onChange={ standardSetter( 'displayActions' ) }
 						/>
+						{ displayActions && (
+							<ToggleControl
+								label={ __(
+									'Show secondary action button',
+									'material-theme-builder'
+								) }
+								checked={ displaySecondaryActionButton }
+								onChange={ standardSetter( 'displaySecondaryActionButton' ) }
+							/>
+						) }
 					</>
 				) }
 			</PanelBody>
@@ -143,6 +154,7 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 					displayImage: cardProps.displayImage,
 					displaySupportingText: cardProps.displaySupportingText,
 					displayActions: cardProps.displayActions,
+					displaySecondaryActionButton: cardProps.displaySecondaryActionButton,
 					isSingleCard: false,
 					setter,
 					cardIndex,

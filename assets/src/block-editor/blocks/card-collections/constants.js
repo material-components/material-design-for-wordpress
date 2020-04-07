@@ -1,3 +1,8 @@
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
 export const CARD_ATTRIBUTES_VALUE = {
 	contentLayout: 'text-under-media',
 	title: '',
@@ -9,11 +14,16 @@ export const CARD_ATTRIBUTES_VALUE = {
 	displayImage: true,
 	supportingText: '',
 	displaySupportingText: true,
-	buttonActionText: 'Button text',
-	buttonActionUrl: '',
-	buttonActionNewTab: false,
-	buttonActionNoFollow: false,
+	primaryActionButtonLabel: __( 'Button text', 'material-theme-builder' ),
+	primaryActionButtonUrl: '',
+	primaryActionButtonNewTab: false,
+	primaryActionButtonNoFollow: false,
+	secondaryActionButtonLabel: __( 'Button text', 'material-theme-builder' ),
+	secondaryActionButtonUrl: '',
+	secondaryActionButtonNewTab: false,
+	secondaryActionButtonNoFollow: false,
 	displayActions: true,
+	displaySecondaryActionButton: false,
 	outlined: false,
 	cornerRadius: 4,
 };
