@@ -20,8 +20,19 @@ import VerticalCardLayout from '../card/components/vertical-card-layout';
 import HorizontalCardLayout from '../card/components/horizontal-card-layout';
 import { __, sprintf } from '@wordpress/i18n';
 
+/**
+ * @param {Object} props - Component props.
+ * @param {number} props.cardIndex - Card index.
+ * @param {number} props.numberOfCards - Total number of cards.
+ * @param {Function} props.onMoveLeft - Move card left handler.
+ * @param {Function} props.onMoveRight - Move card right handler.
+ * @param {Function} props.onRemove - Remove card  handler.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 const FocusedCardActions = ( {
 	cardIndex,
+	numberOfCards,
 	onMoveLeft,
 	onMoveRight,
 	onRemove,
@@ -33,12 +44,14 @@ const FocusedCardActions = ( {
 				icon="arrow-left"
 				label={ __( 'Move left', 'material-theme-builder' ) }
 				onClick={ onMoveLeft }
+				disabled={ cardIndex === 0 }
 			/>
 			<IconButton
 				className="mtb-card-buttons"
 				icon="arrow-right"
 				label={ __( 'Move right', 'material-theme-builder' ) }
 				onClick={ onMoveRight }
+				disabled={ numberOfCards === cardIndex + 1 }
 			/>
 			<span className="card-number-title">
 				{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }{ ' ' }
@@ -96,6 +109,9 @@ const Edit = props => {
 
 	const [ cardsFocus, setCardsFocus ] = useState( [] );
 
+	/**
+	 * @param {number} cardIndex - Card index.
+	 */
 	const onCardFocus = cardIndex => {
 		const newCardFocus = cardsFocus.map( () => {
 			return false;
@@ -104,6 +120,9 @@ const Edit = props => {
 		setCardsFocus( newCardFocus );
 	};
 
+	/**
+	 * @param {number} cardIndex - Card index.
+	 */
 	const onCardMoveLeft = cardIndex => {
 		const newCardsProps = [ ...cardsProps ];
 		if ( cardIndex > 0 ) {
@@ -117,6 +136,9 @@ const Edit = props => {
 		}
 	};
 
+	/**
+	 * @param {number} cardIndex - Card index.
+	 */
 	const onCardMoveRight = cardIndex => {
 		const newCardsProps = [ ...cardsProps ];
 		if ( cardIndex < newCardsProps.length - 1 ) {
@@ -130,6 +152,9 @@ const Edit = props => {
 		}
 	};
 
+	/**
+	 * @param {number} cardIndex - Card index.
+	 */
 	const onCardRemove = cardIndex => {
 		const newCardsProps = [ ...cardsProps ];
 		newCardsProps.splice( cardIndex, 1 );
@@ -188,6 +213,7 @@ const Edit = props => {
 						cardsFocus[ cardIndex ] && (
 							<FocusedCardActions
 								cardIndex={ cardIndex }
+								numberOfCards={ numberOfCards }
 								onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
 								onMoveRight={ () => onCardMoveRight( cardIndex ) }
 								onRemove={ () => onCardRemove( cardIndex ) }
@@ -212,6 +238,7 @@ const Edit = props => {
 						cardsFocus[ cardIndex ] && (
 							<FocusedCardActions
 								cardIndex={ cardIndex }
+								numberOfCards={ numberOfCards }
 								onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
 								onMoveRight={ () => onCardMoveRight( cardIndex ) }
 								onRemove={ () => onCardRemove( cardIndex ) }
