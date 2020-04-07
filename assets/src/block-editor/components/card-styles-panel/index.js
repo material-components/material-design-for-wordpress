@@ -82,8 +82,8 @@ const CardStylesPanel = ( {
 	showContentLayout = true,
 	gutter,
 	showGutter = false,
-	roundedCorners,
-	showRoundedCorners = false,
+	cornerRadius,
+	showCornerRadius = false,
 	minRoundedCornersRadius = 0,
 	maxRoundedCornersRadius = 24,
 	outlined,
@@ -137,11 +137,11 @@ const CardStylesPanel = ( {
 					) }
 				</>
 			) }
-			{ ! allowIndividualStyleOverride && showRoundedCorners && (
+			{ ! allowIndividualStyleOverride && showCornerRadius && (
 				<RangeControl
 					label={ __( 'Rounded Corners', 'material-theme-builder' ) }
-					value={ roundedCorners }
-					onChange={ setter( 'roundedCorners' ) }
+					value={ cornerRadius }
+					onChange={ setter( 'cornerRadius' ) }
 					min={ minRoundedCornersRadius }
 					max={ maxRoundedCornersRadius }
 				/>

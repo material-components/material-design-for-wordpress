@@ -67,8 +67,8 @@ const CardCollectionsInspectorControls = ( { attributes, setAttributes } ) => {
 				showContentLayout={ showContentLayout }
 				gutter={ gutter }
 				showGutter={ true }
-				roundedCorners={ cornerRadius }
-				showRoundedCorners={ true }
+				cornerRadius={ cornerRadius }
+				showCornerRadius={ true }
 				outlined={ outlined }
 				setter={ standardSetter }
 			/>
