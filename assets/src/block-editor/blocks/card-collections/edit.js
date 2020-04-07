@@ -275,9 +275,26 @@ const Edit = props => {
 	};
 
 	useEffect( () => {
-		document.addEventListener( 'click', handleClickOutsideCard, true );
+		const editorWrapper = document.getElementsByClassName(
+			'editor-styles-wrapper'
+		);
+
+		if ( editorWrapper.length === 1 ) {
+			editorWrapper[ 0 ].addEventListener(
+				'click',
+				handleClickOutsideCard,
+				true
+			);
+		}
+
 		return () => {
-			document.removeEventListener( 'click', handleClickOutsideCard, true );
+			if ( editorWrapper.length === 1 ) {
+				editorWrapper[ 0 ].removeEventListener(
+					'click',
+					handleClickOutsideCard,
+					true
+				);
+			}
 		};
 	} );
 
