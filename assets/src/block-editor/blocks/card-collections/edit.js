@@ -206,6 +206,8 @@ const Edit = props => {
 	);
 
 	/**
+	 * Handle the card focus event.
+	 *
 	 * @param {number} cardIndex - Card index.
 	 */
 	const onCardFocus = cardIndex => {
@@ -217,6 +219,8 @@ const Edit = props => {
 	};
 
 	/**
+	 * Handle the card move left or up event.
+	 *
 	 * @param {number} cardIndex - Card index.
 	 */
 	const onCardMoveLeft = cardIndex => {
@@ -233,6 +237,8 @@ const Edit = props => {
 	};
 
 	/**
+	 * Handle the card move right or down event.
+	 *
 	 * @param {number} cardIndex - Card index.
 	 */
 	const onCardMoveRight = cardIndex => {
@@ -249,6 +255,8 @@ const Edit = props => {
 	};
 
 	/**
+	 * Handle the card removal event.
+	 *
 	 * @param {number} cardIndex - Card index.
 	 */
 	const onCardRemove = cardIndex => {
