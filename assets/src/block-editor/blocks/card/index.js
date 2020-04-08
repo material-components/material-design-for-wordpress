@@ -47,7 +47,7 @@ export const settings = {
 		imageSourceUrl: {
 			type: 'string',
 		},
-		imageEditMode: {
+		isImageEditMode: {
 			type: 'boolean',
 		},
 		displayImage: {

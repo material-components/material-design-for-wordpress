@@ -10,7 +10,7 @@ export const CARD_ATTRIBUTES_VALUE = {
 	secondaryText: __( 'Secondary text', 'material-theme-builder' ),
 	displaySecondaryText: true,
 	imageSourceUrl: '',
-	imageEditMode: false,
+	isImageEditMode: false,
 	displayImage: true,
 	supportingText: __( 'Supporting text', 'material-theme-builder' ),
 	displaySupportingText: true,

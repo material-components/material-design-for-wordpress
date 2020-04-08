@@ -14,7 +14,7 @@ import CardPrimary from './card-primary';
  *
  * @param {Object} props - Component props.
  * @param {string} props.imageSourceUrl - Image Source URL.
- * @param {boolean} props.imageEditMode - Image Edit mode.
+ * @param {boolean} props.isImageEditMode - Whether or not the image edit mode is enabled.
  * @param {string} props.contentLayout - Content layout.
  * @param {boolean} props.displayImage - Whether or not to display the image.
  * @param {string} props.type - Media type ('16-9' or 'square').
@@ -27,7 +27,7 @@ import CardPrimary from './card-primary';
  */
 const CardImage = ( {
 	imageSourceUrl,
-	imageEditMode,
+	isImageEditMode,
 	contentLayout,
 	displayImage,
 	type,
@@ -38,7 +38,7 @@ const CardImage = ( {
 } ) => {
 	const cardImageEditProps = {
 		imageSourceUrl,
-		imageEditMode,
+		isImageEditMode,
 		contentLayout,
 		displayImage,
 		type,

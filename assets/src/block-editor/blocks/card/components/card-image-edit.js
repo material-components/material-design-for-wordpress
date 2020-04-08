@@ -21,7 +21,7 @@ import CardPrimary from './card-primary';
  *
  * @param {Object} props - Component props.
  * @param {string} props.imageSourceUrl - Image Source URL.
- * @param {boolean} props.imageEditMode - Image Edit mode.
+ * @param {boolean} props.isImageEditMode - Image Edit mode.
  * @param {string} props.contentLayout - Content layout.
  * @param {boolean} props.displayImage - Whether or not to display the image.
  * @param {string} props.type - Media type ('16-9' or 'square').
@@ -33,7 +33,7 @@ import CardPrimary from './card-primary';
  */
 const CardImageEdit = ( {
 	imageSourceUrl,
-	imageEditMode,
+	isImageEditMode,
 	contentLayout,
 	displayImage,
 	type,
@@ -61,7 +61,7 @@ const CardImageEdit = ( {
 	 */
 	const onImageSelect = el => {
 		setter( 'imageSourceUrl', el.url, cardIndex );
-		setter( 'imageEditMode', false, cardIndex );
+		setter( 'isImageEditMode', false, cardIndex );
 		setHasImage( el.url !== undefined && el.url !== '' );
 	};
 
@@ -70,7 +70,7 @@ const CardImageEdit = ( {
 	 */
 	const onRemoveImage = () => {
 		setter( 'imageSourceUrl', '', cardIndex );
-		setter( 'imageEditMode', false, cardIndex );
+		setter( 'isImageEditMode', false, cardIndex );
 		setHasImage( false );
 	};
 
@@ -90,7 +90,7 @@ const CardImageEdit = ( {
 
 	return (
 		<>
-			{ ( ! hasImage || imageEditMode ) && displayImage && (
+			{ ( ! hasImage || isImageEditMode ) && displayImage && (
 				<MediaPlaceholder
 					onSelect={ onImageSelect }
 					allowedTypes={ [ 'image' ] }
@@ -101,7 +101,7 @@ const CardImageEdit = ( {
 					accept="image/*"
 				></MediaPlaceholder>
 			) }
-			{ hasImage && ! imageEditMode && imageSourceUrl && (
+			{ hasImage && ! isImageEditMode && imageSourceUrl && (
 				<>
 					<div
 						className={ classnames( {
