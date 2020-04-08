@@ -22,7 +22,7 @@ import HorizontalCardLayout from '../card/components/horizontal-card-layout';
  * @return {Function} Function returning the HTML markup for the component.
  */
 const Save = ( { attributes, className } ) => {
-	const { style, columns } = attributes;
+	const { style, columns, align } = attributes;
 
 	let columnSpan = 12;
 
@@ -74,7 +74,9 @@ const Save = ( { attributes, className } ) => {
 
 	return (
 		<>
-			<div className={ className }>
+			<div
+				className={ classnames( className, { [ `align${ align }` ]: align } ) }
+			>
 				{ ( style === 'grid' || style === 'list' ) && (
 					<div className={ `mdc-layout-grid layout-${ style }` }>
 						<div className="mdc-layout-grid__inner">{ items }</div>
