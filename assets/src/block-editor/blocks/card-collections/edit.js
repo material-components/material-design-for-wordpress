@@ -191,8 +191,8 @@ const Edit = props => {
 									cardIndex={ cardIndex }
 									style={ style }
 									numberOfCards={ numberOfCards }
-									onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
-									onMoveRight={ () => onCardMoveRight( cardIndex ) }
+									onMoveLeftOrUp={ () => onCardMoveLeftOrUp( cardIndex ) }
+									onMoveRightOrDown={ () => onCardMoveRightOrDown( cardIndex ) }
 									onRemove={ () => onCardRemove( cardIndex ) }
 								/>
 							) }
@@ -223,7 +223,7 @@ const Edit = props => {
 	 *
 	 * @param {number} cardIndex - Card index.
 	 */
-	const onCardMoveLeft = cardIndex => {
+	const onCardMoveLeftOrUp = cardIndex => {
 		const newCardsProps = [ ...cardsProps ];
 		if ( cardIndex > 0 ) {
 			const card = newCardsProps[ cardIndex ];
@@ -241,7 +241,7 @@ const Edit = props => {
 	 *
 	 * @param {number} cardIndex - Card index.
 	 */
-	const onCardMoveRight = cardIndex => {
+	const onCardMoveRightOrDown = cardIndex => {
 		const newCardsProps = [ ...cardsProps ];
 		if ( cardIndex < newCardsProps.length - 1 ) {
 			const card = newCardsProps[ cardIndex ];
