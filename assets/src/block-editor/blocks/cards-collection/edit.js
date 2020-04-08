@@ -34,7 +34,22 @@ import Cards from './components/cards';
  */
 const Edit = props => {
 	const { attributes, setAttributes, className } = props;
-	const { style, columns, gutter, cardsProps, numberOfCards } = attributes;
+	const {
+		style,
+		columns,
+		gutter,
+		cardsProps,
+		numberOfCards,
+		contentLayout,
+		cornerRadius,
+		outlined,
+		displayTitle,
+		displaySecondaryText,
+		displayImage,
+		displaySupportingText,
+		displayActions,
+		displaySecondaryActionButton,
+	} = attributes;
 	const [ cards, setCards ] = useState( [] );
 	const inspectorControlsProps = {
 		...props,
@@ -73,18 +88,17 @@ const Edit = props => {
 			} else {
 				const newCardsProps = [ ...cardsProps ];
 				for ( let index = 0; index < newCardsProps.length; index++ ) {
-					newCardsProps[ index ].contentLayout = attributes.contentLayout;
-					newCardsProps[ index ].cornerRadius = attributes.cornerRadius;
-					newCardsProps[ index ].outlined = attributes.outlined;
-					newCardsProps[ index ].displayTitle = attributes.displayTitle;
-					newCardsProps[ index ].displaySecondaryText =
-						attributes.displaySecondaryText;
-					newCardsProps[ index ].displayImage = attributes.displayImage;
-					newCardsProps[ index ].displaySupportingText =
-						attributes.displaySupportingText;
-					newCardsProps[ index ].displayActions = attributes.displayActions;
-					newCardsProps[ index ].displaySecondaryActionButton =
-						attributes.displaySecondaryActionButton;
+					newCardsProps[ index ].contentLayout = contentLayout;
+					newCardsProps[ index ].cornerRadius = cornerRadius;
+					newCardsProps[ index ].outlined = outlined;
+					newCardsProps[ index ].displayTitle = displayTitle;
+					newCardsProps[ index ].displaySecondaryText = displaySecondaryText;
+					newCardsProps[ index ].displayImage = displayImage;
+					newCardsProps[ index ].displaySupportingText = displaySupportingText;
+					newCardsProps[ index ].displayActions = displayActions;
+					newCardsProps[
+						index
+					].displaySecondaryActionButton = displaySecondaryActionButton;
 				}
 				setAttributes( {
 					cardsProps: newCardsProps,
@@ -93,15 +107,15 @@ const Edit = props => {
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[
-			attributes.contentLayout,
-			attributes.cornerRadius,
-			attributes.outlined,
-			attributes.displayTitle,
-			attributes.displaySecondaryText,
-			attributes.displayImage,
-			attributes.displaySupportingText,
-			attributes.displayActions,
-			attributes.displaySecondaryActionButton,
+			contentLayout,
+			cornerRadius,
+			outlined,
+			displayTitle,
+			displaySecondaryText,
+			displayImage,
+			displaySupportingText,
+			displayActions,
+			displaySecondaryActionButton,
 		]
 	);
 
