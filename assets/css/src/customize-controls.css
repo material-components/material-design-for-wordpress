@@ -234,6 +234,11 @@
 		margin: 50px 0 !important;
 	}
 
+	input[type="checkbox"] {
+		height: inherit !important;
+		width: inherit !important;
+	}
+
 	input[type="checkbox"]:disabled {
 		opacity: 1 !important;
 		border: none;
