@@ -36,35 +36,33 @@ const FocusedCardActions = ( {
 	onMoveLeft,
 	onMoveRight,
 	onRemove,
-} ) => {
-	return (
-		<div className="card-container-actions">
-			<IconButton
-				className="mtb-card-buttons"
-				icon="arrow-left"
-				label={ __( 'Move left', 'material-theme-builder' ) }
-				onClick={ onMoveLeft }
-				disabled={ cardIndex === 0 }
-			/>
-			<IconButton
-				className="mtb-card-buttons"
-				icon="arrow-right"
-				label={ __( 'Move right', 'material-theme-builder' ) }
-				onClick={ onMoveRight }
-				disabled={ numberOfCards === cardIndex + 1 }
-			/>
-			<span className="card-number-title">
-				{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }{ ' ' }
-			</span>
-			<IconButton
-				className="mtb-card-buttons mtb-card-close-button"
-				icon="no"
-				label={ __( 'Remove card', 'material-theme-builder' ) }
-				onClick={ onRemove }
-			/>
-		</div>
-	);
-};
+} ) => (
+	<div className="card-container-actions">
+		<IconButton
+			className="mtb-card-buttons"
+			icon="arrow-left"
+			label={ __( 'Move left', 'material-theme-builder' ) }
+			onClick={ onMoveLeft }
+			disabled={ cardIndex === 0 }
+		/>
+		<IconButton
+			className="mtb-card-buttons"
+			icon="arrow-right"
+			label={ __( 'Move right', 'material-theme-builder' ) }
+			onClick={ onMoveRight }
+			disabled={ numberOfCards === cardIndex + 1 }
+		/>
+		<span className="card-number-title">
+			{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }{ ' ' }
+		</span>
+		<IconButton
+			className="mtb-card-buttons mtb-card-close-button"
+			icon="no"
+			label={ __( 'Remove card', 'material-theme-builder' ) }
+			onClick={ onRemove }
+		/>
+	</div>
+);
 
 /**
  * Card Collections Edit component.
