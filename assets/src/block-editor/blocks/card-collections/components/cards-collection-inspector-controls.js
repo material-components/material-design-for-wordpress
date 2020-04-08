@@ -47,6 +47,46 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 		setter,
 	} = attributes;
 
+	const individualCardsPanels = cardsProps.map( ( cardProps, cardIndex ) => {
+		const inspectorControlsStylePanelProps = {
+			cardLayoutStyle: style === 'list' ? 'horizontal' : 'vertical',
+			contentLayout: cardProps.contentLayout,
+			cornerRadius: cardProps.cornerRadius,
+			outlined: cardProps.outlined,
+			isSingleCard: false,
+			setter,
+			cardIndex,
+			panelsInitialOpen: false,
+		};
+
+		const inspectorControlsContentPanelProps = {
+			displayTitle: cardProps.displayTitle,
+			displaySecondaryText: cardProps.displaySecondaryText,
+			displayImage: cardProps.displayImage,
+			displaySupportingText: cardProps.displaySupportingText,
+			displayActions: cardProps.displayActions,
+			displaySecondaryActionButton: cardProps.displaySecondaryActionButton,
+			isSingleCard: false,
+			setter,
+			cardIndex,
+			panelsInitialOpen: false,
+		};
+		return (
+			<div key={ cardIndex }>
+				{ allowIndividualStyleOverride && (
+					<InspectorControlsStylePanel
+						{ ...inspectorControlsStylePanelProps }
+					/>
+				) }
+				{ allowIndividualContentOverride && (
+					<InspectorControlsContentPanel
+						{ ...inspectorControlsContentPanelProps }
+					/>
+				) }
+			</div>
+		);
+	} );
+
 	return (
 		<InspectorControls>
 			<CardStylesPanel
@@ -126,45 +166,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 					</>
 				) }
 			</PanelBody>
-			{ cardsProps.map( ( cardProps, cardIndex ) => {
-				const inspectorControlsStylePanelProps = {
-					cardLayoutStyle: style === 'list' ? 'horizontal' : 'vertical',
-					contentLayout: cardProps.contentLayout,
-					cornerRadius: cardProps.cornerRadius,
-					outlined: cardProps.outlined,
-					isSingleCard: false,
-					setter,
-					cardIndex,
-					panelsInitialOpen: false,
-				};
-
-				const inspectorControlsContentPanelProps = {
-					displayTitle: cardProps.displayTitle,
-					displaySecondaryText: cardProps.displaySecondaryText,
-					displayImage: cardProps.displayImage,
-					displaySupportingText: cardProps.displaySupportingText,
-					displayActions: cardProps.displayActions,
-					displaySecondaryActionButton: cardProps.displaySecondaryActionButton,
-					isSingleCard: false,
-					setter,
-					cardIndex,
-					panelsInitialOpen: false,
-				};
-				return (
-					<div key={ cardIndex }>
-						{ allowIndividualStyleOverride && (
-							<InspectorControlsStylePanel
-								{ ...inspectorControlsStylePanelProps }
-							/>
-						) }
-						{ allowIndividualContentOverride && (
-							<InspectorControlsContentPanel
-								{ ...inspectorControlsContentPanelProps }
-							/>
-						) }
-					</div>
-				);
-			} ) }
+			{ individualCardsPanels }
 		</InspectorControls>
 	);
 };
