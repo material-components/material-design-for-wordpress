@@ -35,7 +35,6 @@ import Cards from './components/cards';
 const Edit = props => {
 	const { attributes, setAttributes, className } = props;
 	const { style, columns, gutter, cardsProps, numberOfCards } = attributes;
-	// const items = [];
 	const [ cards, setCards ] = useState( [] );
 	const inspectorControlsProps = {
 		...props,
