@@ -104,3 +104,7 @@
 		}
 	}
 }
+
+.masonry-grid_column:first-child {
+	margin-left: 0 !important;
+}

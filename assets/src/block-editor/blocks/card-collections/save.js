@@ -21,7 +21,14 @@ import Cards from './components/cards';
  * @return {Function} Function returning the HTML markup for the component.
  */
 const Save = ( { attributes, className } ) => {
-	const { style, columns, align, cardsProps, numberOfCards } = attributes;
+	const {
+		style,
+		columns,
+		align,
+		gutter,
+		cardsProps,
+		numberOfCards,
+	} = attributes;
 	const columnSpan = getColumnSpan( style, columns );
 	const items = [];
 
@@ -53,7 +60,12 @@ const Save = ( { attributes, className } ) => {
 		<div
 			className={ classnames( className, { [ `align${ align }` ]: align } ) }
 		>
-			<Cards style={ style } columns={ columns } cards={ items } />
+			<Cards
+				style={ style }
+				gutter={ gutter }
+				columns={ columns }
+				cards={ items }
+			/>
 		</div>
 	);
 };

@@ -29,7 +29,7 @@ import Cards from './components/cards';
  */
 const Edit = props => {
 	const { attributes, setAttributes, className } = props;
-	const { style, columns, cardsProps, numberOfCards } = attributes;
+	const { style, columns, gutter, cardsProps, numberOfCards } = attributes;
 	const items = [];
 	const inspectorControlsProps = {
 		...props,
@@ -216,6 +216,12 @@ const Edit = props => {
 			...baseProps,
 		};
 
+		const desktopGutter = gutter.desktop || 24;
+
+		const cardStyleProp = {
+			marginBottom: `${ desktopGutter }px`,
+		};
+
 		items.push(
 			<div
 				key={ cardIndex }
@@ -233,6 +239,7 @@ const Edit = props => {
 							style === 'grid' || style === 'list',
 					}
 				) }
+				style={ style === 'masonry' ? cardStyleProp : undefined }
 				onFocus={ () => onCardFocus( cardIndex ) }
 			>
 				{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
@@ -256,7 +263,12 @@ const Edit = props => {
 		<>
 			<CardsCollectionInspectorControls { ...inspectorControlsProps } />
 			<div className={ className }>
-				<Cards style={ style } columns={ columns } cards={ items } />
+				<Cards
+					style={ style }
+					gutter={ gutter }
+					columns={ columns }
+					cards={ items }
+				/>
 			</div>
 		</>
 	);
