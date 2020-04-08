@@ -241,6 +241,7 @@ const Edit = props => {
 				{ cardsFocus[ cardIndex ] !== undefined && cardsFocus[ cardIndex ] && (
 					<FocusedCardControls
 						cardIndex={ cardIndex }
+						style={ style }
 						numberOfCards={ numberOfCards }
 						onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
 						onMoveRight={ () => onCardMoveRight( cardIndex ) }
