@@ -6,7 +6,7 @@ import { RichText } from '@wordpress/block-editor';
 import UrlInputPopover from '../../../components/url-input-popover';
 
 /**
- * Card action button.
+ * Card Action Button component.
  *
  * @param {Object} props - Component properties.
  * @param {string} props.label - Button label.

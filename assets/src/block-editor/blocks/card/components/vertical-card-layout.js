@@ -12,7 +12,7 @@ import CardSupportingText from './card-supporting-text';
 import CardActions from './card-actions';
 
 /**
- * Horizontal card layout component.
+ * Vertical Card Layout component.
  *
  * @param {Object} props - Component props.
  * @param {number} props.cardIndex - Card index.

@@ -5,7 +5,7 @@ import { __, sprintf } from '@wordpress/i18n';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 
 /**
- * Card Collections Block Inspector Controls Content Panel Component.
+ * Inspector Controls Content Panel component.
  *
  * @param {Object} props - Component props.
  * @param {string} props.cardLayoutStyle - Card style layout.

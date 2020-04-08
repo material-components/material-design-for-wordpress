@@ -11,7 +11,7 @@ import CardPrimary from './card-primary';
 import CardActions from './card-actions';
 
 /**
- * Horizontal card layout component.
+ * Horizontal Card Layout component.
  *
  * @param {Object} props - Component props.
  * @param {number} props.cardIndex - Card index.
