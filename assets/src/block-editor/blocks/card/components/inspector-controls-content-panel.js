@@ -15,7 +15,7 @@ const InspectorControlsStylePanel = ( {
 	isSingleCard,
 	setter,
 	cardIndex,
-	panelsInitialOpen = true,
+	isPanelInitialOpened = true,
 } ) => {
 	let contentPanelTitle = __( 'Content settings', 'material-theme-builder' );
 
@@ -28,7 +28,10 @@ const InspectorControlsStylePanel = ( {
 
 	return (
 		<>
-			<PanelBody title={ contentPanelTitle } initialOpen={ panelsInitialOpen }>
+			<PanelBody
+				title={ contentPanelTitle }
+				initialOpen={ isPanelInitialOpened }
+			>
 				<ToggleControl
 					label={ __( 'Show Title', 'material-theme-builder' ) }
 					checked={ displayTitle }

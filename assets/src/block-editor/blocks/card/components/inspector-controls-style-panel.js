@@ -35,7 +35,7 @@ const InspectorControlsStylePanel = ( {
 	isSingleCard,
 	setter,
 	cardIndex,
-	panelsInitialOpen = true,
+	isPanelInitialOpened = true,
 } ) => {
 	let stylePanelTitle = __( 'Style settings', 'material-theme-builder' );
 
@@ -45,7 +45,7 @@ const InspectorControlsStylePanel = ( {
 
 	return (
 		<>
-			<PanelBody title={ stylePanelTitle } initialOpen={ panelsInitialOpen }>
+			<PanelBody title={ stylePanelTitle } initialOpen={ isPanelInitialOpened }>
 				{ cardLayoutStyle === 'vertical' && (
 					<RadioControl
 						label={ __( 'Content layout', 'material-theme-builder' ) }
