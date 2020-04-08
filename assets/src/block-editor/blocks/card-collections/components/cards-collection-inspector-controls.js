@@ -47,12 +47,6 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 		setter,
 	} = attributes;
 
-	let showContentLayout = true;
-
-	if ( style === 'list' ) {
-		showContentLayout = false;
-	}
-
 	return (
 		<InspectorControls>
 			<CardStylesPanel
@@ -61,7 +55,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 				allowIndividualStyleOverride={ allowIndividualStyleOverride }
 				showAllowIndividualStyleOverride={ true }
 				contentLayout={ contentLayout }
-				showContentLayout={ showContentLayout }
+				showContentLayout={ style !== 'list' }
 				gutter={ gutter }
 				showGutter={ true }
 				cornerRadius={ cornerRadius }
