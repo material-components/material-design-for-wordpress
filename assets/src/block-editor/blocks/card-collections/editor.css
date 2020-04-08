@@ -94,3 +94,13 @@
 	justify-self: right;
 	margin-left: 20px;
 }
+
+.layout-list {
+
+	.mtb-card-move-button {
+
+		svg {
+			transform: rotate(90deg);
+		}
+	}
+}
