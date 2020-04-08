@@ -46,13 +46,18 @@ const InspectorControlsStylePanel = ( {
 		<ToggleControl
 			label={ __( 'Show title', 'material-theme-builder' ) }
 			checked={ displayTitle }
-			onChange={ value => setter( 'displayTitle', value, cardIndex ) }
+			onChange={ value => {
+				setter( 'displayTitle', value, cardIndex );
+				setter( 'displaySecondaryText', value, cardIndex );
+			} }
 		/>
-		<ToggleControl
-			label={ __( 'Show secondary text', 'material-theme-builder' ) }
-			checked={ displaySecondaryText }
-			onChange={ value => setter( 'displaySecondaryText', value, cardIndex ) }
-		/>
+		{ displayTitle && (
+			<ToggleControl
+				label={ __( 'Show secondary text', 'material-theme-builder' ) }
+				checked={ displaySecondaryText }
+				onChange={ value => setter( 'displaySecondaryText', value, cardIndex ) }
+			/>
+		) }
 		<ToggleControl
 			label={ __( 'Show image', 'material-theme-builder' ) }
 			checked={ displayImage }

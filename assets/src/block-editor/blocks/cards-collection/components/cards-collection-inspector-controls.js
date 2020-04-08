@@ -87,6 +87,18 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 		);
 	} );
 
+	/**
+	 * Handle the display title setting change.
+	 *
+	 * @param {boolean} value Display title setting value
+	 */
+	const onDisplayTitleChange = value => {
+		setAttributes( {
+			displayTitle: value,
+			displaySecondaryText: value,
+		} );
+	};
+
 	return (
 		<InspectorControls>
 			<CardStylesPanel
@@ -129,13 +141,15 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 						<ToggleControl
 							label={ __( 'Show title', 'material-theme-builder' ) }
 							checked={ displayTitle }
-							onChange={ standardSetter( 'displayTitle' ) }
+							onChange={ onDisplayTitleChange }
 						/>
-						<ToggleControl
-							label={ __( 'Show secondary text', 'material-theme-builder' ) }
-							checked={ displaySecondaryText }
-							onChange={ standardSetter( 'displaySecondaryText' ) }
-						/>
+						{ displayTitle && (
+							<ToggleControl
+								label={ __( 'Show secondary text', 'material-theme-builder' ) }
+								checked={ displaySecondaryText }
+								onChange={ standardSetter( 'displaySecondaryText' ) }
+							/>
+						) }
 						<ToggleControl
 							label={ __( 'Show image', 'material-theme-builder' ) }
 							checked={ displayImage }
