@@ -74,10 +74,7 @@ const InspectorControlsStylePanel = ( {
 		/>
 		{ displayActions && (
 			<ToggleControl
-				label={ __(
-					'Show secondary action button',
-					'material-theme-builder'
-				) }
+				label={ __( 'Show secondary action button', 'material-theme-builder' ) }
 				checked={ displaySecondaryActionButton }
 				onChange={ value =>
 					setter( 'displaySecondaryActionButton', value, cardIndex )
