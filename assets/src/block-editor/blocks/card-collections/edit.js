@@ -8,7 +8,6 @@ import classnames from 'classnames';
  * WordPress dependencies
  */
 import { useEffect, useRef, useState } from '@wordpress/element';
-import { IconButton } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -18,51 +17,8 @@ import './editor.css';
 import { CARD_ATTRIBUTES_VALUE } from './constants';
 import VerticalCardLayout from '../card/components/vertical-card-layout';
 import HorizontalCardLayout from '../card/components/horizontal-card-layout';
-import { __, sprintf } from '@wordpress/i18n';
-
-/**
- * @param {Object} props - Component props.
- * @param {number} props.cardIndex - Card index.
- * @param {number} props.numberOfCards - Total number of cards.
- * @param {Function} props.onMoveLeft - Move card left handler.
- * @param {Function} props.onMoveRight - Move card right handler.
- * @param {Function} props.onRemove - Remove card  handler.
- *
- * @return {Function} Function returning the HTML markup for the component.
- */
-const FocusedCardActions = ( {
-	cardIndex,
-	numberOfCards,
-	onMoveLeft,
-	onMoveRight,
-	onRemove,
-} ) => (
-	<div className="card-container-actions">
-		<IconButton
-			className="mtb-card-buttons"
-			icon="arrow-left"
-			label={ __( 'Move left', 'material-theme-builder' ) }
-			onClick={ onMoveLeft }
-			disabled={ cardIndex === 0 }
-		/>
-		<IconButton
-			className="mtb-card-buttons"
-			icon="arrow-right"
-			label={ __( 'Move right', 'material-theme-builder' ) }
-			onClick={ onMoveRight }
-			disabled={ numberOfCards === cardIndex + 1 }
-		/>
-		<span className="card-number-title">
-			{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }{ ' ' }
-		</span>
-		<IconButton
-			className="mtb-card-buttons mtb-card-close-button"
-			icon="no"
-			label={ __( 'Remove card', 'material-theme-builder' ) }
-			onClick={ onRemove }
-		/>
-	</div>
-);
+import FocusedCardControls from './components/focused-card-controls';
+import getColumnSpan from './utils/get-column-span';
 
 /**
  * Card Collections Edit component.
@@ -73,22 +29,13 @@ const FocusedCardActions = ( {
  */
 const Edit = props => {
 	const { attributes, setAttributes, className } = props;
-	const { style, columns } = attributes;
-
-	let columnSpan = 12;
-
-	if ( style === 'grid' ) {
-		/*
-		 * This works well for the design if we have a maximum of 4 columns. It would not work
-		 * so well for 5 and 7 columns for example. Something to keep in mind if the max number of columns
-		 * increase above 4.
-		 */
-		columnSpan = Math.floor( 12 / columns );
-	}
-
-	const { cardsProps, numberOfCards } = attributes;
-
+	const { style, columns, cardsProps, numberOfCards } = attributes;
 	const items = [];
+	const inspectorControlsProps = {
+		...props,
+	};
+	const [ cardsFocus, setCardsFocus ] = useState( [] );
+	const columnSpan = getColumnSpan( style, columns );
 
 	/**
 	 * @param {string} attributeName - Attribute name.
@@ -110,7 +57,68 @@ const Edit = props => {
 		} );
 	};
 
-	const [ cardsFocus, setCardsFocus ] = useState( [] );
+	inspectorControlsProps.attributes.setter = setter;
+
+	const isInitialMount = useRef( true );
+
+	useEffect( () => {
+		const editorWrapper = document.getElementsByClassName(
+			'editor-styles-wrapper'
+		);
+
+		if ( editorWrapper.length === 1 ) {
+			editorWrapper[ 0 ].addEventListener( 'click', onClickOutsideCard, true );
+		}
+
+		return () => {
+			if ( editorWrapper.length === 1 ) {
+				editorWrapper[ 0 ].removeEventListener(
+					'click',
+					onClickOutsideCard,
+					true
+				);
+			}
+		};
+	} );
+
+	useEffect(
+		() => {
+			if ( isInitialMount.current ) {
+				isInitialMount.current = false;
+			} else {
+				const newCardsProps = [ ...cardsProps ];
+				for ( let index = 0; index < newCardsProps.length; index++ ) {
+					newCardsProps[ index ].contentLayout = attributes.contentLayout;
+					newCardsProps[ index ].cornerRadius = attributes.cornerRadius;
+					newCardsProps[ index ].outlined = attributes.outlined;
+					newCardsProps[ index ].displayTitle = attributes.displayTitle;
+					newCardsProps[ index ].displaySecondaryText =
+						attributes.displaySecondaryText;
+					newCardsProps[ index ].displayImage = attributes.displayImage;
+					newCardsProps[ index ].displaySupportingText =
+						attributes.displaySupportingText;
+					newCardsProps[ index ].displayActions = attributes.displayActions;
+					newCardsProps[ index ].displaySecondaryActionButton =
+						attributes.displaySecondaryActionButton;
+				}
+				setAttributes( {
+					cardsProps: newCardsProps,
+				} );
+			}
+		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[
+			attributes.contentLayout,
+			attributes.cornerRadius,
+			attributes.outlined,
+			attributes.displayTitle,
+			attributes.displaySecondaryText,
+			attributes.displayImage,
+			attributes.displaySupportingText,
+			attributes.displayActions,
+			attributes.displaySecondaryActionButton,
+		]
+	);
 
 	/**
 	 * @param {number} cardIndex - Card index.
@@ -168,6 +176,18 @@ const Edit = props => {
 		setCardsFocus( [] );
 	};
 
+	/**
+	 * Handle the click outside a card to remove the focus highlight on all cards.
+	 *
+	 * @param {Object} event - Click event.
+	 */
+	const onClickOutsideCard = event => {
+		const cardContainer = event.target.closest( '.card-container' );
+		if ( ! cardContainer ) {
+			setCardsFocus( [] );
+		}
+	};
+
 	for ( let cardIndex = 0; cardIndex < numberOfCards; cardIndex++ ) {
 		let baseProps = { ...CARD_ATTRIBUTES_VALUE };
 		let cardsPropsHasIncreased = false;
@@ -194,7 +214,6 @@ const Edit = props => {
 			...baseProps,
 		};
 
-		const gridClassname = `mdc-layout-grid__cell--span-${ columnSpan }`;
 		items.push(
 			<div
 				key={ cardIndex }
@@ -207,7 +226,10 @@ const Edit = props => {
 								? cardsFocus[ cardIndex ]
 								: false,
 					},
-					{ [ gridClassname ]: style === 'grid' || style === 'list' }
+					{
+						[ `mdc-layout-grid__cell--span-${ columnSpan }` ]:
+							style === 'grid' || style === 'list',
+					}
 				) }
 				onFocus={ () => onCardFocus( cardIndex ) }
 			>
@@ -215,7 +237,7 @@ const Edit = props => {
 				{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
 				{ style === 'masonry' && <VerticalCardLayout { ...cardProps } /> }
 				{ cardsFocus[ cardIndex ] !== undefined && cardsFocus[ cardIndex ] && (
-					<FocusedCardActions
+					<FocusedCardControls
 						cardIndex={ cardIndex }
 						numberOfCards={ numberOfCards }
 						onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
@@ -226,89 +248,6 @@ const Edit = props => {
 			</div>
 		);
 	}
-
-	const inspectorControlsProps = {
-		...props,
-	};
-
-	const isInitialMount = useRef( true );
-
-	/**
-	 * Handle the click outside a card to remove the focus highlight on all cards.
-	 *
-	 * @param {Object} event - Click event.
-	 */
-	const handleClickOutsideCard = event => {
-		const cardContainer = event.target.closest( '.card-container' );
-		if ( ! cardContainer ) {
-			setCardsFocus( [] );
-		}
-	};
-
-	useEffect( () => {
-		const editorWrapper = document.getElementsByClassName(
-			'editor-styles-wrapper'
-		);
-
-		if ( editorWrapper.length === 1 ) {
-			editorWrapper[ 0 ].addEventListener(
-				'click',
-				handleClickOutsideCard,
-				true
-			);
-		}
-
-		return () => {
-			if ( editorWrapper.length === 1 ) {
-				editorWrapper[ 0 ].removeEventListener(
-					'click',
-					handleClickOutsideCard,
-					true
-				);
-			}
-		};
-	} );
-
-	useEffect(
-		() => {
-			if ( isInitialMount.current ) {
-				isInitialMount.current = false;
-			} else {
-				const newCardsProps = [ ...cardsProps ];
-				for ( let index = 0; index < newCardsProps.length; index++ ) {
-					newCardsProps[ index ].contentLayout = attributes.contentLayout;
-					newCardsProps[ index ].cornerRadius = attributes.cornerRadius;
-					newCardsProps[ index ].outlined = attributes.outlined;
-					newCardsProps[ index ].displayTitle = attributes.displayTitle;
-					newCardsProps[ index ].displaySecondaryText =
-						attributes.displaySecondaryText;
-					newCardsProps[ index ].displayImage = attributes.displayImage;
-					newCardsProps[ index ].displaySupportingText =
-						attributes.displaySupportingText;
-					newCardsProps[ index ].displayActions = attributes.displayActions;
-					newCardsProps[ index ].displaySecondaryActionButton =
-						attributes.displaySecondaryActionButton;
-				}
-				setAttributes( {
-					cardsProps: newCardsProps,
-				} );
-			}
-		},
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[
-			attributes.contentLayout,
-			attributes.cornerRadius,
-			attributes.outlined,
-			attributes.displayTitle,
-			attributes.displaySecondaryText,
-			attributes.displayImage,
-			attributes.displaySupportingText,
-			attributes.displayActions,
-			attributes.displaySecondaryActionButton,
-		]
-	);
-
-	inspectorControlsProps.attributes.setter = setter;
 
 	return (
 		<>
