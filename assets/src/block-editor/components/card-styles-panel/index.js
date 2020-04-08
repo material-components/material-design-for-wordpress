@@ -142,7 +142,7 @@ const CardStylesPanel = ( {
 			) }
 			{ ! allowIndividualStyleOverride && showCornerRadius && (
 				<RangeControl
-					label={ __( 'Rounded Corners', 'material-theme-builder' ) }
+					label={ __( 'Rounded corners', 'material-theme-builder' ) }
 					value={ cornerRadius }
 					onChange={ setter( 'cornerRadius' ) }
 					min={ minRoundedCornersRadius }

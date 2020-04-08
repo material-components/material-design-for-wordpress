@@ -132,24 +132,24 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 							onChange={ standardSetter( 'displayTitle' ) }
 						/>
 						<ToggleControl
-							label={ __( 'Show Secondary Text', 'material-theme-builder' ) }
+							label={ __( 'Show secondary text', 'material-theme-builder' ) }
 							checked={ displaySecondaryText }
 							onChange={ standardSetter( 'displaySecondaryText' ) }
 						/>
 						<ToggleControl
-							label={ __( 'Show Image', 'material-theme-builder' ) }
+							label={ __( 'Show image', 'material-theme-builder' ) }
 							checked={ displayImage }
 							onChange={ standardSetter( 'displayImage' ) }
 						/>
 						{ style !== 'list' && (
 							<ToggleControl
-								label={ __( 'Show Supporting Text', 'material-theme-builder' ) }
+								label={ __( 'Show supporting text', 'material-theme-builder' ) }
 								checked={ displaySupportingText }
 								onChange={ standardSetter( 'displaySupportingText' ) }
 							/>
 						) }
 						<ToggleControl
-							label={ __( 'Show Actions', 'material-theme-builder' ) }
+							label={ __( 'Show actions', 'material-theme-builder' ) }
 							checked={ displayActions }
 							onChange={ standardSetter( 'displayActions' ) }
 						/>
