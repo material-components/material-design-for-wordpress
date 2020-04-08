@@ -41,19 +41,27 @@ const CardActionButton = ( {
 	isEditMode,
 } ) => (
 	<>
-		<button className="mdc-button mdc-card__action mdc-card__action--button">
-			<span className="mdc-button__ripple"></span>
-			{ isEditMode ? (
+		{ isEditMode ? (
+			<button className="mdc-button mdc-card__action mdc-card__action--button">
+				<span className="mdc-button__ripple"></span>
 				<RichText
 					tagName="div"
 					value={ label }
 					onChange={ onChangeLabel }
 					placeholder={ __( 'Button text', 'material-theme-builder' ) }
 				/>
-			) : (
-				<div> { label }</div>
-			) }
-		</button>
+			</button>
+		) : (
+			<a
+				href={ url || '#' }
+				rel={ noFollow ? 'nofollow' : undefined }
+				target={ newTab ? '_blank' : undefined }
+				className="mdc-button mdc-card__action mdc-card__action--button"
+			>
+				<div className="mdc-button__ripple"></div>
+				<span className="mdc-button__label">{ label }</span>
+			</a>
+		) }
 		{ isFocused && isEditMode && (
 			<UrlInputPopover
 				onFocusOutside={ onPopupFocusOutside }
