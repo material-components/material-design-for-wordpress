@@ -1,7 +1,6 @@
 /**
  * External dependencies
  */
-import Masonry from 'react-masonry-css';
 import classnames from 'classnames';
 
 /**
@@ -19,6 +18,7 @@ import VerticalCardLayout from '../card/components/vertical-card-layout';
 import HorizontalCardLayout from '../card/components/horizontal-card-layout';
 import FocusedCardControls from './components/focused-card-controls';
 import getColumnSpan from './utils/get-column-span';
+import Cards from './components/cards';
 
 /**
  * Card Collections Edit component.
@@ -255,21 +255,7 @@ const Edit = props => {
 		<>
 			<CardsCollectionInspectorControls { ...inspectorControlsProps } />
 			<div className={ className }>
-				{ ( style === 'grid' || style === 'list' ) && (
-					<div className={ `mdc-layout-grid layout-${ style }` }>
-						<div className="mdc-layout-grid__inner">{ items }</div>
-					</div>
-				) }
-
-				{ style === 'masonry' && (
-					<Masonry
-						breakpointCols={ columns }
-						className={ `masonry-grid layout-${ style }` }
-						columnClassName="masonry-grid_column"
-					>
-						{ items }
-					</Masonry>
-				) }
+				<Cards style={ style } columns={ columns } cards={ items } />
 			</div>
 		</>
 	);
