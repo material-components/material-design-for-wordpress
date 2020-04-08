@@ -5,6 +5,7 @@ import Masonry from 'react-masonry-css';
  * @param {string} props.style - Grid style.
  * @param {number} props.columns - Number of columns.
  * @param {Array} props.cards - Cards HTML markup.
+ *
  * @return {Function} Function returning the HTML markup for the component.
  */
 const Cards = ( { style, columns, cards } ) => (

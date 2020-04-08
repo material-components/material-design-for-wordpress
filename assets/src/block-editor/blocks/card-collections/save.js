@@ -15,6 +15,8 @@ import Cards from './components/cards';
  * Card Collections Save component.
  *
  * @param {Object} props - Component props.
+ * @param {Object} props.attributes - Block attributes.
+ * @param {string} props.className - Block classes.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
