@@ -65,6 +65,8 @@ const HorizontalCardLayout = ( {
 	setter,
 	isEditMode,
 } ) => {
+	contentLayout = 'text-under-media';
+
 	const cardPrimaryProps = {
 		title,
 		displayTitle,
