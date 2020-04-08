@@ -27,6 +27,20 @@ const CONTENT_LAYOUTS = [
 const MIN_CARD_ROUND_CORNERS = 0;
 const MAX_CARD_ROUND_CORNERS = 20;
 
+/**
+ * Card Collections Block Inspector Controls Content Panel Component.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} props.cardLayoutStyle - Card style layout.
+ * @param {number} props.cornerRadius - Card corner radius.
+ * @param {boolean} props.outlined - Whether or not the card has an outlined style.
+ * @param {boolean} props.isSingleCard - Whether or not it is a single card or the card is part of a collection
+ * @param {Function} props.setter - Function to set the block attributes value.
+ * @param {number} props.cardIndex - Card index.
+ * @param {boolean} props.isPanelInitialOpened - Whether or not the control panel is initially opened.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 const InspectorControlsStylePanel = ( {
 	cardLayoutStyle = 'vertical',
 	contentLayout,

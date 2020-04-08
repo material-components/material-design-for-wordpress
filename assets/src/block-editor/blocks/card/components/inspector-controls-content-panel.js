@@ -4,6 +4,24 @@
 import { __, sprintf } from '@wordpress/i18n';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 
+/**
+ * Card Collections Block Inspector Controls Style Panel Component.
+ *
+ * @param {Object} props - Component props.
+ * @param {string} props.cardLayoutStyle - Card style layout.
+ * @param {boolean} props.displayTitle - Whether or not to display the card title.
+ * @param {boolean} props.displaySecondaryText - Whether or not to display the card secondary text.
+ * @param {boolean} props.displayImage - Whether or not to display the card image.
+ * @param {boolean} props.displaySupportingText - Whether or not to display the card supporting text.
+ * @param {boolean} props.displayActions - Whether or not to display the card actions row.
+ * @param {boolean} props.displaySecondaryActionButton - Whether or not to display the card secondary button.
+ * @param {boolean} props.isSingleCard - Whether or not it is a single card or the card is part of a collection
+ * @param {Function} props.setter - Function to set the block attributes value.
+ * @param {number} props.cardIndex - Card index.
+ * @param {boolean} props.isPanelInitialOpened - Whether or not the control panel is initially opened.
+ *
+ * @return {Function} Function returning the HTML markup for the component.
+ */
 const InspectorControlsStylePanel = ( {
 	cardLayoutStyle = 'vertical',
 	displayTitle,
