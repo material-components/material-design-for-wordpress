@@ -12,13 +12,14 @@ import InspectorControlsStylePanel from './components/inspector-controls-style-p
 import InspectorControlsContentPanel from './components/inspector-controls-content-panel';
 import VerticalCardLayout from './components/vertical-card-layout';
 import HorizontalCardLayout from './components/horizontal-card-layout';
+
 /**
  * Card Edit component.
  *
  * @param {Object} props - Component props.
- * @param {Object} props.attributes - Component attributes.
- * @param {Function} props.setAttributes - Function to set component attributes.
- * @param {string} props.className - Component classes.
+ * @param {Object} props.attributes - Block attributes.
+ * @param {Function} props.setAttributes - Function to set block attributes values.
+ * @param {string} props.className - Block classes.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */

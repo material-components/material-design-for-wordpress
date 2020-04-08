@@ -22,7 +22,7 @@ import { MIN_NUMBER_OF_CARDS, MAX_NUMBER_OF_CARDS } from '../constants';
  * @param {Object} props.attributes - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
  *
- * @return {Function} A functional component.
+ * @return {Function} Function returning the HTML markup for the component.
  */
 const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 	const standardSetter = genericAttributesSetter( setAttributes );

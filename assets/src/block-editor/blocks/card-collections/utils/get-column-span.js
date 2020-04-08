@@ -3,6 +3,7 @@
  *
  * @param {string} style - Grid style.
  * @param {number} columns - Number of columns.
+ *
  * @return {number} Column span.
  */
 export default ( style, columns ) => {

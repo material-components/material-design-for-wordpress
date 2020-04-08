@@ -9,7 +9,7 @@ import { useState } from '@wordpress/element';
 import CardActionButton from './card-action-button';
 
 /**
- * Card Actions Component.
+ * Card Actions Edit Component.
  *
  * @param {Object} props - Component props.
  * @param {string} props.primaryActionButtonLabel - Primary action button label.
@@ -45,10 +45,12 @@ const CardActionsEdit = ( {
 	] = useState( { primary: false, secondary: false } );
 
 	/**
-	 * @param {string} buttonType - Button type
-	 * @param {boolean} state - Button focus state
+	 * Handle the button container focus.
+	 *
+	 * @param {string} buttonType - Button type.
+	 * @param {boolean} state - Button focus state.
 	 */
-	const handleOnFocus = ( buttonType, state = true ) => {
+	const onButtonContainerFocus = ( buttonType, state = true ) => {
 		if ( buttonType === 'primary' ) {
 			setButtonsUrlInputFocusState( { primary: state, secondary: false } );
 		}
@@ -58,64 +60,66 @@ const CardActionsEdit = ( {
 	};
 
 	return (
-		<>
-			<div className="mdc-card__actions">
-				<div className="mdc-card__action-buttons">
-					<div onFocus={ () => handleOnFocus( 'primary' ) }>
+		<div className="mdc-card__actions">
+			<div className="mdc-card__action-buttons">
+				<div onFocus={ () => onButtonContainerFocus( 'primary' ) }>
+					<CardActionButton
+						label={ primaryActionButtonLabel }
+						onChangeLabel={ value =>
+							setter( 'primaryActionButtonLabel', value, cardIndex )
+						}
+						url={ primaryActionButtonUrl }
+						onChangeUrl={ value =>
+							setter( 'primaryActionButtonUrl', value, cardIndex )
+						}
+						newTab={ primaryActionButtonNewTab }
+						onChangeNewTab={ value =>
+							setter( 'primaryActionButtonNewTab', value, cardIndex )
+						}
+						noFollow={ primaryActionButtonNoFollow }
+						onChangeNoFollow={ value =>
+							setter( 'primaryActionButtonNoFollow', value, cardIndex )
+						}
+						isFocused={ buttonsUrlInputFocusState.primary }
+						onPopupClose={ () => onButtonContainerFocus( 'primary', false ) }
+						onPopupFocusOutside={ () =>
+							onButtonContainerFocus( 'primary', false )
+						}
+						isEditMode={ true }
+					/>
+				</div>
+				{ displaySecondaryActionButton && (
+					<div onFocus={ () => onButtonContainerFocus( 'secondary' ) }>
 						<CardActionButton
-							label={ primaryActionButtonLabel }
+							label={ secondaryActionButtonLabel }
 							onChangeLabel={ value =>
-								setter( 'primaryActionButtonLabel', value, cardIndex )
+								setter( 'secondaryActionButtonLabel', value, cardIndex )
 							}
-							url={ primaryActionButtonUrl }
+							url={ secondaryActionButtonUrl }
 							onChangeUrl={ value =>
-								setter( 'primaryActionButtonUrl', value, cardIndex )
+								setter( 'secondaryActionButtonUrl', value, cardIndex )
 							}
-							newTab={ primaryActionButtonNewTab }
+							newTab={ secondaryActionButtonNewTab }
 							onChangeNewTab={ value =>
-								setter( 'primaryActionButtonNewTab', value, cardIndex )
+								setter( 'secondaryActionButtonNewTab', value, cardIndex )
 							}
-							noFollow={ primaryActionButtonNoFollow }
+							noFollow={ secondaryActionButtonNoFollow }
 							onChangeNoFollow={ value =>
-								setter( 'primaryActionButtonNoFollow', value, cardIndex )
+								setter( 'secondaryActionButtonNoFollow', value, cardIndex )
 							}
-							isFocused={ buttonsUrlInputFocusState.primary }
-							onPopupClose={ () => handleOnFocus( 'primary', false ) }
-							onPopupFocusOutside={ () => handleOnFocus( 'primary', false ) }
+							isFocused={ buttonsUrlInputFocusState.secondary }
+							onPopupClose={ () =>
+								onButtonContainerFocus( 'secondary', false )
+							}
+							onPopupFocusOutside={ () =>
+								onButtonContainerFocus( 'secondary', false )
+							}
 							isEditMode={ true }
 						/>
 					</div>
-					{ displaySecondaryActionButton && (
-						<div onFocus={ () => handleOnFocus( 'secondary' ) }>
-							<CardActionButton
-								label={ secondaryActionButtonLabel }
-								onChangeLabel={ value =>
-									setter( 'secondaryActionButtonLabel', value, cardIndex )
-								}
-								url={ secondaryActionButtonUrl }
-								onChangeUrl={ value =>
-									setter( 'secondaryActionButtonUrl', value, cardIndex )
-								}
-								newTab={ secondaryActionButtonNewTab }
-								onChangeNewTab={ value =>
-									setter( 'secondaryActionButtonNewTab', value, cardIndex )
-								}
-								noFollow={ secondaryActionButtonNoFollow }
-								onChangeNoFollow={ value =>
-									setter( 'secondaryActionButtonNoFollow', value, cardIndex )
-								}
-								isFocused={ buttonsUrlInputFocusState.secondary }
-								onPopupClose={ () => handleOnFocus( 'secondary', false ) }
-								onPopupFocusOutside={ () =>
-									handleOnFocus( 'secondary', false )
-								}
-								isEditMode={ true }
-							/>
-						</div>
-					) }
-				</div>
+				) }
 			</div>
-		</>
+		</div>
 	);
 };
 

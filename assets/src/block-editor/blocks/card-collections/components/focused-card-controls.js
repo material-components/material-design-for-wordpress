@@ -5,6 +5,8 @@ import { __, sprintf } from '@wordpress/i18n';
 import { IconButton } from '@wordpress/components';
 
 /**
+ * Focused Card Controls Component.
+ *
  * @param {Object} props - Component props.
  * @param {number} props.cardIndex - Card index.
  * @param {number} props.numberOfCards - Total number of cards.

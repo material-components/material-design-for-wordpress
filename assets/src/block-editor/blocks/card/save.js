@@ -9,11 +9,12 @@ import HorizontalCardLayout from './components/horizontal-card-layout';
  * Card Save component.
  *
  * @param {Object} props - Component props.
+ * @param {Object} props.attributes - Block attributes.
+ * @param {string} props.className - Block classes.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const Save = props => {
-	const { attributes, className } = props;
+const Save = ( { attributes, className } ) => {
 	const {
 		cardLayout = 'vertical',
 		contentLayout,

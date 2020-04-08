@@ -17,7 +17,7 @@ import { IconButton } from '@wordpress/components';
 import CardPrimary from './card-primary';
 
 /**
- * Card Image Component.
+ * Card Image Edit Component.
  *
  * @param {Object} props - Component props.
  * @param {string} props.imageSourceUrl - Image Source URL.
@@ -54,11 +54,10 @@ const CardImageEdit = ( {
 		}
 	}, [ imageSourceUrl ] );
 
-
 	/**
 	 * Image select handler.
 	 *
-	 * @param {Object} el Element
+	 * @param {Object} el Image object.
 	 */
 	const onImageSelect = el => {
 		setter( 'imageSourceUrl', el.url, cardIndex );
@@ -66,6 +65,9 @@ const CardImageEdit = ( {
 		setHasImage( el.url !== undefined && el.url !== '' );
 	};
 
+	/**
+	 * Image removal handler.
+	 */
 	const onRemoveImage = () => {
 		setter( 'imageSourceUrl', '', cardIndex );
 		setter( 'imageEditMode', false, cardIndex );
@@ -75,10 +77,10 @@ const CardImageEdit = ( {
 	/**
 	 * Handle image container on blur event.
 	 *
-	 * @param {Object} e
+	 * @param {Object} event - Event.
 	 */
-	const handleBlur = e => {
-		const currentTarget = e.currentTarget;
+	const onImageContainerBlur = event => {
+		const currentTarget = event.currentTarget;
 		setTimeout( () => {
 			if ( ! currentTarget.contains( document.activeElement ) ) {
 				setIsFocused( false );
@@ -106,7 +108,7 @@ const CardImageEdit = ( {
 							'mtb-card__media-container-focused': isFocused,
 						} ) }
 						onFocus={ () => setIsFocused( true ) }
-						onBlur={ handleBlur }
+						onBlur={ onImageContainerBlur }
 					>
 						<div
 							tabIndex={ 0 }
