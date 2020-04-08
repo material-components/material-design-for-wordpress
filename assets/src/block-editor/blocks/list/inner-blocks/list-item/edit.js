@@ -50,6 +50,7 @@ const ListItemEdit = ( {
 	 *
 	 * @param {Event} e The onKeyPress event object.
 	 */
+	/* istanbul ignore next */
 	const handleEnterPress = e => {
 		if ( e.key !== 'Enter' ) {
 			return true;
@@ -82,7 +83,10 @@ const ListItemEdit = ( {
 		let updatedRel = rel;
 		if ( newLinkTarget && ! rel ) {
 			updatedRel = 'noreferrer noopener';
-		} else if ( ! newLinkTarget && rel === 'noreferrer noopener' ) {
+		} else if (
+			/* istanbul ignore next */ ! newLinkTarget &&
+			rel === 'noreferrer noopener'
+		) {
 			updatedRel = '';
 		}
 
@@ -142,15 +146,15 @@ const ListItemEdit = ( {
 					editable={ true }
 					primaryText={ primaryText }
 					secondaryText={ secondaryText }
-					onBlurPrimary={ setter(
-						'primaryText',
-						e => e.currentTarget.textContent
-					) }
+					onBlurPrimary={
+						/* istanbul ignore next */
+						setter( 'primaryText', e => e.currentTarget.textContent )
+					}
 					onEnterPrimary={ handleEnterPress }
-					onBlurSecondary={ setter(
-						'secondaryText',
-						e => e.currentTarget.textContent || null
-					) }
+					onBlurSecondary={
+						/* istanbul ignore next */
+						setter( 'secondaryText', e => e.currentTarget.textContent || null )
+					}
 					onEnterSecondary={ e => e.key === 'Enter' && e.currentTarget.blur() }
 				/>
 
