@@ -1,9 +1,15 @@
+import { __ } from '@wordpress/i18n';
 import { H3 } from '../styles';
 
 const Table = ( { radius } ) => (
 	<div>
-		<H3>Table</H3>
-		<p>This component can be created as a block in WordPress.</p>
+		<H3>{ __( 'Table', 'material-theme-builder' ) }</H3>
+		<p>
+			{ __(
+				'This component can be created as a block in WordPress. Try it out now.',
+				'material-theme-builder'
+			) }
+		</p>
 		<div className="mdc-data-table" style={ { borderRadius: radius } }>
 			<table className="mdc-data-table__table">
 				<thead>
@@ -13,35 +19,35 @@ const Table = ( { radius } ) => (
 							role="columnheader"
 							scope="col"
 						>
-							Dessert
+							{ __( 'Dessert', 'material-theme-builder' ) }
 						</th>
 						<th
 							className="mdc-data-table__header-cell"
 							role="columnheader"
 							scope="col"
 						>
-							Calories
+							{ __( 'Calories', 'material-theme-builder' ) }
 						</th>
 						<th
 							className="mdc-data-table__header-cell"
 							role="columnheader"
 							scope="col"
 						>
-							Fat
+							{ __( 'Fat', 'material-theme-builder' ) }
 						</th>
 						<th
 							className="mdc-data-table__header-cell"
 							role="columnheader"
 							scope="col"
 						>
-							Carbs
+							{ __( 'Carbs', 'material-theme-builder' ) }
 						</th>
 						<th
 							className="mdc-data-table__header-cell"
 							role="columnheader"
 							scope="col"
 						>
-							Protein (g)
+							{ __( 'Protein (g)', 'material-theme-builder' ) }
 						</th>
 					</tr>
 				</thead>
@@ -52,7 +58,7 @@ const Table = ( { radius } ) => (
 						aria-selected="false"
 					>
 						<td className="mdc-data-table__cell" id="u9">
-							Frozen yogurt
+							{ __( 'Frozen Yogurt', 'material-theme-builder' ) }
 						</td>
 						<td className="mdc-data-table__cell mdc-data-table__cell--numeric">
 							159
@@ -73,7 +79,7 @@ const Table = ( { radius } ) => (
 						aria-selected="false"
 					>
 						<td className="mdc-data-table__cell" id="u10">
-							Ice cream sandwich
+							{ __( 'Ice Cream Sandwich', 'material-theme-builder' ) }
 						</td>
 						<td className="mdc-data-table__cell mdc-data-table__cell--numeric">
 							237
@@ -94,7 +100,7 @@ const Table = ( { radius } ) => (
 						aria-selected="false"
 					>
 						<td className="mdc-data-table__cell" id="u11">
-							Eclair
+							{ __( 'Eclair', 'material-theme-builder' ) }
 						</td>
 						<td className="mdc-data-table__cell mdc-data-table__cell--numeric">
 							262

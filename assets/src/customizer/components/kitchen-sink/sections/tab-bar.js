@@ -1,10 +1,16 @@
 import classNames from 'classnames';
+import { __ } from '@wordpress/i18n';
 import { H3 } from '../styles';
 
 const TabBar = ( { iconStyle } ) => (
 	<div>
-		<H3>Tab Bar</H3>
-		<p>This component can be created as a block in WordPress.</p>
+		<H3>{ __( 'Tab Bar', 'material-theme-builder' ) }</H3>
+		<p>
+			{ __(
+				'This component can be created as a block in WordPress. Try it out now.',
+				'material-theme-builder'
+			) }
+		</p>
 		<div
 			className="wp-block-material-tab-bar mdc-tab-bar-container"
 			style={ { width: '80%' } }
@@ -29,7 +35,7 @@ const TabBar = ( { iconStyle } ) => (
 									</i>
 									<span className="mdc-tab__text-label tab__label-field">
 										<span role="tab" tabIndex="0">
-											Tab 1
+											{ __( 'Tab 1', 'material-theme-builder' ) }
 										</span>
 									</span>
 								</span>
@@ -51,7 +57,7 @@ const TabBar = ( { iconStyle } ) => (
 									</i>
 									<span className="mdc-tab__text-label tab__label-field">
 										<span role="tab" tabIndex="0">
-											Tab 2
+											{ __( 'Tab 2', 'material-theme-builder' ) }
 										</span>
 									</span>
 								</span>

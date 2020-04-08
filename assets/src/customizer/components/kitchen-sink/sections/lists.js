@@ -1,10 +1,16 @@
 import classNames from 'classnames';
+import { __ } from '@wordpress/i18n';
 import { H3 } from '../styles';
 
 const Lists = ( { iconStyle } ) => (
 	<div>
-		<H3>Lists</H3>
-		<p>This component can be created as a block in WordPress.</p>
+		<H3>{ __( 'List', 'material-theme-builder' ) }</H3>
+		<p>
+			{ __(
+				'This component can be created as a block in WordPress. Try it out now.',
+				'material-theme-builder'
+			) }
+		</p>
 		<div style={ { display: 'flex' } }>
 			<ul
 				className="wp-block-material-list mdc-list"
@@ -17,7 +23,9 @@ const Lists = ( { iconStyle } ) => (
 					<i className={ classNames( iconStyle, 'mdc-list-item__graphic' ) }>
 						wifi
 					</i>
-					<span className="mdc-list-item__text list-item__text">List item</span>
+					<span className="mdc-list-item__text list-item__text">
+						{ __( 'List item', 'material-theme-builder' ) }
+					</span>
 				</li>
 				<li
 					className="wp-block-material-list-item mdc-list-item list-item"
@@ -26,7 +34,9 @@ const Lists = ( { iconStyle } ) => (
 					<i className={ classNames( 'mdc-list-item__graphic', iconStyle ) }>
 						bluetooth
 					</i>
-					<span className="mdc-list-item__text list-item__text">List item</span>
+					<span className="mdc-list-item__text list-item__text">
+						{ __( 'List item', 'material-theme-builder' ) }
+					</span>
 				</li>
 				<li
 					className="wp-block-material-list-item mdc-list-item list-item"
@@ -35,7 +45,9 @@ const Lists = ( { iconStyle } ) => (
 					<i className={ classNames( iconStyle, 'mdc-list-item__graphic' ) }>
 						http
 					</i>
-					<span className="mdc-list-item__text list-item__text">List item</span>
+					<span className="mdc-list-item__text list-item__text">
+						{ __( 'List item', 'material-theme-builder' ) }
+					</span>
 				</li>
 			</ul>
 
@@ -52,9 +64,11 @@ const Lists = ( { iconStyle } ) => (
 					</i>
 
 					<span className="mdc-list-item__text">
-						<span className="mdc-list-item__primary-text">List item title</span>
+						<span className="mdc-list-item__primary-text">
+							{ __( 'List item', 'material-theme-builder' ) }
+						</span>
 						<span className="mdc-list-item__secondary-text">
-							Secondary text
+							{ __( 'Secondary Text...', 'material-theme-builder' ) }
 						</span>
 					</span>
 
@@ -87,9 +101,11 @@ const Lists = ( { iconStyle } ) => (
 					</i>
 
 					<span className="mdc-list-item__text">
-						<span className="mdc-list-item__primary-text">List item title</span>
+						<span className="mdc-list-item__primary-text">
+							{ __( 'List item', 'material-theme-builder' ) }
+						</span>
 						<span className="mdc-list-item__secondary-text">
-							Secondary text
+							{ __( 'Secondary Text...', 'material-theme-builder' ) }
 						</span>
 					</span>
 
@@ -122,9 +138,11 @@ const Lists = ( { iconStyle } ) => (
 					</i>
 
 					<span className="mdc-list-item__text">
-						<span className="mdc-list-item__primary-text">List item title</span>
+						<span className="mdc-list-item__primary-text">
+							{ __( 'List item', 'material-theme-builder' ) }
+						</span>
 						<span className="mdc-list-item__secondary-text">
-							Secondary text
+							{ __( 'Secondary Text...', 'material-theme-builder' ) }
 						</span>
 					</span>
 

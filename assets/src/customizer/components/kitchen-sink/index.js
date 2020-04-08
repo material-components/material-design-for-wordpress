@@ -1,6 +1,17 @@
+/**
+ * External dependencies
+ */
 import { startCase } from 'lodash';
 import { useEffect, useState } from 'react';
 
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import Lists from './sections/lists';
 import Table from './sections/table';
 import Cards from './sections/cards';
@@ -75,9 +86,9 @@ const KitchenSink = ( {
 			/>
 
 			<div id="kitchen-sink-preview">
-				<H1>Kitchen Sink</H1>
+				<H1>{ __( 'Kitchen Sink', 'material-theme-builder' ) }</H1>
 				<section>
-					<H2>Blocks</H2>
+					<H2>{ __( 'Blocks', 'material-theme-builder' ) }</H2>
 					<hr />
 					<Buttons
 						iconStyle={ iconStyle }
@@ -103,7 +114,7 @@ const KitchenSink = ( {
 				<hr />
 
 				<section style={ { marginTop: '100px' } }>
-					<H2>Components</H2>
+					<H2>{ __( 'Components', 'material-theme-builder' ) }</H2>
 					<hr />
 					<Checkboxes />
 					<hr />

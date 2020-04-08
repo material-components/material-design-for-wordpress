@@ -1,11 +1,14 @@
+import { __ } from '@wordpress/i18n';
 import { H3 } from '../styles';
 
 const Fields = ( { radius } ) => (
 	<div>
-		<H3>Fields</H3>
+		<H3>{ __( 'Fields', 'material-theme-builder' ) }</H3>
 		<p>
-			This is an example of how this component appears in the theme. It is
-			unavailable as a block in WordPress.
+			{ __(
+				'This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.',
+				'material-theme-builder'
+			) }
 		</p>
 		<div style={ { display: 'flex' } }>
 			<div
@@ -19,7 +22,7 @@ const Fields = ( { radius } ) => (
 				<input className="mdc-text-field__input" id="text-field-hero-input" />
 				<div className="mdc-line-ripple"></div>
 				<label htmlFor="text-field-hero-input" className="mdc-floating-label">
-					First name
+					{ __( 'First name', 'material-theme-builder' ) }
 				</label>
 			</div>
 
@@ -40,7 +43,7 @@ const Fields = ( { radius } ) => (
 					></div>
 					<div className="mdc-notched-outline__notch">
 						<label htmlFor="outlined-textfield" className="mdc-floating-label">
-							Last name
+							{ __( 'Last name', 'material-theme-builder' ) }
 						</label>
 					</div>
 					<div
