@@ -39,37 +39,35 @@ const CardActionButton = ( {
 	onPopupFocusOutside = () => {},
 	isFocused = false,
 	isEditMode,
-} ) => {
-	return (
-		<>
-			<button className="mdc-button mdc-card__action mdc-card__action--button">
-				<span className="mdc-button__ripple"></span>
-				{ isEditMode ? (
-					<RichText
-						tagName="div"
-						value={ label }
-						onChange={ onChangeLabel }
-						placeholder={ __( 'Button text', 'material-theme-builder' ) }
-					/>
-				) : (
-					<div> { label }</div>
-				) }
-			</button>
-			{ isFocused && isEditMode && (
-				<UrlInputPopover
-					onFocusOutside={ onPopupFocusOutside }
-					value={ url }
-					onChange={ onChangeUrl }
-					newTab={ newTab }
-					noFollow={ noFollow }
-					onChangeNewTab={ onChangeNewTab }
-					onChangeNoFollow={ onChangeNoFollow }
-					onPopupClose={ onPopupClose }
-					disableSuggestions={ disableSuggestions }
+} ) => (
+	<>
+		<button className="mdc-button mdc-card__action mdc-card__action--button">
+			<span className="mdc-button__ripple"></span>
+			{ isEditMode ? (
+				<RichText
+					tagName="div"
+					value={ label }
+					onChange={ onChangeLabel }
+					placeholder={ __( 'Button text', 'material-theme-builder' ) }
 				/>
+			) : (
+				<div> { label }</div>
 			) }
-		</>
-	);
-};
+		</button>
+		{ isFocused && isEditMode && (
+			<UrlInputPopover
+				onFocusOutside={ onPopupFocusOutside }
+				value={ url }
+				onChange={ onChangeUrl }
+				newTab={ newTab }
+				noFollow={ noFollow }
+				onChangeNewTab={ onChangeNewTab }
+				onChangeNoFollow={ onChangeNoFollow }
+				onPopupClose={ onPopupClose }
+				disableSuggestions={ disableSuggestions }
+			/>
+		) }
+	</>
+);
 
 export default CardActionButton;
