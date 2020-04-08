@@ -22,7 +22,7 @@ import CardActions from './card-actions';
  * @param {string} props.secondaryText - Card secondary text.
  * @param {boolean} props.displaySecondaryText - Whether or not to display the secondary text.
  * @param {string} props.imageSourceUrl - Image Source URL.
- * @param {boolean} props.imageEditMode - Image Edit mode.
+ * @param {boolean} props.isImageEditMode - Image Edit mode.
  * @param {boolean} props.displayImage - Whether or not to display the image.
  * @param {string} props.supportingText - Card supporting text.
  * @param {boolean} props.displaySupportingText - PWhether or not to display the supporting text.
@@ -51,7 +51,7 @@ const VerticalCardLayout = ( {
 	secondaryText,
 	displaySecondaryText,
 	imageSourceUrl,
-	imageEditMode,
+	isImageEditMode,
 	displayImage,
 	supportingText,
 	displaySupportingText,
@@ -82,7 +82,7 @@ const VerticalCardLayout = ( {
 
 	const cardImageProps = {
 		imageSourceUrl,
-		imageEditMode,
+		isImageEditMode,
 		contentLayout,
 		displayImage,
 		type: '16-9',
