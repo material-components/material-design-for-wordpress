@@ -43,7 +43,7 @@ const CardPrimary = ( {
 				{ displaySecondaryText && (
 					<RichText
 						tagName="h3"
-						className="mtb-card__subtitle mdc-typography mdc-typography--subtitle2"
+						className="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
 						value={ secondaryText }
 						onChange={ value => setter( 'secondaryText', value, cardIndex ) }
 						placeholder={ __( 'Secondary text', 'material-theme-builder' ) }
@@ -58,7 +58,7 @@ const CardPrimary = ( {
 					</h2>
 				) }
 				{ displaySecondaryText && (
-					<h3 className="mtb-card__subtitle mdc-typography mdc-typography--subtitle2">
+					<h3 className="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2">
 						{ secondaryText }
 					</h3>
 				) }
