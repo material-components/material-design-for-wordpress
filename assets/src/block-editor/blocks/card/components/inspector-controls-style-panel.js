@@ -54,8 +54,8 @@ const InspectorControlsStylePanel = ( {
 	<PanelBody
 		title={
 			isSingleCard
-				? __( 'Style settings', 'material-theme-builder' )
-				: sprintf( __( 'Card #%d Style settings' ), cardIndex + 1 )
+				? __( 'Style Settings', 'material-theme-builder' )
+				: sprintf( __( 'Card #%d Style Settings' ), cardIndex + 1 )
 		}
 		initialOpen={ isPanelInitialOpened }
 	>
@@ -68,7 +68,7 @@ const InspectorControlsStylePanel = ( {
 			/>
 		) }
 		<RangeControl
-			label={ __( 'Rounded Corners', 'material-theme-builder' ) }
+			label={ __( 'Rounded corners', 'material-theme-builder' ) }
 			value={ cornerRadius }
 			onChange={ value => setter( 'cornerRadius', value, cardIndex ) }
 			min={ MIN_CARD_ROUND_CORNERS }
