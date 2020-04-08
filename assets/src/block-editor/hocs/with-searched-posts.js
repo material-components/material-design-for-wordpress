@@ -96,7 +96,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 			// Important debouncedOnSearch SHOULD NOT be in the dependencies list as it will
 			// create an endless loop fetching the post. Also no other dependencies should be added
 			// fetchPosts should be fired only after the component has mounted.
-			//eslint-disable-next-line react-hooks/exhaustive-deps
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 			[]
 		);
 
