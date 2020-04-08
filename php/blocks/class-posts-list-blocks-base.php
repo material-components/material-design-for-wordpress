@@ -61,7 +61,7 @@ class Posts_List_Blocks_Base extends Module_Base {
 			],
 			'align'                 => [
 				'type'    => 'string',
-				'default' => '',
+				'default' => 'wide',
 			],
 			'contentLayout'         => [
 				'type'    => 'string',
