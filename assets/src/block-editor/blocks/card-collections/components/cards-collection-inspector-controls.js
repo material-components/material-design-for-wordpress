@@ -56,7 +56,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 			isSingleCard: false,
 			setter,
 			cardIndex,
-			panelsInitialOpen: false,
+			isPanelInitialOpened: false,
 		};
 
 		const inspectorControlsContentPanelProps = {
@@ -69,7 +69,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 			isSingleCard: false,
 			setter,
 			cardIndex,
-			panelsInitialOpen: false,
+			isPanelInitialOpened: false,
 		};
 		return (
 			<div key={ cardIndex }>
