@@ -20,7 +20,7 @@ export const settings = {
 	description: __( 'Display a single card.', 'material-theme-builder' ),
 	category: 'material',
 	supports: {
-		align: true,
+		align: [ 'left', 'right' ],
 	},
 	icon: BlockIcon,
 	attributes: {
