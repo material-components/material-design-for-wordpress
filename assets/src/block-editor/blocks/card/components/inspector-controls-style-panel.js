@@ -58,30 +58,28 @@ const InspectorControlsStylePanel = ( {
 	}
 
 	return (
-		<>
-			<PanelBody title={ stylePanelTitle } initialOpen={ isPanelInitialOpened }>
-				{ cardLayoutStyle === 'vertical' && (
-					<RadioControl
-						label={ __( 'Content layout', 'material-theme-builder' ) }
-						selected={ contentLayout }
-						options={ CONTENT_LAYOUTS }
-						onChange={ value => setter( 'contentLayout', value, cardIndex ) }
-					/>
-				) }
-				<RangeControl
-					label={ __( 'Rounded Corners', 'material-theme-builder' ) }
-					value={ cornerRadius }
-					onChange={ value => setter( 'cornerRadius', value, cardIndex ) }
-					min={ MIN_CARD_ROUND_CORNERS }
-					max={ MAX_CARD_ROUND_CORNERS }
+		<PanelBody title={ stylePanelTitle } initialOpen={ isPanelInitialOpened }>
+			{ cardLayoutStyle === 'vertical' && (
+				<RadioControl
+					label={ __( 'Content layout', 'material-theme-builder' ) }
+					selected={ contentLayout }
+					options={ CONTENT_LAYOUTS }
+					onChange={ value => setter( 'contentLayout', value, cardIndex ) }
 				/>
-				<ToggleControl
-					label={ __( 'Outlined', 'material-theme-builder' ) }
-					checked={ outlined }
-					onChange={ value => setter( 'outlined', value, cardIndex ) }
-				/>
-			</PanelBody>
-		</>
+			) }
+			<RangeControl
+				label={ __( 'Rounded Corners', 'material-theme-builder' ) }
+				value={ cornerRadius }
+				onChange={ value => setter( 'cornerRadius', value, cardIndex ) }
+				min={ MIN_CARD_ROUND_CORNERS }
+				max={ MAX_CARD_ROUND_CORNERS }
+			/>
+			<ToggleControl
+				label={ __( 'Outlined', 'material-theme-builder' ) }
+				checked={ outlined }
+				onChange={ value => setter( 'outlined', value, cardIndex ) }
+			/>
+		</PanelBody>
 	);
 };
 
