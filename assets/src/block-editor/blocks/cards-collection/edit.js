@@ -68,19 +68,7 @@ const Edit = props => {
 
 	useEffect(
 		() => {
-			const editorWrapper = document.getElementsByClassName(
-				'editor-styles-wrapper'
-			);
-
 			if ( isInitialMount.current ) {
-				if ( editorWrapper.length === 1 ) {
-					editorWrapper[ 0 ].addEventListener(
-						'click',
-						onClickOutsideCard,
-						true
-					);
-				}
-
 				isInitialMount.current = false;
 			} else {
 				const newCardsProps = [ ...cardsProps ];
@@ -102,16 +90,6 @@ const Edit = props => {
 					cardsProps: newCardsProps,
 				} );
 			}
-
-			return () => {
-				if ( editorWrapper.length === 1 ) {
-					editorWrapper[ 0 ].removeEventListener(
-						'click',
-						onClickOutsideCard,
-						true
-					);
-				}
-			};
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[
@@ -126,6 +104,27 @@ const Edit = props => {
 			attributes.displaySecondaryActionButton,
 		]
 	);
+
+	// This is to be run after every render.
+	useEffect( () => {
+		const editorWrapper = document.getElementsByClassName(
+			'editor-styles-wrapper'
+		);
+
+		if ( editorWrapper.length === 1 ) {
+			editorWrapper[ 0 ].addEventListener( 'click', onClickOutsideCard, true );
+		}
+
+		return () => {
+			if ( editorWrapper.length === 1 ) {
+				editorWrapper[ 0 ].removeEventListener(
+					'click',
+					onClickOutsideCard,
+					true
+				);
+			}
+		};
+	}, [] );
 
 	useLayoutEffect(
 		() => {
