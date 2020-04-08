@@ -70,6 +70,9 @@ const GUTTER_DEVICES = [
 	},
 ];
 
+const GUTTER_MIN_VALUE = 1;
+const GUTTER_MAX_VALUE = 24;
+
 const CardStylesPanel = ( {
 	style,
 	columns,
@@ -173,10 +176,10 @@ const CardStylesPanel = ( {
 							</div>
 						</>
 					}
-					value={ gutter[ gutterDevice ] || 0 }
+					value={ gutter[ gutterDevice ] || 1 }
 					onChange={ value => setGutter( value ) }
-					min={ 0 }
-					max={ 24 }
+					min={ GUTTER_MIN_VALUE }
+					max={ GUTTER_MAX_VALUE }
 				/>
 			) }
 		</PanelBody>

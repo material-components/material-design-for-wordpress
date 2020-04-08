@@ -61,9 +61,9 @@ export const settings = {
 		gutter: {
 			type: 'object',
 			default: {
-				desktop: 16,
-				tablet: 12,
-				mobile: 12,
+				desktop: 24,
+				tablet: 24,
+				mobile: 16,
 			},
 		},
 		cornerRadius: {
