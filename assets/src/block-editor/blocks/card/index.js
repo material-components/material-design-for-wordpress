@@ -30,6 +30,7 @@ export const settings = {
 		},
 		title: {
 			type: 'string',
+			default: __( 'Title goes here', 'material-theme-builder' ),
 		},
 		displayTitle: {
 			type: 'boolean',
@@ -37,6 +38,7 @@ export const settings = {
 		},
 		secondaryText: {
 			type: 'string',
+			default: __( 'Secondary Text', 'material-theme-builder' ),
 		},
 		displaySecondaryText: {
 			type: 'boolean',
@@ -54,6 +56,7 @@ export const settings = {
 		},
 		supportingText: {
 			type: 'string',
+			default: __( 'Supporting Text', 'material-theme-builder' ),
 		},
 		displaySupportingText: {
 			type: 'boolean',
