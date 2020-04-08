@@ -5,7 +5,7 @@ import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
 /**
- * Card Primary Component.
+ * Card Primary component.
  *
  * @param {Object} props - Component props.
  * @param {boolean} props.displayTitle - Whether or not to display the title.

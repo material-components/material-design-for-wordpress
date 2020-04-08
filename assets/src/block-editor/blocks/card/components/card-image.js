@@ -10,7 +10,7 @@ import CardImageEdit from './card-image-edit';
 import CardPrimary from './card-primary';
 
 /**
- * Card Image Component.
+ * Card Image component.
  *
  * @param {Object} props - Component props.
  * @param {string} props.imageSourceUrl - Image Source URL.

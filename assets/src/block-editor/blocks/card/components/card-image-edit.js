@@ -17,7 +17,7 @@ import { IconButton } from '@wordpress/components';
 import CardPrimary from './card-primary';
 
 /**
- * Card Image Edit Component.
+ * Card Image Edit component.
  *
  * @param {Object} props - Component props.
  * @param {string} props.imageSourceUrl - Image Source URL.

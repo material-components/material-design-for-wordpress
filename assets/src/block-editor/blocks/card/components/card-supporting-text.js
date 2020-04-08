@@ -10,7 +10,7 @@ import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
 /**
- * Card Supporting Text Component.
+ * Card Supporting Text component.
  *
  * @param {Object} props - Component props.
  * @param {string} props.supportingText - Supporting text.

@@ -28,7 +28,7 @@ const MIN_CARD_ROUND_CORNERS = 0;
 const MAX_CARD_ROUND_CORNERS = 20;
 
 /**
- * Card Collections Block Inspector Controls Content Panel Component.
+ * Inspector Controls Content Panel component.
  *
  * @param {Object} props - Component props.
  * @param {string} props.cardLayoutStyle - Card style layout.

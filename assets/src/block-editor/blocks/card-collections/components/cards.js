@@ -1,6 +1,8 @@
 import Masonry from 'react-masonry-css';
 
 /**
+ * Cards component.
+ *
  * @param {Object} props - Component props.
  * @param {string} props.style - Grid style.
  * @param {number} props.columns - Number of columns.

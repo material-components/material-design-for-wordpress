@@ -9,7 +9,7 @@ import { useState } from '@wordpress/element';
 import CardActionButton from './card-action-button';
 
 /**
- * Card Actions Edit Component.
+ * Card Actions Edit component.
  *
  * @param {Object} props - Component props.
  * @param {string} props.primaryActionButtonLabel - Primary action button label.
