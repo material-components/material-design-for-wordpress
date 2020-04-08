@@ -1,9 +1,15 @@
+import { __ } from '@wordpress/i18n';
 import { H3 } from '../styles';
 
 const Cards = ( { radius, smallRadius } ) => (
 	<div>
-		<H3>Card</H3>
-		<p>This component can be created as a block in WordPress.</p>
+		<H3>{ __( 'Card', 'material-theme-builder' ) }</H3>
+		<p>
+			{ __(
+				'This component can be created as a block in WordPress. Try it out now.',
+				'material-theme-builder'
+			) }
+		</p>
 		<div style={ { display: 'flex' } }>
 			<div
 				className="mdc-card"
@@ -28,7 +34,7 @@ const Cards = ( { radius, smallRadius } ) => (
 							className="mdc-typography"
 							style={ { margin: 0, marginBottom: '5px' } }
 						>
-							Our Changing Planet
+							{ __( 'Our Changing Planet', 'material-theme-builder' ) }
 						</h2>
 						<h3
 							className="mdc-typography"
@@ -39,12 +45,14 @@ const Cards = ( { radius, smallRadius } ) => (
 								margin: 0,
 							} }
 						>
-							by Kurt Wagner
+							{ __( 'by John Smith', 'material-theme-builder' ) }
 						</h3>
 					</div>
 					<div className="mdc-typography" style={ { padding: '16px' } }>
-						Visit ten places on our planet that are undergoing the biggest
-						changes today.
+						{ __(
+							'Visit ten places on our planet that are undergoing the biggest changes today.',
+							'material-theme-builder'
+						) }
 					</div>
 				</div>
 				<div className="mdc-card__actions">
@@ -57,7 +65,7 @@ const Cards = ( { radius, smallRadius } ) => (
 								className="mdc-button__ripple"
 								style={ { borderRadius: smallRadius } }
 							></span>
-							Read
+							{ __( 'Read', 'material-theme-builder' ) }
 						</button>
 						<button
 							className="mdc-button mdc-card__action mdc-card__action--button"
@@ -67,7 +75,7 @@ const Cards = ( { radius, smallRadius } ) => (
 								className="mdc-button__ripple"
 								style={ { borderRadius: smallRadius } }
 							></span>
-							Bookmark
+							{ __( 'Bookmark', 'material-theme-builder' ) }
 						</button>
 					</div>
 				</div>
