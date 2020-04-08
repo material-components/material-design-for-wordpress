@@ -11,7 +11,7 @@ import edit from './edit';
 import save from './save';
 import { DEFAULT_NUMBER_OF_CARDS, CARD_ATTRIBUTES_VALUE } from './constants';
 
-export const name = 'material/card-collections';
+export const name = 'material/cards-collection';
 
 const defaultCardsProps = [];
 
@@ -23,7 +23,7 @@ for ( let index = 0; index < DEFAULT_NUMBER_OF_CARDS; index++ ) {
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Card Collections', 'material-theme-builder' ),
+	title: __( 'Cards Collection', 'material-theme-builder' ),
 	description: __(
 		'Display a list of custom cards.',
 		'material-theme-builder'
