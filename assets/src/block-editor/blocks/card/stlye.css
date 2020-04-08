@@ -1,4 +1,4 @@
-/* @todo: Will need refactoring. */
+/* Card style */
 .mtb-card {
 	font-size: 16px;
 
@@ -17,9 +17,9 @@
 	font-family: Roboto, sans-serif !important;
 }
 
-/* @todo: Will need refactoring. */
-.mtb-card__subtitle {
-	padding: 1em 1em 0 0;
+
+.mtb-card__secondary-text {
+	padding: 0 1em 0 0;
 	color: rgba(0, 0, 0, 0.54) !important;
 	margin: 0 !important;
 	font-size: .875em !important;
@@ -29,8 +29,7 @@
 	font-family: Roboto, sans-serif !important;
 }
 
-/* @todo: Will need refactoring. */
-.mtb-card__secondary {
+.mtb-card__supporting-text {
 	color: rgba(0, 0, 0, 0.54);
 	padding: 0 1em 8px 1em;
 	font-family: Roboto, sans-serif !important;
@@ -55,9 +54,8 @@
 	padding: 1em;
 }
 
-/* @todo: Will need refactoring. */
-.mtb-card__secondary-text-over-media,
-.mtb-card__secondary-text-above-media {
+.mtb-card__supporting-text_text-over-media,
+.mtb-card__supporting-text_text-above-media {
 	padding-top: 1em !important;
 }
 
@@ -74,7 +72,7 @@
 }
 
 .mtb-card-with-text-over-media .mdc-card__media-content .mtb-card__title,
-.mtb-card-with-text-over-media .mdc-card__media-content .mtb-card__subtitle {
+.mtb-card-with-text-over-media .mdc-card__media-content .mtb-card__secondary-text {
 	color: #fff !important;
 }
 

@@ -21,3 +21,7 @@
 .mtb-card__media-close-button {
 	padding: 2px !important;
 }
+
+.mtb-card__supporting-text {
+	padding: 0 1rem 8px 1rem;
+}
