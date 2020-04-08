@@ -44,6 +44,7 @@ const CardImageEdit = ( {
 	const [ hasImage, setHasImage ] = useState(
 		imageSourceUrl !== undefined && imageSourceUrl !== ''
 	);
+	const [ isFocused, setIsFocused ] = useState( false );
 
 	useEffect( () => {
 		if ( imageSourceUrl !== undefined && imageSourceUrl !== '' ) {
@@ -53,7 +54,6 @@ const CardImageEdit = ( {
 		}
 	}, [ imageSourceUrl ] );
 
-	const [ isFocused, setIsFocused ] = useState( false );
 
 	/**
 	 * Image select handler.
