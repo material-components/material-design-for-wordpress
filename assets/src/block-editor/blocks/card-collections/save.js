@@ -50,13 +50,11 @@ const Save = ( { attributes, className } ) => {
 	}
 
 	return (
-		<>
-			<div
-				className={ classnames( className, { [ `align${ align }` ]: align } ) }
-			>
-				<Cards style={ style } columns={ columns } cards={ items } />
-			</div>
-		</>
+		<div
+			className={ classnames( className, { [ `align${ align }` ]: align } ) }
+		>
+			<Cards style={ style } columns={ columns } cards={ items } />
+		</div>
 	);
 };
 
