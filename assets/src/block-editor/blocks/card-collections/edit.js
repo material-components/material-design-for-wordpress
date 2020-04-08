@@ -6,7 +6,12 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { useEffect, useRef, useState } from '@wordpress/element';
+import {
+	useEffect,
+	useLayoutEffect,
+	useRef,
+	useState,
+} from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -30,7 +35,8 @@ import Cards from './components/cards';
 const Edit = props => {
 	const { attributes, setAttributes, className } = props;
 	const { style, columns, gutter, cardsProps, numberOfCards } = attributes;
-	const items = [];
+	// const items = [];
+	const [ cards, setCards ] = useState( [] );
 	const inspectorControlsProps = {
 		...props,
 	};
@@ -122,6 +128,84 @@ const Edit = props => {
 		]
 	);
 
+	useLayoutEffect(
+		() => {
+			const items = [];
+			for ( let cardIndex = 0; cardIndex < numberOfCards; cardIndex++ ) {
+				let baseProps = { ...CARD_ATTRIBUTES_VALUE };
+				let cardsPropsHasIncreased = false;
+				if ( numberOfCards <= cardsProps.length ) {
+					baseProps = { ...cardsProps[ cardIndex ] };
+				} else {
+					cardsProps.push( { ...CARD_ATTRIBUTES_VALUE } );
+					cardsPropsHasIncreased = true;
+				}
+
+				if ( cardsPropsHasIncreased ) {
+					const newCardsProps = [ ...cardsProps ];
+
+					setAttributes( {
+						cardsProps: newCardsProps,
+					} );
+				}
+
+				const cardProps = {
+					cardIndex,
+					setAttributes,
+					setter,
+					isEditMode: true,
+					...baseProps,
+				};
+
+				const desktopGutter = gutter.desktop || 24;
+
+				const cardStyleProp = {
+					marginBottom: `${ desktopGutter }px`,
+				};
+
+				items.push(
+					<div
+						key={ cardIndex }
+						data-card-index={ cardIndex }
+						className={ classnames(
+							'card-container',
+							{
+								'card-container-focused':
+									cardsFocus[ cardIndex ] !== undefined
+										? cardsFocus[ cardIndex ]
+										: false,
+							},
+							{
+								[ `mdc-layout-grid__cell--span-${ columnSpan }` ]:
+									style === 'grid' || style === 'list',
+							}
+						) }
+						style={ style === 'masonry' ? cardStyleProp : undefined }
+						onFocus={ () => onCardFocus( cardIndex ) }
+					>
+						{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
+						{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
+						{ style === 'masonry' && <VerticalCardLayout { ...cardProps } /> }
+						{ cardsFocus[ cardIndex ] !== undefined &&
+							cardsFocus[ cardIndex ] && (
+								<FocusedCardControls
+									cardIndex={ cardIndex }
+									style={ style }
+									numberOfCards={ numberOfCards }
+									onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
+									onMoveRight={ () => onCardMoveRight( cardIndex ) }
+									onRemove={ () => onCardRemove( cardIndex ) }
+								/>
+							) }
+					</div>
+				);
+			}
+			setCards( items );
+		},
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[ cardsFocus, cardsProps, columnSpan, gutter, numberOfCards, style ]
+	);
+
 	/**
 	 * @param {number} cardIndex - Card index.
 	 */
@@ -190,75 +274,6 @@ const Edit = props => {
 		}
 	};
 
-	for ( let cardIndex = 0; cardIndex < numberOfCards; cardIndex++ ) {
-		let baseProps = { ...CARD_ATTRIBUTES_VALUE };
-		let cardsPropsHasIncreased = false;
-		if ( numberOfCards <= cardsProps.length ) {
-			baseProps = { ...cardsProps[ cardIndex ] };
-		} else {
-			cardsProps.push( { ...CARD_ATTRIBUTES_VALUE } );
-			cardsPropsHasIncreased = true;
-		}
-
-		if ( cardsPropsHasIncreased ) {
-			const newCardsProps = [ ...cardsProps ];
-
-			setAttributes( {
-				cardsProps: newCardsProps,
-			} );
-		}
-
-		const cardProps = {
-			cardIndex,
-			setAttributes,
-			setter,
-			isEditMode: true,
-			...baseProps,
-		};
-
-		const desktopGutter = gutter.desktop || 24;
-
-		const cardStyleProp = {
-			marginBottom: `${ desktopGutter }px`,
-		};
-
-		items.push(
-			<div
-				key={ cardIndex }
-				data-card-index={ cardIndex }
-				className={ classnames(
-					'card-container',
-					{
-						'card-container-focused':
-							cardsFocus[ cardIndex ] !== undefined
-								? cardsFocus[ cardIndex ]
-								: false,
-					},
-					{
-						[ `mdc-layout-grid__cell--span-${ columnSpan }` ]:
-							style === 'grid' || style === 'list',
-					}
-				) }
-				style={ style === 'masonry' ? cardStyleProp : undefined }
-				onFocus={ () => onCardFocus( cardIndex ) }
-			>
-				{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
-				{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
-				{ style === 'masonry' && <VerticalCardLayout { ...cardProps } /> }
-				{ cardsFocus[ cardIndex ] !== undefined && cardsFocus[ cardIndex ] && (
-					<FocusedCardControls
-						cardIndex={ cardIndex }
-						style={ style }
-						numberOfCards={ numberOfCards }
-						onMoveLeft={ () => onCardMoveLeft( cardIndex ) }
-						onMoveRight={ () => onCardMoveRight( cardIndex ) }
-						onRemove={ () => onCardRemove( cardIndex ) }
-					/>
-				) }
-			</div>
-		);
-	}
-
 	return (
 		<>
 			<CardsCollectionInspectorControls { ...inspectorControlsProps } />
@@ -267,7 +282,7 @@ const Edit = props => {
 					style={ style }
 					gutter={ gutter }
 					columns={ columns }
-					cards={ items }
+					cards={ cards }
 				/>
 			</div>
 		</>
