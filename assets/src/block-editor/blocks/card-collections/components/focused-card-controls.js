@@ -11,8 +11,8 @@ import { IconButton } from '@wordpress/components';
  * @param {number} props.cardIndex - Card index.
  * @param {string} props.style - Grid style.
  * @param {number} props.numberOfCards - Total number of cards.
- * @param {Function} props.onMoveLeft - Move card left handler.
- * @param {Function} props.onMoveRight - Move card right handler.
+ * @param {Function} props.onMoveLeftOrUp - Move card left or up  handler.
+ * @param {Function} props.onMoveRightOrDown - Move card right or down handler.
  * @param {Function} props.onRemove - Remove card  handler.
  *
  * @return {Function} Function returning the HTML markup for the component.
@@ -21,8 +21,8 @@ const FocusedCardControls = ( {
 	cardIndex,
 	style,
 	numberOfCards,
-	onMoveLeft,
-	onMoveRight,
+	onMoveLeftOrUp,
+	onMoveRightOrDown,
 	onRemove,
 } ) => (
 	<div className="card-container-controls">
@@ -34,7 +34,7 @@ const FocusedCardControls = ( {
 					? __( 'Move left', 'material-theme-builder' )
 					: __( 'Move up', 'material-theme-builder' )
 			}
-			onClick={ onMoveLeft }
+			onClick={ onMoveLeftOrUp }
 			disabled={ cardIndex === 0 }
 		/>
 		<IconButton
@@ -45,7 +45,7 @@ const FocusedCardControls = ( {
 					? __( 'Move right', 'material-theme-builder' )
 					: __( 'Move down', 'material-theme-builder' )
 			}
-			onClick={ onMoveRight }
+			onClick={ onMoveRightOrDown }
 			disabled={ numberOfCards === cardIndex + 1 }
 		/>
 		<span className="card-number-title">
