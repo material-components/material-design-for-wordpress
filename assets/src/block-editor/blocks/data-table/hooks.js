@@ -2,6 +2,8 @@
  * WordPress dependencies
  */
 import { createHigherOrderComponent } from '@wordpress/compose';
+import { select, dispatch } from '@wordpress/data';
+import domReady from '@wordpress/dom-ready';
 import { addFilter } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
@@ -91,3 +93,19 @@ addFilter(
 addFilter( 'editor.BlockEdit', 'material/data-table-edit', withDataTableEdit );
 
 addFilter( 'blocks.getSaveElement', 'material/data-table-save', save );
+
+domReady( () => {
+	const stylePreferences = select( 'core/edit-post' ).getPreference(
+		'preferredStyleVariations'
+	);
+
+	if (
+		! stylePreferences[ 'core/table' ] ||
+		'material' !== stylePreferences[ 'core/table' ]
+	) {
+		dispatch( 'core/edit-post' ).updatePreferredStyleVariations(
+			'core/table',
+			'material'
+		);
+	}
+} );
