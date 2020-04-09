@@ -27,7 +27,11 @@ import RangeSliderControl from './components/range-slider-control';
  */
 import colorUtils from '../common/color-utils';
 import KitchenSink from './components/kitchen-sink';
-import { initButtons, initTabBar } from '../common/mdc-components-init';
+import {
+	initButtons,
+	initTabBar,
+	initLists,
+} from '../common/mdc-components-init';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
 
 ( ( $, api ) => {
@@ -99,6 +103,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	const initMaterialComponents = function() {
 		initButtons();
 		initTabBar();
+		initLists();
 
 		try {
 			const states = [
