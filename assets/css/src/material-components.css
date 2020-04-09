@@ -13,6 +13,7 @@
 @import "@material/tab-indicator/dist/mdc.tab-indicator.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
 @import "@material/typography/dist/mdc.typography.css";
+@import "@material/list/dist/mdc.list.css";
 
 :root {
 

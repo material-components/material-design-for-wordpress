@@ -1,0 +1,7 @@
+.list-item {
+
+	&__text {
+		outline: none;
+		cursor: text;
+	}
+}
