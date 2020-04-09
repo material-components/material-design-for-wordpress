@@ -27,11 +27,9 @@ describe( 'blocks: material/data-table', () => {
 		expect( styles ).toHaveLength( 3 );
 	} );
 
-	it( 'should select Material table when style is selected', async () => {
+	it( 'should select Material table style as default', async () => {
 		await selectBlockByName( 'core/table' );
-		const styles = await page.$$( '.block-editor-block-styles__item-label' );
 
-		await styles[ 2 ].click();
 		const table = await page.$$( '.edit-post-visual-editor .mdc-data-table' );
 		expect( table ).toHaveLength( 1 );
 	} );

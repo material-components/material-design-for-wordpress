@@ -52,13 +52,35 @@ jest.mock( '@wordpress/block-editor', () => ( {
 jest.mock( '@wordpress/data', () => ( {
 	combineReducers: jest.fn(),
 	registerStore: jest.fn(),
-	select: () => {
-		return {};
+	select: store => {
+		switch ( store ) {
+			case 'core/edit-post':
+				return {
+					getPreference: () => {
+						return {
+							'core/table': 'regular',
+						};
+					},
+				};
+
+			default:
+				return {};
+		}
 	},
 	withSelect: () => () => {
 		return {};
 	},
-	dispatch: jest.fn(),
+	dispatch: store => {
+		switch ( store ) {
+			case 'core/edit-post':
+				return {
+					updatePreferredStyleVariations: jest.fn(),
+				};
+
+			default:
+				return {};
+		}
+	},
 } ) );
 
 const attributes = {
