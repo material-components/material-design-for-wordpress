@@ -166,4 +166,10 @@ describe( 'Customize controls', () => {
 			).toEqual( '#ffebee' );
 		} );
 	} );
+
+	describe( 'Kitchen Sink', () => {
+		it( 'should show the kitchen sink button', async () => {
+			expect( await page.$$( '.toggle-kitchen-sink' ) ).not.toBeNull();
+		} );
+	} );
 } );

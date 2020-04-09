@@ -220,12 +220,12 @@
 }
 
 #mcb-kitchen-sink-preview {
-	overflow: auto !important;	
+	overflow: auto !important;
 }
 
 #kitchen-sink-preview {
 	padding: 30px 50px;
-	
+
 	button {
 		margin-right: 10px;
 	}
@@ -256,7 +256,7 @@
 
 	.mdc-tab-content {
 		display: none;
-	
+
 		&--active {
 			display: block;
 		}
