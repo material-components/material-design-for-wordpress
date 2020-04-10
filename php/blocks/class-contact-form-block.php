@@ -43,7 +43,8 @@ class Contact_Form_Block extends Module_Base {
 					],
 					'subject' => [
 						'type'    => 'string',
-						'default' => sprintf( __( 'This e-mail was sent from a contact form on %s', 'material_theme_builder' ), get_option( 'blogname' ) ),
+						/* translators: %s: blog name */
+						'default' => sprintf( __( 'This e-mail was sent from a contact form on %s', 'material-theme-builder' ), get_option( 'blogname' ) ),
 					],
 				],
 				'render_callback' => [ $this, 'render_block' ],
@@ -92,10 +93,10 @@ class Contact_Form_Block extends Module_Base {
 			return '';
 		}
 
-		if ($this->get_block_count_from_post($post) > 1) {
+		if ( $this->get_block_count_from_post( $post ) > 1 ) {
 			return sprintf(
 				'<div class="mtb-contact-form">%s</div>',
-				__('You cannot have multiple contact form instances in one page.', 'material-theme-builder')
+				__( 'You cannot have multiple contact form instances in one page.', 'material-theme-builder' )
 			);
 		}
 
@@ -124,16 +125,19 @@ class Contact_Form_Block extends Module_Base {
 	 * @return array|mixed
 	 */
 	private function get_block_from_referer( $wp_http_referer ) {
-		$postId = url_to_postid( $wp_http_referer );
+		$post_id = url_to_postid( $wp_http_referer );
 
-		$post   = get_post( $postId );
+		$post   = get_post( $post_id );
 		$blocks = parse_blocks( $post->post_content );
 
-		return current( array_filter( $blocks,
-			function ( $block )
-			{
-				return $block['blockName'] === $this->block_name;
-			} ) );
+		return current(
+			array_filter(
+				$blocks,
+				function ( $block ) {
+					return $block['blockName'] === $this->block_name;
+				}
+			)
+		);
 	}
 
 	/**
@@ -146,31 +150,35 @@ class Contact_Form_Block extends Module_Base {
 	private function get_block_count_from_post( $post ) {
 		$blocks = parse_blocks( $post->post_content );
 
-		$found_blocks = array_filter( $blocks,
-			function ( $block )
-			{
+		$found_blocks = array_filter(
+			$blocks,
+			function ( $block ) {
 				return $block['blockName'] === $this->block_name;
-			} );
+			}
+		);
 
-		return count($found_blocks);
+		return count( $found_blocks );
 	}
 
 	/**
 	 * Get the block attributes.
 	 *
+	 * @param string $wp_http_referer HTTP referer.
+	 *
 	 * @return array
 	 */
-	private function get_block_attributes() {
-		$block            = $this->get_block_from_referer( $_POST['_wp_http_referer'] );
+	private function get_block_attributes( $wp_http_referer ) {
+		$block            = $this->get_block_from_referer( $wp_http_referer );
 		$block_attributes = isset( $block['attrs'] ) ? $block['attrs'] : [];
 
 		return [
 			'email_to' => isset( $block_attributes['emailTo'] )
-				? sanitize_email($block_attributes['emailTo'])
+				? sanitize_email( $block_attributes['emailTo'] )
 				: get_bloginfo( 'admin_email' ),
 			'subject'  => isset( $block_attributes['subject'] )
-				? sanitize_text_field($block_attributes['subject'])
-				: sprintf( __( 'This e-mail was sent from a contact form on %s', 'material_theme_builder' ), get_option( 'blogname' ) ),
+				? sanitize_text_field( $block_attributes['subject'] )
+				/* translators: %s: blog name */
+				: sprintf( __( 'This e-mail was sent from a contact form on %s', 'material-theme-builder' ), get_option( 'blogname' ) ),
 		];
 	}
 
@@ -184,7 +192,8 @@ class Contact_Form_Block extends Module_Base {
 			);
 		}
 
-		$block_attributes = $this->get_block_attributes();
+		$wp_http_referer  = isset( $_POST['_wp_http_referer'] ) ? $_POST['_wp_http_referer'] : '';
+		$block_attributes = $this->get_block_attributes( $wp_http_referer );
 
 		if ( empty( $block_attributes['email_to'] ) || empty( $block_attributes['subject'] ) ) {
 			wp_send_json_error(
@@ -192,16 +201,18 @@ class Contact_Form_Block extends Module_Base {
 			);
 		}
 
-		$verified = $this->verify_recaptcha( $_POST['token']);
-		if (!$verified) {
+		$recaptcha_token = isset( $_POST['token'] ) ? $_POST['token'] : '';
+		$verified        = $this->verify_recaptcha( $recaptcha_token );
+		if ( ! $verified ) {
 			wp_send_json_error(
 				[ 'message' => __( 'The submission could not be verified.', 'material-theme-builder' ) ]
 			);
 		}
 
 		$body = '<br/>';
-		// TODO: Data validation and make use of template
-		foreach ( $_POST['contactFields'] as $contact_field ) {
+		// TODO: Data validation and make use of template.
+		$contact_fields = isset( $_POST['contactFields'] ) ? $_POST['contactFields'] : [];
+		foreach ( $contact_fields as $contact_field ) {
 			$body .= $contact_field['label'] . ': ' . $contact_field['value'] . '<br/>';
 		}
 
@@ -224,9 +235,7 @@ class Contact_Form_Block extends Module_Base {
 	 * @action wp_ajax_manage_recaptcha_api_credentials
 	 */
 	public function manage_recaptcha_api_credentials() {
-		$nonce = $_POST['nonce'];
-
-		if ( ! wp_verify_nonce( $nonce, 'mtb_recaptcha_ajax_nonce' ) ) {
+		if ( ! wp_verify_nonce( isset( $_POST['nonce'] ) ? $_POST['nonce'] : '', 'mtb_recaptcha_ajax_nonce' ) ) {
 			wp_send_json_error(
 				[ 'message' => __( 'You are not authorized', 'material-theme-builder' ) ]
 			);
@@ -246,14 +255,14 @@ class Contact_Form_Block extends Module_Base {
 
 		$mtb_recaptcha_site_key_result      = false;
 		$mtb_recaptcha_client_secret_result = false;
-		if ( $action == 'save' ) {
+		if ( 'save' === $action ) {
 			if ( ! empty( $site_key ) ) {
 				$mtb_recaptcha_site_key_result = update_option( 'mtb_recaptcha_site_key', sanitize_text_field( $site_key ) );
 			}
 			if ( ! empty( $client_secret ) ) {
 				$mtb_recaptcha_client_secret_result = update_option( 'mtb_recaptcha_client_secret', sanitize_text_field( $client_secret ) );
 			}
-		} elseif ( $action == 'clear' ) {
+		} elseif ( 'clear' === $action ) {
 			$mtb_recaptcha_site_key_result      = true;
 			$mtb_recaptcha_client_secret_result = true;
 			if ( get_option( 'mtb_recaptcha_site_key', '' ) ) {
@@ -282,26 +291,25 @@ class Contact_Form_Block extends Module_Base {
 	 * @return bool True when token is valid, else false
 	 */
 	private function verify_recaptcha( $recaptcha_token ) {
-
-		if (empty($recaptcha_token)) {
+		if ( empty( $recaptcha_token ) ) {
 			return false;
 		}
 
 		$mtb_recaptcha_client_secret = get_option( 'mtb_recaptcha_client_secret', '' );
 
-		if (!$mtb_recaptcha_client_secret) {
+		if ( ! $mtb_recaptcha_client_secret ) {
 			return false;
 		}
 
 		$verify_token_request = wp_remote_post(
 			self::GOOGLE_CAPTCHA_VERIFY_URL,
-			array(
-				'timeout' => 30,
-				'body'    => array(
+			[
+				'timeout' => 2,
+				'body'    => [
 					'secret'   => get_option( 'mtb_recaptcha_client_secret' ),
 					'response' => $recaptcha_token,
-				),
-			)
+				],
+			]
 		);
 
 		if ( is_wp_error( $verify_token_request ) ) {
