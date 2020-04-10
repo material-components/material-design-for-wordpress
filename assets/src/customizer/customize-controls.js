@@ -20,12 +20,12 @@ import { camelCase, debounce } from 'lodash';
 import { __ } from '@wordpress/i18n';
 import { render } from '@wordpress/element';
 import { unmountComponentAtNode } from 'react-dom';
-import RangeSliderControl from './components/range-slider-control';
 
 /**
  * Internal dependencies
  */
 import colorUtils from '../common/color-utils';
+import RangeSliderControl from './components/range-slider-control';
 import KitchenSink from './components/kitchen-sink';
 import {
 	initButtons,
