@@ -187,7 +187,7 @@ class Image_List_Block extends Module_Base {
 			$styles[] = "}\n";
 
 			$styles[] = sprintf( '#%s .mdc-image-list__item-wrap {', $id );
-			$styles[] = sprintf( 'margin-bottom: %spx', absint( $attributes['gutter'][ $device ] ) / 2 );
+			$styles[] = sprintf( 'margin-bottom: %spx', absint( $attributes['gutter'][ $device ] ) );
 			$styles[] = "}\n";
 		} else {
 			$item_styles[] = sprintf( '#%s .mdc-image-list__item {', $id );

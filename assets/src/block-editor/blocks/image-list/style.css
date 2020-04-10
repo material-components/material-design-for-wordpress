@@ -3,6 +3,12 @@
 	--var-text-color: #fff;
 }
 
+.mdc-image-list {
+	list-style: none;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
 .mdc-image-list__item-wrap {
 	position: relative;
 	border: 3px solid transparent;
