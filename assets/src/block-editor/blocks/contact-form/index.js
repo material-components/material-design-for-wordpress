@@ -20,18 +20,6 @@ export const settings = {
 	),
 	category: 'material',
 	icon: BlockIcon,
-	attributes: {
-		emailTo: {
-			type: 'string',
-		},
-		subject: {
-			type: 'string',
-			default: __(
-				"You've received a new contact request",
-				'material-theme-builder'
-			),
-		},
-	},
 	edit,
 	save,
 };

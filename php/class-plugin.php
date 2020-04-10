@@ -93,6 +93,14 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
+	 * Check whether or not the current user is admin or editor.
+	 * @return bool
+	 */
+	private function is_user_admin_or_editor() {
+		return current_user_can( 'editor' ) || current_user_can( 'administrator' );
+	}
+
+	/**
 	 * Load Gutenberg assets.
 	 *
 	 * @action enqueue_block_editor_assets
@@ -111,6 +119,22 @@ class Plugin extends Plugin_Base {
 			],
 			$this->asset_version(),
 			false
+		);
+
+		$wp_localized_script_data = [
+			'ajax_url' => admin_url( 'admin-ajax.php' )
+		];
+
+		if ( $this->is_user_admin_or_editor() ) {
+			$wp_localized_script_data['allow_contact_form_block'] = true;
+			$wp_localized_script_data['recaptcha_site_key'] = esc_js(get_option('mtb_recaptcha_site_key', ''));
+			$wp_localized_script_data['recaptcha_client_secret'] = esc_js(get_option('mtb_recaptcha_client_secret', ''));
+			$wp_localized_script_data['recaptcha_ajax_nonce_action'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		}
+
+		wp_localize_script( 'material-block-editor-js',
+			'mtb',
+			$wp_localized_script_data
 		);
 
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
@@ -138,15 +162,33 @@ class Plugin extends Plugin_Base {
 	 * @action wp_enqueue_scripts
 	 */
 	public function enqueue_front_end_assets() {
+
+		$mtb_recaptcha_site_key   = get_option( 'mtb_recaptcha_site_key', '' );
+		$mtb_recaptcha_client_secret = get_option( 'mtb_recaptcha_client_secret', '' );
+
+		$wp_localized_script_data = [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ];
+
+		if ( has_block( 'material/contact-form' ) && ! empty( $mtb_recaptcha_site_key ) && ! empty( $mtb_recaptcha_client_secret ) ) {
+			wp_enqueue_script(
+				'google-recaptcha-v3',
+				'https://www.google.com/recaptcha/api.js?render=' . esc_attr( $mtb_recaptcha_site_key ),
+				array( 'jquery', 'material-front-end-js' ),
+				'3.0.0',
+				true
+			);
+
+			$wp_localized_script_data['recaptcha_site_key'] = esc_js( $mtb_recaptcha_site_key );
+		}
+
 		wp_enqueue_script(
 			'material-front-end-js',
 			$this->asset_url( 'assets/js/front-end.js' ),
-			['jquery'],
+			[ 'jquery' ],
 			$this->asset_version(),
 			true
 		);
 
-		wp_localize_script( 'material-front-end-js', 'mtb', [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ] );
+		wp_localize_script( 'material-front-end-js', 'mtb', $wp_localized_script_data );
 
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
 
