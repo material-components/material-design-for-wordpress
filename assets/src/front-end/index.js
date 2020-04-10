@@ -1,4 +1,4 @@
-/* global addEventListener, jQuery, mtb, FormData */
+/* global addEventListener, jQuery, mtb, grecaptcha */
 /* istanbul ignore file */
 
 /**
@@ -55,10 +55,11 @@ addEventListener( 'DOMContentLoaded', () => {
 	initButtons();
 	initTabBar();
 	initTextFields();
-	contactFormHandler();
+	initReCaptchaToken();
+	initContactFormHandler();
 } );
 
-const contactFormHandler = () => {
+const initContactFormHandler = () => {
 	const form = $( '#contactForm' );
 
 	form.on( 'click', '.is-submit', function( event ) {
@@ -73,8 +74,7 @@ const contactFormHandler = () => {
 				.addClass( 'mdc-text-field--invalid' );
 		} else {
 			const data = {
-				emailTo: $( '#emailTo' ).val(),
-				subject: $( '#subject' ).val(),
+				token: $( '[name=mtb_token]' ).val(),
 				contactFields: {},
 			};
 
@@ -94,7 +94,6 @@ const contactFormHandler = () => {
 					data[ name ] = value;
 				}
 			} );
-			console.log( 'data', data );
 
 			$.ajax( {
 				type: 'POST',
@@ -103,13 +102,15 @@ const contactFormHandler = () => {
 				dataType: 'json',
 				success( response ) {
 					// console.log( response );
-					if ( response.status === 'success' ) {
+					if ( response.success === true ) {
 						form[ 0 ].reset();
 						form.hide();
 						$( '#contactFormMsg' ).show();
+						initReCaptchaToken();
 					} else {
+						// TODO: Refactor to show message in page.
 						// eslint-disable-next-line no-alert,no-undef
-						alert( 'error' );
+						alert( 'An error occurred' );
 					}
 				},
 			} );
@@ -120,4 +121,29 @@ const contactFormHandler = () => {
 		$( '#contactFormMsg' ).hide();
 		form.show();
 	} );
+};
+
+/**
+ * Initialize reCAPTCHA token.
+ */
+const initReCaptchaToken = () => {
+	const contactForm = document.getElementById( 'contactForm' );
+
+	if ( ! contactForm ) {
+		return;
+	}
+
+	const tokenField = document
+		.getElementById( 'contactForm' )
+		.querySelectorAll( '[name=mtb_token]' );
+
+	if ( tokenField.length > 0 ) {
+		grecaptcha.ready( function() {
+			grecaptcha
+				.execute( mtb.recaptcha_site_key, { action: 'contact' } )
+				.then( function( token ) {
+					tokenField[ 0 ].setAttribute( 'value', token );
+				} );
+		} );
+	}
 };

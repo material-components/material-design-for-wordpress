@@ -4,7 +4,13 @@
 import { __ } from '@wordpress/i18n';
 import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
 import { PanelBody, TextControl } from '@wordpress/components';
+
+/**
+ * Internal dependencies
+ */
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
+import RecaptchaInspectorControlsPanel from './components/recaptcha-inspector-controls-panel';
+import './editor.css';
 
 const ALLOWED_BLOCKS = [
 	'material/name-input-field',
@@ -53,7 +59,7 @@ const Edit = props => {
 					initialOpen={ true }
 				>
 					<TextControl
-						label={ __( 'Email address ', 'material-theme-builder' ) }
+						label={ __( 'Email address', 'material-theme-builder' ) }
 						value={ emailTo }
 						onChange={ setter( 'emailTo' ) }
 					/>
@@ -63,6 +69,7 @@ const Edit = props => {
 						onChange={ setter( 'subject' ) }
 					/>
 				</PanelBody>
+				<RecaptchaInspectorControlsPanel />
 			</InspectorControls>
 			<div className={ className }>
 				<InnerBlocks template={ TEMPLATES } allowedBlocks={ ALLOWED_BLOCKS } />
