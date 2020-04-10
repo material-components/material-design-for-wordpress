@@ -156,7 +156,7 @@
     "test:js:help": "wp-scripts test-unit-js --help",
     "test:js:watch": "npm run test:js -- --watch",
     "test:js:coverage": "wp-scripts test-unit-js --coverage --coverageDirectory=tests/coverage/js",
-    "test:js:coveralls": "wp-scripts test-unit-js --coverage --coverageReporters=text-lcov | coveralls",
+    "test:js:coveralls": "npm run test:js:coverage && coveralls < tests/coverage/js/lcov.info",
     "test:js:coverage-all": "run-s \"test:js:coverage -- --coverageReporters=json {@}\" \"test:e2e:coverage -- --coverageReporters=json {@}\" test:js:coverage-merge --",
     "test:js:coverage-merge": "node tests/e2e/merge-coverage.js --reporter=lcov",
     "test:php": "composer test",
