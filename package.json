@@ -6,8 +6,9 @@
   "author": "XWP",
   "license": "GPL-2.0-or-later",
   "keywords": [
-    "amp",
-    "amphtml",
+    "material",
+    "material-theme",
+    "material-theme-builder",
     "wordpress",
     "wordpress-plugin"
   ],
