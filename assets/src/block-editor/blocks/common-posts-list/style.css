@@ -1,8 +1,4 @@
 /* @todo: Will need refactoring. This helps getting the correct padding for single-post-card__primary which is defined in em unit*/
-.single-post-card {
-	font-size: 16px;
-}
-
 .single-post-card__primary {
 	padding: 1em;
 }
@@ -66,17 +62,6 @@
 .mdc-card__action-buttons,
 .mdc-card__action-icons {
 	flex-wrap: wrap;
-}
-
-.single-post-card {
-
-	.mdc-button {
-		font-size: 16px;
-
-		span {
-			font-size: .875em !important;
-		}
-	}
 }
 
 .mdc-card__link {

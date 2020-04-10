@@ -86,3 +86,8 @@ mdc-card__primary-action {
 .mdc-data-table__header-cell {
 	font-weight: bold;
 }
+
+/* Tabs */
+.mdc-tab-content {
+	margin: 1em;
+}

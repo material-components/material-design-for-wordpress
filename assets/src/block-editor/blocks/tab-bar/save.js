@@ -37,7 +37,7 @@ const TabBarSave = ( { attributes: { tabs, iconPosition } } ) => (
 			{ tabs.map( ( tab, index ) => (
 				<RawHTML
 					key={ tab.label + tab.position }
-					className={ classNames( 'mdc-tab-content', {
+					className={ classNames( 'mdc-tab-content mdc-typography--body1', {
 						'mdc-tab-content--active': index === 0,
 					} ) }
 				>
