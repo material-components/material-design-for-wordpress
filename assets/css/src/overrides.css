@@ -41,6 +41,8 @@ html {
 @mixin typography caption, 0.75, 1.25, 400;
 @mixin typography button, 0.875, 2.25, 500;
 @mixin typography overline, 0.75, 2, 500;
+@mixin selector-typography .mdc-list-item__primary-text, body1, 1, 1.5, 400;
+@mixin selector-typography .mdc-list-item__secondary-text, body2, 0.875, 1.25, 400;
 
 /* For `body` types typography should be applied to child elements as well */
 @mixin typography body1, 1, 1.5, 400, *;
@@ -87,4 +89,21 @@ html {
 	border: none !important;
 	padding-left: 16px !important;
 	padding-right: 16px !important;
+}
+
+/* List */
+ul.mdc-list {
+	list-style-type: none !important;
+	margin: 0 !important;
+	padding: 8px 0 !important;
+}
+
+.mdc-list-item {
+	margin: 0 !important;
+	padding: 0 16px !important;
+}
+
+/* Card */
+.single-post-card__subtitle {
+	color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, .54)) !important;
 }

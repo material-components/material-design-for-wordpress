@@ -9,13 +9,15 @@ import classNames from 'classnames';
 import { InnerBlocks } from '@wordpress/block-editor';
 
 const ListSave = ( { attributes: { style }, className } ) => (
-	<ul
-		className={ classNames( 'mdc-list', className, {
-			'mdc-list--two-line': style === 'two-line',
-		} ) }
-	>
-		<InnerBlocks.Content />
-	</ul>
+	<div className={ className }>
+		<ul
+			className={ classNames( 'mdc-list', {
+				'mdc-list--two-line': style === 'two-line',
+			} ) }
+		>
+			<InnerBlocks.Content />
+		</ul>
+	</div>
 );
 
 export default ListSave;
