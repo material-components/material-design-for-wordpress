@@ -41,12 +41,14 @@ html {
 @mixin typography caption, 0.75, 1.25, 400;
 @mixin typography button, 0.875, 2.25, 500;
 @mixin typography overline, 0.75, 2, 500;
-@mixin selector-typography .mdc-list-item__primary-text, body1, 1, 1.5, 400;
-@mixin selector-typography .mdc-list-item__secondary-text, body2, 0.875, 1.25, 400;
 
 /* For `body` types typography should be applied to child elements as well */
 @mixin typography body1, 1, 1.5, 400, *;
 @mixin typography body2, 0.875, 1.25, 400, *;
+
+/* Additional selectors requiring typoghraphy styles */
+@mixin selector-typography .mdc-list-item__primary-text, body1, 1, 1.5, 400;
+@mixin selector-typography .mdc-list-item__secondary-text, body2, 0.875, 1.25, 400;
 
 /* Button */
 .mdc-button {
