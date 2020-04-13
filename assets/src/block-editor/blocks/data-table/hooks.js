@@ -1,9 +1,11 @@
 /**
  * WordPress dependencies
  */
-import { registerBlockStyle } from '@wordpress/blocks';
 import { createHigherOrderComponent } from '@wordpress/compose';
+import { select, dispatch } from '@wordpress/data';
+import domReady from '@wordpress/dom-ready';
 import { addFilter } from '@wordpress/hooks';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -58,13 +60,52 @@ export const save = ( element, blockType, attributes ) => {
 };
 
 /**
- * Register `Material` style.
+ * Add `Material` style.
+ *
+ * @param {Object} settings Block settings.
+ * @param {string} name     Block name.
  */
-registerBlockStyle( 'core/table', {
-	name: 'material',
-	label: 'Material',
-} );
+export const addMaterialStyle = ( settings, name ) => {
+	if ( 'core/table' === name ) {
+		settings.styles = [
+			{
+				name: 'material',
+				label: __( 'Material', 'material-theme-builder' ),
+				isDefault: true,
+			},
+			{
+				name: 'regular',
+				label: __( 'Regular', 'material-theme-builder' ),
+			},
+			settings.styles[ 1 ],
+		];
+	}
+
+	return settings;
+};
+
+addFilter(
+	'blocks.registerBlockType',
+	'material/data-table-style',
+	addMaterialStyle
+);
 
 addFilter( 'editor.BlockEdit', 'material/data-table-edit', withDataTableEdit );
 
 addFilter( 'blocks.getSaveElement', 'material/data-table-save', save );
+
+domReady( () => {
+	const stylePreferences = select( 'core/edit-post' ).getPreference(
+		'preferredStyleVariations'
+	);
+
+	if (
+		! stylePreferences[ 'core/table' ] ||
+		'material' !== stylePreferences[ 'core/table' ]
+	) {
+		dispatch( 'core/edit-post' ).updatePreferredStyleVariations(
+			'core/table',
+			'material'
+		);
+	}
+} );
