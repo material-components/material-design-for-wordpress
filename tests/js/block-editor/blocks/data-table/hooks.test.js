@@ -7,7 +7,6 @@ import { render } from '@testing-library/react';
 /**
  * WordPress dependencies
  */
-import { registerBlockStyle } from '@wordpress/blocks';
 import { addFilter } from '@wordpress/hooks';
 
 /**
@@ -16,6 +15,7 @@ import { addFilter } from '@wordpress/hooks';
 import {
 	isMaterialTableBlock,
 	withDataTableEdit,
+	addMaterialStyle,
 	save,
 } from '../../../../../assets/src/block-editor/blocks/data-table/hooks';
 
@@ -52,13 +52,35 @@ jest.mock( '@wordpress/block-editor', () => ( {
 jest.mock( '@wordpress/data', () => ( {
 	combineReducers: jest.fn(),
 	registerStore: jest.fn(),
-	select: () => {
-		return {};
+	select: store => {
+		switch ( store ) {
+			case 'core/edit-post':
+				return {
+					getPreference: () => {
+						return {
+							'core/table': 'regular',
+						};
+					},
+				};
+
+			default:
+				return {};
+		}
 	},
 	withSelect: () => () => {
 		return {};
 	},
-	dispatch: jest.fn(),
+	dispatch: store => {
+		switch ( store ) {
+			case 'core/edit-post':
+				return {
+					updatePreferredStyleVariations: jest.fn(),
+				};
+
+			default:
+				return {};
+		}
+	},
 } ) );
 
 const attributes = {
@@ -155,29 +177,49 @@ const attributes = {
 };
 
 describe( 'Data Table Filters', () => {
-	it( 'registerBlockStyle should be invoked', () => {
-		expect( registerBlockStyle ).toHaveBeenCalledWith( 'core/table', {
-			name: 'material',
-			label: 'Material',
-		} );
-	} );
-
 	it( 'filters should be added', () => {
-		expect( addFilter ).toHaveBeenCalledTimes( 2 );
+		expect( addFilter ).toHaveBeenCalledTimes( 3 );
 
 		// eslint-disable-next-line jest/prefer-strict-equal
 		expect( addFilter.mock.calls[ 0 ] ).toEqual( [
+			'blocks.registerBlockType',
+			'material/data-table-style',
+			addMaterialStyle,
+		] );
+
+		// eslint-disable-next-line jest/prefer-strict-equal
+		expect( addFilter.mock.calls[ 1 ] ).toEqual( [
 			'editor.BlockEdit',
 			'material/data-table-edit',
 			withDataTableEdit,
 		] );
 
 		// eslint-disable-next-line jest/prefer-strict-equal
-		expect( addFilter.mock.calls[ 1 ] ).toEqual( [
+		expect( addFilter.mock.calls[ 2 ] ).toEqual( [
 			'blocks.getSaveElement',
 			'material/data-table-save',
 			save,
 		] );
+	} );
+
+	it( 'addMaterialStyle should add material style', () => {
+		let settings = addMaterialStyle( { styles: [] }, 'core/paragraph' );
+		expect( settings.styles ).toHaveLength( 0 );
+
+		settings = addMaterialStyle(
+			{
+				styles: [
+					{
+						name: 'regular',
+						label: 'Default',
+						isDefault: true,
+					},
+					{ name: 'stripes', label: 'Stripes' },
+				],
+			},
+			'core/table'
+		);
+		expect( settings.styles ).toHaveLength( 3 );
 	} );
 
 	it( 'isMaterialTableBlock should return correct value', () => {
