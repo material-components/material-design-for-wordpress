@@ -173,7 +173,7 @@ class Image_List_Block extends Module_Base {
 	 * @return array
 	 */
 	public static function get_device_styles( $id, $attributes, $device = 'desktop' ) {
-		if ( empty( $attributes['gutter'] ) || empty( $attributes['gutter'][ $device ] ) ) {
+		if ( ! isset( $attributes['gutter'] ) || ! isset( $attributes['gutter'][ $device ] ) ) {
 			return [];
 		}
 
