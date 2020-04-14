@@ -2,6 +2,7 @@
  * Put Block Editor CSS here.
  */
 
+@import "./base/variables.css";
 @import "./conf/index.css";
 @import "./base/masonry-grid.css";
 @import "./overrides.css";
