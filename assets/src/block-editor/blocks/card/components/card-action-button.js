@@ -54,8 +54,8 @@ const CardActionButton = ( {
 		) : (
 			<a
 				href={ url || '#' }
-				rel={ noFollow ? 'nofollow' : undefined }
-				target={ newTab ? '_blank' : undefined }
+				rel={ url && noFollow ? 'nofollow' : undefined }
+				target={ url && newTab ? '_blank' : undefined }
 				className="mdc-button mdc-card__action mdc-card__action--button"
 			>
 				<div className="mdc-button__ripple"></div>
