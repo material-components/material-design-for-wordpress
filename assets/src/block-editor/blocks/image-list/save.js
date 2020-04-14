@@ -1,9 +1,4 @@
 /**
- * Wordpress dependencies
- */
-import { withInstanceId } from '@wordpress/compose';
-
-/**
  * Internal dependencies
  */
 import Gallery from './components/gallery';
@@ -39,12 +34,8 @@ const ImageListSave = ( {
 		linkTo,
 	},
 	className,
-	instanceId,
 } ) => (
-	<div
-		className={ className }
-		id={ id || `block-material-image-list-${ instanceId }` }
-	>
+	<div className={ className } id={ id }>
 		<Gallery
 			{ ...{
 				images,
@@ -61,4 +52,4 @@ const ImageListSave = ( {
 	</div>
 );
 
-export default withInstanceId( ImageListSave );
+export default ImageListSave;

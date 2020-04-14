@@ -58,3 +58,33 @@ html {
 .mdc-button--outlined:not(:disabled) {
 	border-color: inherit !important;
 }
+
+/* Data Table */
+.mdc-data-table {
+	background-color: var(--mdc-theme-surface, #fff) !important;
+	border-color: rgba(0, 0, 0, 0.12) !important;
+	border-color: rgba(var(--mdc-theme-on-surface-rgb), .12) !important;
+}
+
+.mdc-data-table__table {
+	margin: 0 !important;
+}
+
+.mdc-data-table__row {
+	border-top-color: rgba(0, 0, 0, 0.12) !important;
+	border-top-color: rgba(var(--mdc-theme-on-surface-rgb, #000), .12) !important;
+	border-top-width: 1px !important;
+	border-top-style: solid !important;
+}
+
+.mdc-data-table__header-cell {
+	border: none !important;
+	vertical-align: middle !important;
+}
+
+.mdc-data-table__header-cell,
+.mdc-data-table__cell {
+	border: none !important;
+	padding-left: 16px !important;
+	padding-right: 16px !important;
+}
