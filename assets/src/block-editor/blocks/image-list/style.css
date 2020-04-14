@@ -11,10 +11,11 @@
 
 .mdc-image-list__item-wrap {
 	position: relative;
-	border: 3px solid transparent;
+	border: none;
 
 	&.is-selected {
-		border-color: var(--var-accent-color);
+		outline: 3px solid var(--var-accent-color);
+		z-index: 10;
 
 		& .move-image,
 		& .remove-image,
@@ -28,8 +29,8 @@
 	& .custom-url {
 		display: none;
 		position: absolute;
-		top: -3px;
-		left: -3px;
+		top: 0;
+		left: 0;
 
 		button {
 			width: 30px;
@@ -49,7 +50,7 @@
 
 	& .remove-image {
 		left: auto;
-		right: -3px;
+		right: 0;
 	}
 
 	& .custom-url {

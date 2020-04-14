@@ -52,15 +52,27 @@ html {
 
 /* Button */
 .mdc-button {
+	box-shadow: none !important;
+	text-decoration: none !important;
 
 	&:hover,
 	&:focus {
+		color: var(--mdc-theme-primary, #6200ee) !important;
 		text-decoration: none !important;
+	}
+
+	&--raised:not(:disabled),
+	&--unelevated:not(:disabled) {
+
+		&:hover,
+		&:focus {
+			color: var(--mdc-theme-on-primary, #fff) !important;
+		}
 	}
 }
 
 .mdc-button--outlined:not(:disabled) {
-	border-color: inherit !important;
+	border-color: var(--mdc-theme-primary, #6200ee) !important;
 }
 
 /* Data Table */
@@ -105,7 +117,22 @@ ul.mdc-list {
 	padding: 0 16px !important;
 }
 
+.list-item__link {
+	box-shadow: none !important;
+}
+
 /* Card */
+.single-post-card__title {
+
+	&::before {
+		display: none !important;
+	}
+}
+
 .single-post-card__subtitle {
 	color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, .54)) !important;
+}
+
+.mdc-card__link {
+	box-shadow: none !important;
 }
