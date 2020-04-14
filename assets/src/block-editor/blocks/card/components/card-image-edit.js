@@ -9,7 +9,7 @@ import classnames from 'classnames';
 import { MediaPlaceholder } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import { useState, useEffect } from '@wordpress/element';
-import { IconButton } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -131,9 +131,10 @@ const CardImageEdit = ( {
 								'mtb-card__media-actions-shown': isFocused,
 							} ) }
 						>
-							<IconButton
+							<Button
 								className="mtb-card__media-close-button"
 								icon="no"
+								showTooltip={ true }
 								label={ __( 'Remove Card Image', 'material-theme-builder' ) }
 								onClick={ onRemoveImage }
 							/>

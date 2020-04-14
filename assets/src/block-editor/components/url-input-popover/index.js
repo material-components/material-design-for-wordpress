@@ -4,7 +4,7 @@
 import { withState } from '@wordpress/compose';
 import {
 	Dashicon,
-	IconButton,
+	Button,
 	Popover,
 	PanelBody,
 	ToggleControl,
@@ -82,17 +82,19 @@ const UrlInputPopover = withState( {
 							/>
 						) }
 					{ ( props.onChangeNewTab || props.onChangeNoFollow ) && (
-						<IconButton
+						<Button
 							className={ moreButtonClasses }
 							icon="ellipsis"
+							showTooltip={ true }
 							label={ openAdvanced ? ariaOpen : ariaClosed }
 							onClick={ () => setState( { openAdvanced: ! openAdvanced } ) }
 							aria-expanded={ openAdvanced }
 						/>
 					) }
-					<IconButton
+					<Button
 						className={ moreButtonClasses }
 						icon="no"
+						showTooltip={ true }
 						label={ __( 'Close', 'material-theme-builder' ) }
 						onClick={ props.onPopupClose }
 					/>
