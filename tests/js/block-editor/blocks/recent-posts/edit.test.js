@@ -46,7 +46,7 @@ registerStore( 'core', {
 						rendered: 'Example 1 excerpt',
 					},
 					// eslint-disable-next-line prettier/prettier
-					'date_gmt': '2020-03-26',
+					date_gmt: '2020-03-26',
 				},
 				{
 					id: 2,
@@ -60,7 +60,7 @@ registerStore( 'core', {
 						rendered: 'Example 2 excerpt',
 					},
 					// eslint-disable-next-line prettier/prettier
-					'date_gmt': '2020-03-26',
+					date_gmt: '2020-03-26',
 				},
 			];
 		},
