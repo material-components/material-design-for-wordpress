@@ -372,8 +372,7 @@ Object {
           <div>
             <div>
               <div
-                class="components-popover mtb-url-input-popover is-bottom is-center components-animate__appear is-from-top"
-                style=""
+                class="components-popover mtb-url-input-popover is-without-arrow"
               >
                 <div
                   class="components-popover__content"
@@ -422,7 +421,7 @@ Object {
                       <button
                         aria-expanded="false"
                         aria-label="Show more tools & options"
-                        class="components-button components-icon-button mtb-url-input-control__more-button mtb--active"
+                        class="components-button mtb-url-input-control__more-button mtb--active has-icon"
                         type="button"
                       >
                         <svg
@@ -442,7 +441,7 @@ Object {
                       </button>
                       <button
                         aria-label="Close"
-                        class="components-button components-icon-button mtb-url-input-control__more-button mtb--active"
+                        class="components-button mtb-url-input-control__more-button mtb--active has-icon"
                         type="button"
                       >
                         <svg
@@ -495,8 +494,7 @@ Object {
         <div>
           <div>
             <div
-              class="components-popover mtb-url-input-popover is-bottom is-center components-animate__appear is-from-top"
-              style=""
+              class="components-popover mtb-url-input-popover is-without-arrow"
             >
               <div
                 class="components-popover__content"
@@ -545,7 +543,7 @@ Object {
                     <button
                       aria-expanded="false"
                       aria-label="Show more tools & options"
-                      class="components-button components-icon-button mtb-url-input-control__more-button mtb--active"
+                      class="components-button mtb-url-input-control__more-button mtb--active has-icon"
                       type="button"
                     >
                       <svg
@@ -565,7 +563,7 @@ Object {
                     </button>
                     <button
                       aria-label="Close"
-                      class="components-button components-icon-button mtb-url-input-control__more-button mtb--active"
+                      class="components-button mtb-url-input-control__more-button mtb--active has-icon"
                       type="button"
                     >
                       <svg
