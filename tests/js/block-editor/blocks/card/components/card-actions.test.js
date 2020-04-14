@@ -47,7 +47,6 @@ describe( 'CardActions', () => {
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
-
 	it( 'matches snapshot when the edit mode if enabled and showing only the primary button', () => {
 		const props = { ...baseProps };
 		props.isEditMode = true;
