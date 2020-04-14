@@ -2,6 +2,7 @@
  * All Frontend CSS.
  */
 
+@import "./base/variables.css";
 @import "./conf/index.css";
 @import "./material-components.css";
 @import "./base/masonry-grid.css";
