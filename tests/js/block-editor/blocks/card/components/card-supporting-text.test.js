@@ -29,6 +29,10 @@ const baseProps = {
 };
 
 describe( 'CardSupportingText', () => {
+	afterEach( () => {
+		jest.clearAllMocks();
+	} );
+
 	it( 'matches snapshot when the edit mode is disabled', () => {
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();
@@ -46,7 +50,9 @@ describe( 'CardSupportingText', () => {
 		props.isEditMode = true;
 		const wrapper = shallow( <CardSupportingText { ...props } /> );
 
-		const mockEvent = { target: { value: 'This is a new supporting text just for test' } };
+		const mockEvent = {
+			target: { value: 'This is a new supporting text just for test' },
+		};
 		wrapper
 			.find( '.mtb-card__supporting-text' )
 			.simulate( 'change', mockEvent );
