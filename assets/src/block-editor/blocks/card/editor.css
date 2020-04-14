@@ -12,6 +12,11 @@
 	border: 1px solid rgba(66, 88, 99, 0.4);
 	border-radius: 4px;
 	transition: box-shadow 0.2s ease-out;
+	height: 27px;
+
+	> button {
+		height: 25px;
+	}
 }
 
 .mtb-card__media-actions-shown {
@@ -25,3 +30,15 @@
 .mtb-card__supporting-text {
 	padding: 0 1rem 8px 1rem;
 }
+
+.card-container-controls {
+
+	button {
+		height: 25px;
+	}
+
+	.card-number-title {
+		margin-top: 2px;
+	}
+}
+
