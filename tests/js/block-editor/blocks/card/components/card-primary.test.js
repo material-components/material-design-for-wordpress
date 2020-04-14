@@ -41,6 +41,10 @@ const baseProps = {
 };
 
 describe( 'CardPrimary', () => {
+	afterEach( () => {
+		jest.clearAllMocks();
+	} );
+
 	it( 'matches snapshot when the title and secondary text are being displayed', () => {
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();

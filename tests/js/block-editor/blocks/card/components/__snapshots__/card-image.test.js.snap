@@ -216,7 +216,7 @@ Object {
     />
     <div>
       <div
-        class=""
+        class="mtb-card__media-container"
       >
         <div
           class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"
@@ -260,7 +260,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class=""
+      class="mtb-card__media-container"
     >
       <div
         class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"

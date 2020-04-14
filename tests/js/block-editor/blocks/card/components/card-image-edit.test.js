@@ -3,6 +3,7 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
+import { shallow, mount } from 'enzyme';
 
 /**
  * Internal dependencies
@@ -19,6 +20,26 @@ const setup = props => {
 	return render( <CardImageEdit { ...props } /> );
 };
 
+/**
+ * Render the component in a shallow mode using enzyme.
+ *
+ * @param {Object} props - Component props.
+ * @return {Function} A functional component.
+ */
+const setupShallow = props => {
+	return shallow( <CardImageEdit { ...props } /> );
+};
+
+/**
+ * Render the component in a mount mode using enzyme.
+ *
+ * @param {Object} props - Component props.
+ * @return {Function} A functional component.
+ */
+const setupMount = props => {
+	return mount( <CardImageEdit { ...props } /> );
+};
+
 const baseProps = {
 	imageSourceUrl: 'http://test.loc/test.jpg',
 	isImageEditMode: false,
@@ -31,6 +52,10 @@ const baseProps = {
 };
 
 describe( 'CardImageEdit', () => {
+	afterEach( () => {
+		jest.clearAllMocks();
+	} );
+
 	it( 'matches snapshot when the image edit mode is disabled and an url is provided', () => {
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();
@@ -55,5 +80,51 @@ describe( 'CardImageEdit', () => {
 		props.displayImage = false;
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'updates the image source url and the edit image mode props when an image is selected', () => {
+		const props = { ...baseProps };
+		props.isImageEditMode = true;
+		const wrapper = setupShallow( props );
+
+		// The mock event itself is not correct but not too important in the case to test
+		// the number of times the prop setters has been called
+		const mockEvent = { el: { url: 'http://test.loc/test.jpg' } };
+		wrapper
+			.find( 'WithSelect(WithFilters(MediaPlaceholder))' )
+			.simulate( 'select', mockEvent );
+		expect( props.setter ).toHaveBeenCalledTimes( 2 );
+	} );
+
+	it( 'updates the image source url and the edit image mode props when an image is removed', () => {
+		const props = { ...baseProps };
+		props.isImageEditMode = false;
+		const wrapper = setupShallow( props );
+		wrapper.find( 'ForwardRef(Button)' ).simulate( 'click' );
+		expect( props.setter ).toHaveBeenCalledTimes( 2 );
+	} );
+
+	it( 'updates the image container class when the the image container is focused', () => {
+		const props = { ...baseProps };
+		props.isImageEditMode = false;
+		const wrapper = setupMount( props );
+		wrapper.find( '.mtb-card__media-container' ).simulate( 'focus' );
+		expect(
+			wrapper
+				.find( '.mtb-card__media-container' )
+				.hasClass( 'mtb-card__media-container-focused' )
+		).toBe( true );
+	} );
+
+	it( 'updates the image container class when the the image container is blur', () => {
+		const props = { ...baseProps };
+		props.isImageEditMode = false;
+		const wrapper = setupMount( props );
+		wrapper.find( '.mtb-card__media-container' ).simulate( 'blur' );
+		expect(
+			wrapper
+				.find( '.mtb-card__media-container' )
+				.hasClass( 'mtb-card__media-container-focused' )
+		).toBe( false );
 	} );
 } );

@@ -93,13 +93,13 @@ describe( 'blocks: material/image-list: Gallery', () => {
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
-	it( 'matches snapshot when the desktop gutter is unkown', () => {
+	it( 'matches snapshot when the desktop gutter is unknown', () => {
 		const props = { ...galleryProps, ...{ gutter: { desktop: 0 } } };
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
-	it( 'matches snapshot when corderRadius is 8', () => {
+	it( 'matches snapshot when cornerRadius is 8', () => {
 		const props = { ...galleryProps };
 		props.cornerRadius = 8;
 		const wrapper = setup( props );

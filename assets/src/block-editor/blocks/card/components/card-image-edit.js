@@ -81,6 +81,7 @@ const CardImageEdit = ( {
 	 */
 	const onImageContainerBlur = event => {
 		const currentTarget = event.currentTarget;
+		/* istanbul ignore next */
 		setTimeout( () => {
 			if ( ! currentTarget.contains( document.activeElement ) ) {
 				setIsFocused( false );
@@ -104,7 +105,7 @@ const CardImageEdit = ( {
 			{ hasImage && ! isImageEditMode && imageSourceUrl && (
 				<>
 					<div
-						className={ classnames( {
+						className={ classnames( 'mtb-card__media-container', {
 							'mtb-card__media-container-focused': isFocused,
 						} ) }
 						onFocus={ () => setIsFocused( true ) }
