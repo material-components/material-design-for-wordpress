@@ -63,61 +63,23 @@ Object {
               <div
                 class="components-base-control__field"
               >
-                <span
-                  class="components-range-control__root css-yaebbd-Root exqw8y20"
-                >
-                  <span
-                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                    color="#00669b"
-                  >
-                    <input
-                      aria-hidden="false"
-                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                      id="inspector-range-control-0"
-                      max="36"
-                      min="0"
-                      step="1"
-                      tabindex="0"
-                      type="range"
-                      value="10"
-                    />
-                    <span
-                      aria-hidden="true"
-                      class="css-1lwhlrq-Rail exqw8y24"
-                    />
-                    <span
-                      aria-hidden="true"
-                      class="components-range-control__track css-ogrpie-Track exqw8y25"
-                      style="width: 27.77777777777778%;"
-                    />
-                    <span
-                      class="css-kjao9s-ThumbWrapper exqw8y29"
-                      style="left: 27.77777777777778%;"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="css-c88ajq-Thumb exqw8y210"
-                      />
-                    </span>
-                    <span
-                      aria-hidden="false"
-                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                      role="tooltip"
-                      style="left: 27.77777777777778%; z-index: 100;"
-                    >
-                      10
-                    </span>
-                  </span>
-                  <input
-                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                    inputmode="decimal"
-                    max="36"
-                    min="0"
-                    step="1"
-                    type="number"
-                    value="10"
-                  />
-                </span>
+                <input
+                  class="components-range-control__slider"
+                  id="inspector-range-control-0"
+                  max="36"
+                  min="0"
+                  step="1"
+                  type="range"
+                  value="10"
+                />
+                <input
+                  class="components-range-control__number"
+                  max="36"
+                  min="0"
+                  step="1"
+                  type="number"
+                  value="10"
+                />
               </div>
             </div>
           </span>
@@ -179,61 +141,23 @@ Object {
             <div
               class="components-base-control__field"
             >
-              <span
-                class="components-range-control__root css-yaebbd-Root exqw8y20"
-              >
-                <span
-                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                  color="#00669b"
-                >
-                  <input
-                    aria-hidden="false"
-                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                    id="inspector-range-control-0"
-                    max="36"
-                    min="0"
-                    step="1"
-                    tabindex="0"
-                    type="range"
-                    value="10"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="css-1lwhlrq-Rail exqw8y24"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="components-range-control__track css-ogrpie-Track exqw8y25"
-                    style="width: 27.77777777777778%;"
-                  />
-                  <span
-                    class="css-kjao9s-ThumbWrapper exqw8y29"
-                    style="left: 27.77777777777778%;"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="css-c88ajq-Thumb exqw8y210"
-                    />
-                  </span>
-                  <span
-                    aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                    role="tooltip"
-                    style="left: 27.77777777777778%; z-index: 100;"
-                  >
-                    10
-                  </span>
-                </span>
-                <input
-                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                  inputmode="decimal"
-                  max="36"
-                  min="0"
-                  step="1"
-                  type="number"
-                  value="10"
-                />
-              </span>
+              <input
+                class="components-range-control__slider"
+                id="inspector-range-control-0"
+                max="36"
+                min="0"
+                step="1"
+                type="range"
+                value="10"
+              />
+              <input
+                class="components-range-control__number"
+                max="36"
+                min="0"
+                step="1"
+                type="number"
+                value="10"
+              />
             </div>
           </div>
         </span>
@@ -357,61 +281,23 @@ Object {
               <div
                 class="components-base-control__field"
               >
-                <span
-                  class="components-range-control__root css-yaebbd-Root exqw8y20"
-                >
-                  <span
-                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                    color="#00669b"
-                  >
-                    <input
-                      aria-hidden="false"
-                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                      id="inspector-range-control-1"
-                      max="36"
-                      min="0"
-                      step="1"
-                      tabindex="0"
-                      type="range"
-                      value="10"
-                    />
-                    <span
-                      aria-hidden="true"
-                      class="css-1lwhlrq-Rail exqw8y24"
-                    />
-                    <span
-                      aria-hidden="true"
-                      class="components-range-control__track css-ogrpie-Track exqw8y25"
-                      style="width: 27.77777777777778%;"
-                    />
-                    <span
-                      class="css-kjao9s-ThumbWrapper exqw8y29"
-                      style="left: 27.77777777777778%;"
-                    >
-                      <span
-                        aria-hidden="true"
-                        class="css-c88ajq-Thumb exqw8y210"
-                      />
-                    </span>
-                    <span
-                      aria-hidden="false"
-                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                      role="tooltip"
-                      style="left: 27.77777777777778%; z-index: 100;"
-                    >
-                      10
-                    </span>
-                  </span>
-                  <input
-                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                    inputmode="decimal"
-                    max="36"
-                    min="0"
-                    step="1"
-                    type="number"
-                    value="10"
-                  />
-                </span>
+                <input
+                  class="components-range-control__slider"
+                  id="inspector-range-control-1"
+                  max="36"
+                  min="0"
+                  step="1"
+                  type="range"
+                  value="10"
+                />
+                <input
+                  class="components-range-control__number"
+                  max="36"
+                  min="0"
+                  step="1"
+                  type="number"
+                  value="10"
+                />
               </div>
             </div>
           </span>
@@ -462,61 +348,23 @@ Object {
             <div
               class="components-base-control__field"
             >
-              <span
-                class="components-range-control__root css-yaebbd-Root exqw8y20"
-              >
-                <span
-                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                  color="#00669b"
-                >
-                  <input
-                    aria-hidden="false"
-                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                    id="inspector-range-control-1"
-                    max="36"
-                    min="0"
-                    step="1"
-                    tabindex="0"
-                    type="range"
-                    value="10"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="css-1lwhlrq-Rail exqw8y24"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="components-range-control__track css-ogrpie-Track exqw8y25"
-                    style="width: 27.77777777777778%;"
-                  />
-                  <span
-                    class="css-kjao9s-ThumbWrapper exqw8y29"
-                    style="left: 27.77777777777778%;"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="css-c88ajq-Thumb exqw8y210"
-                    />
-                  </span>
-                  <span
-                    aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                    role="tooltip"
-                    style="left: 27.77777777777778%; z-index: 100;"
-                  >
-                    10
-                  </span>
-                </span>
-                <input
-                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                  inputmode="decimal"
-                  max="36"
-                  min="0"
-                  step="1"
-                  type="number"
-                  value="10"
-                />
-              </span>
+              <input
+                class="components-range-control__slider"
+                id="inspector-range-control-1"
+                max="36"
+                min="0"
+                step="1"
+                type="range"
+                value="10"
+              />
+              <input
+                class="components-range-control__number"
+                max="36"
+                min="0"
+                step="1"
+                type="number"
+                value="10"
+              />
             </div>
           </div>
         </span>

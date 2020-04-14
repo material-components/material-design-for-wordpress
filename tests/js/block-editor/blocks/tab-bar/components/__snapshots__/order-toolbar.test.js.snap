@@ -23,17 +23,15 @@ Object {
     <div>
       <div
         class="components-toolbar"
-        label="Another label"
       >
         <div>
           <button
             aria-label="Move left"
-            class="components-button components-toolbar__control has-icon"
+            class="components-button components-icon-button components-toolbar__control"
             type="button"
           >
             <i
               class="material-icons"
-              size="24"
             >
               keyboard_arrow_left
             </i>
@@ -42,12 +40,11 @@ Object {
         <div>
           <button
             aria-label="Move right"
-            class="components-button components-toolbar__control has-icon"
+            class="components-button components-icon-button components-toolbar__control"
             type="button"
           >
             <i
               class="material-icons"
-              size="24"
             >
               keyboard_arrow_right
             </i>
@@ -59,17 +56,15 @@ Object {
   "container": <div>
     <div
       class="components-toolbar"
-      label="Another label"
     >
       <div>
         <button
           aria-label="Move left"
-          class="components-button components-toolbar__control has-icon"
+          class="components-button components-icon-button components-toolbar__control"
           type="button"
         >
           <i
             class="material-icons"
-            size="24"
           >
             keyboard_arrow_left
           </i>
@@ -78,12 +73,11 @@ Object {
       <div>
         <button
           aria-label="Move right"
-          class="components-button components-toolbar__control has-icon"
+          class="components-button components-icon-button components-toolbar__control"
           type="button"
         >
           <i
             class="material-icons"
-            size="24"
           >
             keyboard_arrow_right
           </i>
@@ -168,17 +162,15 @@ Object {
     <div>
       <div
         class="components-toolbar"
-        label="Change the tab order"
       >
         <div>
           <button
             aria-label="Move left"
-            class="components-button components-toolbar__control has-icon"
+            class="components-button components-icon-button components-toolbar__control"
             type="button"
           >
             <i
               class="material-icons"
-              size="24"
             >
               keyboard_arrow_left
             </i>
@@ -187,12 +179,11 @@ Object {
         <div>
           <button
             aria-label="Move right"
-            class="components-button components-toolbar__control has-icon"
+            class="components-button components-icon-button components-toolbar__control"
             type="button"
           >
             <i
               class="material-icons"
-              size="24"
             >
               keyboard_arrow_right
             </i>
@@ -204,17 +195,15 @@ Object {
   "container": <div>
     <div
       class="components-toolbar"
-      label="Change the tab order"
     >
       <div>
         <button
           aria-label="Move left"
-          class="components-button components-toolbar__control has-icon"
+          class="components-button components-icon-button components-toolbar__control"
           type="button"
         >
           <i
             class="material-icons"
-            size="24"
           >
             keyboard_arrow_left
           </i>
@@ -223,12 +212,11 @@ Object {
       <div>
         <button
           aria-label="Move right"
-          class="components-button components-toolbar__control has-icon"
+          class="components-button components-icon-button components-toolbar__control"
           type="button"
         >
           <i
             class="material-icons"
-            size="24"
           >
             keyboard_arrow_right
           </i>
