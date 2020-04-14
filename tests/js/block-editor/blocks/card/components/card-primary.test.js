@@ -3,6 +3,7 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
+import { shallow } from 'enzyme';
 
 /**
  * Internal dependencies
@@ -17,6 +18,16 @@ import CardPrimary from '../../../../../../assets/src/block-editor/blocks/card/c
  */
 const setup = props => {
 	return render( <CardPrimary { ...props } /> );
+};
+
+/**
+ * Render the component in a shallow mode using enzyme.
+ *
+ * @param {Object} props - Component props.
+ * @return {Function} A functional component.
+ */
+const setupShallow = props => {
+	return shallow( <CardPrimary { ...props } /> );
 };
 
 const baseProps = {
@@ -70,5 +81,33 @@ describe( 'CardPrimary', () => {
 		props.displayTitle = false;
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( "updates the title prop when it's changed", () => {
+		const props = { ...baseProps };
+		props.isEditMode = true;
+		const wrapper = setupShallow( props );
+
+		const mockEvent = {
+			target: { value: 'This is a new title just for test' },
+		};
+		wrapper.find( '.mtb-card__title' ).simulate( 'change', mockEvent );
+		expect( props.setter ).toHaveBeenCalledWith( 'title', mockEvent, 0 );
+	} );
+
+	it( "updates the secondary text prop when it's changed", () => {
+		const props = { ...baseProps };
+		props.isEditMode = true;
+		const wrapper = setupShallow( props );
+
+		const mockEvent = {
+			target: { value: 'This is a new secondary text just for test' },
+		};
+		wrapper.find( '.mtb-card__secondary-text' ).simulate( 'change', mockEvent );
+		expect( props.setter ).toHaveBeenCalledWith(
+			'secondaryText',
+			mockEvent,
+			0
+		);
 	} );
 } );
