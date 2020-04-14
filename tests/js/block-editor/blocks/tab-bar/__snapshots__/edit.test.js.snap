@@ -135,15 +135,23 @@ Object {
                 aria-hidden="true"
                 class="components-panel__arrow"
                 focusable="false"
-                height="24"
+                height="24px"
                 role="img"
                 viewBox="0 0 24 24"
-                width="24"
+                width="24px"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
+                <g>
+                  <path
+                    d="M0,0h24v24H0V0z"
+                    fill="none"
+                  />
+                </g>
+                <g>
+                  <path
+                    d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                  />
+                </g>
               </svg>
             </span>
             Icon
@@ -305,15 +313,23 @@ Object {
               aria-hidden="true"
               class="components-panel__arrow"
               focusable="false"
-              height="24"
+              height="24px"
               role="img"
               viewBox="0 0 24 24"
-              width="24"
+              width="24px"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
+              <g>
+                <path
+                  d="M0,0h24v24H0V0z"
+                  fill="none"
+                />
+              </g>
+              <g>
+                <path
+                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                />
+              </g>
             </svg>
           </span>
           Icon

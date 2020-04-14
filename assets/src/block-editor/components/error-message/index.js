@@ -41,7 +41,7 @@ const ErrorPlaceholder = ( { className, error, isLoading, onRetry } ) => (
 				{ isLoading ? (
 					<Spinner />
 				) : (
-					<Button isSecondary onClick={ onRetry }>
+					<Button isDefault onClick={ onRetry }>
 						{ __( 'Retry', 'material-theme-builder' ) }
 					</Button>
 				) }

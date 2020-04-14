@@ -175,15 +175,23 @@ Object {
                 aria-hidden="true"
                 class="components-panel__arrow"
                 focusable="false"
-                height="24"
+                height="24px"
                 role="img"
                 viewBox="0 0 24 24"
-                width="24"
+                width="24px"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
+                <g>
+                  <path
+                    d="M0,0h24v24H0V0z"
+                    fill="none"
+                  />
+                </g>
+                <g>
+                  <path
+                    d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                  />
+                </g>
               </svg>
             </span>
             Styles
@@ -393,15 +401,23 @@ Object {
                 aria-hidden="true"
                 class="components-panel__arrow"
                 focusable="false"
-                height="24"
+                height="24px"
                 role="img"
                 viewBox="0 0 24 24"
-                width="24"
+                width="24px"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
+                <g>
+                  <path
+                    d="M0,0h24v24H0V0z"
+                    fill="none"
+                  />
+                </g>
+                <g>
+                  <path
+                    d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                  />
+                </g>
               </svg>
             </span>
             Settings
@@ -419,63 +435,22 @@ Object {
             >
               Columns
             </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
-            >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
-              >
-                <input
-                  aria-hidden="false"
-                  aria-label="Columns"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-0"
-                  max="5"
-                  min="2"
-                  step="1"
-                  tabindex="0"
-                  type="range"
-                  value="2"
-                />
-                <span
-                  aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
-                />
-                <span
-                  aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
-                  style="width: 0%;"
-                />
-                <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
-                  style="left: 0%;"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
-                  />
-                </span>
-                <span
-                  aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                  role="tooltip"
-                  style="left: 0%; z-index: 100;"
-                >
-                  2
-                </span>
-              </span>
-              <input
-                aria-label="Columns"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="5"
-                min="2"
-                step="1"
-                type="number"
-                value="2"
-              />
-            </span>
+            <input
+              class="components-range-control__slider"
+              id="inspector-range-control-0"
+              max="5"
+              min="2"
+              type="range"
+              value="2"
+            />
+            <input
+              aria-label="Columns"
+              class="components-range-control__number"
+              max="5"
+              min="2"
+              type="number"
+              value="2"
+            />
           </div>
         </div>
         <div
@@ -521,63 +496,22 @@ Object {
                 </button>
               </div>
             </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
-            >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
-              >
-                <input
-                  aria-hidden="false"
-                  aria-label="[object Object]"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-1"
-                  max="24"
-                  min="0"
-                  step="1"
-                  tabindex="0"
-                  type="range"
-                  value="24"
-                />
-                <span
-                  aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
-                />
-                <span
-                  aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
-                  style="width: 100%;"
-                />
-                <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
-                  style="left: 100%;"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
-                  />
-                </span>
-                <span
-                  aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                  role="tooltip"
-                  style="left: 100%; z-index: 100;"
-                >
-                  24
-                </span>
-              </span>
-              <input
-                aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="24"
-                min="0"
-                step="1"
-                type="number"
-                value="24"
-              />
-            </span>
+            <input
+              class="components-range-control__slider"
+              id="inspector-range-control-1"
+              max="24"
+              min="0"
+              type="range"
+              value="24"
+            />
+            <input
+              aria-label="[object Object]"
+              class="components-range-control__number"
+              max="24"
+              min="0"
+              type="number"
+              value="24"
+            />
           </div>
         </div>
         <div
@@ -592,63 +526,22 @@ Object {
             >
               Rounded Corners
             </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
-            >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
-              >
-                <input
-                  aria-hidden="false"
-                  aria-label="Rounded Corners"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-2"
-                  max="16"
-                  min="0"
-                  step="1"
-                  tabindex="0"
-                  type="range"
-                  value="4"
-                />
-                <span
-                  aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
-                />
-                <span
-                  aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
-                  style="width: 25%;"
-                />
-                <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
-                  style="left: 25%;"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
-                  />
-                </span>
-                <span
-                  aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                  role="tooltip"
-                  style="left: 25%; z-index: 100;"
-                >
-                  4
-                </span>
-              </span>
-              <input
-                aria-label="Rounded Corners"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="16"
-                min="0"
-                step="1"
-                type="number"
-                value="4"
-              />
-            </span>
+            <input
+              class="components-range-control__slider"
+              id="inspector-range-control-2"
+              max="16"
+              min="0"
+              type="range"
+              value="4"
+            />
+            <input
+              aria-label="Rounded Corners"
+              class="components-range-control__number"
+              max="16"
+              min="0"
+              type="number"
+              value="4"
+            />
           </div>
         </div>
         <div
@@ -756,15 +649,23 @@ Object {
                 aria-hidden="true"
                 class="components-panel__arrow"
                 focusable="false"
-                height="24"
+                height="24px"
                 role="img"
                 viewBox="0 0 24 24"
-                width="24"
+                width="24px"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
+                <g>
+                  <path
+                    d="M0,0h24v24H0V0z"
+                    fill="none"
+                  />
+                </g>
+                <g>
+                  <path
+                    d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                  />
+                </g>
               </svg>
             </span>
             Link Settings
@@ -962,15 +863,23 @@ Object {
               aria-hidden="true"
               class="components-panel__arrow"
               focusable="false"
-              height="24"
+              height="24px"
               role="img"
               viewBox="0 0 24 24"
-              width="24"
+              width="24px"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
+              <g>
+                <path
+                  d="M0,0h24v24H0V0z"
+                  fill="none"
+                />
+              </g>
+              <g>
+                <path
+                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                />
+              </g>
             </svg>
           </span>
           Styles
@@ -1180,15 +1089,23 @@ Object {
               aria-hidden="true"
               class="components-panel__arrow"
               focusable="false"
-              height="24"
+              height="24px"
               role="img"
               viewBox="0 0 24 24"
-              width="24"
+              width="24px"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
+              <g>
+                <path
+                  d="M0,0h24v24H0V0z"
+                  fill="none"
+                />
+              </g>
+              <g>
+                <path
+                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                />
+              </g>
             </svg>
           </span>
           Settings
@@ -1206,63 +1123,22 @@ Object {
           >
             Columns
           </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
-          >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="Columns"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-0"
-                max="5"
-                min="2"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="2"
-              />
-              <span
-                aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
-                style="width: 0%;"
-              />
-              <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
-                style="left: 0%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                role="tooltip"
-                style="left: 0%; z-index: 100;"
-              >
-                2
-              </span>
-            </span>
-            <input
-              aria-label="Columns"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="5"
-              min="2"
-              step="1"
-              type="number"
-              value="2"
-            />
-          </span>
+          <input
+            class="components-range-control__slider"
+            id="inspector-range-control-0"
+            max="5"
+            min="2"
+            type="range"
+            value="2"
+          />
+          <input
+            aria-label="Columns"
+            class="components-range-control__number"
+            max="5"
+            min="2"
+            type="number"
+            value="2"
+          />
         </div>
       </div>
       <div
@@ -1308,63 +1184,22 @@ Object {
               </button>
             </div>
           </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
-          >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="[object Object]"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-1"
-                max="24"
-                min="0"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="24"
-              />
-              <span
-                aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
-                style="width: 100%;"
-              />
-              <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
-                style="left: 100%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                role="tooltip"
-                style="left: 100%; z-index: 100;"
-              >
-                24
-              </span>
-            </span>
-            <input
-              aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="24"
-              min="0"
-              step="1"
-              type="number"
-              value="24"
-            />
-          </span>
+          <input
+            class="components-range-control__slider"
+            id="inspector-range-control-1"
+            max="24"
+            min="0"
+            type="range"
+            value="24"
+          />
+          <input
+            aria-label="[object Object]"
+            class="components-range-control__number"
+            max="24"
+            min="0"
+            type="number"
+            value="24"
+          />
         </div>
       </div>
       <div
@@ -1379,63 +1214,22 @@ Object {
           >
             Rounded Corners
           </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
-          >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="Rounded Corners"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-2"
-                max="16"
-                min="0"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="4"
-              />
-              <span
-                aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
-                style="width: 25%;"
-              />
-              <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
-                style="left: 25%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                role="tooltip"
-                style="left: 25%; z-index: 100;"
-              >
-                4
-              </span>
-            </span>
-            <input
-              aria-label="Rounded Corners"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="16"
-              min="0"
-              step="1"
-              type="number"
-              value="4"
-            />
-          </span>
+          <input
+            class="components-range-control__slider"
+            id="inspector-range-control-2"
+            max="16"
+            min="0"
+            type="range"
+            value="4"
+          />
+          <input
+            aria-label="Rounded Corners"
+            class="components-range-control__number"
+            max="16"
+            min="0"
+            type="number"
+            value="4"
+          />
         </div>
       </div>
       <div
@@ -1543,15 +1337,23 @@ Object {
               aria-hidden="true"
               class="components-panel__arrow"
               focusable="false"
-              height="24"
+              height="24px"
               role="img"
               viewBox="0 0 24 24"
-              width="24"
+              width="24px"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
+              <g>
+                <path
+                  d="M0,0h24v24H0V0z"
+                  fill="none"
+                />
+              </g>
+              <g>
+                <path
+                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                />
+              </g>
             </svg>
           </span>
           Link Settings
