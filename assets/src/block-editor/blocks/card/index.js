@@ -17,7 +17,10 @@ export const name = 'material/card';
  */
 export const settings = {
 	title: __( 'Card', 'material-theme-builder' ),
-	description: __( 'Display a single card.', 'material-theme-builder' ),
+	description: __(
+		'Add a card to display content and actions on a single topic.',
+		'material-theme-builder'
+	),
 	category: 'material',
 	supports: {
 		align: [ 'left', 'right' ],
