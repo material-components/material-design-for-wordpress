@@ -3,6 +3,7 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
+import { cloneDeep } from 'lodash';
 
 /**
  * Internal dependencies
@@ -54,14 +55,14 @@ describe( 'blocks: material/card: Save', () => {
 	} );
 
 	it( 'matches snapshot with a `horizontal` card layout.', () => {
-		const props = { ...baseProps };
+		const props = cloneDeep( baseProps );
 		baseProps.attributes.cardLayout = 'horizontal';
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
 	it( 'matches snapshot when props get defaults', () => {
-		const props = { ...baseProps };
+		const props = cloneDeep( baseProps );
 		delete props.attributes.cardLayout;
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();

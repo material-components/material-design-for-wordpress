@@ -477,15 +477,15 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-card mdc-card--outlined mtb-card mtb-card__list mtb-basic"
+          class="mdc-card mtb-card mdc-card--outlined"
           style="border-radius: 4px;"
         >
           <div
-            class="mdc-card__primary-action mtb-card__primary-action"
+            class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
             tabindex="0"
           >
             <div
-              class="mdc-card__media mdc-card__media--square mtb-card__media mtb-card-with-text-under-media"
+              class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
               style="background-image: url(http://test.loc/test.jpg);"
               tabindex="0"
             />
@@ -502,6 +502,11 @@ Object {
               >
                 Test secondary text
               </h3>
+            </div>
+            <div
+              class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            >
+              Test supporting text
             </div>
           </div>
           <div
@@ -549,15 +554,15 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-card mdc-card--outlined mtb-card mtb-card__list mtb-basic"
+        class="mdc-card mtb-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action"
+          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--square mtb-card__media mtb-card-with-text-under-media"
+            class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
             style="background-image: url(http://test.loc/test.jpg);"
             tabindex="0"
           />
@@ -574,6 +579,11 @@ Object {
             >
               Test secondary text
             </h3>
+          </div>
+          <div
+            class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+          >
+            Test supporting text
           </div>
         </div>
         <div

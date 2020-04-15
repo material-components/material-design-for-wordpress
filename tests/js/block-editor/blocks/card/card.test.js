@@ -1,9 +1,4 @@
 /**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
-
-/**
  * Internal dependencies
  */
 import {
@@ -64,7 +59,7 @@ describe( 'blocks: material/card', () => {
 				},
 				title: {
 					type: 'string',
-					default: __( 'Title goes here', 'material-theme-builder' ),
+					default: 'Title goes here',
 				},
 				displayTitle: {
 					type: 'boolean',
@@ -72,7 +67,7 @@ describe( 'blocks: material/card', () => {
 				},
 				secondaryText: {
 					type: 'string',
-					default: __( 'Secondary Text', 'material-theme-builder' ),
+					default: 'Secondary Text',
 				},
 				displaySecondaryText: {
 					type: 'boolean',
@@ -90,7 +85,7 @@ describe( 'blocks: material/card', () => {
 				},
 				supportingText: {
 					type: 'string',
-					default: __( 'Supporting Text', 'material-theme-builder' ),
+					default: 'Supporting Text',
 				},
 				displaySupportingText: {
 					type: 'boolean',
@@ -98,7 +93,7 @@ describe( 'blocks: material/card', () => {
 				},
 				primaryActionButtonLabel: {
 					type: 'string',
-					default: __( 'Button text', 'material-theme-builder' ),
+					default: 'Button text',
 				},
 				primaryActionButtonUrl: {
 					type: 'string',
@@ -113,7 +108,7 @@ describe( 'blocks: material/card', () => {
 				},
 				secondaryActionButtonLabel: {
 					type: 'string',
-					default: __( 'Button text', 'material-theme-builder' ),
+					default: 'Button text',
 				},
 				secondaryActionButtonUrl: {
 					type: 'string',
