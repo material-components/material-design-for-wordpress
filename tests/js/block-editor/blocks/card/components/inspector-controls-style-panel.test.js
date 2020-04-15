@@ -64,12 +64,8 @@ describe( 'InspectorControlsStylePanel', () => {
 
 	it( "updates the content layout prop when it's changed", () => {
 		const props = { ...baseProps };
-		const { container } = setup( props );
-		const radios = container.querySelectorAll(
-			'.components-radio-control__input'
-		);
-
-		fireEvent.click( radios[ 0 ] );
+		const { getByLabelText } = setup( props );
+		fireEvent.click( getByLabelText( 'Text above media' ) );
 
 		expect( props.setter ).toHaveBeenCalledWith(
 			'contentLayout',
@@ -81,27 +77,23 @@ describe( 'InspectorControlsStylePanel', () => {
 	it( "updates the corner radio prop when it's changed", () => {
 		const props = { ...baseProps };
 		const { container } = setup( props );
-		const inputRange = container.querySelectorAll(
-			'.components-range-control__slider'
+		const inputRange = container.querySelector(
+			'[aria-label="Rounded corners"]'
 		);
 
 		const mockEvent = {
 			target: { value: 2 },
 		};
 
-		fireEvent.change( inputRange[ 0 ], mockEvent );
+		fireEvent.change( inputRange, mockEvent );
 
 		expect( props.setter ).toHaveBeenCalledWith( 'cornerRadius', 2, 0 );
 	} );
 
 	it( "updates the outlined prop when it's changed", () => {
 		const props = { ...baseProps };
-		const { container } = setup( props );
-		const checkboxes = container.querySelectorAll(
-			'.components-form-toggle__input'
-		);
-
-		fireEvent.click( checkboxes[ 0 ] );
+		const { getByLabelText } = setup( props );
+		fireEvent.click( getByLabelText( 'Outlined' ) );
 
 		expect( props.setter ).toHaveBeenCalledWith( 'outlined', false, 0 );
 	} );
