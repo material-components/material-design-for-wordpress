@@ -49,6 +49,8 @@ const Edit = props => {
 		displaySupportingText,
 		displayActions,
 		displaySecondaryActionButton,
+		allowIndividualStyleOverride,
+		allowIndividualContentOverride,
 	} = attributes;
 	const [ cards, setCards ] = useState( [] );
 	const inspectorControlsProps = {
@@ -89,17 +91,24 @@ const Edit = props => {
 			} else {
 				const newCardsProps = [ ...cardsProps ];
 				for ( let index = 0; index < newCardsProps.length; index++ ) {
-					newCardsProps[ index ].contentLayout = contentLayout;
-					newCardsProps[ index ].cornerRadius = cornerRadius;
-					newCardsProps[ index ].outlined = outlined;
-					newCardsProps[ index ].displayTitle = displayTitle;
-					newCardsProps[ index ].displaySecondaryText = displaySecondaryText;
-					newCardsProps[ index ].displayImage = displayImage;
-					newCardsProps[ index ].displaySupportingText = displaySupportingText;
-					newCardsProps[ index ].displayActions = displayActions;
-					newCardsProps[
-						index
-					].displaySecondaryActionButton = displaySecondaryActionButton;
+					if ( allowIndividualStyleOverride === false ) {
+						newCardsProps[ index ].displayTitle = displayTitle;
+						newCardsProps[ index ].displaySecondaryText = displaySecondaryText;
+						newCardsProps[ index ].displayImage = displayImage;
+						newCardsProps[
+							index
+						].displaySupportingText = displaySupportingText;
+						newCardsProps[ index ].displayActions = displayActions;
+						newCardsProps[
+							index
+						].displaySecondaryActionButton = displaySecondaryActionButton;
+					}
+
+					if ( allowIndividualContentOverride === false ) {
+						newCardsProps[ index ].contentLayout = contentLayout;
+						newCardsProps[ index ].cornerRadius = cornerRadius;
+						newCardsProps[ index ].outlined = outlined;
+					}
 				}
 				setAttributes( {
 					cardsProps: newCardsProps,
@@ -117,6 +126,8 @@ const Edit = props => {
 			displaySupportingText,
 			displayActions,
 			displaySecondaryActionButton,
+			allowIndividualStyleOverride,
+			allowIndividualContentOverride,
 		]
 	);
 
@@ -151,7 +162,22 @@ const Edit = props => {
 				if ( numberOfCards <= cardsProps.length ) {
 					baseProps = { ...cardsProps[ cardIndex ] };
 				} else {
-					cardsProps.push( { ...CARD_ATTRIBUTES_VALUE } );
+					const cardAttributes = { ...CARD_ATTRIBUTES_VALUE };
+					if ( allowIndividualStyleOverride === false ) {
+						cardAttributes.displayTitle = displayTitle;
+						cardAttributes.displaySecondaryText = displaySecondaryText;
+						cardAttributes.displayImage = displayImage;
+						cardAttributes.displaySupportingText = displaySupportingText;
+						cardAttributes.displayActions = displayActions;
+						cardAttributes.displaySecondaryActionButton = displaySecondaryActionButton;
+					}
+
+					if ( allowIndividualContentOverride === false ) {
+						cardAttributes.contentLayout = contentLayout;
+						cardAttributes.cornerRadius = cornerRadius;
+						cardAttributes.outlined = outlined;
+					}
+					cardsProps.push( cardAttributes );
 					cardsPropsHasIncreased = true;
 				}
 
