@@ -131,9 +131,6 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 			const chipSetEl = document.querySelector( '.mdc-chip-set' );
 			new mdc.chips.MDCChipSet( chipSetEl );
 
-			console.log( mdc.switchControl.MDCSwitch );
-			console.log( document.querySelector( '.mdc-switch' ) );
-
 			new mdc.switchControl.MDCSwitch(
 				document.querySelector( '.mdc-switch' )
 			);
