@@ -1,3 +1,5 @@
+/* global materialPluginPath */
+
 import { __ } from '@wordpress/i18n';
 import { H3 } from '../styles';
 
@@ -16,7 +18,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/1.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/1.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -38,7 +40,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/2.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -60,7 +62,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/3.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/3.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -82,7 +84,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/4.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/4.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -104,7 +106,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/5.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/5.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -126,7 +128,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/6.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/6.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -148,7 +150,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/7.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/7.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -170,7 +172,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/8.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/8.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -192,7 +194,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/9.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/9.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -214,7 +216,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/10.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/10.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -236,7 +238,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/11.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/11.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -258,7 +260,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/12.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/12.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -280,7 +282,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/13.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/13.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -302,7 +304,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/14.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/14.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -324,7 +326,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src="https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/15.jpg"
+						src={ materialPluginPath + 'assets/images/kitchen-sink/15.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div

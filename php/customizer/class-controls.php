@@ -465,6 +465,8 @@ class Controls extends Module_Base {
 			]
 		);
 
+		wp_localize_script('material-theme-builder-customizer-js', 'materialPluginPath', $this->plugin->asset_url(''));
+
 		wp_enqueue_style(
 			'material-theme-builder-customizer-css',
 			$this->plugin->asset_url( 'assets/css/customize-controls-compiled.css' ),

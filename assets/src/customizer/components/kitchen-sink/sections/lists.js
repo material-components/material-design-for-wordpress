@@ -74,19 +74,12 @@ const Lists = ( { iconStyle } ) => (
 
 					<span aria-hidden="true" className="mdc-list-item__meta">
 						<button
-							data-mdc-ripple-is-unbounded=""
 							className={ classNames(
 								iconStyle,
 								'mdc-icon-button',
 								'mdc-ripple-upgraded',
 								'mdc-ripple-upgraded--unbounded'
 							) }
-							style={ {
-								'--mdc-ripple-fg-size': '28px',
-								'--mdc-ripple-fg-scale': '1.71429',
-								'--mdc-ripple-left': '10px',
-								'--mdc-ripple-top': '10px',
-							} }
 						>
 							more_vert
 						</button>
@@ -111,19 +104,12 @@ const Lists = ( { iconStyle } ) => (
 
 					<span aria-hidden="true" className="mdc-list-item__meta">
 						<button
-							data-mdc-ripple-is-unbounded=""
 							className={ classNames(
 								iconStyle,
 								'mdc-icon-button',
 								'mdc-ripple-upgraded',
 								'mdc-ripple-upgraded--unbounded'
 							) }
-							style={ {
-								'--mdc-ripple-fg-size': '28px',
-								'--mdc-ripple-fg-scale': '1.71429',
-								'--mdc-ripple-left': '10px',
-								'--mdc-ripple-top': '10px',
-							} }
 						>
 							more_vert
 						</button>
@@ -148,19 +134,12 @@ const Lists = ( { iconStyle } ) => (
 
 					<span aria-hidden="true" className="mdc-list-item__meta">
 						<button
-							data-mdc-ripple-is-unbounded=""
 							className={ classNames(
 								iconStyle,
 								'mdc-icon-button',
 								'mdc-ripple-upgraded',
 								'mdc-ripple-upgraded--unbounded'
 							) }
-							style={ {
-								'--mdc-ripple-fg-size': '28px',
-								'--mdc-ripple-fg-scale': '1.71429',
-								'--mdc-ripple-left': '10px',
-								'--mdc-ripple-top': '10px',
-							} }
 						>
 							more_vert
 						</button>

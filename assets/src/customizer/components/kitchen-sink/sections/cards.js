@@ -1,3 +1,5 @@
+/* global materialPluginPath */
+
 import { __ } from '@wordpress/i18n';
 import { H3 } from '../styles';
 
@@ -25,8 +27,8 @@ const Cards = ( { radius, smallRadius } ) => (
 					<div
 						className="mdc-card__media mdc-card__media--16-9 demo-card__media"
 						style={ {
-							backgroundImage:
-								'url("https://material-components.github.io/material-components-web-catalog/static/media/photos/3x2/2.jpg")',
+							backgroundImage: `url("${ materialPluginPath +
+								'assets/images/kitchen-sink/2.jpg' }")`,
 						} }
 					></div>
 					<div style={ { padding: '16px' } }>
