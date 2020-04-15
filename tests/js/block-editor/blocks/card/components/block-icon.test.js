@@ -21,7 +21,7 @@ const setup = props => {
 
 describe( 'BlockIcon', () => {
 	it( 'matches snapshot', () => {
-		const wrapper = setup();
+		const wrapper = setup( {} );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 } );
