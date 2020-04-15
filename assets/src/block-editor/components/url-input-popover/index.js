@@ -39,13 +39,6 @@ const UrlInputPopover = withState( {
 		'mtb--show-advanced': openAdvanced,
 	} );
 
-	const moreButtonClasses = classnames(
-		[ 'mtb-url-input-control__more-button' ],
-		{
-			'mtb--active': props.newTab || props.noFollow,
-		}
-	);
-
 	return (
 		<Popover
 			className={ mainClassName }
@@ -83,7 +76,12 @@ const UrlInputPopover = withState( {
 						) }
 					{ ( props.onChangeNewTab || props.onChangeNoFollow ) && (
 						<Button
-							className={ moreButtonClasses }
+							className={ classnames(
+								[ 'mtb-url-input-control__more-button' ],
+								{
+									'mtb--active': props.newTab || props.noFollow,
+								}
+							) }
 							icon="ellipsis"
 							showTooltip={ true }
 							label={ openAdvanced ? ariaOpen : ariaClosed }
@@ -92,7 +90,9 @@ const UrlInputPopover = withState( {
 						/>
 					) }
 					<Button
-						className={ moreButtonClasses }
+						className={ classnames( [ 'mtb-url-input-control__close-button' ], {
+							'mtb--active': props.newTab || props.noFollow,
+						} ) }
 						icon="no"
 						showTooltip={ true }
 						label={ __( 'Close', 'material-theme-builder' ) }

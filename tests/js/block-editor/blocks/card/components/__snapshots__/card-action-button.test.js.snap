@@ -441,7 +441,7 @@ Object {
                       </button>
                       <button
                         aria-label="Close"
-                        class="components-button mtb-url-input-control__more-button mtb--active has-icon"
+                        class="components-button mtb-url-input-control__close-button mtb--active has-icon"
                         type="button"
                       >
                         <svg
@@ -563,7 +563,7 @@ Object {
                     </button>
                     <button
                       aria-label="Close"
-                      class="components-button mtb-url-input-control__more-button mtb--active has-icon"
+                      class="components-button mtb-url-input-control__close-button mtb--active has-icon"
                       type="button"
                     >
                       <svg
