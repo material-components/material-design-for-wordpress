@@ -159,6 +159,13 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
+	it( 'matches snapshot when style props is `list`', () => {
+		const props = cloneDeep( baseProps );
+		props.attributes.style = 'list';
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
 	it( 'updates the card container class when the the card container is focused', () => {
 		const props = cloneDeep( baseProps );
 		const wrapper = setupMount( props );

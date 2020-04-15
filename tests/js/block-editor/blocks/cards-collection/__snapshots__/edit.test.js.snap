@@ -1450,6 +1450,657 @@ Object {
 }
 `;
 
+exports[`blocks: material/cards-collection: Edit matches snapshot when style props is \`list\` 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="test"
+      >
+        <div
+          class="mdc-layout-grid layout-list"
+          style="padding-left: 24px; padding-right: 24px;"
+        >
+          <div
+            class="mdc-layout-grid__inner"
+          >
+            <div
+              class="card-container mdc-layout-grid__cell--span-12"
+              data-card-index="0"
+            >
+              <div
+                class="mdc-card mtb-card mtb-card__list mtb-basic"
+                style="border-radius: 4px;"
+              >
+                <div
+                  class="mdc-card__primary-action mtb-card__primary-action"
+                  tabindex="0"
+                >
+                  <div
+                    class="components-placeholder block-editor-media-placeholder is-small"
+                  >
+                    <iframe
+                      aria-hidden="true"
+                      aria-label="resize-listener"
+                      frameborder="0"
+                      src="about:blank"
+                      style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+                      tabindex="-1"
+                    />
+                    <div
+                      class="components-placeholder__label"
+                    >
+                      Card Image selector
+                    </div>
+                    <div
+                      class="components-placeholder__instructions"
+                    >
+                      To edit this block, you need permission to upload media.
+                    </div>
+                    <div
+                      class="components-placeholder__fieldset"
+                    />
+                  </div>
+                  <div
+                    class="mtb-card__primary"
+                  >
+                    <h2
+                      aria-label="Title goes here"
+                      aria-multiline="true"
+                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      contenteditable="true"
+                      role="textbox"
+                      style="white-space: pre-wrap;"
+                    >
+                      Title #1 goes here
+                    </h2>
+                    <h3
+                      aria-label="Secondary text"
+                      aria-multiline="true"
+                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      contenteditable="true"
+                      role="textbox"
+                      style="white-space: pre-wrap;"
+                    >
+                      Secondary text #1
+                    </h3>
+                  </div>
+                </div>
+                <div
+                  class="mdc-card__actions"
+                >
+                  <div
+                    class="mdc-card__action-buttons"
+                  >
+                    <div>
+                      <button
+                        class="mdc-button mdc-card__action mdc-card__action--button"
+                      >
+                        <span
+                          class="mdc-button__ripple"
+                        />
+                        <div
+                          aria-label="Button text"
+                          aria-multiline="true"
+                          class="rich-text block-editor-rich-text__editable"
+                          contenteditable="true"
+                          role="textbox"
+                          style="white-space: pre-wrap;"
+                        >
+                          Button text #1-1
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container mdc-layout-grid__cell--span-12"
+              data-card-index="1"
+            >
+              <div
+                class="mdc-card mtb-card mtb-card__list mtb-basic"
+                style="border-radius: 4px;"
+              >
+                <div
+                  class="mdc-card__primary-action mtb-card__primary-action"
+                  tabindex="0"
+                >
+                  <div
+                    class="components-placeholder block-editor-media-placeholder is-small"
+                  >
+                    <iframe
+                      aria-hidden="true"
+                      aria-label="resize-listener"
+                      frameborder="0"
+                      src="about:blank"
+                      style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+                      tabindex="-1"
+                    />
+                    <div
+                      class="components-placeholder__label"
+                    >
+                      Card Image selector
+                    </div>
+                    <div
+                      class="components-placeholder__instructions"
+                    >
+                      To edit this block, you need permission to upload media.
+                    </div>
+                    <div
+                      class="components-placeholder__fieldset"
+                    />
+                  </div>
+                  <div
+                    class="mtb-card__primary"
+                  >
+                    <h2
+                      aria-label="Title goes here"
+                      aria-multiline="true"
+                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      contenteditable="true"
+                      role="textbox"
+                      style="white-space: pre-wrap;"
+                    >
+                      Title #2 goes here
+                    </h2>
+                    <h3
+                      aria-label="Secondary text"
+                      aria-multiline="true"
+                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      contenteditable="true"
+                      role="textbox"
+                      style="white-space: pre-wrap;"
+                    >
+                      Secondary text #2
+                    </h3>
+                  </div>
+                </div>
+                <div
+                  class="mdc-card__actions"
+                >
+                  <div
+                    class="mdc-card__action-buttons"
+                  >
+                    <div>
+                      <button
+                        class="mdc-button mdc-card__action mdc-card__action--button"
+                      >
+                        <span
+                          class="mdc-button__ripple"
+                        />
+                        <div
+                          aria-label="Button text"
+                          aria-multiline="true"
+                          class="rich-text block-editor-rich-text__editable"
+                          contenteditable="true"
+                          role="textbox"
+                          style="white-space: pre-wrap;"
+                        >
+                          Button text #2-1
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="card-container mdc-layout-grid__cell--span-12"
+              data-card-index="2"
+            >
+              <div
+                class="mdc-card mtb-card mtb-card__list mtb-basic"
+                style="border-radius: 4px;"
+              >
+                <div
+                  class="mdc-card__primary-action mtb-card__primary-action"
+                  tabindex="0"
+                >
+                  <div
+                    class="components-placeholder block-editor-media-placeholder is-small"
+                  >
+                    <iframe
+                      aria-hidden="true"
+                      aria-label="resize-listener"
+                      frameborder="0"
+                      src="about:blank"
+                      style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+                      tabindex="-1"
+                    />
+                    <div
+                      class="components-placeholder__label"
+                    >
+                      Card Image selector
+                    </div>
+                    <div
+                      class="components-placeholder__instructions"
+                    >
+                      To edit this block, you need permission to upload media.
+                    </div>
+                    <div
+                      class="components-placeholder__fieldset"
+                    />
+                  </div>
+                  <div
+                    class="mtb-card__primary"
+                  >
+                    <h2
+                      aria-label="Title goes here"
+                      aria-multiline="true"
+                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      contenteditable="true"
+                      role="textbox"
+                      style="white-space: pre-wrap;"
+                    >
+                      Title #3 goes here
+                    </h2>
+                    <h3
+                      aria-label="Secondary text"
+                      aria-multiline="true"
+                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      contenteditable="true"
+                      role="textbox"
+                      style="white-space: pre-wrap;"
+                    >
+                      Secondary text #3
+                    </h3>
+                  </div>
+                </div>
+                <div
+                  class="mdc-card__actions"
+                >
+                  <div
+                    class="mdc-card__action-buttons"
+                  >
+                    <div>
+                      <button
+                        class="mdc-button mdc-card__action mdc-card__action--button"
+                      >
+                        <span
+                          class="mdc-button__ripple"
+                        />
+                        <div
+                          aria-label="Button text"
+                          aria-multiline="true"
+                          class="rich-text block-editor-rich-text__editable"
+                          contenteditable="true"
+                          role="textbox"
+                          style="white-space: pre-wrap;"
+                        >
+                          Button text #3-1
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="test"
+    >
+      <div
+        class="mdc-layout-grid layout-list"
+        style="padding-left: 24px; padding-right: 24px;"
+      >
+        <div
+          class="mdc-layout-grid__inner"
+        >
+          <div
+            class="card-container mdc-layout-grid__cell--span-12"
+            data-card-index="0"
+          >
+            <div
+              class="mdc-card mtb-card mtb-card__list mtb-basic"
+              style="border-radius: 4px;"
+            >
+              <div
+                class="mdc-card__primary-action mtb-card__primary-action"
+                tabindex="0"
+              >
+                <div
+                  class="components-placeholder block-editor-media-placeholder is-small"
+                >
+                  <iframe
+                    aria-hidden="true"
+                    aria-label="resize-listener"
+                    frameborder="0"
+                    src="about:blank"
+                    style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+                    tabindex="-1"
+                  />
+                  <div
+                    class="components-placeholder__label"
+                  >
+                    Card Image selector
+                  </div>
+                  <div
+                    class="components-placeholder__instructions"
+                  >
+                    To edit this block, you need permission to upload media.
+                  </div>
+                  <div
+                    class="components-placeholder__fieldset"
+                  />
+                </div>
+                <div
+                  class="mtb-card__primary"
+                >
+                  <h2
+                    aria-label="Title goes here"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
+                    Title #1 goes here
+                  </h2>
+                  <h3
+                    aria-label="Secondary text"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
+                    Secondary text #1
+                  </h3>
+                </div>
+              </div>
+              <div
+                class="mdc-card__actions"
+              >
+                <div
+                  class="mdc-card__action-buttons"
+                >
+                  <div>
+                    <button
+                      class="mdc-button mdc-card__action mdc-card__action--button"
+                    >
+                      <span
+                        class="mdc-button__ripple"
+                      />
+                      <div
+                        aria-label="Button text"
+                        aria-multiline="true"
+                        class="rich-text block-editor-rich-text__editable"
+                        contenteditable="true"
+                        role="textbox"
+                        style="white-space: pre-wrap;"
+                      >
+                        Button text #1-1
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="card-container mdc-layout-grid__cell--span-12"
+            data-card-index="1"
+          >
+            <div
+              class="mdc-card mtb-card mtb-card__list mtb-basic"
+              style="border-radius: 4px;"
+            >
+              <div
+                class="mdc-card__primary-action mtb-card__primary-action"
+                tabindex="0"
+              >
+                <div
+                  class="components-placeholder block-editor-media-placeholder is-small"
+                >
+                  <iframe
+                    aria-hidden="true"
+                    aria-label="resize-listener"
+                    frameborder="0"
+                    src="about:blank"
+                    style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+                    tabindex="-1"
+                  />
+                  <div
+                    class="components-placeholder__label"
+                  >
+                    Card Image selector
+                  </div>
+                  <div
+                    class="components-placeholder__instructions"
+                  >
+                    To edit this block, you need permission to upload media.
+                  </div>
+                  <div
+                    class="components-placeholder__fieldset"
+                  />
+                </div>
+                <div
+                  class="mtb-card__primary"
+                >
+                  <h2
+                    aria-label="Title goes here"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
+                    Title #2 goes here
+                  </h2>
+                  <h3
+                    aria-label="Secondary text"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
+                    Secondary text #2
+                  </h3>
+                </div>
+              </div>
+              <div
+                class="mdc-card__actions"
+              >
+                <div
+                  class="mdc-card__action-buttons"
+                >
+                  <div>
+                    <button
+                      class="mdc-button mdc-card__action mdc-card__action--button"
+                    >
+                      <span
+                        class="mdc-button__ripple"
+                      />
+                      <div
+                        aria-label="Button text"
+                        aria-multiline="true"
+                        class="rich-text block-editor-rich-text__editable"
+                        contenteditable="true"
+                        role="textbox"
+                        style="white-space: pre-wrap;"
+                      >
+                        Button text #2-1
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="card-container mdc-layout-grid__cell--span-12"
+            data-card-index="2"
+          >
+            <div
+              class="mdc-card mtb-card mtb-card__list mtb-basic"
+              style="border-radius: 4px;"
+            >
+              <div
+                class="mdc-card__primary-action mtb-card__primary-action"
+                tabindex="0"
+              >
+                <div
+                  class="components-placeholder block-editor-media-placeholder is-small"
+                >
+                  <iframe
+                    aria-hidden="true"
+                    aria-label="resize-listener"
+                    frameborder="0"
+                    src="about:blank"
+                    style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+                    tabindex="-1"
+                  />
+                  <div
+                    class="components-placeholder__label"
+                  >
+                    Card Image selector
+                  </div>
+                  <div
+                    class="components-placeholder__instructions"
+                  >
+                    To edit this block, you need permission to upload media.
+                  </div>
+                  <div
+                    class="components-placeholder__fieldset"
+                  />
+                </div>
+                <div
+                  class="mtb-card__primary"
+                >
+                  <h2
+                    aria-label="Title goes here"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
+                    Title #3 goes here
+                  </h2>
+                  <h3
+                    aria-label="Secondary text"
+                    aria-multiline="true"
+                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    contenteditable="true"
+                    role="textbox"
+                    style="white-space: pre-wrap;"
+                  >
+                    Secondary text #3
+                  </h3>
+                </div>
+              </div>
+              <div
+                class="mdc-card__actions"
+              >
+                <div
+                  class="mdc-card__action-buttons"
+                >
+                  <div>
+                    <button
+                      class="mdc-button mdc-card__action mdc-card__action--button"
+                    >
+                      <span
+                        class="mdc-button__ripple"
+                      />
+                      <div
+                        aria-label="Button text"
+                        aria-multiline="true"
+                        class="rich-text block-editor-rich-text__editable"
+                        contenteditable="true"
+                        role="textbox"
+                        style="white-space: pre-wrap;"
+                      >
+                        Button text #3-1
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
 exports[`blocks: material/cards-collection: Edit removes one card from the ui is being decreased by 1 1`] = `
 <Edit
   attributes={
@@ -2044,7 +2695,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
                             clientId={null}
                             disabled={false}
-                            identifier={88}
+                            identifier={97}
                             onChange={[Function]}
                             onDelete={[Function]}
                             onEnter={[Function]}
@@ -2082,7 +2733,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   </h2>,
                                 }
                               }
-                              identifier={88}
+                              identifier={97}
                               onChange={[Function]}
                               onDelete={[Function]}
                               onEnter={[Function]}
@@ -2121,7 +2772,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     </h2>,
                                   }
                                 }
-                                identifier={88}
+                                identifier={97}
                                 onChange={[Function]}
                                 onDelete={[Function]}
                                 onEnter={[Function]}
@@ -2163,7 +2814,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       </h2>,
                                     }
                                   }
-                                  identifier={88}
+                                  identifier={97}
                                   onChange={[Function]}
                                   onDelete={[Function]}
                                   onEnter={[Function]}
@@ -2422,7 +3073,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             blockName=""
                                             completers={Array []}
                                             debouncedSpeak={[Function]}
-                                            instanceId={88}
+                                            instanceId={97}
                                             isSelected={false}
                                             onChange={[Function]}
                                             record={
@@ -2537,7 +3188,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
                             clientId={null}
                             disabled={false}
-                            identifier={89}
+                            identifier={98}
                             onChange={[Function]}
                             onDelete={[Function]}
                             onEnter={[Function]}
@@ -2574,7 +3225,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   </h3>,
                                 }
                               }
-                              identifier={89}
+                              identifier={98}
                               onChange={[Function]}
                               onDelete={[Function]}
                               onEnter={[Function]}
@@ -2612,7 +3263,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     </h3>,
                                   }
                                 }
-                                identifier={89}
+                                identifier={98}
                                 onChange={[Function]}
                                 onDelete={[Function]}
                                 onEnter={[Function]}
@@ -2653,7 +3304,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       </h3>,
                                     }
                                   }
-                                  identifier={89}
+                                  identifier={98}
                                   onChange={[Function]}
                                   onDelete={[Function]}
                                   onEnter={[Function]}
@@ -2903,7 +3554,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             blockName=""
                                             completers={Array []}
                                             debouncedSpeak={[Function]}
-                                            instanceId={89}
+                                            instanceId={98}
                                             isSelected={false}
                                             onChange={[Function]}
                                             record={
@@ -3025,7 +3676,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                           clientId={null}
                           disabled={false}
-                          identifier={90}
+                          identifier={99}
                           onChange={[Function]}
                           onDelete={[Function]}
                           onEnter={[Function]}
@@ -3062,7 +3713,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 </div>,
                               }
                             }
-                            identifier={90}
+                            identifier={99}
                             onChange={[Function]}
                             onDelete={[Function]}
                             onEnter={[Function]}
@@ -3100,7 +3751,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   </div>,
                                 }
                               }
-                              identifier={90}
+                              identifier={99}
                               onChange={[Function]}
                               onDelete={[Function]}
                               onEnter={[Function]}
@@ -3141,7 +3792,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     </div>,
                                   }
                                 }
-                                identifier={90}
+                                identifier={99}
                                 onChange={[Function]}
                                 onDelete={[Function]}
                                 onEnter={[Function]}
@@ -3399,7 +4050,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                           blockName=""
                                           completers={Array []}
                                           debouncedSpeak={[Function]}
-                                          instanceId={90}
+                                          instanceId={99}
                                           isSelected={false}
                                           onChange={[Function]}
                                           record={
@@ -3571,7 +4222,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     className="block-editor-rich-text__editable"
                                     clientId={null}
                                     disabled={false}
-                                    identifier={91}
+                                    identifier={100}
                                     onChange={[Function]}
                                     onDelete={[Function]}
                                     onEnter={[Function]}
@@ -3608,7 +4259,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                           </div>,
                                         }
                                       }
-                                      identifier={91}
+                                      identifier={100}
                                       onChange={[Function]}
                                       onDelete={[Function]}
                                       onEnter={[Function]}
@@ -3646,7 +4297,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             </div>,
                                           }
                                         }
-                                        identifier={91}
+                                        identifier={100}
                                         onChange={[Function]}
                                         onDelete={[Function]}
                                         onEnter={[Function]}
@@ -3687,7 +4338,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                               </div>,
                                             }
                                           }
-                                          identifier={91}
+                                          identifier={100}
                                           onChange={[Function]}
                                           onDelete={[Function]}
                                           onEnter={[Function]}
@@ -3929,7 +4580,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                                     blockName=""
                                                     completers={Array []}
                                                     debouncedSpeak={[Function]}
-                                                    instanceId={91}
+                                                    instanceId={100}
                                                     isSelected={false}
                                                     onChange={[Function]}
                                                     record={
@@ -4313,7 +4964,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
                             clientId={null}
                             disabled={false}
-                            identifier={92}
+                            identifier={101}
                             onChange={[Function]}
                             onDelete={[Function]}
                             onEnter={[Function]}
@@ -4351,7 +5002,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   </h2>,
                                 }
                               }
-                              identifier={92}
+                              identifier={101}
                               onChange={[Function]}
                               onDelete={[Function]}
                               onEnter={[Function]}
@@ -4390,7 +5041,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     </h2>,
                                   }
                                 }
-                                identifier={92}
+                                identifier={101}
                                 onChange={[Function]}
                                 onDelete={[Function]}
                                 onEnter={[Function]}
@@ -4432,7 +5083,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       </h2>,
                                     }
                                   }
-                                  identifier={92}
+                                  identifier={101}
                                   onChange={[Function]}
                                   onDelete={[Function]}
                                   onEnter={[Function]}
@@ -4691,7 +5342,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             blockName=""
                                             completers={Array []}
                                             debouncedSpeak={[Function]}
-                                            instanceId={92}
+                                            instanceId={101}
                                             isSelected={false}
                                             onChange={[Function]}
                                             record={
@@ -4806,7 +5457,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
                             clientId={null}
                             disabled={false}
-                            identifier={93}
+                            identifier={102}
                             onChange={[Function]}
                             onDelete={[Function]}
                             onEnter={[Function]}
@@ -4843,7 +5494,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   </h3>,
                                 }
                               }
-                              identifier={93}
+                              identifier={102}
                               onChange={[Function]}
                               onDelete={[Function]}
                               onEnter={[Function]}
@@ -4881,7 +5532,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     </h3>,
                                   }
                                 }
-                                identifier={93}
+                                identifier={102}
                                 onChange={[Function]}
                                 onDelete={[Function]}
                                 onEnter={[Function]}
@@ -4922,7 +5573,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       </h3>,
                                     }
                                   }
-                                  identifier={93}
+                                  identifier={102}
                                   onChange={[Function]}
                                   onDelete={[Function]}
                                   onEnter={[Function]}
@@ -5172,7 +5823,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             blockName=""
                                             completers={Array []}
                                             debouncedSpeak={[Function]}
-                                            instanceId={93}
+                                            instanceId={102}
                                             isSelected={false}
                                             onChange={[Function]}
                                             record={
@@ -5294,7 +5945,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                           clientId={null}
                           disabled={false}
-                          identifier={94}
+                          identifier={103}
                           onChange={[Function]}
                           onDelete={[Function]}
                           onEnter={[Function]}
@@ -5331,7 +5982,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 </div>,
                               }
                             }
-                            identifier={94}
+                            identifier={103}
                             onChange={[Function]}
                             onDelete={[Function]}
                             onEnter={[Function]}
@@ -5369,7 +6020,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   </div>,
                                 }
                               }
-                              identifier={94}
+                              identifier={103}
                               onChange={[Function]}
                               onDelete={[Function]}
                               onEnter={[Function]}
@@ -5410,7 +6061,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     </div>,
                                   }
                                 }
-                                identifier={94}
+                                identifier={103}
                                 onChange={[Function]}
                                 onDelete={[Function]}
                                 onEnter={[Function]}
@@ -5668,7 +6319,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                           blockName=""
                                           completers={Array []}
                                           debouncedSpeak={[Function]}
-                                          instanceId={94}
+                                          instanceId={103}
                                           isSelected={false}
                                           onChange={[Function]}
                                           record={
@@ -5840,7 +6491,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     className="block-editor-rich-text__editable"
                                     clientId={null}
                                     disabled={false}
-                                    identifier={95}
+                                    identifier={104}
                                     onChange={[Function]}
                                     onDelete={[Function]}
                                     onEnter={[Function]}
@@ -5877,7 +6528,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                           </div>,
                                         }
                                       }
-                                      identifier={95}
+                                      identifier={104}
                                       onChange={[Function]}
                                       onDelete={[Function]}
                                       onEnter={[Function]}
@@ -5915,7 +6566,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             </div>,
                                           }
                                         }
-                                        identifier={95}
+                                        identifier={104}
                                         onChange={[Function]}
                                         onDelete={[Function]}
                                         onEnter={[Function]}
@@ -5956,7 +6607,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                               </div>,
                                             }
                                           }
-                                          identifier={95}
+                                          identifier={104}
                                           onChange={[Function]}
                                           onDelete={[Function]}
                                           onEnter={[Function]}
@@ -6198,7 +6849,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                                     blockName=""
                                                     completers={Array []}
                                                     debouncedSpeak={[Function]}
-                                                    instanceId={95}
+                                                    instanceId={104}
                                                     isSelected={false}
                                                     onChange={[Function]}
                                                     record={
