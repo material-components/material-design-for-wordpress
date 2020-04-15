@@ -8,7 +8,6 @@ import { render } from '@testing-library/react';
  * Internal dependencies
  */
 import UrlInputPopover from '../../../../assets/src/block-editor/components/url-input-popover';
-import CardImageEdit from '../../../../assets/src/block-editor/blocks/card/components/card-image-edit';
 
 /**
  * Render the component.
@@ -18,26 +17,6 @@ import CardImageEdit from '../../../../assets/src/block-editor/blocks/card/compo
  */
 const setup = props => {
 	return render( <UrlInputPopover { ...props } /> );
-};
-
-/**
- * Render the component in a shallow mode using enzyme.
- *
- * @param {Object} props - Component props.
- * @return {Function} A functional component.
- */
-const setupShallow = props => {
-	return shallow( <CardImageEdit { ...props } /> );
-};
-
-/**
- * Render the component in a mount mode using enzyme.
- *
- * @param {Object} props - Component props.
- * @return {Function} A functional component.
- */
-const setupMount = props => {
-	return mount( <CardImageEdit { ...props } /> );
 };
 
 const baseProps = {
