@@ -16,10 +16,6 @@ import Edit from '../../../../../assets/src/block-editor/blocks/card/edit';
 import Save from '../../../../../assets/src/block-editor/blocks/card/save';
 
 describe( 'blocks: material/card', () => {
-	afterEach( () => {
-		jest.clearAllMocks();
-	} );
-
 	describe( 'name', () => {
 		it( 'should equal material/card', () => {
 			expect( name ).toStrictEqual( 'material/card' );
