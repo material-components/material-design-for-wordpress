@@ -52,6 +52,7 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 
 	const cardIndex = 0;
 
+	/* istanbul ignore next */
 	const setter = ( attributeName, attributeValue ) => {
 		setAttributes( {
 			[ attributeName ]: attributeValue,

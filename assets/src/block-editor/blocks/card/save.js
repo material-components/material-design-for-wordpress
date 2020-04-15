@@ -41,12 +41,8 @@ const Save = ( { attributes, className } ) => {
 		cornerRadius,
 	} = attributes;
 
-	const cardIndex = 0;
-
-	const setter = () => {};
-
 	const cardProps = {
-		cardIndex,
+		cardIndex: 0,
 		contentLayout,
 		title,
 		displayTitle,
@@ -69,7 +65,7 @@ const Save = ( { attributes, className } ) => {
 		displaySecondaryActionButton,
 		outlined,
 		cornerRadius,
-		setter,
+		setter: () => {},
 		isEditMode: false,
 	};
 
