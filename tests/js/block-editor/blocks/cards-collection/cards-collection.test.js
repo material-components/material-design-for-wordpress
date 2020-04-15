@@ -5,7 +5,6 @@ import {
 	name,
 	settings,
 } from '../../../../../assets/src/block-editor/blocks/cards-collection';
-
 import BlockIcon from '../../../../../assets/src/block-editor/blocks/cards-collection/components/block-icon';
 import Edit from '../../../../../assets/src/block-editor/blocks/cards-collection/edit';
 import Save from '../../../../../assets/src/block-editor/blocks/cards-collection/save';
