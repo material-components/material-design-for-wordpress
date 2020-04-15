@@ -56,7 +56,7 @@ describe( 'blocks: material/card: Edit', () => {
 
 	it( 'matches snapshot with a `horizontal` card layout.', () => {
 		const props = cloneDeep( baseProps );
-		baseProps.attributes.cardLayout = 'horizontal';
+		props.attributes.cardLayout = 'horizontal';
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
