@@ -10,7 +10,6 @@ import {
 	name,
 	settings,
 } from '../../../../../assets/src/block-editor/blocks/card';
-
 import BlockIcon from '../../../../../assets/src/block-editor/blocks/card/components/block-icon';
 import Edit from '../../../../../assets/src/block-editor/blocks/card/edit';
 import Save from '../../../../../assets/src/block-editor/blocks/card/save';
