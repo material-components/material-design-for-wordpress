@@ -27,7 +27,7 @@ const FocusedCardControls = ( {
 } ) => (
 	<div className="card-container-controls">
 		<IconButton
-			className="mtb-card-buttons mtb-card-move-button"
+			className="mtb-card-buttons mtb-card-move-button mtb-card-move-button-left-up"
 			icon="arrow-left"
 			label={
 				style !== 'list'
@@ -38,7 +38,7 @@ const FocusedCardControls = ( {
 			disabled={ cardIndex === 0 }
 		/>
 		<IconButton
-			className="mtb-card-buttons mtb-card-move-button"
+			className="mtb-card-buttons mtb-card-move-button mtb-card-move-button-right-down"
 			icon="arrow-right"
 			label={
 				style !== 'list'
