@@ -62,6 +62,7 @@ const Edit = props => {
 	 * @param {string} attributeValue - Attribute value.
 	 * @param {number} cardIndex - Card index
 	 */
+	/* istanbul ignore next */
 	const setter = ( attributeName, attributeValue, cardIndex ) => {
 		const newCardsProps = [ ...cardsProps ];
 
@@ -120,6 +121,7 @@ const Edit = props => {
 	);
 
 	// This is to be run after every render.
+	/* istanbul ignore next */
 	useEffect( () => {
 		const editorWrapper = document.getElementsByClassName(
 			'editor-styles-wrapper'
@@ -225,6 +227,7 @@ const Edit = props => {
 	 */
 	const onCardFocus = cardIndex => {
 		const newCardFocus = cardsFocus.map( () => {
+			/* istanbul ignore next */
 			return false;
 		} );
 		newCardFocus[ cardIndex ] = true;
@@ -287,6 +290,7 @@ const Edit = props => {
 	 *
 	 * @param {Object} event - Click event.
 	 */
+	/* istanbul ignore next */
 	const onClickOutsideCard = event => {
 		const cardContainer = event.target.closest( '.card-container' );
 		if ( ! cardContainer ) {
