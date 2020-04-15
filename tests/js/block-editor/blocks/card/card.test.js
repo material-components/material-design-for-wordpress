@@ -33,8 +33,10 @@ describe( 'blocks: material/hand-picked-posts', () => {
 	} );
 
 	describe( 'description settings', () => {
-		it( 'should equal Display a single card.', () => {
-			expect( settings.description ).toStrictEqual( 'Display a single card.' );
+		it( 'should equal `Add a card to display content and actions on a single topic.`', () => {
+			expect( settings.description ).toStrictEqual(
+				'Add a card to display content and actions on a single topic.'
+			);
 		} );
 	} );
 

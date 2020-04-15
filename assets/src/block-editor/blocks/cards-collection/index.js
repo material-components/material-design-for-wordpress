@@ -25,7 +25,7 @@ for ( let index = 0; index < DEFAULT_NUMBER_OF_CARDS; index++ ) {
 export const settings = {
 	title: __( 'Cards Collection', 'material-theme-builder' ),
 	description: __(
-		'Display a list of custom cards.',
+		'Add a group of cards to display content and actions on multiple topics.',
 		'material-theme-builder'
 	),
 	category: 'material',
