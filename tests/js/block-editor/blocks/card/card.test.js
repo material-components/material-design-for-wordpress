@@ -15,7 +15,7 @@ import BlockIcon from '../../../../../assets/src/block-editor/blocks/card/compon
 import Edit from '../../../../../assets/src/block-editor/blocks/card/edit';
 import Save from '../../../../../assets/src/block-editor/blocks/card/save';
 
-describe( 'blocks: material/hand-picked-posts', () => {
+describe( 'blocks: material/card', () => {
 	afterEach( () => {
 		jest.clearAllMocks();
 	} );
