@@ -507,7 +507,7 @@ Object {
                   <i
                     class="material-icons"
                   >
-                    smartphone
+                    tablet
                   </i>
                 </button>
                 <button
@@ -516,7 +516,7 @@ Object {
                   <i
                     class="material-icons"
                   >
-                    tablet
+                    smartphone
                   </i>
                 </button>
               </div>
@@ -1294,7 +1294,7 @@ Object {
                 <i
                   class="material-icons"
                 >
-                  smartphone
+                  tablet
                 </i>
               </button>
               <button
@@ -1303,7 +1303,7 @@ Object {
                 <i
                   class="material-icons"
                 >
-                  tablet
+                  smartphone
                 </i>
               </button>
             </div>

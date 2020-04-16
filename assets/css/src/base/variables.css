@@ -1,0 +1,7 @@
+:root {
+
+	/* Global material vars which are not customizable within WordPress yet */
+	--mdc-theme-surface: #fff;
+	--mdc-theme-on-surface: #000;
+	--mdc-theme-on-surface-rgb: 0, 0, 0;
+}
