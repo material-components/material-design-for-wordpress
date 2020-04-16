@@ -49,15 +49,18 @@ const STYLES = [
 const GUTTER_DEVICES = [
 	{
 		name: 'desktop',
+		label: __( 'Desktop', 'material-theme-builder' ),
 		icon: 'computer',
 	},
 	{
-		name: 'mobile',
-		icon: 'smartphone',
+		name: 'tablet',
+		label: __( 'Tablet', 'material-theme-builder' ),
+		icon: 'tablet',
 	},
 	{
-		name: 'tablet',
-		icon: 'tablet',
+		name: 'mobile',
+		label: __( 'Phone', 'material-theme-builder' ),
+		icon: 'smartphone',
 	},
 ];
 
@@ -302,6 +305,7 @@ const ImageListEdit = ( {
 												'is-selected': device.name === gutterDevice,
 											} ) }
 											onClick={ () => setGutterDevice( device.name ) }
+											title={ device.title }
 										>
 											<i className="material-icons">{ device.icon }</i>
 										</button>

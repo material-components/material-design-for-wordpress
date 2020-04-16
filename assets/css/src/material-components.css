@@ -15,14 +15,6 @@
 @import "@material/typography/dist/mdc.typography.css";
 @import "@material/list/dist/mdc.list.css";
 
-:root {
-
-	/* Global material vars which are not customizable within WordPress yet */
-	--mdc-theme-surface: #fff;
-	--mdc-theme-on-surface: #000;
-	--mdc-theme-on-surface-rgb: 0, 0, 0;
-}
-
 /* Material Icons */
 .material-icons {
 	font-family: var(--mdc-icons-font-family) !important;
@@ -85,4 +77,29 @@ mdc-card__primary-action {
 /* Data Table */
 .mdc-data-table__header-cell {
 	font-weight: bold;
+}
+
+/* Tabs */
+.mdc-tab-content {
+	margin: 1em;
+
+	display: none;
+
+	&--active {
+		display: block;
+	}
+}
+
+/* List */
+.list-item__link {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	outline: none;
+
+	/* Hide if URL is invalid */
+	&[href="#"] {
+		display: none;
+	}
 }

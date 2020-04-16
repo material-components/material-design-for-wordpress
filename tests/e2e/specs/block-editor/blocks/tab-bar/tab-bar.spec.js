@@ -134,7 +134,7 @@ describe( 'blocks: material/tab-bar', () => {
 		);
 		await addBlock.click();
 
-		const [ searchBlock ] = await page.$$( '.editor-inserter__search' );
+		const [ searchBlock ] = await page.$$( '.block-editor-inserter__search' );
 		await searchBlock.type( 'Hello World' );
 
 		const [ helloWorldBlock ] = await page.$$(
