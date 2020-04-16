@@ -32,7 +32,7 @@ const ListItemSave = ( {
 
 		<a
 			rel={ rel }
-			href={ url ?? '#' }
+			href={ url || '#' }
 			editable={ editable }
 			className="list-item__link"
 			target={ linkTarget ?? undefined }

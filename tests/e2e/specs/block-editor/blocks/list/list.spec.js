@@ -83,7 +83,9 @@ describe( 'blocks: material/list', () => {
 		).toHaveLength( 0 );
 
 		await twoLineOption.click();
-		await page.waitForSelector( '.mdc-list-item__secondary-text' );
+		await page.waitForFunction(
+			`document.querySelectorAll( '.mdc-list-item__secondary-text' ).length === 2`
+		); // wait until all the list items are updated.
 
 		expect(
 			await page.$x(
