@@ -62,7 +62,10 @@ const CardActionsEdit = ( {
 	return (
 		<div className="mdc-card__actions">
 			<div className="mdc-card__action-buttons">
-				<div onFocus={ () => onButtonContainerFocus( 'primary' ) }>
+				<div
+					className="mdc-card__action-button-container"
+					onFocus={ () => onButtonContainerFocus( 'primary' ) }
+				>
 					<CardActionButton
 						label={ primaryActionButtonLabel }
 						onChangeLabel={ value =>
@@ -89,7 +92,10 @@ const CardActionsEdit = ( {
 					/>
 				</div>
 				{ displaySecondaryActionButton && (
-					<div onFocus={ () => onButtonContainerFocus( 'secondary' ) }>
+					<div
+						className="mdc-card__action-button-container"
+						onFocus={ () => onButtonContainerFocus( 'secondary' ) }
+					>
 						<CardActionButton
 							label={ secondaryActionButtonLabel }
 							onChangeLabel={ value =>

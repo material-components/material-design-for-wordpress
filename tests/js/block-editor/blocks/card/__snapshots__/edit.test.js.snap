@@ -104,7 +104,9 @@ Object {
             <div
               class="mdc-card__action-buttons"
             >
-              <div>
+              <div
+                class="mdc-card__action-button-container"
+              >
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button"
                 >
@@ -123,7 +125,9 @@ Object {
                   </div>
                 </button>
               </div>
-              <div>
+              <div
+                class="mdc-card__action-button-container"
+              >
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button"
                 >
@@ -232,7 +236,9 @@ Object {
           <div
             class="mdc-card__action-buttons"
           >
-            <div>
+            <div
+              class="mdc-card__action-button-container"
+            >
               <button
                 class="mdc-button mdc-card__action mdc-card__action--button"
               >
@@ -251,7 +257,9 @@ Object {
                 </div>
               </button>
             </div>
-            <div>
+            <div
+              class="mdc-card__action-button-container"
+            >
               <button
                 class="mdc-button mdc-card__action mdc-card__action--button"
               >
@@ -433,7 +441,9 @@ Object {
             <div
               class="mdc-card__action-buttons"
             >
-              <div>
+              <div
+                class="mdc-card__action-button-container"
+              >
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button"
                 >
@@ -452,7 +462,9 @@ Object {
                   </div>
                 </button>
               </div>
-              <div>
+              <div
+                class="mdc-card__action-button-container"
+              >
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button"
                 >
@@ -561,7 +573,9 @@ Object {
           <div
             class="mdc-card__action-buttons"
           >
-            <div>
+            <div
+              class="mdc-card__action-button-container"
+            >
               <button
                 class="mdc-button mdc-card__action mdc-card__action--button"
               >
@@ -580,7 +594,9 @@ Object {
                 </div>
               </button>
             </div>
-            <div>
+            <div
+              class="mdc-card__action-button-container"
+            >
               <button
                 class="mdc-button mdc-card__action mdc-card__action--button"
               >
@@ -752,7 +768,9 @@ Object {
             <div
               class="mdc-card__action-buttons"
             >
-              <div>
+              <div
+                class="mdc-card__action-button-container"
+              >
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button"
                 >
@@ -771,7 +789,9 @@ Object {
                   </div>
                 </button>
               </div>
-              <div>
+              <div
+                class="mdc-card__action-button-container"
+              >
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button"
                 >
@@ -870,7 +890,9 @@ Object {
           <div
             class="mdc-card__action-buttons"
           >
-            <div>
+            <div
+              class="mdc-card__action-button-container"
+            >
               <button
                 class="mdc-button mdc-card__action mdc-card__action--button"
               >
@@ -889,7 +911,9 @@ Object {
                 </div>
               </button>
             </div>
-            <div>
+            <div
+              class="mdc-card__action-button-container"
+            >
               <button
                 class="mdc-button mdc-card__action mdc-card__action--button"
               >

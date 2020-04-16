@@ -27,7 +27,9 @@ Object {
         <div
           class="mdc-card__action-buttons"
         >
-          <div>
+          <div
+            class="mdc-card__action-button-container"
+          >
             <button
               class="mdc-button mdc-card__action mdc-card__action--button"
             >
@@ -57,7 +59,9 @@ Object {
       <div
         class="mdc-card__action-buttons"
       >
-        <div>
+        <div
+          class="mdc-card__action-button-container"
+        >
           <button
             class="mdc-button mdc-card__action mdc-card__action--button"
           >
@@ -160,7 +164,9 @@ Object {
         <div
           class="mdc-card__action-buttons"
         >
-          <div>
+          <div
+            class="mdc-card__action-button-container"
+          >
             <button
               class="mdc-button mdc-card__action mdc-card__action--button"
             >
@@ -179,6 +185,27 @@ Object {
               </div>
             </button>
           </div>
+          <div
+            class="mdc-card__action-button-container"
+          >
+            <button
+              class="mdc-button mdc-card__action mdc-card__action--button"
+            >
+              <span
+                class="mdc-button__ripple"
+              />
+              <div
+                aria-label="Button text"
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                contenteditable="true"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                Download
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -190,7 +217,9 @@ Object {
       <div
         class="mdc-card__action-buttons"
       >
-        <div>
+        <div
+          class="mdc-card__action-button-container"
+        >
           <button
             class="mdc-button mdc-card__action mdc-card__action--button"
           >
@@ -206,6 +235,27 @@ Object {
               style="white-space: pre-wrap;"
             >
               Search
+            </div>
+          </button>
+        </div>
+        <div
+          class="mdc-card__action-button-container"
+        >
+          <button
+            class="mdc-button mdc-card__action mdc-card__action--button"
+          >
+            <span
+              class="mdc-button__ripple"
+            />
+            <div
+              aria-label="Button text"
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              contenteditable="true"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              Download
             </div>
           </button>
         </div>
