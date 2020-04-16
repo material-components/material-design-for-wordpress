@@ -6,4 +6,5 @@
 @import "./conf/index.css";
 @import "./material-components.css";
 @import "./base/masonry-grid.css";
+@import './components/contact-form.css';
 @import "../../src/block-editor/blocks/common-posts-list/style.css";
