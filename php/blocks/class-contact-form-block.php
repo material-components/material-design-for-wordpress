@@ -57,7 +57,7 @@ class Contact_Form_Block extends Module_Base {
 	 *
 	 * @access public
 	 *
-	 * @action wp_ajax_submit_contact_form
+	 * @action wp_ajax_mtb_submit_contact_form
 	 */
 	public function priv_submit_contact_form() {
 		$this->submit_contact_form();
@@ -68,7 +68,7 @@ class Contact_Form_Block extends Module_Base {
 	 *
 	 * @access public
 	 *
-	 * @action wp_ajax_nopriv_submit_contact_form
+	 * @action wp_ajax_nopriv_mtb_submit_contact_form
 	 */
 	public function nopriv_submit_contact_form() {
 		$this->submit_contact_form();

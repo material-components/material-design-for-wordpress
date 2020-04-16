@@ -78,8 +78,8 @@ const TextInputEdit = props => {
 			<InputInspectorControls { ...props } />
 
 			<div
-				className={ classnames( 'text-field-container', {
-					'text-field-container--not-required': ! isRequired,
+				className={ classnames( 'mdc-text-field-container', {
+					'mdc-text-field-container--not-required': ! isRequired,
 				} ) }
 			>
 				{ isSelected ? (
