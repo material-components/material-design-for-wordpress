@@ -58,11 +58,11 @@ const ListItemEdit = ( {
 
 		// Create list item block under the current selection
 		const block = createBlock( 'material/list-item' );
-		const parent = select( 'core/editor' ).getBlocksByClientId(
+		const parent = select( 'core/block-editor' ).getBlocksByClientId(
 			parentClientId
 		)[ 0 ];
 
-		dispatch( 'core/editor' ).insertBlocks(
+		dispatch( 'core/block-editor' ).insertBlocks(
 			block,
 			parent.innerBlocks.findIndex( blk => blk.clientId === clientId ) + 1,
 			parent.clientId
