@@ -78,6 +78,7 @@ const galleryProps = {
 		displayCaptions: false,
 		textProtection: false,
 		linkTo: 'media',
+		id: 'block-material-image-list-0',
 	},
 	className: 'wp-block-material-image-list',
 	isSelected: true,
@@ -94,6 +95,20 @@ describe( 'blocks: material/image-list: Edit', () => {
 	it( 'matches snapshot', () => {
 		const wrapper = setup( galleryProps );
 		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( "sets id if it's undefined", () => {
+		const props = {
+			...galleryProps,
+			attributes: { ...galleryProps.attributes, id: undefined },
+		};
+		const { getAllByText } = setup( props );
+		const closebtns = getAllByText( /close/i );
+
+		fireEvent.click( closebtns[ 1 ] );
+		expect( props.setAttributes.mock.calls[ 0 ][ 0 ].id ).toStrictEqual(
+			'block-material-image-list-1'
+		);
 	} );
 
 	it( 'fetches captions using `getEntityRecords` and updates the caption prop of images', () => {

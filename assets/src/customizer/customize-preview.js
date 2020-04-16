@@ -14,6 +14,14 @@
  */
 import get from 'lodash/get';
 
+const getIconFontName = iconStyle => {
+	return iconStyle === 'filled'
+		? 'Material Icons'
+		: `Material Icons ${ iconStyle
+				.replace( '-', ' ' )
+				.replace( /(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase() ) }`;
+};
+
 ( $ => {
 	// Bail out if this isn't loaded in an iframe.
 	if ( ! window.parent || ! window.parent.wp ) {
@@ -26,6 +34,7 @@ import get from 'lodash/get';
 	const typographyControls = {};
 	const cornerStyleControls = {};
 	const cornerStyleExtra = {};
+	const iconControls = {};
 
 	Object.keys( controls ).forEach( control => {
 		const args = controls[ control ];
@@ -48,6 +57,14 @@ import get from 'lodash/get';
 
 		if ( args && !! args.extra && args.type === 'range_slider' ) {
 			cornerStyleExtra[ control ] = args.extra;
+		}
+
+		if ( args && !! args.extra && args.type === 'range_slider' ) {
+			cornerStyleExtra[ control ] = args.extra;
+		}
+
+		if ( args && !! args.cssVar && args.type === 'icon_radio' ) {
+			iconControls[ control ] = args.cssVar;
 		}
 	} );
 
@@ -104,6 +121,12 @@ import get from 'lodash/get';
 			}
 		} );
 
+		Object.keys( iconControls ).forEach( control => {
+			styles += `${ iconControls[ control ] }: '${ getIconFontName(
+				parentApi( control ).get()
+			) }';`;
+		} );
+
 		styles = `:root {
 			${ styles }
 		}`;
@@ -120,7 +143,7 @@ import get from 'lodash/get';
 	 * @return {void}
 	 */
 	const updateGoogleFontsURL = () => {
-		const fonts = [ 'Material+Icons' ],
+		const fonts = [],
 			baseURL = '//fonts.googleapis.com/css?family=';
 
 		Object.keys( typographyControls ).forEach( control => {
@@ -166,32 +189,17 @@ import get from 'lodash/get';
 		} );
 	} );
 
-	parentApi( 'mtb_icon_collection', function( setting ) {
-		$( 'head' ).append(
-			'<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">'
-		);
+	// Load all material icon collections in preview.
+	$( 'head' ).append(
+		'<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">'
+	);
 
-		const handleIconSwitch = function( iconStyle ) {
-			const cssVars = $( '#material-css-variables' );
-			const newFontFamily =
-				iconStyle === 'filled'
-					? '"Material Icons";'
-					: `"Material Icons ${ iconStyle
-							.replace( '-', ' ' )
-							.replace( /(^\w{1})|(\s{1}\w{1})/g, match =>
-								match.toUpperCase()
-							) }";`;
-
-			cssVars.html(
-				cssVars
-					.html()
-					.replace(
-						/--mdc-icons-font-family: "([A-Za-z ]+)";/g,
-						`--mdc-icons-font-family: ${ newFontFamily }`
-					)
-			);
-		};
-
-		setting.bind( handleIconSwitch );
+	// Generate preview styles on icon control change.
+	Object.keys( iconControls ).forEach( control => {
+		parentApi( control, value => {
+			value.bind( () => {
+				generatePreviewStyles();
+			} );
+		} );
 	} );
 } )( jQuery );

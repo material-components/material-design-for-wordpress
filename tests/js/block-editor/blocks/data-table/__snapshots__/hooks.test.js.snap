@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Data Table Filters save should invoke DataTableSave 1`] = `
+<Save
+  attributes={
+    Object {
+      "backgroundColor": "subtle-pale-blue",
+      "body": Array [
+        Object {
+          "cells": Array [
+            Object {
+              "content": "5.2",
+              "tag": "td",
+            },
+            Object {
+              "content": "Jaco Pastorius",
+              "tag": "td",
+            },
+            Object {
+              "content": "May 7, 2019",
+              "tag": "td",
+            },
+          ],
+        },
+        Object {
+          "cells": Array [
+            Object {
+              "content": "5.1",
+              "tag": "td",
+            },
+            Object {
+              "content": "Betty Carter",
+              "tag": "td",
+            },
+            Object {
+              "content": "February 21, 2019",
+              "tag": "td",
+            },
+          ],
+        },
+        Object {
+          "cells": Array [
+            Object {
+              "content": "5.0",
+              "tag": "td",
+            },
+            Object {
+              "content": "Bebo Valdés",
+              "tag": "td",
+            },
+            Object {
+              "content": "December 6, 2018",
+              "tag": "td",
+            },
+          ],
+        },
+      ],
+      "caption": "Material Data Table",
+      "className": "is-style-material",
+      "foot": Array [
+        Object {
+          "cells": Array [
+            Object {
+              "content": "Footer Col 1",
+              "tag": "td",
+            },
+            Object {
+              "content": "Footer Col 2",
+              "tag": "td",
+            },
+            Object {
+              "content": "Footer Col 3",
+              "tag": "td",
+            },
+          ],
+        },
+      ],
+      "hasFixedLayout": true,
+      "head": Array [
+        Object {
+          "cells": Array [
+            Object {
+              "content": "Version",
+              "tag": "th",
+            },
+            Object {
+              "content": "Jazz Musician",
+              "tag": "th",
+            },
+            Object {
+              "content": "Release Date",
+              "tag": "th",
+            },
+          ],
+        },
+      ],
+    }
+  }
+/>
+`;
+
+exports[`Data Table Filters save should invoke DataTableSave 2`] = `<Component />`;
+
+exports[`Data Table Filters withDataTableEdit should include DataTableEdit 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        Material Data Table Edit Component
+      </div>
+      <div>
+        Original Edit component
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      Material Data Table Edit Component
+    </div>
+    <div>
+      Original Edit component
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Data Table Filters withDataTableEdit should include DataTableEdit 2`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        Material Data Table Edit Component
+      </div>
+      <div>
+        Original Edit component
+      </div>
+    </div>
+    <div>
+      <div>
+        Original Edit component
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      Original Edit component
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

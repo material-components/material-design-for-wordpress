@@ -46,60 +46,94 @@ html {
 @mixin typography body1, 1, 1.5, 400, *;
 @mixin typography body2, 0.875, 1.25, 400, *;
 
-/* Material Icons */
-.material-icons {
-	font-family: var(--mdc-icons-font-family) !important;
-	font-weight: normal;
-	font-style: normal;
-	font-size: 24px;
-	line-height: 1;
-	letter-spacing: normal;
-	text-transform: none;
-	display: inline-block;
-	white-space: nowrap;
-	word-wrap: normal;
-	direction: ltr;
-	font-feature-settings: "liga";
-	-webkit-font-smoothing: antialiased;
-}
+/* Additional selectors requiring typoghraphy styles */
+@mixin selector-typography .mdc-list-item__primary-text, body1, 1, 1.5, 400;
+@mixin selector-typography .mdc-list-item__secondary-text, body2, 0.875, 1.25, 400;
 
 /* Button */
 .mdc-button {
+	box-shadow: none !important;
+	text-decoration: none !important;
 
 	&:hover,
 	&:focus {
+		color: var(--mdc-theme-primary, #6200ee) !important;
 		text-decoration: none !important;
+	}
+
+	&--raised:not(:disabled),
+	&--unelevated:not(:disabled) {
+
+		&:hover,
+		&:focus {
+			color: var(--mdc-theme-on-primary, #fff) !important;
+		}
 	}
 }
 
 .mdc-button--outlined:not(:disabled) {
-	border-color: inherit !important;
+	border-color: rgba(0, 0, 0, 0.12) !important;
+	border-color: rgba(var(--mdc-theme-on-surface-rgb), .12) !important;
 }
 
-/**
- * TODO: These will need to be revisited.
- */
-.mdc-button {
-	border-radius: var(--mdc-small-component-radius-button, 4px) !important;
+/* Data Table */
+.mdc-data-table {
+	background-color: var(--mdc-theme-surface, #fff) !important;
+	border-color: rgba(0, 0, 0, 0.12) !important;
+	border-color: rgba(var(--mdc-theme-on-surface-rgb), .12) !important;
 }
 
-.mdc-button .mdc-button__ripple {
-	border-radius: var(--mdc-small-component-radius-button, 4px) !important;
+.mdc-data-table__table {
+	margin: 0 !important;
 }
 
-.mdc-card {
-	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
-	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
-	border-bottom-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
-	border-bottom-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+.mdc-data-table__row {
+	border-top-color: rgba(0, 0, 0, 0.12) !important;
+	border-top-color: rgba(var(--mdc-theme-on-surface-rgb, #000), .12) !important;
+	border-top-width: 1px !important;
+	border-top-style: solid !important;
 }
 
-mdc-card__primary-action {
-	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
-	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+.mdc-data-table__header-cell {
+	border: none !important;
+	vertical-align: middle !important;
 }
 
-.mdc-card__primary-action:first-child {
-	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px) !important;
-	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px) !important;
+.mdc-data-table__header-cell,
+.mdc-data-table__cell {
+	border: none !important;
+	padding-left: 16px !important;
+	padding-right: 16px !important;
+}
+
+/* List */
+ul.mdc-list {
+	list-style-type: none !important;
+	margin: 0 !important;
+	padding: 8px 0 !important;
+}
+
+.mdc-list-item {
+	margin: 0 !important;
+	padding: 0 16px !important;
+}
+
+.list-item__link {
+	box-shadow: none !important;
+}
+
+/* Card */
+.single-post-card__title {
+
+	&::before {
+		display: none !important;
+	}
+}
+
+.single-post-card__subtitle {
+	color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, .54)) !important;
+}
+
+.mdc-card__link {
+	box-shadow: none !important;
 }

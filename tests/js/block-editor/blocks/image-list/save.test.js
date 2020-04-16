@@ -44,6 +44,7 @@ const galleryProps = {
 		displayCaptions: false,
 		textProtection: false,
 		linkTo: 'media',
+		id: 'block-material-image-list-0',
 	},
 	className: 'wp-block-material-image-list',
 };
