@@ -33,6 +33,10 @@ const baseProps = {
 };
 
 describe( 'Kitchen Sink', () => {
+	beforeAll( () => {
+		global.materialPluginPath = 'http://example.com/';
+	} );
+
 	it( 'should initialize the kitchen sink', () => {
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();
