@@ -111,7 +111,9 @@ Object {
                   <div
                     class="mdc-card__action-buttons"
                   >
-                    <div>
+                    <div
+                      class="mdc-card__action-button-container"
+                    >
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
@@ -218,7 +220,9 @@ Object {
                   <div
                     class="mdc-card__action-buttons"
                   >
-                    <div>
+                    <div
+                      class="mdc-card__action-button-container"
+                    >
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
@@ -325,7 +329,9 @@ Object {
                   <div
                     class="mdc-card__action-buttons"
                   >
-                    <div>
+                    <div
+                      class="mdc-card__action-button-container"
+                    >
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
@@ -444,7 +450,9 @@ Object {
                 <div
                   class="mdc-card__action-buttons"
                 >
-                  <div>
+                  <div
+                    class="mdc-card__action-button-container"
+                  >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
@@ -551,7 +559,9 @@ Object {
                 <div
                   class="mdc-card__action-buttons"
                 >
-                  <div>
+                  <div
+                    class="mdc-card__action-button-container"
+                  >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
@@ -658,7 +668,9 @@ Object {
                 <div
                   class="mdc-card__action-buttons"
                 >
-                  <div>
+                  <div
+                    class="mdc-card__action-button-container"
+                  >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
@@ -848,7 +860,9 @@ Object {
                   <div
                     class="mdc-card__action-buttons"
                   >
-                    <div>
+                    <div
+                      class="mdc-card__action-button-container"
+                    >
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
@@ -949,7 +963,9 @@ Object {
                   <div
                     class="mdc-card__action-buttons"
                   >
-                    <div>
+                    <div
+                      class="mdc-card__action-button-container"
+                    >
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
@@ -1050,7 +1066,9 @@ Object {
                   <div
                     class="mdc-card__action-buttons"
                   >
-                    <div>
+                    <div
+                      class="mdc-card__action-button-container"
+                    >
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
@@ -1167,7 +1185,9 @@ Object {
                 <div
                   class="mdc-card__action-buttons"
                 >
-                  <div>
+                  <div
+                    class="mdc-card__action-button-container"
+                  >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
@@ -1268,7 +1288,9 @@ Object {
                 <div
                   class="mdc-card__action-buttons"
                 >
-                  <div>
+                  <div
+                    class="mdc-card__action-button-container"
+                  >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
@@ -1369,7 +1391,9 @@ Object {
                 <div
                   class="mdc-card__action-buttons"
                 >
-                  <div>
+                  <div
+                    class="mdc-card__action-button-container"
+                  >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
@@ -1549,7 +1573,9 @@ Object {
                   <div
                     class="mdc-card__action-buttons"
                   >
-                    <div>
+                    <div
+                      class="mdc-card__action-button-container"
+                    >
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
@@ -1640,7 +1666,9 @@ Object {
                   <div
                     class="mdc-card__action-buttons"
                   >
-                    <div>
+                    <div
+                      class="mdc-card__action-button-container"
+                    >
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
@@ -1731,7 +1759,9 @@ Object {
                   <div
                     class="mdc-card__action-buttons"
                   >
-                    <div>
+                    <div
+                      class="mdc-card__action-button-container"
+                    >
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
@@ -1838,7 +1868,9 @@ Object {
                 <div
                   class="mdc-card__action-buttons"
                 >
-                  <div>
+                  <div
+                    class="mdc-card__action-button-container"
+                  >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
@@ -1929,7 +1961,9 @@ Object {
                 <div
                   class="mdc-card__action-buttons"
                 >
-                  <div>
+                  <div
+                    class="mdc-card__action-button-container"
+                  >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
@@ -2020,7 +2054,9 @@ Object {
                 <div
                   class="mdc-card__action-buttons"
                 >
-                  <div>
+                  <div
+                    class="mdc-card__action-button-container"
+                  >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
@@ -4181,6 +4217,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           className="mdc-card__action-buttons"
                         >
                           <div
+                            className="mdc-card__action-button-container"
                             onFocus={[Function]}
                           >
                             <CardActionButton
@@ -6450,6 +6487,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           className="mdc-card__action-buttons"
                         >
                           <div
+                            className="mdc-card__action-button-container"
                             onFocus={[Function]}
                           >
                             <CardActionButton
