@@ -6,7 +6,7 @@ import { InspectorControls } from '@wordpress/block-editor';
 /**
  * Internal dependencies
  */
-import './stlye.css';
+import './style.css';
 import './editor.css';
 import InspectorControlsStylePanel from './components/inspector-controls-style-panel';
 import InspectorControlsContentPanel from './components/inspector-controls-content-panel';

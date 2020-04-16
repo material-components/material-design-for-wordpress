@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-import './stlye.css';
+import './style.css';
 import VerticalCardLayout from './components/vertical-card-layout';
 import HorizontalCardLayout from './components/horizontal-card-layout';
 
