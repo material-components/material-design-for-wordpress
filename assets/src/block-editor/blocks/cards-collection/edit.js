@@ -91,7 +91,7 @@ const Edit = props => {
 			} else {
 				const newCardsProps = [ ...cardsProps ];
 				for ( let index = 0; index < newCardsProps.length; index++ ) {
-					if ( allowIndividualStyleOverride === false ) {
+					if ( allowIndividualContentOverride === false ) {
 						newCardsProps[ index ].displayTitle = displayTitle;
 						newCardsProps[ index ].displaySecondaryText = displaySecondaryText;
 						newCardsProps[ index ].displayImage = displayImage;
@@ -104,7 +104,7 @@ const Edit = props => {
 						].displaySecondaryActionButton = displaySecondaryActionButton;
 					}
 
-					if ( allowIndividualContentOverride === false ) {
+					if ( allowIndividualStyleOverride === false ) {
 						newCardsProps[ index ].contentLayout = contentLayout;
 						newCardsProps[ index ].cornerRadius = cornerRadius;
 						newCardsProps[ index ].outlined = outlined;
@@ -163,7 +163,7 @@ const Edit = props => {
 					baseProps = { ...cardsProps[ cardIndex ] };
 				} else {
 					const cardAttributes = { ...CARD_ATTRIBUTES_VALUE };
-					if ( allowIndividualStyleOverride === false ) {
+					if ( allowIndividualContentOverride === false ) {
 						cardAttributes.displayTitle = displayTitle;
 						cardAttributes.displaySecondaryText = displaySecondaryText;
 						cardAttributes.displayImage = displayImage;
@@ -172,7 +172,7 @@ const Edit = props => {
 						cardAttributes.displaySecondaryActionButton = displaySecondaryActionButton;
 					}
 
-					if ( allowIndividualContentOverride === false ) {
+					if ( allowIndividualStyleOverride === false ) {
 						cardAttributes.contentLayout = contentLayout;
 						cardAttributes.cornerRadius = cornerRadius;
 						cardAttributes.outlined = outlined;
