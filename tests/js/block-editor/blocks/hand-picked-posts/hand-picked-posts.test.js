@@ -51,8 +51,10 @@ describe( 'blocks: material/hand-picked-posts', () => {
 	} );
 
 	describe( 'supports settings', () => {
-		it( 'should have align set to true', () => {
-			expect( settings.supports ).toStrictEqual( { align: true } );
+		it( 'should have align supporting only wide and full alignment', () => {
+			expect( settings.supports ).toStrictEqual( {
+				align: [ 'wide', 'full' ],
+			} );
 		} );
 	} );
 

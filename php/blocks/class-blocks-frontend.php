@@ -55,16 +55,16 @@ class Blocks_Frontend extends Module_Base {
 	 */
 	public static function get_media_queries( $styles, $device = 'mobile' ) {
 		$media_queries = [
-			'tablet'  => '@media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape),
-			all and (min-width: 961px) and (orientation: landscape),
-			all and (min-width: 600px) and (orientation: portrait),
-			all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) {
-				%s
-			}',
 			'mobile'  => '@media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait),
 			all and (min-width: 361px) and (orientation: portrait),
 			all and (min-width: 0) and (max-width: 480px) and (orientation: landscape),
 			all and (min-width: 481px) and (orientation: landscape) {
+				%s
+			}',
+			'tablet'  => '@media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape),
+			all and (min-width: 961px) and (orientation: landscape),
+			all and (min-width: 600px) and (orientation: portrait),
+			all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) {
 				%s
 			}',
 			'desktop' => '@media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape),
