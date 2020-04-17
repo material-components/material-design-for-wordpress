@@ -15,6 +15,7 @@ import {
 	ToggleControl,
 	withNotices,
 } from '@wordpress/components';
+import { compose, withInstanceId } from '@wordpress/compose';
 import { useCallback, useEffect, useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
@@ -48,15 +49,18 @@ const STYLES = [
 const GUTTER_DEVICES = [
 	{
 		name: 'desktop',
+		label: __( 'Desktop', 'material-theme-builder' ),
 		icon: 'computer',
 	},
 	{
-		name: 'mobile',
-		icon: 'smartphone',
+		name: 'tablet',
+		label: __( 'Tablet', 'material-theme-builder' ),
+		icon: 'tablet',
 	},
 	{
-		name: 'tablet',
-		icon: 'tablet',
+		name: 'mobile',
+		label: __( 'Phone', 'material-theme-builder' ),
+		icon: 'smartphone',
 	},
 ];
 
@@ -91,6 +95,7 @@ const ImageListEdit = ( {
 		displayCaptions,
 		textProtection,
 		linkTo,
+		id: divId,
 	},
 	className,
 	isSelected,
@@ -98,6 +103,7 @@ const ImageListEdit = ( {
 	noticeOperations,
 	onFocus,
 	setAttributes,
+	instanceId,
 } ) => {
 	/**
 	 * Get captions from media library using REST API.
@@ -113,6 +119,13 @@ const ImageListEdit = ( {
 
 	const [ selectedImage, setSelectedImage ] = useState( 0 );
 	const [ gutterDevice, setGutterDevice ] = useState( 'desktop' );
+
+	// Set block id if it's empty.
+	useEffect( () => {
+		if ( ! divId ) {
+			setAttributes( { id: `block-material-image-list-${ instanceId }` } );
+		}
+	}, [ divId, instanceId, setAttributes ] );
 
 	// If `isSelected` is updated unselect images in the gallery.
 	useEffect( () => {
@@ -292,6 +305,7 @@ const ImageListEdit = ( {
 												'is-selected': device.name === gutterDevice,
 											} ) }
 											onClick={ () => setGutterDevice( device.name ) }
+											title={ device.title }
 										>
 											<i className="material-icons">{ device.icon }</i>
 										</button>
@@ -352,4 +366,4 @@ const ImageListEdit = ( {
 	);
 };
 
-export default withNotices( ImageListEdit );
+export default compose( [ withInstanceId, withNotices ] )( ImageListEdit );

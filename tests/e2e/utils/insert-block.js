@@ -25,3 +25,19 @@ export async function insertBlock( searchTerm, panelName = null ) {
 	 )[ 0 ];
 	await insertButton.click();
 }
+
+/**
+ * Opens the inserter, searches for the given keyword, then selects the first
+ * result that appears.
+ *
+ * @param {string} searchTerm The text to search the inserter for.
+ */
+export async function insertBlockByKeyword( searchTerm ) {
+	await searchForBlock( searchTerm );
+
+	const insertButton = (
+		await page.$$( '.block-editor-block-types-list__item' )
+	 )[ 0 ];
+
+	await insertButton.click();
+}

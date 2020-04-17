@@ -1,14 +1,10 @@
 /*
  * All Frontend CSS.
  */
+
+@import "./base/variables.css";
+@import "./conf/index.css";
 @import "./material-components.css";
+@import "./base/masonry-grid.css";
 @import "../../src/block-editor/blocks/common-posts-list/style.css";
 @import "../../src/block-editor/blocks/contact-form/inner-blocks/common/style.css";
-
-.mdc-tab-content {
-	display: none;
-
-	&--active {
-		display: block;
-	}
-}

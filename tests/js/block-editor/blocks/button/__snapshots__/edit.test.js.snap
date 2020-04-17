@@ -6,18 +6,18 @@ Object {
   "baseElement": <body>
     <div
       aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
       aria-live="assertive"
       aria-relevant="additions text"
       class="a11y-speak-region"
       id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
@@ -58,7 +58,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
                 />
               </svg>
             </span>
@@ -223,7 +223,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
                 />
               </svg>
             </span>
@@ -1334,7 +1334,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
                 />
               </svg>
             </span>
@@ -1450,7 +1450,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
                 />
               </svg>
             </span>
@@ -1486,7 +1486,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
                 />
               </svg>
             </span>
@@ -1597,7 +1597,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
               />
             </svg>
           </span>
@@ -1762,7 +1762,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
               />
             </svg>
           </span>
@@ -2873,7 +2873,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
               />
             </svg>
           </span>
@@ -2989,7 +2989,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
               />
             </svg>
           </span>
@@ -3025,7 +3025,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12,8l-6,6l1.41,1.41L12,10.83l4.59,4.58L18,14L12,8z"
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
               />
             </svg>
           </span>
