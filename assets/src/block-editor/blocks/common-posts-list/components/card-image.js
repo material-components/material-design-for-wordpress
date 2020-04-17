@@ -24,7 +24,8 @@ const CardImage = props => {
 	return (
 		<div
 			className={ classnames(
-				`mdc-card__media mdc-card__media--${ type }`,
+				'mdc-card__media',
+				`mdc-card__media--${ type }`,
 				'single-post-card__media',
 				{ [ `single-post-card-with-${ contentLayout }` ]: contentLayout }
 			) }
