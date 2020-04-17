@@ -1,33 +1,15 @@
 .mtb-contact-form {
-	margin-bottom: 30px;
+	margin-bottom: 2em;
 }
 
 .mdc-text-field-container--not-required {
-	margin-top: 40px;
+	margin-top: 2.5rm;
 }
 
 .mdc-text-field-container {
-	font-size: 8px;
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 30px;
-
-	.mdc-text-field--outlined {
-		background-color: #f5f5f5 !important;
-	}
-
-	.mdc-text-field__input {
-		border: none;
-		padding: 20px 16px 7px !important;
-	}
-
-	.required {
-		color: #f00;
-		margin-bottom: 10px;
-		text-align: right;
-		font-weight: 600;
-		font-size: 12px;
-	}
+	margin-bottom: 1.5em;
 
 	.components-base-control__field {
 		flex-direction: row;
