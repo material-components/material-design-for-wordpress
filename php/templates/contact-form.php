@@ -7,12 +7,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$attributes = isset( $attributes ) ? $attributes : [];
-$class_name = isset( $attributes['className'] ) ? $attributes['className'] : '';
+$attributes        = isset( $attributes ) ? $attributes : [];
+$form_allowed_tags = isset( $form_allowed_tags ) ? $form_allowed_tags : wp_kses_allowed_html( 'post' );
+$class_name        = isset( $attributes['className'] ) ? $attributes['className'] : '';
 ?>
 
 <form id="contactForm">
-	<?php echo $content; ?>
+	<?php echo wp_kses( $content, $form_allowed_tags ); ?>
 	<input type="hidden" name="action" value="submit_contact_form"/>
 	<input type="hidden" name="mtb_token" value="token_here"/>
 	<?php wp_nonce_field( 'contact_form_action', 'mtb_contact_form_nonce' ); ?>
