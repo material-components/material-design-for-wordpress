@@ -166,4 +166,151 @@ describe( 'Customize controls', () => {
 			).toEqual( '#ffebee' );
 		} );
 	} );
+
+	describe( 'Corner Styles section', () => {
+		beforeAll( async () => {
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-panel-mtb h3' ) );
+
+			await page.waitFor( 500 );
+
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
+		} );
+
+		it( 'should always display the Small Component Radius setting control', async () => {
+			expect(
+				await isVisible( '#range-slider-control-mtb_small_component_radius' )
+			).toBeTruthy();
+		} );
+
+		it( 'should always display the Medium Component Radius setting control', async () => {
+			expect(
+				await isVisible( '#range-slider-control-mtb_medium_component_radius' )
+			).toBeTruthy();
+		} );
+
+		it( 'should always display the Large Component Radius setting control', async () => {
+			expect(
+				await isVisible( '#range-slider-control-mtb_large_component_radius' )
+			).toBeTruthy();
+		} );
+	} );
+
+	describe( 'Small Component Radius Control', () => {
+		beforeAll( async () => {
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-panel-mtb h3' ) );
+
+			await page.waitFor( 500 );
+
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
+		} );
+
+		it( 'should have a default value of 4 when the Baseline Design style is selected', async () => {
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-section-mtb_style h3' ) );
+
+			await page.evaluate(
+				radio => radio.click(),
+				await page.$( '#mtb_style-baseline' )
+			);
+
+			const inputValue = await page.evaluate( input => {
+				return input.value;
+			}, await page.$( '#range-slider-control-mtb_small_component_radius .components-range-control__number' ) );
+
+			expect( inputValue ).toBe( '4' );
+		} );
+	} );
+
+	describe( 'Medium Component Radius Control', () => {
+		beforeAll( async () => {
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-panel-mtb h3' ) );
+
+			await page.waitFor( 500 );
+
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
+		} );
+
+		it( 'should have a default value of 4 when the Baseline Design style is selected', async () => {
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-section-mtb_style h3' ) );
+
+			await page.evaluate(
+				radio => radio.click(),
+				await page.$( '#mtb_style-baseline' )
+			);
+
+			const inputValue = await page.evaluate( input => {
+				return input.value;
+			}, await page.$( '#range-slider-control-mtb_medium_component_radius .components-range-control__number' ) );
+
+			expect( inputValue ).toBe( '4' );
+		} );
+	} );
+
+	describe( 'Large Component Radius Control', () => {
+		beforeAll( async () => {
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-panel-mtb h3' ) );
+
+			await page.waitFor( 500 );
+
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
+		} );
+
+		it( 'should have a default value of 24 when the Baseline Design style is selected', async () => {
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '#accordion-section-mtb_style h3' ) );
+
+			await page.evaluate(
+				radio => radio.click(),
+				await page.$( '#mtb_style-baseline' )
+			);
+
+			const inputValue = await page.evaluate( input => {
+				return input.value;
+			}, await page.$( '#range-slider-control-mtb_large_component_radius .components-range-control__number' ) );
+
+			expect( inputValue ).toBe( '0' );
+		} );
+	} );
+
+	describe( 'Kitchen Sink', () => {
+		it( 'should show the kitchen sink button', async () => {
+			expect( await page.$$( '.toggle-kitchen-sink' ) ).not.toBeNull();
+		} );
+
+		it( 'should show the kitchen sink components and hide preview pane', async () => {
+			await page.evaluate(
+				button => button.click(),
+				await page.$( '.toggle-kitchen-sink' )
+			);
+
+			expect( await isVisible( '#mcb-kitchen-sink-preview' ) ).toBeTruthy();
+
+			const previewDisplay = await page.evaluate(
+				node => node.style.display,
+				await page.$( '#customize-preview' )
+			);
+
+			expect( previewDisplay ).toBe( 'none' );
+		} );
+	} );
 } );
