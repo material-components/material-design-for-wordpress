@@ -268,8 +268,7 @@ const ButtonEdit = ( {
 							onChange={ setter( 'rel' ) }
 						/>
 					</PanelBody>
-				)}
-
+				) }
 			</InspectorControls>
 		</>
 	);

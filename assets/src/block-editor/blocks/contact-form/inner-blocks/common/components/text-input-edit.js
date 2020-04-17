@@ -25,7 +25,7 @@ import TextInputElement from './text-input-element';
  *
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Component attributes.
- * @param {Function} props.setAttributes - Function to save component attributes .
+ * @param {Function} props.setAttributes - Function to save component attributes.
  * @param {string} props.className - Component classes.
  * @param {number} props.instanceId - Component instance id.
  * @param {boolean} props.isSelected - Whether or not the component is selected.
