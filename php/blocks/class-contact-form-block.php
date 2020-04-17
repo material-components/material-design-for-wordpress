@@ -104,8 +104,9 @@ class Contact_Form_Block extends Module_Base {
 		Template::get_template(
 			'contact-form.php',
 			[
-				'content'    => $content,
-				'attributes' => $attributes,
+				'content'           => $content,
+				'attributes'        => $attributes,
+				'form_allowed_tags' => $this->get_form_allowed_tags(),
 			]
 		);
 
@@ -329,5 +330,47 @@ class Contact_Form_Block extends Module_Base {
 		}
 
 		return $response['success'];
+	}
+
+	/**
+	 * Get the allowed to output the form HTML from the block inner blocks content.
+	 *
+	 * @access public
+	 *
+	 * @return array
+	 */
+	public function get_form_allowed_tags() {
+		$tags = wp_kses_allowed_html( 'post' );
+
+		$tags['input'] = [
+			'accept'          => true,
+			'autocomplete'    => true,
+			'autofocus'       => true,
+			'checked'         => true,
+			'class'           => true,
+			'disabled'        => true,
+			'id'              => true,
+			'height'          => true,
+			'min'             => true,
+			'max'             => true,
+			'minlength'       => true,
+			'maxlength'       => true,
+			'name'            => true,
+			'pattern'         => true,
+			'placeholder'     => true,
+			'readonly'        => true,
+			'required'        => true,
+			'size'            => true,
+			'src'             => true,
+			'step'            => true,
+			'type'            => true,
+			'value'           => true,
+			'width'           => true,
+			'aria-labelledby' => true,
+			'data-form'       => true,
+			'data-meta'       => true,
+		];
+
+		return $tags;
 	}
 }

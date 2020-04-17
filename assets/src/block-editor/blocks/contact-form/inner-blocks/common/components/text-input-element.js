@@ -29,6 +29,7 @@ const TextInputElement = ( {
 			id={ id }
 			name={ id }
 			type={ inputType }
+			required={ ! editMode ? isRequired : undefined }
 			className="mdc-text-field__input"
 			aria-labelledby={ displayLabel ? `label-${ id }` : undefined }
 			aria-label={ ! displayLabel ? label : undefined }
@@ -36,7 +37,6 @@ const TextInputElement = ( {
 			data-form="contact"
 			data-meta={ inputRole }
 			data-label={ label }
-			required={ ! editMode ? isRequired : undefined }
 		/>
 	);
 };
