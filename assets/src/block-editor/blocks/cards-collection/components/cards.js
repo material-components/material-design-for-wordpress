@@ -8,34 +8,31 @@ import Masonry from 'react-masonry-css';
  * @param {Object} props.gutter - Grid gutter.
  * @param {number} props.columns - Number of columns.
  * @param {Array} props.cards - Cards HTML markup.
+ * @param {Array} props.saveContext - Is the context `save` ?.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const Cards = ( { style, gutter, columns, cards } ) => {
+const Cards = ( { style, gutter, columns, cards, saveContext = false } ) => {
 	const desktopGutter = gutter.desktop || 24;
 
-	const gridOuterStyle = {
-		paddingLeft: `${ desktopGutter }px`,
-		paddingRight: `${ desktopGutter }px`,
-	};
+	const gridInnerStyle = saveContext
+		? {}
+		: {
+				gridGap: `${ desktopGutter }px`,
+		  };
 
-	const gridInnerStyle = {
-		gridGap: `${ desktopGutter }px`,
-	};
-
-	const columnAttrs = {
-		style: {
-			marginLeft: `${ desktopGutter }px`,
-		},
-	};
+	const columnAttrs = saveContext
+		? {}
+		: {
+				style: {
+					paddingLeft: `${ desktopGutter }px`,
+				},
+		  };
 
 	return (
 		<>
 			{ ( style === 'grid' || style === 'list' ) && (
-				<div
-					className={ `mdc-layout-grid layout-${ style }` }
-					style={ gridOuterStyle }
-				>
+				<div className={ `mdc-layout-grid layout-${ style }` }>
 					<div className="mdc-layout-grid__inner" style={ gridInnerStyle }>
 						{ cards }
 					</div>
@@ -46,7 +43,6 @@ const Cards = ( { style, gutter, columns, cards } ) => {
 				<Masonry
 					breakpointCols={ columns }
 					className={ `masonry-grid layout-${ style }` }
-					style={ gridOuterStyle }
 					columnClassName="masonry-grid_column"
 					columnAttrs={ columnAttrs }
 				>

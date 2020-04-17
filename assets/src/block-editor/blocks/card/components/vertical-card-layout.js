@@ -98,7 +98,7 @@ const VerticalCardLayout = ( {
 				'mdc-card--outlined': outlined,
 			} ) }
 			style={ {
-				...( cornerRadius !== undefined
+				...( isEditMode && cornerRadius !== undefined
 					? { borderRadius: `${ cornerRadius }px` }
 					: {} ),
 			} }

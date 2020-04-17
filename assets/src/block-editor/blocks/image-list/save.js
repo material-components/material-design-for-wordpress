@@ -36,19 +36,21 @@ const ImageListSave = ( {
 	className,
 } ) => (
 	<div className={ className } id={ id }>
-		<Gallery
-			{ ...{
-				images,
-				style,
-				columns,
-				gutter,
-				cornerRadius,
-				displayCaptions,
-				textProtection,
-				linkTo,
-				isSaveContext: true,
-			} }
-		/>
+		<div className="mdc-layout-grid">
+			<Gallery
+				{ ...{
+					images,
+					style,
+					columns,
+					gutter,
+					cornerRadius,
+					displayCaptions,
+					textProtection,
+					linkTo,
+					isSaveContext: true,
+				} }
+			/>
+		</div>
 	</div>
 );
 
