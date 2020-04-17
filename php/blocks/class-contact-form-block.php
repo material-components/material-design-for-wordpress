@@ -86,11 +86,21 @@ class Contact_Form_Block extends Module_Base {
 	 */
 	public function render_block( $attributes, $content ) {
 		global $post;
-		$email_to = isset( $attributes['emailTo'] ) ? $attributes['emailTo'] : '';
-		$subject  = isset( $attributes['subject'] ) ? $attributes['subject'] : '';
+		$email_to = isset( $attributes['emailTo'] ) ? sanitize_email( $attributes['emailTo'] ) : '';
+		$subject  = isset( $attributes['subject'] ) ? sanitize_html_class( $attributes['subject'] ) : '';
 
-		if ( empty( $email_to ) || empty( $subject ) ) {
-			return '';
+		if ( ! filter_var( $email_to, FILTER_VALIDATE_EMAIL ) ) {
+			return sprintf(
+				'<div class="mtb-contact-form">%s</div>',
+				__( 'The contact form cannot be displayed because the sender email is incorrect.', 'material-theme-builder' )
+			);
+		}
+
+		if ( empty( $subject ) ) {
+			return sprintf(
+				'<div class="mtb-contact-form">%s</div>',
+				__( 'The contact form cannot be displayed because the email subject is not provided.', 'material-theme-builder' )
+			);
 		}
 
 		if ( $this->get_block_count_from_post( $post ) > 1 ) {
@@ -126,10 +136,15 @@ class Contact_Form_Block extends Module_Base {
 	 * @return array|mixed
 	 */
 	private function get_block_from_referer( $wp_http_referer ) {
+		// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.url_to_postid_url_to_postid
 		$post_id = url_to_postid( $wp_http_referer );
 
-		$post   = get_post( $post_id );
-		$blocks = parse_blocks( $post->post_content );
+		$post = get_post( $post_id );
+
+		$blocks = [];
+		if ( $post ) {
+			$blocks = parse_blocks( $post->post_content );
+		}
 
 		return current(
 			array_filter(
@@ -189,20 +204,23 @@ class Contact_Form_Block extends Module_Base {
 	private function submit_contact_form() {
 		if ( ! check_ajax_referer( 'contact_form_action', 'mtb_contact_form_nonce' ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'You are not authorized', 'material-theme-builder' ) ]
+				[ 'message' => __( 'You are not authorized.', 'material-theme-builder' ) ]
 			);
 		}
 
-		$wp_http_referer  = isset( $_POST['_wp_http_referer'] ) ? $_POST['_wp_http_referer'] : '';
+		$wp_http_referer = isset( $_POST['_wp_http_referer'] )
+			? stripslashes( filter_var( $_POST['_wp_http_referer'], FILTER_VALIDATE_URL ) )
+			: '';
+
 		$block_attributes = $this->get_block_attributes( $wp_http_referer );
 
 		if ( empty( $block_attributes['email_to'] ) || empty( $block_attributes['subject'] ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Missing email address for sending or subject', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Missing email address for sending or subject.', 'material-theme-builder' ) ]
 			);
 		}
 
-		$recaptcha_token = isset( $_POST['token'] ) ? $_POST['token'] : '';
+		$recaptcha_token = isset( $_POST['token'] ) ? sanitize_text_field( $_POST['token'] ) : '';
 		$verified        = $this->verify_recaptcha( $recaptcha_token );
 		if ( ! $verified ) {
 			wp_send_json_error(
@@ -210,20 +228,25 @@ class Contact_Form_Block extends Module_Base {
 			);
 		}
 
-		$body = '<br/>';
-		// TODO: Data validation and make use of template.
-		$contact_fields = isset( $_POST['contactFields'] ) ? $_POST['contactFields'] : [];
-		foreach ( $contact_fields as $contact_field ) {
-			$body .= $contact_field['label'] . ': ' . $contact_field['value'] . '<br/>';
-		}
+		ob_start();
+		Template::get_template(
+			'contact-form-email.php',
+			[
+				'pre_message' => __( 'The following data has been submitted:', 'material-theme-builder' ),
+				// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+				'fields'      => isset( $_POST['contact_fields'] ) ? json_decode( stripslashes( $_POST['contact_fields'] ), true ) : [],
+			]
+		);
+		$body = ob_get_clean();
 
 		$headers = [ 'Content-Type: text/html; charset=UTF-8' ];
 
+		// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.wp_mail_wp_mail
 		if ( wp_mail( $block_attributes['email_to'], $block_attributes['subject'], $body, $headers ) ) {
 			wp_send_json_success();
 		} else {
 			wp_send_json_error(
-				[ 'message' => __( 'An unknown error occurred', 'material-theme-builder' ) ]
+				[ 'message' => __( 'An unknown error occurred.', 'material-theme-builder' ) ]
 			);
 		}
 	}
@@ -236,9 +259,10 @@ class Contact_Form_Block extends Module_Base {
 	 * @action wp_ajax_manage_recaptcha_api_credentials
 	 */
 	public function manage_recaptcha_api_credentials() {
+		// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		if ( ! wp_verify_nonce( isset( $_POST['nonce'] ) ? $_POST['nonce'] : '', 'mtb_recaptcha_ajax_nonce' ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'You are not authorized', 'material-theme-builder' ) ]
+				[ 'message' => __( 'You are not authorized.', 'material-theme-builder' ) ]
 			);
 		}
 
@@ -246,7 +270,7 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( ! $data ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Missing data', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Missing data.', 'material-theme-builder' ) ]
 			);
 		}
 
@@ -280,7 +304,7 @@ class Contact_Form_Block extends Module_Base {
 		}
 
 		wp_send_json_error(
-			[ 'message' => __( 'An unknown problem occurred', 'material-theme-builder' ) ]
+			[ 'message' => __( 'An unknown problem occurred.', 'material-theme-builder' ) ]
 		);
 	}
 
@@ -369,6 +393,7 @@ class Contact_Form_Block extends Module_Base {
 			'aria-labelledby' => true,
 			'data-form'       => true,
 			'data-meta'       => true,
+			'data-label'      => true,
 		];
 
 		return $tags;
