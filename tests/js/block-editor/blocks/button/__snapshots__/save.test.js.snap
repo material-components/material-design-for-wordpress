@@ -380,23 +380,21 @@ Object {
   "baseElement": <body>
     <div>
       <div>
-        <a
+        <button
           class="material-icons mdc-icon-button"
-          href="#"
         >
           
-        </a>
+        </button>
       </div>
     </div>
   </body>,
   "container": <div>
     <div>
-      <a
+      <button
         class="material-icons mdc-icon-button"
-        href="#"
       >
         
-      </a>
+      </button>
     </div>
   </div>,
   "debug": [Function],
@@ -459,9 +457,8 @@ Object {
   "baseElement": <body>
     <div>
       <div>
-        <a
+        <button
           class="mdc-button mdc-button--raised"
-          href="#"
         >
           <div
             class="mdc-button__ripple"
@@ -469,15 +466,14 @@ Object {
           <span
             class="mdc-button__label"
           />
-        </a>
+        </button>
       </div>
     </div>
   </body>,
   "container": <div>
     <div>
-      <a
+      <button
         class="mdc-button mdc-button--raised"
-        href="#"
       >
         <div
           class="mdc-button__ripple"
@@ -485,7 +481,7 @@ Object {
         <span
           class="mdc-button__label"
         />
-      </a>
+      </button>
     </div>
   </div>,
   "debug": [Function],
