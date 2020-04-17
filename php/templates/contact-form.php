@@ -5,8 +5,6 @@
  * @package MaterialThemeBuilder
  */
 
-use MaterialThemeBuilder\Template;
-
 defined( 'ABSPATH' ) || exit;
 
 $attributes = isset( $attributes ) ? $attributes : [];
