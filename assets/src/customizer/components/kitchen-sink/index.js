@@ -55,6 +55,7 @@ const KitchenSink = ( {
 	smallComponentRadius,
 	largeComponentRadius,
 	mediumComponentRadius,
+	theme,
 } ) => {
 	const [ link ] = useState( googleFontsUrl( headFontFamily, bodyFontFamily ) );
 
@@ -106,6 +107,14 @@ const KitchenSink = ( {
 
 				<section style={ { marginTop: '100px' } }>
 					<H2>{ __( 'Components', 'material-theme-builder' ) }</H2>
+					{ 'material-theme' !== theme && (
+						<p>
+							{ __(
+								'Enable Material Theme for more components.',
+								'material-theme-builder'
+							) }
+						</p>
+					) }
 					<hr />
 					<Checkboxes />
 					<hr />

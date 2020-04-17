@@ -52,7 +52,9 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	 * values and returns them in an object.
 	 */
 	const getSettings = () => {
-		const controlProps = {};
+		const controlProps = {
+			theme: api.settings.theme.stylesheet,
+		};
 
 		if ( ! mtb.controls || ! Array.isArray( mtb.controls ) ) {
 			return controlProps;
@@ -137,44 +139,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 		} catch ( err ) {}
 	};
 
-	/**
-	 * Show/hide kitchen sink button near the "Publish" button.
-	 */
-	$( '#customize-save-button-wrapper' ).ready( function() {
-		listenForSettingChanges();
-
-		$( '#customize-save-button-wrapper' ).prepend(
-			$( '<button></button>' )
-				.attr( { type: 'button' } )
-				.css( 'display', 'none' )
-				.addClass( 'button toggle-kitchen-sink' )
-				.text( __( 'Kitchen Sink', 'material-theme-builder' ) )
-		);
-
-		api.panel( 'mtb' ).expanded.bind( function( expanded ) {
-			const showOrHide = expanded ? 'block' : 'none';
-			$( '.toggle-kitchen-sink' ).css( 'display', showOrHide );
-		} );
-	} );
-
-	/**
-	 * Handle the kitchen sink swap right here.
-	 */
-	let mdcLoaded = false;
-	$( document ).on( 'click', '.toggle-kitchen-sink', function() {
-		// Load MDC assets
-		if ( ! mdcLoaded ) {
-			$( 'head' ).append( `
-				<link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
-				<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-			` );
-
-			$.getScript(
-				'https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js',
-				initMaterialComponents
-			);
-		}
-
+	const toggleKitchenSink = () => {
 		let kitchenSink = $( '#mcb-kitchen-sink-preview' );
 		const customizePreview = $( '#customize-preview' );
 
@@ -200,6 +165,51 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 			kitchenSink.hide();
 			customizePreview.show();
 		}
+	};
+
+	/**
+	 * Show/hide kitchen sink button near the "Publish" button.
+	 */
+	$( '#customize-save-button-wrapper' ).ready( function() {
+		listenForSettingChanges();
+
+		$( '#customize-save-button-wrapper' ).prepend(
+			$( '<button></button>' )
+				.attr( { type: 'button' } )
+				.css( 'display', 'none' )
+				.addClass( 'button toggle-kitchen-sink' )
+				.text( __( 'Kitchen Sink', 'material-theme-builder' ) )
+		);
+
+		api.panel( 'mtb' ).expanded.bind( function( expanded ) {
+			const showOrHide = expanded ? 'block' : 'none';
+			$( '.toggle-kitchen-sink' ).css( 'display', showOrHide );
+
+			if ( ! expanded && $( '#mcb-kitchen-sink-preview' ).is( ':visible' ) ) {
+				toggleKitchenSink();
+			}
+		} );
+	} );
+
+	/**
+	 * Handle the kitchen sink swap right here.
+	 */
+	let mdcLoaded = false;
+	$( document ).on( 'click', '.toggle-kitchen-sink', function() {
+		// Load MDC assets
+		if ( ! mdcLoaded ) {
+			$( 'head' ).append( `
+				<link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+			` );
+
+			$.getScript(
+				'https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js',
+				initMaterialComponents
+			);
+		}
+
+		toggleKitchenSink();
 
 		mdcLoaded = true;
 	} );

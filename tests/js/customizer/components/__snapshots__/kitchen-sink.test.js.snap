@@ -978,6 +978,9 @@ Object {
           >
             Components
           </h2>
+          <p>
+            Enable Material Theme for more components.
+          </p>
           <hr />
           <div>
             <h3
@@ -2309,6 +2312,9 @@ Object {
         >
           Components
         </h2>
+        <p>
+          Enable Material Theme for more components.
+        </p>
         <hr />
         <div>
           <h3
