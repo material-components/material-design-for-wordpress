@@ -38,6 +38,7 @@
     "@material/list": "5.1.0",
     "@material/ripple": "5.1.0",
     "@material/tab-bar": "5.1.0",
+    "@material/textfield": "5.1.0",
     "@material/typography": "5.1.0",
     "@testing-library/jest-dom": "5.1.1",
     "@testing-library/react": "9.4.1",
