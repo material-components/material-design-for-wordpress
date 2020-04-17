@@ -103,9 +103,9 @@ class Image_List_Block extends Module_Base {
 					'gutter'          => [
 						'type'    => 'object',
 						'default' => [
-							'desktop' => 16,
-							'tablet'  => 12,
-							'mobile'  => 12,
+							'desktop' => 24,
+							'tablet'  => 16,
+							'mobile'  => 16,
 						],
 					],
 					'cornerRadius'    => [
@@ -156,7 +156,7 @@ class Image_List_Block extends Module_Base {
 
 			$attributes = $block_type->prepare_attributes_for_render( $block['attrs'] );
 
-			foreach ( [ 'mobile', 'tablet', 'desktop' ] as $device ) {
+			foreach ( [ 'desktop', 'tablet', 'mobile' ] as $device ) {
 				$styles[] = Blocks_Frontend::get_media_queries( self::get_device_styles( $id, $attributes, $device ), $device );
 			}
 		}

@@ -99,7 +99,7 @@ const HorizontalCardLayout = ( {
 				'mtb-basic'
 			) }
 			style={ {
-				...( cornerRadius !== undefined
+				...( isEditMode && cornerRadius !== undefined
 					? { borderRadius: `${ cornerRadius }px` }
 					: {} ),
 			} }

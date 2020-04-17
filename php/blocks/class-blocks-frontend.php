@@ -18,7 +18,7 @@ class Blocks_Frontend extends Module_Base {
 	 *
 	 * @access public
 	 *
-	 * @action wp_enqueue_scripts, 20
+	 * @action wp_enqueue_scripts, 110
 	 */
 	public function dynamic_css() {
 		if ( is_singular() && function_exists( 'has_blocks' ) && has_blocks( get_the_ID() ) ) {
@@ -31,6 +31,17 @@ class Blocks_Frontend extends Module_Base {
 					switch ( $block['blockName'] ) {
 						case 'material/image-list':
 							$styles .= Image_List_Block::styles( $block );
+							break;
+
+						case 'material/cards-collection':
+							$styles .= self::layout_gutter_styles(
+								$block,
+								[
+									'desktop' => 24,
+									'tablet'  => 16,
+									'mobile'  => 16,
+								]
+							);
 							break;
 
 						default:
@@ -55,22 +66,13 @@ class Blocks_Frontend extends Module_Base {
 	 */
 	public static function get_media_queries( $styles, $device = 'mobile' ) {
 		$media_queries = [
-			'mobile'  => '@media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait),
-			all and (min-width: 361px) and (orientation: portrait),
-			all and (min-width: 0) and (max-width: 480px) and (orientation: landscape),
-			all and (min-width: 481px) and (orientation: landscape) {
+			'desktop' => '@media (min-width: 840px) {
 				%s
 			}',
-			'tablet'  => '@media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape),
-			all and (min-width: 961px) and (orientation: landscape),
-			all and (min-width: 600px) and (orientation: portrait),
-			all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) {
+			'tablet'  => '@media (min-width: 600px) and (max-width: 839px) {
 				%s
 			}',
-			'desktop' => '@media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape),
-			all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3),
-			all and (min-width: 1281px) and (max-width: 1600px),
-			all and (min-width: 1601px) {
+			'mobile'  => '@media (max-width: 599px) {
 				%s
 			}',
 		];
@@ -80,6 +82,67 @@ class Blocks_Frontend extends Module_Base {
 		if ( array_key_exists( $device, $media_queries ) ) {
 			return sprintf( $media_queries[ $device ], $styles );
 		}
+
+		return $styles;
+	}
+
+	/**
+	 * Generate the layout gutter styles for a block.
+	 *
+	 * @access public
+	 *
+	 * @param array $block    The block array.
+	 * @param array $defaults Gutter defaults.
+	 *
+	 * @return string Returns the generated inline CSS.
+	 */
+	public static function layout_gutter_styles( $block, $defaults = [] ) {
+		$attributes           = $block['attrs'];
+		$attributes['gutter'] = isset( $attributes['gutter'] ) ? $attributes['gutter'] : [];
+		$attributes['gutter'] = array_merge( $defaults, $attributes['gutter'] );
+
+		$id     = '';
+		$styles = [];
+
+		if ( preg_match( '#id="(block-material-[^"]+)"#', $block['innerHTML'], $matches ) ) {
+			$id = $matches[1];
+		}
+
+		foreach ( [ 'desktop', 'tablet', 'mobile' ] as $device ) {
+			$styles[] = self::get_media_queries( self::layout_gutter_device_styles( $id, $attributes, $device ), $device );
+		}
+
+		return implode( "\n", $styles );
+	}
+
+	/**
+	 * Get layout gutter styles for a device.
+	 *
+	 * @param  string $id ID of the element.
+	 * @param  array  $attributes Block attributes.
+	 * @param  string $device Device type.
+	 * @return array
+	 */
+	public static function layout_gutter_device_styles( $id, $attributes, $device = 'desktop' ) {
+		if ( ! isset( $attributes['gutter'] ) || ! isset( $attributes['gutter'][ $device ] ) ) {
+			return [];
+		}
+
+		$styles = [];
+
+		if ( ! empty( $attributes['style'] ) && 'masonry' !== $attributes['style'] ) {
+			$styles[] = sprintf( '#%s .mdc-layout-grid__inner {', $id );
+			$styles[] = sprintf( 'grid-gap: %spx;', $attributes['gutter'][ $device ] );
+			$styles[] = "}\n";
+		} else {
+			$styles[] = sprintf( '#%s .masonry-grid_column {', $id );
+			$styles[] = sprintf( 'padding-left: %spx;', $attributes['gutter'][ $device ] );
+			$styles[] = "}\n";
+		}
+
+		$styles[] = sprintf( '#%s .mdc-card {', $id );
+		$styles[] = sprintf( 'border-radius: %spx;', absint( $attributes['cornerRadius'] ) );
+		$styles[] = "}\n";
 
 		return $styles;
 	}

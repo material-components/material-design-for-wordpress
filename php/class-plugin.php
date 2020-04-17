@@ -122,6 +122,22 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
+	 * Enqueue google fonts.
+	 *
+	 * @action wp_enqueue_scripts
+	 */
+	public function enqueue_google_fonts() {
+		$fonts_url = $this->customizer_controls->get_google_fonts_url();
+
+		wp_enqueue_style(
+			'material-google-fonts-cdn',
+			esc_url( $fonts_url ),
+			[],
+			$this->asset_version()
+		);
+	}
+
+	/**
 	 * Enqueue front-end styles and scripts.
 	 *
 	 * @action wp_enqueue_scripts
@@ -135,11 +151,9 @@ class Plugin extends Plugin_Base {
 			true
 		);
 
-		$fonts_url = $this->customizer_controls->get_google_fonts_url();
-
 		wp_enqueue_style(
-			'material-google-fonts-cdn',
-			esc_url( $fonts_url ),
+			'material-front-end-css',
+			$this->asset_url( 'assets/css/front-end-compiled.css' ),
 			[],
 			$this->asset_version()
 		);
@@ -155,13 +169,6 @@ class Plugin extends Plugin_Base {
 				$this->asset_version()
 			);
 		}
-
-		wp_enqueue_style(
-			'material-front-end-css',
-			$this->asset_url( 'assets/css/front-end-compiled.css' ),
-			[],
-			$this->asset_version()
-		);
 	}
 
 	/**
