@@ -1,0 +1,3771 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InspectorControlsContentPanel matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Content Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-0"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-0"
+            >
+              Show title
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-1"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-1"
+            >
+              Show secondary text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-2"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-2"
+            >
+              Show image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-3"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-3"
+            >
+              Show supporting text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-4"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-4"
+            >
+              Show actions
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-5"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-5"
+            >
+              Show secondary action button
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Content Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-0"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-0"
+          >
+            Show title
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-1"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-1"
+          >
+            Show secondary text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-2"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-2"
+          >
+            Show image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-3"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-3"
+          >
+            Show supporting text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-4"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-4"
+          >
+            Show actions
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-5"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-5"
+          >
+            Show secondary action button
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`InspectorControlsContentPanel matches snapshot when it is not a single card 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Card #1 Content Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-12"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-12"
+            >
+              Show title
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-13"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-13"
+            >
+              Show secondary text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-14"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-14"
+            >
+              Show image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-15"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-15"
+            >
+              Show supporting text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-16"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-16"
+            >
+              Show actions
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-17"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-17"
+            >
+              Show secondary action button
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Card #1 Content Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-12"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-12"
+          >
+            Show title
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-13"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-13"
+          >
+            Show secondary text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-14"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-14"
+          >
+            Show image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-15"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-15"
+          >
+            Show supporting text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-16"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-16"
+          >
+            Show actions
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-17"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-17"
+          >
+            Show secondary action button
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`InspectorControlsContentPanel matches snapshot when props get defaults 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Content Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-6"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-6"
+            >
+              Show title
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-7"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-7"
+            >
+              Show secondary text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-8"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-8"
+            >
+              Show image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-9"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-9"
+            >
+              Show supporting text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-10"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-10"
+            >
+              Show actions
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-11"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-11"
+            >
+              Show secondary action button
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Content Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-6"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-6"
+          >
+            Show title
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-7"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-7"
+          >
+            Show secondary text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-8"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-8"
+          >
+            Show image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-9"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-9"
+          >
+            Show supporting text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-10"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-10"
+          >
+            Show actions
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-11"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-11"
+          >
+            Show secondary action button
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`InspectorControlsContentPanel matches snapshot when the card layout style is horizontal 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Content Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-18"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-18"
+            >
+              Show title
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-19"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-19"
+            >
+              Show secondary text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-20"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-20"
+            >
+              Show image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-21"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-21"
+            >
+              Show actions
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-22"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-22"
+            >
+              Show secondary action button
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Content Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-18"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-18"
+          >
+            Show title
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-19"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-19"
+          >
+            Show secondary text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-20"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-20"
+          >
+            Show image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-21"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-21"
+          >
+            Show actions
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-22"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-22"
+          >
+            Show secondary action button
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`InspectorControlsContentPanel matches snapshot when the display actions prop is unselected 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Content Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-28"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-28"
+            >
+              Show title
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-29"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-29"
+            >
+              Show secondary text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-30"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-30"
+            >
+              Show image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-31"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-31"
+            >
+              Show supporting text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle"
+            >
+              <input
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-32"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__off"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 6 6"
+                width="6"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-32"
+            >
+              Show actions
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Content Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-28"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-28"
+          >
+            Show title
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-29"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-29"
+          >
+            Show secondary text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-30"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-30"
+          >
+            Show image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-31"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-31"
+          >
+            Show supporting text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle"
+          >
+            <input
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-32"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__off"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 6 6"
+              width="6"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-32"
+          >
+            Show actions
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`InspectorControlsContentPanel matches snapshot when the display title prop is unselected 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Content Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle"
+            >
+              <input
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-23"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__off"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 6 6"
+                width="6"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-23"
+            >
+              Show title
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-24"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-24"
+            >
+              Show image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-25"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-25"
+            >
+              Show supporting text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-26"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-26"
+            >
+              Show actions
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-27"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-27"
+            >
+              Show secondary action button
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Content Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle"
+          >
+            <input
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-23"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__off"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 6 6"
+              width="6"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-23"
+          >
+            Show title
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-24"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-24"
+          >
+            Show image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-25"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-25"
+          >
+            Show supporting text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-26"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-26"
+          >
+            Show actions
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-27"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-27"
+          >
+            Show secondary action button
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

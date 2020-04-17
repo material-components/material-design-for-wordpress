@@ -1,0 +1,113 @@
+/* Card style */
+.mtb-card {
+	font-size: 16px;
+
+}
+
+.mtb-card__primary {
+	padding: 1em;
+}
+
+.mtb-card__title {
+	color: rgba(0, 0, 0) !important;
+	margin: 0 !important;
+	font-size: 1.25em !important;
+	font-weight: 500 !important;
+	letter-spacing: .0125em !important;
+	font-family: Roboto, sans-serif !important;
+}
+
+
+.mtb-card__secondary-text {
+	padding: 0 1em 0 0;
+	color: rgba(0, 0, 0, 0.54) !important;
+	margin: 0 !important;
+	font-size: .875em !important;
+	line-height: 1.375em !important; /* stylelint-disable-line */
+	font-weight: 500 !important;
+	letter-spacing: .0071428571em !important;
+	font-family: Roboto, sans-serif !important;
+}
+
+.mtb-card__supporting-text {
+	color: rgba(0, 0, 0, 0.54);
+	padding: 0 1em 8px 1em;
+	font-family: Roboto, sans-serif !important;
+
+	p {
+		font-family: Roboto, sans-serif !important;
+	}
+}
+
+.mdc-typography--body2 {
+	font-size: .875em !important;
+}
+
+.mtb-card__media {
+	position: relative;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+	height: 100%;
+	padding: 1em;
+}
+
+.mtb-card__supporting-text_text-over-media,
+.mtb-card__supporting-text_text-above-media {
+	padding-top: 1em !important;
+}
+
+.mtb-card__media.mdc-card__media--square {
+	width: 110px;
+	height: 110px;
+}
+
+.mtb-card-with-text-over-media .mdc-card__media-content {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: end;
+	align-items: flex-end;
+}
+
+.mtb-card-with-text-over-media .mdc-card__media-content .mtb-card__title,
+.mtb-card-with-text-over-media .mdc-card__media-content .mtb-card__secondary-text {
+	color: #fff !important;
+}
+
+.mtb-card__list .mtb-card__primary {
+	flex: 1;
+}
+
+.mtb-card__list .mtb-card__primary-action {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: row;
+	flex-direction: row;
+}
+
+.mdc-card__action-buttons,
+.mdc-card__action-icons {
+	flex-wrap: wrap;
+}
+
+.mtb-card {
+
+	.mdc-button {
+		font-size: 16px;
+
+		span {
+			font-size: .875em !important;
+		}
+	}
+}
+
+.mdc-card__link {
+
+	&:hover {
+		text-decoration: none !important;
+	}
+	text-decoration: none !important;
+
+}
