@@ -1,4 +1,4 @@
-/* global jQuery, requestAnimationFrame, mtb */
+/* global jQuery, requestAnimationFrame, mtb, mdc */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -12,22 +12,208 @@
  * External dependencies
  */
 import 'select-woo';
+import { camelCase, debounce } from 'lodash';
 
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import { render } from '@wordpress/element';
-import RangeSliderControl from './components/range-slider-control';
 import { unmountComponentAtNode } from 'react-dom';
 
 /**
  * Internal dependencies
  */
-import MaterialColorPalette from '../block-editor/components/material-color-palette';
 import colorUtils from '../common/color-utils';
+import RangeSliderControl from './components/range-slider-control';
+import KitchenSink from './components/kitchen-sink';
+import {
+	initButtons,
+	initTabBar,
+	initLists,
+} from '../common/mdc-components-init';
+import MaterialColorPalette from '../block-editor/components/material-color-palette';
 
 ( ( $, api ) => {
+	/**
+	 * Renders the kitchen sink with all the settings.
+	 */
+	const renderKitchenSink = () => {
+		render(
+			<KitchenSink { ...getSettings() } />,
+			$( '#mcb-kitchen-sink-preview' ).get( 0 )
+		);
+
+		initMaterialComponents();
+	};
+
+	/**
+	 * Gets all the controls' setting
+	 * values and returns them in an object.
+	 */
+	const getSettings = () => {
+		const controlProps = {
+			theme: api.settings.theme.stylesheet,
+		};
+
+		if ( ! mtb.controls || ! Array.isArray( mtb.controls ) ) {
+			return controlProps;
+		}
+
+		mtb.controls.forEach( name => {
+			const control = api.control( name );
+			const prop = camelCase( name.replace( 'mtb_', '' ) );
+
+			if ( control.setting ) {
+				controlProps[ prop ] = control.setting.get();
+			}
+		} );
+
+		return controlProps;
+	};
+
+	/**
+	 * Registers a listener for each setting and re-renders when they change.
+	 */
+	const listenForSettingChanges = () => {
+		if ( ! mtb.controls || ! Array.isArray( mtb.controls ) ) {
+			return;
+		}
+
+		mtb.controls.forEach( name => {
+			const control = api.control( name );
+
+			if ( ! control.setting ) {
+				return;
+			}
+
+			control.setting.bind(
+				debounce( function() {
+					const kitchenSink = $( '#mcb-kitchen-sink-preview' );
+
+					if (
+						kitchenSink.get( 0 ) &&
+						unmountComponentAtNode( kitchenSink.get( 0 ) )
+					) {
+						renderKitchenSink();
+					}
+				}, 500 )
+			);
+		} );
+	};
+
+	const initMaterialComponents = function() {
+		initButtons();
+		initTabBar();
+		initLists();
+
+		try {
+			const states = [
+				{ state: 'checked', value: false },
+				{ state: 'checked', value: true },
+				{ state: 'indeterminate', value: true },
+				{ state: 'disabled', value: true },
+			];
+
+			document
+				.querySelectorAll( '.mdc-checkbox' )
+				.forEach( ( chkbox, index ) => {
+					const checkbox = new mdc.checkbox.MDCCheckbox( chkbox );
+					checkbox[ states[ index ].state ] = states[ index ].value;
+				} );
+
+			document
+				.querySelectorAll( '.mdc-radio' )
+				.forEach( radio => new mdc.radio.MDCRadio( radio ) );
+
+			document
+				.querySelectorAll( '.mdc-text-field' )
+				.forEach( txtField => new mdc.textField.MDCTextField( txtField ) );
+
+			const chipSetEl = document.querySelector( '.mdc-chip-set' );
+			new mdc.chips.MDCChipSet( chipSetEl );
+
+			new mdc.switchControl.MDCSwitch(
+				document.querySelector( '.mdc-switch' )
+			);
+		} catch ( err ) {}
+	};
+
+	const toggleKitchenSink = () => {
+		let kitchenSink = $( '#mcb-kitchen-sink-preview' );
+		const customizePreview = $( '#customize-preview' );
+
+		// Toggle between kitchen sink and default customizer view.
+		if ( ! kitchenSink.is( ':visible' ) ) {
+			if ( ! kitchenSink.length ) {
+				customizePreview.before(
+					$( '<div></div>' )
+						.attr( { id: 'mcb-kitchen-sink-preview' } )
+						.addClass( 'wp-full-overlay-main' )
+				);
+
+				kitchenSink = $( '#mcb-kitchen-sink-preview' );
+			}
+
+			$( this ).addClass( 'active' );
+			renderKitchenSink();
+
+			customizePreview.hide();
+			kitchenSink.show();
+		} else {
+			$( this ).removeClass( 'active' );
+			kitchenSink.hide();
+			customizePreview.show();
+		}
+	};
+
+	/**
+	 * Show/hide kitchen sink button near the "Publish" button.
+	 */
+	$( '#customize-save-button-wrapper' ).ready( function() {
+		listenForSettingChanges();
+
+		$( '#customize-save-button-wrapper' ).prepend(
+			$( '<button></button>' )
+				.attr( { type: 'button' } )
+				.css( 'display', 'none' )
+				.addClass( 'button toggle-kitchen-sink' )
+				.text( __( 'Kitchen Sink', 'material-theme-builder' ) )
+		);
+
+		api.panel( 'mtb' ).expanded.bind( function( expanded ) {
+			const showOrHide = expanded ? 'block' : 'none';
+			$( '.toggle-kitchen-sink' ).css( 'display', showOrHide );
+
+			if ( ! expanded && $( '#mcb-kitchen-sink-preview' ).is( ':visible' ) ) {
+				toggleKitchenSink();
+			}
+		} );
+	} );
+
+	/**
+	 * Handle the kitchen sink swap right here.
+	 */
+	let mdcLoaded = false;
+	$( document ).on( 'click', '.toggle-kitchen-sink', function() {
+		// Load MDC assets
+		if ( ! mdcLoaded ) {
+			$( 'head' ).append( `
+				<link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+			` );
+
+			$.getScript(
+				'https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js',
+				initMaterialComponents
+			);
+		}
+
+		toggleKitchenSink();
+
+		mdcLoaded = true;
+	} );
+
 	/**
 	 * Collapse a DOM node by animating it's height to 0.
 	 *

@@ -212,3 +212,58 @@
 		}
 	}
 }
+
+.toggle-kitchen-sink {
+	float: left;
+	margin-right: 4px !important;
+	border-radius: 3px !important;
+}
+
+#mcb-kitchen-sink-preview {
+	overflow: auto !important;
+}
+
+#kitchen-sink-preview {
+	padding: 30px 50px;
+
+	button {
+		margin-right: 10px;
+	}
+
+	hr {
+		margin: 50px 0 !important;
+	}
+
+	input[type="checkbox"] {
+		height: inherit !important;
+		width: inherit !important;
+	}
+
+	input[type="checkbox"]:disabled {
+		opacity: 1 !important;
+		border: none;
+		background: none;
+		box-shadow: none;
+	}
+
+	input[type="text"] {
+		box-shadow: none;
+		border-radius: 0;
+		border: inherit;
+		background: none;
+		color: inherit;
+	}
+
+	.mdc-tab-content {
+		display: none;
+
+		&--active {
+			display: block;
+		}
+	}
+
+	.image-list-item {
+		width: calc(100% / 5 - 5px);
+		margin: 5px;
+	}
+}
