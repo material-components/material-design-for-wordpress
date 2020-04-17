@@ -8,11 +8,11 @@
 	}
 }
 
-.text-field-container--not-required {
+.mdc-text-field-container--not-required {
 	margin-top: 40px;
 }
 
-.text-field-container {
+.mdc-text-field-container {
 	font-size: 8px;
 	display: flex;
 	flex-direction: column;

@@ -14,7 +14,7 @@ $class_name        = isset( $attributes['className'] ) ? $attributes['className'
 
 <form id="contactForm">
 	<?php echo wp_kses( $content, $form_allowed_tags ); ?>
-	<input type="hidden" name="action" value="submit_contact_form"/>
+	<input type="hidden" name="action" value="mtb_submit_contact_form"/>
 	<input type="hidden" name="mtb_token" value="token_here"/>
 	<?php wp_nonce_field( 'contact_form_action', 'mtb_contact_form_nonce' ); ?>
 </form>

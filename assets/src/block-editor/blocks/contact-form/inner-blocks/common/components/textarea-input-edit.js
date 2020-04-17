@@ -76,7 +76,7 @@ const TextAreaInputEdit = props => {
 		<>
 			<InputInspectorControls { ...props } />
 
-			<div className="text-field-container">
+			<div className="mdc-text-field-container">
 				{ isSelected ? (
 					<ToggleControl
 						label={ __( 'Required', 'material-theme-builder' ) }
