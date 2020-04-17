@@ -48,7 +48,7 @@ const ButtonEdit = ( {
 		cornerRadius,
 		iconPosition,
 		backgroundColor,
-		isSubmit,
+		isSubmit = false,
 	},
 	setAttributes,
 	isSelected,
