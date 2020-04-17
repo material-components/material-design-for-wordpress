@@ -30,7 +30,6 @@ import { Overrides, H1, H2 } from './styles';
  *
  * @param {string} headings Import headings font
  * @param {string} body Import body font
- * @param {string} iconCollection The icon collection type
  */
 const googleFontsUrl = ( headings, body ) => {
 	const join = str => str.replace( ' ', '+' );
