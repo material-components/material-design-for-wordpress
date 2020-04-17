@@ -26,18 +26,16 @@ Object {
       >
         <div
           class="masonry-grid layout-masonry"
-          style="padding-left: 24px; padding-right: 24px;"
         >
           <div
             class="masonry-grid_column"
-            style="margin-left: 24px; width: 25%;"
+            style="width: 25%;"
           >
             <div
               class="card-container"
             >
               <div
                 class="mdc-card mtb-card"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -102,18 +100,16 @@ Object {
     >
       <div
         class="masonry-grid layout-masonry"
-        style="padding-left: 24px; padding-right: 24px;"
       >
         <div
           class="masonry-grid_column"
-          style="margin-left: 24px; width: 25%;"
+          style="width: 25%;"
         >
           <div
             class="card-container"
           >
             <div
               class="mdc-card mtb-card"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -251,7 +247,6 @@ Object {
       >
         <div
           class="mdc-layout-grid layout-grid"
-          style="padding-left: 24px; padding-right: 24px;"
         >
           <div
             class="mdc-layout-grid__inner"
@@ -261,7 +256,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -326,7 +320,6 @@ Object {
     >
       <div
         class="mdc-layout-grid layout-grid"
-        style="padding-left: 24px; padding-right: 24px;"
       >
         <div
           class="mdc-layout-grid__inner"
@@ -336,7 +329,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -474,7 +466,6 @@ Object {
       >
         <div
           class="mdc-layout-grid layout-list"
-          style="padding-left: 24px; padding-right: 24px;"
         >
           <div
             class="mdc-layout-grid__inner"
@@ -484,7 +475,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card mtb-card__list mtb-basic"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action"
@@ -544,7 +534,6 @@ Object {
     >
       <div
         class="mdc-layout-grid layout-list"
-        style="padding-left: 24px; padding-right: 24px;"
       >
         <div
           class="mdc-layout-grid__inner"
@@ -554,7 +543,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card mtb-card__list mtb-basic"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action"

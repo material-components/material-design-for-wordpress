@@ -24,7 +24,6 @@ Object {
       <div>
         <div
           class="mdc-card mtb-card mdc-card--outlined"
-          style="border-radius: 4px;"
         >
           <div
             class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -101,7 +100,6 @@ Object {
     <div>
       <div
         class="mdc-card mtb-card mdc-card--outlined"
-        style="border-radius: 4px;"
       >
         <div
           class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -251,7 +249,6 @@ Object {
       <div>
         <div
           class="mdc-card mtb-card mdc-card--outlined"
-          style="border-radius: 4px;"
         >
           <div
             class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -328,7 +325,6 @@ Object {
     <div>
       <div
         class="mdc-card mtb-card mdc-card--outlined"
-        style="border-radius: 4px;"
       >
         <div
           class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -478,7 +474,6 @@ Object {
       <div>
         <div
           class="mdc-card mdc-card--outlined mtb-card mtb-card__list mtb-basic"
-          style="border-radius: 4px;"
         >
           <div
             class="mdc-card__primary-action mtb-card__primary-action"
@@ -550,7 +545,6 @@ Object {
     <div>
       <div
         class="mdc-card mdc-card--outlined mtb-card mtb-card__list mtb-basic"
-        style="border-radius: 4px;"
       >
         <div
           class="mdc-card__primary-action mtb-card__primary-action"
