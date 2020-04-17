@@ -7,9 +7,10 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$attributes        = isset( $attributes ) ? $attributes : [];
-$form_allowed_tags = isset( $form_allowed_tags ) ? $form_allowed_tags : wp_kses_allowed_html( 'post' );
-$class_name        = isset( $attributes['className'] ) ? $attributes['className'] : '';
+$attributes           = isset( $attributes ) ? $attributes : [];
+$form_allowed_tags    = isset( $form_allowed_tags ) ? $form_allowed_tags : wp_kses_allowed_html( 'post' );
+$class_name           = isset( $attributes['className'] ) ? $attributes['className'] : '';
+$confirmation_message = isset( $attributes['confirmationMessage'] ) ? $attributes['confirmationMessage'] : __( 'Your request has been successfully submitted', 'material-theme-builder' );
 ?>
 
 <form id="mtbContactForm" action="javascript:void(0);">
@@ -20,7 +21,7 @@ $class_name        = isset( $attributes['className'] ) ? $attributes['className'
 </form>
 <div id="mtbContactFormMsgContainer" style="display: none
 ">
-	<?php esc_html_e( 'Your request has been successfully submitted', 'material-theme-builder' ); ?>
+	<?php echo esc_html( $confirmation_message ); ?>
 	<br/>
 	<button id="back" class="mdc-button mdc-button--unelevated">
 		<span class="mdc-button__ripple"></span> <?php esc_html_e( 'Back', 'material-theme-builder' ); ?>

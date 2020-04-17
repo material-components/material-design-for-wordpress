@@ -9,7 +9,7 @@ import { __ } from '@wordpress/i18n';
  * WordPress dependencies
  */
 import { withInstanceId } from '@wordpress/compose';
-import { useLayoutEffect } from '@wordpress/element';
+import { useLayoutEffect, useEffect, useContext } from '@wordpress/element';
 import { ToggleControl } from '@wordpress/components';
 
 /**
@@ -19,6 +19,7 @@ import '../editor.css';
 import genericAttributesSetter from '../../../../../utils/generic-attributes-setter';
 import InputInspectorControls from './inspector-controls';
 import TextInputElement from './text-input-element';
+import ContactFormContext from '../../../contact-form-context';
 
 /**
  * Text Input Field Block Edit component.
@@ -51,11 +52,20 @@ const TextInputEdit = props => {
 		isSelected,
 	} = props;
 
+	const { parentOutlined, parentFullWidth } = useContext( ContactFormContext );
+
 	const setter = genericAttributesSetter( setAttributes );
 
 	if ( ! id || id.length === 0 ) {
 		setAttributes( { id: `mtb-${ inputRole }-${ instanceId }` } );
 	}
+
+	useEffect( () => {
+		setAttributes( {
+			outlined: parentOutlined,
+			fullWidth: parentFullWidth,
+		} );
+	}, [ parentOutlined, parentFullWidth, setAttributes ] );
 
 	useLayoutEffect( () => {
 		const textFields = document.querySelectorAll( '.mdc-text-field' );

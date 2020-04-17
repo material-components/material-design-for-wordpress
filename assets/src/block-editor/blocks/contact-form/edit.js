@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl } from '@wordpress/components';
+import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -11,6 +11,7 @@ import { PanelBody, TextControl } from '@wordpress/components';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import RecaptchaInspectorControlsPanel from './components/recaptcha-inspector-controls-panel';
 import './editor.css';
+import ContactFormContext from './contact-form-context';
 
 const ALLOWED_BLOCKS = [
 	'material/name-input-field',
@@ -46,13 +47,18 @@ const TEMPLATES = [
  */
 const Edit = props => {
 	const {
-		attributes: { emailTo, subject },
+		attributes: { emailTo, subject, confirmationMessage, outlined, fullWidth },
 		className,
 		setAttributes,
 	} = props;
 	const setter = genericAttributesSetter( setAttributes );
 	return (
-		<>
+		<ContactFormContext.Provider
+			value={ {
+				parentOutlined: outlined,
+				parentFullWidth: fullWidth,
+			} }
+		>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Email Feedback Settings', 'material-theme-builder' ) }
@@ -68,13 +74,31 @@ const Edit = props => {
 						value={ subject }
 						onChange={ setter( 'subject' ) }
 					/>
+					<TextControl
+						label={ __(
+							'Submission confirmation message',
+							'material-theme-builder'
+						) }
+						value={ confirmationMessage }
+						onChange={ setter( 'confirmationMessage' ) }
+					/>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Style', 'material-theme-builder' ) }
+					initialOpen={ true }
+				>
+					<ToggleControl
+						label={ __( 'Outlined', 'material-theme-builder' ) }
+						checked={ outlined }
+						onChange={ setter( 'outlined' ) }
+					/>
 				</PanelBody>
 				<RecaptchaInspectorControlsPanel />
 			</InspectorControls>
 			<div className={ className }>
 				<InnerBlocks template={ TEMPLATES } allowedBlocks={ ALLOWED_BLOCKS } />
 			</div>
-		</>
+		</ContactFormContext.Provider>
 	);
 };
 

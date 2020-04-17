@@ -8,7 +8,7 @@ import { MDCTextField } from '@material/textfield';
  * WordPress dependencies
  */
 import { withInstanceId } from '@wordpress/compose';
-import { useLayoutEffect } from '@wordpress/element';
+import { useLayoutEffect, useEffect, useContext } from '@wordpress/element';
 import { ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
@@ -20,6 +20,7 @@ import '../style.css';
 import genericAttributesSetter from '../../../../../utils/generic-attributes-setter';
 import InputInspectorControls from './inspector-controls';
 import TextareaInputElement from './textarea-input-element';
+import ContactFormContext from '../../../contact-form-context';
 
 /**
  * Text Input Field Block Save component.
@@ -67,6 +68,15 @@ const TextAreaInputEdit = props => {
 		isRequired,
 	};
 
+	const { parentOutlined, parentFullWidth } = useContext( ContactFormContext );
+
+	useEffect( () => {
+		setAttributes( {
+			outlined: parentOutlined,
+			fullWidth: parentFullWidth,
+		} );
+	}, [ parentOutlined, parentFullWidth, setAttributes ] );
+
 	useLayoutEffect( () => {
 		const textFields = document.querySelectorAll( '.mdc-text-field' );
 		textFields.forEach( textField => new MDCTextField( textField ) );
@@ -101,6 +111,7 @@ const TextAreaInputEdit = props => {
 							{ 'mdc-text-field--custom-full': fullWidth }
 						) }
 					>
+						<span className="mdc-text-field__ripple"></span>
 						<TextareaInputElement { ...textareaInputProps } />
 
 						<div className="mdc-notched-outline">

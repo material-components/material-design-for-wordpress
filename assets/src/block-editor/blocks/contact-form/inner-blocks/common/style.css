@@ -7,18 +7,18 @@
 }
 
 .mdc-text-field-container {
-	font-size: 8px;
+	font-size: 16px;
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 30px;
 
-	.mdc-text-field--outlined {
-		background-color: #f5f5f5 !important;
-	}
-
 	.mdc-text-field__input {
 		border: none;
 		padding: 20px 16px 7px !important;
+	}
+
+	.mdc-floating-label {
+		margin: 0 !important;
 	}
 
 	.required {
@@ -29,17 +29,46 @@
 		font-size: 12px;
 	}
 
+	.mdc-text-field__input {
+		background-color: transparent !important;
+		margin: 0 !important;
+		padding: 20px 16px 6px !important;
+	}
+
 	.components-base-control__field {
 		flex-direction: row;
 		align-items: center;
 		justify-content: flex-end;
 	}
-}
 
-.editor-styles-wrapper .mdc-floating-label {
-	font-weight: 400 !important;
-}
+	.mdc-floating-label {
 
+		line-height: 1.15em !important; /* stylelint-disable-line */
+	}
+
+	.mdc-notched-outline {
+
+		.mdc-floating-label {
+
+			font-size: 1em !important;
+		}
+	}
+
+	.mdc-text-field--textarea {
+
+		.mdc-floating-label--float-above {
+			font-size: 0.75em !important;
+		}
+
+		.mdc-notched-outline {
+
+			.mdc-floating-label--float-above {
+
+				font-size: 1em !important;
+			}
+		}
+	}
+}
 
 .mdc-text-field--custom-full {
 	width: 100%;
