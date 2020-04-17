@@ -18,7 +18,7 @@ export const settings = {
 		'Let folks speak their mind. This text box is great for longer responses.',
 		'material-theme-builder'
 	),
-	// parent: [ 'material/contact-form' ],
+	parent: [ 'material/contact-form' ],
 	category: 'material',
 	icon: BlockIcon,
 	attributes: {
