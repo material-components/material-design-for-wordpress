@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
+import { PanelBody, TextControl } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -20,7 +20,7 @@ import genericAttributesSetter from '../../../../../utils/generic-attributes-set
  * @return {Function} A functional component.
  */
 const InputInspectorControls = ( {
-	attributes: { id, label, outlined, fullWidth },
+	attributes: { id, label },
 	setAttributes,
 } ) => {
 	const setter = genericAttributesSetter( setAttributes );
@@ -40,26 +40,6 @@ const InputInspectorControls = ( {
 					label={ __( 'Label', 'material-theme-builder' ) }
 					value={ label }
 					onChange={ setter( 'label' ) }
-				/>
-				{ /*<ToggleControl*/ }
-				{ /*	label={ __( 'Show Label', 'material-theme-builder' ) }*/ }
-				{ /*	checked={ displayLabel }*/ }
-				{ /*	onChange={ setter( 'displayLabel' ) }*/ }
-				{ /*/>*/ }
-			</PanelBody>
-			<PanelBody
-				title={ __( 'Style', 'material-theme-builder' ) }
-				initialOpen={ true }
-			>
-				<ToggleControl
-					label={ __( 'Outlined', 'material-theme-builder' ) }
-					checked={ outlined }
-					onChange={ setter( 'outlined' ) }
-				/>
-				<ToggleControl
-					label={ __( 'Full Width', 'material-theme-builder' ) }
-					checked={ fullWidth }
-					onChange={ setter( 'fullWidth' ) }
 				/>
 			</PanelBody>
 		</InspectorControls>

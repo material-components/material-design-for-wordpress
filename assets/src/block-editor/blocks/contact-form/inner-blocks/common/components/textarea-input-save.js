@@ -58,6 +58,7 @@ const TextAreaInputEdit = props => {
 							{ 'mdc-text-field--custom-full': fullWidth }
 						) }
 					>
+						<span className="mdc-text-field__ripple"></span>
 						<TextareaInputElement { ...textareaInputProps } />
 
 						<div className="mdc-notched-outline">

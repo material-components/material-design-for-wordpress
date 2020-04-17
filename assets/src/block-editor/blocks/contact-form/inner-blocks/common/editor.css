@@ -18,7 +18,7 @@
 	flex-direction: column;
 
 	.mdc-text-field--outlined {
-		background-color: #f5f5f5 !important;
+		background-color: transparent !important;
 	}
 
 	.required {
@@ -49,6 +49,10 @@
 		&:focus {
 			padding: 20px 16px 6px !important;
 		}
+	}
+
+	.mdc-floating-label {
+		margin: 0 !important;
 	}
 }
 

@@ -37,14 +37,26 @@ class Contact_Form_Block extends Module_Base {
 			$this->block_name,
 			[
 				'attributes'      => [
-					'emailTo' => [
+					'emailTo'             => [
 						'type'    => 'string',
 						'default' => get_bloginfo( 'admin_email' ),
 					],
-					'subject' => [
+					'subject'             => [
 						'type'    => 'string',
 						/* translators: %s: blog name */
 						'default' => sprintf( __( 'This e-mail was sent from a contact form on %s', 'material-theme-builder' ), get_option( 'blogname' ) ),
+					],
+					'confirmationMessage' => [
+						'type'    => 'string',
+						'default' => __( 'Your request has been successfully submitted', 'material-theme-builder' ),
+					],
+					'outlined'            => [
+						'type'    => 'boolean',
+						'default' => true,
+					],
+					'fullWidth'           => [
+						'type'    => 'boolean',
+						'default' => true,
 					],
 				],
 				'render_callback' => [ $this, 'render_block' ],
@@ -87,7 +99,7 @@ class Contact_Form_Block extends Module_Base {
 	public function render_block( $attributes, $content ) {
 		global $post;
 		$email_to = isset( $attributes['emailTo'] ) ? sanitize_email( $attributes['emailTo'] ) : '';
-		$subject  = isset( $attributes['subject'] ) ? sanitize_html_class( $attributes['subject'] ) : '';
+		$subject  = isset( $attributes['subject'] ) ? sanitize_text_field( $attributes['subject'] ) : '';
 
 		if ( ! filter_var( $email_to, FILTER_VALIDATE_EMAIL ) ) {
 			return sprintf(
