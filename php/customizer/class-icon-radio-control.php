@@ -20,6 +20,13 @@ class Icon_Radio_Control extends \WP_Customize_Control {
 	public $type = 'icon_radio';
 
 	/**
+	 * Var name in CSS.
+	 *
+	 * @var string
+	 */
+	public $css_var = '';
+
+	/**
 	 * Displays the control content.
 	 *
 	 * @return void
@@ -40,25 +47,33 @@ class Icon_Radio_Control extends \WP_Customize_Control {
 
 		<?php foreach ( $this->choices as $value => $args ) : ?>
 			<div class="customize-inside-control-row">
-				<input 
-					type="radio" 
+				<input
+					type="radio"
 					<?php $this->link(); ?>
-					value="<?php echo esc_attr( $value ); ?>" 
+					value="<?php echo esc_attr( $value ); ?>"
 					id="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>"
 					name="<?php echo esc_attr( "_customize-radio-{$this->id}" ); ?>"
 					<?php checked( $this->value(), $value ); ?>
 				/>
 
 				<label for="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>">
-					<img 
-						src="<?php echo esc_url( $args['icon'] ); ?>" 
-						alt="<?php echo esc_attr( $args['label'] ); ?>" 
-						style="vertical-align: middle" 
+					<img
+						src="<?php echo esc_url( $args['icon'] ); ?>"
+						alt="<?php echo esc_attr( $args['label'] ); ?>"
+						style="vertical-align: middle"
 					/>
 					<?php echo esc_html( $args['label'] ); ?>
 				</label>
 			</div>
 			<?php
 		endforeach;
+	}
+
+	/**
+	 * Add our custom args for JSON output as params.
+	 */
+	public function to_json() {
+		parent::to_json();
+		$this->json['cssVar'] = ! empty( $this->css_var ) ? $this->css_var : [];
 	}
 }
