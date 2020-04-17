@@ -9,3 +9,4 @@
 @import "./components/contact-form.css";
 @import "../../src/block-editor/blocks/common-posts-list/style.css";
 @import "../../src/block-editor/blocks/contact-form/inner-blocks/common/style.css";
+@import "../../src/block-editor/blocks/card/style.css";
