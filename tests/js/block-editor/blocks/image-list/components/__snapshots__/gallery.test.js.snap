@@ -650,7 +650,7 @@ Object {
 }
 `;
 
-exports[`blocks: material/image-list: Gallery matches snapshot when corderRadius is 8 1`] = `
+exports[`blocks: material/image-list: Gallery matches snapshot when cornerRadius is 8 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -2553,7 +2553,7 @@ Object {
 }
 `;
 
-exports[`blocks: material/image-list: Gallery matches snapshot when the desktop gutter is unkown 1`] = `
+exports[`blocks: material/image-list: Gallery matches snapshot when the desktop gutter is unknown 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
