@@ -1,7 +1,6 @@
 /**
  * External dependencies
  */
-import { startCase } from 'lodash';
 import { useEffect, useState } from 'react';
 
 /**
@@ -33,18 +32,12 @@ import { Overrides, H1, H2 } from './styles';
  * @param {string} body Import body font
  * @param {string} iconCollection The icon collection type
  */
-const googleFontsUrl = ( headings, body, iconCollection ) => {
+const googleFontsUrl = ( headings, body ) => {
 	const join = str => str.replace( ' ', '+' );
 	const link = document.createElement( 'link' );
 
-	const mdiStyle =
-		'Material+Icons' +
-		( iconCollection === 'filled'
-			? ''
-			: '+' + join( startCase( iconCollection ) ) );
-
 	link.rel = 'stylesheet';
-	link.href = `https://fonts.googleapis.com/css?family=${ mdiStyle }|${ join(
+	link.href = `https://fonts.googleapis.com/css?family=${ join(
 		headings
 	) }|${ join( body ) }`;
 
@@ -63,9 +56,7 @@ const KitchenSink = ( {
 	largeComponentRadius,
 	mediumComponentRadius,
 } ) => {
-	const [ link ] = useState(
-		googleFontsUrl( headFontFamily, bodyFontFamily, iconCollection )
-	);
+	const [ link ] = useState( googleFontsUrl( headFontFamily, bodyFontFamily ) );
 
 	const iconStyle = materialIconClass( iconCollection );
 

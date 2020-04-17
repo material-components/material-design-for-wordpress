@@ -164,9 +164,10 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	$( document ).on( 'click', '.toggle-kitchen-sink', function() {
 		// Load MDC assets
 		if ( ! mdcLoaded ) {
-			$( 'head' ).append(
-				'<link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">'
-			);
+			$( 'head' ).append( `
+				<link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+			` );
 
 			$.getScript(
 				'https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js',
