@@ -221,9 +221,9 @@ class Contact_Form_Block extends Module_Base {
 		}
 
 		$wp_http_referer = isset( $_POST['_wp_http_referer'] )
-			? stripslashes( filter_var( $_POST['_wp_http_referer'], FILTER_VALIDATE_URL ) )
+			? sanitize_text_field( $_POST['_wp_http_referer'] )
 			: '';
-
+		
 		$block_attributes = $this->get_block_attributes( $wp_http_referer );
 
 		if ( empty( $block_attributes['email_to'] ) || empty( $block_attributes['subject'] ) ) {
