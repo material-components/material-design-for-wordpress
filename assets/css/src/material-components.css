@@ -104,3 +104,8 @@ mdc-card__primary-action {
 		display: none;
 	}
 }
+
+button.mdc-icon-button {
+	background-color: transparent !important;
+	text-decoration: none !important;
+}

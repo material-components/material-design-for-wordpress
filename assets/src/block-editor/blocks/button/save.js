@@ -67,10 +67,11 @@ const ButtonSave = ( {
 					</a>
 				) : (
 					<button
-						className="material-icons mdc-icon-button"
+						className={ classNames( 'material-icons', 'mdc-icon-button' ) }
 						style={ { ...( textColor ? { color: textColor } : {} ) } }
 						type={ isSubmit ? 'submit' : undefined }
 					>
+						<div className="mdc-button__ripple"></div>
 						{ String.fromCharCode( icon?.hex ) }
 					</button>
 				) }
