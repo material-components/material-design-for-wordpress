@@ -383,6 +383,9 @@ Object {
         <button
           class="material-icons mdc-icon-button"
         >
+          <div
+            class="mdc-button__ripple"
+          />
           
         </button>
       </div>
@@ -393,6 +396,9 @@ Object {
       <button
         class="material-icons mdc-icon-button"
       >
+        <div
+          class="mdc-button__ripple"
+        />
         
       </button>
     </div>
