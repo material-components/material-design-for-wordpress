@@ -7,3 +7,4 @@
 @import "./material-components.css";
 @import "./base/masonry-grid.css";
 @import "../../src/block-editor/blocks/common-posts-list/style.css";
+@import "../../src/block-editor/blocks/card/style.css";

@@ -8,27 +8,21 @@ import {
 	RangeControl,
 	ToggleControl,
 	QueryControls,
-	RadioControl,
 } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
-import ImageRadioControl from '../../../components/image-radio-control';
 import genericAttributesSetter from '../../../utils/generic-attributes-setter';
-import {
-	MIN_NUMBER_OF_POSTS,
-	MAX_NUMBER_OF_POSTS,
-	MIN_POSTS_COLUMNS,
-	MAX_POSTS_COLUMNS,
-	MIN_POST_CONTENT_LENGTH,
-	MAX_POST_CONTENT_LENGTH,
-	RECENT_POSTS_STYLES,
-	CONTENT_LAYOUTS,
-} from '../options';
-
+import CardStylesPanel from '../../../components/card-styles-panel';
 import PostsControl from '../../../components/posts-control';
 import PostsOrderbyControl from '../../../components/post-order-by-control';
+
+const MIN_NUMBER_OF_POSTS = 1;
+const MAX_NUMBER_OF_POSTS = 12;
+
+const MIN_POST_CONTENT_LENGTH = 10;
+const MAX_POST_CONTENT_LENGTH = 30;
 
 /**
  * Common Posts List Inspector Controls component.
@@ -67,38 +61,18 @@ const CommonPostsListInspectorControls = ( {
 
 	return (
 		<InspectorControls>
-			<PanelBody
-				title={ __( 'Styles', 'material-theme-builder' ) }
-				initialOpen={ true }
-			>
-				<ImageRadioControl
-					selected={ style }
-					options={ RECENT_POSTS_STYLES }
-					onChange={ setter( 'style' ) }
-				/>
-			</PanelBody>
-			<PanelBody
-				title={ __( 'Content', 'material-theme-builder' ) }
-				initialOpen={ true }
-			>
-				{ ( style === 'masonry' || style === 'grid' ) && (
-					<>
-						<RangeControl
-							label={ __( 'Columns', 'material-theme-builder' ) }
-							value={ columns }
-							onChange={ setter( 'columns' ) }
-							min={ MIN_POSTS_COLUMNS }
-							max={ MAX_POSTS_COLUMNS }
-						/>
-						<RadioControl
-							label={ __( 'Content layout', 'material-theme-builder' ) }
-							selected={ contentLayout }
-							options={ CONTENT_LAYOUTS }
-							onChange={ setter( 'contentLayout' ) }
-						/>
-					</>
-				) }
-				{ name !== 'material/hand-picked-posts' && (
+			<CardStylesPanel
+				style={ style }
+				columns={ columns }
+				contentLayout={ contentLayout }
+				outlined={ outlined }
+				setter={ setter }
+			/>
+			{ name !== 'material/hand-picked-posts' && (
+				<PanelBody
+					title={ __( 'Content', 'material-theme-builder' ) }
+					initialOpen={ true }
+				>
 					<RangeControl
 						label={ __( 'Number of posts', 'material-theme-builder' ) }
 						value={ postsToShow }
@@ -106,14 +80,8 @@ const CommonPostsListInspectorControls = ( {
 						min={ MIN_NUMBER_OF_POSTS }
 						max={ MAX_NUMBER_OF_POSTS }
 					/>
-				) }
-				<ToggleControl
-					label={ __( 'Outlined', 'material-theme-builder' ) }
-					checked={ outlined }
-					onChange={ setter( 'outlined' ) }
-				/>
-			</PanelBody>
-
+				</PanelBody>
+			) }
 			<PanelBody
 				title={ __( 'Post meta settings', 'material-theme-builder' ) }
 				initialOpen={ true }
