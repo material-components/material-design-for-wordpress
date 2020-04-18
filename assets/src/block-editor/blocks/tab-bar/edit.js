@@ -176,6 +176,14 @@ const TabBarEdit = ( {
 		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
 	};
 
+	/**
+	 * Create a list of all blocks to be allowed in the tab bar, except tab bar itself.
+	 */
+	const ALLOWED_BLOCKS = wp.blocks
+		.getBlockTypes()
+		.map( block => block.name )
+		.filter( blockName => blockName !== 'material/tab-bar' );
+
 	return (
 		<>
 			<div className="mdc-tab-bar" role="tablist">
@@ -202,7 +210,7 @@ const TabBarEdit = ( {
 				</div>
 			</div>
 
-			<InnerBlocks />
+			<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
 
 			<BlockControls>
 				<OrderToolbar onChange={ moveTab } />

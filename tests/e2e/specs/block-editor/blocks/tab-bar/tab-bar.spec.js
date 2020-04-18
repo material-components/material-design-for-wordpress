@@ -153,4 +153,21 @@ describe( 'blocks: material/tab-bar', () => {
 			await page.$x( "//h2[contains(text(), 'Hello Editor')]" )
 		).toHaveLength( 0 );
 	} );
+
+	it( 'should not offer tab-bar as a block option within another tab bars content', async () => {
+		await insertBlock( 'Tab Bar' );
+		await selectBlockByName( 'material/tab-bar' );
+
+		const [ addBlock ] = await page.$$(
+			'[data-block] .block-editor-inserter__toggle'
+		);
+		await addBlock.click();
+
+		const [ searchBlock ] = await page.$$( '.block-editor-inserter__search' );
+		await searchBlock.type( 'Tab Bar' );
+
+		expect(
+			await page.$$( '.block-editor-inserter__no-results' )
+		).toHaveLength( 1 );
+	} );
 } );
