@@ -83,7 +83,6 @@ const UrlInputPopover = withState( {
 								}
 							) }
 							icon="ellipsis"
-							showTooltip={ true }
 							label={ openAdvanced ? ariaOpen : ariaClosed }
 							onClick={ () => setState( { openAdvanced: ! openAdvanced } ) }
 							aria-expanded={ openAdvanced }
@@ -94,7 +93,6 @@ const UrlInputPopover = withState( {
 							'mtb--active': props.newTab || props.noFollow,
 						} ) }
 						icon="no"
-						showTooltip={ true }
 						label={ __( 'Close', 'material-theme-builder' ) }
 						onClick={ props.onPopupClose }
 					/>

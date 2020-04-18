@@ -9,16 +9,8 @@ import ListItemText from '../../components/list-item-text';
 import classNames from 'classnames';
 
 const ListItemSave = ( {
-	attributes: {
-		url,
-		rel,
-		editable,
-		linkTarget,
-		leadingIcon,
-		trailingIcon,
-		...textProps
-	},
 	className,
+	attributes: { url, rel, linkTarget, leadingIcon, trailingIcon, ...textProps },
 } ) => (
 	<li
 		className={ classNames( 'mdc-list-item', 'list-item', className ) }
@@ -31,11 +23,10 @@ const ListItemSave = ( {
 		) }
 
 		<a
-			rel={ rel }
 			href={ url || '#' }
-			editable={ editable }
+			rel={ rel }
+			target={ linkTarget }
 			className="list-item__link"
-			target={ linkTarget ?? undefined }
 		>
 			&nbsp;
 		</a>
