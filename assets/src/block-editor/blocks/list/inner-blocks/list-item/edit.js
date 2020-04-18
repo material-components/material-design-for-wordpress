@@ -10,6 +10,7 @@ import { ListContext } from '../../edit';
 import findIcon from '../../../../utils/find-icon';
 import ListItemText from '../../components/list-item-text';
 import IconPicker from '../../../../components/icon-picker';
+import UrlInputPopover from '../../../../components/url-input-popover';
 import genericAttributesSetter from '../../../../utils/generic-attributes-setter';
 
 /**
@@ -17,10 +18,10 @@ import genericAttributesSetter from '../../../../utils/generic-attributes-setter
  */
 import { __ } from '@wordpress/i18n';
 import { createBlock } from '@wordpress/blocks';
+import { PanelBody } from '@wordpress/components';
 import { dispatch, select } from '@wordpress/data';
 import { InspectorControls } from '@wordpress/block-editor';
-import { useCallback, useContext, useEffect } from '@wordpress/element';
-import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
+import { useContext, useEffect } from '@wordpress/element';
 
 const ListItemEdit = ( {
 	attributes: {
@@ -33,10 +34,11 @@ const ListItemEdit = ( {
 		secondaryText,
 	},
 	setAttributes,
+	isSelected,
 	className,
 	clientId,
 } ) => {
-	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const setter = genericAttributesSetter( setAttributes );
 
 	const {
 		style,
@@ -70,30 +72,6 @@ const ListItemEdit = ( {
 
 		e.currentTarget.blur();
 		return false;
-	};
-
-	/**
-	 * Handles setting linkTarget and rel based on the new tab toggle
-	 *
-	 * @param {string} value The value of the toggle.
-	 */
-	const onToggleOpenInNewTab = value => {
-		const newLinkTarget = value ? '_blank' : '';
-
-		let updatedRel = rel;
-		if ( newLinkTarget && ! rel ) {
-			updatedRel = 'noreferrer noopener';
-		} else if (
-			/* istanbul ignore next */ ! newLinkTarget &&
-			rel === 'noreferrer noopener'
-		) {
-			updatedRel = '';
-		}
-
-		setAttributes( {
-			linkTarget: newLinkTarget,
-			rel: updatedRel,
-		} );
 	};
 
 	// Sync with parent icon settings
@@ -141,7 +119,6 @@ const ListItemEdit = ( {
 						{ String.fromCharCode( leadingIcon?.hex ) }
 					</i>
 				) }
-
 				<ListItemText
 					editable={ true }
 					primaryText={ primaryText }
@@ -157,13 +134,31 @@ const ListItemEdit = ( {
 					}
 					onEnterSecondary={ e => e.key === 'Enter' && e.currentTarget.blur() }
 				/>
-
 				{ trailingIcon && trailingIconsEnabled && (
 					<i className="mdc-list-item__meta material-icons">
 						{ String.fromCharCode( trailingIcon?.hex ) }
 					</i>
 				) }
 			</div>
+
+			{ isSelected && (
+				<UrlInputPopover
+					value={ url }
+					onChange={ setter( 'url' ) }
+					newTab={ linkTarget === '_blank' }
+					noFollow={ rel === 'noreferrer noopener' }
+					onChangeNewTab={ setter(
+						'linkTarget',
+						newTab => ( newTab ? '_blank' : undefined ),
+						true
+					) }
+					onChangeNoFollow={ setter(
+						'rel',
+						noFollow => ( noFollow ? 'noreferrer noopener' : undefined ),
+						true
+					) }
+				/>
+			) }
 
 			<InspectorControls>
 				{ leadingIconsEnabled && (
@@ -189,27 +184,6 @@ const ListItemEdit = ( {
 						/>
 					</PanelBody>
 				) }
-
-				<PanelBody
-					title={ __( 'Link Settings', 'material-theme-builder' ) }
-					initialOpen={ true }
-				>
-					<TextControl
-						value={ url }
-						label={ __( 'URL', 'material-theme-builder' ) }
-						onChange={ setter( 'url' ) }
-					/>
-					<ToggleControl
-						label={ __( 'Open in new tab', 'material-theme-builder' ) }
-						onChange={ onToggleOpenInNewTab }
-						checked={ linkTarget === '_blank' }
-					/>
-					<TextControl
-						value={ rel }
-						label={ __( 'Link rel', 'material-theme-builder' ) }
-						onChange={ setter( 'rel' ) }
-					/>
-				</PanelBody>
 			</InspectorControls>
 		</>
 	);
