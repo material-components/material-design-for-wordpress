@@ -8,7 +8,7 @@ import Masonry from 'react-masonry-css';
  * @param {Object} props.gutter - Grid gutter.
  * @param {number} props.columns - Number of columns.
  * @param {Array} props.cards - Cards HTML markup.
- * @param {Array} props.saveContext - Is the context `save` ?.
+ * @param {boolean} props.saveContext - Is the context `save` ?.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
