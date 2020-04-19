@@ -59,7 +59,7 @@ class Test_Blocks_Frontend extends \WP_UnitTestCase {
 	 */
 	public function test_init() {
 		$plugin = get_plugin_instance();
-		$this->assertEquals( 20, has_action( 'wp_enqueue_scripts', [ $plugin->blocks_frontend, 'dynamic_css' ] ) );
+		$this->assertEquals( 110, has_action( 'wp_enqueue_scripts', [ $plugin->blocks_frontend, 'dynamic_css' ] ) );
 	}
 
 	/**
@@ -110,11 +110,11 @@ class Test_Blocks_Frontend extends \WP_UnitTestCase {
 
 		$desktop = Blocks_Frontend::get_media_queries( $styles, 'desktop' );
 		// Assert desktop media queries are returned.
-		$this->assertRegExp( '/\(min-width:1601px\).*' . $style_str . '/', $this->trim( $desktop ) );
+		$this->assertRegExp( '/\(min-width:840px\).*' . $style_str . '/', $this->trim( $desktop ) );
 
 		$desktop = Blocks_Frontend::get_media_queries( $style_str, 'desktop' );
 		// Assert desktop media queries are returned when we pass styles as string.
-		$this->assertRegExp( '/\(min-width:1601px\).*' . $style_str . '/', $this->trim( $desktop ) );
+		$this->assertRegExp( '/\(min-width:840px\).*' . $style_str . '/', $this->trim( $desktop ) );
 
 		$desktop = Blocks_Frontend::get_media_queries( $style_str, 'iphone' );
 		// Assert only styles are returned if an invalid device is passed.
@@ -122,11 +122,11 @@ class Test_Blocks_Frontend extends \WP_UnitTestCase {
 
 		$tablet = Blocks_Frontend::get_media_queries( $styles, 'tablet' );
 		// Assert tablet media queries are returned.
-		$this->assertRegExp( '/\(max-width:840px\)and\(orientation:portrait\).*' . $style_str . '/', $this->trim( $tablet ) );
+		$this->assertRegExp( '/\(min-width:600px\)and\(max-width:839px\).*' . $style_str . '/', $this->trim( $tablet ) );
 
 		$mobile = Blocks_Frontend::get_media_queries( $styles, 'mobile' );
 		// Assert mobile media queries are returned.
-		$this->assertRegExp( '/\(min-width:481px\)and\(orientation:landscape\).*' . $style_str . '/', $this->trim( $mobile ) );
+		$this->assertRegExp( '/\(max-width:599px\).*' . $style_str . '/', $this->trim( $mobile ) );
 	}
 
 	/**
