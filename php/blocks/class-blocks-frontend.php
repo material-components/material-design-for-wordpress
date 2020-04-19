@@ -60,7 +60,7 @@ class Blocks_Frontend extends Module_Base {
 	/**
 	 * Add media queries for provided styles.
 	 *
-	 * @param array  $styles Array of styles.
+	 * @param mixed  $styles Array or string of styles.
 	 * @param string $device Device type.
 	 * @return string
 	 */
