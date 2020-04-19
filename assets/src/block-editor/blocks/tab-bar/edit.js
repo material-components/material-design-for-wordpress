@@ -25,6 +25,7 @@ import {
 	BlockControls,
 	InnerBlocks,
 } from '@wordpress/block-editor';
+import { getBlockTypes } from '@wordpress/blocks';
 
 /**
  * Material button edit component.
@@ -179,8 +180,7 @@ const TabBarEdit = ( {
 	/**
 	 * Create a list of all blocks to be allowed in the tab bar, except tab bar itself.
 	 */
-	const ALLOWED_BLOCKS = wp.blocks
-		.getBlockTypes()
+	const ALLOWED_BLOCKS = getBlockTypes()
 		.map( block => block.name )
 		.filter( blockName => blockName !== 'material/tab-bar' );
 
