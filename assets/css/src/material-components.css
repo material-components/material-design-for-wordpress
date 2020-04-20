@@ -8,12 +8,12 @@
 @import "@material/icon-button/dist/mdc.icon-button.css";
 @import "@material/image-list/dist/mdc.image-list.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
+@import "@material/list/dist/mdc.list.css";
 @import "@material/tab/dist/mdc.tab.css";
 @import "@material/tab-bar/dist/mdc.tab-bar.css";
 @import "@material/tab-indicator/dist/mdc.tab-indicator.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
 @import "@material/typography/dist/mdc.typography.css";
-@import "@material/list/dist/mdc.list.css";
 
 /* Material Icons */
 .material-icons {
@@ -58,20 +58,7 @@
 }
 
 .mdc-card {
-	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px);
-	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px);
-	border-bottom-left-radius: var(--mdc-medium-component-radius-card, 4px);
-	border-bottom-right-radius: var(--mdc-medium-component-radius-card, 4px);
-}
-
-mdc-card__primary-action {
-	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px);
-	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px);
-}
-
-.mdc-card__primary-action:first-child {
-	border-top-left-radius: var(--mdc-medium-component-radius-card, 4px);
-	border-top-right-radius: var(--mdc-medium-component-radius-card, 4px);
+	border-radius: var(--mdc-medium-component-radius-card, 4px);
 }
 
 /* Data Table */

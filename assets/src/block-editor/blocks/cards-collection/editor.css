@@ -1,16 +1,9 @@
-.masonry-grid {
-	display: flex;
-	padding: 24px;
-	padding: var(--mdc-layout-grid-margin-desktop, 24px);
-	width: auto;
+.masonry-grid .masonry-grid_column {
 
-	.masonry-grid_column {
+	> .editor-inner-blocks {
 
-		> .editor-inner-blocks {
-
-			> .editor-block-list__layout {
-				display: flex;
-			}
+		> .editor-block-list__layout {
+			display: flex;
 		}
 	}
 }

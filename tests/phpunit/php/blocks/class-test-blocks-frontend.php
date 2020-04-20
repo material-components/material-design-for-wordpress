@@ -47,6 +47,14 @@ class Test_Blocks_Frontend extends \WP_UnitTestCase {
 				<!-- wp:material/image-list {"gutter":{"desktop":24,"tablet":18,"mobile":12},"displayLightbox":true,"align":"wide"} -->
 					<div class="wp-block-material-image-list alignwide" id="block-material-image-list-1"></div>
 				<!-- /wp:material/image-list -->
+
+				<!-- wp:material/cards-collection {"cardsProps":[{"contentLayout":"text-under-media","title":"Title goes here","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":true,"imageSourceUrl":"","isImageEditMode":false,"displayImage":true,"supportingText":"Supporting text","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":true,"displaySecondaryActionButton":false,"outlined":true,"cornerRadius":8},{"contentLayout":"text-under-media","title":"Title goes here","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":true,"imageSourceUrl":"","isImageEditMode":false,"displayImage":true,"supportingText":"Supporting text","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":true,"displaySecondaryActionButton":false,"outlined":true,"cornerRadius":8},{"contentLayout":"text-under-media","title":"Title goes here","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":true,"imageSourceUrl":"","isImageEditMode":false,"displayImage":true,"supportingText":"Supporting text","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":true,"displaySecondaryActionButton":false,"outlined":true,"cornerRadius":8}],"gutter":{"desktop":24,"tablet":16,"mobile":10},"cornerRadius":8,"outlined":true} -->
+				<div class="wp-block-material-cards-collection alignwide" id="block-material-cards-collection-1"><div class="masonry-grid layout-masonry"><div style="width:50%" class="masonry-grid_column"><div class="card-container"><div class="mdc-card mtb-card mdc-card--outlined" style="border-radius:8px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url()"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Title goes here</h2><h3 class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2">Secondary text</h3></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Supporting text</div></div><div class="mdc-card__actions"><div class="mdc-card__action-buttons"><a href="#" class="mdc-button mdc-card__action mdc-card__action--button"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Button text</span></a></div></div></div></div></div><div style="width:50%" class="masonry-grid_column"><div class="card-container"><div class="mdc-card mtb-card mdc-card--outlined" style="border-radius:8px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url()"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Title goes here</h2><h3 class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2">Secondary text</h3></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Supporting text</div></div><div class="mdc-card__actions"><div class="mdc-card__action-buttons"><a href="#" class="mdc-button mdc-card__action mdc-card__action--button"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Button text</span></a></div></div></div></div></div></div></div>
+				<!-- /wp:material/cards-collection -->
+
+				<!-- wp:material/cards-collection {"style":"grid","cardsProps":[{"contentLayout":"text-under-media","title":"Title goes here","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":true,"imageSourceUrl":"","isImageEditMode":false,"displayImage":true,"supportingText":"Supporting text","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":true,"displaySecondaryActionButton":false,"outlined":true,"cornerRadius":8},{"contentLayout":"text-under-media","title":"Title goes here","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":true,"imageSourceUrl":"","isImageEditMode":false,"displayImage":true,"supportingText":"Supporting text","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":true,"displaySecondaryActionButton":false,"outlined":true,"cornerRadius":8},{"contentLayout":"text-under-media","title":"Title goes here","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":true,"imageSourceUrl":"","isImageEditMode":false,"displayImage":true,"supportingText":"Supporting text","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":true,"displaySecondaryActionButton":false,"outlined":true,"cornerRadius":8}],"gutter":{"desktop":24,"tablet":16,"mobile":10},"cornerRadius":8,"outlined":true} -->
+				<div class="wp-block-material-cards-collection alignwide" id="block-material-cards-collection-2"><div class="mdc-layout-grid layout-grid"><div class="mdc-layout-grid__inner"><div class="card-container mdc-layout-grid__cell--span-6"><div class="mdc-card mtb-card mdc-card--outlined" style="border-radius:8px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url()"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Title goes here</h2><h3 class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2">Secondary text</h3></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Supporting text</div></div><div class="mdc-card__actions"><div class="mdc-card__action-buttons"><a href="#" class="mdc-button mdc-card__action mdc-card__action--button"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Button text</span></a></div></div></div></div><div class="card-container mdc-layout-grid__cell--span-6"><div class="mdc-card mtb-card mdc-card--outlined" style="border-radius:8px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url()"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Title goes here</h2><h3 class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2">Secondary text</h3></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Supporting text</div></div><div class="mdc-card__actions"><div class="mdc-card__action-buttons"><a href="#" class="mdc-button mdc-card__action mdc-card__action--button"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Button text</span></a></div></div></div></div></div></div></div>
+				<!-- /wp:material/cards-collection -->
 				',
 			]
 		);
@@ -89,10 +97,22 @@ class Test_Blocks_Frontend extends \WP_UnitTestCase {
 
 		$styles = wp_styles()->get_data( 'material-front-end-css', 'after' );
 
-		// Assert we have all mobile, tablet and desktop styles.
+		// Assert we have all mobile, tablet and desktop styles for image-list block.
 		$this->assertContains( 'column-gap: 12px;', $styles[0] );
 		$this->assertContains( 'column-gap: 18px;', $styles[0] );
 		$this->assertContains( 'column-gap: 24px;', $styles[0] );
+
+		// Assert we have all mobile, tablet and desktop styles for card-collections block.
+		$this->assertContains( 'padding-left: 24px;', $styles[0] );
+		$this->assertContains( 'margin-bottom: 24px;', $styles[0] );
+		$this->assertContains( 'padding-left: 16px;', $styles[0] );
+		$this->assertContains( 'margin-bottom: 16px;', $styles[0] );
+		$this->assertContains( 'padding-left: 10px;', $styles[0] );
+		$this->assertContains( 'margin-bottom: 10px;', $styles[0] );
+
+		$this->assertContains( 'grid-gap: 24px;', $styles[0] );
+		$this->assertContains( 'grid-gap: 16px;', $styles[0] );
+		$this->assertContains( 'grid-gap: 10px;', $styles[0] );
 	}
 
 	/**
@@ -127,6 +147,17 @@ class Test_Blocks_Frontend extends \WP_UnitTestCase {
 		$mobile = Blocks_Frontend::get_media_queries( $styles, 'mobile' );
 		// Assert mobile media queries are returned.
 		$this->assertRegExp( '/\(max-width:599px\).*' . $style_str . '/', $this->trim( $mobile ) );
+	}
+
+	/**
+	 * Test layout_gutter_device_styles.
+	 *
+	 * @see Blocks_Frontend::layout_gutter_device_styles()
+	 */
+	public function test_layout_gutter_device_styles() {
+		$styles = Blocks_Frontend::layout_gutter_device_styles( 'test', [], 'desktop' );
+
+		$this->assertEquals( 0, count( $styles ) );
 	}
 
 	/**

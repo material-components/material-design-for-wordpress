@@ -138,11 +138,11 @@ class Blocks_Frontend extends Module_Base {
 			$styles[] = sprintf( '#%s .masonry-grid_column {', $id );
 			$styles[] = sprintf( 'padding-left: %spx;', $attributes['gutter'][ $device ] );
 			$styles[] = "}\n";
-		}
 
-		$styles[] = sprintf( '#%s .mdc-card {', $id );
-		$styles[] = sprintf( 'border-radius: %spx;', absint( $attributes['cornerRadius'] ) );
-		$styles[] = "}\n";
+			$styles[] = sprintf( '#%s .masonry-grid_column > div {', $id );
+			$styles[] = sprintf( 'margin-bottom: %spx;', $attributes['gutter'][ $device ] );
+			$styles[] = "}\n";
+		}
 
 		return $styles;
 	}
