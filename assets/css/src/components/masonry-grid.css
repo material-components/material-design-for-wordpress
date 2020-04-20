@@ -17,7 +17,7 @@
 
 	@media (--medium-viewport) {
 		padding-left: 24px;
-		padding-left: var(--mdc-layout-grid-gutter-desktop, 16px);
+		padding-left: var(--mdc-layout-grid-gutter-desktop, 24px);
 	}
 
 	&:first-child {
@@ -59,7 +59,7 @@
 
 .masonry-grid_column > div {
 	margin-bottom: 24px;
-	margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
+	margin-bottom: var(--mdc-layout-grid-gutter-desktop, 24px);
 }
 
 .wp-block-material-cards-collection .masonry-grid {

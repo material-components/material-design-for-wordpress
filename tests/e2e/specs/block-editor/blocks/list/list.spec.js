@@ -43,7 +43,9 @@ describe( 'blocks: material/list', () => {
 		);
 
 		await leadingIcons.click();
-		await page.waitForSelector( '.mdc-list-item__graphic' );
+		await page.waitForFunction(
+			`document.querySelectorAll( '.mdc-list-item__graphic' ).length === 2`
+		); // wait until all the list items are updated.
 
 		expect(
 			await page.$x( "//i[contains(@class, 'mdc-list-item__graphic')]" )
@@ -60,7 +62,9 @@ describe( 'blocks: material/list', () => {
 		);
 
 		await trailingIcons.click();
-		await page.waitForSelector( '.mdc-list-item__meta' );
+		await page.waitForFunction(
+			`document.querySelectorAll( '.mdc-list-item__meta' ).length === 2`
+		); // wait until all the list items are updated.
 
 		expect(
 			await page.$x( "//i[contains(@class, 'mdc-list-item__meta')]" )
