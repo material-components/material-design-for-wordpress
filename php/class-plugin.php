@@ -140,7 +140,7 @@ class Plugin extends Plugin_Base {
 	/**
 	 * Enqueue front-end styles and scripts.
 	 *
-	 * @action wp_enqueue_scripts
+	 * @action wp_enqueue_scripts, 100
 	 */
 	public function enqueue_front_end_assets() {
 		wp_enqueue_script(
