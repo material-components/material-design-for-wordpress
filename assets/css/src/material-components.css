@@ -54,11 +54,16 @@
 }
 
 .mdc-button .mdc-button__ripple {
-	border-radius: var(--mdc-small-component-radius-button, 4px);
+	border-radius: inherit;
 }
 
 .mdc-card {
 	border-radius: var(--mdc-medium-component-radius-card, 4px);
+}
+
+.mdc-card__link {
+	border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 /* Data Table */
