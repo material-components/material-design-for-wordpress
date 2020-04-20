@@ -32,11 +32,6 @@ const baseProps = {
 };
 
 describe( 'UrlInputPopover', () => {
-	it( 'matches snapshot', () => {
-		const wrapper = setup( baseProps );
-		expect( wrapper ).toMatchSnapshot();
-	} );
-
 	it( 'matches snapshot when missing some handlers', () => {
 		const props = { ...baseProps };
 		delete props.onChange;
