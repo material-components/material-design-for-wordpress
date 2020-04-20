@@ -23,7 +23,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = new Plugin();
 		$this->assertEquals( 9, has_action( 'after_setup_theme', [ $plugin, 'init' ] ) );
 		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $plugin, 'enqueue_block_editor_assets' ] ) );
-		$this->assertEquals( 10, has_action( 'wp_enqueue_scripts', [ $plugin, 'enqueue_front_end_assets' ] ) );
+		$this->assertEquals( 100, has_action( 'wp_enqueue_scripts', [ $plugin, 'enqueue_front_end_assets' ] ) );
 		$this->assertEquals( 10, has_filter( 'block_categories', [ $plugin, 'block_category' ] ) );
 	}
 
