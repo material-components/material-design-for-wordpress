@@ -101,8 +101,8 @@ class Controls extends Module_Base {
 			'style'         => __( 'Design Style', 'material-theme-builder' ),
 			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
 			'typography'    => __( 'Typography', 'material-theme-builder' ),
-			'corner_styles' => __( 'Corner Styles', 'material-theme-builder' ),
-			'icons'         => __( 'Icon Collections', 'material-theme-builder' ),
+			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
+			'icons'         => __( 'Icon Types', 'material-theme-builder' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
@@ -682,13 +682,13 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'              => 'primary_text_color',
-				'label'           => __( 'Text on Primary', 'material-theme-builder' ),
+				'label'           => __( 'On Primary Color (text and icons)', 'material-theme-builder' ),
 				'related_setting' => $this->prepend_slug( 'primary_color' ),
 				'css_var'         => '--mdc-theme-on-primary',
 			],
 			[
 				'id'              => 'secondary_text_color',
-				'label'           => __( 'Text on Secondary', 'material-theme-builder' ),
+				'label'           => __( 'On Secondary Color (text and icons)', 'material-theme-builder' ),
 				'related_setting' => $this->prepend_slug( 'secondary_color' ),
 				'css_var'         => '--mdc-theme-on-secondary',
 			],
@@ -810,7 +810,7 @@ class Controls extends Module_Base {
 				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/rounded.svg' ),
 			],
 			'two-tone' => [
-				'label' => __( 'Two Tone', 'material-theme-builder' ),
+				'label' => __( 'Two-tone', 'material-theme-builder' ),
 				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/two-tone.svg' ),
 			],
 			'sharp'    => [
