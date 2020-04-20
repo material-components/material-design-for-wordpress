@@ -25,7 +25,6 @@ import { useContext, useEffect } from '@wordpress/element';
 
 const ListItemEdit = ( {
 	attributes: {
-		rel,
 		url,
 		linkTarget,
 		leadingIcon,
@@ -88,11 +87,11 @@ const ListItemEdit = ( {
 			setAttributes( { trailingIcon: findIcon( 'more vert' ) } );
 		}
 	}, [
-		leadingIconsEnabled,
 		leadingIcon,
-		trailingIconsEnabled,
 		trailingIcon,
 		setAttributes,
+		leadingIconsEnabled,
+		trailingIconsEnabled,
 	] );
 
 	// Sync with parent regarding style and secondaryText
@@ -146,15 +145,9 @@ const ListItemEdit = ( {
 					value={ url }
 					onChange={ setter( 'url' ) }
 					newTab={ linkTarget === '_blank' }
-					noFollow={ rel === 'noreferrer noopener' }
 					onChangeNewTab={ setter(
 						'linkTarget',
 						newTab => ( newTab ? '_blank' : undefined ),
-						true
-					) }
-					onChangeNoFollow={ setter(
-						'rel',
-						noFollow => ( noFollow ? 'noreferrer noopener' : undefined ),
 						true
 					) }
 				/>

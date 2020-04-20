@@ -2,7 +2,7 @@
  * External dependencies
  */
 import '@testing-library/jest-dom/extend-expect';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 /**
  * Internal dependencies
@@ -100,29 +100,5 @@ describe( 'Edit', () => {
 			},
 		} );
 		expect( wrapper ).toMatchSnapshot();
-	} );
-
-	it( 'updates linkTarget when toggled', async () => {
-		const { container } = setup( {
-			...baseProps,
-			attributes: {
-				...baseProps.attributes,
-				linkTarget: undefined,
-			},
-		} );
-
-		const radios = container.querySelectorAll(
-			'.components-form-toggle__input'
-		);
-
-		await fireEvent.click( radios[ 0 ] );
-
-		const mockCalls = baseProps.setAttributes.mock.calls;
-
-		// eslint-disable-next-line jest/prefer-strict-equal
-		expect( mockCalls[ mockCalls.length - 1 ][ 0 ] ).toEqual( {
-			linkTarget: '_blank',
-			rel: 'noreferrer noopener',
-		} );
 	} );
 } );
