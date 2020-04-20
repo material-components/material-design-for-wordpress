@@ -456,6 +456,7 @@ class Controls extends Module_Base {
 				'designStyles'           => $this->get_design_styles(),
 				'controls'               => $this->added_controls,
 				'styleControl'           => $this->prepend_slug( 'style' ),
+				'prevStyleControl'       => $this->prepend_slug( 'previous_style' ),
 				'iconCollectionsControl' => $this->prepend_slug( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
