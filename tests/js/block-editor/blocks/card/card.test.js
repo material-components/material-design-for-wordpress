@@ -131,7 +131,6 @@ describe( 'blocks: material/card', () => {
 				},
 				cornerRadius: {
 					type: 'number',
-					default: 4,
 				},
 				outlined: {
 					type: 'boolean',
