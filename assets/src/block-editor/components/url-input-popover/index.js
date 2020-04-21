@@ -5,6 +5,8 @@ import { withState } from '@wordpress/compose';
 import {
 	Dashicon,
 	Button,
+	Tooltip,
+	Icon,
 	Popover,
 	PanelBody,
 	ToggleControl,
@@ -75,29 +77,36 @@ const UrlInputPopover = withState( {
 							/>
 						) }
 					{ ( props.onChangeNewTab || props.onChangeNoFollow ) && (
+						<Tooltip text={ openAdvanced ? ariaOpen : ariaClosed }>
+							<Button
+								className={ classnames(
+									[ 'mtb-url-input-control__more-button' ],
+									{
+										'mtb--active': props.newTab || props.noFollow,
+									}
+								) }
+								onClick={ () => setState( { openAdvanced: ! openAdvanced } ) }
+								aria-expanded={ openAdvanced }
+								style={ { padding: 6 } }
+							>
+								<Icon icon="ellipsis" />
+							</Button>
+						</Tooltip>
+					) }
+					<Tooltip text={ __( 'Close', 'material-theme-builder' ) }>
 						<Button
 							className={ classnames(
-								[ 'mtb-url-input-control__more-button' ],
+								[ 'mtb-url-input-control__close-button' ],
 								{
 									'mtb--active': props.newTab || props.noFollow,
 								}
 							) }
-							icon="ellipsis"
-							showTooltip={ true }
-							label={ openAdvanced ? ariaOpen : ariaClosed }
-							onClick={ () => setState( { openAdvanced: ! openAdvanced } ) }
-							aria-expanded={ openAdvanced }
-						/>
-					) }
-					<Button
-						className={ classnames( [ 'mtb-url-input-control__close-button' ], {
-							'mtb--active': props.newTab || props.noFollow,
-						} ) }
-						icon="no"
-						showTooltip={ true }
-						label={ __( 'Close', 'material-theme-builder' ) }
-						onClick={ props.onPopupClose }
-					/>
+							onClick={ props.onPopupClose }
+							style={ { padding: 6 } }
+						>
+							<Icon icon="no" />
+						</Button>
+					</Tooltip>
 				</div>
 				{ props.onChangeNewTab && openAdvanced && (
 					<ToggleControl
