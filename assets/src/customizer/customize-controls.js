@@ -62,7 +62,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 
 		mtb.controls.forEach( name => {
 			const control = api.control( name );
-			const prop = camelCase( name.replace( 'mtb_', '' ) );
+			const prop = camelCase( name.replace( `${ mtb.slug }_`, '' ) );
 
 			if ( control.setting ) {
 				controlProps[ prop ] = control.setting.get();
@@ -181,7 +181,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 				.text( __( 'Kitchen Sink', 'material-theme-builder' ) )
 		);
 
-		api.panel( 'mtb' ).expanded.bind( function( expanded ) {
+		api.panel( mtb.slug ).expanded.bind( function( expanded ) {
 			const showOrHide = expanded ? 'block' : 'none';
 			$( '.toggle-kitchen-sink' ).css( 'display', showOrHide );
 
@@ -492,6 +492,40 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 				.find( '.mtb-tab-link' )
 				.first()
 				.trigger( 'click' );
+
+			container
+				.find( '.wp-picker-default' )
+				.off( 'click' )
+				.on( 'click', event => {
+					const style = api( mtb.prevStyleControl ).get();
+
+					if (
+						mtb &&
+						mtb.designStyles &&
+						mtb.designStyles.hasOwnProperty( style )
+					) {
+						const $control = $( event.target ).closest(
+								'.customize-control-material_color'
+							),
+							controlName = $control
+								.attr( 'id' )
+								.replace( 'customize-control-', '' ),
+							colorControl = api.control( controlName );
+
+						// Unbind the custom value change event.
+						colorControl.setting.unbind( onCustomValueChange );
+
+						// Set the value from style defaults.
+						colorControl.setting.set(
+							mtb.designStyles[ style ][
+								controlName.replace( `${ mtb.slug }_`, '' )
+							]
+						);
+
+						// Rebind the custom value change event.
+						colorControl.setting.bind( onCustomValueChange );
+					}
+				} );
 		},
 
 		/**
@@ -692,6 +726,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 
 		// If the style is not custom, change it to custom.
 		if ( 'custom' !== styleSetting.get() ) {
+			api( mtb.prevStyleControl ).set( styleSetting.get() );
 			styleSetting.set( 'custom' );
 		}
 	};
