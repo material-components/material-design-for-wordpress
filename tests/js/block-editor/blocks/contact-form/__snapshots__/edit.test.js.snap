@@ -1,0 +1,790 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blocks: material/contact-form: Edit matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Email Feedback Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-0"
+            >
+              Email address
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-0"
+              type="text"
+              value="recipient@test.loc"
+            />
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-1"
+            >
+              Subject
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-1"
+              type="text"
+              value="Test contact form"
+            />
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-2"
+            >
+              Submission confirmation message
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-2"
+              type="text"
+              value="The form was submitted"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Style
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-0"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-0"
+            >
+              Outlined
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Google reCAPTCHA v3
+          </button>
+        </h2>
+        <p>
+          Add your reCAPTCHA site and secret keys to protect your form from spam.
+        </p>
+        <a
+          class="components-external-link"
+          href="https://g.co/recaptcha/v3"
+          rel="external noreferrer noopener"
+          target="_blank"
+        >
+          Generate keys
+          <span
+            class="components-visually-hidden"
+          >
+            (opens in a new tab)
+          </span>
+          <svg
+            aria-hidden="true"
+            class="components-external-link__icon"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
+            />
+          </svg>
+        </a>
+        <a
+          class="components-external-link"
+          href="https://developers.google.com/recaptcha/docs/v3"
+          rel="external noreferrer noopener"
+          target="_blank"
+        >
+          Documentation
+          <span
+            class="components-visually-hidden"
+          >
+            (opens in a new tab)
+          </span>
+          <svg
+            aria-hidden="true"
+            class="components-external-link__icon"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
+            />
+          </svg>
+        </a>
+        <br />
+        <br />
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-3"
+            >
+              Site Key
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-3"
+              type="text"
+              value="test-key"
+            />
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-4"
+            >
+              Client Secret
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-4"
+              type="text"
+              value="test-secret"
+            />
+          </div>
+        </div>
+        <p>
+          <i
+            class="material-icons tab-add__icon"
+          >
+            warning
+          </i>
+          Google reCAPTCHA will only work and be rendered on the frontend
+        </p>
+        <br />
+        <button
+          class="components-button is-primary"
+          style="margin-right: 20px;"
+          type="button"
+        >
+          Save
+        </button>
+        <button
+          class="components-button is-primary"
+          type="button"
+        >
+          Clear
+        </button>
+        <br />
+        <br />
+      </div>
+      <div
+        class="test-class"
+      >
+        <div>
+           
+          {"id":"name-input-1","name":"material/name-input-field"}
+           
+        </div>
+        <div>
+           
+          {"id":"email-input-1","name":"material/email-input-field"}
+           
+        </div>
+        <div>
+           
+          {"id":"website-input-1","name":"material/website-input-field"}
+           
+        </div>
+        <div>
+           
+          {"id":"message-input-1","name":"material/message-input-field"}
+           
+        </div>
+        <div>
+           
+          {"id":"button-1","name":"material/button","attributes":{"label":"Submit","style":"unelevated","isSubmit":true}}
+           
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Email Feedback Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-0"
+          >
+            Email address
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-0"
+            type="text"
+            value="recipient@test.loc"
+          />
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-1"
+          >
+            Subject
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-1"
+            type="text"
+            value="Test contact form"
+          />
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-2"
+          >
+            Submission confirmation message
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-2"
+            type="text"
+            value="The form was submitted"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Style
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-0"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-0"
+          >
+            Outlined
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Google reCAPTCHA v3
+        </button>
+      </h2>
+      <p>
+        Add your reCAPTCHA site and secret keys to protect your form from spam.
+      </p>
+      <a
+        class="components-external-link"
+        href="https://g.co/recaptcha/v3"
+        rel="external noreferrer noopener"
+        target="_blank"
+      >
+        Generate keys
+        <span
+          class="components-visually-hidden"
+        >
+          (opens in a new tab)
+        </span>
+        <svg
+          aria-hidden="true"
+          class="components-external-link__icon"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
+          />
+        </svg>
+      </a>
+      <a
+        class="components-external-link"
+        href="https://developers.google.com/recaptcha/docs/v3"
+        rel="external noreferrer noopener"
+        target="_blank"
+      >
+        Documentation
+        <span
+          class="components-visually-hidden"
+        >
+          (opens in a new tab)
+        </span>
+        <svg
+          aria-hidden="true"
+          class="components-external-link__icon"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
+          />
+        </svg>
+      </a>
+      <br />
+      <br />
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-3"
+          >
+            Site Key
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-3"
+            type="text"
+            value="test-key"
+          />
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-4"
+          >
+            Client Secret
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-4"
+            type="text"
+            value="test-secret"
+          />
+        </div>
+      </div>
+      <p>
+        <i
+          class="material-icons tab-add__icon"
+        >
+          warning
+        </i>
+        Google reCAPTCHA will only work and be rendered on the frontend
+      </p>
+      <br />
+      <button
+        class="components-button is-primary"
+        style="margin-right: 20px;"
+        type="button"
+      >
+        Save
+      </button>
+      <button
+        class="components-button is-primary"
+        type="button"
+      >
+        Clear
+      </button>
+      <br />
+      <br />
+    </div>
+    <div
+      class="test-class"
+    >
+      <div>
+         
+        {"id":"name-input-1","name":"material/name-input-field"}
+         
+      </div>
+      <div>
+         
+        {"id":"email-input-1","name":"material/email-input-field"}
+         
+      </div>
+      <div>
+         
+        {"id":"website-input-1","name":"material/website-input-field"}
+         
+      </div>
+      <div>
+         
+        {"id":"message-input-1","name":"material/message-input-field"}
+         
+      </div>
+      <div>
+         
+        {"id":"button-1","name":"material/button","attributes":{"label":"Submit","style":"unelevated","isSubmit":true}}
+         
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
