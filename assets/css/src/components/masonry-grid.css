@@ -1,8 +1,8 @@
 .masonry-grid {
 	display: flex;
 	flex-direction: column;
-	margin: 24px 0;
-	margin: var(--mdc-layout-grid-margin-desktop, 24px) 0;
+	padding: 24px;
+	padding: var(--mdc-layout-grid-margin-desktop, 24px);
 	width: auto;
 
 	@media (--medium-viewport) {
@@ -17,11 +17,11 @@
 
 	@media (--medium-viewport) {
 		padding-left: 24px;
-		padding-left: var(--mdc-layout-grid-margin-desktop, 24px);
+		padding-left: var(--mdc-layout-grid-gutter-desktop, 24px);
 	}
 
 	&:first-child {
-		padding-left: 0;
+		padding-left: 0 !important;
 	}
 }
 
@@ -59,5 +59,9 @@
 
 .masonry-grid_column > div {
 	margin-bottom: 24px;
-	margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
+	margin-bottom: var(--mdc-layout-grid-gutter-desktop, 24px);
+}
+
+.wp-block-material-cards-collection .masonry-grid {
+	flex-direction: row;
 }
