@@ -109,8 +109,7 @@ class Image_List_Block extends Module_Base {
 						],
 					],
 					'cornerRadius'    => [
-						'type'    => 'number',
-						'default' => 4,
+						'type' => 'number',
 					],
 					'displayLightbox' => [
 						'type'    => 'boolean',
