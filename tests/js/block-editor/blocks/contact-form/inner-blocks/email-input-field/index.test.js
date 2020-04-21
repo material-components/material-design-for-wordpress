@@ -8,7 +8,6 @@ import {
 import BlockIcon from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/email-input-field/block-icon';
 import Edit from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/common/components/text-input-edit';
 import Save from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/common/components/text-input-save';
-import { __ } from "@wordpress/i18n";
 
 describe( 'blocks: material/email-input-field', () => {
 	describe( 'name', () => {
@@ -65,7 +64,7 @@ describe( 'blocks: material/email-input-field', () => {
 				},
 				label: {
 					type: 'string',
-					default: __( 'Email', 'material-theme-builder' ),
+					default: 'Email',
 				},
 				inputValue: {
 					type: 'string',
