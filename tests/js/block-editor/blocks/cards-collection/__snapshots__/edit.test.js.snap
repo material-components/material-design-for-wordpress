@@ -26,11 +26,10 @@ Object {
       >
         <div
           class="masonry-grid layout-masonry"
-          style="padding-left: 24px; padding-right: 24px;"
         >
           <div
             class="masonry-grid_column"
-            style="margin-left: 24px; width: 25%;"
+            style="padding-left: 24px; width: 25%;"
           >
             <div
               class="card-container"
@@ -139,7 +138,7 @@ Object {
           </div>
           <div
             class="masonry-grid_column"
-            style="margin-left: 24px; width: 25%;"
+            style="padding-left: 24px; width: 25%;"
           >
             <div
               class="card-container"
@@ -248,7 +247,7 @@ Object {
           </div>
           <div
             class="masonry-grid_column"
-            style="margin-left: 24px; width: 25%;"
+            style="padding-left: 24px; width: 25%;"
           >
             <div
               class="card-container"
@@ -365,11 +364,10 @@ Object {
     >
       <div
         class="masonry-grid layout-masonry"
-        style="padding-left: 24px; padding-right: 24px;"
       >
         <div
           class="masonry-grid_column"
-          style="margin-left: 24px; width: 25%;"
+          style="padding-left: 24px; width: 25%;"
         >
           <div
             class="card-container"
@@ -478,7 +476,7 @@ Object {
         </div>
         <div
           class="masonry-grid_column"
-          style="margin-left: 24px; width: 25%;"
+          style="padding-left: 24px; width: 25%;"
         >
           <div
             class="card-container"
@@ -587,7 +585,7 @@ Object {
         </div>
         <div
           class="masonry-grid_column"
-          style="margin-left: 24px; width: 25%;"
+          style="padding-left: 24px; width: 25%;"
         >
           <div
             class="card-container"
@@ -777,7 +775,6 @@ Object {
       >
         <div
           class="mdc-layout-grid layout-grid"
-          style="padding-left: 24px; padding-right: 24px;"
         >
           <div
             class="mdc-layout-grid__inner"
@@ -1102,7 +1099,6 @@ Object {
     >
       <div
         class="mdc-layout-grid layout-grid"
-        style="padding-left: 24px; padding-right: 24px;"
       >
         <div
           class="mdc-layout-grid__inner"
@@ -1500,7 +1496,6 @@ Object {
       >
         <div
           class="mdc-layout-grid layout-list"
-          style="padding-left: 24px; padding-right: 24px;"
         >
           <div
             class="mdc-layout-grid__inner"
@@ -1795,7 +1790,6 @@ Object {
     >
       <div
         class="mdc-layout-grid layout-list"
-        style="padding-left: 24px; padding-right: 24px;"
       >
         <div
           class="mdc-layout-grid__inner"
@@ -2225,6 +2219,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
       "displaySupportingText": true,
       "displayTitle": true,
       "gutter": 16,
+      "id": "block-material-cards-collection-0",
       "numberOfCards": 2,
       "outlined": true,
       "setter": [Function],
@@ -2232,6 +2227,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
     }
   }
   className="test"
+  name="material/cards-collection"
   setAttributes={[MockFunction]}
 >
   <CardsCollectionInspectorControls
@@ -2321,6 +2317,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
         "displaySupportingText": true,
         "displayTitle": true,
         "gutter": 16,
+        "id": "block-material-cards-collection-0",
         "numberOfCards": 2,
         "outlined": true,
         "setter": [Function],
@@ -2328,6 +2325,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
       }
     }
     className="test"
+    name="material/cards-collection"
     setAttributes={[MockFunction]}
   >
     <IfBlockEditSelected(InspectorControlsFill) />
@@ -2428,33 +2426,21 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
         columnAttrs={
           Object {
             "style": Object {
-              "marginLeft": "24px",
+              "paddingLeft": "24px",
             },
           }
         }
         columnClassName="masonry-grid_column"
-        style={
-          Object {
-            "paddingLeft": "24px",
-            "paddingRight": "24px",
-          }
-        }
       >
         <div
           className="masonry-grid layout-masonry"
-          style={
-            Object {
-              "paddingLeft": "24px",
-              "paddingRight": "24px",
-            }
-          }
         >
           <div
             className="masonry-grid_column"
             key="0"
             style={
               Object {
-                "marginLeft": "24px",
+                "paddingLeft": "24px",
                 "width": "25%",
               }
             }
@@ -4724,7 +4710,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
             key="1"
             style={
               Object {
-                "marginLeft": "24px",
+                "paddingLeft": "24px",
                 "width": "25%",
               }
             }
