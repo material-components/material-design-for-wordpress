@@ -85,6 +85,7 @@ const galleryProps = {
 	setAttributes: jest.fn(),
 	noticeUI: jest.fn(),
 	noticeOperations: jest.fn(),
+	name: 'material/image-list',
 };
 
 describe( 'blocks: material/image-list: Edit', () => {

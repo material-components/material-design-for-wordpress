@@ -34,6 +34,12 @@ export const settings = {
 	},
 	icon: BlockIcon,
 	attributes: {
+		id: {
+			type: 'string',
+			source: 'attribute',
+			attribute: 'id',
+			selector: '*',
+		},
 		style: {
 			type: 'string',
 			default: 'masonry',
@@ -62,7 +68,7 @@ export const settings = {
 			type: 'object',
 			default: {
 				desktop: 24,
-				tablet: 24,
+				tablet: 16,
 				mobile: 16,
 			},
 		},
