@@ -22,6 +22,7 @@ import Cards from './components/cards';
  */
 const Save = ( { attributes, className } ) => {
 	const {
+		id,
 		style,
 		columns,
 		align,
@@ -59,12 +60,14 @@ const Save = ( { attributes, className } ) => {
 	return (
 		<div
 			className={ classnames( className, { [ `align${ align }` ]: align } ) }
+			id={ id }
 		>
 			<Cards
 				style={ style }
 				gutter={ gutter }
 				columns={ columns }
 				cards={ items }
+				saveContext={ true }
 			/>
 		</div>
 	);

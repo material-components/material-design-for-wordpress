@@ -155,11 +155,35 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Enqueue front-end styles and scripts.
+	 * Enqueue google fonts.
 	 *
 	 * @action wp_enqueue_scripts
 	 */
+	public function enqueue_google_fonts() {
+		$fonts_url = $this->customizer_controls->get_google_fonts_url();
+
+		wp_enqueue_style(
+			'material-google-fonts-cdn',
+			esc_url( $fonts_url ),
+			[],
+			$this->asset_version()
+		);
+	}
+
+	/**
+	 * Enqueue front-end styles and scripts.
+	 *
+	 * @action wp_enqueue_scripts, 100
+	 */
 	public function enqueue_front_end_assets() {
+		wp_enqueue_script(
+			'material-front-end-js',
+			$this->asset_url( 'assets/js/front-end.js' ),
+			[],
+			$this->asset_version(),
+			true
+		);
+
 		$mtb_recaptcha_site_key      = get_option( 'mtb_recaptcha_site_key', '' );
 		$mtb_recaptcha_client_secret = get_option( 'mtb_recaptcha_client_secret', '' );
 
@@ -173,25 +197,14 @@ class Plugin extends Plugin_Base {
 				'3.0.0',
 				true
 			);
-
 			$wp_localized_script_data['recaptcha_site_key'] = esc_js( $mtb_recaptcha_site_key );
 		}
 
-		wp_enqueue_script(
-			'material-front-end-js',
-			$this->asset_url( 'assets/js/front-end.js' ),
-			[ 'jquery' ],
-			$this->asset_version(),
-			true
-		);
-
 		wp_localize_script( 'material-front-end-js', 'mtb', $wp_localized_script_data );
 
-		$fonts_url = $this->customizer_controls->get_google_fonts_url();
-
 		wp_enqueue_style(
-			'material-google-fonts-cdn',
-			esc_url( $fonts_url ),
+			'material-front-end-css',
+			$this->asset_url( 'assets/css/front-end-compiled.css' ),
 			[],
 			$this->asset_version()
 		);
@@ -207,13 +220,6 @@ class Plugin extends Plugin_Base {
 				$this->asset_version()
 			);
 		}
-
-		wp_enqueue_style(
-			'material-front-end-css',
-			$this->asset_url( 'assets/css/front-end-compiled.css' ),
-			[],
-			$this->asset_version()
-		);
 	}
 
 	/**

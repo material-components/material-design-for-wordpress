@@ -15,7 +15,7 @@ import {
 	ToggleControl,
 	withNotices,
 } from '@wordpress/components';
-import { compose, withInstanceId } from '@wordpress/compose';
+import { compose } from '@wordpress/compose';
 import { useCallback, useEffect, useState } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
@@ -23,6 +23,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
+import { withId } from '../../components/with-id';
 import BlockIcon from './components/block-icon';
 import {
 	GridIcon,
@@ -95,7 +96,6 @@ const ImageListEdit = ( {
 		displayCaptions,
 		textProtection,
 		linkTo,
-		id: divId,
 	},
 	className,
 	isSelected,
@@ -103,7 +103,6 @@ const ImageListEdit = ( {
 	noticeOperations,
 	onFocus,
 	setAttributes,
-	instanceId,
 } ) => {
 	/**
 	 * Get captions from media library using REST API.
@@ -119,13 +118,6 @@ const ImageListEdit = ( {
 
 	const [ selectedImage, setSelectedImage ] = useState( 0 );
 	const [ gutterDevice, setGutterDevice ] = useState( 'desktop' );
-
-	// Set block id if it's empty.
-	useEffect( () => {
-		if ( ! divId ) {
-			setAttributes( { id: `block-material-image-list-${ instanceId }` } );
-		}
-	}, [ divId, instanceId, setAttributes ] );
 
 	// If `isSelected` is updated unselect images in the gallery.
 	useEffect( () => {
@@ -366,4 +358,4 @@ const ImageListEdit = ( {
 	);
 };
 
-export default compose( [ withInstanceId, withNotices ] )( ImageListEdit );
+export default compose( [ withId, withNotices ] )( ImageListEdit );

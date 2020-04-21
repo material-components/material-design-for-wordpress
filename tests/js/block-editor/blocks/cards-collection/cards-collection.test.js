@@ -81,6 +81,12 @@ describe( 'blocks: material/cards-collection', () => {
 	describe( 'attributes', () => {
 		it( 'should be a structured object', () => {
 			expect( settings.attributes ).toStrictEqual( {
+				id: {
+					type: 'string',
+					source: 'attribute',
+					attribute: 'id',
+					selector: '*',
+				},
 				style: {
 					type: 'string',
 					default: 'masonry',
@@ -109,7 +115,7 @@ describe( 'blocks: material/cards-collection', () => {
 					type: 'object',
 					default: {
 						desktop: 24,
-						tablet: 24,
+						tablet: 16,
 						mobile: 16,
 					},
 				},
