@@ -45,7 +45,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 				'post_title'   => 'Lorem ipsum dolor sit amet',
 				'post_content' => 'Consectetur adipiscing elit. In dui quam, egestas nec aliquet ac, hendrerit vitae ligula. Morbi malesuada in lectus vel sollicitudin. Proin tellus ligula, tincidunt at sagittis eget, tempor non est. In et suscipit metus. Cras in lectus a ex ullamcorper eleifend. Aenean convallis lacus et porttitor convallis. Proin iaculis a diam et euismod. Proin lectus ex, bibendum vel pretium ut, pellentesque eget nisl.
 
-				<!-- wp:material/contact-form {"gutter":{"desktop":24,"tablet":18,"mobile":12},"displayLightbox":true,"align":"wide"} -->
+				<!-- wp:material/contact-form  -->
 					<div class="wp-block-material-contact-form" id="block-material-contact-form-1"></div>
 				<!-- /wp:material/contact-form -->
 				',
@@ -154,6 +154,9 @@ class Test_Plugin extends \WP_UnitTestCase {
 		remove_filter( 'stylesheet', [ $this, 'stylesheet' ] );
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_style_is( 'material-overrides-css', 'enqueued' ) );
+
+		delete_option( 'mtb_recaptcha_site_key' );
+		delete_option( 'mtb_recaptcha_client_secret' );
 	}
 
 	/**
