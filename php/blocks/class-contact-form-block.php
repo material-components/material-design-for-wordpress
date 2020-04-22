@@ -98,26 +98,31 @@ class Contact_Form_Block extends Module_Base {
 	 */
 	public function render_block( $attributes, $content ) {
 		global $post;
+
+		$class    = 'wp-block-material-contact-form';
 		$email_to = isset( $attributes['emailTo'] ) ? sanitize_email( $attributes['emailTo'] ) : '';
 		$subject  = isset( $attributes['subject'] ) ? sanitize_text_field( $attributes['subject'] ) : '';
 
 		if ( ! filter_var( $email_to, FILTER_VALIDATE_EMAIL ) ) {
 			return sprintf(
-				'<div class="mtb-contact-form">%s</div>',
+				'<div class="%s">%s</div>',
+				esc_attr( $class ),
 				__( 'The contact form cannot be displayed because the sender email is incorrect.', 'material-theme-builder' )
 			);
 		}
 
 		if ( empty( $subject ) ) {
 			return sprintf(
-				'<div class="mtb-contact-form">%s</div>',
+				'<div class="%s">%s</div>',
+				esc_attr( $class ),
 				__( 'The contact form cannot be displayed because the email subject is not provided.', 'material-theme-builder' )
 			);
 		}
 
 		if ( $this->get_block_count_from_post( $post ) > 1 ) {
 			return sprintf(
-				'<div class="mtb-contact-form">%s</div>',
+				'<div class="%s">%s</div>',
+				esc_attr( $class ),
 				__( 'You cannot have multiple contact form instances in one page.', 'material-theme-builder' )
 			);
 		}
@@ -135,7 +140,8 @@ class Contact_Form_Block extends Module_Base {
 		$final_content = ob_get_clean();
 
 		return sprintf(
-			'<div class="mtb-contact-form">%s</div>',
+			'<div class="%s">%s</div>',
+			esc_attr( $class ),
 			$final_content
 		);
 	}
@@ -214,16 +220,12 @@ class Contact_Form_Block extends Module_Base {
 	 * Submit contact form.
 	 */
 	private function submit_contact_form() {
-		if ( ! check_ajax_referer( 'contact_form_action', 'mtb_contact_form_nonce' ) ) {
-			wp_send_json_error(
-				[ 'message' => __( 'You are not authorized.', 'material-theme-builder' ) ]
-			);
-		}
+		check_ajax_referer( 'contact_form_action', 'mtb_contact_form_nonce' );
 
 		$wp_http_referer = isset( $_POST['_wp_http_referer'] )
 			? sanitize_text_field( $_POST['_wp_http_referer'] )
 			: '';
-		
+
 		$block_attributes = $this->get_block_attributes( $wp_http_referer );
 
 		if ( empty( $block_attributes['email_to'] ) || empty( $block_attributes['subject'] ) ) {
@@ -323,6 +325,8 @@ class Contact_Form_Block extends Module_Base {
 	/**
 	 * Verify recaptcha to prevent spam
 	 *
+	 * @access private
+	 *
 	 * @param string $recaptcha_token The recaptcha token submitted with the form.
 	 *
 	 * @return bool True when token is valid, else false
@@ -371,11 +375,11 @@ class Contact_Form_Block extends Module_Base {
 	/**
 	 * Get the allowed to output the form HTML from the block inner blocks content.
 	 *
-	 * @access public
+	 * @access private
 	 *
 	 * @return array
 	 */
-	public function get_form_allowed_tags() {
+	private function get_form_allowed_tags() {
 		$tags = wp_kses_allowed_html( 'post' );
 
 		$tags['input'] = [
