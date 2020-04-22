@@ -32,6 +32,9 @@
 
 if ( version_compare( phpversion(), '5.6.20', '>=' ) ) {
 	require_once __DIR__ . '/instance.php';
+	register_activation_hook( __FILE__, function () {
+		set_transient( 'mtb-activation-notice', true, 5 );
+	});
 } else {
 	if ( defined( 'WP_CLI' ) ) {
 		WP_CLI::warning( _material_theme_builder_php_version_text() );
