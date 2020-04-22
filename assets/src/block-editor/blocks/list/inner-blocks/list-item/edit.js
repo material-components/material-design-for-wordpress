@@ -150,6 +150,7 @@ const ListItemEdit = ( {
 						newTab => ( newTab ? '_blank' : undefined ),
 						true
 					) }
+					showNoFollow={ false }
 				/>
 			) }
 
