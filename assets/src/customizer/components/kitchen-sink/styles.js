@@ -1,15 +1,15 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const Overrides = createGlobalStyle`
-  :root {
-    --body-font: ${ props => props.body };
-    --heading-font: ${ props => props.headings };
+	:root {
+    	--body-font: ${ props => props.body };
+    	--heading-font: ${ props => props.headings };
 
 		--mdc-theme-primary: ${ props => props.primaryColor };
 		--mdc-theme-secondary: ${ props => props.secondaryColor };
 		--mdc-theme-on-primary: ${ props => props.primaryTextColor };
 		--mdc-theme-on-secondary: ${ props => props.secondaryTextColor };
-  }
+	}
 
 	#mcb-kitchen-sink-preview .mdc-typography {
 		font-family: var(--heading-font) !important;
@@ -19,14 +19,14 @@ export const Overrides = createGlobalStyle`
 		color: var(--mdc-theme-primary) !important;
 	}
 
-  #mcb-kitchen-sink-preview p, 
-  #mcb-kitchen-sink-preview th, 
-  #mcb-kitchen-sink-preview td, 
-  #mcb-kitchen-sink-preview input[type="text"], 
-  #mcb-kitchen-sink-preview button:not([class*="material-icons"]), 
-  #mcb-kitchen-sink-preview span:not([class*="material-icons"]) {
-    font-family: var(--body-font) !important;
-  }
+	#mcb-kitchen-sink-preview p,
+	#mcb-kitchen-sink-preview th,
+	#mcb-kitchen-sink-preview td,
+	#mcb-kitchen-sink-preview input[type="text"],
+	#mcb-kitchen-sink-preview button:not([class*="material-icons"]),
+	#mcb-kitchen-sink-preview span:not([class*="material-icons"]) {
+		font-family: var(--body-font) !important;
+	}
 `;
 
 export const RippleColor = styled.div`
