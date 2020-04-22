@@ -460,7 +460,7 @@ class Controls extends Module_Base {
 				'iconCollectionsControl' => $this->prepend_slug( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
-					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
+					'confirmChange' => esc_html__( 'You will lose any custom theme changes. Would you like to continue ?', 'material-theme-builder' ),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
 			]
