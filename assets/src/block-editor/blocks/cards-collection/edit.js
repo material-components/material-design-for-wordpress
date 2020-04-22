@@ -16,6 +16,7 @@ import {
 /**
  * Internal dependencies
  */
+import { withId } from '../../components/with-id';
 import CardsCollectionInspectorControls from './components/cards-collection-inspector-controls';
 import './editor.css';
 import { CARD_ATTRIBUTES_VALUE } from './constants';
@@ -339,4 +340,4 @@ const Edit = props => {
 	);
 };
 
-export default Edit;
+export default withId( Edit );

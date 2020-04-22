@@ -5,6 +5,6 @@
 @import "./base/variables.css";
 @import "./conf/index.css";
 @import "./material-components.css";
-@import "./base/masonry-grid.css";
+@import "./components/masonry-grid.css";
 @import "../../src/block-editor/blocks/common-posts-list/style.css";
 @import "../../src/block-editor/blocks/card/style.css";
