@@ -420,8 +420,8 @@ Object {
                       </div>
                       <button
                         aria-expanded="false"
-                        aria-label="Show more tools & options"
-                        class="components-button mtb-url-input-control__more-button mtb--active has-icon"
+                        class="components-button mtb-url-input-control__more-button mtb--active"
+                        style="padding: 6px;"
                         type="button"
                       >
                         <svg
@@ -440,8 +440,8 @@ Object {
                         </svg>
                       </button>
                       <button
-                        aria-label="Close"
-                        class="components-button mtb-url-input-control__close-button mtb--active has-icon"
+                        class="components-button mtb-url-input-control__close-button mtb--active"
+                        style="padding: 6px;"
                         type="button"
                       >
                         <svg
@@ -542,8 +542,8 @@ Object {
                     </div>
                     <button
                       aria-expanded="false"
-                      aria-label="Show more tools & options"
-                      class="components-button mtb-url-input-control__more-button mtb--active has-icon"
+                      class="components-button mtb-url-input-control__more-button mtb--active"
+                      style="padding: 6px;"
                       type="button"
                     >
                       <svg
@@ -562,8 +562,8 @@ Object {
                       </svg>
                     </button>
                     <button
-                      aria-label="Close"
-                      class="components-button mtb-url-input-control__close-button mtb--active has-icon"
+                      class="components-button mtb-url-input-control__close-button mtb--active"
+                      style="padding: 6px;"
                       type="button"
                     >
                       <svg
