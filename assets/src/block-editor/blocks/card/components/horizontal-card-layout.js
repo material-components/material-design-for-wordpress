@@ -98,11 +98,7 @@ const HorizontalCardLayout = ( {
 				'mtb-card__list',
 				'mtb-basic'
 			) }
-			style={ {
-				...( cornerRadius !== undefined
-					? { borderRadius: `${ cornerRadius }px` }
-					: {} ),
-			} }
+			style={ { borderRadius: `${ cornerRadius }px` } }
 		>
 			<div
 				className="mdc-card__primary-action mtb-card__primary-action"

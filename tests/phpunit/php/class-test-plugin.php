@@ -23,7 +23,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = new Plugin();
 		$this->assertEquals( 9, has_action( 'after_setup_theme', [ $plugin, 'init' ] ) );
 		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $plugin, 'enqueue_block_editor_assets' ] ) );
-		$this->assertEquals( 10, has_action( 'wp_enqueue_scripts', [ $plugin, 'enqueue_front_end_assets' ] ) );
+		$this->assertEquals( 100, has_action( 'wp_enqueue_scripts', [ $plugin, 'enqueue_front_end_assets' ] ) );
 		$this->assertEquals( 10, has_filter( 'block_categories', [ $plugin, 'block_category' ] ) );
 	}
 
@@ -61,6 +61,17 @@ class Test_Plugin extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test for enqueue_block_editor_assets() method.
+	 *
+	 * @see Plugin::enqueue_google_fonts()
+	 */
+	public function test_enqueue_google_fonts() {
+		$plugin = get_plugin_instance();
+		$plugin->enqueue_google_fonts();
+		$this->assertTrue( wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) );
+	}
+
+	/**
 	 * Test for enqueue_front_end_assets() method.
 	 *
 	 * @see Plugin::enqueue_front_end_assets()
@@ -71,7 +82,6 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_script_is( 'material-front-end-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-front-end-css', 'enqueued' ) );
 		$this->assertFalse( wp_style_is( 'material-overrides-css', 'enqueued' ) );
 

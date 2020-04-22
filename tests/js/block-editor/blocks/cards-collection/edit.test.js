@@ -12,6 +12,13 @@ import React from 'react';
  */
 import Edit from '../../../../../assets/src/block-editor/blocks/cards-collection/edit';
 
+jest.mock(
+	'../../../../../assets/src/block-editor/components/with-id',
+	() => ( {
+		withId: Component => Component,
+	} )
+);
+
 /**
  * Render the component.
  *
@@ -137,9 +144,11 @@ const baseProps = {
 		displaySupportingText: true,
 		displayActions: true,
 		displaySecondaryActionButton: true,
+		id: 'block-material-cards-collection-0',
 	},
 	setAttributes: jest.fn(),
 	className: 'test',
+	name: 'material/cards-collection',
 };
 
 describe( 'blocks: material/cards-collection: Edit', () => {
