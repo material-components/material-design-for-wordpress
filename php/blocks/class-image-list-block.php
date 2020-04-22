@@ -195,6 +195,8 @@ class Image_List_Block extends Module_Base {
 			$item_styles[] = "}\n";
 		}
 
+		$attributes['cornerRadius'] = isset( $attributes['cornerRadius'] ) ? $attributes['cornerRadius'] : 0;
+
 		$image_styles = [
 			sprintf( '#%s .mdc-image-list__image {', $id ),
 			sprintf( 'border-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
