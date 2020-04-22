@@ -1,46 +1,44 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { useState } from '@wordpress/element';
+import { withState } from '@wordpress/compose';
 import {
 	Dashicon,
-	Popover,
 	Button,
+	Tooltip,
+	Icon,
+	Popover,
 	PanelBody,
 	ToggleControl,
 	TextControl,
 } from '@wordpress/components';
 import { URLInput } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 /**
  * External dependencies
  */
-import './editor.css';
 import classnames from 'classnames';
+import './editor.css';
 
 const ariaClosed = __( 'Show more tools & options', 'material-theme-builder' );
 const ariaOpen = __( 'Hide more tools & options', 'material-theme-builder' );
 
-const UrlInputPopover = ( {
-	value = '',
-	newTab = false,
-	noFollow = false,
-	onChange = null,
-	onPopupClose = null,
-	onChangeNewTab = null,
-	onChangeNoFollow = null,
-	onFocusOutside = null,
-	disableSuggestions = false,
-} ) => {
-	const [ expanded, setExpanded ] = useState( false );
+const UrlInputPopover = withState( {
+	openAdvanced: false,
+} )( props => {
+	const { openAdvanced, setState } = props;
 
-	if ( ! onChange ) {
+	if (
+		! props.onChange &&
+		! props.onChangeNewTab &&
+		! props.onChangeNoFollow
+	) {
 		return null;
 	}
 
 	const mainClassName = classnames( [ 'mtb-url-input-popover' ], {
-		'mtb--show-advanced': expanded,
+		'mtb--show-advanced': openAdvanced,
 	} );
 
 	return (
@@ -48,7 +46,7 @@ const UrlInputPopover = ( {
 			className={ mainClassName }
 			focusOnMount="firstElement"
 			position="bottom center"
-			onFocusOutside={ onFocusOutside }
+			onFocusOutside={ props.onFocusOutside }
 		>
 			<PanelBody>
 				<div className="mtb-url-input-popover__input-wrapper">
@@ -56,75 +54,88 @@ const UrlInputPopover = ( {
 						className="mtb-url-input-control__icon"
 						icon="admin-links"
 					/>
-					{ onChange &&
-					! disableSuggestions && ( // Auto-suggestions for inputting url.
+					{ props.onChange &&
+					! props.disableSuggestions && ( // Auto-suggestions for inputting url.
 							<URLInput
 								className="mtb-url-input-control__input"
-								value={ value }
-								onChange={ onChange }
-									autoFocus={ false } // eslint-disable-line
+								value={ props.value }
+								onChange={ props.onChange }
+								autoFocus={ false } // eslint-disable-line
 							/>
 						) }
-					{ onChange &&
-					disableSuggestions && ( // Plain text control for inputting url.
+					{ props.onChange &&
+					props.disableSuggestions && ( // Plain text control for inputting url.
 							<TextControl
 								className="mtb-url-input-control__input mtb-url-input-control__input--plain"
-								value={ value }
-								onChange={ onChange }
-									autoFocus={ false } // eslint-disable-line
+								value={ props.value }
+								onChange={ props.onChange }
+								autoFocus={ false } // eslint-disable-line
 								placeholder={ __(
 									'Paste or type URL',
 									'material-theme-builder'
 								) }
 							/>
 						) }
-					{ onChangeNewTab && (
-						<Button
-							className={ classnames(
-								[ 'mtb-url-input-control__more-button' ],
-								{
-									'mtb--active': newTab || noFollow,
-								}
-							) }
-							icon="ellipsis"
-							showTooltip={ true }
-							label={ expanded ? ariaOpen : ariaClosed }
-							onClick={ () => setExpanded( ! expanded ) }
-							aria-expanded={ expanded }
-						/>
+					{ ( props.onChangeNewTab || props.onChangeNoFollow ) && (
+						<Tooltip text={ openAdvanced ? ariaOpen : ariaClosed }>
+							<Button
+								className={ classnames(
+									[ 'mtb-url-input-control__more-button' ],
+									{
+										'mtb--active': props.newTab || props.noFollow,
+									}
+								) }
+								onClick={ () => setState( { openAdvanced: ! openAdvanced } ) }
+								aria-expanded={ openAdvanced }
+								style={ { padding: 6 } }
+							>
+								<Icon icon="ellipsis" />
+							</Button>
+						</Tooltip>
 					) }
-					{ onPopupClose && (
+					<Tooltip text={ __( 'Close', 'material-theme-builder' ) }>
 						<Button
 							className={ classnames(
 								[ 'mtb-url-input-control__close-button' ],
 								{
-									'mtb--active': newTab || noFollow,
+									'mtb--active': props.newTab || props.noFollow,
 								}
 							) }
-							icon="no"
-							showTooltip={ true }
-							label={ __( 'Close', 'material-theme-builder' ) }
-							onClick={ onPopupClose }
-						/>
-					) }
+							onClick={ props.onPopupClose }
+							style={ { padding: 6 } }
+						>
+							<Icon icon="no" />
+						</Button>
+					</Tooltip>
 				</div>
-				{ onChangeNewTab && expanded && (
+				{ props.onChangeNewTab && openAdvanced && (
 					<ToggleControl
 						label={ __( 'Open link in new tab', 'material-theme-builder' ) }
-						checked={ newTab }
-						onChange={ onChangeNewTab }
+						checked={ props.newTab }
+						onChange={ props.onChangeNewTab }
 					/>
 				) }
-				{ onChangeNoFollow && expanded && (
+				{ props.onChangeNoFollow && openAdvanced && (
 					<ToggleControl
 						label={ __( 'Nofollow link', 'material-theme-builder' ) }
-						checked={ noFollow }
-						onChange={ onChangeNoFollow }
+						checked={ props.noFollow }
+						onChange={ props.onChangeNoFollow }
 					/>
 				) }
 			</PanelBody>
 		</Popover>
 	);
+} );
+
+UrlInputPopover.defaultProps = {
+	value: '',
+	disableSuggestions: false,
+	onChange: null,
+
+	newTab: false,
+	noFollow: false,
+	onChangeNewTab: null,
+	onChangeNoFollow: null,
 };
 
 export default UrlInputPopover;
