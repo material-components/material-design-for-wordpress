@@ -41,15 +41,6 @@ describe( 'blocks: material/data-table', () => {
 		await tableCells[ 0 ].focus();
 		await page.keyboard.type( 'Column 1' );
 
-		const className = await page.evaluate(
-			() =>
-				document.querySelectorAll(
-					'.edit-post-visual-editor .mdc-data-table .wp-block-table__cell-content'
-				)[ 0 ].className
-		);
-
-		expect( className.indexOf( 'is-selected' ) ).not.toBe( -1 );
-
 		const content = await page.evaluate(
 			() =>
 				document.querySelectorAll(
