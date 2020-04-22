@@ -45,7 +45,7 @@ describe( 'blocks: material/data-table', () => {
 			() =>
 				document.querySelectorAll(
 					'.edit-post-visual-editor .mdc-data-table .wp-block-table__cell-content'
-				)[ 0 ].parentNode.className
+				)[ 0 ].className
 		);
 
 		expect( className.indexOf( 'is-selected' ) ).not.toBe( -1 );

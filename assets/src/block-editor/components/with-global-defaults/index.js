@@ -30,12 +30,9 @@ export const withGlobalDefaults = createHigherOrderComponent(
 				) {
 					Object.keys( mtbBlockDefaults[ name ] ).forEach( attributeName => {
 						/**
-						 * If the attribute is not set, set it to customizer value.
+						 * If the attribute is undefined, set it to customizer value.
 						 */
-						if (
-							mtbBlockDefaults[ name ][ attributeName ] &&
-							! attributes[ attributeName ]
-						) {
+						if ( 'undefined' === typeof attributes[ attributeName ] ) {
 							defaults[ attributeName ] =
 								mtbBlockDefaults[ name ][ attributeName ];
 						}

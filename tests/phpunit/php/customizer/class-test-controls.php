@@ -532,6 +532,14 @@ class Test_Controls extends \WP_UnitTestCase {
 					'max'           => 28,
 					'initial_value' => 4,
 					'css_var'       => '--mdc-small-component-radius',
+					'blocks'        => [
+						'material/button' => [
+							'limits' => [
+								'max' => 36,
+								'min' => 0,
+							],
+						],
+					],
 					'extra'         => [
 						'limits' => [
 							'button' => [
@@ -549,6 +557,26 @@ class Test_Controls extends \WP_UnitTestCase {
 					'max'           => 36,
 					'initial_value' => 4,
 					'css_var'       => '--mdc-medium-component-radius',
+					'blocks'        => [
+						'material/card'             => [
+							'limits' => [
+								'max' => 20,
+								'min' => 0,
+							],
+						],
+						'material/cards-collection' => [
+							'limits' => [
+								'max' => 20,
+								'min' => 0,
+							],
+						],
+						'material/image-list'       => [
+							'limits' => [
+								'max' => 16,
+								'min' => 0,
+							],
+						],
+					],
 					'extra'         => [
 						'limits' => [
 							'card' => [
