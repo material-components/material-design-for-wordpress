@@ -1,4 +1,4 @@
-/* global jQuery, wp, _wpCustomizeSettings */
+/* global jQuery, _wpCustomizeSettings */
 /* istanbul ignore file */
 
 /**
@@ -22,7 +22,7 @@ const getIconFontName = iconStyle => {
 				.replace( /(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase() ) }`;
 };
 
-( ( $, wp ) => {
+( $ => {
 	// Bail out if this isn't loaded in an iframe.
 	if ( ! window.parent || ! window.parent.wp ) {
 		return;
@@ -40,7 +40,7 @@ const getIconFontName = iconStyle => {
 	$( function() {
 		api.preview.bind( 'active', function() {
 			api.preview.send( 'mtb', {
-				showNotification: _wpCustomizeSettings.values.mtb_notify,
+				notificationCount: _wpCustomizeSettings.values.mtb_notify,
 			} );
 		} );
 	} );
@@ -211,4 +211,4 @@ const getIconFontName = iconStyle => {
 			} );
 		} );
 	} );
-} )( jQuery, wp );
+} )( jQuery );

@@ -161,7 +161,7 @@ class Controls extends Module_Base {
 			 * it's used to display material components notification.
 			 */
 			'notify'         => [
-				'default' => true,
+				'default' => 0,
 			],
 		];
 
@@ -473,6 +473,7 @@ class Controls extends Module_Base {
 					'componentsNotice' => __( 'Customize Material Components and styles throughout your site.<br/><a href="#">View example page</a>', 'material-theme-builder' ),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
+				'notify_nonce'           => wp_create_nonce( 'mtb_notify_nonce' ),
 			]
 		);
 
@@ -866,13 +867,37 @@ class Controls extends Module_Base {
 	 *
 	 * @action customize_sanitize_js_mtb_notify
 	 *
-	 * @param boolean $default Default value.
+	 * @param mixed $value Saved value.
 	 */
-	public function show_material_components_notification( $default ) {
-		if ( is_customize_preview() && is_singular() ) {
-			return ! Blocks_Frontend::has_material_blocks();
+	public function show_material_components_notification( $value ) {
+		if ( is_customize_preview() && is_singular() && Blocks_Frontend::has_material_blocks() ) {
+			return false;
 		}
 
-		return $default;
+		return $value;
+	}
+
+	/**
+	 * Update notification dismiss count.
+	 *
+	 * @action wp_ajax_mtb_notification_dismiss
+	 */
+	public function notification_dismiss() {
+		if ( ! is_user_logged_in() ) {
+			wp_send_json_error( 'unauthenticated' );
+		}
+
+		if ( ! check_ajax_referer( 'mtb_notify_nonce', 'nonce', false ) ) {
+			wp_send_json_error( 'invalid_nonce' );
+		}
+
+		$count = $this->get_theme_mod( 'notify' );
+		$count = empty( $count ) ? 0 : $count;
+		set_theme_mod( $this->prepend_slug( 'notify' ), ++$count );
+		return wp_send_json_success(
+			[
+				'count' => $count,
+			]
+		);
 	}
 }
