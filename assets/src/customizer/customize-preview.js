@@ -159,7 +159,7 @@ const getIconFontName = iconStyle => {
 			fonts.push(
 				parentApi( control )
 					.get()
-					.replace( /\s/g, '+' )
+					.replace( /\s/g, '+' ) + ':300,400,500'
 			);
 		} );
 

@@ -508,7 +508,7 @@ class Controls extends Module_Base {
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
 
-			$font_families[] = str_replace( ' ', '+', $value );
+			$font_families[] = str_replace( ' ', '+', $value ) . ':300,400,500';
 		}
 
 		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
