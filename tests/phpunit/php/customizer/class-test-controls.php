@@ -15,7 +15,7 @@ use function MaterialThemeBuilder\get_plugin_instance;
 /**
  * Tests for Controls class.
  */
-class Test_Controls extends \WP_UnitTestCase {
+class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 	/**
 	 * WP_Customize_Manager object reference.
@@ -640,7 +640,7 @@ class Test_Controls extends \WP_UnitTestCase {
 	public function test_show_material_components_notification() {
 		$controls = get_plugin_instance()->customizer_controls;
 
-		$this->assertTrue( $controls->show_material_components_notification( true ) );
+		$this->assertEquals( 1, $controls->show_material_components_notification( 1 ) );
 
 		global $post, $wp_query, $wp_customize;
 
@@ -655,6 +655,50 @@ class Test_Controls extends \WP_UnitTestCase {
 		$wp_query->queried_object = $post;
 		$wp_query->is_singular    = true;
 
-		$this->assertFalse( $controls->show_material_components_notification( true ) );
+		$this->assertFalse( $controls->show_material_components_notification( 1 ) );
+	}
+
+	/**
+	 * Test for notification_dismiss() method.
+	 *
+	 * @see Controls::notification_dismiss()
+	 */
+	public function test_notification_dismiss() {
+		// Unauthenticated.
+		wp_set_current_user( 0 );
+		$this->make_ajax_call( 'mtb_notification_dismiss' );
+		$this->assertFalse( $this->_last_response_parsed['success'] );
+		$this->assertEquals( 'unauthenticated', $this->_last_response_parsed['data'] );
+
+		// Bad nonce.
+		$_POST['nonce'] = 'bad';
+		wp_set_current_user( 1 );
+		$this->make_ajax_call( 'mtb_notification_dismiss' );
+		$this->assertFalse( $this->_last_response_parsed['success'] );
+		$this->assertEquals( 'invalid_nonce', $this->_last_response_parsed['data'] );
+
+		// Valid.
+		$_POST['nonce'] = wp_create_nonce( 'mtb_notify_nonce' );
+		$this->make_ajax_call( 'mtb_notification_dismiss' );
+		$this->assertTrue( $this->_last_response_parsed['success'] );
+		$this->assertEquals( [ 'count' => 1 ], $this->_last_response_parsed['data'] );
+	}
+
+	/**
+	 * Helper to keep it DRY
+	 *
+	 * @param string $action Action.
+	 */
+	protected function make_ajax_call( $action ) {
+		$this->_last_response_parsed = null;
+		$this->_last_response        = '';
+		try {
+			$this->_handleAjax( $action );
+		} catch ( \WPAjaxDieContinueException $e ) {
+			unset( $e );
+		}
+		if ( $this->_last_response ) {
+			$this->_last_response_parsed = json_decode( $this->_last_response, true );
+		}
 	}
 }

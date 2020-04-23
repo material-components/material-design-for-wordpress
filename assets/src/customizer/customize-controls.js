@@ -35,12 +35,12 @@ import {
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
 
 ( ( $, api ) => {
-	let showComponentsNotification = false;
+	let notificationCount = false;
 
 	// Bind for previwer events.
 	$( function() {
 		api.previewer.bind( 'mtb', settings => {
-			showComponentsNotification = settings.showNotification;
+			notificationCount = settings.notificationCount;
 			showHideNotification();
 		} );
 
@@ -60,7 +60,8 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 		const kitchenSink = $( '#mcb-kitchen-sink-preview' );
 
 		if (
-			showComponentsNotification &&
+			false !== notificationCount &&
+			2 > notificationCount &&
 			! kitchenSink.is( ':visible' ) &&
 			api.panel( mtb.slug ).expanded()
 		) {
@@ -78,6 +79,19 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 							loadKitchenSink();
 
 							api.notifications.remove( code );
+						} );
+
+						// Handle dismissal of notice.
+						li.find( '.notice-dismiss' ).on( 'click', () => {
+							const request = wp.ajax.post( 'mtb_notification_dismiss', {
+								nonce: mtb.notify_nonce,
+							} );
+
+							request.done( response => {
+								if ( response && response.count ) {
+									notificationCount = response.count;
+								}
+							} );
 						} );
 
 						return li;
@@ -135,8 +149,6 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 		) {
 			renderKitchenSink();
 		}
-
-		showHideNotification();
 	};
 
 	const initMaterialComponents = function() {
@@ -755,6 +767,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 		} );
 
 		onSettingChange();
+		showHideNotification();
 	};
 
 	/**
