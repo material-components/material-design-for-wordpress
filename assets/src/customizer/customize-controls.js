@@ -76,6 +76,8 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 						link.on( 'click', event => {
 							event.preventDefault();
 							loadKitchenSink();
+
+							api.notifications.remove( code );
 						} );
 
 						return li;
