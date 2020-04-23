@@ -1,4 +1,4 @@
-/* global jQuery */
+/* global jQuery, wp, _wpCustomizeSettings */
 /* istanbul ignore file */
 
 /**
@@ -22,12 +22,13 @@ const getIconFontName = iconStyle => {
 				.replace( /(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase() ) }`;
 };
 
-( $ => {
+( ( $, wp ) => {
 	// Bail out if this isn't loaded in an iframe.
 	if ( ! window.parent || ! window.parent.wp ) {
 		return;
 	}
 
+	const api = wp.customize;
 	const parentApi = window.parent.wp.customize;
 	const controls = window.parent._wpCustomizeSettings.controls;
 	const colorControls = {};
@@ -35,6 +36,14 @@ const getIconFontName = iconStyle => {
 	const cornerStyleControls = {};
 	const cornerStyleExtra = {};
 	const iconControls = {};
+
+	$( function() {
+		api.preview.bind( 'active', function() {
+			api.preview.send( 'mtb', {
+				showNotification: _wpCustomizeSettings.values.mtb_notify,
+			} );
+		} );
+	} );
 
 	Object.keys( controls ).forEach( control => {
 		const args = controls[ control ];
@@ -202,4 +211,4 @@ const getIconFontName = iconStyle => {
 			} );
 		} );
 	} );
-} )( jQuery );
+} )( jQuery, wp );
