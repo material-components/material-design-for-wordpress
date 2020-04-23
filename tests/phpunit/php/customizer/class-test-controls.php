@@ -428,7 +428,7 @@ class Test_Controls extends \WP_UnitTestCase {
 		);
 
 		// Assert we get updated fonts.
-		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway|Open+Sans' );
+		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway:300,400,500|Open+Sans:300,400,500' );
 	}
 
 	/**
