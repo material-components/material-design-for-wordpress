@@ -54,4 +54,12 @@ describe( 'CardActionButton', () => {
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
+
+	it( 'matches snapshot when the edit mode if enabled and the button is focused', () => {
+		const props = { ...baseProps };
+		props.isEditMode = true;
+		props.isFocused = true;
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
 } );
