@@ -9,6 +9,7 @@ namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Google_Fonts;
+use MaterialThemeBuilder\Blocks\Blocks_Frontend;
 
 /**
  * Class Controls.
@@ -151,9 +152,17 @@ class Controls extends Module_Base {
 			'style'          => [
 				'default' => 'baseline',
 			],
+			// This setting does not have an associated control.
 			'previous_style' => [
 				'default' => 'baseline',
-			], // This setting does not have an associated control.
+			],
+			/**
+			 * This setting does not have an associated control
+			 * it's used to display material components notification.
+			 */
+			'notify'         => [
+				'default' => true,
+			],
 		];
 
 		$this->add_settings( $settings );
@@ -460,7 +469,12 @@ class Controls extends Module_Base {
 				'iconCollectionsControl' => $this->prepend_slug( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
-					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
+					'confirmChange'    => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
+					'componentsNotice' => sprintf(
+						'%s<br/><a href="#">%s</a>',
+						esc_html__( 'Customize Material Components and styles throughout your site.', 'material-theme-builder' ),
+						esc_html__( 'View example page', 'material-theme-builder' )
+					),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
 			]
@@ -520,7 +534,7 @@ class Controls extends Module_Base {
 	/**
 	 * Enqueue Customizer preview scripts.
 	 *
-	 * @action customize_preview_init
+	 * @action customize_preview_init, 100
 	 */
 	public function preview_scripts() {
 		wp_enqueue_script(
@@ -528,7 +542,7 @@ class Controls extends Module_Base {
 			$this->plugin->asset_url( 'assets/js/customize-preview.js' ),
 			[ 'jquery' ],
 			$this->plugin->asset_version(),
-			false
+			true
 		);
 	}
 
@@ -848,5 +862,25 @@ class Controls extends Module_Base {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Maybe show the material components notification if the current previwed
+	 * page does not contain any material blocks.
+	 *
+	 * @action customize_sanitize_js_mtb_notify
+	 *
+	 * @param boolean $default Default value.
+	 */
+	public function show_material_components_notification( $default ) {
+		if ( is_customize_preview() ) {
+			if ( is_archive() ) {
+				return true;
+			} elseif ( is_singular() ) {
+				return ! Blocks_Frontend::has_material_blocks();
+			}
+		}
+
+		return $default;
 	}
 }
