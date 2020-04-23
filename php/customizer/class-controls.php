@@ -99,7 +99,7 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			'style'         => __( 'Design Style', 'material-theme-builder' ),
+			'style'         => __( 'Style', 'material-theme-builder' ),
 			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
 			'typography'    => __( 'Typography', 'material-theme-builder' ),
 			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
@@ -470,11 +470,7 @@ class Controls extends Module_Base {
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
 					'confirmChange'    => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
-					'componentsNotice' => sprintf(
-						'%s<br/><a href="#">%s</a>',
-						esc_html__( 'Customize Material Components and styles throughout your site.', 'material-theme-builder' ),
-						esc_html__( 'View example page', 'material-theme-builder' )
-					),
+					'componentsNotice' => __( 'Customize Material Components and styles throughout your site.<br/><a href="#">View example page</a>', 'material-theme-builder' ),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
 			]
@@ -865,7 +861,7 @@ class Controls extends Module_Base {
 	}
 
 	/**
-	 * Maybe show the material components notification if the current previwed
+	 * Maybe show the material components notification if the current previewed
 	 * page does not contain any material blocks.
 	 *
 	 * @action customize_sanitize_js_mtb_notify
@@ -873,12 +869,8 @@ class Controls extends Module_Base {
 	 * @param boolean $default Default value.
 	 */
 	public function show_material_components_notification( $default ) {
-		if ( is_customize_preview() ) {
-			if ( is_archive() ) {
-				return true;
-			} elseif ( is_singular() ) {
-				return ! Blocks_Frontend::has_material_blocks();
-			}
+		if ( is_customize_preview() && is_singular() ) {
+			return ! Blocks_Frontend::has_material_blocks();
 		}
 
 		return $default;

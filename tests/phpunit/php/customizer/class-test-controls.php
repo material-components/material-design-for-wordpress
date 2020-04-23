@@ -25,12 +25,20 @@ class Test_Controls extends \WP_UnitTestCase {
 	protected $wp_customize;
 
 	/**
+	 * Created PostID.
+	 *
+	 * @var int
+	 */
+	public static $post_id = [];
+
+	/**
 	 * Set up required includes.
 	 *
 	 * @see WP_UnitTestCase::setup()
 	 */
 	public function setUp() {
 		parent::setUp();
+		require_once ABSPATH . WPINC . '/class-wp-customize-manager.php';
 		require_once ABSPATH . WPINC . '/class-wp-customize-control.php';
 		require_once ABSPATH . WPINC . '/class-wp-customize-setting.php';
 		require_once ABSPATH . WPINC . '/class-wp-customize-section.php';
@@ -38,6 +46,38 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->wp_customize = $this->getMockBuilder( 'DummyClass' )
 			->setMethods( [ 'register_control_type', 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
 			->getMock();
+	}
+
+	/**
+	 * Generate some text fixtures.
+	 *
+	 * @param WP_UnitTest_Factory $factory WP Factory object.
+	 *
+	 * @return void
+	 */
+	public static function wpSetUpBeforeClass( $factory ) {
+		self::generate_fixtures( $factory );
+	}
+
+	/**
+	 * Helper method to generate the fixtures
+	 *
+	 * @param WP_UnitTest_Factory $factory WP Factory object.
+	 *
+	 * @return void
+	 */
+	public static function generate_fixtures( $factory ) {
+		self::$post_id = $factory->post->create(
+			[
+				'post_title'   => 'Lorem ipsum dolor sit amet',
+				'post_content' => 'Consectetur adipiscing elit. In dui quam, egestas nec aliquet ac, hendrerit vitae ligula. Morbi malesuada in lectus vel sollicitudin. Proin tellus ligula, tincidunt at sagittis eget, tempor non est. In et suscipit metus. Cras in lectus a ex ullamcorper eleifend. Aenean convallis lacus et porttitor convallis. Proin iaculis a diam et euismod. Proin lectus ex, bibendum vel pretium ut, pellentesque eget nisl.
+
+				<!-- wp:material/image-list {"gutter":{"desktop":24,"tablet":18,"mobile":12},"displayLightbox":true,"align":"wide"} -->
+					<div class="wp-block-material-image-list alignwide" id="block-material-image-list-1"></div>
+				<!-- /wp:material/image-list -->
+				',
+			]
+		);
 	}
 
 	/**
@@ -399,6 +439,10 @@ class Test_Controls extends \WP_UnitTestCase {
 		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-theme-builder-icons-css', 'enqueued' ) );
+
+		// Assert data is added.
+		$localized_data = wp_scripts()->get_data( 'material-theme-builder-customizer-js', 'data' );
+		$this->assertNotEmpty( $localized_data );
 	}
 
 	/**
@@ -586,5 +630,31 @@ class Test_Controls extends \WP_UnitTestCase {
 
 		$this->assertEquals( $controls->prepend_slug( 'style' ), "{$controls->slug}_style" );
 		$this->assertEquals( $controls->prepend_slug( "{$controls->slug}_style" ), "{$controls->slug}_style" );
+	}
+
+	/**
+	 * Test for show_material_components_notification() method.
+	 *
+	 * @see Controls::show_material_components_notification()
+	 */
+	public function test_show_material_components_notification() {
+		$controls = get_plugin_instance()->customizer_controls;
+
+		$this->assertTrue( $controls->show_material_components_notification( true ) );
+
+		global $post, $wp_query, $wp_customize;
+
+		// Using reflection set $wp_customize->previewing to true.
+		$wp_customize = new \WP_Customize_Manager();
+		$reflection   = new \ReflectionProperty( get_class( $wp_customize ), 'previewing' );
+		$reflection->setAccessible( true );
+		$reflection->setValue( $wp_customize, true );
+
+		// Setup the post as a single post.
+		$post                     = get_post( self::$post_id );
+		$wp_query->queried_object = $post;
+		$wp_query->is_singular    = true;
+
+		$this->assertFalse( $controls->show_material_components_notification( true ) );
 	}
 }
