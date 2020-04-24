@@ -263,7 +263,12 @@
 	}
 
 	.image-list-item {
-		width: calc(100% / 5 - 5px);
+		width: calc(100% / 5 - 10.2px);
 		margin: 5px;
+	}
+
+	.mdc-image-list__image {
+		display: block;
+		height: auto;
 	}
 }

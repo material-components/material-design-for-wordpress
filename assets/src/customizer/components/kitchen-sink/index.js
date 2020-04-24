@@ -77,7 +77,7 @@ const KitchenSink = ( {
 			/>
 
 			<div id="kitchen-sink-preview">
-				<H1>{ __( 'Kitchen Sink', 'material-theme-builder' ) }</H1>
+				<H1>{ __( 'Material Components', 'material-theme-builder' ) }</H1>
 				<section>
 					<H2>{ __( 'Blocks', 'material-theme-builder' ) }</H2>
 					<hr />
