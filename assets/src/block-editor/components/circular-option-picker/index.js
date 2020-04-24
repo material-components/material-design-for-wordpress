@@ -22,6 +22,7 @@ export const Option = ( {
 	className,
 	isSelected,
 	tooltipText,
+	position,
 	...additionalProps
 } ) => {
 	const optionButton = (
@@ -37,7 +38,9 @@ export const Option = ( {
 	return (
 		<div className="components-circular-option-picker__option-wrapper">
 			{ tooltipText ? (
-				<Tooltip text={ tooltipText }>{ optionButton }</Tooltip>
+				<Tooltip text={ tooltipText } position={ position }>
+					{ optionButton }
+				</Tooltip>
 			) : (
 				optionButton
 			) }
