@@ -161,6 +161,24 @@ class Test_Blocks_Frontend extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test has_material_blocks().
+	 *
+	 * @see Blocks_Frontend::has_material_blocks()
+	 */
+	public function test_has_material_blocks() {
+		global $post, $wp_query;
+
+		$this->assertFalse( Blocks_Frontend::has_material_blocks() );
+
+		// Setup the post as a single post.
+		$post                     = get_post( self::$post_id );
+		$wp_query->queried_object = $post;
+		$wp_query->is_singular    = true;
+
+		$this->assertTrue( Blocks_Frontend::has_material_blocks() );
+	}
+
+	/**
 	 * Strip tabs and newlines.
 	 *
 	 * @param  string $styles Inline CSS.
