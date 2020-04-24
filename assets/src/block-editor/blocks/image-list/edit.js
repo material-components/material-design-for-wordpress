@@ -24,6 +24,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import { withId } from '../../components/with-id';
+import { withGlobalDefaults } from '../../components/with-global-defaults';
 import BlockIcon from './components/block-icon';
 import {
 	GridIcon,
@@ -358,4 +359,6 @@ const ImageListEdit = ( {
 	);
 };
 
-export default compose( [ withId, withNotices ] )( ImageListEdit );
+export default compose( [ withId, withGlobalDefaults, withNotices ] )(
+	ImageListEdit
+);

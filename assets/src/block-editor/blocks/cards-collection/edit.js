@@ -6,6 +6,7 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
+import { compose } from '@wordpress/compose';
 import {
 	useEffect,
 	useLayoutEffect,
@@ -17,6 +18,7 @@ import {
  * Internal dependencies
  */
 import { withId } from '../../components/with-id';
+import { withGlobalDefaults } from '../../components/with-global-defaults';
 import CardsCollectionInspectorControls from './components/cards-collection-inspector-controls';
 import './editor.css';
 import { CARD_ATTRIBUTES_VALUE } from './constants';
@@ -340,4 +342,4 @@ const Edit = props => {
 	);
 };
 
-export default withId( Edit );
+export default compose( [ withId, withGlobalDefaults ] )( Edit );
