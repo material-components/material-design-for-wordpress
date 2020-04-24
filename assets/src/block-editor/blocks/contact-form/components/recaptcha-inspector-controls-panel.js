@@ -1,4 +1,5 @@
 /* global mtb, fetch, FormData */
+/* istanbul ignore file */
 
 /**
  * WordPress dependencies
@@ -175,6 +176,7 @@ const RecaptchaInspectorControlsPanel = () => {
 			<br />
 			<Button
 				style={ { marginRight: 20 } }
+				className="save-button"
 				isPrimary
 				onClick={ () => manageCredentials( 'save' ) }
 				disabled={ isDisabled }
@@ -183,6 +185,7 @@ const RecaptchaInspectorControlsPanel = () => {
 			</Button>
 			<Button
 				isPrimary
+				className="clear-button"
 				onClick={ () => manageCredentials( 'clear' ) }
 				disabled={ isDisabled }
 			>
