@@ -70,12 +70,15 @@ const TextAreaInputEdit = props => {
 
 	const { parentOutlined, parentFullWidth } = useContext( ContactFormContext );
 
-	useEffect( () => {
-		setAttributes( {
-			outlined: parentOutlined,
-			fullWidth: parentFullWidth,
-		} );
-	}, [ parentOutlined, parentFullWidth, setAttributes ] );
+	useEffect(
+		() => {
+			setAttributes( {
+				outlined: parentOutlined,
+				fullWidth: parentFullWidth,
+			} );
+		}, // eslint-disable-next-line react-hooks/exhaustive-deps
+		[ parentOutlined, parentFullWidth ]
+	);
 
 	useLayoutEffect( () => {
 		const textFields = document.querySelectorAll( '.mdc-text-field' );
