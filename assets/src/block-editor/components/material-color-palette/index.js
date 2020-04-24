@@ -10,6 +10,8 @@ import {
 	BaseControl,
 	ColorIndicator,
 	ColorPicker,
+	Popover,
+	SlotFillProvider,
 } from '@wordpress/components';
 import CircularOptionPicker, {
 	ButtonAction,
@@ -48,6 +50,7 @@ const ColorPickerOption = ( { color, value, name, clearColor, onChange } ) => {
 					: // translators: %s: color hex code e.g: "#f00".
 					  sprintf( __( 'Color code: %s' ), color )
 			}
+			position={ 'top center' }
 		/>
 	);
 };
@@ -127,9 +130,12 @@ export default function MaterialColorPalette( {
 
 	if ( materialColorsOnly ) {
 		return (
-			<div className="components-material-color-palette__picker">
-				<MaterialColorOptions />
-			</div>
+			<SlotFillProvider>
+				<div className="components-material-color-palette__picker">
+					<MaterialColorOptions />
+					<Popover.Slot />
+				</div>
+			</SlotFillProvider>
 		);
 	}
 
