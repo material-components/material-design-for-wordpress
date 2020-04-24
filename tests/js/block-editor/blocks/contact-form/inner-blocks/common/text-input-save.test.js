@@ -44,7 +44,7 @@ describe( 'TextInputSave', () => {
 	it( 'matches snapshot when the display label attribute is empty', () => {
 		const props = cloneDeep( baseProps );
 
-		props.attributes.displayLabel = false;
+		props.attributes.displayLabel = '';
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
@@ -52,7 +52,7 @@ describe( 'TextInputSave', () => {
 	it( 'matches snapshot when the `is required` attribute is false', () => {
 		const props = cloneDeep( baseProps );
 
-		props.attributes.isRequired = '';
+		props.attributes.isRequired = false;
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
