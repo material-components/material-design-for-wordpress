@@ -86,7 +86,7 @@ class Test_Contact_Form_Block extends \WP_UnitTestCase {
 		$this->assertEquals( 10, has_action( 'init', [ $block, 'register_block' ] ) );
 		$this->assertEquals( 10, has_action( 'wp_ajax_mtb_submit_contact_form', [ $block, 'priv_submit_contact_form' ] ) );
 		$this->assertEquals( 10, has_action( 'wp_ajax_nopriv_mtb_submit_contact_form', [ $block, 'nopriv_submit_contact_form' ] ) );
-		$this->assertEquals( 10, has_action( 'wp_ajax_manage_recaptcha_api_credentials', [ $block, 'manage_recaptcha_api_credentials' ] ) );
+		$this->assertEquals( 10, has_action( 'wp_ajax_mtb_manage_recaptcha_api_credentials', [ $block, 'manage_recaptcha_api_credentials' ] ) );
 	}
 
 	/**
