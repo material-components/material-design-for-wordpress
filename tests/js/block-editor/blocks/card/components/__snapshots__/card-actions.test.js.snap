@@ -313,9 +313,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <div
                 aria-label="Button text"
                 aria-multiline="true"
@@ -345,9 +342,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <div
               aria-label="Button text"
               aria-multiline="true"
@@ -450,9 +444,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <div
                 aria-label="Button text"
                 aria-multiline="true"
@@ -471,9 +462,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <div
                 aria-label="Button text"
                 aria-multiline="true"
@@ -503,9 +491,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <div
               aria-label="Button text"
               aria-multiline="true"
@@ -524,9 +509,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <div
               aria-label="Button text"
               aria-multiline="true"

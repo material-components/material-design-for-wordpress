@@ -52,7 +52,6 @@ const CardActionButton = ( {
 		<>
 			{ isEditMode ? (
 				<button className="mdc-button mdc-card__action mdc-card__action--button">
-					<span className="mdc-button__ripple"></span>
 					<RichText
 						tagName="div"
 						value={ label }

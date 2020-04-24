@@ -116,9 +116,6 @@ Object {
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
-                        <span
-                          class="mdc-button__ripple"
-                        />
                         <div
                           aria-label="Button text"
                           aria-multiline="true"
@@ -225,9 +222,6 @@ Object {
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
-                        <span
-                          class="mdc-button__ripple"
-                        />
                         <div
                           aria-label="Button text"
                           aria-multiline="true"
@@ -334,9 +328,6 @@ Object {
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
-                        <span
-                          class="mdc-button__ripple"
-                        />
                         <div
                           aria-label="Button text"
                           aria-multiline="true"
@@ -454,9 +445,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <div
                         aria-label="Button text"
                         aria-multiline="true"
@@ -563,9 +551,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <div
                         aria-label="Button text"
                         aria-multiline="true"
@@ -672,9 +657,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <div
                         aria-label="Button text"
                         aria-multiline="true"
@@ -863,9 +845,6 @@ Object {
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
-                        <span
-                          class="mdc-button__ripple"
-                        />
                         <div
                           aria-label="Button text"
                           aria-multiline="true"
@@ -966,9 +945,6 @@ Object {
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
-                        <span
-                          class="mdc-button__ripple"
-                        />
                         <div
                           aria-label="Button text"
                           aria-multiline="true"
@@ -1069,9 +1045,6 @@ Object {
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
-                        <span
-                          class="mdc-button__ripple"
-                        />
                         <div
                           aria-label="Button text"
                           aria-multiline="true"
@@ -1187,9 +1160,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <div
                         aria-label="Button text"
                         aria-multiline="true"
@@ -1290,9 +1260,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <div
                         aria-label="Button text"
                         aria-multiline="true"
@@ -1393,9 +1360,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <div
                         aria-label="Button text"
                         aria-multiline="true"
@@ -1574,9 +1538,6 @@ Object {
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
-                        <span
-                          class="mdc-button__ripple"
-                        />
                         <div
                           aria-label="Button text"
                           aria-multiline="true"
@@ -1667,9 +1628,6 @@ Object {
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
-                        <span
-                          class="mdc-button__ripple"
-                        />
                         <div
                           aria-label="Button text"
                           aria-multiline="true"
@@ -1760,9 +1718,6 @@ Object {
                       <button
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
-                        <span
-                          class="mdc-button__ripple"
-                        />
                         <div
                           aria-label="Button text"
                           aria-multiline="true"
@@ -1868,9 +1823,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <div
                         aria-label="Button text"
                         aria-multiline="true"
@@ -1961,9 +1913,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <div
                         aria-label="Button text"
                         aria-multiline="true"
@@ -2054,9 +2003,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <div
                         aria-label="Button text"
                         aria-multiline="true"
@@ -4223,9 +4169,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               <button
                                 className="mdc-button mdc-card__action mdc-card__action--button"
                               >
-                                <span
-                                  className="mdc-button__ripple"
-                                />
                                 <ForwardRef(RichTextWrapper)
                                   onChange={[Function]}
                                   placeholder="Button text"
@@ -6493,9 +6436,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               <button
                                 className="mdc-button mdc-card__action mdc-card__action--button"
                               >
-                                <span
-                                  className="mdc-button__ripple"
-                                />
                                 <ForwardRef(RichTextWrapper)
                                   onChange={[Function]}
                                   placeholder="Button text"
