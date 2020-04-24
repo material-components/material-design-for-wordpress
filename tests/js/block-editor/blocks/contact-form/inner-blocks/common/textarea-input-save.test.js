@@ -35,10 +35,6 @@ const baseProps = {
 };
 
 describe( 'TextareaInputSave', () => {
-	afterEach( () => {
-		jest.clearAllMocks();
-	} );
-
 	it( 'matches snapshot', () => {
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();
