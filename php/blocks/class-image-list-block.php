@@ -109,8 +109,7 @@ class Image_List_Block extends Module_Base {
 						],
 					],
 					'cornerRadius'    => [
-						'type'    => 'number',
-						'default' => 4,
+						'type' => 'number',
 					],
 					'displayLightbox' => [
 						'type'    => 'boolean',
@@ -195,6 +194,8 @@ class Image_List_Block extends Module_Base {
 			$item_styles[] = sprintf( 'margin: %spx;', absint( $attributes['gutter'][ $device ] ) / 2 );
 			$item_styles[] = "}\n";
 		}
+
+		$attributes['cornerRadius'] = isset( $attributes['cornerRadius'] ) ? $attributes['cornerRadius'] : 0;
 
 		$image_styles = [
 			sprintf( '#%s .mdc-image-list__image {', $id ),

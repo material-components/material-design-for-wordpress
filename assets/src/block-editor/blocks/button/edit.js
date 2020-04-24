@@ -25,6 +25,7 @@ import {
  */
 import './style.css';
 import hasBg from './utils/has-bg';
+import { withGlobalDefaults } from '../../components/with-global-defaults';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
@@ -266,4 +267,4 @@ const ButtonEdit = ( {
 	);
 };
 
-export default ButtonEdit;
+export default withGlobalDefaults( ButtonEdit );
