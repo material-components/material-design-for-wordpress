@@ -220,7 +220,11 @@ class Contact_Form_Block extends Module_Base {
 	 * Submit contact form.
 	 */
 	private function submit_contact_form() {
-		check_ajax_referer( 'contact_form_action', 'mtb_contact_form_nonce' );
+		if ( ! check_ajax_referer( 'contact_form_action', 'mtb_contact_form_nonce', false ) ) {
+			wp_send_json_error(
+				[ 'message' => __( 'Invalid nonce.', 'material-theme-builder' ) ]
+			);
+		};
 
 		$wp_http_referer = isset( $_POST['_wp_http_referer'] )
 			? sanitize_text_field( $_POST['_wp_http_referer'] )
