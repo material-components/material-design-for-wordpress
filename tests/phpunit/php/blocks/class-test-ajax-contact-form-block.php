@@ -294,7 +294,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test nopriv_submit_contact_form for a successful submission.
+	 * Test nopriv_submit_contact_form for a non logged in user and for a successful submission.
 	 *
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
