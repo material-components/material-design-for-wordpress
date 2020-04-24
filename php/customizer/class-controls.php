@@ -756,7 +756,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'small_component_radius',
 				'label'         => __( 'Small Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description.
+				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of small components: buttons, chips, text fields.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 28,
 				'initial_value' => 4,
@@ -773,7 +773,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'medium_component_radius',
 				'label'         => __( 'Medium Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description.
+				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of medium components: cards, image list items.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 4,
@@ -790,7 +790,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'large_component_radius',
 				'label'         => __( 'Large Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description.
+				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of large components: Data table, nav drawer.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 0,
