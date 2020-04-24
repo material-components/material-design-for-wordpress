@@ -317,6 +317,7 @@ Object {
             <div
               class="mdc-notched-outline__leading"
             />
+            
             <div
               class="mdc-notched-outline__trailing"
             />
@@ -350,6 +351,7 @@ Object {
           <div
             class="mdc-notched-outline__leading"
           />
+          
           <div
             class="mdc-notched-outline__trailing"
           />
