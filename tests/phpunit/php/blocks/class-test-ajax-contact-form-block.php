@@ -106,7 +106,6 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$this->contact_form_block->init();
 		update_option( 'mtb_recaptcha_client_secret', 'test-client-secret' );
 		add_filter( 'pre_http_request', [ $this, 'disable_google_recaptcha_remote_check' ] );
-		remove_all_actions( 'admin_init' );
 		$this->reset_mailer();
 	}
 
