@@ -281,13 +281,13 @@ class Contact_Form_Block extends Module_Base {
 	 *
 	 * @access public
 	 *
-	 * @action wp_ajax_manage_recaptcha_api_credentials
+	 * @action wp_ajax_mtb_manage_recaptcha_api_credentials
 	 */
 	public function manage_recaptcha_api_credentials() {
 		// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		if ( ! wp_verify_nonce( isset( $_POST['nonce'] ) ? $_POST['nonce'] : '', 'mtb_recaptcha_ajax_nonce' ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'You are not authorized.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Invalid nonce.', 'material-theme-builder' ) ]
 			);
 		}
 
@@ -315,11 +315,11 @@ class Contact_Form_Block extends Module_Base {
 		} elseif ( 'clear' === $action ) {
 			$mtb_recaptcha_site_key_result      = true;
 			$mtb_recaptcha_client_secret_result = true;
-			if ( get_option( 'mtb_recaptcha_site_key', '' ) ) {
+			if ( get_option( 'mtb_recaptcha_site_key', false ) ) {
 				$mtb_recaptcha_site_key_result = delete_option( 'mtb_recaptcha_site_key' );
 			}
 
-			if ( get_option( 'mtb_recaptcha_client_secret', '' ) ) {
+			if ( get_option( 'mtb_recaptcha_client_secret', false ) ) {
 				$mtb_recaptcha_client_secret_result = delete_option( 'mtb_recaptcha_client_secret' );
 			}
 		}
