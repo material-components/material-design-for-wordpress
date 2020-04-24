@@ -20,13 +20,13 @@
 
 	& .components-circular-option-picker__option {
 		height: 0;
-		padding-bottom: 100%;
+		padding: 0 0 100%;
 
 		&:focus {
 
 			&::after {
-				top: 15%;
-				left: 15%;
+				top: 16%;
+				left: 16%;
 				width: 70%;
 				height: 70%;
 				border: none;
@@ -35,8 +35,8 @@
 		}
 
 		&.is-pressed + .dashicons-saved {
-			top: 15%;
-			left: 15%;
+			top: 16%;
+			left: 16%;
 			width: 70%;
 			height: 70%;
 			z-index: 1;
