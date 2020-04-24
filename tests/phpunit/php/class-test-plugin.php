@@ -185,6 +185,58 @@ class Test_Plugin extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test for get_block_defaults() method.
+	 *
+	 * @see Plugin::get_block_defaults()
+	 */
+	public function test_get_block_defaults() {
+		$plugin   = get_plugin_instance();
+		$controls = get_plugin_instance()->customizer_controls;
+		$defaults = $plugin->get_block_defaults();
+
+		$this->assertEquals(
+			[
+				'cornerRadius' => 4,
+			],
+			$defaults['material/button']
+		);
+
+		// Add filter to return 12, 48 and -1 sequantially as the cornerRadius for button.
+		add_filter(
+			"theme_mod_{$controls->slug}_small_component_radius",
+			function () {
+				static $index = 0;
+				$values       = [ 12, 48, -1 ];
+				return $values[ $index++ ];
+			}
+		);
+
+		$defaults = $plugin->get_block_defaults();
+		$this->assertEquals(
+			[
+				'cornerRadius' => 12,
+			],
+			$defaults['material/button']
+		);
+
+		$defaults = $plugin->get_block_defaults();
+		$this->assertEquals(
+			[
+				'cornerRadius' => 36,
+			],
+			$defaults['material/button']
+		);
+
+		$defaults = $plugin->get_block_defaults();
+		$this->assertEquals(
+			[
+				'cornerRadius' => 0,
+			],
+			$defaults['material/button']
+		);
+	}
+
+	/**
 	 * Filter to test 'material_theme_builder_plugin_config'.
 	 *
 	 * @param array       $config Plugin config.

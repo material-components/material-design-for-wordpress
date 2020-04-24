@@ -74,7 +74,6 @@ export const settings = {
 		},
 		cornerRadius: {
 			type: 'number',
-			default: 4,
 		},
 		lightbox: {
 			type: 'boolean',

@@ -151,6 +151,8 @@ class Plugin extends Plugin_Base {
 			$this->asset_version()
 		);
 
+		wp_localize_script( 'material-block-editor-js', 'mtbBlockDefaults', $this->get_block_defaults() );
+
 		wp_add_inline_style( 'material-block-editor-css', $this->customizer_controls->get_frontend_css() );
 	}
 
@@ -251,5 +253,36 @@ class Plugin extends Plugin_Base {
 		];
 
 		return $categories;
+	}
+
+	/**
+	 * Get the block default attributes set in customizer.
+	 *
+	 * @return array
+	 */
+	public function get_block_defaults() {
+		$defaults = [];
+		$controls = $this->customizer_controls;
+
+		// Set corner radius defaults for blocks.
+		foreach ( $controls->get_corner_styles_controls() as $control ) {
+			$value = $controls->get_theme_mod( $control['id'] );
+			if ( ! empty( $value ) && ! empty( $control['blocks'] ) && is_array( $control['blocks'] ) ) {
+				foreach ( $control['blocks'] as $block => $settings ) {
+					$defaults[ $block ] = array_key_exists( $block, $defaults ) ? $defaults[ $block ] : [];
+
+					// If the value exceeds min or max, limit it.
+					if ( ! empty( $settings['limits'] ) && isset( $settings['limits']['min'] ) && $value < $settings['limits']['min'] ) {
+						$value = $settings['limits']['min'];
+					} elseif ( ! empty( $settings['limits'] ) && isset( $settings['limits']['max'] ) && $value > $settings['limits']['max'] ) {
+						$value = $settings['limits']['max'];
+					}
+
+					$defaults[ $block ]['cornerRadius'] = absint( $value );
+				}
+			}
+		}
+
+		return $defaults;
 	}
 }
