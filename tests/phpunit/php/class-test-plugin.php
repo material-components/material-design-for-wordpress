@@ -207,6 +207,4 @@ class Test_Plugin extends \WP_UnitTestCase {
 	public function stylesheet() {
 		return 'material-theme';
 	}
-
-	/* Put other test functions here... */
 }

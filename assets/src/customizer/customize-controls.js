@@ -12,7 +12,7 @@
  * External dependencies
  */
 import 'select-woo';
-import { camelCase, debounce } from 'lodash';
+import { camelCase } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -35,6 +35,74 @@ import {
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
 
 ( ( $, api ) => {
+	let notificationCount = false;
+
+	// Bind for previwer events.
+	$( function() {
+		api.previewer.bind( 'mtb', settings => {
+			notificationCount = settings.notificationCount;
+			showHideNotification();
+		} );
+
+		api.panel( mtb.slug ).expanded.bind( expanded => {
+			if ( ! expanded ) {
+				const code = 'mtb_components';
+				api.notifications.remove( code );
+			}
+		} );
+	} );
+
+	/**
+	 * Show or hide the material components notification.
+	 */
+	const showHideNotification = () => {
+		const code = 'mtb_components';
+		const kitchenSink = $( '#mcb-kitchen-sink-preview' );
+
+		if (
+			false !== notificationCount &&
+			2 > notificationCount &&
+			! kitchenSink.is( ':visible' ) &&
+			api.panel( mtb.slug ).expanded()
+		) {
+			api.notifications.add(
+				new api.Notification( code, {
+					message: mtb.l10n.componentsNotice,
+					type: 'warning',
+					dismissible: true,
+					render() {
+						const li = api.Notification.prototype.render.call( this ),
+							link = li.find( 'a' );
+
+						link.on( 'click', event => {
+							event.preventDefault();
+							loadKitchenSink();
+
+							api.notifications.remove( code );
+						} );
+
+						// Handle dismissal of notice.
+						li.find( '.notice-dismiss' ).on( 'click', () => {
+							const request = wp.ajax.post( 'mtb_notification_dismiss', {
+								nonce: mtb.notify_nonce,
+							} );
+
+							request.done( response => {
+								if ( response && response.count ) {
+									notificationCount = response.count;
+								}
+							} );
+						} );
+
+						return li;
+					},
+				} )
+			);
+		} else {
+			api.notifications.remove( code );
+		}
+	};
+
 	/**
 	 * Renders the kitchen sink with all the settings.
 	 */
@@ -72,34 +140,15 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 		return controlProps;
 	};
 
-	/**
-	 * Registers a listener for each setting and re-renders when they change.
-	 */
-	const listenForSettingChanges = () => {
-		if ( ! mtb.controls || ! Array.isArray( mtb.controls ) ) {
-			return;
+	const onSettingChange = () => {
+		const kitchenSink = $( '#mcb-kitchen-sink-preview' );
+
+		if (
+			kitchenSink.get( 0 ) &&
+			unmountComponentAtNode( kitchenSink.get( 0 ) )
+		) {
+			renderKitchenSink();
 		}
-
-		mtb.controls.forEach( name => {
-			const control = api.control( name );
-
-			if ( ! control.setting ) {
-				return;
-			}
-
-			control.setting.bind(
-				debounce( function() {
-					const kitchenSink = $( '#mcb-kitchen-sink-preview' );
-
-					if (
-						kitchenSink.get( 0 ) &&
-						unmountComponentAtNode( kitchenSink.get( 0 ) )
-					) {
-						renderKitchenSink();
-					}
-				}, 500 )
-			);
-		} );
 	};
 
 	const initMaterialComponents = function() {
@@ -171,8 +220,6 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	 * Show/hide kitchen sink button near the "Publish" button.
 	 */
 	$( '#customize-save-button-wrapper' ).ready( function() {
-		listenForSettingChanges();
-
 		$( '#customize-save-button-wrapper' ).prepend(
 			$( '<button></button>' )
 				.attr( { type: 'button' } )
@@ -195,7 +242,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	 * Handle the kitchen sink swap right here.
 	 */
 	let mdcLoaded = false;
-	$( document ).on( 'click', '.toggle-kitchen-sink', function() {
+	const loadKitchenSink = () => {
 		// Load MDC assets
 		if ( ! mdcLoaded ) {
 			$( 'head' ).append( `
@@ -212,7 +259,9 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 		toggleKitchenSink();
 
 		mdcLoaded = true;
-	} );
+	};
+
+	$( document ).on( 'click', '.toggle-kitchen-sink', loadKitchenSink );
 
 	/**
 	 * Collapse a DOM node by animating it's height to 0.
@@ -716,6 +765,9 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 				control.setting.bind( onCustomValueChange );
 			}
 		} );
+
+		onSettingChange();
+		showHideNotification();
 	};
 
 	/**
@@ -729,6 +781,8 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 			api( mtb.prevStyleControl ).set( styleSetting.get() );
 			styleSetting.set( 'custom' );
 		}
+
+		onSettingChange();
 	};
 
 	api.RangeSliderControl = api.Control.extend( {

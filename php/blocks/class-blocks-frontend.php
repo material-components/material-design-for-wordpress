@@ -146,4 +146,27 @@ class Blocks_Frontend extends Module_Base {
 
 		return $styles;
 	}
+
+	/**
+	 * Determine if the current post/page has any material blocks.
+	 *
+	 * @return boolean
+	 */
+	public static function has_material_blocks() {
+		if ( is_singular() && function_exists( 'has_blocks' ) && has_blocks( get_the_ID() ) ) {
+			global $post;
+			$blocks = parse_blocks( $post->post_content );
+			$styles = '';
+
+			if ( ! empty( $blocks ) && is_array( $blocks ) ) {
+				foreach ( $blocks as $block ) {
+					if ( false !== strpos( $block['blockName'], 'material/' ) ) {
+						return true;
+					}
+				}
+			}
+		}
+
+		return false;
+	}
 }
