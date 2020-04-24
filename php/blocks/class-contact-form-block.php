@@ -164,14 +164,21 @@ class Contact_Form_Block extends Module_Base {
 			$blocks = parse_blocks( $post->post_content );
 		}
 
-		return current(
-			array_filter(
-				$blocks,
-				function ( $block ) {
-					return $block['blockName'] === $this->block_name;
-				}
-			)
-		);
+		return current( $this->get_block_by_name( $blocks, $this->block_name ) );
+	}
+
+	/**
+	 * Get block by name.
+	 *
+	 * @param array  $blocks     Blocks.
+	 * @param string $block_name Block name.
+	 *
+	 * @return array
+	 */
+	private function get_block_by_name( $blocks, $block_name ) {
+		return array_filter( $blocks, function ( $block ) use ( $block_name ) {
+			return $block['blockName'] === $block_name;
+		} );
 	}
 
 	/**
