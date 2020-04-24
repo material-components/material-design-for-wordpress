@@ -71,7 +71,7 @@ describe( 'Kitchen Sink', () => {
 		expect( allRadios.length ).toBeGreaterThanOrEqual( 1 );
 		expect( allTextFields.length ).toBeGreaterThanOrEqual( 1 );
 		expect( allSwitches.length ).toBeGreaterThanOrEqual( 1 );
-		expect( screen.getByText( 'Kitchen Sink' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Material Components' ) ).toBeInTheDocument();
 	} );
 
 	it( 'should apply props as styles', () => {

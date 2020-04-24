@@ -9,6 +9,7 @@ namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Google_Fonts;
+use MaterialThemeBuilder\Blocks\Blocks_Frontend;
 
 /**
  * Class Controls.
@@ -86,7 +87,7 @@ class Controls extends Module_Base {
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
 				'title'       => esc_html__( 'Material Theme Editor', 'material-theme-builder' ),
-				'description' => esc_html__( 'Material Theme Description goes here.', 'material-theme-builder' ),
+				'description' => esc_html__( 'Change the color, shape, typography, and icons below to customize your theme style. Navigate to the Material Library to see your custom styles applied across Material Components..', 'material-theme-builder' ),
 			]
 		);
 	}
@@ -98,7 +99,7 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			'style'         => __( 'Design Style', 'material-theme-builder' ),
+			'style'         => __( 'Style', 'material-theme-builder' ),
 			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
 			'typography'    => __( 'Typography', 'material-theme-builder' ),
 			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
@@ -151,9 +152,17 @@ class Controls extends Module_Base {
 			'style'          => [
 				'default' => 'baseline',
 			],
+			// This setting does not have an associated control.
 			'previous_style' => [
 				'default' => 'baseline',
-			], // This setting does not have an associated control.
+			],
+			/**
+			 * This setting does not have an associated control
+			 * it's used to display material components notification.
+			 */
+			'notify'         => [
+				'default' => 0,
+			],
 		];
 
 		$this->add_settings( $settings );
@@ -460,9 +469,11 @@ class Controls extends Module_Base {
 				'iconCollectionsControl' => $this->prepend_slug( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
-					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
+					'confirmChange'    => esc_html__( 'You will lose any custom theme changes. Would you like to continue ?', 'material-theme-builder' ),
+					'componentsNotice' => __( 'Customize Material Components and styles throughout your site.<br/><a href="#">View example page</a>', 'material-theme-builder' ),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
+				'notify_nonce'           => wp_create_nonce( 'mtb_notify_nonce' ),
 			]
 		);
 
@@ -498,7 +509,7 @@ class Controls extends Module_Base {
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
 
-			$font_families[] = str_replace( ' ', '+', $value );
+			$font_families[] = str_replace( ' ', '+', $value ) . ':300,400,500';
 		}
 
 		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
@@ -520,7 +531,7 @@ class Controls extends Module_Base {
 	/**
 	 * Enqueue Customizer preview scripts.
 	 *
-	 * @action customize_preview_init
+	 * @action customize_preview_init, 100
 	 */
 	public function preview_scripts() {
 		wp_enqueue_script(
@@ -528,7 +539,7 @@ class Controls extends Module_Base {
 			$this->plugin->asset_url( 'assets/js/customize-preview.js' ),
 			[ 'jquery' ],
 			$this->plugin->asset_version(),
-			false
+			true
 		);
 	}
 
@@ -745,7 +756,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'small_component_radius',
 				'label'         => __( 'Small Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description.
+				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of small components: buttons, chips, text fields.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 28,
 				'initial_value' => 4,
@@ -770,7 +781,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'medium_component_radius',
 				'label'         => __( 'Medium Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description.
+				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of medium components: cards, image list items.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 4,
@@ -807,7 +818,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'large_component_radius',
 				'label'         => __( 'Large Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description.
+				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of large components: Data table, nav drawer.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 0,
@@ -876,5 +887,43 @@ class Controls extends Module_Base {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Maybe show the material components notification if the current previewed
+	 * page does not contain any material blocks.
+	 *
+	 * @action customize_sanitize_js_mtb_notify
+	 *
+	 * @param mixed $value Saved value.
+	 *
+	 * @return mixed
+	 */
+	public function show_material_components_notification( $value ) {
+		if ( is_customize_preview() && is_singular() && Blocks_Frontend::has_material_blocks() ) {
+			return false;
+		}
+
+		return $value;
+	}
+
+	/**
+	 * Update notification dismiss count.
+	 *
+	 * @action wp_ajax_mtb_notification_dismiss
+	 */
+	public function notification_dismiss() {
+		if ( ! check_ajax_referer( 'mtb_notify_nonce', 'nonce', false ) ) {
+			wp_send_json_error( 'invalid_nonce' );
+		}
+
+		$count = $this->get_theme_mod( 'notify' );
+		$count = empty( $count ) ? 0 : $count;
+		set_theme_mod( $this->prepend_slug( 'notify' ), ++$count );
+		wp_send_json_success(
+			[
+				'count' => $count,
+			]
+		);
 	}
 }
