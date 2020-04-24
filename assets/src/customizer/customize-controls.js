@@ -225,7 +225,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 				.attr( { type: 'button' } )
 				.css( 'display', 'none' )
 				.addClass( 'button toggle-kitchen-sink' )
-				.text( __( 'Kitchen Sink', 'material-theme-builder' ) )
+				.text( __( 'Material Library', 'material-theme-builder' ) )
 		);
 
 		api.panel( mtb.slug ).expanded.bind( function( expanded ) {
