@@ -176,9 +176,12 @@ class Contact_Form_Block extends Module_Base {
 	 * @return array
 	 */
 	private function get_block_by_name( $blocks, $block_name ) {
-		return array_filter( $blocks, function ( $block ) use ( $block_name ) {
-			return $block['blockName'] === $block_name;
-		} );
+		return array_filter(
+			$blocks,
+			function ( $block ) use ( $block_name ) {
+				return $block['blockName'] === $block_name;
+			}
+		);
 	}
 
 	/**
