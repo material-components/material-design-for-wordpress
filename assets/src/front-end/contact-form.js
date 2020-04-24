@@ -1,4 +1,5 @@
 /* global grecaptcha, mtb, fetch, FormData */
+/* istanbul ignore file */
 
 /**
  * External dependencies
