@@ -297,4 +297,25 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$this->assertRegExp( '#Website\: http\://www\.example\.com#', $body );
 		$this->assertRegExp( '/Message\: Test message/', $body );
 	}
+
+	/**
+	 * Test nopriv_submit_contact_form.
+	 *
+	 * @see Contact_Form_Block::submit_contact_form()
+	 */
+	public function test_submit_contact_form_when_not_logged_in() {
+		$this->setup_ajax( false );
+		$response = $this->run_submit_contact_form_ajax( false );
+
+		$this->assertTrue( $response['success'] );
+		$mailer = tests_retrieve_phpmailer_instance();
+		$this->assertSame( 'test@test.loc', $mailer->get_recipient( 'to' )->address );
+		$this->assertSame( 'Test email subject', $mailer->get_sent()->subject );
+		$body = $mailer->get_sent()->body;
+		$this->assertRegExp( '/The following data has been submitted/', $body );
+		$this->assertRegExp( '/Name\: Test name/', $body );
+		$this->assertRegExp( '/Email\: test-sender@test.loc/', $body );
+		$this->assertRegExp( '#Website\: http\://www\.example\.com#', $body );
+		$this->assertRegExp( '/Message\: Test message/', $body );
+	}
 }
