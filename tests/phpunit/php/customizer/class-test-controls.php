@@ -572,7 +572,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				[
 					'id'            => 'small_component_radius',
 					'label'         => 'Small Components Radius',
-					'description'   => '',
+					'description'   => 'Components are grouped into shape categories based on their size. Examples of small components: buttons, chips, text fields.',
 					'min'           => 0,
 					'max'           => 28,
 					'initial_value' => 4,
@@ -589,7 +589,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				[
 					'id'            => 'medium_component_radius',
 					'label'         => 'Medium Components Radius',
-					'description'   => '',
+					'description'   => 'Components are grouped into shape categories based on their size. Examples of medium components: cards, image list items.',
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 4,
@@ -606,7 +606,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				[
 					'id'            => 'large_component_radius',
 					'label'         => 'Large Components Radius',
-					'description'   => '',
+					'description'   => 'Components are grouped into shape categories based on their size. Examples of large components: Data table, nav drawer.',
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 0,
