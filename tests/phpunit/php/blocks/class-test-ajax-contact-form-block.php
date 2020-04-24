@@ -228,7 +228,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test priv_submit_contact_form with missing http_referer.
+	 * Test priv_submit_contact_form with missing required block attributes.
 	 *
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
@@ -252,11 +252,11 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test priv_submit_contact_form with missing http_referer.
+	 * Test priv_submit_contact_form with missing token for the Google reCAPTCHA verification.
 	 *
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
-	public function test_submit_contact_form_missing_tokens() {
+	public function test_submit_contact_form_missing_recaptcha_token() {
 		$this->setup_ajax( true );
 		$_POST['token'] = '';
 
@@ -273,7 +273,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test priv_submit_contact_form.
+	 * Test priv_submit_contact_form for a successful submission.
 	 *
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
@@ -294,7 +294,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test nopriv_submit_contact_form.
+	 * Test nopriv_submit_contact_form for a successful submission.
 	 *
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
