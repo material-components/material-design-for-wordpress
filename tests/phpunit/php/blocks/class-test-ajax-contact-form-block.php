@@ -169,23 +169,26 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	/**
 	 * Run the submit contact form ajax request.
 	 *
-	 * @param bool $decode Whether or not to decode the response from the ajax request.
+	 * @param bool $is_logged_in
 	 *
 	 * @return mixed
 	 */
-	private function run_submit_contact_form_ajax( $decode = true ) {
-		try {
-			$this->_handleAjax( 'mtb_submit_contact_form' );
-		} catch ( \WPAjaxDieStopException $e ) { // phpcs:ignore
-			// Do nothing.
-		} catch ( \WPAjaxDieContinueException $e ) { // phpcs:ignore
-			// Do nothing.
+	private function run_submit_contact_form_ajax( $is_logged_in = true ) {
+		$action = 'mtb_submit_contact_form';
+		if ( ! $is_logged_in ) {
+			$action = 'nopriv_mtb_submit_contact_form';
 		}
 
-		if ( $decode ) {
+		try {
+			$this->_handleAjax( $action );
+		} catch ( \WPAjaxDieContinueException $e ) {
+			unset( $e );
+		}
+
+		if ( $this->_last_response ) {
 			return json_decode( $this->_last_response, true ); // phpcs:ignore
 		} else {
-			return $this->_last_response;
+			return [];
 		}
 	}
 
@@ -198,8 +201,16 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$this->setup_ajax( true );
 		$_POST['mtb_contact_form_nonce'] = wp_create_nonce( 'invalid_action' );
 
-		$response = $this->run_submit_contact_form_ajax( false );
-		$this->assertEquals( '', $response );
+		$response = $this->run_submit_contact_form_ajax();
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'Invalid nonce.',
+				],
+			],
+			$response
+		);
 	}
 
 	/**
