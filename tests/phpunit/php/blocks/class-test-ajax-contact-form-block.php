@@ -196,7 +196,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$this->setup_ajax( true );
 		$_POST['mtb_contact_form_nonce'] = wp_create_nonce( 'invalid_action' );
 
-		$response = $this->do_ajax('mtb_submit_contact_form');
+		$response = $this->do_ajax( 'mtb_submit_contact_form' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -220,7 +220,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$post                      = get_post( - 1 );
 		$_POST['_wp_http_referer'] = '';
 
-		$response = $this->do_ajax('mtb_submit_contact_form');
+		$response = $this->do_ajax( 'mtb_submit_contact_form' );
 		$this->assertTrue( $response['success'] );
 		$mailer = tests_retrieve_phpmailer_instance();
 		$this->assertSame( 'admin@example.org', $mailer->get_recipient( 'to' )->address );
@@ -239,7 +239,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$post                      = get_post( self::$invalid_post_id );
 		$_POST['_wp_http_referer'] = get_permalink( $post );
 
-		$response = $this->do_ajax('mtb_submit_contact_form');
+		$response = $this->do_ajax( 'mtb_submit_contact_form' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -260,7 +260,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$this->setup_ajax( true );
 		$_POST['token'] = '';
 
-		$response = $this->do_ajax('mtb_submit_contact_form');
+		$response = $this->do_ajax( 'mtb_submit_contact_form' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -277,9 +277,9 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 *
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
-	public function test_submit_contact_form() {
+	public function test_submit_contact_form_success() {
 		$this->setup_ajax( true );
-		$response = $this->do_ajax('mtb_submit_contact_form');
+		$response = $this->do_ajax( 'mtb_submit_contact_form' );
 
 		$this->assertTrue( $response['success'] );
 		$mailer = tests_retrieve_phpmailer_instance();
@@ -298,9 +298,9 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 *
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
-	public function test_submit_contact_form_when_not_logged_in() {
+	public function test_submit_contact_form_when_not_logged_in_success() {
 		$this->setup_ajax( false );
-		$response = $this->do_ajax('nopriv_mtb_submit_contact_form');
+		$response = $this->do_ajax( 'nopriv_mtb_submit_contact_form' );
 
 		$this->assertTrue( $response['success'] );
 		$mailer = tests_retrieve_phpmailer_instance();
