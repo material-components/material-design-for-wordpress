@@ -1,4 +1,4 @@
-/* global jQuery */
+/* global jQuery, _wpCustomizeSettings */
 /* istanbul ignore file */
 
 /**
@@ -28,6 +28,7 @@ const getIconFontName = iconStyle => {
 		return;
 	}
 
+	const api = wp.customize;
 	const parentApi = window.parent.wp.customize;
 	const controls = window.parent._wpCustomizeSettings.controls;
 	const colorControls = {};
@@ -35,6 +36,14 @@ const getIconFontName = iconStyle => {
 	const cornerStyleControls = {};
 	const cornerStyleExtra = {};
 	const iconControls = {};
+
+	$( function() {
+		api.preview.bind( 'active', function() {
+			api.preview.send( 'mtb', {
+				notificationCount: _wpCustomizeSettings.values.mtb_notify,
+			} );
+		} );
+	} );
 
 	Object.keys( controls ).forEach( control => {
 		const args = controls[ control ];
@@ -150,7 +159,7 @@ const getIconFontName = iconStyle => {
 			fonts.push(
 				parentApi( control )
 					.get()
-					.replace( /\s/g, '+' )
+					.replace( /\s/g, '+' ) + ':300,400,500'
 			);
 		} );
 
