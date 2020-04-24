@@ -98,13 +98,6 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Get mock mailer.
-	 */
-	public function get_mock_mailer() {
-		return tests_retrieve_phpmailer_instance();
-	}
-
-	/**
 	 * Tests setup.
 	 */
 	public function setup() {
