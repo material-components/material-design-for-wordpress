@@ -27,10 +27,6 @@ const baseProps = {
 };
 
 describe( 'InspectorControls', () => {
-	afterEach( () => {
-		jest.clearAllMocks();
-	} );
-
 	it( 'matches snapshot', () => {
 		const wrapper = setupShallow( baseProps );
 		expect( wrapper ).toMatchSnapshot();
