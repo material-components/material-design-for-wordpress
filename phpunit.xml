@@ -15,14 +15,9 @@
 
 	<filter>
 		<whitelist processUncoveredFilesFromWhitelist="false">
-			<directory suffix=".php">./</directory>
-			<exclude>
-				<directory suffix=".php">./assets</directory>
-				<directory suffix=".php">./bin</directory>
-				<directory suffix=".php">./node_modules</directory>
-				<directory suffix=".php">./tests</directory>
-				<directory suffix=".php">./vendor</directory>
-			</exclude>
+			<directory suffix=".php">./php</directory>
+			<file>material-theme-builder.php</file>
+			<file>instance.php</file>
 		</whitelist>
 	</filter>
 </phpunit>
