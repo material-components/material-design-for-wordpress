@@ -121,7 +121,6 @@ describe( 'blocks: material/cards-collection', () => {
 				},
 				cornerRadius: {
 					type: 'number',
-					default: 4,
 				},
 				lightbox: {
 					type: 'boolean',

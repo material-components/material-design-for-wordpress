@@ -105,7 +105,6 @@ export const settings = {
 		},
 		cornerRadius: {
 			type: 'number',
-			default: 4,
 		},
 		outlined: {
 			type: 'boolean',
