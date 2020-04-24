@@ -460,7 +460,7 @@ class Controls extends Module_Base {
 				'iconCollectionsControl' => $this->prepend_slug( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
-					'confirmChange' => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
+					'confirmChange' => esc_html__( 'You will lose any custom theme changes. Would you like to continue ?', 'material-theme-builder' ),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
 			]
@@ -498,7 +498,7 @@ class Controls extends Module_Base {
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
 
-			$font_families[] = str_replace( ' ', '+', $value );
+			$font_families[] = str_replace( ' ', '+', $value ) . ':300,400,500';
 		}
 
 		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
@@ -745,7 +745,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'small_component_radius',
 				'label'         => __( 'Small Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description.
+				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of small components: buttons, chips, text fields.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 28,
 				'initial_value' => 4,
@@ -762,7 +762,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'medium_component_radius',
 				'label'         => __( 'Medium Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description.
+				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of medium components: cards, image list items.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 4,
@@ -779,7 +779,7 @@ class Controls extends Module_Base {
 			[
 				'id'            => 'large_component_radius',
 				'label'         => __( 'Large Components Radius', 'material-theme-builder' ),
-				'description'   => '', // TODO: Provide description.
+				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of large components: Data table, nav drawer.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 0,
