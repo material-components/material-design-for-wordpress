@@ -73,7 +73,7 @@ const TextInputEdit = props => {
 	useLayoutEffect( () => {
 		const textFields = document.querySelectorAll( '.mdc-text-field' );
 		textFields.forEach( textField => new MDCTextField( textField ) );
-	}, [ outlined, displayLabel, fullWidth, isRequired ] );
+	}, [ outlined, displayLabel, fullWidth ] );
 
 	const textInputProps = {
 		inputValue,
