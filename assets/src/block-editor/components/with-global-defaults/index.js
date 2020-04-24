@@ -6,11 +6,12 @@ import { createHigherOrderComponent } from '@wordpress/compose';
 import { useEffect, useState } from '@wordpress/element';
 
 /**
- * Maybe use material data table edit component.
+ * A Higher Order Component used to set the default attribute of a block
+ * from global customizer settings.
  *
- * @param {WPElement} element    Block save result.
- * @param {WPBlock}   blockType  Block type definition.
- * @param {Object}    attributes Block attributes.
+ * @param {WPComponent} WrappedComponent The wrapped component.
+ *
+ * @return {WPComponent} Component with an attribute.id prop.
  */
 export const withGlobalDefaults = createHigherOrderComponent(
 	WrappedComponent => {
