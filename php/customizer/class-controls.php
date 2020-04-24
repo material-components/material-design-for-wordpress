@@ -469,7 +469,7 @@ class Controls extends Module_Base {
 				'iconCollectionsControl' => $this->prepend_slug( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
-					'confirmChange'    => esc_html__( 'Are you sure ?', 'material-theme-builder' ),
+					'confirmChange'    => esc_html__( 'You will lose any custom theme changes. Would you like to continue ?', 'material-theme-builder' ),
 					'componentsNotice' => __( 'Customize Material Components and styles throughout your site.<br/><a href="#">View example page</a>', 'material-theme-builder' ),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
@@ -868,6 +868,8 @@ class Controls extends Module_Base {
 	 * @action customize_sanitize_js_mtb_notify
 	 *
 	 * @param mixed $value Saved value.
+	 *
+	 * @return mixed
 	 */
 	public function show_material_components_notification( $value ) {
 		if ( is_customize_preview() && is_singular() && Blocks_Frontend::has_material_blocks() ) {
@@ -883,10 +885,6 @@ class Controls extends Module_Base {
 	 * @action wp_ajax_mtb_notification_dismiss
 	 */
 	public function notification_dismiss() {
-		if ( ! is_user_logged_in() ) {
-			wp_send_json_error( 'unauthenticated' );
-		}
-
 		if ( ! check_ajax_referer( 'mtb_notify_nonce', 'nonce', false ) ) {
 			wp_send_json_error( 'invalid_nonce' );
 		}
@@ -894,7 +892,7 @@ class Controls extends Module_Base {
 		$count = $this->get_theme_mod( 'notify' );
 		$count = empty( $count ) ? 0 : $count;
 		set_theme_mod( $this->prepend_slug( 'notify' ), ++$count );
-		return wp_send_json_success(
+		wp_send_json_success(
 			[
 				'count' => $count,
 			]

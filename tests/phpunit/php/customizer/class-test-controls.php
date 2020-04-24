@@ -29,7 +29,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 *
 	 * @var int
 	 */
-	public static $post_id = [];
+	public static $post_id;
 
 	/**
 	 * Set up required includes.
@@ -60,7 +60,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Helper method to generate the fixtures
+	 * Helper method to generate the fixtures.
 	 *
 	 * @param WP_UnitTest_Factory $factory WP Factory object.
 	 *
@@ -664,12 +664,6 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::notification_dismiss()
 	 */
 	public function test_notification_dismiss() {
-		// Unauthenticated.
-		wp_set_current_user( 0 );
-		$this->make_ajax_call( 'mtb_notification_dismiss' );
-		$this->assertFalse( $this->_last_response_parsed['success'] );
-		$this->assertEquals( 'unauthenticated', $this->_last_response_parsed['data'] );
-
 		// Bad nonce.
 		$_POST['nonce'] = 'bad';
 		wp_set_current_user( 1 );
@@ -685,7 +679,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Helper to keep it DRY
+	 * Helper to keep it DRY.
 	 *
 	 * @param string $action Action.
 	 */
