@@ -313,4 +313,89 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$this->assertRegExp( '#Website\: http\://www\.example\.com#', $body );
 		$this->assertRegExp( '/Message\: Test message/', $body );
 	}
+
+	/**
+	 * Test mtb_manage_recaptcha_api_credentials with an invalid nonce.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_invalid_nonce() {
+		$this->setup_ajax( true );
+		$_POST['nonce'] = wp_create_nonce( 'invalid_action' );
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'Invalid nonce.',
+				],
+			],
+			$response
+		);
+	}
+
+	/**
+	 * Test mtb_manage_recaptcha_api_credentials with missing data.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_missing_data() {
+		$this->setup_ajax( true );
+		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'Missing data.',
+				],
+			],
+			$response
+		);
+	}
+
+	/**
+	 * Test mtb_manage_recaptcha_api_credentials for a successful save submission.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_save_success() {
+		$this->setup_ajax( true );
+		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['data']  = json_encode( [ // phpcs:ignore
+			'action'        => 'save',
+			'site_key'      => 'test-key',
+			'client_secret' => 'test-secret',
+		] );
+
+		delete_option( 'mtb_recaptcha_site_key' );
+		delete_option( 'mtb_recaptcha_client_secret' );
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$this->assertEquals( [ 'success' => true ], $response );
+
+	}
+
+	/**
+	 * Test mtb_manage_recaptcha_api_credentials for a successful save submission.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_clear_success() {
+		$this->setup_ajax( true );
+		update_option( 'mtb_recaptcha_site_key', 'test-key');
+		update_option( 'mtb_recaptcha_client_secret', 'test-secret');
+
+		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['data']  = json_encode( [ // phpcs:ignore
+			'action'        => 'clear',
+			'site_key'      => '',
+			'client_secret' => '',
+		] );
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$this->assertEquals( [ 'success' => true ], $response );
+	}
 }

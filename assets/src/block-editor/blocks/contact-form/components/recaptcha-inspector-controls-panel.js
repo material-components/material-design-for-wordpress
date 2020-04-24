@@ -110,7 +110,7 @@ const RecaptchaInspectorControlsPanel = () => {
 	 */
 	const sendCredentialsToBackend = async data => {
 		const form = new FormData();
-		form.append( 'action', 'manage_recaptcha_api_credentials' );
+		form.append( 'action', 'mtb_manage_recaptcha_api_credentials' );
 		form.append( 'nonce', mtb.recaptcha_ajax_nonce_action );
 		form.append( 'data', JSON.stringify( data ) );
 
