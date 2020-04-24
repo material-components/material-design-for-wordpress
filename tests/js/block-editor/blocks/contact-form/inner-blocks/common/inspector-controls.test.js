@@ -3,7 +3,6 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import { shallow } from 'enzyme';
-import { cloneDeep } from 'lodash';
 
 /**
  * Internal dependencies
