@@ -1,4 +1,4 @@
-/* global jQuery, requestAnimationFrame, mtb, mdc */
+/* global jQuery, requestAnimationFrame, mtb, mdc, materialThemeStatus */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -33,6 +33,7 @@ import {
 	initLists,
 } from '../common/mdc-components-init';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
+import ThemePrompt from './components/theme-prompt';
 
 ( ( $, api ) => {
 	let notificationCount = false;
@@ -215,6 +216,21 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 			customizePreview.show();
 		}
 	};
+
+	$( '.customize-pane-parent' ).ready( function() {
+		if ( window.localStorage.getItem( 'themeInstallerDismissed' ) !== null ) {
+			return;
+		}
+
+		$( '.customize-pane-parent' ).prepend( `
+			<li id="accordion-section-theme-installer" class="accordion-section control-panel-themes customize-info"></li>
+		` );
+
+		render(
+			<ThemePrompt status={ materialThemeStatus } />,
+			$( '#accordion-section-theme-installer' ).get( 0 )
+		);
+	} );
 
 	/**
 	 * Show/hide kitchen sink button near the "Publish" button.
