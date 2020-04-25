@@ -271,6 +271,27 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
+	 * Returns the status of the material theme
+	 *
+	 * @return string
+	 */
+	public function material_theme_status() {
+		$theme = wp_get_theme();
+
+		$installed = file_exists( $theme->theme_root . '/material-theme-wp' );
+
+		if ( ! $installed ) {
+			return 'install';
+		}
+
+		if ( 'material-theme-wp' !== $theme->template ) {
+			return 'activate';
+		}
+
+		return 'ok';
+	}
+
+	/**
 	 * Show admin notice if theme isn't installed.
 	 *
 	 * @action admin_notices, 10, 2
