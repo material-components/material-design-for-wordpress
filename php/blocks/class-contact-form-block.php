@@ -9,6 +9,7 @@ namespace MaterialThemeBuilder\Blocks;
 
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Template;
+use MaterialThemeBuilder\Helpers;
 
 /**
  * Contact_Form_Block class.
@@ -118,7 +119,7 @@ class Contact_Form_Block extends Module_Base {
 			);
 		}
 
-		if ( $this->get_block_count_from_post( $post ) > 1 ) {
+		if ( Helpers::get_block_count_from_post( $post, $this->block_name ) > 1 ) {
 			return sprintf(
 				'<div class="%s">%s</div>',
 				esc_attr( $class ),
@@ -146,64 +147,6 @@ class Contact_Form_Block extends Module_Base {
 	}
 
 	/**
-	 * Get the block from referer.
-	 *
-	 * @param string $wp_http_referer HTTP referer.
-	 *
-	 * @return array|mixed
-	 */
-	private function get_block_from_referer( $wp_http_referer ) {
-		// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.url_to_postid_url_to_postid
-		$post_id = url_to_postid( $wp_http_referer );
-
-		$post = get_post( $post_id );
-
-		$blocks = [];
-		if ( $post ) {
-			$blocks = parse_blocks( $post->post_content );
-		}
-
-		return current( $this->get_block_by_name( $blocks, $this->block_name ) );
-	}
-
-	/**
-	 * Get block by name.
-	 *
-	 * @param array  $blocks     Blocks.
-	 * @param string $block_name Block name.
-	 *
-	 * @return array
-	 */
-	private function get_block_by_name( $blocks, $block_name ) {
-		return array_filter(
-			$blocks,
-			function ( $block ) use ( $block_name ) {
-				return $block['blockName'] === $block_name;
-			}
-		);
-	}
-
-	/**
-	 * Get block count from post.
-	 *
-	 * @param object $post Post.
-	 *
-	 * @return int|void
-	 */
-	private function get_block_count_from_post( $post ) {
-		$blocks = parse_blocks( $post->post_content );
-
-		$found_blocks = array_filter(
-			$blocks,
-			function ( $block ) {
-				return $block['blockName'] === $this->block_name;
-			}
-		);
-
-		return count( $found_blocks );
-	}
-
-	/**
 	 * Get the block attributes.
 	 *
 	 * @param string $wp_http_referer HTTP referer.
@@ -211,7 +154,7 @@ class Contact_Form_Block extends Module_Base {
 	 * @return array
 	 */
 	private function get_block_attributes( $wp_http_referer ) {
-		$block            = $this->get_block_from_referer( $wp_http_referer );
+		$block            = Helpers::get_block_from_referer( $wp_http_referer, $this->block_name );
 		$block_attributes = isset( $block['attrs'] ) ? $block['attrs'] : [];
 
 		return [
