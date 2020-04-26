@@ -357,6 +357,39 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
+	 * Test mtb_manage_recaptcha_api_credentials for a successful get action request.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_get_success() {
+		$this->setup_ajax( true );
+		update_option( 'mtb_recaptcha_site_key', 'test-key' );
+		update_option( 'mtb_recaptcha_client_secret', 'test-secret' );
+
+		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['data']  = json_encode( // phpcs:ignore
+			[
+				'action' => 'get',
+			]
+		);
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$this->assertEquals(
+			[
+				'success' => true,
+				'data'    => [
+					'mtb_recaptcha_site_key'      => 'test-key',
+					'mtb_recaptcha_client_secret' => 'test-secret',
+				]
+			],
+			$response
+		);
+
+		delete_option( 'mtb_recaptcha_site_key' );
+		delete_option( 'mtb_recaptcha_client_secret' );
+	}
+
+	/**
 	 * Test mtb_manage_recaptcha_api_credentials for a successful save submission.
 	 *
 	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
@@ -372,12 +405,11 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 			]
 		);
 
-		delete_option( 'mtb_recaptcha_site_key' );
-		delete_option( 'mtb_recaptcha_client_secret' );
-
 		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
 		$this->assertEquals( [ 'success' => true ], $response );
 
+		delete_option( 'mtb_recaptcha_client_secret' );
+		delete_option( 'mtb_recaptcha_site_key' );
 	}
 
 	/**

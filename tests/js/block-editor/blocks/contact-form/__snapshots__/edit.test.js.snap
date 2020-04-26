@@ -298,7 +298,7 @@ Object {
               class="components-text-control__input"
               id="inspector-text-control-3"
               type="text"
-              value="test-key"
+              value=""
             />
           </div>
         </div>
@@ -318,7 +318,7 @@ Object {
               class="components-text-control__input"
               id="inspector-text-control-4"
               type="text"
-              value="test-secret"
+              value=""
             />
           </div>
         </div>
@@ -656,7 +656,7 @@ Object {
             class="components-text-control__input"
             id="inspector-text-control-3"
             type="text"
-            value="test-key"
+            value=""
           />
         </div>
       </div>
@@ -676,7 +676,7 @@ Object {
             class="components-text-control__input"
             id="inspector-text-control-4"
             type="text"
-            value="test-secret"
+            value=""
           />
         </div>
       </div>
