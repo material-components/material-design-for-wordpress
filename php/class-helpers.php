@@ -15,11 +15,11 @@ class Helpers {
 	 * Get the block from referer.
 	 *
 	 * @param string $wp_http_referer HTTP referer.
-	 * @param string $block_name Block name.
+	 * @param string $block_name      Block name.
 	 *
 	 * @return array|mixed
 	 */
-	static public function get_block_from_referer( $wp_http_referer, $block_name ) {
+	public static function get_block_from_referer( $wp_http_referer, $block_name ) {
 		// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.url_to_postid_url_to_postid
 		$post_id = url_to_postid( $wp_http_referer );
 
@@ -30,7 +30,7 @@ class Helpers {
 			$blocks = parse_blocks( $post->post_content );
 		}
 
-		return current( Helpers::get_block_by_name( $blocks, $block_name ) );
+		return current( self::get_block_by_name( $blocks, $block_name ) );
 	}
 
 	/**
@@ -41,7 +41,7 @@ class Helpers {
 	 *
 	 * @return array
 	 */
-	static public function get_block_by_name( $blocks, $block_name ) {
+	public static function get_block_by_name( $blocks, $block_name ) {
 		return array_filter(
 			$blocks,
 			function ( $block ) use ( $block_name ) {
@@ -53,12 +53,12 @@ class Helpers {
 	/**
 	 * Get block count from post.
 	 *
-	 * @param object $post Post.
+	 * @param object $post       Post.
 	 * @param string $block_name Block name.
 	 *
 	 * @return int
 	 */
-	static public function get_block_count_from_post( $post, $block_name ) {
+	public static function get_block_count_from_post( $post, $block_name ) {
 		$blocks = parse_blocks( $post->post_content );
 
 		$found_blocks = array_filter(
