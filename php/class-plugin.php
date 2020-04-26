@@ -191,7 +191,7 @@ class Plugin extends Plugin_Base {
 
 		$wp_localized_script_data = [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ];
 
-		if ( is_singular() && function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $mtb_recaptcha_site_key ) && ! empty( $mtb_recaptcha_client_secret ) ) {
+		if ( function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $mtb_recaptcha_site_key ) && ! empty( $mtb_recaptcha_client_secret ) ) {
 			wp_enqueue_script(
 				'google-recaptcha-v3',
 				'https://www.google.com/recaptcha/api.js?render=' . esc_attr( $mtb_recaptcha_site_key ),
