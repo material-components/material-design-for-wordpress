@@ -380,7 +380,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 				'data'    => [
 					'mtb_recaptcha_site_key'      => 'test-key',
 					'mtb_recaptcha_client_secret' => 'test-secret',
-				]
+				],
 			],
 			$response
 		);

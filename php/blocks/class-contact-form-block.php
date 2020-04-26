@@ -249,10 +249,12 @@ class Contact_Form_Block extends Module_Base {
 		$client_secret = isset( $data['client_secret'] ) ? $data['client_secret'] : '';
 
 		if ( 'get' === $action ) {
-			wp_send_json_success( [
-				'mtb_recaptcha_site_key'      => esc_attr( get_option( 'mtb_recaptcha_site_key', '' ) ),
-				'mtb_recaptcha_client_secret' => esc_attr( get_option( 'mtb_recaptcha_client_secret', '' ) ),
-			] );
+			wp_send_json_success(
+				[
+					'mtb_recaptcha_site_key'      => esc_attr( get_option( 'mtb_recaptcha_site_key', '' ) ),
+					'mtb_recaptcha_client_secret' => esc_attr( get_option( 'mtb_recaptcha_client_secret', '' ) ),
+				]
+			);
 		}
 
 		$mtb_recaptcha_site_key_result      = false;
