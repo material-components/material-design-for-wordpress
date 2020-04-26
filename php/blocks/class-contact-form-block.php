@@ -248,8 +248,16 @@ class Contact_Form_Block extends Module_Base {
 		$site_key      = isset( $data['site_key'] ) ? $data['site_key'] : '';
 		$client_secret = isset( $data['client_secret'] ) ? $data['client_secret'] : '';
 
+		if ( 'get' === $action ) {
+			wp_send_json_success( [
+				'mtb_recaptcha_site_key'      => esc_attr( get_option( 'mtb_recaptcha_site_key', '' ) ),
+				'mtb_recaptcha_client_secret' => esc_attr( get_option( 'mtb_recaptcha_client_secret', '' ) ),
+			] );
+		}
+
 		$mtb_recaptcha_site_key_result      = false;
 		$mtb_recaptcha_client_secret_result = false;
+
 		if ( 'save' === $action ) {
 			if ( ! empty( $site_key ) ) {
 				$mtb_recaptcha_site_key_result = update_option( 'mtb_recaptcha_site_key', sanitize_text_field( $site_key ) );

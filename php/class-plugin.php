@@ -128,8 +128,6 @@ class Plugin extends Plugin_Base {
 
 		if ( $this->is_user_admin_or_editor() ) {
 			$wp_localized_script_data['allow_contact_form_block']    = true;
-			$wp_localized_script_data['recaptcha_site_key']          = esc_js( get_option( 'mtb_recaptcha_site_key', '' ) );
-			$wp_localized_script_data['recaptcha_client_secret']     = esc_js( get_option( 'mtb_recaptcha_client_secret', '' ) );
 			$wp_localized_script_data['recaptcha_ajax_nonce_action'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
 		}
 

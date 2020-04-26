@@ -12,7 +12,7 @@ import {
 	PanelBody,
 	TextControl,
 } from '@wordpress/components';
-import { useState } from '@wordpress/element';
+import { useState, useRef, useEffect } from '@wordpress/element';
 
 /**
  * Recaptcha Inspector Controls Panel component.
@@ -26,12 +26,44 @@ const RecaptchaInspectorControlsPanel = () => {
 		message: __( 'An unknown error has occurred', 'material-theme-builder' ),
 	};
 
-	const [ siteKey, setSiteKey ] = useState( mtb.recaptcha_site_key );
+	const [ siteKey, setSiteKey ] = useState( '' );
+	const [ clientSecret, setClientSecret ] = useState( '' );
 	const [ isDisabled, setIsDisabled ] = useState( false );
-	const [ clientSecret, setClientSecret ] = useState(
-		mtb.recaptcha_client_secret
-	);
 	const [ notice, setNotice ] = useState( defaultNotice );
+
+	const isInitialFetch = useRef( true );
+	useEffect(
+		() => {
+			if ( isInitialFetch.current ) {
+				sendAjaxRequest( {
+					action: 'get',
+				} )
+					.then( response => {
+						if (
+							response.hasOwnProperty( 'success' ) &&
+							response.success &&
+							response.hasOwnProperty( 'data' )
+						) {
+							if ( response.data.hasOwnProperty( 'mtb_recaptcha_site_key' ) ) {
+								setSiteKey( response.data.mtb_recaptcha_site_key );
+								if (
+									response.data.hasOwnProperty( 'mtb_recaptcha_client_secret' )
+								) {
+									setClientSecret( response.data.mtb_recaptcha_client_secret );
+								}
+							}
+						}
+					} )
+					.catch( () => {} )
+					.finally( () => {
+						setIsDisabled( false );
+					} );
+
+				isInitialFetch.current = false;
+			}
+		}, // eslint-disable-next-line react-hooks/exhaustive-deps
+		[]
+	);
 
 	/**
 	 * Handle the site key change event.
@@ -72,7 +104,7 @@ const RecaptchaInspectorControlsPanel = () => {
 			return false;
 		}
 
-		sendCredentialsToBackend( {
+		sendAjaxRequest( {
 			action,
 			site_key: siteKey,
 			client_secret: clientSecret,
@@ -96,8 +128,6 @@ const RecaptchaInspectorControlsPanel = () => {
 					setSiteKey( '' );
 					setClientSecret( '' );
 				}
-				mtb.recaptcha_site_key = siteKey;
-				mtb.recaptcha_client_secret = clientSecret;
 				setIsDisabled( false );
 			} );
 	};
@@ -109,7 +139,7 @@ const RecaptchaInspectorControlsPanel = () => {
 	 *
 	 * @return {Promise<any>} Promise
 	 */
-	const sendCredentialsToBackend = async data => {
+	const sendAjaxRequest = async data => {
 		const form = new FormData();
 		form.append( 'action', 'mtb_manage_recaptcha_api_credentials' );
 		form.append( 'nonce', mtb.recaptcha_ajax_nonce_action );
