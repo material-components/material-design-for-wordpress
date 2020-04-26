@@ -184,12 +184,11 @@ class Plugin extends Plugin_Base {
 			true
 		);
 
-		$mtb_recaptcha_site_key      = get_option( 'mtb_recaptcha_site_key', '' );
-		$mtb_recaptcha_client_secret = get_option( 'mtb_recaptcha_client_secret', '' );
+		$mtb_recaptcha_site_key = get_option( 'mtb_recaptcha_site_key', '' );
 
 		$wp_localized_script_data = [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ];
 
-		if ( function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $mtb_recaptcha_site_key ) && ! empty( $mtb_recaptcha_client_secret ) ) {
+		if ( function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $mtb_recaptcha_site_key ) ) {
 			wp_enqueue_script(
 				'google-recaptcha-v3',
 				'https://www.google.com/recaptcha/api.js?render=' . esc_attr( $mtb_recaptcha_site_key ),
@@ -197,7 +196,6 @@ class Plugin extends Plugin_Base {
 				'3.0.0',
 				true
 			);
-			$wp_localized_script_data['recaptcha_site_key'] = esc_js( $mtb_recaptcha_site_key );
 		}
 
 		wp_localize_script( 'material-front-end-js', 'mtb', $wp_localized_script_data );

@@ -104,8 +104,6 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$inline_js = wp_scripts()->get_data( 'material-block-editor-js', 'data' );
 		// Assert inline css vars contains ajax url data.
 		$this->assertRegexp( '/ajax_url/', $inline_js );
-		// Assert inline css vars contains data specific when a user is logged as editor or administrator.
-		$this->assertRegexp( '/recaptcha_site_key/', $inline_js );
 	}
 
 	/**
@@ -131,7 +129,6 @@ class Test_Plugin extends \WP_UnitTestCase {
 
 		$post = get_post( self::$post_id );
 		update_option( 'mtb_recaptcha_site_key', 'test-key' );
-		update_option( 'mtb_recaptcha_client_secret', 'test-secret' );
 
 		$plugin = get_plugin_instance();
 
@@ -148,15 +145,12 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$inline_js = wp_scripts()->get_data( 'material-block-editor-js', 'data' );
 		// Assert inline css vars contains ajax url data.
 		$this->assertRegexp( '/ajax_url/', $inline_js );
-		// Assert inline css vars contains data specific when a post contains the material contact form block.
-		$this->assertRegexp( '/recaptcha_site_key/', $inline_js );
 
 		remove_filter( 'stylesheet', [ $this, 'stylesheet' ] );
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_style_is( 'material-overrides-css', 'enqueued' ) );
 
 		delete_option( 'mtb_recaptcha_site_key' );
-		delete_option( 'mtb_recaptcha_client_secret' );
 	}
 
 	/**
