@@ -91,11 +91,6 @@ export const initContactForm = () => {
 			false
 		);
 	}
-
-	contactFormMessage.addEventListener( 'click', () => {
-		contactFormMessage.style.display = 'none';
-		form.style.display = 'block';
-	} );
 };
 
 /**
