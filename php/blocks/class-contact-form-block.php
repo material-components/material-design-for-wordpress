@@ -9,7 +9,6 @@ namespace MaterialThemeBuilder\Blocks;
 
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Template;
-use WP_Block_Type_Registry;
 
 /**
  * Contact_Form_Block class.
@@ -234,7 +233,7 @@ class Contact_Form_Block extends Module_Base {
 			wp_send_json_error(
 				[ 'message' => __( 'Invalid nonce.', 'material-theme-builder' ) ]
 			);
-		};
+		}
 
 		$wp_http_referer = isset( $_POST['_wp_http_referer'] )
 			? sanitize_text_field( $_POST['_wp_http_referer'] )
