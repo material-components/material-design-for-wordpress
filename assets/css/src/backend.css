@@ -1,0 +1,19 @@
+.material-notice-container {
+  display: flex; 
+  align-items: center; 
+  padding: 15px;
+  background-color: #E7F5F9; 
+
+  &__content {
+    margin-left: 20px;
+
+    &__title {
+      margin: 0; 
+      margin-bottom: 5px;
+    }
+
+    &__text {
+      margin: 0;
+    }
+  }
+}

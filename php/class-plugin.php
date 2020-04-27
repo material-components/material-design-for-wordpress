@@ -140,6 +140,20 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
+	 * Enqueue backend styles.
+	 *
+	 * @action admin_enqueue_scripts
+	 */
+	public function enqueue_backend_assets() {
+		wp_enqueue_style(
+			'material-backend-css',
+			$this->asset_url( 'assets/css/backend-compiled.css' ),
+			[],
+			$this->asset_version()
+		);
+	}
+
+	/**
 	 * Enqueue front-end styles and scripts.
 	 *
 	 * @action wp_enqueue_scripts, 100
@@ -247,21 +261,18 @@ class Plugin extends Plugin_Base {
 		ob_start();
 		?>
 
-		<div 
-			class="notice notice-info is-dismissible" 
-			style="display: flex; background-color: #E7F5F9; align-items: center; padding: 15px;"
-		>
+		<div class="notice notice-info is-dismissible material-notice-container">
 			<img 
 				src="<?php echo esc_url( $this->asset_url( 'assets/images/plugin-icon.svg' ) ); ?>" 
 				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>" 
 			/>
 
-			<div style="margin-left: 20px;">
-				<h3 style="margin: 0; margin-bottom: 5px;">
+			<div class="material-notice-container__content">
+				<h3 class="material-notice-container__content__title">
 					<?php echo esc_html( $title ); ?>
 				</h3>
-				<p style="margin: 0;">
-					<?php echo wp_kses( $message, [ 'a' => 'keep' ] ); ?>
+				<p class="material-notice-container__content__text">
+					<?php echo wp_kses( $message, [ 'a' => [ 'href' => [] ] ] ); ?>
 				</p>
 			</div>
 		</div>
@@ -316,7 +327,7 @@ class Plugin extends Plugin_Base {
 					'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization. <a href="%s">Install theme</a>', 
 					'material-theme-builder' 
 				), 
-				'#'
+				'/wp-admin/themes.php?search=Material Theme'
 			)
 		);
 		// phpcs:enable
@@ -346,7 +357,7 @@ class Plugin extends Plugin_Base {
 					'Customize and view Material Theming get applied throughout all Material Components. <a href="%s">View all Material Components</a>', 
 					'material-theme-builder' 
 				), 
-				'#'
+				'#' // @TODO: Kitchen sink can be accessed via a url
 			)
 		);
 		// phpcs:enable
