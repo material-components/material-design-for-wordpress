@@ -184,13 +184,7 @@
 }
 
 .components-tooltip.components-popover {
-	z-index: 10000;
-	position: static;
-	font-size: 0.8em !important;
-}
-
-.components-popover:not(.is-without-arrow):not(.is-mobile).is-top::after {
-	bottom: 10px;
+	font-size: 0.9em !important;
 }
 
 .components-material-color-palette__picker {
@@ -199,18 +193,6 @@
 	max-height: 175px;
 	overflow-y: scroll;
 	overflow-x: hidden;
-}
-
-.components-circular-option-picker__option-wrapper {
-
-	&:nth-child(15n+13),
-	&:nth-child(15n+14) {
-
-		.components-popover:not(.is-mobile).is-center .components-popover__content {
-			left: 80%;
-			transform: translateX(-80%);
-		}
-	}
 }
 
 .toggle-kitchen-sink {
