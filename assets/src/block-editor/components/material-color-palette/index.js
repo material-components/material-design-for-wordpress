@@ -50,7 +50,7 @@ const ColorPickerOption = ( { color, value, name, clearColor, onChange } ) => {
 					: // translators: %s: color hex code e.g: "#f00".
 					  sprintf( __( 'Color code: %s' ), color )
 			}
-			position={ 'top center' }
+			position="top center"
 		/>
 	);
 };
