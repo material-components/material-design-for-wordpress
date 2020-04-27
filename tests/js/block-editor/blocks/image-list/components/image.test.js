@@ -20,7 +20,7 @@ const setup = props => {
 };
 
 const imageProps = {
-	caption: 'Example Image 1',
+	alt: 'Example Image 1',
 	url: 'https://i.picsum.photos/id/22/500/500.jpg',
 	id: 1,
 	link: 'http://example.com/image-1',
