@@ -19,13 +19,14 @@ export const withId = createHigherOrderComponent( WrappedComponent => {
 			instanceId,
 		} = props;
 
-		// Set block id if it's empty.
+		// Set component id if it's empty.
 		useEffect( () => {
 			if ( ! id ) {
-				const name = ( props.name || WrappedComponent.displayName ).replace(
-					/\//g,
-					'-'
-				);
+				const name = (
+					props.name ||
+					WrappedComponent.displayName ||
+					WrappedComponent.name
+				).replace( /\//g, '-' );
 				setAttributes( {
 					id: `block-${ name }-${ instanceId }`,
 				} );
