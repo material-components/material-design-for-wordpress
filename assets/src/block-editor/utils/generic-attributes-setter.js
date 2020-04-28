@@ -1,10 +1,11 @@
 export default setAttributes => (
 	attribute,
-	callback = () => {}
+	callback = () => {},
+	allowUndefined = false
 ) => newValue => {
 	const returnValue = callback( newValue );
 
-	if ( returnValue !== undefined ) {
+	if ( returnValue !== undefined || allowUndefined ) {
 		newValue = returnValue;
 	}
 
