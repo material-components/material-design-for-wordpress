@@ -800,7 +800,9 @@ Object {
       class="a11y-speak-region"
       id="a11y-speak-assertive"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
+    >
+      An unknown error occurred. Please try again later.
+    </div>
     <div
       aria-atomic="true"
       aria-live="polite"
