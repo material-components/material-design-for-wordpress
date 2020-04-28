@@ -19,7 +19,10 @@ $confirmation_message = isset( $attributes['confirmationMessage'] ) ? $attribute
 		<input type="hidden" name="mtb_token" value="token_here"/>
 		<?php wp_nonce_field( 'contact_form_action', 'mtb_contact_form_nonce' ); ?>
 	</form>
-	<div id="mtbContactFormMsgContainer" style="display: none">
+	<div id="mtbContactFormSuccessMsgContainer" style="display: none">
 		<?php echo esc_html( $confirmation_message ); ?>
+	</div>
+	<div id="mtbContactcFormErrorMsgContainer" style="display: none">
+		<?php esc_html_e( 'An error has occurred. Please try again later.', 'material-theme-builder' ); ?>
 	</div>
 </div>

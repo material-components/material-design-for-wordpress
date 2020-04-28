@@ -195,9 +195,11 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$inline_css = wp_styles()->get_data( 'material-front-end-css', 'after' );
 		$this->assertNotEmpty( $inline_css );
 
-		$inline_js = wp_scripts()->get_data( 'material-block-editor-js', 'data' );
-		// Assert inline css vars contains ajax url data.
+		$inline_js = wp_scripts()->get_data( 'material-front-end-js', 'data' );
+
+		// Assert inline js vars contains ajax url and the reCAPTCHA site key data.
 		$this->assertRegexp( '/ajax_url/', $inline_js );
+		$this->assertRegexp( '/recaptcha_site_key/', $inline_js );
 
 		remove_filter( 'stylesheet', [ $this, 'stylesheet' ] );
 		$plugin->enqueue_front_end_assets();
