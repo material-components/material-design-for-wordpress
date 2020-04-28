@@ -19,6 +19,13 @@ use MaterialThemeBuilder\Customizer\Controls;
 class Plugin extends Plugin_Base {
 
 	/**
+	 * The theme slug.
+	 * 
+	 * @var string
+	 */
+	const THEME_SLUG = 'material-theme-wp';
+
+	/**
 	 * Controls class.
 	 *
 	 * @var Controls
@@ -282,20 +289,25 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
+	 * Checks whether the material theme is installed.
+	 * 
+	 * @return bool
+	 */
+	public function theme_installed() {
+		return file_exists( wp_get_theme()->theme_root . '/' . self::THEME_SLUG );
+	}
+
+	/**
 	 * Returns the status of the material theme
 	 *
 	 * @return string
 	 */
 	public function material_theme_status() {
-		$theme = wp_get_theme();
-
-		$installed = file_exists( $theme->theme_root . '/material-theme-wp' );
-
-		if ( ! $installed ) {
+		if ( ! $this->theme_installed() ) {
 			return 'install';
 		}
 
-		if ( 'material-theme-wp' !== $theme->template ) {
+		if ( self::THEME_SLUG !== wp_get_theme()->template ) {
 			return 'activate';
 		}
 
@@ -311,7 +323,7 @@ class Plugin extends Plugin_Base {
 	 */
 	public function theme_not_installed_notice() {
 		// Theme already installed. Don't show the notice.
-		if ( file_exists( wp_get_theme()->theme_root . '/material-theme-wp' ) ) {
+		if ( $this->theme_installed() ) {
 			return;
 		}
 
@@ -342,7 +354,7 @@ class Plugin extends Plugin_Base {
 	 */
 	public function plugin_activated_notice() {
 		// Theme not active or plugin didn't JUST activate. Stop here.
-		if ( 'material-theme-wp' !== wp_get_theme()->template || ! get_transient( 'mtb-activation-notice' ) ) {
+		if ( self::THEME_SLUG !== wp_get_theme()->template || ! get_transient( 'mtb-activation-notice' ) ) {
 			return;
 		}
 
