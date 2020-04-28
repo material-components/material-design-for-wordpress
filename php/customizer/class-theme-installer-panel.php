@@ -27,12 +27,12 @@ class Theme_Installer_Panel extends \WP_Customize_Panel {
 		?>
 		<li id="accordion-section-theme-installer" class="accordion-section control-panel-themes">
 			<div class="accordion-section-title theme-installer-panel">
-                <h3><?php _e( 'Install Material Theme', 'material-theme-builder' ); ?></h3>
-                <span class="customize-action">
-                    <?php _e( 'Install and activate Material Theme for full site customization.', 'material-theme-builder' ) ?>
-                </span>
-                <br>
-                <a href="#" class="button"><?php _e( 'Install theme', 'material-theme-builder'); ?></a>
+				<h3><?php _e( 'Install Material Theme', 'material-theme-builder' ); ?></h3>
+				<span class="customize-action">
+					<?php _e( 'Install and activate Material Theme for full site customization.', 'material-theme-builder' ); ?>
+				</span>
+				<br>
+				<a href="#" class="button"><?php _e( 'Install theme', 'material-theme-builder' ); ?></a>
 			</div>
 			<ul class="accordion-sub-container control-panel-content"></ul>
 		</li>

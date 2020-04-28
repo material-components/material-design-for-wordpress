@@ -31,7 +31,7 @@ const ThemePrompt = ( { status } ) => {
 		window.localStorage.setItem( 'themeInstallerDismissed', '1' );
 	};
 
-	if ( dismissed ) {
+	if ( dismissed || status === 'ok' ) {
 		return null;
 	}
 
