@@ -1,24 +1,16 @@
 /**
- * Internal dependencies
- */
-import ListItemText from '../../components/list-item-text';
-
-/**
  * External dependencies
  */
 import classNames from 'classnames';
 
+/**
+ * Internal dependencies
+ */
+import ListItemText from '../../components/list-item-text';
+
 const ListItemSave = ( {
-	attributes: {
-		url,
-		rel,
-		editable,
-		linkTarget,
-		leadingIcon,
-		trailingIcon,
-		...textProps
-	},
 	className,
+	attributes: { url, linkTarget, leadingIcon, trailingIcon, ...textProps },
 } ) => (
 	<li
 		className={ classNames( 'mdc-list-item', 'list-item', className ) }
@@ -31,11 +23,10 @@ const ListItemSave = ( {
 		) }
 
 		<a
-			rel={ rel }
 			href={ url || '#' }
-			editable={ editable }
+			target={ linkTarget }
 			className="list-item__link"
-			target={ linkTarget ?? undefined }
+			rel={ linkTarget ? 'noopener noreferrer' : undefined }
 		>
 			&nbsp;
 		</a>

@@ -24,7 +24,7 @@ Object {
       <a
         class="mdc-button mdc-card__action mdc-card__action--button"
         href="http://www.google.com"
-        rel="nofollow"
+        rel="noopener noreferrer nofollow"
         target="_blank"
       >
         <div
@@ -42,7 +42,7 @@ Object {
     <a
       class="mdc-button mdc-card__action mdc-card__action--button"
       href="http://www.google.com"
-      rel="nofollow"
+      rel="noopener noreferrer nofollow"
       target="_blank"
     >
       <div
