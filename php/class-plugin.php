@@ -170,13 +170,12 @@ class Plugin extends Plugin_Base {
 		wp_enqueue_script(
 			'material-front-end-js',
 			$this->asset_url( 'assets/js/front-end.js' ),
-			[],
+			[ 'jquery' ],
 			$this->asset_version(),
 			true
 		);
 
-		$mtb_recaptcha_site_key = get_option( 'mtb_recaptcha_site_key', '' );
-
+		$mtb_recaptcha_site_key   = get_option( 'mtb_recaptcha_site_key', '' );
 		$wp_localized_script_data = [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ];
 
 		if ( function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $mtb_recaptcha_site_key ) ) {
@@ -187,6 +186,8 @@ class Plugin extends Plugin_Base {
 				'3.0.0',
 				true
 			);
+
+			$wp_localized_script_data['recaptcha_site_key'] = $mtb_recaptcha_site_key;
 		}
 
 		wp_localize_script( 'material-front-end-js', 'mtb', $wp_localized_script_data );

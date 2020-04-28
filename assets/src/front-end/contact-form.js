@@ -1,10 +1,23 @@
-/* global grecaptcha, mtb, fetch, FormData */
+/* global grecaptcha, mtb, jQuery */
 /* istanbul ignore file */
 
 /**
  * External dependencies
  */
 import { MDCTextField } from '@material/textfield';
+
+/**
+ * Handle the ajax form submission error.
+ *
+ * @param {Object} form Contact form.
+ */
+const handleAjaxFormSubmissionError = form => {
+	form.reset();
+	form.style.display = 'none';
+	document.getElementById( 'mtbContactFormErrorMsgContainer' ).style.display =
+		'block';
+	initReCaptchaToken();
+};
 
 /**
  * Initialize contact form.
@@ -14,10 +27,6 @@ export const initContactForm = () => {
 	if ( ! form ) {
 		return false;
 	}
-
-	const contactFormMessage = document.getElementById(
-		'mtbContactFormMsgContainer'
-	);
 
 	for ( const field of form.querySelectorAll( '.mdc-text-field' ) ) {
 		new MDCTextField( field );
@@ -29,8 +38,8 @@ export const initContactForm = () => {
 		event.preventDefault();
 
 		const contactFields = {};
-		const formData = new FormData();
-		formData.append( 'token', form.querySelector( '[name=mtb_token]' ).value );
+		const ajaxData = {};
+		ajaxData.token = form.querySelector( '[name=mtb_token]' ).value;
 
 		for ( const field of form.querySelectorAll( 'input, textarea' ) ) {
 			const name = field.name;
@@ -44,38 +53,33 @@ export const initContactForm = () => {
 					value,
 				};
 			} else {
-				formData.append( name, value );
+				ajaxData[ name ] = value;
 			}
 		}
 
-		formData.append( 'contact_fields', JSON.stringify( contactFields ) );
+		ajaxData.contact_fields = JSON.stringify( contactFields );
 
-		fetch( mtb.ajax_url, {
-			method: 'POST',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
-			},
-			body: new URLSearchParams( formData ),
-		} )
-			.then( response => response.json() )
-			.then( data => {
+		jQuery.ajax( {
+			url: mtb.ajax_url,
+			dataType: 'json',
+			type: 'POST',
+			data: ajaxData,
+			success( data ) {
 				if ( data.success === true ) {
 					form.reset();
 					form.style.display = 'none';
-					contactFormMessage.style.display = 'block';
+					document.getElementById(
+						'mtbContactFormMsgContainer'
+					).style.display = 'block';
 					initReCaptchaToken();
 				} else {
-					// TODO: Refactor to show message in page.
-					// eslint-disable-next-line no-alert,no-undef
-					alert( 'An error occurred' );
+					handleAjaxFormSubmissionError( form );
 				}
-			} )
-			.catch( () => {
-				// TODO: Refactor to show message in page.
-				// eslint-disable-next-line no-alert,no-undef
-				alert( 'An error occurred' );
-			} );
+			},
+			error() {
+				handleAjaxFormSubmissionError( form );
+			},
+		} );
 
 		return false;
 	} );
