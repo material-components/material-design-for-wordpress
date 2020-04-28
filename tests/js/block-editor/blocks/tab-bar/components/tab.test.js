@@ -33,6 +33,7 @@ const setup = props => {
 const baseProps = {
 	label: 'Test Tab',
 	active: false,
+	index: 0,
 	onInput: jest.fn(),
 	onChange: jest.fn(),
 };
@@ -72,7 +73,7 @@ describe( 'Tab', () => {
 
 		fireEvent.blur( title );
 
-		expect( props.onInput ).toHaveBeenCalledWith( 'Test Tab Updated' );
+		expect( props.onInput ).toHaveBeenCalledWith( 'Test Tab Updated', 0 );
 	} );
 
 	it( 'updates active tab on keydown', () => {

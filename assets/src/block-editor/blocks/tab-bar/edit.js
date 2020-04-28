@@ -169,11 +169,15 @@ const TabBarEdit = ( {
 	 * Set the tab's label.
 	 *
 	 * @param {string} label The new tab label.
+	 * @param {number} tabIndex Index of the tab.
 	 */
-	const setTabLabel = label => {
+	const setTabLabel = ( label, tabIndex ) => {
 		const newTabs = [ ...tabs ];
-		newTabs[ activeTabIndex ].label = label;
+		if ( ! newTabs[ tabIndex ] ) {
+			return;
+		}
 
+		newTabs[ tabIndex ].label = label;
 		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
 	};
 
@@ -199,6 +203,7 @@ const TabBarEdit = ( {
 									onDelete={ deleteTab.bind( this, index ) }
 									onInput={ setTabLabel }
 									active={ activeTabIndex === index }
+									index={ index }
 								/>
 							) ) }
 							<button className="tab-add" onClick={ createTab }>

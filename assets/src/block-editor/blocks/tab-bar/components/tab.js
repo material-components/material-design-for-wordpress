@@ -11,6 +11,7 @@ const Tab = ( {
 	onChange,
 	onDelete,
 	iconPosition,
+	index,
 	frontend = false,
 } ) => (
 	<div
@@ -35,7 +36,9 @@ const Tab = ( {
 					contentEditable={ ! frontend }
 					suppressContentEditableWarning={ ! frontend }
 					onBlur={
-						! frontend ? e => onInput( e.currentTarget.textContent ) : undefined
+						! frontend
+							? e => onInput( e.currentTarget.textContent, index )
+							: undefined
 					}
 					onKeyDown={ event => {
 						onChange(); // Set this tab as active.
