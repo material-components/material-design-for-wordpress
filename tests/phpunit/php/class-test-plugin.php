@@ -107,6 +107,59 @@ class Test_Plugin extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test for enqueue_block_editor_assets() method for editor user with the manage options capability.
+	 *
+	 * @see Plugin::enqueue_block_editor_assets()
+	 */
+	public function test_enqueue_block_editor_assets_for_editor_role_with_manage_options_cap() {
+		$editor_role = get_role( 'editor' );
+		$editor_role->add_cap( 'manage_options' );
+		$user_id = self::factory()->user->create( [ 'role' => 'editor' ] );
+		wp_set_current_user( $user_id );
+
+		$plugin = get_plugin_instance();
+		$plugin->enqueue_block_editor_assets();
+		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-styles-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
+
+		// Assert inline css vars are added.
+		$inline_css = wp_styles()->get_data( 'material-block-editor-css', 'after' );
+		$this->assertNotEmpty( $inline_css );
+
+		$inline_js = wp_scripts()->get_data( 'material-block-editor-js', 'data' );
+
+		// Assert inline js vars contains `allow_contact_form_block`.
+		$this->assertRegexp( '/allow_contact_form_block/', $inline_js );
+		$editor_role->remove_cap( 'manage_options' );
+	}
+
+	/**
+	 * Test for enqueue_block_editor_assets() method for editor user with the manage options capability.
+	 *
+	 * @see Plugin::enqueue_block_editor_assets()
+	 */
+	public function test_enqueue_block_editor_assets_for_administrator() {
+		$user_id = self::factory()->user->create( [ 'role' => 'administrator' ] );
+		wp_set_current_user( $user_id );
+
+		$plugin = get_plugin_instance();
+		$plugin->enqueue_block_editor_assets();
+		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-styles-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
+
+		// Assert inline css vars are added.
+		$inline_css = wp_styles()->get_data( 'material-block-editor-css', 'after' );
+		$this->assertNotEmpty( $inline_css );
+
+		$inline_js = wp_scripts()->get_data( 'material-block-editor-js', 'data' );
+
+		// Assert inline css js contains `allow_contact_form_block`.
+		$this->assertRegexp( '/allow_contact_form_block/', $inline_js );
+	}
+
+	/**
 	 * Test for enqueue_block_editor_assets() method.
 	 *
 	 * @see Plugin::enqueue_google_fonts()

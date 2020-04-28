@@ -83,6 +83,7 @@ describe( 'blocks: material/contact-form: Edit', () => {
 		global.mtb = {
 			recaptcha_site_key: 'test-key',
 			recaptcha_client_secret: 'test-secret',
+			allow_contact_form_block: true,
 		};
 	} );
 
@@ -92,6 +93,12 @@ describe( 'blocks: material/contact-form: Edit', () => {
 	} );
 
 	it( 'matches snapshot', () => {
+		const wrapper = setup( baseProps );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot if the user is not authorized to use the block', () => {
+		mtb.allow_contact_form_block = false;
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();
 	} );

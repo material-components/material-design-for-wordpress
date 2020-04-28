@@ -70,4 +70,16 @@ class Helpers {
 
 		return count( $found_blocks );
 	}
+
+	/**
+	 * Check whether or not the current user is admin or editor with the manage options capability.
+	 *
+	 * @return bool
+	 */
+	public static function is_current_user_admin_or_editor_with_manage_options() {
+		return (
+			current_user_can( 'editor' ) && current_user_can( 'manage_options' )
+			|| current_user_can( 'administrator' )
+		);
+	}
 }

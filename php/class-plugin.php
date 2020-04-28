@@ -93,15 +93,6 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Check whether or not the current user is admin or editor.
-	 *
-	 * @return bool
-	 */
-	private function is_user_admin_or_editor() {
-		return current_user_can( 'editor' ) || current_user_can( 'administrator' );
-	}
-
-	/**
 	 * Load Gutenberg assets.
 	 *
 	 * @action enqueue_block_editor_assets
@@ -126,7 +117,7 @@ class Plugin extends Plugin_Base {
 			'ajax_url' => admin_url( 'admin-ajax.php' ),
 		];
 
-		if ( $this->is_user_admin_or_editor() ) {
+		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
 			$wp_localized_script_data['allow_contact_form_block']    = true;
 			$wp_localized_script_data['recaptcha_ajax_nonce_action'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
 		}
