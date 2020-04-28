@@ -58,7 +58,7 @@ const Edit = props => {
 		return (
 			<div>
 				{ __(
-					'Only administrators or editor with the manage options capabilities can use this block',
+					'Only administrators or editor with the manage options capability can use this block',
 					'material-theme-builder'
 				) }
 			</div>
