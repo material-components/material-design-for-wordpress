@@ -261,6 +261,11 @@
 
 	.theme-installer-panel {
 		width: 100%;
+		padding: 5px 5px 10px 10px;
+
+		.customize-action {
+			padding-right: 30px;
+		}
 	}
 
 	.dashicons-dismiss {
