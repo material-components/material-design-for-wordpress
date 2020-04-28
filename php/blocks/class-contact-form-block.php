@@ -179,8 +179,14 @@ class Contact_Form_Block extends Module_Base {
 		}
 
 		$wp_http_referer = isset( $_POST['_wp_http_referer'] )
-			? sanitize_text_field( $_POST['_wp_http_referer'] )
+			? filter_var( $_POST['_wp_http_referer'], FILTER_SANITIZE_STRING )
 			: '';
+
+		if ( empty( $wp_http_referer ) ) {
+			wp_send_json_error(
+				[ 'message' => __( 'Missing http referer.', 'material-theme-builder' ) ]
+			);
+		}
 
 		$block_attributes = $this->get_block_attributes( $wp_http_referer );
 
@@ -198,13 +204,44 @@ class Contact_Form_Block extends Module_Base {
 			);
 		}
 
+		$sanitized_contact_fields = [];
+
+		// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$contact_fields = isset( $_POST['contact_fields'] ) ? json_decode( stripslashes( $_POST['contact_fields'] ), true ) : [];
+
+		if ( ! $contact_fields ) {
+			wp_send_json_error(
+				[ 'message' => __( 'Invalid submission data.', 'material-theme-builder' ) ]
+			);
+		}
+
+		$is_contact_fields_valid = true;
+		foreach ( $contact_fields as $field ) {
+			$sanitized_field = [
+				'label' => filter_var( $field['label'], FILTER_SANITIZE_STRING ),
+				'value' => filter_var( $field['value'], FILTER_SANITIZE_STRING ),
+			];
+
+			if ( empty( $sanitized_field['label'] ) && empty( $sanitized_field['value'] ) ) {
+				$is_contact_fields_valid = false;
+				break;
+			}
+
+			$sanitized_contact_fields[] = $sanitized_field;
+		}
+
+		if ( ! $is_contact_fields_valid ) {
+			wp_send_json_error(
+				[ 'message' => __( 'Invalid submission data.', 'material-theme-builder' ) ]
+			);
+		}
+
 		ob_start();
 		Template::get_template(
 			'contact-form-email.php',
 			[
 				'pre_message' => __( 'The following data has been submitted:', 'material-theme-builder' ),
-				// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-				'fields'      => isset( $_POST['contact_fields'] ) ? json_decode( stripslashes( $_POST['contact_fields'] ), true ) : [],
+				'fields'      => $sanitized_contact_fields,
 			]
 		);
 		$body = ob_get_clean();
@@ -229,8 +266,8 @@ class Contact_Form_Block extends Module_Base {
 	 * @action wp_ajax_mtb_manage_recaptcha_api_credentials
 	 */
 	public function manage_recaptcha_api_credentials() {
-		// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-		if ( ! wp_verify_nonce( isset( $_POST['nonce'] ) ? $_POST['nonce'] : '', 'mtb_recaptcha_ajax_nonce' ) ) {
+		$nonce = isset( $_POST['nonce'] ) ? filter_var( $_POST['nonce'], FILTER_SANITIZE_STRING ) : '';
+		if ( ! wp_verify_nonce( $nonce, 'mtb_recaptcha_ajax_nonce' ) ) {
 			wp_send_json_error(
 				[ 'message' => __( 'Invalid nonce.', 'material-theme-builder' ) ]
 			);
@@ -242,19 +279,39 @@ class Contact_Form_Block extends Module_Base {
 			);
 		}
 
-		$data = isset( $_POST['data'] ) ? json_decode( stripslashes( $_POST['data'] ), true ) : [];
+		$data = filter_var_array(
+			json_decode(
+				stripslashes( isset( $_POST['data'] ) ? $_POST['data'] : '' ),
+				true
+			),
+			[
+				'action'        => FILTER_SANITIZE_STRING,
+				'site_key'      => FILTER_SANITIZE_STRING,
+				'client_secret' => FILTER_SANITIZE_STRING,
+			]
+		);
 
-		if ( ! $data ) {
+		if ( ! isset( $data['action'] ) || empty( $data['action'] ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Missing data.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Missing or invalid action.', 'material-theme-builder' ) ]
 			);
 		}
 
-		$action        = isset( $data['action'] ) ? $data['action'] : 'clear';
-		$site_key      = isset( $data['site_key'] ) ? $data['site_key'] : '';
-		$client_secret = isset( $data['client_secret'] ) ? $data['client_secret'] : '';
+		if ( 'save' === $data['action'] ) {
+			if ( ! isset( $data['site_key'] ) || empty( $data['site_key'] ) ) {
+				wp_send_json_error(
+					[ 'message' => __( 'Missing site key for saving.', 'material-theme-builder' ) ]
+				);
+			}
 
-		if ( 'get' === $action ) {
+			if ( ! isset( $data['client_secret'] ) || empty( $data['client_secret'] ) ) {
+				wp_send_json_error(
+					[ 'message' => __( 'Missing client secret for saving.', 'material-theme-builder' ) ]
+				);
+			}
+		}
+
+		if ( 'get' === $data['action'] ) {
 			wp_send_json_success(
 				[
 					'mtb_recaptcha_site_key'      => esc_attr( get_option( 'mtb_recaptcha_site_key', '' ) ),
@@ -263,17 +320,16 @@ class Contact_Form_Block extends Module_Base {
 			);
 		}
 
-		$mtb_recaptcha_site_key_result      = false;
-		$mtb_recaptcha_client_secret_result = false;
+		if ( 'save' === $data['action'] ) {
+			$mtb_recaptcha_site_key_result      = update_option( 'mtb_recaptcha_site_key', $data['site_key'] );
+			$mtb_recaptcha_client_secret_result = update_option( 'mtb_recaptcha_client_secret', $data['client_secret'] );
 
-		if ( 'save' === $action ) {
-			if ( ! empty( $site_key ) ) {
-				$mtb_recaptcha_site_key_result = update_option( 'mtb_recaptcha_site_key', sanitize_text_field( $site_key ) );
+			if ( $mtb_recaptcha_site_key_result && $mtb_recaptcha_client_secret_result ) {
+				wp_send_json_success();
 			}
-			if ( ! empty( $client_secret ) ) {
-				$mtb_recaptcha_client_secret_result = update_option( 'mtb_recaptcha_client_secret', sanitize_text_field( $client_secret ) );
-			}
-		} elseif ( 'clear' === $action ) {
+		}
+
+		if ( 'clear' === $data['action'] ) {
 			$mtb_recaptcha_site_key_result      = true;
 			$mtb_recaptcha_client_secret_result = true;
 			if ( get_option( 'mtb_recaptcha_site_key', false ) ) {
@@ -283,15 +339,11 @@ class Contact_Form_Block extends Module_Base {
 			if ( get_option( 'mtb_recaptcha_client_secret', false ) ) {
 				$mtb_recaptcha_client_secret_result = delete_option( 'mtb_recaptcha_client_secret' );
 			}
-		}
 
-		if ( $mtb_recaptcha_site_key_result && $mtb_recaptcha_client_secret_result ) {
-			wp_send_json_success();
+			if ( $mtb_recaptcha_site_key_result && $mtb_recaptcha_client_secret_result ) {
+				wp_send_json_success();
+			}
 		}
-
-		wp_send_json_error(
-			[ 'message' => __( 'An unknown problem occurred.', 'material-theme-builder' ) ]
-		);
 	}
 
 	/**
@@ -308,9 +360,15 @@ class Contact_Form_Block extends Module_Base {
 			return false;
 		}
 
+		$mtb_recaptcha_site_key      = get_option( 'mtb_recaptcha_site_key', '' );
 		$mtb_recaptcha_client_secret = get_option( 'mtb_recaptcha_client_secret', '' );
 
-		if ( ! $mtb_recaptcha_client_secret ) {
+		// if both empty then it means that reCAPTCHA is not used.
+		if ( empty( $mtb_recaptcha_site_key ) && empty( $mtb_recaptcha_client_secret ) ) {
+			return true;
+		}
+
+		if ( empty( $mtb_recaptcha_site_key ) || empty( $mtb_recaptcha_client_secret ) ) {
 			return false;
 		}
 
@@ -319,7 +377,7 @@ class Contact_Form_Block extends Module_Base {
 			[
 				'timeout' => 2,
 				'body'    => [
-					'secret'   => get_option( 'mtb_recaptcha_client_secret' ),
+					'secret'   => $mtb_recaptcha_client_secret,
 					'response' => $recaptcha_token,
 				],
 			]

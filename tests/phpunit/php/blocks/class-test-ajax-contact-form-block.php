@@ -104,6 +104,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		parent::setup();
 		$this->contact_form_block = new Contact_Form_Block( new Plugin() );
 		$this->contact_form_block->init();
+		update_option( 'mtb_recaptcha_site_key', 'test-site-key' );
 		update_option( 'mtb_recaptcha_client_secret', 'test-client-secret' );
 		add_filter( 'pre_http_request', [ $this, 'disable_google_recaptcha_remote_check' ] );
 		$this->reset_mailer();
@@ -116,6 +117,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		parent::tearDown();
 
 		$this->contact_form_block = null;
+		delete_option( 'mtb_recaptcha_site_key' );
 		delete_option( 'mtb_recaptcha_client_secret' );
 		remove_filter( 'pre_http_request', [ $this, 'disable_google_recaptcha_remote_check' ] );
 		$this->reset_mailer();
@@ -221,10 +223,15 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$_POST['_wp_http_referer'] = '';
 
 		$response = $this->do_ajax( 'mtb_submit_contact_form' );
-		$this->assertTrue( $response['success'] );
-		$mailer = tests_retrieve_phpmailer_instance();
-		$this->assertSame( 'admin@example.org', $mailer->get_recipient( 'to' )->address );
-		$this->assertSame( 'This e-mail was sent from a contact form on Test Blog', $mailer->get_sent()->subject );
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'Missing http referer.',
+				],
+			],
+			$response
+		);
 	}
 
 	/**
@@ -273,11 +280,128 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
+	 * Test priv_submit_contact_form with missing Google reCAPTCHA site key.
+	 *
+	 * @see Contact_Form_Block::submit_contact_form()
+	 */
+	public function test_submit_contact_form_missing_recaptcha_site_key_option() {
+		delete_option( 'mtb_recaptcha_site_key' );
+		$this->setup_ajax( true );
+
+		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'The submission could not be verified.',
+				],
+			],
+			$response
+		);
+	}
+
+	/**
+	 * Test priv_submit_contact_form with missing Google reCAPTCHA client secret.
+	 *
+	 * @see Contact_Form_Block::submit_contact_form()
+	 */
+	public function test_submit_contact_form_missing_recaptcha_client_secret_option() {
+		delete_option( 'mtb_recaptcha_client_secret' );
+		$this->setup_ajax( true );
+
+		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'The submission could not be verified.',
+				],
+			],
+			$response
+		);
+	}
+
+	/**
 	 * Test priv_submit_contact_form for a successful submission.
 	 *
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
 	public function test_submit_contact_form_success() {
+		$this->setup_ajax( true );
+		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+
+		$this->assertTrue( $response['success'] );
+		$mailer = tests_retrieve_phpmailer_instance();
+		$this->assertSame( 'test@test.loc', $mailer->get_recipient( 'to' )->address );
+		$this->assertSame( 'Test email subject', $mailer->get_sent()->subject );
+		$body = $mailer->get_sent()->body;
+		$this->assertRegExp( '/The following data has been submitted/', $body );
+		$this->assertRegExp( '/Name\: Test name/', $body );
+		$this->assertRegExp( '/Email\: test-sender@test.loc/', $body );
+		$this->assertRegExp( '#Website\: http\://www\.example\.com#', $body );
+		$this->assertRegExp( '/Message\: Test message/', $body );
+	}
+
+	/**
+	 * Test priv_submit_contact_form with non structured contact fields.
+	 *
+	 * @see Contact_Form_Block::submit_contact_form()
+	 */
+	public function test_submit_contact_form_with_non_structured_contact_fields() {
+		$this->setup_ajax( true );
+		$_POST['contact_fields'] = '';
+		$response                = $this->do_ajax( 'mtb_submit_contact_form' );
+
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'Invalid submission data.',
+				],
+			],
+			$response
+		);
+	}
+
+	/**
+	 * Test priv_submit_contact_form with invalid contact fields data.
+	 *
+	 * @see Contact_Form_Block::submit_contact_form()
+	 */
+	public function test_submit_contact_form_with_invalid_contact_fields_Data() {
+		$this->setup_ajax( true );
+		$_POST['contact_fields'] = wp_json_encode(
+			[
+				'mtb-name-1' => [
+					'name'  => [ 'mtb-name-11' ],
+					'label' => [ 'Name' ],
+					'value' => [ 'Test name' ],
+				],
+			]
+		);
+
+		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'Invalid submission data.',
+				],
+			],
+			$response
+		);
+	}
+
+	/**
+	 * Test priv_submit_contact_form for a successful submission without reCAPTCHA.
+	 *
+	 * @see Contact_Form_Block::submit_contact_form()
+	 */
+	public function test_submit_contact_form_success_without_recaptcha() {
+		delete_option( 'mtb_recaptcha_site_key' );
+		delete_option( 'mtb_recaptcha_client_secret' );
+
 		$this->setup_ajax( true );
 		$response = $this->do_ajax( 'mtb_submit_contact_form' );
 
@@ -372,7 +496,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		update_option( 'mtb_recaptcha_client_secret', 'test-secret' );
 
 		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
-		$_POST['data']  = json_encode( // phpcs:ignore
+		$_POST['data']  = wp_json_encode(
 			[
 				'action' => 'get',
 			]
@@ -410,7 +534,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 			[
 				'success' => false,
 				'data'    => [
-					'message' => 'Missing data.',
+					'message' => 'Missing or invalid action.',
 				],
 			],
 			$response
@@ -474,7 +598,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials for a successful save submission.
+	 * Test mtb_manage_recaptcha_api_credentials for a successful clear submission.
 	 *
 	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
 	 */
@@ -494,5 +618,82 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 
 		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
 		$this->assertEquals( [ 'success' => true ], $response );
+	}
+
+	/**
+	 * Test mtb_manage_recaptcha_api_credentials with invalid data.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_with_invalid_data() {
+		$this->_setRole( 'administrator' );
+		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['data']  = 'invalid';
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'Missing or invalid action.',
+				],
+			],
+			$response
+		);
+	}
+
+	/**
+	 * Test mtb_manage_recaptcha_api_credentials with missing site key on save.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_with_some_missing_site_key_on_save() {
+		$this->_setRole( 'administrator' );
+		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['data']  = json_encode( // phpcs:ignore
+			[
+				'action'        => 'save',
+				'client_secret' => 'test',
+			]
+		);
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'Missing site key for saving.',
+				],
+			],
+			$response
+		);
+	}
+
+	/**
+	 * Test mtb_manage_recaptcha_api_credentials with missing client_secret on save.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_with_some_missing_client_secret_on_save() {
+		$this->_setRole( 'administrator' );
+		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['data']  = json_encode( // phpcs:ignore
+			[
+				'action'   => 'save',
+				'site_key' => 'test',
+			]
+		);
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'Missing client secret for saving.',
+				],
+			],
+			$response
+		);
 	}
 }
