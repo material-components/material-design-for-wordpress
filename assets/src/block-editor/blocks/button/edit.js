@@ -8,6 +8,8 @@ import { capitalize } from 'lodash';
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
+import { useEffect } from '@wordpress/element';
+
 import {
 	URLInput,
 	ContrastChecker,
@@ -25,11 +27,12 @@ import {
  */
 import './style.css';
 import hasBg from './utils/has-bg';
-import { withGlobalDefaults } from '../../components/with-global-defaults';
+import findIcon from '../../utils/find-icon';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
 import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
+import { withGlobalDefaults } from '../../components/with-global-defaults';
 import MaterialColorPalette from '../../components/material-color-palette';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 
@@ -55,6 +58,12 @@ const ButtonEdit = ( {
 	className,
 } ) => {
 	const setter = genericAttributesSetter( setAttributes );
+
+	useEffect( () => {
+		if ( iconPosition !== 'none' && ! icon ) {
+			setAttributes( { icon: findIcon( 'favorite' ) } );
+		}
+	}, [ icon, iconPosition, setAttributes ] );
 
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
@@ -235,7 +244,7 @@ const ButtonEdit = ( {
 								value={ cornerRadius }
 								onChange={ setter( 'cornerRadius' ) }
 								min={ 0 }
-								max={ 36 }
+								max={ 20 }
 							/>
 						) : (
 							<p>
