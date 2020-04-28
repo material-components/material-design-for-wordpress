@@ -2,6 +2,7 @@
  * External dependencies
  */
 import { isEqual } from 'lodash';
+import { MDCTabBar } from '@material/tab-bar';
 
 /**
  * Internal dependencies
@@ -12,6 +13,7 @@ import { Tab, TabSchema } from './components/tab';
 import OrderToolbar from './components/order-toolbar';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
+import { setFocusAndMoveCursorToEnd } from '../../helpers';
 
 /**
  * WordPress dependencies
@@ -19,7 +21,7 @@ import ButtonGroup from '../../components/button-group';
 import { __, sprintf } from '@wordpress/i18n';
 import { PanelBody } from '@wordpress/components';
 import { dispatch, withSelect } from '@wordpress/data';
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, useRef } from '@wordpress/element';
 import {
 	InspectorControls,
 	BlockControls,
@@ -53,6 +55,15 @@ const TabBarEdit = ( {
 
 	const [ activeTabIndex, setActiveTabIndex ] = useState( 0 );
 
+	const tabBar = useRef( null );
+	const mdcTabs = useRef( null );
+	useEffect( () => {
+		if ( tabBar.current && ! mdcTabs.current ) {
+			mdcTabs.current = new MDCTabBar( tabBar.current );
+			mdcTabs.current.unlisten( 'keydown', mdcTabs.current.handleKeyDown_ );
+		}
+	}, [ tabBar, mdcTabs ] );
+
 	useEffect( () => {
 		const activeTab = tabs[ activeTabIndex ] || {};
 		// If there's content, put it in the editor
@@ -68,6 +79,16 @@ const TabBarEdit = ( {
 			if ( 0 < clientIds.length ) {
 				dispatch( 'core/block-editor' ).removeBlocks( clientIds );
 			}
+		}
+
+		// Hack to ensure the active tab always gets focus.
+		const activeTabNode =
+			tabBar.current.querySelectorAll(
+				'.mdc-tab .mdc-tab__text-label [contenteditable]'
+			)[ activeTabIndex ] || null;
+
+		if ( activeTabNode ) {
+			setFocusAndMoveCursorToEnd( activeTabNode );
 		}
 	}, [ activeTabIndex ] ); // eslint-disable-line
 
@@ -190,29 +211,32 @@ const TabBarEdit = ( {
 
 	return (
 		<>
-			<div className="mdc-tab-bar" role="tablist">
-				<div className="mdc-tab-scroller">
-					<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
-						<div className="mdc-tab-scroller__scroll-content">
-							{ tabs.map( ( props, index ) => (
-								<Tab
-									{ ...props }
-									key={ `${ clientId }-${ index }` }
-									iconPosition={ iconPosition }
-									onChange={ changeTab.bind( this, index ) }
-									onDelete={ deleteTab.bind( this, index ) }
-									onInput={ setTabLabel }
-									active={ activeTabIndex === index }
-									index={ index }
-								/>
-							) ) }
-							<button className="tab-add" onClick={ createTab }>
-								<i className="material-icons tab-add__icon">add</i>
-								<span>{ __( 'New Tab', 'material-theme-builder' ) }</span>
-							</button>
+			<div className="tab-wrap">
+				<div className="mdc-tab-bar" role="tablist" ref={ tabBar }>
+					<div className="mdc-tab-scroller">
+						<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
+							<div className="mdc-tab-scroller__scroll-content">
+								{ tabs.map( ( props, index ) => (
+									<Tab
+										{ ...props }
+										key={ `${ clientId }-${ index }` }
+										iconPosition={ iconPosition }
+										onChange={ changeTab.bind( this, index ) }
+										onDelete={ deleteTab.bind( this, index ) }
+										onInput={ setTabLabel }
+										active={ activeTabIndex === index }
+										index={ index }
+									/>
+								) ) }
+							</div>
 						</div>
 					</div>
 				</div>
+
+				<button className="tab-add" onClick={ createTab }>
+					<i className="material-icons tab-add__icon">add</i>
+					<span>{ __( 'New Tab', 'material-theme-builder' ) }</span>
+				</button>
 			</div>
 
 			<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />

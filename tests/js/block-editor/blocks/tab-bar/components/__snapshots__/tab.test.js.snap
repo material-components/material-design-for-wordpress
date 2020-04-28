@@ -157,6 +157,9 @@ Object {
             class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
           />
         </span>
+        <span
+          class="mdc-tab__ripple"
+        />
         <button
           class="material-icons tab__delete"
         >
@@ -193,6 +196,9 @@ Object {
           class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
         />
       </span>
+      <span
+        class="mdc-tab__ripple"
+      />
       <button
         class="material-icons tab__delete"
       >
@@ -286,6 +292,9 @@ Object {
             class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
           />
         </span>
+        <span
+          class="mdc-tab__ripple"
+        />
         <button
           class="material-icons tab__delete"
         >
@@ -322,6 +331,9 @@ Object {
           class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
         />
       </span>
+      <span
+        class="mdc-tab__ripple"
+      />
       <button
         class="material-icons tab__delete"
       >
@@ -415,6 +427,9 @@ Object {
             class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
           />
         </span>
+        <span
+          class="mdc-tab__ripple"
+        />
         <button
           class="material-icons tab__delete"
         >
@@ -451,6 +466,9 @@ Object {
           class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
         />
       </span>
+      <span
+        class="mdc-tab__ripple"
+      />
       <button
         class="material-icons tab__delete"
       >
