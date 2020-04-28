@@ -23,13 +23,13 @@ const galleryProps = {
 	attributes: {
 		images: [
 			{
-				caption: 'Example Image 1',
+				alt: 'Example Image 1',
 				url: 'https://i.picsum.photos/id/22/500/500.jpg',
 				id: 1,
 				link: 'http://example.com/image-1',
 			},
 			{
-				caption: 'Example Image 2',
+				alt: 'Example Image 2',
 				url: 'https://i.picsum.photos/id/22/500/500.jpg',
 				id: 2,
 				link: 'http://example.com/image-2',
