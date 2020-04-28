@@ -25,6 +25,7 @@ const Tab = ( {
 	index,
 	frontend = false,
 } ) => {
+	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const titleRef = frontend ? null : useRef( null );
 
 	const onRippleTransitionEnd = event => {
