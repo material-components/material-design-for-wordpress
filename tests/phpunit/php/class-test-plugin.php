@@ -102,7 +102,8 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertNotEmpty( $inline_css );
 
 		$inline_js = wp_scripts()->get_data( 'material-block-editor-js', 'data' );
-		// Assert inline css vars contains ajax url data.
+
+		// Assert inline js vars contains ajax url data.
 		$this->assertRegexp( '/ajax_url/', $inline_js );
 	}
 
