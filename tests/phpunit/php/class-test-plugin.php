@@ -11,15 +11,12 @@ use MaterialThemeBuilder\Plugin;
 use MaterialThemeBuilder\Customizer\Controls;
 
 /**
- * Stub wp_get_theme().
+ * Stub get_template().
  *
- * @return stdClass
+ * @return string
  */
-function wp_get_theme() {
-	return (object) [
-		'theme_root' => '/tmp',
-		'template'   => Plugin::THEME_SLUG,
-	];
+function get_template() {
+	return Plugin::THEME_SLUG;
 }
 
 /**

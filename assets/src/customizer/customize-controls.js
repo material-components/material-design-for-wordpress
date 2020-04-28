@@ -1,4 +1,4 @@
-/* global jQuery, requestAnimationFrame, mtb, mdc, materialThemeStatus */
+/* global jQuery, requestAnimationFrame, mtb, mdc */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -227,7 +227,7 @@ import ThemePrompt from './components/theme-prompt';
 		` );
 
 		render(
-			<ThemePrompt status={ materialThemeStatus } />,
+			<ThemePrompt status={ mtb.themeStatus } />,
 			$( '#accordion-section-theme-installer' ).get( 0 )
 		);
 	} );

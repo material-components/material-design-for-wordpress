@@ -256,7 +256,7 @@ class Plugin extends Plugin_Base {
 		return $defaults;
 	}
 
-		/**
+	/**
 	 * Prepares an admin notice.
 	 *
 	 * @param string $title   The title to be showed in the notice.
@@ -294,7 +294,7 @@ class Plugin extends Plugin_Base {
 	 * @return bool
 	 */
 	public function theme_installed() {
-		return file_exists( wp_get_theme()->theme_root . '/' . self::THEME_SLUG );
+		return file_exists( get_theme_root() . DIRECTORY_SEPARATOR . self::THEME_SLUG );
 	}
 
 	/**
@@ -307,7 +307,7 @@ class Plugin extends Plugin_Base {
 			return 'install';
 		}
 
-		if ( self::THEME_SLUG !== wp_get_theme()->template ) {
+		if ( self::THEME_SLUG !== get_template() ) {
 			return 'activate';
 		}
 
@@ -354,7 +354,7 @@ class Plugin extends Plugin_Base {
 	 */
 	public function plugin_activated_notice() {
 		// Theme not active or plugin didn't JUST activate. Stop here.
-		if ( self::THEME_SLUG !== wp_get_theme()->template || ! get_transient( 'mtb-activation-notice' ) ) {
+		if ( self::THEME_SLUG !== get_template() || ! get_transient( 'mtb-activation-notice' ) ) {
 			return;
 		}
 
