@@ -39,42 +39,52 @@ const CardActionButton = ( {
 	onPopupFocusOutside = () => {},
 	isFocused = false,
 	isEditMode,
-} ) => (
-	<>
-		{ isEditMode ? (
-			<button className="mdc-button mdc-card__action mdc-card__action--button">
-				<RichText
-					tagName="div"
-					value={ label }
-					onChange={ onChangeLabel }
-					placeholder={ __( 'Button text', 'material-theme-builder' ) }
+} ) => {
+	let rel;
+	if ( url ) {
+		rel = 'noopener noreferrer';
+		if ( noFollow ) {
+			rel += ' nofollow';
+		}
+	}
+
+	return (
+		<>
+			{ isEditMode ? (
+				<button className="mdc-button mdc-card__action mdc-card__action--button">
+					<RichText
+						tagName="div"
+						value={ label }
+						onChange={ onChangeLabel }
+						placeholder={ __( 'Button text', 'material-theme-builder' ) }
+					/>
+				</button>
+			) : (
+				<a
+					href={ url || '#' }
+					rel={ rel }
+					target={ url && newTab ? '_blank' : undefined }
+					className="mdc-button mdc-card__action mdc-card__action--button"
+				>
+					<div className="mdc-button__ripple"></div>
+					<span className="mdc-button__label">{ label }</span>
+				</a>
+			) }
+			{ isFocused && isEditMode && (
+				<UrlInputPopover
+					onFocusOutside={ onPopupFocusOutside }
+					value={ url }
+					onChange={ onChangeUrl }
+					newTab={ newTab }
+					noFollow={ noFollow }
+					onChangeNewTab={ onChangeNewTab }
+					onChangeNoFollow={ onChangeNoFollow }
+					onPopupClose={ onPopupClose }
+					disableSuggestions={ disableSuggestions }
 				/>
-			</button>
-		) : (
-			<a
-				href={ url || '#' }
-				rel={ url && noFollow ? 'nofollow' : undefined }
-				target={ url && newTab ? '_blank' : undefined }
-				className="mdc-button mdc-card__action mdc-card__action--button"
-			>
-				<div className="mdc-button__ripple"></div>
-				<span className="mdc-button__label">{ label }</span>
-			</a>
-		) }
-		{ isFocused && isEditMode && (
-			<UrlInputPopover
-				onFocusOutside={ onPopupFocusOutside }
-				value={ url }
-				onChange={ onChangeUrl }
-				newTab={ newTab }
-				noFollow={ noFollow }
-				onChangeNewTab={ onChangeNewTab }
-				onChangeNoFollow={ onChangeNoFollow }
-				onPopupClose={ onPopupClose }
-				disableSuggestions={ disableSuggestions }
-			/>
-		) }
-	</>
-);
+			) }
+		</>
+	);
+};
 
 export default CardActionButton;
