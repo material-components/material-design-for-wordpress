@@ -320,7 +320,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
 	 */
 	public function test_mtb_manage_recaptcha_api_credentials_invalid_nonce() {
-		$this->setup_ajax( true );
+		$this->_setRole( 'administrator' );
 		$_POST['nonce'] = wp_create_nonce( 'invalid_action' );
 
 		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
@@ -402,7 +402,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
 	 */
 	public function test_mtb_manage_recaptcha_api_credentials_missing_data() {
-		$this->setup_ajax( true );
+		$this->_setRole( 'administrator' );
 		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
 
 		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
@@ -423,7 +423,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
 	 */
 	public function test_mtb_manage_recaptcha_api_credentials_get_success() {
-		$this->setup_ajax( true );
+		$this->_setRole( 'administrator' );
 		update_option( 'mtb_recaptcha_site_key', 'test-key' );
 		update_option( 'mtb_recaptcha_client_secret', 'test-secret' );
 
@@ -456,7 +456,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
 	 */
 	public function test_mtb_manage_recaptcha_api_credentials_save_success() {
-		$this->setup_ajax( true );
+		$this->_setRole( 'administrator' );
 		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
 		$_POST['data']  = json_encode( // phpcs:ignore
 			[
@@ -479,7 +479,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
 	 */
 	public function test_mtb_manage_recaptcha_api_credentials_clear_success() {
-		$this->setup_ajax( true );
+		$this->_setRole( 'administrator' );
 		update_option( 'mtb_recaptcha_site_key', 'test-key' );
 		update_option( 'mtb_recaptcha_client_secret', 'test-secret' );
 
