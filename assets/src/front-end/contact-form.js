@@ -69,7 +69,7 @@ export const initContactForm = () => {
 					form.reset();
 					form.style.display = 'none';
 					document.getElementById(
-						'mtbContactFormMsgContainer'
+						'mtbContactFormSuccessMsgContainer'
 					).style.display = 'block';
 					initReCaptchaToken();
 				} else {
