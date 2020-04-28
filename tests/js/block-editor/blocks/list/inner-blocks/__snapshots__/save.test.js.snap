@@ -17,6 +17,7 @@ Object {
         <a
           class="list-item__link"
           href="http://google.com"
+          rel="noopener noreferrer"
           target="_blank"
         >
            
@@ -57,6 +58,7 @@ Object {
       <a
         class="list-item__link"
         href="http://google.com"
+        rel="noopener noreferrer"
         target="_blank"
       >
          
