@@ -19,7 +19,8 @@ describe( 'blocks: material/list', () => {
 		expect( await page.$( '[data-type="material/list-item"]' ) ).not.toBeNull();
 	} );
 
-	// TODO: Re-enabled once the URLInputPopover component issue with taking over the focus is fixed
+	// TODO: Re-enabled once the URLInputPopover component issue with taking over the focus is fixed.
+	//  See https://github.com/xwp/material-theme-builder-wp/issues/197
 	// eslint-disable-next-line jest/no-commented-out-tests
 	// it( 'should create a new list item block when ENTER is pressed', async () => {
 	// 	await insertBlockByKeyword( 'mlist' );
