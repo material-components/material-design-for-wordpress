@@ -54,10 +54,6 @@ describe( 'blocks: material/list-item', () => {
 			expect( settings.attributes.url ).toBeDefined();
 		} );
 
-		it( 'should define rel attribute', () => {
-			expect( settings.attributes.rel ).toBeDefined();
-		} );
-
 		it( 'should define linkTarget attribute', () => {
 			expect( settings.attributes.linkTarget ).toBeDefined();
 		} );
