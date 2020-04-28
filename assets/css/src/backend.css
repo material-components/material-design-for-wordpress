@@ -8,8 +8,7 @@
 		margin-left: 20px;
 
 		&__title {
-			margin: 0;
-			margin-bottom: 5px;
+			margin: 10px 0 5px !important;
 		}
 
 		&__text {
