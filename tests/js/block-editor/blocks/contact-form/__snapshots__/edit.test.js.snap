@@ -811,13 +811,13 @@ Object {
     />
     <div>
       <div>
-        Only administrators or editor with the manage options capabilities can use this block
+        Only administrators or editor with the manage options capability can use this block
       </div>
     </div>
   </body>,
   "container": <div>
     <div>
-      Only administrators or editor with the manage options capabilities can use this block
+      Only administrators or editor with the manage options capability can use this block
     </div>
   </div>,
   "debug": [Function],
