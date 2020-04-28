@@ -128,11 +128,16 @@ const RecaptchaInspectorControlsPanel = () => {
 			return false;
 		}
 
-		sendAjaxRequest( {
+		const ajaxData = {
 			action,
-			site_key: siteKey,
-			client_secret: clientSecret,
-		} )
+		};
+
+		if ( action === 'save' ) {
+			ajaxData.site_key = siteKey;
+			ajaxData.client_secret = clientSecret;
+		}
+
+		sendAjaxRequest( ajaxData )
 			.then( response => {
 				newNotice.show = true;
 				if ( ! response.hasOwnProperty( 'success' ) || ! response.success ) {
