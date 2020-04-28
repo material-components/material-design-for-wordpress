@@ -59,12 +59,14 @@ const galleryProps = {
 				url: 'https://i.picsum.photos/id/22/500/500.jpg',
 				id: 1,
 				link: 'http://example.com/image-1',
+				alt: 'Example Image 1 alt',
 			},
 			{
 				caption: 'Example Image 2',
 				url: 'https://i.picsum.photos/id/22/500/500.jpg',
 				id: 2,
 				link: 'http://example.com/image-2',
+				alt: 'Example Image 2 alt',
 			},
 		],
 		style: 'masonry',
@@ -75,7 +77,7 @@ const galleryProps = {
 			mobile: 12,
 		},
 		cornerRadius: 4,
-		displayCaptions: false,
+		displayCaptions: true,
 		textProtection: false,
 		linkTo: 'media',
 		id: 'block-material-image-list-0',
@@ -114,17 +116,19 @@ describe( 'blocks: material/image-list: Edit', () => {
 
 	it( 'fetches captions using `getEntityRecords` and updates the caption prop of images', () => {
 		const props = { ...galleryProps };
-		const { getByAltText } = setup( props );
+		const { container } = setup( props );
 
-		const image = getByAltText( 'Example Image 2 caption' );
-		expect( image ).toBeInTheDocument();
+		const images = container.querySelectorAll( '.mdc-image-list__label' );
+		expect( images ).toHaveLength( 2 );
+
+		expect( images[ 1 ].innerHTML ).toStrictEqual( 'Example Image 2 caption' );
 	} );
 
 	it( "selects an image if it's clicked", () => {
 		const props = { ...galleryProps };
 		const { container, getByAltText } = setup( props );
 
-		fireEvent.click( getByAltText( 'Example Image 2 caption' ) );
+		fireEvent.click( getByAltText( 'Example Image 2 alt' ) );
 		const imageItems = container.querySelectorAll(
 			'.mdc-image-list__item-wrap'
 		);
@@ -163,7 +167,7 @@ describe( 'blocks: material/image-list: Edit', () => {
 		const props = { ...galleryProps };
 		props.attributes.linkTo = 'custom';
 		const { getByAltText, getAllByLabelText } = setup( props );
-		fireEvent.click( getByAltText( 'Example Image 2 caption' ) );
+		fireEvent.click( getByAltText( 'Example Image 2 alt' ) );
 
 		const urlFields = getAllByLabelText( /URL/i );
 
