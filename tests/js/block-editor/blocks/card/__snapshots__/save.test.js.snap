@@ -64,7 +64,7 @@ Object {
               <a
                 class="mdc-button mdc-card__action mdc-card__action--button"
                 href="http://test.loc/hello-world"
-                rel="nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 <div
@@ -79,7 +79,7 @@ Object {
               <a
                 class="mdc-button mdc-card__action mdc-card__action--button"
                 href="http://test.loc/hello-world-again"
-                rel="nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 <div
@@ -141,7 +141,7 @@ Object {
             <a
               class="mdc-button mdc-card__action mdc-card__action--button"
               href="http://test.loc/hello-world"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <div
@@ -156,7 +156,7 @@ Object {
             <a
               class="mdc-button mdc-card__action mdc-card__action--button"
               href="http://test.loc/hello-world-again"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <div
@@ -291,7 +291,7 @@ Object {
               <a
                 class="mdc-button mdc-card__action mdc-card__action--button"
                 href="http://test.loc/hello-world"
-                rel="nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 <div
@@ -306,7 +306,7 @@ Object {
               <a
                 class="mdc-button mdc-card__action mdc-card__action--button"
                 href="http://test.loc/hello-world-again"
-                rel="nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 <div
@@ -368,7 +368,7 @@ Object {
             <a
               class="mdc-button mdc-card__action mdc-card__action--button"
               href="http://test.loc/hello-world"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <div
@@ -383,7 +383,7 @@ Object {
             <a
               class="mdc-button mdc-card__action mdc-card__action--button"
               href="http://test.loc/hello-world-again"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <div
@@ -513,7 +513,7 @@ Object {
               <a
                 class="mdc-button mdc-card__action mdc-card__action--button"
                 href="http://test.loc/hello-world"
-                rel="nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 <div
@@ -528,7 +528,7 @@ Object {
               <a
                 class="mdc-button mdc-card__action mdc-card__action--button"
                 href="http://test.loc/hello-world-again"
-                rel="nofollow"
+                rel="noopener noreferrer nofollow"
                 target="_blank"
               >
                 <div
@@ -585,7 +585,7 @@ Object {
             <a
               class="mdc-button mdc-card__action mdc-card__action--button"
               href="http://test.loc/hello-world"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <div
@@ -600,7 +600,7 @@ Object {
             <a
               class="mdc-button mdc-card__action mdc-card__action--button"
               href="http://test.loc/hello-world-again"
-              rel="nofollow"
+              rel="noopener noreferrer nofollow"
               target="_blank"
             >
               <div
