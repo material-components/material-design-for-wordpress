@@ -22,7 +22,7 @@ $confirmation_message = isset( $attributes['confirmationMessage'] ) ? $attribute
 	<div id="mtbContactFormSuccessMsgContainer" style="display: none">
 		<?php echo esc_html( $confirmation_message ); ?>
 	</div>
-	<div id="mtbContactcFormErrorMsgContainer" style="display: none">
+	<div id="mtbContactFormErrorMsgContainer" style="display: none">
 		<?php esc_html_e( 'An error has occurred. Please try again later.', 'material-theme-builder' ); ?>
 	</div>
 </div>
