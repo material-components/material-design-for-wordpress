@@ -108,6 +108,7 @@ class Plugin extends Plugin_Base {
 				'wp-editor',
 				'wp-date',
 				'wp-api-fetch',
+				'jquery',
 			],
 			$this->asset_version(),
 			false

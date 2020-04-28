@@ -1,4 +1,5 @@
-/* global mtb, fetch, FormData */
+/* global mtb, jQuery */
+
 /* istanbul ignore file */
 
 /**
@@ -12,7 +13,12 @@ import {
 	PanelBody,
 	TextControl,
 } from '@wordpress/components';
-import { useState, useRef, useEffect } from '@wordpress/element';
+import { useEffect, useRef, useState } from '@wordpress/element';
+
+const genericErrorMessage = __(
+	'An unknown error occurred. Please try again later.',
+	'material-theme-builder'
+);
 
 /**
  * Recaptcha Inspector Controls Panel component.
@@ -23,7 +29,7 @@ const RecaptchaInspectorControlsPanel = () => {
 	const defaultNotice = {
 		show: false,
 		type: 'error',
-		message: __( 'An unknown error has occurred', 'material-theme-builder' ),
+		message: genericErrorMessage,
 	};
 
 	const [ siteKey, setSiteKey ] = useState( '' );
@@ -35,26 +41,44 @@ const RecaptchaInspectorControlsPanel = () => {
 	useEffect(
 		() => {
 			if ( isInitialFetch.current ) {
+				const newNotice = { ...defaultNotice };
+
 				sendAjaxRequest( {
 					action: 'get',
 				} )
 					.then( response => {
 						if (
-							response.hasOwnProperty( 'success' ) &&
-							response.success &&
-							response.hasOwnProperty( 'data' )
+							! response.hasOwnProperty( 'success' ) ||
+							! response.success
 						) {
-							if ( response.data.hasOwnProperty( 'mtb_recaptcha_site_key' ) ) {
-								setSiteKey( response.data.mtb_recaptcha_site_key );
-								if (
-									response.data.hasOwnProperty( 'mtb_recaptcha_client_secret' )
-								) {
-									setClientSecret( response.data.mtb_recaptcha_client_secret );
-								}
+							newNotice.show = true;
+							newNotice.type = 'error';
+							newNotice.message =
+								response.hasOwnProperty( 'data' ) &&
+								response.data.hasOwnProperty( 'message' )
+									? response.data.message
+									: genericErrorMessage;
+							setNotice( newNotice );
+							return;
+						}
+
+						if (
+							response.hasOwnProperty( 'data' ) &&
+							response.data.hasOwnProperty( 'mtb_recaptcha_site_key' )
+						) {
+							setSiteKey( response.data.mtb_recaptcha_site_key );
+							if (
+								response.data.hasOwnProperty( 'mtb_recaptcha_client_secret' )
+							) {
+								setClientSecret( response.data.mtb_recaptcha_client_secret );
 							}
 						}
 					} )
-					.catch( () => {} )
+					.catch( () => {
+						newNotice.show = true;
+						newNotice.type = 'error';
+						setNotice( newNotice );
+					} )
 					.finally( () => {
 						setIsDisabled( false );
 					} );
@@ -109,18 +133,26 @@ const RecaptchaInspectorControlsPanel = () => {
 			site_key: siteKey,
 			client_secret: clientSecret,
 		} )
-			.then( data => {
+			.then( response => {
 				newNotice.show = true;
-				if ( data.hasOwnProperty( 'success' ) && data.success ) {
-					newNotice.type = 'success';
-					newNotice.message = __(
-						'Saved successfully',
-						'material-theme-builder'
-					);
+				if ( ! response.hasOwnProperty( 'success' ) || ! response.success ) {
+					newNotice.type = 'error';
+					newNotice.message =
+						response.hasOwnProperty( 'data' ) &&
+						response.data.hasOwnProperty( 'message' )
+							? response.data.message
+							: genericErrorMessage;
 				}
+
+				newNotice.type = 'success';
+				newNotice.message = __(
+					'Saved successfully',
+					'material-theme-builder'
+				);
 			} )
 			.catch( () => {
-				newNotice.show = false;
+				newNotice.show = true;
+				newNotice.type = 'error';
 			} )
 			.finally( () => {
 				setNotice( newNotice );
@@ -133,27 +165,23 @@ const RecaptchaInspectorControlsPanel = () => {
 	};
 
 	/**
-	 * Send credentials to backend.
+	 * Send ajax request.
 	 *
-	 * @param {Object} data Data.
+	 * @param {Object} data Data to send along the ajax request.
 	 *
-	 * @return {Promise<any>} Promise
+	 * @return {Promise<jQuery>} Promise
 	 */
 	const sendAjaxRequest = async data => {
-		const form = new FormData();
-		form.append( 'action', 'mtb_manage_recaptcha_api_credentials' );
-		form.append( 'nonce', mtb.recaptcha_ajax_nonce_action );
-		form.append( 'data', JSON.stringify( data ) );
-
-		const response = await fetch( mtb.ajax_url, {
-			method: 'POST',
-			headers: {
-				Accept: 'application/json',
-				'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+		return jQuery.ajax( {
+			url: mtb.ajax_url,
+			dataType: 'json',
+			type: 'POST',
+			data: {
+				action: 'mtb_manage_recaptcha_api_credentials',
+				nonce: mtb.recaptcha_ajax_nonce_action,
+				data: JSON.stringify( data ),
 			},
-			body: new URLSearchParams( form ),
 		} );
-		return await response.json();
 	};
 
 	/**
