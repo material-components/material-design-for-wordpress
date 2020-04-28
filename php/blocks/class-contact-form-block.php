@@ -218,8 +218,8 @@ class Contact_Form_Block extends Module_Base {
 		$is_contact_fields_valid = true;
 		foreach ( $contact_fields as $field ) {
 			$sanitized_field = [
-				'label' => filter_var( $field['label'], FILTER_SANITIZE_STRING ),
-				'value' => filter_var( $field['value'], FILTER_SANITIZE_STRING ),
+				'label' => trim( filter_var( $field['label'], FILTER_SANITIZE_STRING ) ),
+				'value' => trim( filter_var( $field['value'], FILTER_SANITIZE_STRING ) ),
 			];
 
 			if ( empty( $sanitized_field['label'] ) && empty( $sanitized_field['value'] ) ) {
@@ -314,8 +314,8 @@ class Contact_Form_Block extends Module_Base {
 		if ( 'get' === $data['action'] ) {
 			wp_send_json_success(
 				[
-					'mtb_recaptcha_site_key'      => esc_attr( get_option( 'mtb_recaptcha_site_key', '' ) ),
-					'mtb_recaptcha_client_secret' => esc_attr( get_option( 'mtb_recaptcha_client_secret', '' ) ),
+					'mtb_recaptcha_site_key'      => trim( esc_attr( get_option( 'mtb_recaptcha_site_key', '' ) ) ),
+					'mtb_recaptcha_client_secret' => trim( esc_attr( get_option( 'mtb_recaptcha_client_secret', '' ) ) ),
 				]
 			);
 		}
