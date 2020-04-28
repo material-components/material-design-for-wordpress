@@ -336,6 +336,67 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
+	 * Test mtb_manage_recaptcha_api_credentials for an editor without the manage options capability.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_editor_without_manage_options() {
+		$this->logout();
+		$this->_setRole( 'editor' );
+		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$this->assertEquals(
+			[
+				'success' => false,
+				'data'    => [
+					'message' => 'You are not authorized.',
+				],
+			],
+			$response
+		);
+	}
+
+	/**
+	 * Test mtb_manage_recaptcha_api_credentials for an editor with the manage options capability.
+	 *
+	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 */
+	public function test_mtb_manage_recaptcha_api_credentials_editor_with_manage_options() {
+		$editor_role = get_role( 'editor' );
+		$editor_role->add_cap( 'manage_options' );
+
+		$this->logout();
+		$this->_setRole( 'editor' );
+		update_option( 'mtb_recaptcha_site_key', 'test-key' );
+		update_option( 'mtb_recaptcha_client_secret', 'test-secret' );
+
+		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['data']  = json_encode( // phpcs:ignore
+			[
+				'action' => 'get',
+			]
+		);
+
+		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+
+		$this->assertEquals(
+			[
+				'success' => true,
+				'data'    => [
+					'mtb_recaptcha_site_key'      => 'test-key',
+					'mtb_recaptcha_client_secret' => 'test-secret',
+				],
+			],
+			$response
+		);
+
+		delete_option( 'mtb_recaptcha_site_key' );
+		delete_option( 'mtb_recaptcha_client_secret' );
+		$editor_role->remove_cap( 'manage_options' );
+	}
+
+	/**
 	 * Test mtb_manage_recaptcha_api_credentials with missing data.
 	 *
 	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()

@@ -236,6 +236,12 @@ class Contact_Form_Block extends Module_Base {
 			);
 		}
 
+		if ( ! Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
+			wp_send_json_error(
+				[ 'message' => __( 'You are not authorized.', 'material-theme-builder' ) ]
+			);
+		}
+
 		$data = isset( $_POST['data'] ) ? json_decode( stripslashes( $_POST['data'] ), true ) : [];
 
 		if ( ! $data ) {

@@ -1,3 +1,5 @@
+/* global mtb */
+
 /**
  * WordPress dependencies
  */
@@ -51,7 +53,20 @@ const Edit = props => {
 		className,
 		setAttributes,
 	} = props;
+
+	if ( ! mtb.allow_contact_form_block ) {
+		return (
+			<div>
+				{ __(
+					'Only administrators or editor with the manage options capabilities can use this block',
+					'material-theme-builder'
+				) }
+			</div>
+		);
+	}
+
 	const setter = genericAttributesSetter( setAttributes );
+
 	return (
 		<ContactFormContext.Provider
 			value={ {
