@@ -28,6 +28,11 @@ const Tab = ( {
 	// eslint-disable-next-line react-hooks/rules-of-hooks
 	const titleRef = frontend ? null : useRef( null );
 
+	/**
+	 * Handle ripple transition end.
+	 *
+	 * @param {Object} event Transition end event.
+	 */
 	const onRippleTransitionEnd = event => {
 		if (
 			event.target &&

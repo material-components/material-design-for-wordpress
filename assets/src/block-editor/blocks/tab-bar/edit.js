@@ -66,7 +66,7 @@ const TabBarEdit = ( {
 
 	useEffect( () => {
 		const activeTab = tabs[ activeTabIndex ] || {};
-		// If there's content, put it in the editor
+		// If there's content, put it in the editor.
 		if ( activeTab && activeTab.content && activeTab.content.length ) {
 			dispatch( 'core/block-editor' ).replaceInnerBlocks(
 				clientId,
@@ -133,7 +133,7 @@ const TabBarEdit = ( {
 	};
 
 	/**
-	 * Filter out (delete) a tab
+	 * Filter out (delete) a tab.
 	 *
 	 * @param {number} index The index of the tab to delete.
 	 */
@@ -157,7 +157,7 @@ const TabBarEdit = ( {
 	const setIconPosition = val => setAttributes( { iconPosition: val } );
 
 	/**
-	 * Move a tab left or right
+	 * Move a tab left or right.
 	 *
 	 * @param {string} direction The direction to move towards.
 	 */
@@ -178,7 +178,7 @@ const TabBarEdit = ( {
 	/**
 	 * Set a tab's icon.
 	 *
-	 * @param {Object} icon The icon object
+	 * @param {Object} icon The icon object.
 	 */
 	const setTabIcon = icon => {
 		const newTabs = [ ...tabs ];
