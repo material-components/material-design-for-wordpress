@@ -1,7 +1,5 @@
 /* global mtb, jQuery */
 
-/* istanbul ignore file */
-
 /**
  * WordPress dependencies
  */
@@ -47,6 +45,7 @@ const RecaptchaInspectorControlsPanel = () => {
 					action: 'get',
 				} )
 					.then( response => {
+						/* istanbul ignore next */
 						if (
 							! response.hasOwnProperty( 'success' ) ||
 							! response.success
@@ -193,6 +192,7 @@ const RecaptchaInspectorControlsPanel = () => {
 	 * Handle the notice close event.
 	 */
 	const onNoticeRemove = () => {
+		/* istanbul ignore next */
 		setNotice( defaultNotice );
 	};
 
