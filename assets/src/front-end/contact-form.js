@@ -1,5 +1,4 @@
 /* global grecaptcha, mtb, jQuery */
-/* istanbul ignore file */
 
 /**
  * External dependencies
