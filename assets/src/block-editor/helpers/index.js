@@ -17,7 +17,7 @@ export const registerBlocks = blocks => {
 };
 
 /**
- * Set focus to and element and move the cursor to end for contenteditable.
+ * Set focus to an element and move the cursor to end for content editable.
  *
  * @param {HTMLElement} element Element to set focus to.
  */
@@ -25,10 +25,10 @@ export const setFocusAndMoveCursorToEnd = element => {
 	element.focus();
 
 	if ( document && document.execCommand ) {
-		// select all the content in the element
+		// Select all the content in the element.
 		document.execCommand( 'selectAll', false, null );
 
-		// collapse selection to the end
+		// Collapse selection to the end.
 		document.getSelection().collapseToEnd();
 	}
 };
