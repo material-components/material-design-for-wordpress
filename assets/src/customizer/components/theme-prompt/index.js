@@ -1,3 +1,4 @@
+/* global mtb */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { __ } from '@wordpress/i18n';
 import { useState } from 'react';
@@ -50,7 +51,7 @@ const ThemePrompt = ( { status } ) => {
 			<div className="accordion-section-title theme-installer-panel">
 				<h3>{ title }</h3>
 				<p className="customize-action">{ message }</p>
-				<a href="/wp-admin/themes.php?search=Material Theme" className="button">
+				<a href={ mtb.themeSearchUrl } className="button">
 					{ cta }
 				</a>
 			</div>

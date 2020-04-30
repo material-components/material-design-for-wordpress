@@ -24,7 +24,7 @@ class Plugin extends Plugin_Base {
 	 * 
 	 * @var string
 	 */
-	const THEME_SLUG = 'material-theme-wp';
+	const THEME_SLUG = 'material-theme';
 
 	/**
 	 * Controls class.
