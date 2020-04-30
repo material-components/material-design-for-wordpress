@@ -58,26 +58,28 @@ export const initContactForm = () => {
 
 		ajaxData.contact_fields = JSON.stringify( contactFields );
 
-		jQuery.ajax( {
+		const jxhr = jQuery.ajax( {
 			url: mtb.ajax_url,
 			dataType: 'json',
 			type: 'POST',
 			data: ajaxData,
-			success( data ) {
-				if ( data.success === true ) {
-					form.reset();
-					form.style.display = 'none';
-					document.getElementById(
-						'mtbContactFormSuccessMsgContainer'
-					).style.display = 'block';
-					initReCaptchaToken();
-				} else {
-					handleAjaxFormSubmissionError( form );
-				}
-			},
-			error() {
+		} );
+
+		jxhr.done( data => {
+			if ( data.success === true ) {
+				form.reset();
+				form.style.display = 'none';
+				document.getElementById(
+					'mtbContactFormSuccessMsgContainer'
+				).style.display = 'block';
+				initReCaptchaToken();
+			} else {
 				handleAjaxFormSubmissionError( form );
-			},
+			}
+		} );
+
+		jxhr.fail( () => {
+			handleAjaxFormSubmissionError( form );
 		} );
 
 		return false;
