@@ -9,7 +9,7 @@ import { render } from '@testing-library/react';
  */
 import Edit from '../../../../../assets/src/block-editor/blocks/list/edit';
 
-// Mock the <InspectorControls> component only, so that the other components in this package behave as usual.
+// Mock the <InspectorControls>  and <InnerBlocks> components only, so that the other components in this package behave as usual.
 jest.mock( '@wordpress/block-editor', () => {
 	const original = require.requireActual( '@wordpress/block-editor' );
 	return {
