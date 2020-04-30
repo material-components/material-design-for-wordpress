@@ -4,6 +4,22 @@ exports[`Tab matches snapshot when "frontend" prop is true 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
     <div>
       <div
         class="mdc-tab tab"
@@ -17,7 +33,6 @@ Object {
             class="mdc-tab__text-label tab__label-field"
           >
             <span
-              contenteditable="false"
               role="tab"
               tabindex="0"
             >
@@ -51,7 +66,6 @@ Object {
           class="mdc-tab__text-label tab__label-field"
         >
           <span
-            contenteditable="false"
             role="tab"
             tabindex="0"
           >
@@ -129,6 +143,22 @@ exports[`Tab matches snapshot when "iconPosition" prop is above 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
     <div>
       <div
         class="mdc-tab tab"
@@ -142,9 +172,12 @@ Object {
             class="mdc-tab__text-label tab__label-field"
           >
             <span
+              aria-label="Title"
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
               contenteditable="true"
               role="textbox"
-              tabindex="0"
+              style="white-space: pre-wrap;"
             >
               Test Tab
             </span>
@@ -157,6 +190,9 @@ Object {
             class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
           />
         </span>
+        <span
+          class="mdc-tab__ripple"
+        />
         <button
           class="material-icons tab__delete"
         >
@@ -178,9 +214,12 @@ Object {
           class="mdc-tab__text-label tab__label-field"
         >
           <span
+            aria-label="Title"
+            aria-multiline="true"
+            class="rich-text block-editor-rich-text__editable"
             contenteditable="true"
             role="textbox"
-            tabindex="0"
+            style="white-space: pre-wrap;"
           >
             Test Tab
           </span>
@@ -193,6 +232,9 @@ Object {
           class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
         />
       </span>
+      <span
+        class="mdc-tab__ripple"
+      />
       <button
         class="material-icons tab__delete"
       >
@@ -258,6 +300,22 @@ exports[`Tab matches snapshot when "iconPosition" prop is leading 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
     <div>
       <div
         class="mdc-tab tab"
@@ -271,9 +329,12 @@ Object {
             class="mdc-tab__text-label tab__label-field"
           >
             <span
+              aria-label="Title"
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
               contenteditable="true"
               role="textbox"
-              tabindex="0"
+              style="white-space: pre-wrap;"
             >
               Test Tab
             </span>
@@ -286,6 +347,9 @@ Object {
             class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
           />
         </span>
+        <span
+          class="mdc-tab__ripple"
+        />
         <button
           class="material-icons tab__delete"
         >
@@ -307,9 +371,12 @@ Object {
           class="mdc-tab__text-label tab__label-field"
         >
           <span
+            aria-label="Title"
+            aria-multiline="true"
+            class="rich-text block-editor-rich-text__editable"
             contenteditable="true"
             role="textbox"
-            tabindex="0"
+            style="white-space: pre-wrap;"
           >
             Test Tab
           </span>
@@ -322,6 +389,9 @@ Object {
           class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
         />
       </span>
+      <span
+        class="mdc-tab__ripple"
+      />
       <button
         class="material-icons tab__delete"
       >
@@ -387,6 +457,22 @@ exports[`Tab matches snapshot with base props 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
     <div>
       <div
         class="mdc-tab tab"
@@ -400,9 +486,12 @@ Object {
             class="mdc-tab__text-label tab__label-field"
           >
             <span
+              aria-label="Title"
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
               contenteditable="true"
               role="textbox"
-              tabindex="0"
+              style="white-space: pre-wrap;"
             >
               Test Tab
             </span>
@@ -415,6 +504,9 @@ Object {
             class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
           />
         </span>
+        <span
+          class="mdc-tab__ripple"
+        />
         <button
           class="material-icons tab__delete"
         >
@@ -436,9 +528,12 @@ Object {
           class="mdc-tab__text-label tab__label-field"
         >
           <span
+            aria-label="Title"
+            aria-multiline="true"
+            class="rich-text block-editor-rich-text__editable"
             contenteditable="true"
             role="textbox"
-            tabindex="0"
+            style="white-space: pre-wrap;"
           >
             Test Tab
           </span>
@@ -451,6 +546,9 @@ Object {
           class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
         />
       </span>
+      <span
+        class="mdc-tab__ripple"
+      />
       <button
         class="material-icons tab__delete"
       >
