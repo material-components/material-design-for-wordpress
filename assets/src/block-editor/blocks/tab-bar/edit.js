@@ -13,7 +13,6 @@ import { Tab, TabSchema } from './components/tab';
 import OrderToolbar from './components/order-toolbar';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
-import { setFocusAndMoveCursorToEnd } from '../../helpers';
 
 /**
  * WordPress dependencies
@@ -58,11 +57,28 @@ const TabBarEdit = ( {
 	const tabBar = useRef( null );
 	const mdcTabs = useRef( null );
 	useEffect( () => {
-		if ( tabBar.current && ! mdcTabs.current ) {
+		// Rebuild the Tabbar when tabs length changes.
+		if ( tabBar.current ) {
+			if ( mdcTabs.current ) {
+				mdcTabs.current.destroy();
+			}
 			mdcTabs.current = new MDCTabBar( tabBar.current );
 			mdcTabs.current.unlisten( 'keydown', mdcTabs.current.handleKeyDown_ );
+
+			// Remove tab click event and add our own to scroll the tab into view.
+			mdcTabs.current.unlisten(
+				'MDCTab:interacted',
+				mdcTabs.current.handleTabInteraction_
+			);
+			mdcTabs.current.listen( 'MDCTab:interacted', evt => {
+				mdcTabs.current.foundation_.scrollIntoView(
+					mdcTabs.current.foundation_.adapter_.getIndexOfTabById(
+						evt.detail.tabId
+					)
+				);
+			} );
 		}
-	}, [ tabBar, mdcTabs ] );
+	}, [ tabBar, mdcTabs, tabs.length ] );
 
 	useEffect( () => {
 		const activeTab = tabs[ activeTabIndex ] || {};
@@ -79,16 +95,6 @@ const TabBarEdit = ( {
 			if ( 0 < clientIds.length ) {
 				dispatch( 'core/block-editor' ).removeBlocks( clientIds );
 			}
-		}
-
-		// Hack to ensure the active tab always gets focus.
-		const activeTabNode =
-			tabBar.current.querySelectorAll(
-				'.mdc-tab .mdc-tab__text-label [contenteditable]'
-			)[ activeTabIndex ] || null;
-
-		if ( activeTabNode ) {
-			setFocusAndMoveCursorToEnd( activeTabNode );
 		}
 	}, [ activeTabIndex ] ); // eslint-disable-line
 
