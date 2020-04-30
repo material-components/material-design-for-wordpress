@@ -82,7 +82,7 @@ describe( 'Front-end: Contact Form', () => {
 			expect( ready ).toHaveBeenCalledTimes( 0 );
 		} );
 
-		it( 'invokes grecaptcha ready, execute and sets the token field value', async () => {
+		it( 'invokes grecaptcha ready, executes and sets the token field value', async () => {
 			global.mtb.recaptcha_site_key = 'SITE_KEY';
 			setup();
 			initReCaptchaToken();
