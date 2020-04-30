@@ -5,3 +5,21 @@
 		cursor: text;
 	}
 }
+
+.mdc-list-item__text {
+	width: calc(100% - 100px);
+	display: block;
+}
+
+.mdc-list--two-line .mdc-list-item__text {
+	margin-top: 11px;
+}
+
+.mdc-list-item__primary-text {
+	margin-bottom: 0 !important;
+
+	&:before,
+	&:after {
+		display: none !important;
+	}
+}

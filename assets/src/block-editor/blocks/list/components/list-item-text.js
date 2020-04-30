@@ -1,3 +1,5 @@
+import { RichText } from '@wordpress/block-editor';
+
 const ListItemText = ( {
 	primaryText,
 	secondaryText,
@@ -34,9 +36,20 @@ const ListItemText = ( {
 
 	return (
 		<span className="mdc-list-item__text">
-			<Label className="mdc-list-item__primary-text list-item__text">
-				{ primaryText }
-			</Label>
+			{ editable ? (
+				<RichText
+					tagName={ 'span' }
+					placeholder={ 'Add text…' }
+					value={ primaryText }
+					onChange={ onBlurPrimary }
+					withoutInteractiveFormatting
+					className="mdc-list-item__primary-text list-item__text"
+				/>
+			) : (
+				<Label className="mdc-list-item__primary-text list-item__text">
+					{ primaryText }
+				</Label>
+			) }
 			<span
 				className="mdc-list-item__secondary-text list-item__text"
 				role={ editable ? 'textbox' : undefined }
