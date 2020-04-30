@@ -122,10 +122,14 @@ import ThemePrompt from './components/theme-prompt';
 	 */
 	const getSettings = () => {
 		const controlProps = {
-			theme: api.settings.theme.stylesheet,
+			theme: api.settings?.theme?.stylesheet,
 		};
 
-		if ( ! mtb.controls || ! Array.isArray( mtb.controls ) ) {
+		if (
+			! mtb.controls ||
+			! mtb.controls.length ||
+			! Array.isArray( mtb.controls )
+		) {
 			return controlProps;
 		}
 
@@ -133,7 +137,7 @@ import ThemePrompt from './components/theme-prompt';
 			const control = api.control( name );
 			const prop = camelCase( name.replace( `${ mtb.slug }_`, '' ) );
 
-			if ( control.setting ) {
+			if ( control?.setting ) {
 				controlProps[ prop ] = control.setting.get();
 			}
 		} );
@@ -278,6 +282,12 @@ import ThemePrompt from './components/theme-prompt';
 	};
 
 	$( document ).on( 'click', '.toggle-kitchen-sink', loadKitchenSink );
+
+	if ( window.location.hash && window.location.hash === '#material-library' ) {
+		$( '#customize-save-button-wrapper' ).ready( function() {
+			loadKitchenSink();
+		} );
+	}
 
 	/**
 	 * Collapse a DOM node by animating it's height to 0.
