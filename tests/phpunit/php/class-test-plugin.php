@@ -211,8 +211,18 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 * @see Plugin::material_theme_status()
 	 */
 	public function test_material_theme_status() {
-		$plugin_mock = \Mockery::mock( Plugin::class )->makePartial();
-		$plugin_mock->shouldReceive( 'theme_installed' )->andReturn( false, true );
+		$plugin_mock = $this->getMockBuilder( Plugin::class )
+			->setMethods(
+				[
+					'theme_installed',
+				]
+			)
+			->getMock();
+
+		$plugin_mock->method( 'theme_installed' )
+			->will(
+				$this->onConsecutiveCalls( false, true )
+			);
 
 		$this->assertEquals( 'install', $plugin_mock->material_theme_status() );
 		$this->assertEquals( 'ok', $plugin_mock->material_theme_status() );
@@ -224,8 +234,18 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 * @see Plugin::theme_not_installed_notice()
 	 */
 	public function test_theme_not_installed_notice() {
-		$plugin_mock = \Mockery::mock( Plugin::class )->makePartial();
-		$plugin_mock->shouldReceive( 'theme_installed' )->andReturn( false, true );
+		$plugin_mock = $this->getMockBuilder( Plugin::class )
+			->setMethods(
+				[
+					'theme_installed',
+				]
+			)
+			->getMock();
+
+		$plugin_mock->method( 'theme_installed' )
+			->will(
+				$this->onConsecutiveCalls( false, true )
+			);
 
 		ob_start();
 		$plugin_mock->theme_not_installed_notice();
