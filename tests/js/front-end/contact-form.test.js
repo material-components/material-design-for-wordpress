@@ -10,9 +10,35 @@ import MutationObserver from '@sheerun/mutationobserver-shim';
 /**
  * Internal dependencies
  */
-import { initReCaptchaToken } from '../../../assets/src/front-end/contact-form';
+import {
+	initReCaptchaToken,
+	initContactForm,
+} from '../../../assets/src/front-end/contact-form';
 
 jest.dontMock( 'fs' );
+
+const jQMock = jest.requireActual( 'jquery' );
+
+const ajax = jest.fn( options => {
+	let ajaxMock = jQMock.Deferred().resolve( { success: true } );
+
+	// Simulate an issue with data sent.
+	if ( options.data._wp_http_referer === '' ) {
+		ajaxMock = jQMock.Deferred().resolve( { success: false } );
+	}
+
+	// Simulate a request error.
+	if ( options.data.action !== 'mtb_submit_contact_form' ) {
+		ajaxMock = jQMock.Deferred().reject( 'error' );
+	}
+
+	return ajaxMock.promise();
+} );
+
+window.jQuery = {
+	...jQMock,
+	ajax,
+};
 
 window.MutationObserver = MutationObserver;
 
@@ -48,6 +74,150 @@ describe( 'Front-end: Contact Form', () => {
 
 	beforeEach( () => {
 		jest.clearAllMocks();
+	} );
+
+	describe( 'initContactForm', () => {
+		it( 'returns false when the specific contact form does not exists', () => {
+			document.body.innerHTML = `<div id="content">${ fs.readFileSync(
+				path.resolve( __dirname, './invalid-contact-form.html' ),
+				'utf-8'
+			) }</div>`;
+
+			const result = initContactForm();
+
+			expect( result ).toStrictEqual( false );
+		} );
+
+		it( 'instantiates text fields as Material Design text fields', () => {
+			setup();
+			initContactForm();
+
+			expect(
+				document
+					.querySelector( '.mdc-notched-outline' )
+					.classList.contains( 'mdc-notched-outline--upgraded' )
+			).toStrictEqual( true );
+		} );
+
+		it( 'calls successfully the ajax request and shows the success message when the form submission is successful', async () => {
+			setup();
+			document.getElementById( 'mtb-name-1' ).value = 'Test Name';
+			document.getElementById( 'mtb-email-1' ).value = 'email@example.com';
+			document.getElementById( 'mtb-website-1' ).value = 'http://example.com';
+			document.getElementById( 'mtb-message-1' ).value = 'Test message';
+
+			initContactForm();
+
+			document.querySelector( '.mdc-button' ).click();
+
+			await waitFor( () =>
+				expect( window.jQuery.ajax ).toHaveBeenCalledWith( {
+					data: {
+						_wp_http_referer: '/3732-2/',
+						action: 'mtb_submit_contact_form',
+						contact_fields:
+							'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
+						mtb_contact_form_nonce: '8d2ba7b1f1',
+						mtb_token: 'token_here',
+						token: 'token_here',
+					},
+					dataType: 'json',
+					type: 'POST',
+					url: 'http://example.com/',
+				} )
+			);
+
+			expect(
+				document.getElementById( 'mtbContactFormSuccessMsgContainer' ).style
+					.display
+			).toStrictEqual( 'block' );
+		} );
+
+		it( 'calls successfully the ajax request and shows the error message when the form submission is not successful', async () => {
+			setup();
+			document.getElementById( 'mtb-name-1' ).value = 'Test Name';
+			document.getElementById( 'mtb-email-1' ).value = 'email@example.com';
+			document.getElementById( 'mtb-website-1' ).value = 'http://example.com';
+			document.getElementById( 'mtb-message-1' ).value = 'Test message';
+			document.getElementsByName( '_wp_http_referer' )[ 0 ].value = '';
+
+			initContactForm();
+
+			document.querySelector( '.mdc-button' ).click();
+
+			await waitFor( () => {
+				expect( window.jQuery.ajax ).toHaveBeenCalledWith( {
+					data: {
+						_wp_http_referer: '',
+						action: 'mtb_submit_contact_form',
+						contact_fields:
+							'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
+						mtb_contact_form_nonce: '8d2ba7b1f1',
+						mtb_token: 'token_here',
+						token: 'token_here',
+					},
+					dataType: 'json',
+					type: 'POST',
+					url: 'http://example.com/',
+				} );
+
+				expect(
+					document.getElementById( 'mtbContactFormErrorMsgContainer' ).style
+						.display
+				).toStrictEqual( 'block' );
+			} );
+		} );
+
+		it( 'calls the ajax request with failure and shows the error message when the form submission is not successful', async () => {
+			setup();
+			document.getElementById( 'mtb-name-1' ).value = 'Test Name';
+			document.getElementById( 'mtb-email-1' ).value = 'email@example.com';
+			document.getElementById( 'mtb-website-1' ).value = 'http://example.com';
+			document.getElementById( 'mtb-message-1' ).value = 'Test message';
+			document.getElementsByName( 'action' )[ 0 ].value = '';
+
+			initContactForm();
+
+			document.querySelector( '.mdc-button' ).click();
+
+			await waitFor( () => {
+				expect( window.jQuery.ajax ).toHaveBeenCalledWith( {
+					data: {
+						_wp_http_referer: '/3732-2/',
+						action: '',
+						contact_fields:
+							'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
+						mtb_contact_form_nonce: '8d2ba7b1f1',
+						mtb_token: 'token_here',
+						token: 'token_here',
+					},
+					dataType: 'json',
+					type: 'POST',
+					url: 'http://example.com/',
+				} );
+
+				expect(
+					document.getElementById( 'mtbContactFormErrorMsgContainer' ).style
+						.display
+				).toStrictEqual( 'block' );
+			} );
+		} );
+
+		it( 'errors', () => {
+			setup();
+			document.getElementById( 'mtb-email-1' ).value = 'bad email';
+
+			initContactForm();
+
+			document.getElementById( 'mtbContactForm' ).checkValidity();
+
+			expect(
+				document
+					.getElementById( 'mtb-email-1' )
+					.closest( '.mdc-text-field' )
+					.classList.contains( 'mdc-text-field--invalid' )
+			).toStrictEqual( true );
+		} );
 	} );
 
 	describe( 'initReCaptchaToken', () => {
