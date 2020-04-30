@@ -42,8 +42,10 @@ const TabBarSave = ( { attributes: { tabs, iconPosition } } ) => (
 					} ) }
 				>
 					{ tab.content &&
-						tab.content[ 0 ] &&
-						getBlockContent( tab.content[ 0 ] ) }
+						Array.isArray( tab.content ) &&
+						tab.content
+							.map( content => getBlockContent( content ) )
+							.join( ' ' ) }
 				</RawHTML>
 			) ) }
 		</div>
