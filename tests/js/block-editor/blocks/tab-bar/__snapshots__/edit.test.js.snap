@@ -22,99 +22,118 @@ Object {
     />
     <div>
       <div
-        class="mdc-tab-bar"
-        role="tablist"
+        class="tab-wrap"
       >
         <div
-          class="mdc-tab-scroller"
+          class="mdc-tab-bar"
+          role="tablist"
         >
           <div
-            class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+            class="mdc-tab-scroller"
           >
             <div
-              class="mdc-tab-scroller__scroll-content"
+              class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+              style="margin-bottom: 0px;"
             >
               <div
-                class="mdc-tab tab mdc-tab--active"
-                role="tab"
-                tabindex="0"
+                class="mdc-tab-scroller__scroll-content"
               >
-                <span
-                  class="mdc-tab__content"
+                <div
+                  class="mdc-tab tab mdc-tab--active"
+                  id="mdc-tab-1"
+                  role="tab"
+                  tabindex="0"
                 >
                   <span
-                    class="mdc-tab__text-label tab__label-field"
+                    class="mdc-tab__content"
                   >
                     <span
-                      contenteditable="true"
-                      role="textbox"
-                      tabindex="0"
+                      class="mdc-tab__text-label tab__label-field"
                     >
-                      Tab 1 Title
+                      <span
+                        aria-label="Title"
+                        aria-multiline="true"
+                        class="rich-text block-editor-rich-text__editable"
+                        contenteditable="true"
+                        role="textbox"
+                        style="white-space: pre-wrap;"
+                      >
+                        Tab 1 Title
+                      </span>
                     </span>
                   </span>
-                </span>
-                <span
-                  class="mdc-tab-indicator mdc-tab-indicator--active"
-                >
                   <span
-                    class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                  />
-                </span>
-                <button
-                  class="material-icons tab__delete"
-                >
-                  cancel
-                </button>
-              </div>
-              <div
-                class="mdc-tab tab"
-                role="tab"
-                tabindex="0"
-              >
-                <span
-                  class="mdc-tab__content"
-                >
-                  <span
-                    class="mdc-tab__text-label tab__label-field"
+                    class="mdc-tab-indicator mdc-tab-indicator--active"
                   >
                     <span
-                      contenteditable="true"
-                      role="textbox"
-                      tabindex="0"
-                    >
-                      Tab 2 Title
-                    </span>
+                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                    />
                   </span>
-                </span>
-                <span
-                  class="mdc-tab-indicator"
+                  <span
+                    class="mdc-tab__ripple"
+                  />
+                  <button
+                    class="material-icons tab__delete"
+                  >
+                    cancel
+                  </button>
+                </div>
+                <div
+                  class="mdc-tab tab"
+                  id="mdc-tab-2"
+                  role="tab"
+                  tabindex="0"
                 >
                   <span
-                    class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                    class="mdc-tab__content"
+                  >
+                    <span
+                      class="mdc-tab__text-label tab__label-field"
+                    >
+                      <span
+                        aria-label="Title"
+                        aria-multiline="true"
+                        class="rich-text block-editor-rich-text__editable"
+                        contenteditable="true"
+                        role="textbox"
+                        style="white-space: pre-wrap;"
+                      >
+                        Tab 2 Title
+                      </span>
+                    </span>
+                  </span>
+                  <span
+                    class="mdc-tab-indicator"
+                  >
+                    <span
+                      class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                    />
+                  </span>
+                  <span
+                    class="mdc-tab__ripple"
                   />
-                </span>
-                <button
-                  class="material-icons tab__delete"
-                >
-                  cancel
-                </button>
+                  <button
+                    class="material-icons tab__delete"
+                  >
+                    cancel
+                  </button>
+                </div>
               </div>
-              <button
-                class="tab-add"
-              >
-                <i
-                  class="material-icons tab-add__icon"
-                >
-                  add
-                </i>
-                <span>
-                  New Tab
-                </span>
-              </button>
             </div>
           </div>
         </div>
+        <button
+          class="tab-add"
+        >
+          <i
+            class="material-icons tab-add__icon"
+          >
+            add
+          </i>
+          <span>
+            New Tab
+          </span>
+        </button>
       </div>
       <div />
       <div
@@ -192,99 +211,118 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-tab-bar"
-      role="tablist"
+      class="tab-wrap"
     >
       <div
-        class="mdc-tab-scroller"
+        class="mdc-tab-bar"
+        role="tablist"
       >
         <div
-          class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+          class="mdc-tab-scroller"
         >
           <div
-            class="mdc-tab-scroller__scroll-content"
+            class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+            style="margin-bottom: 0px;"
           >
             <div
-              class="mdc-tab tab mdc-tab--active"
-              role="tab"
-              tabindex="0"
+              class="mdc-tab-scroller__scroll-content"
             >
-              <span
-                class="mdc-tab__content"
+              <div
+                class="mdc-tab tab mdc-tab--active"
+                id="mdc-tab-1"
+                role="tab"
+                tabindex="0"
               >
                 <span
-                  class="mdc-tab__text-label tab__label-field"
+                  class="mdc-tab__content"
                 >
                   <span
-                    contenteditable="true"
-                    role="textbox"
-                    tabindex="0"
+                    class="mdc-tab__text-label tab__label-field"
                   >
-                    Tab 1 Title
+                    <span
+                      aria-label="Title"
+                      aria-multiline="true"
+                      class="rich-text block-editor-rich-text__editable"
+                      contenteditable="true"
+                      role="textbox"
+                      style="white-space: pre-wrap;"
+                    >
+                      Tab 1 Title
+                    </span>
                   </span>
                 </span>
-              </span>
-              <span
-                class="mdc-tab-indicator mdc-tab-indicator--active"
-              >
                 <span
-                  class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
-                />
-              </span>
-              <button
-                class="material-icons tab__delete"
-              >
-                cancel
-              </button>
-            </div>
-            <div
-              class="mdc-tab tab"
-              role="tab"
-              tabindex="0"
-            >
-              <span
-                class="mdc-tab__content"
-              >
-                <span
-                  class="mdc-tab__text-label tab__label-field"
+                  class="mdc-tab-indicator mdc-tab-indicator--active"
                 >
                   <span
-                    contenteditable="true"
-                    role="textbox"
-                    tabindex="0"
-                  >
-                    Tab 2 Title
-                  </span>
+                    class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                  />
                 </span>
-              </span>
-              <span
-                class="mdc-tab-indicator"
+                <span
+                  class="mdc-tab__ripple"
+                />
+                <button
+                  class="material-icons tab__delete"
+                >
+                  cancel
+                </button>
+              </div>
+              <div
+                class="mdc-tab tab"
+                id="mdc-tab-2"
+                role="tab"
+                tabindex="0"
               >
                 <span
-                  class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                  class="mdc-tab__content"
+                >
+                  <span
+                    class="mdc-tab__text-label tab__label-field"
+                  >
+                    <span
+                      aria-label="Title"
+                      aria-multiline="true"
+                      class="rich-text block-editor-rich-text__editable"
+                      contenteditable="true"
+                      role="textbox"
+                      style="white-space: pre-wrap;"
+                    >
+                      Tab 2 Title
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="mdc-tab-indicator"
+                >
+                  <span
+                    class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                  />
+                </span>
+                <span
+                  class="mdc-tab__ripple"
                 />
-              </span>
-              <button
-                class="material-icons tab__delete"
-              >
-                cancel
-              </button>
+                <button
+                  class="material-icons tab__delete"
+                >
+                  cancel
+                </button>
+              </div>
             </div>
-            <button
-              class="tab-add"
-            >
-              <i
-                class="material-icons tab-add__icon"
-              >
-                add
-              </i>
-              <span>
-                New Tab
-              </span>
-            </button>
           </div>
         </div>
       </div>
+      <button
+        class="tab-add"
+      >
+        <i
+          class="material-icons tab-add__icon"
+        >
+          add
+        </i>
+        <span>
+          New Tab
+        </span>
+      </button>
     </div>
     <div />
     <div
