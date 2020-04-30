@@ -68,7 +68,7 @@ const ButtonEdit = ( {
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
 	 *
-	 * @param {boolean} value Whether the toogle is on or off.
+	 * @param {boolean} value Whether the toggle is on or off.
 	 */
 	const onToggleOpenInNewTab = value => {
 		const newLinkTarget = value ? '_blank' : '';
