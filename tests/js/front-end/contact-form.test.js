@@ -17,7 +17,7 @@ import {
 
 jest.dontMock( 'fs' );
 
-const jQMock = jest.requireActual( './jquery' );
+const jQMock = jest.requireActual( 'jquery' );
 
 const ajax = jest.fn( options => {
 	let ajaxMock = jQMock.Deferred().resolve( { success: true } );
