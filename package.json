@@ -95,6 +95,7 @@
     "istanbul-reports": "3.0.2",
     "jest-puppeteer-istanbul": "0.5.1",
     "jest-silent-reporter": "0.2.1",
+    "jquery": "^3.5.0",
     "jsdom": "16.2.2",
     "json-loader": "0.5.7",
     "material-design-icons": "3.0.1",
