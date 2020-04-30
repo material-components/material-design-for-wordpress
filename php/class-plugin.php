@@ -11,6 +11,7 @@ use MaterialThemeBuilder\Blocks\Blocks_Frontend;
 use MaterialThemeBuilder\Blocks\Image_List_Block;
 use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
 use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
+use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 
 /**
@@ -47,6 +48,13 @@ class Plugin extends Plugin_Base {
 	public $hand_picked_post_block;
 
 	/**
+	 * Contact_Form_Block class.
+	 *
+	 * @var Contact_Form_Block
+	 */
+	public $contact_form_block;
+
+	/**
 	 * Blocks_Frontend class.
 	 *
 	 * @var Blocks_Frontend
@@ -77,6 +85,9 @@ class Plugin extends Plugin_Base {
 		$this->image_list_block = new Image_List_Block( $this );
 		$this->image_list_block->init();
 
+		$this->contact_form_block = new Contact_Form_Block( $this );
+		$this->contact_form_block->init();
+
 		$this->blocks_frontend = new Blocks_Frontend( $this );
 		$this->blocks_frontend->init();
 	}
@@ -97,10 +108,22 @@ class Plugin extends Plugin_Base {
 				'wp-editor',
 				'wp-date',
 				'wp-api-fetch',
+				'jquery',
 			],
 			$this->asset_version(),
 			false
 		);
+
+		$wp_localized_script_data = [
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+		];
+
+		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
+			$wp_localized_script_data['allow_contact_form_block']    = true;
+			$wp_localized_script_data['recaptcha_ajax_nonce_action'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		}
+
+		wp_localize_script( 'material-block-editor-js', 'mtb', $wp_localized_script_data );
 
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
 
@@ -148,10 +171,27 @@ class Plugin extends Plugin_Base {
 		wp_enqueue_script(
 			'material-front-end-js',
 			$this->asset_url( 'assets/js/front-end.js' ),
-			[],
+			[ 'jquery' ],
 			$this->asset_version(),
 			true
 		);
+
+		$mtb_recaptcha_site_key   = get_option( 'mtb_recaptcha_site_key', '' );
+		$wp_localized_script_data = [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ];
+
+		if ( function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $mtb_recaptcha_site_key ) ) {
+			wp_enqueue_script(
+				'google-recaptcha-v3',
+				'https://www.google.com/recaptcha/api.js?render=' . esc_attr( $mtb_recaptcha_site_key ),
+				[ 'jquery', 'material-front-end-js' ],
+				'3.0.0',
+				true
+			);
+
+			$wp_localized_script_data['recaptcha_site_key'] = $mtb_recaptcha_site_key;
+		}
+
+		wp_localize_script( 'material-front-end-js', 'mtb', $wp_localized_script_data );
 
 		wp_enqueue_style(
 			'material-front-end-css',

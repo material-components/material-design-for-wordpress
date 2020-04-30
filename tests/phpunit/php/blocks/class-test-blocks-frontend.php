@@ -18,7 +18,7 @@ class Test_Blocks_Frontend extends \WP_UnitTestCase {
 	 *
 	 * @var int
 	 */
-	public static $post_id = [];
+	public static $post_id = 0;
 
 	/**
 	 * Generate some text fixtures.
