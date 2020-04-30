@@ -18,8 +18,8 @@
 .mdc-list-item__primary-text {
 	margin-bottom: 0 !important;
 
-	&:before,
-	&:after {
+	&::before,
+	&::after {
 		display: none !important;
 	}
 }

@@ -48,7 +48,7 @@ const ListEdit = ( {
 			<div
 				className={ classNames(
 					'mdc-list',
-					className.replace( 'mdc-list--two-line', '' ),
+					className ? className.replace( 'mdc-list--two-line', '' ) : '',
 					{
 						'mdc-list--two-line': style === 'two-line',
 					}
