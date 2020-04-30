@@ -22,12 +22,12 @@ const jQMock = jest.requireActual( './jquery' );
 const ajax = jest.fn( options => {
 	let ajaxMock = jQMock.Deferred().resolve( { success: true } );
 
-	// Simulate an issue with data sent
+	// Simulate an issue with data sent.
 	if ( options.data._wp_http_referer === '' ) {
 		ajaxMock = jQMock.Deferred().resolve( { success: false } );
 	}
 
-	// Simulate a request error
+	// Simulate a request error.
 	if ( options.data.action !== 'mtb_submit_contact_form' ) {
 		ajaxMock = jQMock.Deferred().reject( 'error' );
 	}
