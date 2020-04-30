@@ -2,6 +2,7 @@
  * External dependencies
  */
 import { isEqual } from 'lodash';
+import { MDCTabBar } from '@material/tab-bar';
 
 /**
  * Internal dependencies
@@ -19,7 +20,7 @@ import ButtonGroup from '../../components/button-group';
 import { __, sprintf } from '@wordpress/i18n';
 import { PanelBody } from '@wordpress/components';
 import { dispatch, withSelect } from '@wordpress/data';
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, useRef } from '@wordpress/element';
 import {
 	InspectorControls,
 	BlockControls,
@@ -53,9 +54,35 @@ const TabBarEdit = ( {
 
 	const [ activeTabIndex, setActiveTabIndex ] = useState( 0 );
 
+	const tabBar = useRef( null );
+	const mdcTabs = useRef( null );
+	useEffect( () => {
+		// Rebuild the Tabbar when tabs length changes.
+		if ( tabBar.current ) {
+			if ( mdcTabs.current ) {
+				mdcTabs.current.destroy();
+			}
+			mdcTabs.current = new MDCTabBar( tabBar.current );
+			mdcTabs.current.unlisten( 'keydown', mdcTabs.current.handleKeyDown_ );
+
+			// Remove tab click event and add our own to scroll the tab into view.
+			mdcTabs.current.unlisten(
+				'MDCTab:interacted',
+				mdcTabs.current.handleTabInteraction_
+			);
+			mdcTabs.current.listen( 'MDCTab:interacted', evt => {
+				mdcTabs.current.foundation_.scrollIntoView(
+					mdcTabs.current.foundation_.adapter_.getIndexOfTabById(
+						evt.detail.tabId
+					)
+				);
+			} );
+		}
+	}, [ tabBar, mdcTabs, tabs.length ] );
+
 	useEffect( () => {
 		const activeTab = tabs[ activeTabIndex ] || {};
-		// If there's content, put it in the editor
+		// If there's content, put it in the editor.
 		if ( activeTab && activeTab.content && activeTab.content.length ) {
 			dispatch( 'core/block-editor' ).replaceInnerBlocks(
 				clientId,
@@ -112,7 +139,7 @@ const TabBarEdit = ( {
 	};
 
 	/**
-	 * Filter out (delete) a tab
+	 * Filter out (delete) a tab.
 	 *
 	 * @param {number} index The index of the tab to delete.
 	 */
@@ -136,7 +163,7 @@ const TabBarEdit = ( {
 	const setIconPosition = val => setAttributes( { iconPosition: val } );
 
 	/**
-	 * Move a tab left or right
+	 * Move a tab left or right.
 	 *
 	 * @param {string} direction The direction to move towards.
 	 */
@@ -157,7 +184,7 @@ const TabBarEdit = ( {
 	/**
 	 * Set a tab's icon.
 	 *
-	 * @param {Object} icon The icon object
+	 * @param {Object} icon The icon object.
 	 */
 	const setTabIcon = icon => {
 		const newTabs = [ ...tabs ];
@@ -169,11 +196,15 @@ const TabBarEdit = ( {
 	 * Set the tab's label.
 	 *
 	 * @param {string} label The new tab label.
+	 * @param {number} tabIndex Index of the tab.
 	 */
-	const setTabLabel = label => {
+	const setTabLabel = ( label, tabIndex ) => {
 		const newTabs = [ ...tabs ];
-		newTabs[ activeTabIndex ].label = label;
+		if ( ! newTabs[ tabIndex ] ) {
+			return;
+		}
 
+		newTabs[ tabIndex ].label = label;
 		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
 	};
 
@@ -186,28 +217,32 @@ const TabBarEdit = ( {
 
 	return (
 		<>
-			<div className="mdc-tab-bar" role="tablist">
-				<div className="mdc-tab-scroller">
-					<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
-						<div className="mdc-tab-scroller__scroll-content">
-							{ tabs.map( ( props, index ) => (
-								<Tab
-									{ ...props }
-									key={ `${ clientId }-${ index }` }
-									iconPosition={ iconPosition }
-									onChange={ changeTab.bind( this, index ) }
-									onDelete={ deleteTab.bind( this, index ) }
-									onInput={ setTabLabel }
-									active={ activeTabIndex === index }
-								/>
-							) ) }
-							<button className="tab-add" onClick={ createTab }>
-								<i className="material-icons tab-add__icon">add</i>
-								<span>{ __( 'New Tab', 'material-theme-builder' ) }</span>
-							</button>
+			<div className="tab-wrap">
+				<div className="mdc-tab-bar" role="tablist" ref={ tabBar }>
+					<div className="mdc-tab-scroller">
+						<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
+							<div className="mdc-tab-scroller__scroll-content">
+								{ tabs.map( ( props, index ) => (
+									<Tab
+										{ ...props }
+										key={ `${ clientId }-${ index }` }
+										iconPosition={ iconPosition }
+										onChange={ changeTab.bind( this, index ) }
+										onDelete={ deleteTab.bind( this, index ) }
+										onInput={ setTabLabel }
+										active={ activeTabIndex === index }
+										index={ index }
+									/>
+								) ) }
+							</div>
 						</div>
 					</div>
 				</div>
+
+				<button className="tab-add" onClick={ createTab }>
+					<i className="material-icons tab-add__icon">add</i>
+					<span>{ __( 'New Tab', 'material-theme-builder' ) }</span>
+				</button>
 			</div>
 
 			<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
