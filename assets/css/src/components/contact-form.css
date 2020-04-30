@@ -1,0 +1,28 @@
+.mtb-contact-form {
+	margin-bottom: 2em;
+}
+
+.mdc-text-field-container--not-required {
+	margin-top: 2.5em;
+}
+
+.mdc-text-field-container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1.5em;
+
+	.components-base-control__field {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+	}
+}
+
+.editor-styles-wrapper .mdc-floating-label {
+	font-weight: 400 !important;
+}
+
+
+.mdc-text-field--custom-full {
+	width: 100%;
+}

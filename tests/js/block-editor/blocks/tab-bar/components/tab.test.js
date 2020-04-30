@@ -33,11 +33,28 @@ const setup = props => {
 const baseProps = {
 	label: 'Test Tab',
 	active: false,
+	index: 0,
 	onInput: jest.fn(),
 	onChange: jest.fn(),
 };
 
 describe( 'Tab', () => {
+	beforeEach( () => {
+		window.getSelection = () => {
+			return {
+				addRange: () => {},
+				removeAllRanges: () => {},
+			};
+		};
+		document.createRange = () => ( {
+			setStart: () => {},
+			setEnd: () => {},
+			commonAncestorContainer: {
+				nodeName: 'BODY',
+				ownerDocument: document,
+			},
+		} );
+	} );
 	afterEach( () => {
 		jest.clearAllMocks();
 	} );
@@ -62,25 +79,24 @@ describe( 'Tab', () => {
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
-	it( 'updates tab title on blur', () => {
+	it( 'updates tab title on input', () => {
 		const props = { ...baseProps };
 		const { getByText } = setup( props );
 		const title = getByText( 'Test Tab' );
 
 		fireEvent.click( title );
 		title.textContent = 'Test Tab Updated';
+		fireEvent.input( title );
 
-		fireEvent.blur( title );
-
-		expect( props.onInput ).toHaveBeenCalledWith( 'Test Tab Updated' );
+		expect( props.onInput ).toHaveBeenCalledWith( 'Test Tab Updated', 0 );
 	} );
 
-	it( 'updates active tab on keydown', () => {
+	it( 'updates active tab on click', () => {
 		const props = { ...baseProps };
 		const { getByText } = setup( props );
 		const title = getByText( 'Test Tab' );
 
-		fireEvent.keyDown( title, { key: 'Enter' } );
+		fireEvent.click( title );
 
 		// eslint-disable-next-line jest/prefer-called-with
 		expect( props.onChange ).toHaveBeenCalled();

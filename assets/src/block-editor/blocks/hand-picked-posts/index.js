@@ -2,12 +2,12 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import BlockIcon from './components/block-icon';
 
 /**
  * Internal dependencies
  */
 import edit from './edit';
+import BlockIcon from './components/block-icon';
 
 export const name = 'material/hand-picked-posts';
 

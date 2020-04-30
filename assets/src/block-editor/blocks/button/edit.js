@@ -49,6 +49,7 @@ const ButtonEdit = ( {
 		cornerRadius,
 		iconPosition,
 		backgroundColor,
+		isSubmit = false,
 	},
 	setAttributes,
 	isSelected,
@@ -150,7 +151,7 @@ const ButtonEdit = ( {
 			<div className={ className }>
 				<MdcButton />
 
-				{ isSelected && (
+				{ isSelected && ! isSubmit && (
 					<URLInput
 						value={ url }
 						onChange={ setter( 'url' ) }
@@ -171,6 +172,11 @@ const ButtonEdit = ( {
 						onChange={ switchType }
 					/>
 
+					<ToggleControl
+						label={ __( 'Is a submit button?', 'material-theme-builder' ) }
+						onChange={ setter( 'isSubmit' ) }
+						checked={ isSubmit }
+					/>
 					{ type === 'text' && (
 						<>
 							<span>{ __( 'Container', 'material-theme-builder' ) }</span>
@@ -247,21 +253,23 @@ const ButtonEdit = ( {
 						) }
 					</PanelBody>
 				) }
-				<PanelBody
-					title={ __( 'Link Settings', 'material-theme-builder' ) }
-					initialOpen={ true }
-				>
-					<ToggleControl
-						label={ __( 'Open in new tab', 'material-theme-builder' ) }
-						onChange={ onToggleOpenInNewTab }
-						checked={ linkTarget === '_blank' }
-					/>
-					<TextControl
-						value={ rel }
-						label={ __( 'Link rel', 'material-theme-builder' ) }
-						onChange={ setter( 'rel' ) }
-					/>
-				</PanelBody>
+				{ ! isSubmit && (
+					<PanelBody
+						title={ __( 'Link Settings', 'material-theme-builder' ) }
+						initialOpen={ true }
+					>
+						<ToggleControl
+							label={ __( 'Open in new tab', 'material-theme-builder' ) }
+							onChange={ onToggleOpenInNewTab }
+							checked={ linkTarget === '_blank' }
+						/>
+						<TextControl
+							value={ rel }
+							label={ __( 'Link rel', 'material-theme-builder' ) }
+							onChange={ setter( 'rel' ) }
+						/>
+					</PanelBody>
+				) }
 			</InspectorControls>
 		</>
 	);
