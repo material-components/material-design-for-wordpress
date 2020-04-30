@@ -115,7 +115,7 @@ describe( 'blocks: material/tab-bar', () => {
 
 		expect( await page.$$( '.mdc-tab.tab' ) ).toHaveLength( 2 );
 
-		const [ newTabBtn ] = await page.$$( '.mdc-tab-bar .tab-add' );
+		const [ newTabBtn ] = await page.$$( '.tab-add' );
 
 		expect( newTabBtn ).not.toBeFalsy();
 
