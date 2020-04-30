@@ -18,10 +18,65 @@ import genericAttributesSetter from '../../../../utils/generic-attributes-setter
  */
 import { __ } from '@wordpress/i18n';
 import { createBlock } from '@wordpress/blocks';
-import { PanelBody } from '@wordpress/components';
+import {
+	KeyboardShortcuts,
+	PanelBody,
+	ToolbarButton,
+	ToolbarGroup,
+} from '@wordpress/components';
 import { dispatch, select } from '@wordpress/data';
-import { InspectorControls } from '@wordpress/block-editor';
-import { useContext, useEffect } from '@wordpress/element';
+import { useContext, useEffect, useState } from '@wordpress/element';
+import { rawShortcut, displayShortcut } from '@wordpress/keycodes';
+import { BlockControls, InspectorControls } from '@wordpress/block-editor';
+import { link } from '@wordpress/icons';
+
+function URLPicker( {
+	isSelected,
+	url,
+	setURL,
+	opensInNewTab,
+	onChangeNewTab,
+} ) {
+	const [ isURLPickerOpen, setIsURLPickerOpen ] = useState( false );
+	const openLinkControl = () => {
+		setIsURLPickerOpen( true );
+	};
+	const linkControl = isURLPickerOpen && (
+		<UrlInputPopover
+			value={ url }
+			onChange={ setURL }
+			newTab={ opensInNewTab }
+			onChangeNewTab={ onChangeNewTab }
+			showNoFollow={ false }
+			onPopupClose={ () => setIsURLPickerOpen( false ) }
+			onFocusOutside={ () => setIsURLPickerOpen( false ) }
+		/>
+	);
+	return (
+		<>
+			<BlockControls>
+				<ToolbarGroup>
+					<ToolbarButton
+						name="link"
+						icon={ link }
+						title={ __( 'Link' ) }
+						shortcut={ displayShortcut.primary( 'k' ) }
+						onClick={ openLinkControl }
+					/>
+				</ToolbarGroup>
+			</BlockControls>
+			{ isSelected && (
+				<KeyboardShortcuts
+					bindGlobal
+					shortcuts={ {
+						[ rawShortcut.primary( 'k' ) ]: openLinkControl,
+					} }
+				/>
+			) }
+			{ linkControl }
+		</>
+	);
+}
 
 const ListItemEdit = ( {
 	attributes: {
@@ -124,7 +179,7 @@ const ListItemEdit = ( {
 					secondaryText={ secondaryText }
 					onBlurPrimary={
 						/* istanbul ignore next */
-						setter( 'primaryText', e => e.currentTarget.textContent )
+						value => setter( 'primaryText', e => value )
 					}
 					onEnterPrimary={ handleEnterPress }
 					onBlurSecondary={
@@ -141,16 +196,16 @@ const ListItemEdit = ( {
 			</div>
 
 			{ isSelected && (
-				<UrlInputPopover
-					value={ url }
-					onChange={ setter( 'url' ) }
+				<URLPicker
+					url={ url }
+					setURL={ setter( 'url' ) }
+					isSelected={ isSelected }
 					newTab={ linkTarget === '_blank' }
 					onChangeNewTab={ setter(
 						'linkTarget',
 						newTab => ( newTab ? '_blank' : undefined ),
 						true
 					) }
-					showNoFollow={ false }
 				/>
 			) }
 
