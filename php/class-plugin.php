@@ -409,7 +409,7 @@ esc_url( admin_url( '/themes.php?search=Material Theme' ) )
 					'Customize and view Material Theming get applied throughout all Material Components. <a href="%s">View all Material Components</a>', 
 					'material-theme-builder' 
 				), 
-				'#' // @TODO: Kitchen sink can be accessed via a url
+				esc_url( admin_url( 'customize.php#material-library' ) )
 			)
 		);
 		// phpcs:enable
