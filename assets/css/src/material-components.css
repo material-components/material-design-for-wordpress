@@ -13,6 +13,7 @@
 @import "@material/tab-bar/dist/mdc.tab-bar.css";
 @import "@material/tab-indicator/dist/mdc.tab-indicator.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
+@import "@material/textfield/dist/mdc.textfield.css";
 @import "@material/typography/dist/mdc.typography.css";
 
 /* Material Icons */
@@ -94,4 +95,9 @@
 	&[href="#"] {
 		display: none;
 	}
+}
+
+button.mdc-icon-button {
+	background-color: transparent !important;
+	text-decoration: none !important;
 }
