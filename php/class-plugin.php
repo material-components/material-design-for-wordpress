@@ -379,7 +379,7 @@ class Plugin extends Plugin_Base {
 					'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization. <a href="%s">Install theme</a>', 
 					'material-theme-builder' 
 				), 
-				'/wp-admin/themes.php?search=Material Theme'
+esc_url( admin_url( '/themes.php?search=Material Theme' ) )
 			)
 		);
 		// phpcs:enable
