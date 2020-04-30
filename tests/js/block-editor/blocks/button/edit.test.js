@@ -143,7 +143,9 @@ describe( 'ButtonEdit', () => {
 			setAttributes: jest.fn(),
 		};
 		const { container } = setup( props );
-		const toggle = container.querySelector( '.components-form-toggle__input' );
+		const toggle = container.querySelectorAll(
+			'.components-form-toggle__input'
+		)[ 1 ];
 
 		await fireEvent.click( toggle );
 		expect( props.setAttributes ).toHaveBeenCalledWith( {
@@ -163,7 +165,9 @@ describe( 'ButtonEdit', () => {
 			setAttributes: jest.fn(),
 		};
 		const { container } = setup( props );
-		const toggle = container.querySelector( '.components-form-toggle__input' );
+		const toggle = container.querySelectorAll(
+			'.components-form-toggle__input'
+		)[ 1 ];
 
 		await fireEvent.click( toggle );
 		expect( props.setAttributes ).toHaveBeenCalledWith( {
