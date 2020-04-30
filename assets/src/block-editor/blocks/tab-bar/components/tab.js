@@ -7,12 +7,8 @@ import classNames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { useRef } from '@wordpress/element';
-
-/**
- * Internal dependencies
- */
-import { setFocusAndMoveCursorToEnd } from '../../../helpers';
+import { RichText } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
 
 const Tab = ( {
 	icon,
@@ -25,30 +21,12 @@ const Tab = ( {
 	index,
 	frontend = false,
 } ) => {
-	// eslint-disable-next-line react-hooks/rules-of-hooks
-	const titleRef = frontend ? null : useRef( null );
-
-	/**
-	 * Handle ripple transition end.
-	 *
-	 * @param {Object} event Transition end event.
-	 */
-	const onRippleTransitionEnd = event => {
-		if (
-			event.target &&
-			event.target.classList.contains(
-				'mdc-ripple-upgraded--background-focused'
-			)
-		) {
-			setFocusAndMoveCursorToEnd( titleRef.current );
-		}
-	};
-
 	return (
 		<div
 			role="tab"
 			tabIndex={ 0 }
 			onClick={ onChange }
+			onFocus={ onChange }
 			className={ classNames( 'mdc-tab', 'tab', {
 				'mdc-tab--active': active,
 				'mdc-tab--stacked': icon && iconPosition === 'above',
@@ -60,27 +38,22 @@ const Tab = ( {
 						{ String.fromCharCode( icon?.hex ) }
 					</i>
 				) }
+
 				<span className="mdc-tab__text-label tab__label-field">
-					<span
-						role={ ! frontend ? 'textbox' : 'tab' }
-						tabIndex={ 0 }
-						contentEditable={ ! frontend }
-						suppressContentEditableWarning={ ! frontend }
-						onBlur={
-							! frontend
-								? e => onInput( e.currentTarget.textContent, index )
-								: undefined
-						}
-						onKeyDown={ event => {
-							onChange(); // Set this tab as active.
-							if ( event.key === 'Enter' ) {
-								event.currentTarget.blur();
-							}
-						} }
-						ref={ titleRef }
-					>
-						{ label }
-					</span>
+					{ frontend ? (
+						<span role="tab" tabIndex={ 0 }>
+							{ label }
+						</span>
+					) : (
+						<RichText
+							tagName={ 'span' }
+							placeholder={ __( 'Title', 'material-theme-builder' ) }
+							value={ label }
+							onChange={ value => onInput( value, index ) }
+							withoutInteractiveFormatting
+							allowedFormats={ [] }
+						/>
+					) }
 				</span>
 			</span>
 			<span
@@ -90,10 +63,7 @@ const Tab = ( {
 			>
 				<span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
 			</span>
-			<span
-				className="mdc-tab__ripple"
-				onTransitionEnd={ onRippleTransitionEnd }
-			></span>
+			<span className="mdc-tab__ripple"></span>
 			{ ! frontend && (
 				<button className="material-icons tab__delete" onClick={ onDelete }>
 					cancel
