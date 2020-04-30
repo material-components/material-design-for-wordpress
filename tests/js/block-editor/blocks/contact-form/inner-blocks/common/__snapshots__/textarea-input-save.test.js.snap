@@ -1,0 +1,1101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextareaInputSave matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mdc-text-field-container"
+      >
+        <div
+          class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+        >
+          <span
+            class="mdc-text-field__ripple"
+          />
+          <textarea
+            aria-labelledby="label-test-id"
+            class="mdc-text-field__input"
+            data-form="contact"
+            data-label="Name"
+            data-meta="name"
+            id="test-id"
+            name="test-id"
+            required=""
+            rows="8"
+          >
+            test name
+          </textarea>
+          <div
+            class="mdc-notched-outline"
+          >
+            <div
+              class="mdc-notched-outline__leading"
+            />
+            <div
+              class="mdc-notched-outline__notch"
+            >
+              <label
+                class="mdc-floating-label"
+                for="test-id"
+                id="label-test-id"
+              >
+                Name
+              </label>
+            </div>
+            <span
+              class="mdc-notched-outline__trailing"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-text-field-container"
+    >
+      <div
+        class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+      >
+        <span
+          class="mdc-text-field__ripple"
+        />
+        <textarea
+          aria-labelledby="label-test-id"
+          class="mdc-text-field__input"
+          data-form="contact"
+          data-label="Name"
+          data-meta="name"
+          id="test-id"
+          name="test-id"
+          required=""
+          rows="8"
+        >
+          test name
+        </textarea>
+        <div
+          class="mdc-notched-outline"
+        >
+          <div
+            class="mdc-notched-outline__leading"
+          />
+          <div
+            class="mdc-notched-outline__notch"
+          >
+            <label
+              class="mdc-floating-label"
+              for="test-id"
+              id="label-test-id"
+            >
+              Name
+            </label>
+          </div>
+          <span
+            class="mdc-notched-outline__trailing"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TextareaInputSave matches snapshot when the \`is required\` attribute is false 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mdc-text-field-container"
+      >
+        <div
+          class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+        >
+          <span
+            class="mdc-text-field__ripple"
+          />
+          <textarea
+            aria-labelledby="label-test-id"
+            class="mdc-text-field__input"
+            data-form="contact"
+            data-label="Name"
+            data-meta="name"
+            id="test-id"
+            name="test-id"
+            rows="8"
+          >
+            test name
+          </textarea>
+          <div
+            class="mdc-notched-outline"
+          >
+            <div
+              class="mdc-notched-outline__leading"
+            />
+            <div
+              class="mdc-notched-outline__notch"
+            >
+              <label
+                class="mdc-floating-label"
+                for="test-id"
+                id="label-test-id"
+              >
+                Name
+              </label>
+            </div>
+            <span
+              class="mdc-notched-outline__trailing"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-text-field-container"
+    >
+      <div
+        class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--textarea"
+      >
+        <span
+          class="mdc-text-field__ripple"
+        />
+        <textarea
+          aria-labelledby="label-test-id"
+          class="mdc-text-field__input"
+          data-form="contact"
+          data-label="Name"
+          data-meta="name"
+          id="test-id"
+          name="test-id"
+          rows="8"
+        >
+          test name
+        </textarea>
+        <div
+          class="mdc-notched-outline"
+        >
+          <div
+            class="mdc-notched-outline__leading"
+          />
+          <div
+            class="mdc-notched-outline__notch"
+          >
+            <label
+              class="mdc-floating-label"
+              for="test-id"
+              id="label-test-id"
+            >
+              Name
+            </label>
+          </div>
+          <span
+            class="mdc-notched-outline__trailing"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TextareaInputSave matches snapshot when the display label attribute is empty 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mdc-text-field-container"
+      >
+        <div
+          class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label"
+        >
+          <span
+            class="mdc-text-field__ripple"
+          />
+          <textarea
+            aria-label="Name"
+            class="mdc-text-field__input"
+            data-form="contact"
+            data-label="Name"
+            data-meta="name"
+            id="test-id"
+            name="test-id"
+            required=""
+            rows="8"
+          >
+            test name
+          </textarea>
+          <div
+            class="mdc-notched-outline"
+          >
+            <div
+              class="mdc-notched-outline__leading"
+            />
+            
+            <span
+              class="mdc-notched-outline__trailing"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-text-field-container"
+    >
+      <div
+        class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--no-label"
+      >
+        <span
+          class="mdc-text-field__ripple"
+        />
+        <textarea
+          aria-label="Name"
+          class="mdc-text-field__input"
+          data-form="contact"
+          data-label="Name"
+          data-meta="name"
+          id="test-id"
+          name="test-id"
+          required=""
+          rows="8"
+        >
+          test name
+        </textarea>
+        <div
+          class="mdc-notched-outline"
+        >
+          <div
+            class="mdc-notched-outline__leading"
+          />
+          
+          <span
+            class="mdc-notched-outline__trailing"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TextareaInputSave matches snapshot when the full width attribute is true 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mdc-text-field-container"
+      >
+        <div
+          class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--custom-full"
+        >
+          <span
+            class="mdc-text-field__ripple"
+          />
+          <textarea
+            aria-labelledby="label-test-id"
+            class="mdc-text-field__input"
+            data-form="contact"
+            data-label="Name"
+            data-meta="name"
+            id="test-id"
+            name="test-id"
+            required=""
+            rows="8"
+          >
+            test name
+          </textarea>
+          <div
+            class="mdc-notched-outline"
+          >
+            <div
+              class="mdc-notched-outline__leading"
+            />
+            <div
+              class="mdc-notched-outline__notch"
+            >
+              <label
+                class="mdc-floating-label"
+                for="test-id"
+                id="label-test-id"
+              >
+                Name
+              </label>
+            </div>
+            <span
+              class="mdc-notched-outline__trailing"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-text-field-container"
+    >
+      <div
+        class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--custom-full"
+      >
+        <span
+          class="mdc-text-field__ripple"
+        />
+        <textarea
+          aria-labelledby="label-test-id"
+          class="mdc-text-field__input"
+          data-form="contact"
+          data-label="Name"
+          data-meta="name"
+          id="test-id"
+          name="test-id"
+          required=""
+          rows="8"
+        >
+          test name
+        </textarea>
+        <div
+          class="mdc-notched-outline"
+        >
+          <div
+            class="mdc-notched-outline__leading"
+          />
+          <div
+            class="mdc-notched-outline__notch"
+          >
+            <label
+              class="mdc-floating-label"
+              for="test-id"
+              id="label-test-id"
+            >
+              Name
+            </label>
+          </div>
+          <span
+            class="mdc-notched-outline__trailing"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TextareaInputSave matches snapshot when the outlined attribute is false 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mdc-text-field-container"
+      >
+        <div
+          class="test-class mdc-text-field mdc-text-field--textarea"
+        >
+          <span
+            class="mdc-text-field__ripple"
+          />
+          <textarea
+            aria-labelledby="label-test-id"
+            class="mdc-text-field__input"
+            data-form="contact"
+            data-label="Name"
+            data-meta="name"
+            id="test-id"
+            name="test-id"
+            required=""
+            rows="8"
+          >
+            test name
+          </textarea>
+          <div
+            class="mdc-line-ripple"
+          />
+          <label
+            class="mdc-floating-label"
+            for="test-id"
+            id="label-test-id"
+          >
+            Name
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-text-field-container"
+    >
+      <div
+        class="test-class mdc-text-field mdc-text-field--textarea"
+      >
+        <span
+          class="mdc-text-field__ripple"
+        />
+        <textarea
+          aria-labelledby="label-test-id"
+          class="mdc-text-field__input"
+          data-form="contact"
+          data-label="Name"
+          data-meta="name"
+          id="test-id"
+          name="test-id"
+          required=""
+          rows="8"
+        >
+          test name
+        </textarea>
+        <div
+          class="mdc-line-ripple"
+        />
+        <label
+          class="mdc-floating-label"
+          for="test-id"
+          id="label-test-id"
+        >
+          Name
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TextareaInputSave matches snapshot when the outlined attribute is false and the \`is required\` attribute is false 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mdc-text-field-container"
+      >
+        <div
+          class="test-class mdc-text-field mdc-text-field--textarea"
+        >
+          <span
+            class="mdc-text-field__ripple"
+          />
+          <textarea
+            aria-labelledby="label-test-id"
+            class="mdc-text-field__input"
+            data-form="contact"
+            data-label="Name"
+            data-meta="name"
+            id="test-id"
+            name="test-id"
+            rows="8"
+          >
+            test name
+          </textarea>
+          <div
+            class="mdc-line-ripple"
+          />
+          <label
+            class="mdc-floating-label"
+            for="test-id"
+            id="label-test-id"
+          >
+            Name
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-text-field-container"
+    >
+      <div
+        class="test-class mdc-text-field mdc-text-field--textarea"
+      >
+        <span
+          class="mdc-text-field__ripple"
+        />
+        <textarea
+          aria-labelledby="label-test-id"
+          class="mdc-text-field__input"
+          data-form="contact"
+          data-label="Name"
+          data-meta="name"
+          id="test-id"
+          name="test-id"
+          rows="8"
+        >
+          test name
+        </textarea>
+        <div
+          class="mdc-line-ripple"
+        />
+        <label
+          class="mdc-floating-label"
+          for="test-id"
+          id="label-test-id"
+        >
+          Name
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TextareaInputSave matches snapshot when the outlined attribute is false and the display label attribute is empty 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mdc-text-field-container"
+      >
+        <div
+          class="test-class mdc-text-field mdc-text-field--textarea mdc-text-field--no-label"
+        >
+          <span
+            class="mdc-text-field__ripple"
+          />
+          <textarea
+            aria-label="Name"
+            class="mdc-text-field__input"
+            data-form="contact"
+            data-label="Name"
+            data-meta="name"
+            id="test-id"
+            name="test-id"
+            required=""
+            rows="8"
+          >
+            test name
+          </textarea>
+          <div
+            class="mdc-line-ripple"
+          />
+          
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-text-field-container"
+    >
+      <div
+        class="test-class mdc-text-field mdc-text-field--textarea mdc-text-field--no-label"
+      >
+        <span
+          class="mdc-text-field__ripple"
+        />
+        <textarea
+          aria-label="Name"
+          class="mdc-text-field__input"
+          data-form="contact"
+          data-label="Name"
+          data-meta="name"
+          id="test-id"
+          name="test-id"
+          required=""
+          rows="8"
+        >
+          test name
+        </textarea>
+        <div
+          class="mdc-line-ripple"
+        />
+        
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TextareaInputSave matches snapshot when the outlined attribute is false and the full width attribute is true 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mdc-text-field-container"
+      >
+        <div
+          class="test-class mdc-text-field mdc-text-field--textarea mdc-text-field--custom-full"
+        >
+          <span
+            class="mdc-text-field__ripple"
+          />
+          <textarea
+            aria-labelledby="label-test-id"
+            class="mdc-text-field__input"
+            data-form="contact"
+            data-label="Name"
+            data-meta="name"
+            id="test-id"
+            name="test-id"
+            required=""
+            rows="8"
+          >
+            test name
+          </textarea>
+          <div
+            class="mdc-line-ripple"
+          />
+          <label
+            class="mdc-floating-label"
+            for="test-id"
+            id="label-test-id"
+          >
+            Name
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mdc-text-field-container"
+    >
+      <div
+        class="test-class mdc-text-field mdc-text-field--textarea mdc-text-field--custom-full"
+      >
+        <span
+          class="mdc-text-field__ripple"
+        />
+        <textarea
+          aria-labelledby="label-test-id"
+          class="mdc-text-field__input"
+          data-form="contact"
+          data-label="Name"
+          data-meta="name"
+          id="test-id"
+          name="test-id"
+          required=""
+          rows="8"
+        >
+          test name
+        </textarea>
+        <div
+          class="mdc-line-ripple"
+        />
+        <label
+          class="mdc-floating-label"
+          for="test-id"
+          id="label-test-id"
+        >
+          Name
+        </label>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
