@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Material Theme Builder
  * Plugin URI: https://github.com/xwp/material-theme-builder-wp
- * Description: WordPress plugin template for extending Gutenberg at XWP.
- * Version: 0.0.1
+ * Description: Material Theming for WordPress.
+ * Version: 1.0.0-alpha
  * Author:  XWP
  * Author URI: https://xwp.co/
  * License: GPLv2+
