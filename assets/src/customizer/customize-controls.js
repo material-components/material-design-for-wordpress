@@ -33,6 +33,7 @@ import {
 	initLists,
 } from '../common/mdc-components-init';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
+import ThemePrompt from './components/theme-prompt';
 
 ( ( $, api ) => {
 	let notificationCount = false;
@@ -121,10 +122,14 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	 */
 	const getSettings = () => {
 		const controlProps = {
-			theme: api.settings.theme.stylesheet,
+			theme: api.settings?.theme?.stylesheet,
 		};
 
-		if ( ! mtb.controls || ! Array.isArray( mtb.controls ) ) {
+		if (
+			! mtb.controls ||
+			! mtb.controls.length ||
+			! Array.isArray( mtb.controls )
+		) {
 			return controlProps;
 		}
 
@@ -132,7 +137,7 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 			const control = api.control( name );
 			const prop = camelCase( name.replace( `${ mtb.slug }_`, '' ) );
 
-			if ( control.setting ) {
+			if ( control?.setting ) {
 				controlProps[ prop ] = control.setting.get();
 			}
 		} );
@@ -216,6 +221,21 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 		}
 	};
 
+	$( '.customize-pane-parent' ).ready( function() {
+		if ( window.localStorage.getItem( 'themeInstallerDismissed' ) !== null ) {
+			return;
+		}
+
+		$( '.customize-pane-parent' ).prepend( `
+			<li id="accordion-section-theme-installer" class="accordion-section control-panel-themes customize-info"></li>
+		` );
+
+		render(
+			<ThemePrompt status={ mtb.themeStatus } />,
+			$( '#accordion-section-theme-installer' ).get( 0 )
+		);
+	} );
+
 	/**
 	 * Show/hide kitchen sink button near the "Publish" button.
 	 */
@@ -262,6 +282,12 @@ import MaterialColorPalette from '../block-editor/components/material-color-pale
 	};
 
 	$( document ).on( 'click', '.toggle-kitchen-sink', loadKitchenSink );
+
+	if ( window.location.hash && window.location.hash === '#material-library' ) {
+		$( '#customize-save-button-wrapper' ).ready( function() {
+			loadKitchenSink();
+		} );
+	}
 
 	/**
 	 * Collapse a DOM node by animating it's height to 0.

@@ -1,4 +1,4 @@
-/* global materialPluginPath */
+/* global mtb */
 
 import { __ } from '@wordpress/i18n';
 import { H3 } from '../styles';
@@ -27,7 +27,7 @@ const Cards = ( { radius, smallRadius } ) => (
 					<div
 						className="mdc-card__media mdc-card__media--16-9 demo-card__media"
 						style={ {
-							backgroundImage: `url("${ materialPluginPath +
+							backgroundImage: `url("${ mtb.pluginPath +
 								'assets/images/kitchen-sink/2.jpg' }")`,
 						} }
 					></div>

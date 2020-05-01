@@ -84,7 +84,7 @@ describe( 'Customize controls', () => {
 			// Assert primary color is updated.
 			expect(
 				await page.evaluate( input => input.value, primaryColor )
-			).toEqual( '#ffffff' );
+			).toEqual( '#121212' );
 		} );
 
 		it( 'should update design style to custom if any value is updated', async () => {
