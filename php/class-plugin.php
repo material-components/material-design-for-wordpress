@@ -406,7 +406,7 @@ class Plugin extends Plugin_Base {
 			sprintf(
 			/* translators: %s: url to the plugin kitchen sink page */
 				__(
-					'Customize and view Material Theming get applied throughout all Material Components. <a href="%s">View all Material Components</a>',
+					'Customize and view Material Theming as it gets applied throughout all Material Components. <a href="%s">View all Material Components</a>',
 					'material-theme-builder'
 				),
 				esc_url( admin_url( 'customize.php#material-library' ) )
