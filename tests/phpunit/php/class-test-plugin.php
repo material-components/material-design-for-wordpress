@@ -7,7 +7,29 @@
 
 namespace MaterialThemeBuilder;
 
+use MaterialThemeBuilder\Plugin;
 use MaterialThemeBuilder\Customizer\Controls;
+
+/**
+ * Stub get_template().
+ *
+ * @return string
+ */
+function get_template() {
+	return Plugin::THEME_SLUG;
+}
+
+/**
+ * Stub get_transient().
+ * ss
+ *
+ * @param string $key Some key.
+ * 
+ * @return bool
+ */
+function get_transient( $key ) {
+	return true;
+}
 
 /**
  * Tests for Plugin class.
@@ -284,6 +306,90 @@ class Test_Plugin extends \WP_UnitTestCase {
 			],
 			$defaults['material/button']
 		);
+	}
+
+	/**
+	 * Test for material_notice() method.
+	 *
+	 * @see Plugin::material_notice()
+	 */
+	public function test_material_notice() {
+		$plugin = get_plugin_instance();
+		$notice = $plugin->material_notice( 'Foo', 'Bar <p>Paragraph</p> <a href="#">Link</a>' );
+
+		$this->assertContains( 'Bar Paragraph <a href="#">Link</a>', $notice );
+	}
+
+	/**
+	 * Test for material_theme_status() method.
+	 *
+	 * @see Plugin::material_theme_status()
+	 */
+	public function test_material_theme_status() {
+		$plugin_mock = $this->getMockBuilder( Plugin::class )
+			->setMethods(
+				[
+					'theme_installed',
+				]
+			)
+			->getMock();
+
+		$plugin_mock->method( 'theme_installed' )
+			->will(
+				$this->onConsecutiveCalls( false, true )
+			);
+
+		$this->assertEquals( 'install', $plugin_mock->material_theme_status() );
+		$this->assertEquals( 'ok', $plugin_mock->material_theme_status() );
+	}
+
+	/**
+	 * Test for theme_not_installed_notice() method.
+	 *
+	 * @see Plugin::theme_not_installed_notice()
+	 */
+	public function test_theme_not_installed_notice() {
+		$plugin_mock = $this->getMockBuilder( Plugin::class )
+			->setMethods(
+				[
+					'theme_installed',
+				]
+			)
+			->getMock();
+
+		$plugin_mock->method( 'theme_installed' )
+			->will(
+				$this->onConsecutiveCalls( false, true )
+			);
+
+		ob_start();
+		$plugin_mock->theme_not_installed_notice();
+		$output = ob_get_clean();
+
+		$this->assertContains( '<div class="notice notice-info is-dismissible material-notice-container">', $output );
+
+		ob_start();
+		$plugin_mock->theme_not_installed_notice();
+		$output = ob_get_clean();
+
+		$this->assertEmpty( $output );
+		$this->assertEquals( 10, has_action( 'admin_notices', [ get_plugin_instance(), 'theme_not_installed_notice' ] ) );
+	}
+
+	/**
+	 * Test for plugin_activated_notice() method.
+	 *
+	 * @see Plugin::plugin_activated_notice()
+	 */
+	public function test_plugin_activated_notice() {
+		$plugin = get_plugin_instance();
+
+		ob_start();
+		$plugin->plugin_activated_notice();
+		$output = ob_get_clean();
+
+		$this->assertContains( '<div class="notice notice-info is-dismissible material-notice-container">', $output );
+		$this->assertEquals( 9, has_action( 'admin_notices', [ $plugin, 'plugin_activated_notice' ] ) );
 	}
 
 	/**
