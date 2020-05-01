@@ -22,6 +22,12 @@ const setup = props => {
 const baseProps = { status: 'install' };
 
 describe( 'ThemePrompt', () => {
+	beforeAll( () => {
+		global.mtb = {
+			themeSearchUrl: 'http://example.com/theme-install',
+		};
+	} );
+
 	it( 'should render the prompt and ask to install', () => {
 		setup( baseProps );
 		expect(
