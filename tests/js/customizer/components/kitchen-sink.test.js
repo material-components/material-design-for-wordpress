@@ -34,7 +34,8 @@ const baseProps = {
 
 describe( 'Kitchen Sink', () => {
 	beforeAll( () => {
-		global.materialPluginPath = 'http://example.com/';
+		global.mtb = {};
+		global.mtb.pluginPath = 'http://example.com/';
 	} );
 
 	it( 'should initialize the kitchen sink', () => {
