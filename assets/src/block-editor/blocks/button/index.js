@@ -34,7 +34,7 @@ export const settings = {
 		},
 		iconPosition: {
 			type: 'string',
-			default: 'none',
+			default: 'leading',
 		},
 		cornerRadius: {
 			type: 'number',

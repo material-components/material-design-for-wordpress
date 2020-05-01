@@ -765,8 +765,8 @@ class Controls extends Module_Base {
 				'blocks'        => [
 					'material/button' => [
 						'limits' => [
-							'max' => 36,
 							'min' => 0,
+							'max' => 20,
 						],
 					],
 				],
