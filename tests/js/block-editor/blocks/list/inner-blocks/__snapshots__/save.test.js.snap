@@ -32,7 +32,6 @@ Object {
           </span>
           <span
             class="mdc-list-item__secondary-text list-item__text"
-            contenteditable="false"
           >
             List Item Caption
           </span>
@@ -73,7 +72,6 @@ Object {
         </span>
         <span
           class="mdc-list-item__secondary-text list-item__text"
-          contenteditable="false"
         >
           List Item Caption
         </span>
@@ -169,7 +167,6 @@ Object {
           </span>
           <span
             class="mdc-list-item__secondary-text list-item__text"
-            contenteditable="false"
           >
             List Item Caption
           </span>
@@ -208,7 +205,6 @@ Object {
         </span>
         <span
           class="mdc-list-item__secondary-text list-item__text"
-          contenteditable="false"
         >
           List Item Caption
         </span>
