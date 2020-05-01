@@ -21,7 +21,7 @@ class Plugin extends Plugin_Base {
 
 	/**
 	 * The theme slug.
-	 * 
+	 *
 	 * @var string
 	 */
 	const THEME_SLUG = 'material-theme';
@@ -301,7 +301,7 @@ class Plugin extends Plugin_Base {
 	 *
 	 * @param string $title   The title to be showed in the notice.
 	 * @param string $message The message of the notice.
-	 * 
+	 *
 	 * @return string
 	 */
 	public function material_notice( $title, $message ) {
@@ -309,9 +309,9 @@ class Plugin extends Plugin_Base {
 		?>
 
 		<div class="notice notice-info is-dismissible material-notice-container">
-			<img 
-				src="<?php echo esc_url( $this->asset_url( 'assets/images/plugin-icon.svg' ) ); ?>" 
-				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>" 
+			<img
+				src="<?php echo esc_url( $this->asset_url( 'assets/images/plugin-icon.svg' ) ); ?>"
+				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
 			/>
 
 			<div class="material-notice-container__content">
@@ -330,7 +330,7 @@ class Plugin extends Plugin_Base {
 
 	/**
 	 * Checks whether the material theme is installed.
-	 * 
+	 *
 	 * @return bool
 	 */
 	public function theme_installed() {
@@ -369,17 +369,17 @@ class Plugin extends Plugin_Base {
 
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $this->material_notice(
-			__( 
-				'Install Material Theme to take advantage of all Material Plugin customizations', 
-				'material-theme-builder' 
+			__(
+				'Install Material Theme to take advantage of all Material Plugin customizations',
+				'material-theme-builder'
 			),
 			sprintf(
-				/* translators: %s: url to the theme installation page */
-				__( 
-					'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization. <a href="%s">Install theme</a>', 
-					'material-theme-builder' 
-				), 
-esc_url( admin_url( '/themes.php?search=Material Theme' ) )
+			/* translators: %s: url to the theme installation page */
+				__(
+					'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization. <a href="%s">Install theme</a>',
+					'material-theme-builder'
+				),
+				esc_url( admin_url( '/themes.php?search=Material Theme' ) )
 			)
 		);
 		// phpcs:enable
@@ -404,14 +404,14 @@ esc_url( admin_url( '/themes.php?search=Material Theme' ) )
 		echo $this->material_notice(
 			__( 'See Material Theming in action', 'material-theme-builder' ),
 			sprintf(
-				/* translators: %s: url to the plugin kitchen sink page */
-				__( 
-					'Customize and view Material Theming get applied throughout all Material Components. <a href="%s">View all Material Components</a>', 
-					'material-theme-builder' 
-				), 
+			/* translators: %s: url to the plugin kitchen sink page */
+				__(
+					'Customize and view Material Theming get applied throughout all Material Components. <a href="%s">View all Material Components</a>',
+					'material-theme-builder'
+				),
 				esc_url( admin_url( 'customize.php#material-library' ) )
 			)
 		);
 		// phpcs:enable
-	} 
+	}
 }
