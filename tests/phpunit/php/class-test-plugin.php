@@ -294,7 +294,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$defaults = $plugin->get_block_defaults();
 		$this->assertEquals(
 			[
-				'cornerRadius' => 36,
+				'cornerRadius' => 20,
 			],
 			$defaults['material/button']
 		);
