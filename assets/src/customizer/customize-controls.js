@@ -283,6 +283,7 @@ import ThemePrompt from './components/theme-prompt';
 
 	$( document ).on( 'click', '.toggle-kitchen-sink', loadKitchenSink );
 
+	// Show kitchen sink if the material-library hash exists.
 	if ( window.location.hash && window.location.hash === '#material-library' ) {
 		$( '#customize-save-button-wrapper' ).ready( loadKitchenSink );
 	}
