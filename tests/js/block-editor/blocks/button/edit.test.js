@@ -18,7 +18,10 @@ jest.mock( '@wordpress/block-editor', () => {
 	};
 } );
 
-const baseProps = { attributes: { type: 'text', style: 'text' } };
+const baseProps = {
+	attributes: { type: 'text', style: 'text' },
+	setAttributes: jest.fn(),
+};
 
 const setup = props => {
 	return render( <ButtonEdit { ...props } /> );
@@ -49,7 +52,10 @@ describe( 'ButtonEdit', () => {
 	} );
 
 	it( 'should display an text with outlined style', () => {
-		setup( { attributes: { type: 'text', style: 'outlined' } } );
+		setup( {
+			attributes: { type: 'text', style: 'outlined' },
+			setAttributes: jest.fn(),
+		} );
 
 		const container = document.body;
 		const matches = container.querySelector(
@@ -61,7 +67,10 @@ describe( 'ButtonEdit', () => {
 	} );
 
 	it( 'should display an text with raised style', () => {
-		setup( { attributes: { type: 'text', style: 'raised' } } );
+		setup( {
+			attributes: { type: 'text', style: 'raised' },
+			setAttributes: jest.fn(),
+		} );
 
 		const container = document.body;
 		const matches = container.querySelector( '.mdc-button.mdc-button--raised' );
@@ -71,7 +80,10 @@ describe( 'ButtonEdit', () => {
 	} );
 
 	it( 'should display an text with unelevated style', () => {
-		setup( { attributes: { type: 'text', style: 'unelevated' } } );
+		setup( {
+			attributes: { type: 'text', style: 'unelevated' },
+			setAttributes: jest.fn(),
+		} );
 
 		const container = document.body;
 		const matches = container.querySelector(
@@ -89,6 +101,8 @@ describe( 'ButtonEdit', () => {
 				style: 'unelevated',
 				iconPosition: 'leading',
 			},
+			isSelected: true,
+			setAttributes: jest.fn(),
 		} );
 
 		expect( screen.getByText( 'Search icon' ) ).toBeInTheDocument();
@@ -101,13 +115,14 @@ describe( 'ButtonEdit', () => {
 				style: 'unelevated',
 				iconPosition: 'none',
 			},
+			setAttributes: jest.fn(),
 		} );
 
 		expect( screen.queryByText( 'Search icon' ) ).toBeNull();
 	} );
 
 	it( 'should have icon button classes if type is icon', () => {
-		setup( { attributes: { type: 'icon' } } );
+		setup( { attributes: { type: 'icon' }, setAttributes: jest.fn() } );
 
 		const container = document.body;
 		const matches = container.querySelector(
@@ -119,7 +134,11 @@ describe( 'ButtonEdit', () => {
 	} );
 
 	it( 'should show link setting field if isSelected is true', () => {
-		setup( { attributes: { type: 'icon' }, isSelected: true } );
+		setup( {
+			attributes: { type: 'icon' },
+			isSelected: true,
+			setAttributes: jest.fn(),
+		} );
 
 		const container = document.body;
 		const matches = container.querySelector( '.material-button-link' );
@@ -128,7 +147,11 @@ describe( 'ButtonEdit', () => {
 	} );
 
 	it( 'should not show link setting field if isSelected is true', () => {
-		setup( { attributes: { type: 'icon' }, isSelected: false } );
+		setup( {
+			attributes: { type: 'icon' },
+			isSelected: false,
+			setAttributes: jest.fn(),
+		} );
 
 		const container = document.body;
 		const matches = container.querySelector( '.material-button-link' );
@@ -189,19 +212,14 @@ describe( 'ButtonEdit', () => {
 
 		fireEvent.click( radios[ 1 ] );
 
-		expect( props.setAttributes ).toHaveBeenCalledTimes( 2 );
+		expect( props.setAttributes ).toHaveBeenCalledTimes( 3 );
 
 		// eslint-disable-next-line jest/prefer-strict-equal
-		expect( props.setAttributes.mock.calls[ 0 ][ 0 ] ).toEqual( {
+		expect( props.setAttributes.mock.calls[ 1 ][ 0 ] ).toEqual( {
 			icon: {
 				hex: 59517,
 				name: 'favorite',
 			},
-		} );
-
-		// eslint-disable-next-line jest/prefer-strict-equal
-		expect( props.setAttributes.mock.calls[ 1 ][ 0 ] ).toEqual( {
-			type: 'icon',
 		} );
 	} );
 } );

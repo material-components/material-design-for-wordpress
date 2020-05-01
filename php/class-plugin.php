@@ -20,6 +20,13 @@ use MaterialThemeBuilder\Customizer\Controls;
 class Plugin extends Plugin_Base {
 
 	/**
+	 * The theme slug.
+	 *
+	 * @var string
+	 */
+	const THEME_SLUG = 'material-theme';
+
+	/**
 	 * Controls class.
 	 *
 	 * @var Controls
@@ -163,6 +170,20 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
+	 * Enqueue backend styles.
+	 *
+	 * @action admin_enqueue_scripts
+	 */
+	public function enqueue_backend_assets() {
+		wp_enqueue_style(
+			'material-backend-css',
+			$this->asset_url( 'assets/css/backend-compiled.css' ),
+			[],
+			$this->asset_version()
+		);
+	}
+
+	/**
 	 * Enqueue front-end styles and scripts.
 	 *
 	 * @action wp_enqueue_scripts, 100
@@ -273,5 +294,124 @@ class Plugin extends Plugin_Base {
 		}
 
 		return $defaults;
+	}
+
+	/**
+	 * Prepares an admin notice.
+	 *
+	 * @param string $title   The title to be showed in the notice.
+	 * @param string $message The message of the notice.
+	 *
+	 * @return string
+	 */
+	public function material_notice( $title, $message ) {
+		ob_start();
+		?>
+
+		<div class="notice notice-info is-dismissible material-notice-container">
+			<img
+				src="<?php echo esc_url( $this->asset_url( 'assets/images/plugin-icon.svg' ) ); ?>"
+				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
+			/>
+
+			<div class="material-notice-container__content">
+				<h3 class="material-notice-container__content__title">
+					<?php echo esc_html( $title ); ?>
+				</h3>
+				<p class="material-notice-container__content__text">
+					<?php echo wp_kses( $message, [ 'a' => [ 'href' => [] ] ] ); ?>
+				</p>
+			</div>
+		</div>
+
+		<?php
+		return ob_get_clean();
+	}
+
+	/**
+	 * Checks whether the material theme is installed.
+	 *
+	 * @return bool
+	 */
+	public function theme_installed() {
+		return file_exists( get_theme_root() . DIRECTORY_SEPARATOR . self::THEME_SLUG );
+	}
+
+	/**
+	 * Returns the status of the material theme
+	 *
+	 * @return string
+	 */
+	public function material_theme_status() {
+		if ( ! $this->theme_installed() ) {
+			return 'install';
+		}
+
+		if ( self::THEME_SLUG !== get_template() ) {
+			return 'activate';
+		}
+
+		return 'ok';
+	}
+
+	/**
+	 * Show admin notice if theme isn't installed.
+	 *
+	 * @action admin_notices, 10, 2
+	 *
+	 * @return void
+	 */
+	public function theme_not_installed_notice() {
+		// Theme already installed. Don't show the notice.
+		if ( $this->theme_installed() ) {
+			return;
+		}
+
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $this->material_notice(
+			__(
+				'Install Material Theme to take advantage of all Material Plugin customizations',
+				'material-theme-builder'
+			),
+			sprintf(
+			/* translators: %s: url to the theme installation page */
+				__(
+					'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization. <a href="%s">Install theme</a>',
+					'material-theme-builder'
+				),
+				esc_url( admin_url( '/themes.php?search=Material Theme' ) )
+			)
+		);
+		// phpcs:enable
+	}
+
+	/**
+	 * Show admin notice if theme and plugin are active.
+	 *
+	 * @action admin_notices, 9, 2
+	 *
+	 * @return void
+	 */
+	public function plugin_activated_notice() {
+		// Theme not active or plugin didn't JUST activate. Stop here.
+		if ( self::THEME_SLUG !== get_template() || ! get_transient( 'mtb-activation-notice' ) ) {
+			return;
+		}
+
+		delete_transient( 'mtb-activation-notice' );
+
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $this->material_notice(
+			__( 'See Material Theming in action', 'material-theme-builder' ),
+			sprintf(
+			/* translators: %s: url to the plugin kitchen sink page */
+				__(
+					'Customize and view Material Theming as it gets applied throughout all Material Components. <a href="%s">View all Material Components</a>',
+					'material-theme-builder'
+				),
+				esc_url( admin_url( 'customize.php#material-library' ) )
+			)
+		);
+		// phpcs:enable
 	}
 }
