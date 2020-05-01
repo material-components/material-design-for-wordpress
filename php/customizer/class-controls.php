@@ -650,9 +650,9 @@ class Controls extends Module_Base {
 				'icon_collection'         => 'outlined',
 			],
 			'fortnightly' => [
-				'primary_color'           => '#ffffff',
+				'primary_color'           => '#121212',
 				'secondary_color'         => '#6b38fb',
-				'primary_text_color'      => '#000000',
+				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#ffffff',
 				'head_font_family'        => 'Merriweather',
 				'body_font_family'        => 'Merriweather',
