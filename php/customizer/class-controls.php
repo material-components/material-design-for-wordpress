@@ -344,8 +344,8 @@ class Controls extends Module_Base {
 		$this->add_settings( $settings );
 
 		/**
-		* List of all the controls in the Theme section.
-		*/
+		 * List of all the controls in the Theme section.
+		 */
 		$controls = [
 			'icon_collection' => new Icon_Radio_Control(
 				$this->wp_customize,
@@ -474,10 +474,11 @@ class Controls extends Module_Base {
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
 				'notify_nonce'           => wp_create_nonce( 'mtb_notify_nonce' ),
+				'pluginPath'             => $this->plugin->asset_url( '' ),
+				'themeStatus'            => $this->plugin->material_theme_status(),
+				'themeSearchUrl'         => esc_url( admin_url( '/wp-admin/themes.php?search=Material Theme' ) ),
 			]
 		);
-
-		wp_localize_script( 'material-theme-builder-customizer-js', 'materialPluginPath', $this->plugin->asset_url( '' ) );
 
 		wp_enqueue_style(
 			'material-theme-builder-customizer-css',
@@ -649,9 +650,9 @@ class Controls extends Module_Base {
 				'icon_collection'         => 'outlined',
 			],
 			'fortnightly' => [
-				'primary_color'           => '#ffffff',
+				'primary_color'           => '#121212',
 				'secondary_color'         => '#6b38fb',
-				'primary_text_color'      => '#000000',
+				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#ffffff',
 				'head_font_family'        => 'Merriweather',
 				'body_font_family'        => 'Merriweather',
@@ -919,7 +920,7 @@ class Controls extends Module_Base {
 
 		$count = $this->get_theme_mod( 'notify' );
 		$count = empty( $count ) ? 0 : $count;
-		set_theme_mod( $this->prepend_slug( 'notify' ), ++$count );
+		set_theme_mod( $this->prepend_slug( 'notify' ), ++ $count );
 		wp_send_json_success(
 			[
 				'count' => $count,
