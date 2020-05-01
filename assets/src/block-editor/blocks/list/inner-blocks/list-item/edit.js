@@ -4,24 +4,24 @@
 import classNames from 'classnames';
 
 /**
- * Internal dependencies
- */
-import { ListContext } from '../../edit';
-import findIcon from '../../../../utils/find-icon';
-import ListItemText from '../../components/list-item-text';
-import IconPicker from '../../../../components/icon-picker';
-import UrlInputPopover from '../../../../components/url-input-popover';
-import genericAttributesSetter from '../../../../utils/generic-attributes-setter';
-
-/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
 import { createBlock } from '@wordpress/blocks';
 import { PanelBody } from '@wordpress/components';
 import { dispatch, select } from '@wordpress/data';
-import { InspectorControls } from '@wordpress/block-editor';
 import { useContext, useEffect } from '@wordpress/element';
+import { InspectorControls } from '@wordpress/block-editor';
+
+/**
+ * Internal dependencies
+ */
+import { ListContext } from '../../edit';
+import findIcon from '../../../../utils/find-icon';
+import ListItemText from '../../components/list-item-text';
+import IconPicker from '../../../../components/icon-picker';
+import genericAttributesSetter from '../../../../utils/generic-attributes-setter';
+import ToolbarUrlInputPopover from '../../../../components/toolbar-url-input-popover';
 
 const ListItemEdit = ( {
 	attributes: {
@@ -141,16 +141,16 @@ const ListItemEdit = ( {
 			</div>
 
 			{ isSelected && (
-				<UrlInputPopover
-					value={ url }
-					onChange={ setter( 'url' ) }
-					newTab={ linkTarget === '_blank' }
+				<ToolbarUrlInputPopover
+					url={ url }
+					setURL={ setter( 'url' ) }
+					isSelected={ isSelected }
+					opensInNewTab={ linkTarget === '_blank' }
 					onChangeNewTab={ setter(
 						'linkTarget',
 						newTab => ( newTab ? '_blank' : undefined ),
 						true
 					) }
-					showNoFollow={ false }
 				/>
 			) }
 
