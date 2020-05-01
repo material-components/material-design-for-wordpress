@@ -344,8 +344,8 @@ class Controls extends Module_Base {
 		$this->add_settings( $settings );
 
 		/**
-		* List of all the controls in the Theme section.
-		*/
+		 * List of all the controls in the Theme section.
+		 */
 		$controls = [
 			'icon_collection' => new Icon_Radio_Control(
 				$this->wp_customize,
@@ -476,7 +476,7 @@ class Controls extends Module_Base {
 				'notify_nonce'           => wp_create_nonce( 'mtb_notify_nonce' ),
 				'pluginPath'             => $this->plugin->asset_url( '' ),
 				'themeStatus'            => $this->plugin->material_theme_status(),
-				'themeSearchUrl'		 => esc_url( admin_url( '/wp-admin/themes.php?search=Material Theme' ) ),
+				'themeSearchUrl'         => esc_url( admin_url( '/wp-admin/themes.php?search=Material Theme' ) ),
 			]
 		);
 
@@ -920,7 +920,7 @@ class Controls extends Module_Base {
 
 		$count = $this->get_theme_mod( 'notify' );
 		$count = empty( $count ) ? 0 : $count;
-		set_theme_mod( $this->prepend_slug( 'notify' ), ++$count );
+		set_theme_mod( $this->prepend_slug( 'notify' ), ++ $count );
 		wp_send_json_success(
 			[
 				'count' => $count,
