@@ -284,9 +284,7 @@ import ThemePrompt from './components/theme-prompt';
 	$( document ).on( 'click', '.toggle-kitchen-sink', loadKitchenSink );
 
 	if ( window.location.hash && window.location.hash === '#material-library' ) {
-		$( '#customize-save-button-wrapper' ).ready( function() {
-			loadKitchenSink();
-		} );
+		$( '#customize-save-button-wrapper' ).ready( loadKitchenSink );
 	}
 
 	/**
