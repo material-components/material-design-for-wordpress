@@ -34,6 +34,7 @@ const UrlInputPopover = ( {
 	onChangeNoFollow = null,
 	onFocusOutside = null,
 	disableSuggestions = false,
+	focusOnMount = 'firstElement',
 } ) => {
 	const [ expanded, setExpanded ] = useState( false );
 
@@ -48,7 +49,7 @@ const UrlInputPopover = ( {
 	return (
 		<Popover
 			className={ mainClassName }
-			focusOnMount="firstElement"
+			focusOnMount={ focusOnMount }
 			position="bottom center"
 			onFocusOutside={ onFocusOutside }
 		>
@@ -64,7 +65,7 @@ const UrlInputPopover = ( {
 								className="mtb-url-input-control__input"
 								value={ value }
 								onChange={ onChange }
-							autoFocus={ false } // eslint-disable-line
+								autoFocus={ false } // eslint-disable-line
 							/>
 						) }
 					{ onChange &&
@@ -73,7 +74,7 @@ const UrlInputPopover = ( {
 								className="mtb-url-input-control__input mtb-url-input-control__input--plain"
 								value={ value }
 								onChange={ onChange }
-							autoFocus={ false } // eslint-disable-line
+								autoFocus={ false } // eslint-disable-line
 								placeholder={ __(
 									'Paste or type URL',
 									'material-theme-builder'
