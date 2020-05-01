@@ -476,7 +476,7 @@ class Controls extends Module_Base {
 				'notify_nonce'           => wp_create_nonce( 'mtb_notify_nonce' ),
 				'pluginPath'             => $this->plugin->asset_url( '' ),
 				'themeStatus'            => $this->plugin->material_theme_status(),
-				'themeSearchUrl'         => esc_url( admin_url( '/wp-admin/themes.php?search=Material Theme' ) ),
+				'themeSearchUrl'         => esc_url( admin_url( '/theme-install.php?search=Material Theme' ) ),
 			]
 		);
 
