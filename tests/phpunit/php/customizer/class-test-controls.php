@@ -580,7 +580,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 					'blocks'        => [
 						'material/button' => [
 							'limits' => [
-								'max' => 36,
+								'max' => 20,
 								'min' => 0,
 							],
 						],

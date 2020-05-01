@@ -10,7 +10,7 @@
 **Stable tag:** 0.0.1  
 **License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
 
-[![Build Status](https://magnum.travis-ci.com/xwp/material-theme-builder-wp.svg?token=DzyA3Sey2BLS5sL6HDJq&branch=develop)](https://magnum.travis-ci.com/xwp/material-theme-builder-wp) [![Coverage Status](https://coveralls.io/repos/xwp/material-theme-builder-wp/badge.svg?branch=develop&service=github&t=hsQNDq)](https://coveralls.io/github/xwp/material-theme-builder-wp) [![Built with Grunt](https://gruntjs.com/cdn/builtwith.svg)](http://gruntjs.com) 
+[![Build Status](https://travis-ci.com/xwp/material-theme-builder-wp.svg?token=DzyA3Sey2BLS5sL6HDJq&branch=develop)](https://travis-ci.com/xwp/material-theme-builder-wp) [![Coverage Status](https://coveralls.io/repos/xwp/material-theme-builder-wp/badge.svg?branch=develop&service=github&t=hsQNDq)](https://coveralls.io/github/xwp/material-theme-builder-wp) [![Built with Grunt](https://gruntjs.com/cdn/builtwith.svg)](http://gruntjs.com) 
 
 ## Description ##
 
