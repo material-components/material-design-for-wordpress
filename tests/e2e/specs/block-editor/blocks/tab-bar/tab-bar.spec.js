@@ -135,15 +135,13 @@ describe( 'blocks: material/tab-bar', () => {
 		await addBlock.click();
 
 		const [ searchBlock ] = await page.$$( '.block-editor-inserter__search' );
-		await searchBlock.type( 'Hello World' );
+		await searchBlock.type( 'Heading' );
 
-		const [ helloWorldBlock ] = await page.$$(
-			'.editor-block-list-item-material-hello-world'
-		);
-		await helloWorldBlock.click();
+		const [ headingBlock ] = await page.$$( '.editor-block-list-item-heading' );
+		await headingBlock.click();
 
 		expect(
-			await page.$x( "//h2[contains(text(), 'Hello Editor')]" )
+			await page.$x( "//h2[span/@data-rich-text-placeholder='Write heading…']" )
 		).toHaveLength( 1 );
 
 		const [ otherTab ] = await page.$x( "//span[contains(text(), 'Tab 2')]" );
