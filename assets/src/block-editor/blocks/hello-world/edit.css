@@ -1,5 +1,0 @@
-/* Add the CSS code to this file. On running npm run dev, it will compile with build:js into assets/css/. */
-
-.editor-styles-wrapper .wp-block[data-type="material/hello-world"] h2 {
-	color: #8b0000;
-}
