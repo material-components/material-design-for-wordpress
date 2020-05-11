@@ -82,11 +82,64 @@ class Importer extends Module_Base {
 
 		$this->xml = \simplexml_load_file( $import_file );
 
+		$taxonomies = $this->import_terms();
+
+		$this->add_menu_items();
+
 		$posts = $this->import_posts();
 
 		$this->setup_widgets();
 
-		return esc_html__( 'Success! Your demo site has been setup', 'material-theme-builder' );
+		return '<p>' . esc_html__( 'Success! Your demo site has been setup', 'material-theme-builder' ) . '</p>';
+	}
+	
+	/**
+	 * Adds terms to db
+	 *
+	 * @return void
+	 */
+	public function import_terms() {
+		$terms = $this->xml->channel->children( 'wp', true )->term;
+
+		foreach ( $terms as $term ) {
+			wp_insert_term(
+				esc_html( $term->children( 'wp', true )->term_name ),
+				esc_html( $term->children( 'wp', true )->term_taxonomy )
+			);
+		}
+
+		?>
+		<p>
+			<?php esc_html_e( 'Terms successfully imported', 'material-theme-builder' ); ?>
+		</p>
+		<?php
+	}
+	
+	/**
+	 * Add custom menu items to menu
+	 *
+	 * @return void
+	 */
+	public function add_menu_items() {
+		$menu       = wp_get_nav_menu( 'Primary' );
+		$menu_items = $this->get_menu_items();
+
+		foreach ( $menu_items as $menu_item ) {
+			wp_update_nav_menu_item(
+				$menu,
+				0,
+				[
+					'menu-item-title'  => $menu_item,
+					'menu-item-status' => 'publish',
+					'menu-item-url'    => '#',
+				]
+			);
+		}
+		?>
+		<p>
+			<?php esc_html_e( 'Menu items created succesfully', 'material-theme-builder' ); ?>
+		</p>
+		<?php
 	}
 	
 	/**
@@ -112,7 +165,11 @@ class Importer extends Module_Base {
 			$post_id = $this->insert_post( $post_data, $post );
 		}
 
-		esc_html_e( 'Posts and pages successfully imported', 'material-theme-builder' );
+		?>
+		<p>
+			<?php esc_html_e( 'Posts, comments and pages successfully imported', 'material-theme-builder' ); ?>
+		</p>
+		<?php
 	}
 	
 	/**
@@ -282,6 +339,21 @@ class Importer extends Module_Base {
 					'title' => '',
 				],
 			],
+		];
+	}
+	
+	/**
+	 * Define menu links to create
+	 *
+	 * @return array Menu items
+	 */
+	public function get_menu_items() {
+		return [
+			esc_html__( 'Home', 'material-theme-builder' ),
+			esc_html__( 'About', 'material-theme-builder' ),
+			esc_html__( 'Projects', 'material-theme-builder' ),
+			esc_html__( 'Blog', 'material-theme-builder' ),
+			esc_html__( 'Contact', 'material-theme-builder' ),
 		];
 	}
 }
