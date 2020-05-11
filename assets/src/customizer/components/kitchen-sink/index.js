@@ -51,6 +51,8 @@ const KitchenSink = ( {
 	secondaryColor,
 	primaryTextColor,
 	secondaryTextColor,
+	surfaceColor,
+	onSurfaceColor,
 	smallComponentRadius,
 	largeComponentRadius,
 	mediumComponentRadius,
@@ -74,6 +76,8 @@ const KitchenSink = ( {
 				secondaryColor={ secondaryColor }
 				primaryTextColor={ primaryTextColor }
 				secondaryTextColor={ secondaryTextColor }
+				surfaceColor={ surfaceColor }
+				onSurfaceColor={ onSurfaceColor }
 			/>
 
 			<div id="kitchen-sink-preview">

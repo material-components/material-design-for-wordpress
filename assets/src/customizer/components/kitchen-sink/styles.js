@@ -9,6 +9,8 @@ export const Overrides = createGlobalStyle`
 		--mdc-theme-secondary: ${ props => props.secondaryColor };
 		--mdc-theme-on-primary: ${ props => props.primaryTextColor };
 		--mdc-theme-on-secondary: ${ props => props.secondaryTextColor };
+		--mdc-theme-surface: ${ props => props.surfaceColor };
+		--mdc-theme-on-surface: ${ props => props.onSurfaceColor };
 	}
 
 	#mcb-kitchen-sink-preview .mdc-typography {

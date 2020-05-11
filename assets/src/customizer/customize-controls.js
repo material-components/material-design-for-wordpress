@@ -653,6 +653,10 @@ import ThemePrompt from './components/theme-prompt';
 				colorRange = colorUtils.generateColorFromHex( color );
 			}
 
+			if ( ! color || ! colorRange.range ) {
+				return;
+			}
+
 			const colorRanges = [
 				{
 					color,
