@@ -441,8 +441,8 @@ const colorUtils = {
 	generateColorFromHex: function( e ) {
 		return {
 			hex: e,
-			accessibility: this.getAccessibilityValuesFromHex( e ),
-			range: this.getColorRangeFromHex( e ),
+			accessibility: e ? this.getAccessibilityValuesFromHex( e ) : false,
+			range: e ? this.getColorRangeFromHex( e ) : false,
 		};
 	},
 	getCustomTextColorInfo: function( size, color, textColor ) {

@@ -10,6 +10,7 @@ namespace MaterialThemeBuilder\Customizer;
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Google_Fonts;
 use MaterialThemeBuilder\Blocks\Blocks_Frontend;
+use MaterialThemeBuilder\Helpers;
 
 /**
  * Class Controls.
@@ -564,8 +565,25 @@ class Controls extends Module_Base {
 
 		foreach ( $this->get_color_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
+			$rgb   = Helpers::hex_to_rgb( $value );
+			if ( ! empty( $rgb ) ) {
+				$rgb = implode( ',', $rgb );
+			}
 
 			$color_vars .= esc_html( "\t{$control['css_var']}: $value;\n" );
+			$color_vars .= esc_html( "\t{$control['css_var']}-rgb: $rgb;\n" );
+		}
+
+		// Generate additional surface variant vars required by some components.
+		$surface    = $this->get_theme_mod( 'surface_color' );
+		$on_surface = $this->get_theme_mod( 'on_surface_color' );
+
+		if ( ! empty( $surface ) && ! empty( $on_surface ) ) {
+			$text_field_bg = Helpers::mix_colors( $on_surface, $surface, 0.04 );
+			$color_vars   .= esc_html( "\t--mdc-theme-surface-text-field: $text_field_bg;\n" );
+
+			$chips_bg    = Helpers::mix_colors( $on_surface, $surface, 0.12 );
+			$color_vars .= esc_html( "\t--mdc-theme-surface-chip: $chips_bg;\n" );
 		}
 
 		foreach ( $this->get_typography_controls() as $control ) {
@@ -630,6 +648,8 @@ class Controls extends Module_Base {
 				'secondary_color'         => '#03dac6',
 				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#000000',
+				'surface_color'           => '#ffffff',
+				'on_surface_color'        => '#000000',
 				'head_font_family'        => 'Roboto',
 				'body_font_family'        => 'Roboto',
 				'small_component_radius'  => '4',
@@ -642,6 +662,8 @@ class Controls extends Module_Base {
 				'secondary_color'         => '#e30425',
 				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#ffffff',
+				'surface_color'           => '#ffffff',
+				'on_surface_color'        => '#000000',
 				'head_font_family'        => 'Raleway',
 				'body_font_family'        => 'Raleway',
 				'small_component_radius'  => '0',
@@ -654,6 +676,8 @@ class Controls extends Module_Base {
 				'secondary_color'         => '#6b38fb',
 				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#ffffff',
+				'surface_color'           => '#ffffff',
+				'on_surface_color'        => '#000000',
 				'head_font_family'        => 'Merriweather',
 				'body_font_family'        => 'Merriweather',
 				'small_component_radius'  => '0',
@@ -666,6 +690,8 @@ class Controls extends Module_Base {
 				'secondary_color'         => '#feeae6',
 				'primary_text_color'      => '#000000',
 				'secondary_text_color'    => '#000000',
+				'surface_color'           => '#ffffff',
+				'on_surface_color'        => '#000000',
 				'head_font_family'        => 'Rubik',
 				'body_font_family'        => 'Rubik',
 				'small_component_radius'  => '0',
@@ -704,6 +730,18 @@ class Controls extends Module_Base {
 				'label'           => __( 'On Secondary Color (text and icons)', 'material-theme-builder' ),
 				'related_setting' => $this->prepend_slug( 'secondary_color' ),
 				'css_var'         => '--mdc-theme-on-secondary',
+			],
+			[
+				'id'              => 'surface_color',
+				'label'           => __( 'Surface Color', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'surface_color' ),
+				'css_var'         => '--mdc-theme-surface',
+			],
+			[
+				'id'              => 'on_surface_color',
+				'label'           => __( 'On Surface Color (text and icons)', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'on_surface_color' ),
+				'css_var'         => '--mdc-theme-on-surface',
 			],
 		];
 	}
