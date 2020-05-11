@@ -121,12 +121,12 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function add_menu_items() {
-		$menu       = wp_get_nav_menu( 'Primary' );
+		$menu       = wp_get_nav_menu_object( 'primary' );
 		$menu_items = $this->get_menu_items();
 
 		foreach ( $menu_items as $menu_item ) {
 			wp_update_nav_menu_item(
-				$menu,
+				$menu->term_id,
 				0,
 				[
 					'menu-item-title'  => $menu_item,
@@ -135,6 +135,15 @@ class Importer extends Module_Base {
 				]
 			);
 		}
+
+		// Set menu to "tabs" location.
+		$menu_locations = get_theme_mod( 'nav_menu_locations' );
+
+		if ( isset( $locations['menu-1'] ) ) {
+			$locations['menu-1'] = $menu->term_id;
+		}
+
+		set_theme_mod( 'nav_menu_locations', $locations );
 		?>
 		<p>
 			<?php esc_html_e( 'Menu items created succesfully', 'material-theme-builder' ); ?>
