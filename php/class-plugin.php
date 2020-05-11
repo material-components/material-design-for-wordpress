@@ -13,6 +13,7 @@ use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
 use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 use MaterialThemeBuilder\Customizer\Controls;
+use MaterialThemeBuilder\Importer;
 
 /**
  * Main plugin bootstrap file.
@@ -69,6 +70,13 @@ class Plugin extends Plugin_Base {
 	public $blocks_frontend;
 
 	/**
+	 * Importer class.
+	 *
+	 * @var Importer
+	 */
+	public $importer;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * Priority is 9 because WP_Customize_Widgets::register_settings() happens at
@@ -97,6 +105,9 @@ class Plugin extends Plugin_Base {
 
 		$this->blocks_frontend = new Blocks_Frontend( $this );
 		$this->blocks_frontend->init();
+
+		$this->importer = new Importer( $this );
+		$this->importer->init();
 	}
 
 	/**
@@ -412,6 +423,28 @@ class Plugin extends Plugin_Base {
 				esc_url( admin_url( 'customize.php#material-library' ) )
 			)
 		);
+		// phpcs:enable
+	}
+
+	/**
+	 * Create demo importer page
+	 *
+	 * @action admin_menu
+	 *
+	 * @return void
+	 */
+	public function create_demo_importer_page() {
+		add_options_page( esc_html__( 'Material Demo Importer', 'material-theme-builder' ), esc_html__( 'Material Demo', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
+	}
+
+	/**
+	 * Displays a settings page to import demo content
+	 *
+	 * @return void
+	 */
+	public function render_demo_importer_page() {
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $this->importer->render_page();
 		// phpcs:enable
 	}
 }
