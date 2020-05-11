@@ -81,12 +81,14 @@ class Importer extends Module_Base {
 		$import_file = $this->get_import_file();
 
 		$this->xml = \simplexml_load_file( $import_file );
-
+		
 		$taxonomies = $this->import_terms();
+		
+		$posts = $this->import_posts();
+
+		$this->update_blog_info();
 
 		$this->add_menu_items();
-
-		$posts = $this->import_posts();
 
 		$this->setup_widgets();
 
@@ -139,9 +141,7 @@ class Importer extends Module_Base {
 		// Set menu to "tabs" location.
 		$menu_locations = get_theme_mod( 'nav_menu_locations' );
 
-		if ( isset( $locations['menu-1'] ) ) {
-			$locations['menu-1'] = $menu->term_id;
-		}
+		$locations['menu-1'] = $menu->term_id;
 
 		set_theme_mod( 'nav_menu_locations', $locations );
 		?>
@@ -364,5 +364,26 @@ class Importer extends Module_Base {
 			esc_html__( 'Blog', 'material-theme-builder' ),
 			esc_html__( 'Contact', 'material-theme-builder' ),
 		];
+	}
+	
+	/**
+	 * Update blog name, and frontpage
+	 *
+	 * @return void
+	 */
+	public function update_blog_info() {
+		update_option( 'blogname', 'Material Theming' );
+
+		$home_page = get_page_by_title( 'Home' );
+		$blog_page = get_page_by_title( 'Blog' );
+
+		if ( $home_page ) {
+			update_option( 'page_on_front', $home_page->ID );
+			update_option( 'show_on_front', 'page' );
+		}
+
+		if ( $blog_page ) {
+			update_option( 'page_for_posts', $blog_page->ID );
+		}
 	}
 }
