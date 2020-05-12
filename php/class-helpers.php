@@ -125,13 +125,13 @@ class Helpers {
 		$color1 = self::hex_to_rgb( $color1 );
 		$color2 = self::hex_to_rgb( $color2 );
 
-		$new = [
+		$mixed = [
 			round( $w1 * $color1[0] + $w2 * $color2[0] ),
 			round( $w1 * $color1[1] + $w2 * $color2[1] ),
 			round( $w1 * $color1[2] + $w2 * $color2[2] ),
 		];
 
-		return '#' . implode( '', array_map( 'self::dechex', $new ) );
+		return '#' . implode( '', array_map( 'self::dechex', $mixed ) );
 	}
 
 	/**
@@ -141,7 +141,7 @@ class Helpers {
 	 * @return int
 	 */
 	public static function hexdec( $hex_code ) {
-		return hexdec( 1 === strlen( $hex_code ) ? str_repeat( $hex_code, 2 ) : $hex_code );
+		return hexdec( str_pad( $hex_code, 2, $hex_code ) );
 	}
 
 	/**
@@ -151,7 +151,6 @@ class Helpers {
 	 * @return string
 	 */
 	public static function dechex( $decimal ) {
-		$hex_code = dechex( $decimal );
-		return 1 === strlen( $hex_code ) ? '0' . $hex_code : $hex_code;
+		return str_pad( dechex( $decimal ), 2, '0', STR_PAD_LEFT );
 	}
 }
