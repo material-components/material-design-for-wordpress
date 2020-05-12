@@ -453,7 +453,7 @@ class Controls extends Module_Base {
 		wp_enqueue_script(
 			'material-theme-builder-customizer-js',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
-			[ 'customize-controls', 'jquery', 'wp-element', 'wp-components' ],
+			[ 'jquery', 'wp-color-picker', 'customize-controls', 'wp-element', 'wp-components' ],
 			$this->plugin->asset_version(),
 			false
 		);
@@ -527,7 +527,7 @@ class Controls extends Module_Base {
 		$icons_style = $icons_style && 'filled' !== $icons_style
 			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
 
-		return "\t--mdc-icons-font-family: \"Material Icons{$icons_style}\";";
+		return sprintf( '--mdc-icons-font-family: "Material Icons%s";', esc_html( $icons_style ) );
 	}
 
 	/**
@@ -558,9 +558,9 @@ class Controls extends Module_Base {
 	 * Get custom frontend CSS based on the customizer theme settings.
 	 */
 	public function get_frontend_css() {
-		$color_vars         = '';
-		$corner_styles_vars = '';
-		$font_vars          = '';
+		$color_vars         = [];
+		$corner_styles_vars = [];
+		$font_vars          = [];
 		$google_fonts       = Google_Fonts::get_fonts();
 
 		foreach ( $this->get_color_controls() as $control ) {
@@ -570,8 +570,8 @@ class Controls extends Module_Base {
 				$rgb = implode( ',', $rgb );
 			}
 
-			$color_vars .= esc_html( "\t{$control['css_var']}: $value;\n" );
-			$color_vars .= esc_html( "\t{$control['css_var']}-rgb: $rgb;\n" );
+			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
+			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
 		}
 
 		// Generate additional surface variant vars required by some components.
@@ -579,11 +579,11 @@ class Controls extends Module_Base {
 		$on_surface = $this->get_theme_mod( 'on_surface_color' );
 
 		if ( ! empty( $surface ) && ! empty( $on_surface ) ) {
-			$text_field_bg = Helpers::mix_colors( $on_surface, $surface, 0.04 );
-			$color_vars   .= esc_html( "\t--mdc-theme-surface-text-field: $text_field_bg;\n" );
+			$mix_4        = Helpers::mix_colors( $on_surface, $surface, 0.04 );
+			$color_vars[] = esc_html( "--mdc-theme-surface-mix-4: $mix_4;" );
 
-			$chips_bg    = Helpers::mix_colors( $on_surface, $surface, 0.12 );
-			$color_vars .= esc_html( "\t--mdc-theme-surface-chip: $chips_bg;\n" );
+			$mix_12       = Helpers::mix_colors( $on_surface, $surface, 0.12 );
+			$color_vars[] = esc_html( "--mdc-theme-surface-mix-12: $mix_12;" );
 		}
 
 		foreach ( $this->get_typography_controls() as $control ) {
@@ -592,7 +592,12 @@ class Controls extends Module_Base {
 
 			if ( ! empty( $control['css_vars']['family'] ) ) {
 				foreach ( $control['css_vars']['family'] as $var ) {
-					$font_vars .= esc_html( "\t{$var}: {$value}, {$fallback};\n" );
+					$font_vars[] = sprintf(
+						'%s: "%s", %s;',
+						esc_html( $var ),
+						esc_html( $value ),
+						esc_html( $fallback )
+					);
 				}
 			}
 		}
@@ -606,19 +611,44 @@ class Controls extends Module_Base {
 					if ( isset( $limit['min'] ) && $value < $limit['min'] ) {
 						$value = $limit['min'];
 					}
+
 					if ( isset( $limit['max'] ) && $value > $limit['max'] ) {
 						$value = $limit['max'];
 					}
-					$corner_styles_vars .= esc_html( "\t{$control['css_var']}-{$element}: ${value}px;\n" );
+
+					$corner_styles_vars[] = sprintf(
+						'%s-%s: %spx;',
+						esc_html( $control['css_var'] ),
+						esc_html( $element ),
+						esc_html( $value )
+					);
 				}
 			} else {
-				$corner_styles_vars .= esc_html( "\t{$control['css_var']}: ${value}px;\n" );
+				$corner_styles_vars[] = sprintf(
+					'%s: %spx;',
+					esc_html( $control['css_var'] ),
+					esc_html( $value )
+				);
 			}
 		}
 
-		$icon_collection = $this->get_icon_collection_css();
+		$glue               = "\n\t\t\t\t";
+		$icon_collection    = $this->get_icon_collection_css();
+		$color_vars         = implode( $glue, $color_vars );
+		$corner_styles_vars = implode( $glue, $corner_styles_vars );
+		$font_vars          = implode( $glue, $font_vars );
 
-		return ":root {\n{$color_vars}{$icon_collection}\n}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
+		return "
+			:root {
+				{$color_vars}
+				{$icon_collection}
+			}
+
+			html {
+				{$font_vars}
+				{$corner_styles_vars}
+			}
+		";
 	}
 
 	/**

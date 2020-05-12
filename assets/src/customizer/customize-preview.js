@@ -51,7 +51,8 @@ const getIconFontName = iconStyle => {
 		if (
 			args &&
 			!! args.cssVar &&
-			( !! args.relatedTextSetting || !! args.relatedSetting )
+			( !! args.relatedTextSetting || !! args.relatedSetting ) &&
+			0 !== control.indexOf( 'material' )
 		) {
 			colorControls[ control ] = args.cssVar;
 		}
@@ -103,9 +104,11 @@ const getIconFontName = iconStyle => {
 
 		// Generate the styles.
 		Object.keys( colorControls ).forEach( control => {
-			styles += `${ colorControls[ control ] }: ${ parentApi(
-				control
-			).get() };`;
+			const color = parentApi( control ).get(),
+				colorRgb = hexToRgb( color ).join( ',' );
+			styles += `${ colorControls[ control ] }: ${ color };
+				${ colorControls[ control ] }-rgb: ${ colorRgb };
+			`;
 		} );
 
 		Object.keys( cornerStyleControls ).forEach( control => {
@@ -168,6 +171,16 @@ const getIconFontName = iconStyle => {
 			`${ baseURL }${ [ ...new Set( fonts ) ].join( '|' ) }`
 		);
 	};
+
+	const hexToRgb = hex =>
+		hex
+			.replace(
+				/^#?([a-f\d])([a-f\d])([a-f\d])$/i,
+				( m, r, g, b ) => '#' + r + r + g + g + b + b
+			)
+			.substring( 1 )
+			.match( /.{2}/g )
+			.map( x => parseInt( x, 16 ) );
 
 	// Generate preview styles on any color control change.
 	Object.keys( colorControls ).forEach( control => {
