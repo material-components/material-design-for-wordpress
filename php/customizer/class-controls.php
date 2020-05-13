@@ -640,12 +640,16 @@ class Controls extends Module_Base {
 
 		return "
 			:root {
+				/* Theme color vars */
 				{$color_vars}
-				{$icon_collection}
-			}
 
-			html {
+				/* Icon collection type var */
+				{$icon_collection}
+
+				/* Typography vars */
 				{$font_vars}
+
+				/* Corner Styles vars */
 				{$corner_styles_vars}
 			}
 		";

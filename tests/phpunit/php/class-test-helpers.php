@@ -41,4 +41,37 @@ class Test_Helpers extends \WP_UnitTestCase {
 
 		$this->assertEquals( [ 7, 151, 29 ], Helpers::hex_to_rgb( [ 7, 151, 29 ] ) );
 	}
+
+	/**
+	 * Test mix_colors.
+	 *
+	 * @see Helpers::mix_colors()
+	 */
+	public function test_mix_colors() {
+		$this->assertEquals( '#698aa2', Helpers::mix_colors( '#036', '#d2e1dd' ) );
+		$this->assertEquals( '#355f84', Helpers::mix_colors( '#036', '#d2e1dd', .75 ) );
+		$this->assertEquals( '#9eb6bf', Helpers::mix_colors( '#036', '#d2e1dd', .25 ) );
+	}
+
+	/**
+	 * Test hexdec.
+	 *
+	 * @see Helpers::hexdec()
+	 */
+	public function test_hexdec() {
+		$this->assertEquals( 255, Helpers::hexdec( 'f' ) );
+		$this->assertEquals( 255, Helpers::hexdec( 'ff' ) );
+		$this->assertEquals( 15, Helpers::hexdec( '0f' ) );
+	}
+
+	/**
+	 * Test dechex.
+	 *
+	 * @see Helpers::dechex()
+	 */
+	public function test_dechex() {
+		$this->assertEquals( '0f', Helpers::dechex( 15 ) );
+		$this->assertEquals( 'ff', Helpers::dechex( 255 ) );
+		$this->assertEquals( 'cd', Helpers::dechex( 205 ) );
+	}
 }
