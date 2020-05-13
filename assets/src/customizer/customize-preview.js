@@ -14,6 +14,11 @@
  */
 import get from 'lodash/get';
 
+/**
+ * Internal dependencies
+ */
+import colorUtils from '../common/color-utils';
+
 const getIconFontName = iconStyle => {
 	return iconStyle === 'filled'
 		? 'Material Icons'
@@ -105,7 +110,7 @@ const getIconFontName = iconStyle => {
 		// Generate the styles.
 		Object.keys( colorControls ).forEach( control => {
 			const color = parentApi( control ).get(),
-				colorRgb = hexToRgb( color ).join( ',' );
+				colorRgb = colorUtils.hexToRgb( color ).join( ',' );
 			styles += `${ colorControls[ control ] }: ${ color };
 				${ colorControls[ control ] }-rgb: ${ colorRgb };
 			`;
@@ -171,16 +176,6 @@ const getIconFontName = iconStyle => {
 			`${ baseURL }${ [ ...new Set( fonts ) ].join( '|' ) }`
 		);
 	};
-
-	const hexToRgb = hex =>
-		hex
-			.replace(
-				/^#?([a-f\d])([a-f\d])([a-f\d])$/i,
-				( m, r, g, b ) => '#' + r + r + g + g + b + b
-			)
-			.substring( 1 )
-			.match( /.{2}/g )
-			.map( x => parseInt( x, 16 ) );
 
 	// Generate preview styles on any color control change.
 	Object.keys( colorControls ).forEach( control => {

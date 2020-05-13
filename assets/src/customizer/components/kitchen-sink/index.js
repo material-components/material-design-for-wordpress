@@ -2,6 +2,7 @@
  * External dependencies
  */
 import { useEffect, useState } from 'react';
+import chroma from 'chroma-js';
 
 /**
  * WordPress dependencies
@@ -22,8 +23,10 @@ import TabBar from './sections/tab-bar';
 import Buttons from './sections/buttons';
 import Checkboxes from './sections/checkboxes';
 import ImageLists from './sections/image-lists';
-import { materialIconClass } from './utils';
-import { Overrides, H1, H2 } from './styles';
+import { materialIconClass, materialIconFontName } from './utils';
+import { Overrides } from './styles';
+import '../../../../css/src/base/variables.css';
+import '../../../../css/src/components/material.css';
 
 /**
  * Adds link tag with appropriate google fonts to head.
@@ -52,7 +55,9 @@ const KitchenSink = ( {
 	primaryTextColor,
 	secondaryTextColor,
 	surfaceColor,
-	onSurfaceColor,
+	surfaceTextColor,
+	backgroundColor,
+	backgroundTextColor,
 	smallComponentRadius,
 	largeComponentRadius,
 	mediumComponentRadius,
@@ -77,13 +82,22 @@ const KitchenSink = ( {
 				primaryTextColor={ primaryTextColor }
 				secondaryTextColor={ secondaryTextColor }
 				surfaceColor={ surfaceColor }
-				onSurfaceColor={ onSurfaceColor }
+				surfaceTextColor={ surfaceTextColor }
+				surfaceColorMix4={ chroma.mix( surfaceColor, surfaceTextColor, 0.04 ) }
+				surfaceColorMix12={ chroma.mix( surfaceColor, surfaceTextColor, 0.12 ) }
+				backgroundColor={ backgroundColor }
+				backgroundTextColor={ backgroundTextColor }
+				iconCollection={ materialIconFontName( iconCollection ) }
 			/>
 
 			<div id="kitchen-sink-preview">
-				<H1>{ __( 'Material Components', 'material-theme-builder' ) }</H1>
+				<h2 className="mdc-typography--headline2">
+					{ __( 'Material Components', 'material-theme-builder' ) }
+				</h2>
 				<section>
-					<H2>{ __( 'Blocks', 'material-theme-builder' ) }</H2>
+					<h3 className="mdc-typography--headline3">
+						{ __( 'Blocks', 'material-theme-builder' ) }
+					</h3>
 					<hr />
 					<Buttons
 						iconStyle={ iconStyle }
@@ -109,7 +123,9 @@ const KitchenSink = ( {
 				<hr />
 
 				<section style={ { marginTop: '100px' } }>
-					<H2>{ __( 'Components', 'material-theme-builder' ) }</H2>
+					<h3 className="mdc-typography--headline3">
+						{ __( 'Components', 'material-theme-builder' ) }
+					</h3>
 					{ 'material-theme' !== theme && (
 						<p>
 							{ __(
