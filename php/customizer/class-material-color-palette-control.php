@@ -41,6 +41,13 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	public $css_var = '';
 
 	/**
+	 * Color accessibility label.
+	 *
+	 * @var string
+	 */
+	public $a11y_label = '';
+
+	/**
 	 * Render a JS template for the Material color palette tabs.
 	 *
 	 * @return void
@@ -91,5 +98,6 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 		$this->json['relatedTextSetting'] = ! empty( $this->related_text_setting ) ? $this->related_text_setting : false;
 		$this->json['relatedSetting']     = ! empty( $this->related_setting ) ? $this->related_setting : false;
 		$this->json['cssVar']             = ! empty( $this->css_var ) ? $this->css_var : false;
+		$this->json['a11yLabel']          = ! empty( $this->a11y_label ) ? $this->a11y_label : '';
 	}
 }
