@@ -592,7 +592,7 @@ import ThemePrompt from './components/theme-prompt';
 						// Set the value from style defaults.
 						colorControl.setting.set(
 							mtb.designStyles[ style ][
-								controlName.replace( `${ mtb.slug }_`, '' )
+								controlName.replace( `${ getSlug( controlName ) }_`, '' )
 							]
 						);
 
@@ -739,6 +739,14 @@ import ThemePrompt from './components/theme-prompt';
 	};
 
 	/**
+	 * Get the slug for a control.
+	 *
+	 * @param {string} name name of the control
+	 */
+	const getSlug = name =>
+		-1 !== name.indexOf( 'background_' ) ? 'material' : mtb.slug;
+
+	/**
 	 * Callback when a "Design Style" is changed.
 	 *
 	 * @param {string} newValue Updated value.
@@ -770,7 +778,7 @@ import ThemePrompt from './components/theme-prompt';
 		// and update the corresponding control value.
 		Object.keys( defaults ).forEach( name => {
 			const value = defaults[ name ];
-			const control = api.control( `${ mtb.slug }_${ name }` );
+			const control = api.control( `${ getSlug( name ) }_${ name }` );
 
 			if ( value && control ) {
 				// Unbind the custom value change event.
