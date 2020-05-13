@@ -454,7 +454,7 @@ class Controls extends Module_Base {
 		wp_enqueue_script(
 			'material-theme-builder-customizer-js',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
-			[ 'jquery', 'wp-color-picker', 'customize-controls', 'wp-element', 'wp-components' ],
+			[ 'jquery', 'wp-color-picker', 'customize-controls', 'wp-element', 'wp-components', 'wp-i18n' ],
 			$this->plugin->asset_version(),
 			false
 		);

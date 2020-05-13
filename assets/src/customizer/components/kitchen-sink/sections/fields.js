@@ -1,9 +1,10 @@
 import { __ } from '@wordpress/i18n';
-import { H3 } from '../styles';
 
 const Fields = ( { radius } ) => (
 	<div>
-		<H3>{ __( 'Fields', 'material-theme-builder' ) }</H3>
+		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+			{ __( 'Fields', 'material-theme-builder' ) }
+		</h4>
 		<p>
 			{ __(
 				'This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.',
@@ -18,7 +19,9 @@ const Fields = ( { radius } ) => (
 					borderTopRightRadius: `${ radius }px`,
 				} }
 			>
-				<i className="material-icons mdc-text-field__icon">account_circle</i>
+				<i className="material-icons mdc-text-field__icon mdc-text-field__icon--leading">
+					account_circle
+				</i>
 				<input className="mdc-text-field__input" id="text-field-hero-input" />
 				<div className="mdc-line-ripple"></div>
 				<label htmlFor="text-field-hero-input" className="mdc-floating-label">
@@ -30,8 +33,12 @@ const Fields = ( { radius } ) => (
 				className="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon"
 				style={ { marginLeft: '10px' } }
 			>
-				<i className="material-icons mdc-text-field__icon">account_circle</i>
-				<i className="material-icons mdc-text-field__icon">close</i>
+				<i className="material-icons mdc-text-field__icon mdc-text-field__icon--leading">
+					account_circle
+				</i>
+				<i className="material-icons mdc-text-field__icon mdc-text-field__icon--trailing">
+					close
+				</i>
 				<input className="mdc-text-field__input" type="text" />
 				<div className="mdc-notched-outline">
 					<div

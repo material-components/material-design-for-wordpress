@@ -133,15 +133,20 @@ import ThemePrompt from './components/theme-prompt';
 			return controlProps;
 		}
 
-		mtb.controls.forEach( name => {
-			const control = api.control( name );
-			const prop = camelCase( name.replace( `${ mtb.slug }_`, '' ) );
+		mtb.controls
+			.concat( [
+				'material_background_color',
+				'material_background_text_color',
+			] )
+			.forEach( name => {
+				const control = api.control( name );
+				const prop = camelCase( name.replace( `${ getSlug( name ) }_`, '' ) );
 
-			if ( control?.setting ) {
-				controlProps[ prop ] = control.setting.get();
-			}
-		} );
-
+				if ( control?.setting ) {
+					controlProps[ prop ] = control.setting.get();
+				}
+			} );
+		console.log( controlProps );
 		return controlProps;
 	};
 
@@ -265,8 +270,8 @@ import ThemePrompt from './components/theme-prompt';
 	const loadKitchenSink = () => {
 		// Load MDC assets
 		if ( ! mdcLoaded ) {
-			$( 'head' ).append( `
-				<link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+			$( 'head' ).prepend( `
+				<link href="https://unpkg.com/material-components-web@v5.1.0/dist/material-components-web.min.css" rel="stylesheet">
 				<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 			` );
 
