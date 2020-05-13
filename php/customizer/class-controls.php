@@ -242,6 +242,7 @@ class Controls extends Module_Base {
 					'related_text_setting' => ! empty( $control['related_text_setting'] ) ? $control['related_text_setting'] : false,
 					'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] : false,
 					'css_var'              => $control['css_var'],
+					'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
 				]
 			);
 		}
@@ -576,7 +577,7 @@ class Controls extends Module_Base {
 
 		// Generate additional surface variant vars required by some components.
 		$surface    = $this->get_theme_mod( 'surface_color' );
-		$on_surface = $this->get_theme_mod( 'on_surface_color' );
+		$on_surface = $this->get_theme_mod( 'surface_text_color' );
 
 		if ( ! empty( $surface ) && ! empty( $on_surface ) ) {
 			$mix_4        = Helpers::mix_colors( $on_surface, $surface, 0.04 );
@@ -683,7 +684,7 @@ class Controls extends Module_Base {
 				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#000000',
 				'surface_color'           => '#ffffff',
-				'on_surface_color'        => '#000000',
+				'surface_text_color'      => '#000000',
 				'head_font_family'        => 'Roboto',
 				'body_font_family'        => 'Roboto',
 				'small_component_radius'  => '4',
@@ -697,7 +698,7 @@ class Controls extends Module_Base {
 				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#ffffff',
 				'surface_color'           => '#ffffff',
-				'on_surface_color'        => '#000000',
+				'surface_text_color'      => '#000000',
 				'head_font_family'        => 'Raleway',
 				'body_font_family'        => 'Raleway',
 				'small_component_radius'  => '0',
@@ -711,7 +712,7 @@ class Controls extends Module_Base {
 				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#ffffff',
 				'surface_color'           => '#ffffff',
-				'on_surface_color'        => '#000000',
+				'surface_text_color'      => '#000000',
 				'head_font_family'        => 'Merriweather',
 				'body_font_family'        => 'Merriweather',
 				'small_component_radius'  => '0',
@@ -725,7 +726,7 @@ class Controls extends Module_Base {
 				'primary_text_color'      => '#000000',
 				'secondary_text_color'    => '#000000',
 				'surface_color'           => '#ffffff',
-				'on_surface_color'        => '#000000',
+				'surface_text_color'      => '#000000',
 				'head_font_family'        => 'Rubik',
 				'body_font_family'        => 'Rubik',
 				'small_component_radius'  => '0',
@@ -744,37 +745,43 @@ class Controls extends Module_Base {
 			[
 				'id'                   => 'primary_color',
 				'label'                => __( 'Primary Color', 'material-theme-builder' ),
+				'a11y_label'           => __( 'On Primary', 'material-theme-builder' ),
 				'related_text_setting' => $this->prepend_slug( 'primary_text_color' ),
 				'css_var'              => '--mdc-theme-primary',
 			],
 			[
 				'id'                   => 'secondary_color',
 				'label'                => __( 'Secondary Color', 'material-theme-builder' ),
+				'a11y_label'           => __( 'On Secondary', 'material-theme-builder' ),
 				'related_text_setting' => $this->prepend_slug( 'secondary_text_color' ),
 				'css_var'              => '--mdc-theme-secondary',
 			],
 			[
 				'id'              => 'primary_text_color',
 				'label'           => __( 'On Primary Color (text and icons)', 'material-theme-builder' ),
+				'a11y_label'      => __( 'On Primary', 'material-theme-builder' ),
 				'related_setting' => $this->prepend_slug( 'primary_color' ),
 				'css_var'         => '--mdc-theme-on-primary',
 			],
 			[
 				'id'              => 'secondary_text_color',
 				'label'           => __( 'On Secondary Color (text and icons)', 'material-theme-builder' ),
+				'a11y_label'      => __( 'On Secondary', 'material-theme-builder' ),
 				'related_setting' => $this->prepend_slug( 'secondary_color' ),
 				'css_var'         => '--mdc-theme-on-secondary',
 			],
 			[
-				'id'              => 'surface_color',
-				'label'           => __( 'Surface Color', 'material-theme-builder' ),
-				'related_setting' => $this->prepend_slug( 'surface_color' ),
-				'css_var'         => '--mdc-theme-surface',
+				'id'                   => 'surface_color',
+				'label'                => __( 'Surface Color', 'material-theme-builder' ),
+				'a11y_label'           => __( 'On Surface', 'material-theme-builder' ),
+				'related_text_setting' => $this->prepend_slug( 'surface_text_color' ),
+				'css_var'              => '--mdc-theme-surface',
 			],
 			[
-				'id'              => 'on_surface_color',
+				'id'              => 'surface_text_color',
 				'label'           => __( 'On Surface Color (text and icons)', 'material-theme-builder' ),
-				'related_setting' => $this->prepend_slug( 'on_surface_color' ),
+				'a11y_label'      => __( 'On Surface', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'surface_color' ),
 				'css_var'         => '--mdc-theme-on-surface',
 			],
 		];
@@ -998,5 +1005,32 @@ class Controls extends Module_Base {
 				'count' => $count,
 			]
 		);
+	}
+
+	/**
+	 * Move background color contorls to Material "Color Palettes" section.
+	 *
+	 * @action material_customizer_control_args, 10, 2
+	 *
+	 * @param array|WP_Customize_Control $control Control arguments.
+	 * @param string                     $id     Control ID.
+	 *
+	 * @return array
+	 */
+	public function background_color_controls( $control, $id ) {
+		if ( in_array( $id, [ 'material_background_color', 'material_background_text_color' ], true ) ) {
+			$label = 'material_background_text_color' === $id ? esc_html__( 'On Background Color (text and icons)', 'material-theme-builder' ) : false;
+			if ( is_array( $control ) ) {
+				$control['section']  = $this->prepend_slug( 'colors' );
+				$control['priority'] = 20;
+				$control['label']    = $label ? $label : $control['label'];
+			} elseif ( $control instanceof \WP_Customize_Control ) {
+				$control->section  = $this->prepend_slug( 'colors' );
+				$control->priority = 20;
+				$control->label    = $label ? $label : $control->label;
+			}
+		}
+
+		return $control;
 	}
 }

@@ -637,10 +637,7 @@ import ThemePrompt from './components/theme-prompt';
 				textColor,
 				colorRange,
 				isText = true;
-			const textColorLabel =
-				-1 !== control.id.indexOf( 'primary' )
-					? __( 'On Primary', 'material-theme-builder' )
-					: __( 'On Secondary', 'material-theme-builder' );
+			const textColorLabel = control.params.a11yLabel || '';
 
 			if ( control.params.relatedTextSetting ) {
 				color = selectedColor;
