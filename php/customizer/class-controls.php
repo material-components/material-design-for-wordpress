@@ -823,6 +823,7 @@ class Controls extends Module_Base {
 				'label'    => __( 'Body & Captions', 'material-theme-builder' ),
 				'css_vars' => [
 					'family' => [
+						'--mdc-typography-font-family',
 						'--mdc-typography-body1-font-family',
 						'--mdc-typography-body2-font-family',
 						'--mdc-typography-caption-font-family',
