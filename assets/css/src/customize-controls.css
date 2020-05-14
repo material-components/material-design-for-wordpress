@@ -5,7 +5,6 @@
 @import "select-woo/dist/css/selectWoo.css";
 @import "../../src/block-editor/components/material-color-palette/style.css";
 @import "@wordpress/components/build-style/style.css";
-@import "@material/icon-button/dist/mdc.icon-button.css";
 
 /* Collapsible section */
 .control-section-collapse-parent {
@@ -206,6 +205,8 @@
 }
 
 #kitchen-sink-preview {
+	background: var(--mdc-theme-background, #fff);
+	color: var(--mdc-theme-on-background, #000);
 	padding: 30px 50px;
 
 	button {
@@ -252,6 +253,15 @@
 	.mdc-image-list__image {
 		display: block;
 		height: auto;
+	}
+
+	.mdc-button-wrap {
+		display: flex;
+		align-items: center;
+
+		& .mdc-icon-button {
+			margin-top: 0 !important;
+		}
 	}
 }
 

@@ -1,9 +1,10 @@
 import { __ } from '@wordpress/i18n';
-import { H3 } from '../styles';
 
 const Switch = () => (
 	<div>
-		<H3>{ __( 'Switch', 'material-theme-builder' ) }</H3>
+		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+			{ __( 'Switch', 'material-theme-builder' ) }
+		</h4>
 		<p>
 			{ __(
 				'This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.',
