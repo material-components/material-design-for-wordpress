@@ -81,7 +81,12 @@ html {
 	background-color: var(--mdc-theme-surface, #fff) !important;
 	border-color: rgba(0, 0, 0, 0.12) !important;
 	border-color: rgba(var(--mdc-theme-on-surface-rgb), .12) !important;
+
+	& thead {
+		border: none !important;
+	}
 }
+
 
 .mdc-data-table__table {
 	margin: 0 !important;
@@ -128,10 +133,6 @@ ul.mdc-list {
 	&::before {
 		display: none !important;
 	}
-}
-
-.single-post-card__subtitle {
-	color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, .54)) !important;
 }
 
 .mdc-card__link {
