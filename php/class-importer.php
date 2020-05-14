@@ -159,6 +159,12 @@ class Importer extends Module_Base {
 	public function import_posts() {
 		$posts = $this->xml->channel->item;
 
+		$author = $this->create_demo_user();
+
+		if ( is_wp_error( $author ) ) {
+			$author = null;
+		}
+
 		foreach ( $posts as $post ) {
 			$post_data = [
 				'post_title'   => esc_html( $post->title ),
@@ -167,9 +173,9 @@ class Importer extends Module_Base {
 				'post_type'    => esc_html( $post->children( 'wp', true )->post_type ),
 				'post_content' => wp_kses_post( $post->children( 'content', true )->encoded ),
 				'post_status'  => 'publish',
+				'post_author'  => intval( $author ),
+				'meta_input'   => $this->attach_meta_data( $post ),
 			];
-
-			$post_data['meta_input'] = $this->attach_meta_data( $post );
 
 			$post_id = $this->insert_post( $post_data, $post );
 		}
@@ -199,6 +205,21 @@ class Importer extends Module_Base {
 		$postmeta['_mtb-demo-content'] = 1;
 
 		return $postmeta;
+	}
+	
+	/**
+	 * Create an user to attach posts to
+	 *
+	 * @return int|WP_Error New user's ID, or error on fail
+	 */
+	public function create_demo_user() {
+		$user_data = [
+			'user_login'   => 'materialdemo',
+			'display_name' => esc_html__( 'Material Demo', 'material-theme-builder' ),
+			'role'         => 'editor',
+		];
+
+		return wp_insert_user( $user_data );
 	}
 	
 	/**
@@ -249,14 +270,14 @@ class Importer extends Module_Base {
 		$widgets          = $this->get_widgets();
 		$existing_widgets = get_option( 'sidebars_widgets' );
 
-		// Reset footer widgets.
-		$existing_widgets['footer'] = [];
-		
-		foreach ( $widgets as $widget_type => $widget ) {
-			$existing_widgets['footer'] = array_merge( $existing_widgets['footer'], $this->build_widget_ids( $widget, $widget_type ) );
+		foreach ( $widgets as $area => $widget_list ) {
+			// Reset footer widgets.
+			$existing_widgets[ $area ] = [];
+
+			$existing_widgets[ $area ] = array_merge( $existing_widgets[ $area ], $this->build_widget_ids( $widget_list ) );
 
 			// Save widget options in database.
-			update_option( "widget_{$widget_type}", $widget );
+			update_option( "widget_{$area}", $widget_list );
 		}
 
 		// Save new widget status.
@@ -266,15 +287,14 @@ class Importer extends Module_Base {
 	/**
 	 * Create widget ids based on their widget type
 	 *
-	 * @param  array  $widgets      Widgets to convert.
-	 * @param  string $widget_type  Type of widget to create.
-	 * @return array                Widgets to register
+	 * @param  array $widgets      Widgets to convert.
+	 * @return array               Widgets to register
 	 */
-	public function build_widget_ids( $widgets, $widget_type ) {
+	public function build_widget_ids( $widgets ) {
 		$built_widgets = [];
 
 		foreach ( $widgets as $key => $widget ) {
-			$built_widgets[] = $widget_type . '-' . $key;
+			$built_widgets[] = $widget['type'] . '-' . $key;
 		}
 
 		return $built_widgets;
@@ -302,22 +322,9 @@ class Importer extends Module_Base {
 		$social_html = ob_get_clean();
 
 		return [
-			'text'        => [
+			'footer'       => [
 				[
-					'title'  => esc_html__( 'Explore', 'material-theme-builder' ),
-					'text'   => esc_html__( 'Pellentesque habitant morbi tristique senectus et netus', 'material-theme-builder' ),
-					'filter' => true,
-					'visual' => true,
-				],
-				[
-					'title'  => '',
-					'text'   => esc_html__( 'Copyright © Material. All rights reserved. Maximus nec sagittis congue, pretium vitae sem.', 'material-theme-builder' ),
-					'filter' => true,
-					'visual' => true,
-				],
-			],
-			'custom_html' => [
-				[
+					'type'    => 'custom_html',
 					'title'   => esc_html__( 'About Material', 'material-theme-builder' ),
 					'content' => wp_kses(
 						$about_html,
@@ -333,6 +340,7 @@ class Importer extends Module_Base {
 					),
 				],
 				[
+					'type'    => 'custom_html',
 					'title'   => '',
 					'content' => wp_kses(
 						$social_html,
@@ -342,9 +350,24 @@ class Importer extends Module_Base {
 						]
 					),
 				],
-			],
-			'search'      => [
 				[
+					'type'   => 'text',
+					'title'  => '',
+					'text'   => esc_html__( 'Copyright © Material. All rights reserved. Maximus nec sagittis congue, pretium vitae sem.', 'material-theme-builder' ),
+					'filter' => true,
+					'visual' => true,
+				],
+			],
+			'footer-right' => [
+				[
+					'type'   => 'text',
+					'title'  => esc_html__( 'Explore', 'material-theme-builder' ),
+					'text'   => esc_html__( 'Pellentesque habitant morbi tristique senectus et netus', 'material-theme-builder' ),
+					'filter' => true,
+					'visual' => true,
+				],
+				[
+					'type'  => 'search',
 					'title' => '',
 				],
 			],
