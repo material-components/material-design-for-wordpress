@@ -18,11 +18,6 @@ import { find } from 'lodash';
  */
 import { __ } from '@wordpress/i18n';
 
-/**
- * Internal dependencies
- */
-import MATERIAL_COLORS from './material-colors';
-
 const colorUtils = {
 	round: function( e, t ) {
 		t = +t || 0;
@@ -441,8 +436,8 @@ const colorUtils = {
 	generateColorFromHex: function( e ) {
 		return {
 			hex: e,
-			accessibility: this.getAccessibilityValuesFromHex( e ),
-			range: this.getColorRangeFromHex( e ),
+			accessibility: e ? this.getAccessibilityValuesFromHex( e ) : false,
+			range: e ? this.getColorRangeFromHex( e ) : false,
 		};
 	},
 	getCustomTextColorInfo: function( size, color, textColor ) {
@@ -487,14 +482,16 @@ const colorUtils = {
 
 		return accessibility;
 	},
-	getMaterialColorLabel: hex => {
-		const found = find( MATERIAL_COLORS, color => hex === color.color );
-		if ( found ) {
-			return found.name;
-		}
-
-		return 'custom';
-	},
+	hexToRgb: hex =>
+		!hex ? [] :
+			hex
+				.replace(
+					/^#?([a-f\d])([a-f\d])([a-f\d])$/i,
+					( m, r, g, b ) => '#' + r + r + g + g + b + b
+				)
+				.substring( 1 )
+				.match( /.{2}/g )
+				.map( x => parseInt( x, 16 ) ),
 };
 
 export default colorUtils;
