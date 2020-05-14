@@ -9,7 +9,6 @@
 }
 
 .mtb-card__title {
-	color: rgba(0, 0, 0) !important;
 	margin: 0 !important;
 	font-size: 1.25em !important;
 	font-weight: 500 !important;
@@ -20,7 +19,6 @@
 
 .mtb-card__secondary-text {
 	padding: 0 1em 0 0;
-	color: rgba(0, 0, 0, 0.54) !important;
 	margin: 0 !important;
 	font-size: .875em !important;
 	line-height: 1.375em !important; /* stylelint-disable-line */
@@ -30,7 +28,6 @@
 }
 
 .mtb-card__supporting-text {
-	color: rgba(0, 0, 0, 0.54);
 	padding: 0 1em 8px 1em;
 	font-family: Roboto, sans-serif !important;
 

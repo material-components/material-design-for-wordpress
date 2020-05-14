@@ -1,6 +1,6 @@
 /* @todo: Will need refactoring. This helps getting the correct padding for single-post-card__primary which is defined in em unit*/
 .single-post-card__primary {
-	padding: 1em;
+	padding: 16px;
 }
 
 .single-post-card .mdc-button__label {
@@ -9,20 +9,17 @@
 
 /* @todo: Will need refactoring. */
 .single-post-card__title {
-	color: rgba(0, 0, 0) !important;
 	margin: 0 !important;
 }
 
 /* @todo: Will need refactoring. */
 .single-post-card__subtitle {
-	padding: 1em 1em 0 0;
+	padding: 16px 0 0 0;
 	margin: 0 !important;
 }
 
-/* @todo: Will need refactoring. */
 .single-post-card__secondary {
-	color: var(--mdc-theme-text-secondary-on-background, rgba(0, 0, 0, .54));
-	padding: 0 1em 8px 1em;
+	padding: 0 16px 8px 16px;
 }
 
 /* @todo: Will need refactoring. */
@@ -41,11 +38,6 @@
 	display: flex;
 	-ms-flex-align: end;
 	align-items: flex-end;
-}
-
-.single-post-card-with-text-over-media .mdc-card__media-content .single-post-card__title,
-.single-post-card-with-text-over-media .mdc-card__media-content .single-post-card__subtitle {
-	color: #fff !important;
 }
 
 .single-post-card__list .single-post-card__primary {

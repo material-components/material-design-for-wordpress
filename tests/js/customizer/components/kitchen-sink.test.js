@@ -20,13 +20,17 @@ const setup = props => {
 };
 
 const baseProps = {
-	primaryColor: '#000',
 	bodyFontFamily: 'Roboto',
 	headFontFamily: 'Roboto',
 	iconCollection: 'two-tone',
+	primaryColor: '#000',
 	secondaryColor: '#000',
 	primaryTextColor: '#000',
 	secondaryTextColor: '#000',
+	surfaceColor: '#fff',
+	surfaceTextColor: '#000',
+	backgroundColor: '#fff',
+	backgroundTextColor: '#000',
 	smallComponentRadius: 10,
 	largeComponentRadius: 5,
 	mediumComponentRadius: 2,

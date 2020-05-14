@@ -252,9 +252,11 @@ class Plugin extends Plugin_Base {
 	 * @action admin_head, 1
 	 */
 	public function frontend_inline_css() {
-		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo '<style id="material-css-variables">' . $this->customizer_controls->get_frontend_css() . '</style>';
-		// phpcs:enable
+		?>
+		<style id="material-css-variables">
+			<?php echo $this->customizer_controls->get_frontend_css(); // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		</style>
+		<?php
 	}
 
 	/**
