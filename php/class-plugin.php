@@ -25,7 +25,7 @@ class Plugin extends Plugin_Base {
 	 *
 	 * @var string
 	 */
-	const THEME_SLUG = 'material-theme';
+	const THEME_SLUG = 'material-theme-wp';
 
 	/**
 	 * Controls class.
@@ -408,22 +408,37 @@ class Plugin extends Plugin_Base {
 		if ( self::THEME_SLUG !== get_template() || ! get_transient( 'mtb-activation-notice' ) ) {
 			return;
 		}
-
+		
 		delete_transient( 'mtb-activation-notice' );
+		?>
 
-		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo $this->material_notice(
-			__( 'See Material Theming in action', 'material-theme-builder' ),
-			sprintf(
-			/* translators: %s: url to the plugin kitchen sink page */
-				__(
-					'Customize and view Material Theming as it gets applied throughout all Material Components. <a href="%s">View all Material Components</a>',
-					'material-theme-builder'
-				),
-				esc_url( admin_url( 'customize.php#material-library' ) )
-			)
-		);
-		// phpcs:enable
+		<div class="notice notice-info is-dismissible material-notice-container">
+			<img
+				src="<?php echo esc_url( $this->asset_url( 'assets/images/plugin-icon.svg' ) ); ?>"
+				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
+			/>
+
+			<div class="material-notice-container__content">
+				<h3 class="material-notice-container__content__title">
+					<?php esc_html_e( 'See Material Theming in action', 'material-theme-builder' ); ?>
+				</h3>
+				<p class="material-notice-container__content__text">
+					<?php esc_html_e( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer", 'material-theme-builder' ); ?>
+				</p>
+
+				<form action="<?php echo esc_url( admin_url( 'options-general.php?page=material_demo' ) ); ?>" method="post">
+					<div class="material-demo__optin">
+						<input type="checkbox" name="mtb-install-demo" id="mtb-install-demo" value="1" />
+						<label for="mtb-install-demo"><?php esc_html_e( 'Create sample pages using Material blocks', 'material-theme-builder' ); ?></label>
+						<?php wp_nonce_field( 'mtb-install-demo' ); ?>
+					</div>
+
+					<button class="material-demo__button"><?php esc_html_e( "Let's go!", 'material-theme-builder' ); ?></button>
+				</form>
+			</div>
+		</div>
+
+		<?php
 	}
 
 	/**
