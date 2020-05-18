@@ -33,9 +33,7 @@ class Importer extends Module_Base {
 	 * @return string Path to demo file
 	 */
 	private function get_import_file() {
-		$location = $this->plugin->locate_plugin();
-
-		return $location['dir_path'] . '/assets/demo-content.xml';
+		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.xml';
 	}
 
 	/**
@@ -54,6 +52,14 @@ class Importer extends Module_Base {
 		?>
 
 		<h2><?php esc_html_e( 'Material Theming Demo', 'material-theme-builder' ); ?></h2>
+
+		<div class="notice notice-warning">
+			<p><?php esc_html_e( 'This action will replace widgets / homepage options, and settings.', 'material-theme-builder' ); ?></p>
+		</div>
+
+		<p>
+			<?php esc_html_e( 'Clicking "Install demo content" will import sample posts, pages, menus, and widgets. This can take about a minute.', 'material-theme-builder' ); ?>
+		</p>
 
 		<form action="<?php echo esc_url( admin_url( 'options-general.php?page=material_demo' ) ); ?>" method="post">
 			<?php wp_nonce_field( 'mtb-install-demo' ); ?>
@@ -86,13 +92,22 @@ class Importer extends Module_Base {
 		
 		$posts = $this->import_posts();
 
+		$this->upload_cover_image();
+
 		$this->update_blog_info();
 
 		$this->add_menu_items();
 
-		$this->setup_widgets();
+		// $this->setup_widgets();
 
-		return '<p>' . esc_html__( 'Success! Your demo site has been setup', 'material-theme-builder' ) . '</p>';
+		ob_start();
+		?>
+
+		<p><?php esc_html_e( 'Success! Your demo site has been setup', 'material-theme-builder' ); ?></p>
+		<p><a href="<?php echo esc_url( admin_url( 'edit.php?post_type=page' ) ); ?>"><?php esc_html_e( 'Take a look!', 'material-theme-builder' ); ?></a></p>
+
+		<?php
+		return ob_get_clean();
 	}
 	
 	/**
@@ -109,12 +124,6 @@ class Importer extends Module_Base {
 				esc_html( $term->children( 'wp', true )->term_taxonomy )
 			);
 		}
-
-		?>
-		<p>
-			<?php esc_html_e( 'Terms successfully imported', 'material-theme-builder' ); ?>
-		</p>
-		<?php
 	}
 	
 	/**
@@ -127,28 +136,28 @@ class Importer extends Module_Base {
 		$menu_items = $this->get_menu_items();
 
 		foreach ( $menu_items as $menu_item ) {
+			$page    = get_page_by_title( $menu_item );
+			$page_id = ! empty( $page ) ? $page->ID : null;
+
 			wp_update_nav_menu_item(
 				$menu->term_id,
 				0,
 				[
-					'menu-item-title'  => $menu_item,
-					'menu-item-status' => 'publish',
-					'menu-item-url'    => '#',
+					'menu-item-title'     => $menu_item,
+					'menu-item-status'    => 'publish',
+					'menu-item-object'    => 'page',
+					'menu-item-object-id' => $page->ID,
+					'menu-item-type'      => 'post_type',
 				]
 			);
 		}
 
-		// Set menu to "tabs" location.
 		$menu_locations = get_theme_mod( 'nav_menu_locations' );
-
+		
+		// Set menu to "tabs" location.
 		$locations['menu-1'] = $menu->term_id;
 
 		set_theme_mod( 'nav_menu_locations', $locations );
-		?>
-		<p>
-			<?php esc_html_e( 'Menu items created succesfully', 'material-theme-builder' ); ?>
-		</p>
-		<?php
 	}
 	
 	/**
@@ -179,12 +188,6 @@ class Importer extends Module_Base {
 
 			$post_id = $this->insert_post( $post_data, $post );
 		}
-
-		?>
-		<p>
-			<?php esc_html_e( 'Posts, comments and pages successfully imported', 'material-theme-builder' ); ?>
-		</p>
-		<?php
 	}
 	
 	/**
@@ -217,6 +220,8 @@ class Importer extends Module_Base {
 			'user_login'   => 'materialdemo',
 			'display_name' => esc_html__( 'Material Demo', 'material-theme-builder' ),
 			'role'         => 'editor',
+			// Random password.
+			'user_pass'    => 'D2qqQT8DX*RZXzr',
 		];
 
 		return wp_insert_user( $user_data );
@@ -274,10 +279,7 @@ class Importer extends Module_Base {
 			// Reset footer widgets.
 			$existing_widgets[ $area ] = [];
 
-			$existing_widgets[ $area ] = array_merge( $existing_widgets[ $area ], $this->build_widget_ids( $widget_list ) );
-
-			// Save widget options in database.
-			update_option( "widget_{$area}", $widget_list );
+			$existing_widgets[ $area ] = $this->build_widget_ids( $widget_list );
 		}
 
 		// Save new widget status.
@@ -294,7 +296,11 @@ class Importer extends Module_Base {
 		$built_widgets = [];
 
 		foreach ( $widgets as $key => $widget ) {
-			$built_widgets[] = $widget['type'] . '-' . $key;
+			$widget_id = $widget['type'] . '-' . $key;
+			// Save widget options in database.
+			unset( $widget['type'] );
+			update_option( "widget_{$widget_id}", $widget );
+			$built_widgets[] = $widget_id;
 		}
 
 		return $built_widgets;
@@ -408,5 +414,21 @@ class Importer extends Module_Base {
 		if ( $blog_page ) {
 			update_option( 'page_for_posts', $blog_page->ID );
 		}
+	}
+	
+	/**
+	 * Uploads our cover image into the gallery and attach it to most recent post
+	 *
+	 * @return void
+	 */
+	public function upload_cover_image() {
+		$location       = $this->plugin->locate_plugin();
+		$image_location = $location['dir_url'] . 'assets/images/featured.png';
+		$post           = wp_get_recent_posts( [ 'numberposts' => 1 ] );
+
+		if ( $post ) {
+			media_sideload_image( $image_location, $post[0]['ID'], esc_html__( 'Featured Image', 'material-theme-builder' ) );
+		}
+
 	}
 }
