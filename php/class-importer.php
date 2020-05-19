@@ -19,13 +19,6 @@ class Importer extends Module_Base {
 	 * @var DOMDocument
 	 */
 	private $xml;
-	
-	/**
-	 * 'wp' namespace URL
-	 *
-	 * @var string
-	 */
-	const XML_NS_URI = 'http://wordpress.org/export/1.2/';
 
 	/**
 	 * Return location of file to import
@@ -98,7 +91,7 @@ class Importer extends Module_Base {
 
 		$this->add_menu_items();
 
-		// $this->setup_widgets();
+		$this->setup_widgets();
 
 		ob_start();
 		?>
@@ -136,7 +129,9 @@ class Importer extends Module_Base {
 		$menu_items = $this->get_menu_items();
 
 		foreach ( $menu_items as $menu_item ) {
-			$page    = get_page_by_title( $menu_item );
+			// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
+			$page = get_page_by_title( $menu_item );
+			// phpcs:enable
 			$page_id = ! empty( $page ) ? $page->ID : null;
 
 			wp_update_nav_menu_item(
@@ -168,11 +163,7 @@ class Importer extends Module_Base {
 	public function import_posts() {
 		$posts = $this->xml->channel->item;
 
-		$author = $this->create_demo_user();
-
-		if ( is_wp_error( $author ) ) {
-			$author = null;
-		}
+		$author = get_current_user_id();
 
 		foreach ( $posts as $post ) {
 			$post_data = [
@@ -208,23 +199,6 @@ class Importer extends Module_Base {
 		$postmeta['_mtb-demo-content'] = 1;
 
 		return $postmeta;
-	}
-	
-	/**
-	 * Create an user to attach posts to
-	 *
-	 * @return int|WP_Error New user's ID, or error on fail
-	 */
-	public function create_demo_user() {
-		$user_data = [
-			'user_login'   => 'materialdemo',
-			'display_name' => esc_html__( 'Material Demo', 'material-theme-builder' ),
-			'role'         => 'editor',
-			// Random password.
-			'user_pass'    => 'D2qqQT8DX*RZXzr',
-		];
-
-		return wp_insert_user( $user_data );
 	}
 	
 	/**
@@ -272,46 +246,52 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function setup_widgets() {
-		$widgets          = $this->get_widgets();
 		$existing_widgets = get_option( 'sidebars_widgets' );
+		
+		$default_widgets = [
+			'footer'       => $this->get_left_widgets(),
+			'footer-right' => $this->get_right_widgets(),
+		];
 
-		foreach ( $widgets as $area => $widget_list ) {
+		foreach ( $default_widgets as $area => $widgets ) {
 			// Reset footer widgets.
 			$existing_widgets[ $area ] = [];
 
-			$existing_widgets[ $area ] = $this->build_widget_ids( $widget_list );
+			foreach ( $widgets as $widget_type => $widget ) {
+				$existing_widgets[ $area ] = array_merge( $existing_widgets[ $area ], $this->build_widget_ids( $widget, $widget_type ) );
+	
+				// Save widget options in database.
+				update_option( "widget_{$widget_type}", $widget );
+			}
 		}
 
 		// Save new widget status.
 		update_option( 'sidebars_widgets', $existing_widgets );
 	}
-	
+
 	/**
 	 * Create widget ids based on their widget type
 	 *
-	 * @param  array $widgets      Widgets to convert.
-	 * @return array               Widgets to register
+	 * @param  array  $widgets      Widgets to convert.
+	 * @param  string $widget_type  Type of widget to create.
+	 * @return array                Widgets to register
 	 */
-	public function build_widget_ids( $widgets ) {
+	public function build_widget_ids( $widgets, $widget_type ) {
 		$built_widgets = [];
 
 		foreach ( $widgets as $key => $widget ) {
-			$widget_id = $widget['type'] . '-' . $key;
-			// Save widget options in database.
-			unset( $widget['type'] );
-			update_option( "widget_{$widget_id}", $widget );
-			$built_widgets[] = $widget_id;
+			$built_widgets[] = $widget_type . '-' . $key;
 		}
 
 		return $built_widgets;
 	}
-	
+
 	/**
 	 * Define default widgets data
 	 *
 	 * @return array Widgets to include
 	 */
-	private function get_widgets() {
+	private function get_left_widgets() {
 		ob_start();
 		?>
 		<img class="size-full wp-image-38 alignleft" src="http://localhost:8088/wp-content/uploads/2020/05/Vector.png" alt="" width="82" height="82" />Suspendisse dui mi, dictum quis porttitor quis, cursus sed sem. Quisque faucibus cursus semper. Aenean tristique eget nisl vitae euismod. Maecenas non consequat erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
@@ -328,9 +308,8 @@ class Importer extends Module_Base {
 		$social_html = ob_get_clean();
 
 		return [
-			'footer'       => [
+			'custom_html' => [
 				[
-					'type'    => 'custom_html',
 					'title'   => esc_html__( 'About Material', 'material-theme-builder' ),
 					'content' => wp_kses(
 						$about_html,
@@ -346,7 +325,6 @@ class Importer extends Module_Base {
 					),
 				],
 				[
-					'type'    => 'custom_html',
 					'title'   => '',
 					'content' => wp_kses(
 						$social_html,
@@ -356,24 +334,33 @@ class Importer extends Module_Base {
 						]
 					),
 				],
-				[
-					'type'   => 'text',
-					'title'  => '',
-					'text'   => esc_html__( 'Copyright © Material. All rights reserved. Maximus nec sagittis congue, pretium vitae sem.', 'material-theme-builder' ),
-					'filter' => true,
-					'visual' => true,
-				],
 			],
-			'footer-right' => [
+		];
+	}
+
+	/**
+	 * Define default widgets data
+	 *
+	 * @return array Widgets to include
+	 */
+	private function get_right_widgets() {
+		return [
+			'text'   => [
 				[
-					'type'   => 'text',
 					'title'  => esc_html__( 'Explore', 'material-theme-builder' ),
 					'text'   => esc_html__( 'Pellentesque habitant morbi tristique senectus et netus', 'material-theme-builder' ),
 					'filter' => true,
 					'visual' => true,
 				],
 				[
-					'type'  => 'search',
+					'title'  => '',
+					'text'   => esc_html__( 'Copyright © Material. All rights reserved. Maximus nec sagittis congue, pretium vitae sem.', 'material-theme-builder' ),
+					'filter' => true,
+					'visual' => true,
+				],
+			],
+			'search' => [
+				[
 					'title' => '',
 				],
 			],
@@ -401,10 +388,10 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function update_blog_info() {
-		update_option( 'blogname', 'Material Theming' );
-
-		$home_page = get_page_by_title( 'Home' );
-		$blog_page = get_page_by_title( 'Blog' );
+		// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
+		$home_page = get_page_by_title( __( 'Home', 'material-theme-builder' ) );
+		$blog_page = get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
+		// phpcs:enable
 
 		if ( $home_page ) {
 			update_option( 'page_on_front', $home_page->ID );
