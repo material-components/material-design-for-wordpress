@@ -327,7 +327,7 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Prepares an admin notice.
+	 * Prints an admin notice.
 	 *
 	 * @param string $title   The title to be showed in the notice.
 	 * @param string $message The message of the notice.
@@ -348,7 +348,7 @@ class Plugin extends Plugin_Base {
 					<?php echo esc_html( $title ); ?>
 				</h3>
 				<p class="material-notice-container__content__text">
-					<?php 
+					<?php
 					echo wp_kses(
 						$message,
 						[
@@ -356,8 +356,8 @@ class Plugin extends Plugin_Base {
 								'href'  => [],
 								'class' => [],
 							],
-						] 
-					); 
+						]
+					);
 					?>
 				</p>
 			</div>
@@ -468,7 +468,7 @@ class Plugin extends Plugin_Base {
 		);
 
 		$this->material_notice(
-			__( 'See Material Theming in action', 'material-theme-builder' ),
+			esc_html__( 'See Material Theming in action', 'material-theme-builder' ),
 			sprintf(
 				'%s %s',
 				esc_html__(
