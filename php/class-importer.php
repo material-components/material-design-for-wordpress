@@ -28,6 +28,15 @@ class Importer extends Module_Base {
 	private function get_import_file() {
 		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.xml';
 	}
+	
+	/**
+	 * Return location of image to import
+	 *
+	 * @return string path to image
+	 */
+	private function get_image_file() {
+		return trailingslashit( $this->plugin->dir_url ) . 'assets/images/featured.png';
+	}
 
 	/**
 	 * Render form UI
@@ -85,7 +94,7 @@ class Importer extends Module_Base {
 		
 		$posts = $this->import_posts();
 
-		$this->upload_cover_image();
+		$image = $this->upload_cover_image();
 
 		$this->update_blog_info();
 
@@ -406,16 +415,22 @@ class Importer extends Module_Base {
 	/**
 	 * Uploads our cover image into the gallery and attach it to most recent post
 	 *
-	 * @return void
+	 * @return int|WP_Error Uploaded image ID, error on fail
 	 */
 	public function upload_cover_image() {
-		$location       = $this->plugin->locate_plugin();
-		$image_location = $location['dir_url'] . 'assets/images/featured.png';
+		$image_location = $this->get_image_file();
 		$post           = wp_get_recent_posts( [ 'numberposts' => 1 ] );
 
 		if ( $post ) {
-			media_sideload_image( $image_location, $post[0]['ID'], esc_html__( 'Featured Image', 'material-theme-builder' ) );
+			$image = media_sideload_image(
+				$image_location,
+				$post[0]['ID'],
+				esc_html__( 'Featured Image', 'material-theme-builder' ),
+				esc_html__( 'Sample image', 'material-theme-builder' ),
+				'id'
+			);
 		}
 
+		return $image;
 	}
 }
