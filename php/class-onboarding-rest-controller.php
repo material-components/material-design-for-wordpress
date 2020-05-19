@@ -138,8 +138,9 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 
 		if ( is_wp_error( $api ) ) {
 			return new \WP_Error(
-				'theme_install',
-				__( 'Material theme could not be installed. Theme API call failed.', 'material-theme-builder' )
+				'material_theme_install',
+				__( 'Material theme could not be installed. Theme API call failed.', 'material-theme-builder' ),
+				[ 'status' => 500 ]
 			);
 		}
 
@@ -148,8 +149,9 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 
 		if ( is_wp_error( $result ) || is_null( $result ) ) {
 			return new \WP_Error(
-				'theme_install',
-				__( 'Material theme could not be installed.', 'material-theme-builder' )
+				'material_theme_install',
+				__( 'Material theme could not be installed.', 'material-theme-builder' ),
+				[ 'status' => 500 ]
 			);
 		}
 
@@ -172,12 +174,13 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 		$installed_themes = wp_get_themes();
 
 		if ( ! in_array( Plugin::THEME_SLUG, array_keys( $installed_themes ), true ) ) {
-			return new \WP_Error( 'invalid_theme', __( 'Material theme is not installed.', 'material-theme-builder' ) );
+			return new \WP_Error( 'material_invalid_theme', __( 'Material theme is not installed.', 'material-theme-builder' ), [ 'status' => 500 ] );
 		}
 
 		$result = switch_theme( Plugin::THEME_SLUG );
+
 		if ( ! is_null( $result ) ) {
-			return new \WP_Error( 'invalid_theme', __( 'Material theme cannot be activated.', 'material-theme-builder' ) );
+			return new \WP_Error( 'material_invalid_theme', __( 'Material theme cannot be activated.', 'material-theme-builder' ), [ 'status' => 500 ] );
 		}
 
 		return( [
