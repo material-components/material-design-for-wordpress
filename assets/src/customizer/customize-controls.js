@@ -133,15 +133,20 @@ import ThemePrompt from './components/theme-prompt';
 			return controlProps;
 		}
 
-		mtb.controls.forEach( name => {
-			const control = api.control( name );
-			const prop = camelCase( name.replace( `${ mtb.slug }_`, '' ) );
+		mtb.controls
+			.concat( [
+				'material_background_color',
+				'material_background_text_color',
+			] )
+			.forEach( name => {
+				const control = api.control( name );
+				const prop = camelCase( name.replace( `${ getSlug( name ) }_`, '' ) );
 
-			if ( control?.setting ) {
-				controlProps[ prop ] = control.setting.get();
-			}
-		} );
-
+				if ( control?.setting ) {
+					controlProps[ prop ] = control.setting.get();
+				}
+			} );
+		console.log( controlProps );
 		return controlProps;
 	};
 
@@ -265,8 +270,8 @@ import ThemePrompt from './components/theme-prompt';
 	const loadKitchenSink = () => {
 		// Load MDC assets
 		if ( ! mdcLoaded ) {
-			$( 'head' ).append( `
-				<link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+			$( 'head' ).prepend( `
+				<link href="https://unpkg.com/material-components-web@v5.1.0/dist/material-components-web.min.css" rel="stylesheet">
 				<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 			` );
 
@@ -592,7 +597,7 @@ import ThemePrompt from './components/theme-prompt';
 						// Set the value from style defaults.
 						colorControl.setting.set(
 							mtb.designStyles[ style ][
-								controlName.replace( `${ mtb.slug }_`, '' )
+								controlName.replace( `${ getSlug( controlName ) }_`, '' )
 							]
 						);
 
@@ -637,10 +642,7 @@ import ThemePrompt from './components/theme-prompt';
 				textColor,
 				colorRange,
 				isText = true;
-			const textColorLabel =
-				-1 !== control.id.indexOf( 'primary' )
-					? __( 'On Primary', 'material-theme-builder' )
-					: __( 'On Secondary', 'material-theme-builder' );
+			const textColorLabel = control.params.a11yLabel || '';
 
 			if ( control.params.relatedTextSetting ) {
 				color = selectedColor;
@@ -651,6 +653,10 @@ import ThemePrompt from './components/theme-prompt';
 				textColor = selectedColor;
 				color = api( control.params.relatedSetting ).get();
 				colorRange = colorUtils.generateColorFromHex( color );
+			}
+
+			if ( ! color || ! colorRange.range ) {
+				return;
 			}
 
 			const colorRanges = [
@@ -738,6 +744,14 @@ import ThemePrompt from './components/theme-prompt';
 	};
 
 	/**
+	 * Get the slug for a control.
+	 *
+	 * @param {string} name name of the control
+	 */
+	const getSlug = name =>
+		-1 !== name.indexOf( 'background_' ) ? 'material' : mtb.slug;
+
+	/**
 	 * Callback when a "Design Style" is changed.
 	 *
 	 * @param {string} newValue Updated value.
@@ -769,7 +783,7 @@ import ThemePrompt from './components/theme-prompt';
 		// and update the corresponding control value.
 		Object.keys( defaults ).forEach( name => {
 			const value = defaults[ name ];
-			const control = api.control( `${ mtb.slug }_${ name }` );
+			const control = api.control( `${ getSlug( name ) }_${ name }` );
 
 			if ( value && control ) {
 				// Unbind the custom value change event.

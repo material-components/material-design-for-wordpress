@@ -1,11 +1,12 @@
 /* global mtb */
 
 import { __ } from '@wordpress/i18n';
-import { H3 } from '../styles';
 
 const Cards = ( { radius, smallRadius } ) => (
 	<div>
-		<H3>{ __( 'Card', 'material-theme-builder' ) }</H3>
+		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+			{ __( 'Card', 'material-theme-builder' ) }
+		</h4>
 		<p>
 			{ __(
 				'This component can be created as a block in WordPress. Try it out now.',
@@ -33,13 +34,13 @@ const Cards = ( { radius, smallRadius } ) => (
 					></div>
 					<div style={ { padding: '16px' } }>
 						<h2
-							className="mdc-typography"
+							className="mdc-typography mdc-typography--headline6 mtb-card__title"
 							style={ { margin: 0, marginBottom: '5px' } }
 						>
 							{ __( 'Our Changing Planet', 'material-theme-builder' ) }
 						</h2>
 						<h3
-							className="mdc-typography"
+							className="mdc-typography mtb-card__secondary-text"
 							style={ {
 								fontSize: '0.875rem',
 								fontWeight: 500,
@@ -50,7 +51,10 @@ const Cards = ( { radius, smallRadius } ) => (
 							{ __( 'by John Smith', 'material-theme-builder' ) }
 						</h3>
 					</div>
-					<div className="mdc-typography" style={ { padding: '16px' } }>
+					<div
+						className="mdc-typography mdc-typography--body2"
+						style={ { padding: '16px' } }
+					>
 						{ __(
 							'Visit ten places on our planet that are undergoing the biggest changes today.',
 							'material-theme-builder'

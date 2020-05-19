@@ -1,10 +1,11 @@
 import classNames from 'classnames';
 import { __ } from '@wordpress/i18n';
-import { H3 } from '../styles';
 
 const TabBar = ( { iconStyle } ) => (
 	<div>
-		<H3>{ __( 'Tab Bar', 'material-theme-builder' ) }</H3>
+		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+			{ __( 'Tab Bar', 'material-theme-builder' ) }
+		</h4>
 		<p>
 			{ __(
 				'This component can be created as a block in WordPress. Try it out now.',
