@@ -19,6 +19,13 @@ class Importer extends Module_Base {
 	 * @var DOMDocument
 	 */
 	private $xml;
+	
+	/**
+	 * Featured image ID to attach
+	 *
+	 * @var int
+	 */
+	private $featured_image;
 
 	/**
 	 * Return location of file to import
@@ -93,8 +100,6 @@ class Importer extends Module_Base {
 		$taxonomies = $this->import_terms();
 		
 		$posts = $this->import_posts();
-
-		$image = $this->upload_cover_image();
 
 		$this->update_blog_info();
 
@@ -174,6 +179,8 @@ class Importer extends Module_Base {
 
 		$author = get_current_user_id();
 
+		$this->featured_image = $this->upload_cover_image();
+
 		foreach ( $posts as $post ) {
 			$post_data = [
 				'post_title'   => esc_html( $post->title ),
@@ -221,6 +228,11 @@ class Importer extends Module_Base {
 		$post_id = wp_insert_post( $post_data, true );
 
 		$comments = $this->insert_comments( $post, $post_id );
+		
+		// Set featured image if upload was succesful.
+		if ( ! is_wp_error( $this->featured_image ) ) {
+			$thumbnail = set_post_thumbnail( $post_id, $this->featured_image );
+		}
 
 		return $post_id;
 	}
@@ -419,17 +431,13 @@ class Importer extends Module_Base {
 	 */
 	public function upload_cover_image() {
 		$image_location = $this->get_image_file();
-		$post           = wp_get_recent_posts( [ 'numberposts' => 1 ] );
 
-		if ( $post ) {
-			$image = media_sideload_image(
-				$image_location,
-				$post[0]['ID'],
-				esc_html__( 'Featured Image', 'material-theme-builder' ),
-				esc_html__( 'Sample image', 'material-theme-builder' ),
-				'id'
-			);
-		}
+		$image = media_sideload_image(
+			$image_location,
+			null,
+			esc_html__( 'Material Featured Image', 'material-theme-builder' ),
+			'id'
+		);
 
 		return $image;
 	}
