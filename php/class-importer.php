@@ -25,7 +25,7 @@ class Importer extends Module_Base {
 	 *
 	 * @return string Path to demo file
 	 */
-	private function get_import_file() {
+	public function get_import_file() {
 		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.xml';
 	}
 	
