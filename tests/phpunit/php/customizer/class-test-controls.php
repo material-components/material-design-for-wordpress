@@ -514,9 +514,34 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		// Assert we get the default values as CSS vars.
 		$this->assertContains( ':root {', $css );
 		$this->assertContains( '--mdc-theme-primary: #6200ee;', $css );
+		$this->assertContains( '--mdc-theme-primary-rgb: 98,0,238;', $css );
 		$this->assertContains( '--mdc-theme-secondary: #03dac6;', $css );
+		$this->assertContains( '--mdc-theme-secondary-rgb: 3,218,198;', $css );
 		$this->assertContains( '--mdc-theme-on-primary: #ffffff;', $css );
+		$this->assertContains( '--mdc-theme-on-primary-rgb: 255,255,255;', $css );
 		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
+		$this->assertContains( '--mdc-theme-on-secondary-rgb: 0,0,0;', $css );
+		$this->assertContains( '--mdc-theme-surface: #ffffff;', $css );
+		$this->assertContains( '--mdc-theme-surface-rgb: 255,255,255;', $css );
+		$this->assertContains( '--mdc-theme-on-surface: #000000;', $css );
+		$this->assertContains( '--mdc-theme-on-surface-rgb: 0,0,0;', $css );
+		$this->assertContains( '--mdc-theme-surface-mix-4: #f5f5f5;', $css );
+		$this->assertContains( '--mdc-theme-surface-mix-12: #e0e0e0;', $css );
+
+		$this->assertContains( '--mdc-typography-headline1-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-headline2-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-headline3-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-headline4-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-headline5-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-headline6-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-subtitle1-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-subtitle2-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-body1-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-body2-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-caption-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-button-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--mdc-typography-overline-font-family: "Roboto", sans-serif;', $css );
+
 		$this->assertContains( '--mdc-small-component-radius-button: 4px;', $css );
 		$this->assertContains( '--mdc-medium-component-radius-card: 4px;', $css );
 		$this->assertContains( '--mdc-large-component-radius: 0px;', $css );

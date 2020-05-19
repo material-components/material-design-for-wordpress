@@ -10,6 +10,7 @@ namespace MaterialThemeBuilder\Customizer;
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Google_Fonts;
 use MaterialThemeBuilder\Blocks\Blocks_Frontend;
+use MaterialThemeBuilder\Helpers;
 
 /**
  * Class Controls.
@@ -241,6 +242,7 @@ class Controls extends Module_Base {
 					'related_text_setting' => ! empty( $control['related_text_setting'] ) ? $control['related_text_setting'] : false,
 					'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] : false,
 					'css_var'              => $control['css_var'],
+					'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
 				]
 			);
 		}
@@ -452,7 +454,7 @@ class Controls extends Module_Base {
 		wp_enqueue_script(
 			'material-theme-builder-customizer-js',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
-			[ 'customize-controls', 'jquery', 'wp-element', 'wp-components' ],
+			[ 'jquery', 'wp-color-picker', 'customize-controls', 'wp-element', 'wp-components', 'wp-i18n' ],
 			$this->plugin->asset_version(),
 			false
 		);
@@ -526,7 +528,7 @@ class Controls extends Module_Base {
 		$icons_style = $icons_style && 'filled' !== $icons_style
 			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
 
-		return "\t--mdc-icons-font-family: \"Material Icons{$icons_style}\";";
+		return sprintf( '--mdc-icons-font-family: "Material Icons%s";', esc_html( $icons_style ) );
 	}
 
 	/**
@@ -557,15 +559,32 @@ class Controls extends Module_Base {
 	 * Get custom frontend CSS based on the customizer theme settings.
 	 */
 	public function get_frontend_css() {
-		$color_vars         = '';
-		$corner_styles_vars = '';
-		$font_vars          = '';
+		$color_vars         = [];
+		$corner_styles_vars = [];
+		$font_vars          = [];
 		$google_fonts       = Google_Fonts::get_fonts();
 
 		foreach ( $this->get_color_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
+			$rgb   = Helpers::hex_to_rgb( $value );
+			if ( ! empty( $rgb ) ) {
+				$rgb = implode( ',', $rgb );
+			}
 
-			$color_vars .= esc_html( "\t{$control['css_var']}: $value;\n" );
+			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
+			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
+		}
+
+		// Generate additional surface variant vars required by some components.
+		$surface    = $this->get_theme_mod( 'surface_color' );
+		$on_surface = $this->get_theme_mod( 'surface_text_color' );
+
+		if ( ! empty( $surface ) && ! empty( $on_surface ) ) {
+			$mix_4        = Helpers::mix_colors( $on_surface, $surface, 0.04 );
+			$color_vars[] = esc_html( "--mdc-theme-surface-mix-4: $mix_4;" );
+
+			$mix_12       = Helpers::mix_colors( $on_surface, $surface, 0.12 );
+			$color_vars[] = esc_html( "--mdc-theme-surface-mix-12: $mix_12;" );
 		}
 
 		foreach ( $this->get_typography_controls() as $control ) {
@@ -574,7 +593,12 @@ class Controls extends Module_Base {
 
 			if ( ! empty( $control['css_vars']['family'] ) ) {
 				foreach ( $control['css_vars']['family'] as $var ) {
-					$font_vars .= esc_html( "\t{$var}: {$value}, {$fallback};\n" );
+					$font_vars[] = sprintf(
+						'%s: "%s", %s;',
+						esc_html( $var ),
+						esc_html( $value ),
+						esc_html( $fallback )
+					);
 				}
 			}
 		}
@@ -588,19 +612,48 @@ class Controls extends Module_Base {
 					if ( isset( $limit['min'] ) && $value < $limit['min'] ) {
 						$value = $limit['min'];
 					}
+
 					if ( isset( $limit['max'] ) && $value > $limit['max'] ) {
 						$value = $limit['max'];
 					}
-					$corner_styles_vars .= esc_html( "\t{$control['css_var']}-{$element}: ${value}px;\n" );
+
+					$corner_styles_vars[] = sprintf(
+						'%s-%s: %spx;',
+						esc_html( $control['css_var'] ),
+						esc_html( $element ),
+						esc_html( $value )
+					);
 				}
 			} else {
-				$corner_styles_vars .= esc_html( "\t{$control['css_var']}: ${value}px;\n" );
+				$corner_styles_vars[] = sprintf(
+					'%s: %spx;',
+					esc_html( $control['css_var'] ),
+					esc_html( $value )
+				);
 			}
 		}
 
-		$icon_collection = $this->get_icon_collection_css();
+		$glue               = "\n\t\t\t\t";
+		$icon_collection    = $this->get_icon_collection_css();
+		$color_vars         = implode( $glue, $color_vars );
+		$corner_styles_vars = implode( $glue, $corner_styles_vars );
+		$font_vars          = implode( $glue, $font_vars );
 
-		return ":root {\n{$color_vars}{$icon_collection}\n}\nhtml {\n{$font_vars}\n{$corner_styles_vars}}";
+		return "
+			:root {
+				/* Theme color vars */
+				{$color_vars}
+
+				/* Icon collection type var */
+				{$icon_collection}
+
+				/* Typography vars */
+				{$font_vars}
+
+				/* Corner Styles vars */
+				{$corner_styles_vars}
+			}
+		";
 	}
 
 	/**
@@ -630,6 +683,10 @@ class Controls extends Module_Base {
 				'secondary_color'         => '#03dac6',
 				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#000000',
+				'surface_color'           => '#ffffff',
+				'surface_text_color'      => '#000000',
+				'background_color'        => '#ffffff',
+				'background_text_color'   => '#000000',
 				'head_font_family'        => 'Roboto',
 				'body_font_family'        => 'Roboto',
 				'small_component_radius'  => '4',
@@ -642,6 +699,10 @@ class Controls extends Module_Base {
 				'secondary_color'         => '#e30425',
 				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#ffffff',
+				'surface_color'           => '#ffffff',
+				'surface_text_color'      => '#000000',
+				'background_color'        => '#ffffff',
+				'background_text_color'   => '#000000',
 				'head_font_family'        => 'Raleway',
 				'body_font_family'        => 'Raleway',
 				'small_component_radius'  => '0',
@@ -654,6 +715,10 @@ class Controls extends Module_Base {
 				'secondary_color'         => '#6b38fb',
 				'primary_text_color'      => '#ffffff',
 				'secondary_text_color'    => '#ffffff',
+				'surface_color'           => '#ffffff',
+				'surface_text_color'      => '#000000',
+				'background_color'        => '#ffffff',
+				'background_text_color'   => '#000000',
 				'head_font_family'        => 'Merriweather',
 				'body_font_family'        => 'Merriweather',
 				'small_component_radius'  => '0',
@@ -666,6 +731,10 @@ class Controls extends Module_Base {
 				'secondary_color'         => '#feeae6',
 				'primary_text_color'      => '#000000',
 				'secondary_text_color'    => '#000000',
+				'surface_color'           => '#ffffff',
+				'surface_text_color'      => '#000000',
+				'background_color'        => '#ffffff',
+				'background_text_color'   => '#000000',
 				'head_font_family'        => 'Rubik',
 				'body_font_family'        => 'Rubik',
 				'small_component_radius'  => '0',
@@ -684,26 +753,44 @@ class Controls extends Module_Base {
 			[
 				'id'                   => 'primary_color',
 				'label'                => __( 'Primary Color', 'material-theme-builder' ),
+				'a11y_label'           => __( 'On Primary', 'material-theme-builder' ),
 				'related_text_setting' => $this->prepend_slug( 'primary_text_color' ),
 				'css_var'              => '--mdc-theme-primary',
 			],
 			[
 				'id'                   => 'secondary_color',
 				'label'                => __( 'Secondary Color', 'material-theme-builder' ),
+				'a11y_label'           => __( 'On Secondary', 'material-theme-builder' ),
 				'related_text_setting' => $this->prepend_slug( 'secondary_text_color' ),
 				'css_var'              => '--mdc-theme-secondary',
 			],
 			[
 				'id'              => 'primary_text_color',
 				'label'           => __( 'On Primary Color (text and icons)', 'material-theme-builder' ),
+				'a11y_label'      => __( 'On Primary', 'material-theme-builder' ),
 				'related_setting' => $this->prepend_slug( 'primary_color' ),
 				'css_var'         => '--mdc-theme-on-primary',
 			],
 			[
 				'id'              => 'secondary_text_color',
 				'label'           => __( 'On Secondary Color (text and icons)', 'material-theme-builder' ),
+				'a11y_label'      => __( 'On Secondary', 'material-theme-builder' ),
 				'related_setting' => $this->prepend_slug( 'secondary_color' ),
 				'css_var'         => '--mdc-theme-on-secondary',
+			],
+			[
+				'id'                   => 'surface_color',
+				'label'                => __( 'Surface Color', 'material-theme-builder' ),
+				'a11y_label'           => __( 'On Surface', 'material-theme-builder' ),
+				'related_text_setting' => $this->prepend_slug( 'surface_text_color' ),
+				'css_var'              => '--mdc-theme-surface',
+			],
+			[
+				'id'              => 'surface_text_color',
+				'label'           => __( 'On Surface Color (text and icons)', 'material-theme-builder' ),
+				'a11y_label'      => __( 'On Surface', 'material-theme-builder' ),
+				'related_setting' => $this->prepend_slug( 'surface_color' ),
+				'css_var'         => '--mdc-theme-on-surface',
 			],
 		];
 	}
@@ -927,5 +1014,32 @@ class Controls extends Module_Base {
 				'count' => $count,
 			]
 		);
+	}
+
+	/**
+	 * Move background color contorls to Material "Color Palettes" section.
+	 *
+	 * @action material_customizer_control_args, 10, 2
+	 *
+	 * @param array|WP_Customize_Control $control Control arguments.
+	 * @param string                     $id     Control ID.
+	 *
+	 * @return array
+	 */
+	public function background_color_controls( $control, $id ) {
+		if ( in_array( $id, [ 'material_background_color', 'material_background_text_color' ], true ) ) {
+			$label = 'material_background_text_color' === $id ? esc_html__( 'On Background Color (text and icons)', 'material-theme-builder' ) : false;
+			if ( is_array( $control ) ) {
+				$control['section']  = $this->prepend_slug( 'colors' );
+				$control['priority'] = 20;
+				$control['label']    = $label ? $label : $control['label'];
+			} elseif ( $control instanceof \WP_Customize_Control ) {
+				$control->section  = $this->prepend_slug( 'colors' );
+				$control->priority = 20;
+				$control->label    = $label ? $label : $control->label;
+			}
+		}
+
+		return $control;
 	}
 }

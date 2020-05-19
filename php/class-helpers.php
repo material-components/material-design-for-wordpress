@@ -82,4 +82,75 @@ class Helpers {
 			|| current_user_can( 'administrator' )
 		);
 	}
+
+	/**
+	 * Convert color hex code to rgb
+	 *
+	 * @param  string|array $hex Hex/RGB of the color.
+	 * @return mixed
+	 */
+	public static function hex_to_rgb( $hex ) {
+		if ( is_array( $hex ) && ! empty( $hex ) ) {
+			return $hex;
+		}
+
+		$hex = strtolower( ltrim( $hex, '#' ) );
+		if ( 3 !== strlen( $hex ) && 6 !== strlen( $hex ) ) {
+			return false;
+		}
+
+		$values = str_split( $hex, ( 3 === strlen( $hex ) ) ? 1 : 2 );
+
+		return array_map( 'self::hexdec', $values );
+	}
+
+	/**
+	 * Mix 2 colors with a weight.
+	 *
+	 * @see https://sass-lang.com/documentation/modules/color#mix
+	 *
+	 * @param mixed $color1 Color hex/RGB array.
+	 * @param mixed $color2 Color hex/RGB array.
+	 * @param float $weight Weight to use for mixing.
+	 * @return string
+	 */
+	public static function mix_colors( $color1, $color2, $weight = 0.5 ) {
+		$weight = min( $weight, 1 );
+		$weight = $weight * 2 - 1;
+		$alpha  = 0;
+
+		$w1 = ( ( $weight * -1 === $alpha ? $weight : ( $weight + $alpha ) / ( 1 + $weight * $alpha ) ) + 1 ) / 2.0;
+		$w2 = 1.0 - $w1;
+
+		$color1 = self::hex_to_rgb( $color1 );
+		$color2 = self::hex_to_rgb( $color2 );
+
+		$mixed = [
+			round( $w1 * $color1[0] + $w2 * $color2[0] ),
+			round( $w1 * $color1[1] + $w2 * $color2[1] ),
+			round( $w1 * $color1[2] + $w2 * $color2[2] ),
+		];
+
+		return '#' . implode( '', array_map( 'self::dechex', $mixed ) );
+	}
+
+	/**
+	 * Convert color hex to dec.
+	 *
+	 * @param  string $hex_code Color hex code.
+	 * @return int
+	 */
+	public static function hexdec( $hex_code ) {
+		return hexdec( str_pad( $hex_code, 2, $hex_code ) );
+	}
+
+	/**
+	 * Convert color dec to hex.
+	 *
+	 * @param  int $decimal Number.
+	 * @return string
+	 */
+	public static function dechex( $decimal ) {
+		return str_pad( dechex( $decimal ), 2, '0', STR_PAD_LEFT );
+	}
 }
