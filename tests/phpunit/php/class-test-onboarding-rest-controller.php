@@ -13,7 +13,7 @@ use WP_Test_REST_Controller_Testcase;
 use WP_Theme;
 
 /**
- * Stub to return specific values for `wp_get_themes`
+ * Stub to return specific values for `wp_get_themes`.
  *
  * @return array
  */
