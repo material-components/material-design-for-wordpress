@@ -133,16 +133,16 @@ const frontEnd = {
 	],
 };
 
-const backend = {
+const admin = {
 	...defaultConfig,
 	...sharedConfig,
 	entry: {
-		backend: [ './assets/css/src/backend.css' ],
+		admin: [ './assets/src/admin/index.js', './assets/css/src/admin.css' ],
 	},
 	plugins: [
 		...sharedConfig.plugins,
 		new WebpackBar( {
-			name: 'Backend',
+			name: 'admin',
 			color: '#36f271',
 		} ),
 	],
@@ -169,6 +169,6 @@ module.exports = [
 	blockEditor,
 	customizer,
 	frontEnd,
-	backend,
+	admin,
 	overrides,
 ];

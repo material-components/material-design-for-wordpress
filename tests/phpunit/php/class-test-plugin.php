@@ -11,20 +11,10 @@ use MaterialThemeBuilder\Plugin;
 use MaterialThemeBuilder\Customizer\Controls;
 
 /**
- * Stub get_template().
- *
- * @return string
- */
-function get_template() {
-	return Plugin::THEME_SLUG;
-}
-
-/**
  * Stub get_transient().
- * ss
  *
  * @param string $key Some key.
- * 
+ *
  * @return bool
  */
 function get_transient( $key ) {
@@ -201,7 +191,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 	public function test_enqueue_front_end_assets() {
 		global $post;
 
-		add_filter( 'stylesheet', [ $this, 'stylesheet' ] );
+		add_filter( 'template', [ $this, 'template' ] );
 
 		$post = get_post( self::$post_id );
 		update_option( 'mtb_recaptcha_site_key', 'test-key' );
@@ -224,7 +214,8 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertRegexp( '/ajax_url/', $inline_js );
 		$this->assertRegexp( '/recaptcha_site_key/', $inline_js );
 
-		remove_filter( 'stylesheet', [ $this, 'stylesheet' ] );
+		remove_filter( 'template', [ $this, 'template' ] );
+
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_style_is( 'material-overrides-css', 'enqueued' ) );
 
@@ -315,9 +306,10 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 */
 	public function test_material_notice() {
 		$plugin = get_plugin_instance();
+		ob_start();
 		$notice = $plugin->material_notice( 'Foo', 'Bar <p>Paragraph</p> <a href="#">Link</a>' );
 
-		$this->assertContains( 'Bar Paragraph <a href="#">Link</a>', $notice );
+		$this->assertContains( 'Bar Paragraph <a href="#">Link</a>', ob_get_clean() );
 	}
 
 	/**
@@ -326,6 +318,8 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 * @see Plugin::material_theme_status()
 	 */
 	public function test_material_theme_status() {
+		add_filter( 'template', [ $this, 'template' ] );
+
 		$plugin_mock = $this->getMockBuilder( Plugin::class )
 			->setMethods(
 				[
@@ -341,6 +335,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 
 		$this->assertEquals( 'install', $plugin_mock->material_theme_status() );
 		$this->assertEquals( 'ok', $plugin_mock->material_theme_status() );
+		remove_filter( 'template', [ $this, 'template' ] );
 	}
 
 	/**
@@ -349,6 +344,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 * @see Plugin::theme_not_installed_notice()
 	 */
 	public function test_theme_not_installed_notice() {
+		add_filter( 'template', [ $this, 'template' ] );
 		$plugin_mock = $this->getMockBuilder( Plugin::class )
 			->setMethods(
 				[
@@ -374,6 +370,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 
 		$this->assertEmpty( $output );
 		$this->assertEquals( 10, has_action( 'admin_notices', [ get_plugin_instance(), 'theme_not_installed_notice' ] ) );
+		remove_filter( 'template', [ $this, 'template' ] );
 	}
 
 	/**
@@ -382,6 +379,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 * @see Plugin::plugin_activated_notice()
 	 */
 	public function test_plugin_activated_notice() {
+		add_filter( 'template', [ $this, 'template' ] );
 		$plugin = get_plugin_instance();
 
 		ob_start();
@@ -390,6 +388,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 
 		$this->assertContains( '<div class="notice notice-info is-dismissible material-notice-container">', $output );
 		$this->assertEquals( 9, has_action( 'admin_notices', [ $plugin, 'plugin_activated_notice' ] ) );
+		remove_filter( 'template', [ $this, 'template' ] );
 	}
 
 	/**
@@ -408,11 +407,11 @@ class Test_Plugin extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Return the material theme stylesheet.
+	 * Return the material theme template.
 	 *
 	 * @return string
 	 */
-	public function stylesheet() {
+	public function template() {
 		return 'material-theme';
 	}
 }
