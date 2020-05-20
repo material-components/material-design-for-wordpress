@@ -62,7 +62,7 @@ class Importer extends Module_Base {
 
 		<h2><?php esc_html_e( 'Material Theming Demo', 'material-theme-builder' ); ?></h2>
 
-		<div class="notice notice-warning">
+		<div class="notice notice-warning material-notice-container">
 			<p><?php esc_html_e( 'This action will replace widgets / homepage options, and settings.', 'material-theme-builder' ); ?></p>
 		</div>
 
@@ -312,7 +312,7 @@ class Importer extends Module_Base {
 	 *
 	 * @return array Widgets to include
 	 */
-	private function get_left_widgets() {
+	public function get_left_widgets() {
 		ob_start();
 		?>
 		<img class="size-full wp-image-38 alignleft" src="http://localhost:8088/wp-content/uploads/2020/05/Vector.png" alt="" width="82" height="82" />Suspendisse dui mi, dictum quis porttitor quis, cursus sed sem. Quisque faucibus cursus semper. Aenean tristique eget nisl vitae euismod. Maecenas non consequat erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
@@ -364,7 +364,7 @@ class Importer extends Module_Base {
 	 *
 	 * @return array Widgets to include
 	 */
-	private function get_right_widgets() {
+	public function get_right_widgets() {
 		return [
 			'text'   => [
 				[
