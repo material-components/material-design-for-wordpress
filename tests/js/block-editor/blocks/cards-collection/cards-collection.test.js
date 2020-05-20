@@ -5,7 +5,6 @@ import {
 	name,
 	settings,
 } from '../../../../../assets/src/block-editor/blocks/cards-collection';
-import BlockIcon from '../../../../../assets/src/block-editor/blocks/cards-collection/components/block-icon';
 import Edit from '../../../../../assets/src/block-editor/blocks/cards-collection/edit';
 import Save from '../../../../../assets/src/block-editor/blocks/cards-collection/save';
 
@@ -45,8 +44,8 @@ describe( 'blocks: material/cards-collection', () => {
 	} );
 
 	describe( 'title settings', () => {
-		it( 'should equal `Cards Collection`', () => {
-			expect( settings.title ).toStrictEqual( 'Cards Collection' );
+		it( 'should equal `Custom Cards Collection`', () => {
+			expect( settings.title ).toStrictEqual( 'Custom Cards Collection' );
 		} );
 	} );
 
@@ -69,12 +68,6 @@ describe( 'blocks: material/cards-collection', () => {
 			expect( settings.supports ).toStrictEqual( {
 				align: [ 'wide', 'full' ],
 			} );
-		} );
-	} );
-
-	describe( 'icon settings', () => {
-		it( 'should be equal to the BlockIcon component', () => {
-			expect( settings.icon ).toStrictEqual( BlockIcon );
 		} );
 	} );
 

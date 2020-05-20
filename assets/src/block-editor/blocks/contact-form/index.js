@@ -7,7 +7,6 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import edit from './edit';
-import BlockIcon from './components/block-icon';
 import save from './save';
 
 export const name = 'material/contact-form';
@@ -19,7 +18,8 @@ export const settings = {
 		'material-theme-builder'
 	),
 	category: 'material',
-	icon: BlockIcon,
+	keywords: [ __( 'Material Contact Form', 'material-theme-builder' ) ],
+	icon: <i className="material-icons-outlined">mail</i>,
 	edit,
 	save,
 };
