@@ -34,9 +34,7 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) ) {
 	require_once __DIR__ . '/instance.php';
 	register_activation_hook(
 		__FILE__,
-		function () {
-			set_transient( 'mtb-activation-notice', true, 5 );
-		}
+		'_material_theme_builder_activation'
 	);
 } else {
 	if ( defined( 'WP_CLI' ) ) {
@@ -60,4 +58,13 @@ function _material_theme_builder_php_version_error() {
  */
 function _material_theme_builder_php_version_text() {
 	return esc_html__( 'Material Theme Builder plugin error: Your version of PHP is too old to run this plugin. You must be running PHP 5.6.20 or higher.', 'material-theme-builder' );
+}
+
+/**
+ * Function to fire after plugin is activated.
+ *
+ * @return void
+ */
+function _material_theme_builder_activation() {
+	set_transient( 'mtb-activation-notice', true, 5 );
 }
