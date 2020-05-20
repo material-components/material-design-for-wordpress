@@ -8,7 +8,6 @@ import { useCallback } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import BlockIcon from './block-icon';
 import PostsControl from '../../../components/posts-control';
 import genericAttributesSetter from '../../../utils/generic-attributes-setter';
 
@@ -34,7 +33,7 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 
 	return (
 		<Placeholder
-			icon={ <BlockIcon /> }
+			icon={ <i className="material-icons-outlined">library_books</i> }
 			label={ __( 'Hand-picked Posts', 'material-theme-builder' ) }
 			className="mtb-block-products-grid mtb-block-handpicked-posts"
 		>
