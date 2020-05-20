@@ -69,6 +69,13 @@ class Plugin extends Plugin_Base {
 	public $blocks_frontend;
 
 	/**
+	 * Onboarding REST Controller class.
+	 *
+	 * @var Onboarding_REST_Controller
+	 */
+	public $onboarding_rest_controller;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * Priority is 9 because WP_Customize_Widgets::register_settings() happens at
@@ -97,6 +104,9 @@ class Plugin extends Plugin_Base {
 
 		$this->blocks_frontend = new Blocks_Frontend( $this );
 		$this->blocks_frontend->init();
+
+		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
+		$this->onboarding_rest_controller->init();
 	}
 
 	/**
@@ -170,16 +180,34 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Enqueue backend styles.
+	 * Enqueue admin assets.
 	 *
 	 * @action admin_enqueue_scripts
 	 */
-	public function enqueue_backend_assets() {
+	public function enqueue_admin_assets() {
 		wp_enqueue_style(
-			'material-backend-css',
-			$this->asset_url( 'assets/css/backend-compiled.css' ),
+			'material-admin-css',
+			$this->asset_url( 'assets/css/admin-compiled.css' ),
 			[],
 			$this->asset_version()
+		);
+
+		wp_enqueue_script(
+			'material-admin-js',
+			$this->asset_url( 'assets/js/admin.js' ),
+			[],
+			$this->asset_version(),
+			true
+		);
+
+		wp_localize_script(
+			'material-admin-js',
+			'mtbOnboarding',
+			[
+				'restUrl'  => esc_url( $this->onboarding_rest_controller->get_rest_base_url() ),
+				'redirect' => esc_url( admin_url( 'themes.php' ) ),
+				'nonce'    => wp_create_nonce( 'wp_rest' ),
+			]
 		);
 	}
 
@@ -224,7 +252,7 @@ class Plugin extends Plugin_Base {
 		/**
 		 * Enqueue material style overrides if the theme is not material.
 		 */
-		if ( false === strpos( get_stylesheet(), 'material-theme' ) ) {
+		if ( self::THEME_SLUG !== get_template() ) {
 			wp_enqueue_style(
 				'material-overrides-css',
 				$this->asset_url( 'assets/css/overrides-compiled.css' ),
@@ -299,15 +327,14 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Prepares an admin notice.
+	 * Prints an admin notice.
 	 *
 	 * @param string $title   The title to be showed in the notice.
 	 * @param string $message The message of the notice.
 	 *
-	 * @return string
+	 * @return void
 	 */
 	public function material_notice( $title, $message ) {
-		ob_start();
 		?>
 
 		<div class="notice notice-info is-dismissible material-notice-container">
@@ -321,13 +348,22 @@ class Plugin extends Plugin_Base {
 					<?php echo esc_html( $title ); ?>
 				</h3>
 				<p class="material-notice-container__content__text">
-					<?php echo wp_kses( $message, [ 'a' => [ 'href' => [] ] ] ); ?>
+					<?php
+					echo wp_kses(
+						$message,
+						[
+							'a' => [
+								'href'  => [],
+								'class' => [],
+							],
+						]
+					);
+					?>
 				</p>
 			</div>
 		</div>
 
 		<?php
-		return ob_get_clean();
 	}
 
 	/**
@@ -336,7 +372,7 @@ class Plugin extends Plugin_Base {
 	 * @return bool
 	 */
 	public function theme_installed() {
-		return file_exists( get_theme_root() . DIRECTORY_SEPARATOR . self::THEME_SLUG );
+		return file_exists( trailingslashit( get_theme_root() ) . self::THEME_SLUG );
 	}
 
 	/**
@@ -364,27 +400,50 @@ class Plugin extends Plugin_Base {
 	 * @return void
 	 */
 	public function theme_not_installed_notice() {
-		// Theme already installed. Don't show the notice.
-		if ( $this->theme_installed() ) {
+		$status = $this->material_theme_status();
+
+		// Theme already active. Don't show the notice.
+		if ( 'ok' === $status ) {
 			return;
 		}
 
-		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo $this->material_notice(
-			__(
-				'Install Material Theme to take advantage of all Material Plugin customizations',
+		$title   = esc_html__(
+			'Install Material Theme to take advantage of all Material Plugin customizations',
+			'material-theme-builder'
+		);
+		$message = esc_html__(
+			'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization.',
+			'material-theme-builder'
+		);
+		$label   = esc_html__( 'Install theme', 'material-theme-builder' );
+
+		if ( 'activate' === $status ) {
+			$title   = esc_html__(
+				'Activate Material Theme to take advantage of all Material Plugin customizations',
 				'material-theme-builder'
-			),
+			);
+			$message = esc_html__(
+				'The Material Plugin enables you to customize Material Components. We recommend activating the companion Material Theme for full site customization.',
+				'material-theme-builder'
+			);
+			$label   = esc_html__( 'Activate theme', 'material-theme-builder' );
+		}
+
+		$action_link = sprintf(
+			'<a href="%s" class="material-theme-%s">%s</a>',
+			esc_url( admin_url( '/themes.php?search=Material+Theme' ) ),
+			esc_attr( $status ),
+			esc_html( $label )
+		);
+
+		$this->material_notice(
+			$title,
 			sprintf(
-			/* translators: %s: url to the theme installation page */
-				__(
-					'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization. <a href="%s">Install theme</a>',
-					'material-theme-builder'
-				),
-				esc_url( admin_url( '/themes.php?search=Material Theme' ) )
+				'%s %s',
+				$message,
+				$action_link
 			)
 		);
-		// phpcs:enable
 	}
 
 	/**
@@ -402,18 +461,22 @@ class Plugin extends Plugin_Base {
 
 		delete_transient( 'mtb-activation-notice' );
 
-		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo $this->material_notice(
-			__( 'See Material Theming in action', 'material-theme-builder' ),
+		$action_link = sprintf(
+			'<a href="%s">%s</a>',
+			esc_url( admin_url( 'customize.php#material-library' ) ),
+			esc_html__( 'View all Material Components', 'material-theme-builder' )
+		);
+
+		$this->material_notice(
+			esc_html__( 'See Material Theming in action', 'material-theme-builder' ),
 			sprintf(
-			/* translators: %s: url to the plugin kitchen sink page */
-				__(
-					'Customize and view Material Theming as it gets applied throughout all Material Components. <a href="%s">View all Material Components</a>',
+				'%s %s',
+				esc_html__(
+					'Customize and view Material Theming as it gets applied throughout all Material Components.',
 					'material-theme-builder'
 				),
-				esc_url( admin_url( 'customize.php#material-library' ) )
+				$action_link
 			)
 		);
-		// phpcs:enable
 	}
 }
