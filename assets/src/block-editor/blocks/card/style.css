@@ -10,34 +10,16 @@
 
 .mtb-card__title {
 	margin: 0 !important;
-	font-size: 1.25em !important;
-	font-weight: 500 !important;
-	letter-spacing: .0125em !important;
-	font-family: Roboto, sans-serif !important;
 }
 
 
 .mtb-card__secondary-text {
 	padding: 0 1em 0 0;
 	margin: 0 !important;
-	font-size: .875em !important;
-	line-height: 1.375em !important; /* stylelint-disable-line */
-	font-weight: 500 !important;
-	letter-spacing: .0071428571em !important;
-	font-family: Roboto, sans-serif !important;
 }
 
 .mtb-card__supporting-text {
 	padding: 0 1em 8px 1em;
-	font-family: Roboto, sans-serif !important;
-
-	p {
-		font-family: Roboto, sans-serif !important;
-	}
-}
-
-.mdc-typography--body2 {
-	font-size: .875em !important;
 }
 
 .mtb-card__media {
@@ -91,12 +73,8 @@
 
 .mtb-card {
 
-	.mdc-button {
-		font-size: 16px;
-
-		span {
-			font-size: .875em !important;
-		}
+	.mdc-button span {
+		font-size: .875em !important;
 	}
 }
 
@@ -106,5 +84,4 @@
 		text-decoration: none !important;
 	}
 	text-decoration: none !important;
-
 }
