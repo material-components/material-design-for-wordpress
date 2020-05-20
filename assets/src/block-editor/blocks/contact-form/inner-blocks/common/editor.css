@@ -41,10 +41,7 @@
 		border: none !important;
 		background-color: transparent;
 		z-index: 1;
-		font-family: Roboto, sans-serif !important;
 		font-size: 1rem !important;
-		font-weight: 400 !important;
-		letter-spacing: .009375em !important;
 
 		&:focus {
 			padding: 20px 16px 6px !important;
@@ -53,6 +50,12 @@
 
 	.mdc-floating-label {
 		margin: 0 !important;
+		color: rgba(0, 0, 0, .6) !important;
+		top: calc(50% - 5px) !important;
+	}
+
+	.mdc-text-field--textarea .mdc-floating-label {
+		top: 10px !important;
 	}
 }
 
