@@ -390,6 +390,22 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertEquals( 9, has_action( 'admin_notices', [ $plugin, 'plugin_activated_notice' ] ) );
 		remove_filter( 'template', [ $this, 'template' ] );
 	}
+	
+	/**
+	 * Test for create_demo_importer_page() method.
+	 *
+	 * @see Plugin::create_demo_importer_page()
+	 */
+	public function test_create_demo_importer_page() {
+		$current_user = get_current_user();
+		wp_set_current_user( self::factory()->user->create( [ 'role' => 'administrator' ] ) );
+
+		$plugin = get_plugin_instance();
+		$plugin->create_demo_importer_page();
+
+		$this->assertEquals( admin_url( 'options-general.php?page=material_demo' ), menu_page_url( 'material_demo', false ) );
+		wp_set_current_user( $current_user );
+	}
 
 	/**
 	 * Filter to test 'material_theme_builder_plugin_config'.
