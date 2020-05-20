@@ -160,7 +160,7 @@ beforeAll( async () => {
 		height: 948,
 	} );
 	await page.setDefaultNavigationTimeout( 10000 );
-	await page.setDefaultTimeout( 100000 );
+	await page.setDefaultTimeout( 10000 );
 	global.page = page;
 } );
 
