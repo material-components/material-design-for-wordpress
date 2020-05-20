@@ -408,6 +408,20 @@ class Test_Plugin extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test for render_demo_importer_page() method.
+	 *
+	 * @see Plugin::render_demo_importer_page()
+	 */
+	public function test_render_demo_importer_page() {
+		ob_start();
+		$plugin = get_plugin_instance();
+		$plugin->render_demo_importer_page();
+		$output = ob_get_clean();
+
+		$this->assertContains( '<h2>Material Theming Demo</h2>', $output );
+	}
+
+	/**
 	 * Filter to test 'material_theme_builder_plugin_config'.
 	 *
 	 * @param array       $config Plugin config.
