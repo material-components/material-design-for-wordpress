@@ -18,7 +18,7 @@ class Importer extends Module_Base {
 	 *
 	 * @var DOMDocument
 	 */
-	private $xml;
+	public $xml;
 	
 	/**
 	 * Featured image ID to attach
@@ -26,6 +26,32 @@ class Importer extends Module_Base {
 	 * @var int
 	 */
 	private $featured_image;
+	
+	/**
+	 * Location where to download featured image
+	 *
+	 * @var string
+	 */
+	public $image_location;
+	
+	/**
+	 * Location of demo content file
+	 *
+	 * @var string
+	 */
+	public $import_file;
+	
+	/**
+	 * Assign properties
+	 * 
+	 * @param Plugin $plugin Plugin instance.
+	 * @return void
+	 */
+	public function __construct( Plugin $plugin ) {
+		parent::__construct( $plugin );
+		$this->import_file    = $this->get_import_file();
+		$this->image_location = $this->get_image_file();
+	}
 
 	/**
 	 * Return location of file to import
@@ -41,7 +67,7 @@ class Importer extends Module_Base {
 	 *
 	 * @return string path to image
 	 */
-	private function get_image_file() {
+	public function get_image_file() {
 		return trailingslashit( $this->plugin->dir_url ) . 'assets/images/featured.png';
 	}
 
@@ -93,9 +119,7 @@ class Importer extends Module_Base {
 			wp_die( esc_html__( "There's been an error performing this action, please try again", 'material-theme-builder' ) );
 		}
 
-		$import_file = $this->get_import_file();
-
-		$this->xml = \simplexml_load_file( $import_file );
+		$this->xml = \simplexml_load_file( $this->import_file );
 		
 		$taxonomies = $this->import_terms();
 		
@@ -430,10 +454,8 @@ class Importer extends Module_Base {
 	 * @return int|WP_Error Uploaded image ID, error on fail
 	 */
 	public function upload_cover_image() {
-		$image_location = $this->get_image_file();
-
 		$image = media_sideload_image(
-			$image_location,
+			$this->image_location,
 			null,
 			esc_html__( 'Material Featured Image', 'material-theme-builder' ),
 			'id'

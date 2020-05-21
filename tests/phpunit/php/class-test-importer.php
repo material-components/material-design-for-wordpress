@@ -7,6 +7,8 @@
 
 namespace MaterialThemeBuilder;
 
+use WP_UnitTest_Factory;
+
 /**
  * Tests for Importer class.
  */
@@ -34,6 +36,8 @@ class Test_Importer extends \WP_UnitTestCase {
 		parent::setUp();
 		$this->plugin   = get_plugin_instance();
 		$this->importer = new Importer( $this->plugin );
+
+		$this->importer->xml = \simplexml_load_file( $this->get_demo_test_file() );
 	}
 
 	/**
@@ -123,5 +127,121 @@ class Test_Importer extends \WP_UnitTestCase {
 		];
 
 		$this->assertEquals( $expected, $this->importer->build_widget_ids( $widgets, 'search' ) );
+	}
+
+	/**
+	 * Test import_terms
+	 *
+	 * @see Importer::import_terms()
+	 */
+	public function test_import_terms() {
+		$this->importer->import_terms();
+
+		$term = get_term_by( 'name', 'Primary', 'nav_menu' );
+
+		$this->assertEquals( 'Primary', $term->name );
+	}
+
+	/**
+	 * Test attach_meta_data
+	 *
+	 * @see Importer::attach_meta_data()
+	 */
+	public function test_attach_meta_data() {
+		$post = $this->importer->xml->channel->item[0];
+
+		$postmeta = $this->importer->attach_meta_data( $post );
+
+		$this->assertArrayHasKey( '_mtb-demo-content', $postmeta );
+	}
+
+	/**
+	 * Test insert_comments
+	 *
+	 * @see Importer::insert_comments()
+	 */
+	public function test_insert_comments() {
+		$post = $this->importer->xml->channel->item[0];
+
+		$test_post_id = $this->factory->post->create( [ 'post_title' => 'Test Post' ] );
+
+		$comments = $this->importer->insert_comments( $post, $test_post_id );
+
+		$this->assertNotEmpty( $comments );
+	}
+
+	/**
+	 * Test insert_post
+	 *
+	 * @see Importer::insert_post()
+	 */
+	public function test_insert_post() {
+		$post_data = [
+			'post_title' => 'Test Post',
+		];
+
+		$post = $this->importer->xml->channel->item[0];
+
+		$created_post = $this->importer->insert_post( $post_data, $post );
+
+		$this->assertInternalType( 'int', $created_post );
+		$this->assertNotEquals( 0, $created_post );
+	}
+
+	/**
+	 * Test update_blog_info
+	 *
+	 * @see Importer::update_blog_info()
+	 */
+	public function test_update_blog_info() {
+		$home_page = $this->factory->post->create(
+			[
+				'post_title' => 'Home',
+				'post_type'  => 'page',
+			]
+		);
+		$blog_page = $this->factory->post->create(
+			[
+				'post_title' => 'Blog',
+				'post_type'  => 'page',
+			]
+		);
+
+		$this->importer->update_blog_info();
+
+		$this->assertEquals( 'page', get_option( 'show_on_front' ) );
+		$this->assertEquals( $home_page, get_option( 'page_on_front' ) );
+		$this->assertEquals( $blog_page, get_option( 'page_for_posts' ) );
+	}
+
+	/**
+	 * Test upload_cover_image
+	 *
+	 * @see Importer::upload_cover_image()
+	 */
+	public function test_upload_cover_image() {
+		$this->importer->image_location = $this->get_image_test_file();
+
+		$image = $this->importer->upload_cover_image();
+
+		$this->assertInternalType( 'int', $image );
+	}
+	
+	/**
+	 * Load a minified version of our demo content
+	 *
+	 * @return string path to demo test file
+	 */
+	private function get_demo_test_file() {
+		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.test.xml';
+	}
+
+	/**
+	 * Load an image we can upload
+	 *
+	 * @return string path to demo test file
+	 */
+	private function get_image_test_file() {
+		return 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
 	}
 }
