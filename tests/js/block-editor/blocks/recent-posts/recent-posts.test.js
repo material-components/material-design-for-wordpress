@@ -6,7 +6,6 @@ import {
 	settings,
 } from '../../../../../assets/src/block-editor/blocks/recent-posts';
 
-import BlockIcon from '../../../../../assets/src/block-editor/blocks/recent-posts/components/block-icon';
 import Edit from '../../../../../assets/src/block-editor/blocks/recent-posts/edit';
 
 // Mock PostsControl component as not relevant in this test and failing to pass tests
@@ -31,8 +30,8 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	describe( 'title settings', () => {
-		it( 'should equal Recent Posts', () => {
-			expect( settings.title ).toStrictEqual( 'Recent Posts' );
+		it( 'should equal Recent Posts Cards', () => {
+			expect( settings.title ).toStrictEqual( 'Recent Posts Cards' );
 		} );
 	} );
 
@@ -55,12 +54,6 @@ describe( 'blocks: material/recent-posts', () => {
 			expect( settings.supports ).toStrictEqual( {
 				align: [ 'wide', 'full' ],
 			} );
-		} );
-	} );
-
-	describe( 'icon settings', () => {
-		it( 'should be equal to the BlockIcon component', () => {
-			expect( settings.icon ).toStrictEqual( BlockIcon );
 		} );
 	} );
 

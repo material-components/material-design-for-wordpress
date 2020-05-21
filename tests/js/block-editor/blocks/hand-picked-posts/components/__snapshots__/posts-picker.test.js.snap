@@ -35,20 +35,12 @@ Object {
         <div
           class="components-placeholder__label"
         >
-          <svg
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
+          <i
+            class="material-icons-outlined"
+            size="24"
           >
-            <path
-              d="M0 0h24v24H0z"
-              fill="none"
-            />
-            <path
-              d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"
-            />
-          </svg>
+            library_books
+          </i>
           Hand-picked Posts
         </div>
         <div
@@ -85,20 +77,12 @@ Object {
       <div
         class="components-placeholder__label"
       >
-        <svg
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
+        <i
+          class="material-icons-outlined"
+          size="24"
         >
-          <path
-            d="M0 0h24v24H0z"
-            fill="none"
-          />
-          <path
-            d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"
-          />
-        </svg>
+          library_books
+        </i>
         Hand-picked Posts
       </div>
       <div
@@ -176,7 +160,13 @@ Object {
 exports[`PostsPicker matches snapshot using shallow rendering 1`] = `
 <Placeholder
   className="mtb-block-products-grid mtb-block-handpicked-posts"
-  icon={<BlockIcon />}
+  icon={
+    <i
+      className="material-icons-outlined"
+    >
+      library_books
+    </i>
+  }
   label="Hand-picked Posts"
 >
   Display a selection of hand-picked posts.

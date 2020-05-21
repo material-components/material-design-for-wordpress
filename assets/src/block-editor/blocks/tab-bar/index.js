@@ -18,7 +18,11 @@ export const settings = {
 		'material-theme-builder'
 	),
 	category: 'material',
-	icon: <i className="material-icons">tab</i>,
+	keywords: [
+		__( 'Material Tabs', 'material-theme-builder' ),
+		__( 'Material Tab Bar', 'material-theme-builder' ),
+	],
+	icon: <i className="material-icons-outlined">tab</i>,
 	attributes: {
 		forceUpdate: {
 			type: 'boolean',

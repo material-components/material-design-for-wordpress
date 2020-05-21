@@ -11,7 +11,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	it( 'should be inserted', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 
 		// Check if block was inserted
 		expect(
@@ -20,7 +20,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	it( 'should have a "Styles" radio selection attribute with Masonry being the default', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -42,7 +42,7 @@ describe( 'blocks: material/recent-posts', () => {
 
 	// TODO: check that this control is not showing when "Style" is not Masonry or Grid
 	it( 'should have a "Columns" range selection attribute with default being 3', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -54,7 +54,7 @@ describe( 'blocks: material/recent-posts', () => {
 
 	// TODO: check that this control is not showing when "Style" is not Masonry or Grid
 	it( 'should have a "Content layout" radio selection attribute with default being "Test above Media" ', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -77,7 +77,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	it( 'should have a "Number of posts" range selection attribute with default being 12', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -88,7 +88,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	it( 'should have an "Outlined" toggle selection attribute with default being off', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -99,7 +99,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	it( 'should have a "Post date" toggle selection attribute with default being on', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -110,7 +110,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	it( 'should have a "Post content" toggle selection attribute with default being on', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -122,7 +122,7 @@ describe( 'blocks: material/recent-posts', () => {
 
 	// TODO: check that this control is not showing when "Post Content" is not selected
 	it( 'should have a "Max number of words in post content" range selection attribute with default being 20', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -133,7 +133,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	it( 'should have a "Featured image" toggle selection attribute with default being on', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -144,7 +144,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	it( 'should have a "Comments count" toggle selection attribute with default being on', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -155,7 +155,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	it( 'should have a "Post author" toggle selection attribute with default being on', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
@@ -167,7 +167,7 @@ describe( 'blocks: material/recent-posts', () => {
 
 	// TODO: check the options in the selectbox
 	it( 'should have a "Category" selectbox attribute', async () => {
-		await insertBlock( 'Recent Posts' );
+		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 		expect(
 			await page.$x(
