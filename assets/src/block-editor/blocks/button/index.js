@@ -6,6 +6,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
+import icon from './components/block-icon';
 import edit from './edit';
 import save from './save';
 
@@ -18,7 +19,7 @@ export const settings = {
 		'material-theme-builder'
 	),
 	category: 'material',
-	icon: <i className="material-icons md-call-to-action">call_to_action</i>,
+	icon,
 	attributes: {
 		label: {
 			type: 'string',

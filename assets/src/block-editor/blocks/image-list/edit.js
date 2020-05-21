@@ -25,7 +25,6 @@ import { __ } from '@wordpress/i18n';
  */
 import { withId } from '../../components/with-id';
 import { withGlobalDefaults } from '../../components/with-global-defaults';
-import BlockIcon from './components/block-icon';
 import {
 	GridIcon,
 	MasonryIcon,
@@ -246,7 +245,9 @@ const ImageListEdit = ( {
 				isAppender={ hasImages }
 				className={ className }
 				disableMediaButtons={ hasImages && ! isSelected }
-				icon={ ! hasImages && <BlockIcon /> }
+				icon={
+					! hasImages && <i className="material-icons-outlined">filter</i>
+				}
 				labels={ {
 					title: ! __( 'Image List', 'material-theme-builder' ),
 					instructions: __(

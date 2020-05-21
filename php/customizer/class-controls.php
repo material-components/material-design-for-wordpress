@@ -500,14 +500,17 @@ class Controls extends Module_Base {
 	/**
 	 * Get Google Fonts CDN URL to be enqueued based on the selected settings.
 	 *
+	 * @param string $context The context of the request.
+	 *
 	 * @return string
 	 */
-	public function get_google_fonts_url() {
-		$icons_style = $this->get_theme_mod( 'icon_collection' );
-		$icons_style = $icons_style && 'filled' !== $icons_style
-			? '+' . str_replace( '-', '+', ucwords( $icons_style, '-' ) ) : '';
-
+	public function get_google_fonts_url( $context = '' ) {
+		$icons_style   = $this->get_icon_style( '+' );
 		$font_families = [ 'Material+Icons' . $icons_style ];
+
+		if ( 'block-editor' === $context ) {
+			$font_families[] = 'Material+Icons+Outlined';
+		}
 
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value = $this->get_theme_mod( $control['id'] );
@@ -524,11 +527,20 @@ class Controls extends Module_Base {
 	 * @return string
 	 */
 	public function get_icon_collection_css() {
-		$icons_style = $this->get_theme_mod( 'icon_collection' );
-		$icons_style = $icons_style && 'filled' !== $icons_style
-			? ' ' . str_replace( '-', ' ', ucwords( $icons_style, '-' ) ) : '';
+		return sprintf( '--mdc-icons-font-family: "Material Icons%s";', esc_html( $this->get_icon_style() ) );
+	}
 
-		return sprintf( '--mdc-icons-font-family: "Material Icons%s";', esc_html( $icons_style ) );
+	/**
+	 * Get Icon collection style.
+	 *
+	 * @param string $replace String to replace `-` with.
+	 *
+	 * @return string
+	 */
+	public function get_icon_style( $replace = ' ' ) {
+		$icons_style = $this->get_theme_mod( 'icon_collection' );
+		return ( $icons_style && 'filled' !== $icons_style )
+			? $replace . str_replace( '-', $replace, ucwords( $icons_style, '-' ) ) : '';
 	}
 
 	/**

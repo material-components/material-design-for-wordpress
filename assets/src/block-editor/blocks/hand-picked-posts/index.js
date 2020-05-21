@@ -7,7 +7,6 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import edit from './edit';
-import BlockIcon from './components/block-icon';
 
 export const name = 'material/hand-picked-posts';
 
@@ -15,15 +14,16 @@ export const name = 'material/hand-picked-posts';
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, supports: Object}}
  */
 export const settings = {
-	title: __( 'Hand-picked Posts', 'material-theme-builder' ),
+	title: __( 'Hand-Picked Posts Cards', 'material-theme-builder' ),
 	description: __(
 		'Display a list of your hand-picked posts.',
 		'material-theme-builder'
 	),
 	category: 'material',
+	keywords: [ __( 'Material Card', 'material-theme-builder' ) ],
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
-	icon: BlockIcon,
+	icon: <i className="material-icons-outlined">library_books</i>,
 	edit,
 };

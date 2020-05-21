@@ -106,7 +106,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_block_editor_assets();
 		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-styles-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-google-fonts', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
 
 		// Assert inline css vars are added.
@@ -133,7 +133,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_block_editor_assets();
 		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-styles-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-google-fonts', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
 
 		// Assert inline css vars are added.
@@ -159,7 +159,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin = get_plugin_instance();
 		$plugin->enqueue_block_editor_assets();
 		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-styles-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-google-fonts', 'enqueued' ) );
 		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
 
 		// Assert inline css vars are added.
