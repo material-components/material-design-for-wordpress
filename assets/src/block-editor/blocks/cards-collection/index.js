@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import BlockIcon from './components/block-icon';
 
 /**
  * Internal dependencies
@@ -23,16 +22,17 @@ for ( let index = 0; index < DEFAULT_NUMBER_OF_CARDS; index++ ) {
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Cards Collection', 'material-theme-builder' ),
+	title: __( 'Custom Cards Collection', 'material-theme-builder' ),
 	description: __(
 		'Add a group of cards to display content and actions on multiple topics.',
 		'material-theme-builder'
 	),
 	category: 'material',
+	keywords: [ __( 'Material Cards Collection', 'material-theme-builder' ) ],
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
-	icon: BlockIcon,
+	icon: <i className="material-icons-outlined">dashboard</i>,
 	attributes: {
 		id: {
 			type: 'string',

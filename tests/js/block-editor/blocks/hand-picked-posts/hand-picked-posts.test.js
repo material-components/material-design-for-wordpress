@@ -6,7 +6,6 @@ import {
 	settings,
 } from '../../../../../assets/src/block-editor/blocks/hand-picked-posts';
 
-import BlockIcon from '../../../../../assets/src/block-editor/blocks/hand-picked-posts/components/block-icon';
 import Edit from '../../../../../assets/src/block-editor/blocks/hand-picked-posts/edit';
 
 // Mock PostsControl component as not relevant in this test and failing to pass tests
@@ -31,8 +30,8 @@ describe( 'blocks: material/hand-picked-posts', () => {
 	} );
 
 	describe( 'title settings', () => {
-		it( 'should equal Hand-picked Posts', () => {
-			expect( settings.title ).toStrictEqual( 'Hand-picked Posts' );
+		it( 'should equal Hand-Picked Posts Cards', () => {
+			expect( settings.title ).toStrictEqual( 'Hand-Picked Posts Cards' );
 		} );
 	} );
 
@@ -55,12 +54,6 @@ describe( 'blocks: material/hand-picked-posts', () => {
 			expect( settings.supports ).toStrictEqual( {
 				align: [ 'wide', 'full' ],
 			} );
-		} );
-	} );
-
-	describe( 'icon settings', () => {
-		it( 'should be equal to the BlockIcon component', () => {
-			expect( settings.icon ).toStrictEqual( BlockIcon );
 		} );
 	} );
 

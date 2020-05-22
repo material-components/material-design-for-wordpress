@@ -282,3 +282,7 @@
 		z-index: 10;
 	}
 }
+
+.material-icons {
+	font-family: "Material Icons" !important; /* stylelint-disable-line */
+}
