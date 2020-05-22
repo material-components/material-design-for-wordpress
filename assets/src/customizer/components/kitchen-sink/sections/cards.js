@@ -4,15 +4,9 @@ import { __ } from '@wordpress/i18n';
 
 const Cards = ( { radius, smallRadius } ) => (
 	<div>
-		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+		<h4 className="mdc-typography--headline4">
 			{ __( 'Card', 'material-theme-builder' ) }
 		</h4>
-		<p>
-			{ __(
-				'This component can be created as a block in WordPress. Try it out now.',
-				'material-theme-builder'
-			) }
-		</p>
 		<div style={ { display: 'flex' } }>
 			<div
 				className="mdc-card"

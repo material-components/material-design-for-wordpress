@@ -23,13 +23,9 @@ Object {
           <div>
             <h4
               class="mdc-typography--headline4"
-              style="margin: 0px;"
             >
               Button
             </h4>
-            <p>
-              This component can be created as a block in WordPress. Try it out now.
-            </p>
             <div
               class="mdc-button-wrap"
             >
@@ -106,13 +102,9 @@ Object {
           <div>
             <h4
               class="mdc-typography--headline4"
-              style="margin: 0px;"
             >
               Card
             </h4>
-            <p>
-              This component can be created as a block in WordPress. Try it out now.
-            </p>
             <div
               style="display: flex;"
             >
@@ -186,13 +178,9 @@ Object {
           <div>
             <h4
               class="mdc-typography--headline4"
-              style="margin: 0px;"
             >
               Table
             </h4>
-            <p>
-              This component can be created as a block in WordPress. Try it out now.
-            </p>
             <div
               class="mdc-data-table"
               style="border-radius: 5px;"
@@ -348,13 +336,9 @@ Object {
           <div>
             <h4
               class="mdc-typography--headline4"
-              style="margin: 0px;"
             >
               Image List
             </h4>
-            <p>
-              This component can be created as a block in WordPress. Try it out now.
-            </p>
             <div>
               <ul
                 class="mdc-image-list mdc-image-list--with-text-protection"
@@ -680,13 +664,9 @@ Object {
           <div>
             <h4
               class="mdc-typography--headline4"
-              style="margin: 0px;"
             >
               List
             </h4>
-            <p>
-              This component can be created as a block in WordPress. Try it out now.
-            </p>
             <div
               style="display: flex;"
             >
@@ -856,13 +836,9 @@ Object {
           <div>
             <h4
               class="mdc-typography--headline4"
-              style="margin: 0px;"
             >
               Tab Bar
             </h4>
-            <p>
-              This component can be created as a block in WordPress. Try it out now.
-            </p>
             <div
               class="wp-block-material-tab-bar mdc-tab-bar-container"
               style="width: 80%;"
@@ -1371,13 +1347,9 @@ Object {
         <div>
           <h4
             class="mdc-typography--headline4"
-            style="margin: 0px;"
           >
             Button
           </h4>
-          <p>
-            This component can be created as a block in WordPress. Try it out now.
-          </p>
           <div
             class="mdc-button-wrap"
           >
@@ -1454,13 +1426,9 @@ Object {
         <div>
           <h4
             class="mdc-typography--headline4"
-            style="margin: 0px;"
           >
             Card
           </h4>
-          <p>
-            This component can be created as a block in WordPress. Try it out now.
-          </p>
           <div
             style="display: flex;"
           >
@@ -1534,13 +1502,9 @@ Object {
         <div>
           <h4
             class="mdc-typography--headline4"
-            style="margin: 0px;"
           >
             Table
           </h4>
-          <p>
-            This component can be created as a block in WordPress. Try it out now.
-          </p>
           <div
             class="mdc-data-table"
             style="border-radius: 5px;"
@@ -1696,13 +1660,9 @@ Object {
         <div>
           <h4
             class="mdc-typography--headline4"
-            style="margin: 0px;"
           >
             Image List
           </h4>
-          <p>
-            This component can be created as a block in WordPress. Try it out now.
-          </p>
           <div>
             <ul
               class="mdc-image-list mdc-image-list--with-text-protection"
@@ -2028,13 +1988,9 @@ Object {
         <div>
           <h4
             class="mdc-typography--headline4"
-            style="margin: 0px;"
           >
             List
           </h4>
-          <p>
-            This component can be created as a block in WordPress. Try it out now.
-          </p>
           <div
             style="display: flex;"
           >
@@ -2204,13 +2160,9 @@ Object {
         <div>
           <h4
             class="mdc-typography--headline4"
-            style="margin: 0px;"
           >
             Tab Bar
           </h4>
-          <p>
-            This component can be created as a block in WordPress. Try it out now.
-          </p>
           <div
             class="wp-block-material-tab-bar mdc-tab-bar-container"
             style="width: 80%;"
