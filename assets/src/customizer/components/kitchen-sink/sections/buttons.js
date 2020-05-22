@@ -3,7 +3,7 @@ import { RippleColor } from '../styles';
 
 const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 	<div>
-		<h4 className="mdc-typography--headline4">
+		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Button', 'material-theme-builder' ) }
 		</h4>
 		<p>

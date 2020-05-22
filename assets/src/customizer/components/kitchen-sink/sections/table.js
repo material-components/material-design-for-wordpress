@@ -2,7 +2,7 @@ import { __ } from '@wordpress/i18n';
 
 const Table = ( { radius } ) => (
 	<div>
-		<h4 className="mdc-typography--headline4">
+		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Table', 'material-theme-builder' ) }
 		</h4>
 		<p>
