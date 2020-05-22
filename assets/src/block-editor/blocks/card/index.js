@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import BlockIcon from './components/block-icon';
 
 /**
  * Internal dependencies
@@ -16,16 +15,17 @@ export const name = 'material/card';
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Card', 'material-theme-builder' ),
+	title: __( 'Custom Card', 'material-theme-builder' ),
 	description: __(
 		'Add a card to display content and actions on a single topic.',
 		'material-theme-builder'
 	),
 	category: 'material',
+	keywords: [ __( 'Material Card', 'material-theme-builder' ) ],
 	supports: {
 		align: [ 'left', 'right' ],
 	},
-	icon: BlockIcon,
+	icon: <i className="material-icons-outlined">chrome_reader_mode</i>,
 	attributes: {
 		contentLayout: {
 			type: 'string',

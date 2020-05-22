@@ -153,10 +153,10 @@ class Plugin extends Plugin_Base {
 
 		wp_localize_script( 'material-block-editor-js', 'mtb', $wp_localized_script_data );
 
-		$fonts_url = $this->customizer_controls->get_google_fonts_url();
+		$fonts_url = $this->customizer_controls->get_google_fonts_url( 'block-editor' );
 
 		wp_enqueue_style(
-			'material-styles-css',
+			'material-google-fonts',
 			esc_url( $fonts_url ),
 			[],
 			$this->asset_version()

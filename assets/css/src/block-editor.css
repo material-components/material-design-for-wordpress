@@ -14,3 +14,16 @@
 		max-width: 300px;
 	}
 }
+
+.block-editor-block-types-list__item[class*="editor-block-list-item-material-"],
+.editor-autocompleters__block {
+
+	& .material-icons-outlined,
+	& .material-icons__button {
+		color: #512da8;
+	}
+}
+
+.block-editor-inserter__popover .material-logo-svg {
+	margin-left: 8px;
+}

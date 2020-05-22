@@ -5,7 +5,6 @@ import {
 	name,
 	settings,
 } from '../../../../../assets/src/block-editor/blocks/contact-form';
-import BlockIcon from '../../../../../assets/src/block-editor/blocks/contact-form/components/block-icon';
 import Edit from '../../../../../assets/src/block-editor/blocks/contact-form/edit';
 import Save from '../../../../../assets/src/block-editor/blocks/contact-form/save';
 
@@ -33,12 +32,6 @@ describe( 'blocks: material/contact-form', () => {
 	describe( 'category settings', () => {
 		it( 'should equal material', () => {
 			expect( settings.category ).toStrictEqual( 'material' );
-		} );
-	} );
-
-	describe( 'icon settings', () => {
-		it( 'should be equal to the BlockIcon component', () => {
-			expect( settings.icon ).toStrictEqual( BlockIcon );
 		} );
 	} );
 

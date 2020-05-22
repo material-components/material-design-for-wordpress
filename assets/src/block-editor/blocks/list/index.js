@@ -13,18 +13,14 @@ import save from './save';
 export const name = 'material/list';
 
 export const settings = {
-	title: __( 'List', 'material-theme-builder' ),
+	title: __( 'Material List', 'material-theme-builder' ),
 	description: __(
 		'Lists allow you to list out your information in a clear manner.',
 		'material-theme-builder'
 	),
 	category: 'material',
-	icon: <i className="material-icons">list</i>,
-	keywords: [
-		__( 'Material List', 'material-theme-builder' ),
-		__( 'MDCList', 'material-theme-builder' ),
-		__( 'MList', 'material-theme-builder' ),
-	],
+	icon: <i className="material-icons-outlined">list_alt</i>,
+	keywords: [ __( 'Material List', 'material-theme-builder' ), 'mlist' ],
 	attributes: {
 		style: {
 			type: 'string',

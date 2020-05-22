@@ -14,8 +14,8 @@ describe( 'blocks: material/list', () => {
 	} );
 
 	describe( 'settings', () => {
-		it( 'title should equal List', () => {
-			expect( settings.title ).toStrictEqual( 'List' );
+		it( 'title should equal Material List', () => {
+			expect( settings.title ).toStrictEqual( 'Material List' );
 		} );
 
 		it( 'category should equal material', () => {
