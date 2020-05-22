@@ -18,6 +18,7 @@ const Save = ( { attributes, hasCaption } ) => {
 		caption,
 		className,
 	} = attributes;
+
 	const isEmpty = ! head.length && ! body.length && ! foot.length;
 
 	if ( isEmpty ) {
@@ -80,7 +81,7 @@ const Save = ( { attributes, hasCaption } ) => {
 		<div
 			className={ classnames(
 				'wp-block-table',
-				className.replace( 'wp-block-table', '' )
+				( className || '' ).replace( 'wp-block-table', '' )
 			) }
 		>
 			<div className="mdc-data-table">

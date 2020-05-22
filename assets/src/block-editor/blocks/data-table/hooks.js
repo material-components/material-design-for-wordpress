@@ -34,7 +34,7 @@ export const withDataTableEdit = createHigherOrderComponent( BlockEdit => {
 		if ( isMaterialTableBlock( props.name, props.attributes ) ) {
 			return (
 				<>
-					<DataTableEdit { ...props } />
+					<DataTableEdit { ...props } isCoreTable />
 					<BlockEdit { ...props } />
 				</>
 			);
