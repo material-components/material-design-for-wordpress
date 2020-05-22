@@ -3,15 +3,9 @@ import { __ } from '@wordpress/i18n';
 
 const TabBar = ( { iconStyle } ) => (
 	<div>
-		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+		<h4 className="mdc-typography--headline4">
 			{ __( 'Tab Bar', 'material-theme-builder' ) }
 		</h4>
-		<p>
-			{ __(
-				'This component can be created as a block in WordPress. Try it out now.',
-				'material-theme-builder'
-			) }
-		</p>
 		<div
 			className="wp-block-material-tab-bar mdc-tab-bar-container"
 			style={ { width: '80%' } }

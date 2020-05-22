@@ -4,15 +4,9 @@ import { __ } from '@wordpress/i18n';
 
 const ImageLists = ( { radius } ) => (
 	<div>
-		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+		<h4 className="mdc-typography--headline4">
 			{ __( 'Image List', 'material-theme-builder' ) }
 		</h4>
-		<p>
-			{ __(
-				'This component can be created as a block in WordPress. Try it out now.',
-				'material-theme-builder'
-			) }
-		</p>
 		<div>
 			<ul className="mdc-image-list mdc-image-list--with-text-protection">
 				<li className="mdc-image-list__item image-list-item">
