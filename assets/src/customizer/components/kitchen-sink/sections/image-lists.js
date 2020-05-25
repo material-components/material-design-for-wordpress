@@ -9,7 +9,7 @@ const ImageLists = ( { radius } ) => (
 		</h4>
 		<p>
 			{ __(
-				'This component can be created as a block in WordPress. Try it out now.',
+				'This component can be created as a block in WordPress.',
 				'material-theme-builder'
 			) }
 		</p>
