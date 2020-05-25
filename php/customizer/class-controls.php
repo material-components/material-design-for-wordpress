@@ -104,7 +104,7 @@ class Controls extends Module_Base {
 			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
 			'typography'    => __( 'Typography (Font Styles)', 'material-theme-builder' ),
 			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
-			'icons'         => __( 'Icon Types', 'material-theme-builder' ),
+			'icons'         => __( 'Icon Style', 'material-theme-builder' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
