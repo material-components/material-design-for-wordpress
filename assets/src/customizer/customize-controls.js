@@ -38,6 +38,9 @@ import ThemePrompt from './components/theme-prompt';
 ( ( $, api ) => {
 	let notificationCount = false;
 
+	const BUTTON_OPEN_TEXT = __( 'Material Library', 'material-theme-builder' );
+	const BUTTON_CLOSE_TEXT = __( 'Exit Library', 'material-theme-builder' );
+
 	// Bind for previwer events.
 	$( function() {
 		api.previewer.bind( 'mtb', settings => {
@@ -201,6 +204,7 @@ import ThemePrompt from './components/theme-prompt';
 	const toggleKitchenSink = () => {
 		let kitchenSink = $( '#mcb-kitchen-sink-preview' );
 		const customizePreview = $( '#customize-preview' );
+		const toggleButton = $( '.toggle-kitchen-sink' );
 
 		// Toggle between kitchen sink and default customizer view.
 		if ( ! kitchenSink.is( ':visible' ) ) {
@@ -219,10 +223,13 @@ import ThemePrompt from './components/theme-prompt';
 
 			customizePreview.hide();
 			kitchenSink.show();
+
+			toggleButton.text( BUTTON_CLOSE_TEXT );
 		} else {
 			$( this ).removeClass( 'active' );
 			kitchenSink.hide();
 			customizePreview.show();
+			toggleButton.text( BUTTON_OPEN_TEXT );
 		}
 	};
 
@@ -250,7 +257,7 @@ import ThemePrompt from './components/theme-prompt';
 				.attr( { type: 'button' } )
 				.css( 'display', 'none' )
 				.addClass( 'button toggle-kitchen-sink' )
-				.text( __( 'Material Library', 'material-theme-builder' ) )
+				.text( BUTTON_OPEN_TEXT )
 		);
 
 		api.panel( mtb.slug ).expanded.bind( function( expanded ) {
