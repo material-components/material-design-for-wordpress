@@ -1,12 +1,5 @@
 import {
 	createTable,
-	updateSelectedCell,
-	getCellAttribute,
-	insertRow,
-	deleteRow,
-	insertColumn,
-	deleteColumn,
-	toggleSection,
 	getFirstRow,
 } from '../../../../../assets/src/block-editor/blocks/data-table/state';
 
