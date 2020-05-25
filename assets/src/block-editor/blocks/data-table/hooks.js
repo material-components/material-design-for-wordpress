@@ -34,8 +34,7 @@ export const withDataTableEdit = createHigherOrderComponent( BlockEdit => {
 		if ( isMaterialTableBlock( props.name, props.attributes ) ) {
 			return (
 				<>
-					<DataTableEdit { ...props } isCoreTable />
-					<BlockEdit { ...props } />
+					<DataTableEdit { ...props } />
 				</>
 			);
 		}
@@ -90,7 +89,12 @@ addFilter(
 	addMaterialStyle
 );
 
-addFilter( 'editor.BlockEdit', 'material/data-table-edit', withDataTableEdit );
+addFilter(
+	'editor.BlockEdit',
+	'material/data-table-edit',
+	withDataTableEdit,
+	1
+);
 
 addFilter( 'blocks.getSaveElement', 'material/data-table-save', save );
 

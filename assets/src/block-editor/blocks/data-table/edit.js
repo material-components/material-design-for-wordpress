@@ -82,22 +82,24 @@ const BACKGROUND_COLORS = [
 const ALIGNMENT_CONTROLS = [
 	{
 		icon: alignLeft,
-		title: __( 'Align Column Left' ),
+		title: __( 'Align Column Left', 'material-theme-builder' ),
 		align: 'left',
 	},
 	{
 		icon: alignCenter,
-		title: __( 'Align Column Center' ),
+		title: __( 'Align Column Center', 'material-theme-builder' ),
 		align: 'center',
 	},
 	{
 		icon: alignRight,
-		title: __( 'Align Column Right' ),
+		title: __( 'Align Column Right', 'material-theme-builder' ),
 		align: 'right',
 	},
 ];
 
-const Section = ( {name, rows, onChange, createOnFocus, selectedCell } ) => {
+const withCustomBackgroundColors = createCustomColorsHOC( BACKGROUND_COLORS );
+
+const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	if ( isEmptyTableSection( rows ) ) {
 		return null;
 	}
@@ -173,8 +175,8 @@ const DataTableEdit = ( {
 	attributes,
 	backgroundColor,
 	setAttributes,
+	setBackgroundColor,
 	hasCaption,
-	isCoreTable = false,
 } ) => {
 	const { className, hasFixedLayout, caption, head, body, foot } = attributes;
 	const [ selectedCell, setSelectedCell ] = useState( null );
@@ -236,6 +238,20 @@ const DataTableEdit = ( {
 		}
 
 		return getCellAttribute( attributes, selectedCell, 'align' );
+	};
+
+	/**
+	 * Add or remove a `head` table section.
+	 */
+	const onToggleHeaderSection = () => {
+		setAttributes( toggleSection( attributes, 'head' ) );
+	};
+
+	/**
+	 * Add or remove a `foot` table section.
+	 */
+	const onToggleFooterSection = () => {
+		setAttributes( toggleSection( attributes, 'foot' ) );
 	};
 
 	/**
@@ -363,10 +379,6 @@ const DataTableEdit = ( {
 		setAttributes( deleteColumn( attributes, { sectionName, columnIndex } ) );
 	};
 
-	const onChangeFixedLayout = () => {
-		setAttributes( { hasFixedLayout: ! hasFixedLayout } );
-	};
-
 	const tableClasses = classnames( backgroundColor.class, {
 		'has-fixed-layout': hasFixedLayout,
 		'has-background': !! backgroundColor.color,
@@ -381,44 +393,44 @@ const DataTableEdit = ( {
 		return [
 			{
 				icon: tableRowBefore,
-				title: __( 'Add Row Before' ),
+				title: __( 'Add Row Before', 'material-theme-builder' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertRowBefore,
 			},
 			{
 				icon: tableRowAfter,
-				title: __( 'Add Row After' ),
+				title: __( 'Add Row After', 'material-theme-builder' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertRowAfter,
 			},
 			{
 				icon: tableRowDelete,
-				title: __( 'Delete Row' ),
+				title: __( 'Delete Row', 'material-theme-builder' ),
 				isDisabled: ! selectedCell,
 				onClick: onDeleteRow,
 			},
 			{
 				icon: tableColumnBefore,
-				title: __( 'Add Column Before' ),
+				title: __( 'Add Column Before', 'material-theme-builder' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertColumnBefore,
 			},
 			{
 				icon: tableColumnAfter,
-				title: __( 'Add Column After' ),
+				title: __( 'Add Column After', 'material-theme-builder' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertColumnAfter,
 			},
 			{
 				icon: tableColumnDelete,
-				title: __( 'Delete Column' ),
+				title: __( 'Delete Column', 'material-theme-builder' ),
 				isDisabled: ! selectedCell,
 				onClick: onDeleteColumn,
 			},
 		];
 	};
 
-	if ( isEmpty && ! isCoreTable ) {
+	if ( isEmpty ) {
 		return (
 			<Placeholder
 				label={ __( 'Material Data Table', 'material-theme-builder' ) }
@@ -467,12 +479,12 @@ const DataTableEdit = ( {
 					<DropdownMenu
 						hasArrowIndicator
 						icon={ table }
-						label={ __( 'Edit table' ) }
+						label={ __( 'Edit table', 'material-theme-builder' ) }
 						controls={ getTableControls() }
 					/>
 				</ToolbarGroup>
 				<AlignmentToolbar
-					label={ __( 'Change column alignment' ) }
+					label={ __( 'Change column alignment', 'material-theme-builder' ) }
 					alignmentControls={ ALIGNMENT_CONTROLS }
 					value={ getCellAlignment() }
 					onChange={ nextAlign => onChangeColumnAlignment( nextAlign ) }
@@ -480,25 +492,33 @@ const DataTableEdit = ( {
 			</BlockControls>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Table settings' ) }
+					title={ __( 'Table settings', 'material-theme-builder' ) }
 					className="blocks-table-settings"
 				>
 					<ToggleControl
-						label={ __( 'Fixed width table cells' ) }
-						checked={ !! hasFixedLayout }
-						onChange={ onChangeFixedLayout }
-					/>
-					<ToggleControl
-						label={ __( 'Header section' ) }
+						label={ __( 'Header section', 'material-theme-builder' ) }
 						checked={ !! ( head && head.length ) }
-						onChange={ onChangeFixedLayout }
+						onChange={ onToggleHeaderSection }
 					/>
 					<ToggleControl
-						label={ __( 'Footer section' ) }
+						label={ __( 'Footer section', 'material-theme-builder' ) }
 						checked={ !! ( foot && foot.length ) }
-						onChange={ onChangeFixedLayout }
+						onChange={ onToggleFooterSection }
 					/>
 				</PanelBody>
+				<PanelColorSettings
+					title={ __( 'Color settings', 'material-theme-builder' ) }
+					initialOpen={ false }
+					colorSettings={ [
+						{
+							value: backgroundColor.color,
+							onChange: setBackgroundColor,
+							label: __( 'Background color', 'material-theme-builder' ),
+							disableCustomColors: true,
+							colors: BACKGROUND_COLORS,
+						},
+					] }
+				/>
 			</InspectorControls>
 			<figure
 				className={ classnames(
@@ -557,8 +577,6 @@ const DataTableEdit = ( {
 		</>
 	);
 };
-
-const withCustomBackgroundColors = createCustomColorsHOC( BACKGROUND_COLORS );
 
 export default compose( [
 	withCustomBackgroundColors( 'backgroundColor' ),
