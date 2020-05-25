@@ -99,7 +99,7 @@ const CommonPostsListInspectorControls = ( {
 				{ displayPostContent && (
 					<RangeControl
 						label={ __(
-							'Max number of words in post content',
+							'Max number of words in post excerpt',
 							'material-theme-builder'
 						) }
 						value={ postContentLength }
