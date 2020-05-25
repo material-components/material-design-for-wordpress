@@ -1261,69 +1261,177 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
-      <figure
-        class="wp-block-table is-style-material"
+      <div
+        class="components-placeholder is-small"
       >
+        <iframe
+          aria-hidden="true"
+          aria-label="resize-listener"
+          frameborder="0"
+          src="about:blank"
+          style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+          tabindex="-1"
+        />
         <div
-          class="mdc-data-table"
+          class="components-placeholder__label"
         >
-          <table
-            class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
-          />
-        </div>
-        <div
-          class="mdc-data-table__caption"
-        >
-          <figcaption
-            aria-label="Write caption…"
-            aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable"
-            contenteditable="true"
-            role="textbox"
-            style="white-space: pre-wrap;"
+          <i
+            class="material-icons-outlined"
+            size="24"
           >
-            
-            ﻿
-            <span
-              contenteditable="false"
-              data-rich-text-placeholder="Write caption…"
-            />
-          </figcaption>
+            grid_on
+          </i>
+          Material Data Table
         </div>
-      </figure>
+        <div
+          class="components-placeholder__instructions"
+        >
+          Data tables display sets of data across rows and columns.
+        </div>
+        <div
+          class="components-placeholder__fieldset"
+        >
+          <form
+            class="blocks-table__placeholder-form"
+          >
+            <div
+              class="components-base-control blocks-table__placeholder-input"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-text-control-0"
+                >
+                  Column Count
+                </label>
+                <input
+                  class="components-text-control__input"
+                  id="inspector-text-control-0"
+                  min="1"
+                  type="number"
+                  value="2"
+                />
+              </div>
+            </div>
+            <div
+              class="components-base-control blocks-table__placeholder-input"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-text-control-1"
+                >
+                  Row Count
+                </label>
+                <input
+                  class="components-text-control__input"
+                  id="inspector-text-control-1"
+                  min="1"
+                  type="number"
+                  value="2"
+                />
+              </div>
+            </div>
+            <button
+              class="components-button blocks-table__placeholder-button is-primary"
+              type="submit"
+            >
+              Create Table
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <figure
-      class="wp-block-table is-style-material"
+    <div
+      class="components-placeholder is-small"
     >
+      <iframe
+        aria-hidden="true"
+        aria-label="resize-listener"
+        frameborder="0"
+        src="about:blank"
+        style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+        tabindex="-1"
+      />
       <div
-        class="mdc-data-table"
+        class="components-placeholder__label"
       >
-        <table
-          class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
-        />
-      </div>
-      <div
-        class="mdc-data-table__caption"
-      >
-        <figcaption
-          aria-label="Write caption…"
-          aria-multiline="true"
-          class="rich-text block-editor-rich-text__editable"
-          contenteditable="true"
-          role="textbox"
-          style="white-space: pre-wrap;"
+        <i
+          class="material-icons-outlined"
+          size="24"
         >
-          
-          ﻿
-          <span
-            contenteditable="false"
-            data-rich-text-placeholder="Write caption…"
-          />
-        </figcaption>
+          grid_on
+        </i>
+        Material Data Table
       </div>
-    </figure>
+      <div
+        class="components-placeholder__instructions"
+      >
+        Data tables display sets of data across rows and columns.
+      </div>
+      <div
+        class="components-placeholder__fieldset"
+      >
+        <form
+          class="blocks-table__placeholder-form"
+        >
+          <div
+            class="components-base-control blocks-table__placeholder-input"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-text-control-0"
+              >
+                Column Count
+              </label>
+              <input
+                class="components-text-control__input"
+                id="inspector-text-control-0"
+                min="1"
+                type="number"
+                value="2"
+              />
+            </div>
+          </div>
+          <div
+            class="components-base-control blocks-table__placeholder-input"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-text-control-1"
+              >
+                Row Count
+              </label>
+              <input
+                class="components-text-control__input"
+                id="inspector-text-control-1"
+                min="1"
+                type="number"
+                value="2"
+              />
+            </div>
+          </div>
+          <button
+            class="components-button blocks-table__placeholder-button is-primary"
+            type="submit"
+          >
+            Create Table
+          </button>
+        </form>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

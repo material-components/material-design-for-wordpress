@@ -109,17 +109,11 @@ Object {
       <div>
         Material Data Table Edit Component
       </div>
-      <div>
-        Original Edit component
-      </div>
     </div>
   </body>,
   "container": <div>
     <div>
       Material Data Table Edit Component
-    </div>
-    <div>
-      Original Edit component
     </div>
   </div>,
   "debug": [Function],
@@ -183,9 +177,6 @@ Object {
     <div>
       <div>
         Material Data Table Edit Component
-      </div>
-      <div>
-        Original Edit component
       </div>
     </div>
     <div>
