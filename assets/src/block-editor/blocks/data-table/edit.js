@@ -216,6 +216,11 @@ const DataTableEdit = ( {
 		isEmptyTableSection( body ) &&
 		isEmptyTableSection( foot );
 
+	/**
+	 * Handle create table form submit.
+	 *
+	 * @param {Event} event
+	 */
 	const onCreateTable = event => {
 		event.preventDefault();
 
