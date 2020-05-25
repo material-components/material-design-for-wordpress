@@ -121,7 +121,7 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	// TODO: check that this control is not showing when "Post Content" is not selected
-	it( 'should have a "Max number of words in post content" range selection attribute with default being 20', async () => {
+	it( 'should have a "Max number of words in post excerpt" range selection attribute with default being 20', async () => {
 		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
