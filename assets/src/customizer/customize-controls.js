@@ -223,7 +223,6 @@ import ThemePrompt from './components/theme-prompt';
 
 			customizePreview.hide();
 			kitchenSink.show();
-
 			toggleButton.text( BUTTON_CLOSE_TEXT );
 		} else {
 			$( this ).removeClass( 'active' );
