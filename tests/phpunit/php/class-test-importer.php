@@ -19,7 +19,7 @@ class Test_Importer extends \WP_UnitTestCase {
 	 * @var Importer
 	 */
 	private $importer;
-	
+
 	/**
 	 * Plugin instance
 	 *
@@ -61,7 +61,7 @@ class Test_Importer extends \WP_UnitTestCase {
 
 		$this->assertEquals( $this->plugin->dir_url . '/assets/images/featured.png', $file );
 	}
-	
+
 	/**
 	 * Test render_page
 	 *
@@ -105,7 +105,7 @@ class Test_Importer extends \WP_UnitTestCase {
 
 		$this->assertCount( 2, $widgets );
 	}
-	
+
 	/**
 	 * Test build_widget_ids
 	 *
@@ -226,7 +226,22 @@ class Test_Importer extends \WP_UnitTestCase {
 
 		$this->assertInternalType( 'int', $image );
 	}
-	
+
+	/**
+	 * Test kses_post
+	 *
+	 * @see Importer::kses_post()
+	 */
+	public function test_kses_post() {
+		$content = '<div class="mdc-text-field-container"><div class="mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"><input id="mtb-name-0" name="mtb-name-0" type="text" required class="mdc-text-field__input" aria-labelledby="label-mtb-name-0" data-form="contact" data-meta="name" data-label="Name" /><div class="mdc-notched-outline"><div class="mdc-notched-outline__leading"></div><div class="mdc-notched-outline__notch"><label for="mtb-name-0" class="mdc-floating-label" id="label-mtb-name-0">Name</label></div><div class="mdc-notched-outline__trailing"></div></div></div></div>';
+
+		$this->assertEquals( $content, $this->importer->kses_post( $content ) );
+
+		$content = '<div class="wp-block-material-cards-collection alignwide" id="block-material-cards-collection-0"><div class="mdc-layout-grid layout-grid"><div class="mdc-layout-grid__inner"><div class="card-container mdc-layout-grid__cell--span-6"><div class="mdc-card mtb-card" style="border-radius:4px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url(/wp-content/plugins/material-theme-builder/assets/images/featured.png)"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Nulla libero ex</h2></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Praesent non convallis tortor. Sed bibendum mauris vel nunc gravida ultrices. Sed elementum augue quis maximus ultrices quisque.</div></div></div></div><div class="card-container mdc-layout-grid__cell--span-6"><div class="mdc-card mtb-card" style="border-radius:4px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url(/wp-content/plugins/material-theme-builder/assets/images/featured.png)"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Praesent non convallis</h2></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Nullam suscipit, quam eget hendrerit dignissim, ante urna cursus felis, sit amet volutpat mauris arcu eget ante. Sed bibendum mauris vel nunc gravida ultrices.</div></div></div></div></div></div></div>';
+
+		$this->assertEquals( $content, $this->importer->kses_post( $content ) );
+	}
+
 	/**
 	 * Load a minified version of our demo content
 	 *

@@ -19,31 +19,31 @@ class Importer extends Module_Base {
 	 * @var DOMDocument
 	 */
 	public $xml;
-	
+
 	/**
 	 * Featured image ID to attach
 	 *
 	 * @var int
 	 */
 	private $featured_image;
-	
+
 	/**
 	 * Location where to download featured image
 	 *
 	 * @var string
 	 */
 	public $image_location;
-	
+
 	/**
 	 * Location of demo content file
 	 *
 	 * @var string
 	 */
 	public $import_file;
-	
+
 	/**
 	 * Assign properties
-	 * 
+	 *
 	 * @param Plugin $plugin Plugin instance.
 	 * @return void
 	 */
@@ -61,7 +61,7 @@ class Importer extends Module_Base {
 	public function get_import_file() {
 		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.xml';
 	}
-	
+
 	/**
 	 * Return location of image to import
 	 *
@@ -73,7 +73,7 @@ class Importer extends Module_Base {
 
 	/**
 	 * Render form UI
-	 * 
+	 *
 	 * @return string Markup to display in page
 	 */
 	public function render_page() {
@@ -106,7 +106,7 @@ class Importer extends Module_Base {
 		<?php
 		return ob_get_clean();
 	}
-	
+
 	/**
 	 * Verify nonce and init import process
 	 *
@@ -120,9 +120,9 @@ class Importer extends Module_Base {
 		}
 
 		$this->xml = \simplexml_load_file( $this->import_file );
-		
+
 		$taxonomies = $this->import_terms();
-		
+
 		$posts = $this->import_posts();
 
 		$this->update_blog_info();
@@ -140,7 +140,7 @@ class Importer extends Module_Base {
 		<?php
 		return ob_get_clean();
 	}
-	
+
 	/**
 	 * Adds terms to db
 	 *
@@ -156,7 +156,7 @@ class Importer extends Module_Base {
 			);
 		}
 	}
-	
+
 	/**
 	 * Add custom menu items to menu
 	 *
@@ -186,13 +186,13 @@ class Importer extends Module_Base {
 		}
 
 		$menu_locations = get_theme_mod( 'nav_menu_locations' );
-		
+
 		// Set menu to "tabs" location.
 		$locations['menu-1'] = $menu->term_id;
 
 		set_theme_mod( 'nav_menu_locations', $locations );
 	}
-	
+
 	/**
 	 * Loops through post items and sets data for insertion
 	 *
@@ -204,14 +204,13 @@ class Importer extends Module_Base {
 		$author = get_current_user_id();
 
 		$this->featured_image = $this->upload_cover_image();
-
 		foreach ( $posts as $post ) {
 			$post_data = [
 				'post_title'   => esc_html( $post->title ),
 				'post_date'    => esc_html( $post->children( 'wp', true )->post_date ),
 				'post_parent'  => intval( $post->children( 'wp', true )->post_parent ),
 				'post_type'    => esc_html( $post->children( 'wp', true )->post_type ),
-				'post_content' => wp_kses_post( $post->children( 'content', true )->encoded ),
+				'post_content' => $this->kses_post( $post->children( 'content', true )->encoded ),
 				'post_status'  => 'publish',
 				'post_author'  => intval( $author ),
 				'meta_input'   => $this->attach_meta_data( $post ),
@@ -220,7 +219,7 @@ class Importer extends Module_Base {
 			$post_id = $this->insert_post( $post_data, $post );
 		}
 	}
-	
+
 	/**
 	 * Loops through xml meta data and creates and array
 	 * Add custom imported flag to our posts
@@ -240,7 +239,7 @@ class Importer extends Module_Base {
 
 		return $postmeta;
 	}
-	
+
 	/**
 	 * Attempt to create the post in database
 	 *
@@ -252,7 +251,7 @@ class Importer extends Module_Base {
 		$post_id = wp_insert_post( $post_data, true );
 
 		$comments = $this->insert_comments( $post, $post_id );
-		
+
 		// Set featured image if upload was succesful.
 		if ( ! is_wp_error( $this->featured_image ) ) {
 			$thumbnail = set_post_thumbnail( $post_id, $this->featured_image );
@@ -260,7 +259,7 @@ class Importer extends Module_Base {
 
 		return $post_id;
 	}
-	
+
 	/**
 	 * Insert comments to a certain post if any
 	 *
@@ -284,7 +283,7 @@ class Importer extends Module_Base {
 
 		return $comments;
 	}
-	
+
 	/**
 	 * Register widgets to use in footer sidebar
 	 *
@@ -292,7 +291,7 @@ class Importer extends Module_Base {
 	 */
 	public function setup_widgets() {
 		$existing_widgets = get_option( 'sidebars_widgets' );
-		
+
 		$default_widgets = [
 			'footer'       => $this->get_left_widgets(),
 			'footer-right' => $this->get_right_widgets(),
@@ -304,7 +303,7 @@ class Importer extends Module_Base {
 
 			foreach ( $widgets as $widget_type => $widget ) {
 				$existing_widgets[ $area ] = array_merge( $existing_widgets[ $area ], $this->build_widget_ids( $widget, $widget_type ) );
-	
+
 				// Save widget options in database.
 				update_option( "widget_{$widget_type}", $widget );
 			}
@@ -411,7 +410,7 @@ class Importer extends Module_Base {
 			],
 		];
 	}
-	
+
 	/**
 	 * Define menu links to create
 	 *
@@ -426,7 +425,7 @@ class Importer extends Module_Base {
 			esc_html__( 'Contact', 'material-theme-builder' ),
 		];
 	}
-	
+
 	/**
 	 * Update blog name, and frontpage
 	 *
@@ -447,7 +446,7 @@ class Importer extends Module_Base {
 			update_option( 'page_for_posts', $blog_page->ID );
 		}
 	}
-	
+
 	/**
 	 * Uploads our cover image into the gallery and attach it to most recent post
 	 *
@@ -462,5 +461,56 @@ class Importer extends Module_Base {
 		);
 
 		return $image;
+	}
+
+	/**
+	 * Filters out the same tags as wp_kses_post, but allows tabindex for <div>, <span> and <li> elements
+	 * and allows input and textarea elements.
+	 *
+	 * @param string $content Content to filter through kses.
+	 * @return string
+	 */
+	public function kses_post( $content ) {
+		return wp_kses(
+			$content,
+			array_replace_recursive(
+				wp_kses_allowed_html( 'post' ),
+				[
+					'li'       => [
+						'tabindex' => true,
+					],
+					'div'      => [
+						'tabindex' => true,
+					],
+					'span'     => [
+						'tabindex' => true,
+					],
+					'input'    => [
+						'id'              => true,
+						'name'            => true,
+						'type'            => true,
+						'required'        => true,
+						'class'           => true,
+						'aria-labelledby' => true,
+						'aria-label'      => true,
+						'data-form'       => true,
+						'data-meta'       => true,
+						'data-label'      => true,
+					],
+					'textarea' => [
+						'id'              => true,
+						'name'            => true,
+						'rows'            => true,
+						'required'        => true,
+						'class'           => true,
+						'aria-labelledby' => true,
+						'aria-label'      => true,
+						'data-form'       => true,
+						'data-meta'       => true,
+						'data-label'      => true,
+					],
+				]
+			)
+		);
 	}
 }

@@ -184,6 +184,24 @@ class Test_Plugin extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test for enqueue_admin_assets() method.
+	 *
+	 * @see Plugin::enqueue_admin_assets()
+	 */
+	public function test_enqueue_admin_assets() {
+		$plugin = get_plugin_instance();
+		$plugin->enqueue_admin_assets();
+		$this->assertTrue( wp_style_is( 'material-admin-css', 'enqueued' ) );
+		$this->assertTrue( wp_script_is( 'material-admin-js', 'enqueued' ) );
+
+		$inline_js = wp_scripts()->get_data( 'material-admin-js', 'data' );
+
+		// Assert inline js vars contains restUrl and nonce.
+		$this->assertRegexp( '/restUrl/', $inline_js );
+		$this->assertRegexp( '/nonce/', $inline_js );
+	}
+
+	/**
 	 * Test for enqueue_front_end_assets() method.
 	 *
 	 * @see Plugin::enqueue_front_end_assets()
