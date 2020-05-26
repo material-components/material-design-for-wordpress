@@ -471,7 +471,9 @@ class Importer extends Module_Base {
 	 * @return string
 	 */
 	public function kses_post( $content ) {
-		return wp_kses(
+		add_filter( 'safe_style_css', [ $this, 'safe_style_css' ] );
+
+		$content = wp_kses(
 			$content,
 			array_replace_recursive(
 				wp_kses_allowed_html( 'post' ),
@@ -512,5 +514,21 @@ class Importer extends Module_Base {
 				]
 			)
 		);
+
+		remove_filter( 'safe_style_css', [ $this, 'safe_style_css' ] );
+
+		return $content;
+	}
+
+	/**
+	 * Add `border-radius` css attr to safe list.
+	 * required for back-compat for WP versions less than 5.2.
+	 *
+	 * @param array $attr Attribute list.
+	 * @return array.
+	 */
+	public function safe_style_css( $attr ) {
+		$attr[] = 'border-radius';
+		return $attr;
 	}
 }
