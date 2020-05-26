@@ -13,6 +13,7 @@ use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
 use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 use MaterialThemeBuilder\Customizer\Controls;
+use MaterialThemeBuilder\Importer;
 
 /**
  * Main plugin bootstrap file.
@@ -76,6 +77,13 @@ class Plugin extends Plugin_Base {
 	public $onboarding_rest_controller;
 
 	/**
+	 * Importer class.
+	 *
+	 * @var Importer
+	 */
+	public $importer;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * Priority is 9 because WP_Customize_Widgets::register_settings() happens at
@@ -107,6 +115,9 @@ class Plugin extends Plugin_Base {
 
 		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
 		$this->onboarding_rest_controller->init();
+
+		$this->importer = new Importer( $this );
+		$this->importer->init();
 	}
 
 	/**
@@ -454,29 +465,63 @@ class Plugin extends Plugin_Base {
 	 * @return void
 	 */
 	public function plugin_activated_notice() {
+		delete_transient( 'mtb-activation-notice' );
 		// Theme not active or plugin didn't JUST activate. Stop here.
 		if ( self::THEME_SLUG !== get_template() || ! get_transient( 'mtb-activation-notice' ) ) {
 			return;
 		}
-
+		
 		delete_transient( 'mtb-activation-notice' );
+		?>
 
-		$action_link = sprintf(
-			'<a href="%s">%s</a>',
-			esc_url( admin_url( 'customize.php#material-library' ) ),
-			esc_html__( 'View all Material Components', 'material-theme-builder' )
-		);
+		<div class="notice notice-info is-dismissible material-notice-container">
+			<img
+				src="<?php echo esc_url( $this->asset_url( 'assets/images/plugin-icon.svg' ) ); ?>"
+				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
+			/>
 
-		$this->material_notice(
-			esc_html__( 'See Material Theming in action', 'material-theme-builder' ),
-			sprintf(
-				'%s %s',
-				esc_html__(
-					'Customize and view Material Theming as it gets applied throughout all Material Components.',
-					'material-theme-builder'
-				),
-				$action_link
-			)
-		);
+			<div class="material-notice-container__content">
+				<h3 class="material-notice-container__content__title">
+					<?php esc_html_e( 'See Material Theming in action', 'material-theme-builder' ); ?>
+				</h3>
+				<p class="material-notice-container__content__text">
+					<?php esc_html_e( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer", 'material-theme-builder' ); ?>
+				</p>
+
+				<form action="<?php echo esc_url( admin_url( 'options-general.php?page=material_demo' ) ); ?>" method="post">
+					<div class="material-demo__optin">
+						<input type="checkbox" name="mtb-install-demo" id="mtb-install-demo" value="1" />
+						<label for="mtb-install-demo"><?php esc_html_e( 'Create sample pages using Material blocks', 'material-theme-builder' ); ?></label>
+						<?php wp_nonce_field( 'mtb-install-demo' ); ?>
+					</div>
+
+					<button class="material-demo__button"><?php esc_html_e( "Let's go!", 'material-theme-builder' ); ?></button>
+				</form>
+			</div>
+		</div>
+
+		<?php
+	}
+
+	/**
+	 * Create demo importer page
+	 *
+	 * @action admin_menu
+	 *
+	 * @return void
+	 */
+	public function create_demo_importer_page() {
+		add_options_page( esc_html__( 'Material Demo Importer', 'material-theme-builder' ), esc_html__( 'Material Demo', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
+	}
+
+	/**
+	 * Displays a settings page to import demo content
+	 *
+	 * @return void
+	 */
+	public function render_demo_importer_page() {
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $this->importer->render_page();
+		// phpcs:enable
 	}
 }
