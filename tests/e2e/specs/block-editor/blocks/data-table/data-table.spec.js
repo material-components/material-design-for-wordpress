@@ -3,6 +3,9 @@
  */
 import { createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
 
+/**
+ * Internal dependencies
+ */
 import { selectBlockByName } from '../../../../utils';
 import { insertBlockByKeyword } from '../../../../utils/insert-block';
 
