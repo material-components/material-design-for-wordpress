@@ -38,6 +38,7 @@ import ThemePrompt from './components/theme-prompt';
 ( ( $, api ) => {
 	let notificationCount = false;
 
+	// Material Library button
 	const BUTTON_OPEN_TEXT = __( 'Material Library', 'material-theme-builder' );
 	const BUTTON_CLOSE_TEXT = __( 'Exit Library', 'material-theme-builder' );
 
