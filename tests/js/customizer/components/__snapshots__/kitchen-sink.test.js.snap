@@ -28,7 +28,7 @@ Object {
               Button
             </h4>
             <p>
-              This component can be created as a block in WordPress. Try it out now.
+              This component can be created as a block in WordPress.
             </p>
             <div
               class="mdc-button-wrap"
@@ -111,7 +111,7 @@ Object {
               Card
             </h4>
             <p>
-              This component can be created as a block in WordPress. Try it out now.
+              This component can be created as a block in WordPress.
             </p>
             <div
               style="display: flex;"
@@ -191,7 +191,7 @@ Object {
               Table
             </h4>
             <p>
-              This component can be created as a block in WordPress. Try it out now.
+              This component can be created as a block in WordPress.
             </p>
             <div
               class="mdc-data-table"
@@ -353,7 +353,7 @@ Object {
               Image List
             </h4>
             <p>
-              This component can be created as a block in WordPress. Try it out now.
+              This component can be created as a block in WordPress.
             </p>
             <div>
               <ul
@@ -685,7 +685,7 @@ Object {
               List
             </h4>
             <p>
-              This component can be created as a block in WordPress. Try it out now.
+              This component can be created as a block in WordPress.
             </p>
             <div
               style="display: flex;"
@@ -861,7 +861,7 @@ Object {
               Tab Bar
             </h4>
             <p>
-              This component can be created as a block in WordPress. Try it out now.
+              This component can be created as a block in WordPress.
             </p>
             <div
               class="wp-block-material-tab-bar mdc-tab-bar-container"
@@ -1376,7 +1376,7 @@ Object {
             Button
           </h4>
           <p>
-            This component can be created as a block in WordPress. Try it out now.
+            This component can be created as a block in WordPress.
           </p>
           <div
             class="mdc-button-wrap"
@@ -1459,7 +1459,7 @@ Object {
             Card
           </h4>
           <p>
-            This component can be created as a block in WordPress. Try it out now.
+            This component can be created as a block in WordPress.
           </p>
           <div
             style="display: flex;"
@@ -1539,7 +1539,7 @@ Object {
             Table
           </h4>
           <p>
-            This component can be created as a block in WordPress. Try it out now.
+            This component can be created as a block in WordPress.
           </p>
           <div
             class="mdc-data-table"
@@ -1701,7 +1701,7 @@ Object {
             Image List
           </h4>
           <p>
-            This component can be created as a block in WordPress. Try it out now.
+            This component can be created as a block in WordPress.
           </p>
           <div>
             <ul
@@ -2033,7 +2033,7 @@ Object {
             List
           </h4>
           <p>
-            This component can be created as a block in WordPress. Try it out now.
+            This component can be created as a block in WordPress.
           </p>
           <div
             style="display: flex;"
@@ -2209,7 +2209,7 @@ Object {
             Tab Bar
           </h4>
           <p>
-            This component can be created as a block in WordPress. Try it out now.
+            This component can be created as a block in WordPress.
           </p>
           <div
             class="wp-block-material-tab-bar mdc-tab-bar-container"
