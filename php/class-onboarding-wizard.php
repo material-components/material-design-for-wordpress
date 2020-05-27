@@ -18,7 +18,30 @@ class Onboarding_Wizard extends Module_Base {
 	 */
 	public function render() {
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo '<div class="material-onboarding-wizard"></div>';
+		echo '<section id="material-onboarding-wizard"></section>';
 		// phpcs:enable
+	}
+	
+	/**
+	 * Enqueue Wizard's component
+	 * 
+	 * @action admin_enqueue_scripts
+	 *
+	 * @return void
+	 */
+	public function scripts() {
+		$screen = get_current_screen();
+
+		if ( 'toplevel_page_material-theme-builder' !== $screen->id ) {
+			return;
+		}
+
+		wp_enqueue_script(
+			'material-wizard',
+			$this->plugin->asset_url( 'assets/js/wizard.js' ),
+			[ 'wp-element', 'wp-i18n' ],
+			$this->plugin->asset_version(),
+			true
+		);
 	}
 }
