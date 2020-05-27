@@ -192,6 +192,7 @@ describe( 'Data Table Filters', () => {
 			'editor.BlockEdit',
 			'material/data-table-edit',
 			withDataTableEdit,
+			1,
 		] );
 
 		// eslint-disable-next-line jest/prefer-strict-equal

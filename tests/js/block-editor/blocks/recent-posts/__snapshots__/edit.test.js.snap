@@ -731,7 +731,7 @@ Object {
               class="components-toggle-control__label"
               for="inspector-toggle-control-2"
             >
-              Post content
+              Post excerpt
             </label>
           </div>
         </div>
@@ -745,7 +745,7 @@ Object {
               class="components-base-control__label"
               for="inspector-range-control-2"
             >
-              Max number of words in post content
+              Max number of words in post excerpt
             </label>
             <span
               class="components-range-control__root css-yaebbd-Root exqw8y20"
@@ -756,7 +756,7 @@ Object {
               >
                 <input
                   aria-hidden="false"
-                  aria-label="Max number of words in post content"
+                  aria-label="Max number of words in post excerpt"
                   class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
                   id="inspector-range-control-2"
                   max="30"
@@ -794,7 +794,7 @@ Object {
                 </span>
               </span>
               <input
-                aria-label="Max number of words in post content"
+                aria-label="Max number of words in post excerpt"
                 class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="30"
@@ -1789,7 +1789,7 @@ Object {
             class="components-toggle-control__label"
             for="inspector-toggle-control-2"
           >
-            Post content
+            Post excerpt
           </label>
         </div>
       </div>
@@ -1803,7 +1803,7 @@ Object {
             class="components-base-control__label"
             for="inspector-range-control-2"
           >
-            Max number of words in post content
+            Max number of words in post excerpt
           </label>
           <span
             class="components-range-control__root css-yaebbd-Root exqw8y20"
@@ -1814,7 +1814,7 @@ Object {
             >
               <input
                 aria-hidden="false"
-                aria-label="Max number of words in post content"
+                aria-label="Max number of words in post excerpt"
                 class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
                 id="inspector-range-control-2"
                 max="30"
@@ -1852,7 +1852,7 @@ Object {
               </span>
             </span>
             <input
-              aria-label="Max number of words in post content"
+              aria-label="Max number of words in post excerpt"
               class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
               inputmode="decimal"
               max="30"

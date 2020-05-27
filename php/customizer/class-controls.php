@@ -69,7 +69,7 @@ class Controls extends Module_Base {
 		// Add all controls in the "Corner Styles" section.
 		$this->add_corner_styles_controls();
 
-		// Add all controls in the "Icon Collections" section.
+		// Add all controls in the "Icon Styles" section.
 		$this->add_icon_collection_controls();
 	}
 
@@ -102,9 +102,9 @@ class Controls extends Module_Base {
 		$sections = [
 			'style'         => __( 'Style', 'material-theme-builder' ),
 			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
-			'typography'    => __( 'Typography', 'material-theme-builder' ),
+			'typography'    => __( 'Typography (Font Styles)', 'material-theme-builder' ),
 			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
-			'icons'         => __( 'Icon Types', 'material-theme-builder' ),
+			'icons'         => __( 'Icon Style', 'material-theme-builder' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
@@ -332,7 +332,7 @@ class Controls extends Module_Base {
 	}
 
 	/**
-	 * Add all controls in the "Icon Collections" section.
+	 * Add all controls in the "Icon Styles" section.
 	 *
 	 * @return void
 	 */
@@ -531,7 +531,7 @@ class Controls extends Module_Base {
 	}
 
 	/**
-	 * Get Icon collection style.
+	 * Get Icon style.
 	 *
 	 * @param string $replace String to replace `-` with.
 	 *
