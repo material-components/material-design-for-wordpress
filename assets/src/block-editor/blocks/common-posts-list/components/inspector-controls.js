@@ -92,14 +92,14 @@ const CommonPostsListInspectorControls = ( {
 					onChange={ setter( 'displayPostDate' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post content', 'material-theme-builder' ) }
+					label={ __( 'Post excerpt', 'material-theme-builder' ) }
 					checked={ displayPostContent }
 					onChange={ setter( 'displayPostContent' ) }
 				/>
 				{ displayPostContent && (
 					<RangeControl
 						label={ __(
-							'Max number of words in post content',
+							'Max number of words in post excerpt',
 							'material-theme-builder'
 						) }
 						value={ postContentLength }
