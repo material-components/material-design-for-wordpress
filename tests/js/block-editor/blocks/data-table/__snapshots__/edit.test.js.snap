@@ -21,6 +21,169 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
+      <div
+        class="components-panel__body blocks-table-settings is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Table settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-4"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-4"
+            >
+              Header section
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-5"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-5"
+            >
+              Footer section
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body block-editor-panel-color-gradient-settings"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="false"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17 9.4L12 14 7 9.4l-1 1.2 6 5.4 6-5.4z"
+                />
+              </svg>
+            </span>
+            <span
+              class="block-editor-panel-color-gradient-settings__panel-title"
+            >
+              Color settings
+              <span
+                aria-label="(background color: color Subtle pale blue)"
+                class="component-color-indicator"
+                style="background: rgb(231, 245, 254);"
+              />
+            </span>
+          </button>
+        </h2>
+      </div>
       <figure
         class="wp-block-table is-style-material"
       >
@@ -292,6 +455,169 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="components-panel__body blocks-table-settings is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Table settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-4"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-4"
+          >
+            Header section
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-5"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-5"
+          >
+            Footer section
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body block-editor-panel-color-gradient-settings"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="false"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 9.4L12 14 7 9.4l-1 1.2 6 5.4 6-5.4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="block-editor-panel-color-gradient-settings__panel-title"
+          >
+            Color settings
+            <span
+              aria-label="(background color: color Subtle pale blue)"
+              class="component-color-indicator"
+              style="background: rgb(231, 245, 254);"
+            />
+          </span>
+        </button>
+      </h2>
+    </div>
     <figure
       class="wp-block-table is-style-material"
     >
@@ -636,6 +962,169 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
+      <div
+        class="components-panel__body blocks-table-settings is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Table settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-0"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-0"
+            >
+              Header section
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-1"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-1"
+            >
+              Footer section
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body block-editor-panel-color-gradient-settings"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="false"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17 9.4L12 14 7 9.4l-1 1.2 6 5.4 6-5.4z"
+                />
+              </svg>
+            </span>
+            <span
+              class="block-editor-panel-color-gradient-settings__panel-title"
+            >
+              Color settings
+              <span
+                aria-label="(background color: color Subtle pale blue)"
+                class="component-color-indicator"
+                style="background: rgb(231, 245, 254);"
+              />
+            </span>
+          </button>
+        </h2>
+      </div>
       <figure
         class="wp-block-table is-style-material"
       >
@@ -912,6 +1401,169 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="components-panel__body blocks-table-settings is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Table settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-0"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-0"
+          >
+            Header section
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-1"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-1"
+          >
+            Footer section
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body block-editor-panel-color-gradient-settings"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="false"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 9.4L12 14 7 9.4l-1 1.2 6 5.4 6-5.4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="block-editor-panel-color-gradient-settings__panel-title"
+          >
+            Color settings
+            <span
+              aria-label="(background color: color Subtle pale blue)"
+              class="component-color-indicator"
+              style="background: rgb(231, 245, 254);"
+            />
+          </span>
+        </button>
+      </h2>
+    </div>
     <figure
       class="wp-block-table is-style-material"
     >
@@ -1261,69 +1913,177 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
-      <figure
-        class="wp-block-table is-style-material"
+      <div
+        class="components-placeholder is-small"
       >
+        <iframe
+          aria-hidden="true"
+          aria-label="resize-listener"
+          frameborder="0"
+          src="about:blank"
+          style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+          tabindex="-1"
+        />
         <div
-          class="mdc-data-table"
+          class="components-placeholder__label"
         >
-          <table
-            class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
-          />
-        </div>
-        <div
-          class="mdc-data-table__caption"
-        >
-          <figcaption
-            aria-label="Write caption…"
-            aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable"
-            contenteditable="true"
-            role="textbox"
-            style="white-space: pre-wrap;"
+          <i
+            class="material-icons-outlined"
+            size="24"
           >
-            
-            ﻿
-            <span
-              contenteditable="false"
-              data-rich-text-placeholder="Write caption…"
-            />
-          </figcaption>
+            grid_on
+          </i>
+          Material Data Table
         </div>
-      </figure>
+        <div
+          class="components-placeholder__instructions"
+        >
+          Data tables display sets of data across rows and columns.
+        </div>
+        <div
+          class="components-placeholder__fieldset"
+        >
+          <form
+            class="blocks-table__placeholder-form"
+          >
+            <div
+              class="components-base-control blocks-table__placeholder-input"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-text-control-0"
+                >
+                  Column Count
+                </label>
+                <input
+                  class="components-text-control__input"
+                  id="inspector-text-control-0"
+                  min="1"
+                  type="number"
+                  value="2"
+                />
+              </div>
+            </div>
+            <div
+              class="components-base-control blocks-table__placeholder-input"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-text-control-1"
+                >
+                  Row Count
+                </label>
+                <input
+                  class="components-text-control__input"
+                  id="inspector-text-control-1"
+                  min="1"
+                  type="number"
+                  value="2"
+                />
+              </div>
+            </div>
+            <button
+              class="components-button blocks-table__placeholder-button is-primary"
+              type="submit"
+            >
+              Create Table
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <figure
-      class="wp-block-table is-style-material"
+    <div
+      class="components-placeholder is-small"
     >
+      <iframe
+        aria-hidden="true"
+        aria-label="resize-listener"
+        frameborder="0"
+        src="about:blank"
+        style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+        tabindex="-1"
+      />
       <div
-        class="mdc-data-table"
+        class="components-placeholder__label"
       >
-        <table
-          class="has-subtle-pale-blue-background-color has-fixed-layout has-background"
-        />
-      </div>
-      <div
-        class="mdc-data-table__caption"
-      >
-        <figcaption
-          aria-label="Write caption…"
-          aria-multiline="true"
-          class="rich-text block-editor-rich-text__editable"
-          contenteditable="true"
-          role="textbox"
-          style="white-space: pre-wrap;"
+        <i
+          class="material-icons-outlined"
+          size="24"
         >
-          
-          ﻿
-          <span
-            contenteditable="false"
-            data-rich-text-placeholder="Write caption…"
-          />
-        </figcaption>
+          grid_on
+        </i>
+        Material Data Table
       </div>
-    </figure>
+      <div
+        class="components-placeholder__instructions"
+      >
+        Data tables display sets of data across rows and columns.
+      </div>
+      <div
+        class="components-placeholder__fieldset"
+      >
+        <form
+          class="blocks-table__placeholder-form"
+        >
+          <div
+            class="components-base-control blocks-table__placeholder-input"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-text-control-0"
+              >
+                Column Count
+              </label>
+              <input
+                class="components-text-control__input"
+                id="inspector-text-control-0"
+                min="1"
+                type="number"
+                value="2"
+              />
+            </div>
+          </div>
+          <div
+            class="components-base-control blocks-table__placeholder-input"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-text-control-1"
+              >
+                Row Count
+              </label>
+              <input
+                class="components-text-control__input"
+                id="inspector-text-control-1"
+                min="1"
+                type="number"
+                value="2"
+              />
+            </div>
+          </div>
+          <button
+            class="components-button blocks-table__placeholder-button is-primary"
+            type="submit"
+          >
+            Create Table
+          </button>
+        </form>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1400,6 +2160,167 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
+      <div
+        class="components-panel__body blocks-table-settings is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Table settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle"
+            >
+              <input
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-2"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__off"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 6 6"
+                width="6"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-2"
+            >
+              Header section
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle"
+            >
+              <input
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-3"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__off"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 6 6"
+                width="6"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-3"
+            >
+              Footer section
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body block-editor-panel-color-gradient-settings"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="false"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17 9.4L12 14 7 9.4l-1 1.2 6 5.4 6-5.4z"
+                />
+              </svg>
+            </span>
+            <span
+              class="block-editor-panel-color-gradient-settings__panel-title"
+            >
+              Color settings
+              <span
+                aria-label="(background color: color Subtle pale blue)"
+                class="component-color-indicator"
+                style="background: rgb(231, 245, 254);"
+              />
+            </span>
+          </button>
+        </h2>
+      </div>
       <figure
         class="wp-block-table is-style-material"
       >
@@ -1576,6 +2497,167 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="components-panel__body blocks-table-settings is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Table settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle"
+          >
+            <input
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-2"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__off"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 6 6"
+              width="6"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-2"
+          >
+            Header section
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle"
+          >
+            <input
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-3"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__off"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 6 6"
+              width="6"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-3"
+          >
+            Footer section
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body block-editor-panel-color-gradient-settings"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="false"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17 9.4L12 14 7 9.4l-1 1.2 6 5.4 6-5.4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="block-editor-panel-color-gradient-settings__panel-title"
+          >
+            Color settings
+            <span
+              aria-label="(background color: color Subtle pale blue)"
+              class="component-color-indicator"
+              style="background: rgb(231, 245, 254);"
+            />
+          </span>
+        </button>
+      </h2>
+    </div>
     <figure
       class="wp-block-table is-style-material"
     >

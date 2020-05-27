@@ -10,6 +10,15 @@ import { registerStore } from '@wordpress/data';
  */
 import Edit from '../../../../../assets/src/block-editor/blocks/data-table/edit';
 
+// Mock the <InspectorControls> component only, so that the other components in this package behave as usual.
+jest.mock( '@wordpress/block-editor', () => {
+	const original = require.requireActual( '@wordpress/block-editor' );
+	return {
+		...original,
+		InspectorControls: ( { children } ) => children,
+	};
+} );
+
 registerStore( 'core/blocks', {
 	reducer: jest.fn(),
 	selectors: {
@@ -170,5 +179,61 @@ describe( 'Data Table Edit', () => {
 
 		fireEvent.click( cells[ 0 ] );
 		expect( cells[ 0 ].classList.contains( 'is-selected' ) ).toBe( true );
+	} );
+
+	it( 'shows place holder when table is empty', async () => {
+		const setAttributes = jest.fn();
+		const { container } = setup( {
+			attributes: { ...attributes, head: [], body: [], foot: [] },
+			setAttributes,
+		} );
+
+		expect(
+			container.querySelector( '.blocks-table__placeholder-form' )
+		).toBeDefined();
+		expect(
+			container.querySelectorAll( '.blocks-table__placeholder-form input' )
+		).toHaveLength( 2 );
+
+		const createBtn = container.querySelector(
+			'.blocks-table__placeholder-form button'
+		);
+
+		fireEvent.click( createBtn );
+		expect( setAttributes ).toHaveBeenCalledTimes( 1 );
+		expect( setAttributes.mock.calls[ 0 ][ 0 ] ).toStrictEqual( {
+			body: [
+				{
+					cells: [
+						{ content: '', tag: 'td' },
+						{ content: '', tag: 'td' },
+					],
+				},
+				{
+					cells: [
+						{ content: '', tag: 'td' },
+						{ content: '', tag: 'td' },
+					],
+				},
+			],
+		} );
+	} );
+
+	it( 'toggles header section', async () => {
+		const setAttributes = jest.fn();
+		const { container } = setup( { attributes, setAttributes } );
+		const toggles = container.querySelectorAll(
+			'.components-form-toggle__input'
+		);
+
+		await fireEvent.click( toggles[ 0 ] );
+		expect( setAttributes ).toHaveBeenCalledWith( {
+			head: [],
+		} );
+
+		await fireEvent.click( toggles[ 1 ] );
+		expect( setAttributes ).toHaveBeenCalledWith( {
+			foot: [],
+		} );
 	} );
 } );
