@@ -14,6 +14,7 @@ use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 use MaterialThemeBuilder\Importer;
+use MaterialThemeBuilder\Onboarding_Wizard;
 
 /**
  * Main plugin bootstrap file.
@@ -82,6 +83,13 @@ class Plugin extends Plugin_Base {
 	 * @var Importer
 	 */
 	public $importer;
+	
+	/**
+	 * Wizard class.
+	 *
+	 * @var mixed
+	 */
+	public $wizard;
 
 	/**
 	 * Initiate the plugin resources.
@@ -118,6 +126,9 @@ class Plugin extends Plugin_Base {
 
 		$this->importer = new Importer( $this );
 		$this->importer->init();
+
+		$this->wizard = new Onboarding_Wizard( $this );
+		$this->wizard->init();
 	}
 
 	/**
@@ -523,5 +534,23 @@ class Plugin extends Plugin_Base {
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $this->importer->render_page();
 		// phpcs:enable
+	}
+	
+	/**
+	 * Create onboarding wizard page
+	 *
+	 * @action admin_menu
+	 * 
+	 * @return void
+	 */
+	public function create_onboarding_wizard() {
+		add_menu_page(
+			esc_html__( 'Material Design for WordPress', 'material-theme-builder' ),
+			esc_html__( 'Material', 'material-theme-builder' ),
+			'manage_options',
+			'material-theme-builder',
+			[ $this->wizard, 'render' ],
+			trailingslashit( $this->dir_url ) . 'assets/images/plugin-icon.svg'
+		);
 	}
 }
