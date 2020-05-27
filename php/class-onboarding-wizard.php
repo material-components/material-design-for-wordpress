@@ -18,18 +18,18 @@ class Onboarding_Wizard extends Module_Base {
 	 */
 	public function render() {
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo '<section id="material-onboarding-wizard"></section>';
+		echo '<section id="material-onboarding-wizard" class="mdc-typography"></section>';
 		// phpcs:enable
 	}
 	
 	/**
-	 * Enqueue Wizard's component
+	 * Enqueue Wizard's assets
 	 * 
 	 * @action admin_enqueue_scripts
 	 *
 	 * @return void
 	 */
-	public function scripts() {
+	public function enqueue_assets() {
 		$screen = get_current_screen();
 
 		if ( 'toplevel_page_material-theme-builder' !== $screen->id ) {
@@ -42,6 +42,13 @@ class Onboarding_Wizard extends Module_Base {
 			[ 'wp-element', 'wp-i18n' ],
 			$this->plugin->asset_version(),
 			true
+		);
+
+		wp_enqueue_style(
+			'material-wizard',
+			$this->plugin->asset_url( 'assets/css/wizard-compiled.css' ),
+			[],
+			$this->plugin->asset_version()
 		);
 	}
 }
