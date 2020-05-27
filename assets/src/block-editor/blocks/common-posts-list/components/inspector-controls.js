@@ -92,7 +92,7 @@ const CommonPostsListInspectorControls = ( {
 					onChange={ setter( 'displayPostDate' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post content', 'material-theme-builder' ) }
+					label={ __( 'Post excerpt', 'material-theme-builder' ) }
 					checked={ displayPostContent }
 					onChange={ setter( 'displayPostContent' ) }
 				/>
