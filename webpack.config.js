@@ -164,6 +164,21 @@ const overrides = {
 	],
 };
 
+const wizard = {
+	...defaultConfig,
+	...sharedConfig,
+	entry: {
+		wizard: [ './assets/src/wizard/index.js', './assets/css/src/wizard.css' ],
+	},
+	plugins: [
+		...sharedConfig.plugins,
+		new WebpackBar( {
+			name: 'wizard',
+			color: '#707a8a', // 🧙🏼‍♂️
+		} ),
+	],
+};
+
 module.exports = [
 	// prettier-ignore
 	blockEditor,
@@ -171,4 +186,5 @@ module.exports = [
 	frontEnd,
 	admin,
 	overrides,
+	wizard,
 ];
