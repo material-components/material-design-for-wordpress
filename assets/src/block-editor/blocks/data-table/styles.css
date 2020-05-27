@@ -1,20 +1,20 @@
-.wp-block-table.is-style-material:last-of-type {
-	display: none;
-}
-
 .is-selected > .mdc-data-table {
 	overflow: hidden !important;
 }
 
 .mdc-data-table {
 	width: 100%;
+
+	tfoot {
+		border: none;
+	}
 }
 
 .mdc-data-table__caption {
 	padding: 10px 0;
 }
 
-.mdc-data-table__header-row,
+.mdc-data-table__header-cell,
 .mdc-data-table__cell {
 
 	&.is-selected {
