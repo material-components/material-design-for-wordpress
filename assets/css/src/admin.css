@@ -40,3 +40,12 @@
 		}
 	}
 }
+
+#adminmenu .toplevel_page_material-theme-builder {
+
+	& .wp-menu-image img {
+		opacity: 1;
+		padding-top: 7px;
+		width: 20px;
+	}
+}
