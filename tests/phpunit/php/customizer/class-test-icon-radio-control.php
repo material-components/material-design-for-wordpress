@@ -84,7 +84,7 @@ class Test_Icon_Radio_Control extends \WP_UnitTestCase {
 			$wp_customize,
 			'mtb_icon_collection',
 			[
-				'label'    => 'Icon Collection',
+				'label'    => 'Icon Style',
 				'section'  => 'icon',
 				'priority' => 10,
 				'css_var'  => '--mdc-icon-font',

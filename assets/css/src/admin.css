@@ -15,4 +15,28 @@
 			margin: 0;
 		}
 	}
+
+	.material-demo__optin {
+		align-items: center;
+		display: flex;
+		margin-bottom: 1rem;
+
+		& input {
+			margin-bottom: -5px;
+			margin-right: 5px;
+		}
+	}
+
+	.material-demo__button {
+		background: transparent;
+		border: 0;
+		color: #0073aa;
+		padding: 0;
+		text-align: left;
+
+		&:hover {
+			cursor: pointer;
+			text-decoration: underline;
+		}
+	}
 }
