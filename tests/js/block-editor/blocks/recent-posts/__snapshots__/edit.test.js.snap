@@ -731,7 +731,7 @@ Object {
               class="components-toggle-control__label"
               for="inspector-toggle-control-2"
             >
-              Post content
+              Post excerpt
             </label>
           </div>
         </div>
@@ -1789,7 +1789,7 @@ Object {
             class="components-toggle-control__label"
             for="inspector-toggle-control-2"
           >
-            Post content
+            Post excerpt
           </label>
         </div>
       </div>

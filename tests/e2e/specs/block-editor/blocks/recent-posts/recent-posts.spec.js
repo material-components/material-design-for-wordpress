@@ -109,25 +109,25 @@ describe( 'blocks: material/recent-posts', () => {
 		).toHaveLength( 1 );
 	} );
 
-	it( 'should have a "Post content" toggle selection attribute with default being on', async () => {
+	it( 'should have a "Post excerpt" toggle selection attribute with default being on', async () => {
 		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
 			await page.$x(
-				"//label[contains(text(), 'Post content')]/preceding-sibling::span/input[@type = 'checkbox' and @checked]"
+				"//label[contains(text(), 'Post excerpt')]/preceding-sibling::span/input[@type = 'checkbox' and @checked]"
 			)
 		).toHaveLength( 1 );
 	} );
 
-	// TODO: check that this control is not showing when "Post Content" is not selected
+	// TODO: check that this control is not showing when "Post excerpt" is not selected
 	it( 'should have a "Max number of words in post excerpt" range selection attribute with default being 20', async () => {
 		await insertBlock( 'Recent Posts Cards' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
 			await page.$x(
-				"//input[contains(@class, 'components-range-control__number') and contains(@aria-label, 'Max number of words in post content') and contains(@value, '20')]"
+				"//input[contains(@class, 'components-range-control__number') and contains(@aria-label, 'Max number of words in post excerpt') and contains(@value, '20')]"
 			)
 		).toHaveLength( 1 );
 	} );
