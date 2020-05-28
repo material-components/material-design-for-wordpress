@@ -5,6 +5,7 @@ import { StepProvider } from './context';
 import { STEPS } from './steps';
 import ProgressBar from './components/progress-bar';
 import Navigation from './components/navigation';
+import Content from './components/content';
 
 const Wizard = () => {
 	const [ step, setStep ] = useState( STEPS.WELCOME );
@@ -58,7 +59,7 @@ const Wizard = () => {
 					</div>
 
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-						wrapper
+						<Content />
 					</div>
 
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 material-wizard__navigation">
