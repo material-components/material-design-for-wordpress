@@ -1,0 +1,8 @@
+.material-wizard {
+	--mdc-typography-headline5-font-family: "Roboto Mono", monospace;
+	--mtb-wizard-primary-color: #212121;
+
+	& .mdc-button {
+		--mdc-theme-primary: var(--mtb-wizard-primary-color);
+	}
+}

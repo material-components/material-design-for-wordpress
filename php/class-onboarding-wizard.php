@@ -36,6 +36,14 @@ class Onboarding_Wizard extends Module_Base {
 			return;
 		}
 
+		// Get Roboto Mono and icons.
+		wp_enqueue_style(
+			'google-fonts',
+			'//fonts.googleapis.com/css2?family=Roboto+Mono&family=Material+Icons',
+			[],
+			$this->plugin->asset_version()
+		);
+
 		wp_enqueue_script(
 			'material-wizard',
 			$this->plugin->asset_url( 'assets/js/wizard.js' ),
@@ -47,7 +55,7 @@ class Onboarding_Wizard extends Module_Base {
 		wp_enqueue_style(
 			'material-wizard',
 			$this->plugin->asset_url( 'assets/css/wizard-compiled.css' ),
-			[],
+			[ 'google-fonts' ],
 			$this->plugin->asset_version()
 		);
 	}
