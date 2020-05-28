@@ -1,14 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { StepProvider } from './context';
 import { STEPS } from './steps';
 import ProgressBar from './components/progress-bar';
+import Navigation from './components/navigation';
 
 const Wizard = () => {
+	const [ step, setStep ] = useState( STEPS.WELCOME );
+	const [ previousSteps, setPreviousSteps ] = useState( [] );
+	const steps = Object.keys( STEPS );
+
+	const nextStep = () => {
+		const stepIndex = steps.indexOf( step );
+
+		if ( stepIndex + 1 === steps.length ) {
+			return step;
+		}
+
+		setPreviousSteps( [ step, ...previousSteps ] );
+		setStep( steps[ stepIndex + 1 ] );
+	};
+
+	const previousStep = () => {
+		const stepIndex = steps.indexOf( step );
+
+		if ( stepIndex === 1 ) {
+			setPreviousSteps( [] );
+		} else {
+			setPreviousSteps( previousSteps.filter( item => item !== step ) );
+		}
+
+		setStep( steps[ stepIndex - 1 ] );
+	};
+
 	const initialContext = {
-		active: STEPS.WELCOME,
-		previous: [],
+		active: step,
+		previous: previousSteps,
+		nextStep,
+		previousStep,
 	};
 
 	return (
@@ -29,6 +59,10 @@ const Wizard = () => {
 
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
 						wrapper
+					</div>
+
+					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 material-wizard__navigation">
+						<Navigation />
 					</div>
 				</div>
 			</div>

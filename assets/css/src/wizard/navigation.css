@@ -1,0 +1,6 @@
+.material-wizard__navigation {
+
+	& .material-wizard__next {
+		float: right;
+	}
+}
