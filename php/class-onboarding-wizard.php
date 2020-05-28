@@ -44,6 +44,13 @@ class Onboarding_Wizard extends Module_Base {
 			$this->plugin->asset_version()
 		);
 
+		wp_enqueue_style(
+			'material-wizard',
+			$this->plugin->asset_url( 'assets/css/wizard-compiled.css' ),
+			[ 'google-fonts' ],
+			$this->plugin->asset_version()
+		);
+
 		wp_enqueue_script(
 			'material-wizard',
 			$this->plugin->asset_url( 'assets/js/wizard.js' ),
@@ -52,11 +59,13 @@ class Onboarding_Wizard extends Module_Base {
 			true
 		);
 
-		wp_enqueue_style(
+		wp_localize_script(
 			'material-wizard',
-			$this->plugin->asset_url( 'assets/css/wizard-compiled.css' ),
-			[ 'google-fonts' ],
-			$this->plugin->asset_version()
+			'mtbWizard',
+			[
+				'adminUrl'    => esc_url( admin_url() ),
+				'settingsUrl' => esc_url( admin_url( 'options-general.php?page=material_demo' ) ),
+			]
 		);
 	}
 }

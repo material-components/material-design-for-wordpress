@@ -1,3 +1,4 @@
+/* global mtbWizard */
 import React, { useContext } from 'react';
 import { __ } from '@wordpress/i18n';
 import Button from './button';
@@ -13,6 +14,7 @@ const Navigation = () => {
 				<Button
 					style="material-wizard__close"
 					text={ __( 'Close', 'material-theme-builder' ) }
+					link={ mtbWizard.settingsUrl }
 				/>
 			</div>
 			<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
