@@ -436,7 +436,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin->render_demo_importer_page();
 		$output = ob_get_clean();
 
-		$this->assertContains( '<h2>Material Theming Demo</h2>', $output );
+		$this->assertContains( '<h1>Material Settings</h1>', $output );
 	}
 
 	/**
