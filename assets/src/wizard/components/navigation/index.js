@@ -45,7 +45,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								link={ mtbWizard.settingsUrl }
+								link={ mtbWizard.pagesUrl }
 							/>
 						) }
 					</div>

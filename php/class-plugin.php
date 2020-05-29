@@ -522,7 +522,7 @@ class Plugin extends Plugin_Base {
 	 * @return void
 	 */
 	public function create_demo_importer_page() {
-		add_options_page( esc_html__( 'Material Demo Importer', 'material-theme-builder' ), esc_html__( 'Material Demo', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
+		add_options_page( esc_html__( 'Material Settings', 'material-theme-builder' ), esc_html__( 'Material Settings', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
 	}
 
 	/**
