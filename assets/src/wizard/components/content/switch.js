@@ -1,17 +1,21 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useContext } from 'react';
 import { MDCSwitch } from '@material/switch';
+import StepContext from '../../context';
 
-const Switch = ( { id, text } ) => {
+const Switch = ( { id, text, checked } ) => {
 	useEffect( () => {
 		new MDCSwitch(
 			document.querySelector( `.material-wizard-switch__${ id }` )
 		);
-	}, [] );
+	} );
+
+	const { toggleAddon } = useContext( StepContext );
 
 	return (
 		<Fragment>
 			<div
-				className={ `mdc-switch material-wizard-switch material-wizard-switch__${ id }` }
+				className={ `mdc-switch material-wizard-switch material-wizard-switch__${ id } ${ checked &&
+					'mdc-switch--checked' }` }
 			>
 				<div className="mdc-switch__track"></div>
 				<div className="mdc-switch__thumb-underlay">
@@ -21,7 +25,8 @@ const Switch = ( { id, text } ) => {
 						id={ id }
 						className="mdc-switch__native-control"
 						role="switch"
-						aria-checked="false"
+						aria-checked={ checked }
+						onChange={ () => toggleAddon( id ) }
 					/>
 				</div>
 			</div>

@@ -10,6 +10,7 @@ import Content from './components/content';
 const Wizard = () => {
 	const [ step, setStep ] = useState( STEPS.WELCOME );
 	const [ previousSteps, setPreviousSteps ] = useState( [] );
+	const [ addons, setAddons ] = useState( [] );
 	const steps = Object.keys( STEPS );
 
 	const nextStep = () => {
@@ -35,9 +36,19 @@ const Wizard = () => {
 		setStep( steps[ stepIndex - 1 ] );
 	};
 
+	const toggleAddon = id => {
+		if ( ! addons.includes( id ) ) {
+			setAddons( [ id, ...addons ] );
+		} else {
+			setAddons( addons.filter( item => item !== id ) );
+		}
+	};
+
 	const initialContext = {
 		active: step,
 		previous: previousSteps,
+		addons,
+		toggleAddon,
 		nextStep,
 		previousStep,
 	};

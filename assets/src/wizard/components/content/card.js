@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import StepContext from '../../context';
 import Switch from './switch';
 
 const Card = props => {
 	const imageSpan = props.imageSpan || 4;
+	const { addons } = useContext( StepContext );
+	const checked = props.switch && addons.includes( props.switch );
+
 	let contentSpan = props.contentSpan || 12 - imageSpan;
 
 	if ( props.switch ) {
@@ -25,7 +29,7 @@ const Card = props => {
 				<div
 					className={ `mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--align-middle` }
 				>
-					<Switch id={ props.switch } />
+					<Switch id={ props.switch } checked={ checked } />
 				</div>
 			) }
 		</div>
