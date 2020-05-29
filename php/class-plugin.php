@@ -399,10 +399,17 @@ class Plugin extends Plugin_Base {
 
 	/**
 	 * Returns the status of the material theme
+	 * Don't display in installation wizard
 	 *
 	 * @return string
 	 */
 	public function material_theme_status() {
+		$screen = get_current_screen();
+
+		if ( 'toplevel_page_material-theme-builder' === $screen->id ) {
+			return 'ok';
+		}
+
 		if ( ! $this->theme_installed() ) {
 			return 'install';
 		}
