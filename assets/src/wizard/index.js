@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { render } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
 import { StepProvider } from './context';
 import { STEPS } from './steps';
 import ProgressBar from './components/progress-bar';
 import Navigation from './components/navigation';
 import Content from './components/content';
+import Header from './components/header';
 
 const Wizard = () => {
 	const [ step, setStep ] = useState( STEPS.WELCOME );
@@ -58,12 +58,7 @@ const Wizard = () => {
 			<div className="material-wizard mdc-layout-grid">
 				<div className="mdc-layout-grid__inner">
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--align-middle">
-						<h2 className="mdc-typography--headline5">
-							{ __(
-								'Material Design for WordPress',
-								'material-theme-builder'
-							) }
-						</h2>
+						<Header />
 					</div>
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--align-middle">
 						<ProgressBar />

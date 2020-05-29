@@ -5,4 +5,8 @@
 	& .mdc-button {
 		--mdc-theme-primary: var(--mtb-wizard-primary-color);
 	}
+
+	& h4 {
+		margin-top: 0;
+	}
 }

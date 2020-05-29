@@ -1,3 +1,4 @@
+/* global mtbWizard */
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 import Card from './card';
@@ -12,7 +13,7 @@ const Work = () => {
 				) }
 			</h3>
 
-			<Card image="https://source.unsplash.com/random/284x213">
+			<Card image={ mtbWizard.placeholderSmall }>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Customize Your Material Theme', 'material-theme-builder' ) }
 				</h4>
@@ -27,7 +28,7 @@ const Work = () => {
 
 			<hr />
 
-			<Card image="https://source.unsplash.com/random/284x213">
+			<Card image={ mtbWizard.placeholderSmall }>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Build With Material Blocks', 'material-theme-builder' ) }
 				</h4>
@@ -42,7 +43,7 @@ const Work = () => {
 
 			<hr />
 
-			<Card image="https://source.unsplash.com/random/284x213">
+			<Card image={ mtbWizard.placeholderSmall }>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Apply Your Theme', 'material-theme-builder' ) }
 				</h4>
