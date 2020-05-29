@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import StepContext from '../../context';
-import { Check } from '../check';
+import { Check } from '../svg/check';
 
 const Step = props => {
 	const stepContext = useContext( StepContext );

@@ -1,3 +1,4 @@
+/* global mtbWizard */
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 import Card from './card';
@@ -5,7 +6,7 @@ import Card from './card';
 const Welcome = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">
-			<Card image="https://source.unsplash.com/random/370x370" imageSpan="5">
+			<Card image={ mtbWizard.placeholderImage } imageSpan="5">
 				<h3 className="mdc-typography--headline4">
 					{ __( 'Start building', 'material-theme-builder' ) }
 				</h3>

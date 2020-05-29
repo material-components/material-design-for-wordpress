@@ -5,6 +5,7 @@
 .material-wizard {
 
 	& h2 {
+		margin-left: 1rem;
 		text-transform: uppercase;
 	}
 

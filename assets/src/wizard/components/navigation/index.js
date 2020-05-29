@@ -7,6 +7,7 @@ import { STEPS } from '../../steps';
 
 const Navigation = () => {
 	const { active, previousStep, nextStep } = useContext( StepContext );
+	const isLast = active === STEPS.WORK;
 
 	return (
 		<div className="mdc-layout-grid__inner">
@@ -31,12 +32,22 @@ const Navigation = () => {
 					</div>
 
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-						<Button
-							style="material-wizard__next mdc-button--raised"
-							text={ __( 'Next Step', 'material-theme-builder' ) }
-							trailingIcon="navigate_next"
-							onClick={ nextStep }
-						/>
+						{ ! isLast && (
+							<Button
+								style="material-wizard__next mdc-button--raised"
+								text={ __( 'Next Step', 'material-theme-builder' ) }
+								trailingIcon="navigate_next"
+								onClick={ nextStep }
+							/>
+						) }
+						{ isLast && (
+							<Button
+								style="material-wizard__next mdc-button--raised"
+								text={ __( 'Finish', 'material-theme-builder' ) }
+								trailingIcon="navigate_next"
+								link={ mtbWizard.settingsUrl }
+							/>
+						) }
 					</div>
 				</div>
 			</div>
