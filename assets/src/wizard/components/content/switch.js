@@ -1,14 +1,7 @@
-import React, { Fragment, useEffect, useContext } from 'react';
-import { MDCSwitch } from '@material/switch';
+import React, { Fragment, useContext } from 'react';
 import StepContext from '../../context';
 
 const Switch = ( { id, text, checked } ) => {
-	useEffect( () => {
-		new MDCSwitch(
-			document.querySelector( `.material-wizard-switch__${ id }` )
-		);
-	} );
-
 	const { toggleAddon } = useContext( StepContext );
 
 	return (
