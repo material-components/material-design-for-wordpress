@@ -78,6 +78,13 @@ class Plugin extends Plugin_Base {
 	public $onboarding_rest_controller;
 
 	/**
+	 * Onboarding REST Controller class.
+	 *
+	 * @var Importer_REST_Controller
+	 */
+	public $importer_rest_controller;
+
+	/**
 	 * Importer class.
 	 *
 	 * @var Importer
@@ -123,6 +130,9 @@ class Plugin extends Plugin_Base {
 
 		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
 		$this->onboarding_rest_controller->init();
+
+		$this->importer_rest_controller = new Importer_REST_Controller( $this );
+		$this->importer_rest_controller->init();
 
 		$this->importer = new Importer( $this );
 		$this->importer->init();
