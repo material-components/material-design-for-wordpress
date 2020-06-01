@@ -399,17 +399,10 @@ class Plugin extends Plugin_Base {
 
 	/**
 	 * Returns the status of the material theme
-	 * Don't display in installation wizard
 	 *
 	 * @return string
 	 */
 	public function material_theme_status() {
-		$screen = get_current_screen();
-
-		if ( 'toplevel_page_material-theme-builder' === $screen->id ) {
-			return 'ok';
-		}
-
 		if ( ! $this->theme_installed() ) {
 			return 'install';
 		}
@@ -430,9 +423,10 @@ class Plugin extends Plugin_Base {
 	 */
 	public function theme_not_installed_notice() {
 		$status = $this->material_theme_status();
+		$screen = get_current_screen();
 
-		// Theme already active. Don't show the notice.
-		if ( 'ok' === $status ) {
+		// Theme already active or inside wizard. Don't show the notice.
+		if ( 'ok' === $status || 'toplevel_page_material-theme-builder' === $screen->id ) {
 			return;
 		}
 
