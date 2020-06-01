@@ -6,7 +6,9 @@ import StepContext from '../../context';
 import { STEPS } from '../../steps';
 
 const Navigation = () => {
-	const { active, previousStep, nextStep } = useContext( StepContext );
+	const { active, previousStep, nextStep, submitWizard } = useContext(
+		StepContext
+	);
 	const isLast = active === STEPS.WORK;
 
 	return (
@@ -45,7 +47,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								link={ mtbWizard.pagesUrl }
+								onClick={ submitWizard }
 							/>
 						) }
 					</div>

@@ -1,7 +1,9 @@
+/* globals mtbWizard, mtbOnboarding, fetch */
 import React, { useState } from 'react';
 import { render } from '@wordpress/element';
 import { StepProvider } from './context';
 import { STEPS } from './steps';
+import { ADDONS } from './addons';
 import ProgressBar from './components/progress-bar';
 import Navigation from './components/navigation';
 import Content from './components/content';
@@ -10,7 +12,7 @@ import Header from './components/header';
 const Wizard = () => {
 	const [ step, setStep ] = useState( STEPS.WELCOME );
 	const [ previousSteps, setPreviousSteps ] = useState( [] );
-	const [ addons, setAddons ] = useState( [] );
+	const [ addons, setAddons ] = useState( Object.keys( ADDONS ) );
 	const steps = Object.keys( STEPS );
 
 	const nextStep = () => {
@@ -44,6 +46,42 @@ const Wizard = () => {
 		}
 	};
 
+	const submitWizard = () => {
+		if ( 0 === addons.length ) {
+			window.location.replace( mtbWizard.settingsUrl );
+		}
+
+		if ( addons.includes( ADDONS.THEME ) ) {
+			handleThemeActivation();
+		}
+	};
+
+	const handleThemeActivation = () => {
+		const action = mtbWizard.themeStatus;
+		const parameters = {
+			method: 'POST',
+			headers: { 'X-WP-Nonce': mtbOnboarding.nonce },
+		};
+
+		fetch( `${ mtbOnboarding.restUrl }${ action }-theme`, parameters )
+			.then( response => response.json() )
+			.then( data => {
+				if ( 'install' === action ) {
+					fetch( `${ mtbOnboarding.restUrl }activate-theme`, parameters )
+						.then( response => response.json() )
+						.then( redirectToSettings );
+				} else {
+					redirectToSettings( data );
+				}
+			} );
+	};
+
+	const redirectToSettings = data => {
+		if ( 'success' === data.status ) {
+			window.location.replace( mtbWizard.settingsUrl );
+		}
+	};
+
 	const initialContext = {
 		active: step,
 		previous: previousSteps,
@@ -51,6 +89,7 @@ const Wizard = () => {
 		toggleAddon,
 		nextStep,
 		previousStep,
+		submitWizard,
 	};
 
 	return (

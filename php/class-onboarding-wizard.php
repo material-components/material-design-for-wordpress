@@ -67,6 +67,7 @@ class Onboarding_Wizard extends Module_Base {
 				'settingsUrl'      => esc_url( admin_url( 'options-general.php?page=material_demo' ) ),
 				'placeholderImage' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder.png' ) ),
 				'placeholderSmall' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder-small.png' ) ),
+				'themeStatus'      => esc_html( $this->plugin->material_theme_status() ),
 			]
 		);
 	}
