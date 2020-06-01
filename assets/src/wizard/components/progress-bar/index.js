@@ -2,6 +2,9 @@ import React from 'react';
 import { STEPS } from '../../steps';
 import Step from './step';
 
+/**
+ * Displays which step are we on
+ */
 const ProgressBar = () => {
 	const steps = Object.keys( STEPS );
 

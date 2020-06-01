@@ -6,6 +6,9 @@ import Navigation from './components/navigation';
 import Content from './components/content';
 import Header from './components/header';
 
+/**
+ * Renders basic layout
+ */
 const Wizard = () => {
 	return (
 		<StepProvider>

@@ -3,6 +3,9 @@ import React from 'react';
 import { __ } from '@wordpress/i18n';
 import Card from './card';
 
+/**
+ * Congrats and how we work screen
+ */
 const Work = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">

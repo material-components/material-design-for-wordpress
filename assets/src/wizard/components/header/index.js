@@ -2,6 +2,9 @@ import React from 'react';
 import { __ } from '@wordpress/i18n';
 import { Logo } from '../svg/logo';
 
+/**
+ * Header Layout
+ */
 const Header = () => {
 	return (
 		<div className="mdc-layout-grid__inner">

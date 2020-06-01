@@ -2,6 +2,10 @@ import React, { useContext } from 'react';
 import StepContext from '../../context';
 import Switch from './switch';
 
+/**
+ * Diplay information related to the current screen
+ * @param {*} props Inherited props
+ */
 const Card = props => {
 	const imageSpan = props.imageSpan || 4;
 	const { state } = useContext( StepContext );
