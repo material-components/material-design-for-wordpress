@@ -45,7 +45,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								onClick={ () => dispatch( 'SUBMIT_WIZARD' ) }
+								onClick={ () => dispatch( { type: 'SUBMIT_WIZARD' } ) }
 							/>
 						) }
 					</div>
