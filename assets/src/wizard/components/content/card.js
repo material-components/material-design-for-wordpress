@@ -4,8 +4,8 @@ import Switch from './switch';
 
 const Card = props => {
 	const imageSpan = props.imageSpan || 4;
-	const { addons } = useContext( StepContext );
-	const checked = props.switch && addons.includes( props.switch );
+	const { state } = useContext( StepContext );
+	const checked = props.switch && state.addons.includes( props.switch );
 
 	let contentSpan = props.contentSpan || 12 - imageSpan;
 

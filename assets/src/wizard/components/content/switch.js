@@ -2,7 +2,7 @@ import React, { Fragment, useContext } from 'react';
 import StepContext from '../../context';
 
 const Switch = ( { id, text, checked } ) => {
-	const { toggleAddon } = useContext( StepContext );
+	const { dispatch } = useContext( StepContext );
 
 	return (
 		<Fragment>
@@ -19,7 +19,7 @@ const Switch = ( { id, text, checked } ) => {
 						className="mdc-switch__native-control"
 						role="switch"
 						aria-checked={ checked }
-						onChange={ () => toggleAddon( id ) }
+						onChange={ () => dispatch( { type: 'TOGGLE_ADDON', payload: id } ) }
 					/>
 				</div>
 			</div>

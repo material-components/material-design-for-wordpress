@@ -6,13 +6,13 @@ import Addons from './addons';
 import Work from './work';
 
 const Content = () => {
-	const { active } = useContext( StepContext );
+	const { state } = useContext( StepContext );
 
 	return (
 		<div className="material-wizard__content mdc-layout-grid__inner">
-			{ active === STEPS.WELCOME && <Welcome /> }
-			{ active === STEPS.ADDONS && <Addons /> }
-			{ active === STEPS.WORK && <Work /> }
+			{ state.active === STEPS.WELCOME && <Welcome /> }
+			{ state.active === STEPS.ADDONS && <Addons /> }
+			{ state.active === STEPS.WORK && <Work /> }
 		</div>
 	);
 };

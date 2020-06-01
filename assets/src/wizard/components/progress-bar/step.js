@@ -3,9 +3,9 @@ import StepContext from '../../context';
 import { Check } from '../svg/check';
 
 const Step = props => {
-	const stepContext = useContext( StepContext );
-	const isActive = props.id === stepContext.active;
-	const isChecked = stepContext.previous.includes( props.id );
+	const { state } = useContext( StepContext );
+	const isActive = props.id === state.active;
+	const isChecked = state.previous.includes( props.id );
 	let status = '';
 
 	if ( isActive ) {

@@ -6,10 +6,8 @@ import StepContext from '../../context';
 import { STEPS } from '../../steps';
 
 const Navigation = () => {
-	const { active, previousStep, nextStep, submitWizard } = useContext(
-		StepContext
-	);
-	const isLast = active === STEPS.WORK;
+	const { state, dispatch } = useContext( StepContext );
+	const isLast = state.active === STEPS.WORK;
 
 	return (
 		<div className="mdc-layout-grid__inner">
@@ -23,12 +21,12 @@ const Navigation = () => {
 			<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
 				<div className="mdc-layout-grid__inner">
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-						{ active !== STEPS.WELCOME && (
+						{ state.active !== STEPS.WELCOME && (
 							<Button
 								style="material-wizard__next"
 								text={ __( 'Previous Step', 'material-theme-builder' ) }
 								leadingIcon="navigate_before"
-								onClick={ previousStep }
+								onClick={ () => dispatch( { type: 'PREVIOUS_STEP' } ) }
 							/>
 						) }
 					</div>
@@ -39,7 +37,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Next Step', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								onClick={ nextStep }
+								onClick={ () => dispatch( { type: 'NEXT_STEP' } ) }
 							/>
 						) }
 						{ isLast && (
@@ -47,7 +45,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								onClick={ submitWizard }
+								onClick={ () => dispatch( 'SUBMIT_WIZARD' ) }
 							/>
 						) }
 					</div>
