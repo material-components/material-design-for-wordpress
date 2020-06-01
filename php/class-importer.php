@@ -112,17 +112,11 @@ class Importer extends Module_Base {
 	}
 
 	/**
-	 * Verify nonce and init import process
-	 *
+	 * Import content after nonce verification
+	 * 
 	 * @return string Status message
 	 */
-	public function import_demo() {
-		$nonce = filter_input( INPUT_POST, '_wpnonce', FILTER_SANITIZE_STRING );
-
-		if ( ! wp_verify_nonce( $nonce, 'mtb-install-demo' ) ) {
-			wp_die( esc_html__( "There's been an error performing this action, please try again", 'material-theme-builder' ) );
-		}
-
+	public function init_import() {
 		$this->xml = \simplexml_load_file( $this->import_file );
 
 		$taxonomies = $this->import_terms();
@@ -135,14 +129,22 @@ class Importer extends Module_Base {
 
 		$this->setup_widgets();
 
-		ob_start();
-		?>
+		return 'success';
+	}
 
-		<p><?php esc_html_e( 'Success! Your demo site has been setup', 'material-theme-builder' ); ?></p>
-		<p><a href="<?php echo esc_url( admin_url( 'edit.php?post_type=page' ) ); ?>"><?php esc_html_e( 'Take a look!', 'material-theme-builder' ); ?></a></p>
+	/**
+	 * Verify nonce and init import process
+	 *
+	 * @return void
+	 */
+	public function import_demo() {
+		$nonce = filter_input( INPUT_POST, '_wpnonce', FILTER_SANITIZE_STRING );
 
-		<?php
-		return ob_get_clean();
+		if ( ! wp_verify_nonce( $nonce, 'mtb-install-demo' ) ) {
+			wp_die( esc_html__( "There's been an error performing this action, please try again", 'material-theme-builder' ) );
+		}
+
+		$this->init_import();
 	}
 
 	/**
@@ -457,7 +459,7 @@ class Importer extends Module_Base {
 	 * @return int|WP_Error Uploaded image ID, error on fail
 	 */
 	public function upload_cover_image() {
-		$image = media_sideload_image(
+		$image = \media_sideload_image(
 			$this->image_location,
 			null,
 			esc_html__( 'Material Featured Image', 'material-theme-builder' ),

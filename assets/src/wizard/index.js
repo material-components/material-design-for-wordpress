@@ -54,6 +54,10 @@ const Wizard = () => {
 		if ( addons.includes( ADDONS.THEME ) ) {
 			handleThemeActivation();
 		}
+
+		if ( addons.includes( ADDONS.DEMO ) ) {
+			handleDemoImporter();
+		}
 	};
 
 	const handleThemeActivation = () => {
@@ -80,6 +84,17 @@ const Wizard = () => {
 		if ( 'success' === data.status ) {
 			window.location.replace( mtbWizard.settingsUrl );
 		}
+	};
+
+	const handleDemoImporter = () => {
+		const parameters = {
+			method: 'POST',
+			headers: { 'X-WP-Nonce': mtbWizard.nonce },
+		};
+
+		fetch( `${ mtbWizard.restUrl }install-content`, parameters )
+			.then( response => response.json() )
+			.then( redirectToSettings );
 	};
 
 	const initialContext = {
