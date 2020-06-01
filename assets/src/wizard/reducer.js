@@ -3,6 +3,12 @@ import { STEPS } from './steps';
 import { ADDONS } from './addons';
 import { handleThemeActivation, handleDemoImporter } from './utils';
 
+/**
+ * Actions to be taken during the app's life circle
+ *
+ * @param {*} state  Current state of the world
+ * @param {*} action Action dispatched
+ */
 export const reducer = ( state, action ) => {
 	const steps = Object.keys( STEPS );
 	const { active, previous, addons } = state;

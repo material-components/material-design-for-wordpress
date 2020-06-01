@@ -5,6 +5,9 @@ import Button from './button';
 import StepContext from '../../context';
 import { STEPS } from '../../steps';
 
+/**
+ * Nav buttons at the bottom of app
+ */
 const Navigation = () => {
 	const { state, dispatch } = useContext( StepContext );
 	const isLast = state.active === STEPS.WORK;

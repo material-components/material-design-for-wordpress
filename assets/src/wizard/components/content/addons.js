@@ -4,6 +4,9 @@ import { __ } from '@wordpress/i18n';
 import { ADDONS } from '../../addons';
 import Card from './card';
 
+/**
+ * Addon selection screen
+ */
 const Addons = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">

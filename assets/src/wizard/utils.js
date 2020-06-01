@@ -1,5 +1,9 @@
 /* globals mtbWizard, mtbOnboarding, fetch */
 /**
+ * Functions that don't affect the state of the world
+ */
+
+/**
  * Install theme if necessary
  * Actvate theme
  *

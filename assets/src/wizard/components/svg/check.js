@@ -1,4 +1,7 @@
 /* istanbul ignore file */
+/**
+ * _Completed_ SVG icon
+ */
 export const Check = () => {
 	return (
 		<svg width="21" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -5,6 +5,9 @@ import Welcome from './welcome';
 import Addons from './addons';
 import Work from './work';
 
+/**
+ * Generic content wrapper
+ */
 const Content = () => {
 	const { state } = useContext( StepContext );
 

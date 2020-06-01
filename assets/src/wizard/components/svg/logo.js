@@ -1,3 +1,6 @@
+/**
+ * App logo in svg format
+ */
 export const Logo = () => {
 	return (
 		<svg width="41" height="41" fill="none" xmlns="http://www.w3.org/2000/svg">

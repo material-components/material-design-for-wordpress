@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Action button
+ * @param {*} props Inherited props
+ */
 const Button = props => {
 	if ( props.link ) {
 		return <Link { ...props } />;
@@ -24,6 +28,10 @@ const Button = props => {
 	);
 };
 
+/**
+ * Link "button"
+ * @param {*} props Inherited props
+ */
 const Link = props => {
 	const { style, text, leadingIcon, trailingIcon, link } = props;
 
