@@ -1,5 +1,6 @@
 /**
  * Setups context to be used across the app
+ *
  */
 import React, { useReducer } from 'react';
 import { reducer } from './reducer';
@@ -12,6 +13,7 @@ const { Provider } = StepContext;
 
 /**
  * Default state of the world
+ *
  */
 const initialState = {
 	addons: Object.keys( ADDONS ),
@@ -21,6 +23,7 @@ const initialState = {
 
 /**
  * Creates a wrapper in order to use our custom reducer
+ *
  * @param {*} param Children to render
  */
 export const StepProvider = ( { children } ) => {

@@ -2,6 +2,7 @@ import React from 'react';
 
 /**
  * Action button
+ *
  * @param {*} props Inherited props
  */
 const Button = props => {
@@ -36,6 +37,7 @@ const Button = props => {
 
 /**
  * Link "button"
+ *
  * @param {*} props Inherited props
  */
 export const Link = props => {

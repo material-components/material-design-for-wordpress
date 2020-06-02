@@ -17,6 +17,7 @@ import Button from '../../../../../assets/src/wizard/components/navigation/butto
 const setup = props => {
 	return render( <Button { ...props } /> );
 };
+
 const baseProps = {
 	style: 'material-wizard__close',
 	text: 'Close',
