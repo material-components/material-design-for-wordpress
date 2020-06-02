@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Onboarding_REST_Controller.
+ * Class Importer_REST_Controller.
  *
  * @package MaterialThemeBuilder
  */
