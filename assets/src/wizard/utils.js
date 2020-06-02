@@ -1,6 +1,6 @@
 /* globals mtbWizard, mtbOnboarding, fetch */
 /**
- * Functions that don't affect the state of the world
+ * Functions that don't change the state of the world
  */
 
 /**
@@ -30,6 +30,7 @@ export const handleThemeActivation = () => {
 
 /**
  * Import demo content
+ *
  */
 export const handleDemoImporter = () => {
 	const parameters = {
@@ -44,6 +45,7 @@ export const handleDemoImporter = () => {
 
 /**
  * Redirect to settings location
+ *
  * @param {*} data Request json response
  */
 const redirectToSettings = data => {

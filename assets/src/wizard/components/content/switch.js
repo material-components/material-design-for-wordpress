@@ -3,6 +3,7 @@ import StepContext from '../../context';
 
 /**
  * Addon selection switch
+ *
  * @param {*} param Inherited props
  */
 const Switch = ( { id, text, checked } ) => {

@@ -9,6 +9,7 @@ import { handleThemeActivation, handleDemoImporter } from './utils';
  * @param {*} state  Current state of the world
  * @param {*} action Action dispatched
  */
+
 export const reducer = ( state, action ) => {
 	const steps = Object.keys( STEPS );
 	const { active, previous, addons } = state;
@@ -31,17 +32,14 @@ export const reducer = ( state, action ) => {
 	if ( 'PREVIOUS_STEP' === type ) {
 		const stepIndex = steps.indexOf( active );
 		let newState = { ...state };
+		const newActive = steps[ stepIndex - 1 ];
 
-		if ( stepIndex === 1 ) {
-			newState = { ...state, previous: [] };
-		} else {
-			newState = {
-				...state,
-				previous: previous.filter( item => item !== active ),
-			};
-		}
+		newState = {
+			...state,
+			previous: previous.filter( item => item !== newActive ),
+		};
 
-		newState.active = steps[ stepIndex - 1 ];
+		newState.active = newActive;
 
 		return newState;
 	}
