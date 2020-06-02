@@ -10,7 +10,7 @@ namespace MaterialThemeBuilder;
 use MaterialThemeBuilder\Plugin;
 
 /**
- * Class Onboarding_REST_Controller.
+ * Class Importer_REST_Controller.
  */
 class Importer_REST_Controller extends \WP_REST_Controller {
 	/**
@@ -109,8 +109,8 @@ class Importer_REST_Controller extends \WP_REST_Controller {
 	 */
 	public function get_item_schema() {
 		$schema = [
-			'$schema'    => 'http://json-schema.org/draft-04/schema#',
-			'title'      => 'onboaring-import',
+			'schema'     => 'http://json-schema.org/draft-04/schema#',
+			'title'      => 'onboarding-import',
 			'type'       => 'object',
 			'properties' => [
 				'slug'   => [
