@@ -1,19 +1,29 @@
+/**
+ * External dependencies
+ */
 import React, { Fragment, useContext } from 'react';
 import StepContext from '../../context';
+import classNames from 'classnames';
 
 /**
  * Addon selection switch
  *
  * @param {*} param Inherited props
  */
-const Switch = ( { id, text, checked } ) => {
+const Switch = ( { id, text, checked, disabled } ) => {
 	const { dispatch } = useContext( StepContext );
 
 	return (
 		<Fragment>
 			<div
-				className={ `mdc-switch material-wizard-switch material-wizard-switch__${ id } ${ checked &&
-					'mdc-switch--checked' }` }
+				className={ classNames(
+					'mdc-switch material-wizard-switch',
+					`material-wizard-switch__${ id }`,
+					{
+						'mdc-switch--checked': checked,
+						'mdc-switch--disabled': disabled,
+					}
+				) }
 			>
 				<div className="mdc-switch__track"></div>
 				<div className="mdc-switch__thumb-underlay">
@@ -25,6 +35,7 @@ const Switch = ( { id, text, checked } ) => {
 						role="switch"
 						aria-checked={ checked }
 						onChange={ () => dispatch( { type: 'TOGGLE_ADDON', payload: id } ) }
+						disabled={ disabled }
 					/>
 				</div>
 			</div>

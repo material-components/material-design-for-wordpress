@@ -211,6 +211,25 @@ class Importer extends Module_Base {
 
 		$this->featured_image = $this->upload_cover_image();
 		foreach ( $posts as $post ) {
+			// Bail out if a post already exists with the same title.
+			if ( $this->plugin->is_wpcom_vip_prod() ) {
+				$exists = wpcom_vip_get_page_by_title(
+					sanitize_text_field( (string) $post->title ),
+					OBJECT,
+					sanitize_text_field( (string) $post->children( 'wp', true )->post_type )
+				);
+			} else {
+				$exists = get_page_by_title( // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
+					sanitize_text_field( (string) $post->title ),
+					OBJECT,
+					sanitize_text_field( (string) $post->children( 'wp', true )->post_type )
+				);
+			}
+
+			if ( ! empty( $exists ) ) {
+				continue;
+			}
+
 			$post_data = [
 				'post_title'   => esc_html( $post->title ),
 				'post_date'    => esc_html( $post->children( 'wp', true )->post_date ),

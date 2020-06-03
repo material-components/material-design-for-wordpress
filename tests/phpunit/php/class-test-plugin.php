@@ -408,13 +408,14 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertEquals( 9, has_action( 'admin_notices', [ $plugin, 'plugin_activated_notice' ] ) );
 		remove_filter( 'template', [ $this, 'template' ] );
 	}
-	
+
 	/**
 	 * Test for create_demo_importer_page() method.
 	 *
 	 * @see Plugin::create_demo_importer_page()
 	 */
 	public function test_create_demo_importer_page() {
+		$this->markTestSkipped( 'Settings page is removed for now' );
 		$current_user = get_current_user();
 		wp_set_current_user( self::factory()->user->create( [ 'role' => 'administrator' ] ) );
 
