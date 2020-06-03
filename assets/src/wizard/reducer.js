@@ -1,7 +1,11 @@
 /* global mtbWizard */
 import { STEPS } from './steps';
 import { ADDONS } from './addons';
-import { handleThemeActivation, handleDemoImporter } from './utils';
+import {
+	handleThemeActivation,
+	handleDemoImporter,
+	redirectToSettings,
+} from './utils';
 
 /**
  * Actions to be taken during the app's life circle
@@ -57,13 +61,19 @@ export const reducer = ( state, action ) => {
 			return window.location.replace( mtbWizard.settingsUrl );
 		}
 
+		const requests = [];
+
 		if ( addons.includes( ADDONS.THEME ) ) {
-			handleThemeActivation();
+			requests.push( handleThemeActivation() );
 		}
 
 		if ( addons.includes( ADDONS.DEMO ) ) {
-			handleDemoImporter();
+			requests.push( handleDemoImporter() );
 		}
+
+		Promise.all( requests ).then( values => {
+			redirectToSettings( values[ 0 ] || values[ 1 ] );
+		} );
 	}
 
 	return state;

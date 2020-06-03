@@ -19,17 +19,19 @@ export const handleThemeActivation = () => {
 		headers: { 'X-WP-Nonce': mtbOnboarding.nonce },
 	};
 
-	fetch( `${ mtbOnboarding.restUrl }${ action }-theme`, parameters )
-		.then( response => response.json() )
-		.then( data => {
-			if ( 'install' === action ) {
-				fetch( `${ mtbOnboarding.restUrl }activate-theme`, parameters )
-					.then( response => response.json() )
-					.then( redirectToSettings );
-			} else {
-				redirectToSettings( data );
-			}
-		} );
+	return new Promise( ( resolve, reject ) => {
+		fetch( `${ mtbOnboarding.restUrl }${ action }-theme`, parameters )
+			.then( response => response.json() )
+			.then( data => {
+				if ( 'install' === action ) {
+					fetch( `${ mtbOnboarding.restUrl }activate-theme`, parameters )
+						.then( response => response.json() )
+						.then( resolve );
+				} else {
+					resolve( data );
+				}
+			} );
+	} );
 };
 
 /**
@@ -42,9 +44,11 @@ export const handleDemoImporter = () => {
 		headers: { 'X-WP-Nonce': mtbWizard.nonce },
 	};
 
-	fetch( `${ mtbWizard.restUrl }install-content`, parameters )
-		.then( response => response.json() )
-		.then( redirectToSettings );
+	return new Promise( ( resolve, reject ) => {
+		fetch( `${ mtbWizard.restUrl }install-content`, parameters )
+			.then( response => response.json() )
+			.then( resolve );
+	} );
 };
 
 /**
@@ -52,8 +56,8 @@ export const handleDemoImporter = () => {
  *
  * @param {*} data Request json response
  */
-const redirectToSettings = data => {
+export const redirectToSettings = data => {
 	if ( 'success' === data.status ) {
-		window.location.replace( mtbWizard.settingsUrl );
+		return window.location.replace( mtbWizard.settingsUrl );
 	}
 };
