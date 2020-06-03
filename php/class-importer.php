@@ -73,7 +73,9 @@ class Importer extends Module_Base {
 
 	/**
 	 * Render form UI
-	 *
+	 * 
+	 * @TODO: Rename to Material Settings
+	 * 
 	 * @return string Markup to display in page
 	 */
 	public function render_page() {
@@ -86,39 +88,35 @@ class Importer extends Module_Base {
 		ob_start();
 		?>
 
-		<h2><?php esc_html_e( 'Material Theming Demo', 'material-theme-builder' ); ?></h2>
+		<h1><?php esc_html_e( 'Material Settings', 'material-theme-builder' ); ?></h1>
 
-		<div class="notice notice-warning material-notice-container">
-			<p><?php esc_html_e( 'This action will replace widgets / homepage options, and settings.', 'material-theme-builder' ); ?></p>
+		<div class="material-settings-container material-notice-container">
+			<div class="material-settings__logo">
+				<img src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-Icon.svg' ) ); ?>" alt />
+			</div>
+			<div class="material-settings-container__content">
+				<h3><?php esc_html_e( 'Setup Material plugin', 'material-theme-builder' ); ?></h3>
+
+				<p>
+					<?php esc_html_e( 'lProin leo aenean arcu mollis class vivamus vel nostra tempus', 'material-theme-builder' ); ?>
+				</p>
+
+				<p>
+					<a href="<?php echo esc_url( 'admin.php?page=material-theme-builder' ); ?>"><?php esc_html_e( 'Get started with the onboarding wizard', 'material-theme-builder' ); ?></a>
+				</p>
+			</div>
 		</div>
-
-		<p>
-			<?php esc_html_e( 'Clicking "Install demo content" will import sample posts, pages, menus, and widgets. This can take about a minute.', 'material-theme-builder' ); ?>
-		</p>
-
-		<form action="<?php echo esc_url( admin_url( 'options-general.php?page=material_demo' ) ); ?>" method="post">
-			<?php wp_nonce_field( 'mtb-install-demo' ); ?>
-			<button class="button button-primary" name="mtb-install-demo" value="1">
-				<?php esc_html_e( 'Install demo content', 'material-theme-builder' ); ?>
-			</button>
-		</form>
 
 		<?php
 		return ob_get_clean();
 	}
 
 	/**
-	 * Verify nonce and init import process
-	 *
+	 * Import content after nonce verification
+	 * 
 	 * @return string Status message
 	 */
-	public function import_demo() {
-		$nonce = filter_input( INPUT_POST, '_wpnonce', FILTER_SANITIZE_STRING );
-
-		if ( ! wp_verify_nonce( $nonce, 'mtb-install-demo' ) ) {
-			wp_die( esc_html__( "There's been an error performing this action, please try again", 'material-theme-builder' ) );
-		}
-
+	public function init_import() {
 		$this->xml = \simplexml_load_file( $this->import_file );
 
 		$taxonomies = $this->import_terms();
@@ -131,14 +129,22 @@ class Importer extends Module_Base {
 
 		$this->setup_widgets();
 
-		ob_start();
-		?>
+		return 'success';
+	}
 
-		<p><?php esc_html_e( 'Success! Your demo site has been setup', 'material-theme-builder' ); ?></p>
-		<p><a href="<?php echo esc_url( admin_url( 'edit.php?post_type=page' ) ); ?>"><?php esc_html_e( 'Take a look!', 'material-theme-builder' ); ?></a></p>
+	/**
+	 * Verify nonce and init import process
+	 *
+	 * @return void
+	 */
+	public function import_demo() {
+		$nonce = filter_input( INPUT_POST, '_wpnonce', FILTER_SANITIZE_STRING );
 
-		<?php
-		return ob_get_clean();
+		if ( ! wp_verify_nonce( $nonce, 'mtb-install-demo' ) ) {
+			wp_die( esc_html__( "There's been an error performing this action, please try again", 'material-theme-builder' ) );
+		}
+
+		$this->init_import();
 	}
 
 	/**
@@ -205,6 +211,25 @@ class Importer extends Module_Base {
 
 		$this->featured_image = $this->upload_cover_image();
 		foreach ( $posts as $post ) {
+			// Bail out if a post already exists with the same title.
+			if ( $this->plugin->is_wpcom_vip_prod() ) {
+				$exists = wpcom_vip_get_page_by_title(
+					sanitize_text_field( (string) $post->title ),
+					OBJECT,
+					sanitize_text_field( (string) $post->children( 'wp', true )->post_type )
+				);
+			} else {
+				$exists = get_page_by_title( // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
+					sanitize_text_field( (string) $post->title ),
+					OBJECT,
+					sanitize_text_field( (string) $post->children( 'wp', true )->post_type )
+				);
+			}
+
+			if ( ! empty( $exists ) ) {
+				continue;
+			}
+
 			$post_data = [
 				'post_title'   => esc_html( $post->title ),
 				'post_date'    => esc_html( $post->children( 'wp', true )->post_date ),
@@ -453,7 +478,7 @@ class Importer extends Module_Base {
 	 * @return int|WP_Error Uploaded image ID, error on fail
 	 */
 	public function upload_cover_image() {
-		$image = media_sideload_image(
+		$image = \media_sideload_image(
 			$this->image_location,
 			null,
 			esc_html__( 'Material Featured Image', 'material-theme-builder' ),

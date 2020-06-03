@@ -408,13 +408,14 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertEquals( 9, has_action( 'admin_notices', [ $plugin, 'plugin_activated_notice' ] ) );
 		remove_filter( 'template', [ $this, 'template' ] );
 	}
-	
+
 	/**
 	 * Test for create_demo_importer_page() method.
 	 *
 	 * @see Plugin::create_demo_importer_page()
 	 */
 	public function test_create_demo_importer_page() {
+		$this->markTestSkipped( 'Settings page is removed for now' );
 		$current_user = get_current_user();
 		wp_set_current_user( self::factory()->user->create( [ 'role' => 'administrator' ] ) );
 
@@ -436,7 +437,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin->render_demo_importer_page();
 		$output = ob_get_clean();
 
-		$this->assertContains( '<h2>Material Theming Demo</h2>', $output );
+		$this->assertContains( '<h1>Material Settings</h1>', $output );
 	}
 
 	/**

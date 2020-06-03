@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name: Material Theme Builder
+ * Plugin Name: Material Design for WordPress
  * Plugin URI: https://github.com/xwp/material-theme-builder-wp
- * Description: Material Theming for WordPress.
+ * Description: Build beautiful sites, faster. Material Design is a design system – backed by open-source code – that helps teams build high-quality digital experiences. This plugin lets you use Material Components and custom styles in your WordPress site.
  * Version: 1.0.0-alpha
- * Author:  XWP
- * Author URI: https://xwp.co/
+ * Author:  Material Design
+ * Author URI: http://material.io
  * License: GPLv2+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: material-theme-builder
