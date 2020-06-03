@@ -21,7 +21,7 @@ Object {
           >
             <img
               alt=""
-              src="http://example.com/image-small.png"
+              src="http://example.com/welcome.png"
             />
           </div>
           <div
@@ -33,7 +33,7 @@ Object {
               Customize Your Material Theme
             </h4>
             <p>
-              Choose colors, typography, shapes, and icons to express your unique style.
+              Set up and preview your global theme styles within the customizer. Choose colors, typography, shapes, and icons to express your unique style.
             </p>
           </div>
         </div>
@@ -46,7 +46,7 @@ Object {
           >
             <img
               alt=""
-              src="http://example.com/image-small.png"
+              src="http://example.com/complete-build-with-blocks.png"
             />
           </div>
           <div
@@ -58,7 +58,7 @@ Object {
               Build With Material Blocks
             </h4>
             <p>
-              Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms.
+              Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor
             </p>
           </div>
         </div>
@@ -71,7 +71,7 @@ Object {
           >
             <img
               alt=""
-              src="http://example.com/image-small.png"
+              src="http://example.com/addon-material-theme.png"
             />
           </div>
           <div
@@ -83,7 +83,7 @@ Object {
               Apply Your Theme
             </h4>
             <p>
-              Implement your colors, shapes, and typography to built-in WordPress elements like your site’s header and footer.
+              Implement your colors, shapes, and typography for built-in WordPress elements like your site’s header and footer.
             </p>
           </div>
         </div>
@@ -107,7 +107,7 @@ Object {
         >
           <img
             alt=""
-            src="http://example.com/image-small.png"
+            src="http://example.com/welcome.png"
           />
         </div>
         <div
@@ -119,7 +119,7 @@ Object {
             Customize Your Material Theme
           </h4>
           <p>
-            Choose colors, typography, shapes, and icons to express your unique style.
+            Set up and preview your global theme styles within the customizer. Choose colors, typography, shapes, and icons to express your unique style.
           </p>
         </div>
       </div>
@@ -132,7 +132,7 @@ Object {
         >
           <img
             alt=""
-            src="http://example.com/image-small.png"
+            src="http://example.com/complete-build-with-blocks.png"
           />
         </div>
         <div
@@ -144,7 +144,7 @@ Object {
             Build With Material Blocks
           </h4>
           <p>
-            Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms.
+            Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor
           </p>
         </div>
       </div>
@@ -157,7 +157,7 @@ Object {
         >
           <img
             alt=""
-            src="http://example.com/image-small.png"
+            src="http://example.com/addon-material-theme.png"
           />
         </div>
         <div
@@ -169,7 +169,7 @@ Object {
             Apply Your Theme
           </h4>
           <p>
-            Implement your colors, shapes, and typography to built-in WordPress elements like your site’s header and footer.
+            Implement your colors, shapes, and typography for built-in WordPress elements like your site’s header and footer.
           </p>
         </div>
       </div>

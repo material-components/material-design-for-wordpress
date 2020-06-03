@@ -26,11 +26,13 @@ export const handleThemeActivation = () => {
 				if ( 'install' === action ) {
 					fetch( `${ mtbOnboarding.restUrl }activate-theme`, parameters )
 						.then( response => response.json() )
-						.then( resolve );
+						.then( resolve )
+						.catch( error => reject( error ) );
 				} else {
 					resolve( data );
 				}
-			} );
+			} )
+			.catch( error => reject( error ) );
 	} );
 };
 
@@ -47,7 +49,8 @@ export const handleDemoImporter = () => {
 	return new Promise( ( resolve, reject ) => {
 		fetch( `${ mtbWizard.restUrl }install-content`, parameters )
 			.then( response => response.json() )
-			.then( resolve );
+			.then( resolve )
+			.catch( error => reject( error ) );
 	} );
 };
 

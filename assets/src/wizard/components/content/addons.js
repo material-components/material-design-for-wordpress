@@ -15,7 +15,7 @@ const Addons = () => {
 			</h3>
 
 			<Card
-				image={ mtbWizard.placeholderSmall }
+				image={ `${ mtbWizard.assetsPath }addon-material-theme.png` }
 				switch={ ADDONS.THEME }
 				disabled={ 'ok' === mtbWizard.themeStatus }
 			>
@@ -33,9 +33,12 @@ const Addons = () => {
 
 			<hr />
 
-			<Card image={ mtbWizard.placeholderSmall } switch={ ADDONS.DEMO }>
+			<Card
+				image={ `${ mtbWizard.assetsPath }addon-quick-start-examples.png` }
+				switch={ ADDONS.DEMO }
+			>
 				<h4 className="mdc-typography--headline4">
-					{ __( 'Common Layouts', 'material-theme-builder' ) }
+					{ __( 'Quick Start Examples', 'material-theme-builder' ) }
 				</h4>
 
 				<p>
