@@ -4,7 +4,6 @@
 .idea
 composer.lock
 material-theme-builder.zip
-package-lock.json
 yarn.lock
 assets/css/*
 !assets/css/src/

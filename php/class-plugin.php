@@ -14,6 +14,7 @@ use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 use MaterialThemeBuilder\Importer;
+use MaterialThemeBuilder\Onboarding_Wizard;
 
 /**
  * Main plugin bootstrap file.
@@ -77,11 +78,25 @@ class Plugin extends Plugin_Base {
 	public $onboarding_rest_controller;
 
 	/**
+	 * Onboarding REST Controller class.
+	 *
+	 * @var Importer_REST_Controller
+	 */
+	public $importer_rest_controller;
+
+	/**
 	 * Importer class.
 	 *
 	 * @var Importer
 	 */
 	public $importer;
+	
+	/**
+	 * Wizard class.
+	 *
+	 * @var mixed
+	 */
+	public $wizard;
 
 	/**
 	 * Initiate the plugin resources.
@@ -116,8 +131,14 @@ class Plugin extends Plugin_Base {
 		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
 		$this->onboarding_rest_controller->init();
 
+		$this->importer_rest_controller = new Importer_REST_Controller( $this );
+		$this->importer_rest_controller->init();
+
 		$this->importer = new Importer( $this );
 		$this->importer->init();
+
+		$this->wizard = new Onboarding_Wizard( $this );
+		$this->wizard->init();
 	}
 
 	/**
@@ -383,7 +404,7 @@ class Plugin extends Plugin_Base {
 	 * @return bool
 	 */
 	public function theme_installed() {
-		return file_exists( trailingslashit( get_theme_root() ) . self::THEME_SLUG );
+		return file_exists( trailingslashit( get_theme_root() ) . self::THEME_SLUG . '/style.css' );
 	}
 
 	/**
@@ -412,9 +433,10 @@ class Plugin extends Plugin_Base {
 	 */
 	public function theme_not_installed_notice() {
 		$status = $this->material_theme_status();
+		$screen = get_current_screen();
 
-		// Theme already active. Don't show the notice.
-		if ( 'ok' === $status ) {
+		// Theme already active or inside wizard. Don't show the notice.
+		if ( 'ok' === $status || 'toplevel_page_material-theme-builder' === $screen->id ) {
 			return;
 		}
 
@@ -511,7 +533,8 @@ class Plugin extends Plugin_Base {
 	 * @return void
 	 */
 	public function create_demo_importer_page() {
-		add_options_page( esc_html__( 'Material Demo Importer', 'material-theme-builder' ), esc_html__( 'Material Demo', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
+		// @todo Renable this page after onboarding phase-2 is implemented.
+		// add_options_page( esc_html__( 'Material Settings', 'material-theme-builder' ), esc_html__( 'Material Settings', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
 	}
 
 	/**
@@ -523,5 +546,41 @@ class Plugin extends Plugin_Base {
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $this->importer->render_page();
 		// phpcs:enable
+	}
+
+	/**
+	 * Create onboarding wizard page
+	 *
+	 * @action admin_menu
+	 * 
+	 * @return void
+	 */
+	public function create_onboarding_wizard() {
+		add_menu_page(
+			esc_html__( 'Material Design for WordPress', 'material-theme-builder' ),
+			esc_html__( 'Material', 'material-theme-builder' ),
+			'manage_options',
+			'material-theme-builder',
+			[ $this->wizard, 'render' ],
+			trailingslashit( $this->dir_url ) . 'assets/images/plugin-icon.svg'
+		);
+	}
+
+	/**
+	 * Redirect after activating
+	 *
+	 * @action activated_plugin
+	 * 
+	 * @param string $plugin Path to activated plugin, relative to plugins folder.
+	 *
+	 * @return void
+	 */
+	public function redirect_to_wizard( $plugin ) {
+		if ( trailingslashit( $this->slug ) . $this->slug . '.php' !== $plugin ) {
+			return;
+		}
+
+		wp_safe_redirect( admin_url( 'admin.php?page=material-theme-builder' ) );
+		exit;
 	}
 }
