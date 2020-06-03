@@ -9,7 +9,7 @@ import Card from './card';
 const Work = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">
-			<h3 className="mdc-typography--headline4 material-wizard__title">
+			<h3 className="mdc-typography--headline3 material-wizard__title">
 				{ __(
 					'Congrats! You’ve installed Material. Here’s how it works:',
 					'material-theme-builder'

@@ -9,7 +9,7 @@ Object {
         class="mdc-layout-grid__cell--span-12"
       >
         <h3
-          class="mdc-typography--headline4 material-wizard__title"
+          class="mdc-typography--headline3 material-wizard__title"
         >
           Congrats! You’ve installed Material. Here’s how it works:
         </h3>
@@ -95,7 +95,7 @@ Object {
       class="mdc-layout-grid__cell--span-12"
     >
       <h3
-        class="mdc-typography--headline4 material-wizard__title"
+        class="mdc-typography--headline3 material-wizard__title"
       >
         Congrats! You’ve installed Material. Here’s how it works:
       </h3>

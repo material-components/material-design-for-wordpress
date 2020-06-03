@@ -21,4 +21,8 @@
 	& .material-wizard__title {
 		margin-top: 0;
 	}
+
+	& .material-wizard__card img {
+		width: 100%;
+	}
 }
