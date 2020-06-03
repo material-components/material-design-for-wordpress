@@ -5,11 +5,15 @@
 
 /**
  * Install theme if necessary
- * Actvate theme
+ * Activate theme
  *
  */
 export const handleThemeActivation = () => {
 	const action = mtbWizard.themeStatus;
+	if ( 'ok' === action ) {
+		return;
+	}
+
 	const parameters = {
 		method: 'POST',
 		headers: { 'X-WP-Nonce': mtbOnboarding.nonce },

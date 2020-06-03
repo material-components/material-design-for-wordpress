@@ -35,7 +35,11 @@ const Card = props => {
 				<div
 					className={ `mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--align-middle` }
 				>
-					<Switch id={ props.switch } checked={ checked } />
+					<Switch
+						id={ props.switch }
+						checked={ checked }
+						disabled={ props.disabled }
+					/>
 				</div>
 			) }
 		</div>

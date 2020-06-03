@@ -404,7 +404,7 @@ class Plugin extends Plugin_Base {
 	 * @return bool
 	 */
 	public function theme_installed() {
-		return file_exists( trailingslashit( get_theme_root() ) . self::THEME_SLUG );
+		return file_exists( trailingslashit( get_theme_root() ) . self::THEME_SLUG . '/style.css' );
 	}
 
 	/**
@@ -533,7 +533,8 @@ class Plugin extends Plugin_Base {
 	 * @return void
 	 */
 	public function create_demo_importer_page() {
-		add_options_page( esc_html__( 'Material Settings', 'material-theme-builder' ), esc_html__( 'Material Settings', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
+		// @todo Renable this page after onboarding phase-2 is implemented.
+		// add_options_page( esc_html__( 'Material Settings', 'material-theme-builder' ), esc_html__( 'Material Settings', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
 	}
 
 	/**
@@ -546,7 +547,7 @@ class Plugin extends Plugin_Base {
 		echo $this->importer->render_page();
 		// phpcs:enable
 	}
-	
+
 	/**
 	 * Create onboarding wizard page
 	 *

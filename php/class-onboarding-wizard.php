@@ -64,7 +64,7 @@ class Onboarding_Wizard extends Module_Base {
 			'mtbWizard',
 			[
 				'pagesUrl'         => esc_url( admin_url( 'edit.php?post_type=page' ) ),
-				'settingsUrl'      => esc_url( admin_url( 'options-general.php?page=material_demo' ) ),
+				'settingsUrl'      => esc_url( admin_url( 'plugins.php' ) ),
 				'placeholderImage' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder.png' ) ),
 				'placeholderSmall' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder-small.png' ) ),
 				'themeStatus'      => esc_html( $this->plugin->material_theme_status() ),

@@ -54,7 +54,7 @@ export const reducer = ( state, action ) => {
 
 	if ( 'SUBMIT_WIZARD' === type ) {
 		if ( 0 === addons.length ) {
-			window.location.replace( mtbWizard.settingsUrl );
+			return window.location.replace( mtbWizard.settingsUrl );
 		}
 
 		if ( addons.includes( ADDONS.THEME ) ) {

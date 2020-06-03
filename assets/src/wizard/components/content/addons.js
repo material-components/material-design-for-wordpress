@@ -14,7 +14,11 @@ const Addons = () => {
 				{ __( 'Install addons', 'material-theme-builder' ) }
 			</h3>
 
-			<Card image={ mtbWizard.placeholderSmall } switch={ ADDONS.THEME }>
+			<Card
+				image={ mtbWizard.placeholderSmall }
+				switch={ ADDONS.THEME }
+				disabled={ 'ok' === mtbWizard.themeStatus }
+			>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Material Theme', 'material-theme-builder' ) }
 				</h4>

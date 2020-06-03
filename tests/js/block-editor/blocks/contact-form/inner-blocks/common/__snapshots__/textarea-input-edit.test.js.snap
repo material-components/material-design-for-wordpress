@@ -4,6 +4,14 @@ exports[`TextareaInputEdit matches snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -171,6 +179,14 @@ exports[`TextareaInputEdit matches snapshot when the \`is required\` attribute i
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -348,6 +364,14 @@ exports[`TextareaInputEdit matches snapshot when the block is selected 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -601,6 +625,14 @@ exports[`TextareaInputEdit matches snapshot when the display label attribute is 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -748,6 +780,14 @@ exports[`TextareaInputEdit matches snapshot when the full width attribute is tru
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -915,6 +955,14 @@ exports[`TextareaInputEdit matches snapshot when the id attribute is empty 1`] =
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1082,6 +1130,14 @@ exports[`TextareaInputEdit matches snapshot when the outlined attribute is false
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1227,6 +1283,14 @@ exports[`TextareaInputEdit matches snapshot when the outlined attribute is false
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1372,6 +1436,14 @@ exports[`TextareaInputEdit matches snapshot when the outlined attribute is false
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1505,6 +1577,14 @@ exports[`TextareaInputEdit matches snapshot when the outlined attribute is false
 Object {
   "asFragment": [Function],
   "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
