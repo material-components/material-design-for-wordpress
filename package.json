@@ -114,6 +114,7 @@
     "postcss-nested": "4.2.1",
     "postcss-preset-env": "6.7.0",
     "postcss-simple-vars": "5.0.2",
+    "prettier": "npm:wp-prettier@1.19.1",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-masonry-css": "1.0.14",

@@ -3,7 +3,8 @@ import StepContext from '../../context';
 import Switch from './switch';
 
 /**
- * Diplay information related to the current screen
+ * Diplay information related to the current screen.
+ *
  * @param {*} props Inherited props
  */
 
