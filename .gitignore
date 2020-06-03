@@ -2,6 +2,7 @@
 ._.DS_Store
 .env
 .idea
+composer.lock
 material-theme-builder.zip
 yarn.lock
 assets/css/*
