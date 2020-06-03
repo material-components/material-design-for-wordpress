@@ -6,7 +6,7 @@
 	& p {
 		font-family: var(--mdc-typography-body1-font-family, var(--mdc-typography-font-family, Roboto,));
 		font-size: var(--mdc-typography-body1-font-size, 1rem);
-		line-height: var(--mdc-typography-body1-line-height);
+		line-height: var(--mdc-typography-body1-line-height, 1.5);
 		font-weight: var(--mdc-typography-body1-font-weight, 400);
 		letter-spacing: var(--mdc-typography-body1-letter-spacing, 0.03125em);
 		text-decoration: var(--mdc-typography-body1-text-decoration, inherit);
