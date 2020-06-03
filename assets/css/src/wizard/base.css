@@ -1,6 +1,7 @@
 .material-wizard {
 	--mdc-typography-headline5-font-family: "Roboto Mono", monospace;
 	--mtb-wizard-primary-color: #212121;
+	max-width: 1024px;
 
 	& .mdc-button {
 		--mdc-theme-primary: var(--mtb-wizard-primary-color);
@@ -10,4 +11,22 @@
 	& h4 {
 		margin-top: 0;
 	}
+}
+
+.toplevel_page_material-theme-builder {
+
+	& #adminmenumain,
+	& #wpadminbar,
+	& #wpfooter {
+		display: none;
+	}
+
+	& #wpcontent {
+		margin-left: 0;
+		padding-left: 0;
+	}
+}
+
+#material-onboarding-wizard {
+	margin-top: -32px;
 }
