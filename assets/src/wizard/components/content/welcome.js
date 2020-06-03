@@ -10,7 +10,7 @@ const Welcome = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">
 			<Card image={ mtbWizard.placeholderImage } imageSpan="5">
-				<h3 className="mdc-typography--headline4">
+				<h3 className="mdc-typography--headline3">
 					{ __( 'Start building', 'material-theme-builder' ) }
 				</h3>
 

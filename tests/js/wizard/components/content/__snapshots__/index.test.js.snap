@@ -26,7 +26,7 @@ Object {
               class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
             >
               <h3
-                class="mdc-typography--headline4"
+                class="mdc-typography--headline3"
               >
                 Start building
               </h3>
@@ -61,7 +61,7 @@ Object {
             class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
           >
             <h3
-              class="mdc-typography--headline4"
+              class="mdc-typography--headline3"
             >
               Start building
             </h3>
