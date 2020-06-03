@@ -4,14 +4,6 @@ exports[`CardImage matches snapshot when content layout is \`text-under-media\` 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -101,14 +93,6 @@ exports[`CardImage matches snapshot when the global edit mode is disabled and co
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -214,14 +198,6 @@ exports[`CardImage matches snapshot when the global edit mode is enabled and con
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
