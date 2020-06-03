@@ -19,7 +19,7 @@ Object {
             >
               <img
                 alt=""
-                src="http://example.com/image.png"
+                src="http://example.com/welcome.png"
               />
             </div>
             <div
@@ -54,7 +54,7 @@ Object {
           >
             <img
               alt=""
-              src="http://example.com/image.png"
+              src="http://example.com/welcome.png"
             />
           </div>
           <div

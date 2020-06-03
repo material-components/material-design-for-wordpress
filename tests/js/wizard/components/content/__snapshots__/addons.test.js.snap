@@ -21,7 +21,7 @@ Object {
           >
             <img
               alt=""
-              src="http://example.com/image-small.png"
+              src="http://example.com/addon-material-theme.png"
             />
           </div>
           <div
@@ -71,7 +71,7 @@ Object {
           >
             <img
               alt=""
-              src="http://example.com/image-small.png"
+              src="http://example.com/addon-quick-start-examples.png"
             />
           </div>
           <div
@@ -80,7 +80,7 @@ Object {
             <h4
               class="mdc-typography--headline4"
             >
-              Common Layouts
+              Quick Start Examples
             </h4>
             <p>
               From a contact page to TK, these layouts show different ways you can use Material Components to address common user needs.
@@ -132,7 +132,7 @@ Object {
         >
           <img
             alt=""
-            src="http://example.com/image-small.png"
+            src="http://example.com/addon-material-theme.png"
           />
         </div>
         <div
@@ -182,7 +182,7 @@ Object {
         >
           <img
             alt=""
-            src="http://example.com/image-small.png"
+            src="http://example.com/addon-quick-start-examples.png"
           />
         </div>
         <div
@@ -191,7 +191,7 @@ Object {
           <h4
             class="mdc-typography--headline4"
           >
-            Common Layouts
+            Quick Start Examples
           </h4>
           <p>
             From a contact page to TK, these layouts show different ways you can use Material Components to address common user needs.

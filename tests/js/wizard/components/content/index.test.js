@@ -13,6 +13,7 @@ import { StepProvider } from '../../../../../assets/src/wizard/context';
 describe( 'Wizard: Content', () => {
 	beforeAll( () => {
 		global.mtbWizard = {
+			assetsPath: 'http://example.com/',
 			placeholderSmall: 'http://example.com/image-small.png',
 			placeholderImage: 'http://example.com/image.png',
 		};

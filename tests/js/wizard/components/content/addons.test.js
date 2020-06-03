@@ -21,6 +21,7 @@ const setup = () => {
 describe( 'Wizard: Addons', () => {
 	beforeAll( () => {
 		global.mtbWizard = {
+			assetsPath: 'http://example.com/',
 			placeholderSmall: 'http://example.com/image-small.png',
 			placeholderImage: 'http://example.com/image.png',
 		};
