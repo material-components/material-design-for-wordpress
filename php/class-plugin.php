@@ -564,4 +564,22 @@ class Plugin extends Plugin_Base {
 			trailingslashit( $this->dir_url ) . 'assets/images/plugin-icon.svg'
 		);
 	}
+
+	/**
+	 * Redirect after activating
+	 *
+	 * @action activated_plugin
+	 * 
+	 * @param string $plugin Path to activated plugin, relative to plugins folder.
+	 *
+	 * @return void
+	 */
+	public function redirect_to_wizard( $plugin ) {
+		if ( trailingslashit( $this->slug ) . $this->slug . '.php' !== $plugin ) {
+			return;
+		}
+
+		wp_safe_redirect( admin_url( 'admin.php?page=material-theme-builder' ) );
+		exit;
+	}
 }
