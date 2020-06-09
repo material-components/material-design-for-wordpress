@@ -623,33 +623,27 @@ class Controls extends Module_Base {
 		}
 
 		foreach ( $this->get_corner_styles_controls() as $control ) {
-			$value  = $this->get_theme_mod( $control['id'] );
-			$limits = isset( $control['extra']['limits'] ) ? $control['extra']['limits'] : [];
-
-			if ( ! empty( $limits ) ) {
-				foreach ( $limits as $element => $limit ) {
-					if ( isset( $limit['min'] ) && $value < $limit['min'] ) {
-						$value = $limit['min'];
-					}
-
-					if ( isset( $limit['max'] ) && $value > $limit['max'] ) {
-						$value = $limit['max'];
-					}
-
-					$corner_styles_vars[] = sprintf(
-						'%s-%s: %spx;',
-						esc_html( $control['css_var'] ),
-						esc_html( $element ),
-						esc_html( $value )
-					);
-				}
-			} else {
-				$corner_styles_vars[] = sprintf(
-					'%s: %spx;',
-					esc_html( $control['css_var'] ),
-					esc_html( $value )
-				);
+			if ( empty( $control['css_var'] ) ) {
+				continue;
 			}
+
+			$value = $this->get_theme_mod( $control['id'] );
+
+			if ( isset( $control['max'] ) || isset( $control['min'] ) ) {
+				if ( isset( $control['min'] ) && $value < $control['min'] ) {
+					$value = $control['min'];
+				}
+
+				if ( isset( $control['max'] ) && $value > $control['max'] ) {
+					$value = $control['max'];
+				}
+			}
+
+			$corner_styles_vars[] = sprintf(
+				'%s: %spx;',
+				esc_html( $control['css_var'] ),
+				esc_html( $value )
+			);
 		}
 
 		$glue               = "\n\t\t\t\t";
@@ -888,14 +882,6 @@ class Controls extends Module_Base {
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 4,
-				'blocks'        => [
-					'material/button' => [
-						'limits' => [
-							'min' => 0,
-							'max' => 20,
-						],
-					],
-				],
 			],
 			[
 				'id'            => 'button_radius',
@@ -905,24 +891,7 @@ class Controls extends Module_Base {
 				'initial_value' => 4,
 				'css_var'       => '--mdc-button-radius',
 				'blocks'        => [
-					'material/card'             => [
-						'limits' => [
-							'max' => 20,
-							'min' => 0,
-						],
-					],
-					'material/cards-collection' => [
-						'limits' => [
-							'max' => 20,
-							'min' => 0,
-						],
-					],
-					'material/image-list'       => [
-						'limits' => [
-							'max' => 16,
-							'min' => 0,
-						],
-					],
+					'material/button',
 				],
 			],
 			[
@@ -932,6 +901,11 @@ class Controls extends Module_Base {
 				'max'           => 24,
 				'initial_value' => 0,
 				'css_var'       => '--mdc-card-radius',
+				'blocks'        => [
+					'material/card',
+					'material/cards-collection',
+					'material/image-list',
+				],
 			],
 			[
 				'id'            => 'chip_radius',
@@ -948,6 +922,9 @@ class Controls extends Module_Base {
 				'max'           => 36,
 				'initial_value' => 0,
 				'css_var'       => '--mdc-data-table-radius',
+				'blocks'        => [
+					'material/data-table',
+				],
 			],
 			[
 				'id'            => 'image_list_radius',
@@ -956,6 +933,9 @@ class Controls extends Module_Base {
 				'max'           => 24,
 				'initial_value' => 0,
 				'css_var'       => '--mdc-image-list-radius',
+				'blocks'        => [
+					'material/image-list',
+				],
 			],
 			[
 				'id'            => 'nav_drawer_radius',
