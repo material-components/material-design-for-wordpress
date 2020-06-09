@@ -55,6 +55,13 @@ class Range_Slider_Control extends \WP_Customize_Control {
 	public $initial_value = 0;
 
 	/**
+	 * Children controls.
+	 *
+	 * @var array
+	 */
+	public $children = [];
+
+	/**
 	 * Displays the control content.
 	 *
 	 * @access public
@@ -76,5 +83,6 @@ class Range_Slider_Control extends \WP_Customize_Control {
 		$this->json['max']          = ! empty( $this->max ) ? $this->max : 100;
 		$this->json['initialValue'] = ! empty( $this->initial_value ) ? $this->initial_value : 0;
 		$this->json['extra']        = ! empty( $this->extra ) ? $this->extra : [];
+		$this->json['children']     = ! empty( $this->children ) ? $this->children : [];
 	}
 }
