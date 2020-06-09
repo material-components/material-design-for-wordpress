@@ -98,31 +98,6 @@ describe( 'RangeSliderControl', () => {
 		expect( mockOnChangeFn ).toHaveBeenCalledTimes( 1 );
 	} );
 
-	it( 'should have its value reset to its original value after value being changed and reset', () => {
-		const wrapper = setupMount( baseProps );
-
-		const input = wrapper.find( 'input.components-range-control__slider' );
-
-		input.simulate( 'change', {
-			target: {
-				value: 3,
-				checkValidity: () => true,
-			},
-		} );
-
-		expect(
-			wrapper.find( 'input.components-range-control__slider' ).prop( 'value' )
-		).toBe( 3 );
-
-		wrapper.find( 'button' ).simulate( 'click' );
-
-		expect( mockOnChangeFn ).toHaveBeenCalledTimes( 2 );
-
-		expect(
-			wrapper.find( 'input.components-range-control__slider' ).prop( 'value' )
-		).toBe( 10 );
-	} );
-
 	it( 'should show the description when the title is clicked', () => {
 		const wrapper = setupMount( baseProps );
 

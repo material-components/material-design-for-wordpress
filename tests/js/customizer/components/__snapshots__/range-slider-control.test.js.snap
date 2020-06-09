@@ -129,17 +129,6 @@ Object {
               </div>
             </div>
           </span>
-          <span
-            class="range-slider-control-body__item"
-          >
-            <button
-              class="mdc-icon-button material-icons"
-              disabled=""
-              title="Reset"
-            >
-              undo
-            </button>
-          </span>
         </div>
       </div>
     </div>
@@ -244,17 +233,6 @@ Object {
               </span>
             </div>
           </div>
-        </span>
-        <span
-          class="range-slider-control-body__item"
-        >
-          <button
-            class="mdc-icon-button material-icons"
-            disabled=""
-            title="Reset"
-          >
-            undo
-          </button>
         </span>
       </div>
     </div>
@@ -431,17 +409,6 @@ Object {
               </div>
             </div>
           </span>
-          <span
-            class="range-slider-control-body__item"
-          >
-            <button
-              class="mdc-icon-button material-icons"
-              disabled=""
-              title="Reset"
-            >
-              undo
-            </button>
-          </span>
         </div>
       </div>
     </div>
@@ -535,17 +502,6 @@ Object {
               </span>
             </div>
           </div>
-        </span>
-        <span
-          class="range-slider-control-body__item"
-        >
-          <button
-            class="mdc-icon-button material-icons"
-            disabled=""
-            title="Reset"
-          >
-            undo
-          </button>
         </span>
       </div>
     </div>
