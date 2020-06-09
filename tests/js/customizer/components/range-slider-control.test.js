@@ -2,7 +2,7 @@
  * External dependencies
  */
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { mount } from 'enzyme';
 
 /**
@@ -31,6 +31,7 @@ const setupMount = props => {
 };
 
 const mockOnChangeFn = jest.fn();
+const mockOnExpandedFn = jest.fn();
 
 const baseProps = {
 	id: 'mtb-small_component_radius',
@@ -58,6 +59,29 @@ describe( 'RangeSliderControl', () => {
 		props.description = '';
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when is global', () => {
+		const props = { ...baseProps };
+		props.isGlobal = true;
+		props.expandedSettings = true;
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'should invoke handleExpandedSettings when expand settings button is clicked', async () => {
+		const props = { ...baseProps };
+		props.isGlobal = true;
+		props.expandedSettings = true;
+		props.handleExpandedSettings = mockOnExpandedFn;
+		const { container } = setup( props );
+
+		const input = container.querySelector(
+			'.range-slider-control-settings-expanded'
+		);
+		await fireEvent.click( input );
+
+		expect( mockOnExpandedFn ).toHaveBeenCalledTimes( 1 );
 	} );
 
 	it( 'should have its value changed after the input number field value is changed', () => {
