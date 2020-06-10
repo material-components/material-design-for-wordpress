@@ -73,6 +73,7 @@ const GlobalRangeSliderControl = props => {
 		<div className="global-range-slider-control">
 			<RangeSliderControl
 				{ ...otherProps }
+				value={ parentValue }
 				onChange={ onParentChange }
 				isGlobal
 				expandedSettings={ expandedSettings }

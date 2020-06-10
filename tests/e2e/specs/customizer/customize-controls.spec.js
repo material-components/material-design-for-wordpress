@@ -167,7 +167,7 @@ describe( 'Customize controls', () => {
 		} );
 	} );
 
-	describe( 'Corner Styles section', () => {
+	describe( 'Shape Size section', () => {
 		beforeAll( async () => {
 			await page.evaluate( el => {
 				el.click();
@@ -180,26 +180,42 @@ describe( 'Customize controls', () => {
 			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
 		} );
 
-		it( 'should always display the Small Component Radius setting control', async () => {
+		it( 'should always display the `Global corner styles` setting control', async () => {
 			expect(
-				await isVisible( '#range-slider-control-mtb_small_component_radius' )
+				await isVisible( '#range-slider-control-mtb_global_radius' )
 			).toBeTruthy();
 		} );
 
-		it( 'should always display the Medium Component Radius setting control', async () => {
+		it( 'should hide all individual component controls', async () => {
 			expect(
-				await isVisible( '#range-slider-control-mtb_medium_component_radius' )
-			).toBeTruthy();
+				await page.$( '#range-slider-control-mtb_button_radius' )
+			).toBeNull();
+
+			expect(
+				await page.$( '#range-slider-control-mtb_text_field_radius' )
+			).toBeNull();
 		} );
 
-		it( 'should always display the Large Component Radius setting control', async () => {
+		it( 'should expand all individual component controls when expand icon is clicked', async () => {
+			await page.evaluate( el => {
+				el.click();
+			}, await page.$( '.range-slider-control-settings-expanded' ) );
+
 			expect(
-				await isVisible( '#range-slider-control-mtb_large_component_radius' )
+				await isVisible( '#range-slider-control-mtb_button_radius' )
+			).toBeTruthy();
+
+			expect(
+				await isVisible( '#range-slider-control-mtb_image_list_radius' )
+			).toBeTruthy();
+
+			expect(
+				await isVisible( '#range-slider-control-mtb_text_field_radius' )
 			).toBeTruthy();
 		} );
 	} );
 
-	describe( 'Small Component Radius Control', () => {
+	describe( 'Global corner styles Control', () => {
 		beforeAll( async () => {
 			await page.evaluate( el => {
 				el.click();
@@ -210,85 +226,10 @@ describe( 'Customize controls', () => {
 			await page.evaluate( el => {
 				el.click();
 			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
-		} );
-
-		it( 'should have a default value of 4 when the Baseline Design style is selected', async () => {
-			await page.evaluate( el => {
-				el.click();
-			}, await page.$( '#accordion-section-mtb_style h3' ) );
-
-			await page.evaluate(
-				radio => radio.click(),
-				await page.$( '#mtb_style-baseline' )
-			);
-
-			const inputValue = await page.evaluate( input => {
-				return input.value;
-			}, await page.$( '#range-slider-control-mtb_small_component_radius .components-range-control__number' ) );
-
-			expect( inputValue ).toBe( '4' );
-		} );
-	} );
-
-	describe( 'Medium Component Radius Control', () => {
-		beforeAll( async () => {
-			await page.evaluate( el => {
-				el.click();
-			}, await page.$( '#accordion-panel-mtb h3' ) );
-
-			await page.waitFor( 500 );
 
 			await page.evaluate( el => {
 				el.click();
-			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
-		} );
-
-		it( 'should have a default value of 4 when the Baseline Design style is selected', async () => {
-			await page.evaluate( el => {
-				el.click();
-			}, await page.$( '#accordion-section-mtb_style h3' ) );
-
-			await page.evaluate(
-				radio => radio.click(),
-				await page.$( '#mtb_style-baseline' )
-			);
-
-			const inputValue = await page.evaluate( input => {
-				return input.value;
-			}, await page.$( '#range-slider-control-mtb_medium_component_radius .components-range-control__number' ) );
-
-			expect( inputValue ).toBe( '4' );
-		} );
-	} );
-
-	describe( 'Large Component Radius Control', () => {
-		beforeAll( async () => {
-			await page.evaluate( el => {
-				el.click();
-			}, await page.$( '#accordion-panel-mtb h3' ) );
-
-			await page.waitFor( 500 );
-
-			await page.evaluate( el => {
-				el.click();
-			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
-		} );
-
-		it( 'should have a default value of 24 when the Baseline Design style is selected', async () => {
-			await page.evaluate( el => {
-				el.click();
-			}, await page.$( '#accordion-section-mtb_style h3' ) );
-
-			await page.evaluate(
-				radio => radio.click(),
-				await page.$( '#mtb_style-baseline' )
-			);
-
-			const inputValue = await page.evaluate( input => {
-				return input.value;
-			}, await page.$( '#range-slider-control-mtb_large_component_radius .components-range-control__number' ) );
-
-			expect( inputValue ).toBe( '0' );
+			}, await page.$( '.range-slider-control-settings-expanded' ) );
 		} );
 	} );
 
