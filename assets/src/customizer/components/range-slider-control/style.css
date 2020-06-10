@@ -132,3 +132,22 @@
 		height: 2px;
 	}
 }
+
+.range-slider-control {
+
+	& input[type="range"]::-webkit-slider-runnable-track {
+		background: #999;
+	}
+
+	& input[type="range"]::-moz-range-track {
+		background: #999;
+	}
+
+	& input[type="range"]::-ms-fill-lower {
+		background: #999;
+	}
+
+	& input[type="range"]::-ms-fill-upper {
+		background: #999;
+	}
+}
