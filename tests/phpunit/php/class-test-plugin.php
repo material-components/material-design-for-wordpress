@@ -224,6 +224,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 
 		// Assert inline css vars are added.
 		$inline_css = wp_styles()->get_data( 'material-front-end-css', 'after' );
+
 		$this->assertNotEmpty( $inline_css );
 
 		$inline_js = wp_scripts()->get_data( 'material-front-end-js', 'data' );
@@ -284,7 +285,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 
 		// Add filter to return 12, 48 and -1 sequantially as the cornerRadius for button.
 		add_filter(
-			"theme_mod_{$controls->slug}_small_component_radius",
+			"theme_mod_{$controls->slug}_button_radius",
 			function () {
 				static $index = 0;
 				$values       = [ 12, 48, -1 ];

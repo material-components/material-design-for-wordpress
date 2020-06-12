@@ -63,4 +63,91 @@
 .range-slider-control-body__item {
 	flex-direction: row;
 	justify-content: space-between;
+
+	& .components-button.is-link {
+		border: none;
+		background: none !important;
+		padding: 0 6px;
+		text-decoration: none;
+
+		& .material-icons {
+			color: #666;
+			font-size: 20px;
+		}
+
+		& span {
+			font-size: 13px;
+		}
+
+		&.range-slider-control-settings-expanded {
+			background: none;
+			box-shadow: none;
+			color: #666 !important;
+			min-width: auto;
+			padding: 2px;
+
+			&:hover,
+			&:focus,
+			&.is-pressed {
+				box-shadow: none;
+				color: #333 !important;
+				background-color: #ccc !important;
+			}
+		}
+	}
+}
+
+.global-range-slider-control-children {
+	background: #ddd;
+	padding: 8px 0 8px 8px;
+	margin-top: 8px;
+
+	& .range-slider-control .slider {
+		margin-right: 32px;
+	}
+
+	& .range-slider-control .has-link.slider {
+		margin-right: 0;
+	}
+}
+
+.components-range-control__wrapper {
+
+	[class*="ThumbWrapper"] {
+		height: 12px;
+		top: 4px;
+		width: 12px;
+
+		& span {
+			background-color: #666;
+		}
+	}
+
+	[class*="Rail"] {
+		background-color: #999;
+		height: 2px;
+	}
+
+	[class*="Track"] {
+		height: 2px;
+	}
+}
+
+.range-slider-control {
+
+	& input[type="range"]::-webkit-slider-runnable-track {
+		background: #999;
+	}
+
+	& input[type="range"]::-moz-range-track {
+		background: #999;
+	}
+
+	& input[type="range"]::-ms-fill-lower {
+		background: #999;
+	}
+
+	& input[type="range"]::-ms-fill-upper {
+		background: #999;
+	}
 }
