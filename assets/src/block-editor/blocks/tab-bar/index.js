@@ -37,6 +37,9 @@ export const settings = {
 			default: [],
 		},
 	},
+	supports: {
+		align: [ 'wide', 'full' ],
+	},
 	edit,
 	save,
 };
