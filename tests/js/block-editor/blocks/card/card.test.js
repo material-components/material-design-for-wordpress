@@ -16,8 +16,8 @@ describe( 'blocks: material/card', () => {
 	} );
 
 	describe( 'title settings', () => {
-		it( 'should equal Card', () => {
-			expect( settings.title ).toStrictEqual( 'Custom Card' );
+		it( 'should equal Custom Card (Material)', () => {
+			expect( settings.title ).toStrictEqual( 'Custom Card (Material)' );
 		} );
 	} );
 
