@@ -114,7 +114,7 @@ const RangeSliderControl = props => {
 							label={ __( 'Link to global', 'material-theme-builder' ) }
 							showTooltip={ true }
 						>
-							<span className="mdc-icon-button material-icons">link</span>
+							<span className="material-icons">link</span>
 						</Button>
 					</span>
 				) }

@@ -12,7 +12,7 @@
  * External dependencies
  */
 import 'select-woo';
-import { camelCase } from 'lodash';
+import { camelCase, debounce } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -142,19 +142,42 @@ import ThemePrompt from './components/theme-prompt';
 				'material_background_color',
 				'material_background_text_color',
 			] )
+			.concat( radiusControls )
 			.forEach( name => {
-				const control = api.control( name );
-				const prop = camelCase( name.replace( `${ getSlug( name ) }_`, '' ) );
+				const setting = api( name );
 
-				if ( control?.setting ) {
-					controlProps[ prop ] = control.setting.get();
+				if ( setting ) {
+					const prop = camelCase( name.replace( `${ getSlug( name ) }_`, '' ) );
+					let value = setting.get();
+
+					if ( radiusControlsLookup.hasOwnProperty( name ) ) {
+						value = Number( limitRadiusValue( name, value ) );
+					}
+
+					controlProps[ prop ] = value;
 				}
 			} );
-		console.log( controlProps );
+
 		return controlProps;
 	};
 
-	const onSettingChange = () => {
+	const limitRadiusValue = ( id, value ) => {
+		if (
+			radiusControlsLookup[ id ]?.max &&
+			value > radiusControlsLookup[ id ].max
+		) {
+			value = radiusControlsLookup[ id ].max;
+		} else if (
+			radiusControlsLookup[ id ]?.min &&
+			value < radiusControlsLookup[ id ].min
+		) {
+			value = radiusControlsLookup[ id ].min;
+		}
+
+		return value;
+	};
+
+	const onSettingChange = debounce( () => {
 		const kitchenSink = $( '#mcb-kitchen-sink-preview' );
 
 		if (
@@ -163,7 +186,7 @@ import ThemePrompt from './components/theme-prompt';
 		) {
 			renderKitchenSink();
 		}
-	};
+	}, 500 );
 
 	const initMaterialComponents = function() {
 		initButtons();
@@ -274,6 +297,9 @@ import ThemePrompt from './components/theme-prompt';
 	 * Handle the kitchen sink swap right here.
 	 */
 	let mdcLoaded = false;
+	let radiusControls = [];
+	const radiusControlsLookup = {};
+
 	const loadKitchenSink = () => {
 		// Load MDC assets
 		if ( ! mdcLoaded ) {
@@ -286,6 +312,20 @@ import ThemePrompt from './components/theme-prompt';
 				'https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js',
 				initMaterialComponents
 			);
+
+			const globalRadiusControl = api.control( `${ mtb.slug }_global_radius` );
+
+			if ( globalRadiusControl?.params?.children ) {
+				globalRadiusControl.params.children.forEach(
+					ctrl =>
+						( radiusControlsLookup[ ctrl.id ] = {
+							min: ctrl.min,
+							max: ctrl.max,
+						} )
+				);
+
+				radiusControls = Object.keys( radiusControlsLookup );
+			}
 		}
 
 		toggleKitchenSink();
@@ -751,6 +791,7 @@ import ThemePrompt from './components/theme-prompt';
 				control.container.find( '.mtb-range_slider' ).get( 0 )
 			);
 			renderRangeSliderControl( control );
+			onSettingChange();
 		}
 	};
 
@@ -797,7 +838,10 @@ import ThemePrompt from './components/theme-prompt';
 					control.setting.set( newValue );
 					control.setting._dirty = true;
 				} }
-				onChildChange={ ( name, value ) => api( name ).set( value ) }
+				onChildChange={ ( name, value ) => {
+					api( name ).set( value );
+					onSettingChange();
+				} }
 				onResetToDefault={ onReset }
 			/>,
 			control.container.find( '.mtb-range_slider' ).get( 0 )

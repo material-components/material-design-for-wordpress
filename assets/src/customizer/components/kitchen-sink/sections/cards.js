@@ -2,7 +2,7 @@
 
 import { __ } from '@wordpress/i18n';
 
-const Cards = ( { radius, smallRadius } ) => (
+const Cards = ( { radius, buttonRadius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Card', 'material-theme-builder' ) }
@@ -65,21 +65,21 @@ const Cards = ( { radius, smallRadius } ) => (
 					<div className="mdc-card__action-buttons">
 						<button
 							className="mdc-button mdc-card__action mdc-card__action--button"
-							style={ { borderRadius: smallRadius } }
+							style={ { borderRadius: buttonRadius } }
 						>
 							<span
 								className="mdc-button__ripple"
-								style={ { borderRadius: smallRadius } }
+								style={ { borderRadius: buttonRadius } }
 							></span>
 							{ __( 'Read', 'material-theme-builder' ) }
 						</button>
 						<button
 							className="mdc-button mdc-card__action mdc-card__action--button"
-							style={ { borderRadius: smallRadius } }
+							style={ { borderRadius: buttonRadius } }
 						>
 							<span
 								className="mdc-button__ripple"
-								style={ { borderRadius: smallRadius } }
+								style={ { borderRadius: buttonRadius } }
 							></span>
 							{ __( 'Bookmark', 'material-theme-builder' ) }
 						</button>

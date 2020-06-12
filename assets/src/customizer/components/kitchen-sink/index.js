@@ -58,9 +58,13 @@ const KitchenSink = ( {
 	surfaceTextColor,
 	backgroundColor,
 	backgroundTextColor,
-	smallComponentRadius,
-	largeComponentRadius,
-	mediumComponentRadius,
+	buttonRadius,
+	cardRadius,
+	chipRadius,
+	dataTableRadius,
+	imageListRadius,
+	navDrawerRadius,
+	textFieldRadius,
 	theme,
 } ) => {
 	const [ link ] = useState( googleFontsUrl( headFontFamily, bodyFontFamily ) );
@@ -103,17 +107,14 @@ const KitchenSink = ( {
 						iconStyle={ iconStyle }
 						primaryColor={ primaryColor }
 						primaryTextColor={ primaryTextColor }
-						radius={ smallComponentRadius }
+						radius={ buttonRadius }
 					/>
 					<hr />
-					<Cards
-						radius={ mediumComponentRadius }
-						smallRadius={ smallComponentRadius }
-					/>
+					<Cards radius={ cardRadius } buttonRadius={ buttonRadius } />
 					<hr />
-					<Table radius={ largeComponentRadius } />
+					<Table radius={ dataTableRadius } />
 					<hr />
-					<ImageLists radius={ mediumComponentRadius } />
+					<ImageLists radius={ imageListRadius } />
 					<hr />
 					<Lists iconStyle={ iconStyle } />
 					<hr />
@@ -137,11 +138,11 @@ const KitchenSink = ( {
 					<hr />
 					<Checkboxes />
 					<hr />
-					<Chips />
+					<Chips radius={ chipRadius } />
 					<hr />
 					<Radios />
 					<hr />
-					<Fields radius={ smallComponentRadius } />
+					<Fields radius={ textFieldRadius } />
 					<hr />
 					<Switch />
 				</section>
