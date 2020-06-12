@@ -17,7 +17,8 @@
 
 	& #adminmenumain,
 	& #wpadminbar,
-	& #wpfooter {
+	& #wpfooter,
+	& .update-nag {
 		display: none;
 	}
 

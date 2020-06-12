@@ -25,7 +25,7 @@ import { unmountComponentAtNode } from 'react-dom';
  * Internal dependencies
  */
 import colorUtils from '../common/color-utils';
-import RangeSliderControl from './components/range-slider-control';
+import GlobalRangeSliderControl from './components/range-slider-control/global';
 import KitchenSink from './components/kitchen-sink';
 import {
 	initButtons,
@@ -724,27 +724,81 @@ import ThemePrompt from './components/theme-prompt';
 	} );
 
 	/**
+	 * Handle reset for global range slider control.
+	 *
+	 * @param {Object} control Control
+	 */
+	const onResetGlobalRangeSliderControl = control => {
+		let style = api( mtb.styleControl ).get();
+		if ( 'custom' === style ) {
+			style = api( mtb.prevStyleControl ).get();
+		}
+
+		if ( style && mtb.designStyles.hasOwnProperty( style ) ) {
+			const defaults = mtb.designStyles[ style ];
+			let settingId = control.id.replace( `${ getSlug( control.id ) }_`, '' );
+			api( control.id ).set( defaults[ settingId ] );
+
+			if ( control.params.children ) {
+				control.params.children.forEach( slider => {
+					settingId = slider.id.replace( `${ getSlug( slider.id ) }_`, '' );
+
+					api( slider.id ).set( defaults[ settingId ] );
+				} );
+			}
+
+			unmountComponentAtNode(
+				control.container.find( '.mtb-range_slider' ).get( 0 )
+			);
+			renderRangeSliderControl( control );
+		}
+	};
+
+	/**
 	 * Render the Range Slider Control.
 	 *
 	 * @param {Object} control Control
 	 */
 	const renderRangeSliderControl = control => {
+		let childSliders = [];
+
+		if ( control.params.children ) {
+			childSliders = control.params.children.map( slider => {
+				const value = api( slider.id ).get();
+				slider.value = Number(
+					'' !== value ? value : control.params.initialValue
+				);
+				return slider;
+			} );
+		}
+
 		const props = {
 			id: control.id,
 			label: control.params.label,
 			description: control.params.description,
 			min: control.params.min,
 			max: control.params.max,
-			value: Number( control.setting.get() ) || control.params.initialValue,
+			value: Number(
+				'' !== control.setting.get()
+					? control.setting.get()
+					: control.params.initialValue
+			),
+			childSliders,
+		};
+
+		const onReset = () => {
+			onResetGlobalRangeSliderControl( control );
 		};
 
 		render(
-			<RangeSliderControl
+			<GlobalRangeSliderControl
 				{ ...props }
 				onChange={ newValue => {
 					control.setting.set( newValue );
 					control.setting._dirty = true;
 				} }
+				onChildChange={ ( name, value ) => api( name ).set( value ) }
+				onResetToDefault={ onReset }
 			/>,
 			control.container.find( '.mtb-range_slider' ).get( 0 )
 		);
@@ -800,11 +854,12 @@ import ThemePrompt from './components/theme-prompt';
 				control.setting.set( value );
 
 				// Force unmount and re render the Ranger Slider control.
-				if ( control.params.type === 'range_slider' ) {
-					unmountComponentAtNode(
-						control.container.find( '.mtb-range_slider' ).get( 0 )
-					);
-					renderRangeSliderControl( control );
+				if (
+					control.params.type === 'range_slider' &&
+					control.params.children &&
+					control.params.children.length
+				) {
+					onResetGlobalRangeSliderControl( control );
 				}
 
 				// Rebind the custom value change event.
@@ -833,8 +888,7 @@ import ThemePrompt from './components/theme-prompt';
 
 	api.RangeSliderControl = api.Control.extend( {
 		ready() {
-			const control = this;
-			renderRangeSliderControl( control );
+			renderRangeSliderControl( this );
 		},
 	} );
 
