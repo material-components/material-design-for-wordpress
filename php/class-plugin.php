@@ -340,14 +340,14 @@ class Plugin extends Plugin_Base {
 		foreach ( $controls->get_corner_styles_controls() as $control ) {
 			$value = $controls->get_theme_mod( $control['id'] );
 			if ( ! empty( $value ) && ! empty( $control['blocks'] ) && is_array( $control['blocks'] ) ) {
-				foreach ( $control['blocks'] as $block => $settings ) {
+				foreach ( $control['blocks'] as $block ) {
 					$defaults[ $block ] = array_key_exists( $block, $defaults ) ? $defaults[ $block ] : [];
 
 					// If the value exceeds min or max, limit it.
-					if ( ! empty( $settings['limits'] ) && isset( $settings['limits']['min'] ) && $value < $settings['limits']['min'] ) {
-						$value = $settings['limits']['min'];
-					} elseif ( ! empty( $settings['limits'] ) && isset( $settings['limits']['max'] ) && $value > $settings['limits']['max'] ) {
-						$value = $settings['limits']['max'];
+					if ( isset( $control['min'] ) && $value < $control['min'] ) {
+						$value = $control['min'];
+					} elseif ( isset( $control['max'] ) && $value > $control['max'] ) {
+						$value = $control['max'];
 					}
 
 					$defaults[ $block ]['cornerRadius'] = absint( $value );
@@ -492,7 +492,7 @@ class Plugin extends Plugin_Base {
 		if ( self::THEME_SLUG !== get_template() || ! get_transient( 'mtb-activation-notice' ) ) {
 			return;
 		}
-		
+
 		delete_transient( 'mtb-activation-notice' );
 		?>
 

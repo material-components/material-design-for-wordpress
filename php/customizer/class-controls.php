@@ -308,25 +308,32 @@ class Controls extends Module_Base {
 		/**
 		 * Generate list of all the controls in the Corner Styles section.
 		 */
-		$controls = [];
+		$controls        = [];
+		$corner_controls = $this->get_corner_styles_controls();
 
-		foreach ( $this->get_corner_styles_controls() as $control ) {
-			$controls[ $control['id'] ] = new Range_Slider_Control(
-				$this->wp_customize,
-				$this->prepend_slug( $control['id'] ),
-				[
-					'section'       => 'corner_styles',
-					'priority'      => 10,
-					'label'         => isset( $control['label'] ) ? $control['label'] : '',
-					'description'   => isset( $control['description'] ) ? $control['description'] : '',
-					'min'           => isset( $control['min'] ) ? $control['min'] : 0,
-					'max'           => isset( $control['max'] ) ? $control['max'] : 100,
-					'initial_value' => isset( $control['initial_value'] ) ? $control['initial_value'] : 0,
-					'css_var'       => isset( $control['css_var'] ) ? $control['css_var'] : '',
-					'extra'         => isset( $control['extra'] ) ? $control['extra'] : '',
-				]
-			);
+		$control = $corner_controls[0];
+
+		$corner_controls = array_slice( $corner_controls, 1 );
+		foreach ( $corner_controls as $i => $ctrl ) {
+			$corner_controls[ $i ]['id'] = $this->prepend_slug( $ctrl['id'] );
 		}
+
+		$controls[ $control['id'] ] = new Range_Slider_Control(
+			$this->wp_customize,
+			$this->prepend_slug( $control['id'] ),
+			[
+				'section'       => 'corner_styles',
+				'priority'      => 10,
+				'label'         => isset( $control['label'] ) ? $control['label'] : '',
+				'description'   => isset( $control['description'] ) ? $control['description'] : '',
+				'min'           => isset( $control['min'] ) ? $control['min'] : 0,
+				'max'           => isset( $control['max'] ) ? $control['max'] : 100,
+				'initial_value' => isset( $control['initial_value'] ) ? $control['initial_value'] : 0,
+				'css_var'       => isset( $control['css_var'] ) ? $control['css_var'] : '',
+				'extra'         => isset( $control['extra'] ) ? $control['extra'] : '',
+				'children'      => $corner_controls,
+			]
+		);
 
 		$this->add_controls( $controls );
 	}
@@ -616,33 +623,27 @@ class Controls extends Module_Base {
 		}
 
 		foreach ( $this->get_corner_styles_controls() as $control ) {
-			$value  = $this->get_theme_mod( $control['id'] );
-			$limits = isset( $control['extra']['limits'] ) ? $control['extra']['limits'] : [];
-
-			if ( ! empty( $limits ) ) {
-				foreach ( $limits as $element => $limit ) {
-					if ( isset( $limit['min'] ) && $value < $limit['min'] ) {
-						$value = $limit['min'];
-					}
-
-					if ( isset( $limit['max'] ) && $value > $limit['max'] ) {
-						$value = $limit['max'];
-					}
-
-					$corner_styles_vars[] = sprintf(
-						'%s-%s: %spx;',
-						esc_html( $control['css_var'] ),
-						esc_html( $element ),
-						esc_html( $value )
-					);
-				}
-			} else {
-				$corner_styles_vars[] = sprintf(
-					'%s: %spx;',
-					esc_html( $control['css_var'] ),
-					esc_html( $value )
-				);
+			if ( empty( $control['css_var'] ) ) {
+				continue;
 			}
+
+			$value = $this->get_theme_mod( $control['id'] );
+
+			if ( isset( $control['max'] ) || isset( $control['min'] ) ) {
+				if ( isset( $control['min'] ) && $value < $control['min'] ) {
+					$value = $control['min'];
+				}
+
+				if ( isset( $control['max'] ) && $value > $control['max'] ) {
+					$value = $control['max'];
+				}
+			}
+
+			$corner_styles_vars[] = sprintf(
+				'%s: %spx;',
+				esc_html( $control['css_var'] ),
+				esc_html( $value )
+			);
 		}
 
 		$glue               = "\n\t\t\t\t";
@@ -691,68 +692,88 @@ class Controls extends Module_Base {
 	public function get_design_styles() {
 		return [
 			'baseline'    => [
-				'primary_color'           => '#6200ee',
-				'secondary_color'         => '#03dac6',
-				'primary_text_color'      => '#ffffff',
-				'secondary_text_color'    => '#000000',
-				'surface_color'           => '#ffffff',
-				'surface_text_color'      => '#000000',
-				'background_color'        => '#ffffff',
-				'background_text_color'   => '#000000',
-				'head_font_family'        => 'Roboto',
-				'body_font_family'        => 'Roboto',
-				'small_component_radius'  => '4',
-				'medium_component_radius' => '4',
-				'large_component_radius'  => '0',
-				'icon_collection'         => 'filled',
+				'primary_color'         => '#6200ee',
+				'secondary_color'       => '#03dac6',
+				'primary_text_color'    => '#ffffff',
+				'secondary_text_color'  => '#000000',
+				'surface_color'         => '#ffffff',
+				'surface_text_color'    => '#000000',
+				'background_color'      => '#ffffff',
+				'background_text_color' => '#000000',
+				'head_font_family'      => 'Roboto',
+				'body_font_family'      => 'Roboto',
+				'global_radius'         => '4',
+				'button_radius'         => '4',
+				'card_radius'           => '4',
+				'chip_radius'           => '4',
+				'data_table_radius'     => '0',
+				'image_list_radius'     => '4',
+				'nav_drawer_radius'     => '0',
+				'text_field_radius'     => '4',
+				'icon_collection'       => 'filled',
 			],
 			'crane'       => [
-				'primary_color'           => '#5d1049',
-				'secondary_color'         => '#e30425',
-				'primary_text_color'      => '#ffffff',
-				'secondary_text_color'    => '#ffffff',
-				'surface_color'           => '#ffffff',
-				'surface_text_color'      => '#000000',
-				'background_color'        => '#ffffff',
-				'background_text_color'   => '#000000',
-				'head_font_family'        => 'Raleway',
-				'body_font_family'        => 'Raleway',
-				'small_component_radius'  => '0',
-				'medium_component_radius' => '16',
-				'large_component_radius'  => '20',
-				'icon_collection'         => 'outlined',
+				'primary_color'         => '#5d1049',
+				'secondary_color'       => '#e30425',
+				'primary_text_color'    => '#ffffff',
+				'secondary_text_color'  => '#ffffff',
+				'surface_color'         => '#ffffff',
+				'surface_text_color'    => '#000000',
+				'background_color'      => '#ffffff',
+				'background_text_color' => '#000000',
+				'head_font_family'      => 'Raleway',
+				'body_font_family'      => 'Raleway',
+				'global_radius'         => '0',
+				'button_radius'         => '0',
+				'card_radius'           => '16',
+				'chip_radius'           => '0',
+				'data_table_radius'     => '20',
+				'image_list_radius'     => '16',
+				'nav_drawer_radius'     => '20',
+				'text_field_radius'     => '0',
+				'icon_collection'       => 'outlined',
 			],
 			'fortnightly' => [
-				'primary_color'           => '#121212',
-				'secondary_color'         => '#6b38fb',
-				'primary_text_color'      => '#ffffff',
-				'secondary_text_color'    => '#ffffff',
-				'surface_color'           => '#ffffff',
-				'surface_text_color'      => '#000000',
-				'background_color'        => '#ffffff',
-				'background_text_color'   => '#000000',
-				'head_font_family'        => 'Merriweather',
-				'body_font_family'        => 'Merriweather',
-				'small_component_radius'  => '0',
-				'medium_component_radius' => '0',
-				'large_component_radius'  => '0',
-				'icon_collection'         => 'outlined',
+				'primary_color'         => '#121212',
+				'secondary_color'       => '#6b38fb',
+				'primary_text_color'    => '#ffffff',
+				'secondary_text_color'  => '#ffffff',
+				'surface_color'         => '#ffffff',
+				'surface_text_color'    => '#000000',
+				'background_color'      => '#ffffff',
+				'background_text_color' => '#000000',
+				'head_font_family'      => 'Merriweather',
+				'body_font_family'      => 'Merriweather',
+				'global_radius'         => '0',
+				'button_radius'         => '0',
+				'card_radius'           => '0',
+				'chip_radius'           => '0',
+				'data_table_radius'     => '0',
+				'image_list_radius'     => '0',
+				'nav_drawer_radius'     => '0',
+				'text_field_radius'     => '0',
+				'icon_collection'       => 'outlined',
 			],
 			'shrine'      => [
-				'primary_color'           => '#fedbd0',
-				'secondary_color'         => '#feeae6',
-				'primary_text_color'      => '#000000',
-				'secondary_text_color'    => '#000000',
-				'surface_color'           => '#ffffff',
-				'surface_text_color'      => '#000000',
-				'background_color'        => '#ffffff',
-				'background_text_color'   => '#000000',
-				'head_font_family'        => 'Rubik',
-				'body_font_family'        => 'Rubik',
-				'small_component_radius'  => '0',
-				'medium_component_radius' => '0',
-				'large_component_radius'  => '0',
-				'icon_collection'         => 'outlined',
+				'primary_color'         => '#fedbd0',
+				'secondary_color'       => '#feeae6',
+				'primary_text_color'    => '#000000',
+				'secondary_text_color'  => '#000000',
+				'surface_color'         => '#ffffff',
+				'surface_text_color'    => '#000000',
+				'background_color'      => '#ffffff',
+				'background_text_color' => '#000000',
+				'head_font_family'      => 'Rubik',
+				'body_font_family'      => 'Rubik',
+				'global_radius'         => '0',
+				'button_radius'         => '0',
+				'card_radius'           => '0',
+				'chip_radius'           => '0',
+				'data_table_radius'     => '0',
+				'image_list_radius'     => '0',
+				'nav_drawer_radius'     => '0',
+				'text_field_radius'     => '0',
+				'icon_collection'       => 'outlined',
 			],
 		];
 	}
@@ -855,78 +876,82 @@ class Controls extends Module_Base {
 	public function get_corner_styles_controls() {
 		return [
 			[
-				'id'            => 'small_component_radius',
-				'label'         => __( 'Small Components Radius', 'material-theme-builder' ),
+				'id'            => 'global_radius',
+				'label'         => __( 'Global corner styles', 'material-theme-builder' ),
 				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of small components: buttons, chips, text fields.', 'material-theme-builder' ),
-				'min'           => 0,
-				'max'           => 28,
-				'initial_value' => 4,
-				'css_var'       => '--mdc-small-component-radius',
-				'blocks'        => [
-					'material/button' => [
-						'limits' => [
-							'min' => 0,
-							'max' => 20,
-						],
-					],
-				],
-				'extra'         => [
-					'limits' => [
-						'button' => [
-							'min' => 0,
-							'max' => 20,
-						],
-					],
-				],
-			],
-			[
-				'id'            => 'medium_component_radius',
-				'label'         => __( 'Medium Components Radius', 'material-theme-builder' ),
-				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of medium components: cards, image list items.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 4,
-				'css_var'       => '--mdc-medium-component-radius',
+			],
+			[
+				'id'            => 'button_radius',
+				'label'         => __( 'Button', 'material-theme-builder' ),
+				'min'           => 0,
+				'max'           => 20,
+				'initial_value' => 4,
+				'css_var'       => '--mdc-button-radius',
 				'blocks'        => [
-					'material/card'             => [
-						'limits' => [
-							'max' => 20,
-							'min' => 0,
-						],
-					],
-					'material/cards-collection' => [
-						'limits' => [
-							'max' => 20,
-							'min' => 0,
-						],
-					],
-					'material/image-list'       => [
-						'limits' => [
-							'max' => 16,
-							'min' => 0,
-						],
-					],
-				],
-				'extra'         => [
-					'limits' => [
-						'card' => [
-							'min' => 0,
-							'max' => 24,
-						],
-					],
+					'material/button',
 				],
 			],
 			[
-				'id'            => 'large_component_radius',
-				'label'         => __( 'Large Components Radius', 'material-theme-builder' ),
-				'description'   => __( 'Components are grouped into shape categories based on their size. Examples of large components: Data table, nav drawer.', 'material-theme-builder' ),
+				'id'            => 'card_radius',
+				'label'         => __( 'Card', 'material-theme-builder' ),
+				'min'           => 0,
+				'max'           => 24,
+				'initial_value' => 0,
+				'css_var'       => '--mdc-card-radius',
+				'blocks'        => [
+					'material/card',
+					'material/cards-collection',
+					'material/image-list',
+				],
+			],
+			[
+				'id'            => 'chip_radius',
+				'label'         => __( 'Chip', 'material-theme-builder' ),
+				'min'           => 0,
+				'max'           => 16,
+				'initial_value' => 0,
+				'css_var'       => '--mdc-chip-radius',
+			],
+			[
+				'id'            => 'data_table_radius',
+				'label'         => __( 'Data table', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 0,
-				'css_var'       => '--mdc-large-component-radius',
-				'extra'         => [
-					'limits' => [],
+				'css_var'       => '--mdc-data-table-radius',
+				'blocks'        => [
+					'material/data-table',
 				],
+			],
+			[
+				'id'            => 'image_list_radius',
+				'label'         => __( 'Image List', 'material-theme-builder' ),
+				'min'           => 0,
+				'max'           => 24,
+				'initial_value' => 0,
+				'css_var'       => '--mdc-image-list-radius',
+				'blocks'        => [
+					'material/image-list',
+				],
+			],
+			[
+				'id'            => 'nav_drawer_radius',
+				'label'         => __( 'Nav Drawer', 'material-theme-builder' ),
+				'min'           => 0,
+				'max'           => 36,
+				'initial_value' => 0,
+				'css_var'       => '--mdc-nav-drawer-radius',
+			],
+			[
+				'id'            => 'text_field_radius',
+				'label'         => __( 'Text Field', 'material-theme-builder' ),
+				'min'           => 0,
+				'max'           => 20,
+				'initial_value' => 0,
+				'css_var'       => '--mdc-text-field-radius',
 			],
 		];
 	}
