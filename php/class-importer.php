@@ -310,130 +310,19 @@ class Importer extends Module_Base {
 	}
 
 	/**
-	 * Register widgets to use in footer sidebar
+	 * Remove widgets
 	 *
 	 * @return void
 	 */
 	public function setup_widgets() {
 		$existing_widgets = get_option( 'sidebars_widgets' );
 
-		$default_widgets = [
-			'footer'       => $this->get_left_widgets(),
-			'footer-right' => $this->get_right_widgets(),
+		$widgets = [
+			'footer'       => [],
+			'footer-right' => [],
 		];
 
-		foreach ( $default_widgets as $area => $widgets ) {
-			// Reset footer widgets.
-			$existing_widgets[ $area ] = [];
-
-			foreach ( $widgets as $widget_type => $widget ) {
-				$existing_widgets[ $area ] = array_merge( $existing_widgets[ $area ], $this->build_widget_ids( $widget, $widget_type ) );
-
-				// Save widget options in database.
-				update_option( "widget_{$widget_type}", $widget );
-			}
-		}
-
-		// Save new widget status.
-		update_option( 'sidebars_widgets', $existing_widgets );
-	}
-
-	/**
-	 * Create widget ids based on their widget type
-	 *
-	 * @param  array  $widgets      Widgets to convert.
-	 * @param  string $widget_type  Type of widget to create.
-	 * @return array                Widgets to register
-	 */
-	public function build_widget_ids( $widgets, $widget_type ) {
-		$built_widgets = [];
-
-		foreach ( $widgets as $key => $widget ) {
-			$built_widgets[] = $widget_type . '-' . $key;
-		}
-
-		return $built_widgets;
-	}
-
-	/**
-	 * Define default widgets data
-	 *
-	 * @return array Widgets to include
-	 */
-	public function get_left_widgets() {
-		ob_start();
-		?>
-		<img class="size-full wp-image-38 alignleft" src="http://localhost:8088/wp-content/uploads/2020/05/Vector.png" alt="" width="82" height="82" />Suspendisse dui mi, dictum quis porttitor quis, cursus sed sem. Quisque faucibus cursus semper. Aenean tristique eget nisl vitae euismod. Maecenas non consequat erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-		<?php
-		$about_html = ob_get_clean();
-
-		ob_start();
-		?>
-		<a href="http://twitter.com"><span class="dashicons dashicons-twitter"></span> <span class="screen-reader-text">Twitter</span></a> 
-		<a href="http://facebook.com"><span class="dashicons dashicons-facebook"></span> <span class="screen-reader-text">Facebook</span></a> 
-		<a href="http://instagram.com"><span class="dashicons dashicons-instagram"></span> <span class="screen-reader-text">Instagram</span></a> 
-		<a href="mailto:demo@material.io"><span class="dashicons dashicons-email"></span> <span class="screen-reader-text">Email</span></a>
-		<?php
-		$social_html = ob_get_clean();
-
-		return [
-			'custom_html' => [
-				[
-					'title'   => esc_html__( 'About Material', 'material-theme-builder' ),
-					'content' => wp_kses(
-						$about_html,
-						[
-							'img' => [
-								'class'  => [],
-								'src'    => [],
-								'alt'    => [],
-								'width'  => [],
-								'height' => [],
-							],
-						]
-					),
-				],
-				[
-					'title'   => '',
-					'content' => wp_kses(
-						$social_html,
-						[
-							'a'    => [ 'href' => [] ],
-							'span' => [ 'class' => [] ],
-						]
-					),
-				],
-			],
-		];
-	}
-
-	/**
-	 * Define default widgets data
-	 *
-	 * @return array Widgets to include
-	 */
-	public function get_right_widgets() {
-		return [
-			'text'   => [
-				[
-					'title'  => esc_html__( 'Explore', 'material-theme-builder' ),
-					'text'   => esc_html__( 'Pellentesque habitant morbi tristique senectus et netus', 'material-theme-builder' ),
-					'filter' => true,
-					'visual' => true,
-				],
-				[
-					'title'  => '',
-					'text'   => esc_html__( 'Copyright © Material. All rights reserved. Maximus nec sagittis congue, pretium vitae sem.', 'material-theme-builder' ),
-					'filter' => true,
-					'visual' => true,
-				],
-			],
-			'search' => [
-				[
-					'title' => '',
-				],
-			],
-		];
+		update_option( 'sidebars_widgets', $widgets );
 	}
 
 	/**

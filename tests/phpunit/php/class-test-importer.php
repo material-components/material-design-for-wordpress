@@ -85,51 +85,6 @@ class Test_Importer extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Test get_left_widgets
-	 *
-	 * @see Importer::get_left_widgets()
-	 */
-	public function test_get_left_widgets() {
-		$widgets = $this->importer->get_left_widgets();
-
-		$this->assertCount( 1, $widgets );
-	}
-
-	/**
-	 * Test get_right_widgets
-	 *
-	 * @see Importer::get_right_widgets()
-	 */
-	public function test_get_right_widgets() {
-		$widgets = $this->importer->get_right_widgets();
-
-		$this->assertCount( 2, $widgets );
-	}
-
-	/**
-	 * Test build_widget_ids
-	 *
-	 * @see Importer::build_widget_ids()
-	 */
-	public function test_build_widget_ids() {
-		$widgets = [
-			[
-				'title' => '',
-			],
-			[
-				'title' => '',
-			],
-		];
-
-		$expected = [
-			'search-0',
-			'search-1',
-		];
-
-		$this->assertEquals( $expected, $this->importer->build_widget_ids( $widgets, 'search' ) );
-	}
-
-	/**
 	 * Test import_terms
 	 *
 	 * @see Importer::import_terms()
