@@ -4,14 +4,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when an image is 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -317,14 +309,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when captions and
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -670,14 +654,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when cornerRadius
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -983,14 +959,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when gallery has 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1296,14 +1264,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when gallery has 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1391,14 +1351,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when it's in save
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1554,14 +1506,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when linkTo is se
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -2003,14 +1947,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when the columns 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -2316,14 +2252,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when the desktop 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -2629,14 +2557,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when the desktop 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -2942,14 +2862,6 @@ exports[`blocks: material/image-list: Gallery matches snapshot when the style is
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
