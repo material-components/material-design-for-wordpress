@@ -46,14 +46,40 @@
 
 	<generator>https://wordpress.org/?v=5.4.1</generator>
 					<item>
-		<title>Home</title>
-		<link>http://localhost:8088/</link>
-		<pubDate>Wed, 06 May 2020 19:45:29 +0000</pubDate>
-		<dc:creator><![CDATA[]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?page_id=1881</guid>
+		<title>Privacy Policy</title>
+		<link>https://wildpangolin.mystagingwebsite.com/?page_id=3</link>
+		<pubDate>Fri, 12 Jun 2020 16:49:41 +0000</pubDate>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/?page_id=3</guid>
 		<description></description>
-		<content:encoded><![CDATA[<!-- wp:image {"align":"wide","id":6,"sizeSlug":"large"} -->
-<figure class="wp-block-image alignwide size-large"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-6"/></figure>
+		<content:encoded><![CDATA[<!-- wp:heading --><h2>Who we are</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Our website address is: https://wildpangolin.mystagingwebsite.com.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>What personal data we collect and why we collect it</h2><!-- /wp:heading --><!-- wp:heading {"level":3} --><h3>Comments</h3><!-- /wp:heading --><!-- wp:paragraph --><p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&#8217;s IP address and browser user agent string to help spam detection.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3>Media</h3><!-- /wp:heading --><!-- wp:paragraph --><p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3>Contact forms</h3><!-- /wp:heading --><!-- wp:heading {"level":3} --><h3>Cookies</h3><!-- /wp:heading --><!-- wp:paragraph --><p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &quot;Remember Me&quot;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3>Embedded content from other websites</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p><!-- /wp:paragraph --><!-- wp:heading {"level":3} --><h3>Analytics</h3><!-- /wp:heading --><!-- wp:heading --><h2>Who we share your data with</h2><!-- /wp:heading --><!-- wp:heading --><h2>How long we retain your data</h2><!-- /wp:heading --><!-- wp:paragraph --><p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>What rights you have over your data</h2><!-- /wp:heading --><!-- wp:paragraph --><p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>Where we send your data</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Visitor comments may be checked through an automated spam detection service.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>Your contact information</h2><!-- /wp:heading --><!-- wp:heading --><h2>Additional information</h2><!-- /wp:heading --><!-- wp:heading {"level":3} --><h3>How we protect your data</h3><!-- /wp:heading --><!-- wp:heading {"level":3} --><h3>What data breach procedures we have in place</h3><!-- /wp:heading --><!-- wp:heading {"level":3} --><h3>What third parties we receive data from</h3><!-- /wp:heading --><!-- wp:heading {"level":3} --><h3>What automated decision making and/or profiling we do with user data</h3><!-- /wp:heading --><!-- wp:heading {"level":3} --><h3>Industry regulatory disclosure requirements</h3><!-- /wp:heading -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>3</wp:post_id>
+		<wp:post_date><![CDATA[2020-06-12 16:49:41]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2020-06-12 16:49:41]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[open]]></wp:ping_status>
+		<wp:post_name><![CDATA[privacy-policy]]></wp:post_name>
+		<wp:status><![CDATA[draft]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+														<wp:postmeta>
+		<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
+		<wp:meta_value><![CDATA[default]]></wp:meta_value>
+		</wp:postmeta>
+							</item>
+					<item>
+		<title>Home</title>
+		<link>https://wildpangolin.mystagingwebsite.com/</link>
+		<pubDate>Wed, 06 May 2020 19:45:29 +0000</pubDate>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/home/</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:image {"align":"wide","id":34,"sizeSlug":"large","className":"is-style-default"} -->
+<figure class="wp-block-image alignwide size-large is-style-default"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-0Aa85gqlOy8-unsplash-2-1024x375.jpg" alt="" class="wp-image-34"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:spacer {"height":20} -->
@@ -72,8 +98,8 @@
 <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:cover {"customOverlayColor":"#838383","align":"full"} -->
-<div class="wp-block-cover alignfull has-background-dim" style="background-color:#838383"><div class="wp-block-cover__inner-container"><!-- wp:heading -->
+<!-- wp:cover {"url":"https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-bZbbk-Twpc4-unsplash-scaled.jpg","id":33,"customOverlayColor":"#000000","align":"full"} -->
+<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-bZbbk-Twpc4-unsplash-scaled.jpg);background-color:#000000"><div class="wp-block-cover__inner-container"><!-- wp:heading -->
 <h2>Nulla nec suscipit diam</h2>
 <!-- /wp:heading -->
 
@@ -81,8 +107,8 @@
 <p>Praesent at mauris felis. Cras ac libero aliquet, gravida quam ac, sollicitudin felis. In vel ultricies eros. Vivamus id condimentum diam.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:material/button {"label":"Lorem Ipsum","style":"outlined","iconPosition":"none","cornerRadius":4,"url":"#","icon":{"name":"favorite","hex":59517},"textColor":"#ffffff"} -->
-<div class="wp-block-material-button"><a href="#" style="color:#ffffff;border-radius:4px" class="mdc-button mdc-button--outlined"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
+<!-- wp:material/button {"label":"Lorem Ipsum","style":"raised","cornerRadius":4,"url":"#","icon":{"name":"favorite","hex":59517},"textColor":"#ffffff"} -->
+<div class="wp-block-material-button"><a href="#" style="color:#ffffff;border-radius:4px" class="mdc-button mdc-button--raised"><i class="material-icons mdc-button__icon"></i><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
 <!-- /wp:material/button --></div></div>
 <!-- /wp:cover -->
 
@@ -91,11 +117,11 @@
 <!-- /wp:spacer -->
 
 <!-- wp:heading -->
-<h2>Pellentesque ut fermentum sem.</h2>
+<h2></h2>
 <!-- /wp:heading -->
 
-<!-- wp:material/image-list {"columns":3,"cornerRadius":4,"textProtection":false,"align":"wide"} -->
-<div class="wp-block-material-image-list alignwide" id="block-material-image-list-1"><ul class="mdc-image-list mdc-image-list--masonry"><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="7" data-link="http://localhost:8088/?attachment_id=7"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="8" data-link="http://localhost:8088/?attachment_id=8"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="9" data-link="http://localhost:8088/?attachment_id=9"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="10" data-link="http://localhost:8088/?attachment_id=10"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="11" data-link="http://localhost:8088/?attachment_id=11"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="12" data-link="http://localhost:8088/?attachment_id=12"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="13" data-link="http://localhost:8088/?attachment_id=13"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="14" data-link="http://localhost:8088/?attachment_id=14"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="15" data-link="http://localhost:8088/?attachment_id=15"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="16" data-link="http://localhost:8088/?attachment_id=16"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="17" data-link="http://localhost:8088/?attachment_id=17"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="18" data-link="http://localhost:8088/?attachment_id=18"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="19" data-link="http://localhost:8088/?attachment_id=19"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="20" data-link="http://localhost:8088/?attachment_id=20"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="21" data-link="http://localhost:8088/?attachment_id=21"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="22" data-link="http://localhost:8088/?attachment_id=22"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="/wp-content/plugins/material-theme-builder/assets/images/featured.png"><img class="mdc-image-list__image" alt="" src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-id="23" data-link="http://localhost:8088/?attachment_id=23"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Lorem Ipsum</span></div></a></li></ul></div>
+<!-- wp:material/image-list {"columns":3,"cornerRadius":4,"align":"wide"} -->
+<div class="wp-block-material-image-list alignwide" id="block-material-image-list-2"><ul class="mdc-image-list mdc-image-list--masonry mdc-image-list--with-text-protection"><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-vGYHVZg2fUE-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-vGYHVZg2fUE-unsplash-scaled.jpg" data-id="46" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-vgyhvzg2fue-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Settled snow sparkling in the sun</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-qZLqCh0MJXU-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-qZLqCh0MJXU-unsplash-scaled.jpg" data-id="45" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-qzlqch0mjxu-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">A small tabletop composition, made during isolation.</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-bZbbk-Twpc4-unsplash-1-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-bZbbk-Twpc4-unsplash-1-scaled.jpg" data-id="44" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-bzbbk-twpc4-unsplash-1/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Orchids at the New York Botanical Garden's 2019 Orchid Show</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-GI7D78PneQg-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-GI7D78PneQg-unsplash-scaled.jpg" data-id="43" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-gi7d78pneqg-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">A lizard clings to the stone walls lining the Klötzli vineyard in Ligerz, Switzerland </span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-Q1KHi0vr1Rs-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-Q1KHi0vr1Rs-unsplash-scaled.jpg" data-id="42" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-q1khi0vr1rs-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">An up-close look at a Blushing Bride Protea flower, native to South Africa.</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-1u9iX578YUo-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-1u9iX578YUo-unsplash-scaled.jpg" data-id="41" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-1u9ix578yuo-unsplash/"/></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-lAiBx-k2utw-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-lAiBx-k2utw-unsplash-scaled.jpg" data-id="40" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-laibx-k2utw-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">A small inlet along the coast of Cascais.</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-9cMgg8_6gdE-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-9cMgg8_6gdE-unsplash-scaled.jpg" data-id="39" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-9cmgg8_6gde-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">I took this photo in Sintra, walking along the coast. The flowers were growing on a vine that climbed up the white plaster wall of a staircase. I tilted the horizon to point the vines straight up through the frame and play with the long shadows they cast against the plaster.</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-EMv3YeR-Emw-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-EMv3YeR-Emw-unsplash-scaled.jpg" data-id="38" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-emv3yer-emw-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Queen Anne's Lace</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-zb0qGhdHME8-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-zb0qGhdHME8-unsplash-scaled.jpg" data-id="37" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-zb0qghdhme8-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">A spire at Quinta da Regaleira in Sintra, viewed through a gap between other stone carvings. The grounds mix forest, garden, and architecture seamlessly.</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-sqZwshdis48-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-sqZwshdis48-unsplash-scaled.jpg" data-id="36" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-sqzwshdis48-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">This shot is actually an update to the matching flowers elsewhere in my collection - I returned to Cascais and found the same wall with the same flowers. They've grown a lot in the past year!</span></div></a></li><li class="mdc-image-list__item" role="presentation"><a class="mdc-image-list__item-wrap" href="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-lejddjaQ-3A-unsplash-scaled.jpg"><img class="mdc-image-list__image" alt="" src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-lejddjaQ-3A-unsplash-scaled.jpg" data-id="35" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-lejddjaq-3a-unsplash/"/><div class="mdc-image-list__supporting"><span class="mdc-image-list__label">Another shot of the water and rocks on the outside of the Devil's Mouth formation in Cascais.</span></div></a></li></ul></div>
 <!-- /wp:material/image-list -->
 
 <!-- wp:spacer {"height":20} -->
@@ -103,8 +129,12 @@
 <!-- /wp:spacer -->
 
 <!-- wp:cover {"customOverlayColor":"#f3f3f3","align":"full"} -->
-<div class="wp-block-cover alignfull has-background-dim" style="background-color:#f3f3f3"><div class="wp-block-cover__inner-container"><!-- wp:media-text {"mediaId":17,"mediaLink":"http://localhost:8088/?attachment_id=17","mediaType":"image"} -->
-<div class="wp-block-media-text alignwide is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-17"/></figure><div class="wp-block-media-text__content"><!-- wp:heading {"level":3,"textColor":"very-dark-gray"} -->
+<div class="wp-block-cover alignfull has-background-dim" style="background-color:#f3f3f3"><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":50} -->
+<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:media-text {"mediaId":49,"mediaLink":"https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-qaky_uzivke-unsplash-1/","mediaType":"image","imageFill":true} -->
+<div class="wp-block-media-text alignwide is-stacked-on-mobile is-image-fill"><figure class="wp-block-media-text__media" style="background-image:url(https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-Qaky_uziVkE-unsplash-1-1024x683.jpg);background-position:50% 50%"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-Qaky_uziVkE-unsplash-1-1024x683.jpg" alt="" class="wp-image-49"/></figure><div class="wp-block-media-text__content"><!-- wp:heading {"level":3,"textColor":"very-dark-gray"} -->
 <h3 class="has-very-dark-gray-color has-text-color">Orci varius natoque penatibus et</h3>
 <!-- /wp:heading -->
 
@@ -113,8 +143,12 @@
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:media-text -->
 
-<!-- wp:media-text {"mediaPosition":"right","mediaId":22,"mediaLink":"http://localhost:8088/?attachment_id=22","mediaType":"image"} -->
-<div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-22"/></figure><div class="wp-block-media-text__content"><!-- wp:heading {"level":3,"textColor":"very-dark-gray"} -->
+<!-- wp:spacer {"height":50} -->
+<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:media-text {"mediaPosition":"right","mediaId":50,"mediaLink":"https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-ye0k6rgfneq-unsplash/","mediaType":"image","imageFill":true} -->
+<div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-image-fill"><figure class="wp-block-media-text__media" style="background-image:url(https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-yE0k6rgFNEQ-unsplash-1024x683.jpg);background-position:50% 50%"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-yE0k6rgFNEQ-unsplash-1024x683.jpg" alt="" class="wp-image-50"/></figure><div class="wp-block-media-text__content"><!-- wp:heading {"level":3,"textColor":"very-dark-gray"} -->
 <h3 class="has-very-dark-gray-color has-text-color">Orci varius natoque penatibus et</h3>
 <!-- /wp:heading -->
 
@@ -125,7 +159,15 @@
 <!-- wp:paragraph -->
 <p></p>
 <!-- /wp:paragraph --></div></div>
-<!-- /wp:media-text --></div></div>
+<!-- /wp:media-text -->
+
+<!-- wp:spacer {"height":50} -->
+<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph --></div></div>
 <!-- /wp:cover -->
 
 <!-- wp:spacer {"height":20} -->
@@ -133,7 +175,7 @@
 <!-- /wp:spacer -->
 
 <!-- wp:heading {"align":"center"} -->
-<h2 class="has-text-align-center">Latest from blog</h2>
+<h2 class="has-text-align-center"></h2>
 <!-- /wp:heading -->
 
 <!-- wp:material/recent-posts {"style":"grid","columns":2,"postsToShow":4} /-->
@@ -143,53 +185,41 @@
 <!-- /wp:spacer -->
 
 <!-- wp:cover {"customOverlayColor":"#f3f3f3","align":"full"} -->
-<div class="wp-block-cover alignfull has-background-dim" style="background-color:#f3f3f3"><div class="wp-block-cover__inner-container"><!-- wp:media-text {"mediaId":21,"mediaLink":"http://localhost:8088/?attachment_id=21","mediaType":"image"} -->
-<div class="wp-block-media-text alignwide is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-21"/></figure><div class="wp-block-media-text__content"><!-- wp:heading {"level":3,"textColor":"very-dark-gray"} -->
+<div class="wp-block-cover alignfull has-background-dim" style="background-color:#f3f3f3"><div class="wp-block-cover__inner-container"><!-- wp:spacer {"height":50} -->
+<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer -->
+
+<!-- wp:media-text {"mediaId":52,"mediaLink":"https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-sqzwshdis48-unsplash-1/","mediaType":"image","imageFill":true} -->
+<div class="wp-block-media-text alignwide is-stacked-on-mobile is-image-fill"><figure class="wp-block-media-text__media" style="background-image:url(https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-sqZwshdis48-unsplash-1-1024x683.jpg);background-position:50% 50%"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-sqZwshdis48-unsplash-1-1024x683.jpg" alt="" class="wp-image-52"/></figure><div class="wp-block-media-text__content"><!-- wp:heading {"level":3,"textColor":"very-dark-gray"} -->
 <h3 class="has-very-dark-gray-color has-text-color">Fusce sed mollis ligula</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"textColor":"very-dark-gray"} -->
 <p class="has-text-color has-very-dark-gray-color">Donec consequat ligula eget nibh aliquet, ut laoreet elit mollis. Suspendisse sit amet velit mauris. Morbi quis est vitae enim eleifend porta et et turpis. Curabitur ornare vitae arcu vel laoreet. Aenean feugiat nisi non mollis sagittis. Curabitur at vestibulum tellus.</p>
 <!-- /wp:paragraph --></div></div>
-<!-- /wp:media-text --></div></div>
+<!-- /wp:media-text -->
+
+<!-- wp:spacer {"height":50} -->
+<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+<!-- /wp:spacer --></div></div>
 <!-- /wp:cover -->
 
 <!-- wp:spacer {"height":20} -->
 <div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:columns -->
-<div class="wp-block-columns"><!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading -->
+<!-- wp:heading -->
 <h2>Lorem Ipsum</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p>Donec consequat ligula eget nibh aliquet, ut laoreet elit mollis. Suspendisse sit amet velit mauris. Morbi quis est vitae enim eleifend porta et et turpis. Curabitur ornare vitae arcu vel laoreet. Aenean feugiat nisi non mollis sagittis. Curabitur at vestibulum tellus.</p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:column -->
-
-<!-- wp:column -->
-<div class="wp-block-column"><!-- wp:heading -->
-<h2>Nullam lacinia</h2>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Donec consequat ligula eget nibh aliquet, ut laoreet elit mollis. Suspendisse sit amet velit mauris.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:material/contact-form {"emailTo":"admin@localhost.com"} -->
-<div class="wp-block-material-contact-form"><!-- wp:material/name-input-field {"id":"mtb-name-0","outlined":true} -->
-<div class="mdc-text-field-container"><div class="mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"><input id="mtb-name-0" name="mtb-name-0" type="text" required class="mdc-text-field__input" aria-labelledby="label-mtb-name-0" data-form="contact" data-meta="name" data-label="Name"/><div class="mdc-notched-outline"><div class="mdc-notched-outline__leading"></div><div class="mdc-notched-outline__notch"><label for="mtb-name-0" class="mdc-floating-label" id="label-mtb-name-0">Name</label></div><div class="mdc-notched-outline__trailing"></div></div></div></div>
-<!-- /wp:material/name-input-field -->
-
-<!-- wp:material/email-input-field {"id":"mtb-email-1","outlined":true} -->
+<div class="wp-block-material-contact-form"><!-- wp:material/email-input-field {"id":"mtb-email-1","outlined":true} -->
 <div class="mdc-text-field-container"><div class="mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"><input id="mtb-email-1" name="mtb-email-1" type="email" required class="mdc-text-field__input" aria-labelledby="label-mtb-email-1" data-form="contact" data-meta="email" data-label="Email"/><div class="mdc-notched-outline"><div class="mdc-notched-outline__leading"></div><div class="mdc-notched-outline__notch"><label for="mtb-email-1" class="mdc-floating-label" id="label-mtb-email-1">Email</label></div><div class="mdc-notched-outline__trailing"></div></div></div></div>
 <!-- /wp:material/email-input-field -->
-
-<!-- wp:material/website-input-field {"id":"mtb-subject-2","label":"Subject","outlined":true} -->
-<div class="mdc-text-field-container mdc-text-field-container--not-required"><div class="mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"><input id="mtb-subject-2" name="mtb-subject-2" type="url" class="mdc-text-field__input" aria-labelledby="label-mtb-subject-2" data-form="contact" data-meta="website" data-label="Subject"/><div class="mdc-notched-outline"><div class="mdc-notched-outline__leading"></div><div class="mdc-notched-outline__notch"><label for="mtb-subject-2" class="mdc-floating-label" id="label-mtb-subject-2">Subject</label></div><div class="mdc-notched-outline__trailing"></div></div></div></div>
-<!-- /wp:material/website-input-field -->
 
 <!-- wp:material/message-input-field {"id":"mtb-message-0"} -->
 <div class="mdc-text-field-container"><div class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--custom-full"><span class="mdc-text-field__ripple"></span><textarea id="mtb-message-0" name="mtb-message-0" class="mdc-text-field__input" rows="8" aria-labelledby="label-mtb-message-0" data-form="contact" data-meta="message" data-label="Message" required></textarea><div class="mdc-notched-outline"><div class="mdc-notched-outline__leading"></div><div class="mdc-notched-outline__notch"><label for="mtb-message-0" class="mdc-floating-label" id="label-mtb-message-0">Message</label></div><span class="mdc-notched-outline__trailing"></span></div></div></div>
@@ -198,11 +228,9 @@
 <!-- wp:material/button {"label":"Submit","style":"unelevated","iconPosition":"none","cornerRadius":4,"icon":{"name":"favorite","hex":59517},"isSubmit":true} -->
 <div class="wp-block-material-button"><button class="mdc-button mdc-button--unelevated" style="border-radius:4px" type="submit"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Submit</span></button></div>
 <!-- /wp:material/button --></div>
-<!-- /wp:material/contact-form --></div>
-<!-- /wp:column --></div>
-<!-- /wp:columns -->]]></content:encoded>
+<!-- /wp:material/contact-form -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>1881</wp:post_id>
+		<wp:post_id>6</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 19:45:29]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 19:45:29]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
@@ -215,15 +243,20 @@
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
 		<title>Nunc lacinia libero eu pulvinar aliquet</title>
-		<link>http://localhost:8088/?p=28</link>
+		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/nunc-lacinia-libero-eu-pulvinar-aliquet/</link>
 		<pubDate>Wed, 06 May 2020 19:59:11 +0000</pubDate>
-		<dc:creator><![CDATA[emeaguiar]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?p=28</guid>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/2020/05/06/nunc-lacinia-libero-eu-pulvinar-aliquet/</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>Sed malesuada massa vehicula molestie eu efficitur montes cubilia tincidunt maecenas, platea metus elementum nisl nulla mollis arcu tellus litora integer, at ullamcorper tempus magnis nullam ac ut ipsum tempor. Habitant cursus habitasse pellentesque felis sed egestas aptent vitae, nunc pharetra himenaeos purus leo ridiculus pretium, primis enim ac lacus dictum eget elementum. Penatibus curae ultricies cubilia sapien massa tortor lacinia suspendisse, tempor hendrerit metus diam imperdiet posuere lorem, nostra lacus congue duis varius enim felis. Fames dis posuere duis vivamus rhoncus sagittis arcu dui facilisi tellus, orci commodo class bibendum justo conubia molestie aliquet praesent. Platea mattis cursus tellus id etiam neque, praesent pellentesque semper eget tempor conubia massa, sociosqu tincidunt suspendisse at mi. Ipsum nullam pharetra risus ex sociosqu odio vehicula molestie varius, vulputate facilisi phasellus maecenas porttitor dui ut non sagittis quis, arcu sit ornare per egestas elit blandit purus. Laoreet praesent aptent habitant scelerisque ipsum odio, diam nullam convallis litora leo euismod lobortis, purus et turpis netus ridiculus. Vehicula a ligula torquent interdum pulvinar scelerisque cras congue, faucibus suspendisse venenatis curae fermentum sed tortor dis, blandit etiam inceptos praesent quis commodo aenean.</p>
@@ -237,7 +270,7 @@
 <p>Quam volutpat laoreet turpis sem aliquam condimentum justo parturient, bibendum sed suspendisse felis lacinia posuere molestie, pretium dictum habitant diam ultricies suscipit magna. Pulvinar quam luctus magnis praesent lectus ridiculus metus quisque consectetur, massa turpis quis molestie maximus condimentum erat. Fermentum cursus nisi donec lacus himenaeos dolor vivamus ac aliquet, sed sapien dictumst hac lobortis scelerisque interdum nam, nunc adipiscing tellus consequat nibh vehicula malesuada convallis. Lorem curae nascetur inceptos integer hendrerit nec, sed nam taciti euismod scelerisque, dis interdum eget sodales vehicula. Interdum auctor lacinia class torquent taciti libero nascetur magnis lectus, mus condimentum tristique ante porttitor eu consectetur maecenas, habitant fames inceptos erat luctus quisque suscipit nec.</p>
 <!-- /wp:paragraph -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>28</wp:post_id>
+		<wp:post_id>7</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 19:59:11]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 19:59:11]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[open]]></wp:comment_status>
@@ -251,62 +284,62 @@
 		<wp:is_sticky>0</wp:is_sticky>
 										<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
 						<wp:postmeta>
-		<wp:meta_key><![CDATA[_encloseme]]></wp:meta_key>
-		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
+		<wp:meta_value><![CDATA[26]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
-		<wp:meta_value><![CDATA[]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:comment>
 			<wp:comment_id>2</wp:comment_id>
 			<wp:comment_author><![CDATA[John Mechling]]></wp:comment_author>
 			<wp:comment_author_email><![CDATA[]]></wp:comment_author_email>
 			<wp:comment_author_url></wp:comment_author_url>
-			<wp:comment_author_IP><![CDATA[192.168.16.1]]></wp:comment_author_IP>
+			<wp:comment_author_IP><![CDATA[]]></wp:comment_author_IP>
 			<wp:comment_date><![CDATA[2020-05-07 16:57:17]]></wp:comment_date>
 			<wp:comment_date_gmt><![CDATA[2020-05-07 16:57:17]]></wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[lNunc feugiat cursus netus urna pharetra maecenas magnis nisl libero eleifend, ultrices id ex massa sociosqu lectus orci ultricies etiam, in pellentesque varius eu purus ligula pretium ullamcorper vestibulum.]]></wp:comment_content>
 			<wp:comment_approved><![CDATA[1]]></wp:comment_approved>
 			<wp:comment_type><![CDATA[]]></wp:comment_type>
 			<wp:comment_parent>0</wp:comment_parent>
-			<wp:comment_user_id>1</wp:comment_user_id>
+			<wp:comment_user_id>0</wp:comment_user_id>
 							</wp:comment>
 					<wp:comment>
 			<wp:comment_id>3</wp:comment_id>
 			<wp:comment_author><![CDATA[Tanya Munhall]]></wp:comment_author>
 			<wp:comment_author_email><![CDATA[]]></wp:comment_author_email>
 			<wp:comment_author_url></wp:comment_author_url>
-			<wp:comment_author_IP><![CDATA[192.168.16.1]]></wp:comment_author_IP>
+			<wp:comment_author_IP><![CDATA[]]></wp:comment_author_IP>
 			<wp:comment_date><![CDATA[2020-05-07 16:57:38]]></wp:comment_date>
 			<wp:comment_date_gmt><![CDATA[2020-05-07 16:57:38]]></wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Dapibus himenaeos dolor mus habitasse efficitur ex bibendum auctor, erat tempus facilisi adipiscing class cubilia metus pretium, egestas litora risus massa accumsan leo ipsum elit, turpis dui enim purus fermentum primis phasellus.]]></wp:comment_content>
 			<wp:comment_approved><![CDATA[1]]></wp:comment_approved>
 			<wp:comment_type><![CDATA[]]></wp:comment_type>
 			<wp:comment_parent>0</wp:comment_parent>
-			<wp:comment_user_id>1</wp:comment_user_id>
+			<wp:comment_user_id>0</wp:comment_user_id>
 							</wp:comment>
 					<wp:comment>
 			<wp:comment_id>4</wp:comment_id>
 			<wp:comment_author><![CDATA[John Doe]]></wp:comment_author>
 			<wp:comment_author_email><![CDATA[]]></wp:comment_author_email>
 			<wp:comment_author_url></wp:comment_author_url>
-			<wp:comment_author_IP><![CDATA[192.168.16.1]]></wp:comment_author_IP>
+			<wp:comment_author_IP><![CDATA[]]></wp:comment_author_IP>
 			<wp:comment_date><![CDATA[2020-05-07 16:57:54]]></wp:comment_date>
 			<wp:comment_date_gmt><![CDATA[2020-05-07 16:57:54]]></wp:comment_date_gmt>
 			<wp:comment_content><![CDATA[Nam platea fringilla ad senectus eget taciti feugiat neque eleifend, mauris dolor rhoncus dapibus euismod placerat lacinia bibendum, praesent lorem nec augue risus hendrerit diam enim.]]></wp:comment_content>
 			<wp:comment_approved><![CDATA[1]]></wp:comment_approved>
 			<wp:comment_type><![CDATA[]]></wp:comment_type>
-			<wp:comment_parent>2</wp:comment_parent>
-			<wp:comment_user_id>1</wp:comment_user_id>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
 							</wp:comment>
 					</item>
 					<item>
 		<title>Magna ligula suspendisse</title>
-		<link>http://localhost:8088/?p=30</link>
+		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/magna-ligula-suspendisse/</link>
 		<pubDate>Wed, 06 May 2020 20:00:52 +0000</pubDate>
-		<dc:creator><![CDATA[emeaguiar]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?p=30</guid>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/2020/05/06/magna-ligula-suspendisse/</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>Lectus curabitur lacinia vulputate scelerisque ridiculus tristique quam at facilisis facilisi, ex id cubilia rhoncus nibh luctus tincidunt amet condimentum dapibus, duis nascetur tortor natoque egestas varius sed et risus. Cras suspendisse risus facilisis mollis nam nostra proin, ultrices erat rhoncus eleifend vestibulum lobortis dapibus, non conubia nisi potenti torquent commodo. Sagittis in vivamus penatibus ac integer lorem, euismod hac consequat ipsum inceptos habitasse fringilla, tincidunt sollicitudin elementum egestas efficitur. Ridiculus tellus finibus nibh magnis efficitur ipsum auctor, aptent dis semper consequat sociosqu. Donec ultrices vivamus hac malesuada phasellus, suscipit quisque accumsan ultricies et justo, curae risus est vulputate. Duis libero vehicula cursus interdum ex etiam nascetur cubilia lorem tortor, morbi curae montes nibh aenean primis leo augue nec in, conubia dapibus egestas malesuada habitasse varius suspendisse nostra ridiculus.</p>
@@ -320,7 +353,7 @@
 <p>Ac senectus eros elit dis neque ligula feugiat urna litora venenatis placerat, fringilla quisque a sagittis varius penatibus diam congue fermentum quam, euismod primis gravida hendrerit nisl suscipit ad facilisis cras erat. Urna habitant maecenas molestie luctus odio etiam, inceptos mus nunc massa class malesuada sem, ligula consequat scelerisque egestas tincidunt. Gravida euismod consequat cursus vel egestas dictum, ullamcorper lobortis eget pellentesque fames porttitor senectus, ultrices congue porta eros bibendum. Mattis lacinia varius gravida pellentesque rhoncus maecenas elementum lectus pulvinar, feugiat dui hendrerit mollis aliquet habitasse orci blandit in, class quam ullamcorper facilisi per eleifend eu hac. Mi phasellus nisi justo ullamcorper sed semper nec lacus, massa litora rhoncus lectus dis condimentum nascetur ex, tempus taciti suspendisse aliquet interdum magnis consectetur.</p>
 <!-- /wp:paragraph -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>30</wp:post_id>
+		<wp:post_id>8</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 20:00:52]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 20:00:52]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[open]]></wp:comment_status>
@@ -334,20 +367,20 @@
 		<wp:is_sticky>0</wp:is_sticky>
 										<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
 						<wp:postmeta>
-		<wp:meta_key><![CDATA[_encloseme]]></wp:meta_key>
-		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
+		<wp:meta_value><![CDATA[42]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
-		<wp:meta_value><![CDATA[]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
 		<title>Inceptos penatibus habitasse</title>
-		<link>http://localhost:8088/?p=32</link>
+		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/inceptos-penatibus-habitasse/</link>
 		<pubDate>Wed, 06 May 2020 20:01:38 +0000</pubDate>
-		<dc:creator><![CDATA[emeaguiar]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?p=32</guid>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/2020/05/06/inceptos-penatibus-habitasse/</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>Lobortis nullam et euismod efficitur adipiscing dictum dui vestibulum aenean porta, hac primis feugiat blandit class erat nec elit. Ipsum duis eleifend at feugiat ac est auctor, sollicitudin maximus facilisis lorem varius semper, litora natoque suspendisse netus phasellus libero. Sollicitudin rutrum mattis ad et in nostra feugiat sit imperdiet tellus ex, suspendisse orci ligula scelerisque metus inceptos adipiscing conubia habitasse curabitur erat mi, gravida tristique suscipit sed dignissim augue vestibulum luctus fringilla justo. Maximus taciti conubia elit congue nisl morbi eget habitant, quis aliquam massa eros gravida fringilla cubilia dictum fames, et euismod tellus parturient dolor sociosqu curae. Mattis senectus at fringilla volutpat sed penatibus porta est id bibendum suspendisse quam viverra, luctus velit magnis scelerisque felis ultricies vehicula litora orci imperdiet sem. Varius facilisi semper dolor porta congue ad accumsan sagittis lacus, venenatis nec lobortis sem pretium volutpat pellentesque quisque maximus donec, ligula ac dignissim quis feugiat sodales faucibus ultricies.</p>
@@ -361,7 +394,7 @@
 <p>Lorem cras hac quisque tortor lacus justo, montes nisi accumsan feugiat ipsum proin lobortis, mauris sodales suspendisse velit scelerisque. Nisl malesuada curae varius quisque accumsan egestas dui, turpis tristique a tempor ridiculus vehicula. Class nunc vivamus dolor himenaeos lectus neque ex metus litora, placerat dignissim eget fermentum ullamcorper taciti blandit nostra, consequat per senectus sed sem cubilia praesent condimentum. Quisque maecenas sagittis faucibus morbi orci sem habitasse litora, donec quam efficitur ligula lacinia mauris lobortis purus netus, semper suscipit potenti in consequat nulla inceptos.</p>
 <!-- /wp:paragraph -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>32</wp:post_id>
+		<wp:post_id>9</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 20:01:38]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 20:01:38]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[open]]></wp:comment_status>
@@ -375,20 +408,20 @@
 		<wp:is_sticky>0</wp:is_sticky>
 										<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
 						<wp:postmeta>
-		<wp:meta_key><![CDATA[_encloseme]]></wp:meta_key>
-		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
+		<wp:meta_value><![CDATA[80]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
-		<wp:meta_value><![CDATA[]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
 		<title>Finibus ornare nascetur</title>
-		<link>http://localhost:8088/?p=34</link>
+		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/finibus-ornare-nascetur/</link>
 		<pubDate>Wed, 06 May 2020 20:02:25 +0000</pubDate>
-		<dc:creator><![CDATA[emeaguiar]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?p=34</guid>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/2020/05/06/finibus-ornare-nascetur/</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>Turpis nascetur blandit commodo tincidunt est per ornare augue metus enim in pharetra mattis mus, class molestie vestibulum penatibus curabitur quisque etiam semper suspendisse egestas iaculis himenaeos. Himenaeos etiam fermentum eleifend malesuada maximus cras suscipit platea conubia, sapien dictumst ad litora accumsan semper proin enim, feugiat turpis venenatis nullam blandit est dui tellus. Eu purus magnis sit magna tellus enim diam, consectetur suscipit amet in faucibus vivamus, sollicitudin id dapibus fermentum sagittis cras. Eget curabitur ut sodales vitae cursus pulvinar varius id, malesuada scelerisque finibus fames consectetur proin nisl, libero amet faucibus vivamus nec laoreet efficitur. Nostra ex magna tincidunt molestie libero fames volutpat bibendum hac senectus, ut enim tortor luctus lectus tristique lacinia dui blandit ipsum, suscipit suspendisse ad elit efficitur nascetur fringilla magnis nisl.</p>
@@ -402,7 +435,7 @@
 <p>Augue lobortis quam libero porta quis ullamcorper fames orci, dui ridiculus ac tincidunt amet facilisi proin, consectetur euismod taciti faucibus rutrum et curabitur. Dui quisque massa pulvinar montes ridiculus nunc elit leo sapien venenatis fusce tempus egestas, condimentum hac porttitor congue tellus at hendrerit dapibus ex phasellus nulla. Senectus risus augue massa enim accumsan nisl vel, ante vestibulum sollicitudin ac aenean elit pretium tortor, varius vulputate metus dignissim velit maecenas. Inceptos sagittis tortor posuere fringilla montes dapibus sapien nam eu fermentum, consectetur neque platea hac cursus sem dictumst imperdiet sodales, diam natoque ex dignissim tincidunt tristique ut vehicula porta. Adipiscing ante sodales commodo blandit gravida in mattis, curabitur dui iaculis ridiculus diam interdum quis, felis dictum est pulvinar vestibulum laoreet. Est per consequat ut laoreet efficitur at volutpat, tellus id convallis eros neque lacinia, fames ad lacus suscipit quisque conubia.</p>
 <!-- /wp:paragraph -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>34</wp:post_id>
+		<wp:post_id>10</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 20:02:25]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 20:02:25]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[open]]></wp:comment_status>
@@ -416,20 +449,20 @@
 		<wp:is_sticky>0</wp:is_sticky>
 										<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
 						<wp:postmeta>
-		<wp:meta_key><![CDATA[_encloseme]]></wp:meta_key>
-		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
+		<wp:meta_value><![CDATA[38]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
-		<wp:meta_value><![CDATA[]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
 		<title>Suspendisse morbi pretium</title>
-		<link>http://localhost:8088/?p=36</link>
+		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/suspendisse-morbi-pretium/</link>
 		<pubDate>Wed, 06 May 2020 20:03:03 +0000</pubDate>
-		<dc:creator><![CDATA[emeaguiar]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?p=36</guid>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/2020/05/06/suspendisse-morbi-pretium/</guid>
 		<description></description>
 		<content:encoded><![CDATA[<!-- wp:paragraph -->
 <p>Eu donec in etiam ornare integer nam torquent ut, duis convallis semper proin vulputate arcu viverra nibh lectus, aliquet cras rutrum interdum phasellus suspendisse eleifend faucibus, magnis neque tempor adipiscing mus sollicitudin luctus. Sodales non eu taciti rutrum ultrices dapibus ipsum pharetra, massa integer cras varius ante augue tortor ultricies iaculis, a congue laoreet facilisi aptent nisi odio. Ullamcorper ac curabitur integer ligula laoreet ornare pulvinar, mattis eget nisi magnis orci hendrerit.</p>
@@ -443,7 +476,7 @@
 <p>Massa est adipiscing rutrum cursus ut, ultricies fusce montes turpis curae, augue mi suspendisse mattis. Vestibulum gravida arcu lorem blandit purus elementum habitasse netus, erat sodales aliquam mus amet volutpat lectus fusce libero, adipiscing eros penatibus sem sagittis tortor sollicitudin. Morbi a imperdiet odio sem fringilla quisque dis, erat eget est nostra ornare amet, integer enim gravida arcu facilisi dolor. Pharetra ipsum himenaeos neque facilisi potenti tellus platea rutrum convallis vulputate mauris mollis, sapien habitasse risus netus ante turpis suspendisse aptent ut fermentum. Nisl eget amet suspendisse nunc sagittis congue arcu torquent tristique penatibus imperdiet platea et, lacus cubilia ultrices est elit mi ornare urna netus primis gravida accumsan. Phasellus risus varius integer gravida urna eu diam purus leo bibendum justo aptent, vitae tellus est ac volutpat pretium nam dis fames lacinia duis, donec egestas facilisi aenean faucibus laoreet nulla elit metus rhoncus tincidunt. Dictumst ullamcorper cursus turpis felis litora condimentum tellus aptent mattis ultrices eleifend porttitor, neque mollis ipsum scelerisque eu feugiat augue dolor quam curae parturient, blandit vestibulum leo cubilia natoque sed bibendum platea adipiscing rhoncus dictum.</p>
 <!-- /wp:paragraph -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>36</wp:post_id>
+		<wp:post_id>11</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 20:03:03]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 20:03:03]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[open]]></wp:comment_status>
@@ -457,23 +490,23 @@
 		<wp:is_sticky>0</wp:is_sticky>
 										<category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
 						<wp:postmeta>
-		<wp:meta_key><![CDATA[_encloseme]]></wp:meta_key>
-		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
+		<wp:meta_value><![CDATA[74]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
-		<wp:meta_value><![CDATA[]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
 		<title>About</title>
-		<link>http://localhost:8088/?page_id=39</link>
+		<link>https://wildpangolin.mystagingwebsite.com/about/</link>
 		<pubDate>Wed, 06 May 2020 20:42:24 +0000</pubDate>
-		<dc:creator><![CDATA[emeaguiar]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?page_id=39</guid>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/about/</guid>
 		<description></description>
-		<content:encoded><![CDATA[<!-- wp:image {"align":"wide","id":6,"sizeSlug":"large"} -->
-<figure class="wp-block-image alignwide size-large"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-6"/></figure>
+		<content:encoded><![CDATA[<!-- wp:image {"align":"wide","id":34,"sizeSlug":"large"} -->
+<figure class="wp-block-image alignwide size-large"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-0Aa85gqlOy8-unsplash-2-1024x375.jpg" alt="" class="wp-image-34"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading -->
@@ -488,43 +521,47 @@
 <p>Fusce blandit eget erat ut sodales. Fusce dictum egestas mollis. In eget tristique lorem. Cras quis semper orci, tincidunt suscipit magna. Sed a lorem eros. Nullam suscipit, quam eget hendrerit dignissim, ante urna cursus felis, sit amet volutpat mauris arcu eget ante.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:gallery {"ids":[18,22,20,21,15,19],"sizeSlug":"thumbnail"} -->
-<figure class="wp-block-gallery columns-3 is-cropped"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="18" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=18" class="wp-image-18"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="22" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=22" class="wp-image-22"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="20" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=20" class="wp-image-20"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="21" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=21" class="wp-image-21"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="15" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=15" class="wp-image-15"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="19" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=19" class="wp-image-19"/></figure></li></ul></figure>
+<!-- wp:gallery {"ids":[36,42,29,39,26,27],"sizeSlug":"thumbnail"} -->
+<figure class="wp-block-gallery columns-3 is-cropped"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-sqZwshdis48-unsplash-150x150.jpg" alt="" data-id="36" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-sqZwshdis48-unsplash-scaled.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-sqzwshdis48-unsplash/" class="wp-image-36"/><figcaption class="blocks-gallery-item__caption">This shot is actually an update to the matching flowers elsewhere in my collection - I returned to Cascais and found the same wall with the same flowers. They've grown a lot in the past year!</figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-Q1KHi0vr1Rs-unsplash-150x150.jpg" alt="" data-id="42" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-Q1KHi0vr1Rs-unsplash-scaled.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-q1khi0vr1rs-unsplash/" class="wp-image-42"/><figcaption class="blocks-gallery-item__caption">An up-close look at a Blushing Bride Protea flower, native to South Africa.</figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/3-150x150.jpg" alt="" data-id="29" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/3.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/attachment/3/" class="wp-image-29"/></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-9cMgg8_6gdE-unsplash-150x150.jpg" alt="" data-id="39" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-9cMgg8_6gdE-unsplash-scaled.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-9cmgg8_6gde-unsplash/" class="wp-image-39"/><figcaption class="blocks-gallery-item__caption">I took this photo in Sintra, walking along the coast. The flowers were growing on a vine that climbed up the white plaster wall of a staircase. I tilted the horizon to point the vines straight up through the frame and play with the long shadows they cast against the plaster.</figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/1-150x150.jpg" alt="" data-id="26" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/1.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/attachment/1/" class="wp-image-26"/></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/2-150x150.jpg" alt="" data-id="27" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/2.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/attachment/2/" class="wp-image-27"/></figure></li></ul></figure>
 <!-- /wp:gallery -->
 
-<!-- wp:cover {"customOverlayColor":"#f3f3f3","align":"full"} -->
-<div class="wp-block-cover alignfull has-background-dim" style="background-color:#f3f3f3"><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"left","placeholder":"Write title…","textColor":"very-dark-gray","fontSize":"medium"} -->
+<!-- wp:cover {"url":"https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-Qaky_uziVkE-unsplash-scaled.jpg","id":47,"customOverlayColor":"#f3f3f3","align":"full"} -->
+<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-Qaky_uziVkE-unsplash-scaled.jpg);background-color:#f3f3f3"><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"left","placeholder":"Write titleu2026","textColor":"very-dark-gray","fontSize":"medium"} -->
 <p class="has-text-color has-text-align-left has-medium-font-size has-very-dark-gray-color">Nulla libero ex, volutpat vel fringilla non, lacinia quis odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>39</wp:post_id>
+		<wp:post_id>12</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 20:42:24]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 20:42:24]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-		<wp:post_name><![CDATA[nunc-lacinia-libero-eu-pulvinar-aliquet-lacinia]]></wp:post_name>
+		<wp:post_name><![CDATA[about]]></wp:post_name>
 		<wp:status><![CDATA[publish]]></wp:status>
 		<wp:post_parent>0</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
 		<wp:post_type><![CDATA[page]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-														</item>
+														<wp:postmeta>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+							</item>
 					<item>
 		<title>Projects</title>
-		<link>http://localhost:8088/?page_id=41</link>
+		<link>https://wildpangolin.mystagingwebsite.com/projects/</link>
 		<pubDate>Wed, 06 May 2020 21:06:40 +0000</pubDate>
-		<dc:creator><![CDATA[emeaguiar]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?page_id=41</guid>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/projects/</guid>
 		<description></description>
-		<content:encoded><![CDATA[<!-- wp:cover {"url":"/wp-content/plugins/material-theme-builder/assets/images/featured.png","id":6,"align":"full"} -->
-<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(/wp-content/plugins/material-theme-builder/assets/images/featured.png)"><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Orci varius natoque</p>
+		<content:encoded><![CDATA[<!-- wp:cover {"url":"https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-GI7D78PneQg-unsplash-scaled.jpg","id":43,"customOverlayColor":"#000000","align":"full"} -->
+<div class="wp-block-cover alignfull has-background-dim" style="background-image:url(https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-GI7D78PneQg-unsplash-scaled.jpg);background-color:#000000"><div class="wp-block-cover__inner-container"><!-- wp:paragraph {"align":"left"} -->
+<p class="has-text-align-left">Orci varius natoque</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph {"align":"center","placeholder":"Write title…","fontSize":"large"} -->
-<p class="has-text-align-center has-large-font-size">Orci varius natoque</p>
+<!-- wp:paragraph {"align":"left","placeholder":"Write titleu2026","fontSize":"large"} -->
+<p class="has-text-align-left has-large-font-size">Orci varius natoque</p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:cover -->
 
@@ -532,13 +569,13 @@
 <h2>Lorem Nunc Lacinia</h2>
 <!-- /wp:heading -->
 
-<!-- wp:material/cards-collection {"style":"grid","cardsProps":[{"contentLayout":"text-under-media","title":"Nulla libero ex","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":false,"imageSourceUrl":"/wp-content/plugins/material-theme-builder/assets/images/featured.png","isImageEditMode":false,"displayImage":true,"supportingText":"Praesent non convallis tortor. Sed bibendum mauris vel nunc gravida ultrices. Sed elementum augue quis maximus ultrices quisque.","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":false,"displaySecondaryActionButton":false,"outlined":false,"cornerRadius":4},{"contentLayout":"text-under-media","title":"Praesent non convallis","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":false,"imageSourceUrl":"/wp-content/plugins/material-theme-builder/assets/images/featured.png","isImageEditMode":false,"displayImage":true,"supportingText":"Nullam suscipit, quam eget hendrerit dignissim, ante urna cursus felis, sit amet volutpat mauris arcu eget ante. Sed bibendum mauris vel nunc gravida ultrices.","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":false,"displaySecondaryActionButton":false,"outlined":false,"cornerRadius":4}],"cornerRadius":4,"displaySecondaryText":false,"displayActions":false} -->
-<div class="wp-block-material-cards-collection alignwide" id="block-material-cards-collection-0"><div class="mdc-layout-grid layout-grid"><div class="mdc-layout-grid__inner"><div class="card-container mdc-layout-grid__cell--span-6"><div class="mdc-card mtb-card" style="border-radius:4px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url(/wp-content/plugins/material-theme-builder/assets/images/featured.png)"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Nulla libero ex</h2></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Praesent non convallis tortor. Sed bibendum mauris vel nunc gravida ultrices. Sed elementum augue quis maximus ultrices quisque.</div></div></div></div><div class="card-container mdc-layout-grid__cell--span-6"><div class="mdc-card mtb-card" style="border-radius:4px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url(/wp-content/plugins/material-theme-builder/assets/images/featured.png)"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Praesent non convallis</h2></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Nullam suscipit, quam eget hendrerit dignissim, ante urna cursus felis, sit amet volutpat mauris arcu eget ante. Sed bibendum mauris vel nunc gravida ultrices.</div></div></div></div></div></div></div>
+<!-- wp:material/cards-collection {"style":"grid","cardsProps":[{"contentLayout":"text-under-media","title":"Nulla libero ex","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":false,"imageSourceUrl":"https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/5.jpg","isImageEditMode":false,"displayImage":true,"supportingText":"Praesent non convallis tortor. Sed bibendum mauris vel nunc gravida ultrices. Sed elementum augue quis maximus ultrices quisque.","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":false,"displaySecondaryActionButton":false,"outlined":false,"cornerRadius":4},{"contentLayout":"text-under-media","title":"Praesent non convallis","displayTitle":true,"secondaryText":"Secondary text","displaySecondaryText":false,"imageSourceUrl":"https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-1u9iX578YUo-unsplash-scaled.jpg","isImageEditMode":false,"displayImage":true,"supportingText":"Nullam suscipit, quam eget hendrerit dignissim, ante urna cursus felis, sit amet volutpat mauris arcu eget ante. Sed bibendum mauris vel nunc gravida ultrices.","displaySupportingText":true,"primaryActionButtonLabel":"Button text","primaryActionButtonUrl":"","primaryActionButtonNewTab":false,"primaryActionButtonNoFollow":false,"secondaryActionButtonLabel":"Button text","secondaryActionButtonUrl":"","secondaryActionButtonNewTab":false,"secondaryActionButtonNoFollow":false,"displayActions":false,"displaySecondaryActionButton":false,"outlined":false,"cornerRadius":4}],"cornerRadius":4,"displaySecondaryText":false,"displayActions":false} -->
+<div class="wp-block-material-cards-collection alignwide" id="block-material-cards-collection-0"><div class="mdc-layout-grid layout-grid"><div class="mdc-layout-grid__inner"><div class="card-container mdc-layout-grid__cell--span-6"><div class="mdc-card mtb-card" style="border-radius:4px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url(https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/5.jpg)"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Nulla libero ex</h2></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Praesent non convallis tortor. Sed bibendum mauris vel nunc gravida ultrices. Sed elementum augue quis maximus ultrices quisque.</div></div></div></div><div class="card-container mdc-layout-grid__cell--span-6"><div class="mdc-card mtb-card" style="border-radius:4px"><div class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded" tabindex="0"><div tabindex="0" class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media" style="background-image:url(https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-1u9iX578YUo-unsplash-scaled.jpg)"></div><div class="mtb-card__primary"><h2 class="mtb-card__title mdc-typography mdc-typography--headline6">Praesent non convallis</h2></div><div class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2">Nullam suscipit, quam eget hendrerit dignissim, ante urna cursus felis, sit amet volutpat mauris arcu eget ante. Sed bibendum mauris vel nunc gravida ultrices.</div></div></div></div></div></div></div>
 <!-- /wp:material/cards-collection -->
 
 <!-- wp:cover {"customOverlayColor":"#f3f3f3","align":"full"} -->
-<div class="wp-block-cover alignfull has-background-dim" style="background-color:#f3f3f3"><div class="wp-block-cover__inner-container"><!-- wp:media-text {"mediaId":11,"mediaLink":"http://localhost:8088/?attachment_id=11","mediaType":"image"} -->
-<div class="wp-block-media-text alignwide is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-11"/></figure><div class="wp-block-media-text__content"><!-- wp:paragraph {"placeholder":"Content…","textColor":"very-dark-gray","fontSize":"small"} -->
+<div class="wp-block-cover alignfull has-background-dim" style="background-color:#f3f3f3"><div class="wp-block-cover__inner-container"><!-- wp:media-text {"mediaId":81,"mediaLink":"https://wildpangolin.mystagingwebsite.com/projects/liam-spradlin-0aa85gqloy8-unsplash-1/","mediaType":"image"} -->
+<div class="wp-block-media-text alignwide is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-0Aa85gqlOy8-unsplash-1-1024x683.jpg" alt="" class="wp-image-81"/></figure><div class="wp-block-media-text__content"><!-- wp:paragraph {"placeholder":"Contentu2026","textColor":"very-dark-gray","fontSize":"small"} -->
 <p class="has-text-color has-small-font-size has-very-dark-gray-color">Nulla libero ex, volutpat vel fringilla non</p>
 <!-- /wp:paragraph -->
 
@@ -556,8 +593,8 @@
 <h2>Lorem Nunc Lacinia</h2>
 <!-- /wp:heading -->
 
-<!-- wp:media-text {"mediaId":19,"mediaLink":"http://localhost:8088/?attachment_id=19","mediaType":"image","verticalAlignment":"center"} -->
-<div class="wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center"><figure class="wp-block-media-text__media"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-19"/></figure><div class="wp-block-media-text__content"><!-- wp:material/list {"style":"two-line","leadingIconsEnabled":true,"trailingIconsEnabled":true} -->
+<!-- wp:media-text {"mediaId":82,"mediaLink":"https://wildpangolin.mystagingwebsite.com/projects/liam-spradlin-sqzwshdis48-unsplash-2/","mediaType":"image","verticalAlignment":"center"} -->
+<div class="wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center"><figure class="wp-block-media-text__media"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-sqZwshdis48-unsplash-2-1024x683.jpg" alt="" class="wp-image-82"/></figure><div class="wp-block-media-text__content"><!-- wp:material/list {"style":"two-line","leadingIconsEnabled":true,"trailingIconsEnabled":true} -->
 <div class="wp-block-material-list"><ul class="mdc-list mdc-list--two-line"><!-- wp:material/list-item {"secondaryText":"Secondary text...","leadingIcon":{"name":"star","hex":59448},"trailingIcon":{"name":"more vert","hex":58836}} -->
 <li class="wp-block-material-list-item mdc-list-item list-item" tabindex="0"><i class="mdc-list-item__graphic material-icons"></i><a href="#" class="list-item__link"> </a><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text list-item__text">List item</span><span class="mdc-list-item__secondary-text list-item__text">Secondary text...</span></span><i class="mdc-list-item__meta material-icons"></i></li>
 <!-- /wp:material/list-item -->
@@ -576,8 +613,8 @@
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:media-text -->
 
-<!-- wp:media-text {"mediaPosition":"right","mediaId":15,"mediaLink":"http://localhost:8088/?attachment_id=15","mediaType":"image","verticalAlignment":"center"} -->
-<div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center"><figure class="wp-block-media-text__media"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-15"/></figure><div class="wp-block-media-text__content"><!-- wp:table {"hasFixedLayout":true,"className":"is-style-material"} -->
+<!-- wp:media-text {"mediaPosition":"right","mediaId":83,"mediaLink":"https://wildpangolin.mystagingwebsite.com/projects/liam-spradlin-ye0k6rgfneq-unsplash-1/","mediaType":"image","verticalAlignment":"center"} -->
+<div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center"><figure class="wp-block-media-text__media"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-yE0k6rgFNEQ-unsplash-1-1024x683.jpg" alt="" class="wp-image-83"/></figure><div class="wp-block-media-text__content"><!-- wp:table {"hasFixedLayout":true,"className":"is-style-material"} -->
 <div class="wp-block-table is-style-material"><div class="mdc-data-table"><table class="mdc-data-table__table has-fixed-layout"><thead class=""><tr class="mdc-data-table__header-row"><th class="mdc-data-table__header-cell">Header A</th><th class="mdc-data-table__header-cell">Header B</th></tr></thead><tbody class="mdc-data-table__content"><tr class="mdc-data-table__row"><td class="mdc-data-table__cell">Cell A1</td><td class="mdc-data-table__cell">Cell B1</td></tr><tr class="mdc-data-table__row"><td class="mdc-data-table__cell">Cell A2</td><td class="mdc-data-table__cell">Cell B2</td></tr></tbody></table></div></div>
 <!-- /wp:table --></div></div>
 <!-- /wp:media-text -->
@@ -594,8 +631,8 @@
 <h3 class="mdc-typography--headline3">Orci varius natoque</h3>
 <!-- /wp:heading -->
 
-<!-- wp:media-text {"mediaId":17,"mediaLink":"http://localhost:8088/?attachment_id=17","mediaType":"image"} -->
-<div class="wp-block-media-text alignwide is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-17"/></figure><div class="wp-block-media-text__content"><!-- wp:material/tab-bar {"iconPosition":"leading","tabs":[{"label":"Tab 1","icon":{"name":"location_on","hex":57544},"content":[{"clientId":"c9df5716-7989-4c1e-9c9d-76ce4fdcd6ba","name":"core/paragraph","isValid":true,"attributes":{"content":"Cras ac nibh eleifend, ultricies nunc nec, facilisis tortor. Nulla finibus mi vel elit tempus tincidunt. Fusce pretium accumsan laoreet. Aliquam ac massa nibh. Nullam tristique accumsan odio, vel tincidunt odio feugiat vel. Mauris viverra condimentum ultrices. Duis ultrices urna eget nibh volutpat tincidunt.","dropCap":false},"innerBlocks":[]}]},{"label":"Tab 2","icon":{"name":"favorite","hex":59517},"content":[{"clientId":"22abf7fc-1b48-4255-855c-b21c401cc786","name":"core/paragraph","isValid":true,"attributes":{"content":"Eu aliquet lectus augue duis cursus vulputate ante dis consectetur efficitur amet feugiat senectus vestibulum metus curabitur nisi, tellus ornare velit ultrices rutrum nec porttitor tortor accumsan magnis tempor varius integer diam vel.","dropCap":false},"innerBlocks":[]}]}]} -->
+<!-- wp:media-text {"mediaId":38,"mediaLink":"https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-emv3yer-emw-unsplash/","mediaType":"image"} -->
+<div class="wp-block-media-text alignwide is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-EMv3YeR-Emw-unsplash-1024x683.jpg" alt="" class="wp-image-38"/></figure><div class="wp-block-media-text__content"><!-- wp:material/tab-bar {"iconPosition":"leading","tabs":[{"label":"Tab 1","icon":{"name":"location_on","hex":57544},"content":[{"clientId":"c9df5716-7989-4c1e-9c9d-76ce4fdcd6ba","name":"core/paragraph","isValid":true,"attributes":{"content":"Cras ac nibh eleifend, ultricies nunc nec, facilisis tortor. Nulla finibus mi vel elit tempus tincidunt. Fusce pretium accumsan laoreet. Aliquam ac massa nibh. Nullam tristique accumsan odio, vel tincidunt odio feugiat vel. Mauris viverra condimentum ultrices. Duis ultrices urna eget nibh volutpat tincidunt.","dropCap":false},"innerBlocks":[]}]},{"label":"Tab 2","icon":{"name":"favorite","hex":59517},"content":[{"clientId":"22abf7fc-1b48-4255-855c-b21c401cc786","name":"core/paragraph","isValid":true,"attributes":{"content":"Eu aliquet lectus augue duis cursus vulputate ante dis consectetur efficitur amet feugiat senectus vestibulum metus curabitur nisi, tellus ornare velit ultrices rutrum nec porttitor tortor accumsan magnis tempor varius integer diam vel.","dropCap":false},"innerBlocks":[]}]}]} -->
 <div class="wp-block-material-tab-bar mdc-tab-bar-container"><div class="mdc-tab-bar" role="tablist"><div class="mdc-tab-scroller"><div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"><div class="mdc-tab-scroller__scroll-content"><div role="tab" tabindex="0" class="mdc-tab tab mdc-tab--active"><span class="mdc-tab__content"><i class="material-icons mdc-tab__icon"></i><span class="mdc-tab__text-label tab__label-field"><span role="tab" tabindex="0">Tab 1</span></span></span><span class="mdc-tab-indicator mdc-tab-indicator--active"><span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span></span><span class="mdc-tab__ripple"></span></div><div role="tab" tabindex="0" class="mdc-tab tab"><span class="mdc-tab__content"><i class="material-icons mdc-tab__icon"></i><span class="mdc-tab__text-label tab__label-field"><span role="tab" tabindex="0">Tab 2</span></span></span><span class="mdc-tab-indicator"><span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span></span><span class="mdc-tab__ripple"></span></div></div></div></div></div><div><div class="mdc-tab-content mdc-typography--body1 mdc-tab-content--active"><p>Cras ac nibh eleifend, ultricies nunc nec, facilisis tortor. Nulla finibus mi vel elit tempus tincidunt. Fusce pretium accumsan laoreet. Aliquam ac massa nibh. Nullam tristique accumsan odio, vel tincidunt odio feugiat vel. Mauris viverra condimentum ultrices. Duis ultrices urna eget nibh volutpat tincidunt.</p></div><div class="mdc-tab-content mdc-typography--body1"><p>Eu aliquet lectus augue duis cursus vulputate ante dis consectetur efficitur amet feugiat senectus vestibulum metus curabitur nisi, tellus ornare velit ultrices rutrum nec porttitor tortor accumsan magnis tempor varius integer diam vel.</p></div></div></div>
 <!-- /wp:material/tab-bar -->
 
@@ -612,11 +649,11 @@
 <h2>Nascetur ridiculus mus</h2>
 <!-- /wp:heading -->
 
-<!-- wp:gallery {"ids":[22,20,21,11,14,18],"sizeSlug":"thumbnail"} -->
-<figure class="wp-block-gallery columns-3 is-cropped"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="22" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=22" class="wp-image-22"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="20" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=20" class="wp-image-20"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="21" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=21" class="wp-image-21"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="11" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=11" class="wp-image-11"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="14" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=14" class="wp-image-14"/></figure></li><li class="blocks-gallery-item"><figure><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" data-id="18" data-full-url="/wp-content/plugins/material-theme-builder/assets/images/featured.png" data-link="http://localhost:8088/?attachment_id=18" class="wp-image-18"/></figure></li></ul></figure>
+<!-- wp:gallery {"ids":[35,27,36,43,38,34],"sizeSlug":"thumbnail"} -->
+<figure class="wp-block-gallery columns-3 is-cropped"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-lejddjaQ-3A-unsplash-150x150.jpg" alt="" data-id="35" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-lejddjaQ-3A-unsplash-scaled.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-lejddjaq-3a-unsplash/" class="wp-image-35"/><figcaption class="blocks-gallery-item__caption">Another shot of the water and rocks on the outside of the Devil's Mouth formation in Cascais.</figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/2-150x150.jpg" alt="" data-id="27" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/2.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/attachment/2/" class="wp-image-27"/></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-sqZwshdis48-unsplash-150x150.jpg" alt="" data-id="36" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-sqZwshdis48-unsplash-scaled.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-sqzwshdis48-unsplash/" class="wp-image-36"/><figcaption class="blocks-gallery-item__caption">This shot is actually an update to the matching flowers elsewhere in my collection - I returned to Cascais and found the same wall with the same flowers. They've grown a lot in the past year!</figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-GI7D78PneQg-unsplash-150x150.jpg" alt="" data-id="43" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-GI7D78PneQg-unsplash-scaled.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-gi7d78pneqg-unsplash/" class="wp-image-43"/><figcaption class="blocks-gallery-item__caption">A lizard clings to the stone walls lining the Klötzli vineyard in Ligerz, Switzerland </figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-EMv3YeR-Emw-unsplash-150x150.jpg" alt="" data-id="38" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-EMv3YeR-Emw-unsplash-scaled.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-emv3yer-emw-unsplash/" class="wp-image-38"/><figcaption class="blocks-gallery-item__caption">Queen Anne's Lace</figcaption></figure></li><li class="blocks-gallery-item"><figure><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-0Aa85gqlOy8-unsplash-2-150x150.jpg" alt="" data-id="34" data-full-url="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-0Aa85gqlOy8-unsplash-2-scaled.jpg" data-link="https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-0aa85gqloy8-unsplash-2/" class="wp-image-34"/></figure></li></ul></figure>
 <!-- /wp:gallery -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>41</wp:post_id>
+		<wp:post_id>13</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 21:06:40]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 21:06:40]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
@@ -628,17 +665,21 @@
 		<wp:post_type><![CDATA[page]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-														</item>
+														<wp:postmeta>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+							</item>
 					<item>
 		<title>Blog</title>
-		<link>http://localhost:8088/?page_id=60</link>
+		<link>https://wildpangolin.mystagingwebsite.com/blog/</link>
 		<pubDate>Wed, 06 May 2020 20:42:24 +0000</pubDate>
-		<dc:creator><![CDATA[emeaguiar]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?page_id=60</guid>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/blog/</guid>
 		<description></description>
-		<content:encoded></content:encoded>
+		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>60</wp:post_id>
+		<wp:post_id>14</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 20:42:24]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 20:42:24]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
@@ -650,16 +691,24 @@
 		<wp:post_type><![CDATA[page]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-														</item>
+														<wp:postmeta>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
+		<wp:meta_value><![CDATA[5]]></wp:meta_value>
+		</wp:postmeta>
+							</item>
 					<item>
 		<title>Contact</title>
-		<link>http://localhost:8088/?page_id=43</link>
+		<link>https://wildpangolin.mystagingwebsite.com/contact/</link>
 		<pubDate>Wed, 06 May 2020 21:14:46 +0000</pubDate>
-		<dc:creator><![CDATA[emeaguiar]]></dc:creator>
-		<guid isPermaLink="false">http://localhost:8088/?page_id=43</guid>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/contact/</guid>
 		<description></description>
-		<content:encoded><![CDATA[<!-- wp:image {"id":6,"sizeSlug":"large"} -->
-<figure class="wp-block-image size-large"><img src="/wp-content/plugins/material-theme-builder/assets/images/featured.png" alt="" class="wp-image-6"/></figure>
+		<content:encoded><![CDATA[<!-- wp:image {"id":92,"sizeSlug":"large"} -->
+<figure class="wp-block-image size-large"><img src="https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-EMv3YeR-Emw-unsplash-1-1024x391.jpg" alt="" class="wp-image-92"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:columns -->
@@ -694,7 +743,7 @@
 <!-- /wp:column --></div>
 <!-- /wp:columns -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>43</wp:post_id>
+		<wp:post_id>15</wp:post_id>
 		<wp:post_date><![CDATA[2020-05-06 21:14:46]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2020-05-06 21:14:46]]></wp:post_date_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
@@ -706,7 +755,73 @@
 		<wp:post_type><![CDATA[page]]></wp:post_type>
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
-														</item>
+														<wp:postmeta>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+							</item>
+					<item>
+		<title>Contact</title>
+		<link>https://wildpangolin.mystagingwebsite.com/2020/05/09/contact/</link>
+		<pubDate>Sat, 09 May 2020 18:44:13 +0000</pubDate>
+		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
+		<guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/2020/05/09/contact/</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>20</wp:post_id>
+		<wp:post_date><![CDATA[2020-05-09 18:44:13]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2020-05-09 18:44:13]]></wp:post_date_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[contact]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[nav_menu_item]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+														<wp:postmeta>
+		<wp:meta_key><![CDATA[_menu_item_type]]></wp:meta_key>
+		<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_menu_item_menu_item_parent]]></wp:meta_key>
+		<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_menu_item_object_id]]></wp:meta_key>
+		<wp:meta_value><![CDATA[201]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_menu_item_object]]></wp:meta_key>
+		<wp:meta_value><![CDATA[custom]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_menu_item_target]]></wp:meta_key>
+		<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_menu_item_classes]]></wp:meta_key>
+		<wp:meta_value><![CDATA[s:27:"a:1:{i:0;s:0:&quot;&quot;;}";]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_menu_item_xfn]]></wp:meta_key>
+		<wp:meta_value><![CDATA[]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_menu_item_url]]></wp:meta_key>
+		<wp:meta_value><![CDATA[#]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
+		<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
+		<wp:meta_value><![CDATA[5]]></wp:meta_value>
+		</wp:postmeta>
+							</item>
 					<item>
 		<title>Home</title>
 		<link>http://localhost:8088/?p=197</link>
