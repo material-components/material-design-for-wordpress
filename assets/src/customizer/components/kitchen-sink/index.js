@@ -63,7 +63,6 @@ const KitchenSink = ( {
 	chipRadius,
 	dataTableRadius,
 	imageListRadius,
-	navDrawerRadius,
 	textFieldRadius,
 	theme,
 } ) => {
