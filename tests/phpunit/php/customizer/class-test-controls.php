@@ -297,25 +297,24 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 3 ) )
+		$this->wp_customize->expects( $this->exactly( 8 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}_small_component_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_medium_component_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_large_component_radius" ), array_merge( $base_setting, [ 'default' => 0 ] ) ]
+				[ $this->equalTo( "{$controls->slug}_global_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}_button_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}_card_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}_chip_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}_data_table_radius" ), array_merge( $base_setting, [ 'default' => 0 ] ) ],
+				[ $this->equalTo( "{$controls->slug}_image_list_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}_nav_drawer_radius" ), array_merge( $base_setting, [ 'default' => 0 ] ) ],
+				[ $this->equalTo( "{$controls->slug}_text_field_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ]
 			);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 3 ) )
+		$this->wp_customize->expects( $this->exactly( 1 ) )
 			->method( 'add_control' )
 			->withConsecutive(
-				[
-					$this->isInstanceOf( Range_Slider_Control::class ),
-				],
-				[
-					$this->isInstanceOf( Range_Slider_Control::class ),
-				],
 				[
 					$this->isInstanceOf( Range_Slider_Control::class ),
 				]
@@ -542,19 +541,23 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$this->assertContains( '--mdc-typography-button-font-family: "Roboto", sans-serif;', $css );
 		$this->assertContains( '--mdc-typography-overline-font-family: "Roboto", sans-serif;', $css );
 
-		$this->assertContains( '--mdc-small-component-radius-button: 4px;', $css );
-		$this->assertContains( '--mdc-medium-component-radius-card: 4px;', $css );
-		$this->assertContains( '--mdc-large-component-radius: 0px;', $css );
+		$this->assertContains( '--mdc-button-radius: 4px;', $css );
+		$this->assertContains( '--mdc-card-radius: 4px;', $css );
+		$this->assertContains( '--mdc-chip-radius: 4px;', $css );
+		$this->assertContains( '--mdc-data-table-radius: 0px;', $css );
+		$this->assertContains( '--mdc-image-list-radius: 4px;', $css );
+		$this->assertContains( '--mdc-nav-drawer-radius: 0px;', $css );
+		$this->assertContains( '--mdc-text-field-radius: 4px;', $css );
 
 		add_filter(
-			"theme_mod_{$controls->slug}_small_component_radius",
+			"theme_mod_{$controls->slug}_button_radius",
 			function( $value ) {
 				return -1;
 			}
 		);
 
 		add_filter(
-			"theme_mod_{$controls->slug}_medium_component_radius",
+			"theme_mod_{$controls->slug}_card_radius",
 			function( $value ) {
 				return 36;
 			}
@@ -563,8 +566,8 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$css = $controls->get_frontend_css();
 
 		// Assert radius is limited to min/max for components.
-		$this->assertContains( '--mdc-small-component-radius-button: 0px', $css );
-		$this->assertContains( '--mdc-medium-component-radius-card: 24px', $css );
+		$this->assertContains( '--mdc-button-radius: 0px', $css );
+		$this->assertContains( '--mdc-card-radius: 24px', $css );
 	}
 
 	/**
@@ -578,9 +581,9 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		$this->assertEquals( $controls->get_default( 'primary_color' ), $baseline['primary_color'] );
 		$this->assertEquals( $controls->get_default( 'head_font_family' ), $baseline['head_font_family'] );
-		$this->assertEquals( $controls->get_default( 'small_component_radius' ), $baseline['small_component_radius'] );
-		$this->assertEquals( $controls->get_default( 'medium_component_radius' ), $baseline['medium_component_radius'] );
-		$this->assertEquals( $controls->get_default( 'large_component_radius' ), $baseline['large_component_radius'] );
+		$this->assertEquals( $controls->get_default( 'button_radius' ), $baseline['button_radius'] );
+		$this->assertEquals( $controls->get_default( 'card_radius' ), $baseline['card_radius'] );
+		$this->assertEquals( $controls->get_default( 'data_table_radius' ), $baseline['data_table_radius'] );
 	}
 
 	/**
@@ -595,78 +598,82 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$this->assertEquals(
 			[
 				[
-					'id'            => 'small_component_radius',
-					'label'         => 'Small Components Radius',
-					'description'   => 'Components are grouped into shape categories based on their size. Examples of small components: buttons, chips, text fields.',
-					'min'           => 0,
-					'max'           => 28,
-					'initial_value' => 4,
-					'css_var'       => '--mdc-small-component-radius',
-					'blocks'        => [
-						'material/button' => [
-							'limits' => [
-								'max' => 20,
-								'min' => 0,
-							],
-						],
-					],
-					'extra'         => [
-						'limits' => [
-							'button' => [
-								'min' => 0,
-								'max' => 20,
-							],
-						],
-					],
-				],
-				[
-					'id'            => 'medium_component_radius',
-					'label'         => 'Medium Components Radius',
-					'description'   => 'Components are grouped into shape categories based on their size. Examples of medium components: cards, image list items.',
+					'id'            => 'global_radius',
+					'label'         => __( 'Global corner styles', 'material-theme-builder' ),
+					'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-theme-builder' ),
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 4,
-					'css_var'       => '--mdc-medium-component-radius',
+				],
+				[
+					'id'            => 'button_radius',
+					'label'         => __( 'Button', 'material-theme-builder' ),
+					'min'           => 0,
+					'max'           => 20,
+					'initial_value' => 4,
+					'css_var'       => '--mdc-button-radius',
 					'blocks'        => [
-						'material/card'             => [
-							'limits' => [
-								'max' => 20,
-								'min' => 0,
-							],
-						],
-						'material/cards-collection' => [
-							'limits' => [
-								'max' => 20,
-								'min' => 0,
-							],
-						],
-						'material/image-list'       => [
-							'limits' => [
-								'max' => 16,
-								'min' => 0,
-							],
-						],
-					],
-					'extra'         => [
-						'limits' => [
-							'card' => [
-								'min' => 0,
-								'max' => 24,
-							],
-						],
+						'material/button',
 					],
 				],
 				[
-					'id'            => 'large_component_radius',
-					'label'         => 'Large Components Radius',
-					'description'   => 'Components are grouped into shape categories based on their size. Examples of large components: Data table, nav drawer.',
+					'id'            => 'card_radius',
+					'label'         => __( 'Card', 'material-theme-builder' ),
+					'min'           => 0,
+					'max'           => 24,
+					'initial_value' => 0,
+					'css_var'       => '--mdc-card-radius',
+					'blocks'        => [
+						'material/card',
+						'material/cards-collection',
+						'material/image-list',
+					],
+				],
+				[
+					'id'            => 'chip_radius',
+					'label'         => __( 'Chip', 'material-theme-builder' ),
+					'min'           => 0,
+					'max'           => 16,
+					'initial_value' => 0,
+					'css_var'       => '--mdc-chip-radius',
+				],
+				[
+					'id'            => 'data_table_radius',
+					'label'         => __( 'Data table', 'material-theme-builder' ),
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 0,
-					'css_var'       => '--mdc-large-component-radius',
-					'extra'         => [
-						'limits' => [],
+					'css_var'       => '--mdc-data-table-radius',
+					'blocks'        => [
+						'material/data-table',
 					],
+				],
+				[
+					'id'            => 'image_list_radius',
+					'label'         => __( 'Image List', 'material-theme-builder' ),
+					'min'           => 0,
+					'max'           => 24,
+					'initial_value' => 0,
+					'css_var'       => '--mdc-image-list-radius',
+					'blocks'        => [
+						'material/image-list',
+					],
+				],
+				[
+					'id'            => 'nav_drawer_radius',
+					'label'         => __( 'Nav Drawer', 'material-theme-builder' ),
+					'min'           => 0,
+					'max'           => 36,
+					'initial_value' => 0,
+					'css_var'       => '--mdc-nav-drawer-radius',
+				],
+				[
+					'id'            => 'text_field_radius',
+					'label'         => __( 'Text Field', 'material-theme-builder' ),
+					'min'           => 0,
+					'max'           => 20,
+					'initial_value' => 0,
+					'css_var'       => '--mdc-text-field-radius',
 				],
 			],
 			$control

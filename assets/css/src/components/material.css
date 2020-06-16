@@ -33,7 +33,7 @@
  * Corner radius styles
  */
 .mdc-button {
-	border-radius: var(--mdc-small-component-radius-button, 4px);
+	border-radius: var(--mdc-button-radius, 4px);
 }
 
 .mdc-button .mdc-button__ripple {
@@ -41,7 +41,7 @@
 }
 
 .mdc-card {
-	border-radius: var(--mdc-medium-component-radius-card, 4px);
+	border-radius: var(--mdc-card-radius, 4px);
 }
 
 .mdc-card__link {
