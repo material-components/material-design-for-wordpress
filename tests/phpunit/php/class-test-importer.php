@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder;
 
 use WP_UnitTest_Factory;
+use MaterialThemeBuilder\Plugin;
 
 /**
  * Tests for Importer class.
@@ -213,5 +214,20 @@ class Test_Importer extends \WP_UnitTestCase {
 	 */
 	private function get_image_test_file() {
 		return 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
+	}
+
+	/**
+	 * Test add_custom_css
+	 *
+	 * @see Importer::add_custom_css()
+	 */
+	public function test_add_custom_css() {
+		$response = $this->importer->add_custom_css();
+
+		$this->assertInternalType( 'int', $response );
+
+		$added_css = wp_get_custom_css( Plugin::THEME_SLUG );
+
+		$this->assertContains( '.home .entry-title { display: none; }', $added_css );
 	}
 }
