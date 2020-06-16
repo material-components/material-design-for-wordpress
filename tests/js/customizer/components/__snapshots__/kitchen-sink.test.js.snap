@@ -38,7 +38,7 @@ Object {
               >
                 <div
                   class="mdc-button__ripple"
-                  style="border-radius: 10px;"
+                  style="border-radius: 4px;"
                 />
                 <span
                   class="mdc-button__label"
@@ -48,14 +48,14 @@ Object {
               </button>
               <button
                 class="mdc-button mdc-button--outlined"
-                style="border-radius: 10px;"
+                style="border-radius: 4px;"
               >
                 <div
                   class="sc-AxjAm hekVKn"
                 >
                   <div
                     class="mdc-button__ripple"
-                    style="border-radius: 10px;"
+                    style="border-radius: 4px;"
                   />
                 </div>
                 <span
@@ -66,7 +66,7 @@ Object {
               </button>
               <button
                 class="mdc-button mdc-button--raised"
-                style="border-radius: 10px;"
+                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-button__ripple"
@@ -79,7 +79,7 @@ Object {
               </button>
               <button
                 class="mdc-button mdc-button--unelevated"
-                style="border-radius: 10px;"
+                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-button__ripple"
@@ -118,7 +118,7 @@ Object {
             >
               <div
                 class="mdc-card"
-                style="width: 350px; border-radius: 2px;"
+                style="width: 350px; border-radius: 6px;"
               >
                 <div
                   class="mdc-card__primary-action demo-card__primary-action"
@@ -159,21 +159,21 @@ Object {
                   >
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
-                      style="border-radius: 10px;"
+                      style="border-radius: 4px;"
                     >
                       <span
                         class="mdc-button__ripple"
-                        style="border-radius: 10px;"
+                        style="border-radius: 4px;"
                       />
                       Read
                     </button>
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button"
-                      style="border-radius: 10px;"
+                      style="border-radius: 4px;"
                     >
                       <span
                         class="mdc-button__ripple"
-                        style="border-radius: 10px;"
+                        style="border-radius: 4px;"
                       />
                       Bookmark
                     </button>
@@ -195,7 +195,7 @@ Object {
             </p>
             <div
               class="mdc-data-table"
-              style="border-radius: 5px;"
+              style="border-radius: 10px;"
             >
               <table
                 class="mdc-data-table__table"
@@ -366,11 +366,11 @@ Object {
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/1.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -381,17 +381,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/2.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -402,17 +402,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/3.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -423,17 +423,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/4.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -444,17 +444,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/5.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -465,17 +465,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/6.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -486,17 +486,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/7.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -507,17 +507,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/8.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -528,17 +528,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/9.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -549,17 +549,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/10.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -570,17 +570,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/11.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -591,17 +591,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/12.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -612,17 +612,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/13.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -633,17 +633,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/14.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -654,17 +654,17 @@ Object {
                 </li>
                 <li
                   class="mdc-image-list__item image-list-item"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
                     src="http://example.com/assets/images/kitchen-sink/15.jpg"
-                    style="border-radius: 2px;"
+                    style="border-radius: 12px;"
                   />
                   <div
                     class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                   >
                     <span
                       class="mdc-image-list__label"
@@ -1132,6 +1132,7 @@ Object {
               <div
                 class="mdc-chip"
                 role="row"
+                style="border-radius: 8px;"
               >
                 <div
                   class="mdc-chip__ripple"
@@ -1155,6 +1156,7 @@ Object {
               <div
                 class="mdc-chip"
                 role="row"
+                style="border-radius: 8px;"
               >
                 <div
                   class="mdc-chip__ripple"
@@ -1250,7 +1252,7 @@ Object {
             >
               <div
                 class="mdc-text-field mdc-text-field--with-leading-icon"
-                style="border-top-left-radius: 10px; border-top-right-radius: 10px;"
+                style="border-top-left-radius: 16px; border-top-right-radius: 16px;"
               >
                 <i
                   class="material-icons mdc-text-field__icon mdc-text-field__icon--leading"
@@ -1294,7 +1296,7 @@ Object {
                 >
                   <div
                     class="mdc-notched-outline__leading"
-                    style="border-radius: 10px 0 0 10px; min-width: 10px;"
+                    style="border-radius: 16px 0 0 16px; min-width: 16px;"
                   />
                   <div
                     class="mdc-notched-outline__notch"
@@ -1308,7 +1310,7 @@ Object {
                   </div>
                   <div
                     class="mdc-notched-outline__trailing"
-                    style="border-radius: 0 10px 10px 0; min-width: 10px;"
+                    style="border-radius: 0 16px 16px 0; min-width: 16px;"
                   />
                 </div>
               </div>
@@ -1386,7 +1388,7 @@ Object {
             >
               <div
                 class="mdc-button__ripple"
-                style="border-radius: 10px;"
+                style="border-radius: 4px;"
               />
               <span
                 class="mdc-button__label"
@@ -1396,14 +1398,14 @@ Object {
             </button>
             <button
               class="mdc-button mdc-button--outlined"
-              style="border-radius: 10px;"
+              style="border-radius: 4px;"
             >
               <div
                 class="sc-AxjAm hekVKn"
               >
                 <div
                   class="mdc-button__ripple"
-                  style="border-radius: 10px;"
+                  style="border-radius: 4px;"
                 />
               </div>
               <span
@@ -1414,7 +1416,7 @@ Object {
             </button>
             <button
               class="mdc-button mdc-button--raised"
-              style="border-radius: 10px;"
+              style="border-radius: 4px;"
             >
               <div
                 class="mdc-button__ripple"
@@ -1427,7 +1429,7 @@ Object {
             </button>
             <button
               class="mdc-button mdc-button--unelevated"
-              style="border-radius: 10px;"
+              style="border-radius: 4px;"
             >
               <div
                 class="mdc-button__ripple"
@@ -1466,7 +1468,7 @@ Object {
           >
             <div
               class="mdc-card"
-              style="width: 350px; border-radius: 2px;"
+              style="width: 350px; border-radius: 6px;"
             >
               <div
                 class="mdc-card__primary-action demo-card__primary-action"
@@ -1507,21 +1509,21 @@ Object {
                 >
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button"
-                    style="border-radius: 10px;"
+                    style="border-radius: 4px;"
                   >
                     <span
                       class="mdc-button__ripple"
-                      style="border-radius: 10px;"
+                      style="border-radius: 4px;"
                     />
                     Read
                   </button>
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button"
-                    style="border-radius: 10px;"
+                    style="border-radius: 4px;"
                   >
                     <span
                       class="mdc-button__ripple"
-                      style="border-radius: 10px;"
+                      style="border-radius: 4px;"
                     />
                     Bookmark
                   </button>
@@ -1543,7 +1545,7 @@ Object {
           </p>
           <div
             class="mdc-data-table"
-            style="border-radius: 5px;"
+            style="border-radius: 10px;"
           >
             <table
               class="mdc-data-table__table"
@@ -1714,11 +1716,11 @@ Object {
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/1.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1729,17 +1731,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/2.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1750,17 +1752,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/3.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1771,17 +1773,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/4.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1792,17 +1794,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/5.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1813,17 +1815,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/6.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1834,17 +1836,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/7.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1855,17 +1857,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/8.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1876,17 +1878,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/9.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1897,17 +1899,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/10.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1918,17 +1920,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/11.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1939,17 +1941,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/12.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1960,17 +1962,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/13.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -1981,17 +1983,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/14.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -2002,17 +2004,17 @@ Object {
               </li>
               <li
                 class="mdc-image-list__item image-list-item"
-                style="border-radius: 2px;"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
                   src="http://example.com/assets/images/kitchen-sink/15.jpg"
-                  style="border-radius: 2px;"
+                  style="border-radius: 12px;"
                 />
                 <div
                   class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 2px; border-bottom-right-radius: 2px;"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
                 >
                   <span
                     class="mdc-image-list__label"
@@ -2480,6 +2482,7 @@ Object {
             <div
               class="mdc-chip"
               role="row"
+              style="border-radius: 8px;"
             >
               <div
                 class="mdc-chip__ripple"
@@ -2503,6 +2506,7 @@ Object {
             <div
               class="mdc-chip"
               role="row"
+              style="border-radius: 8px;"
             >
               <div
                 class="mdc-chip__ripple"
@@ -2598,7 +2602,7 @@ Object {
           >
             <div
               class="mdc-text-field mdc-text-field--with-leading-icon"
-              style="border-top-left-radius: 10px; border-top-right-radius: 10px;"
+              style="border-top-left-radius: 16px; border-top-right-radius: 16px;"
             >
               <i
                 class="material-icons mdc-text-field__icon mdc-text-field__icon--leading"
@@ -2642,7 +2646,7 @@ Object {
               >
                 <div
                   class="mdc-notched-outline__leading"
-                  style="border-radius: 10px 0 0 10px; min-width: 10px;"
+                  style="border-radius: 16px 0 0 16px; min-width: 16px;"
                 />
                 <div
                   class="mdc-notched-outline__notch"
@@ -2656,7 +2660,7 @@ Object {
                 </div>
                 <div
                   class="mdc-notched-outline__trailing"
-                  style="border-radius: 0 10px 10px 0; min-width: 10px;"
+                  style="border-radius: 0 16px 16px 0; min-width: 16px;"
                 />
               </div>
             </div>

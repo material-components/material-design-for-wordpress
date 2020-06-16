@@ -6,7 +6,7 @@ import classNames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { RangeControl } from '@wordpress/components';
+import { Button, RangeControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
 
@@ -25,13 +25,16 @@ const RangeSliderControl = props => {
 		max = 100,
 		step = 1,
 		onChange,
+		linked,
+		onResetLinked,
+		isGlobal,
+		expandedSettings,
+		handleExpandedSettings,
 	} = props;
 
-	const [ updatedValue, setValue ] = useState( value );
 	const [ expanded, setExpanded ] = useState( false );
 	const enableDescriptionToggling =
 		description !== undefined && description !== '';
-	const undoDisabled = updatedValue === value;
 
 	const handleExpansionPanelChange = () => {
 		if ( enableDescriptionToggling ) {
@@ -52,14 +55,10 @@ const RangeSliderControl = props => {
 	 * @param {number} newValue New slider value
 	 */
 	const handleSliderChange = newValue => {
-		setValue( newValue );
 		onChange( newValue );
 	};
 
-	const handleUndoClick = () => {
-		setValue( value );
-		onChange( value );
-	};
+	const renderLink = 'undefined' !== typeof linked && ! linked;
 
 	return (
 		<div id={ `range-slider-control-${ id }` } className="range-slider-control">
@@ -94,25 +93,48 @@ const RangeSliderControl = props => {
 				) }
 			</div>
 			<div className="range-slider-control-body">
-				<span className="range-slider-control-body__item slider">
+				<span
+					className={ classNames( 'range-slider-control-body__item slider', {
+						'has-link': renderLink,
+					} ) }
+				>
 					<RangeControl
-						value={ Number( updatedValue ) }
+						value={ Number( value ) }
 						onChange={ handleSliderChange }
 						min={ min }
 						max={ max }
 						step={ step }
 					/>
 				</span>
-				<span className="range-slider-control-body__item">
-					<button
-						className="mdc-icon-button material-icons"
-						onClick={ handleUndoClick }
-						disabled={ undoDisabled }
-						title={ __( 'Reset', 'material-theme-builder' ) }
-					>
-						undo
-					</button>
-				</span>
+				{ renderLink && (
+					<span className="range-slider-control-body__item">
+						<Button
+							isLink
+							onClick={ onResetLinked }
+							label={ __( 'Link to global', 'material-theme-builder' ) }
+							showTooltip={ true }
+						>
+							<span className="material-icons">link</span>
+						</Button>
+					</span>
+				) }
+
+				{ isGlobal && (
+					<span className="range-slider-control-body__item">
+						<Button
+							isLink
+							onClick={ handleExpandedSettings }
+							label={ __(
+								'View individual components',
+								'material-theme-builder'
+							) }
+							showTooltip={ true }
+							icon="admin-settings"
+							isPressed={ expandedSettings }
+							className="range-slider-control-settings-expanded"
+						/>
+					</span>
+				) }
 			</div>
 		</div>
 	);

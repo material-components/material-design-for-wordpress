@@ -32,9 +32,9 @@ class Test_Range_Slider_Control extends \WP_UnitTestCase {
 
 		$font_control = new Range_Slider_Control(
 			$wp_customize,
-			'small_component_radius',
+			'button_radius',
 			[
-				'label' => 'Small Components Radius',
+				'label' => 'Button Radius',
 			]
 		);
 
@@ -43,7 +43,7 @@ class Test_Range_Slider_Control extends \WP_UnitTestCase {
 		$output = ob_get_clean();
 
 		// Assert the Range Slider container is rendered.
-		$this->assertContains( '<div class="mtb-range_slider" id="small_component_radius"></div>', $output );
+		$this->assertContains( '<div class="mtb-range_slider" id="button_radius"></div>', $output );
 	}
 
 	/**
@@ -54,19 +54,19 @@ class Test_Range_Slider_Control extends \WP_UnitTestCase {
 	public function test_to_json() {
 		$wp_customize = new \WP_Customize_Manager();
 
-		$wp_customize->add_setting( 'small_component_radius' );
+		$wp_customize->add_setting( 'card_radius' );
 
 		$primary_control = new Range_Slider_Control(
 			$wp_customize,
-			'small_component_radius',
+			'card_radius',
 			[
-				'id'            => 'small_component_radius',
-				'label'         => 'Small Components Radius',
-				'description'   => 'This is the description for the small components radius. It will need more details',
+				'id'            => 'card_radius',
+				'label'         => 'Card Radius',
+				'description'   => 'This is the description for the card radius. It will need more details',
 				'min'           => 0,
 				'max'           => 28,
 				'initial_value' => 4,
-				'css_var'       => '--mdc-small-component-radius',
+				'css_var'       => '--mdc-card-radius',
 			]
 		);
 
@@ -76,6 +76,6 @@ class Test_Range_Slider_Control extends \WP_UnitTestCase {
 		$this->assertEquals( 0, $json['min'] );
 		$this->assertEquals( 28, $json['max'] );
 		$this->assertEquals( 4, $json['initialValue'] );
-		$this->assertContains( '--mdc-small-component-radius', $json['cssVar'] );
+		$this->assertContains( '--mdc-card-radius', $json['cssVar'] );
 	}
 }

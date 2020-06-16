@@ -12,7 +12,7 @@
  * External dependencies
  */
 import 'select-woo';
-import { camelCase } from 'lodash';
+import { camelCase, debounce } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -25,7 +25,7 @@ import { unmountComponentAtNode } from 'react-dom';
  * Internal dependencies
  */
 import colorUtils from '../common/color-utils';
-import RangeSliderControl from './components/range-slider-control';
+import GlobalRangeSliderControl from './components/range-slider-control/global';
 import KitchenSink from './components/kitchen-sink';
 import {
 	initButtons,
@@ -142,19 +142,42 @@ import ThemePrompt from './components/theme-prompt';
 				'material_background_color',
 				'material_background_text_color',
 			] )
+			.concat( radiusControls )
 			.forEach( name => {
-				const control = api.control( name );
-				const prop = camelCase( name.replace( `${ getSlug( name ) }_`, '' ) );
+				const setting = api( name );
 
-				if ( control?.setting ) {
-					controlProps[ prop ] = control.setting.get();
+				if ( setting ) {
+					const prop = camelCase( name.replace( `${ getSlug( name ) }_`, '' ) );
+					let value = setting.get();
+
+					if ( radiusControlsLookup.hasOwnProperty( name ) ) {
+						value = Number( limitRadiusValue( name, value ) );
+					}
+
+					controlProps[ prop ] = value;
 				}
 			} );
-		console.log( controlProps );
+
 		return controlProps;
 	};
 
-	const onSettingChange = () => {
+	const limitRadiusValue = ( id, value ) => {
+		if (
+			radiusControlsLookup[ id ]?.max &&
+			value > radiusControlsLookup[ id ].max
+		) {
+			value = radiusControlsLookup[ id ].max;
+		} else if (
+			radiusControlsLookup[ id ]?.min &&
+			value < radiusControlsLookup[ id ].min
+		) {
+			value = radiusControlsLookup[ id ].min;
+		}
+
+		return value;
+	};
+
+	const onSettingChange = debounce( () => {
 		const kitchenSink = $( '#mcb-kitchen-sink-preview' );
 
 		if (
@@ -163,7 +186,7 @@ import ThemePrompt from './components/theme-prompt';
 		) {
 			renderKitchenSink();
 		}
-	};
+	}, 500 );
 
 	const initMaterialComponents = function() {
 		initButtons();
@@ -274,6 +297,9 @@ import ThemePrompt from './components/theme-prompt';
 	 * Handle the kitchen sink swap right here.
 	 */
 	let mdcLoaded = false;
+	let radiusControls = [];
+	const radiusControlsLookup = {};
+
 	const loadKitchenSink = () => {
 		// Load MDC assets
 		if ( ! mdcLoaded ) {
@@ -286,6 +312,20 @@ import ThemePrompt from './components/theme-prompt';
 				'https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js',
 				initMaterialComponents
 			);
+
+			const globalRadiusControl = api.control( `${ mtb.slug }_global_radius` );
+
+			if ( globalRadiusControl?.params?.children ) {
+				globalRadiusControl.params.children.forEach(
+					ctrl =>
+						( radiusControlsLookup[ ctrl.id ] = {
+							min: ctrl.min,
+							max: ctrl.max,
+						} )
+				);
+
+				radiusControls = Object.keys( radiusControlsLookup );
+			}
 		}
 
 		toggleKitchenSink();
@@ -724,27 +764,85 @@ import ThemePrompt from './components/theme-prompt';
 	} );
 
 	/**
+	 * Handle reset for global range slider control.
+	 *
+	 * @param {Object} control Control
+	 */
+	const onResetGlobalRangeSliderControl = control => {
+		let style = api( mtb.styleControl ).get();
+		if ( 'custom' === style ) {
+			style = api( mtb.prevStyleControl ).get();
+		}
+
+		if ( style && mtb.designStyles.hasOwnProperty( style ) ) {
+			const defaults = mtb.designStyles[ style ];
+			let settingId = control.id.replace( `${ getSlug( control.id ) }_`, '' );
+			api( control.id ).set( defaults[ settingId ] );
+
+			if ( control.params.children ) {
+				control.params.children.forEach( slider => {
+					settingId = slider.id.replace( `${ getSlug( slider.id ) }_`, '' );
+
+					api( slider.id ).set( defaults[ settingId ] );
+				} );
+			}
+
+			unmountComponentAtNode(
+				control.container.find( '.mtb-range_slider' ).get( 0 )
+			);
+			renderRangeSliderControl( control );
+			onSettingChange();
+		}
+	};
+
+	/**
 	 * Render the Range Slider Control.
 	 *
 	 * @param {Object} control Control
 	 */
 	const renderRangeSliderControl = control => {
+		let childSliders = [];
+
+		if ( control.params.children ) {
+			childSliders = control.params.children.map( slider => {
+				const value = api( slider.id ).get();
+				slider.value = Number(
+					'' !== value ? value : control.params.initialValue
+				);
+				return slider;
+			} );
+		}
+
 		const props = {
 			id: control.id,
 			label: control.params.label,
 			description: control.params.description,
 			min: control.params.min,
 			max: control.params.max,
-			value: Number( control.setting.get() ) || control.params.initialValue,
+			value: Number(
+				'' !== control.setting.get()
+					? control.setting.get()
+					: control.params.initialValue
+			),
+			childSliders,
+		};
+
+		const onReset = () => {
+			onResetGlobalRangeSliderControl( control );
 		};
 
 		render(
-			<RangeSliderControl
+			<GlobalRangeSliderControl
 				{ ...props }
 				onChange={ newValue => {
 					control.setting.set( newValue );
 					control.setting._dirty = true;
 				} }
+				onChildChange={ ( name, value ) => {
+					api( name ).set( value );
+					onSettingChange();
+				} }
+				onResetToDefault={ onReset }
 			/>,
 			control.container.find( '.mtb-range_slider' ).get( 0 )
 		);
@@ -800,11 +898,12 @@ import ThemePrompt from './components/theme-prompt';
 				control.setting.set( value );
 
 				// Force unmount and re render the Ranger Slider control.
-				if ( control.params.type === 'range_slider' ) {
-					unmountComponentAtNode(
-						control.container.find( '.mtb-range_slider' ).get( 0 )
-					);
-					renderRangeSliderControl( control );
+				if (
+					control.params.type === 'range_slider' &&
+					control.params.children &&
+					control.params.children.length
+				) {
+					onResetGlobalRangeSliderControl( control );
 				}
 
 				// Rebind the custom value change event.
@@ -833,8 +932,7 @@ import ThemePrompt from './components/theme-prompt';
 
 	api.RangeSliderControl = api.Control.extend( {
 		ready() {
-			const control = this;
-			renderRangeSliderControl( control );
+			renderRangeSliderControl( this );
 		},
 	} );
 

@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
 
-const Chips = () => (
+const Chips = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Chips', 'material-theme-builder' ) }
@@ -12,7 +12,11 @@ const Chips = () => (
 			) }
 		</p>
 		<div className="mdc-chip-set" role="grid">
-			<div className="mdc-chip" role="row">
+			<div
+				className="mdc-chip"
+				role="row"
+				style={ { borderRadius: `${ radius }px` } }
+			>
 				<div className="mdc-chip__ripple"></div>
 				<span role="gridcell">
 					<span role="button" tabIndex="0" className="mdc-chip__primary-action">
@@ -22,7 +26,11 @@ const Chips = () => (
 					</span>
 				</span>
 			</div>
-			<div className="mdc-chip" role="row">
+			<div
+				className="mdc-chip"
+				role="row"
+				style={ { borderRadius: `${ radius }px` } }
+			>
 				<div className="mdc-chip__ripple"></div>
 				<span role="gridcell">
 					<span
