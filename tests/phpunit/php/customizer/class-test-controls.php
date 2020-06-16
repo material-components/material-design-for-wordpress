@@ -600,7 +600,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				[
 					'id'            => 'global_radius',
 					'label'         => __( 'Global corner styles', 'material-theme-builder' ),
-					'description'   => __( 'Components are grouped into shape categories based on their size. Examples of small components: buttons, chips, text fields.', 'material-theme-builder' ),
+					'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-theme-builder' ),
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 4,

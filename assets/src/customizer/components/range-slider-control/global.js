@@ -16,27 +16,12 @@ const GlobalRangeSliderControl = props => {
 		onResetToDefault,
 		...otherProps
 	} = props;
+
 	const sliders = {};
-
-	const limitSliderValue = ( id, value ) => {
-		const sliderParams = childSliders.filter( slider => id === slider.id );
-
-		if (
-			sliderParams &&
-			sliderParams.length &&
-			sliderParams[ 0 ] &&
-			value > sliderParams[ 0 ].max
-		) {
-			return sliderParams[ 0 ].max;
-		}
-
-		return value;
-	};
-
 	childSliders.forEach(
 		slider =>
 			( sliders[ slider.id ] = {
-				value: limitSliderValue( slider.id, slider.value ),
+				value: slider.value,
 				linked: props.value === slider.value,
 			} )
 	);
@@ -49,7 +34,7 @@ const GlobalRangeSliderControl = props => {
 		const newSliderValues = { ...sliderValues };
 		Object.keys( newSliderValues ).forEach( id => {
 			if ( newSliderValues[ id ].linked ) {
-				const childValue = limitSliderValue( id, newValue );
+				const childValue = newValue;
 				newSliderValues[ id ].value = childValue;
 				onChildChange( id, childValue );
 			}
@@ -87,28 +72,27 @@ const GlobalRangeSliderControl = props => {
 							{ ...slider }
 							value={ sliderValues[ slider.id ].value }
 							linked={ sliderValues[ slider.id ].linked }
+							max={ otherProps.max }
+							min={ otherProps.min }
 							onChange={ value => {
 								setSliderValues( {
 									...sliderValues,
 									...{
 										[ slider.id ]: {
-											value: limitSliderValue( slider.id, value ),
+											value,
 											linked: false,
 										},
 									},
 								} );
 
-								onChildChange(
-									slider.id,
-									limitSliderValue( slider.id, value )
-								);
+								onChildChange( slider.id, value );
 							} }
 							onResetLinked={ () => {
 								setSliderValues( {
 									...sliderValues,
 									...{
 										[ slider.id ]: {
-											value: limitSliderValue( slider.id, parentValue ),
+											value: parentValue,
 											linked: true,
 										},
 									},

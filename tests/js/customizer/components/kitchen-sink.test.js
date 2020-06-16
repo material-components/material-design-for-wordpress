@@ -31,9 +31,13 @@ const baseProps = {
 	surfaceTextColor: '#000',
 	backgroundColor: '#fff',
 	backgroundTextColor: '#000',
-	smallComponentRadius: 10,
-	largeComponentRadius: 5,
-	mediumComponentRadius: 2,
+	buttonRadius: 4,
+	cardRadius: 6,
+	chipRadius: 8,
+	dataTableRadius: 10,
+	imageListRadius: 12,
+	navDrawerRadius: 20,
+	textFieldRadius: 16,
 };
 
 describe( 'Kitchen Sink', () => {
@@ -93,21 +97,19 @@ describe( 'Kitchen Sink', () => {
 
 		imageListImage.forEach( img =>
 			expect( img ).toHaveStyle(
-				`border-radius: ${ baseProps.mediumComponentRadius }px`
+				`border-radius: ${ baseProps.imageListRadius }px`
 			)
 		);
 
 		expect( button1 ).toHaveStyle(
-			`border-radius: ${ baseProps.smallComponentRadius }px`
+			`border-radius: ${ baseProps.buttonRadius }px`
 		);
 		expect( button2 ).toHaveStyle(
-			`border-radius: ${ baseProps.smallComponentRadius }px`
+			`border-radius: ${ baseProps.buttonRadius }px`
 		);
 		expect( button3 ).toHaveStyle(
-			`border-radius: ${ baseProps.smallComponentRadius }px`
+			`border-radius: ${ baseProps.buttonRadius }px`
 		);
-		expect( card ).toHaveStyle(
-			`border-radius: ${ baseProps.mediumComponentRadius }px`
-		);
+		expect( card ).toHaveStyle( `border-radius: ${ baseProps.cardRadius }px` );
 	} );
 } );
