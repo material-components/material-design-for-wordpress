@@ -14,8 +14,8 @@ describe( 'blocks: material/image-list', () => {
 	} );
 
 	describe( 'settings', () => {
-		it( 'title should equal Material Gallery', () => {
-			expect( settings.title ).toStrictEqual( 'Material Gallery' );
+		it( 'title should equal Gallery (Material)', () => {
+			expect( settings.title ).toStrictEqual( 'Gallery (Material)' );
 		} );
 
 		it( 'category should equal material', () => {

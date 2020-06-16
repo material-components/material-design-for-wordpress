@@ -14,7 +14,7 @@ export const name = 'material/hand-picked-posts';
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, supports: Object}}
  */
 export const settings = {
-	title: __( 'Hand-Picked Posts Cards', 'material-theme-builder' ),
+	title: __( 'Hand-Picked Posts (Material)', 'material-theme-builder' ),
 	description: __(
 		'Display a list of your hand-picked posts.',
 		'material-theme-builder'

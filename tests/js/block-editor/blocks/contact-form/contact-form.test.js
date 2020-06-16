@@ -16,8 +16,8 @@ describe( 'blocks: material/contact-form', () => {
 	} );
 
 	describe( 'title settings', () => {
-		it( 'should equal Contact Form', () => {
-			expect( settings.title ).toStrictEqual( 'Contact Form' );
+		it( 'should equal Contact Form (Material)', () => {
+			expect( settings.title ).toStrictEqual( 'Contact Form (Material)' );
 		} );
 	} );
 

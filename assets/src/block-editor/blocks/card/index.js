@@ -15,7 +15,7 @@ export const name = 'material/card';
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Custom Card', 'material-theme-builder' ),
+	title: __( 'Custom Card (Material)', 'material-theme-builder' ),
 	description: __(
 		'Add a card to display content and actions on a single topic.',
 		'material-theme-builder'

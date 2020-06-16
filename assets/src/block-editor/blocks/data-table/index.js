@@ -15,7 +15,7 @@ export const name = 'material/data-table';
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Material Data Table', 'material-theme-builder' ),
+	title: __( 'Data Table (Material)', 'material-theme-builder' ),
 	description: __(
 		'Data tables display sets of data across rows and columns.',
 		'material-theme-builder'
