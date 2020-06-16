@@ -30,8 +30,8 @@ describe( 'blocks: material/hand-picked-posts', () => {
 	} );
 
 	describe( 'title settings', () => {
-		it( 'should equal Hand-Picked Posts Cards', () => {
-			expect( settings.title ).toStrictEqual( 'Hand-Picked Posts Cards' );
+		it( 'should equal Hand-Picked Posts (Material)', () => {
+			expect( settings.title ).toStrictEqual( 'Hand-Picked Posts (Material)' );
 		} );
 	} );
 

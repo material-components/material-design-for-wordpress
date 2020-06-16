@@ -13,7 +13,7 @@ import save from './save';
 export const name = 'material/list';
 
 export const settings = {
-	title: __( 'Material List', 'material-theme-builder' ),
+	title: __( 'List (Material)', 'material-theme-builder' ),
 	description: __(
 		'Lists allow you to list out your information in a clear manner.',
 		'material-theme-builder'
