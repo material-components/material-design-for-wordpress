@@ -7,6 +7,8 @@
 
 namespace MaterialThemeBuilder;
 
+use MaterialThemeBuilder\Plugin;
+
 /**
  * Plugin Importer class.
  *
@@ -128,6 +130,8 @@ class Importer extends Module_Base {
 		$this->add_menu_items();
 
 		$this->setup_widgets();
+
+		$this->add_custom_css();
 
 		return 'success';
 	}
@@ -444,5 +448,37 @@ class Importer extends Module_Base {
 	public function safe_style_css( $attr ) {
 		$attr[] = 'border-radius';
 		return $attr;
+	}
+
+	/**
+	 * Hide Page title in homepage
+	 *
+	 * @return int|WP_Error The post ID or false if the value could not be saved.
+	 */
+	public function add_custom_css() {
+		$custom_css_post = wp_get_custom_css_post( Plugin::THEME_SLUG );
+		$custom_css      = '.home .entry-title { display: none; }';
+
+		if ( $custom_css_post ) {
+			$custom_css = $custom_css_post->post_content . ' ' . $custom_css;
+		}
+
+		$css_post = wp_update_custom_css_post(
+			$custom_css,
+			[
+				'stylesheet' => Plugin::THEME_SLUG,
+			]
+		);
+
+		if ( $css_post instanceof WP_Error ) {
+			return $css_post;
+		}
+
+		$post_id = $css_post->ID;
+
+		// Cache post ID in theme mod for performance to avoid additional DB query.
+		set_theme_mod( 'custom_css_post_id', $post_id );
+
+		return $post_id;
 	}
 }
