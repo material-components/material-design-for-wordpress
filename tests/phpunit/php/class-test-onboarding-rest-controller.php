@@ -19,29 +19,12 @@ use WP_Theme;
  */
 function wp_get_themes() {
 	$return = [
-		[
-			'default',
-		],
-		[
-			'default',
-			'material-theme',
-		],
-		[
-			'default',
-		],
-		[
-			'default',
-			'material-theme',
-		],
+		'default',
+		'material-theme',
 	];
 
-	static $index = 0;
-	if ( count( $return ) <= $index ) {
-		$index--;
-	}
-
 	$themes = [];
-	foreach ( $return[ $index++ ] as $theme ) {
+	foreach ( $return as $theme ) {
 		$themes[ $theme ] = new WP_Theme( $theme, $theme );
 	}
 
@@ -143,12 +126,6 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
-		$this->assertEquals( 'material_theme_install', $data['code'] );
-		$this->assertEquals( 500, $data['data']['status'] );
-
-		$response = rest_get_server()->dispatch( $request );
-		$data     = $response->get_data();
-
 		$this->assertEquals( 'material-theme', $data['slug'] );
 		$this->assertEquals( 'material-theme', $data['name'] );
 		$this->assertEquals( 'success', $data['status'] );
@@ -170,12 +147,6 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 		$this->assertEquals( 403, $data['data']['status'] );
 
 		wp_set_current_user( self::$admin_id );
-
-		$response = rest_get_server()->dispatch( $request );
-		$data     = $response->get_data();
-
-		$this->assertEquals( 'material_invalid_theme', $data['code'] );
-		$this->assertEquals( 500, $data['data']['status'] );
 
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
