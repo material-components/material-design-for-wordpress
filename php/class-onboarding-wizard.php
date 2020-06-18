@@ -17,14 +17,14 @@ class Onboarding_Wizard extends Module_Base {
 	 * @return void
 	 */
 	public function render() {
-		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo '<section id="material-onboarding-wizard" class="mdc-typography"></section>';
-		// phpcs:enable
+		?>
+		<section id="material-onboarding-wizard" class="mdc-typography"></section>
+		<?php
 	}
-	
+
 	/**
 	 * Enqueue Wizard's assets
-	 * 
+	 *
 	 * @action admin_enqueue_scripts
 	 *
 	 * @return void
@@ -73,5 +73,20 @@ class Onboarding_Wizard extends Module_Base {
 				'restUrl'          => esc_url( $this->plugin->importer_rest_controller->get_rest_base_url() ),
 			]
 		);
+	}
+
+	/**
+	 * Update theme activated option if material theme is activated.
+	 *
+	 * @action switch_theme, 10, 2
+	 *
+	 * @param  string   $new_name Name of the theme.
+	 * @param  WP_Theme $new_theme WP_Theme instance of the new theme.
+	 * @return void
+	 */
+	public function switch_theme_material( $new_name, $new_theme ) {
+		if ( Plugin::THEME_SLUG === $new_theme->get_stylesheet() ) {
+			update_option( 'material_theme_activated', true, false );
+		}
 	}
 }
