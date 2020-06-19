@@ -51,8 +51,7 @@ class Importer extends Module_Base {
 	 */
 	public function __construct( Plugin $plugin ) {
 		parent::__construct( $plugin );
-		$this->import_file    = $this->get_import_file();
-		$this->image_location = $this->get_image_file();
+		$this->import_file = $this->get_import_file();
 	}
 
 	/**
@@ -62,15 +61,6 @@ class Importer extends Module_Base {
 	 */
 	public function get_import_file() {
 		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.xml';
-	}
-
-	/**
-	 * Return location of image to import
-	 *
-	 * @return string path to image
-	 */
-	public function get_image_file() {
-		return trailingslashit( $this->plugin->dir_url ) . 'assets/images/featured.png';
 	}
 
 	/**
@@ -352,6 +342,7 @@ class Importer extends Module_Base {
 
 	/**
 	 * Update blog name, and frontpage
+	 * Add search in header
 	 *
 	 * @return void
 	 */
@@ -369,22 +360,8 @@ class Importer extends Module_Base {
 		if ( $blog_page ) {
 			update_option( 'page_for_posts', $blog_page->ID );
 		}
-	}
 
-	/**
-	 * Uploads our cover image into the gallery and attach it to most recent post
-	 *
-	 * @return int|WP_Error Uploaded image ID, error on fail
-	 */
-	public function upload_cover_image() {
-		$image = \media_sideload_image(
-			$this->image_location,
-			null,
-			esc_html__( 'Material Featured Image', 'material-theme-builder' ),
-			'id'
-		);
-
-		return $image;
+		set_theme_mod( 'material_header_search_display', true );
 	}
 
 	/**

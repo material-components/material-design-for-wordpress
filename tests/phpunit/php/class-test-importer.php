@@ -53,17 +53,6 @@ class Test_Importer extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Test get_image_file
-	 *
-	 * @see Importer::get_image_file()
-	 */
-	public function get_image_file() {
-		$file = $this->importer->get_image_file();
-
-		$this->assertEquals( $this->plugin->dir_url . '/assets/images/featured.png', $file );
-	}
-
-	/**
 	 * Test render_page
 	 *
 	 * @see Importer::render_page()
@@ -171,19 +160,6 @@ class Test_Importer extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Test upload_cover_image
-	 *
-	 * @see Importer::upload_cover_image()
-	 */
-	public function test_upload_cover_image() {
-		$this->importer->image_location = $this->get_image_test_file();
-
-		$image = $this->importer->upload_cover_image();
-
-		$this->assertInternalType( 'int', $image );
-	}
-
-	/**
 	 * Test kses_post
 	 *
 	 * @see Importer::kses_post()
@@ -205,15 +181,6 @@ class Test_Importer extends \WP_UnitTestCase {
 	 */
 	private function get_demo_test_file() {
 		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.test.xml';
-	}
-
-	/**
-	 * Load an image we can upload
-	 *
-	 * @return string path to demo test file
-	 */
-	private function get_image_test_file() {
-		return 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
 	}
 
 	/**
