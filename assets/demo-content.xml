@@ -243,7 +243,6 @@
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
@@ -253,6 +252,7 @@
 							</item>
 					<item>
 		<title>Nunc lacinia libero eu pulvinar aliquet</title>
+		<image>https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/1.jpg</image>
 		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/nunc-lacinia-libero-eu-pulvinar-aliquet/</link>
 		<pubDate>Wed, 06 May 2020 19:59:11 +0000</pubDate>
 		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
@@ -288,7 +288,6 @@
 		<wp:meta_value><![CDATA[26]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:comment>
@@ -336,6 +335,7 @@
 					</item>
 					<item>
 		<title>Magna ligula suspendisse</title>
+		<image>https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-Q1KHi0vr1Rs-unsplash-scaled.jpg</image>
 		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/magna-ligula-suspendisse/</link>
 		<pubDate>Wed, 06 May 2020 20:00:52 +0000</pubDate>
 		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
@@ -371,12 +371,12 @@
 		<wp:meta_value><![CDATA[42]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
 		<title>Inceptos penatibus habitasse</title>
+		<image>https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/05/liam-spradlin-6bB_eZrmkz0-unsplash-scaled.jpg</image>
 		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/inceptos-penatibus-habitasse/</link>
 		<pubDate>Wed, 06 May 2020 20:01:38 +0000</pubDate>
 		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
@@ -412,12 +412,12 @@
 		<wp:meta_value><![CDATA[80]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
 		<title>Finibus ornare nascetur</title>
+		<image>https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/06/liam-spradlin-EMv3YeR-Emw-unsplash-scaled.jpg</image>
 		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/finibus-ornare-nascetur/</link>
 		<pubDate>Wed, 06 May 2020 20:02:25 +0000</pubDate>
 		<dc:creator><![CDATA[wildpangolin]]></dc:creator>
@@ -453,11 +453,11 @@
 		<wp:meta_value><![CDATA[38]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
+		<image>https://wildpangolin.mystagingwebsite.com/wp-content/uploads/2020/05/liam-spradlin-eSIaYzFreso-unsplash-scaled.jpg</image>
 		<title>Suspendisse morbi pretium</title>
 		<link>https://wildpangolin.mystagingwebsite.com/2020/05/06/suspendisse-morbi-pretium/</link>
 		<pubDate>Wed, 06 May 2020 20:03:03 +0000</pubDate>
@@ -494,7 +494,6 @@
 		<wp:meta_value><![CDATA[74]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
@@ -544,7 +543,6 @@
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
@@ -666,7 +664,6 @@
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
@@ -692,7 +689,6 @@
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
@@ -756,7 +752,6 @@
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
@@ -814,7 +809,6 @@
 		<wp:meta_value><![CDATA[#]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_mtb-demo-content]]></wp:meta_key>
 		<wp:meta_value><![CDATA[1]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
