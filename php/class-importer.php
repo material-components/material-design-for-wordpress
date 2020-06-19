@@ -213,7 +213,6 @@ class Importer extends Module_Base {
 
 		$author = get_current_user_id();
 
-		$this->featured_image = $this->upload_cover_image();
 		foreach ( $posts as $post ) {
 			// Bail out if a post already exists with the same title.
 			if ( $this->plugin->is_wpcom_vip_prod() ) {
@@ -235,14 +234,15 @@ class Importer extends Module_Base {
 			}
 
 			$post_data = [
-				'post_title'   => esc_html( $post->title ),
-				'post_date'    => esc_html( $post->children( 'wp', true )->post_date ),
-				'post_parent'  => intval( $post->children( 'wp', true )->post_parent ),
-				'post_type'    => esc_html( $post->children( 'wp', true )->post_type ),
-				'post_content' => $this->kses_post( $post->children( 'content', true )->encoded ),
-				'post_status'  => 'publish',
-				'post_author'  => intval( $author ),
-				'meta_input'   => $this->attach_meta_data( $post ),
+				'post_title'     => esc_html( $post->title ),
+				'post_date'      => esc_html( $post->children( 'wp', true )->post_date ),
+				'post_parent'    => intval( $post->children( 'wp', true )->post_parent ),
+				'post_type'      => esc_html( $post->children( 'wp', true )->post_type ),
+				'post_content'   => $this->kses_post( $post->children( 'content', true )->encoded ),
+				'post_status'    => 'publish',
+				'post_author'    => intval( $author ),
+				'meta_input'     => $this->attach_meta_data( $post ),
+				'post_thumbnail' => esc_url( $post->image ),
 			];
 
 			$post_id = $this->insert_post( $post_data, $post );
@@ -281,9 +281,15 @@ class Importer extends Module_Base {
 
 		$comments = $this->insert_comments( $post, $post_id );
 
-		// Set featured image if upload was succesful.
-		if ( ! is_wp_error( $this->featured_image ) ) {
-			$thumbnail = set_post_thumbnail( $post_id, $this->featured_image );
+		if ( ! empty( $post_data['post_thumbnail'] ) ) {
+			$image = \media_sideload_image(
+				$post_data['post_thumbnail'],
+				$post_id,
+				$post_data['post_title'],
+				'id'
+			);
+
+			set_post_thumbnail( $post_id, $image );
 		}
 
 		return $post_id;
