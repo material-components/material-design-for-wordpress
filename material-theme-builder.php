@@ -30,17 +30,31 @@
  * @package MaterialThemeBuilder
  */
 
-if ( version_compare( phpversion(), '5.6.20', '>=' ) ) {
+if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'register_block_type' ) ) {
 	require_once __DIR__ . '/instance.php';
 	register_activation_hook(
 		__FILE__,
 		'_material_theme_builder_activation'
 	);
+} elseif ( ! function_exists( 'register_block_type' ) ) {
+	_material_theme_builder_error( '_material_theme_builder_gutenberg_text_only', '_material_theme_builder_gutenberg_error' );
 } else {
+	_material_theme_builder_error( '_material_theme_builder_php_version_text', '_material_theme_builder_php_version_error' );
+}
+
+/**
+ * Display errors.
+ *
+ * @param string $text_function The callback function to be used for text error.
+ * @param string $html_function The callback function to be used for HTML error.
+ *
+ * @return void
+ */
+function _material_theme_builder_error( $text_function, $html_function ) {
 	if ( defined( 'WP_CLI' ) ) {
-		WP_CLI::warning( _material_theme_builder_php_version_text() );
+		WP_CLI::warning( call_user_func( $text_function ) );
 	} else {
-		add_action( 'admin_notices', '_material_theme_builder_php_version_error' );
+		add_action( 'admin_notices', $html_function );
 	}
 }
 
@@ -58,6 +72,50 @@ function _material_theme_builder_php_version_error() {
  */
 function _material_theme_builder_php_version_text() {
 	return esc_html__( 'Material Theme Builder plugin error: Your version of PHP is too old to run this plugin. You must be running PHP 5.6.20 or higher.', 'material-theme-builder' );
+}
+
+/**
+ * Admin notice if Gutenberg is not available.
+ */
+function _material_theme_builder_gutenberg_error() {
+	printf( '<div class="error"><p>%s</p></div>', wp_kses_post( _material_theme_builder_gutenberg_text() ) );
+}
+
+/**
+ * String describing the Gutenberg error.
+ *
+ * @return string
+ */
+function _material_theme_builder_gutenberg_text() {
+	$update = sprintf(
+		'<a href="%1$s">%2$s</a>',
+		esc_url( admin_url( 'update-core.php' ) ),
+		esc_html__( 'update your site', 'material-theme-builder' )
+	);
+
+	$install = sprintf(
+		'<a href="%1$s">%2$s</a>',
+		esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=gutenberg' ) ),
+		esc_html__( 'Gutenberg WordPress Plugin', 'material-theme-builder' )
+	);
+
+	return wp_kses_post(
+		sprintf(
+			'Oops, we ran into an issue with installing the Material Builder Plugin. You will need to %s to WordPress 5.0 or later or install the %s.',
+			$update,
+			$install
+		),
+		'material-theme-builder'
+	);
+}
+
+/**
+ * Get Gutenberg error with all HTMl stripped.
+ *
+ * @return string
+ */
+function _material_theme_builder_gutenberg_text_only() {
+	return esc_html( wp_strip_all_tags( _material_theme_builder_gutenberg_text() ) );
 }
 
 /**
