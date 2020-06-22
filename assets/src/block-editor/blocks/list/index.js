@@ -36,13 +36,7 @@ export const settings = {
 		},
 		items: {
 			type: 'array',
-			default: [
-				{
-					primaryText: '',
-					secondaryText: '',
-					icon: 'favorite',
-				},
-			],
+			default: [],
 			source: 'query',
 			selector: 'li',
 			query: {
