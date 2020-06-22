@@ -91,4 +91,29 @@ describe( 'blocks: material/list', () => {
 			)
 		).toHaveLength( 1 );
 	} );
+
+	it( 'should focus secondary text when `Enter` is pressed in primary text', async () => {
+		await insertBlockByKeyword( 'mlist' );
+		await selectBlockByName( 'material/list' );
+
+		const [ primary ] = await page.$$( '.mdc-list-item__primary-text' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
+
+		const [ twoLineOption ] = await page.$x(
+			"//span[contains(text(), 'List Item With Secondary Text')]"
+		);
+
+		await twoLineOption.click();
+		await page.waitForFunction(
+			`document.querySelectorAll( '.mdc-list-item__secondary-text' ).length === 1`
+		); // wait until all the list items are updated.
+
+		await primary.click();
+		await primary.press( 'Enter' );
+
+		expect(
+			await page.evaluate( () => document.activeElement.parentNode.className )
+		).toContain( 'mdc-list-item__secondary-text' );
+	} );
 } );

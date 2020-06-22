@@ -22,6 +22,7 @@ import ImageRadioControl from '../../components/image-radio-control';
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import ListItem from './components/list-item';
+import { useEffect } from 'react';
 
 /**
  * Material list edit component.
@@ -31,6 +32,20 @@ const ListEdit = ( {
 	className,
 	setAttributes,
 } ) => {
+	useEffect( () => {
+		if ( 0 === items.length ) {
+			setAttributes( {
+				items: [
+					{
+						primaryText: '',
+						secondaryText: '',
+						icon: 'favorite',
+					},
+				],
+			} );
+		}
+	}, [ items, setAttributes ] );
+
 	const setter = genericAttributesSetter( setAttributes );
 	const isSecondaryEnabled = style === 'two-line';
 	const [ selected, setSelected ] = useState( {
@@ -39,11 +54,13 @@ const ListEdit = ( {
 	} );
 
 	const addItem = () => {
-		items.push( {
+		const newItems = [ ...items ];
+		newItems.push( {
 			primaryText: '',
 			secondaryText: '',
 			icon: 'favorite',
 		} );
+		setAttributes( { items: newItems } );
 	};
 
 	const setItem = debounce( ( index, newItem ) => {
