@@ -9,41 +9,6 @@ import { render } from '@testing-library/react';
  */
 import Edit from '../../../../../assets/src/block-editor/blocks/list/edit';
 
-// Mock the <InspectorControls>  and <InnerBlocks> components only, so that the other components in this package behave as usual.
-jest.mock( '@wordpress/block-editor', () => {
-	const original = require.requireActual( '@wordpress/block-editor' );
-	return {
-		...original,
-		InspectorControls: ( { children } ) => children,
-		InnerBlocks: () => {
-			const innerBlocks = [
-				{
-					clientId: 'LIST-ITEM-1',
-					name: 'material/list-item',
-					attributes: {
-						url: 'http://example.com',
-						primaryText: 'List Item #1',
-						secondaryText: 'List Item #1 secondary text',
-					},
-				},
-				{
-					clientId: 'LIST-ITEM-2',
-					name: 'material/list-item',
-					attributes: {
-						url: 'http://example.com/item-2',
-						primaryText: 'List Item #2',
-						secondaryText: 'List Item #2 secondary text',
-					},
-				},
-			];
-
-			return innerBlocks.map( block => (
-				<div key={ block.clientId }> { JSON.stringify( block ) } </div>
-			) );
-		},
-	};
-} );
-
 /**
  * Shallow render the component.
  *
@@ -55,16 +20,48 @@ const setup = props => {
 };
 
 const baseProps = {
-	clientId: 'LIST',
 	attributes: {
 		style: 'basic',
-		leadingIconsEnabled: false,
-		trailingIconsEnabled: false,
-		innerBlocks: [],
+		iconPosition: 'leading',
+		iconSize: 'small',
+		items: [
+			{
+				primaryText: 'List Item #1',
+				secondaryText: 'List Item #1 secondary text',
+				icon: 'favorite',
+				url: 'http://example.com',
+				target: '_blank',
+			},
+			{
+				primaryText: 'List Item #2',
+				secondaryText: 'List Item #2 secondary text',
+				icon: 'book',
+				url: 'http://example.com/item-2',
+				target: '',
+			},
+		],
 	},
 };
 
 describe( 'Edit', () => {
+	beforeAll( () => {
+		window.getSelection = () => {
+			return {
+				addRange: () => {},
+				removeAllRanges: () => {},
+			};
+		};
+		document.createRange = () => ( {
+			collapse: () => {},
+			setStart: () => {},
+			setEnd: () => {},
+			commonAncestorContainer: {
+				nodeName: 'BODY',
+				ownerDocument: document,
+			},
+		} );
+	} );
+
 	it( 'matches snapshot with basic style', () => {
 		const wrapper = setup( { ...baseProps } );
 		expect( wrapper ).toMatchSnapshot();
@@ -74,6 +71,30 @@ describe( 'Edit', () => {
 		const wrapper = setup( {
 			...baseProps,
 			attributes: { ...baseProps.attributes, style: 'two-line' },
+		} );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot with trailing icon position', () => {
+		const wrapper = setup( {
+			...baseProps,
+			attributes: { ...baseProps.attributes, iconPosition: 'trailing' },
+		} );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot with no icon position', () => {
+		const wrapper = setup( {
+			...baseProps,
+			attributes: { ...baseProps.attributes, iconPosition: 'none' },
+		} );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot with large icon size', () => {
+		const wrapper = setup( {
+			...baseProps,
+			attributes: { ...baseProps.attributes, iconSize: 'large' },
 		} );
 		expect( wrapper ).toMatchSnapshot();
 	} );
