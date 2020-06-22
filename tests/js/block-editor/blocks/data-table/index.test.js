@@ -14,8 +14,8 @@ describe( 'blocks: material/data-table', () => {
 	} );
 
 	describe( 'settings', () => {
-		it( 'title should equal Material Data Table', () => {
-			expect( settings.title ).toStrictEqual( 'Material Data Table' );
+		it( 'title should equal Data Table (Material)', () => {
+			expect( settings.title ).toStrictEqual( 'Data Table (Material)' );
 		} );
 
 		it( 'category should equal material', () => {

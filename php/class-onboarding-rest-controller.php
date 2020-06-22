@@ -116,7 +116,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 				if ( 'theme_information' === $action && isset( $args->slug ) && Plugin::THEME_SLUG === $args->slug ) {
 					return (object) [
 						'name'          => 'Material Theme',
-						'download_link' => $this->plugin->dir_path . '/material-theme.zip',
+						'download_link' => 'https://storage.googleapis.com/xwp-mdc/material-theme/material-theme.zip',
 					];
 				}
 
