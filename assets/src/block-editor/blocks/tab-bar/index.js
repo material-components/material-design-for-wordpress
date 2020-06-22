@@ -12,7 +12,7 @@ import { __ } from '@wordpress/i18n';
 export const name = 'material/tab-bar';
 
 export const settings = {
-	title: __( 'Tab Bar', 'material-theme-builder' ),
+	title: __( 'Tab Bar (Material)', 'material-theme-builder' ),
 	description: __(
 		'Organize and allow navigation between related groups of content.',
 		'material-theme-builder'
