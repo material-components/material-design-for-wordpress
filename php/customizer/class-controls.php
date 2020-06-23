@@ -719,7 +719,7 @@ class Controls extends Module_Base {
 				'secondary_text_color'  => '#ffffff',
 				'surface_color'         => '#ffffff',
 				'surface_text_color'    => '#000000',
-				'background_color'      => '#ffffff',
+				'background_color'      => '#f4e2ed',
 				'background_text_color' => '#000000',
 				'head_font_family'      => 'Raleway',
 				'body_font_family'      => 'Raleway',
