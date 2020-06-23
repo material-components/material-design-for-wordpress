@@ -193,8 +193,9 @@ class Importer extends Module_Base {
 
 		$menu_locations = get_theme_mod( 'nav_menu_locations' );
 
-		// Set menu to "tabs" location.
+		// Set menu to both locations.
 		$locations['menu-1'] = $menu->term_id;
+		$locations['menu-2'] = $menu->term_id;
 
 		set_theme_mod( 'nav_menu_locations', $locations );
 	}
