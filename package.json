@@ -170,7 +170,7 @@
     "test:js:coverage-merge": "node tests/e2e/merge-coverage.js --reporter=lcov",
     "test:php": "composer test",
     "test:php:coverage": "composer test-coverage",
-    "wp": "bin/wp.sh",
+    "wp": "docker-compose exec -u xfs cli",
     "xdebug:status": "bin/xdebug.sh status",
     "xdebug:on": "bin/xdebug.sh on",
     "xdebug:off": "bin/xdebug.sh off"
