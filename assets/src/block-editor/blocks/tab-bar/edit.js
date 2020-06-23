@@ -17,7 +17,7 @@ import ButtonGroup from '../../components/button-group';
 /**
  * WordPress dependencies
  */
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import { PanelBody } from '@wordpress/components';
 import { dispatch, withSelect } from '@wordpress/data';
 import { useState, useEffect, useRef } from '@wordpress/element';
@@ -42,10 +42,10 @@ const TabBarEdit = ( {
 		tabs = [
 			...[
 				new TabSchema( {
-					label: __( 'Tab 1', 'material-theme-builder' ),
+					label: '',
 				} ),
 				new TabSchema( {
-					label: __( 'Tab 2', 'material-theme-builder' ),
+					label: '',
 				} ),
 			],
 		];
@@ -116,10 +116,7 @@ const TabBarEdit = ( {
 
 		newTabs.push(
 			new TabSchema( {
-				label: sprintf(
-					__( 'Tab %d', 'material-theme-builder' ),
-					tabs.length + 1
-				),
+				label: '',
 			} )
 		);
 
