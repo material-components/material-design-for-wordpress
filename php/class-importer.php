@@ -65,9 +65,9 @@ class Importer extends Module_Base {
 
 	/**
 	 * Render form UI
-	 * 
+	 *
 	 * @TODO: Rename to Material Settings
-	 * 
+	 *
 	 * @return string Markup to display in page
 	 */
 	public function render_page() {
@@ -105,7 +105,7 @@ class Importer extends Module_Base {
 
 	/**
 	 * Import content after nonce verification
-	 * 
+	 *
 	 * @return string Status message
 	 */
 	public function init_import() {
@@ -266,7 +266,9 @@ class Importer extends Module_Base {
 				'id'
 			);
 
-			set_post_thumbnail( $post_id, $image );
+			if ( ! is_wp_error( $image ) ) {
+				set_post_thumbnail( $post_id, $image );
+			}
 		}
 
 		return $post_id;
