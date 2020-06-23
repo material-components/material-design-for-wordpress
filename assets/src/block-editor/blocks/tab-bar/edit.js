@@ -210,7 +210,11 @@ const TabBarEdit = ( {
 	 */
 	const ALLOWED_BLOCKS = getBlockTypes()
 		.map( block => block.name )
-		.filter( blockName => blockName !== 'material/tab-bar' );
+		.filter(
+			blockName =>
+				blockName !== 'material/tab-bar' &&
+				! blockName.match( /material\/(.+)?-input-field/ )
+		);
 
 	return (
 		<>
