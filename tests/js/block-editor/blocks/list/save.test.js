@@ -19,7 +19,6 @@ jest.mock( '@wordpress/block-editor', () => {
 			Content: () => {
 				const innerBlocks = [
 					{
-						clientId: 'LIST-ITEM-1',
 						name: 'material/list-item',
 						attributes: {
 							url: 'http://example.com',
@@ -28,7 +27,6 @@ jest.mock( '@wordpress/block-editor', () => {
 						},
 					},
 					{
-						clientId: 'LIST-ITEM-2',
 						name: 'material/list-item',
 						attributes: {
 							url: 'http://example.com/item-2',
@@ -60,11 +58,26 @@ const setup = props => {
 };
 
 const baseProps = {
-	clientId: 'LIST',
 	attributes: {
 		style: 'basic',
-		leadingIconsEnabled: false,
-		trailingIconsEnabled: false,
+		iconPosition: 'leading',
+		iconSize: 'small',
+		items: [
+			{
+				primaryText: 'List Item #1',
+				secondaryText: 'List Item #1 secondary text',
+				icon: 'favorite',
+				url: 'http://example.com',
+				target: '_blank',
+			},
+			{
+				primaryText: 'List Item #2',
+				secondaryText: 'List Item #2 secondary text',
+				icon: 'book',
+				url: 'http://example.com/item-2',
+				target: '',
+			},
+		],
 	},
 };
 
@@ -78,6 +91,30 @@ describe( 'Save', () => {
 		const wrapper = setup( {
 			...baseProps,
 			attributes: { ...baseProps.attributes, style: 'two-line' },
+		} );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot with trailing icon position', () => {
+		const wrapper = setup( {
+			...baseProps,
+			attributes: { ...baseProps.attributes, iconPosition: 'trailing' },
+		} );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot with no icon position', () => {
+		const wrapper = setup( {
+			...baseProps,
+			attributes: { ...baseProps.attributes, iconPosition: 'none' },
+		} );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot with large icon size', () => {
+		const wrapper = setup( {
+			...baseProps,
+			attributes: { ...baseProps.attributes, iconSize: 'large' },
 		} );
 		expect( wrapper ).toMatchSnapshot();
 	} );

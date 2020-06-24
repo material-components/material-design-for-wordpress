@@ -26,13 +26,51 @@ export const settings = {
 			type: 'string',
 			default: 'basic',
 		},
-		leadingIconsEnabled: {
-			type: 'boolean',
-			default: false,
+		iconPosition: {
+			type: 'string',
+			default: 'leading',
 		},
-		trailingIconsEnabled: {
-			type: 'boolean',
-			default: false,
+		iconSize: {
+			type: 'string',
+			default: 'small',
+		},
+		items: {
+			type: 'array',
+			default: [],
+			source: 'query',
+			selector: 'li',
+			query: {
+				primaryText: {
+					type: 'string',
+					default: '',
+					source: 'html',
+					selector: '.mdc-list-item__primary-text',
+				},
+				secondaryText: {
+					type: 'string',
+					default: '',
+					source: 'html',
+					selector: '.mdc-list-item__secondary-text',
+				},
+				icon: {
+					type: 'string',
+					default: '',
+					source: 'html',
+					selector: '.mdc-list-item__graphic, .mdc-list-item__meta',
+				},
+				url: {
+					type: 'string',
+					source: 'attribute',
+					selector: 'a',
+					attribute: 'href',
+				},
+				target: {
+					type: 'string',
+					source: 'attribute',
+					selector: 'a',
+					attribute: 'target',
+				},
+			},
 		},
 	},
 	edit,

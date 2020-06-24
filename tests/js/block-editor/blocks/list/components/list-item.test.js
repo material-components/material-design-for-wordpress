@@ -7,7 +7,7 @@ import { render } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import ListItemText from '../../../../../../assets/src/block-editor/blocks/list/components/list-item-text';
+import ListItem from '../../../../../../assets/src/block-editor/blocks/list/components/list-item';
 
 /**
  * Shallow render the component.
@@ -16,7 +16,7 @@ import ListItemText from '../../../../../../assets/src/block-editor/blocks/list/
  * @return {Function} A functional component.
  */
 const setup = props => {
-	return render( <ListItemText { ...props } /> );
+	return render( <ListItem { ...props } /> );
 };
 
 const baseProps = {
@@ -24,14 +24,14 @@ const baseProps = {
 	secondaryText: 'List Item Caption',
 };
 
-describe( 'ListItemText', () => {
+describe( 'ListItem', () => {
 	it( 'matches snapshot', () => {
 		const wrapper = setup( { ...baseProps } );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
 	it( 'matches snapshot when editable', () => {
-		const wrapper = setup( { ...baseProps, editable: true } );
+		const wrapper = setup( { ...baseProps, icon: 'favorite' } );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 } );
