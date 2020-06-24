@@ -233,7 +233,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				[
 					$this->callback(
 						function ( $control ) use ( $controls ) {
-							return "{$controls->slug}_style" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'shrine', 'custom' ] === array_keys( $control->choices );
+							return "{$controls->slug}_style" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'blossom', 'custom' ] === array_keys( $control->choices );
 						}
 					),
 				]
