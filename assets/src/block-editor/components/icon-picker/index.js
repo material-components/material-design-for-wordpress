@@ -13,7 +13,7 @@ import { icons as rawIcons } from '!!json-loader!material-design-icons/iconfont/
 
 export default ( { currentIcon, onChange } ) => {
 	const icons = Object.keys( rawIcons );
-	const toSlug = str => str.replace( ' ', '_' ).toLowerCase();
+	const toSlug = str => str.replace( /\s/g, '_' ).toLowerCase();
 	const [ filteredIcons, setFilteredIcons ] = useState( icons );
 
 	const filterIcons = useCallback(
@@ -29,6 +29,7 @@ export default ( { currentIcon, onChange } ) => {
 		[ setFilteredIcons, icons ]
 	);
 
+	let currentIconHex;
 	const iconsRender = filteredIcons.map( icon => {
 		const iconName = toSlug( rawIcons[ icon ].name );
 		const iconHex = parseInt( icon, 16 );
@@ -37,6 +38,10 @@ export default ( { currentIcon, onChange } ) => {
 			currentIcon?.name === iconName
 				? ' icons-container__icon__icon-btn--active'
 				: '';
+
+		if ( currentIcon?.name === iconName ) {
+			currentIconHex = iconHex;
+		}
 
 		return (
 			<div key={ rawIcons[ icon ].name } className="icons-container__icon">
@@ -68,7 +73,7 @@ export default ( { currentIcon, onChange } ) => {
 				{ currentIcon && (
 					<div className="icons-search__selected-icon">
 						<i className="material-icons">
-							{ String.fromCharCode( currentIcon?.hex ) }
+							{ String.fromCharCode( currentIconHex || currentIcon?.hex ) }
 						</i>
 					</div>
 				) }

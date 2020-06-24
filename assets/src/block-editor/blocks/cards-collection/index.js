@@ -22,7 +22,7 @@ for ( let index = 0; index < DEFAULT_NUMBER_OF_CARDS; index++ ) {
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Custom Cards Collection', 'material-theme-builder' ),
+	title: __( 'Cards Collection (Material)', 'material-theme-builder' ),
 	description: __(
 		'Add a group of cards to display content and actions on multiple topics.',
 		'material-theme-builder'
