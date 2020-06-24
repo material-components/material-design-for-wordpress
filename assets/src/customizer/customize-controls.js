@@ -623,6 +623,10 @@ import ThemePrompt from './components/theme-prompt';
 				.find( '.wp-picker-default' )
 				.off( 'click' )
 				.on( 'click', event => {
+					if ( 'custom' !== api( mtb.styleControl ).get() ) {
+						return;
+					}
+
 					const style = api( mtb.prevStyleControl ).get();
 
 					if (

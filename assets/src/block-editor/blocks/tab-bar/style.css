@@ -25,6 +25,7 @@
 
 	&__label-field {
 		cursor: text !important;
+		min-width: 50px !important;
 	}
 
 	&__delete {
