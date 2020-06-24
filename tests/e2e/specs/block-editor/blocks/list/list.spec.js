@@ -16,43 +16,34 @@ describe( 'blocks: material/list', () => {
 
 		// Check if block was inserted
 		expect( await page.$( '[data-type="material/list"]' ) ).not.toBeNull();
-		expect( await page.$( '[data-type="material/list-item"]' ) ).not.toBeNull();
 	} );
 
-	// TODO: Re-enabled once the URLInputPopover component issue with taking over the focus is fixed.
-	//  See https://github.com/xwp/material-theme-builder-wp/issues/197
-	// eslint-disable-next-line jest/no-commented-out-tests
-	// it( 'should create a new list item block when ENTER is pressed', async () => {
-	// 	await insertBlockByKeyword( 'mlist' );
-	// 	await selectBlockByName( 'material/list' );
-	//
-	// 	const [ liLabel ] = await page.$$( '.mdc-list-item__text' );
-	//
-	// 	expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
-	//
-	// 	await liLabel.click();
-	// 	await liLabel.press( 'Enter' );
-	//
-	// 	expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 3 );
-	// } );
+	it( 'should create a new list item block when ENTER is pressed', async () => {
+		await insertBlockByKeyword( 'mlist' );
+		await selectBlockByName( 'material/list' );
+
+		const [ liLabel ] = await page.$$( '.mdc-list-item__text' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
+
+		await liLabel.click();
+		await liLabel.press( 'Enter' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
+	} );
 
 	it( 'should display leading icon if enabled', async () => {
 		await ensureSidebarOpened();
 		await insertBlockByKeyword( 'mlist' );
 		await selectBlockByName( 'material/list' );
 
-		const [ leadingIcons ] = await page.$x(
-			"//label[contains(text(), 'Leading Icons')]"
-		);
-
-		await leadingIcons.click();
 		await page.waitForFunction(
-			`document.querySelectorAll( '.mdc-list-item__graphic' ).length === 2`
+			`document.querySelectorAll( '.mdc-list-item__graphic' ).length === 1`
 		); // wait until all the list items are updated.
 
 		expect(
-			await page.$x( "//i[contains(@class, 'mdc-list-item__graphic')]" )
-		).toHaveLength( 2 );
+			await page.$x( "//span[contains(@class, 'mdc-list-item__graphic')]" )
+		).toHaveLength( 1 );
 	} );
 
 	it( 'should display trailing icon if enabled', async () => {
@@ -61,17 +52,17 @@ describe( 'blocks: material/list', () => {
 		await selectBlockByName( 'material/list' );
 
 		const [ trailingIcons ] = await page.$x(
-			"//label[contains(text(), 'Trailing Icons')]"
+			"//button[contains(text(), 'Trailing')]"
 		);
 
 		await trailingIcons.click();
 		await page.waitForFunction(
-			`document.querySelectorAll( '.mdc-list-item__meta' ).length === 2`
+			`document.querySelectorAll( '.mdc-list-item__meta' ).length === 1`
 		); // wait until all the list items are updated.
 
 		expect(
-			await page.$x( "//i[contains(@class, 'mdc-list-item__meta')]" )
-		).toHaveLength( 2 );
+			await page.$x( "//span[contains(@class, 'mdc-list-item__meta')]" )
+		).toHaveLength( 1 );
 	} );
 
 	it( 'should display secondary line if the option was chosen', async () => {
@@ -91,13 +82,38 @@ describe( 'blocks: material/list', () => {
 
 		await twoLineOption.click();
 		await page.waitForFunction(
-			`document.querySelectorAll( '.mdc-list-item__secondary-text' ).length === 2`
+			`document.querySelectorAll( '.mdc-list-item__secondary-text' ).length === 1`
 		); // wait until all the list items are updated.
 
 		expect(
 			await page.$x(
 				"//span[contains(@class, 'mdc-list-item__secondary-text')]"
 			)
-		).toHaveLength( 2 );
+		).toHaveLength( 1 );
+	} );
+
+	it( 'should focus secondary text when `Enter` is pressed in primary text', async () => {
+		await insertBlockByKeyword( 'mlist' );
+		await selectBlockByName( 'material/list' );
+
+		const [ primary ] = await page.$$( '.mdc-list-item__primary-text' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
+
+		const [ twoLineOption ] = await page.$x(
+			"//span[contains(text(), 'List Item With Secondary Text')]"
+		);
+
+		await twoLineOption.click();
+		await page.waitForFunction(
+			`document.querySelectorAll( '.mdc-list-item__secondary-text' ).length === 1`
+		); // wait until all the list items are updated.
+
+		await primary.click();
+		await primary.press( 'Enter' );
+
+		expect(
+			await page.evaluate( () => document.activeElement.parentNode.className )
+		).toContain( 'mdc-list-item__secondary-text' );
 	} );
 } );

@@ -90,7 +90,7 @@ class Plugin extends Plugin_Base {
 	 * @var Importer
 	 */
 	public $importer;
-	
+
 	/**
 	 * Wizard class.
 	 *
@@ -436,7 +436,7 @@ class Plugin extends Plugin_Base {
 		$screen = get_current_screen();
 
 		// Theme already active or inside wizard. Don't show the notice.
-		if ( 'ok' === $status || 'toplevel_page_material-theme-builder' === $screen->id ) {
+		if ( 'ok' === $status || 'toplevel_page_material-theme-builder' === $screen->id || ! empty( get_option( 'material_theme_activated' ) ) ) {
 			return;
 		}
 
@@ -552,7 +552,7 @@ class Plugin extends Plugin_Base {
 	 * Create onboarding wizard page
 	 *
 	 * @action admin_menu
-	 * 
+	 *
 	 * @return void
 	 */
 	public function create_onboarding_wizard() {
@@ -570,13 +570,13 @@ class Plugin extends Plugin_Base {
 	 * Redirect after activating
 	 *
 	 * @action activated_plugin
-	 * 
+	 *
 	 * @param string $plugin Path to activated plugin, relative to plugins folder.
 	 *
 	 * @return void
 	 */
 	public function redirect_to_wizard( $plugin ) {
-		if ( trailingslashit( $this->slug ) . $this->slug . '.php' !== $plugin ) {
+		if ( trailingslashit( $this->slug ) . $this->slug . '.php' !== $plugin || ( ! empty( filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ) && 'tgmpa-install-plugins' === filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ) ) {
 			return;
 		}
 

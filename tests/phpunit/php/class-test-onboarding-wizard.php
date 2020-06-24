@@ -39,6 +39,16 @@ class Test_Onboarding_Wizard extends \WP_UnitTestCase {
 	}
 
 	/**
+	 * Test init.
+	 *
+	 * @see Onboarding_Wizard::init()
+	 */
+	public function test_construct() {
+		$this->assertEquals( 10, has_action( 'admin_enqueue_scripts', [ $this->plugin->wizard, 'enqueue_assets' ] ) );
+		$this->assertEquals( 10, has_action( 'switch_theme', [ $this->plugin->wizard, 'switch_theme_material' ] ) );
+	}
+
+	/**
 	 * Test render
 	 *
 	 * @see Onboarding_Wizard::render()

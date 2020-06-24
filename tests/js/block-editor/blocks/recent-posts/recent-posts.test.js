@@ -30,8 +30,8 @@ describe( 'blocks: material/recent-posts', () => {
 	} );
 
 	describe( 'title settings', () => {
-		it( 'should equal Recent Posts Cards', () => {
-			expect( settings.title ).toStrictEqual( 'Recent Posts Cards' );
+		it( 'should equal Recent Posts (Material)', () => {
+			expect( settings.title ).toStrictEqual( 'Recent Posts (Material)' );
 		} );
 	} );
 
