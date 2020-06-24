@@ -15,8 +15,19 @@
 	margin-top: 11px;
 }
 
-.mdc-list-item__primary-text {
+.mdc-list-item__primary-text,
+.mdc-list-item__secondary-text {
 	margin-bottom: 0 !important;
+
+	&::before,
+	&::after {
+		display: none !important;
+	}
+}
+
+.mdc-list-item {
+
+	cursor: text !important;
 
 	&::before,
 	&::after {

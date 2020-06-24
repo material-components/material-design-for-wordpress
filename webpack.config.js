@@ -13,6 +13,11 @@ const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
  * WordPress dependencies
  */
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
+const {
+	defaultRequestToExternal,
+	defaultRequestToHandle,
+} = require( '@wordpress/dependency-extraction-webpack-plugin/util' );
 
 // Exclude `node_modules` folder from `source-map-loader` to prevent webpack warnings.
 if ( defaultConfig.module && Array.isArray( defaultConfig.module.rules ) ) {
@@ -74,6 +79,9 @@ const sharedConfig = {
 	],
 };
 
+// These packages need to be bundled and not extracted to `wp.*`.
+const PACKAGES_TO_BUNDLE = [ '@wordpress/rich-text' ];
+
 const blockEditor = {
 	...defaultConfig,
 	...sharedConfig,
@@ -84,7 +92,27 @@ const blockEditor = {
 		],
 	},
 	plugins: [
-		...sharedConfig.plugins,
+		...sharedConfig.plugins.filter(
+			// Remove the `DependencyExtractionWebpackPlugin` if it already exists.
+			plugin => ! ( plugin instanceof DependencyExtractionWebpackPlugin )
+		),
+		new DependencyExtractionWebpackPlugin( {
+			useDefaults: false,
+			requestToExternal( request ) {
+				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
+					return undefined;
+				}
+
+				return defaultRequestToExternal( request );
+			},
+			requestToHandle( request ) {
+				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
+					return 'wp-block-editor'; // Return block-editor as a dep.
+				}
+
+				return defaultRequestToHandle( request );
+			},
+		} ),
 		new WebpackBar( {
 			name: 'Block Editor',
 			color: '#1773a8',

@@ -66,6 +66,17 @@
 }
 
 /* List */
+.mdc-list--avatar-list .mdc-list-item__graphic.material-icons {
+	font-size: 40px;
+}
+
+.mdc-list:not(.mdc-list--two-line) {
+
+	.mdc-list-item__primary-text {
+		margin-bottom: 0;
+	}
+}
+
 .list-item__link {
 	position: absolute;
 	width: 100%;
