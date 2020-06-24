@@ -30,12 +30,16 @@ describe( 'blocks: material/list', () => {
 			expect( settings.attributes.style ).toBeDefined();
 		} );
 
-		it( 'should define leadingIconsEnabled attribute', () => {
-			expect( settings.attributes.leadingIconsEnabled ).toBeDefined();
+		it( 'should define iconPosition attribute', () => {
+			expect( settings.attributes.iconPosition ).toBeDefined();
 		} );
 
-		it( 'should define trailingIconsEnabled attribute', () => {
-			expect( settings.attributes.trailingIconsEnabled ).toBeDefined();
+		it( 'should define iconSize attribute', () => {
+			expect( settings.attributes.iconSize ).toBeDefined();
+		} );
+
+		it( 'should define items attribute', () => {
+			expect( settings.attributes.items ).toBeDefined();
 		} );
 	} );
 } );

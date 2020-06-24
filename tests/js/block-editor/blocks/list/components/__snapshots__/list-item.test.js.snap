@@ -1,41 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ListItemText matches snapshot 1`] = `
+exports[`ListItem matches snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text rich-text block-editor-rich-text__editable"
+              contenteditable="true"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item Title
+            </div>
+          </span>
+        </span>
+      </li>
+    </div>
+  </body>,
+  "container": <div>
+    <li
+      class="mdc-list-item"
+    >
       <span
         class="mdc-list-item__text"
       >
         <span
-          class="mdc-list-item__primary-text list-item__text"
+          class="mdc-list-item__primary-text"
         >
-          List Item Title
+          <div
+            aria-multiline="true"
+            class="rich-text rich-text block-editor-rich-text__editable"
+            contenteditable="true"
+            role="textbox"
+            style="white-space: pre-wrap;"
+          >
+            List Item Title
+          </div>
         </span>
-        <span
-          class="mdc-list-item__secondary-text list-item__text"
-        >
-          List Item Caption
-        </span>
       </span>
-    </div>
-  </body>,
-  "container": <div>
-    <span
-      class="mdc-list-item__text"
-    >
-      <span
-        class="mdc-list-item__primary-text list-item__text"
-      >
-        List Item Title
-      </span>
-      <span
-        class="mdc-list-item__secondary-text list-item__text"
-      >
-        List Item Caption
-      </span>
-    </span>
+    </li>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -91,54 +105,56 @@ Object {
 }
 `;
 
-exports[`ListItemText matches snapshot when editable 1`] = `
+exports[`ListItem matches snapshot when editable 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text rich-text block-editor-rich-text__editable"
+              contenteditable="true"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item Title
+            </div>
+          </span>
+        </span>
+      </li>
+    </div>
+  </body>,
+  "container": <div>
+    <li
+      class="mdc-list-item"
+    >
       <span
         class="mdc-list-item__text"
       >
         <span
-          class="mdc-list-item__primary-text list-item__text"
-          contenteditable="true"
-          role="textbox"
-          tabindex="0"
+          class="mdc-list-item__primary-text"
         >
-          List Item Title
-        </span>
-        <span
-          class="mdc-list-item__secondary-text list-item__text"
-          contenteditable="true"
-          role="textbox"
-          tabindex="0"
-        >
-          List Item Caption
+          <div
+            aria-multiline="true"
+            class="rich-text rich-text block-editor-rich-text__editable"
+            contenteditable="true"
+            role="textbox"
+            style="white-space: pre-wrap;"
+          >
+            List Item Title
+          </div>
         </span>
       </span>
-    </div>
-  </body>,
-  "container": <div>
-    <span
-      class="mdc-list-item__text"
-    >
-      <span
-        class="mdc-list-item__primary-text list-item__text"
-        contenteditable="true"
-        role="textbox"
-        tabindex="0"
-      >
-        List Item Title
-      </span>
-      <span
-        class="mdc-list-item__secondary-text list-item__text"
-        contenteditable="true"
-        role="textbox"
-        tabindex="0"
-      >
-        List Item Caption
-      </span>
-    </span>
+    </li>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
