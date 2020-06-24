@@ -583,4 +583,29 @@ class Plugin extends Plugin_Base {
 		wp_safe_redirect( admin_url( 'admin.php?page=material-theme-builder' ) );
 		exit;
 	}
+
+	/**
+	 * Get a page by it's title.
+	 *
+	 * @param string       $page_title Page title.
+	 * @param string       $output     Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which correspond to
+	 *                                 a WP_Post object, an associative array, or a numeric array, respectively. Default OBJECT.
+	 * @param string|array $post_type  Optional. Post type or array of post types. Default 'page'.
+	 * @return WP_Post|array|null WP_Post (or array) on success, or null on failure.
+	 */
+	public function get_page_by_title( $page_title, $output = OBJECT, $post_type = 'page' ) {
+		if ( $this->is_wpcom_vip_prod() ) {
+			return wpcom_vip_get_page_by_title(
+				sanitize_text_field( $page_title ),
+				$output,
+				sanitize_text_field( $post_type )
+			);
+		}
+
+		return get_page_by_title( // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
+			sanitize_text_field( $page_title ),
+			$output,
+			sanitize_text_field( $post_type )
+		);
+	}
 }

@@ -65,9 +65,9 @@ class Importer extends Module_Base {
 
 	/**
 	 * Render form UI
-	 * 
+	 *
 	 * @TODO: Rename to Material Settings
-	 * 
+	 *
 	 * @return string Markup to display in page
 	 */
 	public function render_page() {
@@ -105,7 +105,7 @@ class Importer extends Module_Base {
 
 	/**
 	 * Import content after nonce verification
-	 * 
+	 *
 	 * @return string Status message
 	 */
 	public function init_import() {
@@ -163,17 +163,18 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function add_menu_items() {
-		$menu       = wp_get_nav_menu_object( 'primary' );
+		$menu_name = esc_html__( 'Importer Primary', 'material-theme-builder' );
+		wp_delete_nav_menu( $menu_name );
+
+		$menu_id    = wp_create_nav_menu( $menu_name );
 		$menu_items = $this->get_menu_items();
 
 		foreach ( $menu_items as $menu_item ) {
-			// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
-			$page = get_page_by_title( $menu_item );
-			// phpcs:enable
+			$page    = $this->plugin->get_page_by_title( $menu_item );
 			$page_id = ! empty( $page ) ? $page->ID : null;
 
 			wp_update_nav_menu_item(
-				$menu->term_id,
+				$menu_id,
 				0,
 				[
 					'menu-item-title'     => $menu_item,
@@ -188,9 +189,9 @@ class Importer extends Module_Base {
 		$menu_locations = get_theme_mod( 'nav_menu_locations' );
 
 		// Set menu to "tabs" location.
-		$locations['menu-1'] = $menu->term_id;
+		$menu_locations['menu-1'] = $menu_id;
 
-		set_theme_mod( 'nav_menu_locations', $locations );
+		set_theme_mod( 'nav_menu_locations', $menu_locations );
 	}
 
 	/**
@@ -205,21 +206,7 @@ class Importer extends Module_Base {
 
 		foreach ( $posts as $post ) {
 			// Bail out if a post already exists with the same title.
-			if ( $this->plugin->is_wpcom_vip_prod() ) {
-				$exists = wpcom_vip_get_page_by_title(
-					sanitize_text_field( (string) $post->title ),
-					OBJECT,
-					sanitize_text_field( (string) $post->children( 'wp', true )->post_type )
-				);
-			} else {
-				$exists = get_page_by_title( // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
-					sanitize_text_field( (string) $post->title ),
-					OBJECT,
-					sanitize_text_field( (string) $post->children( 'wp', true )->post_type )
-				);
-			}
-
-			if ( ! empty( $exists ) ) {
+			if ( ! empty( $this->plugin->get_page_by_title( (string) $post->title, OBJECT, (string) $post->children( 'wp', true )->post_type ) ) ) {
 				continue;
 			}
 
@@ -349,10 +336,8 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function update_blog_info() {
-		// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
-		$home_page = get_page_by_title( __( 'Home', 'material-theme-builder' ) );
-		$blog_page = get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
-		// phpcs:enable
+		$home_page = $this->plugin->get_page_by_title( __( 'Home', 'material-theme-builder' ) );
+		$blog_page = $this->plugin->get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
 
 		if ( $home_page ) {
 			update_option( 'page_on_front', $home_page->ID );
