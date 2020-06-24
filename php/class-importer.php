@@ -279,7 +279,9 @@ class Importer extends Module_Base {
 				'id'
 			);
 
-			set_post_thumbnail( $post_id, $image );
+			if ( ! is_wp_error( $image ) ) {
+				set_post_thumbnail( $post_id, $image );
+			}
 		}
 
 		return $post_id;
