@@ -1,5 +1,9 @@
 .btn-group {
 
+	&__label {
+		margin: 12px 0 4px;
+	}
+
 	&__list {
 		display: inline-flex;
 		margin: 5px 0;
