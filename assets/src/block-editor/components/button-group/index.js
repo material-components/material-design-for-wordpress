@@ -8,8 +8,14 @@ import classNames from 'classnames';
  */
 import './style.css';
 
-const ButtonGroup = ( { buttons, current, onClick } ) => (
+const ButtonGroup = ( { label, buttons, current, onClick } ) => (
 	<div className="btn-group">
+		{ label && (
+			<div className="btn-group__label">
+				{ /* eslint-disable-next-line jsx-a11y/label-has-for */ }
+				<label>{ label }</label>
+			</div>
+		) }
 		<ul className="btn-group__list">
 			{ buttons.map( ( button, i ) => (
 				<li
