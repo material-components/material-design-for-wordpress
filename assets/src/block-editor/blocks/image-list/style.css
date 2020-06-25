@@ -109,3 +109,7 @@
 		}
 	}
 }
+
+.wp-block-material-image-list .components-placeholder__label .material-icons-outlined {
+	margin-right: 10px;
+}
