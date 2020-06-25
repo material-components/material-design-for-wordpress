@@ -51,7 +51,7 @@ Object {
                       class="mdc-tab__text-label tab__label-field"
                     >
                       <span
-                        aria-label="Title"
+                        aria-label="Tab Title"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -91,7 +91,7 @@ Object {
                       class="mdc-tab__text-label tab__label-field"
                     >
                       <span
-                        aria-label="Title"
+                        aria-label="Tab Title"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -240,7 +240,7 @@ Object {
                     class="mdc-tab__text-label tab__label-field"
                   >
                     <span
-                      aria-label="Title"
+                      aria-label="Tab Title"
                       aria-multiline="true"
                       class="rich-text block-editor-rich-text__editable"
                       contenteditable="true"
@@ -280,7 +280,7 @@ Object {
                     class="mdc-tab__text-label tab__label-field"
                   >
                     <span
-                      aria-label="Title"
+                      aria-label="Tab Title"
                       aria-multiline="true"
                       class="rich-text block-editor-rich-text__editable"
                       contenteditable="true"

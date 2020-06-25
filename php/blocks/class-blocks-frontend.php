@@ -28,25 +28,7 @@ class Blocks_Frontend extends Module_Base {
 
 			if ( ! empty( $blocks ) && is_array( $blocks ) ) {
 				foreach ( $blocks as $block ) {
-					switch ( $block['blockName'] ) {
-						case 'material/image-list':
-							$styles .= Image_List_Block::styles( $block );
-							break;
-
-						case 'material/cards-collection':
-							$styles .= self::layout_gutter_styles(
-								$block,
-								[
-									'desktop' => 24,
-									'tablet'  => 16,
-									'mobile'  => 16,
-								]
-							);
-							break;
-
-						default:
-							break;
-					}
+					$styles .= self::get_block_css( $block );
 				}
 			}
 
@@ -55,6 +37,57 @@ class Blocks_Frontend extends Module_Base {
 				$styles
 			);
 		}
+	}
+
+	/**
+	 * Generate dynamic CSS for a block.
+	 *
+	 * @param  array $block The block to generate CSS for.
+	 * @return string
+	 */
+	public static function get_block_css( $block ) {
+		if ( empty( $block ) || empty( $block['blockName'] ) ) {
+			return '';
+		}
+
+		$styles = '';
+
+		switch ( $block['blockName'] ) {
+			case 'material/image-list':
+				$styles .= Image_List_Block::styles( $block );
+				break;
+
+			case 'material/cards-collection':
+				$styles .= self::layout_gutter_styles(
+					$block,
+					[
+						'desktop' => 24,
+						'tablet'  => 16,
+						'mobile'  => 16,
+					]
+				);
+				break;
+
+			case 'material/tab-bar':
+				if ( ! empty( $block['attrs'] ) && ! empty( $block['attrs']['tabs'] ) && is_array( $block['attrs']['tabs'] ) ) {
+					foreach ( $block['attrs']['tabs'] as $tab ) {
+						if ( ! empty( $tab['content'] ) && is_array( $tab['content'] ) ) {
+							foreach ( $tab['content'] as $tab_block ) {
+								$tab_block['blockName'] = $tab_block['name'];
+								$tab_block['attrs']     = $tab_block['attributes'];
+
+								$styles .= self::get_block_css( $tab_block );
+							}
+						}
+					}
+				}
+				break;
+
+			default:
+				break;
+		}
+
+		return $styles;
 	}
 
 	/**
