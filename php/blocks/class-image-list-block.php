@@ -85,13 +85,6 @@ class Image_List_Block extends Module_Base {
 							],
 						],
 					],
-					'ids'             => [
-						'type'    => 'array',
-						'items'   => [
-							'type' => 'number',
-						],
-						'default' => [],
-					],
 					'style'           => [
 						'type'    => 'string',
 						'default' => 'masonry',
@@ -110,10 +103,6 @@ class Image_List_Block extends Module_Base {
 					],
 					'cornerRadius'    => [
 						'type' => 'number',
-					],
-					'displayLightbox' => [
-						'type'    => 'boolean',
-						'default' => false,
 					],
 					'displayCaptions' => [
 						'type'    => 'boolean',
@@ -146,14 +135,19 @@ class Image_List_Block extends Module_Base {
 		$block_type = \WP_Block_Type_Registry::get_instance()->get_registered( $block['blockName'] );
 		$styles     = [];
 
-		if ( null !== $block_type ) {
-			$id = '';
+		if ( isset( $block['attrs']['images'] ) ) {
+			unset( $block['attrs']['images'] );
+		}
 
-			if ( preg_match( '#id="(block-material-image-list-[^"]+)"#', $block['innerHTML'], $matches ) ) {
+		if ( null !== $block_type ) {
+			$id         = '';
+			$attributes = $block_type->prepare_attributes_for_render( $block['attrs'] );
+
+			if ( ! empty( $attributes['id'] ) ) {
+				$id = $attributes['id'];
+			} elseif ( preg_match( '#id="(block-material-image-list-[^"]+)"#', $block['innerHTML'], $matches ) ) {
 				$id = $matches[1];
 			}
-
-			$attributes = $block_type->prepare_attributes_for_render( $block['attrs'] );
 
 			foreach ( [ 'desktop', 'tablet', 'mobile' ] as $device ) {
 				$styles[] = Blocks_Frontend::get_media_queries( self::get_device_styles( $id, $attributes, $device ), $device );
