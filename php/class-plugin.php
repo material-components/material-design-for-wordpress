@@ -371,7 +371,7 @@ class Plugin extends Plugin_Base {
 
 		<div class="notice notice-info is-dismissible material-notice-container">
 			<img
-				src="<?php echo esc_url( $this->asset_url( 'assets/images/plugin-icon.svg' ) ); ?>"
+				src="<?php echo esc_url( $this->asset_url( 'assets/images/plugin-logo.png' ) ); ?>"
 				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
 			/>
 
