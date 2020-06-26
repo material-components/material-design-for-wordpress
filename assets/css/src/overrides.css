@@ -15,17 +15,17 @@ html {
 
 	@mixin fontvars headline1, 6, 6, 300, -1.5;
 	@mixin fontvars headline2, 3.75, 3.75, 300, -.5;
-	@mixin fontvars headline3, 3, 3.125, 400;
+	@mixin fontvars headline3, 3, 3.125, 400, 0;
 	@mixin fontvars headline4, 2.125, 2.5, 400, .25;
-	@mixin fontvars headline5, 1.5, 2, 400;
-	@mixin fontvars headline6, 1.25, 2, 500, .25;
+	@mixin fontvars headline5, 1.5, 2, 400, 0;
+	@mixin fontvars headline6, 1.25, 2, 500, 0.15;
 	@mixin fontvars subtitle1, 1, 1.75, 400, .15;
 	@mixin fontvars subtitle2, 0.875, 1.375, 500, .1;
 	@mixin fontvars body1, 1, 1.5, 400, .5;
 	@mixin fontvars body2, 0.875, 1.25, 400, .25;
 	@mixin fontvars caption, 0.75, 1.25, 400, .4;
 	@mixin fontvars button, 0.875, 2.25, 500, 1.25;
-	@mixin fontvars overline, 0.75, 2, 500, 2;
+	@mixin fontvars overline, 0.75, 2, 500, 1.5;
 }
 
 @mixin typography headline1, 6, 6, 300;
