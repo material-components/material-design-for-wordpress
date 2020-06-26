@@ -4,14 +4,6 @@ exports[`VerticalCardLayout matches snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -235,14 +227,6 @@ exports[`VerticalCardLayout matches snapshot when the action row should not be d
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -390,14 +374,6 @@ exports[`VerticalCardLayout matches snapshot when the content layout is text abo
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -621,14 +597,6 @@ exports[`VerticalCardLayout matches snapshot when the content layout is text ove
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -862,14 +830,6 @@ exports[`VerticalCardLayout matches snapshot when the content layout is text ove
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1083,14 +1043,6 @@ exports[`VerticalCardLayout matches snapshot when the content layout is text ove
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1352,14 +1304,6 @@ exports[`VerticalCardLayout matches snapshot when the corner radius is undefined
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1583,14 +1527,6 @@ exports[`VerticalCardLayout matches snapshot when the image should not be displa
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"
@@ -1804,14 +1740,6 @@ exports[`VerticalCardLayout matches snapshot when the supporting text should not
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
     <div
       aria-atomic="true"
       aria-live="assertive"

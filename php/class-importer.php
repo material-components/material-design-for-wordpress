@@ -463,6 +463,8 @@ class Importer extends Module_Base {
 		$blog_page = get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
 		// phpcs:enable
 
+		set_theme_mod( 'material_header_search_display', true );
+
 		if ( $home_page ) {
 			update_option( 'page_on_front', $home_page->ID );
 			update_option( 'show_on_front', 'page' );
