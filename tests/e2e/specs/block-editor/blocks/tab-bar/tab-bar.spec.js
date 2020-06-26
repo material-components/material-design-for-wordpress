@@ -97,6 +97,13 @@ describe( 'blocks: material/tab-bar', () => {
 
 		expect( await page.$$( '.mdc-tab.tab' ) ).toHaveLength( 2 );
 
+		const [ label ] = await page.$$(
+			'.mdc-tab--active .mdc-tab__text-label span'
+		);
+		label.click();
+
+		await page.keyboard.type( 'Tab 1' );
+
 		const [ activeTabRemoveBtn ] = await page.$$(
 			'.mdc-tab--active .tab__delete'
 		);
@@ -144,8 +151,10 @@ describe( 'blocks: material/tab-bar', () => {
 			await page.$x( "//h2[span/@data-rich-text-placeholder='Write heading…']" )
 		).toHaveLength( 1 );
 
-		const [ otherTab ] = await page.$x( "//span[contains(text(), 'Tab 2')]" );
-		await otherTab.click();
+		const labels = await page.$$( '.mdc-tab__text-label span' );
+		labels[ 1 ].click();
+
+		await page.keyboard.type( 'Tab 2' );
 
 		expect(
 			await page.$x( "//h2[contains(text(), 'Hello Editor')]" )

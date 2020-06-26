@@ -47,7 +47,7 @@ const Tab = ( {
 					) : (
 						<RichText
 							tagName={ 'span' }
-							placeholder={ __( 'Title', 'material-theme-builder' ) }
+							placeholder={ __( 'Tab Title', 'material-theme-builder' ) }
 							value={ label }
 							onChange={ value => onInput( value, index ) }
 							withoutInteractiveFormatting

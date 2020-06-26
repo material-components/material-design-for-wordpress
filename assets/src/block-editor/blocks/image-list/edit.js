@@ -1,7 +1,7 @@
 /**
  * External dependencies
  */
-import { some, find, findIndex } from 'lodash';
+import { some, find, findIndex, get, pick } from 'lodash';
 import classNames from 'classnames';
 
 /**
@@ -64,6 +64,21 @@ const GUTTER_DEVICES = [
 		icon: 'smartphone',
 	},
 ];
+
+export const pickRelevantMediaFiles = ( image, sizeSlug = 'large' ) => {
+	const imageProps = pick( image, [ 'alt', 'id', 'link', 'caption' ] );
+	imageProps.url =
+		get( image, [ 'sizes', sizeSlug, 'url' ] ) ||
+		get( image, [ 'media_details', 'sizes', sizeSlug, 'source_url' ] ) ||
+		image.url;
+	const fullUrl =
+		get( image, [ 'sizes', 'full', 'url' ] ) ||
+		get( image, [ 'media_details', 'sizes', 'full', 'source_url' ] );
+	if ( fullUrl ) {
+		imageProps.fullUrl = fullUrl;
+	}
+	return imageProps;
+};
 
 /**
  * Image List Edit component.
@@ -154,10 +169,7 @@ const ImageListEdit = ( {
 	const selectImages = newImages => {
 		setAttributes( {
 			images: newImages.map( image => ( {
-				id: image.id,
-				url: image.sizes.full.url,
-				alt: image.alt,
-				link: image.link,
+				...pickRelevantMediaFiles( image ),
 				caption: image.caption,
 				selected: false,
 			} ) ),
@@ -249,7 +261,8 @@ const ImageListEdit = ( {
 					! hasImages && <i className="material-icons-outlined">filter</i>
 				}
 				labels={ {
-					title: ! __( 'Image List', 'material-theme-builder' ),
+					title:
+						! hasImages && __( 'Gallery (Material)', 'material-theme-builder' ),
 					instructions: __(
 						'Drag images, upload new ones or select files from your library.',
 						'material-theme-builder'

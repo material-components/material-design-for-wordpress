@@ -72,7 +72,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				'post_title'   => 'Lorem ipsum dolor sit amet',
 				'post_content' => 'Consectetur adipiscing elit. In dui quam, egestas nec aliquet ac, hendrerit vitae ligula. Morbi malesuada in lectus vel sollicitudin. Proin tellus ligula, tincidunt at sagittis eget, tempor non est. In et suscipit metus. Cras in lectus a ex ullamcorper eleifend. Aenean convallis lacus et porttitor convallis. Proin iaculis a diam et euismod. Proin lectus ex, bibendum vel pretium ut, pellentesque eget nisl.
 
-				<!-- wp:material/image-list {"gutter":{"desktop":24,"tablet":18,"mobile":12},"displayLightbox":true,"align":"wide"} -->
+				<!-- wp:material/image-list {"gutter":{"desktop":24,"tablet":18,"mobile":12},"align":"wide"} -->
 					<div class="wp-block-material-image-list alignwide" id="block-material-image-list-1"></div>
 				<!-- /wp:material/image-list -->
 				',
@@ -233,7 +233,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				[
 					$this->callback(
 						function ( $control ) use ( $controls ) {
-							return "{$controls->slug}_style" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'shrine', 'custom' ] === array_keys( $control->choices );
+							return "{$controls->slug}_style" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'blossom', 'custom' ] === array_keys( $control->choices );
 						}
 					),
 				]
