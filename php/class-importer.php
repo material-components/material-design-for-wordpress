@@ -92,14 +92,10 @@ class Importer extends Module_Base {
 
 		<div class="material-settings-container material-notice-container">
 			<div class="material-settings__logo">
-				<img src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-Icon.svg' ) ); ?>" alt />
+				<img src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-logo.png' ) ); ?>" alt />
 			</div>
 			<div class="material-settings-container__content">
 				<h3><?php esc_html_e( 'Setup Material plugin', 'material-theme-builder' ); ?></h3>
-
-				<p>
-					<?php esc_html_e( 'lProin leo aenean arcu mollis class vivamus vel nostra tempus', 'material-theme-builder' ); ?>
-				</p>
 
 				<p>
 					<a href="<?php echo esc_url( 'admin.php?page=material-theme-builder' ); ?>"><?php esc_html_e( 'Get started with the onboarding wizard', 'material-theme-builder' ); ?></a>
