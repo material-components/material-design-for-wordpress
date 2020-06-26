@@ -85,9 +85,9 @@ class Test_Importer_REST_Controller extends WP_Test_REST_Controller_Testcase {
 	}
 
 	/**
-	 * Test install_theme().
+	 * Test test_import_content().
 	 *
-	 * @see Importer_REST_Controller::install_theme()
+	 * @see Importer_REST_Controller::import_content()
 	 */
 	public function test_import_content() {
 		wp_set_current_user( self::$subscriber_id );

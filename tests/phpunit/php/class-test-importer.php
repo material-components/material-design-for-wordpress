@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder;
 
 use WP_UnitTest_Factory;
+use MaterialThemeBuilder\Plugin;
 
 /**
  * Tests for Importer class.
@@ -52,17 +53,6 @@ class Test_Importer extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Test get_image_file
-	 *
-	 * @see Importer::get_image_file()
-	 */
-	public function get_image_file() {
-		$file = $this->importer->get_image_file();
-
-		$this->assertEquals( $this->plugin->dir_url . '/assets/images/featured.png', $file );
-	}
-
-	/**
 	 * Test render_page
 	 *
 	 * @see Importer::render_page()
@@ -82,51 +72,6 @@ class Test_Importer extends \WP_UnitTestCase {
 		$items = $this->importer->get_menu_items();
 
 		$this->assertCount( 5, $items );
-	}
-
-	/**
-	 * Test get_left_widgets
-	 *
-	 * @see Importer::get_left_widgets()
-	 */
-	public function test_get_left_widgets() {
-		$widgets = $this->importer->get_left_widgets();
-
-		$this->assertCount( 1, $widgets );
-	}
-
-	/**
-	 * Test get_right_widgets
-	 *
-	 * @see Importer::get_right_widgets()
-	 */
-	public function test_get_right_widgets() {
-		$widgets = $this->importer->get_right_widgets();
-
-		$this->assertCount( 2, $widgets );
-	}
-
-	/**
-	 * Test build_widget_ids
-	 *
-	 * @see Importer::build_widget_ids()
-	 */
-	public function test_build_widget_ids() {
-		$widgets = [
-			[
-				'title' => '',
-			],
-			[
-				'title' => '',
-			],
-		];
-
-		$expected = [
-			'search-0',
-			'search-1',
-		];
-
-		$this->assertEquals( $expected, $this->importer->build_widget_ids( $widgets, 'search' ) );
 	}
 
 	/**
@@ -215,19 +160,6 @@ class Test_Importer extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Test upload_cover_image
-	 *
-	 * @see Importer::upload_cover_image()
-	 */
-	public function test_upload_cover_image() {
-		$this->importer->image_location = $this->get_image_test_file();
-
-		$image = $this->importer->upload_cover_image();
-
-		$this->assertInternalType( 'int', $image );
-	}
-
-	/**
 	 * Test kses_post
 	 *
 	 * @see Importer::kses_post()
@@ -252,11 +184,17 @@ class Test_Importer extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Load an image we can upload
+	 * Test add_custom_css
 	 *
-	 * @return string path to demo test file
+	 * @see Importer::add_custom_css()
 	 */
-	private function get_image_test_file() {
-		return 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png';
+	public function test_add_custom_css() {
+		$response = $this->importer->add_custom_css();
+
+		$this->assertInternalType( 'int', $response );
+
+		$added_css = wp_get_custom_css( Plugin::THEME_SLUG );
+
+		$this->assertContains( '.home .entry-title { display: none; }', $added_css );
 	}
 }
