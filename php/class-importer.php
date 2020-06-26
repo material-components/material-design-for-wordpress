@@ -201,8 +201,9 @@ class Importer extends Module_Base {
 		$author = get_current_user_id();
 
 		foreach ( $posts as $post ) {
-			// Bail out if a post already exists with the same title.
-			if ( ! empty( $this->plugin->get_page_by_title( (string) $post->title, OBJECT, (string) $post->children( 'wp', true )->post_type ) ) ) {
+			// Bail out if a published post already exists with the same title.
+			$existing = $this->plugin->get_page_by_title( (string) $post->title, OBJECT, (string) $post->children( 'wp', true )->post_type );
+			if ( ! empty( $existing ) && 'publish' === $existing->post_status ) {
 				continue;
 			}
 
