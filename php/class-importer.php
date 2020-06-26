@@ -7,6 +7,8 @@
 
 namespace MaterialThemeBuilder;
 
+use MaterialThemeBuilder\Plugin;
+
 /**
  * Plugin Importer class.
  *
@@ -49,8 +51,7 @@ class Importer extends Module_Base {
 	 */
 	public function __construct( Plugin $plugin ) {
 		parent::__construct( $plugin );
-		$this->import_file    = $this->get_import_file();
-		$this->image_location = $this->get_image_file();
+		$this->import_file = $this->get_import_file();
 	}
 
 	/**
@@ -63,19 +64,10 @@ class Importer extends Module_Base {
 	}
 
 	/**
-	 * Return location of image to import
-	 *
-	 * @return string path to image
-	 */
-	public function get_image_file() {
-		return trailingslashit( $this->plugin->dir_url ) . 'assets/images/featured.png';
-	}
-
-	/**
 	 * Render form UI
-	 * 
+	 *
 	 * @TODO: Rename to Material Settings
-	 * 
+	 *
 	 * @return string Markup to display in page
 	 */
 	public function render_page() {
@@ -109,7 +101,7 @@ class Importer extends Module_Base {
 
 	/**
 	 * Import content after nonce verification
-	 * 
+	 *
 	 * @return string Status message
 	 */
 	public function init_import() {
@@ -124,6 +116,8 @@ class Importer extends Module_Base {
 		$this->add_menu_items();
 
 		$this->setup_widgets();
+
+		$this->add_custom_css();
 
 		return 'success';
 	}
@@ -165,17 +159,18 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function add_menu_items() {
-		$menu       = wp_get_nav_menu_object( 'primary' );
+		$menu_name = esc_html__( 'Importer Primary', 'material-theme-builder' );
+		wp_delete_nav_menu( $menu_name );
+
+		$menu_id    = wp_create_nav_menu( $menu_name );
 		$menu_items = $this->get_menu_items();
 
 		foreach ( $menu_items as $menu_item ) {
-			// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
-			$page = get_page_by_title( $menu_item );
-			// phpcs:enable
+			$page    = $this->plugin->get_page_by_title( $menu_item );
 			$page_id = ! empty( $page ) ? $page->ID : null;
 
 			wp_update_nav_menu_item(
-				$menu->term_id,
+				$menu_id,
 				0,
 				[
 					'menu-item-title'     => $menu_item,
@@ -190,9 +185,9 @@ class Importer extends Module_Base {
 		$menu_locations = get_theme_mod( 'nav_menu_locations' );
 
 		// Set menu to "tabs" location.
-		$locations['menu-1'] = $menu->term_id;
+		$menu_locations['menu-1'] = $menu_id;
 
-		set_theme_mod( 'nav_menu_locations', $locations );
+		set_theme_mod( 'nav_menu_locations', $menu_locations );
 	}
 
 	/**
@@ -205,36 +200,23 @@ class Importer extends Module_Base {
 
 		$author = get_current_user_id();
 
-		$this->featured_image = $this->upload_cover_image();
 		foreach ( $posts as $post ) {
-			// Bail out if a post already exists with the same title.
-			if ( $this->plugin->is_wpcom_vip_prod() ) {
-				$exists = wpcom_vip_get_page_by_title(
-					sanitize_text_field( (string) $post->title ),
-					OBJECT,
-					sanitize_text_field( (string) $post->children( 'wp', true )->post_type )
-				);
-			} else {
-				$exists = get_page_by_title( // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
-					sanitize_text_field( (string) $post->title ),
-					OBJECT,
-					sanitize_text_field( (string) $post->children( 'wp', true )->post_type )
-				);
-			}
-
-			if ( ! empty( $exists ) ) {
+			// Bail out if a published post already exists with the same title.
+			$existing = $this->plugin->get_page_by_title( (string) $post->title, OBJECT, (string) $post->children( 'wp', true )->post_type );
+			if ( ! empty( $existing ) && 'publish' === $existing->post_status ) {
 				continue;
 			}
 
 			$post_data = [
-				'post_title'   => esc_html( $post->title ),
-				'post_date'    => esc_html( $post->children( 'wp', true )->post_date ),
-				'post_parent'  => intval( $post->children( 'wp', true )->post_parent ),
-				'post_type'    => esc_html( $post->children( 'wp', true )->post_type ),
-				'post_content' => $this->kses_post( $post->children( 'content', true )->encoded ),
-				'post_status'  => 'publish',
-				'post_author'  => intval( $author ),
-				'meta_input'   => $this->attach_meta_data( $post ),
+				'post_title'     => esc_html( $post->title ),
+				'post_date'      => esc_html( $post->children( 'wp', true )->post_date ),
+				'post_parent'    => intval( $post->children( 'wp', true )->post_parent ),
+				'post_type'      => esc_html( $post->children( 'wp', true )->post_type ),
+				'post_content'   => $this->kses_post( $post->children( 'content', true )->encoded ),
+				'post_status'    => 'publish',
+				'post_author'    => intval( $author ),
+				'meta_input'     => $this->attach_meta_data( $post ),
+				'post_thumbnail' => esc_url( $post->image ),
 			];
 
 			$post_id = $this->insert_post( $post_data, $post );
@@ -273,9 +255,17 @@ class Importer extends Module_Base {
 
 		$comments = $this->insert_comments( $post, $post_id );
 
-		// Set featured image if upload was succesful.
-		if ( ! is_wp_error( $this->featured_image ) ) {
-			$thumbnail = set_post_thumbnail( $post_id, $this->featured_image );
+		if ( ! empty( $post_data['post_thumbnail'] ) ) {
+			$image = \media_sideload_image(
+				$post_data['post_thumbnail'],
+				$post_id,
+				$post_data['post_title'],
+				'id'
+			);
+
+			if ( ! is_wp_error( $image ) ) {
+				set_post_thumbnail( $post_id, $image );
+			}
 		}
 
 		return $post_id;
@@ -306,130 +296,19 @@ class Importer extends Module_Base {
 	}
 
 	/**
-	 * Register widgets to use in footer sidebar
+	 * Remove widgets
 	 *
 	 * @return void
 	 */
 	public function setup_widgets() {
 		$existing_widgets = get_option( 'sidebars_widgets' );
 
-		$default_widgets = [
-			'footer'       => $this->get_left_widgets(),
-			'footer-right' => $this->get_right_widgets(),
+		$widgets = [
+			'footer'       => [],
+			'footer-right' => [],
 		];
 
-		foreach ( $default_widgets as $area => $widgets ) {
-			// Reset footer widgets.
-			$existing_widgets[ $area ] = [];
-
-			foreach ( $widgets as $widget_type => $widget ) {
-				$existing_widgets[ $area ] = array_merge( $existing_widgets[ $area ], $this->build_widget_ids( $widget, $widget_type ) );
-
-				// Save widget options in database.
-				update_option( "widget_{$widget_type}", $widget );
-			}
-		}
-
-		// Save new widget status.
-		update_option( 'sidebars_widgets', $existing_widgets );
-	}
-
-	/**
-	 * Create widget ids based on their widget type
-	 *
-	 * @param  array  $widgets      Widgets to convert.
-	 * @param  string $widget_type  Type of widget to create.
-	 * @return array                Widgets to register
-	 */
-	public function build_widget_ids( $widgets, $widget_type ) {
-		$built_widgets = [];
-
-		foreach ( $widgets as $key => $widget ) {
-			$built_widgets[] = $widget_type . '-' . $key;
-		}
-
-		return $built_widgets;
-	}
-
-	/**
-	 * Define default widgets data
-	 *
-	 * @return array Widgets to include
-	 */
-	public function get_left_widgets() {
-		ob_start();
-		?>
-		<img class="size-full wp-image-38 alignleft" src="http://localhost:8088/wp-content/uploads/2020/05/Vector.png" alt="" width="82" height="82" />Suspendisse dui mi, dictum quis porttitor quis, cursus sed sem. Quisque faucibus cursus semper. Aenean tristique eget nisl vitae euismod. Maecenas non consequat erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-		<?php
-		$about_html = ob_get_clean();
-
-		ob_start();
-		?>
-		<a href="http://twitter.com"><span class="dashicons dashicons-twitter"></span> <span class="screen-reader-text">Twitter</span></a> 
-		<a href="http://facebook.com"><span class="dashicons dashicons-facebook"></span> <span class="screen-reader-text">Facebook</span></a> 
-		<a href="http://instagram.com"><span class="dashicons dashicons-instagram"></span> <span class="screen-reader-text">Instagram</span></a> 
-		<a href="mailto:demo@material.io"><span class="dashicons dashicons-email"></span> <span class="screen-reader-text">Email</span></a>
-		<?php
-		$social_html = ob_get_clean();
-
-		return [
-			'custom_html' => [
-				[
-					'title'   => esc_html__( 'About Material', 'material-theme-builder' ),
-					'content' => wp_kses(
-						$about_html,
-						[
-							'img' => [
-								'class'  => [],
-								'src'    => [],
-								'alt'    => [],
-								'width'  => [],
-								'height' => [],
-							],
-						]
-					),
-				],
-				[
-					'title'   => '',
-					'content' => wp_kses(
-						$social_html,
-						[
-							'a'    => [ 'href' => [] ],
-							'span' => [ 'class' => [] ],
-						]
-					),
-				],
-			],
-		];
-	}
-
-	/**
-	 * Define default widgets data
-	 *
-	 * @return array Widgets to include
-	 */
-	public function get_right_widgets() {
-		return [
-			'text'   => [
-				[
-					'title'  => esc_html__( 'Explore', 'material-theme-builder' ),
-					'text'   => esc_html__( 'Pellentesque habitant morbi tristique senectus et netus', 'material-theme-builder' ),
-					'filter' => true,
-					'visual' => true,
-				],
-				[
-					'title'  => '',
-					'text'   => esc_html__( 'Copyright © Material. All rights reserved. Maximus nec sagittis congue, pretium vitae sem.', 'material-theme-builder' ),
-					'filter' => true,
-					'visual' => true,
-				],
-			],
-			'search' => [
-				[
-					'title' => '',
-				],
-			],
-		];
+		update_option( 'sidebars_widgets', $widgets );
 	}
 
 	/**
@@ -449,14 +328,13 @@ class Importer extends Module_Base {
 
 	/**
 	 * Update blog name, and frontpage
+	 * Add search in header
 	 *
 	 * @return void
 	 */
 	public function update_blog_info() {
-		// phpcs:disable WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
-		$home_page = get_page_by_title( __( 'Home', 'material-theme-builder' ) );
-		$blog_page = get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
-		// phpcs:enable
+		$home_page = $this->plugin->get_page_by_title( __( 'Home', 'material-theme-builder' ) );
+		$blog_page = $this->plugin->get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
 
 		if ( $home_page ) {
 			update_option( 'page_on_front', $home_page->ID );
@@ -466,22 +344,8 @@ class Importer extends Module_Base {
 		if ( $blog_page ) {
 			update_option( 'page_for_posts', $blog_page->ID );
 		}
-	}
 
-	/**
-	 * Uploads our cover image into the gallery and attach it to most recent post
-	 *
-	 * @return int|WP_Error Uploaded image ID, error on fail
-	 */
-	public function upload_cover_image() {
-		$image = \media_sideload_image(
-			$this->image_location,
-			null,
-			esc_html__( 'Material Featured Image', 'material-theme-builder' ),
-			'id'
-		);
-
-		return $image;
+		set_theme_mod( 'material_header_search_display', true );
 	}
 
 	/**
@@ -551,5 +415,37 @@ class Importer extends Module_Base {
 	public function safe_style_css( $attr ) {
 		$attr[] = 'border-radius';
 		return $attr;
+	}
+
+	/**
+	 * Hide Page title in homepage
+	 *
+	 * @return int|WP_Error The post ID or false if the value could not be saved.
+	 */
+	public function add_custom_css() {
+		$custom_css_post = wp_get_custom_css_post( Plugin::THEME_SLUG );
+		$custom_css      = '.home .entry-title { display: none; }';
+
+		if ( $custom_css_post ) {
+			$custom_css = $custom_css_post->post_content . ' ' . $custom_css;
+		}
+
+		$css_post = wp_update_custom_css_post(
+			$custom_css,
+			[
+				'stylesheet' => Plugin::THEME_SLUG,
+			]
+		);
+
+		if ( $css_post instanceof WP_Error ) {
+			return $css_post;
+		}
+
+		$post_id = $css_post->ID;
+
+		// Cache post ID in theme mod for performance to avoid additional DB query.
+		set_theme_mod( 'custom_css_post_id', $post_id );
+
+		return $post_id;
 	}
 }
