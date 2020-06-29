@@ -9,6 +9,7 @@ const actions = {
 	SUBMIT_WIZARD: 'SUBMIT_WIZARD',
 	NEXT_STEP: 'NEXT_STEP',
 	PREVIOUS_STEP: 'PREVIOUS_STEP',
+	START_SUBMIT_WIZARD: 'START_SUBMIT_WIZARD',
 };
 
 /**
@@ -19,7 +20,8 @@ const Navigation = () => {
 	const isLast = state.active === STEPS.WORK;
 
 	const handleClick = type => {
-		if ( actions.SUBMIT_WIZARD === type ) {
+		if ( actions.START_SUBMIT_WIZARD === type ) {
+			dispatch( { type: actions.START_SUBMIT_WIZARD } );
 			dispatch( { type: actions.SUBMIT_WIZARD } );
 		}
 
@@ -70,7 +72,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								onClick={ () => handleClick( 'SUBMIT_WIZARD' ) }
+								onClick={ () => handleClick( 'START_SUBMIT_WIZARD' ) }
 								loading={ state.loading }
 							/>
 						) }
