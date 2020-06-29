@@ -9,6 +9,7 @@ const initialState = {
 	addons: [ 'THEME', 'DEMO' ],
 	active: 'WELCOME',
 	previous: [],
+	loading: false,
 };
 
 describe( 'Reducer', () => {
@@ -103,5 +104,16 @@ describe( 'Reducer', () => {
 		const result = reducer( initialState, action );
 
 		expect( result.addons ).toHaveLength( 1 );
+	} );
+
+	it( 'should add loader', () => {
+		const action = {
+			type: 'START_SUBMIT_WIZARD',
+			payload: null,
+		};
+
+		const result = reducer( initialState, action );
+
+		expect( result.loading ).toStrictEqual( true );
 	} );
 } );
