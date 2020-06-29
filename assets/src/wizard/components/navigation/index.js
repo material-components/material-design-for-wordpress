@@ -5,12 +5,34 @@ import Button from './button';
 import StepContext from '../../context';
 import { STEPS } from '../../steps';
 
+const actions = {
+	SUBMIT_WIZARD: 'SUBMIT_WIZARD',
+	NEXT_STEP: 'NEXT_STEP',
+	PREVIOUS_STEP: 'PREVIOUS_STEP',
+};
+
 /**
  * Nav buttons at the bottom of app
  */
 const Navigation = () => {
 	const { state, dispatch } = useContext( StepContext );
 	const isLast = state.active === STEPS.WORK;
+
+	const handleClick = type => {
+		if ( actions.SUBMIT_WIZARD === type ) {
+			dispatch( { type: actions.SUBMIT_WIZARD } );
+		}
+
+		if ( actions.NEXT_STEP === type ) {
+			window.scrollTo( 0, 0 );
+			dispatch( { type: actions.NEXT_STEP } );
+		}
+
+		if ( actions.PREVIOUS_STEP === type ) {
+			window.scrollTo( 0, 0 );
+			dispatch( { type: actions.PREVIOUS_STEP } );
+		}
+	};
 
 	return (
 		<div className="mdc-layout-grid__inner">
@@ -29,7 +51,7 @@ const Navigation = () => {
 								style="material-wizard__next"
 								text={ __( 'Previous Step', 'material-theme-builder' ) }
 								leadingIcon="navigate_before"
-								onClick={ () => dispatch( { type: 'PREVIOUS_STEP' } ) }
+								onClick={ () => handleClick( 'PREVIOUS_STEP' ) }
 							/>
 						) }
 					</div>
@@ -40,7 +62,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Next Step', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								onClick={ () => dispatch( { type: 'NEXT_STEP' } ) }
+								onClick={ () => handleClick( 'NEXT_STEP' ) }
 							/>
 						) }
 						{ isLast && (
@@ -48,7 +70,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								onClick={ () => dispatch( { type: 'SUBMIT_WIZARD' } ) }
+								onClick={ () => handleClick( 'SUBMIT_WIZARD' ) }
 							/>
 						) }
 					</div>
