@@ -31,6 +31,10 @@
 }
 
 #material-onboarding-wizard {
+	--mdc-typography-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline3-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline4-font-family: "Roboto", sans-serif;
+	--mdc-typography-body1-font-family: "Roboto", sans-serif;
 	--mdc-typography-button-font-family: "Roboto", sans-serif;
 	margin-top: -32px;
 }
