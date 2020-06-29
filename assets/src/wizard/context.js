@@ -19,6 +19,7 @@ const initialState = {
 	addons: Object.keys( ADDONS ),
 	active: STEPS.WELCOME,
 	previous: [],
+	loading: false,
 };
 
 /**
