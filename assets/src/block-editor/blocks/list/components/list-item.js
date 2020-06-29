@@ -1,5 +1,6 @@
 import { useEffect, useRef } from '@wordpress/element';
 import { __experimentalRichText as RichText } from '@wordpress/rich-text';
+import { __ } from '@wordpress/i18n';
 
 const ListItem = ( {
 	primaryText,
@@ -14,6 +15,8 @@ const ListItem = ( {
 	index,
 	setItem,
 	deleteItem,
+	onPrimaryTextChange,
+	onSecondaryTextChange,
 } ) => {
 	const primaryRef = useRef();
 	const secondaryRef = useRef();
@@ -68,18 +71,6 @@ const ListItem = ( {
 		}
 	};
 
-	const onPrimaryTextChange = text => {
-		setItem( index, {
-			primaryText: text,
-		} );
-	};
-
-	const onSecondaryChange = text => {
-		setItem( index, {
-			secondaryText: text,
-		} );
-	};
-
 	const onSelectionChange = () => {};
 
 	useEffect( () => {
@@ -101,7 +92,7 @@ const ListItem = ( {
 					<RichText
 						ref={ primaryRef }
 						value={ primaryText }
-						onChange={ onPrimaryTextChange }
+						onChange={ text => onPrimaryTextChange( index, text ) }
 						onSelectionChange={ onSelectionChange }
 						__unstableOnCreateUndoLevel={ onSelectionChange }
 						onDelete={ onPrimaryDelete }
@@ -116,13 +107,14 @@ const ListItem = ( {
 						<RichText
 							ref={ secondaryRef }
 							value={ secondaryText }
-							onChange={ onSecondaryChange }
+							onChange={ text => onSecondaryTextChange( index, text ) }
 							onSelectionChange={ onSelectionChange }
 							__unstableOnCreateUndoLevel={ onSelectionChange }
 							onDelete={ onSecondaryDelete }
 							onEnter={ onSecondaryEnter }
 							unstableOnFocus={ () => onFocus( index, isSecondaryEnabled ) }
 							className="rich-text block-editor-rich-text__editable"
+							placeholder={ __( 'Secondary text…', 'material-theme-builder' ) }
 						/>
 					</span>
 				) }

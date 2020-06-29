@@ -60,16 +60,35 @@ const ListEdit = ( {
 			secondaryText: '',
 			icon: 'favorite',
 		} );
+
 		setAttributes( { items: newItems } );
 	};
 
-	const setItem = debounce( ( index, newItem ) => {
+	const setItem = ( index, newItem ) => {
 		const newItems = [ ...items ];
 		const item = newItems[ index ] || {};
 		newItems[ index ] = { ...item, ...newItem };
 
 		setAttributes( { items: newItems } );
-	}, 300 );
+	};
+
+	const onPrimaryTextChange = ( index, text ) => {
+		if ( ! items[ index ] ) {
+			return;
+		}
+
+		items[ index ].primaryText = text;
+		setAttributes( { items } );
+	};
+
+	const onSecondaryTextChange = ( index, text ) => {
+		if ( ! items[ index ] ) {
+			return;
+		}
+
+		items[ index ].secondaryText = text;
+		setAttributes( { items } );
+	};
 
 	const deleteItem = ( index, text ) => {
 		if ( index === 0 ) {
@@ -143,6 +162,8 @@ const ListEdit = ( {
 						isSecondarySelected={ i === selected.index && selected.isSecondary }
 						setItem={ setItem }
 						deleteItem={ deleteItem }
+						onPrimaryTextChange={ onPrimaryTextChange }
+						onSecondaryTextChange={ onSecondaryTextChange }
 					/>
 				) ) }
 			</ul>
