@@ -1,4 +1,5 @@
 import React from 'react';
+import { Loader } from './loader';
 
 /**
  * Action button
@@ -10,11 +11,17 @@ const Button = props => {
 		return <Link { ...props } />;
 	}
 
-	const { style, text, leadingIcon, trailingIcon, onClick } = props;
+	const { style, text, leadingIcon, trailingIcon, onClick, loading } = props;
+	const showLeadingIcon = ! loading && leadingIcon;
+	const showTrailingIcon = ! loading && trailingIcon;
+	const loadingClass = loading ? ' is-loading' : '';
 
 	return (
-		<button className={ `mdc-button ${ style }` } onClick={ onClick }>
-			{ leadingIcon && (
+		<button
+			className={ `mdc-button ${ style }${ loadingClass }` }
+			onClick={ onClick }
+		>
+			{ showLeadingIcon && (
 				<i
 					className="material-icons mdc-button__icon leading-icon"
 					aria-hidden="true"
@@ -22,8 +29,12 @@ const Button = props => {
 					{ leadingIcon }
 				</i>
 			) }
-			<span className="mdc-button__label">{ text }</span>
-			{ trailingIcon && (
+
+			{ ! loading && <span className="mdc-button__label">{ text }</span> }
+
+			{ loading && <Loader /> }
+
+			{ showTrailingIcon && (
 				<i
 					className="material-icons mdc-button__icon trailing-icon"
 					aria-hidden="true"

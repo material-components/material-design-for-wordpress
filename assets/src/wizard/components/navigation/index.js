@@ -71,6 +71,7 @@ const Navigation = () => {
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
 								onClick={ () => handleClick( 'SUBMIT_WIZARD' ) }
+								loading={ state.loading }
 							/>
 						) }
 					</div>
