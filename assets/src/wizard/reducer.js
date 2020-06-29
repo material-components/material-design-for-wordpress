@@ -30,6 +30,7 @@ export const reducer = ( state, action ) => {
 			...state,
 			previous: [ active, ...previous ],
 			active: steps[ stepIndex + 1 ],
+			loading: false,
 		};
 	}
 
@@ -41,6 +42,7 @@ export const reducer = ( state, action ) => {
 		newState = {
 			...state,
 			previous: previous.filter( item => item !== newActive ),
+			loading: false,
 		};
 
 		newState.active = newActive;
@@ -54,6 +56,10 @@ export const reducer = ( state, action ) => {
 		}
 
 		return { ...state, addons: addons.filter( item => item !== payload ) };
+	}
+
+	if ( 'START_SUBMIT_WIZARD' === type ) {
+		return { ...state, loading: true };
 	}
 
 	if ( 'SUBMIT_WIZARD' === type ) {
