@@ -836,6 +836,7 @@ Object {
               class="mdc-list-item__secondary-text"
             >
               <div
+                aria-label="Secondary text…"
                 aria-multiline="true"
                 class="rich-text rich-text block-editor-rich-text__editable"
                 contenteditable="true"
@@ -875,6 +876,7 @@ Object {
               class="mdc-list-item__secondary-text"
             >
               <div
+                aria-label="Secondary text…"
                 aria-multiline="true"
                 class="rich-text rich-text block-editor-rich-text__editable"
                 contenteditable="true"
@@ -921,6 +923,7 @@ Object {
             class="mdc-list-item__secondary-text"
           >
             <div
+              aria-label="Secondary text…"
               aria-multiline="true"
               class="rich-text rich-text block-editor-rich-text__editable"
               contenteditable="true"
@@ -960,6 +963,7 @@ Object {
             class="mdc-list-item__secondary-text"
           >
             <div
+              aria-label="Secondary text…"
               aria-multiline="true"
               class="rich-text rich-text block-editor-rich-text__editable"
               contenteditable="true"
