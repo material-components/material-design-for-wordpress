@@ -49,7 +49,13 @@ export const handleDemoImporter = () => {
 	return new Promise( ( resolve, reject ) => {
 		fetch( `${ mtbWizard.restUrl }install-content`, parameters )
 			.then( response => response.json() )
-			.then( resolve )
+			.then( response => {
+				if ( response.code ) {
+					reject( response );
+				} else {
+					resolve( response );
+				}
+			} )
 			.catch( error => reject( error ) );
 	} );
 };

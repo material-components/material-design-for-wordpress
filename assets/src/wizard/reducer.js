@@ -1,11 +1,4 @@
-/* global mtbWizard */
-import { STEPS } from './steps';
-import { ADDONS } from './addons';
-import {
-	handleThemeActivation,
-	handleDemoImporter,
-	redirectToSettings,
-} from './utils';
+import { STEPS, STATUS } from './constants';
 
 /**
  * Actions to be taken during the app's life circle
@@ -30,7 +23,7 @@ export const reducer = ( state, action ) => {
 			...state,
 			previous: [ active, ...previous ],
 			active: steps[ stepIndex + 1 ],
-			loading: false,
+			status: STATUS.IDLE,
 		};
 	}
 
@@ -42,7 +35,7 @@ export const reducer = ( state, action ) => {
 		newState = {
 			...state,
 			previous: previous.filter( item => item !== newActive ),
-			loading: false,
+			status: STATUS.IDLE,
 		};
 
 		newState.active = newActive;
@@ -58,35 +51,8 @@ export const reducer = ( state, action ) => {
 		return { ...state, addons: addons.filter( item => item !== payload ) };
 	}
 
-	if ( 'START_SUBMIT_WIZARD' === type ) {
-		return { ...state, loading: true };
-	}
-
 	if ( 'SUBMIT_WIZARD' === type ) {
-		if ( 0 === addons.length ) {
-			return window.location.replace( mtbWizard.settingsUrl );
-		}
-
-		const requests = [];
-
-		if ( addons.includes( ADDONS.THEME ) ) {
-			requests.push( handleThemeActivation() );
-		}
-
-		if ( addons.includes( ADDONS.DEMO ) && ! addons.includes( ADDONS.THEME ) ) {
-			requests.push( handleDemoImporter() );
-		}
-
-		Promise.all( requests ).then( values => {
-			// Ensure menu items are attached to the theme.
-			if ( addons.includes( ADDONS.DEMO ) && addons.includes( ADDONS.THEME ) ) {
-				handleDemoImporter().then( response => {
-					redirectToSettings( response );
-				} );
-			} else {
-				redirectToSettings( values[ 0 ] || values[ 1 ] );
-			}
-		} );
+		return { ...state, status: STATUS.PENDING };
 	}
 
 	return state;

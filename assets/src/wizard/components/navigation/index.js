@@ -3,14 +3,7 @@ import React, { useContext } from 'react';
 import { __ } from '@wordpress/i18n';
 import Button from './button';
 import StepContext from '../../context';
-import { STEPS } from '../../steps';
-
-const actions = {
-	SUBMIT_WIZARD: 'SUBMIT_WIZARD',
-	NEXT_STEP: 'NEXT_STEP',
-	PREVIOUS_STEP: 'PREVIOUS_STEP',
-	START_SUBMIT_WIZARD: 'START_SUBMIT_WIZARD',
-};
+import { STEPS, STATUS, ACTIONS } from '../../constants';
 
 /**
  * Nav buttons at the bottom of app
@@ -18,21 +11,21 @@ const actions = {
 const Navigation = () => {
 	const { state, dispatch } = useContext( StepContext );
 	const isLast = state.active === STEPS.WORK;
+	const isLoading = state.status === STATUS.PENDING;
 
 	const handleClick = type => {
-		if ( actions.START_SUBMIT_WIZARD === type ) {
-			dispatch( { type: actions.START_SUBMIT_WIZARD } );
-			dispatch( { type: actions.SUBMIT_WIZARD } );
+		if ( ACTIONS.START_SUBMIT_WIZARD === type ) {
+			dispatch( { type: ACTIONS.SUBMIT_WIZARD } );
 		}
 
-		if ( actions.NEXT_STEP === type ) {
+		if ( ACTIONS.NEXT_STEP === type ) {
 			window.scrollTo( 0, 0 );
-			dispatch( { type: actions.NEXT_STEP } );
+			dispatch( { type: ACTIONS.NEXT_STEP } );
 		}
 
-		if ( actions.PREVIOUS_STEP === type ) {
+		if ( ACTIONS.PREVIOUS_STEP === type ) {
 			window.scrollTo( 0, 0 );
-			dispatch( { type: actions.PREVIOUS_STEP } );
+			dispatch( { type: ACTIONS.PREVIOUS_STEP } );
 		}
 	};
 
@@ -73,7 +66,7 @@ const Navigation = () => {
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
 								onClick={ () => handleClick( 'START_SUBMIT_WIZARD' ) }
-								loading={ state.loading }
+								loading={ isLoading }
 							/>
 						) }
 					</div>

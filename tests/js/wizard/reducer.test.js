@@ -9,7 +9,7 @@ const initialState = {
 	addons: [ 'THEME', 'DEMO' ],
 	active: 'WELCOME',
 	previous: [],
-	loading: false,
+	status: 'IDLE',
 };
 
 describe( 'Reducer', () => {
@@ -106,14 +106,14 @@ describe( 'Reducer', () => {
 		expect( result.addons ).toHaveLength( 1 );
 	} );
 
-	it( 'should add loader', () => {
+	it( 'should be pending status', () => {
 		const action = {
-			type: 'START_SUBMIT_WIZARD',
+			type: 'SUBMIT_WIZARD',
 			payload: null,
 		};
 
 		const result = reducer( initialState, action );
 
-		expect( result.loading ).toStrictEqual( true );
+		expect( result.status ).toStrictEqual( 'PENDING' );
 	} );
 } );
