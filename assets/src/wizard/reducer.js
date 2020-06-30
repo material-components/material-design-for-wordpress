@@ -1,4 +1,4 @@
-import { STEPS, STATUS } from './constants';
+import { STEPS, STATUS, ACTIONS } from './constants';
 
 /**
  * Actions to be taken during the app's life circle
@@ -12,7 +12,7 @@ export const reducer = ( state, action ) => {
 	const { active, previous, addons } = state;
 	const { type, payload } = action;
 
-	if ( 'NEXT_STEP' === type ) {
+	if ( ACTIONS.NEXT_STEP === type ) {
 		const stepIndex = steps.indexOf( active );
 
 		if ( stepIndex + 1 === steps.length ) {
@@ -27,7 +27,7 @@ export const reducer = ( state, action ) => {
 		};
 	}
 
-	if ( 'PREVIOUS_STEP' === type ) {
+	if ( ACTIONS.PREVIOUS_STEP === type ) {
 		const stepIndex = steps.indexOf( active );
 		let newState = { ...state };
 		const newActive = steps[ stepIndex - 1 ];
@@ -43,7 +43,7 @@ export const reducer = ( state, action ) => {
 		return newState;
 	}
 
-	if ( 'TOGGLE_ADDON' === type ) {
+	if ( ACTIONS.TOGGLE_ADDON === type ) {
 		if ( ! addons.includes( payload ) ) {
 			return { ...state, addons: [ payload, ...addons ] };
 		}
@@ -51,8 +51,12 @@ export const reducer = ( state, action ) => {
 		return { ...state, addons: addons.filter( item => item !== payload ) };
 	}
 
-	if ( 'SUBMIT_WIZARD' === type ) {
+	if ( ACTIONS.SUBMIT_WIZARD === type ) {
 		return { ...state, status: STATUS.PENDING };
+	}
+
+	if ( ACTIONS.WIZARD_ERROR === type ) {
+		return { ...state, status: STATUS.ERROR, error: payload };
 	}
 
 	return state;
