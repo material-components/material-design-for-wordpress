@@ -1,10 +1,12 @@
 .material-wizard {
 	--mdc-typography-headline5-font-family: "Roboto Mono", monospace;
 	--mtb-wizard-primary-color: #212121;
+	--mtb-wizard-primary-text: #fff;
 	max-width: 1024px;
 
 	& .mdc-button {
 		--mdc-theme-primary: var(--mtb-wizard-primary-color);
+		--mdc-theme-on-primary: var(--mtb-wizard-primary-text);
 	}
 
 	& h3,
@@ -29,5 +31,10 @@
 }
 
 #material-onboarding-wizard {
+	--mdc-typography-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline3-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline4-font-family: "Roboto", sans-serif;
+	--mdc-typography-body1-font-family: "Roboto", sans-serif;
+	--mdc-typography-button-font-family: "Roboto", sans-serif;
 	margin-top: -32px;
 }
