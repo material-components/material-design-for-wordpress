@@ -14,7 +14,7 @@ const Navigation = () => {
 	const isLoading = state.status === STATUS.PENDING;
 
 	const handleClick = type => {
-		if ( ACTIONS.START_SUBMIT_WIZARD === type ) {
+		if ( ACTIONS.SUBMIT_WIZARD === type ) {
 			dispatch( { type: ACTIONS.SUBMIT_WIZARD } );
 		}
 
@@ -65,7 +65,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								onClick={ () => handleClick( 'START_SUBMIT_WIZARD' ) }
+								onClick={ () => handleClick( 'SUBMIT_WIZARD' ) }
 								loading={ isLoading }
 							/>
 						) }
