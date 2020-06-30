@@ -186,6 +186,7 @@ class Importer extends Module_Base {
 
 		// Set menu to "tabs" location.
 		$menu_locations['menu-1'] = $menu_id;
+		$menu_locations['menu-2'] = $menu_id;
 
 		set_theme_mod( 'nav_menu_locations', $menu_locations );
 	}
@@ -335,6 +336,8 @@ class Importer extends Module_Base {
 	public function update_blog_info() {
 		$home_page = $this->plugin->get_page_by_title( __( 'Home', 'material-theme-builder' ) );
 		$blog_page = $this->plugin->get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
+
+		set_theme_mod( 'material_header_search_display', true );
 
 		if ( $home_page ) {
 			update_option( 'page_on_front', $home_page->ID );

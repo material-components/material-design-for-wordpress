@@ -73,12 +73,19 @@ export const reducer = ( state, action ) => {
 			requests.push( handleThemeActivation() );
 		}
 
-		if ( addons.includes( ADDONS.DEMO ) ) {
+		if ( addons.includes( ADDONS.DEMO ) && ! addons.includes( ADDONS.THEME ) ) {
 			requests.push( handleDemoImporter() );
 		}
 
 		Promise.all( requests ).then( values => {
-			redirectToSettings( values[ 0 ] || values[ 1 ] );
+			// Ensure menu items are attached to the theme.
+			if ( addons.includes( ADDONS.DEMO ) && addons.includes( ADDONS.THEME ) ) {
+				handleDemoImporter().then( response => {
+					redirectToSettings( response );
+				} );
+			} else {
+				redirectToSettings( values[ 0 ] || values[ 1 ] );
+			}
 		} );
 	}
 
