@@ -35,6 +35,7 @@ module.exports = function( grunt ) {
 					'!package-lock.json',
 					'!phpcs.xml',
 					'!phpunit.xml',
+					'!postcss.config.js',
 					'!readme.md',
 					'!renovate.json',
 					'!tests/**',
@@ -52,8 +53,11 @@ module.exports = function( grunt ) {
 			compiled: {
 				src: [
 					'assets/js/*.js',
-					'!assets/js/admin.js',
+					'assets/js/*.js.map',
 					'assets/js/*.asset.php',
+					'assets/css/*.css',
+					'!assets/css/src/*',
+					'assets/css/*.css.map',
 				],
 			},
 			build: {
@@ -71,7 +75,7 @@ module.exports = function( grunt ) {
 				command: './vendor/xwp/wp-dev-lib/scripts/generate-markdown-readme', // Generate the readme.md.
 			},
 			create_build_zip: {
-				command: 'if [ ! -e build ]; then echo "Run grunt build first."; exit 1; fi; if [ -e material-theme-builder.zip ]; then rm material-theme-builder.zip; fi; cd build; zip -r ../material-theme-builder.zip .; cd ..; echo; echo "ZIP of build: $(pwd)/material-theme-builder.zip"',
+				command: 'if [ ! -e build ]; then echo "Run grunt build first."; exit 1; fi; if [ -e material-theme-builder.zip ]; then rm material-theme-builder.zip; fi; mv build material-theme-builder; zip -r ./material-theme-builder.zip material-theme-builder; mv material-theme-builder build; echo; echo "ZIP of build: $(pwd)/material-theme-builder.zip"',
 			},
 		},
 
