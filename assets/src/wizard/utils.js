@@ -29,6 +29,10 @@ export const handleThemeActivation = () => {
 						.then( resolve )
 						.catch( error => reject( error ) );
 				} else {
+					if ( data.code ) {
+						reject( data );
+					}
+
 					resolve( data );
 				}
 			} )
@@ -66,7 +70,7 @@ export const handleDemoImporter = () => {
  * @param {*} data Request json response
  */
 export const redirectToSettings = data => {
-	if ( 'success' === data.status ) {
+	if ( data && 'success' === data.status ) {
 		return window.location.replace( mtbWizard.settingsUrl );
 	}
 };

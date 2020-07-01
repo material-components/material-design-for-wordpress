@@ -2,6 +2,7 @@ import React from 'react';
 
 /**
  * Prepare for notices
+ *
  * @param {*} props Component props
  */
 const Notice = props => {
