@@ -28,7 +28,12 @@ const Content = () => {
 			const requests = [];
 
 			if ( addons.includes( ADDONS.THEME ) ) {
-				requests.push( handleThemeActivation() );
+				requests.push(
+					handleThemeActivation().catch( error => {
+						window.scrollTo( 0, 0 );
+						dispatch( { type: ACTIONS.WIZARD_ERROR, payload: error } );
+					} )
+				);
 			}
 
 			if (
@@ -57,7 +62,7 @@ const Content = () => {
 				}
 			} );
 		}
-	}, [ status ] );
+	}, [ status, addons, dispatch ] );
 
 	return (
 		<Fragment>
