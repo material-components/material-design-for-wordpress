@@ -55,12 +55,13 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	public static function tabs_template() {
 		?>
 		<script type="text/html" id="tmpl-customize-control-material_color-tabs">
+			<# var id = data.id.replace(/\]$/, '').replace(/\[|\]/g, '-') #>
 			<div class="mtb-tabs">
-				<a class="mtb-tab-link" href="#mtb-palette-{{data.id}}"><?php esc_html_e( 'Palette', 'material-theme-builder' ); ?></a>
-				<a class="mtb-tab-link" href="#mtb-custom-{{data.id}}"><?php esc_html_e( 'Custom', 'material-theme-builder' ); ?></a>
+				<a class="mtb-tab-link" href="#mtb-palette-{{id}}"><?php esc_html_e( 'Palette', 'material-theme-builder' ); ?></a>
+				<a class="mtb-tab-link" href="#mtb-custom-{{id}}"><?php esc_html_e( 'Custom', 'material-theme-builder' ); ?></a>
 			</div>
-			<div class="mtb-tab-content tab-palette" id="mtb-palette-{{data.id}}"></div>
-			<div class="mtb-tab-content tab-custom" id="mtb-custom-{{data.id}}"></div>
+			<div class="mtb-tab-content tab-palette" id="mtb-palette-{{id}}"></div>
+			<div class="mtb-tab-content tab-custom" id="mtb-custom-{{id}}"></div>
 			<div class="mtb-accessibility"></div>
 		</script>
 		<script type="text/html" id="tmpl-customize-control-material_color-accessibility">

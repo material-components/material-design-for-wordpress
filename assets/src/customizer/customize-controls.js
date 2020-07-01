@@ -42,7 +42,7 @@ import ThemePrompt from './components/theme-prompt';
 	const BUTTON_OPEN_TEXT = __( 'Material Library', 'material-theme-builder' );
 	const BUTTON_CLOSE_TEXT = __( 'Exit Library', 'material-theme-builder' );
 
-	// Bind for previwer events.
+	// Bind for previewer events.
 	$( function() {
 		api.previewer.bind( 'mtb', settings => {
 			notificationCount = settings.notificationCount;
@@ -120,6 +120,8 @@ import ThemePrompt from './components/theme-prompt';
 		initMaterialComponents();
 	};
 
+	const themeColorControls = [ 'background_color', 'background_text_color' ];
+
 	/**
 	 * Gets all the controls' setting
 	 * values and returns them in an object.
@@ -138,16 +140,13 @@ import ThemePrompt from './components/theme-prompt';
 		}
 
 		mtb.controls
-			.concat( [
-				'material_background_color',
-				'material_background_text_color',
-			] )
+			.concat( themeColorControls.map( name => `material_${ name }` ) )
 			.concat( radiusControls )
 			.forEach( name => {
 				const setting = api( name );
 
 				if ( setting ) {
-					const prop = camelCase( name.replace( `${ getSlug( name ) }_`, '' ) );
+					const prop = camelCase( removeOptionPrefix( name ) );
 					let value = setting.get();
 
 					if ( radiusControlsLookup.hasOwnProperty( name ) ) {
@@ -637,9 +636,11 @@ import ThemePrompt from './components/theme-prompt';
 						const $control = $( event.target ).closest(
 								'.customize-control-material_color'
 							),
-							controlName = $control
+							name = $control
 								.attr( 'id' )
-								.replace( 'customize-control-', '' ),
+								.replace( 'customize-control-', '' )
+								.replace( `${ mtb.slug }-`, '' ),
+							controlName = getControlName( name ),
 							colorControl = api.control( controlName );
 
 						// Unbind the custom value change event.
@@ -647,9 +648,7 @@ import ThemePrompt from './components/theme-prompt';
 
 						// Set the value from style defaults.
 						colorControl.setting.set(
-							mtb.designStyles[ style ][
-								controlName.replace( `${ getSlug( controlName ) }_`, '' )
-							]
+							mtb.designStyles[ style ][ removeOptionPrefix( controlName ) ]
 						);
 
 						// Rebind the custom value change event.
@@ -780,12 +779,12 @@ import ThemePrompt from './components/theme-prompt';
 
 		if ( style && mtb.designStyles.hasOwnProperty( style ) ) {
 			const defaults = mtb.designStyles[ style ];
-			let settingId = control.id.replace( `${ getSlug( control.id ) }_`, '' );
+			let settingId = removeOptionPrefix( control.id );
 			api( control.id ).set( defaults[ settingId ] );
 
 			if ( control.params.children ) {
 				control.params.children.forEach( slider => {
-					settingId = slider.id.replace( `${ getSlug( slider.id ) }_`, '' );
+					settingId = removeOptionPrefix( slider.id );
 
 					api( slider.id ).set( defaults[ settingId ] );
 				} );
@@ -858,7 +857,22 @@ import ThemePrompt from './components/theme-prompt';
 	 * @param {string} name name of the control
 	 */
 	const getSlug = name =>
-		-1 !== name.indexOf( 'background_' ) ? 'material' : mtb.slug;
+		themeColorControls.includes( name ) ? 'material' : mtb.slug;
+
+	const removeOptionPrefix = name => {
+		const match = name.match( /\[([^\]]+)\]/ );
+		if ( match ) {
+			return match[ 1 ];
+		}
+		return name.replace( /^material_/, '' ).replace( mtb.slug, '' );
+	};
+
+	const getControlName = name => {
+		name = removeOptionPrefix( name );
+		return themeColorControls.includes( name )
+			? `${ getSlug( name ) }_${ name }`
+			: `${ getSlug( name ) }[${ name }]`;
+	};
 
 	/**
 	 * Callback when a "Design Style" is changed.
@@ -892,7 +906,7 @@ import ThemePrompt from './components/theme-prompt';
 		// and update the corresponding control value.
 		Object.keys( defaults ).forEach( name => {
 			const value = defaults[ name ];
-			const control = api.control( `${ getSlug( name ) }_${ name }` );
+			const control = api.control( getControlName( name ) );
 
 			if ( value && control ) {
 				// Unbind the custom value change event.

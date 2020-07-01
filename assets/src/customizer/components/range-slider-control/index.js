@@ -61,7 +61,12 @@ const RangeSliderControl = props => {
 	const renderLink = 'undefined' !== typeof linked && ! linked;
 
 	return (
-		<div id={ `range-slider-control-${ id }` } className="range-slider-control">
+		<div
+			id={ `range-slider-control-${ id
+				.replace( /\]$/, '' )
+				.replace( /\[|\]/g, '-' ) }` }
+			className="range-slider-control"
+		>
 			<div
 				className={ classNames( 'range-slider-control-header', {
 					expanded,
