@@ -19,7 +19,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/1.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/1.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -41,7 +41,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/2.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/2.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -63,7 +63,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/3.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/3.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -85,7 +85,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/4.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/4.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -107,7 +107,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/5.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/5.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -129,7 +129,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/6.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/6.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -151,7 +151,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/7.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/7.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -173,7 +173,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/8.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/8.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -195,7 +195,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/9.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/9.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -217,7 +217,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/10.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/10.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -239,7 +239,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/11.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/11.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -261,7 +261,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/12.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/12.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -283,7 +283,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/13.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/13.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -305,7 +305,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/14.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/14.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
@@ -327,7 +327,7 @@ const ImageLists = ( { radius } ) => (
 					<img
 						style={ { borderRadius: `${ radius }px` } }
 						className="mdc-image-list__image"
-						src={ mtb.pluginPath + 'assets/images/kitchen-sink/15.jpg' }
+						src={ mtb.pluginPath + 'assets/images/material-library/15.jpg' }
 						alt={ __( 'Text label', 'material-theme-builder' ) }
 					/>
 					<div
