@@ -46,7 +46,7 @@ const googleFontsUrl = ( headings, body ) => {
 	return link;
 };
 
-const KitchenSink = ( {
+const MaterialLibrary = ( {
 	primaryColor,
 	bodyFontFamily,
 	headFontFamily,
@@ -93,7 +93,7 @@ const KitchenSink = ( {
 				iconCollection={ materialIconFontName( iconCollection ) }
 			/>
 
-			<div id="kitchen-sink-preview">
+			<div id="material-library-preview">
 				<h2 className="mdc-typography--headline2">
 					{ __( 'Material Components', 'material-theme-builder' ) }
 				</h2>
@@ -150,4 +150,4 @@ const KitchenSink = ( {
 	);
 };
 
-export default KitchenSink;
+export default MaterialLibrary;
