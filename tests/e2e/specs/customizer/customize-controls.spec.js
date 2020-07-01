@@ -20,23 +20,15 @@ describe( 'Customize controls', () => {
 	describe( 'Panel and collapsible sections', () => {
 		it( 'should add custom material theme settings panel', async () => {
 			// Check if panel is added
-			expect( await page.$( '#accordion-panel-mtb' ) ).not.toBeNull();
+			expect(
+				await page.$( '#accordion-panel-material_theme_builder' )
+			).not.toBeNull();
 		} );
 
 		it( 'should display custom material theme sections', async () => {
-			const title = await page.$( '#accordion-panel-mtb h3' );
-			await page.evaluate( btn => {
-				btn.click();
-			}, title );
-
-			await page.waitFor( 500 );
-
-			// Assert style section is displayed.
-			expect( await isVisible( '#accordion-section-mtb_style' ) ).toBeTruthy();
-		} );
-
-		it( 'should expand collapsible section', async () => {
-			const title = await page.$( '#accordion-section-mtb_style h3' );
+			const title = await page.$(
+				'#accordion-panel-material_theme_builder h3'
+			);
 			await page.evaluate( btn => {
 				btn.click();
 			}, title );
@@ -45,12 +37,30 @@ describe( 'Customize controls', () => {
 
 			// Assert style section is displayed.
 			expect(
-				await isVisible( '#sub-accordion-section-mtb_style' )
+				await isVisible( '#accordion-section-material_theme_builder_style' )
+			).toBeTruthy();
+		} );
+
+		it( 'should expand collapsible section', async () => {
+			const title = await page.$(
+				'#accordion-section-material_theme_builder_style h3'
+			);
+			await page.evaluate( btn => {
+				btn.click();
+			}, title );
+
+			await page.waitFor( 500 );
+
+			// Assert style section is displayed.
+			expect(
+				await isVisible( '#sub-accordion-section-material_theme_builder_style' )
 			).toBeTruthy();
 		} );
 
 		it( 'should collapse collapsible section', async () => {
-			const title = await page.$( '#accordion-section-mtb_style h3' );
+			const title = await page.$(
+				'#accordion-section-material_theme_builder_style h3'
+			);
 			await page.evaluate( btn => {
 				btn.click();
 			}, title );
@@ -59,18 +69,18 @@ describe( 'Customize controls', () => {
 
 			// Assert style section is displayed.
 			expect(
-				await isVisible( '#sub-accordion-section-mtb_style' )
+				await isVisible( '#sub-accordion-section-material_theme_builder_style' )
 			).toBeFalsy();
 		} );
 	} );
 
 	describe( 'Design Style section', () => {
 		it( 'should update primary color if a style is selected', async () => {
-			const crane = await page.$( '#mtb_style-crane' );
+			const crane = await page.$( '#material_theme_builder-style-crane' );
 			await page.evaluate( radio => radio.click(), crane );
 
 			const primaryColor = await page.$(
-				'#customize-control-mtb_primary_color .color-picker-hex'
+				'#customize-control-material_theme_builder-primary_color .color-picker-hex'
 			);
 
 			// Assert primary color is updated.
@@ -78,7 +88,9 @@ describe( 'Customize controls', () => {
 				await page.evaluate( input => input.value, primaryColor )
 			).toEqual( '#5d1049' );
 
-			const fortnightly = await page.$( '#mtb_style-fortnightly' );
+			const fortnightly = await page.$(
+				'#material_theme_builder-style-fortnightly'
+			);
 			await page.evaluate( radio => radio.click(), fortnightly );
 
 			// Assert primary color is updated.
@@ -89,7 +101,7 @@ describe( 'Customize controls', () => {
 
 		it( 'should update design style to custom if any value is updated', async () => {
 			const primaryColor = await page.$(
-				'#customize-control-mtb_primary_color .color-picker-hex'
+				'#customize-control-material_theme_builder-primary_color .color-picker-hex'
 			);
 			await page.evaluate( input => {
 				input.value = '#000000';
@@ -97,7 +109,7 @@ describe( 'Customize controls', () => {
 			}, primaryColor );
 
 			const selectedOption = await page.$(
-				'[name=_customize-radio-mtb_style]:checked'
+				'[name="_customize-radio-material_theme_builder-style"]:checked'
 			);
 
 			// Assert style is updated to custom.
@@ -109,7 +121,9 @@ describe( 'Customize controls', () => {
 
 	describe( 'Color Palettes section', () => {
 		beforeAll( async () => {
-			const title = await page.$( '#accordion-section-mtb_colors h3' );
+			const title = await page.$(
+				'#accordion-section-material_theme_builder_colors h3'
+			);
 			await page.evaluate( btn => {
 				btn.click();
 			}, title );
@@ -120,21 +134,25 @@ describe( 'Customize controls', () => {
 		it( 'should always display color input field', async () => {
 			expect(
 				await isVisible(
-					'#customize-control-mtb_primary_color .color-picker-hex'
+					'#customize-control-material_theme_builder-primary_color .color-picker-hex'
 				)
 			).toBeTruthy();
 		} );
 
 		it( 'should show two tabs on "Select Color" button click', async () => {
 			const picker = await page.$(
-				'#customize-control-mtb_primary_color .wp-color-result'
+				'#customize-control-material_theme_builder-primary_color .wp-color-result'
 			);
 			await page.evaluate( btn => {
 				btn.click();
 			}, picker );
 
-			const tabOne = await page.$( '#mtb-palette-mtb_primary_color' );
-			const tabTwo = await page.$( '#mtb-custom-mtb_primary_color' );
+			const tabOne = await page.$(
+				'#mtb-palette-material_theme_builder-primary_color'
+			);
+			const tabTwo = await page.$(
+				'#mtb-custom-material_theme_builder-primary_color'
+			);
 
 			expect( tabOne ).not.toBeNull();
 			expect( tabTwo ).not.toBeNull();
@@ -142,7 +160,7 @@ describe( 'Customize controls', () => {
 
 		it( 'should render all material colors', async () => {
 			const colors = await page.$$(
-				'#mtb-palette-mtb_primary_color .components-circular-option-picker__option-wrapper'
+				'#mtb-palette-material_theme_builder-primary_color .components-circular-option-picker__option-wrapper'
 			);
 
 			expect( colors.length ).toEqual( 254 );
@@ -150,14 +168,14 @@ describe( 'Customize controls', () => {
 
 		it( 'should select a color on click', async () => {
 			const firstColor = await page.$(
-				'#mtb-palette-mtb_primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
+				'#mtb-palette-material_theme_builder-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
 			);
 			await page.evaluate( btn => {
 				btn.click();
 			}, firstColor );
 
 			const primaryColor = await page.$(
-				'#customize-control-mtb_primary_color .color-picker-hex'
+				'#customize-control-material_theme_builder-primary_color .color-picker-hex'
 			);
 
 			// Assert primary color is updated.
@@ -171,28 +189,34 @@ describe( 'Customize controls', () => {
 		beforeAll( async () => {
 			await page.evaluate( el => {
 				el.click();
-			}, await page.$( '#accordion-panel-mtb h3' ) );
+			}, await page.$( '#accordion-panel-material_theme_builder h3' ) );
 
 			await page.waitFor( 500 );
 
 			await page.evaluate( el => {
 				el.click();
-			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
+			}, await page.$( '#accordion-section-material_theme_builder_corner_styles h3' ) );
 		} );
 
 		it( 'should always display the `Global corner styles` setting control', async () => {
 			expect(
-				await isVisible( '#range-slider-control-mtb_global_radius' )
+				await isVisible(
+					'#range-slider-control-material_theme_builder-global_radius'
+				)
 			).toBeTruthy();
 		} );
 
 		it( 'should hide all individual component controls', async () => {
 			expect(
-				await page.$( '#range-slider-control-mtb_button_radius' )
+				await page.$(
+					'#range-slider-control-material_theme_builder-button_radius'
+				)
 			).toBeNull();
 
 			expect(
-				await page.$( '#range-slider-control-mtb_text_field_radius' )
+				await page.$(
+					'#range-slider-control-material_theme_builder-text_field_radius'
+				)
 			).toBeNull();
 		} );
 
@@ -202,15 +226,21 @@ describe( 'Customize controls', () => {
 			}, await page.$( '.range-slider-control-settings-expanded' ) );
 
 			expect(
-				await isVisible( '#range-slider-control-mtb_button_radius' )
+				await isVisible(
+					'#range-slider-control-material_theme_builder-button_radius'
+				)
 			).toBeTruthy();
 
 			expect(
-				await isVisible( '#range-slider-control-mtb_image_list_radius' )
+				await isVisible(
+					'#range-slider-control-material_theme_builder-image_list_radius'
+				)
 			).toBeTruthy();
 
 			expect(
-				await isVisible( '#range-slider-control-mtb_text_field_radius' )
+				await isVisible(
+					'#range-slider-control-material_theme_builder-text_field_radius'
+				)
 			).toBeTruthy();
 		} );
 	} );
@@ -219,13 +249,13 @@ describe( 'Customize controls', () => {
 		beforeAll( async () => {
 			await page.evaluate( el => {
 				el.click();
-			}, await page.$( '#accordion-panel-mtb h3' ) );
+			}, await page.$( '#accordion-panel-material_theme_builder h3' ) );
 
 			await page.waitFor( 500 );
 
 			await page.evaluate( el => {
 				el.click();
-			}, await page.$( '#accordion-section-mtb_corner_styles h3' ) );
+			}, await page.$( '#accordion-section-material_theme_builder-corner_styles h3' ) );
 
 			await page.evaluate( el => {
 				el.click();
