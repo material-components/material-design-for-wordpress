@@ -682,7 +682,9 @@ class Controls extends Module_Base {
 		$styles   = $this->get_design_styles();
 		$baseline = $styles['baseline'];
 
-		return isset( $baseline[ $setting ] ) ? $baseline[ $setting ] : '';
+		$value = isset( $baseline[ $setting ] ) ? $baseline[ $setting ] : '';
+
+		return apply_filters( $this->slug . '_get_default_option', $value, $setting );
 	}
 
 	/**
@@ -1035,10 +1037,12 @@ class Controls extends Module_Base {
 		$values = get_option( $this->slug );
 
 		if ( empty( $values ) || ! isset( $values[ $name ] ) ) {
-			return $this->get_default( $name );
+			$value = $this->get_default( $name );
+		} else {
+			$value = $values[ $name ];
 		}
 
-		return $values[ $name ];
+		return apply_filters( "{$this->slug}_get_option_{$name}", $value, $name );
 	}
 
 	/**
