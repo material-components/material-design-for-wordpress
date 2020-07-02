@@ -19,42 +19,63 @@ const Content = () => {
 	const { state, dispatch } = useContext( StepContext );
 	const { addons, status } = state;
 
+	/**
+	 * Display error when found
+	 *
+	 * @param {Object} error WP_Error
+	 */
 	const handleError = error => {
 		window.scrollTo( 0, 0 );
 		dispatch( { type: ACTIONS.WIZARD_ERROR, payload: error } );
 	};
 
+	/**
+	 * Decide fate of onboarding
+	 *
+	 * @param {Array} addons Selected addons
+	 */
+	const triggerOnboardingActions = selectedAddons => {
+		if ( 0 === selectedAddons.length ) {
+			return window.location.replace( mtbWizard.settingsUrl );
+		}
+
+		if (
+			selectedAddons.includes( ADDONS.THEME ) &&
+			! selectedAddons.includes( ADDONS.DEMO )
+		) {
+			handleThemeActivation()
+				.then( redirectToSettings )
+				.catch( handleError );
+		}
+
+		if (
+			selectedAddons.includes( ADDONS.DEMO ) &&
+			! selectedAddons.includes( ADDONS.THEME )
+		) {
+			handleDemoImporter()
+				.then( redirectToSettings )
+				.catch( handleError );
+		}
+
+		if (
+			selectedAddons.includes( ADDONS.THEME ) &&
+			selectedAddons.includes( ADDONS.DEMO )
+		) {
+			handleThemeActivation()
+				.then( () => {
+					handleDemoImporter()
+						.then( redirectToSettings )
+						.catch( handleError );
+				} )
+				.catch( handleError );
+		}
+	};
+
 	useEffect( () => {
 		if ( status === STATUS.PENDING ) {
-			if ( 0 === addons.length ) {
-				return window.location.replace( mtbWizard.settingsUrl );
-			}
-
-			if (
-				addons.includes( ADDONS.THEME ) &&
-				! addons.includes( ADDONS.DEMO )
-			) {
-				handleThemeActivation().catch( handleError );
-			}
-
-			if (
-				addons.includes( ADDONS.DEMO ) &&
-				! addons.includes( ADDONS.THEME )
-			) {
-				handleDemoImporter().catch( handleError );
-			}
-
-			if ( addons.includes( ADDONS.THEME ) && addons.includes( ADDONS.DEMO ) ) {
-				handleThemeActivation()
-					.then( () => {
-						handleDemoImporter()
-							.then( redirectToSettings )
-							.catch( handleError );
-					} )
-					.catch( handleError );
-			}
+			triggerOnboardingActions( addons );
 		}
-	}, [ status, addons, dispatch ] );
+	}, [ status ] );
 
 	return (
 		<Fragment>

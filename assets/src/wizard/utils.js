@@ -11,7 +11,9 @@
 export const handleThemeActivation = () => {
 	const action = mtbWizard.themeStatus;
 	if ( 'ok' === action ) {
-		return;
+		return new Promise( resolve => {
+			return resolve( 'ok' );
+		} );
 	}
 
 	const parameters = {
