@@ -66,11 +66,7 @@ export const handleDemoImporter = () => {
 
 /**
  * Redirect to settings location
- *
- * @param {*} data Request json response
  */
-export const redirectToSettings = data => {
-	if ( data && 'success' === data.status ) {
-		return window.location.replace( mtbWizard.settingsUrl );
-	}
+export const redirectToSettings = () => {
+	return window.location.replace( mtbWizard.settingsUrl );
 };

@@ -19,48 +19,40 @@ const Content = () => {
 	const { state, dispatch } = useContext( StepContext );
 	const { addons, status } = state;
 
+	const handleError = error => {
+		window.scrollTo( 0, 0 );
+		dispatch( { type: ACTIONS.WIZARD_ERROR, payload: error } );
+	};
+
 	useEffect( () => {
 		if ( status === STATUS.PENDING ) {
 			if ( 0 === addons.length ) {
 				return window.location.replace( mtbWizard.settingsUrl );
 			}
 
-			const requests = [];
-
-			if ( addons.includes( ADDONS.THEME ) ) {
-				requests.push(
-					handleThemeActivation().catch( error => {
-						window.scrollTo( 0, 0 );
-						dispatch( { type: ACTIONS.WIZARD_ERROR, payload: error } );
-					} )
-				);
+			if (
+				addons.includes( ADDONS.THEME ) &&
+				! addons.includes( ADDONS.DEMO )
+			) {
+				handleThemeActivation().catch( handleError );
 			}
 
 			if (
 				addons.includes( ADDONS.DEMO ) &&
 				! addons.includes( ADDONS.THEME )
 			) {
-				requests.push( handleDemoImporter() );
+				handleDemoImporter().catch( handleError );
 			}
 
-			Promise.all( requests ).then( values => {
-				// Ensure menu items are attached to the theme.
-				if (
-					addons.includes( ADDONS.DEMO ) &&
-					addons.includes( ADDONS.THEME )
-				) {
-					handleDemoImporter()
-						.then( response => {
-							redirectToSettings( response );
-						} )
-						.catch( error => {
-							window.scrollTo( 0, 0 );
-							dispatch( { type: ACTIONS.WIZARD_ERROR, payload: error } );
-						} );
-				} else {
-					redirectToSettings( values[ 0 ] || values[ 1 ] );
-				}
-			} );
+			if ( addons.includes( ADDONS.THEME ) && addons.includes( ADDONS.DEMO ) ) {
+				handleThemeActivation()
+					.then( () => {
+						handleDemoImporter()
+							.then( redirectToSettings )
+							.catch( handleError );
+					} )
+					.catch( handleError );
+			}
 		}
 	}, [ status, addons, dispatch ] );
 
