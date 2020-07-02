@@ -35,6 +35,7 @@ import {
 	expandSection,
 	removeOptionPrefix,
 	getControlName,
+	sanitizeControlId,
 } from './utils';
 import {
 	init as notificationsInit,
@@ -42,6 +43,9 @@ import {
 } from './notifications';
 
 ( ( $, api ) => {
+	// Allow backbone templates access to the `sanitizeControlId` function.
+	mtb.sanitizeControlId = sanitizeControlId;
+
 	/**
 	 * Extend wp.customize.Section as a collapsible section
 	 */
@@ -608,7 +612,7 @@ import {
 			const $select = $( select );
 
 			// On value change, trigger a `change` event so select2 can update the selected dropdown option.
-			api( select.id ).bind( value => {
+			api( $select.attr( 'data-customize-setting-link' ) ).bind( value => {
 				$select.val( value ).trigger( 'change' );
 			} );
 

@@ -7,6 +7,8 @@
 
 namespace MaterialThemeBuilder\Customizer;
 
+use MaterialThemeBuilder\Helpers;
+
 /**
  * Image radio control.
  */
@@ -32,7 +34,7 @@ class Image_Radio_Control extends \WP_Customize_Control {
 			return;
 		}
 
-		$id = str_replace( [ '[', ']' ], [ '-', '' ], $this->id );
+		$id = Helpers::sanitize_control_id( $this->id );
 		?>
 
 		<?php if ( ! empty( $this->label ) ) : ?>
