@@ -14,6 +14,7 @@ import { useState } from '@wordpress/element';
  * Internal dependencies
  */
 import './style.css';
+import { sanitizeControlId } from '../../utils';
 
 const RangeSliderControl = props => {
 	const {
@@ -62,9 +63,7 @@ const RangeSliderControl = props => {
 
 	return (
 		<div
-			id={ `range-slider-control-${ id
-				.replace( /\]$/, '' )
-				.replace( /\[|\]/g, '-' ) }` }
+			id={ `range-slider-control-${ sanitizeControlId( id ) }` }
 			className="range-slider-control"
 		>
 			<div

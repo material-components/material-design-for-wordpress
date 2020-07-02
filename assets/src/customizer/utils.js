@@ -93,3 +93,11 @@ export const getControlName = name => {
 		? `${ getSlug( name ) }_${ name }`
 		: `${ getSlug( name ) }[${ name }]`;
 };
+
+/**
+ * Sanitize control id.
+ *
+ * @param {string} id
+ */
+export const sanitizeControlId = id =>
+	id.replace( /\]$/, '' ).replace( /\[|\]/g, '-' );
