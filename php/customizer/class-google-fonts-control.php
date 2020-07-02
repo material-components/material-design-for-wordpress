@@ -7,6 +7,8 @@
 
 namespace MaterialThemeBuilder\Customizer;
 
+use MaterialThemeBuilder\Helpers;
+
 /**
  * Google Fonts control.
  */
@@ -33,6 +35,7 @@ class Google_Fonts_Control extends \WP_Customize_Control {
 	 * @return void
 	 */
 	public function render_content() {
+		$id = Helpers::sanitize_control_id( $this->id );
 		if ( ! empty( $this->label ) ) : ?>
 			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
 		<?php endif; ?>
@@ -42,7 +45,7 @@ class Google_Fonts_Control extends \WP_Customize_Control {
 		<?php endif; ?>
 
 		<div class="customize-control-google-fonts-wrap">
-			<select data-value="<?php echo esc_attr( $this->value() ); ?>" name="<?php echo esc_attr( $this->id ); ?>" id="<?php echo esc_attr( $this->id ); ?>" <?php $this->link(); ?>></select>
+			<select data-value="<?php echo esc_attr( $this->value() ); ?>" name="<?php echo esc_attr( $id ); ?>" id="<?php echo esc_attr( $id ); ?>" <?php $this->link(); ?>></select>
 		</div>
 		<?php
 	}

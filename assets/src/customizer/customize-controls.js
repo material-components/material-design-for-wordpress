@@ -34,8 +34,12 @@ import {
 } from '../common/mdc-components-init';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
 import ThemePrompt from './components/theme-prompt';
+import { sanitizeControlId } from './utils';
 
 ( ( $, api ) => {
+	// Allow backbone templates access to the `sanitizeControlId` function.
+	mtb.sanitizeControlId = sanitizeControlId;
+
 	let notificationCount = false;
 
 	// Material Library button
@@ -980,7 +984,7 @@ import ThemePrompt from './components/theme-prompt';
 			const $select = $( select );
 
 			// On value change, trigger a `change` event so select2 can update the selected dropdown option.
-			api( select.id ).bind( value => {
+			api( $select.attr( 'data-customize-setting-link' ) ).bind( value => {
 				$select.val( value ).trigger( 'change' );
 			} );
 
