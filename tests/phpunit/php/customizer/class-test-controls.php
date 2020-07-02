@@ -177,7 +177,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		// Replace the icons section with an instance to assert it's registered correctly.
 		$icons_section = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_icons" );
 		add_filter(
-			'mtb_customizer_section_args',
+			$controls->slug . '_customizer_section_args',
 			function ( $args, $id ) use ( $controls, $icons_section ) {
 				if ( "{$controls->slug}_icons" === $id ) {
 					return $icons_section;
@@ -220,9 +220,9 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$this->wp_customize->expects( $this->exactly( 3 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}_style" ) ],
-				[ $this->equalTo( "{$controls->slug}_previous_style" ) ],
-				[ $this->equalTo( "{$controls->slug}_notify" ) ]
+				[ $this->equalTo( "{$controls->slug}[style]" ) ],
+				[ $this->equalTo( "{$controls->slug}[previous_style]" ) ],
+				[ $this->equalTo( "{$controls->slug}[notify]" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
@@ -233,7 +233,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				[
 					$this->callback(
 						function ( $control ) use ( $controls ) {
-							return "{$controls->slug}_style" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'blossom', 'custom' ] === array_keys( $control->choices );
+							return "{$controls->slug}[style]" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'blossom', 'custom' ] === array_keys( $control->choices );
 						}
 					),
 				]
@@ -258,8 +258,8 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$this->wp_customize->expects( $this->exactly( 2 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}_head_font_family" ) ],
-				[ $this->equalTo( "{$controls->slug}_body_font_family" ) ]
+				[ $this->equalTo( "{$controls->slug}[head_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body_font_family]" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
@@ -293,6 +293,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 			'capability'        => 'edit_theme_options',
 			'sanitize_callback' => 'sanitize_text_field',
 			'transport'         => 'postMessage',
+			'type'              => 'option',
 		];
 
 		// Set up the expectation for the add_setting() method
@@ -300,14 +301,14 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$this->wp_customize->expects( $this->exactly( 8 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}_global_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_button_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_card_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_chip_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_data_table_radius" ), array_merge( $base_setting, [ 'default' => 0 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_image_list_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_nav_drawer_radius" ), array_merge( $base_setting, [ 'default' => 0 ] ) ],
-				[ $this->equalTo( "{$controls->slug}_text_field_radius" ), array_merge( $base_setting, [ 'default' => 4 ] ) ]
+				[ $this->equalTo( "{$controls->slug}[global_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}[button_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}[card_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}[chip_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}[data_table_radius]" ), array_merge( $base_setting, [ 'default' => 0 ] ) ],
+				[ $this->equalTo( "{$controls->slug}[image_list_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
+				[ $this->equalTo( "{$controls->slug}[nav_drawer_radius]" ), array_merge( $base_setting, [ 'default' => 0 ] ) ],
+				[ $this->equalTo( "{$controls->slug}[text_field_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ]
 			);
 
 		// Set up the expectation for the add_control() method
@@ -369,12 +370,12 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 			->method( 'add_setting' )
 			->withConsecutive(
 				[
-					"{$controls->slug}_test_setting",
+					"{$controls->slug}[test_setting]",
 				],
 				[
 					$this->callback(
 						function ( $setting ) use ( $controls ) {
-							return $setting instanceof \WP_Customize_Setting && "{$controls->slug}_style" === $setting->id;
+							return $setting instanceof \WP_Customize_Setting && "{$controls->slug}[style]" === $setting->id;
 						}
 					),
 				]
@@ -385,7 +386,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$controls->add_settings(
 			[
 				'test_setting' => [],
-				'style'        => new \WP_Customize_Setting( $controls->wp_customize, "{$controls->slug}_style" ),
+				'style'        => new \WP_Customize_Setting( $controls->wp_customize, "{$controls->slug}[style]" ),
 			]
 		);
 	}
@@ -406,12 +407,12 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 			->method( 'add_control' )
 			->withConsecutive(
 				[
-					"{$controls->slug}_test_setting",
+					"{$controls->slug}[test_setting]",
 				],
 				[
 					$this->callback(
 						function ( $setting ) use ( $controls ) {
-							return $setting instanceof \WP_Customize_Control && "{$controls->slug}_style" === $setting->id;
+							return $setting instanceof \WP_Customize_Control && "{$controls->slug}[style]" === $setting->id;
 						}
 					),
 				]
@@ -458,14 +459,14 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Add filters to return `Raleway` for headings and `Open Sans` for body.
 		add_filter(
-			"theme_mod_{$controls->slug}_head_font_family",
+			"{$controls->slug}_get_option_head_font_family",
 			function () {
 				return 'Raleway';
 			}
 		);
 
 		add_filter(
-			"theme_mod_{$controls->slug}_body_font_family",
+			"{$controls->slug}_get_option_body_font_family",
 			function () {
 				return 'Open Sans';
 			}
@@ -550,14 +551,14 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$this->assertContains( '--mdc-text-field-radius: 4px;', $css );
 
 		add_filter(
-			"theme_mod_{$controls->slug}_button_radius",
+			"{$controls->slug}_get_option_button_radius",
 			function( $value ) {
 				return -1;
 			}
 		);
 
 		add_filter(
-			"theme_mod_{$controls->slug}_card_radius",
+			"{$controls->slug}_get_option_card_radius",
 			function( $value ) {
 				return 36;
 			}

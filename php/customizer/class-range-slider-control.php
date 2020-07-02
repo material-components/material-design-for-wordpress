@@ -7,6 +7,8 @@
 
 namespace MaterialThemeBuilder\Customizer;
 
+use MaterialThemeBuilder\Helpers;
+
 /**
  * Range Slider control.
  */
@@ -68,8 +70,9 @@ class Range_Slider_Control extends \WP_Customize_Control {
 	 * @return void
 	 */
 	public function render_content() {
+		$id = Helpers::sanitize_control_id( $this->id );
 		?>
-		<div class="mtb-range_slider" id="<?php echo esc_html( $this->id ); ?>"></div>
+		<div class="mtb-range_slider" id="<?php echo esc_html( $id ); ?>"></div>
 		<?php
 	}
 

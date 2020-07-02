@@ -153,4 +153,14 @@ class Helpers {
 	public static function dechex( $decimal ) {
 		return str_pad( dechex( $decimal ), 2, '0', STR_PAD_LEFT );
 	}
+
+	/**
+	 * Sanitize a customizer control id.
+	 *
+	 * @param  string $id The id to sanitize.
+	 * @return string
+	 */
+	public static function sanitize_control_id( $id ) {
+		return str_replace( [ '[', ']' ], [ '-', '' ], $id );
+	}
 }
