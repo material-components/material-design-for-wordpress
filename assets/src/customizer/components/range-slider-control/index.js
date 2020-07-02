@@ -14,6 +14,7 @@ import { useState } from '@wordpress/element';
  * Internal dependencies
  */
 import './style.css';
+import { sanitizeControlId } from '../../utils';
 
 const RangeSliderControl = props => {
 	const {
@@ -61,7 +62,10 @@ const RangeSliderControl = props => {
 	const renderLink = 'undefined' !== typeof linked && ! linked;
 
 	return (
-		<div id={ `range-slider-control-${ id }` } className="range-slider-control">
+		<div
+			id={ `range-slider-control-${ sanitizeControlId( id ) }` }
+			className="range-slider-control"
+		>
 			<div
 				className={ classNames( 'range-slider-control-header', {
 					expanded,

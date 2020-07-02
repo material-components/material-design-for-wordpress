@@ -7,6 +7,8 @@
 
 namespace MaterialThemeBuilder\Customizer;
 
+use MaterialThemeBuilder\Helpers;
+
 /**
  * Google Fonts control.
  */
@@ -35,6 +37,8 @@ class Icon_Radio_Control extends \WP_Customize_Control {
 		if ( empty( $this->choices ) ) {
 			return;
 		}
+
+		$id = Helpers::sanitize_control_id( $this->id );
 		?>
 
 		<?php if ( ! empty( $this->label ) ) : ?>
@@ -51,12 +55,12 @@ class Icon_Radio_Control extends \WP_Customize_Control {
 					type="radio"
 					<?php $this->link(); ?>
 					value="<?php echo esc_attr( $value ); ?>"
-					id="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>"
-					name="<?php echo esc_attr( "_customize-radio-{$this->id}" ); ?>"
+					id="<?php echo esc_attr( "{$id}-{$value}" ); ?>"
+					name="<?php echo esc_attr( "_customize-radio-{$id}" ); ?>"
 					<?php checked( $this->value(), $value ); ?>
 				/>
 
-				<label for="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>">
+				<label for="<?php echo esc_attr( "{$id}-{$value}" ); ?>">
 					<img
 						src="<?php echo esc_url( $args['icon'] ); ?>"
 						alt="<?php echo esc_attr( $args['label'] ); ?>"

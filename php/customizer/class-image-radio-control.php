@@ -7,6 +7,8 @@
 
 namespace MaterialThemeBuilder\Customizer;
 
+use MaterialThemeBuilder\Helpers;
+
 /**
  * Image radio control.
  */
@@ -31,6 +33,8 @@ class Image_Radio_Control extends \WP_Customize_Control {
 		if ( empty( $this->choices ) ) {
 			return;
 		}
+
+		$id = Helpers::sanitize_control_id( $this->id );
 		?>
 
 		<?php if ( ! empty( $this->label ) ) : ?>
@@ -41,7 +45,7 @@ class Image_Radio_Control extends \WP_Customize_Control {
 			<span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
 		<?php endif; ?>
 
-		<div class="customize-control-image-radio-wrap" id="<?php echo esc_attr( "input_{$this->id}" ); ?>">
+		<div class="customize-control-image-radio-wrap" id="<?php echo esc_attr( "input_{$id}" ); ?>">
 
 			<?php
 			foreach ( $this->choices as $value => $args ) :
@@ -49,9 +53,9 @@ class Image_Radio_Control extends \WP_Customize_Control {
 				?>
 
 				<div class="customize-control-image-radio-control">
-					<input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( "_customize-radio-{$this->id}" ); ?>" id="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>" <?php $this->link(); ?> <?php checked( $this->value(), $value ); ?> />
+					<input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( "_customize-radio-{$id}" ); ?>" id="<?php echo esc_attr( "{$id}-{$value}" ); ?>" <?php $this->link(); ?> <?php checked( $this->value(), $value ); ?> />
 
-					<label for="<?php echo esc_attr( "{$this->id}-{$value}" ); ?>">
+					<label for="<?php echo esc_attr( "{$id}-{$value}" ); ?>">
 						<span class="label"><?php echo esc_html( $label ); ?></span>
 
 						<?php if ( ! empty( $args['url'] ) ) : ?>
