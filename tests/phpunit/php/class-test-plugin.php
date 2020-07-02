@@ -285,7 +285,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 
 		// Add filter to return 12, 48 and -1 sequantially as the cornerRadius for button.
 		add_filter(
-			"theme_mod_{$controls->slug}_button_radius",
+			"{$controls->slug}_get_option_button_radius",
 			function () {
 				static $index = 0;
 				$values       = [ 12, 48, -1 ];
