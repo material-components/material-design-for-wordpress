@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Kitchen Sink should initialize the kitchen sink 1`] = `
+exports[`material library should initialize the material library 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        id="kitchen-sink-preview"
+        id="material-library-preview"
       >
         <h2
           class="mdc-typography--headline2"
@@ -126,7 +126,7 @@ Object {
                 >
                   <div
                     class="mdc-card__media mdc-card__media--16-9 demo-card__media"
-                    style="background-image: url(http://example.com/assets/images/kitchen-sink/2.jpg);"
+                    style="background-image: url(http://example.com/assets/images/material-library/2.jpg);"
                   />
                   <div
                     style="padding: 16px;"
@@ -365,7 +365,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/1.jpg"
+                    src="http://example.com/assets/images/material-library/1.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -386,7 +386,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/2.jpg"
+                    src="http://example.com/assets/images/material-library/2.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -407,7 +407,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/3.jpg"
+                    src="http://example.com/assets/images/material-library/3.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -428,7 +428,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/4.jpg"
+                    src="http://example.com/assets/images/material-library/4.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -449,7 +449,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/5.jpg"
+                    src="http://example.com/assets/images/material-library/5.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -470,7 +470,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/6.jpg"
+                    src="http://example.com/assets/images/material-library/6.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -491,7 +491,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/7.jpg"
+                    src="http://example.com/assets/images/material-library/7.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -512,7 +512,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/8.jpg"
+                    src="http://example.com/assets/images/material-library/8.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -533,7 +533,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/9.jpg"
+                    src="http://example.com/assets/images/material-library/9.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -554,7 +554,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/10.jpg"
+                    src="http://example.com/assets/images/material-library/10.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -575,7 +575,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/11.jpg"
+                    src="http://example.com/assets/images/material-library/11.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -596,7 +596,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/12.jpg"
+                    src="http://example.com/assets/images/material-library/12.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -617,7 +617,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/13.jpg"
+                    src="http://example.com/assets/images/material-library/13.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -638,7 +638,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/14.jpg"
+                    src="http://example.com/assets/images/material-library/14.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -659,7 +659,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/kitchen-sink/15.jpg"
+                    src="http://example.com/assets/images/material-library/15.jpg"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -1356,7 +1356,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      id="kitchen-sink-preview"
+      id="material-library-preview"
     >
       <h2
         class="mdc-typography--headline2"
@@ -1476,7 +1476,7 @@ Object {
               >
                 <div
                   class="mdc-card__media mdc-card__media--16-9 demo-card__media"
-                  style="background-image: url(http://example.com/assets/images/kitchen-sink/2.jpg);"
+                  style="background-image: url(http://example.com/assets/images/material-library/2.jpg);"
                 />
                 <div
                   style="padding: 16px;"
@@ -1715,7 +1715,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/1.jpg"
+                  src="http://example.com/assets/images/material-library/1.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1736,7 +1736,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/2.jpg"
+                  src="http://example.com/assets/images/material-library/2.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1757,7 +1757,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/3.jpg"
+                  src="http://example.com/assets/images/material-library/3.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1778,7 +1778,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/4.jpg"
+                  src="http://example.com/assets/images/material-library/4.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1799,7 +1799,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/5.jpg"
+                  src="http://example.com/assets/images/material-library/5.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1820,7 +1820,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/6.jpg"
+                  src="http://example.com/assets/images/material-library/6.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1841,7 +1841,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/7.jpg"
+                  src="http://example.com/assets/images/material-library/7.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1862,7 +1862,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/8.jpg"
+                  src="http://example.com/assets/images/material-library/8.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1883,7 +1883,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/9.jpg"
+                  src="http://example.com/assets/images/material-library/9.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1904,7 +1904,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/10.jpg"
+                  src="http://example.com/assets/images/material-library/10.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1925,7 +1925,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/11.jpg"
+                  src="http://example.com/assets/images/material-library/11.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1946,7 +1946,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/12.jpg"
+                  src="http://example.com/assets/images/material-library/12.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1967,7 +1967,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/13.jpg"
+                  src="http://example.com/assets/images/material-library/13.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1988,7 +1988,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/14.jpg"
+                  src="http://example.com/assets/images/material-library/14.jpg"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -2009,7 +2009,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/kitchen-sink/15.jpg"
+                  src="http://example.com/assets/images/material-library/15.jpg"
                   style="border-radius: 12px;"
                 />
                 <div

@@ -30,33 +30,33 @@ export const Overrides = createGlobalStyle`
 		--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
 	}
 
-	#mcb-kitchen-sink-preview .mdc-typography {
+	#mcb-material-library-preview .mdc-typography {
 		font-family: var(--heading-font) !important;
 	}
 
-	#mcb-kitchen-sink-preview .mdc-text-field--focused .mdc-floating-label {
+	#mcb-material-library-preview .mdc-text-field--focused .mdc-floating-label {
 		color: var(--mdc-theme-primary) !important;
 	}
 
-	#mcb-kitchen-sink-preview p,
-	#mcb-kitchen-sink-preview th,
-	#mcb-kitchen-sink-preview td,
-	#mcb-kitchen-sink-preview input[type="text"],
-	#mcb-kitchen-sink-preview button:not([class*="material-icons"]),
-	#mcb-kitchen-sink-preview span:not([class*="material-icons"]) {
+	#mcb-material-library-preview p,
+	#mcb-material-library-preview th,
+	#mcb-material-library-preview td,
+	#mcb-material-library-preview input[type="text"],
+	#mcb-material-library-preview button:not([class*="material-icons"]),
+	#mcb-material-library-preview span:not([class*="material-icons"]) {
 		font-family: var(--body-font) !important;
 		font-size: 16px;
 	}
 
-	#mcb-kitchen-sink-preview h1,
-	#mcb-kitchen-sink-preview h2,
-	#mcb-kitchen-sink-preview h3,
-	#mcb-kitchen-sink-preview h4 {
+	#mcb-material-library-preview h1,
+	#mcb-material-library-preview h2,
+	#mcb-material-library-preview h3,
+	#mcb-material-library-preview h4 {
 		color: var(--mdc-theme-on-background) !important;
 		font-family: var(--heading-font);
 	}
 
-	#mcb-kitchen-sink-preview hr {
+	#mcb-material-library-preview hr {
 		border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .12);
 	}
 `;

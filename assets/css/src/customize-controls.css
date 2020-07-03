@@ -194,17 +194,17 @@
 	overflow-x: hidden;
 }
 
-.toggle-kitchen-sink {
+.toggle-material-library {
 	float: left;
 	margin-right: 4px !important;
 	border-radius: 3px !important;
 }
 
-#mcb-kitchen-sink-preview {
+#mcb-material-library-preview {
 	overflow: auto !important;
 }
 
-#kitchen-sink-preview {
+#material-library-preview {
 	background: var(--mdc-theme-background, #fff);
 	color: var(--mdc-theme-on-background, #000);
 	padding: 30px 50px;
