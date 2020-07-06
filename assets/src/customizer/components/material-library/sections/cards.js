@@ -29,7 +29,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 						className="mdc-card__media mdc-card__media--16-9 demo-card__media"
 						style={ {
 							backgroundImage: `url("${ mtb.pluginPath +
-								'assets/images/kitchen-sink/2.jpg' }")`,
+								'assets/images/material-library/2.jpg' }")`,
 						} }
 					></div>
 					<div style={ { padding: '16px' } }>
