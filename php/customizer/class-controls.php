@@ -450,6 +450,18 @@ class Controls extends Module_Base {
 				$this->wp_customize->add_control( $control );
 				$this->added_controls[] = $id;
 			}
+
+			if ( ! empty( $control->children ) && is_array( $control->children ) && $control instanceof Range_Slider_Control ) {
+				$this->added_controls = array_merge(
+					$this->added_controls,
+					array_map(
+						function( $child ) {
+							return $child['id'];
+						},
+						$control->children 
+					) 
+				);
+			}
 		}
 	}
 
