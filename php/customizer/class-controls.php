@@ -467,6 +467,23 @@ class Controls extends Module_Base {
 			false
 		);
 
+		$demo_images = $this->plugin->importer->get_attachments( true );
+		if ( empty( $demo_images ) ) {
+			$demo_images = array_map(
+				function( $image ) {
+					return add_query_arg( 'w', 720, $image );
+				},
+				array_keys( $this->plugin->importer->images )
+			);
+		} else {
+			$demo_images = array_map(
+				function( $image ) {
+					return $image['url'];
+				},
+				array_values( $demo_images )
+			);
+		}
+
 		wp_localize_script(
 			'material-theme-builder-customizer-js',
 			'mtb',
@@ -487,6 +504,7 @@ class Controls extends Module_Base {
 				'pluginPath'             => $this->plugin->asset_url( '' ),
 				'themeStatus'            => $this->plugin->material_theme_status(),
 				'themeSearchUrl'         => esc_url( admin_url( '/theme-install.php?search=Material Theme' ) ),
+				'images'                 => $demo_images,
 			]
 		);
 

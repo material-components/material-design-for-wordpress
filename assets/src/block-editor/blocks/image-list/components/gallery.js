@@ -67,7 +67,7 @@ const Gallery = ( {
 			};
 
 			anchorStyles = {
-				marginBottom: `${ desktopGutter / 2 }px`,
+				marginBottom: `${ desktopGutter }px`,
 			};
 		} else {
 			itemStyles = {

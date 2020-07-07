@@ -28,8 +28,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 					<div
 						className="mdc-card__media mdc-card__media--16-9 demo-card__media"
 						style={ {
-							backgroundImage: `url("${ mtb.pluginPath +
-								'assets/images/material-library/2.jpg' }")`,
+							backgroundImage: `url("${ mtb.images[ 0 ] }")`,
 						} }
 					></div>
 					<div style={ { padding: '16px' } }>
