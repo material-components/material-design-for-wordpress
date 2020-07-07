@@ -23,13 +23,6 @@ class Importer extends Module_Base {
 	public $xml;
 
 	/**
-	 * Featured image ID to attach
-	 *
-	 * @var int
-	 */
-	private $featured_image;
-
-	/**
 	 * Images to import
 	 *
 	 * @var array
@@ -41,7 +34,7 @@ class Importer extends Module_Base {
 	 *
 	 * @var array
 	 */
-	public $imported_images = [];
+	private $imported_images = [];
 
 
 	/**
@@ -61,6 +54,10 @@ class Importer extends Module_Base {
 		parent::__construct( $plugin );
 		$this->import_file = $this->get_import_file();
 
+		/**
+		 * Image URL => ID lookup in the imported content
+		 * this is used to replace the images with the imported URLs.
+		 */
 		$this->images = [
 			'https://images.unsplash.com/photo-1531306760863-7fb02a41db12' => 34,
 			'https://images.unsplash.com/photo-1531307119710-accdb402fe03' => 39,
@@ -441,6 +438,20 @@ class Importer extends Module_Base {
 
 			$post_id = $this->insert_post( $post_data, $post );
 		}
+	}
+
+	/**
+	 * Get imorted attachments.
+	 *
+	 * @param  boolean $force Force pull images from DB.
+	 * @return array
+	 */
+	public function get_attachments( $force = false ) {
+		if ( $force || empty( $this->imported_images ) ) {
+			$this->prime_imported_images_cache();
+		}
+
+		return $this->imported_images;
 	}
 
 	/**
