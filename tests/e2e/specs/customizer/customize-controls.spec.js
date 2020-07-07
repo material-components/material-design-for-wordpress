@@ -263,18 +263,18 @@ describe( 'Customize controls', () => {
 		} );
 	} );
 
-	describe( 'Kitchen Sink', () => {
-		it( 'should show the kitchen sink button', async () => {
-			expect( await page.$$( '.toggle-kitchen-sink' ) ).not.toBeNull();
+	describe( 'material library', () => {
+		it( 'should show the material library button', async () => {
+			expect( await page.$$( '.toggle-material-library' ) ).not.toBeNull();
 		} );
 
-		it( 'should show the kitchen sink components and hide preview pane', async () => {
+		it( 'should show the material library components and hide preview pane', async () => {
 			await page.evaluate(
 				button => button.click(),
-				await page.$( '.toggle-kitchen-sink' )
+				await page.$( '.toggle-material-library' )
 			);
 
-			expect( await isVisible( '#mcb-kitchen-sink-preview' ) ).toBeTruthy();
+			expect( await isVisible( '#mcb-material-library-preview' ) ).toBeTruthy();
 
 			const previewDisplay = await page.evaluate(
 				node => node.style.display,
