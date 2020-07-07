@@ -88,7 +88,7 @@ class Importer extends Module_Base {
 	 * @return string Path to demo file
 	 */
 	public function get_import_file() {
-		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.xml';
+		return trailingslashit( $this->plugin->dir_path ) . 'assets/importer/demo-content.xml';
 	}
 
 	/**
@@ -234,6 +234,9 @@ class Importer extends Module_Base {
 			$this->import_image( $image_url );
 		}
 
+		/**
+		 * Fetch the imported posts.
+		 */
 		$query = new \WP_Query(
 			[
 				'post_status'            => 'publish',
@@ -265,6 +268,7 @@ class Importer extends Module_Base {
 
 			if ( ! empty( $attachment ) ) {
 
+				// Media ID formats in post content.
 				$id_formats = [
 					'"id":%s',
 					'data-id="%s"',
@@ -272,6 +276,7 @@ class Importer extends Module_Base {
 					'"mediaId":%s',
 				];
 
+				// Gallery ids format.
 				if ( preg_match_all( '#"ids"\:\[([^\]]+)\]#', $post->post_content, $matches, PREG_SET_ORDER ) ) {
 					foreach ( $matches as $match ) {
 						$ids = array_map(
@@ -292,6 +297,7 @@ class Importer extends Module_Base {
 					$post->post_content = str_replace( sprintf( $format, $id ), sprintf( $format, $attachment['id'] ), $post->post_content );
 				}
 
+				// Replace any unsplash image URL with the imported image URL.
 				if ( preg_match_all( '#("https://images.unsplash.com/[^"]+")|(\(https://images.unsplash.com/[^)]+\))#', $post->post_content, $matches, PREG_SET_ORDER ) ) {
 					foreach ( $matches as $match ) {
 						$image_url  = str_replace( [ '"', '(', ')' ], '', $match[0] );
@@ -306,24 +312,6 @@ class Importer extends Module_Base {
 		}
 
 		wp_update_post( $post );
-	}
-
-	/**
-	 * Update block innerContent by replacing URL
-	 *
-	 * @param array  $inner_content InnerContent of a block.
-	 * @param string $url_to_replace URL to replace.
-	 * @param string $actual_url Replacement URL.
-	 * @return array
-	 */
-	protected function update_block_inner_content( $inner_content, $url_to_replace, $actual_url ) {
-		if ( ! empty( $inner_content ) && is_array( $inner_content ) ) {
-			foreach ( $inner_content as $i => $content ) {
-				$inner_content[ $i ] = str_replace( $url_to_replace, $actual_url, $content );
-			}
-		}
-
-		return $inner_content;
 	}
 
 	/**
