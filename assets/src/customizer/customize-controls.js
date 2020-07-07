@@ -1,4 +1,4 @@
-/* global jQuery, requestAnimationFrame, mtb, mdc */
+/* global jQuery, mtb */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -12,7 +12,6 @@
  * External dependencies
  */
 import 'select-woo';
-import { camelCase, debounce } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -26,378 +25,26 @@ import { unmountComponentAtNode } from 'react-dom';
  */
 import colorUtils from '../common/color-utils';
 import GlobalRangeSliderControl from './components/range-slider-control/global';
-import KitchenSink from './components/kitchen-sink';
-import {
-	initButtons,
-	initTabBar,
-	initLists,
-} from '../common/mdc-components-init';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
-import ThemePrompt from './components/theme-prompt';
-import { sanitizeControlId } from './utils';
+import {
+	loadMaterialLibrary,
+	reRenderMaterialLibrary,
+} from './material-library';
+import {
+	collapseSection,
+	expandSection,
+	removeOptionPrefix,
+	getControlName,
+	sanitizeControlId,
+} from './utils';
+import {
+	init as notificationsInit,
+	showHideNotification,
+} from './notifications';
 
 ( ( $, api ) => {
 	// Allow backbone templates access to the `sanitizeControlId` function.
 	mtb.sanitizeControlId = sanitizeControlId;
-
-	let notificationCount = false;
-
-	// Material Library button
-	const BUTTON_OPEN_TEXT = __( 'Material Library', 'material-theme-builder' );
-	const BUTTON_CLOSE_TEXT = __( 'Exit Library', 'material-theme-builder' );
-
-	// Bind for previewer events.
-	$( function() {
-		api.previewer.bind( 'mtb', settings => {
-			notificationCount = settings.notificationCount;
-			showHideNotification();
-		} );
-
-		api.panel( mtb.slug ).expanded.bind( expanded => {
-			if ( ! expanded ) {
-				const code = 'mtb_components';
-				api.notifications.remove( code );
-			}
-		} );
-	} );
-
-	/**
-	 * Show or hide the material components notification.
-	 */
-	const showHideNotification = () => {
-		const code = 'mtb_components';
-		const kitchenSink = $( '#mcb-kitchen-sink-preview' );
-
-		if (
-			false !== notificationCount &&
-			2 > notificationCount &&
-			! kitchenSink.is( ':visible' ) &&
-			api.panel( mtb.slug ).expanded()
-		) {
-			api.notifications.add(
-				new api.Notification( code, {
-					message: mtb.l10n.componentsNotice,
-					type: 'warning',
-					dismissible: true,
-					render() {
-						const li = api.Notification.prototype.render.call( this ),
-							link = li.find( 'a' );
-
-						link.on( 'click', event => {
-							event.preventDefault();
-							loadKitchenSink();
-
-							api.notifications.remove( code );
-						} );
-
-						// Handle dismissal of notice.
-						li.find( '.notice-dismiss' ).on( 'click', () => {
-							const request = wp.ajax.post( 'mtb_notification_dismiss', {
-								nonce: mtb.notify_nonce,
-							} );
-
-							request.done( response => {
-								if ( response && response.count ) {
-									notificationCount = response.count;
-								}
-							} );
-						} );
-
-						return li;
-					},
-				} )
-			);
-		} else {
-			api.notifications.remove( code );
-		}
-	};
-
-	/**
-	 * Renders the kitchen sink with all the settings.
-	 */
-	const renderKitchenSink = () => {
-		render(
-			<KitchenSink { ...getSettings() } />,
-			$( '#mcb-kitchen-sink-preview' ).get( 0 )
-		);
-
-		initMaterialComponents();
-	};
-
-	const themeColorControls = [ 'background_color', 'background_text_color' ];
-
-	/**
-	 * Gets all the controls' setting
-	 * values and returns them in an object.
-	 */
-	const getSettings = () => {
-		const controlProps = {
-			theme: api.settings?.theme?.stylesheet,
-		};
-
-		if (
-			! mtb.controls ||
-			! mtb.controls.length ||
-			! Array.isArray( mtb.controls )
-		) {
-			return controlProps;
-		}
-
-		mtb.controls
-			.concat( themeColorControls.map( name => `material_${ name }` ) )
-			.concat( radiusControls )
-			.forEach( name => {
-				const setting = api( name );
-
-				if ( setting ) {
-					const prop = camelCase( removeOptionPrefix( name ) );
-					let value = setting.get();
-
-					if ( radiusControlsLookup.hasOwnProperty( name ) ) {
-						value = Number( limitRadiusValue( name, value ) );
-					}
-
-					controlProps[ prop ] = value;
-				}
-			} );
-
-		return controlProps;
-	};
-
-	const limitRadiusValue = ( id, value ) => {
-		if (
-			radiusControlsLookup[ id ]?.max &&
-			value > radiusControlsLookup[ id ].max
-		) {
-			value = radiusControlsLookup[ id ].max;
-		} else if (
-			radiusControlsLookup[ id ]?.min &&
-			value < radiusControlsLookup[ id ].min
-		) {
-			value = radiusControlsLookup[ id ].min;
-		}
-
-		return value;
-	};
-
-	const onSettingChange = debounce( () => {
-		const kitchenSink = $( '#mcb-kitchen-sink-preview' );
-
-		if (
-			kitchenSink.get( 0 ) &&
-			unmountComponentAtNode( kitchenSink.get( 0 ) )
-		) {
-			renderKitchenSink();
-		}
-	}, 500 );
-
-	const initMaterialComponents = function() {
-		initButtons();
-		initTabBar();
-		initLists();
-
-		try {
-			const states = [
-				{ state: 'checked', value: false },
-				{ state: 'checked', value: true },
-				{ state: 'indeterminate', value: true },
-				{ state: 'disabled', value: true },
-			];
-
-			document
-				.querySelectorAll( '.mdc-checkbox' )
-				.forEach( ( chkbox, index ) => {
-					const checkbox = new mdc.checkbox.MDCCheckbox( chkbox );
-					checkbox[ states[ index ].state ] = states[ index ].value;
-				} );
-
-			document
-				.querySelectorAll( '.mdc-radio' )
-				.forEach( radio => new mdc.radio.MDCRadio( radio ) );
-
-			document
-				.querySelectorAll( '.mdc-text-field' )
-				.forEach( txtField => new mdc.textField.MDCTextField( txtField ) );
-
-			const chipSetEl = document.querySelector( '.mdc-chip-set' );
-			new mdc.chips.MDCChipSet( chipSetEl );
-
-			new mdc.switchControl.MDCSwitch(
-				document.querySelector( '.mdc-switch' )
-			);
-		} catch ( err ) {}
-	};
-
-	const toggleKitchenSink = () => {
-		let kitchenSink = $( '#mcb-kitchen-sink-preview' );
-		const customizePreview = $( '#customize-preview' );
-		const toggleButton = $( '.toggle-kitchen-sink' );
-
-		// Toggle between kitchen sink and default customizer view.
-		if ( ! kitchenSink.is( ':visible' ) ) {
-			if ( ! kitchenSink.length ) {
-				customizePreview.before(
-					$( '<div></div>' )
-						.attr( { id: 'mcb-kitchen-sink-preview' } )
-						.addClass( 'wp-full-overlay-main' )
-				);
-
-				kitchenSink = $( '#mcb-kitchen-sink-preview' );
-			}
-
-			$( this ).addClass( 'active' );
-			renderKitchenSink();
-
-			customizePreview.hide();
-			kitchenSink.show();
-			toggleButton.text( BUTTON_CLOSE_TEXT );
-		} else {
-			$( this ).removeClass( 'active' );
-			kitchenSink.hide();
-			customizePreview.show();
-			toggleButton.text( BUTTON_OPEN_TEXT );
-		}
-	};
-
-	$( '.customize-pane-parent' ).ready( function() {
-		if ( window.localStorage.getItem( 'themeInstallerDismissed' ) !== null ) {
-			return;
-		}
-
-		$( '.customize-pane-parent' ).prepend( `
-			<li id="accordion-section-theme-installer" class="accordion-section control-panel-themes customize-info"></li>
-		` );
-
-		render(
-			<ThemePrompt status={ mtb.themeStatus } />,
-			$( '#accordion-section-theme-installer' ).get( 0 )
-		);
-	} );
-
-	/**
-	 * Show/hide kitchen sink button near the "Publish" button.
-	 */
-	$( '#customize-save-button-wrapper' ).ready( function() {
-		$( '#customize-save-button-wrapper' ).prepend(
-			$( '<button></button>' )
-				.attr( { type: 'button' } )
-				.css( 'display', 'none' )
-				.addClass( 'button toggle-kitchen-sink' )
-				.text( BUTTON_OPEN_TEXT )
-		);
-
-		api.panel( mtb.slug ).expanded.bind( function( expanded ) {
-			const showOrHide = expanded ? 'block' : 'none';
-			$( '.toggle-kitchen-sink' ).css( 'display', showOrHide );
-
-			if ( ! expanded && $( '#mcb-kitchen-sink-preview' ).is( ':visible' ) ) {
-				toggleKitchenSink();
-			}
-		} );
-	} );
-
-	/**
-	 * Handle the kitchen sink swap right here.
-	 */
-	let mdcLoaded = false;
-	let radiusControls = [];
-	const radiusControlsLookup = {};
-
-	const loadKitchenSink = () => {
-		// Load MDC assets
-		if ( ! mdcLoaded ) {
-			$( 'head' ).prepend( `
-				<link href="https://unpkg.com/material-components-web@v5.1.0/dist/material-components-web.min.css" rel="stylesheet">
-				<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
-			` );
-
-			$.getScript(
-				'https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js',
-				initMaterialComponents
-			);
-
-			const globalRadiusControl = api.control( `${ mtb.slug }_global_radius` );
-
-			if ( globalRadiusControl?.params?.children ) {
-				globalRadiusControl.params.children.forEach(
-					ctrl =>
-						( radiusControlsLookup[ ctrl.id ] = {
-							min: ctrl.min,
-							max: ctrl.max,
-						} )
-				);
-
-				radiusControls = Object.keys( radiusControlsLookup );
-			}
-		}
-
-		toggleKitchenSink();
-
-		mdcLoaded = true;
-	};
-
-	$( document ).on( 'click', '.toggle-kitchen-sink', loadKitchenSink );
-
-	// Show kitchen sink if the material-library hash exists.
-	if ( window.location.hash && window.location.hash === '#material-library' ) {
-		$( '#customize-save-button-wrapper' ).ready( loadKitchenSink );
-	}
-
-	/**
-	 * Collapse a DOM node by animating it's height to 0.
-	 *
-	 * @param {Node} element
-	 */
-	const collapseSection = element => {
-		// Get the height of the element's inner content, regardless of its actual size.
-		const sectionHeight = element.scrollHeight;
-
-		// Temporarily disable all css transitions.
-		const elementTransition = element.style.transition;
-		element.style.transition = '';
-
-		// On the next frame (as soon as the previous style change has taken effect),
-		// explicitly set the element's height to its current pixel height, so we
-		// aren't transitioning out of 'auto'.
-		requestAnimationFrame( () => {
-			element.style.height = sectionHeight + 'px';
-			element.style.transition = elementTransition;
-
-			// On the next frame (as soon as the previous style change has taken effect),
-			// have the element transition to height: 0.
-			requestAnimationFrame( () => {
-				element.style.height = 0 + 'px';
-			} );
-		} );
-		// Mark the section as "currently collapsed".
-		element.setAttribute( 'data-collapsed', 'true' );
-	};
-
-	/**
-	 * Expand a DOM node by animating it's height to full.
-	 *
-	 * @param {Node} element
-	 */
-	const expandSection = element => {
-		// Get the height of the element's inner content, regardless of its actual size.
-		const sectionHeight = element.scrollHeight + 2;
-
-		const removeEvent = () => {
-			element.style.height = 'auto';
-
-			// Remove this event listener so it only gets triggered once.
-			element.removeEventListener( 'transitionend', removeEvent );
-		};
-
-		// Have the element transition to the height of its inner content.
-		element.style.height = sectionHeight + 'px';
-
-		// When the next css transition finishes (which should be the one we just triggered).
-		element.addEventListener( 'transitionend', removeEvent );
-
-		// Mark the section as "currently not collapsed".
-		element.setAttribute( 'data-collapsed', 'false' );
-	};
 
 	/**
 	 * Extend wp.customize.Section as a collapsible section
@@ -763,11 +410,28 @@ import { sanitizeControlId } from './utils';
 		},
 	} );
 
+	api.RangeSliderControl = api.Control.extend( {
+		ready() {
+			renderRangeSliderControl( this );
+		},
+	} );
+
+	api.IconRadoControl = api.Control.extend( {
+		ready() {
+			const control = this;
+			$( 'input:radio', control.container ).change( function() {
+				control.setting.set( $( this ).val() );
+			} );
+		},
+	} );
+
 	/**
-	 * Extends wp.customize.controlConstructor with material color constructor.
+	 * Extends wp.customize.controlConstructor with custom controls.
 	 */
 	$.extend( api.controlConstructor, {
 		material_color: api.MaterialColorControl,
+		range_slider: api.RangeSliderControl,
+		icon_radio: api.IconRadoControl,
 	} );
 
 	/**
@@ -798,7 +462,7 @@ import { sanitizeControlId } from './utils';
 				control.container.find( '.mtb-range_slider' ).get( 0 )
 			);
 			renderRangeSliderControl( control );
-			onSettingChange();
+			reRenderMaterialLibrary();
 		}
 	};
 
@@ -847,35 +511,12 @@ import { sanitizeControlId } from './utils';
 				} }
 				onChildChange={ ( name, value ) => {
 					api( name ).set( value );
-					onSettingChange();
+					reRenderMaterialLibrary();
 				} }
 				onResetToDefault={ onReset }
 			/>,
 			control.container.find( '.mtb-range_slider' ).get( 0 )
 		);
-	};
-
-	/**
-	 * Get the slug for a control.
-	 *
-	 * @param {string} name name of the control
-	 */
-	const getSlug = name =>
-		themeColorControls.includes( name ) ? 'material' : mtb.slug;
-
-	const removeOptionPrefix = name => {
-		const match = name.match( /\[([^\]]+)\]/ );
-		if ( match ) {
-			return match[ 1 ];
-		}
-		return name.replace( /^material_/, '' ).replace( mtb.slug, '' );
-	};
-
-	const getControlName = name => {
-		name = removeOptionPrefix( name );
-		return themeColorControls.includes( name )
-			? `${ getSlug( name ) }_${ name }`
-			: `${ getSlug( name ) }[${ name }]`;
 	};
 
 	/**
@@ -933,8 +574,8 @@ import { sanitizeControlId } from './utils';
 			}
 		} );
 
-		onSettingChange();
-		showHideNotification();
+		reRenderMaterialLibrary();
+		showHideNotification( loadMaterialLibrary );
 	};
 
 	/**
@@ -949,21 +590,8 @@ import { sanitizeControlId } from './utils';
 			styleSetting.set( 'custom' );
 		}
 
-		onSettingChange();
+		reRenderMaterialLibrary();
 	};
-
-	api.RangeSliderControl = api.Control.extend( {
-		ready() {
-			renderRangeSliderControl( this );
-		},
-	} );
-
-	/**
-	 * Extends wp.customize.controlConstructor with ranger slider constructor.
-	 */
-	$.extend( api.controlConstructor, {
-		range_slider: api.RangeSliderControl,
-	} );
 
 	api.bind( 'ready', () => {
 		// Iterate through our controls and bind events for value change.
@@ -998,12 +626,14 @@ import { sanitizeControlId } from './utils';
 		} );
 	} );
 
-	api.controlConstructor.icon_radio = api.Control.extend( {
-		ready() {
-			const control = this;
-			$( 'input:radio', control.container ).change( function() {
-				control.setting.set( $( this ).val() );
-			} );
-		},
-	} );
+	// Trigger notification init on ready.
+	$( notificationsInit );
+
+	// Material Library.
+	$( document ).on( 'click', '.toggle-material-library', loadMaterialLibrary );
+
+	// Show material library if the material-library hash exists.
+	if ( window.location.hash && window.location.hash === '#material-library' ) {
+		$( '#customize-save-button-wrapper' ).ready( loadMaterialLibrary );
+	}
 } )( jQuery, wp.customize );

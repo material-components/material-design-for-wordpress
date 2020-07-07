@@ -49,7 +49,7 @@ class Test_Importer extends \WP_UnitTestCase {
 	public function test_get_import_file() {
 		$file = $this->importer->get_import_file();
 
-		$this->assertEquals( $this->plugin->dir_path . '/assets/demo-content.xml', $file );
+		$this->assertEquals( $this->plugin->dir_path . '/assets/importer/demo-content.xml', $file );
 	}
 
 	/**
@@ -180,7 +180,7 @@ class Test_Importer extends \WP_UnitTestCase {
 	 * @return string path to demo test file
 	 */
 	private function get_demo_test_file() {
-		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.test.xml';
+		return trailingslashit( $this->plugin->dir_path ) . 'assets/importer/demo-content.test.xml';
 	}
 
 	/**
