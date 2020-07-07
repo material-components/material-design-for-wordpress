@@ -546,23 +546,10 @@
 <!-- /wp:heading -->
 
 <!-- wp:media-text {"mediaId":36,"mediaLink":"https://wildpangolin.mystagingwebsite.com/projects/liam-spradlin-sqzwshdis48-unsplash-2/","mediaType":"image","verticalAlignment":"center"} -->
-<div class="wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center"><figure class="wp-block-media-text__media"><img src="https://images.unsplash.com/photo-1558905585-24d5d344c91d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=683&q=80" alt="" class="wp-image-36"/></figure><div class="wp-block-media-text__content"><!-- wp:material/list {"style":"two-line","leadingIconsEnabled":true,"trailingIconsEnabled":true} -->
-<div class="wp-block-material-list"><ul class="mdc-list mdc-list--two-line"><!-- wp:material/list-item {"secondaryText":"Secondary text...","leadingIcon":{"name":"star","hex":59448},"trailingIcon":{"name":"more vert","hex":58836}} -->
-<li class="wp-block-material-list-item mdc-list-item list-item" tabindex="0"><i class="mdc-list-item__graphic material-icons"></i><a href="#" class="list-item__link"> </a><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text list-item__text">List item</span><span class="mdc-list-item__secondary-text list-item__text">Secondary text...</span></span><i class="mdc-list-item__meta material-icons"></i></li>
-<!-- /wp:material/list-item -->
-
-<!-- wp:material/list-item {"secondaryText":"Secondary text...","leadingIcon":{"name":"star","hex":59448},"trailingIcon":{"name":"more vert","hex":58836}} -->
-<li class="wp-block-material-list-item mdc-list-item list-item" tabindex="0"><i class="mdc-list-item__graphic material-icons"></i><a href="#" class="list-item__link"> </a><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text list-item__text">List item</span><span class="mdc-list-item__secondary-text list-item__text">Secondary text...</span></span><i class="mdc-list-item__meta material-icons"></i></li>
-<!-- /wp:material/list-item -->
-
-<!-- wp:material/list-item {"secondaryText":"Secondary text...","leadingIcon":{"name":"star","hex":59448},"trailingIcon":{"name":"more vert","hex":58836}} -->
-<li class="wp-block-material-list-item mdc-list-item list-item" tabindex="0"><i class="mdc-list-item__graphic material-icons"></i><a href="#" class="list-item__link"> </a><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text list-item__text">List item</span><span class="mdc-list-item__secondary-text list-item__text">Secondary text...</span></span><i class="mdc-list-item__meta material-icons"></i></li>
-<!-- /wp:material/list-item --></ul></div>
+<div class="wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center"><figure class="wp-block-media-text__media"><img src="https://images.unsplash.com/photo-1558905585-24d5d344c91d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=683&q=80" alt="" class="wp-image-36"/></figure><div class="wp-block-media-text__content"><!-- wp:material/list {"style":"two-line"} -->
+<div class="wp-block-material-list"><ul class="mdc-list mdc-list--two-line"><li class="mdc-list-item"><span class="mdc-list-item__graphic material-icons">favorite</span><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text">List Item 1</span><span class="mdc-list-item__secondary-text">Lorem ipsum dolor</span></span></li><li class="mdc-list-item"><span class="mdc-list-item__graphic material-icons">camera</span><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text">List Item 2</span><span class="mdc-list-item__secondary-text">Nullam iaculis nisi</span></span></li><li class="mdc-list-item"><span class="mdc-list-item__graphic material-icons">local_dining</span><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text">List Item 3</span><span class="mdc-list-item__secondary-text">Nulla pharetra maximus </span></span></li></ul></div>
 <!-- /wp:material/list -->
-
-<!-- wp:paragraph -->
-<p></p>
-<!-- /wp:paragraph --></div></div>
+</div></div>
 <!-- /wp:media-text -->
 
 <!-- wp:media-text {"mediaPosition":"right","mediaId":50,"mediaLink":"https://wildpangolin.mystagingwebsite.com/projects/liam-spradlin-ye0k6rgfneq-unsplash-1/","mediaType":"image","verticalAlignment":"center"} -->
