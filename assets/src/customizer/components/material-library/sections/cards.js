@@ -18,7 +18,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 				className="mdc-card"
 				style={ {
 					width: '350px',
-					borderRadius: radius,
+					borderRadius: `${ radius }px`,
 				} }
 			>
 				<div
@@ -64,21 +64,21 @@ const Cards = ( { radius, buttonRadius } ) => (
 					<div className="mdc-card__action-buttons">
 						<button
 							className="mdc-button mdc-card__action mdc-card__action--button"
-							style={ { borderRadius: buttonRadius } }
+							style={ { borderRadius: `${ buttonRadius }px` } }
 						>
 							<span
 								className="mdc-button__ripple"
-								style={ { borderRadius: buttonRadius } }
+								style={ { borderRadius: `${ buttonRadius }px` } }
 							></span>
 							{ __( 'Read', 'material-theme-builder' ) }
 						</button>
 						<button
 							className="mdc-button mdc-card__action mdc-card__action--button"
-							style={ { borderRadius: buttonRadius } }
+							style={ { borderRadius: `${ buttonRadius }px` } }
 						>
 							<span
 								className="mdc-button__ripple"
-								style={ { borderRadius: buttonRadius } }
+								style={ { borderRadius: `${ buttonRadius }px` } }
 							></span>
 							{ __( 'Bookmark', 'material-theme-builder' ) }
 						</button>
