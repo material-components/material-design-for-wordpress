@@ -40,10 +40,16 @@ const baseProps = {
 	textFieldRadius: 16,
 };
 
-describe( 'material library', () => {
+describe( 'Material Library', () => {
 	beforeAll( () => {
-		global.mtb = {};
-		global.mtb.pluginPath = 'http://example.com/';
+		global.mtb = {
+			images: [
+				'https://images.unsplash.com/photo-1531306760863-7fb02a41db12',
+				'https://images.unsplash.com/photo-1531307119710-accdb402fe03',
+				'https://images.unsplash.com/photo-1558905585-24d5d344c91d',
+				'https://images.unsplash.com/photo-1558905586-b023029262f1',
+			],
+		};
 	} );
 
 	it( 'should initialize the material library', () => {
