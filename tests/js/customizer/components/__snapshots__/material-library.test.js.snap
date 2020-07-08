@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`material library should initialize the material library 1`] = `
+exports[`Material Library should initialize the material library 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -126,7 +126,7 @@ Object {
                 >
                   <div
                     class="mdc-card__media mdc-card__media--16-9 demo-card__media"
-                    style="background-image: url(http://example.com/assets/images/material-library/2.jpg);"
+                    style="background-image: url(https://images.unsplash.com/photo-1531306760863-7fb02a41db12);"
                   />
                   <div
                     style="padding: 16px;"
@@ -357,15 +357,16 @@ Object {
             </p>
             <div>
               <ul
-                class="mdc-image-list mdc-image-list--with-text-protection"
+                class="mdc-image-list mdc-image-list--masonry mdc-image-list--with-text-protection"
               >
                 <li
                   class="mdc-image-list__item image-list-item"
+                  style="border-radius: 12px;"
                 >
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/1.jpg"
+                    src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -386,7 +387,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/2.jpg"
+                    src="https://images.unsplash.com/photo-1531307119710-accdb402fe03"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -407,7 +408,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/3.jpg"
+                    src="https://images.unsplash.com/photo-1558905585-24d5d344c91d"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -428,238 +429,7 @@ Object {
                   <img
                     alt="Text label"
                     class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/4.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/5.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/6.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/7.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/8.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/9.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/10.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/11.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/12.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/13.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/14.jpg"
-                    style="border-radius: 12px;"
-                  />
-                  <div
-                    class="mdc-image-list__supporting"
-                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                  >
-                    <span
-                      class="mdc-image-list__label"
-                    >
-                      Text label
-                    </span>
-                  </div>
-                </li>
-                <li
-                  class="mdc-image-list__item image-list-item"
-                  style="border-radius: 12px;"
-                >
-                  <img
-                    alt="Text label"
-                    class="mdc-image-list__image"
-                    src="http://example.com/assets/images/material-library/15.jpg"
+                    src="https://images.unsplash.com/photo-1558905586-b023029262f1"
                     style="border-radius: 12px;"
                   />
                   <div
@@ -692,7 +462,7 @@ Object {
             >
               <ul
                 class="wp-block-material-list mdc-list"
-                style="width: 25%;"
+                style="width: 33%;"
               >
                 <li
                   class="wp-block-material-list-item mdc-list-item list-item"
@@ -742,7 +512,7 @@ Object {
               </ul>
               <ul
                 class="mdc-list mdc-list--two-line inline-demo-list"
-                style="width: 25%;"
+                style="width: 33%;"
               >
                 <li
                   class="mdc-list-item mdc-ripple-upgraded"
@@ -752,7 +522,7 @@ Object {
                     aria-hidden="true"
                     class="material-icons-two-tone mdc-list-item__graphic"
                   >
-                    grade
+                    favorite
                   </i>
                   <span
                     class="mdc-list-item__text"
@@ -767,16 +537,6 @@ Object {
                     >
                       Secondary Text...
                     </span>
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    class="mdc-list-item__meta"
-                  >
-                    <button
-                      class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
-                    >
-                      more_vert
-                    </button>
                   </span>
                 </li>
                 <li
@@ -803,16 +563,6 @@ Object {
                       Secondary Text...
                     </span>
                   </span>
-                  <span
-                    aria-hidden="true"
-                    class="mdc-list-item__meta"
-                  >
-                    <button
-                      class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
-                    >
-                      more_vert
-                    </button>
-                  </span>
                 </li>
                 <li
                   class="mdc-list-item mdc-ripple-upgraded"
@@ -822,8 +572,32 @@ Object {
                     aria-hidden="true"
                     class="material-icons-two-tone mdc-list-item__graphic"
                   >
-                    grade
+                    search
                   </i>
+                  <span
+                    class="mdc-list-item__text"
+                  >
+                    <span
+                      class="mdc-list-item__primary-text"
+                    >
+                      List item
+                    </span>
+                    <span
+                      class="mdc-list-item__secondary-text"
+                    >
+                      Secondary Text...
+                    </span>
+                  </span>
+                </li>
+              </ul>
+              <ul
+                class="mdc-list mdc-list--two-line inline-demo-list"
+                style="width: 33%;"
+              >
+                <li
+                  class="mdc-list-item mdc-ripple-upgraded"
+                  tabindex="0"
+                >
                   <span
                     class="mdc-list-item__text"
                   >
@@ -845,7 +619,65 @@ Object {
                     <button
                       class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
                     >
-                      more_vert
+                      remove_red_eye
+                    </button>
+                  </span>
+                </li>
+                <li
+                  class="mdc-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
+                >
+                  <span
+                    class="mdc-list-item__text"
+                  >
+                    <span
+                      class="mdc-list-item__primary-text"
+                    >
+                      List item
+                    </span>
+                    <span
+                      class="mdc-list-item__secondary-text"
+                    >
+                      Secondary Text...
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="mdc-list-item__meta"
+                  >
+                    <button
+                      class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                    >
+                      email
+                    </button>
+                  </span>
+                </li>
+                <li
+                  class="mdc-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
+                >
+                  <span
+                    class="mdc-list-item__text"
+                  >
+                    <span
+                      class="mdc-list-item__primary-text"
+                    >
+                      List item
+                    </span>
+                    <span
+                      class="mdc-list-item__secondary-text"
+                    >
+                      Secondary Text...
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="mdc-list-item__meta"
+                  >
+                    <button
+                      class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                    >
+                      share
                     </button>
                   </span>
                 </li>
@@ -1476,7 +1308,7 @@ Object {
               >
                 <div
                   class="mdc-card__media mdc-card__media--16-9 demo-card__media"
-                  style="background-image: url(http://example.com/assets/images/material-library/2.jpg);"
+                  style="background-image: url(https://images.unsplash.com/photo-1531306760863-7fb02a41db12);"
                 />
                 <div
                   style="padding: 16px;"
@@ -1707,15 +1539,16 @@ Object {
           </p>
           <div>
             <ul
-              class="mdc-image-list mdc-image-list--with-text-protection"
+              class="mdc-image-list mdc-image-list--masonry mdc-image-list--with-text-protection"
             >
               <li
                 class="mdc-image-list__item image-list-item"
+                style="border-radius: 12px;"
               >
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/1.jpg"
+                  src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1736,7 +1569,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/2.jpg"
+                  src="https://images.unsplash.com/photo-1531307119710-accdb402fe03"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1757,7 +1590,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/3.jpg"
+                  src="https://images.unsplash.com/photo-1558905585-24d5d344c91d"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -1778,238 +1611,7 @@ Object {
                 <img
                   alt="Text label"
                   class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/4.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/5.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/6.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/7.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/8.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/9.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/10.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/11.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/12.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/13.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/14.jpg"
-                  style="border-radius: 12px;"
-                />
-                <div
-                  class="mdc-image-list__supporting"
-                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
-                >
-                  <span
-                    class="mdc-image-list__label"
-                  >
-                    Text label
-                  </span>
-                </div>
-              </li>
-              <li
-                class="mdc-image-list__item image-list-item"
-                style="border-radius: 12px;"
-              >
-                <img
-                  alt="Text label"
-                  class="mdc-image-list__image"
-                  src="http://example.com/assets/images/material-library/15.jpg"
+                  src="https://images.unsplash.com/photo-1558905586-b023029262f1"
                   style="border-radius: 12px;"
                 />
                 <div
@@ -2042,7 +1644,7 @@ Object {
           >
             <ul
               class="wp-block-material-list mdc-list"
-              style="width: 25%;"
+              style="width: 33%;"
             >
               <li
                 class="wp-block-material-list-item mdc-list-item list-item"
@@ -2092,7 +1694,7 @@ Object {
             </ul>
             <ul
               class="mdc-list mdc-list--two-line inline-demo-list"
-              style="width: 25%;"
+              style="width: 33%;"
             >
               <li
                 class="mdc-list-item mdc-ripple-upgraded"
@@ -2102,7 +1704,7 @@ Object {
                   aria-hidden="true"
                   class="material-icons-two-tone mdc-list-item__graphic"
                 >
-                  grade
+                  favorite
                 </i>
                 <span
                   class="mdc-list-item__text"
@@ -2117,16 +1719,6 @@ Object {
                   >
                     Secondary Text...
                   </span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  class="mdc-list-item__meta"
-                >
-                  <button
-                    class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
-                  >
-                    more_vert
-                  </button>
                 </span>
               </li>
               <li
@@ -2153,16 +1745,6 @@ Object {
                     Secondary Text...
                   </span>
                 </span>
-                <span
-                  aria-hidden="true"
-                  class="mdc-list-item__meta"
-                >
-                  <button
-                    class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
-                  >
-                    more_vert
-                  </button>
-                </span>
               </li>
               <li
                 class="mdc-list-item mdc-ripple-upgraded"
@@ -2172,8 +1754,32 @@ Object {
                   aria-hidden="true"
                   class="material-icons-two-tone mdc-list-item__graphic"
                 >
-                  grade
+                  search
                 </i>
+                <span
+                  class="mdc-list-item__text"
+                >
+                  <span
+                    class="mdc-list-item__primary-text"
+                  >
+                    List item
+                  </span>
+                  <span
+                    class="mdc-list-item__secondary-text"
+                  >
+                    Secondary Text...
+                  </span>
+                </span>
+              </li>
+            </ul>
+            <ul
+              class="mdc-list mdc-list--two-line inline-demo-list"
+              style="width: 33%;"
+            >
+              <li
+                class="mdc-list-item mdc-ripple-upgraded"
+                tabindex="0"
+              >
                 <span
                   class="mdc-list-item__text"
                 >
@@ -2195,7 +1801,65 @@ Object {
                   <button
                     class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
                   >
-                    more_vert
+                    remove_red_eye
+                  </button>
+                </span>
+              </li>
+              <li
+                class="mdc-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+              >
+                <span
+                  class="mdc-list-item__text"
+                >
+                  <span
+                    class="mdc-list-item__primary-text"
+                  >
+                    List item
+                  </span>
+                  <span
+                    class="mdc-list-item__secondary-text"
+                  >
+                    Secondary Text...
+                  </span>
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="mdc-list-item__meta"
+                >
+                  <button
+                    class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                  >
+                    email
+                  </button>
+                </span>
+              </li>
+              <li
+                class="mdc-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+              >
+                <span
+                  class="mdc-list-item__text"
+                >
+                  <span
+                    class="mdc-list-item__primary-text"
+                  >
+                    List item
+                  </span>
+                  <span
+                    class="mdc-list-item__secondary-text"
+                  >
+                    Secondary Text...
+                  </span>
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="mdc-list-item__meta"
+                >
+                  <button
+                    class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                  >
+                    share
                   </button>
                 </span>
               </li>

@@ -56,6 +56,10 @@ export const Overrides = createGlobalStyle`
 		font-family: var(--heading-font);
 	}
 
+	#mcb-material-library-preview .mdc-list-item__secondary-text {
+		font-size: .875rem !important;
+	}
+
 	#mcb-material-library-preview hr {
 		border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .12);
 	}
