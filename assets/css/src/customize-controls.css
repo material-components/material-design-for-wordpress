@@ -245,9 +245,13 @@
 		}
 	}
 
-	.image-list-item {
-		width: calc(100% / 5 - 10.2px);
-		margin: 5px;
+	.mdc-image-list--masonry {
+		column-count: 4;
+		column-gap: 16px;
+	}
+
+	.mdc-image-list__item {
+		margin-bottom: 16px;
 	}
 
 	.mdc-image-list__image {

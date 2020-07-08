@@ -40,7 +40,7 @@ Object {
           <a
             class="mdc-image-list__item-wrap"
             href="#"
-            style="margin-bottom: 12px;"
+            style="margin-bottom: 24px;"
           >
             <img
               alt="Example Image 1 alt"
@@ -104,7 +104,7 @@ Object {
           <a
             class="mdc-image-list__item-wrap"
             href="#"
-            style="margin-bottom: 12px;"
+            style="margin-bottom: 24px;"
           >
             <img
               alt="Example Image 2 alt"
@@ -848,7 +848,7 @@ Object {
         <a
           class="mdc-image-list__item-wrap"
           href="#"
-          style="margin-bottom: 12px;"
+          style="margin-bottom: 24px;"
         >
           <img
             alt="Example Image 1 alt"
@@ -912,7 +912,7 @@ Object {
         <a
           class="mdc-image-list__item-wrap"
           href="#"
-          style="margin-bottom: 12px;"
+          style="margin-bottom: 24px;"
         >
           <img
             alt="Example Image 2 alt"
