@@ -11,7 +11,7 @@ const Table = ( { radius } ) => (
 				'material-theme-builder'
 			) }
 		</p>
-		<div className="mdc-data-table" style={ { borderRadius: radius } }>
+		<div className="mdc-data-table" style={ { borderRadius: `${ radius }px` } }>
 			<table className="mdc-data-table__table">
 				<thead>
 					<tr className="mdc-data-table__header-row">
