@@ -8,7 +8,6 @@ import { __ } from '@wordpress/i18n';
  */
 import edit from './edit';
 import save from './save';
-import { example } from './example';
 
 export const name = 'material/contact-form';
 
@@ -21,7 +20,11 @@ export const settings = {
 	category: 'material',
 	keywords: [ __( 'Material Contact Form', 'material-theme-builder' ) ],
 	icon: <i className="material-icons-outlined">mail</i>,
+	example: {
+		attributes: {
+			preview: true,
+		},
+	},
 	edit,
 	save,
-	example,
 };
