@@ -7,7 +7,7 @@ import { render, screen } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import KitchenSink from '../../../../assets/src/customizer/components/kitchen-sink';
+import MaterialLibrary from '../../../../assets/src/customizer/components/material-library';
 
 /**
  * Render the component.
@@ -16,7 +16,7 @@ import KitchenSink from '../../../../assets/src/customizer/components/kitchen-si
  * @return {Function} A functional component.
  */
 const setup = props => {
-	return render( <KitchenSink { ...props } /> );
+	return render( <MaterialLibrary { ...props } /> );
 };
 
 const baseProps = {
@@ -40,13 +40,19 @@ const baseProps = {
 	textFieldRadius: 16,
 };
 
-describe( 'Kitchen Sink', () => {
+describe( 'Material Library', () => {
 	beforeAll( () => {
-		global.mtb = {};
-		global.mtb.pluginPath = 'http://example.com/';
+		global.mtb = {
+			images: [
+				'https://images.unsplash.com/photo-1531306760863-7fb02a41db12',
+				'https://images.unsplash.com/photo-1531307119710-accdb402fe03',
+				'https://images.unsplash.com/photo-1558905585-24d5d344c91d',
+				'https://images.unsplash.com/photo-1558905586-b023029262f1',
+			],
+		};
 	} );
 
-	it( 'should initialize the kitchen sink', () => {
+	it( 'should initialize the material library', () => {
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();
 	} );

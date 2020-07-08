@@ -16,7 +16,7 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 			<button className="mdc-button">
 				<div
 					className="mdc-button__ripple"
-					style={ { borderRadius: radius } }
+					style={ { borderRadius: `${ radius }px` } }
 				></div>
 				<span className="mdc-button__label">
 					{ __( 'Text Button', 'material-theme-builder' ) }
@@ -24,12 +24,12 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 			</button>
 			<button
 				className="mdc-button mdc-button--outlined"
-				style={ { borderRadius: radius } }
+				style={ { borderRadius: `${ radius }px` } }
 			>
 				<RippleColor primaryColor={ primaryColor }>
 					<div
 						className="mdc-button__ripple"
-						style={ { borderRadius: radius } }
+						style={ { borderRadius: `${ radius }px` } }
 					></div>
 				</RippleColor>
 				<span className="mdc-button__label">
@@ -38,7 +38,7 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 			</button>
 			<button
 				className="mdc-button mdc-button--raised"
-				style={ { borderRadius: radius } }
+				style={ { borderRadius: `${ radius }px` } }
 			>
 				<div className="mdc-button__ripple"></div>
 				<span className="mdc-button__label">
@@ -47,7 +47,7 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 			</button>
 			<button
 				className="mdc-button mdc-button--unelevated"
-				style={ { borderRadius: radius } }
+				style={ { borderRadius: `${ radius }px` } }
 			>
 				<div className="mdc-button__ripple"></div>
 				<span className="mdc-button__label">

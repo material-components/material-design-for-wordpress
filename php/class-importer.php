@@ -23,18 +23,19 @@ class Importer extends Module_Base {
 	public $xml;
 
 	/**
-	 * Featured image ID to attach
+	 * Images to import
 	 *
-	 * @var int
+	 * @var array
 	 */
-	private $featured_image;
+	public $images = [];
 
 	/**
-	 * Location where to download featured image
+	 * Imported images lookup.
 	 *
-	 * @var string
+	 * @var array
 	 */
-	public $image_location;
+	private $imported_images = [];
+
 
 	/**
 	 * Location of demo content file
@@ -52,6 +53,30 @@ class Importer extends Module_Base {
 	public function __construct( Plugin $plugin ) {
 		parent::__construct( $plugin );
 		$this->import_file = $this->get_import_file();
+
+		/**
+		 * Image URL => ID lookup in the imported content
+		 * this is used to replace the images with the imported URLs.
+		 */
+		$this->images = [
+			'https://images.unsplash.com/photo-1531306760863-7fb02a41db12' => 34,
+			'https://images.unsplash.com/photo-1531307119710-accdb402fe03' => 39,
+			'https://images.unsplash.com/photo-1558905585-24d5d344c91d'    => 36,
+			'https://images.unsplash.com/photo-1558905586-b023029262f1'    => 35,
+			'https://images.unsplash.com/photo-1558905586-d9bc8798d488'    => 41,
+			'https://images.unsplash.com/photo-1558906217-021abc4ab788'    => 37,
+			'https://images.unsplash.com/photo-1558906217-200fade11db0'    => 27,
+			'https://images.unsplash.com/photo-1558906217-665a4e06f741'    => 40,
+			'https://images.unsplash.com/photo-1565314912546-0d18918fdc8f' => 38,
+			'https://images.unsplash.com/photo-1565315268183-4134b0eef6e2' => 43,
+			'https://images.unsplash.com/photo-1565357153781-98bf8686488a' => 33,
+			'https://images.unsplash.com/photo-1566964423430-3e52903303a5' => 42,
+			'https://images.unsplash.com/photo-1574191942747-140df1f9c477' => 26,
+			'https://images.unsplash.com/photo-1580699133608-082eae6052a8' => 46,
+			'https://images.unsplash.com/photo-1582817954171-c3533fffde89' => 50,
+			'https://images.unsplash.com/photo-1582817954180-3c17b7036409' => 47,
+			'https://images.unsplash.com/photo-1591404789216-d03646c78f73' => 45,
+		];
 	}
 
 	/**
@@ -60,7 +85,7 @@ class Importer extends Module_Base {
 	 * @return string Path to demo file
 	 */
 	public function get_import_file() {
-		return trailingslashit( $this->plugin->dir_path ) . 'assets/demo-content.xml';
+		return trailingslashit( $this->plugin->dir_path ) . 'assets/importer/demo-content.xml';
 	}
 
 	/**
@@ -73,9 +98,11 @@ class Importer extends Module_Base {
 	public function render_page() {
 		$should_import = filter_input( INPUT_POST, 'mtb-install-demo', FILTER_SANITIZE_NUMBER_INT );
 
+		// @codeCoverageIgnoreStart
 		if ( $should_import ) {
 			return $this->import_demo();
 		}
+		// @codeCoverageIgnoreEnd
 
 		ob_start();
 		?>
@@ -119,11 +146,15 @@ class Importer extends Module_Base {
 
 		$this->add_custom_css();
 
+		$this->import_and_update_images();
+
 		return 'success';
 	}
 
 	/**
 	 * Verify nonce and init import process
+	 *
+	 * @codeCoverageIgnore
 	 *
 	 * @return void
 	 */
@@ -192,6 +223,195 @@ class Importer extends Module_Base {
 	}
 
 	/**
+	 * Import demo images and update imported content.
+	 *
+	 * @return void
+	 */
+	public function import_and_update_images() {
+		$this->prime_imported_images_cache();
+
+		foreach ( array_keys( $this->images ) as $image_url ) {
+			$image_url = add_query_arg( 'w', 1200, $image_url );
+			$this->import_image( $image_url );
+		}
+
+		/**
+		 * Fetch the imported posts.
+		 */
+		$query = new \WP_Query(
+			[
+				'post_status'            => 'publish',
+				'post_type'              => [ 'page', 'post' ],
+				'meta_key'               => '_mtb-demo-content',
+				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+			]
+		);
+
+		if ( $query->have_posts() ) {
+			foreach ( $query->posts as $post ) {
+				$this->update_images( $post );
+			}
+		}
+	}
+
+	/**
+	 * Update images in a demo post to reference imported image.
+	 *
+	 * @param  WP_Post $post Post to update.
+	 * @return void
+	 */
+	public function update_images( $post ) {
+		foreach ( $this->images as $url => $id ) {
+			$attachment = $this->get_attachment( $url );
+
+			if ( ! empty( $attachment ) ) {
+
+				// Media ID formats in post content.
+				$id_formats = [
+					'"id":%s',
+					'data-id="%s"',
+					'wp-image-%s',
+					'"mediaId":%s',
+				];
+
+				// Gallery ids format.
+				if ( preg_match_all( '#"ids"\:\[([^\]]+)\]#', $post->post_content, $matches, PREG_SET_ORDER ) ) {
+					foreach ( $matches as $match ) {
+						$ids = array_map(
+							function( $image_id ) use ( $id ) {
+								if ( absint( $image_id ) === $id ) {
+									return '%s';
+								}
+								return $image_id;
+							},
+							explode( ',', $match[1] )
+						);
+
+						$id_formats[] = implode( ',', $ids );
+					}
+				}
+
+				foreach ( $id_formats as $format ) {
+					$post->post_content = str_replace( sprintf( $format, $id ), sprintf( $format, $attachment['id'] ), $post->post_content );
+				}
+
+				// Replace any unsplash image URL with the imported image URL.
+				if ( preg_match_all( '#("https://images.unsplash.com/[^"]+")|(\(https://images.unsplash.com/[^)]+\))#', $post->post_content, $matches, PREG_SET_ORDER ) ) {
+					foreach ( $matches as $match ) {
+						$image_url  = str_replace( [ '"', '(', ')' ], '', $match[0] );
+						$attachment = $this->get_attachment( $image_url );
+
+						if ( ! empty( $attachment ) ) {
+							$post->post_content = str_replace( $image_url, $attachment['url'], $post->post_content );
+						}
+					}
+				}
+			}
+		}
+
+		wp_update_post( $post );
+	}
+
+	/**
+	 * Import image to a temp directory and move it into WP content directory.
+	 *
+	 * @param string $image_url URL of the image to import.
+	 *
+	 * @return array|string|WP_Error
+	 */
+	public function import_image( $image_url ) {
+		// @codeCoverageIgnoreStart
+		if ( ! function_exists( 'download_url' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/media.php';
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+			require_once ABSPATH . 'wp-admin/includes/image.php';
+		}
+		// @codeCoverageIgnoreEnd
+
+		if ( ! empty( $this->get_attachment( $image_url ) ) ) {
+			return;
+		}
+
+		$file_array = [];
+		$full_url   = explode( '?', $image_url )[0];
+		$tmp        = download_url( $image_url );
+		// If there was an error downloading, return the error.
+
+		// @codeCoverageIgnoreStart
+		if ( is_wp_error( $tmp ) ) {
+			return $tmp;
+		}
+		// @codeCoverageIgnoreEnd
+
+		$name                   = 'material-demo-' . wp_basename( $full_url );
+		$file_array['name']     = $name . '.jpeg';
+		$file_array['tmp_name'] = $tmp;
+		$file_array['type']     = 'image/jpeg';
+		$file_array['ext']      = 'jpeg';
+
+		// Pass off to WP to handle the actual upload.
+		$overrides = [
+			'test_form' => false,
+			'action'    => 'wp_handle_sideload',
+		];
+
+		// Bypasses is_uploaded_file() when running unit tests.
+		if ( defined( 'DIR_TESTDATA' ) && DIR_TESTDATA ) {
+			$overrides['action'] = 'wp_handle_mock_upload';
+		}
+
+		$file = wp_handle_upload( $file_array, $overrides );
+		// @codeCoverageIgnoreStart
+		if ( isset( $file['error'] ) ) {
+			return new WP_Error(
+				'rest_upload_unknown_error',
+				$file['error']
+			);
+		}
+
+		if ( is_wp_error( $file ) ) {
+			return $file;
+		}
+
+		if ( empty( $file ) || ! is_array( $file ) ) {
+			return new WP_Error( 'no_file_found', esc_html__( 'No file found', 'material-theme-builder' ) );
+		}
+		// @codeCoverageIgnoreEnd
+
+		$url  = $file['url'];
+		$file = $file['file'];
+
+		$attachment = [
+			'post_content'   => '',
+			'post_title'     => $name,
+			'post_mime_type' => 'image/jpeg',
+			'guid'           => $url,
+			'meta_input'     => [
+				'original_link' => $full_url,
+			],
+		];
+
+		$attachment_id = wp_insert_attachment( wp_slash( $attachment ), $file, 0, true );
+
+		if ( ! empty( $attachment_id ) && ! is_wp_error( $attachment_id ) ) {
+			$this->imported_images[ $full_url ] = [
+				'id'  => $attachment_id,
+				'url' => $url,
+			];
+
+			$file     = get_attached_file( $attachment_id );
+			$new_meta = wp_generate_attachment_metadata( $attachment_id, $file );
+
+			wp_update_attachment_metadata( $attachment_id, $new_meta );
+		}
+
+		return $attachment_id;
+	}
+
+	/**
 	 * Loops through post items and sets data for insertion
 	 *
 	 * @return void
@@ -221,6 +441,65 @@ class Importer extends Module_Base {
 			];
 
 			$post_id = $this->insert_post( $post_data, $post );
+		}
+	}
+
+	/**
+	 * Get imorted attachments.
+	 *
+	 * @param  boolean $force Force pull images from DB.
+	 * @return array
+	 */
+	public function get_attachments( $force = false ) {
+		if ( $force || empty( $this->imported_images ) ) {
+			$this->prime_imported_images_cache();
+		}
+
+		return $this->imported_images;
+	}
+
+	/**
+	 * Get attachment using original link.
+	 *
+	 * @param  string $image_url Original image URL.
+	 * @return mixed
+	 */
+	public function get_attachment( $image_url ) {
+		$full_url = explode( '?', $image_url )[0];
+		if ( isset( $this->imported_images[ $full_url ] ) ) {
+			return $this->imported_images[ $full_url ];
+		}
+
+		return false;
+	}
+
+	/**
+	 * Prime imported images cache.
+	 *
+	 * @return void
+	 */
+	public function prime_imported_images_cache() {
+		$query = new \WP_Query(
+			[
+				'posts_per_page'         => 50,
+				'post_status'            => 'any',
+				'post_type'              => 'attachment',
+				'meta_key'               => 'original_link',
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'fields'                 => 'ids',
+			]
+		);
+
+		if ( $query->have_posts() ) {
+			foreach ( $query->posts as $attachment_id ) {
+				$full_url                           = get_post_meta( $attachment_id, 'original_link', true );
+				$this->imported_images[ $full_url ] = [
+					'id'  => $attachment_id,
+					'url' => wp_get_attachment_url( $attachment_id ),
+				];
+			}
 		}
 	}
 
@@ -257,15 +536,11 @@ class Importer extends Module_Base {
 		$comments = $this->insert_comments( $post, $post_id );
 
 		if ( ! empty( $post_data['post_thumbnail'] ) ) {
-			$image = \media_sideload_image(
-				$post_data['post_thumbnail'],
-				$post_id,
-				$post_data['post_title'],
-				'id'
-			);
+			$image_url     = add_query_arg( 'w', 1200, $post_data['post_thumbnail'] );
+			$attachment_id = $this->import_image( $image_url );
 
-			if ( ! is_wp_error( $image ) ) {
-				set_post_thumbnail( $post_id, $image );
+			if ( ! is_wp_error( $attachment_id ) ) {
+				set_post_thumbnail( $post_id, $attachment_id );
 			}
 		}
 
