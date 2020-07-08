@@ -1,3 +1,5 @@
 export const example = {
-	attributes: {},
+	attributes: {
+		postsToShow: 2,
+	},
 };

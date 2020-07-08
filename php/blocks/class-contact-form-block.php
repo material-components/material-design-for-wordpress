@@ -58,6 +58,10 @@ class Contact_Form_Block extends Module_Base {
 						'type'    => 'boolean',
 						'default' => true,
 					],
+					'preview'             => [
+						'type'    => 'boolean',
+						'default' => false,
+					],
 				],
 				'render_callback' => [ $this, 'render_block' ],
 			]
