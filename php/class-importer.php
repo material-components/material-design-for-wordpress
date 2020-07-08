@@ -98,9 +98,11 @@ class Importer extends Module_Base {
 	public function render_page() {
 		$should_import = filter_input( INPUT_POST, 'mtb-install-demo', FILTER_SANITIZE_NUMBER_INT );
 
+		// @codeCoverageIgnoreStart
 		if ( $should_import ) {
 			return $this->import_demo();
 		}
+		// @codeCoverageIgnoreEnd
 
 		ob_start();
 		?>
@@ -151,6 +153,8 @@ class Importer extends Module_Base {
 
 	/**
 	 * Verify nonce and init import process
+	 *
+	 * @codeCoverageIgnore
 	 *
 	 * @return void
 	 */
