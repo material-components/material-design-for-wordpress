@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Notice matches snapshot 1`] = `
+<Notice
+  message="There was an error"
+  type="notice-error"
+>
+  <div
+    className="notice material-wizard__notice notice-error"
+  >
+    <p>
+      There was an error
+    </p>
+  </div>
+</Notice>
+`;
