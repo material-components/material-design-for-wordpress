@@ -19,4 +19,8 @@ describe( 'Notice', () => {
 		expect( textWrap ).toHaveLength( 1 );
 		expect( textWrap.text() ).toStrictEqual( baseProps.message );
 	} );
+
+	it( 'matches snapshot', () => {
+		expect( wrapper ).toMatchSnapshot();
+	} );
 } );

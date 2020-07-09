@@ -32,7 +32,7 @@ const Content = () => {
 	/**
 	 * Decide fate of onboarding
 	 *
-	 * @param {Array} addons Selected addons
+	 * @param {Array} selectedAddons Selected addons
 	 */
 	const triggerOnboardingActions = selectedAddons => {
 		if ( 0 === selectedAddons.length ) {

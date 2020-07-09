@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Wizard: Switch matches snapshot 1`] = `
+<div>
+  <div
+    class="mdc-switch material-wizard-switch material-wizard-switch__material-wizard__switch mdc-switch--checked"
+  >
+    <div
+      class="mdc-switch__track"
+    />
+    <div
+      class="mdc-switch__thumb-underlay"
+    >
+      <div
+        class="mdc-switch__thumb"
+      />
+      <input
+        aria-checked="true"
+        class="mdc-switch__native-control"
+        id="material-wizard__switch"
+        role="switch"
+        type="checkbox"
+      />
+    </div>
+  </div>
+  <label
+    for="material-wizard__switch"
+    id="label-material-wizard__switch"
+  >
+    Close
+  </label>
+</div>
+`;
