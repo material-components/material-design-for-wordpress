@@ -25,16 +25,16 @@ export const handleThemeActivation = () => {
 		fetch( `${ mtbOnboarding.restUrl }${ action }-theme`, parameters )
 			.then( response => response.json() )
 			.then( data => {
+				if ( data.code ) {
+					reject( data );
+				}
+
 				if ( 'install' === action ) {
 					fetch( `${ mtbOnboarding.restUrl }activate-theme`, parameters )
 						.then( response => response.json() )
 						.then( resolve )
 						.catch( error => reject( error ) );
 				} else {
-					if ( data.code ) {
-						reject( data );
-					}
-
 					resolve( data );
 				}
 			} )
@@ -64,11 +64,4 @@ export const handleDemoImporter = () => {
 			} )
 			.catch( error => reject( error ) );
 	} );
-};
-
-/**
- * Redirect to settings location
- */
-export const redirectToSettings = () => {
-	return window.location.replace( mtbWizard.settingsUrl );
 };
