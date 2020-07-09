@@ -11,16 +11,20 @@ import { STEPS, STATUS, ACTIONS } from '../../constants';
 const Navigation = () => {
 	const { state, dispatch } = useContext( StepContext );
 	const isLast = state.active === STEPS.WORK;
+	const isAddons = state.active === STEPS.ADDONS;
 	const isLoading = state.status === STATUS.PENDING;
 
 	const handleClick = type => {
 		if ( ACTIONS.SUBMIT_WIZARD === type ) {
-			dispatch( { type: ACTIONS.SUBMIT_WIZARD } );
 		}
 
 		if ( ACTIONS.NEXT_STEP === type ) {
-			window.scrollTo( 0, 0 );
-			dispatch( { type: ACTIONS.NEXT_STEP } );
+			if ( isAddons ) {
+				dispatch( { type: ACTIONS.SUBMIT_WIZARD } );
+			} else {
+				window.scrollTo( 0, 0 );
+				dispatch( { type: ACTIONS.NEXT_STEP } );
+			}
 		}
 
 		if ( ACTIONS.PREVIOUS_STEP === type ) {
@@ -46,7 +50,7 @@ const Navigation = () => {
 								style="material-wizard__next"
 								text={ __( 'Previous Step', 'material-theme-builder' ) }
 								leadingIcon="navigate_before"
-								onClick={ () => handleClick( 'PREVIOUS_STEP' ) }
+								onClick={ () => handleClick( ACTIONS.PREVIOUS_STEP ) }
 							/>
 						) }
 					</div>
@@ -57,7 +61,8 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Next Step', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								onClick={ () => handleClick( 'NEXT_STEP' ) }
+								onClick={ () => handleClick( ACTIONS.NEXT_STEP ) }
+								loading={ isLoading }
 							/>
 						) }
 						{ isLast && (
@@ -65,8 +70,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								onClick={ () => handleClick( 'SUBMIT_WIZARD' ) }
-								loading={ isLoading }
+								link={ mtbWizard.settingsUrl }
 							/>
 						) }
 					</div>

@@ -1,12 +1,7 @@
-/* global mtbWizard */
 import React, { useContext, useEffect, Fragment } from 'react';
 import StepContext from '../../context';
 import { STEPS, STATUS, ADDONS, ACTIONS } from '../../constants';
-import {
-	handleDemoImporter,
-	handleThemeActivation,
-	redirectToSettings,
-} from '../../utils';
+import { handleDemoImporter, handleThemeActivation } from '../../utils';
 import Welcome from './welcome';
 import Addons from './addons';
 import Work from './work';
@@ -30,13 +25,21 @@ const Content = () => {
 	};
 
 	/**
+	 * Move on to next step
+	 */
+	const handleSuccess = () => {
+		window.scrollTo( 0, 0 );
+		dispatch( { type: ACTIONS.NEXT_STEP } );
+	};
+
+	/**
 	 * Decide fate of onboarding
 	 *
 	 * @param {Array} selectedAddons Selected addons
 	 */
 	const triggerOnboardingActions = selectedAddons => {
 		if ( 0 === selectedAddons.length ) {
-			return window.location.replace( mtbWizard.settingsUrl );
+			return dispatch( { type: ACTIONS.NEXT_STEP } );
 		}
 
 		if (
@@ -44,7 +47,7 @@ const Content = () => {
 			! selectedAddons.includes( ADDONS.DEMO )
 		) {
 			handleThemeActivation()
-				.then( redirectToSettings )
+				.then( handleSuccess )
 				.catch( handleError );
 		}
 
@@ -53,7 +56,7 @@ const Content = () => {
 			! selectedAddons.includes( ADDONS.THEME )
 		) {
 			handleDemoImporter()
-				.then( redirectToSettings )
+				.then( handleSuccess )
 				.catch( handleError );
 		}
 
@@ -64,7 +67,7 @@ const Content = () => {
 			handleThemeActivation()
 				.then( () => {
 					handleDemoImporter()
-						.then( redirectToSettings )
+						.then( handleSuccess )
 						.catch( handleError );
 				} )
 				.catch( handleError );
