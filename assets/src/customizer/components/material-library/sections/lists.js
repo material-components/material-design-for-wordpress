@@ -15,7 +15,7 @@ const Lists = ( { iconStyle } ) => (
 		<div style={ { display: 'flex' } }>
 			<ul
 				className="wp-block-material-list mdc-list"
-				style={ { width: '25%' } }
+				style={ { width: '33%' } }
 			>
 				<li
 					className="wp-block-material-list-item mdc-list-item list-item"
@@ -53,7 +53,7 @@ const Lists = ( { iconStyle } ) => (
 			</ul>
 
 			<ul
-				style={ { width: '25%' } }
+				style={ { width: '33%' } }
 				className="mdc-list mdc-list--two-line inline-demo-list"
 			>
 				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="0">
@@ -61,7 +61,7 @@ const Lists = ( { iconStyle } ) => (
 						className={ classNames( iconStyle, 'mdc-list-item__graphic' ) }
 						aria-hidden="true"
 					>
-						grade
+						favorite
 					</i>
 
 					<span className="mdc-list-item__text">
@@ -71,19 +71,6 @@ const Lists = ( { iconStyle } ) => (
 						<span className="mdc-list-item__secondary-text">
 							{ __( 'Secondary Text...', 'material-theme-builder' ) }
 						</span>
-					</span>
-
-					<span aria-hidden="true" className="mdc-list-item__meta">
-						<button
-							className={ classNames(
-								iconStyle,
-								'mdc-icon-button',
-								'mdc-ripple-upgraded',
-								'mdc-ripple-upgraded--unbounded'
-							) }
-						>
-							more_vert
-						</button>
 					</span>
 				</li>
 				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="-1">
@@ -102,28 +89,31 @@ const Lists = ( { iconStyle } ) => (
 							{ __( 'Secondary Text...', 'material-theme-builder' ) }
 						</span>
 					</span>
-
-					<span aria-hidden="true" className="mdc-list-item__meta">
-						<button
-							className={ classNames(
-								iconStyle,
-								'mdc-icon-button',
-								'mdc-ripple-upgraded',
-								'mdc-ripple-upgraded--unbounded'
-							) }
-						>
-							more_vert
-						</button>
-					</span>
 				</li>
 				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="-1">
 					<i
 						className={ classNames( iconStyle, 'mdc-list-item__graphic' ) }
 						aria-hidden="true"
 					>
-						grade
+						search
 					</i>
 
+					<span className="mdc-list-item__text">
+						<span className="mdc-list-item__primary-text">
+							{ __( 'List item', 'material-theme-builder' ) }
+						</span>
+						<span className="mdc-list-item__secondary-text">
+							{ __( 'Secondary Text...', 'material-theme-builder' ) }
+						</span>
+					</span>
+				</li>
+			</ul>
+
+			<ul
+				style={ { width: '33%' } }
+				className="mdc-list mdc-list--two-line inline-demo-list"
+			>
+				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="0">
 					<span className="mdc-list-item__text">
 						<span className="mdc-list-item__primary-text">
 							{ __( 'List item', 'material-theme-builder' ) }
@@ -142,7 +132,53 @@ const Lists = ( { iconStyle } ) => (
 								'mdc-ripple-upgraded--unbounded'
 							) }
 						>
-							more_vert
+							remove_red_eye
+						</button>
+					</span>
+				</li>
+				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="-1">
+					<span className="mdc-list-item__text">
+						<span className="mdc-list-item__primary-text">
+							{ __( 'List item', 'material-theme-builder' ) }
+						</span>
+						<span className="mdc-list-item__secondary-text">
+							{ __( 'Secondary Text...', 'material-theme-builder' ) }
+						</span>
+					</span>
+
+					<span aria-hidden="true" className="mdc-list-item__meta">
+						<button
+							className={ classNames(
+								iconStyle,
+								'mdc-icon-button',
+								'mdc-ripple-upgraded',
+								'mdc-ripple-upgraded--unbounded'
+							) }
+						>
+							email
+						</button>
+					</span>
+				</li>
+				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="-1">
+					<span className="mdc-list-item__text">
+						<span className="mdc-list-item__primary-text">
+							{ __( 'List item', 'material-theme-builder' ) }
+						</span>
+						<span className="mdc-list-item__secondary-text">
+							{ __( 'Secondary Text...', 'material-theme-builder' ) }
+						</span>
+					</span>
+
+					<span aria-hidden="true" className="mdc-list-item__meta">
+						<button
+							className={ classNames(
+								iconStyle,
+								'mdc-icon-button',
+								'mdc-ripple-upgraded',
+								'mdc-ripple-upgraded--unbounded'
+							) }
+						>
+							share
 						</button>
 					</span>
 				</li>
