@@ -330,7 +330,6 @@ class Controls extends Module_Base {
 				'max'           => isset( $control['max'] ) ? $control['max'] : 100,
 				'initial_value' => isset( $control['initial_value'] ) ? $control['initial_value'] : 0,
 				'css_var'       => isset( $control['css_var'] ) ? $control['css_var'] : '',
-				'extra'         => isset( $control['extra'] ) ? $control['extra'] : '',
 				'children'      => $corner_controls,
 			]
 		);
@@ -458,8 +457,8 @@ class Controls extends Module_Base {
 						function( $child ) {
 							return $child['id'];
 						},
-						$control->children 
-					) 
+						$control->children
+					)
 				);
 			}
 		}
@@ -739,9 +738,9 @@ class Controls extends Module_Base {
 				'button_radius'         => '4',
 				'card_radius'           => '4',
 				'chip_radius'           => '4',
-				'data_table_radius'     => '0',
+				'data_table_radius'     => '4',
 				'image_list_radius'     => '4',
-				'nav_drawer_radius'     => '0',
+				'nav_drawer_radius'     => '4',
 				'text_field_radius'     => '4',
 				'icon_collection'       => 'filled',
 			],
@@ -758,11 +757,11 @@ class Controls extends Module_Base {
 				'body_font_family'      => 'Raleway',
 				'global_radius'         => '0',
 				'button_radius'         => '0',
-				'card_radius'           => '16',
+				'card_radius'           => '0',
 				'chip_radius'           => '0',
-				'data_table_radius'     => '20',
-				'image_list_radius'     => '16',
-				'nav_drawer_radius'     => '20',
+				'data_table_radius'     => '0',
+				'image_list_radius'     => '0',
+				'nav_drawer_radius'     => '0',
 				'text_field_radius'     => '0',
 				'icon_collection'       => 'outlined',
 			],
