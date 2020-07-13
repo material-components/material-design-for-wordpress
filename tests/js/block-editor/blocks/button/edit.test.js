@@ -142,7 +142,7 @@ describe( 'ButtonEdit', () => {
 		const { container } = setup( props );
 		const toggle = container.querySelectorAll(
 			'.components-form-toggle__input'
-		)[ 1 ];
+		)[ 0 ];
 
 		await fireEvent.click( toggle );
 		expect( props.setAttributes ).toHaveBeenCalledWith( {
@@ -164,7 +164,7 @@ describe( 'ButtonEdit', () => {
 		const { container } = setup( props );
 		const toggle = container.querySelectorAll(
 			'.components-form-toggle__input'
-		)[ 1 ];
+		)[ 0 ];
 
 		await fireEvent.click( toggle );
 		expect( props.setAttributes ).toHaveBeenCalledWith( {
