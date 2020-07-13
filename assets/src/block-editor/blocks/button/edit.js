@@ -88,9 +88,6 @@ const MdcButton = ( {
 				onChange={ setter( 'label' ) }
 				className="material-block-button__link"
 				identifier="text"
-				onSplit={ value => console.log( value ) }
-				onReplace={ console.log }
-				onMerge={ console.log }
 			/>
 			{ icon && iconPosition === 'trailing' && (
 				<i className="material-icons mdc-button__icon">
