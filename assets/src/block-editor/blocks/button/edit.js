@@ -21,6 +21,8 @@ import {
 	TextControl,
 	RangeControl,
 } from '@wordpress/components';
+import { compose } from '@wordpress/compose';
+import { withSelect } from '@wordpress/data';
 
 /**
  * Internal dependencies
@@ -36,6 +38,7 @@ import { withGlobalDefaults } from '../../components/with-global-defaults';
 import MaterialColorPalette from '../../components/material-color-palette';
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
+import { name as ContactFormBlockName } from '../contact-form';
 
 /**
  * Small component which either renders an icon button or a text button.
@@ -114,11 +117,12 @@ const ButtonEdit = ( {
 		cornerRadius,
 		iconPosition,
 		backgroundColor,
-		isSubmit = false,
+		isSubmit,
 	},
 	setAttributes,
 	isSelected,
 	className,
+	isSubmitButton,
 } ) => {
 	const setter = genericAttributesSetter( setAttributes );
 
@@ -127,6 +131,12 @@ const ButtonEdit = ( {
 			setAttributes( { icon: findIcon( 'favorite' ) } );
 		}
 	}, [ icon, iconPosition, setAttributes ] );
+
+	useEffect( () => {
+		if ( isSubmitButton ) {
+			setAttributes( { isSubmit: true } );
+		}
+	}, [ isSubmitButton, setAttributes ] );
 
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
@@ -201,11 +211,6 @@ const ButtonEdit = ( {
 						onChange={ switchType }
 					/>
 
-					<ToggleControl
-						label={ __( 'Is a submit button?', 'material-theme-builder' ) }
-						onChange={ setter( 'isSubmit' ) }
-						checked={ isSubmit }
-					/>
 					{ type === 'text' && (
 						<>
 							<span>{ __( 'Container', 'material-theme-builder' ) }</span>
@@ -304,4 +309,14 @@ const ButtonEdit = ( {
 	);
 };
 
-export default withGlobalDefaults( ButtonEdit );
+export default compose( [
+	withSelect( ( select, { clientId } ) => {
+		const { getBlockParentsByBlockName } = select( 'core/block-editor' );
+
+		return {
+			isSubmitButton:
+				getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0,
+		};
+	} ),
+	withGlobalDefaults,
+] )( ButtonEdit );

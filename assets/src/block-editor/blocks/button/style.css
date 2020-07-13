@@ -27,4 +27,5 @@
 	margin-right: 8px;
 	text-decoration: none;
 	overflow-wrap: break-word;
+	min-width: 10px;
 }

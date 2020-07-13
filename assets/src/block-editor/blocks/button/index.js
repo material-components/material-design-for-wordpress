@@ -23,6 +23,8 @@ export const settings = {
 	attributes: {
 		label: {
 			type: 'string',
+			source: 'html',
+			selector: '.mdc-button__label',
 			default: '',
 		},
 		type: {
@@ -42,18 +44,33 @@ export const settings = {
 		},
 		url: {
 			type: 'string',
+			source: 'attribute',
+			selector: 'a',
+			attribute: 'href',
 			default: '',
 		},
 		rel: {
 			type: 'string',
+			source: 'attribute',
+			selector: 'a',
+			attribute: 'rel',
 			default: '',
 		},
 		linkTarget: {
 			type: 'string',
+			source: 'attribute',
+			selector: 'a',
+			attribute: 'target',
 		},
-		icon: { type: 'object' },
-		backgroundColor: { type: 'string' },
-		textColor: { type: 'string' },
+		icon: {
+			type: 'object',
+		},
+		backgroundColor: {
+			type: 'string',
+		},
+		textColor: {
+			type: 'string',
+		},
 		isSubmit: {
 			type: 'boolean',
 			default: false,
