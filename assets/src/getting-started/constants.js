@@ -1,0 +1,7 @@
+export const TABS = {
+	WIZARD: 'WIZARD',
+	THEME: 'THEME',
+	DEMO: 'DEMO',
+	EDITOR: 'EDITOR',
+	BLOCKS: 'BLOCKS',
+};

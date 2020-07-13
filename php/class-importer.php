@@ -137,7 +137,7 @@ class Importer extends Module_Base {
 
 		wp_enqueue_style(
 			'material-gsm',
-			$this->plugin->asset_url( 'assets/css/wizard-compiled.css' ),
+			$this->plugin->asset_url( 'assets/css/getting-started-compiled.css' ),
 			[ 'google-fonts' ],
 			$this->plugin->asset_version()
 		);
