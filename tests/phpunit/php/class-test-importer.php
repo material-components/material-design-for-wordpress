@@ -60,7 +60,7 @@ class Test_Importer extends \WP_UnitTestCase {
 	public function test_render_page() {
 		$output = $this->importer->render_page();
 
-		$this->assertContains( '<div class="material-settings-container material-notice-container">', $output );
+		$this->assertContains( '<div id="material-gsm" class="material-gsm"></div>', $output );
 	}
 
 	/**

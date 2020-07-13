@@ -526,29 +526,6 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Create demo importer page
-	 *
-	 * @action admin_menu
-	 *
-	 * @return void
-	 */
-	public function create_demo_importer_page() {
-		// @todo Renable this page after onboarding phase-2 is implemented.
-		// add_options_page( esc_html__( 'Material Settings', 'material-theme-builder' ), esc_html__( 'Material Settings', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
-	}
-
-	/**
-	 * Displays a settings page to import demo content
-	 *
-	 * @return void
-	 */
-	public function render_demo_importer_page() {
-		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo $this->importer->render_page();
-		// phpcs:enable
-	}
-
-	/**
 	 * Create onboarding wizard page
 	 *
 	 * @action admin_menu
@@ -564,6 +541,28 @@ class Plugin extends Plugin_Base {
 			[ $this->wizard, 'render' ],
 			trailingslashit( $this->dir_url ) . 'assets/images/logo-outline.svg'
 		);
+	}
+
+	/**
+	 * Create demo importer page
+	 *
+	 * @action admin_menu
+	 *
+	 * @return void
+	 */
+	public function create_demo_importer_page() {
+		add_submenu_page( 'material-theme-builder', __( 'Material Settings', 'material-theme-builder' ), __( 'Getting Started', 'material-theme-builder' ), 'manage_options', 'material_settings', [ $this, 'render_demo_importer_page' ] );
+	}
+
+	/**
+	 * Displays a settings page to import demo content
+	 *
+	 * @return void
+	 */
+	public function render_demo_importer_page() {
+		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $this->importer->render_page();
+		// phpcs:enable
 	}
 
 	/**

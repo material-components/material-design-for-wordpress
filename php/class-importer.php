@@ -107,20 +107,7 @@ class Importer extends Module_Base {
 		ob_start();
 		?>
 
-		<h1><?php esc_html_e( 'Material Settings', 'material-theme-builder' ); ?></h1>
-
-		<div class="material-settings-container material-notice-container">
-			<div class="material-settings__logo">
-				<img src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-logo.png' ) ); ?>" alt />
-			</div>
-			<div class="material-settings-container__content">
-				<h3><?php esc_html_e( 'Setup Material plugin', 'material-theme-builder' ); ?></h3>
-
-				<p>
-					<a href="<?php echo esc_url( 'admin.php?page=material-theme-builder' ); ?>"><?php esc_html_e( 'Get started with the onboarding wizard', 'material-theme-builder' ); ?></a>
-				</p>
-			</div>
-		</div>
+		<div id="material-gsm" class="material-gsm"></div>
 
 		<?php
 		return ob_get_clean();

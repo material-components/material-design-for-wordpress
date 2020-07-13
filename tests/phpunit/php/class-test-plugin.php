@@ -438,7 +438,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin->render_demo_importer_page();
 		$output = ob_get_clean();
 
-		$this->assertContains( '<h1>Material Settings</h1>', $output );
+		$this->assertContains( '<div id="material-gsm" class="material-gsm"></div>', $output );
 	}
 
 	/**
