@@ -23,7 +23,7 @@ export const settings = {
 	attributes: {
 		label: {
 			type: 'string',
-			default: __( 'BUTTON LABEL', 'material-theme-builder' ),
+			default: '',
 		},
 		type: {
 			type: 'string',

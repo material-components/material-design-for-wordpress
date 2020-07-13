@@ -17,3 +17,14 @@
 .mdc-button--outlined:not(:disabled) {
 	border-color: inherit !important;
 }
+
+.material-block-button__link {
+	border: none;
+	box-shadow: none;
+	color: inherit;
+	cursor: text;
+	display: inline-block;
+	margin-right: 8px;
+	text-decoration: none;
+	overflow-wrap: break-word;
+}

@@ -133,32 +133,6 @@ describe( 'ButtonEdit', () => {
 		expect( screen.getByText( 'Search icon' ) ).toBeInTheDocument();
 	} );
 
-	it( 'should show link setting field if isSelected is true', () => {
-		setup( {
-			attributes: { type: 'icon' },
-			isSelected: true,
-			setAttributes: jest.fn(),
-		} );
-
-		const container = document.body;
-		const matches = container.querySelector( '.material-button-link' );
-
-		expect( matches ).toBeInTheDocument();
-	} );
-
-	it( 'should not show link setting field if isSelected is true', () => {
-		setup( {
-			attributes: { type: 'icon' },
-			isSelected: false,
-			setAttributes: jest.fn(),
-		} );
-
-		const container = document.body;
-		const matches = container.querySelector( '.material-button-link' );
-
-		expect( matches ).toBeNull();
-	} );
-
 	it( 'should set link target when `Open in new tab` is selected', async () => {
 		const props = {
 			attributes: { type: 'text' },
