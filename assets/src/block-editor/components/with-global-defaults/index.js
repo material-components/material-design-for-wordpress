@@ -1,9 +1,10 @@
 /* global mtbBlockDefaults */
+
 /**
  * WordPress dependencies
  */
 import { createHigherOrderComponent } from '@wordpress/compose';
-import { useEffect, useState } from '@wordpress/element';
+import { useMemo } from '@wordpress/element';
 
 /**
  * A Higher Order Component used to set the default attribute of a block
@@ -16,15 +17,13 @@ import { useEffect, useState } from '@wordpress/element';
 export const withGlobalDefaults = createHigherOrderComponent(
 	WrappedComponent => {
 		return props => {
-			const { attributes, setAttributes, name } = props;
-			const [ areDefaultsSet, updateAreDefaultsSet ] = useState( false );
+			const { attributes, name } = props;
 
 			// Set attribute values to global defaults.
-			useEffect( () => {
+			const newAttributes = useMemo( () => {
 				const defaults = {};
 
 				if (
-					! areDefaultsSet &&
 					name &&
 					'object' === typeof mtbBlockDefaults &&
 					mtbBlockDefaults.hasOwnProperty( name )
@@ -39,21 +38,13 @@ export const withGlobalDefaults = createHigherOrderComponent(
 						}
 					} );
 
-					if ( 0 < Object.keys( defaults ).length ) {
-						setAttributes( defaults );
-					}
-
-					updateAreDefaultsSet( true );
+					return { ...attributes, ...defaults };
 				}
-			}, [
-				name,
-				attributes,
-				setAttributes,
-				areDefaultsSet,
-				updateAreDefaultsSet,
-			] );
+			}, [ name, attributes ] );
 
-			return <WrappedComponent { ...props } />;
+			return (
+				<WrappedComponent { ...props } { ...{ attributes: newAttributes } } />
+			);
 		};
 	},
 	'withGlobalDefaults'
