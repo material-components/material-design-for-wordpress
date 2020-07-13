@@ -11,9 +11,9 @@ import { __, sprintf } from '@wordpress/i18n';
 import { useEffect } from '@wordpress/element';
 
 import {
-	URLInput,
 	ContrastChecker,
 	InspectorControls,
+	RichText,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -34,7 +34,72 @@ import ImageRadioControl from '../../components/image-radio-control';
 import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
 import { withGlobalDefaults } from '../../components/with-global-defaults';
 import MaterialColorPalette from '../../components/material-color-palette';
+import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
+
+/**
+ * Small component which either renders an icon button or a text button.
+ */
+const MdcButton = ( {
+	type,
+	backgroundColor,
+	style,
+	textColor,
+	cornerRadius,
+	icon,
+	iconPosition,
+	label,
+	setter,
+} ) => {
+	if ( 'icon' === type ) {
+		return (
+			<button
+				className="material-icons mdc-icon-button"
+				style={ { ...( textColor ? { color: textColor } : {} ) } }
+			>
+				{ String.fromCharCode( icon?.hex ) }
+			</button>
+		);
+	}
+
+	return (
+		<div
+			style={ {
+				...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
+				...( textColor ? { color: textColor } : {} ),
+				...( cornerRadius !== undefined
+					? { borderRadius: `${ cornerRadius }px` }
+					: {} ),
+			} }
+			className={ classNames( 'mdc-button', {
+				[ `mdc-button--${ style }` ]: true,
+			} ) }
+		>
+			{ icon && ( iconPosition === 'leading' || type === 'icon' ) && (
+				<i className="material-icons mdc-button__icon">
+					{ String.fromCharCode( icon?.hex ) }
+				</i>
+			) }
+			<RichText
+				value={ label }
+				placeholder={ __( 'Add text...', 'material-theme-builder' ) }
+				withoutInteractiveFormatting
+				allowedFormats={ [] }
+				onChange={ setter( 'label' ) }
+				className="material-block-button__link"
+				identifier="text"
+				onSplit={ value => console.log( value ) }
+				onReplace={ console.log }
+				onMerge={ console.log }
+			/>
+			{ icon && iconPosition === 'trailing' && (
+				<i className="material-icons mdc-button__icon">
+					{ String.fromCharCode( icon?.hex ) }
+				</i>
+			) }
+		</div>
+	);
+};
 
 /**
  * Material button edit component.
@@ -100,72 +165,30 @@ const ButtonEdit = ( {
 		setAttributes( { type: newType } );
 	};
 
-	/**
-	 * Small component which either renders an icon button or a text button.
-	 */
-	const MdcButton = () => {
-		if ( 'icon' === type ) {
-			return (
-				<button
-					className="material-icons mdc-icon-button"
-					style={ { ...( textColor ? { color: textColor } : {} ) } }
-				>
-					{ String.fromCharCode( icon?.hex ) }
-				</button>
-			);
-		}
-
-		return (
-			<div
-				style={ {
-					...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
-					...( textColor ? { color: textColor } : {} ),
-					...( cornerRadius !== undefined
-						? { borderRadius: `${ cornerRadius }px` }
-						: {} ),
-				} }
-				className={ classNames( 'mdc-button', {
-					[ `mdc-button--${ style }` ]: true,
-				} ) }
-			>
-				{ icon && ( iconPosition === 'leading' || type === 'icon' ) && (
-					<i className="material-icons mdc-button__icon">
-						{ String.fromCharCode( icon?.hex ) }
-					</i>
-				) }
-				<span
-					className="mdc-button__label button-label"
-					role="textbox"
-					tabIndex={ 0 }
-					contentEditable
-					suppressContentEditableWarning
-					onBlur={ setter( 'label', e => e.currentTarget.textContent ) }
-					onKeyPress={ event =>
-						event.key === 'Enter' && event.currentTarget.blur()
-					}
-				>
-					{ label }
-				</span>
-				{ icon && iconPosition === 'trailing' && (
-					<i className="material-icons mdc-button__icon">
-						{ String.fromCharCode( icon?.hex ) }
-					</i>
-				) }
-			</div>
-		);
-	};
-
 	return (
 		<>
 			<div className={ className }>
-				<MdcButton />
+				<MdcButton
+					{ ...{
+						type,
+						backgroundColor,
+						style,
+						textColor,
+						cornerRadius,
+						icon,
+						iconPosition,
+						label,
+						setter,
+					} }
+				/>
 
-				{ isSelected && ! isSubmit && (
-					<URLInput
-						value={ url }
-						onChange={ setter( 'url' ) }
-						label={ __( 'Link', 'material-theme-builder' ) }
-						className="material-button-link"
+				{ isSelected && (
+					<ToolbarUrlInputPopover
+						url={ url }
+						setURL={ setter( 'url' ) }
+						isSelected={ true }
+						opensInNewTab={ linkTarget === '_blank' }
+						onChangeNewTab={ onToggleOpenInNewTab }
 					/>
 				) }
 			</div>
