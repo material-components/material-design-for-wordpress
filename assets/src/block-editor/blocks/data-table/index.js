@@ -8,6 +8,7 @@ import { __ } from '@wordpress/i18n';
  */
 import edit from './edit';
 import save from './save';
+import { example } from './example';
 
 export const name = 'material/data-table';
 
@@ -148,4 +149,5 @@ export const settings = {
 	icon: <i className="material-icons-outlined">grid_on</i>,
 	edit,
 	save,
+	example,
 };

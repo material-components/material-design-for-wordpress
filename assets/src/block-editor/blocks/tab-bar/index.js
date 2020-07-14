@@ -36,10 +36,19 @@ export const settings = {
 			type: 'array',
 			default: [],
 		},
+		preview: {
+			type: 'boolean',
+			default: false,
+		},
 	},
 	supports: {
 		align: [ 'wide', 'full' ],
 	},
 	edit,
 	save,
+	example: {
+		attributes: {
+			preview: true,
+		},
+	},
 };
