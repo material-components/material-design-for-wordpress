@@ -755,14 +755,14 @@ class Controls extends Module_Base {
 				'background_text_color' => '#000000',
 				'head_font_family'      => 'Raleway',
 				'body_font_family'      => 'Raleway',
-				'global_radius'         => '0',
-				'button_radius'         => '0',
-				'card_radius'           => '0',
-				'chip_radius'           => '0',
-				'data_table_radius'     => '0',
-				'image_list_radius'     => '0',
-				'nav_drawer_radius'     => '0',
-				'text_field_radius'     => '0',
+				'global_radius'         => '16',
+				'button_radius'         => '16',
+				'card_radius'           => '16',
+				'chip_radius'           => '16',
+				'data_table_radius'     => '16',
+				'image_list_radius'     => '16',
+				'nav_drawer_radius'     => '16',
+				'text_field_radius'     => '16',
 				'icon_collection'       => 'outlined',
 			],
 			'fortnightly' => [
@@ -797,14 +797,14 @@ class Controls extends Module_Base {
 				'background_text_color' => '#442c2e',
 				'head_font_family'      => 'Rubik',
 				'body_font_family'      => 'Rubik',
-				'global_radius'         => '0',
-				'button_radius'         => '0',
-				'card_radius'           => '0',
-				'chip_radius'           => '0',
-				'data_table_radius'     => '0',
-				'image_list_radius'     => '0',
-				'nav_drawer_radius'     => '0',
-				'text_field_radius'     => '0',
+				'global_radius'         => '8',
+				'button_radius'         => '8',
+				'card_radius'           => '8',
+				'chip_radius'           => '8',
+				'data_table_radius'     => '8',
+				'image_list_radius'     => '8',
+				'nav_drawer_radius'     => '8',
+				'text_field_radius'     => '8',
 				'icon_collection'       => 'outlined',
 			],
 		];
@@ -1142,7 +1142,7 @@ class Controls extends Module_Base {
 	 *
 	 * @return array
 	 */
-	public function background_color_controls( $control, $id ) {
+	public function move_background_color_controls( $control, $id ) {
 		if ( in_array( $id, [ 'material_background_color', 'material_background_text_color' ], true ) ) {
 			$label = 'material_background_text_color' === $id ? esc_html__( 'On Background Color (text and icons)', 'material-theme-builder' ) : false;
 			if ( is_array( $control ) ) {
