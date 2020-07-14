@@ -3,6 +3,7 @@
  */
 import React, { Fragment, useContext } from 'react';
 import StepContext from '../../context';
+import { ACTIONS } from '../../constants';
 import classNames from 'classnames';
 
 /**
@@ -34,7 +35,9 @@ const Switch = ( { id, text, checked, disabled } ) => {
 						className="mdc-switch__native-control"
 						role="switch"
 						aria-checked={ checked }
-						onChange={ () => dispatch( { type: 'TOGGLE_ADDON', payload: id } ) }
+						onChange={ () =>
+							dispatch( { type: ACTIONS.TOGGLE_ADDON, payload: id } )
+						}
 						disabled={ disabled }
 					/>
 				</div>
