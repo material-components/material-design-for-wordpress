@@ -4,8 +4,7 @@
  */
 import React, { useReducer } from 'react';
 import { reducer } from './reducer';
-import { STEPS } from './steps';
-import { ADDONS } from './addons';
+import { STEPS, STATUS, ADDONS } from './constants';
 
 const StepContext = React.createContext();
 
@@ -19,6 +18,8 @@ const initialState = {
 	addons: Object.keys( ADDONS ),
 	active: STEPS.WELCOME,
 	previous: [],
+	status: STATUS.IDLE,
+	error: {},
 };
 
 /**
