@@ -13,66 +13,23 @@ const ListItem = ( {
 	isSelected,
 	isSecondarySelected,
 	index,
+	selectionStart,
 	setItem,
 	deleteItem,
 	onPrimaryTextChange,
 	onSecondaryTextChange,
+	setPrimaryFocus,
 } ) => {
 	const primaryRef = useRef();
 	const secondaryRef = useRef();
-	const rangeRef = useRef( { start: 0, end: 0 } );
+	const rangeStartRef = useRef( 0 );
 
-	const focusElement = element => {
-		if ( ! element || element === document.activeElement ) {
-			return;
-		}
+	// Set rangeStartRef based on selectionStart prop.
+	useEffect( () => {
+		rangeStartRef.current = selectionStart;
+	}, [ selectionStart ] );
 
-		const selection = window.getSelection(),
-			range = document.createRange();
-		range.setStart( element.childNodes[ 0 ] || element, rangeRef.current );
-		range.collapse( true );
-		selection.removeAllRanges();
-		selection.addRange( range );
-	};
-
-	const onPrimaryEnter = event => {
-		rangeRef.current = 0;
-		if ( isSecondaryEnabled ) {
-			if ( event.value ) {
-				setItem( index, {
-					primaryText: event.value.text.slice( 0, event.value.end ),
-					secondaryText: `${ event.value.text.slice(
-						event.value.end
-					) } ${ secondaryText }`,
-				} );
-			}
-			onEnter( index, isSecondaryEnabled );
-		} else {
-			onSecondaryEnter();
-		}
-	};
-
-	const onSecondaryEnter = () => {
-		rangeRef.current = 0;
-		onEnter( index + 1 );
-	};
-
-	const onPrimaryDelete = event => {
-		deleteItem( index, event.value.text );
-	};
-
-	const onSecondaryDelete = event => {
-		if ( event.value && 0 === event.value.start ) {
-			rangeRef.current = primaryText.length;
-			setItem( index, {
-				primaryText: `${ primaryText }${ event.value.text }`,
-				secondaryText: '',
-			} );
-		}
-	};
-
-	const onSelectionChange = () => {};
-
+	// Focus element based on selected status.
 	useEffect( () => {
 		if ( isSecondarySelected ) {
 			focusElement( secondaryRef.current );
@@ -80,6 +37,99 @@ const ListItem = ( {
 			focusElement( primaryRef.current );
 		}
 	}, [ isSecondaryEnabled, isSelected, isSecondarySelected ] );
+
+	/**
+	 * Focus an element.
+	 *
+	 * @param {Node} element Element to focus.
+	 */
+	const focusElement = element => {
+		if ( ! element || element === document.activeElement ) {
+			return;
+		}
+
+		const selection = window.getSelection(),
+			range = document.createRange();
+
+		try {
+			range.setStart(
+				element.childNodes[ 0 ] || element,
+				rangeStartRef.current
+			);
+		} catch ( e ) {
+			range.setStart( element.childNodes[ 0 ] || element, 0 );
+		}
+
+		range.collapse( true );
+		selection.removeAllRanges();
+		selection.addRange( range );
+	};
+
+	/**
+	 * Get the split before and after values from a Break/Enter event.
+	 *
+	 * @param {Event} event
+	 */
+	const getSplitValues = event => {
+		let before = '',
+			after = '';
+
+		if ( event.value ) {
+			before = event.value.text.slice( 0, event.value.end );
+			after = event.value.text.slice( event.value.end );
+		}
+
+		return { before, after };
+	};
+
+	const onSplit = text => {
+		rangeStartRef.current = 0;
+		onEnter( index + 1, false, text );
+	};
+
+	const onPrimaryEnter = event => {
+		rangeStartRef.current = 0;
+		const splitValues = getSplitValues( event );
+
+		if ( isSecondaryEnabled ) {
+			setItem( index, {
+				primaryText: splitValues.before,
+				secondaryText: `${ splitValues.after }${ secondaryText }`,
+			} );
+			onEnter( index, isSecondaryEnabled );
+		} else {
+			setItem( index, {
+				primaryText: splitValues.before,
+			} );
+			onSplit( splitValues.after );
+		}
+	};
+
+	const onSecondaryEnter = event => {
+		const splitValues = getSplitValues( event );
+		setItem( index, {
+			secondaryText: splitValues.before,
+		} );
+		onSplit( splitValues.after );
+	};
+
+	const onPrimaryDelete = event => {
+		deleteItem( index, event.value.text, secondaryText );
+	};
+
+	const onSecondaryDelete = event => {
+		if ( event.value && 0 === event.value.start ) {
+			rangeStartRef.current = primaryText.length;
+			setItem( index, {
+				primaryText: `${ primaryText }${ event.value.text }`,
+				secondaryText: '',
+			} );
+			setPrimaryFocus( index );
+		}
+	};
+
+	// Noop function.
+	const noop = () => {};
 
 	return (
 		<li className="mdc-list-item">
@@ -93,8 +143,8 @@ const ListItem = ( {
 						ref={ primaryRef }
 						value={ primaryText }
 						onChange={ text => onPrimaryTextChange( index, text ) }
-						onSelectionChange={ onSelectionChange }
-						__unstableOnCreateUndoLevel={ onSelectionChange }
+						onSelectionChange={ noop }
+						__unstableOnCreateUndoLevel={ noop }
 						onDelete={ onPrimaryDelete }
 						onEnter={ onPrimaryEnter }
 						unstableOnFocus={ () => onFocus( index ) }
@@ -108,8 +158,8 @@ const ListItem = ( {
 							ref={ secondaryRef }
 							value={ secondaryText }
 							onChange={ text => onSecondaryTextChange( index, text ) }
-							onSelectionChange={ onSelectionChange }
-							__unstableOnCreateUndoLevel={ onSelectionChange }
+							onSelectionChange={ noop }
+							__unstableOnCreateUndoLevel={ noop }
 							onDelete={ onSecondaryDelete }
 							onEnter={ onSecondaryEnter }
 							unstableOnFocus={ () => onFocus( index, isSecondaryEnabled ) }
