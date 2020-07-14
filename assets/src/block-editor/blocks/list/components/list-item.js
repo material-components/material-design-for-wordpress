@@ -8,7 +8,7 @@ const ListItem = ( {
 	icon,
 	iconPosition,
 	isSecondaryEnabled,
-	onEnter,
+	onSplit,
 	onFocus,
 	isSelected,
 	isSecondarySelected,
@@ -18,7 +18,6 @@ const ListItem = ( {
 	deleteItem,
 	onPrimaryTextChange,
 	onSecondaryTextChange,
-	setPrimaryFocus,
 } ) => {
 	const primaryRef = useRef();
 	const secondaryRef = useRef();
@@ -82,11 +81,11 @@ const ListItem = ( {
 		return { before, after };
 	};
 
-	const onSplit = text => {
-		rangeStartRef.current = 0;
-		onEnter( index + 1, false, text );
-	};
-
+	/**
+	 * Handle Enter keypress event on primary text.
+	 *
+	 * @param {Event} event Enter keypress event.
+	 */
 	const onPrimaryEnter = event => {
 		rangeStartRef.current = 0;
 		const splitValues = getSplitValues( event );
@@ -96,27 +95,43 @@ const ListItem = ( {
 				primaryText: splitValues.before,
 				secondaryText: `${ splitValues.after }${ secondaryText }`,
 			} );
-			onEnter( index, isSecondaryEnabled );
-		} else {
-			setItem( index, {
-				primaryText: splitValues.before,
-			} );
-			onSplit( splitValues.after );
+			onFocus( index, isSecondaryEnabled );
+			return;
 		}
+
+		setItem( index, {
+			primaryText: splitValues.before,
+		} );
+		onSplit( index, splitValues.after );
 	};
 
+	/**
+	 * Handle Enter keypress event on secondary text.
+	 *
+	 * @param {Event} event Enter keypress event.
+	 */
 	const onSecondaryEnter = event => {
 		const splitValues = getSplitValues( event );
 		setItem( index, {
 			secondaryText: splitValues.before,
 		} );
-		onSplit( splitValues.after );
+		onSplit( index, splitValues.after );
 	};
 
+	/**
+	 * Handle delete keypress event on primary text.
+	 *
+	 * @param {Event} event Delete keypress event.
+	 */
 	const onPrimaryDelete = event => {
 		deleteItem( index, event.value.text, secondaryText );
 	};
 
+	/**
+	 * Handle delete keypress event on secondary text.
+	 *
+	 * @param {Event} event Delete keypress event.
+	 */
 	const onSecondaryDelete = event => {
 		if ( event.value && 0 === event.value.start ) {
 			rangeStartRef.current = primaryText.length;
@@ -124,7 +139,7 @@ const ListItem = ( {
 				primaryText: `${ primaryText }${ event.value.text }`,
 				secondaryText: '',
 			} );
-			setPrimaryFocus( index );
+			onFocus( index );
 		}
 	};
 
