@@ -51,15 +51,22 @@ const ListEdit = ( {
 	const [ selected, setSelected ] = useState( {
 		index: 0,
 		isSecondary: false,
+		start: 0,
 	} );
 
-	const addItem = () => {
+	const addItem = ( index, text = '' ) => {
 		const newItems = [ ...items ];
-		newItems.push( {
-			primaryText: '',
+		const item = {
+			primaryText: text,
 			secondaryText: '',
 			icon: 'favorite',
-		} );
+		};
+
+		if ( 'number' === typeof index ) {
+			newItems.splice( index, 0, item );
+		} else {
+			newItems.push( item );
+		}
 
 		setAttributes( { items: newItems } );
 	};
@@ -70,6 +77,7 @@ const ListEdit = ( {
 		newItems[ index ] = { ...item, ...newItem };
 
 		setAttributes( { items: newItems } );
+		items = newItems;
 	};
 
 	const onPrimaryTextChange = ( index, text ) => {
@@ -90,7 +98,7 @@ const ListEdit = ( {
 		setAttributes( { items } );
 	};
 
-	const deleteItem = ( index, text ) => {
+	const deleteItem = ( index, text, secondaryText = '' ) => {
 		if ( index === 0 ) {
 			return;
 		}
@@ -98,14 +106,23 @@ const ListEdit = ( {
 		const newItems = [ ...items ];
 		newItems.splice( index, 1 );
 		const prevItem = newItems[ index - 1 ];
-		prevItem.primaryText = `${ prevItem.primaryText } ${ text }`;
+		let start = 0;
+
+		if ( isSecondaryEnabled ) {
+			start = prevItem.secondaryText.length;
+			prevItem.secondaryText = `${ prevItem.secondaryText }${ text } ${ secondaryText }`;
+		} else {
+			start = prevItem.primaryText.length;
+			prevItem.primaryText = `${ prevItem.primaryText }${ text } ${ secondaryText }`;
+		}
+
 		setAttributes( { items: newItems } );
-		setSelected( { index: index - 1 } );
+		setSelected( { index: index - 1, start, isSecondary: isSecondaryEnabled } );
 	};
 
-	const onEnter = ( index, isSecondary = false ) => {
-		if ( index >= items.length ) {
-			addItem();
+	const onEnter = ( index, isSecondary = false, text = '' ) => {
+		if ( ! isSecondary ) {
+			addItem( index, text );
 		}
 
 		setSelected( { index, isSecondary } );
@@ -131,6 +148,10 @@ const ListEdit = ( {
 
 	const getSelectedItem = () => {
 		return items[ selected.index ] || {};
+	};
+
+	const setPrimaryFocus = index => {
+		setSelected( { index, isSecondary: false } );
 	};
 
 	return (
@@ -160,10 +181,12 @@ const ListEdit = ( {
 						}
 						isSelected={ i === selected.index }
 						isSecondarySelected={ i === selected.index && selected.isSecondary }
+						selectionStart={ selected.start }
 						setItem={ setItem }
 						deleteItem={ deleteItem }
 						onPrimaryTextChange={ onPrimaryTextChange }
 						onSecondaryTextChange={ onSecondaryTextChange }
+						setPrimaryFocus={ setPrimaryFocus }
 					/>
 				) ) }
 			</ul>
