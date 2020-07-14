@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import edit from './edit';
+import { example } from './example';
 
 export const name = 'material/recent-posts';
 
@@ -26,4 +27,5 @@ export const settings = {
 	},
 	icon: <i className="material-icons-outlined">description</i>,
 	edit,
+	example,
 };

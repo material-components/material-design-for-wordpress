@@ -1,7 +1,9 @@
+/* global mtb */
 /**
  * WordPress dependencies
  */
 import { withSpokenMessages } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -25,6 +27,15 @@ const Edit = props => {
 	const {
 		attributes: { editMode },
 	} = props;
+
+	if ( props.attributes.preview ) {
+		return (
+			<img
+				src={ mtb.handpicked_posts_preview }
+				alt={ __( 'Handpicked posts preview', 'material-theme-builder' ) }
+			/>
+		);
+	}
 
 	return (
 		<>
