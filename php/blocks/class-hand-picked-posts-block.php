@@ -40,6 +40,10 @@ class Hand_Picked_Posts_Block extends Posts_List_Blocks_Base {
 				'type'    => 'boolean',
 				'default' => true,
 			],
+			'preview'  => [
+				'type'    => 'boolean',
+				'default' => false,
+			],
 		];
 	}
 }

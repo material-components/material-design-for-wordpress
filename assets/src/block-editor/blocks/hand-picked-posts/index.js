@@ -25,5 +25,10 @@ export const settings = {
 		align: [ 'wide', 'full' ],
 	},
 	icon: <i className="material-icons-outlined">library_books</i>,
+	example: {
+		attributes: {
+			preview: true,
+		},
+	},
 	edit,
 };
