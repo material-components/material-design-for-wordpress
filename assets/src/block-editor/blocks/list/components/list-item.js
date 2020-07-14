@@ -1,7 +1,17 @@
-import { useEffect, useRef } from '@wordpress/element';
-import { __experimentalRichText as RichText } from '@wordpress/rich-text';
+/**
+ * WordPress dependencies
+ */
+import { useEffect, useRef, useState } from '@wordpress/element';
+import {
+	__experimentalRichText as RichText,
+	create,
+	insert,
+} from '@wordpress/rich-text';
 import { __ } from '@wordpress/i18n';
 
+/**
+ * Material list item edit component.
+ */
 const ListItem = ( {
 	primaryText,
 	secondaryText,
@@ -16,12 +26,14 @@ const ListItem = ( {
 	selectionStart,
 	setItem,
 	deleteItem,
-	onPrimaryTextChange,
-	onSecondaryTextChange,
+	onPrimaryTextChange: primaryTextChange,
+	onSecondaryTextChange: secondaryTextChange,
 } ) => {
 	const primaryRef = useRef();
 	const secondaryRef = useRef();
 	const rangeStartRef = useRef( 0 );
+
+	const [ editedText, setEditedText ] = useState( '' );
 
 	// Set rangeStartRef based on selectionStart prop.
 	useEffect( () => {
@@ -31,11 +43,13 @@ const ListItem = ( {
 	// Focus element based on selected status.
 	useEffect( () => {
 		if ( isSecondarySelected ) {
+			setEditedText( secondaryText );
 			focusElement( secondaryRef.current );
 		} else if ( isSelected ) {
+			setEditedText( primaryText );
 			focusElement( primaryRef.current );
 		}
-	}, [ isSecondaryEnabled, isSelected, isSecondarySelected ] );
+	}, [ isSecondaryEnabled, isSelected, isSecondarySelected, selectionStart ] ); // eslint-disable-line
 
 	/**
 	 * Focus an element.
@@ -43,7 +57,7 @@ const ListItem = ( {
 	 * @param {Node} element Element to focus.
 	 */
 	const focusElement = element => {
-		if ( ! element || element === document.activeElement ) {
+		if ( ! element ) {
 			return;
 		}
 
@@ -143,6 +157,46 @@ const ListItem = ( {
 		}
 	};
 
+	/**
+	 * Handle primary text change
+	 *
+	 * @param {string} text Primary Text
+	 */
+	const onPrimaryTextChange = text => {
+		setEditedText( text );
+		primaryTextChange( index, text );
+	};
+
+	/**
+	 * Handle secondary text change
+	 *
+	 * @param {string} text secondary Text
+	 */
+	const onSecondaryTextChange = text => {
+		setEditedText( text );
+		secondaryTextChange( index, text );
+	};
+
+	/**
+	 * Handle paste event.
+	 *
+	 * @param {Object} pasted Object with pasted value props.
+	 */
+	const onPaste = ( { value, plainText } ) => {
+		const valueToInsert = create( { html: plainText } );
+		const toInsert = insert( value, valueToInsert );
+
+		rangeStartRef.current = toInsert.start;
+
+		if ( isSecondarySelected ) {
+			return onSecondaryTextChange( toInsert.text );
+		}
+
+		onPrimaryTextChange( toInsert.text );
+	};
+
+	const isPrimarySelected = isSelected && ! isSecondarySelected;
+
 	// Noop function.
 	const noop = () => {};
 
@@ -156,14 +210,18 @@ const ListItem = ( {
 				<span className="mdc-list-item__primary-text">
 					<RichText
 						ref={ primaryRef }
-						value={ primaryText }
-						onChange={ text => onPrimaryTextChange( index, text ) }
-						onSelectionChange={ noop }
+						value={ isPrimarySelected ? editedText : primaryText }
+						onChange={ onPrimaryTextChange }
 						__unstableOnCreateUndoLevel={ noop }
 						onDelete={ onPrimaryDelete }
 						onEnter={ onPrimaryEnter }
+						onPaste={ onPaste }
 						unstableOnFocus={ () => onFocus( index ) }
 						className="rich-text block-editor-rich-text__editable"
+						__unstableIsSelected={ isPrimarySelected }
+						onSelectionChange={ noop }
+						selectionStart={ rangeStartRef.current }
+						selectionEnd={ rangeStartRef.current }
 					/>
 				</span>
 
@@ -171,15 +229,19 @@ const ListItem = ( {
 					<span className="mdc-list-item__secondary-text">
 						<RichText
 							ref={ secondaryRef }
-							value={ secondaryText }
-							onChange={ text => onSecondaryTextChange( index, text ) }
-							onSelectionChange={ noop }
+							value={ isSecondarySelected ? editedText : secondaryText }
+							onChange={ onSecondaryTextChange }
 							__unstableOnCreateUndoLevel={ noop }
 							onDelete={ onSecondaryDelete }
 							onEnter={ onSecondaryEnter }
+							onPaste={ onPaste }
 							unstableOnFocus={ () => onFocus( index, isSecondaryEnabled ) }
 							className="rich-text block-editor-rich-text__editable"
 							placeholder={ __( 'Secondary text…', 'material-theme-builder' ) }
+							__unstableIsSelected={ isSecondarySelected }
+							onSelectionChange={ noop }
+							selectionStart={ rangeStartRef.current }
+							selectionEnd={ rangeStartRef.current }
 						/>
 					</span>
 				) }

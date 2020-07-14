@@ -76,7 +76,7 @@ const ListEdit = ( {
 		}
 
 		setAttributes( { items: newItems } );
-		setSelected( { index, isSecondary: false } );
+		setSelected( { ...selected, index, isSecondary: false } );
 	};
 
 	/**
@@ -127,7 +127,7 @@ const ListEdit = ( {
 	 * Handle primary text change.
 	 *
 	 * @param {number} index Index of the list item.
-	 * @param {string} text  Primary text.
+	 * @param {string} text Primary text.
 	 */
 	const onPrimaryTextChange = ( index, text ) => {
 		if ( ! items[ index ] ) {
@@ -142,7 +142,7 @@ const ListEdit = ( {
 	 * Handle secondary text change.
 	 *
 	 * @param {number} index Index of the list item.
-	 * @param {string} text  Secondary text.
+	 * @param {string} text Secondary text.
 	 */
 	const onSecondaryTextChange = ( index, text ) => {
 		if ( ! items[ index ] ) {
@@ -168,7 +168,7 @@ const ListEdit = ( {
 	 * @param {boolean} isSecondary Detemine if the secondary text beng focused.
 	 */
 	const onFocus = ( index, isSecondary = false ) =>
-		setSelected( { index, isSecondary } );
+		setSelected( { ...selected, index, isSecondary } );
 
 	/**
 	 * Handle icon change for a list item.
