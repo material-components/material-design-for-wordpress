@@ -20,6 +20,11 @@ export const settings = {
 	category: 'material',
 	keywords: [ __( 'Material Contact Form', 'material-theme-builder' ) ],
 	icon: <i className="material-icons-outlined">mail</i>,
+	example: {
+		attributes: {
+			preview: true,
+		},
+	},
 	edit,
 	save,
 };
