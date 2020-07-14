@@ -26,7 +26,7 @@ export const handleThemeActivation = () => {
 			.then( response => response.json() )
 			.then( data => {
 				if ( data.code ) {
-					reject( data );
+					return reject( data );
 				}
 
 				if ( 'install' === action ) {
