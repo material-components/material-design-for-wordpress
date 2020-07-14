@@ -12,7 +12,7 @@ const Navigation = () => {
 			</div>
 			<div className="material-gsm__tabs">
 				{ Object.keys( TABS ).map( tab => (
-					<Tab key={ tab } text={ TABS[ tab ] } />
+					<Tab key={ tab } id={ tab } text={ TABS[ tab ] } />
 				) ) }
 			</div>
 		</div>
