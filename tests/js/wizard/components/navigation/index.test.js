@@ -10,6 +10,14 @@ import { render, cleanup } from '@testing-library/react';
 import Navigation from '../../../../../assets/src/wizard/components/navigation';
 import { StepProvider } from '../../../../../assets/src/wizard/context';
 
+const setup = () => {
+	return render(
+		<StepProvider>
+			<Navigation />
+		</StepProvider>
+	);
+};
+
 describe( 'Wizard: Navigation', () => {
 	beforeAll( () => {
 		global.mtbWizard = {
@@ -22,11 +30,7 @@ describe( 'Wizard: Navigation', () => {
 	afterEach( cleanup );
 
 	it( 'matches snapshot', () => {
-		const wrapper = render(
-			<StepProvider>
-				<Navigation />
-			</StepProvider>
-		);
+		const wrapper = setup();
 		expect( wrapper ).toMatchSnapshot();
 	} );
 } );

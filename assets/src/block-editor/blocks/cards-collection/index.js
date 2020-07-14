@@ -8,6 +8,7 @@ import { __ } from '@wordpress/i18n';
  */
 import edit from './edit';
 import save from './save';
+import { example } from './example';
 import { DEFAULT_NUMBER_OF_CARDS, CARD_ATTRIBUTES_VALUE } from './constants';
 
 export const name = 'material/cards-collection';
@@ -118,4 +119,5 @@ export const settings = {
 	},
 	edit,
 	save,
+	example,
 };

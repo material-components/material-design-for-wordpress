@@ -9,6 +9,7 @@ import { __ } from '@wordpress/i18n';
 import icon from './components/block-icon';
 import edit from './edit';
 import save from './save';
+import { example } from './example';
 
 export const name = 'material/button';
 
@@ -78,4 +79,5 @@ export const settings = {
 	},
 	edit,
 	save,
+	example,
 };

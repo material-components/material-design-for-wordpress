@@ -1,11 +1,4 @@
-/* global mtbWizard */
-import { STEPS } from './steps';
-import { ADDONS } from './addons';
-import {
-	handleThemeActivation,
-	handleDemoImporter,
-	redirectToSettings,
-} from './utils';
+import { STEPS, STATUS, ACTIONS } from './constants';
 
 /**
  * Actions to be taken during the app's life circle
@@ -19,7 +12,7 @@ export const reducer = ( state, action ) => {
 	const { active, previous, addons } = state;
 	const { type, payload } = action;
 
-	if ( 'NEXT_STEP' === type ) {
+	if ( ACTIONS.NEXT_STEP === type ) {
 		const stepIndex = steps.indexOf( active );
 
 		if ( stepIndex + 1 === steps.length ) {
@@ -30,10 +23,11 @@ export const reducer = ( state, action ) => {
 			...state,
 			previous: [ active, ...previous ],
 			active: steps[ stepIndex + 1 ],
+			status: STATUS.IDLE,
 		};
 	}
 
-	if ( 'PREVIOUS_STEP' === type ) {
+	if ( ACTIONS.PREVIOUS_STEP === type ) {
 		const stepIndex = steps.indexOf( active );
 		let newState = { ...state };
 		const newActive = steps[ stepIndex - 1 ];
@@ -41,6 +35,7 @@ export const reducer = ( state, action ) => {
 		newState = {
 			...state,
 			previous: previous.filter( item => item !== newActive ),
+			status: STATUS.IDLE,
 		};
 
 		newState.active = newActive;
@@ -48,7 +43,7 @@ export const reducer = ( state, action ) => {
 		return newState;
 	}
 
-	if ( 'TOGGLE_ADDON' === type ) {
+	if ( ACTIONS.TOGGLE_ADDON === type ) {
 		if ( ! addons.includes( payload ) ) {
 			return { ...state, addons: [ payload, ...addons ] };
 		}
@@ -56,31 +51,12 @@ export const reducer = ( state, action ) => {
 		return { ...state, addons: addons.filter( item => item !== payload ) };
 	}
 
-	if ( 'SUBMIT_WIZARD' === type ) {
-		if ( 0 === addons.length ) {
-			return window.location.replace( mtbWizard.settingsUrl );
-		}
+	if ( ACTIONS.SUBMIT_WIZARD === type ) {
+		return { ...state, status: STATUS.PENDING };
+	}
 
-		const requests = [];
-
-		if ( addons.includes( ADDONS.THEME ) ) {
-			requests.push( handleThemeActivation() );
-		}
-
-		if ( addons.includes( ADDONS.DEMO ) && ! addons.includes( ADDONS.THEME ) ) {
-			requests.push( handleDemoImporter() );
-		}
-
-		Promise.all( requests ).then( values => {
-			// Ensure menu items are attached to the theme.
-			if ( addons.includes( ADDONS.DEMO ) && addons.includes( ADDONS.THEME ) ) {
-				handleDemoImporter().then( response => {
-					redirectToSettings( response );
-				} );
-			} else {
-				redirectToSettings( values[ 0 ] || values[ 1 ] );
-			}
-		} );
+	if ( ACTIONS.WIZARD_ERROR === type ) {
+		return { ...state, status: STATUS.ERROR, error: payload };
 	}
 
 	return state;
