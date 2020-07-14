@@ -1,7 +1,9 @@
+import { __ } from '@wordpress/i18n';
+
 export const TABS = {
-	WIZARD: 'WIZARD',
-	THEME: 'THEME',
-	DEMO: 'DEMO',
-	EDITOR: 'EDITOR',
-	BLOCKS: 'BLOCKS',
+	WIZARD: __( 'Onboarding wizard', 'material-theme-builder' ),
+	THEME: __( 'Material theme', 'material-theme-builder' ),
+	DEMO: __( 'Demo content', 'material-theme-builder' ),
+	EDITOR: __( 'Material Theme Editor', 'material-theme-builder' ),
+	BLOCKS: __( 'Material blocks', 'material-theme-builder' ),
 };

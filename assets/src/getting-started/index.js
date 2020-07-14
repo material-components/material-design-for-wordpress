@@ -4,7 +4,7 @@ import Content from './components/content';
 
 const GettingStarted = () => {
 	return (
-		<div className="mdc-layout-grid">
+		<div className="mdc-layout-grid mdc-typography">
 			<div className="mdc-layout-grid__inner">
 				<Navigation />
 				<Content />
