@@ -1,3 +1,7 @@
 .material-gsm__navigation {
 	border-right: 1px solid #eee;
+
+	& .material-gsm__heading {
+		padding: 1rem 1.25rem;
+	}
 }
