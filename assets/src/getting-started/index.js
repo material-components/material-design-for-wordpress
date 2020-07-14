@@ -1,15 +1,18 @@
 import { render } from '@wordpress/element';
+import { TabProvider } from './context';
 import Navigation from './components/navigation';
 import Content from './components/content';
 
 const GettingStarted = () => {
 	return (
-		<div className="mdc-layout-grid mdc-typography">
-			<div className="mdc-layout-grid__inner">
-				<Navigation />
-				<Content />
+		<TabProvider>
+			<div className="mdc-layout-grid mdc-typography">
+				<div className="mdc-layout-grid__inner">
+					<Navigation />
+					<Content />
+				</div>
 			</div>
-		</div>
+		</TabProvider>
 	);
 };
 
