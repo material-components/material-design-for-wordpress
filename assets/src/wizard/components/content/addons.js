@@ -1,7 +1,7 @@
 /* global mtbWizard */
 import React from 'react';
 import { __ } from '@wordpress/i18n';
-import { ADDONS } from '../../addons';
+import { ADDONS } from '../../constants';
 import Card from './card';
 
 /**

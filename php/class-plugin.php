@@ -565,7 +565,7 @@ class Plugin extends Plugin_Base {
 			'manage_options',
 			'material-theme-builder',
 			[ $this->wizard, 'render' ],
-			trailingslashit( $this->dir_url ) . 'assets/images/logo-outline.svg'
+			trailingslashit( $this->dir_url ) . 'assets/images/plugin-logo.png'
 		);
 	}
 
