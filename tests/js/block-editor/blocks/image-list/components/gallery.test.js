@@ -123,6 +123,13 @@ describe( 'blocks: material/image-list: Gallery', () => {
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
+	it( 'matches snapshot when linkTo is set to none', () => {
+		const props = { ...galleryProps };
+		props.linkTo = 'none';
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
 	it( 'matches snapshot when an image is selected', () => {
 		const props = { ...galleryProps };
 		props.selectedImage = 2;
