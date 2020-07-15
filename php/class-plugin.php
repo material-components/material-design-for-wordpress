@@ -15,6 +15,7 @@ use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 use MaterialThemeBuilder\Importer;
 use MaterialThemeBuilder\Onboarding_Wizard;
+use MaterialThemeBuilder\Onboarding_Getting_Started;
 
 /**
  * Main plugin bootstrap file.
@@ -99,6 +100,13 @@ class Plugin extends Plugin_Base {
 	public $wizard;
 
 	/**
+	 * Getting Started class.
+	 *
+	 * @var Onboarding_Getting_Started
+	 */
+	public $getting_started;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * Priority is 9 because WP_Customize_Widgets::register_settings() happens at
@@ -139,6 +147,9 @@ class Plugin extends Plugin_Base {
 
 		$this->wizard = new Onboarding_Wizard( $this );
 		$this->wizard->init();
+
+		$this->getting_started = new Onboarding_Getting_Started( $this );
+		$this->getting_started->init();
 	}
 
 	/**
@@ -551,7 +562,14 @@ class Plugin extends Plugin_Base {
 	 * @return void
 	 */
 	public function create_demo_importer_page() {
-		add_submenu_page( 'material-theme-builder', __( 'Material Settings', 'material-theme-builder' ), __( 'Getting Started', 'material-theme-builder' ), 'manage_options', 'material_settings', [ $this, 'render_demo_importer_page' ] );
+		add_submenu_page(
+			'material-theme-builder',
+			__( 'Material Settings', 'material-theme-builder' ),
+			__( 'Getting Started', 'material-theme-builder' ),
+			'manage_options',
+			'material_settings',
+			[ $this, 'render_demo_importer_page' ]
+		);
 	}
 
 	/**
@@ -561,7 +579,7 @@ class Plugin extends Plugin_Base {
 	 */
 	public function render_demo_importer_page() {
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo $this->importer->render_page();
+		echo $this->getting_started->render_page();
 		// phpcs:enable
 	}
 
