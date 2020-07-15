@@ -49,7 +49,14 @@ const TEMPLATES = [
  */
 const Edit = props => {
 	const {
-		attributes: { emailTo, subject, confirmationMessage, outlined, fullWidth },
+		attributes: {
+			emailTo,
+			subject,
+			confirmationMessage,
+			outlined,
+			fullWidth,
+			preview,
+		},
 		className,
 		setAttributes,
 	} = props;
@@ -62,6 +69,16 @@ const Edit = props => {
 					'material-theme-builder'
 				) }
 			</div>
+		);
+	}
+
+	// Display preview if available.
+	if ( preview ) {
+		return (
+			<img
+				src={ mtb.contact_form_preview }
+				alt={ __( 'Contact Form Preview', 'material-theme-builder' ) }
+			/>
 		);
 	}
 

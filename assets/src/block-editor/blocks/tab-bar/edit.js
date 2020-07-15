@@ -1,3 +1,4 @@
+/* global mtb */
 /**
  * External dependencies
  */
@@ -32,7 +33,7 @@ import { getBlockTypes } from '@wordpress/blocks';
  * Material button edit component.
  */
 const TabBarEdit = ( {
-	attributes: { tabs, iconPosition, forceUpdate },
+	attributes: { tabs, iconPosition, forceUpdate, preview },
 	setAttributes,
 	clientId,
 	tabContent,
@@ -215,6 +216,16 @@ const TabBarEdit = ( {
 				blockName !== 'material/tab-bar' &&
 				! blockName.match( /material\/(.+)?-input-field/ )
 		);
+
+	// Display preview if available.
+	if ( preview ) {
+		return (
+			<img
+				src={ mtb.tab_bar_preview }
+				alt={ __( 'Tab Bar Preview', 'material-theme-builder' ) }
+			/>
+		);
+	}
 
 	return (
 		<>
