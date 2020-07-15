@@ -1,3 +1,6 @@
+import { __ } from '@wordpress/i18n';
+import Button from '../../../wizard/components/navigation/button';
+
 const Content = () => {
 	return (
 		<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
@@ -9,7 +12,14 @@ const Content = () => {
 				parturient rutrum cras senectus augue penatibus malesuada rhoncus,
 				ultricies finibus pretium arcu sagittis aliquet nisi.
 			</p>
-			<div className="material-gsm__content-actions"></div>
+			<div className="material-gsm__content-actions">
+				<Button
+					style="mdc-button--raised"
+					text={ __( 'Run Wizard', 'material-theme-builder' ) }
+					trailingIcon="navigate_next"
+					link="#"
+				/>
+			</div>
 		</div>
 	);
 };
