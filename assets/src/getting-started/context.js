@@ -18,7 +18,7 @@ const tabs = Object.keys( TABS );
  */
 const initialState = {
 	activeTab: tabs[ 0 ],
-	previous: [],
+	completed: [],
 	tabs,
 };
 

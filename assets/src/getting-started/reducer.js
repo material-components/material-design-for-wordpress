@@ -8,7 +8,7 @@ import { ACTIONS, TABS } from './constants';
  */
 export const reducer = ( state, action ) => {
 	const { type, payload } = action;
-	const { activeTab, previous } = state;
+	const { activeTab, completed } = state;
 
 	if ( ACTIONS.GOTO_STEP === type ) {
 		return { ...state, activeTab: payload.value };
@@ -25,6 +25,7 @@ export const reducer = ( state, action ) => {
 		return {
 			...state,
 			activeTab: steps[ stepIndex + 1 ],
+			completed: [ activeTab, ...completed ],
 		};
 	}
 
@@ -36,7 +37,7 @@ export const reducer = ( state, action ) => {
 
 		newState = {
 			...state,
-			previous: previous.filter( item => item !== newActive ),
+			completed: completed.filter( item => item !== newActive ),
 		};
 
 		newState.activeTab = newActive;
