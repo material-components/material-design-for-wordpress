@@ -10,6 +10,5 @@ export const TABS = {
 
 export const ACTIONS = {
 	NEXT_STEP: 'NEXT_STEP',
-	PREVIOUS_STEP: 'PREVIOUS_STEP',
 	GOTO_STEP: 'GOTO_STEP',
 };

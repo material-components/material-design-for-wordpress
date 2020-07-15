@@ -1,7 +1,16 @@
+import { useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
+import TabContext from '../../context';
+import { ACTIONS } from '../../constants';
 
 const Content = () => {
+	const { dispatch } = useContext( TabContext );
+
+	const handleClick = () => {
+		dispatch( { type: ACTIONS.NEXT_STEP } );
+	};
+
 	return (
 		<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
@@ -17,7 +26,7 @@ const Content = () => {
 					style="mdc-button--raised"
 					text={ __( 'Run Wizard', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
-					link="#"
+					onClick={ handleClick }
 				/>
 			</div>
 		</div>

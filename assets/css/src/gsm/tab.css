@@ -22,4 +22,9 @@
 		padding-bottom: 1rem;
 		padding-top: 1rem;
 	}
+
+	&-active {
+		background-color: #e4f6ff;
+		font-weight: 700;
+	}
 }
