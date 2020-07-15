@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { useState, useCallback } from '@wordpress/element';
+import { useState, useCallback, useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { TextControl, Tooltip } from '@wordpress/components';
 
@@ -29,57 +29,61 @@ export default ( { currentIcon, onChange } ) => {
 		[ setFilteredIcons, icons ]
 	);
 
-	let currentIconHex;
-	const iconsRender = filteredIcons.map( icon => {
-		const iconName = toSlug( rawIcons[ icon ].name );
-		const iconHex = parseInt( icon, 16 );
+	const iconsRender = useMemo(
+		() =>
+			filteredIcons.map( icon => {
+				const iconName = toSlug( rawIcons[ icon ].name );
+				const iconHex = parseInt( icon, 16 );
 
-		const isSelected =
-			currentIcon?.name === iconName
-				? ' icons-container__icon__icon-btn--active'
-				: '';
+				const isSelected =
+					currentIcon?.name === iconName
+						? ' icons-container__icon__icon-btn--active'
+						: '';
 
-		if ( currentIcon?.name === iconName ) {
-			currentIconHex = iconHex;
-		}
-
-		return (
-			<div key={ rawIcons[ icon ].name } className="icons-container__icon">
-				<Tooltip text={ rawIcons[ icon ].name }>
-					<button
-						type="button"
-						className={ `icons-container__icon__icon-btn${ isSelected }` }
-						onClick={ onChange.bind( this, {
-							name: iconName,
-							hex: iconHex,
-						} ) }
-					>
-						<i className="material-icons">{ String.fromCharCode( iconHex ) }</i>
-					</button>
-				</Tooltip>
-			</div>
-		);
-	} );
-
-	return (
-		<>
-			<section className="icons-search">
-				<div className="icons-search__search-input">
-					<TextControl
-						label={ __( 'Search icon', 'material-theme-builder' ) }
-						onChange={ filterIcons }
-					/>
-				</div>
-				{ currentIcon && (
-					<div className="icons-search__selected-icon">
-						<i className="material-icons">
-							{ String.fromCharCode( currentIconHex || currentIcon?.hex ) }
-						</i>
+				return (
+					<div key={ rawIcons[ icon ].name } className="icons-container__icon">
+						<Tooltip text={ rawIcons[ icon ].name }>
+							<button
+								type="button"
+								className={ `icons-container__icon__icon-btn${ isSelected }` }
+								onClick={ onChange.bind( this, {
+									name: iconName,
+									hex: iconHex,
+								} ) }
+							>
+								<i className="material-icons">
+									{ String.fromCharCode( iconHex ) }
+								</i>
+							</button>
+						</Tooltip>
 					</div>
-				) }
-			</section>
+				);
+			} ),
+		[ currentIcon ] // eslint-disable-line
+	);
 
-			<section className="icons-container">{ iconsRender }</section>
-		</>
+	return useMemo(
+		() => (
+			<>
+				<section className="icons-search">
+					<div className="icons-search__search-input">
+						<TextControl
+							label={ __( 'Search icon', 'material-theme-builder' ) }
+							onChange={ filterIcons }
+						/>
+					</div>
+					{ currentIcon && (
+						<div className="icons-search__selected-icon">
+							<i className="material-icons">
+								{ String.fromCharCode( currentIcon?.hex ) }
+							</i>
+						</div>
+					) }
+				</section>
+
+				<section className="icons-container">{ iconsRender }</section>
+			</>
+		),
+		[ currentIcon, filterIcons, iconsRender ]
 	);
 };
