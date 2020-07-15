@@ -53,17 +53,6 @@ class Test_Importer extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Test render_page
-	 *
-	 * @see Importer::render_page()
-	 */
-	public function test_render_page() {
-		$output = $this->importer->render_page();
-
-		$this->assertContains( '<div id="material-gsm" class="material-gsm"></div>', $output );
-	}
-
-	/**
 	 * Test get_menu_items
 	 *
 	 * @see Importer::get_menu_items()
