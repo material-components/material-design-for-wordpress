@@ -1,8 +1,10 @@
+/* global mtbGsm */
 /**
  * Setups context to be used across the app
  *
  */
 import { useReducer, createContext } from '@wordpress/element';
+import { STATUS } from '../wizard/constants';
 import { reducer } from './reducer';
 import { TABS } from './constants';
 
@@ -12,13 +14,29 @@ const { Provider } = TabContext;
 
 const tabs = Object.keys( TABS );
 
+// Assume wizard already ran when activating plugin
+let initialTab = tabs[ 1 ];
+const completedTabs = [ tabs[ 0 ] ];
+
+// Change initial tab if content and theme are already installed.
+if ( 'ok' === mtbGsm.themeStatus ) {
+	initialTab = tabs[ 2 ];
+	completedTabs.push( tabs[ 1 ] );
+}
+
+if ( 'ok' === mtbGsm.contentStatus ) {
+	initialTab = tabs[ 3 ];
+	completedTabs.push( tabs[ 2 ] );
+}
+
 /**
  * Default state of the world
  *
  */
 const initialState = {
-	activeTab: tabs[ 0 ],
-	completed: [],
+	activeTab: initialTab,
+	completed: completedTabs,
+	status: STATUS.IDLE,
 	tabs,
 };
 

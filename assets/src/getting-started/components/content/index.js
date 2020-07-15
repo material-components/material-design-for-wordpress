@@ -5,7 +5,8 @@ import { ACTIONS, TABS } from '../../constants';
 
 const Content = () => {
 	const { state, dispatch } = useContext( TabContext );
-	const { title, action, content } = TABS[ state.activeTab ];
+	const { title, actionText, content, link, icon } = TABS[ state.activeTab ];
+	const isDisabled = ! icon;
 
 	const handleClick = () => {
 		dispatch( { type: ACTIONS.NEXT_STEP } );
@@ -20,9 +21,11 @@ const Content = () => {
 			<div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised"
-					text={ action }
-					trailingIcon="navigate_next"
+					text={ actionText }
+					trailingIcon={ icon }
 					onClick={ handleClick }
+					link={ link }
+					disabled={ isDisabled }
 				/>
 			</div>
 		</div>
