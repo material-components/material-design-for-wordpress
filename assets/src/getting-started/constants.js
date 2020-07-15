@@ -1,4 +1,4 @@
-/* global mtbGsm */
+/* global mtbGsm, mtbOnboarding */
 import { __ } from '@wordpress/i18n';
 
 export const ACTIONS = {
@@ -24,17 +24,17 @@ export const TABS = {
 	},
 	THEME: {
 		title: __( 'Material theme', 'material-theme-builder' ),
-		icon: 'ok' !== mtbGsm.themeStatus ? 'navigate_next' : null,
+		icon: 'ok' !== mtbOnboarding.themeStatus ? 'navigate_next' : null,
 		actionText:
-			'install' === mtbGsm.themeStatus
+			'install' === mtbOnboarding.themeStatus
 				? __( 'Install', 'material-theme-builder' )
-				: 'activate' === mtbGsm.themeStatus
+				: 'activate' === mtbOnboarding.themeStatus
 				? __( 'Activate', 'material-theme-builder' )
 				: __( 'Activated', 'material-theme-builder' ),
 		action:
-			'install' === mtbGsm.themeStatus
+			'install' === mtbOnboarding.themeStatus
 				? ACTIONS.INSTALL_THEME
-				: 'activate' === mtbGsm.themeStatus
+				: 'activate' === mtbOnboarding.themeStatus
 				? ACTIONS.ACTIVATE_THEME
 				: '',
 		content:

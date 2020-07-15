@@ -1,4 +1,4 @@
-/* global mtbWizard */
+/* global mtbWizard, mtbOnboarding */
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 import { ADDONS } from '../../constants';
@@ -17,7 +17,7 @@ const Addons = () => {
 			<Card
 				image={ `${ mtbWizard.assetsPath }addon-material-theme.png` }
 				switch={ ADDONS.THEME }
-				disabled={ 'ok' === mtbWizard.themeStatus }
+				disabled={ 'ok' === mtbOnboarding.themeStatus }
 			>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Material Theme', 'material-theme-builder' ) }

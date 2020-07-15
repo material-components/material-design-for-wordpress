@@ -1,3 +1,4 @@
+import { STATUS } from '../wizard/constants';
 import { ACTIONS, TABS } from './constants';
 
 /**
@@ -26,6 +27,7 @@ export const reducer = ( state, action ) => {
 			...state,
 			activeTab: steps[ stepIndex + 1 ],
 			completed: [ activeTab, ...completed ],
+			status: STATUS.IDLE,
 		};
 	}
 
@@ -43,6 +45,18 @@ export const reducer = ( state, action ) => {
 		newState.activeTab = newActive;
 
 		return newState;
+	}
+
+	if ( ACTIONS.INSTALL_THEME === type ) {
+		return { ...state, status: STATUS.PENDING };
+	}
+
+	if ( ACTIONS.ACTIVATE_THEME === type ) {
+		return {
+			...state,
+			actionToInstall: ACTIONS.ACTIVATE_THEME,
+			status: STATUS.PENDING,
+		};
 	}
 
 	return state;

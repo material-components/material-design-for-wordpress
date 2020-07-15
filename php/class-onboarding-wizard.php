@@ -68,7 +68,6 @@ class Onboarding_Wizard extends Module_Base {
 				'assetsPath'       => esc_url( $this->plugin->asset_url( 'assets/images/wizard/' ) ),
 				'placeholderImage' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder.png' ) ),
 				'placeholderSmall' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder-small.png' ) ),
-				'themeStatus'      => esc_html( $this->plugin->material_theme_status() ),
 				'nonce'            => wp_create_nonce( 'wp_rest' ),
 				'restUrl'          => esc_url( $this->plugin->importer_rest_controller->get_rest_base_url() ),
 			]

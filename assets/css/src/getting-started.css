@@ -1,4 +1,6 @@
 @import "@material/typography/dist/mdc.typography.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/button/dist/mdc.button.css";
+@import "@material/ripple/dist/mdc.ripple.css";
+@import "@material/circular-progress/dist/mdc.circular-progress.css";
 @import "./gsm/index.css";
