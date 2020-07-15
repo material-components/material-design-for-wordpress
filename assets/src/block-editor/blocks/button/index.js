@@ -9,6 +9,7 @@ import { __ } from '@wordpress/i18n';
 import icon from './components/block-icon';
 import edit from './edit';
 import save from './save';
+import { example } from './example';
 
 export const name = 'material/button';
 
@@ -23,7 +24,9 @@ export const settings = {
 	attributes: {
 		label: {
 			type: 'string',
-			default: __( 'BUTTON LABEL', 'material-theme-builder' ),
+			source: 'html',
+			selector: '.mdc-button__label',
+			default: '',
 		},
 		type: {
 			type: 'string',
@@ -42,18 +45,33 @@ export const settings = {
 		},
 		url: {
 			type: 'string',
+			source: 'attribute',
+			selector: 'a',
+			attribute: 'href',
 			default: '',
 		},
 		rel: {
 			type: 'string',
+			source: 'attribute',
+			selector: 'a',
+			attribute: 'rel',
 			default: '',
 		},
 		linkTarget: {
 			type: 'string',
+			source: 'attribute',
+			selector: 'a',
+			attribute: 'target',
 		},
-		icon: { type: 'object' },
-		backgroundColor: { type: 'string' },
-		textColor: { type: 'string' },
+		icon: {
+			type: 'object',
+		},
+		backgroundColor: {
+			type: 'string',
+		},
+		textColor: {
+			type: 'string',
+		},
 		isSubmit: {
 			type: 'boolean',
 			default: false,
@@ -61,4 +79,5 @@ export const settings = {
 	},
 	edit,
 	save,
+	example,
 };

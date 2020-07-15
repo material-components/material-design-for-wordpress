@@ -175,7 +175,10 @@ class Plugin extends Plugin_Base {
 		);
 
 		$wp_localized_script_data = [
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
+			'handpicked_posts_preview' => $this->asset_url( 'assets/images/preview/handpicked-posts.jpg' ),
+			'tab_bar_preview'          => $this->asset_url( 'assets/images/preview/tab-bar.jpg' ),
+			'contact_form_preview'     => $this->asset_url( 'assets/images/preview/contact-form.jpg' ),
 		];
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {

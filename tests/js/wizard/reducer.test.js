@@ -9,6 +9,7 @@ const initialState = {
 	addons: [ 'THEME', 'DEMO' ],
 	active: 'WELCOME',
 	previous: [],
+	status: 'IDLE',
 };
 
 describe( 'Reducer', () => {
@@ -103,5 +104,16 @@ describe( 'Reducer', () => {
 		const result = reducer( initialState, action );
 
 		expect( result.addons ).toHaveLength( 1 );
+	} );
+
+	it( 'should be pending status', () => {
+		const action = {
+			type: 'SUBMIT_WIZARD',
+			payload: null,
+		};
+
+		const result = reducer( initialState, action );
+
+		expect( result.status ).toStrictEqual( 'PENDING' );
 	} );
 } );

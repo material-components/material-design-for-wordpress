@@ -3,4 +3,5 @@
 @import "@material/button/dist/mdc.button.css";
 @import "@material/switch/dist/mdc.switch.css";
 @import "@material/ripple/dist/mdc.ripple.css";
+@import "@material/circular-progress/dist/mdc.circular-progress.css";
 @import "./wizard/index.css";

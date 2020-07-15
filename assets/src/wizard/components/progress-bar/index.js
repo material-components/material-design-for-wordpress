@@ -1,5 +1,5 @@
 import React from 'react';
-import { STEPS } from '../../steps';
+import { STEPS } from '../../constants';
 import Step from './step';
 
 /**

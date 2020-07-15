@@ -11,7 +11,9 @@
 export const handleThemeActivation = () => {
 	const action = mtbWizard.themeStatus;
 	if ( 'ok' === action ) {
-		return;
+		return new Promise( resolve => {
+			return resolve( 'ok' );
+		} );
 	}
 
 	const parameters = {
@@ -23,6 +25,10 @@ export const handleThemeActivation = () => {
 		fetch( `${ mtbOnboarding.restUrl }${ action }-theme`, parameters )
 			.then( response => response.json() )
 			.then( data => {
+				if ( data.code ) {
+					return reject( data );
+				}
+
 				if ( 'install' === action ) {
 					fetch( `${ mtbOnboarding.restUrl }activate-theme`, parameters )
 						.then( response => response.json() )
@@ -49,18 +55,13 @@ export const handleDemoImporter = () => {
 	return new Promise( ( resolve, reject ) => {
 		fetch( `${ mtbWizard.restUrl }install-content`, parameters )
 			.then( response => response.json() )
-			.then( resolve )
+			.then( response => {
+				if ( response.code ) {
+					reject( response );
+				} else {
+					resolve( response );
+				}
+			} )
 			.catch( error => reject( error ) );
 	} );
-};
-
-/**
- * Redirect to settings location
- *
- * @param {*} data Request json response
- */
-export const redirectToSettings = data => {
-	if ( 'success' === data.status ) {
-		return window.location.replace( mtbWizard.settingsUrl );
-	}
 };
