@@ -11,7 +11,15 @@ const Button = props => {
 		return <Link { ...props } />;
 	}
 
-	const { style, text, leadingIcon, trailingIcon, onClick, loading } = props;
+	const {
+		style,
+		text,
+		leadingIcon,
+		trailingIcon,
+		onClick,
+		loading,
+		disabled,
+	} = props;
 	const showLeadingIcon = ! loading && leadingIcon;
 	const showTrailingIcon = ! loading && trailingIcon;
 	const loadingClass = loading ? ' is-loading' : '';
@@ -20,6 +28,7 @@ const Button = props => {
 		<button
 			className={ `mdc-button ${ style }${ loadingClass }` }
 			onClick={ onClick }
+			disabled={ disabled }
 		>
 			{ showLeadingIcon && (
 				<i
