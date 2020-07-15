@@ -250,9 +250,10 @@ class Plugin extends Plugin_Base {
 			'material-admin-js',
 			'mtbOnboarding',
 			[
-				'restUrl'  => esc_url( $this->onboarding_rest_controller->get_rest_base_url() ),
-				'redirect' => esc_url( admin_url( 'themes.php' ) ),
-				'nonce'    => wp_create_nonce( 'wp_rest' ),
+				'restUrl'     => esc_url( $this->onboarding_rest_controller->get_rest_base_url() ),
+				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
+				'nonce'       => wp_create_nonce( 'wp_rest' ),
+				'themeStatus' => esc_html( $this->material_theme_status() ),
 			]
 		);
 	}
@@ -449,8 +450,13 @@ class Plugin extends Plugin_Base {
 		$status = $this->material_theme_status();
 		$screen = get_current_screen();
 
-		// Theme already active or inside wizard. Don't show the notice.
-		if ( 'ok' === $status || 'toplevel_page_material-theme-builder' === $screen->id || ! empty( get_option( 'material_theme_activated' ) ) ) {
+		// Theme already active or inside wizards. Don't show the notice.
+		if (
+			'ok' === $status
+			|| 'toplevel_page_material-theme-builder' === $screen->id
+			|| 'material_page_material_settings' === $screen->id
+			|| ! empty( get_option( 'material_theme_activated' ) )
+		) {
 			return;
 		}
 

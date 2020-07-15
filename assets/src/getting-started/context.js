@@ -37,6 +37,7 @@ const initialState = {
 	activeTab: initialTab,
 	completed: completedTabs,
 	status: STATUS.IDLE,
+	addonToInstall: null,
 	tabs,
 };
 

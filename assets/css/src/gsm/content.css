@@ -1,3 +1,12 @@
 .material-gsm__content {
 	padding-right: 1rem;
+
+	& .mdc-circular-progress {
+		--mdc-theme-primary: #fff;
+	}
+
+	& .mdc-button.is-loading {
+		text-align: left;
+		width: 105px;
+	}
 }
