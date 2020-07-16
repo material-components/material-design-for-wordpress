@@ -70,7 +70,6 @@ class Test_Onboarding_Wizard extends \WP_UnitTestCase {
 	public function test_enqueue_assets() {
 		$screen = get_current_screen();
 		$this->wizard->enqueue_assets();
-		$this->assertFalse( wp_style_is( 'google-fonts', 'enqueued' ) );
 		$this->assertFalse( wp_style_is( 'material-wizard', 'enqueued' ) );
 		$this->assertFalse( wp_script_is( 'material-wizard', 'enqueued' ) );
 
