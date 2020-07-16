@@ -29,7 +29,16 @@ const Content = () => {
 	/**
 	 * Move on to next step
 	 */
-	const handleSuccess = () => {
+	const handleThemeSuccess = () => {
+		dispatch( { type: ACTIONS.THEME_INSTALLED } );
+		dispatch( { type: ACTIONS.NEXT_STEP } );
+	};
+
+	/**
+	 * Move on to next step
+	 */
+	const handleDemoSuccess = () => {
+		dispatch( { type: ACTIONS.DEMO_INSTALLED } );
 		dispatch( { type: ACTIONS.NEXT_STEP } );
 	};
 
@@ -43,16 +52,16 @@ const Content = () => {
 			ACTIONS.INSTALL_THEME === actionToInstall
 		) {
 			handleThemeActivation()
-				.then( handleSuccess )
+				.then( handleThemeSuccess )
 				.catch( handleError );
 		}
 
 		if ( ACTIONS.INSTALL_DEMO_CONTENT === actionToInstall ) {
 			handleDemoImporter()
-				.then( handleSuccess )
+				.then( handleDemoSuccess )
 				.catch( handleError );
 		}
-	}, [ actionToInstall, handleError, handleSuccess ] );
+	}, [ actionToInstall ] );
 
 	return (
 		<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">

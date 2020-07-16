@@ -78,7 +78,7 @@ class Onboarding_Getting_Started extends Module_Base {
 			'mtbGsm',
 			[
 				'wizardUrl'     => esc_url( menu_page_url( 'material-theme-builder', false ) ),
-				'editorUrl'     => esc_url( menu_page_url( 'edit', false ) ),
+				'editorUrl'     => esc_url( admin_url( 'edit.php' ) ),
 				'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 				'themeStatus'   => esc_html( $this->plugin->material_theme_status() ),
 				'contentStatus' => esc_html( $this->locate_demo_content() ),

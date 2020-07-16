@@ -48,7 +48,19 @@ export const reducer = ( state, action ) => {
 	}
 
 	if ( ACTIONS.INSTALL_THEME === type ) {
-		return { ...state, status: STATUS.PENDING };
+		return {
+			...state,
+			status: STATUS.PENDING,
+			actionToInstall: ACTIONS.ACTIVATE_THEME,
+		};
+	}
+
+	if ( ACTIONS.THEME_INSTALLED === type ) {
+		return { ...state, themeStatus: 'ok' };
+	}
+
+	if ( ACTIONS.DEMO_INSTALLED === type ) {
+		return { ...state, contentStatus: 'ok' };
 	}
 
 	if ( ACTIONS.ACTIVATE_THEME === type ) {
