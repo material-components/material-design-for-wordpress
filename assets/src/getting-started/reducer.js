@@ -67,5 +67,9 @@ export const reducer = ( state, action ) => {
 		};
 	}
 
+	if ( ACTIONS.ERROR === type ) {
+		return { ...state, status: STATUS.ERROR, error: payload };
+	}
+
 	return state;
 };

@@ -38,6 +38,7 @@ const initialState = {
 	completed: completedTabs,
 	status: STATUS.IDLE,
 	actionToInstall: null,
+	error: {},
 	tabs,
 };
 

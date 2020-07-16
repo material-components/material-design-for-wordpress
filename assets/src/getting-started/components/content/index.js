@@ -5,6 +5,7 @@ import {
 	handleDemoImporter,
 } from '../../../wizard/utils';
 import Button from '../../../wizard/components/navigation/button';
+import Notice from '../../../wizard/components/notice';
 import TabContext from '../../context';
 import { TABS, ACTIONS } from '../../constants';
 
@@ -58,6 +59,9 @@ const Content = () => {
 
 	return (
 		<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
+			{ STATUS.ERROR === state.status && (
+				<Notice type="notice-error" message={ state.error.message } />
+			) }
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ title }
 			</h2>
