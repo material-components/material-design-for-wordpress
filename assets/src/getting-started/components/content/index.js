@@ -1,6 +1,9 @@
 import { useContext, useEffect } from '@wordpress/element';
 import { STATUS } from '../../../wizard/constants';
-import { handleThemeActivation } from '../../../wizard/utils';
+import {
+	handleThemeActivation,
+	handleDemoImporter,
+} from '../../../wizard/utils';
 import Button from '../../../wizard/components/navigation/button';
 import TabContext from '../../context';
 import { TABS, ACTIONS } from '../../constants';
@@ -42,6 +45,12 @@ const Content = () => {
 			ACTIONS.INSTALL_THEME === actionToInstall
 		) {
 			handleThemeActivation()
+				.then( handleSuccess )
+				.catch( handleError );
+		}
+
+		if ( ACTIONS.INSTALL_DEMO_CONTENT === actionToInstall ) {
+			handleDemoImporter()
 				.then( handleSuccess )
 				.catch( handleError );
 		}
