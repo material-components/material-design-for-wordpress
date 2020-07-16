@@ -4,29 +4,26 @@ import {
 	handleThemeActivation,
 	handleDemoImporter,
 } from '../../../wizard/utils';
-import Button from '../../../wizard/components/navigation/button';
 import Notice from '../../../wizard/components/notice';
 import TabContext from '../../context';
-import { TABS, ACTIONS } from '../../constants';
+import { ACTIONS } from '../../constants';
+import { Wizard, Theme, Demo, Editor, Blocks } from './content';
 
 const Content = () => {
 	const { state, dispatch } = useContext( TabContext );
-	const { activeTab, status, actionToInstall } = state;
-	const { title, actionText, content, link, icon, action } = TABS[ activeTab ];
-	const isDisabled = ! icon;
-	const isLoading = status === STATUS.PENDING;
+	const { activeTab, status, actionToInstall, error } = state;
 
 	const handleClick = () => {
-		dispatch( { type: action } );
+		dispatch( { type: ACTIONS.NEXT_STEP } );
 	};
 
 	/**
 	 * Display error when found
 	 *
-	 * @param {Object} error WP_Error
+	 * @param {Object} errorObject WP_Error
 	 */
-	const handleError = error => {
-		dispatch( { type: ACTIONS.ERROR, payload: error } );
+	const handleError = errorObject => {
+		dispatch( { type: ACTIONS.ERROR, payload: errorObject } );
 	};
 
 	/**
@@ -55,28 +52,18 @@ const Content = () => {
 				.then( handleSuccess )
 				.catch( handleError );
 		}
-	}, [ actionToInstall ] );
+	}, [ actionToInstall, handleError, handleSuccess ] );
 
 	return (
 		<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
-			{ STATUS.ERROR === state.status && (
-				<Notice type="notice-error" message={ state.error.message } />
+			{ STATUS.ERROR === status && (
+				<Notice type="notice-error" message={ error.message } />
 			) }
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				{ title }
-			</h2>
-			<p className="material-gsm__content-description">{ content }</p>
-			<div className="material-gsm__content-actions">
-				<Button
-					style="mdc-button--raised"
-					text={ actionText }
-					trailingIcon={ icon }
-					onClick={ handleClick }
-					link={ link }
-					disabled={ isDisabled }
-					loading={ isLoading }
-				/>
-			</div>
+			{ 'WIZARD' === activeTab && <Wizard handleClick={ handleClick } /> }
+			{ 'THEME' === activeTab && <Theme /> }
+			{ 'DEMO' === activeTab && <Demo /> }
+			{ 'EDITOR' === activeTab && <Editor handleClick={ handleClick } /> }
+			{ 'BLOCKS' === activeTab && <Blocks /> }
 		</div>
 	);
 };
