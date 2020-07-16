@@ -39,6 +39,8 @@ const initialState = {
 	status: STATUS.IDLE,
 	actionToInstall: null,
 	error: {},
+	themeStatus: mtbGsm.themeStatus,
+	contentStatus: mtbGsm.contentStatus,
 	tabs,
 };
 
