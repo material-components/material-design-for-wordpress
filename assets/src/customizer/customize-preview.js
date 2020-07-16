@@ -10,11 +10,6 @@
  */
 
 /**
- * External dependencies
- */
-import get from 'lodash/get';
-
-/**
  * Internal dependencies
  */
 import colorUtils from '../common/color-utils';
@@ -39,11 +34,10 @@ const getIconFontName = iconStyle => {
 
 	const api = wp.customize;
 	const parentApi = window.parent.wp.customize;
-	const controls = window.parent._wpCustomizeSettings.controls;
+	const parentControls = window.parent._wpCustomizeSettings.controls;
 	const colorControls = {};
 	const typographyControls = {};
 	const cornerStyleControls = {};
-	const cornerStyleExtra = {};
 	const iconControls = {};
 
 	$( function() {
@@ -54,37 +48,54 @@ const getIconFontName = iconStyle => {
 		} );
 	} );
 
-	Object.keys( controls ).forEach( control => {
-		const args = controls[ control ];
-
-		if (
-			args &&
-			!! args.cssVar &&
-			( !! args.relatedTextSetting || !! args.relatedSetting )
-		) {
-			colorControls[ control ] = args.cssVar;
+	const generateCSSVarMappings = controls => {
+		if ( ! controls ) {
+			return;
 		}
 
-		if ( args && !! args.cssVars ) {
-			typographyControls[ control ] = args.cssVars;
-		}
+		Object.keys( controls ).forEach( control => {
+			const args = controls[ control ];
 
-		if ( args && !! args.cssVar && args.type === 'range_slider' ) {
-			cornerStyleControls[ control ] = args.cssVar;
-		}
+			if (
+				args &&
+				!! args.cssVar &&
+				( !! args.relatedTextSetting || !! args.relatedSetting )
+			) {
+				colorControls[ control ] = args.cssVar;
+			}
 
-		if ( args && !! args.extra && args.type === 'range_slider' ) {
-			cornerStyleExtra[ control ] = args.extra;
-		}
+			if ( args && !! args.cssVars ) {
+				typographyControls[ control ] = args.cssVars;
+			}
 
-		if ( args && !! args.extra && args.type === 'range_slider' ) {
-			cornerStyleExtra[ control ] = args.extra;
-		}
+			if ( args && !! args.cssVar && args.type === 'range_slider' ) {
+				cornerStyleControls[ control ] = args;
 
-		if ( args && !! args.cssVar && args.type === 'icon_radio' ) {
-			iconControls[ control ] = args.cssVar;
-		}
-	} );
+				if ( args.children && Array.isArray( args.children ) ) {
+					generateCSSVarMappings(
+						args.children.reduce(
+							( acc, childControl ) => ( {
+								...acc,
+								[ childControl.id ]: {
+									...childControl,
+									type: 'range_slider',
+									cssVar: childControl.css_var,
+									initialValue: childControl.initial_value,
+								},
+							} ),
+							{}
+						)
+					);
+				}
+			}
+
+			if ( args && !! args.cssVar && args.type === 'icon_radio' ) {
+				iconControls[ control ] = args.cssVar;
+			}
+		} );
+	};
+
+	generateCSSVarMappings( parentControls );
 
 	/**
 	 * Add styles to elements in the preview pane.
@@ -122,24 +133,17 @@ const getIconFontName = iconStyle => {
 
 		Object.keys( cornerStyleControls ).forEach( control => {
 			let settingValue = parentApi( control ).get();
-			const limits = get( cornerStyleExtra, `${ control }.limits`, {} );
+			const args = cornerStyleControls[ control ];
 
-			// Impose border radius limits for specific elements.
-			if ( typeof limits === 'object' && Object.keys( limits ).length > 0 ) {
-				for ( const element in limits ) {
-					const limit = limits[ element ];
-					if ( limit.hasOwnProperty( 'min' ) && settingValue < limit.min ) {
-						settingValue = limit.min;
-					}
-					if ( limit.hasOwnProperty( 'max' ) && settingValue > limit.max ) {
-						settingValue = limit.max;
-					}
-
-					styles += `${ cornerStyleControls[ control ] }-${ element }: ${ settingValue }px;`;
-				}
-			} else {
-				styles += `${ cornerStyleControls[ control ] }: ${ settingValue }px;`;
+			if ( 'number' === typeof args.min && settingValue < args.min ) {
+				settingValue = args.min;
 			}
+
+			if ( 'number' === typeof args.max && settingValue > args.max ) {
+				settingValue = args.max;
+			}
+
+			styles += `${ args.cssVar }: ${ settingValue }px;`;
 		} );
 
 		Object.keys( iconControls ).forEach( control => {
