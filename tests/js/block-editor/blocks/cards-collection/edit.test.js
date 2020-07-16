@@ -19,13 +19,6 @@ jest.mock(
 	} )
 );
 
-jest.mock(
-	'../../../../../assets/src/block-editor/components/with-global-defaults',
-	() => ( {
-		withGlobalDefaults: Component => Component,
-	} )
-);
-
 /**
  * Render the component.
  *
