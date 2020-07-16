@@ -59,5 +59,13 @@ export const reducer = ( state, action ) => {
 		};
 	}
 
+	if ( ACTIONS.INSTALL_DEMO_CONTENT === type ) {
+		return {
+			...state,
+			actionToInstall: ACTIONS.INSTALL_DEMO_CONTENT,
+			status: STATUS.PENDING,
+		};
+	}
+
 	return state;
 };

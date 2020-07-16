@@ -83,6 +83,15 @@ class Onboarding_Getting_Started extends Module_Base {
 				'contentStatus' => esc_html( $this->locate_demo_content() ),
 			]
 		);
+
+		wp_localize_script(
+			'material-admin-js',
+			'mtbWizard',
+			[
+				'restUrl' => esc_url( $this->plugin->importer_rest_controller->get_rest_base_url() ),
+				'nonce'   => wp_create_nonce( 'wp_rest' ),
+			]
+		);
 	}
 	
 	/**

@@ -42,6 +42,7 @@ export const TABS = {
 	},
 	DEMO: {
 		title: __( 'Demo content', 'material-theme-builder' ),
+		action: 'ok' !== mtbGsm.contentStatus ? ACTIONS.INSTALL_DEMO_CONTENT : '',
 		actionText:
 			'ok' !== mtbGsm.contentStatus
 				? __( 'Install', 'material-theme-builder' )
