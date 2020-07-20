@@ -291,19 +291,12 @@ import {
 								.attr( 'id' )
 								.replace( 'customize-control-', '' )
 								.replace( `${ mtb.slug }-`, '' ),
-							controlName = getControlName( name ),
-							colorControl = api.control( controlName );
+							controlName = getControlName( name );
 
-						// Unbind the custom value change event.
-						colorControl.setting.unbind( onCustomValueChange );
-
-						// Set the value from style defaults.
-						colorControl.setting.set(
+						setSettingDefault(
+							controlName,
 							mtb.designStyles[ style ][ removeOptionPrefix( controlName ) ]
 						);
-
-						// Rebind the custom value change event.
-						colorControl.setting.bind( onCustomValueChange );
 					}
 				} );
 		},
@@ -448,13 +441,12 @@ import {
 		if ( style && mtb.designStyles.hasOwnProperty( style ) ) {
 			const defaults = mtb.designStyles[ style ];
 			let settingId = removeOptionPrefix( control.id );
-			api( control.id ).set( defaults[ settingId ] );
+			setSettingDefault( control.id, defaults[ settingId ] );
 
 			if ( control.params.children ) {
 				control.params.children.forEach( slider => {
 					settingId = removeOptionPrefix( slider.id );
-
-					api( slider.id ).set( defaults[ settingId ] );
+					setSettingDefault( slider.id, defaults[ settingId ] );
 				} );
 			}
 
@@ -550,28 +542,26 @@ import {
 		// Iterate through all the default values for the selected style
 		// and update the corresponding control value.
 		Object.keys( defaults ).forEach( name => {
+			if ( ! name.includes( 'global_radius' ) && name.includes( '_radius' ) ) {
+				return;
+			}
+
 			const value = defaults[ name ];
-			const control = api.control( getControlName( name ) );
+			const settingName = getControlName( name );
 
-			if ( value && control ) {
-				// Unbind the custom value change event.
-				control.setting.unbind( onCustomValueChange );
-
-				// Set the value from style defaults.
-				control.setting.set( value );
+			setSettingDefault( settingName, value, () => {
+				const control = api.control( settingName );
 
 				// Force unmount and re render the Ranger Slider control.
 				if (
+					control &&
 					control.params.type === 'range_slider' &&
 					control.params.children &&
 					control.params.children.length
 				) {
 					onResetGlobalRangeSliderControl( control );
 				}
-
-				// Rebind the custom value change event.
-				control.setting.bind( onCustomValueChange );
-			}
+			} );
 		} );
 
 		reRenderMaterialLibrary();
@@ -591,6 +581,32 @@ import {
 		}
 
 		reRenderMaterialLibrary();
+	};
+
+	/**
+	 * Set default value for a setting.
+	 *
+	 * @param {string}        settingId ID of the setting.
+	 * @param {string|number} value     Value of the setting.
+	 * @param {Function}      onSet     Callback after the value is set.
+	 */
+	const setSettingDefault = ( settingId, value, onSet ) => {
+		const setting = api( settingId );
+
+		if ( setting ) {
+			// Unbind the custom value change event.
+			setting.unbind( onCustomValueChange );
+
+			// Set the value from style defaults.
+			setting.set( value );
+
+			if ( 'function' === typeof onSet ) {
+				onSet.call();
+			}
+
+			// Rebind the custom value change event.
+			setting.bind( onCustomValueChange );
+		}
 	};
 
 	api.bind( 'ready', () => {
