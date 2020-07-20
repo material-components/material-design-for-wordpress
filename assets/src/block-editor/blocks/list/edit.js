@@ -2,7 +2,6 @@
  * External dependencies
  */
 import classNames from 'classnames';
-import { debounce } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -32,6 +31,7 @@ const ListEdit = ( {
 	className,
 	setAttributes,
 } ) => {
+	// Insert first item when a list block is created.
 	useEffect( () => {
 		if ( 0 === items.length ) {
 			setAttributes( {
@@ -46,32 +46,89 @@ const ListEdit = ( {
 		}
 	}, [ items, setAttributes ] );
 
-	const setter = genericAttributesSetter( setAttributes );
-	const isSecondaryEnabled = style === 'two-line';
 	const [ selected, setSelected ] = useState( {
 		index: 0,
 		isSecondary: false,
+		start: 0,
 	} );
 
-	const addItem = () => {
+	const setter = genericAttributesSetter( setAttributes );
+	const isSecondaryEnabled = style === 'two-line';
+
+	/**
+	 * Add an item to the list.
+	 *
+	 * @param {number} index Index the item should be inserted at.
+	 * @param {string} text Primary text for the item.
+	 */
+	const addItem = ( index, text = '' ) => {
 		const newItems = [ ...items ];
-		newItems.push( {
-			primaryText: '',
+		const item = {
+			primaryText: text,
 			secondaryText: '',
 			icon: 'favorite',
-		} );
+		};
+
+		if ( 'number' === typeof index ) {
+			newItems.splice( index, 0, item );
+		} else {
+			newItems.push( item );
+		}
 
 		setAttributes( { items: newItems } );
+		setSelected( { ...selected, index, isSecondary: false } );
 	};
 
+	/**
+	 * Delete an item from list.
+	 *
+	 * @param {number} index Index the item should be deleted from.
+	 * @param {string} primaryText Primary text of the item being deleted
+	 * @param {string} secondaryText Secondary text of the item being deleted.
+	 */
+	const deleteItem = ( index, primaryText, secondaryText = '' ) => {
+		if ( index === 0 ) {
+			return;
+		}
+
+		const newItems = [ ...items ];
+		newItems.splice( index, 1 );
+		const prevItem = newItems[ index - 1 ];
+		let start = 0;
+
+		if ( isSecondaryEnabled ) {
+			start = prevItem.secondaryText.length;
+			prevItem.secondaryText = `${ prevItem.secondaryText }${ primaryText } ${ secondaryText }`;
+		} else {
+			start = prevItem.primaryText.length;
+			prevItem.primaryText = `${ prevItem.primaryText }${ primaryText } ${ secondaryText }`;
+		}
+
+		setAttributes( { items: newItems } );
+		setSelected( { index: index - 1, start, isSecondary: isSecondaryEnabled } );
+	};
+
+	/**
+	 * Set an item in the list.
+	 *
+	 * @param {number} index Index of the item being set.
+	 * @param {Object} newItem Item object.
+	 */
 	const setItem = ( index, newItem ) => {
 		const newItems = [ ...items ];
 		const item = newItems[ index ] || {};
 		newItems[ index ] = { ...item, ...newItem };
 
 		setAttributes( { items: newItems } );
+		items = newItems;
 	};
 
+	/**
+	 * Handle primary text change.
+	 *
+	 * @param {number} index Index of the list item.
+	 * @param {string} text Primary text.
+	 */
 	const onPrimaryTextChange = ( index, text ) => {
 		if ( ! items[ index ] ) {
 			return;
@@ -81,6 +138,12 @@ const ListEdit = ( {
 		setAttributes( { items } );
 	};
 
+	/**
+	 * Handle secondary text change.
+	 *
+	 * @param {number} index Index of the list item.
+	 * @param {string} text Secondary text.
+	 */
 	const onSecondaryTextChange = ( index, text ) => {
 		if ( ! items[ index ] ) {
 			return;
@@ -90,45 +153,59 @@ const ListEdit = ( {
 		setAttributes( { items } );
 	};
 
-	const deleteItem = ( index, text ) => {
-		if ( index === 0 ) {
-			return;
-		}
+	/**
+	 * Handle splitting of a list item
+	 *
+	 * @param {number} index Index of the item being split.
+	 * @param {string} text Text split.
+	 */
+	const onSplit = ( index, text ) => addItem( index + 1, text );
 
-		const newItems = [ ...items ];
-		newItems.splice( index, 1 );
-		const prevItem = newItems[ index - 1 ];
-		prevItem.primaryText = `${ prevItem.primaryText } ${ text }`;
-		setAttributes( { items: newItems } );
-		setSelected( { index: index - 1 } );
-	};
+	/**
+	 * Handle focus of al ist item.
+	 *
+	 * @param {number} index Index of the item.
+	 * @param {boolean} isSecondary Detemine if the secondary text beng focused.
+	 */
+	const onFocus = ( index, isSecondary = false ) =>
+		setSelected( { ...selected, index, isSecondary } );
 
-	const onEnter = ( index, isSecondary = false ) => {
-		if ( index >= items.length ) {
-			addItem();
-		}
-
-		setSelected( { index, isSecondary } );
-	};
-
-	const onIconChange = debounce( icon => {
+	/**
+	 * Handle icon change for a list item.
+	 *
+	 * @param {Object} icon Icon to be updated.
+	 */
+	const onIconChange = icon => {
 		const newItems = [ ...items ];
 		newItems[ selected.index ].icon = icon.name;
 		setAttributes( { items: newItems } );
-	}, 300 );
+	};
 
-	const onURLChange = debounce( url => {
+	/**
+	 * Handle URL change.
+	 *
+	 * @param {string} url URL to be updated.
+	 */
+	const onURLChange = url => {
 		const newItems = [ ...items ];
 		newItems[ selected.index ].url = url;
 		setAttributes( { items: newItems } );
-	}, 300 );
+	};
 
-	const onNewTabChange = debounce( newTab => {
+	/**
+	 * Handle New Tab change.
+	 *
+	 * @param {boolean} newTab Should the URL be opened in a new tab.
+	 */
+	const onNewTabChange = newTab => {
 		const newItems = [ ...items ];
 		newItems[ selected.index ].target = newTab ? '_blank' : '';
 		setAttributes( { items: newItems } );
-	}, 300 );
+	};
 
+	/**
+	 * Get selected item.
+	 */
 	const getSelectedItem = () => {
 		return items[ selected.index ] || {};
 	};
@@ -154,12 +231,11 @@ const ListEdit = ( {
 							iconPosition,
 							isSecondaryEnabled,
 						} }
-						onEnter={ onEnter }
-						onFocus={ ( index, isSecondary = false ) =>
-							setSelected( { index, isSecondary } )
-						}
+						onSplit={ onSplit }
+						onFocus={ onFocus }
 						isSelected={ i === selected.index }
 						isSecondarySelected={ i === selected.index && selected.isSecondary }
+						selectionStart={ selected.start }
 						setItem={ setItem }
 						deleteItem={ deleteItem }
 						onPrimaryTextChange={ onPrimaryTextChange }
