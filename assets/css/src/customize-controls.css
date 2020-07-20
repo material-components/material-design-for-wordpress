@@ -290,3 +290,7 @@
 .material-icons {
 	font-family: "Material Icons" !important; /* stylelint-disable-line */
 }
+
+.components-range-control__slider {
+	min-height: 30px;
+}
