@@ -97,6 +97,8 @@ const GlobalRangeSliderControl = props => {
 										},
 									},
 								} );
+
+								onChildChange( slider.id, parentValue );
 							} }
 						/>
 					) ) }

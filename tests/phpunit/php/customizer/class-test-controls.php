@@ -305,9 +305,9 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				[ $this->equalTo( "{$controls->slug}[button_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
 				[ $this->equalTo( "{$controls->slug}[card_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
 				[ $this->equalTo( "{$controls->slug}[chip_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}[data_table_radius]" ), array_merge( $base_setting, [ 'default' => 0 ] ) ],
+				[ $this->equalTo( "{$controls->slug}[data_table_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
 				[ $this->equalTo( "{$controls->slug}[image_list_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
-				[ $this->equalTo( "{$controls->slug}[nav_drawer_radius]" ), array_merge( $base_setting, [ 'default' => 0 ] ) ],
+				[ $this->equalTo( "{$controls->slug}[nav_drawer_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ],
 				[ $this->equalTo( "{$controls->slug}[text_field_radius]" ), array_merge( $base_setting, [ 'default' => 4 ] ) ]
 			);
 
@@ -545,9 +545,9 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$this->assertContains( '--mdc-button-radius: 4px;', $css );
 		$this->assertContains( '--mdc-card-radius: 4px;', $css );
 		$this->assertContains( '--mdc-chip-radius: 4px;', $css );
-		$this->assertContains( '--mdc-data-table-radius: 0px;', $css );
+		$this->assertContains( '--mdc-data-table-radius: 4px;', $css );
 		$this->assertContains( '--mdc-image-list-radius: 4px;', $css );
-		$this->assertContains( '--mdc-nav-drawer-radius: 0px;', $css );
+		$this->assertContains( '--mdc-nav-drawer-radius: 4px;', $css );
 		$this->assertContains( '--mdc-text-field-radius: 4px;', $css );
 
 		add_filter(
