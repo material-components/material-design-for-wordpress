@@ -69,4 +69,70 @@ describe( 'Reducer', () => {
 
 		expect( result.completed ).toHaveLength( 2 );
 	} );
+
+	it( 'should go to specific step', () => {
+		const action = {
+			type: 'GOTO_STEP',
+			payload: {
+				value: 'EDITOR',
+			},
+		};
+
+		const result = reducer( initialState, action );
+
+		expect( result.activeTab ).toStrictEqual( 'EDITOR' );
+	} );
+
+	it( 'should install theme', () => {
+		const action = {
+			type: 'INSTALL_THEME',
+		};
+
+		const result = reducer( initialState, action );
+
+		expect( result.status ).toStrictEqual( 'PENDING' );
+		expect( result.actionToInstall ).toStrictEqual( 'ACTIVATE_THEME' );
+	} );
+
+	it( 'should activate theme', () => {
+		const action = {
+			type: 'ACTIVATE_THEME',
+		};
+
+		const result = reducer( initialState, action );
+
+		expect( result.status ).toStrictEqual( 'PENDING' );
+		expect( result.actionToInstall ).toStrictEqual( 'ACTIVATE_THEME' );
+	} );
+
+	it( 'should install demo content', () => {
+		const action = {
+			type: 'INSTALL_DEMO_CONTENT',
+		};
+
+		const result = reducer( initialState, action );
+
+		expect( result.status ).toStrictEqual( 'PENDING' );
+		expect( result.actionToInstall ).toStrictEqual( 'INSTALL_DEMO_CONTENT' );
+	} );
+
+	it( 'should update theme status', () => {
+		const action = {
+			type: 'THEME_INSTALLED',
+		};
+
+		const result = reducer( initialState, action );
+
+		expect( result.themeStatus ).toStrictEqual( 'ok' );
+	} );
+
+	it( 'should update demo status', () => {
+		const action = {
+			type: 'DEMO_INSTALLED',
+		};
+
+		const result = reducer( initialState, action );
+
+		expect( result.contentStatus ).toStrictEqual( 'ok' );
+	} );
 } );
