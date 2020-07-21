@@ -1,4 +1,3 @@
-/* global mtbGsm */
 /**
  * Setups context to be used across the app
  *
@@ -14,33 +13,18 @@ const { Provider } = TabContext;
 
 const tabs = Object.keys( TABS );
 
-// Assume wizard already ran when activating plugin
-let initialTab = tabs[ 1 ];
-const completedTabs = [ tabs[ 0 ] ];
-
-// Change initial tab if content and theme are already installed.
-if ( 'ok' === mtbGsm.themeStatus ) {
-	initialTab = tabs[ 2 ];
-	completedTabs.push( tabs[ 1 ] );
-}
-
-if ( 'ok' === mtbGsm.contentStatus ) {
-	initialTab = tabs[ 3 ];
-	completedTabs.push( tabs[ 2 ] );
-}
-
 /**
  * Default state of the world
  *
  */
 const initialState = {
-	activeTab: initialTab,
-	completed: completedTabs,
+	activeTab: 'THEME',
+	completed: [ 'WIZARD' ],
 	status: STATUS.IDLE,
 	actionToInstall: null,
 	error: {},
-	themeStatus: mtbGsm.themeStatus,
-	contentStatus: mtbGsm.contentStatus,
+	themeStatus: 'install',
+	contentStatus: 'install',
 	tabs,
 };
 
