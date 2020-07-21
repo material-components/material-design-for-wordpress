@@ -53,6 +53,8 @@ const Gallery = ( {
 	isSaveContext = false,
 } ) => {
 	const desktopGutter = gutter.desktop || 0;
+	let Tag = 'a';
+	let tagProps = {};
 	let wrapStyles = {},
 		itemStyles = {},
 		anchorStyles = {},
@@ -108,6 +110,10 @@ const Gallery = ( {
 		}
 	};
 
+	if ( 'none' === linkTo || ! isSaveContext ) {
+		Tag = 'div';
+	}
+
 	return (
 		<ul
 			className={ classNames( 'mdc-image-list', {
@@ -123,6 +129,10 @@ const Gallery = ( {
 					href = image.url;
 				}
 
+				if ( 'none' !== linkTo && isSaveContext ) {
+					tagProps = { href };
+				}
+
 				return (
 					<li
 						key={ image.id }
@@ -132,12 +142,12 @@ const Gallery = ( {
 						onClick={ () => onSelect( image.id ) }
 						onKeyDown={ event => onKeyDown( event, image.id ) }
 					>
-						<a
+						<Tag
 							className={ classNames( 'mdc-image-list__item-wrap', {
 								'is-selected': ! isSaveContext && selectedImage === image.id,
 							} ) }
-							href={ isSaveContext ? href : '#' }
 							style={ anchorStyles }
+							{ ...tagProps }
 						>
 							{ 'masonry' !== style ? (
 								<div className="mdc-image-list__image-aspect-container">
@@ -204,7 +214,7 @@ const Gallery = ( {
 									) }
 								</>
 							) }
-						</a>
+						</Tag>
 					</li>
 				);
 			} ) }
