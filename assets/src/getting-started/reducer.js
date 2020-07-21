@@ -15,6 +15,10 @@ export const reducer = ( state, action ) => {
 		return { ...state, activeTab: payload.value };
 	}
 
+	if ( ACTIONS.MARK_COMPLETE === type ) {
+		return { ...state, completed: payload.value };
+	}
+
 	if ( ACTIONS.NEXT_STEP === type ) {
 		const steps = Object.keys( TABS );
 		const stepIndex = steps.indexOf( activeTab );
@@ -79,8 +83,12 @@ export const reducer = ( state, action ) => {
 		};
 	}
 
-	if ( ACTIONS.ERROR === type ) {
-		return { ...state, status: STATUS.ERROR, error: payload };
+	if ( ACTIONS.SET_THEME_OK === type ) {
+		return { ...state, themeStatus: 'ok' };
+	}
+
+	if ( ACTIONS.SET_DEMO_OK === type ) {
+		return { ...state, contentStatus: 'ok' };
 	}
 
 	return state;
