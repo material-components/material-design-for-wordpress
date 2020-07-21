@@ -32,6 +32,14 @@ class Blocks_Frontend extends Module_Base {
 				}
 			}
 
+			/**
+			 * Filter dynamic block styles.
+			 *
+			 * @param string $styles Generated block styles.
+			 * @param array $blocks  Blocks in the page/post.
+			 */
+			$styles = apply_filters( 'material_theme_builder_frontend_blocks_css', $styles, $blocks );
+
 			wp_add_inline_style(
 				'material-front-end-css',
 				$styles
@@ -87,7 +95,13 @@ class Blocks_Frontend extends Module_Base {
 				break;
 		}
 
-		return $styles;
+		/**
+		 * Filter block css.
+		 *
+		 * @param array $styles Generated block styles.
+		 * @param array $block  Block.
+		 */
+		return apply_filters( 'material_theme_builder_block_css', $styles, $block );
 	}
 
 	/**
@@ -113,10 +127,16 @@ class Blocks_Frontend extends Module_Base {
 		$styles = is_array( $styles ) ? implode( "\n", $styles ) : $styles;
 
 		if ( array_key_exists( $device, $media_queries ) ) {
-			return sprintf( $media_queries[ $device ], $styles );
+			$styles = sprintf( $media_queries[ $device ], $styles );
 		}
 
-		return $styles;
+		/**
+		 * Filter media_queries.
+		 *
+		 * @param array  $styles  Generated media queries.
+		 * @param string $device  Device type.
+		 */
+		return apply_filters( 'material_theme_builder_media_queries', $styles, $device );
 	}
 
 	/**
@@ -144,6 +164,14 @@ class Blocks_Frontend extends Module_Base {
 		foreach ( [ 'desktop', 'tablet', 'mobile' ] as $device ) {
 			$styles[] = self::get_media_queries( self::layout_gutter_device_styles( $id, $attributes, $device ), $device );
 		}
+
+		/**
+		 * Filter layout gutter styles for a block.
+		 *
+		 * @param array $styles Generated layout gutter styles.
+		 * @param array $block  Current Block.
+		 */
+		$styles = apply_filters( 'material_theme_builder_layout_gutter_styles', $styles, $block );
 
 		return implode( "\n", $styles );
 	}
@@ -177,7 +205,15 @@ class Blocks_Frontend extends Module_Base {
 			$styles[] = "}\n";
 		}
 
-		return $styles;
+		/**
+		 * Filter layout gutter styles for a device.
+		 *
+		 * @param array  $styles     Generated layout gutter styles.
+		 * @param string $id         ID of the block.
+		 * @param array  $attributes Attributes of the block..
+		 * @param string $device     Device type.
+		 */
+		return apply_filters( 'material_theme_builder_layout_gutter_device_styles', $styles, $id, $attributes, $device );
 	}
 
 	/**
