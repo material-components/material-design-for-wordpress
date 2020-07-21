@@ -364,6 +364,10 @@ const ImageListEdit = ( {
 								label: __( 'Custom URL', 'material-theme-builder' ),
 								value: 'custom',
 							},
+							{
+								label: __( 'None', 'material-theme-builder' ),
+								value: 'none',
+							},
 						] }
 						onChange={ setter( 'linkTo' ) }
 					/>
