@@ -330,7 +330,6 @@ class Controls extends Module_Base {
 				'max'           => isset( $control['max'] ) ? $control['max'] : 100,
 				'initial_value' => isset( $control['initial_value'] ) ? $control['initial_value'] : 0,
 				'css_var'       => isset( $control['css_var'] ) ? $control['css_var'] : '',
-				'extra'         => isset( $control['extra'] ) ? $control['extra'] : '',
 				'children'      => $corner_controls,
 			]
 		);
@@ -451,6 +450,10 @@ class Controls extends Module_Base {
 				$this->added_controls[] = $id;
 			}
 
+			/**
+			 * If the control is Range Slider and has childen, add them to the `added_controls` list
+			 * so the JS events are atatched.
+			 */
 			if ( ! empty( $control->children ) && is_array( $control->children ) && $control instanceof Range_Slider_Control ) {
 				$this->added_controls = array_merge(
 					$this->added_controls,
@@ -458,8 +461,8 @@ class Controls extends Module_Base {
 						function( $child ) {
 							return $child['id'];
 						},
-						$control->children 
-					) 
+						$control->children
+					)
 				);
 			}
 		}
@@ -556,7 +559,15 @@ class Controls extends Module_Base {
 			$font_families[] = str_replace( ' ', '+', $value ) . ':300,400,500';
 		}
 
-		return add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
+		$fonts_url = add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
+
+		/**
+		 * Filter Google Fonts URL.
+		 *
+		 * @param string $fonts_url     Fonts URL.
+		 * @param array  $font_families Font families set in customizer.
+		 */
+		return apply_filters( 'material_theme_builder_google_fonts_url', $fonts_url, $font_families );
 	}
 
 	/**
@@ -683,7 +694,7 @@ class Controls extends Module_Base {
 		$corner_styles_vars = implode( $glue, $corner_styles_vars );
 		$font_vars          = implode( $glue, $font_vars );
 
-		return "
+		$css = "
 			:root {
 				/* Theme color vars */
 				{$color_vars}
@@ -698,23 +709,34 @@ class Controls extends Module_Base {
 				{$corner_styles_vars}
 			}
 		";
+
+		/**
+		 * Filter frontend custom CSS & CSS vars.
+		 *
+		 * @param string $css CSS/CSS vars printed in the frontend.
+		 */
+		return apply_filters( $this->slug . '_frontend_css', $css );
 	}
 
 	/**
 	 * Get default value for a setting.
 	 *
-	 * @param string $setting Name of the setting.
+	 * @param string $name Name of the setting.
 	 *
 	 * @return mixed
 	 */
-	public function get_default( $setting ) {
-		$setting  = $this->remove_option_prefix( $setting );
-		$styles   = $this->get_design_styles();
-		$baseline = $styles['baseline'];
+	public function get_default( $name ) {
+		$name   = $this->remove_option_prefix( $name );
+		$styles = $this->get_design_styles();
+		$value  = isset( $styles['baseline'], $styles['baseline'][ $name ] ) ? $styles['baseline'][ $name ] : '';
 
-		$value = isset( $baseline[ $setting ] ) ? $baseline[ $setting ] : '';
-
-		return apply_filters( $this->slug . '_get_default_option', $value, $setting );
+		/**
+		 * Filter default value for an option.
+		 *
+		 * @param mixed  $value Value of the option.
+		 * @param string $name  Name of the option.
+		 */
+		return apply_filters( $this->slug . '_get_default_option', $value, $name );
 	}
 
 	/**
@@ -723,7 +745,7 @@ class Controls extends Module_Base {
 	 * @return array
 	 */
 	public function get_design_styles() {
-		return [
+		$design_styles = [
 			'baseline'    => [
 				'primary_color'         => '#6200ee',
 				'secondary_color'       => '#03dac6',
@@ -739,9 +761,9 @@ class Controls extends Module_Base {
 				'button_radius'         => '4',
 				'card_radius'           => '4',
 				'chip_radius'           => '4',
-				'data_table_radius'     => '0',
+				'data_table_radius'     => '4',
 				'image_list_radius'     => '4',
-				'nav_drawer_radius'     => '0',
+				'nav_drawer_radius'     => '4',
 				'text_field_radius'     => '4',
 				'icon_collection'       => 'filled',
 			],
@@ -756,14 +778,14 @@ class Controls extends Module_Base {
 				'background_text_color' => '#000000',
 				'head_font_family'      => 'Raleway',
 				'body_font_family'      => 'Raleway',
-				'global_radius'         => '0',
-				'button_radius'         => '0',
+				'global_radius'         => '16',
+				'button_radius'         => '16',
 				'card_radius'           => '16',
-				'chip_radius'           => '0',
-				'data_table_radius'     => '20',
+				'chip_radius'           => '16',
+				'data_table_radius'     => '16',
 				'image_list_radius'     => '16',
-				'nav_drawer_radius'     => '20',
-				'text_field_radius'     => '0',
+				'nav_drawer_radius'     => '16',
+				'text_field_radius'     => '16',
 				'icon_collection'       => 'outlined',
 			],
 			'fortnightly' => [
@@ -798,17 +820,24 @@ class Controls extends Module_Base {
 				'background_text_color' => '#442c2e',
 				'head_font_family'      => 'Rubik',
 				'body_font_family'      => 'Rubik',
-				'global_radius'         => '0',
-				'button_radius'         => '0',
-				'card_radius'           => '0',
-				'chip_radius'           => '0',
-				'data_table_radius'     => '0',
-				'image_list_radius'     => '0',
-				'nav_drawer_radius'     => '0',
-				'text_field_radius'     => '0',
+				'global_radius'         => '8',
+				'button_radius'         => '8',
+				'card_radius'           => '8',
+				'chip_radius'           => '8',
+				'data_table_radius'     => '8',
+				'image_list_radius'     => '8',
+				'nav_drawer_radius'     => '8',
+				'text_field_radius'     => '8',
 				'icon_collection'       => 'outlined',
 			],
 		];
+
+		/**
+		 * Filter design styles.
+		 *
+		 * @param string $design_styles Design styles.
+		 */
+		return apply_filters( $this->slug . '_design_styles', $design_styles );
 	}
 
 	/**
@@ -1019,7 +1048,6 @@ class Controls extends Module_Base {
 		];
 	}
 
-
 	/**
 	 * Prepend the slug name if it does not exist.
 	 *
@@ -1072,6 +1100,12 @@ class Controls extends Module_Base {
 			$value = $values[ $name ];
 		}
 
+		/**
+		 * Filter option value.
+		 *
+		 * @param mixed  $value Option value.
+		 * @param string $name  Option name.
+		 */
 		return apply_filters( "{$this->slug}_get_option_{$name}", $value, $name );
 	}
 
@@ -1143,7 +1177,7 @@ class Controls extends Module_Base {
 	 *
 	 * @return array
 	 */
-	public function background_color_controls( $control, $id ) {
+	public function move_background_color_controls( $control, $id ) {
 		if ( in_array( $id, [ 'material_background_color', 'material_background_text_color' ], true ) ) {
 			$label = 'material_background_text_color' === $id ? esc_html__( 'On Background Color (text and icons)', 'material-theme-builder' ) : false;
 			if ( is_array( $control ) ) {
