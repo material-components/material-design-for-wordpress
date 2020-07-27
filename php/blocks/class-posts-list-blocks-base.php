@@ -230,7 +230,7 @@ class Posts_List_Blocks_Base extends Module_Base {
 		 * @param array $args       The args for the WP_Query.
 		 * @param array $attributes The block's attributes.
 		 */
-		$args = apply_filters( 'mtb_recent_posts_query_args', $args, $attributes );
+		$args = apply_filters( 'material_theme_builder_recent_posts_query_args', $args, $attributes );
 
 		$posts_query = new WP_Query( $args );
 

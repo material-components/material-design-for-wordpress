@@ -63,7 +63,7 @@ class Template {
 			$template = trailingslashit( $default_path ) . $template_name;
 		}
 
-		return apply_filters( 'mtb_locate_template', $template, $template_name, $default_path );
+		return apply_filters( 'material_theme_builder_locate_template', $template, $template_name, $default_path );
 	}
 
 	/**
@@ -72,7 +72,7 @@ class Template {
 	 * @return string
 	 */
 	public static function template_path() {
-		return apply_filters( 'mtb_template_path', 'material-theme/' );
+		return apply_filters( 'material_theme_builder_template_path', 'material-theme/' );
 	}
 
 	/**
