@@ -37,9 +37,8 @@ Object {
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -95,15 +94,14 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -159,7 +157,7 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
       <div
@@ -830,6 +828,11 @@ Object {
               >
                 Custom URL
               </option>
+              <option
+                value="none"
+              >
+                None
+              </option>
             </select>
           </div>
         </div>
@@ -845,9 +848,8 @@ Object {
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -903,15 +905,14 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -967,7 +968,7 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
     <div
@@ -1637,6 +1638,11 @@ Object {
               value="custom"
             >
               Custom URL
+            </option>
+            <option
+              value="none"
+            >
+              None
             </option>
           </select>
         </div>
