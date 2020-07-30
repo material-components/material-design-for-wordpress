@@ -154,7 +154,7 @@ class Test_Admin extends \WP_UnitTestCase {
 
 		// Verify getting started page assets.
 		$this->admin->add_pages();
-		set_current_screen( 'material_page_material-theme-builder' );
+		set_current_screen( 'material_page_material-onboarding-wizard' );
 
 		$this->admin->enqueue_assets();
 		$this->assertTrue( wp_style_is( 'material-admin-google-fonts', 'enqueued' ) );

@@ -417,7 +417,7 @@ class Plugin extends Plugin_Base {
 		if (
 			'ok' === $status
 			|| 'toplevel_page_material-settings' === $screen->id
-			|| 'material_page_material-theme-builder' === $screen->id
+			|| 'material_page_material-onboarding-wizard' === $screen->id
 			|| ! empty( get_option( 'material_theme_activated' ) )
 		) {
 			return;
@@ -470,9 +470,13 @@ class Plugin extends Plugin_Base {
 	 * @return void
 	 */
 	public function plugin_activated_notice() {
-		delete_transient( 'mtb-activation-notice' );
+		$screen = get_current_screen();
+
 		// Theme not active or plugin didn't JUST activate. Stop here.
-		if ( self::THEME_SLUG !== get_template() || ! get_transient( 'mtb-activation-notice' ) ) {
+		if ( self::THEME_SLUG !== get_template()
+			|| ! get_transient( 'mtb-activation-notice' )
+			|| 'toplevel_page_material-settings' === $screen->id
+			|| 'material_page_material-onboarding-wizard' === $screen->id ) {
 			return;
 		}
 
@@ -493,7 +497,8 @@ class Plugin extends Plugin_Base {
 					<?php esc_html_e( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer", 'material-theme-builder' ); ?>
 				</p>
 
-				<form action="<?php echo esc_url( admin_url( 'options-general.php?page=material_demo' ) ); ?>" method="post">
+				<?php // TODO: This might no longer be required. ?>
+				<form action="<?php echo esc_url( admin_url( 'admin.php?page=material-settings' ) ); ?>" method="post">
 					<div class="material-demo__optin">
 						<input type="checkbox" name="mtb-install-demo" id="mtb-install-demo" value="1" />
 						<label for="mtb-install-demo"><?php esc_html_e( 'Create sample pages using Material blocks', 'material-theme-builder' ); ?></label>
@@ -522,7 +527,7 @@ class Plugin extends Plugin_Base {
 			return;
 		}
 
-		wp_safe_redirect( admin_url( 'admin.php?page=material-theme-builder' ) );
+		wp_safe_redirect( admin_url( 'admin.php?page=material-onboarding-wizard' ) );
 		exit;
 	}
 

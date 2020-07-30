@@ -11,6 +11,7 @@ namespace MaterialThemeBuilder;
  * Class to handle admin settings and actions.
  */
 class Admin extends Module_Base {
+
 	/**
 	 * Create admin pages.
 	 * - Getting started page.
@@ -44,7 +45,7 @@ class Admin extends Module_Base {
 			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
 			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
 			'manage_options',
-			'material-theme-builder',
+			'material-onboarding-wizard',
 			[ $this, 'render_onboarding_wizard_page' ]
 		);
 	}
@@ -60,7 +61,7 @@ class Admin extends Module_Base {
 
 		// @codeCoverageIgnoreStart
 		if ( $should_import ) {
-			return $this->import_demo();
+			return $this->plugin->importer->import_demo();
 		}
 		// @codeCoverageIgnoreEnd
 		?>
@@ -141,15 +142,16 @@ class Admin extends Module_Base {
 				true
 			);
 
+			$has_demo_content = $this->plugin->importer->has_demo_content();
 			wp_localize_script(
 				'material-gsm',
 				'mtbGsm',
 				[
-					'wizardUrl'     => esc_url( menu_page_url( 'material-theme-builder', false ) ),
+					'wizardUrl'     => esc_url( menu_page_url( 'material-onboarding-wizard', false ) ),
 					'editorUrl'     => esc_url( admin_url( 'edit.php' ) ),
 					'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 					'themeStatus'   => esc_html( $this->plugin->material_theme_status() ),
-					'contentStatus' => esc_html( $this->locate_demo_content() ),
+					'contentStatus' => esc_html( $has_demo_content ? 'ok' : 'install' ),
 				]
 			);
 
@@ -163,7 +165,7 @@ class Admin extends Module_Base {
 			);
 		}
 
-		if ( 'material_page_material-theme-builder' === $screen->id ) {
+		if ( 'material_page_material-onboarding-wizard' === $screen->id ) {
 			// Get Roboto Mono and icons.
 			wp_enqueue_style(
 				'material-admin-google-fonts',
@@ -216,34 +218,5 @@ class Admin extends Module_Base {
 		if ( Plugin::THEME_SLUG === $new_theme->get_stylesheet() ) {
 			update_option( 'material_theme_activated', true, false );
 		}
-	}
-
-	/**
-	 * Look for demo posts
-	 *
-	 * @return string Status of demo content
-	 */
-	public function locate_demo_content() {
-		/**
-		 * Fetch the imported posts.
-		 */
-		$query = new \WP_Query(
-			[
-				'post_status'            => 'publish',
-				'post_type'              => [ 'page' ],
-				'posts_per_page'         => 1,
-				'meta_key'               => '_mtb-demo-content',
-				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
-				'no_found_rows'          => true,
-				'update_post_meta_cache' => false,
-				'update_post_term_cache' => false,
-			]
-		);
-
-		if ( $query->have_posts() ) {
-			return 'ok';
-		}
-
-		return 'install';
 	}
 }
