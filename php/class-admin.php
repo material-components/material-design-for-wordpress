@@ -127,7 +127,7 @@ class Admin extends Module_Base {
 			);
 
 			wp_enqueue_style(
-				'material-gsm-css',
+				'material-gsm',
 				$this->plugin->asset_url( 'assets/css/getting-started-compiled.css' ),
 				[ 'material-admin-google-fonts' ],
 				$this->plugin->asset_version()
