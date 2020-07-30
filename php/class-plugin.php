@@ -14,8 +14,7 @@ use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 use MaterialThemeBuilder\Importer;
-use MaterialThemeBuilder\Onboarding_Wizard;
-use MaterialThemeBuilder\Onboarding_Getting_Started;
+use MaterialThemeBuilder\Admin;
 
 /**
  * Main plugin bootstrap file.
@@ -102,9 +101,9 @@ class Plugin extends Plugin_Base {
 	/**
 	 * Getting Started class.
 	 *
-	 * @var Onboarding_Getting_Started
+	 * @var Admin
 	 */
-	public $getting_started;
+	public $admin;
 
 	/**
 	 * Initiate the plugin resources.
@@ -145,11 +144,8 @@ class Plugin extends Plugin_Base {
 		$this->importer = new Importer( $this );
 		$this->importer->init();
 
-		$this->wizard = new Onboarding_Wizard( $this );
-		$this->wizard->init();
-
-		$this->getting_started = new Onboarding_Getting_Started( $this );
-		$this->getting_started->init();
+		$this->admin = new Admin( $this );
+		$this->admin->init();
 	}
 
 	/**
@@ -222,39 +218,6 @@ class Plugin extends Plugin_Base {
 			esc_url( $fonts_url ),
 			[],
 			$this->asset_version()
-		);
-	}
-
-	/**
-	 * Enqueue admin assets.
-	 *
-	 * @action admin_enqueue_scripts
-	 */
-	public function enqueue_admin_assets() {
-		wp_enqueue_style(
-			'material-admin-css',
-			$this->asset_url( 'assets/css/admin-compiled.css' ),
-			[],
-			$this->asset_version()
-		);
-
-		wp_enqueue_script(
-			'material-admin-js',
-			$this->asset_url( 'assets/js/admin.js' ),
-			[],
-			$this->asset_version(),
-			true
-		);
-
-		wp_localize_script(
-			'material-admin-js',
-			'mtbOnboarding',
-			[
-				'restUrl'     => esc_url( $this->onboarding_rest_controller->get_rest_base_url() ),
-				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
-				'nonce'       => wp_create_nonce( 'wp_rest' ),
-				'themeStatus' => esc_html( $this->material_theme_status() ),
-			]
 		);
 	}
 
@@ -543,62 +506,6 @@ class Plugin extends Plugin_Base {
 		</div>
 
 		<?php
-	}
-
-	/**
-	 * Create admin getting started page
-	 *
-	 * @action admin_menu
-	 *
-	 * @return void
-	 */
-	public function getting_started_page() {
-		add_menu_page(
-			esc_html__( 'Material Design for WordPress', 'material-theme-builder' ),
-			esc_html__( 'Material', 'material-theme-builder' ),
-			'manage_options',
-			'material-settings',
-			[ $this, 'render_getting_started_page' ],
-			trailingslashit( $this->dir_url ) . 'assets/images/logo-outline.svg'
-		);
-
-		add_submenu_page(
-			'material-settings',
-			esc_html__( 'Getting Started', 'material-theme-builder' ),
-			esc_html__( 'Getting Started', 'material-theme-builder' ),
-			'manage_options',
-			'material-settings',
-			[ $this, 'render_getting_started_page' ]
-		);
-	}
-
-	/**
-	 * Create onboarding wizard page
-	 *
-	 * @action admin_menu
-	 *
-	 * @return void
-	 */
-	public function onboarding_wizard_page() {
-		add_submenu_page(
-			'material-settings',
-			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
-			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
-			'manage_options',
-			'material-theme-builder',
-			[ $this->wizard, 'render' ]
-		);
-	}
-
-	/**
-	 * Displays getting started page.
-	 *
-	 * @return void
-	 */
-	public function render_getting_started_page() {
-		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo $this->getting_started->render_page();
-		// phpcs:enable
 	}
 
 	/**
