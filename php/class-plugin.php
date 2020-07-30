@@ -14,7 +14,7 @@ use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
 use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 use MaterialThemeBuilder\Customizer\Controls;
 use MaterialThemeBuilder\Importer;
-use MaterialThemeBuilder\Onboarding_Wizard;
+use MaterialThemeBuilder\Admin;
 
 /**
  * Main plugin bootstrap file.
@@ -99,6 +99,13 @@ class Plugin extends Plugin_Base {
 	public $wizard;
 
 	/**
+	 * Getting Started class.
+	 *
+	 * @var Admin
+	 */
+	public $admin;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * Priority is 9 because WP_Customize_Widgets::register_settings() happens at
@@ -137,8 +144,8 @@ class Plugin extends Plugin_Base {
 		$this->importer = new Importer( $this );
 		$this->importer->init();
 
-		$this->wizard = new Onboarding_Wizard( $this );
-		$this->wizard->init();
+		$this->admin = new Admin( $this );
+		$this->admin->init();
 	}
 
 	/**
@@ -211,38 +218,6 @@ class Plugin extends Plugin_Base {
 			esc_url( $fonts_url ),
 			[],
 			$this->asset_version()
-		);
-	}
-
-	/**
-	 * Enqueue admin assets.
-	 *
-	 * @action admin_enqueue_scripts
-	 */
-	public function enqueue_admin_assets() {
-		wp_enqueue_style(
-			'material-admin-css',
-			$this->asset_url( 'assets/css/admin-compiled.css' ),
-			[],
-			$this->asset_version()
-		);
-
-		wp_enqueue_script(
-			'material-admin-js',
-			$this->asset_url( 'assets/js/admin.js' ),
-			[],
-			$this->asset_version(),
-			true
-		);
-
-		wp_localize_script(
-			'material-admin-js',
-			'mtbOnboarding',
-			[
-				'restUrl'  => esc_url( $this->onboarding_rest_controller->get_rest_base_url() ),
-				'redirect' => esc_url( admin_url( 'themes.php' ) ),
-				'nonce'    => wp_create_nonce( 'wp_rest' ),
-			]
 		);
 	}
 
@@ -438,8 +413,13 @@ class Plugin extends Plugin_Base {
 		$status = $this->material_theme_status();
 		$screen = get_current_screen();
 
-		// Theme already active or inside wizard. Don't show the notice.
-		if ( 'ok' === $status || 'toplevel_page_material-theme-builder' === $screen->id || ! empty( get_option( 'material_theme_activated' ) ) ) {
+		// Theme already active or inside wizards. Don't show the notice.
+		if (
+			'ok' === $status
+			|| 'toplevel_page_material-settings' === $screen->id
+			|| 'material_page_material-onboarding-wizard' === $screen->id
+			|| ! empty( get_option( 'material_theme_activated' ) )
+		) {
 			return;
 		}
 
@@ -490,9 +470,13 @@ class Plugin extends Plugin_Base {
 	 * @return void
 	 */
 	public function plugin_activated_notice() {
-		delete_transient( 'mtb-activation-notice' );
+		$screen = get_current_screen();
+
 		// Theme not active or plugin didn't JUST activate. Stop here.
-		if ( self::THEME_SLUG !== get_template() || ! get_transient( 'mtb-activation-notice' ) ) {
+		if ( self::THEME_SLUG !== get_template()
+			|| ! get_transient( 'mtb-activation-notice' )
+			|| 'toplevel_page_material-settings' === $screen->id
+			|| 'material_page_material-onboarding-wizard' === $screen->id ) {
 			return;
 		}
 
@@ -513,7 +497,8 @@ class Plugin extends Plugin_Base {
 					<?php esc_html_e( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer", 'material-theme-builder' ); ?>
 				</p>
 
-				<form action="<?php echo esc_url( admin_url( 'options-general.php?page=material_demo' ) ); ?>" method="post">
+				<?php // TODO: This might no longer be required. ?>
+				<form action="<?php echo esc_url( admin_url( 'admin.php?page=material-settings' ) ); ?>" method="post">
 					<div class="material-demo__optin">
 						<input type="checkbox" name="mtb-install-demo" id="mtb-install-demo" value="1" />
 						<label for="mtb-install-demo"><?php esc_html_e( 'Create sample pages using Material blocks', 'material-theme-builder' ); ?></label>
@@ -526,47 +511,6 @@ class Plugin extends Plugin_Base {
 		</div>
 
 		<?php
-	}
-
-	/**
-	 * Create demo importer page
-	 *
-	 * @action admin_menu
-	 *
-	 * @return void
-	 */
-	public function create_demo_importer_page() {
-		// @todo Renable this page after onboarding phase-2 is implemented.
-		// add_options_page( esc_html__( 'Material Settings', 'material-theme-builder' ), esc_html__( 'Material Settings', 'material-theme-builder' ), 'manage_options', 'material_demo', [ $this, 'render_demo_importer_page' ] );
-	}
-
-	/**
-	 * Displays a settings page to import demo content
-	 *
-	 * @return void
-	 */
-	public function render_demo_importer_page() {
-		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo $this->importer->render_page();
-		// phpcs:enable
-	}
-
-	/**
-	 * Create onboarding wizard page
-	 *
-	 * @action admin_menu
-	 *
-	 * @return void
-	 */
-	public function create_onboarding_wizard() {
-		add_menu_page(
-			esc_html__( 'Material Design for WordPress', 'material-theme-builder' ),
-			esc_html__( 'Material', 'material-theme-builder' ),
-			'manage_options',
-			'material-theme-builder',
-			[ $this->wizard, 'render' ],
-			trailingslashit( $this->dir_url ) . 'assets/images/logo-outline.svg'
-		);
 	}
 
 	/**
@@ -583,7 +527,7 @@ class Plugin extends Plugin_Base {
 			return;
 		}
 
-		wp_safe_redirect( admin_url( 'admin.php?page=material-theme-builder' ) );
+		wp_safe_redirect( admin_url( 'admin.php?page=material-onboarding-wizard' ) );
 		exit;
 	}
 

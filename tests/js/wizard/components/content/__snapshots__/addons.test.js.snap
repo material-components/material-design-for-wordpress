@@ -40,7 +40,7 @@ Object {
             class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--align-middle"
           >
             <div
-              class="mdc-switch material-wizard-switch material-wizard-switch__THEME mdc-switch--checked"
+              class="mdc-switch material-wizard-switch material-wizard-switch__THEME mdc-switch--checked mdc-switch--disabled"
             >
               <div
                 class="mdc-switch__track"
@@ -54,6 +54,7 @@ Object {
                 <input
                   aria-checked="true"
                   class="mdc-switch__native-control"
+                  disabled=""
                   id="THEME"
                   role="switch"
                   type="checkbox"
@@ -151,7 +152,7 @@ Object {
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--align-middle"
         >
           <div
-            class="mdc-switch material-wizard-switch material-wizard-switch__THEME mdc-switch--checked"
+            class="mdc-switch material-wizard-switch material-wizard-switch__THEME mdc-switch--checked mdc-switch--disabled"
           >
             <div
               class="mdc-switch__track"
@@ -165,6 +166,7 @@ Object {
               <input
                 aria-checked="true"
                 class="mdc-switch__native-control"
+                disabled=""
                 id="THEME"
                 role="switch"
                 type="checkbox"
