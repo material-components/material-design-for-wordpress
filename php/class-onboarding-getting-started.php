@@ -46,7 +46,7 @@ class Onboarding_Getting_Started extends Module_Base {
 	public function enqueue_assets() {
 		$screen = get_current_screen();
 
-		if ( 'material_page_material_settings' !== $screen->id ) {
+		if ( 'toplevel_page_material-settings' !== $screen->id ) {
 			return;
 		}
 

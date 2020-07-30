@@ -453,8 +453,8 @@ class Plugin extends Plugin_Base {
 		// Theme already active or inside wizards. Don't show the notice.
 		if (
 			'ok' === $status
-			|| 'toplevel_page_material-theme-builder' === $screen->id
-			|| 'material_page_material_settings' === $screen->id
+			|| 'toplevel_page_material-settings' === $screen->id
+			|| 'material_page_material-theme-builder' === $screen->id
 			|| ! empty( get_option( 'material_theme_activated' ) )
 		) {
 			return;
@@ -546,47 +546,56 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
+	 * Create admin getting started page
+	 *
+	 * @action admin_menu
+	 *
+	 * @return void
+	 */
+	public function getting_started_page() {
+		add_menu_page(
+			esc_html__( 'Material Design for WordPress', 'material-theme-builder' ),
+			esc_html__( 'Material', 'material-theme-builder' ),
+			'manage_options',
+			'material-settings',
+			[ $this, 'render_getting_started_page' ],
+			trailingslashit( $this->dir_url ) . 'assets/images/logo-outline.svg'
+		);
+
+		add_submenu_page(
+			'material-settings',
+			esc_html__( 'Getting Started', 'material-theme-builder' ),
+			esc_html__( 'Getting Started', 'material-theme-builder' ),
+			'manage_options',
+			'material-settings',
+			[ $this, 'render_getting_started_page' ]
+		);
+	}
+
+	/**
 	 * Create onboarding wizard page
 	 *
 	 * @action admin_menu
 	 *
 	 * @return void
 	 */
-	public function create_onboarding_wizard() {
-		add_menu_page(
-			esc_html__( 'Material Design for WordPress', 'material-theme-builder' ),
-			esc_html__( 'Material', 'material-theme-builder' ),
-			'manage_options',
-			'material-theme-builder',
-			[ $this->wizard, 'render' ],
-			trailingslashit( $this->dir_url ) . 'assets/images/logo-outline.svg'
-		);
-	}
-
-	/**
-	 * Create demo importer page
-	 *
-	 * @action admin_menu
-	 *
-	 * @return void
-	 */
-	public function create_demo_importer_page() {
+	public function onboarding_wizard_page() {
 		add_submenu_page(
-			'material-theme-builder',
-			__( 'Material Settings', 'material-theme-builder' ),
-			__( 'Getting Started', 'material-theme-builder' ),
+			'material-settings',
+			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
+			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
 			'manage_options',
-			'material_settings',
-			[ $this, 'render_demo_importer_page' ]
+			'material-theme-builder',
+			[ $this->wizard, 'render' ]
 		);
 	}
 
 	/**
-	 * Displays a settings page to import demo content
+	 * Displays getting started page.
 	 *
 	 * @return void
 	 */
-	public function render_demo_importer_page() {
+	public function render_getting_started_page() {
 		// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo $this->getting_started->render_page();
 		// phpcs:enable
