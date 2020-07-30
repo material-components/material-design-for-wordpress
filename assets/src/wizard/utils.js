@@ -9,7 +9,7 @@
  *
  */
 export const handleThemeActivation = () => {
-	const action = mtbWizard.themeStatus;
+	const action = mtbOnboarding.themeStatus;
 	if ( 'ok' === action ) {
 		return new Promise( resolve => {
 			return resolve( 'ok' );

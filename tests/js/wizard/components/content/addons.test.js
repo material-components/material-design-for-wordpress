@@ -25,6 +25,10 @@ describe( 'Wizard: Addons', () => {
 			placeholderSmall: 'http://example.com/image-small.png',
 			placeholderImage: 'http://example.com/image.png',
 		};
+
+		global.mtbOnboarding = {
+			themeStatus: 'ok',
+		};
 	} );
 
 	afterEach( cleanup );

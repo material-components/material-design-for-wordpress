@@ -1,0 +1,30 @@
+.material-gsm__tab {
+	align-items: center;
+	background-color: transparent;
+	border: 0;
+	border-top: 1px solid rgba(33, 33, 33, 0.08);
+	cursor: pointer;
+	display: flex;
+	padding-left: 0;
+	width: 100%;
+
+	& .material-icons {
+		border-top: 1px solid #fff;
+		color: var(--mtb-gsm-icon-color);
+		margin-top: -1px;
+		padding-bottom: 1rem;
+		padding-left: 1rem;
+		padding-right: 1.5rem;
+		padding-top: 1rem;
+	}
+
+	&-title {
+		padding-bottom: 1rem;
+		padding-top: 1rem;
+	}
+
+	&-active {
+		background-color: #e4f6ff;
+		font-weight: 700;
+	}
+}

@@ -89,44 +89,6 @@ class Importer extends Module_Base {
 	}
 
 	/**
-	 * Render form UI
-	 *
-	 * @TODO: Rename to Material Settings
-	 *
-	 * @return string Markup to display in page
-	 */
-	public function render_page() {
-		$should_import = filter_input( INPUT_POST, 'mtb-install-demo', FILTER_SANITIZE_NUMBER_INT );
-
-		// @codeCoverageIgnoreStart
-		if ( $should_import ) {
-			return $this->import_demo();
-		}
-		// @codeCoverageIgnoreEnd
-
-		ob_start();
-		?>
-
-		<h1><?php esc_html_e( 'Material Settings', 'material-theme-builder' ); ?></h1>
-
-		<div class="material-settings-container material-notice-container">
-			<div class="material-settings__logo">
-				<img src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-logo.png' ) ); ?>" alt />
-			</div>
-			<div class="material-settings-container__content">
-				<h3><?php esc_html_e( 'Setup Material plugin', 'material-theme-builder' ); ?></h3>
-
-				<p>
-					<a href="<?php echo esc_url( 'admin.php?page=material-theme-builder' ); ?>"><?php esc_html_e( 'Get started with the onboarding wizard', 'material-theme-builder' ); ?></a>
-				</p>
-			</div>
-		</div>
-
-		<?php
-		return ob_get_clean();
-	}
-
-	/**
 	 * Import content after nonce verification
 	 *
 	 * @return string Status message
@@ -242,6 +204,7 @@ class Importer extends Module_Base {
 			[
 				'post_status'            => 'publish',
 				'post_type'              => [ 'page', 'post' ],
+				'posts_per_page'         => 25,
 				'meta_key'               => '_mtb-demo-content',
 				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'no_found_rows'          => true,
@@ -256,6 +219,33 @@ class Importer extends Module_Base {
 			}
 		}
 	}
+
+	/**
+	 * Look for demo posts
+	 *
+	 * @return boolean Does the site have any demo posts imported.
+	 */
+	public function has_demo_content() {
+		/**
+		 * Fetch the imported posts.
+		 */
+		$query = new \WP_Query(
+			[
+				'post_status'            => 'publish',
+				'post_type'              => [ 'page' ],
+				'posts_per_page'         => 1,
+				'meta_key'               => '_mtb-demo-content',
+				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'fields'                 => 'ids',
+			]
+		);
+
+		return $query->have_posts();
+	}
+
 
 	/**
 	 * Update images in a demo post to reference imported image.
