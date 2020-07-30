@@ -87,7 +87,7 @@ const ToolbarUrlInputPopover = ( {
 					<ToolbarButton
 						name="link"
 						icon={ link }
-						title={ __( 'Link' ) }
+						title={ __( 'Link', 'material-theme-builder' ) }
 						shortcut={ displayShortcut.primary( 'k' ) }
 						onClick={ openLinkControl }
 					/>
@@ -95,7 +95,7 @@ const ToolbarUrlInputPopover = ( {
 						<ToolbarButton
 							name="link"
 							icon={ linkOff }
-							title={ __( 'Unlink' ) }
+							title={ __( 'Unlink', 'material-theme-builder' ) }
 							shortcut={ displayShortcut.primaryShift( 'k' ) }
 							onClick={ unlinkButton }
 							isActive={ true }
