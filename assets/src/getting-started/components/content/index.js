@@ -61,7 +61,7 @@ const Content = () => {
 				.then( handleDemoSuccess )
 				.catch( handleError );
 		}
-	}, [ actionToInstall ] );
+	}, [ actionToInstall ] ); // eslint-disable-line
 
 	return (
 		<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">

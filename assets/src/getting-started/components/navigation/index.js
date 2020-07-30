@@ -30,7 +30,7 @@ const Navigation = () => {
 				},
 			} );
 		}
-	}, [] );
+	}, [] ); // eslint-disable-line
 
 	return (
 		<div className="material-gsm__navigation mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
