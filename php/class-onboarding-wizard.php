@@ -32,7 +32,7 @@ class Onboarding_Wizard extends Module_Base {
 	public function enqueue_assets() {
 		$screen = get_current_screen();
 
-		if ( 'toplevel_page_material-theme-builder' !== $screen->id ) {
+		if ( 'material_page_material-theme-builder' !== $screen->id ) {
 			return;
 		}
 
