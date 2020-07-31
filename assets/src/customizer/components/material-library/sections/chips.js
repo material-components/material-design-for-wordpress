@@ -7,10 +7,14 @@ const Chips = ( { radius } ) => (
 		</h4>
 		<p>
 			{ __(
-				'This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.',
+				'Chips are compact elements that represent an input, attribute, or action. It is unavailable as a block in WordPress.',
 				'material-theme-builder'
 			) }
 		</p>
+		<a href="https://material.io/components/chips" target="_blank">
+		    <span class="material-icons">open_in_new</span>
+		</a>
+		<br/>
 		<div className="mdc-chip-set" role="grid">
 			<div
 				className="mdc-chip"

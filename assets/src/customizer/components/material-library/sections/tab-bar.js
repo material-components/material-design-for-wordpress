@@ -8,10 +8,14 @@ const TabBar = ( { iconStyle } ) => (
 		</h4>
 		<p>
 			{ __(
-				'This component can be created as a block in WordPress.',
+				'Tabs organize content across different screens, data sets, and other interactions.',
 				'material-theme-builder'
 			) }
 		</p>
+		<a href="https://material.io/components/tabs" target="_blank">
+		    <span class="material-icons">open_in_new</span>
+		</a>
+		<br/>
 		<div
 			className="wp-block-material-tab-bar mdc-tab-bar-container"
 			style={ { width: '80%' } }

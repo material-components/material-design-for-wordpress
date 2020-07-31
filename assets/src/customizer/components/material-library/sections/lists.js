@@ -8,10 +8,14 @@ const Lists = ( { iconStyle } ) => (
 		</h4>
 		<p>
 			{ __(
-				'This component can be created as a block in WordPress.',
+				'Lists are continuous, vertical indexes of text or images.',
 				'material-theme-builder'
 			) }
 		</p>
+		<a href="https://material.io/components/lists" target="_blank">
+		    <span class="material-icons">open_in_new</span>
+		</a>
+		<br/>
 		<div style={ { display: 'flex' } }>
 			<ul
 				className="wp-block-material-list mdc-list"

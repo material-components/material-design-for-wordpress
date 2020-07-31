@@ -14,6 +14,19 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 		</p>
 		<div className="mdc-button-wrap">
 			<button className="mdc-button">
+<div>
+    <h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+        { __( 'Button', 'material-theme-builder' ) }
+    </h4>
+	<p>
+        { __( 'Buttons allow users to take actions, and make choices, with a single tap.', 'material-theme-builder' ) }
+    </p>
+	<a href="https://material.io/components/buttons" target="_blank">
+	    <span class="material-icons">open_in_new</span>
+	</a>
+	<br/>
+    <div className="mdc-button-wrap">
+        <button className="mdc-button">
 				<div
 					className="mdc-button__ripple"
 					style={ { borderRadius: `${ radius }px` } }
