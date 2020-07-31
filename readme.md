@@ -40,3 +40,4 @@ If you are a developer, we encourage you to [follow along](https://github.com/xw
 ## Changelog ##
 
 For the plugin’s changelog, please see [the Releases page on GitHub](https://github.com/xwp/material-theme-builder-wp/releases).
+

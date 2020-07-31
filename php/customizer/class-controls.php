@@ -87,7 +87,7 @@ class Controls extends Module_Base {
 			[
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
-				'title'       => esc_html__( 'Material Theme Editor', 'material-theme-builder' ),
+				'title'       => esc_html__( 'Material Theme Customizer', 'material-theme-builder' ),
 				'description' => esc_html__( 'Change the color, shape, typography, and icons below to customize your theme style. Navigate to the Material Library to see your custom styles applied across Material Components..', 'material-theme-builder' ),
 			]
 		);
