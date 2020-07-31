@@ -7,10 +7,14 @@ const Radios = () => (
 		</h4>
 		<p>
 			{ __(
-				'This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.',
+				'Radio buttons allow the user to select one option from a set. It is unavailable as a block in WordPress.',
 				'material-theme-builder'
 			) }
 		</p>
+		<a href="https://material.io/develop/web/components/input-controls/radio-buttons" target="_blank">
+		    <span class="material-icons">open_in_new</span>
+		</a>
+		<br/>
 		<div className="mdc-radio">
 			<input
 				className="mdc-radio__native-control"

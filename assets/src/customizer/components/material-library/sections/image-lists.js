@@ -9,10 +9,14 @@ const ImageLists = ( { radius } ) => (
 		</h4>
 		<p>
 			{ __(
-				'This component can be created as a block in WordPress.',
+				'Image lists display a collection of images in an organized grid.',
 				'material-theme-builder'
 			) }
 		</p>
+		<a href="https://material.io/components/image-list" target="_blank">
+		    <span class="material-icons">open_in_new</span>
+		</a>
+		<br/>
 		<div>
 			<ul className="mdc-image-list mdc-image-list--masonry mdc-image-list--with-text-protection">
 				{ mtb.images.map( ( url, i ) => (

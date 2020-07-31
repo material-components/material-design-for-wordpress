@@ -7,10 +7,14 @@ const Table = ( { radius } ) => (
 		</h4>
 		<p>
 			{ __(
-				'This component can be created as a block in WordPress.',
+				'Data tables display sets of data across rows and columns.',
 				'material-theme-builder'
 			) }
 		</p>
+		<a href="https://material.io/components/data-tables" target="_blank">
+		    <span class="material-icons">open_in_new</span>
+		</a>
+		<br/>
 		<div className="mdc-data-table" style={ { borderRadius: `${ radius }px` } }>
 			<table className="mdc-data-table__table">
 				<thead>

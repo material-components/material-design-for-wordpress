@@ -28,7 +28,7 @@ Object {
               Button
             </h4>
             <p>
-              This component can be created as a block in WordPress.
+              Buttons allow users to take actions, and make choices, with a single tap.
             </p>
             <div
               class="mdc-button-wrap"
@@ -111,7 +111,7 @@ Object {
               Card
             </h4>
             <p>
-              This component can be created as a block in WordPress.
+              Cards contain content and actions about a single subject.
             </p>
             <div
               style="display: flex;"
@@ -191,7 +191,7 @@ Object {
               Table
             </h4>
             <p>
-              This component can be created as a block in WordPress.
+              Data tables display sets of data across rows and columns.
             </p>
             <div
               class="mdc-data-table"
@@ -353,7 +353,7 @@ Object {
               Image List
             </h4>
             <p>
-              This component can be created as a block in WordPress.
+              Image lists display a collection of images in an organized grid.
             </p>
             <div>
               <ul
@@ -455,7 +455,7 @@ Object {
               List
             </h4>
             <p>
-              This component can be created as a block in WordPress.
+              Lists are continuous, vertical indexes of text or images.
             </p>
             <div
               style="display: flex;"
@@ -693,7 +693,7 @@ Object {
               Tab Bar
             </h4>
             <p>
-              This component can be created as a block in WordPress.
+              Tabs organize content across different screens, data sets, and other interactions.
             </p>
             <div
               class="wp-block-material-tab-bar mdc-tab-bar-container"
@@ -1210,7 +1210,7 @@ Object {
             Button
           </h4>
           <p>
-            This component can be created as a block in WordPress.
+            Buttons allow users to take actions, and make choices, with a single tap.
           </p>
           <div
             class="mdc-button-wrap"
@@ -1293,7 +1293,7 @@ Object {
             Card
           </h4>
           <p>
-            This component can be created as a block in WordPress.
+            Cards contain content and actions about a single subject.
           </p>
           <div
             style="display: flex;"
@@ -1373,7 +1373,7 @@ Object {
             Table
           </h4>
           <p>
-            This component can be created as a block in WordPress.
+            Data tables display sets of data across rows and columns.
           </p>
           <div
             class="mdc-data-table"
@@ -1535,7 +1535,7 @@ Object {
             Image List
           </h4>
           <p>
-            This component can be created as a block in WordPress.
+            Image lists display a collection of images in an organized grid.
           </p>
           <div>
             <ul
@@ -1637,7 +1637,7 @@ Object {
             List
           </h4>
           <p>
-            This component can be created as a block in WordPress.
+            Lists are continuous, vertical indexes of text or images.
           </p>
           <div
             style="display: flex;"
@@ -1875,7 +1875,7 @@ Object {
             Tab Bar
           </h4>
           <p>
-            This component can be created as a block in WordPress.
+            Tabs organize content across different screens, data sets, and other interactions.
           </p>
           <div
             class="wp-block-material-tab-bar mdc-tab-bar-container"

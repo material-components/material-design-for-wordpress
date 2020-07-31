@@ -9,10 +9,14 @@ const Cards = ( { radius, buttonRadius } ) => (
 		</h4>
 		<p>
 			{ __(
-				'This component can be created as a block in WordPress.',
+				'Cards contain content and actions about a single subject.',
 				'material-theme-builder'
 			) }
 		</p>
+		<a href="https://material.io/components/cards" target="_blank">
+		    <span class="material-icons">open_in_new</span>
+		</a>
+		<br/>
 		<div style={ { display: 'flex' } }>
 			<div
 				className="mdc-card"

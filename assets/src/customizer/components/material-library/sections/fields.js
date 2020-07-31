@@ -7,10 +7,14 @@ const Fields = ( { radius } ) => (
 		</h4>
 		<p>
 			{ __(
-				'This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.',
+				'Text fields let users enter and edit text. It is unavailable as a block in WordPress.',
 				'material-theme-builder'
 			) }
 		</p>
+		<a href="https://material.io/components/text-fields" target="_blank">
+		    <span class="material-icons">open_in_new</span>
+		</a>
+		<br/>
 		<div style={ { display: 'flex' } }>
 			<div
 				className="mdc-text-field mdc-text-field--with-leading-icon"
