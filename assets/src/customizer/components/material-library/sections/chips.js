@@ -5,16 +5,19 @@ const Chips = ( { radius } ) => (
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Chips', 'material-theme-builder' ) }
 		</h4>
+		<form target="_blank">
+			<button 
+				className="mdc-icon-button material-icons" 
+				formaction="https://material.io/components/chips">
+				open_in_new
+			</button>
+		</form>
 		<p>
 			{ __(
 				'Chips are compact elements that represent an input, attribute, or action. It is unavailable as a block in WordPress.',
 				'material-theme-builder'
 			) }
 		</p>
-		<a href="https://material.io/components/chips" target="_blank">
-		    <span class="material-icons">open_in_new</span>
-		</a>
-		<br/>
 		<div className="mdc-chip-set" role="grid">
 			<div
 				className="mdc-chip"

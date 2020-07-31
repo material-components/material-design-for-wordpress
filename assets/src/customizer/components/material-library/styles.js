@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import colorUtils from '../../../common/color-utils';
 
-export const Overrides = createGlobalStyle`
+export const Overrides = createGlobalStyle `
 	:root {
     	--body-font: ${ props => props.body };
     	--heading-font: ${ props => props.headings };
@@ -63,9 +63,17 @@ export const Overrides = createGlobalStyle`
 	#mcb-material-library-preview hr {
 		border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .12);
 	}
+
+	h4, form, button {
+		display: inline-block;
+		button {
+			color: var(--mdc-theme-on-background) !important;
+			vertical-align: sub;
+		}
+	}
 `;
 
-export const RippleColor = styled.div`
+export const RippleColor = styled.div `
 	[class*='__ripple']::before {
 		background-color: ${props => props.primaryColor} !important;
 	}

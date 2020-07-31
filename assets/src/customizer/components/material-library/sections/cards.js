@@ -7,16 +7,19 @@ const Cards = ( { radius, buttonRadius } ) => (
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Card', 'material-theme-builder' ) }
 		</h4>
+		<form target="_blank">
+			<button 
+				className="mdc-icon-button material-icons" 
+				formaction="https://material.io/components/cards">
+				open_in_new
+			</button>
+		</form>
 		<p>
 			{ __(
 				'Cards contain content and actions about a single subject.',
 				'material-theme-builder'
 			) }
 		</p>
-		<a href="https://material.io/components/cards" target="_blank">
-		    <span class="material-icons">open_in_new</span>
-		</a>
-		<br/>
 		<div style={ { display: 'flex' } }>
 			<div
 				className="mdc-card"

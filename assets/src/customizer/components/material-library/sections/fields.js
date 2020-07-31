@@ -5,16 +5,19 @@ const Fields = ( { radius } ) => (
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Fields', 'material-theme-builder' ) }
 		</h4>
+		<form target="_blank">
+			<button 
+				className="mdc-icon-button material-icons" 
+				formaction="https://material.io/components/text-fields">
+				open_in_new
+			</button>
+		</form>
 		<p>
 			{ __(
 				'Text fields let users enter and edit text. It is unavailable as a block in WordPress.',
 				'material-theme-builder'
 			) }
 		</p>
-		<a href="https://material.io/components/text-fields" target="_blank">
-		    <span class="material-icons">open_in_new</span>
-		</a>
-		<br/>
 		<div style={ { display: 'flex' } }>
 			<div
 				className="mdc-text-field mdc-text-field--with-leading-icon"

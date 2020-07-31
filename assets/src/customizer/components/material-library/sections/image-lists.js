@@ -7,16 +7,19 @@ const ImageLists = ( { radius } ) => (
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Image List', 'material-theme-builder' ) }
 		</h4>
+		<form target="_blank">
+			<button 
+				className="mdc-icon-button material-icons" 
+				formaction="https://material.io/components/image-list">
+				open_in_new
+			</button>
+		</form>
 		<p>
 			{ __(
 				'Image lists display a collection of images in an organized grid.',
 				'material-theme-builder'
 			) }
 		</p>
-		<a href="https://material.io/components/image-list" target="_blank">
-		    <span class="material-icons">open_in_new</span>
-		</a>
-		<br/>
 		<div>
 			<ul className="mdc-image-list mdc-image-list--masonry mdc-image-list--with-text-protection">
 				{ mtb.images.map( ( url, i ) => (
