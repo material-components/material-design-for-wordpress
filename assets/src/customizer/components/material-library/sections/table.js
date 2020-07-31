@@ -5,16 +5,19 @@ const Table = ( { radius } ) => (
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Table', 'material-theme-builder' ) }
 		</h4>
+		<form target="_blank">
+			<button 
+				className="mdc-icon-button material-icons" 
+				formaction="https://material.io/components/data-tables">
+				open_in_new
+			</button>
+		</form>
 		<p>
 			{ __(
 				'Data tables display sets of data across rows and columns.',
 				'material-theme-builder'
 			) }
 		</p>
-		<a href="https://material.io/components/data-tables" target="_blank">
-		    <span class="material-icons">open_in_new</span>
-		</a>
-		<br/>
 		<div className="mdc-data-table" style={ { borderRadius: `${ radius }px` } }>
 			<table className="mdc-data-table__table">
 				<thead>

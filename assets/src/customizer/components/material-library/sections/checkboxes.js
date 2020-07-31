@@ -5,16 +5,19 @@ const Checkboxes = () => (
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Checkbox', 'material-theme-builder' ) }
 		</h4>
+		<form target="_blank">
+			<button 
+				className="mdc-icon-button material-icons" 
+				formaction="https://material.io/develop/web/components/input-controls/checkboxes">
+				open_in_new
+			</button>
+		</form>
 		<p>
 			{ __(
 				'Selection controls allow the user to select options. It is unavailable as a block in WordPress.',
 				'material-theme-builder'
 			) }
 		</p>
-		<a href="https://material.io/develop/web/components/input-controls/checkboxes" target="_blank">
-		    <span class="material-icons">open_in_new</span>
-		</a>
-		<br/>
 		<div className="mdc-checkbox">
 			<input type="checkbox" className="mdc-checkbox__native-control" />
 			<div className="mdc-checkbox__background">

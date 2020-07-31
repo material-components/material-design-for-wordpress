@@ -6,16 +6,19 @@ const TabBar = ( { iconStyle } ) => (
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Tab Bar', 'material-theme-builder' ) }
 		</h4>
+		<form target="_blank">
+			<button 
+				className="mdc-icon-button material-icons" 
+				formaction="https://material.io/components/tabs">
+				open_in_new
+			</button>
+		</form>
 		<p>
 			{ __(
 				'Tabs organize content across different screens, data sets, and other interactions.',
 				'material-theme-builder'
 			) }
 		</p>
-		<a href="https://material.io/components/tabs" target="_blank">
-		    <span class="material-icons">open_in_new</span>
-		</a>
-		<br/>
 		<div
 			className="wp-block-material-tab-bar mdc-tab-bar-container"
 			style={ { width: '80%' } }
