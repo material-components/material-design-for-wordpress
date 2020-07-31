@@ -6,7 +6,7 @@ export const Editor = props => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				{ __( 'Material Theme Editor', 'material-theme-builder' ) }
+				{ __( 'Material Theme Customizer', 'material-theme-builder' ) }
 			</h2>
 			<p className="material-gsm__content-description">
 				Aenean egestas, ante vitae placerat tempor, felis ipsum finibus lectus,
