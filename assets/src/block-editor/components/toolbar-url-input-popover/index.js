@@ -3,13 +3,17 @@
  */
 import {
 	KeyboardShortcuts,
+	Popover,
 	ToolbarButton,
 	ToolbarGroup,
 } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { rawShortcut, displayShortcut } from '@wordpress/keycodes';
-import { BlockControls } from '@wordpress/block-editor';
-import { link } from '@wordpress/icons';
+import {
+	BlockControls,
+	__experimentalLinkControl as LinkControl,
+} from '@wordpress/block-editor';
+import { link, linkOff } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -25,20 +29,57 @@ const ToolbarUrlInputPopover = ( {
 	onChangeNewTab,
 } ) => {
 	const [ isURLPickerOpen, setIsURLPickerOpen ] = useState( false );
+	const urlIsSet = !! url;
+	const urlIsSetandSelected = urlIsSet && isSelected;
+
 	const openLinkControl = () => {
 		setIsURLPickerOpen( true );
 	};
-	const linkControl = isURLPickerOpen && (
-		<UrlInputPopover
-			value={ url }
-			onChange={ setURL }
-			newTab={ opensInNewTab }
-			onChangeNewTab={ onChangeNewTab }
-			showNoFollow={ false }
-			onPopupClose={ () => setIsURLPickerOpen( false ) }
-			onFocusOutside={ () => setIsURLPickerOpen( false ) }
-		/>
-	);
+	const unlinkButton = () => {
+		setURL( undefined );
+		setIsURLPickerOpen( false );
+	};
+
+	const onChange = ( {
+		url: newURL = '',
+		opensInNewTab: newOpensInNewTab,
+	} ) => {
+		setURL( newURL );
+
+		if ( opensInNewTab !== newOpensInNewTab ) {
+			onChangeNewTab( newOpensInNewTab );
+		}
+	};
+
+	let linkControl;
+
+	if ( 'undefined' !== typeof LinkControl ) {
+		linkControl = isURLPickerOpen && (
+			<Popover
+				position="bottom center"
+				onClose={ () => setIsURLPickerOpen( false ) }
+			>
+				<LinkControl
+					className="wp-block-navigation-link__inline-link-input"
+					value={ { url, opensInNewTab } }
+					onChange={ onChange }
+				/>
+			</Popover>
+		);
+	} else {
+		linkControl = isURLPickerOpen && (
+			<UrlInputPopover
+				value={ url }
+				onChange={ setURL }
+				newTab={ opensInNewTab }
+				onChangeNewTab={ onChangeNewTab }
+				showNoFollow={ false }
+				onPopupClose={ () => setIsURLPickerOpen( false ) }
+				onFocusOutside={ () => setIsURLPickerOpen( false ) }
+			/>
+		);
+	}
+
 	return (
 		<>
 			<BlockControls>
@@ -46,10 +87,20 @@ const ToolbarUrlInputPopover = ( {
 					<ToolbarButton
 						name="link"
 						icon={ link }
-						title={ __( 'Link' ) }
+						title={ __( 'Link', 'material-theme-builder' ) }
 						shortcut={ displayShortcut.primary( 'k' ) }
 						onClick={ openLinkControl }
 					/>
+					{ urlIsSetandSelected && (
+						<ToolbarButton
+							name="link"
+							icon={ linkOff }
+							title={ __( 'Unlink', 'material-theme-builder' ) }
+							shortcut={ displayShortcut.primaryShift( 'k' ) }
+							onClick={ unlinkButton }
+							isActive={ true }
+						/>
+					) }
 				</ToolbarGroup>
 			</BlockControls>
 			{ isSelected && (
@@ -57,6 +108,7 @@ const ToolbarUrlInputPopover = ( {
 					bindGlobal
 					shortcuts={ {
 						[ rawShortcut.primary( 'k' ) ]: openLinkControl,
+						[ rawShortcut.primaryShift( 'k' ) ]: unlinkButton,
 					} }
 				/>
 			) }
