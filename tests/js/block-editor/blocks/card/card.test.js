@@ -86,7 +86,7 @@ describe( 'blocks: material/card', () => {
 				},
 				primaryActionButtonLabel: {
 					type: 'string',
-					default: 'Button text',
+					default: 'Button',
 				},
 				primaryActionButtonUrl: {
 					type: 'string',
@@ -101,7 +101,7 @@ describe( 'blocks: material/card', () => {
 				},
 				secondaryActionButtonLabel: {
 					type: 'string',
-					default: 'Button text',
+					default: 'Button',
 				},
 				secondaryActionButtonUrl: {
 					type: 'string',
