@@ -34,7 +34,7 @@ export const settings = {
 		},
 		style: {
 			type: 'string',
-			default: 'text',
+			default: 'raised',
 		},
 		iconPosition: {
 			type: 'string',
