@@ -89,6 +89,8 @@ const CardActionsEdit = ( {
 							onButtonContainerFocus( 'primary', false )
 						}
 						isEditMode={ true }
+						setter={ setter }
+						isPrimary
 					/>
 				</div>
 				{ displaySecondaryActionButton && (
@@ -121,6 +123,7 @@ const CardActionsEdit = ( {
 								onButtonContainerFocus( 'secondary', false )
 							}
 							isEditMode={ true }
+							setter={ setter }
 						/>
 					</div>
 				) }

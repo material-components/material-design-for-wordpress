@@ -4179,6 +4179,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             <CardActionButton
                               isEditMode={true}
                               isFocused={false}
+                              isPrimary={true}
                               label="Button text #1-1"
                               newTab={false}
                               noFollow={false}
@@ -4188,6 +4189,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               onChangeUrl={[Function]}
                               onPopupClose={[Function]}
                               onPopupFocusOutside={[Function]}
+                              setter={[Function]}
                               url=""
                             >
                               <button
@@ -6446,6 +6448,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             <CardActionButton
                               isEditMode={true}
                               isFocused={false}
+                              isPrimary={true}
                               label="Button text #2-1"
                               newTab={false}
                               noFollow={false}
@@ -6455,6 +6458,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               onChangeUrl={[Function]}
                               onPopupClose={[Function]}
                               onPopupFocusOutside={[Function]}
+                              setter={[Function]}
                               url=""
                             >
                               <button

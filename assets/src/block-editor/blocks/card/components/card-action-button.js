@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
-import UrlInputPopover from '../../../components/url-input-popover';
+import ToolbarUrlInputPopover from '../../../components/toolbar-url-input-popover';
 
 /**
  * Card Action Button component.
@@ -29,24 +29,45 @@ const CardActionButton = ( {
 	label,
 	onChangeLabel = () => {},
 	url,
-	onChangeUrl = () => {},
 	newTab,
-	onChangeNewTab = () => {},
 	noFollow,
-	onChangeNoFollow = () => {},
-	disableSuggestions = false,
-	onPopupClose = () => {},
-	onPopupFocusOutside = () => {},
 	isFocused = false,
 	isEditMode,
+	setter,
+	isPrimary,
 } ) => {
 	let rel;
-	if ( url ) {
+	const urlAttr = isPrimary
+		? 'primaryActionButtonUrl'
+		: 'secondaryActionButtonUrl';
+	const newTabAttr = isPrimary
+		? 'primaryActionButtonNewTab'
+		: 'secondaryActionButtonNewTab';
+	if ( url && newTab ) {
 		rel = 'noopener noreferrer';
 		if ( noFollow ) {
 			rel += ' nofollow';
 		}
 	}
+
+	/**
+	 * Sets ref and linkTarget when the toggle is touched.
+	 *
+	 * @param {boolean} value Whether the toggle is on or off.
+	 */
+	const onToggleOpenInNewTab = value => {
+		const newLinkTarget = value ? '_blank' : '';
+
+		let updatedRel = rel;
+		if ( newLinkTarget && ! rel ) {
+			updatedRel = 'noopener noreferrer';
+		} else if ( ! newLinkTarget && rel === 'noopener noreferrer' ) {
+			updatedRel = '';
+		}
+
+		setter( newTabAttr, value );
+		rel = updatedRel;
+	};
 
 	return (
 		<>
@@ -71,17 +92,15 @@ const CardActionButton = ( {
 				</a>
 			) }
 			{ isFocused && isEditMode && (
-				<UrlInputPopover
-					onFocusOutside={ onPopupFocusOutside }
-					value={ url }
-					onChange={ onChangeUrl }
-					newTab={ newTab }
-					noFollow={ noFollow }
-					onChangeNewTab={ onChangeNewTab }
-					onChangeNoFollow={ onChangeNoFollow }
-					onPopupClose={ onPopupClose }
-					disableSuggestions={ disableSuggestions }
-				/>
+				<>
+					<ToolbarUrlInputPopover
+						url={ url }
+						setURL={ newUrl => setter( urlAttr, newUrl ) }
+						isSelected={ true }
+						opensInNewTab={ newTab }
+						onChangeNewTab={ onToggleOpenInNewTab }
+					/>
+				</>
 			) }
 		</>
 	);
