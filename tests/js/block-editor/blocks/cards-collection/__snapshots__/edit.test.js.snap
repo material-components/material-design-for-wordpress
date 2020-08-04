@@ -125,7 +125,7 @@ Object {
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
                         <div
-                          aria-label="Button text"
+                          aria-label="Button"
                           aria-multiline="true"
                           class="rich-text block-editor-rich-text__editable"
                           contenteditable="true"
@@ -231,7 +231,7 @@ Object {
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
                         <div
-                          aria-label="Button text"
+                          aria-label="Button"
                           aria-multiline="true"
                           class="rich-text block-editor-rich-text__editable"
                           contenteditable="true"
@@ -337,7 +337,7 @@ Object {
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
                         <div
-                          aria-label="Button text"
+                          aria-label="Button"
                           aria-multiline="true"
                           class="rich-text block-editor-rich-text__editable"
                           contenteditable="true"
@@ -454,7 +454,7 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
                       <div
-                        aria-label="Button text"
+                        aria-label="Button"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -560,7 +560,7 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
                       <div
-                        aria-label="Button text"
+                        aria-label="Button"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -666,7 +666,7 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
                       <div
-                        aria-label="Button text"
+                        aria-label="Button"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -862,7 +862,7 @@ Object {
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
                         <div
-                          aria-label="Button text"
+                          aria-label="Button"
                           aria-multiline="true"
                           class="rich-text block-editor-rich-text__editable"
                           contenteditable="true"
@@ -962,7 +962,7 @@ Object {
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
                         <div
-                          aria-label="Button text"
+                          aria-label="Button"
                           aria-multiline="true"
                           class="rich-text block-editor-rich-text__editable"
                           contenteditable="true"
@@ -1062,7 +1062,7 @@ Object {
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
                         <div
-                          aria-label="Button text"
+                          aria-label="Button"
                           aria-multiline="true"
                           class="rich-text block-editor-rich-text__editable"
                           contenteditable="true"
@@ -1177,7 +1177,7 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
                       <div
-                        aria-label="Button text"
+                        aria-label="Button"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -1277,7 +1277,7 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
                       <div
-                        aria-label="Button text"
+                        aria-label="Button"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -1377,7 +1377,7 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
                       <div
-                        aria-label="Button text"
+                        aria-label="Button"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -1563,7 +1563,7 @@ Object {
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
                         <div
-                          aria-label="Button text"
+                          aria-label="Button"
                           aria-multiline="true"
                           class="rich-text block-editor-rich-text__editable"
                           contenteditable="true"
@@ -1653,7 +1653,7 @@ Object {
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
                         <div
-                          aria-label="Button text"
+                          aria-label="Button"
                           aria-multiline="true"
                           class="rich-text block-editor-rich-text__editable"
                           contenteditable="true"
@@ -1743,7 +1743,7 @@ Object {
                         class="mdc-button mdc-card__action mdc-card__action--button"
                       >
                         <div
-                          aria-label="Button text"
+                          aria-label="Button"
                           aria-multiline="true"
                           class="rich-text block-editor-rich-text__editable"
                           contenteditable="true"
@@ -1848,7 +1848,7 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
                       <div
-                        aria-label="Button text"
+                        aria-label="Button"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -1938,7 +1938,7 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
                       <div
-                        aria-label="Button text"
+                        aria-label="Button"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -2028,7 +2028,7 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                     >
                       <div
-                        aria-label="Button text"
+                        aria-label="Button"
                         aria-multiline="true"
                         class="rich-text block-editor-rich-text__editable"
                         contenteditable="true"
@@ -4197,7 +4197,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               >
                                 <ForwardRef(RichTextWrapper)
                                   onChange={[Function]}
-                                  placeholder="Button text"
+                                  placeholder="Button"
                                   tagName="div"
                                   value="Button text #1-1"
                                 >
@@ -4220,7 +4220,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     onEnter={[Function]}
                                     onPaste={[Function]}
                                     onSelectionChange={[Function]}
-                                    placeholder="Button text"
+                                    placeholder="Button"
                                     tagName="div"
                                     value="Button text #1-1"
                                   >
@@ -4240,7 +4240,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       forwardedRef={
                                         Object {
                                           "current": <div
-                                            aria-label="Button text"
+                                            aria-label="Button"
                                             aria-multiline="true"
                                             class="rich-text block-editor-rich-text__editable"
                                             contenteditable="true"
@@ -4257,7 +4257,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       onEnter={[Function]}
                                       onPaste={[Function]}
                                       onSelectionChange={[Function]}
-                                      placeholder="Button text"
+                                      placeholder="Button"
                                       tagName="div"
                                       value="Button text #1-1"
                                     >
@@ -4278,7 +4278,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         forwardedRef={
                                           Object {
                                             "current": <div
-                                              aria-label="Button text"
+                                              aria-label="Button"
                                               aria-multiline="true"
                                               class="rich-text block-editor-rich-text__editable"
                                               contenteditable="true"
@@ -4295,7 +4295,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         onEnter={[Function]}
                                         onPaste={[Function]}
                                         onSelectionChange={[Function]}
-                                        placeholder="Button text"
+                                        placeholder="Button"
                                         setTimeout={[Function]}
                                         tagName="div"
                                         value="Button text #1-1"
@@ -4319,7 +4319,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                           forwardedRef={
                                             Object {
                                               "current": <div
-                                                aria-label="Button text"
+                                                aria-label="Button"
                                                 aria-multiline="true"
                                                 class="rich-text block-editor-rich-text__editable"
                                                 contenteditable="true"
@@ -4336,7 +4336,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                           onEnter={[Function]}
                                           onPaste={[Function]}
                                           onSelectionChange={[Function]}
-                                          placeholder="Button text"
+                                          placeholder="Button"
                                           setTimeout={[Function]}
                                           tagName="div"
                                           value="Button text #1-1"
@@ -4345,7 +4345,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             forwardedRef={
                                               Object {
                                                 "current": <div
-                                                  aria-label="Button text"
+                                                  aria-label="Button"
                                                   aria-multiline="true"
                                                   class="rich-text block-editor-rich-text__editable"
                                                   contenteditable="true"
@@ -4361,7 +4361,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             forwardedRef={
                                               Object {
                                                 "current": <div
-                                                  aria-label="Button text"
+                                                  aria-label="Button"
                                                   aria-multiline="true"
                                                   class="rich-text block-editor-rich-text__editable"
                                                   contenteditable="true"
@@ -4627,7 +4627,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                                     >
                                                       <div
                                                         aria-activedescendant={null}
-                                                        aria-label="Button text"
+                                                        aria-label="Button"
                                                         aria-multiline={true}
                                                         aria-owns={null}
                                                         className="rich-text block-editor-rich-text__editable"
@@ -6466,7 +6466,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               >
                                 <ForwardRef(RichTextWrapper)
                                   onChange={[Function]}
-                                  placeholder="Button text"
+                                  placeholder="Button"
                                   tagName="div"
                                   value="Button text #2-1"
                                 >
@@ -6489,7 +6489,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     onEnter={[Function]}
                                     onPaste={[Function]}
                                     onSelectionChange={[Function]}
-                                    placeholder="Button text"
+                                    placeholder="Button"
                                     tagName="div"
                                     value="Button text #2-1"
                                   >
@@ -6509,7 +6509,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       forwardedRef={
                                         Object {
                                           "current": <div
-                                            aria-label="Button text"
+                                            aria-label="Button"
                                             aria-multiline="true"
                                             class="rich-text block-editor-rich-text__editable"
                                             contenteditable="true"
@@ -6526,7 +6526,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       onEnter={[Function]}
                                       onPaste={[Function]}
                                       onSelectionChange={[Function]}
-                                      placeholder="Button text"
+                                      placeholder="Button"
                                       tagName="div"
                                       value="Button text #2-1"
                                     >
@@ -6547,7 +6547,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         forwardedRef={
                                           Object {
                                             "current": <div
-                                              aria-label="Button text"
+                                              aria-label="Button"
                                               aria-multiline="true"
                                               class="rich-text block-editor-rich-text__editable"
                                               contenteditable="true"
@@ -6564,7 +6564,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         onEnter={[Function]}
                                         onPaste={[Function]}
                                         onSelectionChange={[Function]}
-                                        placeholder="Button text"
+                                        placeholder="Button"
                                         setTimeout={[Function]}
                                         tagName="div"
                                         value="Button text #2-1"
@@ -6588,7 +6588,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                           forwardedRef={
                                             Object {
                                               "current": <div
-                                                aria-label="Button text"
+                                                aria-label="Button"
                                                 aria-multiline="true"
                                                 class="rich-text block-editor-rich-text__editable"
                                                 contenteditable="true"
@@ -6605,7 +6605,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                           onEnter={[Function]}
                                           onPaste={[Function]}
                                           onSelectionChange={[Function]}
-                                          placeholder="Button text"
+                                          placeholder="Button"
                                           setTimeout={[Function]}
                                           tagName="div"
                                           value="Button text #2-1"
@@ -6614,7 +6614,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             forwardedRef={
                                               Object {
                                                 "current": <div
-                                                  aria-label="Button text"
+                                                  aria-label="Button"
                                                   aria-multiline="true"
                                                   class="rich-text block-editor-rich-text__editable"
                                                   contenteditable="true"
@@ -6630,7 +6630,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             forwardedRef={
                                               Object {
                                                 "current": <div
-                                                  aria-label="Button text"
+                                                  aria-label="Button"
                                                   aria-multiline="true"
                                                   class="rich-text block-editor-rich-text__editable"
                                                   contenteditable="true"
@@ -6896,7 +6896,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                                     >
                                                       <div
                                                         aria-activedescendant={null}
-                                                        aria-label="Button text"
+                                                        aria-label="Button"
                                                         aria-multiline={true}
                                                         aria-owns={null}
                                                         className="rich-text block-editor-rich-text__editable"

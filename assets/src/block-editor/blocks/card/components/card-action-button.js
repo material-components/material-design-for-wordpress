@@ -77,7 +77,7 @@ const CardActionButton = ( {
 						tagName="div"
 						value={ label }
 						onChange={ onChangeLabel }
-						placeholder={ __( 'Button text', 'material-theme-builder' ) }
+						placeholder={ __( 'Button', 'material-theme-builder' ) }
 					/>
 				</button>
 			) : (
