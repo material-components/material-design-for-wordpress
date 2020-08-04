@@ -64,6 +64,7 @@ const CardActions = ( {
 							newTab={ primaryActionButtonNewTab }
 							noFollow={ primaryActionButtonNoFollow }
 							isEditMode={ false }
+							setter={ setter }
 						/>
 						{ displaySecondaryActionButton && (
 							<CardActionButton
