@@ -690,7 +690,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Tab Bar
+              Tabs
             </h4>
             <p>
               Tabs organize content across different screens, data sets, and other interactions.
@@ -1872,7 +1872,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Tab Bar
+            Tabs
           </h4>
           <p>
             Tabs organize content across different screens, data sets, and other interactions.
