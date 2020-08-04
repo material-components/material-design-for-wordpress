@@ -110,7 +110,7 @@ const TabBarEdit = ( {
 	} );
 
 	/**
-	 * Initialize and create a new tab. Save it to the Tab Bar.
+	 * Initialize and create a new tab. Save it to the Tabs.
 	 */
 	const createTab = () => {
 		const newTabs = [ ...tabs ];
@@ -207,7 +207,7 @@ const TabBarEdit = ( {
 	};
 
 	/**
-	 * Create a list of all blocks to be allowed in the tab bar, except tab bar itself.
+	 * Create a list of all blocks to be allowed in the Tabs, except Tabs itself.
 	 */
 	const ALLOWED_BLOCKS = getBlockTypes()
 		.map( block => block.name )
@@ -222,7 +222,7 @@ const TabBarEdit = ( {
 		return (
 			<img
 				src={ mtb.tab_bar_preview }
-				alt={ __( 'Tab Bar Preview', 'material-theme-builder' ) }
+				alt={ __( 'Tabs Preview', 'material-theme-builder' ) }
 			/>
 		);
 	}
