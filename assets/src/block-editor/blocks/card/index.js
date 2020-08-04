@@ -68,7 +68,7 @@ export const settings = {
 		},
 		primaryActionButtonLabel: {
 			type: 'string',
-			default: __( 'Button', 'material-theme-builder' ),
+			default: '',
 		},
 		primaryActionButtonUrl: {
 			type: 'string',
@@ -83,7 +83,7 @@ export const settings = {
 		},
 		secondaryActionButtonLabel: {
 			type: 'string',
-			default: __( 'Button', 'material-theme-builder' ),
+			default: '',
 		},
 		secondaryActionButtonUrl: {
 			type: 'string',
