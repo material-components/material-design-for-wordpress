@@ -77,6 +77,8 @@ class Importer extends Module_Base {
 			'https://images.unsplash.com/photo-1582817954180-3c17b7036409' => 47,
 			'https://images.unsplash.com/photo-1591404789216-d03646c78f73' => 45,
 		];
+
+		$this->images_lookup = array_flip( $this->images );
 	}
 
 	/**
@@ -261,28 +263,11 @@ class Importer extends Module_Base {
 
 				// Media ID formats in post content.
 				$id_formats = [
-					'"id":%s',
-					'data-id="%s"',
-					'wp-image-%s',
-					'"mediaId":%s',
+					'"id":%1$s',
+					'data-id="%1$s"',
+					'wp-image-%1$s',
+					'"mediaId":%1$s',
 				];
-
-				// Gallery ids format.
-				if ( preg_match_all( '#"ids"\:\[([^\]]+)\]#', $post->post_content, $matches, PREG_SET_ORDER ) ) {
-					foreach ( $matches as $match ) {
-						$ids = array_map(
-							function( $image_id ) use ( $id ) {
-								if ( absint( $image_id ) === $id ) {
-									return '%s';
-								}
-								return $image_id;
-							},
-							explode( ',', $match[1] )
-						);
-
-						$id_formats[] = implode( ',', $ids );
-					}
-				}
 
 				foreach ( $id_formats as $format ) {
 					$post->post_content = str_replace( sprintf( $format, $id ), sprintf( $format, $attachment['id'] ), $post->post_content );
@@ -299,6 +284,31 @@ class Importer extends Module_Base {
 						}
 					}
 				}
+			}
+		}
+
+		// Replace all galleries in the post.
+		if ( preg_match_all( '#"ids"\:\[([^\]]+)\]#', $post->post_content, $matches, PREG_SET_ORDER ) ) {
+			foreach ( $matches as $match ) {
+				$ids = array_map(
+					function( $image_id ) {
+						// Does the image have an imported attachment ?
+						$attachment = isset( $this->images_lookup[ $image_id ] )
+							? $this->get_attachment( $this->images_lookup[ $image_id ] )
+							: false;
+
+						// If we have a valid attachment, return the attachment ID.
+						if ( ! empty( $attachment ) ) {
+							return $attachment['id'];
+						}
+
+						return $image_id;
+					},
+					explode( ',', $match[1] )
+				);
+
+				// Replace the gallery image IDs with the imported IDs.
+				$post->post_content = str_replace( $match[1], implode( ',', $ids ), $post->post_content );
 			}
 		}
 
