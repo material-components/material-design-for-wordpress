@@ -8,9 +8,10 @@ const Cards = ( { radius, buttonRadius } ) => (
 			{ __( 'Card', 'material-theme-builder' ) }
 		</h4>
 		<form target="_blank">
-			<button 
-				className="mdc-icon-button material-icons" 
-				formaction="https://material.io/components/cards">
+			<button
+				className="mdc-icon-button material-icons"
+				formaction="https://material.io/components/cards"
+			>
 				open_in_new
 			</button>
 		</form>

@@ -6,9 +6,10 @@ const Radios = () => (
 			{ __( 'Radio', 'material-theme-builder' ) }
 		</h4>
 		<form target="_blank">
-			<button 
-				className="mdc-icon-button material-icons" 
-				formaction="https://material.io/develop/web/components/input-controls/radio-buttons">
+			<button
+				className="mdc-icon-button material-icons"
+				formaction="https://material.io/develop/web/components/input-controls/radio-buttons"
+			>
 				open_in_new
 			</button>
 		</form>

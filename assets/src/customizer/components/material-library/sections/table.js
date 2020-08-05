@@ -6,9 +6,10 @@ const Table = ( { radius } ) => (
 			{ __( 'Table', 'material-theme-builder' ) }
 		</h4>
 		<form target="_blank">
-			<button 
-				className="mdc-icon-button material-icons" 
-				formaction="https://material.io/components/data-tables">
+			<button
+				className="mdc-icon-button material-icons"
+				formaction="https://material.io/components/data-tables"
+			>
 				open_in_new
 			</button>
 		</form>

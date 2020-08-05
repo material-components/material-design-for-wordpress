@@ -6,9 +6,10 @@ const Switch = () => (
 			{ __( 'Switch', 'material-theme-builder' ) }
 		</h4>
 		<form target="_blank">
-			<button 
-				className="mdc-icon-button material-icons" 
-				formaction="https://material.io/develop/web/components/input-controls/switches">
+			<button
+				className="mdc-icon-button material-icons"
+				formaction="https://material.io/develop/web/components/input-controls/switches"
+			>
 				open_in_new
 			</button>
 		</form>
