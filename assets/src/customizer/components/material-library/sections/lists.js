@@ -7,9 +7,10 @@ const Lists = ( { iconStyle } ) => (
 			{ __( 'List', 'material-theme-builder' ) }
 		</h4>
 		<form target="_blank">
-			<button 
-				className="mdc-icon-button material-icons" 
-				formaction="https://material.io/components/lists">
+			<button
+				className="mdc-icon-button material-icons"
+				formaction="https://material.io/components/lists"
+			>
 				open_in_new
 			</button>
 		</form>

@@ -8,9 +8,10 @@ const ImageLists = ( { radius } ) => (
 			{ __( 'Image List', 'material-theme-builder' ) }
 		</h4>
 		<form target="_blank">
-			<button 
-				className="mdc-icon-button material-icons" 
-				formaction="https://material.io/components/image-lists">
+			<button
+				className="mdc-icon-button material-icons"
+				formaction="https://material.io/components/image-lists"
+			>
 				open_in_new
 			</button>
 		</form>

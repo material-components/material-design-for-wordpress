@@ -6,9 +6,10 @@ const Chips = ( { radius } ) => (
 			{ __( 'Chips', 'material-theme-builder' ) }
 		</h4>
 		<form target="_blank">
-			<button 
-				className="mdc-icon-button material-icons" 
-				formaction="https://material.io/components/chips">
+			<button
+				className="mdc-icon-button material-icons"
+				formaction="https://material.io/components/chips"
+			>
 				open_in_new
 			</button>
 		</form>
