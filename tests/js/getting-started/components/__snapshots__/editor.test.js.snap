@@ -8,7 +8,7 @@ Object {
       <h2
         class="material-gsm__content-title mdc-typography--headline6"
       >
-        Material Theme Customizer
+        Material Theme Options
       </h2>
       <p
         class="material-gsm__content-description"
@@ -40,7 +40,7 @@ Object {
     <h2
       class="material-gsm__content-title mdc-typography--headline6"
     >
-      Material Theme Customizer
+      Material Theme Options
     </h2>
     <p
       class="material-gsm__content-description"

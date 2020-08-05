@@ -77,7 +77,7 @@ Object {
             <div
               class="material-gsm__tab-title"
             >
-              Material Theme Customizer
+              Material Theme Options
             </div>
           </button>
           <button
@@ -172,7 +172,7 @@ Object {
           <div
             class="material-gsm__tab-title"
           >
-            Material Theme Customizer
+            Material Theme Options
           </div>
         </button>
         <button

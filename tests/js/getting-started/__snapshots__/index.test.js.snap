@@ -83,7 +83,7 @@ Object {
                 <div
                   class="material-gsm__tab-title"
                 >
-                  Material Theme Customizer
+                  Material Theme Options
                 </div>
               </button>
               <button
@@ -109,7 +109,7 @@ Object {
             <h2
               class="material-gsm__content-title mdc-typography--headline6"
             >
-              Material Theme Customizer
+              Material Theme Options
             </h2>
             <p
               class="material-gsm__content-description"
@@ -219,7 +219,7 @@ Object {
               <div
                 class="material-gsm__tab-title"
               >
-                Material Theme Customizer
+                Material Theme Options
               </div>
             </button>
             <button
@@ -245,7 +245,7 @@ Object {
           <h2
             class="material-gsm__content-title mdc-typography--headline6"
           >
-            Material Theme Customizer
+            Material Theme Options
           </h2>
           <p
             class="material-gsm__content-description"
