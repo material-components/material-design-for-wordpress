@@ -9,7 +9,7 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 		<form target="_blank">
 			<button
 				className="mdc-icon-button material-icons"
-				formaction="https://material.io/components/buttons"
+				formAction="https://material.io/components/buttons"
 			>
 				open_in_new
 			</button>

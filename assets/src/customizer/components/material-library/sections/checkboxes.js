@@ -8,7 +8,7 @@ const Checkboxes = () => (
 		<form target="_blank">
 			<button
 				className="mdc-icon-button material-icons"
-				formaction="https://material.io/develop/web/components/input-controls/checkboxes"
+				formAction="https://material.io/develop/web/components/input-controls/checkboxes"
 			>
 				open_in_new
 			</button>

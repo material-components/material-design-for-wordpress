@@ -8,7 +8,7 @@ const Fields = ( { radius } ) => (
 		<form target="_blank">
 			<button
 				className="mdc-icon-button material-icons"
-				formaction="https://material.io/components/text-fields"
+				formAction="https://material.io/components/text-fields"
 			>
 				open_in_new
 			</button>

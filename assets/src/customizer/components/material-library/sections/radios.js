@@ -8,7 +8,7 @@ const Radios = () => (
 		<form target="_blank">
 			<button
 				className="mdc-icon-button material-icons"
-				formaction="https://material.io/develop/web/components/input-controls/radio-buttons"
+				formAction="https://material.io/develop/web/components/input-controls/radio-buttons"
 			>
 				open_in_new
 			</button>

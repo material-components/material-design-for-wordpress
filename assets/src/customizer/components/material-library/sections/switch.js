@@ -8,7 +8,7 @@ const Switch = () => (
 		<form target="_blank">
 			<button
 				className="mdc-icon-button material-icons"
-				formaction="https://material.io/develop/web/components/input-controls/switches"
+				formAction="https://material.io/develop/web/components/input-controls/switches"
 			>
 				open_in_new
 			</button>
