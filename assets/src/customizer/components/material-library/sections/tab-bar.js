@@ -9,7 +9,7 @@ const TabBar = ( { iconStyle } ) => (
 		<form target="_blank">
 			<button
 				className="mdc-icon-button material-icons"
-				formaction="https://material.io/components/tabs"
+				formAction="https://material.io/components/tabs"
 			>
 				open_in_new
 			</button>

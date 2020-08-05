@@ -10,7 +10,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 		<form target="_blank">
 			<button
 				className="mdc-icon-button material-icons"
-				formaction="https://material.io/components/cards"
+				formAction="https://material.io/components/cards"
 			>
 				open_in_new
 			</button>

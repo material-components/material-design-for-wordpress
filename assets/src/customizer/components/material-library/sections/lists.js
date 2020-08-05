@@ -9,7 +9,7 @@ const Lists = ( { iconStyle } ) => (
 		<form target="_blank">
 			<button
 				className="mdc-icon-button material-icons"
-				formaction="https://material.io/components/lists"
+				formAction="https://material.io/components/lists"
 			>
 				open_in_new
 			</button>
