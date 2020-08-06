@@ -1,18 +1,12 @@
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const Table = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Table', 'material-theme-builder' ) }
 		</h4>
-		<form target="_blank">
-			<button
-				className="mdc-icon-button material-icons"
-				formAction="https://material.io/components/data-tables"
-			>
-				open_in_new
-			</button>
-		</form>
+		<IconButtonLink href="https://material.io/components/data-tables"></IconButtonLink>
 		<p>
 			{ __(
 				'Data tables display sets of data across rows and columns.',

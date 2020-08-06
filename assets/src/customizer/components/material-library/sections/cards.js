@@ -1,20 +1,14 @@
 /* global mtb */
 
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const Cards = ( { radius, buttonRadius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Card', 'material-theme-builder' ) }
 		</h4>
-		<form target="_blank">
-			<button
-				className="mdc-icon-button material-icons"
-				formAction="https://material.io/components/cards"
-			>
-				open_in_new
-			</button>
-		</form>
+		<IconButtonLink href="https://material.io/components/cards"></IconButtonLink>
 		<p>
 			{ __(
 				'Cards contain content and actions about a single subject.',

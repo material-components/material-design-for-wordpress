@@ -1,18 +1,12 @@
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const Switch = () => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Switch', 'material-theme-builder' ) }
 		</h4>
-		<form target="_blank">
-			<button
-				className="mdc-icon-button material-icons"
-				formAction="https://material.io/develop/web/components/input-controls/switches"
-			>
-				open_in_new
-			</button>
-		</form>
+		<IconButtonLink href="https://material.io/develop/web/components/input-controls/switches"></IconButtonLink>
 		<p>
 			{ __(
 				'Switches toggle the state of a single setting on or off. It is unavailable as a block in WordPress.',

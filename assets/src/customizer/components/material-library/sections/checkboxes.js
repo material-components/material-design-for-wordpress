@@ -1,18 +1,12 @@
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const Checkboxes = () => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Checkbox', 'material-theme-builder' ) }
 		</h4>
-		<form target="_blank">
-			<button
-				className="mdc-icon-button material-icons"
-				formAction="https://material.io/develop/web/components/input-controls/checkboxes"
-			>
-				open_in_new
-			</button>
-		</form>
+		<IconButtonLink href="https://material.io/develop/web/components/input-controls/checkboxes"></IconButtonLink>
 		<p>
 			{ __(
 				'Selection controls allow the user to select options. It is unavailable as a block in WordPress.',

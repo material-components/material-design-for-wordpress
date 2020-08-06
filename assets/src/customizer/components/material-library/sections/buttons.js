@@ -1,19 +1,13 @@
 import { __ } from '@wordpress/i18n';
 import { RippleColor } from '../styles';
+import IconButtonLink from '../common/icon-button-link';
 
 const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Button', 'material-theme-builder' ) }
 		</h4>
-		<form target="_blank">
-			<button
-				className="mdc-icon-button material-icons"
-				formAction="https://material.io/components/buttons"
-			>
-				open_in_new
-			</button>
-		</form>
+		<IconButtonLink href="https://material.io/components/buttons"></IconButtonLink>
 		<p>
 			{ __(
 				'Buttons allow users to take actions, and make choices, with a single tap.',

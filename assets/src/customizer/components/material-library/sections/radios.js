@@ -1,18 +1,12 @@
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const Radios = () => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Radio', 'material-theme-builder' ) }
 		</h4>
-		<form target="_blank">
-			<button
-				className="mdc-icon-button material-icons"
-				formAction="https://material.io/develop/web/components/input-controls/radio-buttons"
-			>
-				open_in_new
-			</button>
-		</form>
+		<IconButtonLink href="https://material.io/develop/web/components/input-controls/radio-buttons"></IconButtonLink>
 		<p>
 			{ __(
 				'Radio buttons allow the user to select one option from a set. It is unavailable as a block in WordPress.',
