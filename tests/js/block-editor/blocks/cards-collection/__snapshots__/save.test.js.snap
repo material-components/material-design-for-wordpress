@@ -51,11 +51,6 @@ Object {
                   tabindex="0"
                 >
                   <div
-                    class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
-                    style="background-image: url();"
-                    tabindex="0"
-                  />
-                  <div
                     class="mtb-card__primary"
                   >
                     <h2
@@ -125,11 +120,6 @@ Object {
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
-                <div
-                  class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
-                  style="background-image: url();"
-                  tabindex="0"
-                />
                 <div
                   class="mtb-card__primary"
                 >
@@ -281,11 +271,6 @@ Object {
                   tabindex="0"
                 >
                   <div
-                    class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
-                    style="background-image: url();"
-                    tabindex="0"
-                  />
-                  <div
                     class="mtb-card__primary"
                   >
                     <h2
@@ -354,11 +339,6 @@ Object {
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
-                <div
-                  class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
-                  style="background-image: url();"
-                  tabindex="0"
-                />
                 <div
                   class="mtb-card__primary"
                 >
@@ -510,11 +490,6 @@ Object {
                   tabindex="0"
                 >
                   <div
-                    class="mdc-card__media mdc-card__media--square mtb-card__media mtb-card-with-text-under-media"
-                    style="background-image: url();"
-                    tabindex="0"
-                  />
-                  <div
                     class="mtb-card__primary"
                   >
                     <h2
@@ -578,11 +553,6 @@ Object {
                 class="mdc-card__primary-action mtb-card__primary-action"
                 tabindex="0"
               >
-                <div
-                  class="mdc-card__media mdc-card__media--square mtb-card__media mtb-card-with-text-under-media"
-                  style="background-image: url();"
-                  tabindex="0"
-                />
                 <div
                   class="mtb-card__primary"
                 >

@@ -27,3 +27,7 @@
 .block-editor-inserter__popover .material-logo-svg {
 	margin-left: 8px;
 }
+
+[class^="wp-block-material-"] .components-placeholder.components-placeholder {
+	box-shadow: none;
+}
