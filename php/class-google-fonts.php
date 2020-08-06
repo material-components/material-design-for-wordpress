@@ -26,18 +26,21 @@ class Google_Fonts {
 	 */
 	public static function get_fonts() {
 
-		if ( ! empty( self::$list ) ) {
-			return self::$list;
+		if ( empty( self::$list ) ) {
+			$json_file = get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json';
+
+			if ( file_exists( $json_file ) ) {
+				$json       = file_get_contents( $json_file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+				self::$list = json_decode( $json, true );
+			}
 		}
 
-		$json_file = get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json';
-
-		if ( file_exists( $json_file ) ) {
-			$json       = file_get_contents( $json_file ); // phpcs:ignore
-			self::$list = json_decode( $json, true );
-		}
-
-		return self::$list;
+		/**
+		 * Filter Google Fonts list.
+		 *
+		 * @param array $list Google fonts list.
+		 */
+		return apply_filters( 'material_theme_builder_google_fonts_list', self::$list );
 	}
 
 	/**
@@ -46,10 +49,17 @@ class Google_Fonts {
 	 * @return array
 	 */
 	public static function get_font_choices() {
-		return array_map(
+		$choices = array_map(
 			__CLASS__ . '::prepare_font_choice',
 			array_keys( self::get_fonts() )
 		);
+
+		/**
+		 * Filter Google Fonts choices.
+		 *
+		 * @param array $choices Google fonts choices.
+		 */
+		return apply_filters( 'material_theme_builder_google_fonts_choices', $choices );
 	}
 
 	/**

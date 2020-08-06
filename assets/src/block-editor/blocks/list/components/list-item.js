@@ -1,85 +1,204 @@
-import { useEffect, useRef } from '@wordpress/element';
-import { __experimentalRichText as RichText } from '@wordpress/rich-text';
+/**
+ * WordPress dependencies
+ */
+import { useEffect, useRef, useState } from '@wordpress/element';
+import {
+	__experimentalRichText as RichText,
+	create,
+	insert,
+} from '@wordpress/rich-text';
 import { __ } from '@wordpress/i18n';
 
+/**
+ * Material list item edit component.
+ */
 const ListItem = ( {
 	primaryText,
 	secondaryText,
 	icon,
 	iconPosition,
 	isSecondaryEnabled,
-	onEnter,
+	onSplit,
 	onFocus,
 	isSelected,
 	isSecondarySelected,
 	index,
+	selectionStart,
 	setItem,
 	deleteItem,
-	onPrimaryTextChange,
-	onSecondaryTextChange,
+	onPrimaryTextChange: primaryTextChange,
+	onSecondaryTextChange: secondaryTextChange,
 } ) => {
 	const primaryRef = useRef();
 	const secondaryRef = useRef();
-	const rangeRef = useRef( { start: 0, end: 0 } );
+	const rangeStartRef = useRef( 0 );
 
+	const [ editedText, setEditedText ] = useState( '' );
+
+	// Set rangeStartRef based on selectionStart prop.
+	useEffect( () => {
+		rangeStartRef.current = selectionStart;
+	}, [ selectionStart ] );
+
+	// Focus element based on selected status.
+	useEffect( () => {
+		if ( isSecondarySelected ) {
+			setEditedText( secondaryText );
+			focusElement( secondaryRef.current );
+		} else if ( isSelected ) {
+			setEditedText( primaryText );
+			focusElement( primaryRef.current );
+		}
+	}, [ isSecondaryEnabled, isSelected, isSecondarySelected, selectionStart ] ); // eslint-disable-line
+
+	/**
+	 * Focus an element.
+	 *
+	 * @param {Node} element Element to focus.
+	 */
 	const focusElement = element => {
-		if ( ! element || element === document.activeElement ) {
+		if ( ! element ) {
 			return;
 		}
 
 		const selection = window.getSelection(),
 			range = document.createRange();
-		range.setStart( element.childNodes[ 0 ] || element, rangeRef.current );
+
+		try {
+			range.setStart(
+				element.childNodes[ 0 ] || element,
+				rangeStartRef.current
+			);
+		} catch ( e ) {
+			range.setStart( element.childNodes[ 0 ] || element, 0 );
+		}
+
 		range.collapse( true );
 		selection.removeAllRanges();
 		selection.addRange( range );
 	};
 
-	const onPrimaryEnter = event => {
-		rangeRef.current = 0;
-		if ( isSecondaryEnabled ) {
-			if ( event.value ) {
-				setItem( index, {
-					primaryText: event.value.text.slice( 0, event.value.end ),
-					secondaryText: `${ event.value.text.slice(
-						event.value.end
-					) } ${ secondaryText }`,
-				} );
-			}
-			onEnter( index, isSecondaryEnabled );
-		} else {
-			onSecondaryEnter();
+	/**
+	 * Get the split before and after values from a Break/Enter event.
+	 *
+	 * @param {Event} event
+	 */
+	const getSplitValues = event => {
+		let before = '',
+			after = '';
+
+		if ( event.value ) {
+			before = event.value.text.slice( 0, event.value.end );
+			after = event.value.text.slice( event.value.end );
 		}
+
+		return { before, after };
 	};
 
-	const onSecondaryEnter = () => {
-		rangeRef.current = 0;
-		onEnter( index + 1 );
+	/**
+	 * Handle Enter keypress event on primary text.
+	 *
+	 * @param {Event} event Enter keypress event.
+	 */
+	const onPrimaryEnter = event => {
+		rangeStartRef.current = 0;
+		const splitValues = getSplitValues( event );
+
+		if ( isSecondaryEnabled ) {
+			setItem( index, {
+				primaryText: splitValues.before,
+				secondaryText: `${ splitValues.after }${ secondaryText }`,
+			} );
+			onFocus( index, isSecondaryEnabled );
+			return;
+		}
+
+		setItem( index, {
+			primaryText: splitValues.before,
+		} );
+		onSplit( index, splitValues.after );
 	};
 
+	/**
+	 * Handle Enter keypress event on secondary text.
+	 *
+	 * @param {Event} event Enter keypress event.
+	 */
+	const onSecondaryEnter = event => {
+		const splitValues = getSplitValues( event );
+		setItem( index, {
+			secondaryText: splitValues.before,
+		} );
+		onSplit( index, splitValues.after );
+	};
+
+	/**
+	 * Handle delete keypress event on primary text.
+	 *
+	 * @param {Event} event Delete keypress event.
+	 */
 	const onPrimaryDelete = event => {
-		deleteItem( index, event.value.text );
+		deleteItem( index, event.value.text, secondaryText );
 	};
 
+	/**
+	 * Handle delete keypress event on secondary text.
+	 *
+	 * @param {Event} event Delete keypress event.
+	 */
 	const onSecondaryDelete = event => {
 		if ( event.value && 0 === event.value.start ) {
-			rangeRef.current = primaryText.length;
+			rangeStartRef.current = primaryText.length;
 			setItem( index, {
 				primaryText: `${ primaryText }${ event.value.text }`,
 				secondaryText: '',
 			} );
+			onFocus( index );
 		}
 	};
 
-	const onSelectionChange = () => {};
+	/**
+	 * Handle primary text change
+	 *
+	 * @param {string} text Primary Text
+	 */
+	const onPrimaryTextChange = text => {
+		setEditedText( text );
+		primaryTextChange( index, text );
+	};
 
-	useEffect( () => {
+	/**
+	 * Handle secondary text change
+	 *
+	 * @param {string} text secondary Text
+	 */
+	const onSecondaryTextChange = text => {
+		setEditedText( text );
+		secondaryTextChange( index, text );
+	};
+
+	/**
+	 * Handle paste event.
+	 *
+	 * @param {Object} pasted Object with pasted value props.
+	 */
+	const onPaste = ( { value, plainText } ) => {
+		const valueToInsert = create( { html: plainText } );
+		const toInsert = insert( value, valueToInsert );
+
+		rangeStartRef.current = toInsert.start;
+
 		if ( isSecondarySelected ) {
-			focusElement( secondaryRef.current );
-		} else if ( isSelected ) {
-			focusElement( primaryRef.current );
+			return onSecondaryTextChange( toInsert.text );
 		}
-	}, [ isSecondaryEnabled, isSelected, isSecondarySelected ] );
+
+		onPrimaryTextChange( toInsert.text );
+	};
+
+	const isPrimarySelected = isSelected && ! isSecondarySelected;
+
+	// Noop function.
+	const noop = () => {};
 
 	return (
 		<li className="mdc-list-item">
@@ -91,14 +210,18 @@ const ListItem = ( {
 				<span className="mdc-list-item__primary-text">
 					<RichText
 						ref={ primaryRef }
-						value={ primaryText }
-						onChange={ text => onPrimaryTextChange( index, text ) }
-						onSelectionChange={ onSelectionChange }
-						__unstableOnCreateUndoLevel={ onSelectionChange }
+						value={ isPrimarySelected ? editedText : primaryText }
+						onChange={ onPrimaryTextChange }
+						__unstableOnCreateUndoLevel={ noop }
 						onDelete={ onPrimaryDelete }
 						onEnter={ onPrimaryEnter }
+						onPaste={ onPaste }
 						unstableOnFocus={ () => onFocus( index ) }
 						className="rich-text block-editor-rich-text__editable"
+						__unstableIsSelected={ isPrimarySelected }
+						onSelectionChange={ noop }
+						selectionStart={ rangeStartRef.current }
+						selectionEnd={ rangeStartRef.current }
 					/>
 				</span>
 
@@ -106,15 +229,19 @@ const ListItem = ( {
 					<span className="mdc-list-item__secondary-text">
 						<RichText
 							ref={ secondaryRef }
-							value={ secondaryText }
-							onChange={ text => onSecondaryTextChange( index, text ) }
-							onSelectionChange={ onSelectionChange }
-							__unstableOnCreateUndoLevel={ onSelectionChange }
+							value={ isSecondarySelected ? editedText : secondaryText }
+							onChange={ onSecondaryTextChange }
+							__unstableOnCreateUndoLevel={ noop }
 							onDelete={ onSecondaryDelete }
 							onEnter={ onSecondaryEnter }
+							onPaste={ onPaste }
 							unstableOnFocus={ () => onFocus( index, isSecondaryEnabled ) }
 							className="rich-text block-editor-rich-text__editable"
 							placeholder={ __( 'Secondary text…', 'material-theme-builder' ) }
+							__unstableIsSelected={ isSecondarySelected }
+							onSelectionChange={ noop }
+							selectionStart={ rangeStartRef.current }
+							selectionEnd={ rangeStartRef.current }
 						/>
 					</span>
 				) }

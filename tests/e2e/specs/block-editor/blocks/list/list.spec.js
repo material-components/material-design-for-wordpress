@@ -116,4 +116,155 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( () => document.activeElement.parentNode.className )
 		).toContain( 'mdc-list-item__secondary-text' );
 	} );
+
+	it( 'should merge and split for single line list', async () => {
+		await insertBlockByKeyword( 'mlist' );
+		await selectBlockByName( 'material/list' );
+
+		const [ primary ] = await page.$$( '.mdc-list-item__primary-text' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
+
+		await primary.click();
+		await page.keyboard.type( 'List Item 1' );
+		await primary.press( 'Enter' );
+		await page.keyboard.type( 'List Item 2' );
+		await primary.press( 'Enter' );
+		await page.keyboard.type( 'List Item 3' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 3 );
+
+		let items = await page.$$( '.mdc-list-item__primary-text' );
+
+		await items[ 1 ].click();
+		await primary.press( 'Home' );
+		await primary.press( 'Backspace' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), primary )
+		).toStrictEqual( 'List Item 1List Item 2' );
+
+		await page.keyboard.press( 'Enter' );
+
+		items = await page.$$( '.mdc-list-item__primary-text' );
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 3 );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), items[ 0 ] )
+		).toStrictEqual( 'List Item 1' );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), items[ 1 ] )
+		).toStrictEqual( 'List Item 2' );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), items[ 2 ] )
+		).toStrictEqual( 'List Item 3' );
+	} );
+
+	it( 'should merge and split for secondary line list (same list item)', async () => {
+		await insertBlockByKeyword( 'mlist' );
+		await selectBlockByName( 'material/list' );
+
+		const [ primary ] = await page.$$( '.mdc-list-item__primary-text' );
+		const [ twoLineOption ] = await page.$x(
+			"//span[contains(text(), 'List Item With Secondary Text')]"
+		);
+
+		await twoLineOption.click();
+		await page.waitForFunction(
+			`document.querySelectorAll( '.mdc-list-item__secondary-text' ).length === 1`
+		); // wait until all the list items are updated.
+
+		await primary.click();
+		await page.keyboard.type( 'List Item 1' );
+		await primary.press( 'Enter' );
+		await page.keyboard.type( 'Secondary Text 1' );
+
+		const [ secondary ] = await page.$$( '.mdc-list-item__secondary-text' );
+
+		expect(
+			await page.evaluate( el => el.innerText.trim(), primary )
+		).toStrictEqual( 'List Item 1' );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), secondary )
+		).toStrictEqual( 'Secondary Text 1' );
+
+		await primary.press( 'Home' );
+		await primary.press( 'Backspace' );
+
+		expect(
+			await page.evaluate( el => el.innerText.trim(), primary )
+		).toStrictEqual( 'List Item 1Secondary Text 1' );
+
+		await primary.press( 'Enter' );
+
+		expect(
+			await page.evaluate( el => el.innerText.trim(), primary )
+		).toStrictEqual( 'List Item 1' );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), secondary )
+		).toStrictEqual( 'Secondary Text 1' );
+	} );
+
+	it( 'should merge and split for secondary line list (multiple list items)', async () => {
+		await insertBlockByKeyword( 'mlist' );
+		await selectBlockByName( 'material/list' );
+
+		const [ primary ] = await page.$$( '.mdc-list-item__primary-text' );
+		const [ twoLineOption ] = await page.$x(
+			"//span[contains(text(), 'List Item With Secondary Text')]"
+		);
+
+		await twoLineOption.click();
+		await page.waitForFunction(
+			`document.querySelectorAll( '.mdc-list-item__secondary-text' ).length === 1`
+		); // wait until all the list items are updated.
+
+		await primary.click();
+		await page.keyboard.type( 'List Item 1' );
+		await primary.press( 'Enter' );
+		await page.keyboard.type( 'Secondary Text 1' );
+		await primary.press( 'Enter' );
+
+		await page.keyboard.type( 'List Item 2' );
+		await primary.press( 'Enter' );
+		await page.keyboard.type( 'Secondary Text 2' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
+
+		let items = await page.$$( '.mdc-list-item__primary-text' );
+		let secondaryItems = await page.$$( '.mdc-list-item__secondary-text' );
+
+		await items[ 1 ].click();
+		await primary.press( 'Home' );
+		await primary.press( 'Backspace' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), items[ 0 ] )
+		).toStrictEqual( 'List Item 1' );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 0 ] )
+		).toStrictEqual( 'Secondary Text 1List Item 2 Secondary Text 2' );
+
+		await primary.press( 'Enter' );
+
+		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
+
+		items = await page.$$( '.mdc-list-item__primary-text' );
+		secondaryItems = await page.$$( '.mdc-list-item__secondary-text' );
+
+		expect(
+			await page.evaluate( el => el.innerText.trim(), items[ 0 ] )
+		).toStrictEqual( 'List Item 1' );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 0 ] )
+		).toStrictEqual( 'Secondary Text 1' );
+
+		expect(
+			await page.evaluate( el => el.innerText.trim(), items[ 1 ] )
+		).toStrictEqual( 'List Item 2 Secondary Text 2' );
+		expect(
+			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 1 ] )
+		).toStrictEqual( '' );
+	} );
 } );

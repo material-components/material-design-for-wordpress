@@ -207,6 +207,25 @@ const wizard = {
 	],
 };
 
+// Getting Started Module.
+const gsm = {
+	...defaultConfig,
+	...sharedConfig,
+	entry: {
+		'getting-started': [
+			'./assets/src/getting-started/index.js',
+			'./assets/css/src/getting-started.css',
+		],
+	},
+	plugins: [
+		...sharedConfig.plugins,
+		new WebpackBar( {
+			name: 'Getting Started',
+			color: '#3ce1bb',
+		} ),
+	],
+};
+
 module.exports = [
 	// prettier-ignore
 	blockEditor,
@@ -215,4 +234,5 @@ module.exports = [
 	admin,
 	overrides,
 	wizard,
+	gsm,
 ];
