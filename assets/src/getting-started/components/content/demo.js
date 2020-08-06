@@ -23,7 +23,6 @@ export const Demo = () => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				
 				{ __( 'Demo content', 'material-theme-builder' ) }
 			</h2>
 			<p className="material-gsm__content-description">
