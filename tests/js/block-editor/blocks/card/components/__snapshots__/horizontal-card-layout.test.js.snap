@@ -397,7 +397,6 @@ Object {
     <div>
       <div
         class="mdc-card mdc-card--outlined mtb-card mtb-card__list mtb-basic"
-        style="border-radius: undefinedpx;"
       >
         <div
           class="mdc-card__primary-action mtb-card__primary-action"
@@ -467,7 +466,6 @@ Object {
   "container": <div>
     <div
       class="mdc-card mdc-card--outlined mtb-card mtb-card__list mtb-basic"
-      style="border-radius: undefinedpx;"
     >
       <div
         class="mdc-card__primary-action mtb-card__primary-action"
