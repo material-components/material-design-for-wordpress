@@ -37,9 +37,8 @@ Object {
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -85,15 +84,14 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap is-selected"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -139,7 +137,7 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -153,9 +151,8 @@ Object {
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -201,15 +198,14 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap is-selected"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -255,7 +251,7 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>,
@@ -350,9 +346,8 @@ Object {
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -408,15 +403,14 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -472,7 +466,7 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -486,9 +480,8 @@ Object {
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -544,15 +537,14 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -608,7 +600,7 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>,
@@ -703,9 +695,8 @@ Object {
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -751,15 +742,14 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -805,7 +795,7 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -819,9 +809,8 @@ Object {
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -867,15 +856,14 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -921,7 +909,7 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>,
@@ -1016,9 +1004,8 @@ Object {
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -1064,15 +1051,14 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -1118,7 +1104,7 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -1132,9 +1118,8 @@ Object {
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -1180,15 +1165,14 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -1234,7 +1218,7 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>,
@@ -1587,9 +1571,8 @@ Object {
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -1669,15 +1652,14 @@ Object {
                 keyboard_return
               </i>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -1757,7 +1739,7 @@ Object {
                 keyboard_return
               </i>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -1771,9 +1753,8 @@ Object {
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -1853,15 +1834,14 @@ Object {
               keyboard_return
             </i>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -1941,7 +1921,316 @@ Object {
               keyboard_return
             </i>
           </div>
-        </a>
+        </div>
+      </li>
+    </ul>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`blocks: material/image-list: Gallery matches snapshot when linkTo is set to none 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <ul
+        class="mdc-image-list mdc-image-list--masonry"
+        style="column-count: 2; column-gap: 24px;"
+      >
+        <li
+          class="mdc-image-list__item"
+          role="presentation"
+        >
+          <div
+            class="mdc-image-list__item-wrap"
+            style="margin-bottom: 24px;"
+          >
+            <img
+              alt="Example Image 1"
+              class="mdc-image-list__image"
+              data-id="1"
+              data-link="http://example.com/image-1"
+              src="https://i.picsum.photos/id/22/500/500.jpg"
+              style="border-radius: 4px;"
+            />
+            <div
+              class="move-image"
+            >
+              <button
+                title="Move left"
+              >
+                <i
+                  class="material-icons"
+                >
+                  arrow_left
+                </i>
+              </button>
+              <button
+                title="Move right"
+              >
+                <i
+                  class="material-icons"
+                >
+                  arrow_right
+                </i>
+              </button>
+            </div>
+            <div
+              class="remove-image"
+            >
+              <button
+                title="Remove image"
+              >
+                <i
+                  class="material-icons"
+                >
+                  close
+                </i>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li
+          class="mdc-image-list__item"
+          role="presentation"
+        >
+          <div
+            class="mdc-image-list__item-wrap"
+            style="margin-bottom: 24px;"
+          >
+            <img
+              alt="Example Image 2"
+              class="mdc-image-list__image"
+              data-id="2"
+              data-link="http://example.com/image-2"
+              src="https://i.picsum.photos/id/22/500/500.jpg"
+              style="border-radius: 4px;"
+            />
+            <div
+              class="move-image"
+            >
+              <button
+                title="Move left"
+              >
+                <i
+                  class="material-icons"
+                >
+                  arrow_left
+                </i>
+              </button>
+              <button
+                title="Move right"
+              >
+                <i
+                  class="material-icons"
+                >
+                  arrow_right
+                </i>
+              </button>
+            </div>
+            <div
+              class="remove-image"
+            >
+              <button
+                title="Remove image"
+              >
+                <i
+                  class="material-icons"
+                >
+                  close
+                </i>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="mdc-image-list mdc-image-list--masonry"
+      style="column-count: 2; column-gap: 24px;"
+    >
+      <li
+        class="mdc-image-list__item"
+        role="presentation"
+      >
+        <div
+          class="mdc-image-list__item-wrap"
+          style="margin-bottom: 24px;"
+        >
+          <img
+            alt="Example Image 1"
+            class="mdc-image-list__image"
+            data-id="1"
+            data-link="http://example.com/image-1"
+            src="https://i.picsum.photos/id/22/500/500.jpg"
+            style="border-radius: 4px;"
+          />
+          <div
+            class="move-image"
+          >
+            <button
+              title="Move left"
+            >
+              <i
+                class="material-icons"
+              >
+                arrow_left
+              </i>
+            </button>
+            <button
+              title="Move right"
+            >
+              <i
+                class="material-icons"
+              >
+                arrow_right
+              </i>
+            </button>
+          </div>
+          <div
+            class="remove-image"
+          >
+            <button
+              title="Remove image"
+            >
+              <i
+                class="material-icons"
+              >
+                close
+              </i>
+            </button>
+          </div>
+        </div>
+      </li>
+      <li
+        class="mdc-image-list__item"
+        role="presentation"
+      >
+        <div
+          class="mdc-image-list__item-wrap"
+          style="margin-bottom: 24px;"
+        >
+          <img
+            alt="Example Image 2"
+            class="mdc-image-list__image"
+            data-id="2"
+            data-link="http://example.com/image-2"
+            src="https://i.picsum.photos/id/22/500/500.jpg"
+            style="border-radius: 4px;"
+          />
+          <div
+            class="move-image"
+          >
+            <button
+              title="Move left"
+            >
+              <i
+                class="material-icons"
+              >
+                arrow_left
+              </i>
+            </button>
+            <button
+              title="Move right"
+            >
+              <i
+                class="material-icons"
+              >
+                arrow_right
+              </i>
+            </button>
+          </div>
+          <div
+            class="remove-image"
+          >
+            <button
+              title="Remove image"
+            >
+              <i
+                class="material-icons"
+              >
+                close
+              </i>
+            </button>
+          </div>
+        </div>
       </li>
     </ul>
   </div>,
@@ -2036,9 +2325,8 @@ Object {
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -2084,15 +2372,14 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 24px;"
           >
             <img
@@ -2138,7 +2425,7 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -2152,9 +2439,8 @@ Object {
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -2200,15 +2486,14 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 24px;"
         >
           <img
@@ -2254,7 +2539,7 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>,
@@ -2349,9 +2634,8 @@ Object {
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 18px;"
           >
             <img
@@ -2397,15 +2681,14 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 18px;"
           >
             <img
@@ -2451,7 +2734,7 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -2465,9 +2748,8 @@ Object {
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 18px;"
         >
           <img
@@ -2513,15 +2795,14 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 18px;"
         >
           <img
@@ -2567,7 +2848,7 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>,
@@ -2662,9 +2943,8 @@ Object {
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 0px;"
           >
             <img
@@ -2710,15 +2990,14 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
             style="margin-bottom: 0px;"
           >
             <img
@@ -2764,7 +3043,7 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -2778,9 +3057,8 @@ Object {
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 0px;"
         >
           <img
@@ -2826,15 +3104,14 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
           style="margin-bottom: 0px;"
         >
           <img
@@ -2880,7 +3157,7 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>,
@@ -2975,9 +3252,8 @@ Object {
           role="presentation"
           style="margin: 12px;"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
           >
             <div
               class="mdc-image-list__image-aspect-container"
@@ -3026,16 +3302,15 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
         <li
           class="mdc-image-list__item"
           role="presentation"
           style="margin: 12px;"
         >
-          <a
+          <div
             class="mdc-image-list__item-wrap"
-            href="#"
           >
             <div
               class="mdc-image-list__image-aspect-container"
@@ -3084,7 +3359,7 @@ Object {
                 </i>
               </button>
             </div>
-          </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -3098,9 +3373,8 @@ Object {
         role="presentation"
         style="margin: 12px;"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
         >
           <div
             class="mdc-image-list__image-aspect-container"
@@ -3149,16 +3423,15 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
       <li
         class="mdc-image-list__item"
         role="presentation"
         style="margin: 12px;"
       >
-        <a
+        <div
           class="mdc-image-list__item-wrap"
-          href="#"
         >
           <div
             class="mdc-image-list__image-aspect-container"
@@ -3207,7 +3480,7 @@ Object {
               </i>
             </button>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>,

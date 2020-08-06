@@ -77,6 +77,8 @@ class Importer extends Module_Base {
 			'https://images.unsplash.com/photo-1582817954180-3c17b7036409' => 47,
 			'https://images.unsplash.com/photo-1591404789216-d03646c78f73' => 45,
 		];
+
+		$this->images_lookup = array_flip( $this->images );
 	}
 
 	/**
@@ -86,44 +88,6 @@ class Importer extends Module_Base {
 	 */
 	public function get_import_file() {
 		return trailingslashit( $this->plugin->dir_path ) . 'assets/importer/demo-content.xml';
-	}
-
-	/**
-	 * Render form UI
-	 *
-	 * @TODO: Rename to Material Settings
-	 *
-	 * @return string Markup to display in page
-	 */
-	public function render_page() {
-		$should_import = filter_input( INPUT_POST, 'mtb-install-demo', FILTER_SANITIZE_NUMBER_INT );
-
-		// @codeCoverageIgnoreStart
-		if ( $should_import ) {
-			return $this->import_demo();
-		}
-		// @codeCoverageIgnoreEnd
-
-		ob_start();
-		?>
-
-		<h1><?php esc_html_e( 'Material Settings', 'material-theme-builder' ); ?></h1>
-
-		<div class="material-settings-container material-notice-container">
-			<div class="material-settings__logo">
-				<img src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-logo.png' ) ); ?>" alt />
-			</div>
-			<div class="material-settings-container__content">
-				<h3><?php esc_html_e( 'Setup Material plugin', 'material-theme-builder' ); ?></h3>
-
-				<p>
-					<a href="<?php echo esc_url( 'admin.php?page=material-theme-builder' ); ?>"><?php esc_html_e( 'Get started with the onboarding wizard', 'material-theme-builder' ); ?></a>
-				</p>
-			</div>
-		</div>
-
-		<?php
-		return ob_get_clean();
 	}
 
 	/**
@@ -242,6 +206,7 @@ class Importer extends Module_Base {
 			[
 				'post_status'            => 'publish',
 				'post_type'              => [ 'page', 'post' ],
+				'posts_per_page'         => 25,
 				'meta_key'               => '_mtb-demo-content',
 				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'no_found_rows'          => true,
@@ -258,6 +223,33 @@ class Importer extends Module_Base {
 	}
 
 	/**
+	 * Look for demo posts
+	 *
+	 * @return boolean Does the site have any demo posts imported.
+	 */
+	public function has_demo_content() {
+		/**
+		 * Fetch the imported posts.
+		 */
+		$query = new \WP_Query(
+			[
+				'post_status'            => 'publish',
+				'post_type'              => [ 'page' ],
+				'posts_per_page'         => 1,
+				'meta_key'               => '_mtb-demo-content',
+				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'fields'                 => 'ids',
+			]
+		);
+
+		return $query->have_posts();
+	}
+
+
+	/**
 	 * Update images in a demo post to reference imported image.
 	 *
 	 * @param  WP_Post $post Post to update.
@@ -271,28 +263,11 @@ class Importer extends Module_Base {
 
 				// Media ID formats in post content.
 				$id_formats = [
-					'"id":%s',
-					'data-id="%s"',
-					'wp-image-%s',
-					'"mediaId":%s',
+					'"id":%1$s',
+					'data-id="%1$s"',
+					'wp-image-%1$s',
+					'"mediaId":%1$s',
 				];
-
-				// Gallery ids format.
-				if ( preg_match_all( '#"ids"\:\[([^\]]+)\]#', $post->post_content, $matches, PREG_SET_ORDER ) ) {
-					foreach ( $matches as $match ) {
-						$ids = array_map(
-							function( $image_id ) use ( $id ) {
-								if ( absint( $image_id ) === $id ) {
-									return '%s';
-								}
-								return $image_id;
-							},
-							explode( ',', $match[1] )
-						);
-
-						$id_formats[] = implode( ',', $ids );
-					}
-				}
 
 				foreach ( $id_formats as $format ) {
 					$post->post_content = str_replace( sprintf( $format, $id ), sprintf( $format, $attachment['id'] ), $post->post_content );
@@ -309,6 +284,31 @@ class Importer extends Module_Base {
 						}
 					}
 				}
+			}
+		}
+
+		// Replace all galleries in the post.
+		if ( preg_match_all( '#"ids"\:\[([^\]]+)\]#', $post->post_content, $matches, PREG_SET_ORDER ) ) {
+			foreach ( $matches as $match ) {
+				$ids = array_map(
+					function( $image_id ) {
+						// Does the image have an imported attachment ?
+						$attachment = isset( $this->images_lookup[ $image_id ] )
+							? $this->get_attachment( $this->images_lookup[ $image_id ] )
+							: false;
+
+						// If we have a valid attachment, return the attachment ID.
+						if ( ! empty( $attachment ) ) {
+							return $attachment['id'];
+						}
+
+						return $image_id;
+					},
+					explode( ',', $match[1] )
+				);
+
+				// Replace the gallery image IDs with the imported IDs.
+				$post->post_content = str_replace( $match[1], implode( ',', $ids ), $post->post_content );
 			}
 		}
 

@@ -78,7 +78,7 @@ const Content = () => {
 		if ( status === STATUS.PENDING ) {
 			triggerOnboardingActions( addons );
 		}
-	}, [ status ] );
+	}, [ status ] ); // eslint-disable-line
 
 	return (
 		<Fragment>
