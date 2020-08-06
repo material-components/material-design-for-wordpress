@@ -27,6 +27,16 @@ Object {
             >
               Button
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/buttons"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
               Buttons allow users to take actions, and make choices, with a single tap.
             </p>
@@ -110,6 +120,16 @@ Object {
             >
               Card
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/cards"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
               Cards contain content and actions about a single subject.
             </p>
@@ -190,6 +210,16 @@ Object {
             >
               Table
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/data-tables"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
               Data tables display sets of data across rows and columns.
             </p>
@@ -352,6 +382,16 @@ Object {
             >
               Image List
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/image-lists"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
               Image lists display a collection of images in an organized grid.
             </p>
@@ -454,6 +494,16 @@ Object {
             >
               List
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/lists"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
               Lists are continuous, vertical indexes of text or images.
             </p>
@@ -692,6 +742,16 @@ Object {
             >
               Tabs
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/tabs"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
               Tabs organize content across different screens, data sets, and other interactions.
             </p>
@@ -830,8 +890,18 @@ Object {
             >
               Checkbox
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/develop/web/components/input-controls/checkboxes"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
-              This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+              Selection controls allow the user to select options. It is unavailable as a block in WordPress.
             </p>
             <div
               class="mdc-checkbox"
@@ -954,8 +1024,18 @@ Object {
             >
               Chips
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/chips"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
-              This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+              Chips are compact elements that represent an input, attribute, or action. It is unavailable as a block in WordPress.
             </p>
             <div
               class="mdc-chip-set"
@@ -1019,8 +1099,18 @@ Object {
             >
               Radio
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/develop/web/components/input-controls/radio-buttons"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
-              This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+              Radio buttons allow the user to select one option from a set. It is unavailable as a block in WordPress.
             </p>
             <div
               class="mdc-radio"
@@ -1076,8 +1166,18 @@ Object {
             >
               Fields
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/text-fields"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
-              This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+              Text fields let users enter and edit text. It is unavailable as a block in WordPress.
             </p>
             <div
               style="display: flex;"
@@ -1156,8 +1256,18 @@ Object {
             >
               Switch
             </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/develop/web/components/input-controls/switches"
+              >
+                open_in_new
+              </button>
+            </form>
             <p>
-              This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+              Switches toggle the state of a single setting on or off. It is unavailable as a block in WordPress.
             </p>
             <div
               class="mdc-switch"
@@ -1209,6 +1319,16 @@ Object {
           >
             Button
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/buttons"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
             Buttons allow users to take actions, and make choices, with a single tap.
           </p>
@@ -1292,6 +1412,16 @@ Object {
           >
             Card
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/cards"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
             Cards contain content and actions about a single subject.
           </p>
@@ -1372,6 +1502,16 @@ Object {
           >
             Table
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/data-tables"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
             Data tables display sets of data across rows and columns.
           </p>
@@ -1534,6 +1674,16 @@ Object {
           >
             Image List
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/image-lists"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
             Image lists display a collection of images in an organized grid.
           </p>
@@ -1636,6 +1786,16 @@ Object {
           >
             List
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/lists"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
             Lists are continuous, vertical indexes of text or images.
           </p>
@@ -1874,6 +2034,16 @@ Object {
           >
             Tabs
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/tabs"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
             Tabs organize content across different screens, data sets, and other interactions.
           </p>
@@ -2012,8 +2182,18 @@ Object {
           >
             Checkbox
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/develop/web/components/input-controls/checkboxes"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
-            This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+            Selection controls allow the user to select options. It is unavailable as a block in WordPress.
           </p>
           <div
             class="mdc-checkbox"
@@ -2136,8 +2316,18 @@ Object {
           >
             Chips
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/chips"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
-            This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+            Chips are compact elements that represent an input, attribute, or action. It is unavailable as a block in WordPress.
           </p>
           <div
             class="mdc-chip-set"
@@ -2201,8 +2391,18 @@ Object {
           >
             Radio
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/develop/web/components/input-controls/radio-buttons"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
-            This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+            Radio buttons allow the user to select one option from a set. It is unavailable as a block in WordPress.
           </p>
           <div
             class="mdc-radio"
@@ -2258,8 +2458,18 @@ Object {
           >
             Fields
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/text-fields"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
-            This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+            Text fields let users enter and edit text. It is unavailable as a block in WordPress.
           </p>
           <div
             style="display: flex;"
@@ -2338,8 +2548,18 @@ Object {
           >
             Switch
           </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/develop/web/components/input-controls/switches"
+            >
+              open_in_new
+            </button>
+          </form>
           <p>
-            This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
+            Switches toggle the state of a single setting on or off. It is unavailable as a block in WordPress.
           </p>
           <div
             class="mdc-switch"
