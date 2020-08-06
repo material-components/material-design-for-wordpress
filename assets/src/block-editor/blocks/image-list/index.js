@@ -8,6 +8,7 @@ import { __ } from '@wordpress/i18n';
  */
 import edit from './edit';
 import save from './save';
+import transforms from './transforms';
 import { example } from './example';
 
 export const name = 'material/image-list';
@@ -30,4 +31,5 @@ export const settings = {
 	edit,
 	save,
 	example,
+	transforms,
 };
