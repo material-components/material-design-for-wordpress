@@ -1,19 +1,13 @@
 import classNames from 'classnames';
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const TabBar = ( { iconStyle } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Tabs', 'material-theme-builder' ) }
 		</h4>
-		<form target="_blank">
-			<button
-				className="mdc-icon-button material-icons"
-				formAction="https://material.io/components/tabs"
-			>
-				open_in_new
-			</button>
-		</form>
+		<IconButtonLink href="https://material.io/components/tabs"></IconButtonLink>
 		<p>
 			{ __(
 				'Tabs organize content across different screens, data sets, and other interactions.',
