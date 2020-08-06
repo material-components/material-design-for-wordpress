@@ -71,7 +71,7 @@ const firstCardProps = {
 	displayActions: true,
 	displaySecondaryActionButton: false,
 	outlined: false,
-	cornerRadius: 4,
+	cornerRadius: undefined,
 };
 
 const secondCardProps = {
@@ -96,7 +96,7 @@ const secondCardProps = {
 	displayActions: true,
 	displaySecondaryActionButton: false,
 	outlined: false,
-	cornerRadius: 4,
+	cornerRadius: undefined,
 };
 
 const thirdCardProps = {
@@ -121,7 +121,7 @@ const thirdCardProps = {
 	displayActions: true,
 	displaySecondaryActionButton: false,
 	outlined: false,
-	cornerRadius: 4,
+	cornerRadius: undefined,
 };
 
 const baseProps = {
@@ -260,7 +260,7 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 				{ ...thirdCardProps },
 				{
 					contentLayout: 'text-under-media',
-					cornerRadius: 4,
+					cornerRadius: undefined,
 					displayActions: true,
 					displayImage: true,
 					displaySecondaryActionButton: false,
