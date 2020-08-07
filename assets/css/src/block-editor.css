@@ -31,3 +31,7 @@
 [class^="wp-block-material-"] .components-placeholder.components-placeholder {
 	box-shadow: none;
 }
+
+.components-placeholder__label .material-icons-outlined {
+	margin-right: 12px;
+}
