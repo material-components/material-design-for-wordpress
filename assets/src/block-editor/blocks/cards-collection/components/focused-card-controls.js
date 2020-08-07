@@ -49,7 +49,7 @@ const FocusedCardControls = ( {
 			disabled={ numberOfCards === cardIndex + 1 }
 		/>
 		<span className="card-number-title">
-			{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }{ ' ' }
+			{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }
 		</span>
 		<IconButton
 			className="mtb-card-buttons mtb-card-close-button"

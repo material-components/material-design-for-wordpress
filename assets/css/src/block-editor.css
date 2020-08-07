@@ -27,3 +27,7 @@
 .block-editor-inserter__popover .material-logo-svg {
 	margin-left: 8px;
 }
+
+.block-editor-block-list__block .mtb-block-handpicked-posts__selection {
+	width: 100%;
+}
