@@ -451,7 +451,7 @@ const DataTableEdit = ( {
 				>
 					<TextControl
 						type="number"
-						label={ __( 'Column Count', 'material-theme-builder' ) }
+						label={ __( 'Column count', 'material-theme-builder' ) }
 						value={ initialColumnCount }
 						onChange={ setinitialColumnCount }
 						min="1"
@@ -459,7 +459,7 @@ const DataTableEdit = ( {
 					/>
 					<TextControl
 						type="number"
-						label={ __( 'Row Count', 'material-theme-builder' ) }
+						label={ __( 'Row count', 'material-theme-builder' ) }
 						value={ initialRowCount }
 						onChange={ setinitialRowCount }
 						min="1"

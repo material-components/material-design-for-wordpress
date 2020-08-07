@@ -4,102 +4,56 @@ exports[`FocusedCardControls matches snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
     <div>
       <div
         class="card-container-controls"
       >
-        <button
-          aria-label="Move left"
-          class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-left-up has-icon"
-          disabled=""
-          type="button"
+        <div
+          class="move-card"
         >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-arrow-left"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            class="mtb-card-move-button-left-up"
+            disabled=""
+            title="Move left"
           >
-            <path
-              d="M13 14L7 9.97 13 6v8z"
-            />
-          </svg>
-        </button>
-        <button
-          aria-label="Move right"
-          class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-right-down has-icon"
-          disabled=""
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-arrow-right"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+            <i
+              class="material-icons"
+            >
+              arrow_left
+            </i>
+          </button>
+          <button
+            class="mtb-card-move-button-right-down"
+            disabled=""
+            title="Move right"
           >
-            <path
-              d="M8 6l6 4.03L8 14V6z"
-            />
-          </svg>
-        </button>
+            <i
+              class="material-icons"
+            >
+              arrow_right
+            </i>
+          </button>
+        </div>
         <span
           class="card-number-title"
         >
           Card #1
            
         </span>
-        <button
-          aria-label="Remove card"
-          class="components-button mtb-card-buttons mtb-card-close-button has-icon"
-          type="button"
+        <div
+          class="remove-card"
         >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-no"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            class="mtb-card-close-button"
+            title="Remove card"
           >
-            <path
-              d="M12.12 10l3.53 3.53-2.12 2.12L10 12.12l-3.54 3.54-2.12-2.12L7.88 10 4.34 6.46l2.12-2.12L10 7.88l3.54-3.53 2.12 2.12z"
-            />
-          </svg>
-        </button>
+            <i
+              class="material-icons"
+            >
+              close
+            </i>
+          </button>
+        </div>
       </div>
     </div>
   </body>,
@@ -107,74 +61,52 @@ Object {
     <div
       class="card-container-controls"
     >
-      <button
-        aria-label="Move left"
-        class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-left-up has-icon"
-        disabled=""
-        type="button"
+      <div
+        class="move-card"
       >
-        <svg
-          aria-hidden="true"
-          class="dashicon dashicons-arrow-left"
-          focusable="false"
-          height="20"
-          role="img"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        <button
+          class="mtb-card-move-button-left-up"
+          disabled=""
+          title="Move left"
         >
-          <path
-            d="M13 14L7 9.97 13 6v8z"
-          />
-        </svg>
-      </button>
-      <button
-        aria-label="Move right"
-        class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-right-down has-icon"
-        disabled=""
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="dashicon dashicons-arrow-right"
-          focusable="false"
-          height="20"
-          role="img"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+          <i
+            class="material-icons"
+          >
+            arrow_left
+          </i>
+        </button>
+        <button
+          class="mtb-card-move-button-right-down"
+          disabled=""
+          title="Move right"
         >
-          <path
-            d="M8 6l6 4.03L8 14V6z"
-          />
-        </svg>
-      </button>
+          <i
+            class="material-icons"
+          >
+            arrow_right
+          </i>
+        </button>
+      </div>
       <span
         class="card-number-title"
       >
         Card #1
          
       </span>
-      <button
-        aria-label="Remove card"
-        class="components-button mtb-card-buttons mtb-card-close-button has-icon"
-        type="button"
+      <div
+        class="remove-card"
       >
-        <svg
-          aria-hidden="true"
-          class="dashicon dashicons-no"
-          focusable="false"
-          height="20"
-          role="img"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        <button
+          class="mtb-card-close-button"
+          title="Remove card"
         >
-          <path
-            d="M12.12 10l3.53 3.53-2.12 2.12L10 12.12l-3.54 3.54-2.12-2.12L7.88 10 4.34 6.46l2.12-2.12L10 7.88l3.54-3.53 2.12 2.12z"
-          />
-        </svg>
-      </button>
+          <i
+            class="material-icons"
+          >
+            close
+          </i>
+        </button>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -235,100 +167,54 @@ exports[`FocusedCardControls matches snapshot when number of cards is more than 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
     <div>
       <div
         class="card-container-controls"
       >
-        <button
-          aria-label="Move left"
-          class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-left-up has-icon"
-          type="button"
+        <div
+          class="move-card"
         >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-arrow-left"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            class="mtb-card-move-button-left-up"
+            title="Move left"
           >
-            <path
-              d="M13 14L7 9.97 13 6v8z"
-            />
-          </svg>
-        </button>
-        <button
-          aria-label="Move right"
-          class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-right-down has-icon"
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-arrow-right"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+            <i
+              class="material-icons"
+            >
+              arrow_left
+            </i>
+          </button>
+          <button
+            class="mtb-card-move-button-right-down"
+            title="Move right"
           >
-            <path
-              d="M8 6l6 4.03L8 14V6z"
-            />
-          </svg>
-        </button>
+            <i
+              class="material-icons"
+            >
+              arrow_right
+            </i>
+          </button>
+        </div>
         <span
           class="card-number-title"
         >
           Card #3
            
         </span>
-        <button
-          aria-label="Remove card"
-          class="components-button mtb-card-buttons mtb-card-close-button has-icon"
-          type="button"
+        <div
+          class="remove-card"
         >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-no"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            class="mtb-card-close-button"
+            title="Remove card"
           >
-            <path
-              d="M12.12 10l3.53 3.53-2.12 2.12L10 12.12l-3.54 3.54-2.12-2.12L7.88 10 4.34 6.46l2.12-2.12L10 7.88l3.54-3.53 2.12 2.12z"
-            />
-          </svg>
-        </button>
+            <i
+              class="material-icons"
+            >
+              close
+            </i>
+          </button>
+        </div>
       </div>
     </div>
   </body>,
@@ -336,72 +222,50 @@ Object {
     <div
       class="card-container-controls"
     >
-      <button
-        aria-label="Move left"
-        class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-left-up has-icon"
-        type="button"
+      <div
+        class="move-card"
       >
-        <svg
-          aria-hidden="true"
-          class="dashicon dashicons-arrow-left"
-          focusable="false"
-          height="20"
-          role="img"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        <button
+          class="mtb-card-move-button-left-up"
+          title="Move left"
         >
-          <path
-            d="M13 14L7 9.97 13 6v8z"
-          />
-        </svg>
-      </button>
-      <button
-        aria-label="Move right"
-        class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-right-down has-icon"
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="dashicon dashicons-arrow-right"
-          focusable="false"
-          height="20"
-          role="img"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+          <i
+            class="material-icons"
+          >
+            arrow_left
+          </i>
+        </button>
+        <button
+          class="mtb-card-move-button-right-down"
+          title="Move right"
         >
-          <path
-            d="M8 6l6 4.03L8 14V6z"
-          />
-        </svg>
-      </button>
+          <i
+            class="material-icons"
+          >
+            arrow_right
+          </i>
+        </button>
+      </div>
       <span
         class="card-number-title"
       >
         Card #3
          
       </span>
-      <button
-        aria-label="Remove card"
-        class="components-button mtb-card-buttons mtb-card-close-button has-icon"
-        type="button"
+      <div
+        class="remove-card"
       >
-        <svg
-          aria-hidden="true"
-          class="dashicon dashicons-no"
-          focusable="false"
-          height="20"
-          role="img"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        <button
+          class="mtb-card-close-button"
+          title="Remove card"
         >
-          <path
-            d="M12.12 10l3.53 3.53-2.12 2.12L10 12.12l-3.54 3.54-2.12-2.12L7.88 10 4.34 6.46l2.12-2.12L10 7.88l3.54-3.53 2.12 2.12z"
-          />
-        </svg>
-      </button>
+          <i
+            class="material-icons"
+          >
+            close
+          </i>
+        </button>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -462,102 +326,56 @@ exports[`FocusedCardControls matches snapshot when style prop is \`list\` 1`] = 
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
     <div>
       <div
         class="card-container-controls"
       >
-        <button
-          aria-label="Move up"
-          class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-left-up has-icon"
-          disabled=""
-          type="button"
+        <div
+          class="move-card"
         >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-arrow-left"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            class="mtb-card-move-button-left-up"
+            disabled=""
+            title="Move up"
           >
-            <path
-              d="M13 14L7 9.97 13 6v8z"
-            />
-          </svg>
-        </button>
-        <button
-          aria-label="Move down"
-          class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-right-down has-icon"
-          disabled=""
-          type="button"
-        >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-arrow-right"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+            <i
+              class="material-icons"
+            >
+              arrow_left
+            </i>
+          </button>
+          <button
+            class="mtb-card-move-button-right-down"
+            disabled=""
+            title="Move down"
           >
-            <path
-              d="M8 6l6 4.03L8 14V6z"
-            />
-          </svg>
-        </button>
+            <i
+              class="material-icons"
+            >
+              arrow_right
+            </i>
+          </button>
+        </div>
         <span
           class="card-number-title"
         >
           Card #1
            
         </span>
-        <button
-          aria-label="Remove card"
-          class="components-button mtb-card-buttons mtb-card-close-button has-icon"
-          type="button"
+        <div
+          class="remove-card"
         >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-no"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
+          <button
+            class="mtb-card-close-button"
+            title="Remove card"
           >
-            <path
-              d="M12.12 10l3.53 3.53-2.12 2.12L10 12.12l-3.54 3.54-2.12-2.12L7.88 10 4.34 6.46l2.12-2.12L10 7.88l3.54-3.53 2.12 2.12z"
-            />
-          </svg>
-        </button>
+            <i
+              class="material-icons"
+            >
+              close
+            </i>
+          </button>
+        </div>
       </div>
     </div>
   </body>,
@@ -565,74 +383,52 @@ Object {
     <div
       class="card-container-controls"
     >
-      <button
-        aria-label="Move up"
-        class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-left-up has-icon"
-        disabled=""
-        type="button"
+      <div
+        class="move-card"
       >
-        <svg
-          aria-hidden="true"
-          class="dashicon dashicons-arrow-left"
-          focusable="false"
-          height="20"
-          role="img"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        <button
+          class="mtb-card-move-button-left-up"
+          disabled=""
+          title="Move up"
         >
-          <path
-            d="M13 14L7 9.97 13 6v8z"
-          />
-        </svg>
-      </button>
-      <button
-        aria-label="Move down"
-        class="components-button mtb-card-buttons mtb-card-move-button mtb-card-move-button-right-down has-icon"
-        disabled=""
-        type="button"
-      >
-        <svg
-          aria-hidden="true"
-          class="dashicon dashicons-arrow-right"
-          focusable="false"
-          height="20"
-          role="img"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+          <i
+            class="material-icons"
+          >
+            arrow_left
+          </i>
+        </button>
+        <button
+          class="mtb-card-move-button-right-down"
+          disabled=""
+          title="Move down"
         >
-          <path
-            d="M8 6l6 4.03L8 14V6z"
-          />
-        </svg>
-      </button>
+          <i
+            class="material-icons"
+          >
+            arrow_right
+          </i>
+        </button>
+      </div>
       <span
         class="card-number-title"
       >
         Card #1
          
       </span>
-      <button
-        aria-label="Remove card"
-        class="components-button mtb-card-buttons mtb-card-close-button has-icon"
-        type="button"
+      <div
+        class="remove-card"
       >
-        <svg
-          aria-hidden="true"
-          class="dashicon dashicons-no"
-          focusable="false"
-          height="20"
-          role="img"
-          viewBox="0 0 20 20"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+        <button
+          class="mtb-card-close-button"
+          title="Remove card"
         >
-          <path
-            d="M12.12 10l3.53 3.53-2.12 2.12L10 12.12l-3.54 3.54-2.12-2.12L7.88 10 4.34 6.46l2.12-2.12L10 7.88l3.54-3.53 2.12 2.12z"
-          />
-        </svg>
-      </button>
+          <i
+            class="material-icons"
+          >
+            close
+          </i>
+        </button>
+      </div>
     </div>
   </div>,
   "debug": [Function],

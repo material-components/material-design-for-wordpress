@@ -59,7 +59,7 @@ const Edit = props => {
 	const inspectorControlsProps = {
 		...props,
 	};
-	const [ cardsFocus, setCardsFocus ] = useState( [] );
+	const [ selected, setSelected ] = useState();
 	const columnSpan = getColumnSpan( style, columns );
 
 	/**
@@ -213,10 +213,7 @@ const Edit = props => {
 						className={ classnames(
 							'card-container',
 							{
-								'card-container-focused':
-									cardsFocus[ cardIndex ] !== undefined
-										? cardsFocus[ cardIndex ]
-										: false,
+								'card-container-focused': cardIndex === selected,
 							},
 							{
 								[ `mdc-layout-grid__cell--span-${ columnSpan }` ]:
@@ -229,24 +226,23 @@ const Edit = props => {
 						{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
 						{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
 						{ style === 'masonry' && <VerticalCardLayout { ...cardProps } /> }
-						{ cardsFocus[ cardIndex ] !== undefined &&
-							cardsFocus[ cardIndex ] && (
-								<FocusedCardControls
-									cardIndex={ cardIndex }
-									style={ style }
-									numberOfCards={ numberOfCards }
-									onMoveLeftOrUp={ () => onCardMoveLeftOrUp( cardIndex ) }
-									onMoveRightOrDown={ () => onCardMoveRightOrDown( cardIndex ) }
-									onRemove={ () => onCardRemove( cardIndex ) }
-								/>
-							) }
+						{ cardIndex === selected && (
+							<FocusedCardControls
+								cardIndex={ cardIndex }
+								style={ style }
+								numberOfCards={ numberOfCards }
+								onMoveLeftOrUp={ () => onCardMoveLeftOrUp( cardIndex ) }
+								onMoveRightOrDown={ () => onCardMoveRightOrDown( cardIndex ) }
+								onRemove={ () => onCardRemove( cardIndex ) }
+							/>
+						) }
 					</div>
 				);
 			}
 			setCards( items );
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-		[ cardsFocus, cardsProps, columnSpan, gutter, numberOfCards, style ]
+		[ selected, cardsProps, columnSpan, gutter, numberOfCards, style ]
 	);
 
 	/**
@@ -255,12 +251,7 @@ const Edit = props => {
 	 * @param {number} cardIndex - Card index.
 	 */
 	const onCardFocus = cardIndex => {
-		const newCardFocus = cardsFocus.map( () => {
-			/* istanbul ignore next */
-			return false;
-		} );
-		newCardFocus[ cardIndex ] = true;
-		setCardsFocus( newCardFocus );
+		setSelected( cardIndex );
 	};
 
 	/**
@@ -277,7 +268,7 @@ const Edit = props => {
 			setAttributes( {
 				cardsProps: newCardsProps,
 			} );
-			setCardsFocus( [] );
+			setSelected( cardIndex - 1 );
 		}
 	};
 
@@ -295,7 +286,8 @@ const Edit = props => {
 			setAttributes( {
 				cardsProps: newCardsProps,
 			} );
-			setCardsFocus( [] );
+
+			setSelected( cardIndex + 1 );
 		}
 	};
 
@@ -311,7 +303,7 @@ const Edit = props => {
 			cardsProps: newCardsProps,
 			numberOfCards: numberOfCards - 1,
 		} );
-		setCardsFocus( [] );
+		setSelected( false );
 	};
 
 	/**
@@ -323,7 +315,7 @@ const Edit = props => {
 	const onClickOutsideCard = event => {
 		const cardContainer = event.target.closest( '.card-container' );
 		if ( ! cardContainer ) {
-			setCardsFocus( [] );
+			setSelected( false );
 		}
 	};
 
