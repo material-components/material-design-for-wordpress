@@ -1,13 +1,15 @@
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const Chips = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Chips', 'material-theme-builder' ) }
 		</h4>
+		<IconButtonLink href="https://material.io/components/chips"></IconButtonLink>
 		<p>
 			{ __(
-				'This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.',
+				'Chips are compact elements that represent an input, attribute, or action. It is unavailable as a block in WordPress.',
 				'material-theme-builder'
 			) }
 		</p>
