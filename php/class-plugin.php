@@ -36,6 +36,13 @@ class Plugin extends Plugin_Base {
 	public $customizer_controls;
 
 	/**
+	 * Block_Type class.
+	 *
+	 * @var Block_Types
+	 */
+	public $block_types;
+
+	/**
 	 * Image_List_Block class.
 	 *
 	 * @var Image_List_Block
@@ -119,6 +126,9 @@ class Plugin extends Plugin_Base {
 
 		$this->customizer_controls = new Controls( $this );
 		$this->customizer_controls->init();
+
+		$this->block_types = new Block_Types( $this );
+		$this->block_types->init();
 
 		$this->recent_post_block = new Recent_Posts_Block( $this );
 		$this->recent_post_block->init();
