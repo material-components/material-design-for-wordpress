@@ -63,6 +63,14 @@ export const Overrides = createGlobalStyle`
 	#mcb-material-library-preview hr {
 		border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .12);
 	}
+
+	h4, form, button {
+		display: inline-block;
+		button {
+			color: var(--mdc-theme-on-background) !important;
+			vertical-align: sub;
+		}
+	}
 `;
 
 export const RippleColor = styled.div`
