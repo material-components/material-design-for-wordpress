@@ -4,7 +4,7 @@ import { __ } from '@wordpress/i18n';
 const Lists = ( { iconStyle } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'List', 'material-theme-builder' ) }
+			{ __( 'Lists', 'material-theme-builder' ) }
 		</h4>
 		<p>
 			{ __(

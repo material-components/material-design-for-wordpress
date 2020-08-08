@@ -101,6 +101,12 @@ const MaterialLibrary = ( {
 					<h3 className="mdc-typography--headline3">
 						{ __( 'Blocks', 'material-theme-builder' ) }
 					</h3>
+					<p>
+						{ __(
+							'Build your WordPress site using these Material Components blocks.',
+							'material-theme-builder'
+						) }
+					</p>
 					<hr />
 					<Buttons
 						iconStyle={ iconStyle }
@@ -126,6 +132,12 @@ const MaterialLibrary = ( {
 					<h3 className="mdc-typography--headline3">
 						{ __( 'Components', 'material-theme-builder' ) }
 					</h3>
+					<p>
+						{ __(
+							'Styled components available when WordPress Material Theme is activated.',
+							'material-theme-builder'
+						) }
+					</p>
 					{ 'material-theme' !== theme && (
 						<p>
 							{ __(

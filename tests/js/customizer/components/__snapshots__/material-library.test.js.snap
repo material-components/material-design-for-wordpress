@@ -19,6 +19,9 @@ Object {
           >
             Blocks
           </h3>
+          <p>
+            Build your WordPress site using these Material Components blocks.
+          </p>
           <hr />
           <div>
             <h4
@@ -108,7 +111,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Card
+              Cards
             </h4>
             <p>
               This component can be created as a block in WordPress.
@@ -188,7 +191,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Table
+              Data Tables
             </h4>
             <p>
               This component can be created as a block in WordPress.
@@ -350,7 +353,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Image List
+              Gallery (Image Lists)
             </h4>
             <p>
               This component can be created as a block in WordPress.
@@ -452,7 +455,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              List
+              Lists
             </h4>
             <p>
               This component can be created as a block in WordPress.
@@ -690,7 +693,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Tab Bar
+              Tabs
             </h4>
             <p>
               This component can be created as a block in WordPress.
@@ -820,6 +823,9 @@ Object {
             Components
           </h3>
           <p>
+            Styled components available when WordPress Material Theme is activated.
+          </p>
+          <p>
             Enable Material Theme for more components.
           </p>
           <hr />
@@ -828,7 +834,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Checkbox
+              Checkboxes
             </h4>
             <p>
               This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
@@ -1017,7 +1023,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Radio
+              Radio buttons
             </h4>
             <p>
               This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
@@ -1074,7 +1080,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Fields
+              Text fields
             </h4>
             <p>
               This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
@@ -1154,7 +1160,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Switch
+              Switches
             </h4>
             <p>
               This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
@@ -1201,6 +1207,9 @@ Object {
         >
           Blocks
         </h3>
+        <p>
+          Build your WordPress site using these Material Components blocks.
+        </p>
         <hr />
         <div>
           <h4
@@ -1290,7 +1299,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Card
+            Cards
           </h4>
           <p>
             This component can be created as a block in WordPress.
@@ -1370,7 +1379,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Table
+            Data Tables
           </h4>
           <p>
             This component can be created as a block in WordPress.
@@ -1532,7 +1541,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Image List
+            Gallery (Image Lists)
           </h4>
           <p>
             This component can be created as a block in WordPress.
@@ -1634,7 +1643,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            List
+            Lists
           </h4>
           <p>
             This component can be created as a block in WordPress.
@@ -1872,7 +1881,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Tab Bar
+            Tabs
           </h4>
           <p>
             This component can be created as a block in WordPress.
@@ -2002,6 +2011,9 @@ Object {
           Components
         </h3>
         <p>
+          Styled components available when WordPress Material Theme is activated.
+        </p>
+        <p>
           Enable Material Theme for more components.
         </p>
         <hr />
@@ -2010,7 +2022,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Checkbox
+            Checkboxes
           </h4>
           <p>
             This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
@@ -2199,7 +2211,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Radio
+            Radio buttons
           </h4>
           <p>
             This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
@@ -2256,7 +2268,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Fields
+            Text fields
           </h4>
           <p>
             This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.
@@ -2336,7 +2348,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Switch
+            Switches
           </h4>
           <p>
             This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.

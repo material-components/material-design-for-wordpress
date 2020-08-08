@@ -3,7 +3,7 @@ import { __ } from '@wordpress/i18n';
 const Radios = () => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Radio', 'material-theme-builder' ) }
+			{ __( 'Radio buttons', 'material-theme-builder' ) }
 		</h4>
 		<p>
 			{ __(
