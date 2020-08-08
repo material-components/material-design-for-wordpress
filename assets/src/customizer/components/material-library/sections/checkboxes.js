@@ -3,7 +3,7 @@ import { __ } from '@wordpress/i18n';
 const Checkboxes = () => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Checkbox', 'material-theme-builder' ) }
+			{ __( 'Checkboxes', 'material-theme-builder' ) }
 		</h4>
 		<p>
 			{ __(
