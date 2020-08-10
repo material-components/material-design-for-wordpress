@@ -89,6 +89,12 @@ const HorizontalCardLayout = ( {
 		isEditMode,
 	};
 
+	const styles = {};
+
+	if ( 'undefined' !== typeof cornerRadius ) {
+		styles.borderRadius = `${ cornerRadius }px`;
+	}
+
 	return (
 		<div
 			className={ classnames(
@@ -98,7 +104,7 @@ const HorizontalCardLayout = ( {
 				'mtb-card__list',
 				'mtb-basic'
 			) }
-			style={ { borderRadius: `${ cornerRadius }px` } }
+			style={ styles }
 		>
 			<div
 				className="mdc-card__primary-action mtb-card__primary-action"
