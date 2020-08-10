@@ -189,17 +189,18 @@ class Image_List_Block extends Module_Base {
 			$item_styles[] = "}\n";
 		}
 
-		$attributes['cornerRadius'] = isset( $attributes['cornerRadius'] ) ? $attributes['cornerRadius'] : 0;
-
-		$image_styles = [
-			sprintf( '#%s .mdc-image-list__image {', $id ),
-			sprintf( 'border-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
-			"}\n",
-			sprintf( '#%s .mdc-image-list__supporting {', $id ),
-			sprintf( 'border-bottom-left-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
-			sprintf( 'border-bottom-right-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
-			"}\n",
-		];
+		$image_styles = [];
+		if ( isset( $attributes['cornerRadius'] ) ) {
+			$image_styles = [
+				sprintf( '#%s .mdc-image-list__image {', $id ),
+				sprintf( 'border-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
+				"}\n",
+				sprintf( '#%s .mdc-image-list__supporting {', $id ),
+				sprintf( 'border-bottom-left-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
+				sprintf( 'border-bottom-right-radius: %spx;', absint( $attributes['cornerRadius'] ) ),
+				"}\n",
+			];
+		}
 
 		return array_merge( $styles, $item_styles, $image_styles );
 	}
