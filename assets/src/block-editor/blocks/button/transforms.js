@@ -9,6 +9,9 @@ const transforms = {
 				return buttons.map( ( { attributes } ) => {
 					return createBlock( 'material/button', {
 						label: attributes.text,
+						url: attributes.url,
+						linkTarget: attributes.linkTarget,
+						rel: attributes.rel,
 					} );
 				} );
 			},
