@@ -78,7 +78,6 @@ Object {
           class="card-number-title"
         >
           Card #1
-           
         </span>
         <button
           aria-label="Remove card"
@@ -153,7 +152,6 @@ Object {
         class="card-number-title"
       >
         Card #1
-         
       </span>
       <button
         aria-label="Remove card"
@@ -307,7 +305,6 @@ Object {
           class="card-number-title"
         >
           Card #3
-           
         </span>
         <button
           aria-label="Remove card"
@@ -380,7 +377,6 @@ Object {
         class="card-number-title"
       >
         Card #3
-         
       </span>
       <button
         aria-label="Remove card"
@@ -536,7 +532,6 @@ Object {
           class="card-number-title"
         >
           Card #1
-           
         </span>
         <button
           aria-label="Remove card"
@@ -611,7 +606,6 @@ Object {
         class="card-number-title"
       >
         Card #1
-         
       </span>
       <button
         aria-label="Remove card"
