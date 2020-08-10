@@ -33,7 +33,7 @@ for ( let index = 0; index < 2; index++ ) {
 		displayActions: true,
 		displaySecondaryActionButton: false,
 		outlined: false,
-		cornerRadius: 4,
+		cornerRadius: undefined,
 	} );
 }
 describe( 'blocks: material/cards-collection', () => {

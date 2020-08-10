@@ -15,13 +15,7 @@ import {
 	InspectorControls,
 	RichText,
 } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	ToggleControl,
-	TextControl,
-	RangeControl,
-} from '@wordpress/components';
-import { compose } from '@wordpress/compose';
+import { PanelBody, ToggleControl, TextControl } from '@wordpress/components';
 import { withSelect } from '@wordpress/data';
 
 /**
@@ -34,11 +28,12 @@ import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
 import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
-import { withGlobalDefaults } from '../../components/with-global-defaults';
+import GlobalShapeSize from '../../components/global-shape-size';
 import MaterialColorPalette from '../../components/material-color-palette';
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
+import { name as ButtonBlockName } from './index';
 
 /**
  * Small component which either renders an icon button or a text button.
@@ -271,11 +266,12 @@ const ButtonEdit = ( {
 						initialOpen={ true }
 					>
 						{ style !== 'text' ? (
-							<RangeControl
+							<GlobalShapeSize
 								value={ cornerRadius }
 								onChange={ setter( 'cornerRadius' ) }
 								min={ 0 }
 								max={ 20 }
+								blockName={ ButtonBlockName }
 							/>
 						) : (
 							<p>
@@ -309,14 +305,11 @@ const ButtonEdit = ( {
 	);
 };
 
-export default compose( [
-	withSelect( ( select, { clientId } ) => {
-		const { getBlockParentsByBlockName } = select( 'core/block-editor' );
+export default withSelect( ( select, { clientId } ) => {
+	const { getBlockParentsByBlockName } = select( 'core/block-editor' );
 
-		return {
-			isSubmitButton:
-				getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0,
-		};
-	} ),
-	withGlobalDefaults,
-] )( ButtonEdit );
+	return {
+		isSubmitButton:
+			getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0,
+	};
+} )( ButtonEdit );

@@ -25,7 +25,7 @@ export const CARD_ATTRIBUTES_VALUE = {
 	displayActions: true,
 	displaySecondaryActionButton: false,
 	outlined: false,
-	cornerRadius: 4,
+	cornerRadius: undefined,
 };
 
 export const DEFAULT_NUMBER_OF_CARDS = 2;
