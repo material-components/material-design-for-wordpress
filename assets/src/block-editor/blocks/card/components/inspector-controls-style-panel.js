@@ -2,12 +2,13 @@
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import {
-	PanelBody,
-	RadioControl,
-	RangeControl,
-	ToggleControl,
-} from '@wordpress/components';
+import { PanelBody, RadioControl, ToggleControl } from '@wordpress/components';
+
+/**
+ * Internal dependencies
+ */
+import GlobalShapeSize from '../../../components/global-shape-size';
+import { name as CardBlockName } from '../index';
 
 const CONTENT_LAYOUTS = [
 	{
@@ -67,12 +68,13 @@ const InspectorControlsStylePanel = ( {
 				onChange={ value => setter( 'contentLayout', value, cardIndex ) }
 			/>
 		) }
-		<RangeControl
+		<GlobalShapeSize
 			label={ __( 'Rounded corners', 'material-theme-builder' ) }
 			value={ cornerRadius }
 			onChange={ value => setter( 'cornerRadius', value, cardIndex ) }
 			min={ MIN_CARD_ROUND_CORNERS }
 			max={ MAX_CARD_ROUND_CORNERS }
+			blockName={ CardBlockName }
 		/>
 		<ToggleControl
 			label={ __( 'Outlined', 'material-theme-builder' ) }
