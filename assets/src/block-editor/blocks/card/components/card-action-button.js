@@ -28,6 +28,7 @@ import ToolbarUrlInputPopover from '../../../components/toolbar-url-input-popove
 const CardActionButton = ( {
 	label,
 	onChangeLabel = () => {},
+	onPopupFocusOutside = () => {},
 	url,
 	newTab,
 	noFollow,
@@ -99,6 +100,7 @@ const CardActionButton = ( {
 						isSelected={ true }
 						opensInNewTab={ newTab }
 						onChangeNewTab={ onToggleOpenInNewTab }
+						onFocusOutside={ onPopupFocusOutside }
 					/>
 				</>
 			) }

@@ -195,6 +195,7 @@ const Edit = props => {
 					setAttributes,
 					setter,
 					isEditMode: true,
+					isFocused: cardsFocus[ cardIndex ],
 					...baseProps,
 				};
 
