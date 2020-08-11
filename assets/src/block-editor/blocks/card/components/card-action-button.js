@@ -29,46 +29,21 @@ const CardActionButton = ( {
 	label,
 	onChangeLabel = () => {},
 	onPopupFocusOutside = () => {},
+	onChangeUrl = () => {},
+	onChangeNewTab = () => {},
 	url,
 	newTab,
 	noFollow,
 	isFocused = false,
 	isEditMode,
-	setter,
-	isPrimary,
 } ) => {
 	let rel;
-	const urlAttr = isPrimary
-		? 'primaryActionButtonUrl'
-		: 'secondaryActionButtonUrl';
-	const newTabAttr = isPrimary
-		? 'primaryActionButtonNewTab'
-		: 'secondaryActionButtonNewTab';
 	if ( url && newTab ) {
 		rel = 'noopener noreferrer';
 		if ( noFollow ) {
 			rel += ' nofollow';
 		}
 	}
-
-	/**
-	 * Sets ref and linkTarget when the toggle is touched.
-	 *
-	 * @param {boolean} value Whether the toggle is on or off.
-	 */
-	const onToggleOpenInNewTab = value => {
-		const newLinkTarget = value ? '_blank' : '';
-
-		let updatedRel = rel;
-		if ( newLinkTarget && ! rel ) {
-			updatedRel = 'noopener noreferrer';
-		} else if ( ! newLinkTarget && rel === 'noopener noreferrer' ) {
-			updatedRel = '';
-		}
-
-		setter( newTabAttr, value );
-		rel = updatedRel;
-	};
 
 	return (
 		<>
@@ -96,10 +71,10 @@ const CardActionButton = ( {
 				<>
 					<ToolbarUrlInputPopover
 						url={ url }
-						setURL={ newUrl => setter( urlAttr, newUrl ) }
+						setURL={ onChangeUrl }
 						isSelected={ true }
 						opensInNewTab={ newTab }
-						onChangeNewTab={ onToggleOpenInNewTab }
+						onChangeNewTab={ onChangeNewTab }
 						onFocusOutside={ onPopupFocusOutside }
 					/>
 				</>
