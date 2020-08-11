@@ -8,7 +8,6 @@ import { InspectorControls } from '@wordpress/block-editor';
  */
 import './style.css';
 import './editor.css';
-import { withGlobalDefaults } from '../../components/with-global-defaults';
 import InspectorControlsStylePanel from './components/inspector-controls-style-panel';
 import InspectorControlsContentPanel from './components/inspector-controls-content-panel';
 import VerticalCardLayout from './components/vertical-card-layout';
@@ -126,4 +125,4 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 	);
 };
 
-export default withGlobalDefaults( Edit );
+export default Edit;
