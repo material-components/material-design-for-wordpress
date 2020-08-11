@@ -36,6 +36,7 @@ const CardActions = ( {
 	cardIndex,
 	setter,
 	isEditMode,
+	isFocused,
 } ) => {
 	const cardActionsEditProps = {
 		primaryActionButtonLabel,
@@ -49,6 +50,7 @@ const CardActions = ( {
 		displaySecondaryActionButton,
 		cardIndex,
 		setter,
+		isFocused,
 	};
 
 	return (
