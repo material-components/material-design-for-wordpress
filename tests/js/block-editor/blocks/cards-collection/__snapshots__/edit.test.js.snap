@@ -46,7 +46,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -152,7 +151,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -258,7 +256,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -375,7 +372,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -481,7 +477,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -587,7 +582,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -783,7 +777,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -883,7 +876,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -983,7 +975,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -1098,7 +1089,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -1198,7 +1188,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -1298,7 +1287,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -1494,7 +1482,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card mtb-card__list mtb-basic"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action"
@@ -1584,7 +1571,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card mtb-card__list mtb-basic"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action"
@@ -1674,7 +1660,6 @@ Object {
             >
               <div
                 class="mdc-card mtb-card mtb-card__list mtb-basic"
-                style="border-radius: 4px;"
               >
                 <div
                   class="mdc-card__primary-action mtb-card__primary-action"
@@ -1779,7 +1764,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card mtb-card__list mtb-basic"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action"
@@ -1869,7 +1853,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card mtb-card__list mtb-basic"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action"
@@ -1959,7 +1942,6 @@ Object {
           >
             <div
               class="mdc-card mtb-card mtb-card__list mtb-basic"
-              style="border-radius: 4px;"
             >
               <div
                 class="mdc-card__primary-action mtb-card__primary-action"
@@ -2108,7 +2090,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
       "cardsProps": Array [
         Object {
           "contentLayout": "text-under-media",
-          "cornerRadius": 4,
+          "cornerRadius": undefined,
           "displayActions": true,
           "displayImage": true,
           "displaySecondaryActionButton": false,
@@ -2132,7 +2114,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
         },
         Object {
           "contentLayout": "text-under-media",
-          "cornerRadius": 4,
+          "cornerRadius": undefined,
           "displayActions": true,
           "displayImage": true,
           "displaySecondaryActionButton": false,
@@ -2156,7 +2138,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
         },
         Object {
           "contentLayout": "text-under-media",
-          "cornerRadius": 4,
+          "cornerRadius": undefined,
           "displayActions": true,
           "displayImage": true,
           "displaySecondaryActionButton": false,
@@ -2206,7 +2188,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
         "cardsProps": Array [
           Object {
             "contentLayout": "text-under-media",
-            "cornerRadius": 4,
+            "cornerRadius": undefined,
             "displayActions": true,
             "displayImage": true,
             "displaySecondaryActionButton": false,
@@ -2230,7 +2212,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
           },
           Object {
             "contentLayout": "text-under-media",
-            "cornerRadius": 4,
+            "cornerRadius": undefined,
             "displayActions": true,
             "displayImage": true,
             "displaySecondaryActionButton": false,
@@ -2254,7 +2236,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
           },
           Object {
             "contentLayout": "text-under-media",
-            "cornerRadius": 4,
+            "cornerRadius": undefined,
             "displayActions": true,
             "displayImage": true,
             "displaySecondaryActionButton": false,
@@ -2319,7 +2301,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
             <VerticalCardLayout
               cardIndex={0}
               contentLayout="text-under-media"
-              cornerRadius={4}
               displayActions={true}
               displayImage={true}
               displaySecondaryActionButton={false}
@@ -2358,7 +2339,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
             <VerticalCardLayout
               cardIndex={1}
               contentLayout="text-under-media"
-              cornerRadius={4}
               displayActions={true}
               displayImage={true}
               displaySecondaryActionButton={false}
@@ -2429,7 +2409,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
               <VerticalCardLayout
                 cardIndex={0}
                 contentLayout="text-under-media"
-                cornerRadius={4}
                 displayActions={true}
                 displayImage={true}
                 displaySecondaryActionButton={false}
@@ -2456,11 +2435,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
               >
                 <div
                   className="mdc-card mtb-card"
-                  style={
-                    Object {
-                      "borderRadius": "4px",
-                    }
-                  }
+                  style={Object {}}
                 >
                   <div
                     className="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
@@ -4698,7 +4673,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
               <VerticalCardLayout
                 cardIndex={1}
                 contentLayout="text-under-media"
-                cornerRadius={4}
                 displayActions={true}
                 displayImage={true}
                 displaySecondaryActionButton={false}
@@ -4725,11 +4699,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
               >
                 <div
                   className="mdc-card mtb-card"
-                  style={
-                    Object {
-                      "borderRadius": "4px",
-                    }
-                  }
+                  style={Object {}}
                 >
                   <div
                     className="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
