@@ -498,6 +498,7 @@ class Controls extends Module_Base {
 				array_values( $demo_images )
 			);
 		}
+		$demo_images = array_slice( $demo_images, 0, 9 );
 
 		wp_localize_script(
 			'material-theme-builder-customizer-js',
