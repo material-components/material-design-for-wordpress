@@ -1,15 +1,17 @@
 /* global mtb */
 
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const ImageLists = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Gallery (Image Lists)', 'material-theme-builder' ) }
 		</h4>
+		<IconButtonLink href="https://material.io/components/image-lists"></IconButtonLink>
 		<p>
 			{ __(
-				'This component can be created as a block in WordPress.',
+				'Image lists display a collection of images in an organized grid.',
 				'material-theme-builder'
 			) }
 		</p>

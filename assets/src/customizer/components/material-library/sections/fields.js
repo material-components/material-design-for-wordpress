@@ -1,13 +1,15 @@
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const Fields = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Text fields', 'material-theme-builder' ) }
 		</h4>
+		<IconButtonLink href="https://material.io/components/text-fields"></IconButtonLink>
 		<p>
 			{ __(
-				'This is an example of how this component appears in the theme. It is unavailable as a block in WordPress.',
+				'Text fields let users enter and edit text. It is unavailable as a block in WordPress.',
 				'material-theme-builder'
 			) }
 		</p>

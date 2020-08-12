@@ -1,15 +1,17 @@
 /* global mtb */
 
 import { __ } from '@wordpress/i18n';
+import IconButtonLink from '../common/icon-button-link';
 
 const Cards = ( { radius, buttonRadius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Cards', 'material-theme-builder' ) }
 		</h4>
+		<IconButtonLink href="https://material.io/components/cards"></IconButtonLink>
 		<p>
 			{ __(
-				'This component can be created as a block in WordPress.',
+				'Cards contain content and actions about a single subject.',
 				'material-theme-builder'
 			) }
 		</p>
