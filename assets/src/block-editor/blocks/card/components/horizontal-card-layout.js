@@ -64,6 +64,7 @@ const HorizontalCardLayout = ( {
 	cornerRadius,
 	setter,
 	isEditMode,
+	isFocused,
 } ) => {
 	contentLayout = 'text-under-media';
 
@@ -127,6 +128,7 @@ const HorizontalCardLayout = ( {
 					cardIndex={ cardIndex }
 					setter={ setter }
 					isEditMode={ isEditMode }
+					isFocused={ isFocused }
 				/>
 			) }
 		</div>
