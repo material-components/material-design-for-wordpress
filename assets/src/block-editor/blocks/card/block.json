@@ -42,7 +42,7 @@
 	   },
 	   "primaryActionButtonLabel": {
 		  "type": "string",
-		  "default": "Button text"
+		  "default": ""
 	   },
 	   "primaryActionButtonUrl": {
 		  "type": "string"
@@ -57,7 +57,7 @@
 	   },
 	   "secondaryActionButtonLabel": {
 		  "type": "string",
-		  "default": "Button text"
+		  "default": ""
 	   },
 	   "secondaryActionButtonUrl": {
 		  "type": "string"

@@ -338,7 +338,7 @@ Object {
               class="mdc-button mdc-card__action mdc-card__action--button"
             >
               <div
-                aria-label="Button text"
+                aria-label="Button"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable"
                 contenteditable="true"
@@ -367,7 +367,7 @@ Object {
             class="mdc-button mdc-card__action mdc-card__action--button"
           >
             <div
-              aria-label="Button text"
+              aria-label="Button"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable"
               contenteditable="true"
@@ -477,7 +477,7 @@ Object {
               class="mdc-button mdc-card__action mdc-card__action--button"
             >
               <div
-                aria-label="Button text"
+                aria-label="Button"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable"
                 contenteditable="true"
@@ -495,7 +495,7 @@ Object {
               class="mdc-button mdc-card__action mdc-card__action--button"
             >
               <div
-                aria-label="Button text"
+                aria-label="Button"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable"
                 contenteditable="true"
@@ -524,7 +524,7 @@ Object {
             class="mdc-button mdc-card__action mdc-card__action--button"
           >
             <div
-              aria-label="Button text"
+              aria-label="Button"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable"
               contenteditable="true"
@@ -542,7 +542,7 @@ Object {
             class="mdc-button mdc-card__action mdc-card__action--button"
           >
             <div
-              aria-label="Button text"
+              aria-label="Button"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable"
               contenteditable="true"
