@@ -14,17 +14,36 @@ use MaterialThemeBuilder\Customizer\Controls;
  * Tests for Block_Types class.
  */
 class Test_Block_Types extends \WP_UnitTestCase {
+
+	/**
+	 * List of all material blocks.
+	 *
+	 * @var array
+	 */
+	private static $blocks = [
+		'button',
+		'card',
+		'cards-collection',
+		'contact-form',
+		'data-table',
+		'hand-picked-posts',
+		'image-list',
+		'list',
+		'recent-posts',
+		'tab-bar',
+	];
+
 	/**
 	 * Test constructor.
 	 *
 	 * @see Block_Types::__construct()
 	 */
 	public function test_construct() {
-		// $block_types = new Block_Types( get_plugin_instance() );
+		$block_types = new Block_Types( get_plugin_instance() );
 
-		// $this->assertEquals( 10, has_action( 'init', [ $block_types, 'register_blocks' ] ) );
-		// $this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $block_types, 'enqueue_block_editor_assets' ] ) );
-		// $this->assertEquals( 10, has_filter( 'block_categories', [ $block_types, 'block_category' ] ) );
+		$this->assertTrue( is_a( $block_types->blocks['recent-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['hand-picked-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['contact-form'], '\MaterialThemeBuilder\Blocks\Contact_Form_Block' ) );
 	}
 
 	/**
@@ -39,6 +58,51 @@ class Test_Block_Types extends \WP_UnitTestCase {
 		$this->assertEquals( 10, has_action( 'init', [ $block_types, 'register_blocks' ] ) );
 		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $block_types, 'enqueue_block_editor_assets' ] ) );
 		$this->assertEquals( 10, has_filter( 'block_categories', [ $block_types, 'block_category' ] ) );
+	}
+
+	/**
+	 * Test register_blocks.
+	 *
+	 * @see Block_Type::register_blocks()
+	 */
+	public function test_register_blocks() {
+		$block_types = new Block_Types( get_plugin_instance() );
+
+		// Unregister all the blocks if they are registered already.
+		array_walk(
+			self::$blocks,
+			function( $block ) {
+				unregister_block_type( 'material/' . $block );
+			}
+		);
+
+		$block_types->register_blocks();
+
+		$blocks = \WP_Block_Type_Registry::get_instance()->get_all_registered();
+
+		array_walk(
+			self::$blocks,
+			function( $block_name ) use ( $blocks ) {
+				// Assert the block is registered.
+				$this->assertTrue( array_key_exists( 'material/' . $block_name, $blocks ) );
+
+				$block = $blocks[ 'material/' . $block_name ];
+
+				$this->assertEquals( 'material-block-editor-js', $block->editor_script );
+				$this->assertEquals( 'material-block-editor-css', $block->editor_style );
+
+				$block_folder = get_plugin_instance()->dir_path . '/assets/js/blocks/' . $block_name;
+				$block_json   = $block_folder . '/block.json';
+				$metadata     = json_decode( file_get_contents( $block_json ), true ); // phpcs:ignore
+
+				$this->assertEquals( $metadata['category'], $block->category );
+				$this->assertEquals( $metadata['attributes'], $block->attributes );
+
+				if ( isset( $metadata['supports'] ) ) {
+					$this->assertEquals( $metadata['supports'], $block->supports );
+				}
+			}
+		);
 	}
 
 	/**
