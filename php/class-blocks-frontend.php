@@ -5,9 +5,10 @@
  * @package MaterialThemeBuilder
  */
 
-namespace MaterialThemeBuilder\Blocks;
+namespace MaterialThemeBuilder;
 
 use MaterialThemeBuilder\Module_Base;
+use MaterialThemeBuilder\Blocks\Image_List_Block;
 
 /**
  * Blocks_Frontend class.

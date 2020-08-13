@@ -7,7 +7,7 @@
 
 namespace MaterialThemeBuilder;
 
-use MaterialThemeBuilder\Blocks\Blocks_Frontend;
+use MaterialThemeBuilder\Blocks_Frontend;
 use MaterialThemeBuilder\Customizer\Controls;
 use MaterialThemeBuilder\Importer;
 use MaterialThemeBuilder\Admin;

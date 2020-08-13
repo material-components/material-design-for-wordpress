@@ -8,6 +8,7 @@
 namespace MaterialThemeBuilder\Blocks;
 
 use MaterialThemeBuilder\Module_Base;
+use MaterialThemeBuilder\Blocks_Frontend;
 
 /**
  * Image_List_Block class.
