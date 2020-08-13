@@ -49,6 +49,8 @@ class Test_Admin extends \WP_UnitTestCase {
 		$this->assertEquals( 10, has_action( 'admin_enqueue_scripts', [ $this->plugin->admin, 'enqueue_assets' ] ) );
 
 		$this->assertEquals( 10, has_action( 'switch_theme', [ $this->plugin->admin, 'switch_theme_material' ] ) );
+		$this->assertEquals( 10, has_action( 'admin_notices', [ $this->plugin->admin, 'theme_not_installed_notice' ] ) );
+		$this->assertEquals( 9, has_action( 'admin_notices', [ $this->plugin->admin, 'plugin_activated_notice' ] ) );
 	}
 
 
@@ -101,13 +103,10 @@ class Test_Admin extends \WP_UnitTestCase {
 	 * @see Admin::enqueue_assets()
 	 */
 	public function test_enqueue_assets() {
-		$screen = get_current_screen();
 		$this->admin->enqueue_assets();
 
 		$this->assertTrue( wp_style_is( 'material-admin-css', 'enqueued' ) );
 		$this->assertTrue( wp_script_is( 'material-admin-js', 'enqueued' ) );
-
-		set_current_screen( $screen );
 	}
 
 	/**
@@ -137,7 +136,9 @@ class Test_Admin extends \WP_UnitTestCase {
 		$this->assertRegexp( '/themeStatus/', $inline_js );
 		$this->assertRegexp( '/contentStatus/', $inline_js );
 
-		set_current_screen( $screen );
+		if ( $screen ) {
+			set_current_screen( $screen );
+		}
 	}
 
 	/**
@@ -168,5 +169,82 @@ class Test_Admin extends \WP_UnitTestCase {
 		$this->assertRegexp( '/nonce/', $inline_js );
 
 		set_current_screen( $screen );
+	}
+
+	/**
+	 * Test for material_notice() method.
+	 *
+	 * @see Plugin::material_notice()
+	 */
+	public function test_material_notice() {
+		ob_start();
+		$notice = $this->admin->material_notice( 'Foo', 'Bar <p>Paragraph</p> <a href="#">Link</a>' );
+
+		$this->assertContains( 'Bar Paragraph <a href="#">Link</a>', ob_get_clean() );
+	}
+
+	/**
+	 * Test for theme_not_installed_notice() method.
+	 *
+	 * @see Plugin::theme_not_installed_notice()
+	 */
+	public function test_theme_not_installed_notice() {
+		add_filter( 'template', [ $this, 'template' ] );
+		$mock = $this->getMockBuilder( Plugin::class )
+			->setMethods(
+				[
+					'theme_installed',
+				]
+			)
+			->getMock();
+
+		$mock->method( 'theme_installed' )
+			->will(
+				$this->onConsecutiveCalls( false, true )
+			);
+
+		set_current_screen( 'options-general-php' );
+
+		$admin = new Admin( $mock );
+
+		ob_start();
+		$admin->theme_not_installed_notice();
+		$output = ob_get_clean();
+
+		$this->assertContains( '<div class="notice notice-info is-dismissible material-notice-container">', $output );
+
+		ob_start();
+		$admin->theme_not_installed_notice();
+		$output = ob_get_clean();
+
+		$this->assertEmpty( $output );
+		remove_filter( 'template', [ $this, 'template' ] );
+	}
+
+	/**
+	 * Test for plugin_activated_notice() method.
+	 *
+	 * @see Plugin::plugin_activated_notice()
+	 */
+	public function test_plugin_activated_notice() {
+		add_filter( 'template', [ $this, 'template' ] );
+
+		set_current_screen( 'options-general-php' );
+		set_transient( 'mtb-activation-notice', true );
+
+		ob_start();
+		$this->admin->plugin_activated_notice();
+		$output = ob_get_clean();
+
+		$this->assertContains( '<div class="notice notice-info is-dismissible material-notice-container">', $output );
+	}
+
+	/**
+	 * Return the material theme template.
+	 *
+	 * @return string
+	 */
+	public function template() {
+		return 'material-theme';
 	}
 }
