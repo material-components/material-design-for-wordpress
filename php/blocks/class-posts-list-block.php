@@ -17,15 +17,28 @@ use WP_REST_Request;
 use WP_REST_Response;
 
 /**
- * Posts_List_Blocks_Base class.
+ * Posts_List_Block class.
  */
-class Posts_List_Blocks_Base extends Module_Base {
+class Posts_List_Block extends Module_Base {
 	/**
 	 * Block name.
 	 *
 	 * @var string
 	 */
 	public $block_name;
+
+	/**
+	 * Constructor.
+	 *
+	 * @access public
+	 *
+	 * @param Plugin $plugin     Plugin instance.
+	 * @param string $block_name Name of the block.
+	 */
+	public function __construct( Plugin $plugin, $block_name ) {
+		$this->plugin     = $plugin;
+		$this->block_name = $block_name;
+	}
 
 	/**
 	 * Add extra post meta such as comments count, author related info.

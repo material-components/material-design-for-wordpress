@@ -8,14 +8,13 @@
 namespace MaterialThemeBuilder;
 
 use MaterialThemeBuilder\Blocks\Image_List_Block;
-use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
-use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
+use MaterialThemeBuilder\Blocks\Posts_List_Block;
 use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 
 /**
  * Block type class.
  */
-class Block_Types extends Module_Base {
+class Block_Types {
 
 	/**
 	 * Plugin instance.
@@ -39,20 +38,16 @@ class Block_Types extends Module_Base {
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		$recent_post_block = new Recent_Posts_Block( $this->plugin );
-		$recent_post_block->init();
+		$recent_post_block            = new Posts_List_Block( $this->plugin, 'material/recent-posts' );
 		$this->blocks['recent-posts'] = $recent_post_block;
 
-		$hand_picked_post_block = new Hand_Picked_Posts_Block( $this->plugin );
-		$hand_picked_post_block->init();
+		$hand_picked_post_block            = new Posts_List_Block( $this->plugin, 'material/hand-picked-posts' );
 		$this->blocks['hand-picked-posts'] = $hand_picked_post_block;
 
-		$image_list_block = new Image_List_Block( $this->plugin );
-		$image_list_block->init();
+		$image_list_block           = new Image_List_Block( $this->plugin );
 		$this->blocks['image-list'] = $image_list_block;
 
-		$contact_form_block = new Contact_Form_Block( $this->plugin );
-		$contact_form_block->init();
+		$contact_form_block           = new Contact_Form_Block( $this->plugin );
 		$this->blocks['contact-form'] = $contact_form_block;
 	}
 
@@ -61,7 +56,7 @@ class Block_Types extends Module_Base {
 	 */
 	public function init() {
 		add_action( 'init', [ $this, 'register_blocks' ] );
-		add_action( 'enqueue_block_editor_assets', [ $this, 'register_block_editor_assets' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
 		add_filter( 'block_categories', [ $this, 'block_category' ] );
 	}
 
@@ -119,7 +114,7 @@ class Block_Types extends Module_Base {
 	/**
 	 * Load Gutenberg assets.
 	 */
-	public function register_block_editor_assets() {
+	public function enqueue_block_editor_assets() {
 		// Register block editor assets.
 		$asset_file   = $this->plugin->dir_path . '/assets/js/block-editor.asset.php';
 		$asset        = is_readable( $asset_file ) ? require $asset_file : [];
@@ -159,23 +154,16 @@ class Block_Types extends Module_Base {
 
 		$fonts_url = $this->plugin->customizer_controls->get_google_fonts_url( 'block-editor' );
 
+		wp_localize_script( 'material-block-editor-js', 'mtbBlockDefaults', $this->get_block_defaults() );
+
+		wp_add_inline_style( 'material-block-editor-css', $this->plugin->customizer_controls->get_frontend_css() );
+
 		wp_enqueue_style(
 			'material-google-fonts',
 			esc_url( $fonts_url ),
 			[],
 			$this->plugin->asset_version()
 		);
-
-		wp_enqueue_style(
-			'material-block-editor-css',
-			$this->plugin->asset_url( 'assets/css/block-editor-compiled.css' ),
-			[],
-			$this->plugin->asset_version()
-		);
-
-		wp_localize_script( 'material-block-editor-js', 'mtbBlockDefaults', $this->get_block_defaults() );
-
-		wp_add_inline_style( 'material-block-editor-css', $this->plugin->customizer_controls->get_frontend_css() );
 	}
 
 	/**
