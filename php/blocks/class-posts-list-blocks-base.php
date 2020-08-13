@@ -28,91 +28,6 @@ class Posts_List_Blocks_Base extends Module_Base {
 	public $block_name;
 
 	/**
-	 * Block core attributes.
-	 *
-	 * @var array
-	 */
-	public $block_core_attributes;
-
-	/**
-	 * Block extra attributes.
-	 *
-	 * @var array
-	 */
-	public $block_extra_attributes;
-
-	/**
-	 * Constructor.
-	 *
-	 * @access public
-	 *
-	 * @param Plugin $plugin Plugin instance.
-	 */
-	public function __construct( Plugin $plugin ) {
-		parent::__construct( $plugin );
-
-		$this->block_core_attributes = [
-			'className'             => [
-				'type' => 'string',
-			],
-			'style'                 => [
-				'type'    => 'string',
-				'default' => 'masonry',
-			],
-			'align'                 => [
-				'type'    => 'string',
-				'default' => 'wide',
-			],
-			'contentLayout'         => [
-				'type'    => 'string',
-				'default' => 'text-above-media',
-			],
-			'columns'               => [
-				'type'    => 'number',
-				'default' => 3,
-			],
-			'postsToShow'           => [
-				'type'    => 'number',
-				'default' => 12,
-			],
-			'outlined'              => [
-				'type'    => 'boolean',
-				'default' => false,
-			],
-			'displayPostDate'       => [
-				'type'    => 'boolean',
-				'default' => true,
-			],
-			'displayPostContent'    => [
-				'type'    => 'boolean',
-				'default' => true,
-			],
-			'postContentLength'     => [
-				'type'    => 'number',
-				'default' => 20,
-			],
-			'displayFeaturedImage'  => [
-				'type'    => 'boolean',
-				'default' => true,
-			],
-			'featuredImageSizeSlug' => [
-				'type'    => 'string',
-				'default' => 'large',
-			],
-			'displayCommentsCount'  => [
-				'type'    => 'boolean',
-				'default' => true,
-			],
-			'displayPostAuthor'     => [
-				'type'    => 'boolean',
-				'default' => false,
-			],
-		];
-
-		$this->block_extra_attributes = [];
-	}
-
-	/**
 	 * Add extra post meta such as comments count, author related info.
 	 *
 	 * @access public
@@ -151,23 +66,6 @@ class Posts_List_Blocks_Base extends Module_Base {
 	public function add_comment_count_to_rest_orderby_params( $params ) {
 		$params['orderby']['enum'][] = 'comment_count';
 		return $params;
-	}
-
-	/**
-	 * Registers a block on server.
-	 *
-	 * @access public
-	 *
-	 * @action init
-	 */
-	public function register_block() {
-		register_block_type(
-			$this->block_name,
-			[
-				'attributes'      => array_merge( $this->block_core_attributes, $this->block_extra_attributes ),
-				'render_callback' => [ $this, 'render_block' ],
-			]
-		);
 	}
 
 	/**

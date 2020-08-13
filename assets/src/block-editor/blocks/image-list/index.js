@@ -8,9 +8,12 @@ import { __ } from '@wordpress/i18n';
  */
 import edit from './edit';
 import save from './save';
+import metadata from './block.json';
 import { example } from './example';
 
-export const name = 'material/image-list';
+const { name } = metadata;
+
+export { metadata, name };
 
 /**
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
@@ -21,11 +24,6 @@ export const settings = {
 		'Image lists display a collection of images in an organized grid.',
 		'material-theme-builder'
 	),
-	category: 'material',
-	keywords: [ __( 'Material Image List', 'material-theme-builder' ) ],
-	supports: {
-		align: true,
-	},
 	icon: <i className="material-icons-outlined">filter</i>,
 	edit,
 	save,

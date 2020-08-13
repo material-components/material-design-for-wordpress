@@ -7,8 +7,11 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import edit from './edit';
+import metadata from './block.json';
 
-export const name = 'material/hand-picked-posts';
+const { name } = metadata;
+
+export { metadata, name };
 
 /**
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, supports: Object}}
@@ -19,11 +22,7 @@ export const settings = {
 		'Display a list of your hand-picked posts.',
 		'material-theme-builder'
 	),
-	category: 'material',
 	keywords: [ __( 'Material Card', 'material-theme-builder' ) ],
-	supports: {
-		align: [ 'wide', 'full' ],
-	},
 	icon: <i className="material-icons-outlined">library_books</i>,
 	example: {
 		attributes: {
