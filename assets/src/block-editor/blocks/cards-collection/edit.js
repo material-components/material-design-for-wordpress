@@ -321,7 +321,9 @@ const Edit = props => {
 	/* istanbul ignore next */
 	const onClickOutsideCard = event => {
 		const cardContainer = event.target.closest( '.card-container' );
-		if ( ! cardContainer ) {
+		const toolbar = event.target.closest( '.block-editor-block-toolbar' );
+
+		if ( ! cardContainer && ! toolbar ) {
 			setCardsFocus( [] );
 		}
 	};
