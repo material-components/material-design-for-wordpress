@@ -4,38 +4,11 @@
 import {
 	name,
 	settings,
+	metadata,
 } from '../../../../../assets/src/block-editor/blocks/cards-collection';
 import Edit from '../../../../../assets/src/block-editor/blocks/cards-collection/edit';
 import Save from '../../../../../assets/src/block-editor/blocks/cards-collection/save';
 
-const defaultCardsProps = [];
-
-for ( let index = 0; index < 2; index++ ) {
-	defaultCardsProps.push( {
-		contentLayout: 'text-under-media',
-		title: 'Title goes here',
-		displayTitle: true,
-		secondaryText: 'Secondary text',
-		displaySecondaryText: true,
-		imageSourceUrl: '',
-		isImageEditMode: false,
-		displayImage: true,
-		supportingText: 'Supporting text',
-		displaySupportingText: true,
-		primaryActionButtonLabel: 'Button text',
-		primaryActionButtonUrl: '',
-		primaryActionButtonNewTab: false,
-		primaryActionButtonNoFollow: false,
-		secondaryActionButtonLabel: 'Button text',
-		secondaryActionButtonUrl: '',
-		secondaryActionButtonNewTab: false,
-		secondaryActionButtonNoFollow: false,
-		displayActions: true,
-		displaySecondaryActionButton: false,
-		outlined: false,
-		cornerRadius: 4,
-	} );
-}
 describe( 'blocks: material/cards-collection', () => {
 	describe( 'name', () => {
 		it( 'should equal material/cards-collection', () => {
@@ -59,13 +32,13 @@ describe( 'blocks: material/cards-collection', () => {
 
 	describe( 'category settings', () => {
 		it( 'should equal material', () => {
-			expect( settings.category ).toStrictEqual( 'material' );
+			expect( metadata.category ).toStrictEqual( 'material' );
 		} );
 	} );
 
 	describe( 'supports settings', () => {
 		it( 'should have align supporting only wide and full alignment', () => {
-			expect( settings.supports ).toStrictEqual( {
+			expect( metadata.supports ).toStrictEqual( {
 				align: [ 'wide', 'full' ],
 			} );
 		} );
@@ -73,7 +46,7 @@ describe( 'blocks: material/cards-collection', () => {
 
 	describe( 'attributes', () => {
 		it( 'should be a structured object', () => {
-			expect( settings.attributes ).toStrictEqual( {
+			expect( metadata.attributes ).toStrictEqual( {
 				id: {
 					type: 'string',
 					source: 'attribute',
@@ -102,7 +75,7 @@ describe( 'blocks: material/cards-collection', () => {
 				},
 				cardsProps: {
 					type: 'array',
-					default: defaultCardsProps,
+					default: [],
 				},
 				gutter: {
 					type: 'object',

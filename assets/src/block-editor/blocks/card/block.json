@@ -7,14 +7,16 @@
 		  "default": "text-under-media"
 	   },
 	   "title": {
-		  "type": "string"
+		  "type": "string",
+		  "default": "Title goes here"
 	   },
 	   "displayTitle": {
 		  "type": "boolean",
 		  "default": true
 	   },
 	   "secondaryText": {
-		  "type": "string"
+		  "type": "string",
+		  "default": "Secondary Text"
 	   },
 	   "displaySecondaryText": {
 		  "type": "boolean",
@@ -31,14 +33,16 @@
 		  "default": true
 	   },
 	   "supportingText": {
-		  "type": "string"
+		  "type": "string",
+		  "default": "Supporting Text"
 	   },
 	   "displaySupportingText": {
 		  "type": "boolean",
 		  "default": true
 	   },
 	   "primaryActionButtonLabel": {
-		  "type": "string"
+		  "type": "string",
+		  "default": "Button text"
 	   },
 	   "primaryActionButtonUrl": {
 		  "type": "string"
@@ -52,7 +56,8 @@
 		  "default": false
 	   },
 	   "secondaryActionButtonLabel": {
-		  "type": "string"
+		  "type": "string",
+		  "default": "Button text"
 	   },
 	   "secondaryActionButtonUrl": {
 		  "type": "string"

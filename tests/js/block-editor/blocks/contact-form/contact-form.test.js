@@ -4,6 +4,7 @@
 import {
 	name,
 	settings,
+	metadata,
 } from '../../../../../assets/src/block-editor/blocks/contact-form';
 import Edit from '../../../../../assets/src/block-editor/blocks/contact-form/edit';
 import Save from '../../../../../assets/src/block-editor/blocks/contact-form/save';
@@ -31,7 +32,13 @@ describe( 'blocks: material/contact-form', () => {
 
 	describe( 'category settings', () => {
 		it( 'should equal material', () => {
-			expect( settings.category ).toStrictEqual( 'material' );
+			expect( metadata.category ).toStrictEqual( 'material' );
+		} );
+	} );
+
+	describe( 'settings attributes', () => {
+		it( 'should equal material', () => {
+			expect( metadata.attributes ).toBeDefined();
 		} );
 	} );
 

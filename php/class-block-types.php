@@ -7,7 +7,6 @@
 
 namespace MaterialThemeBuilder;
 
-use MaterialThemeBuilder\Blocks\Image_List_Block;
 use MaterialThemeBuilder\Blocks\Posts_List_Block;
 use MaterialThemeBuilder\Blocks\Contact_Form_Block;
 
@@ -43,9 +42,6 @@ class Block_Types {
 
 		$hand_picked_post_block            = new Posts_List_Block( $this->plugin, 'material/hand-picked-posts' );
 		$this->blocks['hand-picked-posts'] = $hand_picked_post_block;
-
-		$image_list_block           = new Image_List_Block( $this->plugin );
-		$this->blocks['image-list'] = $image_list_block;
 
 		$contact_form_block           = new Contact_Form_Block( $this->plugin );
 		$this->blocks['contact-form'] = $contact_form_block;

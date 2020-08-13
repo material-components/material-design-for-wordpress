@@ -4,6 +4,7 @@
 import {
 	name,
 	settings,
+	metadata,
 } from '../../../../../assets/src/block-editor/blocks/list';
 
 describe( 'blocks: material/list', () => {
@@ -19,27 +20,27 @@ describe( 'blocks: material/list', () => {
 		} );
 
 		it( 'category should equal material', () => {
-			expect( settings.category ).toStrictEqual( 'material' );
+			expect( metadata.category ).toStrictEqual( 'material' );
 		} );
 
 		it( 'should define attributes', () => {
-			expect( settings.attributes ).toBeDefined();
+			expect( metadata.attributes ).toBeDefined();
 		} );
 
 		it( 'should define style attribute', () => {
-			expect( settings.attributes.style ).toBeDefined();
+			expect( metadata.attributes.style ).toBeDefined();
 		} );
 
 		it( 'should define iconPosition attribute', () => {
-			expect( settings.attributes.iconPosition ).toBeDefined();
+			expect( metadata.attributes.iconPosition ).toBeDefined();
 		} );
 
 		it( 'should define iconSize attribute', () => {
-			expect( settings.attributes.iconSize ).toBeDefined();
+			expect( metadata.attributes.iconSize ).toBeDefined();
 		} );
 
 		it( 'should define items attribute', () => {
-			expect( settings.attributes.items ).toBeDefined();
+			expect( metadata.attributes.items ).toBeDefined();
 		} );
 	} );
 } );
