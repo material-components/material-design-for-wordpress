@@ -15,14 +15,14 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Tab Bar (Material)', 'material-theme-builder' ),
+	title: __( 'Tabs (Material)', 'material-theme-builder' ),
 	description: __(
 		'Organize and allow navigation between related groups of content.',
 		'material-theme-builder'
 	),
 	keywords: [
 		__( 'Material Tabs', 'material-theme-builder' ),
-		__( 'Material Tab Bar', 'material-theme-builder' ),
+		__( 'Material Tabs', 'material-theme-builder' ),
 	],
 	icon: <i className="material-icons-outlined">tab</i>,
 	edit,

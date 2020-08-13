@@ -38,7 +38,6 @@ Object {
           class="card-number-title"
         >
           Card #1
-           
         </span>
         <div
           class="remove-card"
@@ -91,7 +90,6 @@ Object {
         class="card-number-title"
       >
         Card #1
-         
       </span>
       <div
         class="remove-card"
@@ -199,7 +197,6 @@ Object {
           class="card-number-title"
         >
           Card #3
-           
         </span>
         <div
           class="remove-card"
@@ -250,7 +247,6 @@ Object {
         class="card-number-title"
       >
         Card #3
-         
       </span>
       <div
         class="remove-card"
@@ -360,7 +356,6 @@ Object {
           class="card-number-title"
         >
           Card #1
-           
         </span>
         <div
           class="remove-card"
@@ -413,7 +408,6 @@ Object {
         class="card-number-title"
       >
         Card #1
-         
       </span>
       <div
         class="remove-card"

@@ -53,7 +53,7 @@ const FocusedCardControls = ( {
 		</div>
 
 		<span className="card-number-title">
-			{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }{ ' ' }
+			{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }
 		</span>
 
 		<div className="remove-card">

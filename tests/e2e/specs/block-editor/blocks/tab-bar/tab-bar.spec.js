@@ -14,12 +14,12 @@ describe( 'blocks: material/tab-bar', () => {
 	} );
 
 	it( 'should be inserted', async () => {
-		await insertBlock( 'Tab Bar' );
+		await insertBlock( 'Tabs' );
 		expect( await page.$( '[data-type="material/tab-bar"]' ) ).not.toBeNull();
 	} );
 
 	it( 'should have "None" selected as the icon position initially', async () => {
-		await insertBlock( 'Tab Bar' );
+		await insertBlock( 'Tabs' );
 		await selectBlockByName( 'material/tab-bar' );
 
 		expect(
@@ -30,7 +30,7 @@ describe( 'blocks: material/tab-bar', () => {
 	} );
 
 	it( 'should change icon position to "Leading", select icon and evaluate', async () => {
-		await insertBlock( 'Tab Bar' );
+		await insertBlock( 'Tabs' );
 		await selectBlockByName( 'material/tab-bar' );
 
 		const [ leadingBtn ] = await page.$x(
@@ -61,7 +61,7 @@ describe( 'blocks: material/tab-bar', () => {
 	} );
 
 	it( 'should change icon position to "Above", select icon and evaluate', async () => {
-		await insertBlock( 'Tab Bar' );
+		await insertBlock( 'Tabs' );
 		await selectBlockByName( 'material/tab-bar' );
 
 		const [ leadingBtn ] = await page.$x(
@@ -92,7 +92,7 @@ describe( 'blocks: material/tab-bar', () => {
 	} );
 
 	it( 'should remove a tab if the X button was clicked', async () => {
-		await insertBlock( 'Tab Bar' );
+		await insertBlock( 'Tabs' );
 		await selectBlockByName( 'material/tab-bar' );
 
 		expect( await page.$$( '.mdc-tab.tab' ) ).toHaveLength( 2 );
@@ -117,7 +117,7 @@ describe( 'blocks: material/tab-bar', () => {
 	} );
 
 	it( 'should add a tab if the "+ New Tab" button was clicked', async () => {
-		await insertBlock( 'Tab Bar' );
+		await insertBlock( 'Tabs' );
 		await selectBlockByName( 'material/tab-bar' );
 
 		expect( await page.$$( '.mdc-tab.tab' ) ).toHaveLength( 2 );
@@ -133,7 +133,7 @@ describe( 'blocks: material/tab-bar', () => {
 	} );
 
 	it( 'should add content to tab and switch tabs to see if content is hiding', async () => {
-		await insertBlock( 'Tab Bar' );
+		await insertBlock( 'Tabs' );
 		await selectBlockByName( 'material/tab-bar' );
 
 		const [ addBlock ] = await page.$$(
@@ -161,8 +161,8 @@ describe( 'blocks: material/tab-bar', () => {
 		).toHaveLength( 0 );
 	} );
 
-	it( 'should not offer tab-bar as a block option within another tab bars content', async () => {
-		await insertBlock( 'Tab Bar' );
+	it( 'should not offer tab-bar as a block option within another Tabss content', async () => {
+		await insertBlock( 'Tabs' );
 		await selectBlockByName( 'material/tab-bar' );
 
 		const [ addBlock ] = await page.$$(
@@ -171,7 +171,7 @@ describe( 'blocks: material/tab-bar', () => {
 		await addBlock.click();
 
 		const [ searchBlock ] = await page.$$( '.block-editor-inserter__search' );
-		await searchBlock.type( 'Tab Bar' );
+		await searchBlock.type( 'Tabs' );
 
 		expect(
 			await page.$$( '.block-editor-inserter__no-results' )
