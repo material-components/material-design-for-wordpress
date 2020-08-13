@@ -27,6 +27,7 @@ const ToolbarUrlInputPopover = ( {
 	setURL,
 	opensInNewTab,
 	onChangeNewTab,
+	onFocusOutside = null,
 } ) => {
 	const [ isURLPickerOpen, setIsURLPickerOpen ] = useState( false );
 	const urlIsSet = !! url;
@@ -58,6 +59,7 @@ const ToolbarUrlInputPopover = ( {
 			<Popover
 				position="bottom center"
 				onClose={ () => setIsURLPickerOpen( false ) }
+				onFocusOutside={ onFocusOutside }
 			>
 				<LinkControl
 					className="wp-block-navigation-link__inline-link-input"

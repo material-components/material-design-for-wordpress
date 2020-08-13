@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -38,6 +38,7 @@ const CardActionsEdit = ( {
 	displaySecondaryActionButton,
 	cardIndex,
 	setter,
+	isFocused = false,
 } ) => {
 	const [
 		buttonsUrlInputFocusState,
@@ -58,6 +59,13 @@ const CardActionsEdit = ( {
 			setButtonsUrlInputFocusState( { primary: false, secondary: state } );
 		}
 	};
+
+	useEffect( () => {
+		if ( ! isFocused ) {
+			onButtonContainerFocus( 'primary', false );
+			onButtonContainerFocus( 'secondary', false );
+		}
+	}, [ isFocused ] );
 
 	return (
 		<div className="mdc-card__actions">
@@ -89,6 +97,8 @@ const CardActionsEdit = ( {
 							onButtonContainerFocus( 'primary', false )
 						}
 						isEditMode={ true }
+						setter={ setter }
+						isPrimary
 					/>
 				</div>
 				{ displaySecondaryActionButton && (
@@ -121,6 +131,7 @@ const CardActionsEdit = ( {
 								onButtonContainerFocus( 'secondary', false )
 							}
 							isEditMode={ true }
+							setter={ setter }
 						/>
 					</div>
 				) }
