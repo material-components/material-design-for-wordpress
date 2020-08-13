@@ -4,6 +4,7 @@
 import {
 	name,
 	settings,
+	metadata,
 } from '../../../../../assets/src/block-editor/blocks/image-list';
 
 describe( 'blocks: material/image-list', () => {
@@ -19,7 +20,17 @@ describe( 'blocks: material/image-list', () => {
 		} );
 
 		it( 'category should equal material', () => {
-			expect( settings.category ).toStrictEqual( 'material' );
+			expect( metadata.category ).toStrictEqual( 'material' );
+		} );
+
+		it( 'supports align', () => {
+			expect( metadata.supports ).toStrictEqual( {
+				align: true,
+			} );
+		} );
+
+		it( 'contains attributes', () => {
+			expect( metadata.attributes ).toBeDefined();
 		} );
 	} );
 } );

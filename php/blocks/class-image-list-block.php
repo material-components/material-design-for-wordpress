@@ -12,14 +12,7 @@ use MaterialThemeBuilder\Module_Base;
 /**
  * Image_List_Block class.
  */
-class Image_List_Block extends Module_Base {
-
-	/**
-	 * Name of the block.
-	 *
-	 * @var string
-	 */
-	public $block_name = 'material/image-list';
+class Image_List_Block {
 
 	/**
 	 * Generate the styles for an image list block.
