@@ -7,10 +7,16 @@
 
 namespace MaterialThemeBuilder;
 
+use MaterialThemeBuilder\Blocks\Image_List_Block;
+use MaterialThemeBuilder\Blocks\Recent_Posts_Block;
+use MaterialThemeBuilder\Blocks\Hand_Picked_Posts_Block;
+use MaterialThemeBuilder\Blocks\Contact_Form_Block;
+
 /**
  * Block type class.
  */
-class Block_Types {
+class Block_Types extends Module_Base {
+
 	/**
 	 * Plugin instance.
 	 *
@@ -19,12 +25,35 @@ class Block_Types {
 	public $plugin;
 
 	/**
+	 * Registered dynamic block instances.
+	 *
+	 * @var array
+	 */
+	public $blocks = [];
+
+	/**
 	 * Block_Type constructor.
 	 *
 	 * @param Plugin $plugin Instance of the plugin abstraction.
 	 */
-	public function __construct( $plugin ) {
+	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
+
+		$recent_post_block = new Recent_Posts_Block( $this->plugin );
+		$recent_post_block->init();
+		$this->blocks['recent-posts'] = $recent_post_block;
+
+		$hand_picked_post_block = new Hand_Picked_Posts_Block( $this->plugin );
+		$hand_picked_post_block->init();
+		$this->blocks['hand-picked-posts'] = $hand_picked_post_block;
+
+		$image_list_block = new Image_List_Block( $this->plugin );
+		$image_list_block->init();
+		$this->blocks['image-list'] = $image_list_block;
+
+		$contact_form_block = new Contact_Form_Block( $this->plugin );
+		$contact_form_block->init();
+		$this->blocks['contact-form'] = $contact_form_block;
 	}
 
 	/**
@@ -33,6 +62,7 @@ class Block_Types {
 	public function init() {
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'register_block_editor_assets' ] );
+		add_filter( 'block_categories', [ $this, 'block_category' ] );
 	}
 
 	/**
@@ -46,6 +76,15 @@ class Block_Types {
 		$blocks_dir    = $this->plugin->dir_path . '/assets/js/blocks/';
 		$block_folders = [
 			'button',
+			'card',
+			'cards-collection',
+			'contact-form',
+			'data-table',
+			'hand-picked-posts',
+			'image-list',
+			'list',
+			'recent-posts',
+			'tab-bar',
 		];
 
 		foreach ( $block_folders as $block_name ) {
@@ -62,12 +101,18 @@ class Block_Types {
 			$metadata['editor_script'] = 'material-block-editor-js';
 			$metadata['editor_style']  = 'material-block-editor-css';
 
-			$callback = "render_{$block_name}_block";
-			if ( method_exists( $this, $callback ) ) {
-				$metadata['render_callback'] = [ $this, $callback ];
+			if ( ! empty( $this->blocks[ $block_name ] ) && method_exists( $this->blocks[ $block_name ], 'render_block' ) ) {
+				$metadata['render_callback'] = [ $this->blocks[ $block_name ], 'render_block' ];
 			}
 
-			register_block_type( $metadata['name'], $metadata );
+			/**
+			 * Filters the arguments for registering a block type.
+			 *
+			 * @param array $metadata Array of arguments for registering a block type.
+			 */
+			$args = apply_filters( 'material_theme_builder_block_type_args', $metadata );
+
+			register_block_type( $metadata['name'], $args );
 		}
 	}
 
@@ -97,5 +142,86 @@ class Block_Types {
 		);
 
 		wp_styles()->add_data( 'material-block-editor-css', 'rtl', 'replace' );
+
+		$wp_localized_script_data = [
+			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
+			'handpicked_posts_preview' => $this->plugin->asset_url( 'assets/images/preview/handpicked-posts.jpg' ),
+			'tab_bar_preview'          => $this->plugin->asset_url( 'assets/images/preview/tab-bar.jpg' ),
+			'contact_form_preview'     => $this->plugin->asset_url( 'assets/images/preview/contact-form.jpg' ),
+		];
+
+		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
+			$wp_localized_script_data['allow_contact_form_block']    = true;
+			$wp_localized_script_data['recaptcha_ajax_nonce_action'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		}
+
+		wp_localize_script( 'material-block-editor-js', 'mtb', $wp_localized_script_data );
+
+		$fonts_url = $this->plugin->customizer_controls->get_google_fonts_url( 'block-editor' );
+
+		wp_enqueue_style(
+			'material-google-fonts',
+			esc_url( $fonts_url ),
+			[],
+			$this->plugin->asset_version()
+		);
+
+		wp_enqueue_style(
+			'material-block-editor-css',
+			$this->plugin->asset_url( 'assets/css/block-editor-compiled.css' ),
+			[],
+			$this->plugin->asset_version()
+		);
+
+		wp_localize_script( 'material-block-editor-js', 'mtbBlockDefaults', $this->get_block_defaults() );
+
+		wp_add_inline_style( 'material-block-editor-css', $this->plugin->customizer_controls->get_frontend_css() );
+	}
+
+	/**
+	 * Add custom material block category.
+	 *
+	 * @param array $categories Registered categories.
+	 *
+	 * @return array
+	 */
+	public function block_category( $categories ) {
+		$categories[] = [
+			'slug'  => 'material',
+			'title' => __( 'Material Blocks', 'material-theme-builder' ),
+		];
+
+		return $categories;
+	}
+
+	/**
+	 * Get the block default attributes set in customizer.
+	 *
+	 * @return array
+	 */
+	public function get_block_defaults() {
+		$defaults = [];
+		$controls = $this->plugin->customizer_controls;
+
+		// Set corner radius defaults for blocks.
+		foreach ( $controls->get_corner_styles_controls() as $control ) {
+			$value = $controls->get_option( $control['id'] );
+			if ( ! empty( $value ) && ! empty( $control['blocks'] ) && is_array( $control['blocks'] ) ) {
+				foreach ( $control['blocks'] as $block ) {
+					$defaults[ $block ] = array_key_exists( $block, $defaults ) ? $defaults[ $block ] : [];
+
+					// If the value exceeds min or max, limit it.
+					if ( isset( $control['min'] ) && $value < $control['min'] ) {
+						$value = $control['min'];
+					} elseif ( isset( $control['max'] ) && $value > $control['max'] ) {
+						$value = $control['max'];
+					}
+
+					$defaults[ $block ]['cornerRadius'] = absint( $value );
+				}
+			}
+		}
+
+		return $defaults;
 	}
 }

@@ -24,26 +24,5 @@ class Hand_Picked_Posts_Block extends Posts_List_Blocks_Base {
 		parent::__construct( $plugin );
 
 		$this->block_name = 'material/hand-picked-posts';
-
-		$this->block_extra_attributes = [
-			'posts'    => [
-				'type'    => 'array',
-				'default' => [],
-				'items'   => [ 'type' => 'integer' ],
-			],
-			'orderby'  => [
-				'type'    => 'string',
-				'enum'    => [ 'date', 'title', 'popularity' ],
-				'default' => 'date',
-			],
-			'editMode' => [
-				'type'    => 'boolean',
-				'default' => true,
-			],
-			'preview'  => [
-				'type'    => 'boolean',
-				'default' => false,
-			],
-		];
 	}
 }
