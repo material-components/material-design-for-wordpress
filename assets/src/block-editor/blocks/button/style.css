@@ -34,3 +34,7 @@
 		margin-right: -4px !important;
 	}
 }
+
+.wp-block-material-button {
+	display: inline-block;
+}

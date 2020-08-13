@@ -24,7 +24,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import { withId } from '../../components/with-id';
-import { withGlobalDefaults } from '../../components/with-global-defaults';
+import GlobalShapeSize from '../../components/global-shape-size';
 import {
 	GridIcon,
 	MasonryIcon,
@@ -33,6 +33,7 @@ import ImageRadioControl from '../../components/image-radio-control';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import Gallery from './components/gallery';
 import './style.css';
+import { name as ImageListBlockName } from './index';
 
 const STYLES = [
 	{
@@ -325,12 +326,13 @@ const ImageListEdit = ( {
 						min={ 0 }
 						max={ 24 }
 					/>
-					<RangeControl
+					<GlobalShapeSize
 						label={ __( 'Rounded Corners', 'material-theme-builder' ) }
 						value={ cornerRadius }
 						onChange={ setter( 'cornerRadius' ) }
 						min={ 0 }
 						max={ 16 }
+						blockName={ ImageListBlockName }
 					/>
 					<ToggleControl
 						label={ __( 'Captions', 'material-theme-builder' ) }
@@ -377,6 +379,4 @@ const ImageListEdit = ( {
 	);
 };
 
-export default compose( [ withId, withGlobalDefaults, withNotices ] )(
-	ImageListEdit
-);
+export default compose( [ withId, withNotices ] )( ImageListEdit );

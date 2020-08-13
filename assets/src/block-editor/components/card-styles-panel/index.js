@@ -19,7 +19,9 @@ import { useState } from '@wordpress/element';
  * Internal dependencies
  */
 import ImageRadioControl from '../image-radio-control';
+import GlobalShapeSize from '../global-shape-size';
 import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
+import { name as CardCollectionBlockName } from '../../blocks/cards-collection/index';
 import './style.css';
 
 const CARD_STYLES = [
@@ -141,12 +143,13 @@ const CardStylesPanel = ( {
 				</>
 			) }
 			{ ! allowIndividualStyleOverride && showCornerRadius && (
-				<RangeControl
+				<GlobalShapeSize
 					label={ __( 'Rounded corners', 'material-theme-builder' ) }
 					value={ cornerRadius }
 					onChange={ setter( 'cornerRadius' ) }
 					min={ minRoundedCornersRadius }
 					max={ maxRoundedCornersRadius }
+					blockName={ CardCollectionBlockName }
 				/>
 			) }
 			{ ! allowIndividualStyleOverride && showOutlined && (
