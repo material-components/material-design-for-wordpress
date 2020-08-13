@@ -69,6 +69,7 @@ const VerticalCardLayout = ( {
 	cornerRadius,
 	setter,
 	isEditMode,
+	isFocused,
 } ) => {
 	const cardPrimaryProps = {
 		title,
@@ -151,6 +152,7 @@ const VerticalCardLayout = ( {
 					cardIndex={ cardIndex }
 					setter={ setter }
 					isEditMode={ isEditMode }
+					isFocused={ isFocused }
 				/>
 			) }
 		</div>

@@ -3,7 +3,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
-import UrlInputPopover from '../../../components/url-input-popover';
+import ToolbarUrlInputPopover from '../../../components/toolbar-url-input-popover';
 
 /**
  * Card Action Button component.
@@ -28,20 +28,17 @@ import UrlInputPopover from '../../../components/url-input-popover';
 const CardActionButton = ( {
 	label,
 	onChangeLabel = () => {},
-	url,
-	onChangeUrl = () => {},
-	newTab,
-	onChangeNewTab = () => {},
-	noFollow,
-	onChangeNoFollow = () => {},
-	disableSuggestions = false,
-	onPopupClose = () => {},
 	onPopupFocusOutside = () => {},
+	onChangeUrl = () => {},
+	onChangeNewTab = () => {},
+	url,
+	newTab,
+	noFollow,
 	isFocused = false,
 	isEditMode,
 } ) => {
 	let rel;
-	if ( url ) {
+	if ( url && newTab ) {
 		rel = 'noopener noreferrer';
 		if ( noFollow ) {
 			rel += ' nofollow';
@@ -56,7 +53,7 @@ const CardActionButton = ( {
 						tagName="div"
 						value={ label }
 						onChange={ onChangeLabel }
-						placeholder={ __( 'Button text', 'material-theme-builder' ) }
+						placeholder={ __( 'Button', 'material-theme-builder' ) }
 					/>
 				</button>
 			) : (
@@ -71,17 +68,16 @@ const CardActionButton = ( {
 				</a>
 			) }
 			{ isFocused && isEditMode && (
-				<UrlInputPopover
-					onFocusOutside={ onPopupFocusOutside }
-					value={ url }
-					onChange={ onChangeUrl }
-					newTab={ newTab }
-					noFollow={ noFollow }
-					onChangeNewTab={ onChangeNewTab }
-					onChangeNoFollow={ onChangeNoFollow }
-					onPopupClose={ onPopupClose }
-					disableSuggestions={ disableSuggestions }
-				/>
+				<>
+					<ToolbarUrlInputPopover
+						url={ url }
+						setURL={ onChangeUrl }
+						isSelected={ true }
+						opensInNewTab={ newTab }
+						onChangeNewTab={ onChangeNewTab }
+						onFocusOutside={ onPopupFocusOutside }
+					/>
+				</>
 			) }
 		</>
 	);
