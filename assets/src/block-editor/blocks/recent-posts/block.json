@@ -1,0 +1,70 @@
+{
+	"name": "material/recent-posts",
+	"category": "material",
+	"attributes": {
+		"className": {
+		   "type": "string"
+		},
+		"style": {
+		   "type": "string",
+		   "default": "masonry"
+		},
+		"align": {
+		   "type": "string",
+		   "default": "wide"
+		},
+		"contentLayout": {
+		   "type": "string",
+		   "default": "text-above-media"
+		},
+		"columns": {
+		   "type": "number",
+		   "default": 3
+		},
+		"postsToShow": {
+		   "type": "number",
+		   "default": 12
+		},
+		"outlined": {
+		   "type": "boolean",
+		   "default": false
+		},
+		"displayPostDate": {
+		   "type": "boolean",
+		   "default": true
+		},
+		"displayPostContent": {
+		   "type": "boolean",
+		   "default": true
+		},
+		"postContentLength": {
+		   "type": "number",
+		   "default": 20
+		},
+		"displayFeaturedImage": {
+		   "type": "boolean",
+		   "default": true
+		},
+		"featuredImageSizeSlug": {
+		   "type": "string",
+		   "default": "large"
+		},
+		"displayCommentsCount": {
+		   "type": "boolean",
+		   "default": true
+		},
+		"displayPostAuthor": {
+		   "type": "boolean",
+		   "default": false
+		},
+		"category": {
+		   "type": "string"
+		}
+	 },
+	"supports": {
+	   "align": [
+		  "wide",
+		  "full"
+	   ]
+	}
+ }

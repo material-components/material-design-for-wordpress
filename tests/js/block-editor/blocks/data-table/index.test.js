@@ -4,6 +4,7 @@
 import {
 	name,
 	settings,
+	metadata,
 } from '../../../../../assets/src/block-editor/blocks/data-table';
 
 describe( 'blocks: material/data-table', () => {
@@ -19,7 +20,13 @@ describe( 'blocks: material/data-table', () => {
 		} );
 
 		it( 'category should equal material', () => {
-			expect( settings.category ).toStrictEqual( 'material' );
+			expect( metadata.category ).toStrictEqual( 'material' );
+		} );
+
+		it( 'supports should contain align', () => {
+			expect( metadata.supports ).toStrictEqual( {
+				align: true,
+			} );
 		} );
 	} );
 } );

@@ -2309,6 +2309,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
               displayTitle={true}
               imageSourceUrl=""
               isEditMode={true}
+              isFocused={false}
               isImageEditMode={false}
               outlined={false}
               primaryActionButtonLabel="Button text #1-1"
@@ -2347,6 +2348,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
               displayTitle={true}
               imageSourceUrl=""
               isEditMode={true}
+              isFocused={false}
               isImageEditMode={false}
               outlined={false}
               primaryActionButtonLabel="Button text #2-1"
@@ -2417,6 +2419,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                 displayTitle={true}
                 imageSourceUrl=""
                 isEditMode={true}
+                isFocused={false}
                 isImageEditMode={false}
                 outlined={false}
                 primaryActionButtonLabel="Button text #1-1"
@@ -4118,6 +4121,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                     cardIndex={0}
                     displaySecondaryActionButton={false}
                     isEditMode={true}
+                    isFocused={false}
                     primaryActionButtonLabel="Button text #1-1"
                     primaryActionButtonNewTab={false}
                     primaryActionButtonNoFollow={false}
@@ -4131,6 +4135,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                     <CardActionsEdit
                       cardIndex={0}
                       displaySecondaryActionButton={false}
+                      isFocused={false}
                       primaryActionButtonLabel="Button text #1-1"
                       primaryActionButtonNewTab={false}
                       primaryActionButtonNoFollow={false}
@@ -4681,6 +4686,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                 displayTitle={true}
                 imageSourceUrl=""
                 isEditMode={true}
+                isFocused={false}
                 isImageEditMode={false}
                 outlined={false}
                 primaryActionButtonLabel="Button text #2-1"
@@ -6382,6 +6388,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                     cardIndex={1}
                     displaySecondaryActionButton={false}
                     isEditMode={true}
+                    isFocused={false}
                     primaryActionButtonLabel="Button text #2-1"
                     primaryActionButtonNewTab={false}
                     primaryActionButtonNoFollow={false}
@@ -6395,6 +6402,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                     <CardActionsEdit
                       cardIndex={1}
                       displaySecondaryActionButton={false}
+                      isFocused={false}
                       primaryActionButtonLabel="Button text #2-1"
                       primaryActionButtonNewTab={false}
                       primaryActionButtonNoFollow={false}

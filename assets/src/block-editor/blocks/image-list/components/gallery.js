@@ -122,7 +122,7 @@ const Gallery = ( {
 			} ) }
 			style={ wrapStyles }
 		>
-			{ images.map( image => {
+			{ images.map( ( image, i ) => {
 				let href = image.link;
 
 				if ( 'media' === linkTo ) {
@@ -135,7 +135,7 @@ const Gallery = ( {
 
 				return (
 					<li
-						key={ image.id }
+						key={ i }
 						className="mdc-image-list__item"
 						style={ itemStyles }
 						role="presentation"

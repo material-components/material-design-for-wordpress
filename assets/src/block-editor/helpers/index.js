@@ -10,9 +10,8 @@ import { registerBlockType } from '@wordpress/blocks';
  */
 export const registerBlocks = blocks => {
 	blocks.keys().forEach( modulePath => {
-		const { name, settings } = blocks( modulePath );
-
-		registerBlockType( name, settings );
+		const { name, settings, metadata } = blocks( modulePath );
+		registerBlockType( name, { ...settings, ...( metadata || {} ) } );
 	} );
 };
 

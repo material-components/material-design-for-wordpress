@@ -4,6 +4,7 @@
 import {
 	name,
 	settings,
+	metadata,
 } from '../../../../../assets/src/block-editor/blocks/card';
 import Edit from '../../../../../assets/src/block-editor/blocks/card/edit';
 import Save from '../../../../../assets/src/block-editor/blocks/card/save';
@@ -31,13 +32,13 @@ describe( 'blocks: material/card', () => {
 
 	describe( 'category settings', () => {
 		it( 'should equal material', () => {
-			expect( settings.category ).toStrictEqual( 'material' );
+			expect( metadata.category ).toStrictEqual( 'material' );
 		} );
 	} );
 
 	describe( 'supports settings', () => {
 		it( 'should have align supporting only wide and full alignment', () => {
-			expect( settings.supports ).toStrictEqual( {
+			expect( metadata.supports ).toStrictEqual( {
 				align: [ 'left', 'right' ],
 			} );
 		} );
@@ -45,7 +46,7 @@ describe( 'blocks: material/card', () => {
 
 	describe( 'attributes', () => {
 		it( 'should be a structured object', () => {
-			expect( settings.attributes ).toStrictEqual( {
+			expect( metadata.attributes ).toStrictEqual( {
 				contentLayout: {
 					type: 'string',
 					default: 'text-under-media',

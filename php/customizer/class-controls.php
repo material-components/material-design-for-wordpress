@@ -9,7 +9,7 @@ namespace MaterialThemeBuilder\Customizer;
 
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Google_Fonts;
-use MaterialThemeBuilder\Blocks\Blocks_Frontend;
+use MaterialThemeBuilder\Blocks_Frontend;
 use MaterialThemeBuilder\Helpers;
 
 /**
