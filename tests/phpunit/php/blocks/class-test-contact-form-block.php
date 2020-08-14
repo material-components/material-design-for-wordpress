@@ -83,26 +83,9 @@ class Test_Contact_Form_Block extends \WP_UnitTestCase {
 	public function test_init() {
 		$block = new Contact_Form_Block( new Plugin() );
 		$block->init();
-		$this->assertEquals( 10, has_action( 'init', [ $block, 'register_block' ] ) );
 		$this->assertEquals( 10, has_action( 'wp_ajax_mtb_submit_contact_form', [ $block, 'priv_submit_contact_form' ] ) );
 		$this->assertEquals( 10, has_action( 'wp_ajax_nopriv_mtb_submit_contact_form', [ $block, 'nopriv_submit_contact_form' ] ) );
 		$this->assertEquals( 10, has_action( 'wp_ajax_mtb_manage_recaptcha_api_credentials', [ $block, 'manage_recaptcha_api_credentials' ] ) );
-	}
-
-	/**
-	 * Test register_block.
-	 *
-	 * @see Contact_Form_Block::register_block()
-	 */
-	public function test_register_block() {
-		// Unregister the block if it's registered already.
-		unregister_block_type( 'material/contact-form' );
-
-		$block = new Contact_Form_Block( new Plugin() );
-		$block->register_block();
-
-		// Assert the block is registered.
-		$this->assertTrue( in_array( 'material/recent-posts', get_dynamic_block_names(), true ) );
 	}
 
 	/**

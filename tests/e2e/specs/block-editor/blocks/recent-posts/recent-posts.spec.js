@@ -46,10 +46,11 @@ describe( 'blocks: material/recent-posts', () => {
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
-			await page.$x(
-				"//input[contains(@class, 'components-range-control__number') and contains(@aria-label, 'Columns') and contains(@value, '3')]"
+			await page.$(
+				`.components-input-control__input[aria-label="Columns"],
+				.components-range-control__number[aria-label="Columns"]`
 			)
-		).toHaveLength( 1 );
+		).not.toBeNull();
 	} );
 
 	// TODO: check that this control is not showing when "Style" is not Masonry or Grid
@@ -81,10 +82,11 @@ describe( 'blocks: material/recent-posts', () => {
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
-			await page.$x(
-				"//input[contains(@class, 'components-range-control__number') and contains(@aria-label, 'Number of posts') and contains(@value, '12')]"
+			await page.$(
+				`.components-input-control__input[aria-label="Number of posts"],
+				.components-range-control__number[aria-label="Number of posts"]`
 			)
-		).toHaveLength( 1 );
+		).not.toBeNull();
 	} );
 
 	it( 'should have an "Outlined" toggle selection attribute with default being off', async () => {
@@ -126,10 +128,11 @@ describe( 'blocks: material/recent-posts', () => {
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
-			await page.$x(
-				"//input[contains(@class, 'components-range-control__number') and contains(@aria-label, 'Max number of words in post excerpt') and contains(@value, '20')]"
+			await page.$(
+				`.components-input-control__input[aria-label="Max number of words in post excerpt"],
+				.components-range-control__number[aria-label="Max number of words in post excerpt"]`
 			)
-		).toHaveLength( 1 );
+		).not.toBeNull();
 	} );
 
 	it( 'should have a "Featured image" toggle selection attribute with default being on', async () => {

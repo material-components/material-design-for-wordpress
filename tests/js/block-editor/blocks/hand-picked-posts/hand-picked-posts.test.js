@@ -4,6 +4,7 @@
 import {
 	name,
 	settings,
+	metadata,
 } from '../../../../../assets/src/block-editor/blocks/hand-picked-posts';
 
 import Edit from '../../../../../assets/src/block-editor/blocks/hand-picked-posts/edit';
@@ -45,13 +46,13 @@ describe( 'blocks: material/hand-picked-posts', () => {
 
 	describe( 'category settings', () => {
 		it( 'should equal material', () => {
-			expect( settings.category ).toStrictEqual( 'material' );
+			expect( metadata.category ).toStrictEqual( 'material' );
 		} );
 	} );
 
 	describe( 'supports settings', () => {
 		it( 'should have align supporting only wide and full alignment', () => {
-			expect( settings.supports ).toStrictEqual( {
+			expect( metadata.supports ).toStrictEqual( {
 				align: [ 'wide', 'full' ],
 			} );
 		} );

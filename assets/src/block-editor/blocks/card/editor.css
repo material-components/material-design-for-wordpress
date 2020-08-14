@@ -31,17 +31,6 @@
 	padding: 0 1rem 8px 1rem;
 }
 
-.card-container-controls {
-
-	button {
-		height: 25px;
-	}
-
-	.card-number-title {
-		margin-top: 2px;
-	}
-}
-
 .mtb-card .components-placeholder {
 	margin-bottom: 0;
 }
