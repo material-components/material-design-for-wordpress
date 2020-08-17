@@ -948,7 +948,7 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'            => 'button_radius',
-				'label'         => __( 'Button', 'material-theme-builder' ),
+				'label'         => __( 'Buttons', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 20,
 				'initial_value' => 4,

@@ -5,7 +5,7 @@ import IconButtonLink from '../common/icon-button-link';
 const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Button', 'material-theme-builder' ) }
+			{ __( 'Buttons', 'material-theme-builder' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/buttons"></IconButtonLink>
 		<p>
