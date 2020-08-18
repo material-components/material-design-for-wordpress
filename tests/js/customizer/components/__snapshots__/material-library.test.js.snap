@@ -28,7 +28,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Button
+              Buttons
             </h4>
             <form
               target="_blank"
@@ -1326,7 +1326,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Button
+            Buttons
           </h4>
           <form
             target="_blank"
