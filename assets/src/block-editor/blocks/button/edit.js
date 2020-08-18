@@ -208,7 +208,7 @@ const ButtonEdit = ( {
 
 					{ type === 'text' && (
 						<>
-							<span>{ __( 'Container', 'material-theme-builder' ) }</span>
+							<span>{ __( 'Variations', 'material-theme-builder' ) }</span>
 							<ButtonGroup
 								buttons={ BUTTON_STYLES }
 								current={ style }
