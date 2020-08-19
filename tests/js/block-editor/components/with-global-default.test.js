@@ -7,9 +7,9 @@ import { render } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import { withGlobalDefault } from '../../../../assets/src/block-editor/components/with-global-default';
+import { withGlobalBlockDefault } from '../../../../assets/src/block-editor/components/with-global-default';
 
-const TestComponent = withGlobalDefault( () => {
+const TestComponent = withGlobalBlockDefault( () => {
 	return <div>Test Component</div>;
 } );
 
@@ -29,9 +29,9 @@ const baseProps = {
 	name: 'material/button',
 };
 
-describe( 'withGlobalDefault', () => {
+describe( 'withGlobalBlockDefault', () => {
 	beforeAll( () => {
-		global.mtbBlockDefaults = {
+		global.mtbDefaults = {
 			'material/button': {
 				cornerRadius: 8,
 			},
