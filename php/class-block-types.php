@@ -36,21 +36,23 @@ class Block_Types {
 	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
-
-		$recent_post_block            = new Posts_List_Block( $this->plugin, 'material/recent-posts' );
-		$this->blocks['recent-posts'] = $recent_post_block;
-
-		$hand_picked_post_block            = new Posts_List_Block( $this->plugin, 'material/hand-picked-posts' );
-		$this->blocks['hand-picked-posts'] = $hand_picked_post_block;
-
-		$contact_form_block           = new Contact_Form_Block( $this->plugin );
-		$this->blocks['contact-form'] = $contact_form_block;
 	}
 
 	/**
 	 * Initiate the class.
 	 */
 	public function init() {
+		$recent_post_block            = new Posts_List_Block( $this->plugin, 'material/recent-posts' );
+		$this->blocks['recent-posts'] = $recent_post_block;
+
+		$hand_picked_post_block = new Posts_List_Block( $this->plugin, 'material/hand-picked-posts' );
+		$hand_picked_post_block->init();
+		$this->blocks['hand-picked-posts'] = $hand_picked_post_block;
+
+		$contact_form_block = new Contact_Form_Block( $this->plugin );
+		$contact_form_block->init();
+		$this->blocks['contact-form'] = $contact_form_block;
+
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
 		add_filter( 'block_categories', [ $this, 'block_category' ] );
@@ -150,7 +152,14 @@ class Block_Types {
 
 		$fonts_url = $this->plugin->customizer_controls->get_google_fonts_url( 'block-editor' );
 
-		wp_localize_script( 'material-block-editor-js', 'mtbBlockDefaults', $this->get_block_defaults() );
+		wp_localize_script(
+			'material-block-editor-js',
+			'mtbDefaults',
+			[
+				'blocks' => $this->get_block_defaults(),
+				'colors' => $this->get_color_defaults(),
+			]
+		);
 
 		wp_add_inline_style( 'material-block-editor-css', $this->plugin->customizer_controls->get_frontend_css() );
 
@@ -205,6 +214,26 @@ class Block_Types {
 				}
 			}
 		}
+
+		return $defaults;
+	}
+
+	/**
+	 * Get default values for color controls.
+	 *
+	 * @return array
+	 */
+	public function get_color_defaults() {
+		$defaults = [];
+		$controls = $this->plugin->customizer_controls;
+
+		// Set color defaults.
+		foreach ( $controls->get_color_controls() as $control ) {
+			$value = $controls->get_option( $control['id'] );
+			if ( ! empty( $value ) ) {
+				$defaults[ $control['id'] ] = $value;
+			}
+		};
 
 		return $defaults;
 	}
