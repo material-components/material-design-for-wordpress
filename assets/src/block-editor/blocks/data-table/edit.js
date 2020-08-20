@@ -10,9 +10,7 @@ import {
 	InspectorControls,
 	BlockControls,
 	RichText,
-	createCustomColorsHOC,
 	AlignmentToolbar,
-	PanelColorSettings,
 } from '@wordpress/block-editor';
 import {
 	Button,
@@ -56,29 +54,6 @@ import {
 	isEmptyTableSection,
 } from './state';
 
-const BACKGROUND_COLORS = [
-	{
-		color: '#f3f4f5',
-		name: 'Subtle light gray',
-		slug: 'subtle-light-gray',
-	},
-	{
-		color: '#e9fbe5',
-		name: 'Subtle pale green',
-		slug: 'subtle-pale-green',
-	},
-	{
-		color: '#e7f5fe',
-		name: 'Subtle pale blue',
-		slug: 'subtle-pale-blue',
-	},
-	{
-		color: '#fcf0ef',
-		name: 'Subtle pale pink',
-		slug: 'subtle-pale-pink',
-	},
-];
-
 const ALIGNMENT_CONTROLS = [
 	{
 		icon: alignLeft,
@@ -96,8 +71,6 @@ const ALIGNMENT_CONTROLS = [
 		align: 'right',
 	},
 ];
-
-const withCustomBackgroundColors = createCustomColorsHOC( BACKGROUND_COLORS );
 
 const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	if ( isEmptyTableSection( rows ) ) {
@@ -171,13 +144,7 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	);
 };
 
-const DataTableEdit = ( {
-	attributes,
-	backgroundColor,
-	setAttributes,
-	setBackgroundColor,
-	hasCaption,
-} ) => {
+const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 	const { className, hasFixedLayout, caption, head, body, foot } = attributes;
 	const [ selectedCell, setSelectedCell ] = useState( null );
 	const [ initialColumnCount, setinitialColumnCount ] = useState( 2 );
@@ -384,9 +351,8 @@ const DataTableEdit = ( {
 		setAttributes( deleteColumn( attributes, { sectionName, columnIndex } ) );
 	};
 
-	const tableClasses = classnames( backgroundColor.class, {
+	const tableClasses = classnames( {
 		'has-fixed-layout': hasFixedLayout,
-		'has-background': !! backgroundColor.color,
 	} );
 
 	/**
@@ -511,19 +477,6 @@ const DataTableEdit = ( {
 						onChange={ onToggleFooterSection }
 					/>
 				</PanelBody>
-				<PanelColorSettings
-					title={ __( 'Color settings', 'material-theme-builder' ) }
-					initialOpen={ false }
-					colorSettings={ [
-						{
-							value: backgroundColor.color,
-							onChange: setBackgroundColor,
-							label: __( 'Background color', 'material-theme-builder' ),
-							disableCustomColors: true,
-							colors: BACKGROUND_COLORS,
-						},
-					] }
-				/>
 			</InspectorControls>
 			<figure
 				className={ classnames(
@@ -584,7 +537,6 @@ const DataTableEdit = ( {
 };
 
 export default compose( [
-	withCustomBackgroundColors( 'backgroundColor' ),
 	withSelect( select => {
 		const tableBlock = select( 'core/blocks' ).getBlockType( 'core/table' );
 

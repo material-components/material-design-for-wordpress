@@ -107,7 +107,6 @@ const attributes = {
 			],
 		},
 	],
-	backgroundColor: 'subtle-pale-blue',
 	caption: 'Material Data Table',
 	className: 'is-style-material',
 };
