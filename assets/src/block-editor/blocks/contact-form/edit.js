@@ -4,16 +4,15 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
  */
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
-import RecaptchaInspectorControlsPanel from './components/recaptcha-inspector-controls-panel';
 import './editor.css';
 import ContactFormContext from './contact-form-context';
+import FormInspectorControls from './components/inspector-controls';
 
 const ALLOWED_BLOCKS = [
 	'material/name-input-field',
@@ -49,14 +48,7 @@ const TEMPLATES = [
  */
 const Edit = props => {
 	const {
-		attributes: {
-			emailTo,
-			subject,
-			confirmationMessage,
-			outlined,
-			fullWidth,
-			preview,
-		},
+		attributes: { outlined, fullWidth, preview },
 		className,
 		setAttributes,
 	} = props;
@@ -89,44 +81,10 @@ const Edit = props => {
 			value={ {
 				parentOutlined: outlined,
 				parentFullWidth: fullWidth,
+				parentSetter: setter,
 			} }
 		>
-			<InspectorControls>
-				<PanelBody
-					title={ __( 'Email Feedback Settings', 'material-theme-builder' ) }
-					initialOpen={ true }
-				>
-					<TextControl
-						label={ __( 'Email address', 'material-theme-builder' ) }
-						value={ emailTo }
-						onChange={ setter( 'emailTo' ) }
-					/>
-					<TextControl
-						label={ __( 'Subject', 'material-theme-builder' ) }
-						value={ subject }
-						onChange={ setter( 'subject' ) }
-					/>
-					<TextControl
-						label={ __(
-							'Submission confirmation message',
-							'material-theme-builder'
-						) }
-						value={ confirmationMessage }
-						onChange={ setter( 'confirmationMessage' ) }
-					/>
-				</PanelBody>
-				<PanelBody
-					title={ __( 'Style', 'material-theme-builder' ) }
-					initialOpen={ true }
-				>
-					<ToggleControl
-						label={ __( 'Outlined', 'material-theme-builder' ) }
-						checked={ outlined }
-						onChange={ setter( 'outlined' ) }
-					/>
-				</PanelBody>
-				<RecaptchaInspectorControlsPanel />
-			</InspectorControls>
+			<FormInspectorControls setter={ setter } { ...props } />
 			<div className={ className }>
 				<InnerBlocks template={ TEMPLATES } allowedBlocks={ ALLOWED_BLOCKS } />
 			</div>
