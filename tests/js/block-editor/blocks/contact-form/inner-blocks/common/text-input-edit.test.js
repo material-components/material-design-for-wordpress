@@ -4,6 +4,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent } from '@testing-library/react';
 import { cloneDeep } from 'lodash';
+import { registerStore } from '@wordpress/data';
 
 /**
  * Internal dependencies
@@ -28,6 +29,37 @@ jest.mock( '@material/textfield', () => {
 const setup = props => {
 	return render( <TextInputEdit { ...props } /> );
 };
+
+// Mock the <InspectorControls> component only, so that the other components in this package behave as usual.
+jest.mock( '@wordpress/block-editor', () => {
+	const original = require.requireActual( '@wordpress/block-editor' );
+	return {
+		...original,
+		InspectorControls: ( { children } ) => children,
+	};
+} );
+
+registerStore( 'core/block-editor', {
+	reducer: jest.fn(),
+	selectors: {
+		getBlockHierarchyRootClientId: () => {
+			return 'testingID';
+		},
+		getBlock: () => {
+			return {
+				attributes: {
+					emailTo: 'recipient@test.loc',
+					subject: 'Test contact form',
+					confirmationMessage: 'The form was submitted',
+					outlined: true,
+					fullWidth: true,
+				},
+				className: 'test-class',
+				setAttributes: jest.fn(),
+			};
+		},
+	},
+} );
 
 const baseProps = {
 	attributes: {

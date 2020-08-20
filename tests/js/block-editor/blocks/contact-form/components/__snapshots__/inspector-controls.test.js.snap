@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInspectorControls matches snapshot 1`] = `
+<IfBlockEditSelected(InspectorControlsFill)>
+  <ForwardRef(PanelBody)
+    initialOpen={true}
+    title="Email Feedback Settings"
+  >
+    <TextControl
+      label="Email address"
+      value="recipient@test.loc"
+    />
+    <TextControl
+      label="Subject"
+      value="Test contact form"
+    />
+    <TextControl
+      label="Submission confirmation message"
+      value="The form was submitted"
+    />
+  </ForwardRef(PanelBody)>
+  <ForwardRef(PanelBody)
+    initialOpen={true}
+    title="Style"
+  >
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Outlined"
+    />
+  </ForwardRef(PanelBody)>
+  <RecaptchaInspectorControlsPanel />
+</IfBlockEditSelected(InspectorControlsFill)>
+`;
