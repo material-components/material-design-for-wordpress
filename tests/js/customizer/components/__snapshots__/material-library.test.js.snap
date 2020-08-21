@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Material Library should initialize the material library 1`] = `
+exports[`Material Blocks should initialize the material library 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -1330,9 +1330,8 @@ Object {
           </h4>
           <form
             target="_blank"
-          >
-            <button
-              class="mdc-icon-button material-icons"
+          >utton
+  ≤≥÷ nclass="mdc-icon-button material-icons"
               formaction="https://material.io/components/buttons"
             >
               open_in_new
