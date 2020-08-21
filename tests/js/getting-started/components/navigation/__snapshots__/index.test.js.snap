@@ -32,7 +32,7 @@ Object {
             <div
               class="material-gsm__tab-title"
             >
-              Onboarding wizard
+              Quick Start
             </div>
           </button>
           <button
@@ -127,7 +127,7 @@ Object {
           <div
             class="material-gsm__tab-title"
           >
-            Onboarding wizard
+            Quick Start
           </div>
         </button>
         <button
