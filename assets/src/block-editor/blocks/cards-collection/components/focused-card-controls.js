@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import { IconButton } from '@wordpress/components';
 
 /**
  * Focused Card Controls component.
@@ -26,37 +25,46 @@ const FocusedCardControls = ( {
 	onRemove,
 } ) => (
 	<div className="card-container-controls">
-		<IconButton
-			className="mtb-card-buttons mtb-card-move-button mtb-card-move-button-left-up"
-			icon="arrow-left"
-			label={
-				style !== 'list'
-					? __( 'Move left', 'material-theme-builder' )
-					: __( 'Move up', 'material-theme-builder' )
-			}
-			onClick={ onMoveLeftOrUp }
-			disabled={ cardIndex === 0 }
-		/>
-		<IconButton
-			className="mtb-card-buttons mtb-card-move-button mtb-card-move-button-right-down"
-			icon="arrow-right"
-			label={
-				style !== 'list'
-					? __( 'Move right', 'material-theme-builder' )
-					: __( 'Move down', 'material-theme-builder' )
-			}
-			onClick={ onMoveRightOrDown }
-			disabled={ numberOfCards === cardIndex + 1 }
-		/>
+		<div className="move-card">
+			<button
+				className="mtb-card-move-button-left-up"
+				title={
+					style !== 'list'
+						? __( 'Move left', 'material-theme-builder' )
+						: __( 'Move up', 'material-theme-builder' )
+				}
+				onClick={ onMoveLeftOrUp }
+				disabled={ cardIndex === 0 }
+			>
+				<i className="material-icons">arrow_left</i>
+			</button>
+			<button
+				className="mtb-card-move-button-right-down"
+				title={
+					style !== 'list'
+						? __( 'Move right', 'material-theme-builder' )
+						: __( 'Move down', 'material-theme-builder' )
+				}
+				onClick={ onMoveRightOrDown }
+				disabled={ numberOfCards === cardIndex + 1 }
+			>
+				<i className="material-icons">arrow_right</i>
+			</button>
+		</div>
+
 		<span className="card-number-title">
 			{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }
 		</span>
-		<IconButton
-			className="mtb-card-buttons mtb-card-close-button"
-			icon="no"
-			label={ __( 'Remove card', 'material-theme-builder' ) }
-			onClick={ onRemove }
-		/>
+
+		<div className="remove-card">
+			<button
+				className="mtb-card-close-button"
+				title={ __( 'Remove card', 'material-theme-builder' ) }
+				onClick={ onRemove }
+			>
+				<i className="material-icons">close</i>
+			</button>
+		</div>
 	</div>
 );
 

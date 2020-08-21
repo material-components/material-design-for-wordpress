@@ -2,12 +2,14 @@
  * External dependencies
  */
 const path = require( 'path' );
+const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
 const RtlCssPlugin = require( 'rtlcss-webpack-plugin' );
 const TerserPlugin = require( 'terser-webpack-plugin' );
 const WebpackBar = require( 'webpackbar' );
 const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
+const { escapeRegExp } = require( 'lodash' );
 
 /**
  * WordPress dependencies
@@ -96,6 +98,27 @@ const blockEditor = {
 			// Remove the `DependencyExtractionWebpackPlugin` if it already exists.
 			plugin => ! ( plugin instanceof DependencyExtractionWebpackPlugin )
 		),
+		new CopyWebpackPlugin( {
+			patterns: [
+				{
+					from: './assets/src/block-editor/blocks/*/block.json',
+					to: './blocks/[1]/block.json',
+					transformPath( targetPath, absolutePath ) {
+						const matches = absolutePath.match(
+							new RegExp(
+								`([\\w-]+)${ escapeRegExp( path.sep ) }block\\.json$`
+							)
+						);
+
+						if ( matches ) {
+							return targetPath.replace( '[1]', matches[ 1 ] );
+						}
+
+						return targetPath;
+					},
+				},
+			],
+		} ),
 		new DependencyExtractionWebpackPlugin( {
 			useDefaults: false,
 			requestToExternal( request ) {

@@ -1980,7 +1980,7 @@ Object {
                   class="components-base-control__label"
                   for="inspector-text-control-0"
                 >
-                  Column Count
+                  Column count
                 </label>
                 <input
                   class="components-text-control__input"
@@ -2001,7 +2001,7 @@ Object {
                   class="components-base-control__label"
                   for="inspector-text-control-1"
                 >
-                  Row Count
+                  Row count
                 </label>
                 <input
                   class="components-text-control__input"
@@ -2067,7 +2067,7 @@ Object {
                 class="components-base-control__label"
                 for="inspector-text-control-0"
               >
-                Column Count
+                Column count
               </label>
               <input
                 class="components-text-control__input"
@@ -2088,7 +2088,7 @@ Object {
                 class="components-base-control__label"
                 for="inspector-text-control-1"
               >
-                Row Count
+                Row count
               </label>
               <input
                 class="components-text-control__input"

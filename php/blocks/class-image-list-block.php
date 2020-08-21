@@ -8,119 +8,12 @@
 namespace MaterialThemeBuilder\Blocks;
 
 use MaterialThemeBuilder\Module_Base;
+use MaterialThemeBuilder\Blocks_Frontend;
 
 /**
  * Image_List_Block class.
  */
-class Image_List_Block extends Module_Base {
-
-	/**
-	 * Name of the block.
-	 *
-	 * @var string
-	 */
-	public $block_name = 'material/image-list';
-
-	/**
-	 * Registers the `material/image-list` block on server,
-	 * this is not a pure dynamic block, only the CSS/styles are generated in PHP.
-	 * Registering the block here allows us to access the block attribute default values.
-	 *
-	 * @access public
-	 *
-	 * @action init
-	 */
-	public function register_block() {
-		register_block_type(
-			$this->block_name,
-			[
-				'attributes'      => [
-					'id'              => [
-						'type'      => 'string',
-						'source'    => 'attribute',
-						'attribute' => 'id',
-						'selector'  => '*',
-					],
-					'images'          => [
-						'type'     => 'array',
-						'default'  => [],
-						'source'   => 'query',
-						'selector' => '.mdc-image-list__item',
-						'query'    => [
-							'url'     => [
-								'type'      => 'string',
-								'source'    => 'attribute',
-								'selector'  => 'img',
-								'attribute' => 'src',
-							],
-							'fullUrl' => [
-								'type'      => 'string',
-								'source'    => 'attribute',
-								'selector'  => 'img',
-								'attribute' => 'data-full-url',
-							],
-							'link'    => [
-								'type'      => 'string',
-								'source'    => 'attribute',
-								'selector'  => 'img',
-								'attribute' => 'data-link',
-							],
-							'alt'     => [
-								'type'      => 'string',
-								'source'    => 'attribute',
-								'selector'  => 'img',
-								'attribute' => 'alt',
-								'default'   => '',
-							],
-							'id'      => [
-								'type'      => 'string',
-								'source'    => 'attribute',
-								'selector'  => 'img',
-								'attribute' => 'data-id',
-							],
-							'caption' => [
-								'type'     => 'string',
-								'source'   => 'html',
-								'selector' => '.mdc-image-list__label',
-							],
-						],
-					],
-					'style'           => [
-						'type'    => 'string',
-						'default' => 'masonry',
-					],
-					'columns'         => [
-						'type'    => 'number',
-						'default' => 2,
-					],
-					'gutter'          => [
-						'type'    => 'object',
-						'default' => [
-							'desktop' => 24,
-							'tablet'  => 16,
-							'mobile'  => 16,
-						],
-					],
-					'cornerRadius'    => [
-						'type' => 'number',
-					],
-					'displayCaptions' => [
-						'type'    => 'boolean',
-						'default' => true,
-					],
-					'textProtection'  => [
-						'type'    => 'boolean',
-						'default' => true,
-					],
-					'linkTo'          => [
-						'type'    => 'string',
-						'default' => 'media',
-					],
-				],
-				'render_callback' => null,
-			]
-		);
-	}
+class Image_List_Block {
 
 	/**
 	 * Generate the styles for an image list block.
@@ -204,5 +97,4 @@ class Image_List_Block extends Module_Base {
 
 		return array_merge( $styles, $item_styles, $image_styles );
 	}
-
 }

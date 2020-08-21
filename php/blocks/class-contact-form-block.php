@@ -7,6 +7,7 @@
 
 namespace MaterialThemeBuilder\Blocks;
 
+use MaterialThemeBuilder\Plugin;
 use MaterialThemeBuilder\Module_Base;
 use MaterialThemeBuilder\Template;
 use MaterialThemeBuilder\Helpers;
@@ -24,49 +25,6 @@ class Contact_Form_Block extends Module_Base {
 	 * @var string
 	 */
 	public $block_name = 'material/contact-form';
-
-	/**
-	 * Registers the `material/contact-form` block on server,
-	 *
-	 * @access public
-	 *
-	 * @action init
-	 */
-	public function register_block() {
-		register_block_type(
-			$this->block_name,
-			[
-				'attributes'      => [
-					'emailTo'             => [
-						'type'    => 'string',
-						'default' => get_bloginfo( 'admin_email' ),
-					],
-					'subject'             => [
-						'type'    => 'string',
-						/* translators: %s: blog name */
-						'default' => sprintf( __( 'This e-mail was sent from a contact form on %s', 'material-theme-builder' ), get_option( 'blogname' ) ),
-					],
-					'confirmationMessage' => [
-						'type'    => 'string',
-						'default' => __( 'Your request has been successfully submitted', 'material-theme-builder' ),
-					],
-					'outlined'            => [
-						'type'    => 'boolean',
-						'default' => true,
-					],
-					'fullWidth'           => [
-						'type'    => 'boolean',
-						'default' => true,
-					],
-					'preview'             => [
-						'type'    => 'boolean',
-						'default' => false,
-					],
-				],
-				'render_callback' => [ $this, 'render_block' ],
-			]
-		);
-	}
 
 	/**
 	 * Submit contact form for authenticated user.
