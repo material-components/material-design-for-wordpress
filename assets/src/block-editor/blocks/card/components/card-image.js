@@ -53,22 +53,24 @@ const CardImage = ( {
 			{ isEditMode ? (
 				<CardImageEdit { ...cardImageEditProps } />
 			) : (
-				<div
-					tabIndex={ 0 }
-					className={ classnames(
-						'mdc-card__media',
-						`mdc-card__media--${ type }`,
-						'mtb-card__media',
-						{ [ `mtb-card-with-${ contentLayout }` ]: contentLayout }
-					) }
-					style={ { backgroundImage: `url(${ imageSourceUrl })` } }
-				>
-					{ contentLayout === 'text-over-media' && (
-						<div className="mdc-card__media-content">
-							<CardPrimary { ...cardPrimaryProps } />
-						</div>
-					) }
-				</div>
+				( imageSourceUrl || contentLayout === 'text-over-media' ) && (
+					<div
+						tabIndex={ 0 }
+						className={ classnames(
+							'mdc-card__media',
+							`mdc-card__media--${ type }`,
+							'mtb-card__media',
+							{ [ `mtb-card-with-${ contentLayout }` ]: contentLayout }
+						) }
+						style={ { backgroundImage: `url(${ imageSourceUrl })` } }
+					>
+						{ contentLayout === 'text-over-media' && (
+							<div className="mdc-card__media-content">
+								<CardPrimary { ...cardPrimaryProps } />
+							</div>
+						) }
+					</div>
+				)
 			) }
 		</>
 	);

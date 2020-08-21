@@ -27,7 +27,15 @@ describe( 'blocks: material/data-table core/table style', () => {
 		await selectBlockByName( 'core/table' );
 		const panels = await page.$$( '.components-panel__body-toggle' );
 
-		await panels[ 0 ].click();
+		if (
+			'true' !==
+			( await page.evaluate(
+				el => el.getAttribute( 'aria-expanded' ),
+				panels[ 0 ]
+			) )
+		) {
+			await panels[ 0 ].click();
+		}
 
 		const styles = await page.$$( '.block-editor-block-styles__item-label' );
 		expect( styles ).toHaveLength( 3 );

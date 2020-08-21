@@ -8,8 +8,11 @@ import { __ } from '@wordpress/i18n';
  */
 import edit from './edit';
 import save from './save';
+import metadata from './block.json';
 
-export const name = 'material/contact-form';
+const { name } = metadata;
+
+export { metadata, name };
 
 export const settings = {
 	title: __( 'Contact Form (Material)', 'material-theme-builder' ),
