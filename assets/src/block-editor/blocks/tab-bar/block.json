@@ -1,0 +1,28 @@
+{
+	"name": "material/tab-bar",
+	"category": "material",
+	"attributes": {
+	   "forceUpdate": {
+		  "type": "boolean",
+		  "default": true
+	   },
+	   "iconPosition": {
+		  "type": "string",
+		  "default": "none"
+	   },
+	   "tabs": {
+		  "type": "array",
+		  "default": []
+	   },
+	   "preview": {
+		  "type": "boolean",
+		  "default": false
+	   }
+	},
+	"supports": {
+	   "align": [
+		  "wide",
+		  "full"
+	   ]
+	}
+ }

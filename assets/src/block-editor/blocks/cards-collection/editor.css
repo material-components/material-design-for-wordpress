@@ -10,31 +10,42 @@
 
 .card-container {
 	position: relative;
+	border: 4px transparent solid;
 }
 
 .card-container-focused {
-	position: relative;
-	border: 4px rgb(0, 113, 161) solid;
+	border-color: var(--var-accent-color);
 }
 
 .card-container-controls {
 	color: #fff;
-	background-color: rgb(0, 113, 161);
+	background: var(--var-accent-color);
 	font-size: 12px;
 	font-weight: bold;
 	position: absolute;
 	display: flex;
 	flex-direction: row;
-	width: 150px;
-	height: 22px;
+	height: 30px;
+	line-height: 30px;
 	justify-content: left;
-	top: -26px;
+	top: -30px;
 	left: -4px;
-}
 
-.mtb-card-buttons {
-	padding: 2px !important;
-	color: #fff;
+	& button {
+		width: 30px;
+		height: 30px;
+		background: var(--var-accent-color);
+		text-align: center;
+		color: var(--var-text-color);
+		padding: 0;
+		border: none;
+		cursor: pointer;
+		outline: none !important;
+
+		i {
+			line-height: 30px;
+		}
+	}
 }
 
 .mtb-card-buttons {
@@ -43,7 +54,7 @@
 }
 
 .card-number-title {
-	margin-left: 10px;
+	margin: 0 10px;
 	justify-self: center;
 }
 
@@ -54,10 +65,15 @@
 
 .layout-list {
 
-	.mtb-card-move-button {
+	& .card-container {
+		margin-bottom: 2em;
+	}
 
-		svg {
-			transform: rotate(90deg);
-		}
+	& .block-editor-media-placeholder {
+		max-width: 480px;
+	}
+
+	& .move-card .material-icons {
+		transform: rotate(90deg);
 	}
 }

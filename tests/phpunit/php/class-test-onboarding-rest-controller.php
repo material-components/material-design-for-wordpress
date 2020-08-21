@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for Recent_Posts_Block class.
+ * Tests for Onboarding_REST_Controller class.
  *
  * @package MaterialThemeBuilder
  */

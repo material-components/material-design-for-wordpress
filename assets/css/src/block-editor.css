@@ -28,6 +28,14 @@
 	margin-left: 8px;
 }
 
+[class^="wp-block-material-"] .components-placeholder.components-placeholder {
+	box-shadow: none;
+}
+
+.components-placeholder__label .material-icons-outlined {
+	margin-right: 12px;
+}
+
 .block-editor-block-list__block .mtb-block-handpicked-posts__selection {
 	width: 100%;
 }
