@@ -7,7 +7,7 @@ export const Wizard = props => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				{ __( 'Onboarding wizard', 'material-theme-builder' ) }
+				{ __( 'Quick Start', 'material-theme-builder' ) }
 			</h2>
 			<p className="material-gsm__content-description">
 				Aenean egestas, ante vitae placerat tempor, felis ipsum finibus lectus,

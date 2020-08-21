@@ -8,7 +8,7 @@ Object {
       <h2
         class="material-gsm__content-title mdc-typography--headline6"
       >
-        Onboarding wizard
+        Quick Start
       </h2>
       <p
         class="material-gsm__content-description"
@@ -41,7 +41,7 @@ Object {
     <h2
       class="material-gsm__content-title mdc-typography--headline6"
     >
-      Onboarding wizard
+      Quick Start
     </h2>
     <p
       class="material-gsm__content-description"
