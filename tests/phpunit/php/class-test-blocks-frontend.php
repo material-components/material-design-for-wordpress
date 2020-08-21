@@ -5,7 +5,7 @@
  * @package MaterialThemeBuilder
  */
 
-namespace MaterialThemeBuilder\Blocks;
+namespace MaterialThemeBuilder;
 
 use function MaterialThemeBuilder\get_plugin_instance;
 

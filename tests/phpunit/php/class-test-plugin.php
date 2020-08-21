@@ -73,9 +73,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 	public function test_construct() {
 		$plugin = new Plugin();
 		$this->assertEquals( 9, has_action( 'after_setup_theme', [ $plugin, 'init' ] ) );
-		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $plugin, 'enqueue_block_editor_assets' ] ) );
 		$this->assertEquals( 100, has_action( 'wp_enqueue_scripts', [ $plugin, 'enqueue_front_end_assets' ] ) );
-		$this->assertEquals( 10, has_filter( 'block_categories', [ $plugin, 'block_category' ] ) );
 	}
 
 	/**
@@ -92,84 +90,6 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertInternalType( 'array', $plugin->config );
 		$this->assertArrayHasKey( 'foo', $plugin->config );
 		$this->assertInstanceOf( Controls::class, $plugin->customizer_controls );
-	}
-
-	/**
-	 * Test for enqueue_block_editor_assets() method.
-	 *
-	 * @see Plugin::enqueue_block_editor_assets()
-	 */
-	public function test_enqueue_block_editor_assets() {
-		$user_id = self::factory()->user->create( [ 'role' => 'editor' ] );
-		wp_set_current_user( $user_id );
-
-		$plugin = get_plugin_instance();
-		$plugin->enqueue_block_editor_assets();
-		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-google-fonts', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
-
-		// Assert inline css vars are added.
-		$inline_css = wp_styles()->get_data( 'material-block-editor-css', 'after' );
-		$this->assertNotEmpty( $inline_css );
-
-		$inline_js = wp_scripts()->get_data( 'material-block-editor-js', 'data' );
-
-		// Assert inline js vars contains ajax url data.
-		$this->assertRegexp( '/ajax_url/', $inline_js );
-	}
-
-	/**
-	 * Test for enqueue_block_editor_assets() method for editor user with the manage options capability.
-	 *
-	 * @see Plugin::enqueue_block_editor_assets()
-	 */
-	public function test_enqueue_block_editor_assets_for_editor_role_with_manage_options_cap() {
-		$editor_role = get_role( 'editor' );
-		$editor_role->add_cap( 'manage_options' );
-		$user_id = self::factory()->user->create( [ 'role' => 'editor' ] );
-		wp_set_current_user( $user_id );
-
-		$plugin = get_plugin_instance();
-		$plugin->enqueue_block_editor_assets();
-		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-google-fonts', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
-
-		// Assert inline css vars are added.
-		$inline_css = wp_styles()->get_data( 'material-block-editor-css', 'after' );
-		$this->assertNotEmpty( $inline_css );
-
-		$inline_js = wp_scripts()->get_data( 'material-block-editor-js', 'data' );
-
-		// Assert inline js vars contains `allow_contact_form_block`.
-		$this->assertRegexp( '/allow_contact_form_block/', $inline_js );
-		$editor_role->remove_cap( 'manage_options' );
-	}
-
-	/**
-	 * Test for enqueue_block_editor_assets() method for editor user with the manage options capability.
-	 *
-	 * @see Plugin::enqueue_block_editor_assets()
-	 */
-	public function test_enqueue_block_editor_assets_for_administrator() {
-		$user_id = self::factory()->user->create( [ 'role' => 'administrator' ] );
-		wp_set_current_user( $user_id );
-
-		$plugin = get_plugin_instance();
-		$plugin->enqueue_block_editor_assets();
-		$this->assertTrue( wp_script_is( 'material-block-editor-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-google-fonts', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-block-editor-css', 'enqueued' ) );
-
-		// Assert inline css vars are added.
-		$inline_css = wp_styles()->get_data( 'material-block-editor-css', 'after' );
-		$this->assertNotEmpty( $inline_css );
-
-		$inline_js = wp_scripts()->get_data( 'material-block-editor-js', 'data' );
-
-		// Assert inline css js contains `allow_contact_form_block`.
-		$this->assertRegexp( '/allow_contact_form_block/', $inline_js );
 	}
 
 	/**
@@ -236,69 +156,6 @@ class Test_Plugin extends \WP_UnitTestCase {
 
 		$this->assertContains( '<style id="material-css-variables">', $output );
 		$this->assertContains( '</style>', $output );
-	}
-
-	/**
-	 * Test for block_category() method.
-	 *
-	 * @see Plugin::block_category()
-	 */
-	public function test_block_category() {
-		$plugin     = get_plugin_instance();
-		$categories = $plugin->block_category( [], null );
-		$this->assertContains( 'material', wp_list_pluck( $categories, 'slug' ) );
-	}
-
-	/**
-	 * Test for get_block_defaults() method.
-	 *
-	 * @see Plugin::get_block_defaults()
-	 */
-	public function test_get_block_defaults() {
-		$plugin   = get_plugin_instance();
-		$controls = get_plugin_instance()->customizer_controls;
-		$defaults = $plugin->get_block_defaults();
-
-		$this->assertEquals(
-			[
-				'cornerRadius' => 4,
-			],
-			$defaults['material/button']
-		);
-
-		// Add filter to return 12, 48 and -1 sequantially as the cornerRadius for button.
-		add_filter(
-			"{$controls->slug}_get_option_button_radius",
-			function () {
-				static $index = 0;
-				$values       = [ 12, 48, -1 ];
-				return $values[ $index++ ];
-			}
-		);
-
-		$defaults = $plugin->get_block_defaults();
-		$this->assertEquals(
-			[
-				'cornerRadius' => 12,
-			],
-			$defaults['material/button']
-		);
-
-		$defaults = $plugin->get_block_defaults();
-		$this->assertEquals(
-			[
-				'cornerRadius' => 20,
-			],
-			$defaults['material/button']
-		);
-
-		$defaults = $plugin->get_block_defaults();
-		$this->assertEquals(
-			[
-				'cornerRadius' => 0,
-			],
-			$defaults['material/button']
-		);
 	}
 
 	/**
