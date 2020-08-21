@@ -88,7 +88,7 @@ class Controls extends Module_Base {
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
 				'title'       => esc_html__( 'Material Theme Options', 'material-theme-builder' ),
-				'description' => esc_html__( 'Change the color, shape, typography, and icons below to customize your theme style. Navigate to the Material Library to see your custom styles applied across Material Components..', 'material-theme-builder' ),
+				'description' => esc_html__( 'Change the color, shape, typography, and icons below to customize your theme style. Navigate to the Material Blocks to see your custom styles applied across Material Components..', 'material-theme-builder' ),
 			]
 		);
 	}
@@ -942,7 +942,7 @@ class Controls extends Module_Base {
 				'id'            => 'global_radius',
 				'label'         => __( 'Global corner styles', 'material-theme-builder' ),
 				'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-theme-builder' ),
-				'min'           => 0,
+				 'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 4,
 			],

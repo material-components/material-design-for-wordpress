@@ -27,9 +27,9 @@ import { THEME_COLOR_CONTROLS, removeOptionPrefix } from './utils';
 const $ = jQuery;
 const api = wp.customize;
 
-// Material Library button
-const BUTTON_OPEN_TEXT = __( 'Material Library', 'material-theme-builder' );
-const BUTTON_CLOSE_TEXT = __( 'Exit Library', 'material-theme-builder' );
+// Material Blocks button
+const BUTTON_OPEN_TEXT = __( 'Material Blocks', 'material-theme-builder' );
+const BUTTON_CLOSE_TEXT = __( 'Exit Blocks', 'material-theme-builder' );
 
 /**
  * Renders the material library with all the settings.
