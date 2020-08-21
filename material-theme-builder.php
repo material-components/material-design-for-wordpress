@@ -124,5 +124,5 @@ function _material_theme_builder_gutenberg_text_only() {
  * @return void
  */
 function _material_theme_builder_activation() {
-	set_transient( 'mtb-activation-notice', true, 5 );
+	update_option( 'mtb_plugin_activated', true, false );
 }

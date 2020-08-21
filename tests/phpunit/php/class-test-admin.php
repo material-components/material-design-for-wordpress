@@ -230,7 +230,7 @@ class Test_Admin extends \WP_UnitTestCase {
 		add_filter( 'template', [ $this, 'template' ] );
 
 		set_current_screen( 'options-general-php' );
-		set_transient( 'mtb-activation-notice', true );
+		update_option( 'mtb_plugin_activated', true, false );
 
 		ob_start();
 		$this->admin->plugin_activated_notice();

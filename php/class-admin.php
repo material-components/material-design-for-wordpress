@@ -233,10 +233,11 @@ class Admin extends Module_Base {
 					echo wp_kses(
 						$message,
 						[
-							'a' => [
+							'a'  => [
 								'href'  => [],
 								'class' => [],
 							],
+							'br' => [],
 						]
 					);
 					?>
@@ -319,32 +320,29 @@ class Admin extends Module_Base {
 
 		// Theme not active or plugin didn't JUST activate. Stop here.
 		if ( Plugin::THEME_SLUG !== get_template()
-			|| ! get_transient( 'mtb-activation-notice' )
+			|| ! get_option( 'mtb_plugin_activated' )
 			|| 'toplevel_page_material-settings' === $screen->id
 			|| 'material_page_material-onboarding-wizard' === $screen->id ) {
 			return;
 		}
 
-		delete_transient( 'mtb-activation-notice' );
-		?>
-		<div class="notice notice-info is-dismissible material-notice-container">
-			<img
-				src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/logo-outline-dark.svg' ) ); ?>"
-				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
-			/>
+		delete_option( 'mtb_plugin_activated' );
 
-			<div class="material-notice-container__content">
-				<h3 class="material-notice-container__content__title">
-					<?php esc_html_e( 'See Material Theming in action', 'material-theme-builder' ); ?>
-				</h3>
-				<p class="material-notice-container__content__text">
-					<?php esc_html_e( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer", 'material-theme-builder' ); ?>
-				</p>
+		$message = esc_html__( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer.", 'material-theme-builder' );
 
-				<a href="<?php echo esc_url( admin_url( 'admin.php?page=material-settings' ) ); ?>"><?php esc_html_e( "Let's go!", 'material-theme-builder' ); ?></a>
-			</div>
-		</div>
+		$action_link = sprintf(
+			'<br/><a href="%s">%s</a>',
+			esc_url( admin_url( 'admin.php?page=material-settings' ) ),
+			esc_html__( "Let's go!", 'material-theme-builder' )
+		);
 
-		<?php
+		$this->material_notice(
+			esc_html__( 'See Material Theming in action', 'material-theme-builder' ),
+			sprintf(
+				'%s %s',
+				$message,
+				$action_link
+			)
+		);
 	}
 }
