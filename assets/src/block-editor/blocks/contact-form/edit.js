@@ -5,10 +5,13 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InnerBlocks } from '@wordpress/block-editor';
+import { withSelect, withDispatch } from '@wordpress/data';
+import { compose } from '@wordpress/compose';
 
 /**
  * Internal dependencies
  */
+import { name } from './block.json';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import './editor.css';
 import ContactFormContext from './contact-form-context';
@@ -51,6 +54,9 @@ const Edit = props => {
 		attributes: { outlined, fullWidth, preview },
 		className,
 		setAttributes,
+		createWarningNotice,
+		formNotices,
+		insertedForms,
 	} = props;
 
 	if ( ! mtb.allow_contact_form_block ) {
@@ -75,6 +81,16 @@ const Edit = props => {
 	}
 
 	const setter = genericAttributesSetter( setAttributes );
+	const displayNotice = 1 < insertedForms && 0 === formNotices.length;
+
+	if ( displayNotice ) {
+		createWarningNotice(
+			__(
+				'Only one contact form is supported per page',
+				'material-theme-builder-wp'
+			)
+		);
+	}
 
 	return (
 		<ContactFormContext.Provider
@@ -92,4 +108,25 @@ const Edit = props => {
 	);
 };
 
-export default Edit;
+export default compose( [
+	withSelect( select => {
+		const insertedBlocks = select( 'core/block-editor' ).getBlocks();
+		const insertedForms = insertedBlocks.filter( block => block.name === name );
+		const pageNotices = select( 'core/notices' ).getNotices();
+
+		return {
+			insertedForms: insertedForms.length,
+			formNotices: pageNotices.filter(
+				notice =>
+					notice.content ===
+					__(
+						'Only one contact form is supported per page',
+						'material-theme-builder-wp'
+					)
+			),
+		};
+	} ),
+	withDispatch( dispatch => ( {
+		createWarningNotice: dispatch( 'core/notices' ).createWarningNotice,
+	} ) ),
+] )( Edit );
