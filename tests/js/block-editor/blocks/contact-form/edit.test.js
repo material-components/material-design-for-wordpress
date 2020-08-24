@@ -3,11 +3,46 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import { render, cleanup } from '@testing-library/react';
+import { registerStore } from '@wordpress/data';
 
 /**
  * Internal dependencies
  */
 import Edit from '../../../../../assets/src/block-editor/blocks/contact-form/edit';
+
+registerStore( 'core/block-editor', {
+	reducer: jest.fn(),
+	selectors: {
+		getBlocks: () => {
+			return [
+				{
+					attributes: {
+						emailTo: 'recipient@test.loc',
+						subject: 'Test contact form',
+						confirmationMessage: 'The form was submitted',
+						outlined: true,
+						fullWidth: true,
+					},
+					className: 'test-class',
+					setAttributes: jest.fn(),
+				},
+			];
+		},
+	},
+} );
+
+registerStore( 'core/notices', {
+	reducer: jest.fn(),
+	selectors: {
+		getNotices: () => {
+			return [
+				{
+					content: 'Test notice',
+				},
+			];
+		},
+	},
+} );
 
 // Mock the <InspectorControls> and <InnerBlocks> components only, so that the other components in this package behave as usual.
 jest.mock( '@wordpress/block-editor', () => {
