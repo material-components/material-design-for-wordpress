@@ -13,7 +13,7 @@ const FormInspectorControls = props => {
 	return (
 		<InspectorControls>
 			<PanelBody
-				title={ __( 'Email Feedback Settings', 'material-theme-builder' ) }
+				title={ __( 'Form Email Settings', 'material-theme-builder' ) }
 				initialOpen={ true }
 			>
 				<TextControl

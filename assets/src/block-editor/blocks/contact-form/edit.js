@@ -21,7 +21,7 @@ const ALLOWED_BLOCKS = [
 	'material/name-input-field',
 	'material/email-input-field',
 	'material/website-input-field',
-	'material/telephone-input-field',
+	'material/short-text-input-field',
 	'core/paragraph',
 	'material/button',
 ];
@@ -34,7 +34,7 @@ const TEMPLATES = [
 	[
 		'material/button',
 		{
-			label: __( 'Submit', 'material-theme-builder' ),
+			label: __( 'Send', 'material-theme-builder' ),
 			style: 'unelevated',
 			isSubmit: true,
 		},
