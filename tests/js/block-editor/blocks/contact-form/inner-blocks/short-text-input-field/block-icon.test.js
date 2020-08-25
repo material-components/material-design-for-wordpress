@@ -7,7 +7,7 @@ import { render } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import BlockIcon from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/telephone-input-field/block-icon';
+import BlockIcon from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/short-text-input-field/block-icon';
 
 /**
  * Render the component.
