@@ -141,7 +141,6 @@ const attributes = {
 			],
 		},
 	],
-	backgroundColor: 'subtle-pale-blue',
 	className: 'is-style-material',
 };
 

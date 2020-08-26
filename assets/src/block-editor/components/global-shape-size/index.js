@@ -6,7 +6,7 @@ import { RangeControl } from '@wordpress/components';
 /**
  * Internal dependencies
  */
-import { withGlobalDefault } from '../with-global-default';
+import { withGlobalBlockDefault } from '../with-global-default';
 import { __ } from '@wordpress/i18n';
 import './style.css';
 
@@ -49,6 +49,6 @@ const withAttributeName = ( WrappedComponent, attributeName ) => props => (
 );
 
 export default withAttributeName(
-	withGlobalDefault( GlobalShapeSize ),
+	withGlobalBlockDefault( GlobalShapeSize ),
 	'cornerRadius'
 );

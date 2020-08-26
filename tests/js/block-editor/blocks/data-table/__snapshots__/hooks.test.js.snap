@@ -4,7 +4,6 @@ exports[`Data Table Filters save should invoke DataTableSave 1`] = `
 <Save
   attributes={
     Object {
-      "backgroundColor": "subtle-pale-blue",
       "body": Array [
         Object {
           "cells": Array [
