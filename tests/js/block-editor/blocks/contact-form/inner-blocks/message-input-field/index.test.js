@@ -23,9 +23,9 @@ describe( 'blocks: material/message-input-field', () => {
 	} );
 
 	describe( 'description settings', () => {
-		it( 'should equal `Let folks speak their mind. This text box is great for longer responses.`', () => {
+		it( 'should equal `A text area for people to add longer responses.`', () => {
 			expect( settings.description ).toStrictEqual(
-				'Let folks speak their mind. This text box is great for longer responses.'
+				'A text area for people to add longer responses.'
 			);
 		} );
 	} );
