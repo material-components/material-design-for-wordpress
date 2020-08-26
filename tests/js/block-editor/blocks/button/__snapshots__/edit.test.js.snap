@@ -1359,83 +1359,102 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control material-component-color-palette"
+          class="components-global-color"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control material-component-color-palette"
           >
-            <span
-              class="components-base-control__label"
-            >
-              <span
-                class="material-component-color-palette__label"
-              >
-                Text Color
-              </span>
-              <span
-                aria-label="Text Color"
-                class="component-color-indicator"
-              />
-            </span>
             <div
-              class="material-colors-wrap"
+              class="components-base-control__field"
             >
+              <span
+                class="components-base-control__label"
+              >
+                <span
+                  class="material-component-color-palette__label"
+                >
+                  Text Color
+                </span>
+                <span
+                  aria-label="Text Color"
+                  class="component-color-indicator"
+                  style="background: rgb(98, 0, 238);"
+                />
+              </span>
               <div
-                class="components-circular-option-picker"
+                class="material-colors-wrap"
               >
                 <div
-                  class="components-circular-option-picker__option-wrapper"
-                >
-                  <button
-                    aria-label="Color: Primary"
-                    class="components-button components-circular-option-picker__option"
-                    style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
-                    type="button"
-                  />
-                </div>
-                <div
-                  class="components-circular-option-picker__option-wrapper"
-                >
-                  <button
-                    aria-label="Color: Secondary"
-                    class="components-button components-circular-option-picker__option"
-                    style="background-color: rgb(1, 135, 134); color: rgb(1, 135, 134);"
-                    type="button"
-                  />
-                </div>
-                <div
-                  class="components-circular-option-picker__custom-clear-wrapper"
+                  class="components-circular-option-picker"
                 >
                   <div
-                    class="components-dropdown components-circular-option-picker__dropdown-link-action components-material-color-palette__link"
+                    class="components-circular-option-picker__option-wrapper"
                   >
                     <button
-                      aria-expanded="false"
-                      aria-label="Color palette"
-                      class="components-button is-link"
+                      aria-label="Color: Primary"
+                      class="components-button components-circular-option-picker__option is-pressed"
+                      style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
                       type="button"
+                    />
+                    <svg
+                      aria-hidden="true"
+                      class="dashicon dashicons-saved"
+                      focusable="false"
+                      height="20"
+                      role="img"
+                      viewBox="0 0 20 20"
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      Color palette
-                    </button>
+                      <path
+                        d="M15.3 5.3l-6.8 6.8-2.8-2.8-1.4 1.4 4.2 4.2 8.2-8.2"
+                      />
+                    </svg>
                   </div>
                   <div
-                    class="components-dropdown components-circular-option-picker__dropdown-link-action"
+                    class="components-circular-option-picker__option-wrapper"
                   >
                     <button
-                      aria-expanded="false"
-                      aria-label="Custom color picker"
-                      class="components-button is-link"
+                      aria-label="Color: Secondary"
+                      class="components-button components-circular-option-picker__option"
+                      style="background-color: rgb(1, 135, 134); color: rgb(1, 135, 134);"
+                      type="button"
+                    />
+                  </div>
+                  <div
+                    class="components-circular-option-picker__custom-clear-wrapper"
+                  >
+                    <div
+                      class="components-dropdown components-circular-option-picker__dropdown-link-action components-material-color-palette__link"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-label="Color palette"
+                        class="components-button is-link"
+                        type="button"
+                      >
+                        Color palette
+                      </button>
+                    </div>
+                    <div
+                      class="components-dropdown components-circular-option-picker__dropdown-link-action"
+                    >
+                      <button
+                        aria-expanded="false"
+                        aria-label="Custom color picker"
+                        class="components-button is-link"
+                        type="button"
+                      >
+                        Custom Color
+                      </button>
+                    </div>
+                    <button
+                      class="components-button components-circular-option-picker__clear is-small"
                       type="button"
                     >
-                      Custom Color
+                      Clear
                     </button>
                   </div>
-                  <button
-                    class="components-button components-circular-option-picker__clear is-small"
-                    type="button"
-                  >
-                    Clear
-                  </button>
                 </div>
               </div>
             </div>
@@ -2907,83 +2926,102 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control material-component-color-palette"
+        class="components-global-color"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control material-component-color-palette"
         >
-          <span
-            class="components-base-control__label"
-          >
-            <span
-              class="material-component-color-palette__label"
-            >
-              Text Color
-            </span>
-            <span
-              aria-label="Text Color"
-              class="component-color-indicator"
-            />
-          </span>
           <div
-            class="material-colors-wrap"
+            class="components-base-control__field"
           >
+            <span
+              class="components-base-control__label"
+            >
+              <span
+                class="material-component-color-palette__label"
+              >
+                Text Color
+              </span>
+              <span
+                aria-label="Text Color"
+                class="component-color-indicator"
+                style="background: rgb(98, 0, 238);"
+              />
+            </span>
             <div
-              class="components-circular-option-picker"
+              class="material-colors-wrap"
             >
               <div
-                class="components-circular-option-picker__option-wrapper"
-              >
-                <button
-                  aria-label="Color: Primary"
-                  class="components-button components-circular-option-picker__option"
-                  style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
-                  type="button"
-                />
-              </div>
-              <div
-                class="components-circular-option-picker__option-wrapper"
-              >
-                <button
-                  aria-label="Color: Secondary"
-                  class="components-button components-circular-option-picker__option"
-                  style="background-color: rgb(1, 135, 134); color: rgb(1, 135, 134);"
-                  type="button"
-                />
-              </div>
-              <div
-                class="components-circular-option-picker__custom-clear-wrapper"
+                class="components-circular-option-picker"
               >
                 <div
-                  class="components-dropdown components-circular-option-picker__dropdown-link-action components-material-color-palette__link"
+                  class="components-circular-option-picker__option-wrapper"
                 >
                   <button
-                    aria-expanded="false"
-                    aria-label="Color palette"
-                    class="components-button is-link"
+                    aria-label="Color: Primary"
+                    class="components-button components-circular-option-picker__option is-pressed"
+                    style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
                     type="button"
+                  />
+                  <svg
+                    aria-hidden="true"
+                    class="dashicon dashicons-saved"
+                    focusable="false"
+                    height="20"
+                    role="img"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    Color palette
-                  </button>
+                    <path
+                      d="M15.3 5.3l-6.8 6.8-2.8-2.8-1.4 1.4 4.2 4.2 8.2-8.2"
+                    />
+                  </svg>
                 </div>
                 <div
-                  class="components-dropdown components-circular-option-picker__dropdown-link-action"
+                  class="components-circular-option-picker__option-wrapper"
                 >
                   <button
-                    aria-expanded="false"
-                    aria-label="Custom color picker"
-                    class="components-button is-link"
+                    aria-label="Color: Secondary"
+                    class="components-button components-circular-option-picker__option"
+                    style="background-color: rgb(1, 135, 134); color: rgb(1, 135, 134);"
+                    type="button"
+                  />
+                </div>
+                <div
+                  class="components-circular-option-picker__custom-clear-wrapper"
+                >
+                  <div
+                    class="components-dropdown components-circular-option-picker__dropdown-link-action components-material-color-palette__link"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Color palette"
+                      class="components-button is-link"
+                      type="button"
+                    >
+                      Color palette
+                    </button>
+                  </div>
+                  <div
+                    class="components-dropdown components-circular-option-picker__dropdown-link-action"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Custom color picker"
+                      class="components-button is-link"
+                      type="button"
+                    >
+                      Custom Color
+                    </button>
+                  </div>
+                  <button
+                    class="components-button components-circular-option-picker__clear is-small"
                     type="button"
                   >
-                    Custom Color
+                    Clear
                   </button>
                 </div>
-                <button
-                  class="components-button components-circular-option-picker__clear is-small"
-                  type="button"
-                >
-                  Clear
-                </button>
               </div>
             </div>
           </div>

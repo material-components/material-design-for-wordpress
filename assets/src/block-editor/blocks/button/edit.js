@@ -10,11 +10,7 @@ import { capitalize } from 'lodash';
 import { __, sprintf } from '@wordpress/i18n';
 import { useEffect } from '@wordpress/element';
 
-import {
-	ContrastChecker,
-	InspectorControls,
-	RichText,
-} from '@wordpress/block-editor';
+import { InspectorControls, RichText } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, TextControl } from '@wordpress/components';
 import { withSelect } from '@wordpress/data';
 
@@ -29,7 +25,9 @@ import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
 import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
 import GlobalShapeSize from '../../components/global-shape-size';
-import MaterialColorPalette from '../../components/material-color-palette';
+import GlobalColor, {
+	GlobalColorContrastChecker,
+} from '../../components/global-color';
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
@@ -238,25 +236,33 @@ const ButtonEdit = ( {
 					initialOpen={ true }
 				>
 					{ hasBg( style ) && type === 'text' && (
-						<MaterialColorPalette
+						<GlobalColor
 							label={ __( 'Background Color', 'material-theme-builder' ) }
 							value={ backgroundColor }
 							onChange={ setter( 'backgroundColor' ) }
+							globalPropName={
+								hasBg( style ) ? 'primary_color' : 'primary_text_color'
+							}
 						/>
 					) }
-					<MaterialColorPalette
+					<GlobalColor
 						label={ sprintf(
 							__( '%s Color', 'material-theme-builder' ),
 							capitalize( type )
 						) }
 						value={ textColor }
 						onChange={ setter( 'textColor' ) }
+						globalPropName={
+							hasBg( style ) ? 'primary_text_color' : 'primary_color'
+						}
 					/>
 
 					{ hasBg( style ) && type === 'text' && (
-						<ContrastChecker
+						<GlobalColorContrastChecker
 							textColor={ textColor }
 							backgroundColor={ backgroundColor }
+							textProp="primary_text_color"
+							backgroundProp="primary_color"
 						/>
 					) }
 				</PanelBody>
