@@ -3,8 +3,11 @@
 
 ( $ => {
 	const initNotificationActions = () => {
+		let requesting = false;
+
 		$( '.material-notice-container a' ).on( 'click', event => {
-			const className = $( event.target ).attr( 'class' ),
+			const $target = $( event.target ),
+				className = $target.attr( 'class' ),
 				action = ( className || '' ).replace( 'material-theme-', '' );
 
 			if ( 'activate' !== action && 'install' !== action ) {
@@ -12,6 +15,16 @@
 			}
 
 			event.preventDefault();
+
+			if ( requesting ) {
+				return;
+			}
+
+			requesting = true;
+
+			const span = $( '<span/>' );
+			span.attr( 'class', 'spinner is-active' );
+			$target.append( span );
 
 			const ajaxArgs = {
 				url: `${ mtbOnboarding.restUrl }${ action }-theme`,
