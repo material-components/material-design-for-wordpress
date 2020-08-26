@@ -7,10 +7,11 @@ import { MDCTextField } from '@material/textfield';
 /**
  * WordPress dependencies
  */
-import { withInstanceId } from '@wordpress/compose';
+import { withInstanceId, compose } from '@wordpress/compose';
 import { useLayoutEffect, useEffect, useContext } from '@wordpress/element';
 import { ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
+import { withSelect } from '@wordpress/data';
 
 /**
  * Internal dependencies
@@ -21,6 +22,7 @@ import genericAttributesSetter from '../../../../../utils/generic-attributes-set
 import InputInspectorControls from './inspector-controls';
 import TextareaInputElement from './textarea-input-element';
 import ContactFormContext from '../../../contact-form-context';
+import FormInspectorControls from '../../../components/inspector-controls';
 
 /**
  * Text Input Field Block Save component.
@@ -50,6 +52,7 @@ const TextAreaInputEdit = props => {
 		className,
 		instanceId,
 		isSelected,
+		parentBlock,
 	} = props;
 
 	const setter = genericAttributesSetter( setAttributes );
@@ -68,7 +71,9 @@ const TextAreaInputEdit = props => {
 		isRequired,
 	};
 
-	const { parentOutlined, parentFullWidth } = useContext( ContactFormContext );
+	const { parentOutlined, parentFullWidth, parentSetter } = useContext(
+		ContactFormContext
+	);
 
 	useEffect(
 		() => {
@@ -87,6 +92,7 @@ const TextAreaInputEdit = props => {
 
 	return (
 		<>
+			<FormInspectorControls { ...parentBlock } setter={ parentSetter } />
 			<InputInspectorControls { ...props } />
 
 			<div className="mdc-text-field-container">
@@ -162,4 +168,15 @@ const TextAreaInputEdit = props => {
 	);
 };
 
-export default withInstanceId( TextAreaInputEdit );
+export default compose( [
+	withInstanceId,
+	withSelect( ( select, ownProps ) => {
+		const parentId = select(
+			'core/block-editor'
+		).getBlockHierarchyRootClientId( ownProps.clientId );
+
+		return {
+			parentBlock: select( 'core/block-editor' ).getBlock( parentId ),
+		};
+	} ),
+] )( TextAreaInputEdit );
