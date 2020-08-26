@@ -11,7 +11,7 @@
 		},
 		"confirmationMessage": {
 		   "type": "string",
-		   "default": "Your request has been successfully submitted"
+		   "default": "Your message has been successfully sent"
 		},
 		"outlined": {
 		   "type": "boolean",

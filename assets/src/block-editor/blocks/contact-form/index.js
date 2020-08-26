@@ -17,7 +17,7 @@ export { metadata, name };
 export const settings = {
 	title: __( 'Contact Form (Material)', 'material-theme-builder' ),
 	description: __(
-		'A simple way to get feedback from folks visiting your site.',
+		'A simple way for people to get in contact with you.',
 		'material-theme-builder'
 	),
 	category: 'material',
