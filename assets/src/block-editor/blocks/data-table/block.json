@@ -6,9 +6,6 @@
 		  "type": "boolean",
 		  "default": false
 	   },
-	   "backgroundColor": {
-		  "type": "string"
-	   },
 	   "caption": {
 		  "type": "string",
 		  "source": "html",

@@ -6,18 +6,10 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { RichText, getColorClassName } from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
 
 const Save = ( { attributes, hasCaption } ) => {
-	const {
-		hasFixedLayout,
-		head,
-		body,
-		foot,
-		backgroundColor,
-		caption,
-		className,
-	} = attributes;
+	const { hasFixedLayout, head, body, foot, caption, className } = attributes;
 
 	const isEmpty = ! head.length && ! body.length && ! foot.length;
 
@@ -25,14 +17,8 @@ const Save = ( { attributes, hasCaption } ) => {
 		return null;
 	}
 
-	const backgroundClass = getColorClassName(
-		'background-color',
-		backgroundColor
-	);
-
-	const classes = classnames( backgroundClass, 'mdc-data-table__table', {
+	const classes = classnames( 'mdc-data-table__table', {
 		'has-fixed-layout': hasFixedLayout,
-		'has-background': !! backgroundClass,
 	} );
 
 	hasCaption = hasCaption && ! RichText.isEmpty( caption );
