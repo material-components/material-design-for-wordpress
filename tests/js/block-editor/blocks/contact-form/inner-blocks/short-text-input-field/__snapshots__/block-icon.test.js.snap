@@ -7,7 +7,6 @@ Object {
     <div>
       <svg
         height="24"
-        viewBox="0 0 24 24"
         width="24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -16,7 +15,7 @@ Object {
           fill="none"
         />
         <path
-          d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"
+          d="M4 9h16v2H4V9zm0 4h10v2H4v-2z"
         />
       </svg>
     </div>
@@ -24,7 +23,6 @@ Object {
   "container": <div>
     <svg
       height="24"
-      viewBox="0 0 24 24"
       width="24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -33,7 +31,7 @@ Object {
         fill="none"
       />
       <path
-        d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"
+        d="M4 9h16v2H4V9zm0 4h10v2H4v-2z"
       />
     </svg>
   </div>,
