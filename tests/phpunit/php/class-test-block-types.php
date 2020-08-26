@@ -34,26 +34,16 @@ class Test_Block_Types extends \WP_UnitTestCase {
 	];
 
 	/**
-	 * Test constructor.
-	 *
-	 * @see Block_Types::__construct()
-	 */
-	public function test_construct() {
-		$block_types = new Block_Types( get_plugin_instance() );
-
-		$this->assertTrue( is_a( $block_types->blocks['recent-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
-		$this->assertTrue( is_a( $block_types->blocks['hand-picked-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
-		$this->assertTrue( is_a( $block_types->blocks['contact-form'], '\MaterialThemeBuilder\Blocks\Contact_Form_Block' ) );
-	}
-
-	/**
 	 * Test for init() method.
 	 *
 	 * @see Plugin::init()
 	 */
 	public function test_init() {
-		$block_types = new Block_Types( get_plugin_instance() );
-		$block_types->init();
+		$block_types = get_plugin_instance()->block_types;
+
+		$this->assertTrue( is_a( $block_types->blocks['recent-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['hand-picked-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['contact-form'], '\MaterialThemeBuilder\Blocks\Contact_Form_Block' ) );
 
 		$this->assertEquals( 10, has_action( 'init', [ $block_types, 'register_blocks' ] ) );
 		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $block_types, 'enqueue_block_editor_assets' ] ) );
