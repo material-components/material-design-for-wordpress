@@ -23,9 +23,9 @@ describe( 'blocks: material/email-input-field', () => {
 	} );
 
 	describe( 'description settings', () => {
-		it( 'should equal `Want to reply to folks? Add an email address input.`', () => {
+		it( 'should equal `An input field for people to add their email address.`', () => {
 			expect( settings.description ).toStrictEqual(
-				'Want to reply to folks? Add an email address input.'
+				'An input field for people to add their email address.'
 			);
 		} );
 	} );

@@ -15,7 +15,7 @@ export const name = 'material/message-input-field';
 export const settings = {
 	title: __( 'Message', 'material-theme-builder' ),
 	description: __(
-		'Let folks speak their mind. This text box is great for longer responses.',
+		'A text area for people to add longer responses.',
 		'material-theme-builder'
 	),
 	parent: [ 'material/contact-form' ],
