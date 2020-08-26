@@ -23,9 +23,9 @@ describe( 'blocks: material/contact-form', () => {
 	} );
 
 	describe( 'description settings', () => {
-		it( 'should equal `A simple way to get feedback from folks visiting your site.`', () => {
+		it( 'should equal `A simple way for people to get in contact with you.`', () => {
 			expect( settings.description ).toStrictEqual(
-				'A simple way to get feedback from folks visiting your site.'
+				'A simple way for people to get in contact with you.'
 			);
 		} );
 	} );

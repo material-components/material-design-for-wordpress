@@ -15,7 +15,7 @@ export const name = 'material/website-input-field';
 export const settings = {
 	title: __( 'Website', 'material-theme-builder' ),
 	description: __(
-		'Add an address input for a website.',
+		'An input field for people to add their website URL.',
 		'material-theme-builder'
 	),
 	parent: [ 'material/contact-form' ],
