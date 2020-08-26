@@ -4,22 +4,24 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
+import { InnerBlocks } from '@wordpress/block-editor';
+import { withSelect, withDispatch } from '@wordpress/data';
+import { compose } from '@wordpress/compose';
 
 /**
  * Internal dependencies
  */
+import { name } from './block.json';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
-import RecaptchaInspectorControlsPanel from './components/recaptcha-inspector-controls-panel';
 import './editor.css';
 import ContactFormContext from './contact-form-context';
+import FormInspectorControls from './components/inspector-controls';
 
 const ALLOWED_BLOCKS = [
 	'material/name-input-field',
 	'material/email-input-field',
 	'material/website-input-field',
-	'material/telephone-input-field',
+	'material/short-text-input-field',
 	'core/paragraph',
 	'material/button',
 ];
@@ -32,7 +34,7 @@ const TEMPLATES = [
 	[
 		'material/button',
 		{
-			label: __( 'Submit', 'material-theme-builder' ),
+			label: __( 'Send', 'material-theme-builder' ),
 			style: 'unelevated',
 			isSubmit: true,
 		},
@@ -49,16 +51,12 @@ const TEMPLATES = [
  */
 const Edit = props => {
 	const {
-		attributes: {
-			emailTo,
-			subject,
-			confirmationMessage,
-			outlined,
-			fullWidth,
-			preview,
-		},
+		attributes: { outlined, fullWidth, preview },
 		className,
 		setAttributes,
+		createWarningNotice,
+		formNotices,
+		insertedForms,
 	} = props;
 
 	if ( ! mtb.allow_contact_form_block ) {
@@ -83,50 +81,26 @@ const Edit = props => {
 	}
 
 	const setter = genericAttributesSetter( setAttributes );
+	const displayNotice = 1 < insertedForms && 0 === formNotices.length;
+
+	if ( displayNotice ) {
+		createWarningNotice(
+			__(
+				'Only one contact form is supported per page',
+				'material-theme-builder-wp'
+			)
+		);
+	}
 
 	return (
 		<ContactFormContext.Provider
 			value={ {
 				parentOutlined: outlined,
 				parentFullWidth: fullWidth,
+				parentSetter: setter,
 			} }
 		>
-			<InspectorControls>
-				<PanelBody
-					title={ __( 'Email Feedback Settings', 'material-theme-builder' ) }
-					initialOpen={ true }
-				>
-					<TextControl
-						label={ __( 'Email address', 'material-theme-builder' ) }
-						value={ emailTo }
-						onChange={ setter( 'emailTo' ) }
-					/>
-					<TextControl
-						label={ __( 'Subject', 'material-theme-builder' ) }
-						value={ subject }
-						onChange={ setter( 'subject' ) }
-					/>
-					<TextControl
-						label={ __(
-							'Submission confirmation message',
-							'material-theme-builder'
-						) }
-						value={ confirmationMessage }
-						onChange={ setter( 'confirmationMessage' ) }
-					/>
-				</PanelBody>
-				<PanelBody
-					title={ __( 'Style', 'material-theme-builder' ) }
-					initialOpen={ true }
-				>
-					<ToggleControl
-						label={ __( 'Outlined', 'material-theme-builder' ) }
-						checked={ outlined }
-						onChange={ setter( 'outlined' ) }
-					/>
-				</PanelBody>
-				<RecaptchaInspectorControlsPanel />
-			</InspectorControls>
+			<FormInspectorControls setter={ setter } { ...props } />
 			<div className={ className }>
 				<InnerBlocks template={ TEMPLATES } allowedBlocks={ ALLOWED_BLOCKS } />
 			</div>
@@ -134,4 +108,25 @@ const Edit = props => {
 	);
 };
 
-export default Edit;
+export default compose( [
+	withSelect( select => {
+		const insertedBlocks = select( 'core/block-editor' ).getBlocks();
+		const insertedForms = insertedBlocks.filter( block => block.name === name );
+		const pageNotices = select( 'core/notices' ).getNotices();
+
+		return {
+			insertedForms: insertedForms.length,
+			formNotices: pageNotices.filter(
+				notice =>
+					notice.content ===
+					__(
+						'Only one contact form is supported per page',
+						'material-theme-builder-wp'
+					)
+			),
+		};
+	} ),
+	withDispatch( dispatch => ( {
+		createWarningNotice: dispatch( 'core/notices' ).createWarningNotice,
+	} ) ),
+] )( Edit );
