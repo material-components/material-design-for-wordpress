@@ -19,7 +19,7 @@ use WP_REST_Response;
 /**
  * Posts_List_Block class.
  */
-class Posts_List_Block extends Module_Base {
+class Posts_List_Block {
 	/**
 	 * Block name.
 	 *
@@ -41,11 +41,19 @@ class Posts_List_Block extends Module_Base {
 	}
 
 	/**
+	 * Initiate the class.
+	 *
+	 * @return void
+	 */
+	public function init() {
+		add_filter( 'rest_prepare_post', [ $this, 'add_extra_post_meta' ], 10, 3 );
+		add_filter( 'rest_post_collection_params', [ $this, 'add_comment_count_to_rest_orderby_params' ] );
+	}
+
+	/**
 	 * Add extra post meta such as comments count, author related info.
 	 *
 	 * @access public
-	 *
-	 * @filter rest_prepare_post
 	 *
 	 * @param WP_REST_Response $response Rest API response.
 	 * @param WP_Post          $post     Post data.
@@ -69,8 +77,6 @@ class Posts_List_Block extends Module_Base {
 	 * Add comment_count to the list of permitted orderby values
 	 *
 	 * @access public
-	 *
-	 * @filter rest_post_collection_params
 	 *
 	 * @param array $params Rest API parameters.
 	 *

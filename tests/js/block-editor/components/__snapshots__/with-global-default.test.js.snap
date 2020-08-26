@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`withGlobalDefault sets attribute value to global default: matches snapshot 1`] = `
+exports[`withGlobalBlockDefault sets attribute value to global default: matches snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -69,7 +69,7 @@ Object {
 }
 `;
 
-exports[`withGlobalDefault should not set attribute value to global default if the value is already set: matches snapshot 1`] = `
+exports[`withGlobalBlockDefault should not set attribute value to global default if the value is already set: matches snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
