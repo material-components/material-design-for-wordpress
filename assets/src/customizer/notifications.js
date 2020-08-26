@@ -40,7 +40,7 @@ export const showHideNotification = ( loadMaterialLibrary = null ) => {
 					// Handle dismissal of notice.
 					li.find( '.notice-dismiss' ).on( 'click', () => {
 						const request = wp.ajax.post( 'mtb_notification_dismiss', {
-							nonce: mtb.notify_nonce,
+							nonce: mtb.notifyNonce,
 						} );
 
 						request.done( response => {
