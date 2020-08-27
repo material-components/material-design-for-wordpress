@@ -53,25 +53,11 @@ class Plugin extends Plugin_Base {
 	public $onboarding_rest_controller;
 
 	/**
-	 * Onboarding REST Controller class.
-	 *
-	 * @var Importer_REST_Controller
-	 */
-	public $importer_rest_controller;
-
-	/**
 	 * Importer class.
 	 *
 	 * @var Importer
 	 */
 	public $importer;
-
-	/**
-	 * Wizard class.
-	 *
-	 * @var mixed
-	 */
-	public $wizard;
 
 	/**
 	 * Getting Started class.
@@ -103,9 +89,6 @@ class Plugin extends Plugin_Base {
 
 		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
 		$this->onboarding_rest_controller->init();
-
-		$this->importer_rest_controller = new Importer_REST_Controller( $this );
-		$this->importer_rest_controller->init();
 
 		$this->importer = new Importer( $this );
 		$this->importer->init();
@@ -196,46 +179,6 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Prints an admin notice.
-	 *
-	 * @param string $title   The title to be showed in the notice.
-	 * @param string $message The message of the notice.
-	 *
-	 * @return void
-	 */
-	public function material_notice( $title, $message ) {
-		?>
-
-		<div class="notice notice-info is-dismissible material-notice-container">
-			<img
-				src="<?php echo esc_url( $this->asset_url( 'assets/images/plugin-logo.png' ) ); ?>"
-				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
-			/>
-
-			<div class="material-notice-container__content">
-				<h3 class="material-notice-container__content__title">
-					<?php echo esc_html( $title ); ?>
-				</h3>
-				<p class="material-notice-container__content__text">
-					<?php
-					echo wp_kses(
-						$message,
-						[
-							'a' => [
-								'href'  => [],
-								'class' => [],
-							],
-						]
-					);
-					?>
-				</p>
-			</div>
-		</div>
-
-		<?php
-	}
-
-	/**
 	 * Checks whether the material theme is installed.
 	 *
 	 * @return bool
@@ -245,11 +188,11 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Returns the status of the material theme
+	 * Returns the status of the material theme.
 	 *
 	 * @return string
 	 */
-	public function material_theme_status() {
+	public function theme_status() {
 		if ( ! $this->theme_installed() ) {
 			return 'install';
 		}
@@ -262,118 +205,7 @@ class Plugin extends Plugin_Base {
 	}
 
 	/**
-	 * Show admin notice if theme isn't installed.
-	 *
-	 * @action admin_notices, 10, 2
-	 *
-	 * @return void
-	 */
-	public function theme_not_installed_notice() {
-		$status = $this->material_theme_status();
-		$screen = get_current_screen();
-
-		// Theme already active or inside wizards. Don't show the notice.
-		if (
-			'ok' === $status
-			|| 'toplevel_page_material-settings' === $screen->id
-			|| 'material_page_material-onboarding-wizard' === $screen->id
-			|| ! empty( get_option( 'material_theme_activated' ) )
-		) {
-			return;
-		}
-
-		$title   = esc_html__(
-			'Install Material Theme to take advantage of all Material Plugin customizations',
-			'material-theme-builder'
-		);
-		$message = esc_html__(
-			'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization.',
-			'material-theme-builder'
-		);
-		$label   = esc_html__( 'Install theme', 'material-theme-builder' );
-
-		if ( 'activate' === $status ) {
-			$title   = esc_html__(
-				'Activate Material Theme to take advantage of all Material Plugin customizations',
-				'material-theme-builder'
-			);
-			$message = esc_html__(
-				'The Material Plugin enables you to customize Material Components. We recommend activating the companion Material Theme for full site customization.',
-				'material-theme-builder'
-			);
-			$label   = esc_html__( 'Activate theme', 'material-theme-builder' );
-		}
-
-		$action_link = sprintf(
-			'<a href="%s" class="material-theme-%s">%s</a>',
-			esc_url( admin_url( '/themes.php?search=Material+Theme' ) ),
-			esc_attr( $status ),
-			esc_html( $label )
-		);
-
-		$this->material_notice(
-			$title,
-			sprintf(
-				'%s %s',
-				$message,
-				$action_link
-			)
-		);
-	}
-
-	/**
-	 * Show admin notice if theme and plugin are active.
-	 *
-	 * @action admin_notices, 9, 2
-	 *
-	 * @return void
-	 */
-	public function plugin_activated_notice() {
-		$screen = get_current_screen();
-
-		// Theme not active or plugin didn't JUST activate. Stop here.
-		if ( self::THEME_SLUG !== get_template()
-			|| ! get_transient( 'mtb-activation-notice' )
-			|| 'toplevel_page_material-settings' === $screen->id
-			|| 'material_page_material-onboarding-wizard' === $screen->id ) {
-			return;
-		}
-
-		delete_transient( 'mtb-activation-notice' );
-		?>
-
-		<div class="notice notice-info is-dismissible material-notice-container">
-			<img
-				src="<?php echo esc_url( $this->asset_url( 'assets/images/logo-outline-dark.svg' ) ); ?>"
-				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
-			/>
-
-			<div class="material-notice-container__content">
-				<h3 class="material-notice-container__content__title">
-					<?php esc_html_e( 'See Material Theming in action', 'material-theme-builder' ); ?>
-				</h3>
-				<p class="material-notice-container__content__text">
-					<?php esc_html_e( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer", 'material-theme-builder' ); ?>
-				</p>
-
-				<?php // TODO: This might no longer be required. ?>
-				<form action="<?php echo esc_url( admin_url( 'admin.php?page=material-settings' ) ); ?>" method="post">
-					<div class="material-demo__optin">
-						<input type="checkbox" name="mtb-install-demo" id="mtb-install-demo" value="1" />
-						<label for="mtb-install-demo"><?php esc_html_e( 'Create sample pages using Material blocks', 'material-theme-builder' ); ?></label>
-						<?php wp_nonce_field( 'mtb-install-demo' ); ?>
-					</div>
-
-					<button class="material-demo__button"><?php esc_html_e( "Let's go!", 'material-theme-builder' ); ?></button>
-				</form>
-			</div>
-		</div>
-
-		<?php
-	}
-
-	/**
-	 * Redirect after activating
+	 * Redirect after activating.
 	 *
 	 * @action activated_plugin
 	 *
@@ -388,30 +220,5 @@ class Plugin extends Plugin_Base {
 
 		wp_safe_redirect( admin_url( 'admin.php?page=material-onboarding-wizard' ) );
 		exit;
-	}
-
-	/**
-	 * Get a page by it's title.
-	 *
-	 * @param string       $page_title Page title.
-	 * @param string       $output     Optional. The required return type. One of OBJECT, ARRAY_A, or ARRAY_N, which correspond to
-	 *                                 a WP_Post object, an associative array, or a numeric array, respectively. Default OBJECT.
-	 * @param string|array $post_type  Optional. Post type or array of post types. Default 'page'.
-	 * @return WP_Post|array|null WP_Post (or array) on success, or null on failure.
-	 */
-	public function get_page_by_title( $page_title, $output = OBJECT, $post_type = 'page' ) {
-		if ( $this->is_wpcom_vip_prod() ) {
-			return wpcom_vip_get_page_by_title(
-				sanitize_text_field( $page_title ),
-				$output,
-				sanitize_text_field( $post_type )
-			);
-		}
-
-		return get_page_by_title( // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.get_page_by_title_get_page_by_title
-			sanitize_text_field( $page_title ),
-			$output,
-			sanitize_text_field( $post_type )
-		);
 	}
 }
