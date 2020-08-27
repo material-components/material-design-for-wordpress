@@ -63,17 +63,20 @@ export default function MaterialColorPalette( {
 	onChange,
 	value,
 	label,
+	colors,
 } ) {
-	const colors = [
-		{
-			color: '#6200ee',
-			name: __( 'Primary', 'material-theme-builder' ),
-		},
-		{
-			color: '#018786',
-			name: __( 'Secondary', 'material-theme-builder' ),
-		},
-	];
+	if ( ! colors ) {
+		colors = [
+			{
+				color: '#6200ee',
+				name: __( 'Primary', 'material-theme-builder' ),
+			},
+			{
+				color: '#018786',
+				name: __( 'Secondary', 'material-theme-builder' ),
+			},
+		];
+	}
 
 	const clearColor = useCallback( () => onChange( undefined ), [ onChange ] );
 	const colorOptions = useMemo( () => {
