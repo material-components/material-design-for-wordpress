@@ -515,10 +515,11 @@ class Controls extends Module_Base {
 					'componentsNotice' => __( 'Customize Material Components and styles throughout your site.<br/><a href="#">View example page</a>', 'material-theme-builder' ),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
-				'notify_nonce'           => wp_create_nonce( 'mtb_notify_nonce' ),
+				'notifyNonce'            => wp_create_nonce( 'mtb_notify_nonce' ),
 				'pluginPath'             => $this->plugin->asset_url( '' ),
 				'themeStatus'            => $this->plugin->theme_status(),
-				'themeSearchUrl'         => esc_url( admin_url( '/theme-install.php?search=Material Theme' ) ),
+				'themeNonce'             => wp_create_nonce( 'wp_rest' ),
+				'restUrl'                => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
 				'images'                 => $demo_images,
 			]
 		);
