@@ -31,6 +31,15 @@ const baseProps = {
 };
 
 describe( 'InspectorControlsStylePanel', () => {
+	beforeAll( () => {
+		global.mtb = {
+			customizerUrls: {
+				shape: 'http://example.com/shape',
+				colors: 'http://example.com/colors',
+			},
+		};
+	} );
+
 	afterEach( () => {
 		jest.clearAllMocks();
 	} );
@@ -78,7 +87,7 @@ describe( 'InspectorControlsStylePanel', () => {
 		const props = { ...baseProps };
 		const { container } = setup( props );
 		const inputRange = container.querySelector(
-			'[aria-label="Rounded corners"]'
+			'.components-global-shape-size input[type="range"]'
 		);
 
 		const mockEvent = {
