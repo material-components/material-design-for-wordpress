@@ -104,6 +104,9 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 
 		$this->assertArrayHasKey( $this->get_route( '/activate-theme' ), static::$routes );
 		$this->assertCount( 1, static::$routes[ $this->get_route( '/activate-theme' ) ] );
+
+		$this->assertArrayHasKey( $this->get_route( '/install-content' ), static::$routes );
+		$this->assertCount( 1, static::$routes[ $this->get_route( '/install-content' ) ] );
 	}
 
 	/**
@@ -157,9 +160,34 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 	}
 
 	/**
+	 * Test test_import_content().
+	 *
+	 * @see Importer_REST_Controller::import_content()
+	 */
+	public function test_import_content() {
+		wp_set_current_user( self::$subscriber_id );
+
+		$request  = new WP_REST_Request( 'POST', $this->get_route( '/install-content' ) );
+		$response = rest_get_server()->dispatch( $request );
+		$data     = $response->get_data();
+
+		$this->assertEquals( 'material_rest_cannot_update', $data['code'] );
+		$this->assertEquals( 403, $data['data']['status'] );
+
+		wp_set_current_user( self::$admin_id );
+
+		$response = rest_get_server()->dispatch( $request );
+		$data     = $response->get_data();
+
+		$this->assertEquals( 'demo-importer', $data['slug'] );
+		$this->assertEquals( 'Demo Importer', $data['name'] );
+		$this->assertEquals( 'success', $data['status'] );
+	}
+
+	/**
 	 * Test get_item_schema().
 	 *
-	 * @see Onboarding_REST_Controller::get_item_schema()
+	 * @see Importer_REST_Controller::get_item_schema()
 	 */
 	public function test_get_item_schema() {
 		$request    = new WP_REST_Request( 'OPTIONS', $this->get_route( '/install-theme' ) );

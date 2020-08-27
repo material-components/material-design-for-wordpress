@@ -71,6 +71,19 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 				'schema' => [ $this, 'get_item_schema' ],
 			]
 		);
+
+		register_rest_route(
+			$this->namespace,
+			'/' . $this->rest_base . '/install-content',
+			[
+				[
+					'methods'             => \WP_REST_Server::EDITABLE,
+					'callback'            => [ $this, 'import_content' ],
+					'permission_callback' => [ $this, 'update_item_permissions_check' ],
+				],
+				'schema' => [ $this, 'get_item_schema' ],
+			]
+		);
 	}
 
 	/**
@@ -81,7 +94,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 	 */
 	public function update_item_permissions_check( $request ) {
 		if ( ! current_user_can( 'install_themes' ) ) {
-			return new \WP_Error( 'material_rest_cannot_update', __( 'Sorry, you cannot manage themes.', 'material-theme-builder' ), [ 'status' => rest_authorization_required_code() ] );
+			return new \WP_Error( 'material_rest_cannot_update', __( 'Sorry, you cannot manage themes or import content.', 'material-theme-builder' ), [ 'status' => rest_authorization_required_code() ] );
 		}
 		return true;
 	}
@@ -191,30 +204,58 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 	}
 
 	/**
+	 * Call to importer
+	 *
+	 * @param  WP_REST_Request $request Full details about the request.
+	 * @return WP_Error|array Theme installation status.
+	 */
+	public function import_content( $request ) {
+		include_once ABSPATH . 'wp-admin/includes/media.php';
+		include_once ABSPATH . 'wp-admin/includes/file.php';
+		include_once ABSPATH . 'wp-admin/includes/image.php';
+
+		$result = $this->plugin->importer->init_import();
+
+		if ( is_wp_error( $result ) || is_null( $result ) ) {
+			return new \WP_Error(
+				'material_importer',
+				__( 'Material demo content could not be installed.', 'material-theme-builder' ),
+				[ 'status' => 500 ]
+			);
+		}
+
+		return [
+			'slug'   => 'demo-importer',
+			'name'   => 'Demo Importer',
+			'status' => esc_html( $result ),
+		];
+	}
+
+	/**
 	 * Get the schema, conforming to JSON Schema.
 	 *
 	 * @return array
 	 */
 	public function get_item_schema() {
 		$schema = [
-			'$schema'    => 'http://json-schema.org/draft-04/schema#',
-			'title'      => 'onboaring-theme',
+			'schema'     => 'http://json-schema.org/draft-04/schema#',
+			'title'      => 'onboarding',
 			'type'       => 'object',
 			'properties' => [
 				'slug'   => [
-					'description' => __( 'Theme slug.', 'material-theme-builder' ),
+					'description' => __( 'Action slug.', 'material-theme-builder' ),
 					'type'        => 'string',
 					'context'     => [ 'view', 'edit' ],
 					'readonly'    => true,
 				],
 				'name'   => [
-					'description' => __( 'Theme name.', 'material-theme-builder' ),
+					'description' => __( 'Action readable name.', 'material-theme-builder' ),
 					'type'        => 'string',
 					'context'     => [ 'view', 'edit' ],
 					'readonly'    => true,
 				],
 				'status' => [
-					'description' => __( 'Theme status.', 'material-theme-builder' ),
+					'description' => __( 'Success status.', 'material-theme-builder' ),
 					'type'        => 'string',
 					'context'     => [ 'view', 'edit' ],
 					'readonly'    => true,
