@@ -1330,8 +1330,9 @@ Object {
           </h4>
           <form
             target="_blank"
-          >utton
-  ≤≥÷ nclass="mdc-icon-button material-icons"
+          >
+            <button
+              class="mdc-icon-button material-icons"
               formaction="https://material.io/components/buttons"
             >
               open_in_new
