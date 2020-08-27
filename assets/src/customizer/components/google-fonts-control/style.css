@@ -1,0 +1,11 @@
+.customize-control-google_fonts {
+
+	.google-fonts-control-body {
+		align-items: center;
+		display: flex;
+	}
+
+	.components-button.has-icon {
+		color: #666;
+	}
+}

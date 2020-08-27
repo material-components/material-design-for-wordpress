@@ -55,6 +55,7 @@ class Google_Fonts_Control extends \WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['cssVars'] = ! empty( $this->css_vars ) ? $this->css_vars : [];
+		$this->json['cssVars']  = ! empty( $this->css_vars ) ? $this->css_vars : [];
+		$this->json['children'] = ! empty( $this->choices ) ? $this->choices : [];
 	}
 }
