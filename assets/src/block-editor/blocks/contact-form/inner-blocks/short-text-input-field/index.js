@@ -10,11 +10,14 @@ import BlockIcon from './block-icon';
 import edit from '../common/components/text-input-edit';
 import save from '../common/components/text-input-save';
 
-export const name = 'material/telephone-input-field';
+export const name = 'material/short-text-input-field';
 
 export const settings = {
-	title: __( 'Telephone', 'material-theme-builder' ),
-	description: __( 'Add a phone number input.', 'material-theme-builder' ),
+	title: __( 'Short text', 'material-theme-builder' ),
+	description: __(
+		'A single-line input field for people to add a shorter response.',
+		'material-theme-builder'
+	),
 	parent: [ 'material/contact-form' ],
 	category: 'material',
 	icon: BlockIcon,
@@ -24,15 +27,15 @@ export const settings = {
 		},
 		inputType: {
 			type: 'string',
-			default: 'tel',
+			default: 'text',
 		},
 		inputRole: {
 			type: 'string',
-			default: 'telephone',
+			default: 'short-text',
 		},
 		label: {
 			type: 'string',
-			default: __( 'Telephone', 'material-theme-builder' ),
+			default: __( 'Short text', 'material-theme-builder' ),
 		},
 		inputValue: {
 			type: 'string',

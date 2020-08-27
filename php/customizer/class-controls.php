@@ -518,7 +518,7 @@ class Controls extends Module_Base {
 				'googleFonts'            => Google_Fonts::get_font_choices(),
 				'notify_nonce'           => wp_create_nonce( 'mtb_notify_nonce' ),
 				'pluginPath'             => $this->plugin->asset_url( '' ),
-				'themeStatus'            => $this->plugin->material_theme_status(),
+				'themeStatus'            => $this->plugin->theme_status(),
 				'themeSearchUrl'         => esc_url( admin_url( '/theme-install.php?search=Material Theme' ) ),
 				'images'                 => $demo_images,
 			]

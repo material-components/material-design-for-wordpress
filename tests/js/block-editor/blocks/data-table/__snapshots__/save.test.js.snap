@@ -36,7 +36,7 @@ Object {
           class="mdc-data-table"
         >
           <table
-            class="has-subtle-pale-blue-background-color mdc-data-table__table has-fixed-layout has-background"
+            class="mdc-data-table__table has-fixed-layout"
           >
             <thead
               class=""
@@ -188,7 +188,7 @@ Object {
         class="mdc-data-table"
       >
         <table
-          class="has-subtle-pale-blue-background-color mdc-data-table__table has-fixed-layout has-background"
+          class="mdc-data-table__table has-fixed-layout"
         >
           <thead
             class=""
@@ -506,7 +506,7 @@ Object {
           class="mdc-data-table"
         >
           <table
-            class="has-subtle-pale-blue-background-color mdc-data-table__table has-fixed-layout has-background"
+            class="mdc-data-table__table has-fixed-layout"
           >
             <tbody
               class="mdc-data-table__content"
@@ -600,7 +600,7 @@ Object {
         class="mdc-data-table"
       >
         <table
-          class="has-subtle-pale-blue-background-color mdc-data-table__table has-fixed-layout has-background"
+          class="mdc-data-table__table has-fixed-layout"
         >
           <tbody
             class="mdc-data-table__content"

@@ -53,21 +53,10 @@ class Admin extends Module_Base {
 
 	/**
 	 * Render getting started page.
-	 *
-	 * @TODO: Rename to Material Settings
 	 */
 	public function render_getting_started_page() {
-		$should_import = filter_input( INPUT_POST, 'mtb-install-demo', FILTER_SANITIZE_NUMBER_INT );
-
-		// @codeCoverageIgnoreStart
-		if ( $should_import ) {
-			return $this->plugin->importer->import_demo();
-		}
-		// @codeCoverageIgnoreEnd
 		?>
-
 		<div id="material-gsm" class="material-gsm"></div>
-
 		<?php
 	}
 
@@ -76,9 +65,7 @@ class Admin extends Module_Base {
 	 */
 	public function render_onboarding_wizard_page() {
 		?>
-
 		<section id="material-onboarding-wizard" class="mdc-typography"></section>
-
 		<?php
 	}
 
@@ -114,11 +101,11 @@ class Admin extends Module_Base {
 				'restUrl'     => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
 				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
 				'nonce'       => wp_create_nonce( 'wp_rest' ),
-				'themeStatus' => esc_html( $this->plugin->material_theme_status() ),
+				'themeStatus' => esc_html( $this->plugin->theme_status() ),
 			]
 		);
 
-		if ( 'toplevel_page_material-settings' === $screen->id ) {
+		if ( $screen && 'toplevel_page_material-settings' === $screen->id ) {
 			// Get Roboto Mono and icons.
 			wp_enqueue_style(
 				'material-admin-google-fonts',
@@ -150,7 +137,7 @@ class Admin extends Module_Base {
 					'wizardUrl'     => esc_url( menu_page_url( 'material-onboarding-wizard', false ) ),
 					'editorUrl'     => esc_url( admin_url( 'edit.php' ) ),
 					'redirect'      => esc_url( admin_url( 'themes.php' ) ),
-					'themeStatus'   => esc_html( $this->plugin->material_theme_status() ),
+					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
 					'contentStatus' => esc_html( $has_demo_content ? 'ok' : 'install' ),
 				]
 			);
@@ -159,13 +146,13 @@ class Admin extends Module_Base {
 				'material-admin-js',
 				'mtbWizard',
 				[
-					'restUrl' => esc_url( $this->plugin->importer_rest_controller->get_rest_base_url() ),
+					'restUrl' => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
 					'nonce'   => wp_create_nonce( 'wp_rest' ),
 				]
 			);
 		}
 
-		if ( 'material_page_material-onboarding-wizard' === $screen->id ) {
+		if ( $screen && 'material_page_material-onboarding-wizard' === $screen->id ) {
 			// Get Roboto Mono and icons.
 			wp_enqueue_style(
 				'material-admin-google-fonts',
@@ -199,7 +186,7 @@ class Admin extends Module_Base {
 					'placeholderImage' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder.png' ) ),
 					'placeholderSmall' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder-small.png' ) ),
 					'nonce'            => wp_create_nonce( 'wp_rest' ),
-					'restUrl'          => esc_url( $this->plugin->importer_rest_controller->get_rest_base_url() ),
+					'restUrl'          => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
 				]
 			);
 		}
@@ -218,5 +205,144 @@ class Admin extends Module_Base {
 		if ( Plugin::THEME_SLUG === $new_theme->get_stylesheet() ) {
 			update_option( 'material_theme_activated', true, false );
 		}
+	}
+
+	/**
+	 * Prints an admin notice.
+	 *
+	 * @param string $title   The title to be showed in the notice.
+	 * @param string $message The message of the notice.
+	 *
+	 * @return void
+	 */
+	public function material_notice( $title, $message ) {
+		?>
+
+		<div class="notice notice-info is-dismissible material-notice-container">
+			<img
+				src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-logo.png' ) ); ?>"
+				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
+			/>
+
+			<div class="material-notice-container__content">
+				<h3 class="material-notice-container__content__title">
+					<?php echo esc_html( $title ); ?>
+				</h3>
+				<p class="material-notice-container__content__text">
+					<?php
+					echo wp_kses(
+						$message,
+						[
+							'a'  => [
+								'href'  => [],
+								'class' => [],
+							],
+							'br' => [],
+						]
+					);
+					?>
+				</p>
+			</div>
+		</div>
+
+		<?php
+	}
+
+	/**
+	 * Show admin notice if theme isn't installed.
+	 *
+	 * @action admin_notices, 10, 2
+	 *
+	 * @return void
+	 */
+	public function theme_not_installed_notice() {
+		$status = $this->plugin->theme_status();
+		$screen = get_current_screen();
+
+		// Theme already active or inside wizards. Don't show the notice.
+		if (
+			'ok' === $status
+			|| 'toplevel_page_material-settings' === $screen->id
+			|| 'material_page_material-onboarding-wizard' === $screen->id
+			|| ! empty( get_option( 'material_theme_activated' ) )
+		) {
+			return;
+		}
+
+		$title   = esc_html__(
+			'Install Material Theme to take advantage of all Material Plugin customizations',
+			'material-theme-builder'
+		);
+		$message = esc_html__(
+			'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization.',
+			'material-theme-builder'
+		);
+		$label   = esc_html__( 'Install theme', 'material-theme-builder' );
+
+		if ( 'activate' === $status ) {
+			$title   = esc_html__(
+				'Activate Material Theme to take advantage of all Material Plugin customizations',
+				'material-theme-builder'
+			);
+			$message = esc_html__(
+				'The Material Plugin enables you to customize Material Components. We recommend activating the companion Material Theme for full site customization.',
+				'material-theme-builder'
+			);
+			$label   = esc_html__( 'Activate theme', 'material-theme-builder' );
+		}
+
+		$action_link = sprintf(
+			'<a href="%s" class="material-theme-%s install-theme">%s</a>',
+			esc_url( admin_url( '/themes.php?search=Material+Theme' ) ),
+			esc_attr( $status ),
+			esc_html( $label )
+		);
+
+		$this->material_notice(
+			$title,
+			sprintf(
+				'%s %s',
+				$message,
+				$action_link
+			)
+		);
+	}
+
+	/**
+	 * Show admin notice if theme and plugin are active.
+	 *
+	 * @action admin_notices, 9, 2
+	 *
+	 * @return void
+	 */
+	public function plugin_activated_notice() {
+		$screen = get_current_screen();
+
+		// Theme not active or plugin didn't JUST activate. Stop here.
+		if ( Plugin::THEME_SLUG !== get_template()
+			|| ! get_option( 'mtb_plugin_activated' )
+			|| 'toplevel_page_material-settings' === $screen->id
+			|| 'material_page_material-onboarding-wizard' === $screen->id ) {
+			return;
+		}
+
+		delete_option( 'mtb_plugin_activated' );
+
+		$message = esc_html__( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer.", 'material-theme-builder' );
+
+		$action_link = sprintf(
+			'<br/><a href="%s">%s</a>',
+			esc_url( admin_url( 'admin.php?page=material-settings' ) ),
+			esc_html__( "Let's go!", 'material-theme-builder' )
+		);
+
+		$this->material_notice(
+			esc_html__( 'See Material Theming in action', 'material-theme-builder' ),
+			sprintf(
+				'%s %s',
+				$message,
+				$action_link
+			)
+		);
 	}
 }

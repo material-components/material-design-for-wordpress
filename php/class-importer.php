@@ -108,23 +108,6 @@ class Importer extends Module_Base {
 	}
 
 	/**
-	 * Verify nonce and init import process
-	 *
-	 * @codeCoverageIgnore
-	 *
-	 * @return void
-	 */
-	public function import_demo() {
-		$nonce = filter_input( INPUT_POST, '_wpnonce', FILTER_SANITIZE_STRING );
-
-		if ( ! wp_verify_nonce( $nonce, 'mtb-install-demo' ) ) {
-			wp_die( esc_html__( "There's been an error performing this action, please try again", 'material-theme-builder' ) );
-		}
-
-		$this->init_import();
-	}
-
-	/**
 	 * Adds terms to db
 	 *
 	 * @return void
@@ -153,7 +136,7 @@ class Importer extends Module_Base {
 		$menu_items = $this->get_menu_items();
 
 		foreach ( $menu_items as $menu_item ) {
-			$page    = $this->plugin->get_page_by_title( $menu_item );
+			$page    = Helpers::get_page_by_title( $menu_item );
 			$page_id = ! empty( $page ) ? $page->ID : null;
 
 			wp_update_nav_menu_item(
@@ -415,7 +398,7 @@ class Importer extends Module_Base {
 
 		foreach ( $posts as $post ) {
 			// Bail out if a published post already exists with the same title.
-			$existing = $this->plugin->get_page_by_title( (string) $post->title, OBJECT, (string) $post->children( 'wp', true )->post_type );
+			$existing = Helpers::get_page_by_title( (string) $post->title, OBJECT, (string) $post->children( 'wp', true )->post_type );
 			if ( ! empty( $existing ) && 'publish' === $existing->post_status ) {
 				continue;
 			}
@@ -601,8 +584,8 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function update_blog_info() {
-		$home_page = $this->plugin->get_page_by_title( __( 'Home', 'material-theme-builder' ) );
-		$blog_page = $this->plugin->get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
+		$home_page = Helpers::get_page_by_title( __( 'Home', 'material-theme-builder' ) );
+		$blog_page = Helpers::get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
 
 		set_theme_mod( 'material_header_search_display', true );
 
