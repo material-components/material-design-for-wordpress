@@ -517,7 +517,7 @@ class Controls extends Module_Base {
 				'googleFonts'            => Google_Fonts::get_font_choices(),
 				'notifyNonce'            => wp_create_nonce( 'mtb_notify_nonce' ),
 				'pluginPath'             => $this->plugin->asset_url( '' ),
-				'themeStatus'            => $this->plugin->material_theme_status(),
+				'themeStatus'            => $this->plugin->theme_status(),
 				'themeNonce'             => wp_create_nonce( 'wp_rest' ),
 				'restUrl'                => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
 				'images'                 => $demo_images,
