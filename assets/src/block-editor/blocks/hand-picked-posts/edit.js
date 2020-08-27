@@ -1,4 +1,3 @@
-/* global mtb */
 /**
  * WordPress dependencies
  */
@@ -13,6 +12,7 @@ import HandpickedPostBlockControls from './components/block-controls';
 import InspectorControls from '../common-posts-list/components/inspector-controls';
 import './editor.css';
 import EditWithSelect from '../common-posts-list/edit-with-select';
+import { getConfig } from '../../helpers';
 
 /**
  * Hand-picked Posts Edit component.
@@ -31,7 +31,7 @@ const Edit = props => {
 	if ( props.attributes.preview ) {
 		return (
 			<img
-				src={ mtb.handpicked_posts_preview }
+				src={ getConfig( 'handpicked_posts_preview' ) }
 				alt={ __( 'Handpicked posts preview', 'material-theme-builder' ) }
 			/>
 		);
