@@ -73,6 +73,6 @@ class Test_Material_Theme_Builder extends \WP_UnitTestCase {
 	 */
 	public function test_material_theme_builder_activation() {
 		_material_theme_builder_activation();
-		$this->assertNotEmpty( get_transient( 'mtb-activation-notice' ) );
+		$this->assertNotEmpty( get_option( 'mtb_plugin_activated' ) );
 	}
 }

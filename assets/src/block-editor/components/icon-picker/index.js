@@ -59,7 +59,7 @@ export default ( { currentIcon, onChange } ) => {
 					</div>
 				);
 			} ),
-		[ currentIcon ] // eslint-disable-line
+		[ filteredIcons, currentIcon, onChange ]
 	);
 
 	return useMemo(
