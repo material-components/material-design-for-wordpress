@@ -281,6 +281,7 @@ class Controls extends Module_Base {
 					'priority' => 10,
 					'label'    => $control['label'],
 					'css_vars' => $control['css_vars'],
+					'choices'  => $control['choices'],
 				]
 			);
 		}
@@ -912,6 +913,64 @@ class Controls extends Module_Base {
 						'--mdc-typography-subtitle2-font-family',
 					],
 				],
+				'choices'  => [
+					[
+						'id'     => 'headline_1',
+						'label'  => __( 'Headline 1', 'material-theme-builder' ),
+						'size'   => [
+							'label'   => __( 'Size', 'material-theme-builder' ),
+							'type'    => 'number',
+							'css_var' => '--mdc-headline1-size',
+						],
+						'weight' => [
+							'label'   => __( 'Weight', 'material-theme-builder' ),
+							'type'    => 'select',
+							'css_var' => '--mdc-headline1-weight',
+							'choices' => [
+								[
+									'label' => __( 'Light', 'material-theme-builder' ),
+									'value' => '100',
+								],
+								[
+									'label' => __( 'Regular', 'material-theme-builder' ),
+									'value' => '400',
+								],
+								[
+									'label' => __( 'Bold', 'material-theme-builder' ),
+									'value' => '700',
+								],
+							],
+						],
+					],
+					[
+						'id'     => 'headline_2',
+						'label'  => __( 'Headline 2', 'material-theme-builder' ),
+						'size'   => [
+							'label'   => __( 'Size', 'material-theme-builder' ),
+							'type'    => 'number',
+							'css_var' => '--mdc-headline2-size',
+						],
+						'weight' => [
+							'label'   => __( 'Weight', 'material-theme-builder' ),
+							'type'    => 'select',
+							'css_var' => '--mdc-headline2-weight',
+							'choices' => [
+								[
+									'label' => __( 'Light', 'material-theme-builder' ),
+									'value' => '100',
+								],
+								[
+									'label' => __( 'Regular', 'material-theme-builder' ),
+									'value' => '400',
+								],
+								[
+									'label' => __( 'Bold', 'material-theme-builder' ),
+									'value' => '700',
+								],
+							],
+						],
+					],
+				],
 			],
 			[
 				'id'       => 'body_font_family',
@@ -924,6 +983,64 @@ class Controls extends Module_Base {
 						'--mdc-typography-caption-font-family',
 						'--mdc-typography-button-font-family',
 						'--mdc-typography-overline-font-family',
+					],
+				],
+				'choices'  => [
+					[
+						'id'     => 'headline_1',
+						'label'  => __( 'Headline 1', 'material-theme-builder' ),
+						'size'   => [
+							'label'   => __( 'Size', 'material-theme-builder' ),
+							'type'    => 'number',
+							'css_var' => '--mdc-headline1-size',
+						],
+						'weight' => [
+							'label'   => __( 'Weight', 'material-theme-builder' ),
+							'type'    => 'select',
+							'css_var' => '--mdc-headline1-weight',
+							'choices' => [
+								[
+									'label' => __( 'Light', 'material-theme-builder' ),
+									'value' => '100',
+								],
+								[
+									'label' => __( 'Regular', 'material-theme-builder' ),
+									'value' => '400',
+								],
+								[
+									'label' => __( 'Bold', 'material-theme-builder' ),
+									'value' => '700',
+								],
+							],
+						],
+					],
+					[
+						'id'     => 'headline_2',
+						'label'  => __( 'Headline 2', 'material-theme-builder' ),
+						'size'   => [
+							'label'   => __( 'Size', 'material-theme-builder' ),
+							'type'    => 'number',
+							'css_var' => '--mdc-headline2-size',
+						],
+						'weight' => [
+							'label'   => __( 'Weight', 'material-theme-builder' ),
+							'type'    => 'select',
+							'css_var' => '--mdc-headline2-weight',
+							'choices' => [
+								[
+									'label' => __( 'Light', 'material-theme-builder' ),
+									'value' => '100',
+								],
+								[
+									'label' => __( 'Regular', 'material-theme-builder' ),
+									'value' => '400',
+								],
+								[
+									'label' => __( 'Bold', 'material-theme-builder' ),
+									'value' => '700',
+								],
+							],
+						],
 					],
 				],
 			],

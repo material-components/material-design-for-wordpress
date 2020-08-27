@@ -26,6 +26,7 @@ import { unmountComponentAtNode } from 'react-dom';
 import colorUtils from '../common/color-utils';
 import GlobalRangeSliderControl from './components/range-slider-control/global';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
+import GoogleFontsControl from './components/google-fonts-control';
 import {
 	loadMaterialLibrary,
 	reRenderMaterialLibrary,
@@ -418,6 +419,12 @@ import {
 		},
 	} );
 
+	api.GoogleFontsControl = api.Control.extend( {
+		ready() {
+			renderGoogleFontsControl( this );
+		},
+	} );
+
 	/**
 	 * Extends wp.customize.controlConstructor with custom controls.
 	 */
@@ -425,6 +432,7 @@ import {
 		material_color: api.MaterialColorControl,
 		range_slider: api.RangeSliderControl,
 		icon_radio: api.IconRadoControl,
+		google_fonts: api.GoogleFontsControl,
 	} );
 
 	/**
@@ -509,6 +517,21 @@ import {
 			/>,
 			control.container.find( '.mtb-range_slider' ).get( 0 )
 		);
+	};
+
+	const renderGoogleFontsControl = control => {
+		const props = {
+			id: control.id,
+			label: control.params.label,
+			description: control.params.description,
+			value: control.setting.get(),
+			children: control.params.children,
+			fonts: mtb.googleFonts,
+		};
+
+		console.log( control );
+
+		render( <GoogleFontsControl { ...props } />, control.container.get( 0 ) );
 	};
 
 	/**
