@@ -3,7 +3,7 @@
 
 ( $ => {
 	const initNotificationActions = () => {
-		$( '.material-notice-container a' ).on( 'click', event => {
+		$( '.material-notice-container a.install-theme' ).on( 'click', event => {
 			const className = $( event.target ).attr( 'class' ),
 				action = ( className || '' ).replace( 'material-theme-', '' );
 
