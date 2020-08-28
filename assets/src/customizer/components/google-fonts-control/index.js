@@ -25,7 +25,15 @@ const GoogleFontsControl = props => {
 			.val( value );
 	}, [] );
 
-	const [ isExpanded ] = useState( true );
+	const [ isExpanded, setIsExpanded ] = useState( false );
+
+	const handleClick = () => {
+		setIsExpanded( ! isExpanded );
+	};
+
+	const onReset = event => {
+		event.preventDefault();
+	};
 
 	return (
 		<div
@@ -55,6 +63,7 @@ const GoogleFontsControl = props => {
 						showTooltip={ true }
 						icon="admin-settings"
 						className="google-fonts-control-settings-expanded"
+						onClick={ handleClick }
 					/>
 				</span>
 			</div>
@@ -66,6 +75,13 @@ const GoogleFontsControl = props => {
 					) ) }
 				</div>
 			) }
+
+			<p>
+				{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
+				<a href="#" onClick={ onReset } className="global-range-slider-reset">
+					{ __( 'Reset', 'material-theme-builder' ) }
+				</a>
+			</p>
 		</div>
 	);
 };
