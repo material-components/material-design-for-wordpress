@@ -100,11 +100,11 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			'style'         => __( 'Style', 'material-theme-builder' ),
+			'style'         => __( 'Starter Styles', 'material-theme-builder' ),
 			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
 			'typography'    => __( 'Typography (Font Styles)', 'material-theme-builder' ),
-			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
-			'icons'         => __( 'Icon Style', 'material-theme-builder' ),
+			'corner_styles' => __( 'Shape Size (Corner Styles)', 'material-theme-builder' ),
+			'icons'         => __( 'Icon Styles', 'material-theme-builder' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
