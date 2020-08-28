@@ -25,11 +25,18 @@ const Item = props => {
 							id={ `inspector-number-control-${ id }` }
 							className="components-range-control__number"
 							type="number"
+							value={ size.default }
+							min={ size.min }
+							max={ size.max }
 						/>
 					</div>
 				</div>
 
-				<SelectControl label={ weight.label } options={ weight.choices } />
+				<SelectControl
+					value={ weight.default }
+					label={ weight.label }
+					options={ weight.choices }
+				/>
 			</div>
 		</div>
 	);

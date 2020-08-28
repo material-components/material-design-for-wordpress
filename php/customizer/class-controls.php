@@ -913,64 +913,7 @@ class Controls extends Module_Base {
 						'--mdc-typography-subtitle2-font-family',
 					],
 				],
-				'choices'  => [
-					[
-						'id'     => 'headline_1',
-						'label'  => __( 'Headline 1', 'material-theme-builder' ),
-						'size'   => [
-							'label'   => __( 'Size', 'material-theme-builder' ),
-							'type'    => 'number',
-							'css_var' => '--mdc-headline1-size',
-						],
-						'weight' => [
-							'label'   => __( 'Weight', 'material-theme-builder' ),
-							'type'    => 'select',
-							'css_var' => '--mdc-headline1-weight',
-							'choices' => [
-								[
-									'label' => __( 'Light', 'material-theme-builder' ),
-									'value' => '100',
-								],
-								[
-									'label' => __( 'Regular', 'material-theme-builder' ),
-									'value' => '400',
-								],
-								[
-									'label' => __( 'Bold', 'material-theme-builder' ),
-									'value' => '700',
-								],
-							],
-						],
-					],
-					[
-						'id'     => 'headline_2',
-						'label'  => __( 'Headline 2', 'material-theme-builder' ),
-						'size'   => [
-							'label'   => __( 'Size', 'material-theme-builder' ),
-							'type'    => 'number',
-							'css_var' => '--mdc-headline2-size',
-						],
-						'weight' => [
-							'label'   => __( 'Weight', 'material-theme-builder' ),
-							'type'    => 'select',
-							'css_var' => '--mdc-headline2-weight',
-							'choices' => [
-								[
-									'label' => __( 'Light', 'material-theme-builder' ),
-									'value' => '100',
-								],
-								[
-									'label' => __( 'Regular', 'material-theme-builder' ),
-									'value' => '400',
-								],
-								[
-									'label' => __( 'Bold', 'material-theme-builder' ),
-									'value' => '700',
-								],
-							],
-						],
-					],
-				],
+				'choices'  => $this->get_typography_extra_controls(),
 			],
 			[
 				'id'       => 'body_font_family',
@@ -1309,5 +1252,106 @@ class Controls extends Module_Base {
 		}
 
 		return $control;
+	}
+	
+	/**
+	 * Default typography options
+	 *
+	 * @param  mixed $args Customized values.
+	 * @return array Values to use in control.
+	 */
+	public function get_typography_weight_controls( $args ) {
+		$choices = apply_filters(
+			$this->slug . '_typography_weights',
+			[
+				[
+					'label' => __( 'Light', 'material-theme-builder' ),
+					'value' => '100',
+				],
+				[
+					'label' => __( 'Regular', 'material-theme-builder' ),
+					'value' => '400',
+				],
+				[
+					'label' => __( 'Bold', 'material-theme-builder' ),
+					'value' => '700',
+				],
+			]
+		);
+
+		$args = wp_parse_args(
+			$args,
+			[
+				'label'   => __( 'Weight', 'material-theme-builder' ),
+				'type'    => 'select',
+				'css_var' => '',
+				'default' => __( 'Regular', 'material-theme-builder' ),
+				'choices' => $choices,
+			]
+		);
+
+		return $args;
+	}
+	
+	/**
+	 * Return size control data.
+	 *
+	 * @param  mixed $args Customized values.
+	 * @return array Values to use in control.
+	 */
+	public function get_typography_size_controls( $args ) {
+		$args = wp_parse_args(
+			$args,
+			[
+				'label'   => __( 'Size', 'material-theme-builder' ),
+				'type'    => 'number',
+				'css_var' => '--mdc-headline1-size',
+				'min'     => 2,
+				'default' => 12,
+				'max'     => 64,
+			]
+		);
+
+		return $args;
+	}
+	
+	/**
+	 * Build typography size and weight controls.
+	 *
+	 * @param  bool $headlines Whether or not this are headlines.
+	 * @return array Values for controllers.
+	 */
+	public function get_typography_extra_controls( $headlines = true ) {
+		$controls = [];
+
+		if ( $headlines ) {
+			$default_sizes   = [ 96, 60, 48, 34, 24, 20 ];
+			$default_weights = [ 100, 100, 400, 400, 400, 700 ];
+
+			for ( $i = 1; $i < 7; $i++ ) {
+				$controls[] = [
+					'id'     => sprintf( 'headline_%s', $i ),
+					'label'  => sprintf(
+						/* translators: Number of heading to display */
+						esc_html__( 'Headline %s', 'material-theme-builder' ),
+						$i
+					),
+					'size'   => $this->get_typography_size_controls(
+						[
+							'css_var' => sprintf( '--mdc-headline%s-size', $i ),
+							'default' => intval( $default_sizes[ $i - 1 ] ),
+						]
+					),
+					'weight' => $this->get_typography_weight_controls(
+						[
+							'css_var' => sprintf( '--mdc-headline%s-weight', $i ),
+							'default' => intval( $default_weights[ $i - 1 ] ),
+						]
+					),
+				];
+			}
+		}
+
+		return $controls;
 	}
 }

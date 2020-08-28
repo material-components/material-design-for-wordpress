@@ -529,8 +529,6 @@ import {
 			fonts: mtb.googleFonts,
 		};
 
-		console.log( control );
-
 		render( <GoogleFontsControl { ...props } />, control.container.get( 0 ) );
 	};
 
