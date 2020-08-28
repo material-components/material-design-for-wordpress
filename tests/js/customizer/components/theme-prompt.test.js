@@ -24,7 +24,7 @@ const baseProps = { status: 'install' };
 describe( 'ThemePrompt', () => {
 	beforeAll( () => {
 		global.mtb = {
-			themeSearchUrl: 'http://example.com/theme-install',
+			themeNonce: 'NONCE',
 		};
 	} );
 
