@@ -338,12 +338,18 @@ import {
 				isText = true;
 			const textColorLabel = control.params.a11yLabel || '';
 
-			if ( control.params.relatedTextSetting ) {
+			if (
+				control.params.relatedTextSetting &&
+				api( control.params.relatedTextSetting )
+			) {
 				color = selectedColor;
 				textColor = api( control.params.relatedTextSetting ).get();
 				colorRange = colorUtils.generateColorFromHex( selectedColor );
 				isText = false;
-			} else {
+			} else if (
+				control.params.relatedSetting &&
+				api( control.params.relatedSetting )
+			) {
 				textColor = selectedColor;
 				color = api( control.params.relatedSetting ).get();
 				colorRange = colorUtils.generateColorFromHex( color );
