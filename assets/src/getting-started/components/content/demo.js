@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { Fragment, useContext } from '@wordpress/element';
+import { useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**

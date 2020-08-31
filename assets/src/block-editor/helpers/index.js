@@ -51,19 +51,3 @@ export const MaterialLogo = () => (
 		></path>
 	</svg>
 );
-
-/**
- * Get Material Blocks config value
- *
- * @param {string} name Name of the config value to retrieve.
- * @return {string|Object|undefined} Value of config.
- */
-export const getConfig = name => {
-	const configData = window.mtb;
-
-	if ( undefined === configData ) {
-		return undefined;
-	}
-
-	return configData[ name ];
-};

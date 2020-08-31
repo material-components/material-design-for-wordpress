@@ -31,7 +31,7 @@ import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
 import { name as ButtonBlockName } from './index';
-import { getConfig } from '../../helpers';
+import getConfig from '../../utils/get-config';
 
 /**
  * Small component which either renders an icon button or a text button.

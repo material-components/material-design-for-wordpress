@@ -9,7 +9,7 @@ import { PanelBody, RadioControl, ToggleControl } from '@wordpress/components';
  */
 import GlobalShapeSize from '../../../components/global-shape-size';
 import { name as CardBlockName } from '../index';
-import { getConfig } from '../../../helpers';
+import getConfig from '../../../utils/get-config';
 
 const CONTENT_LAYOUTS = [
 	{

@@ -12,7 +12,7 @@ import HandpickedPostBlockControls from './components/block-controls';
 import InspectorControls from '../common-posts-list/components/inspector-controls';
 import './editor.css';
 import EditWithSelect from '../common-posts-list/edit-with-select';
-import { getConfig } from '../../helpers';
+import getConfig from '../../utils/get-config';
 
 /**
  * Hand-picked Posts Edit component.
