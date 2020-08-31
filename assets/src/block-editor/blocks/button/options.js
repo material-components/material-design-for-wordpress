@@ -1,4 +1,11 @@
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import { TextButton, IconButton } from './components/icon-types';
 
 export const BUTTON_TYPES = [

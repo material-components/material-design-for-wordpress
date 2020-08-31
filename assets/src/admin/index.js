@@ -1,6 +1,9 @@
 /* istanbul ignore file */
 /* global jQuery */
 
+/**
+ * Internal dependencies
+ */
 import getConfig from './get-config';
 
 ( $ => {

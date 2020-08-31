@@ -1,5 +1,8 @@
 /* globals fetch */
 
+/**
+ * Internal dependencies
+ */
 import getConfig from '../admin/get-config';
 
 /**
