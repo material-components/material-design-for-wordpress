@@ -39,6 +39,10 @@
 			text-decoration: underline;
 		}
 	}
+
+	.spinner {
+		margin-top: 0;
+	}
 }
 
 .material-settings-container {
