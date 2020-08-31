@@ -4,12 +4,14 @@
 import { createContext, useReducer } from '@wordpress/element';
 
 /**
- * Setups context to be used across the app
- *
+ * Internal dependencies
  */
 import { reducer } from './reducer';
 import { STEPS, STATUS, ADDONS } from './constants';
 
+/**
+ * Setups context to be used across the app
+ */
 const StepContext = createContext();
 
 const { Provider } = StepContext;

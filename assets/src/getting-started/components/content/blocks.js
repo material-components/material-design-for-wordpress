@@ -1,11 +1,18 @@
 /* global mtbGsm */
-import { Fragment } from '@wordpress/element';
+
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import Button from '../../../wizard/components/navigation/button';
 
 export const Blocks = () => {
 	return (
-		<Fragment>
+		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Material blocks', 'material-theme-builder' ) }
 			</h2>
@@ -22,6 +29,6 @@ export const Blocks = () => {
 					link={ mtbGsm.editorUrl }
 				/>
 			</div>
-		</Fragment>
+		</>
 	);
 };

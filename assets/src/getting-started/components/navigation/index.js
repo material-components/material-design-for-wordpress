@@ -1,6 +1,14 @@
 /* global mtbGsm */
+
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
 import { useEffect, useContext } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
 import TabContext from '../../context';
 import { TABS, ACTIONS } from '../../constants';
 import Tab from './tab';
