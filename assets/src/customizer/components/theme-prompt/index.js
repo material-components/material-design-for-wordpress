@@ -1,4 +1,4 @@
-/* global jQuery, mtb */
+/* global jQuery */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 /**
@@ -6,6 +6,11 @@
  */
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
+import getConfig from '../../../block-editor/utils/get-config';
 
 const ThemePrompt = ( { status } ) => {
 	const [ dismissed, setDismissed ] = useState( status === 'ok' );
@@ -47,10 +52,10 @@ const ThemePrompt = ( { status } ) => {
 		setRequesting( true );
 
 		const ajaxArgs = {
-			url: `${ mtb.restUrl }${ status }-theme`,
+			url: `${ getConfig( 'restUrl' ) }${ status }-theme`,
 			method: 'POST',
 			beforeSend: xhr => {
-				xhr.setRequestHeader( 'X-WP-Nonce', mtb.themeNonce );
+				xhr.setRequestHeader( 'X-WP-Nonce', getConfig( 'themeNonce' ) );
 			},
 		};
 		const request = jQuery.ajax( ajaxArgs );
@@ -61,7 +66,7 @@ const ThemePrompt = ( { status } ) => {
 
 		request.done( () => {
 			if ( 'install' === status ) {
-				ajaxArgs.url = `${ mtb.restUrl }activate-theme`;
+				ajaxArgs.url = `${ getConfig( 'restUrl' ) }activate-theme`;
 				const activationRequest = jQuery.ajax( ajaxArgs );
 
 				activationRequest.done( () => window.location.reload() );
