@@ -1,5 +1,12 @@
-import { Fragment, useContext } from '@wordpress/element';
+/**
+ * WordPress dependencies
+ */
+import { useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import { STATUS } from '../../../wizard/constants';
 import Button from '../../../wizard/components/navigation/button';
 import TabContext from '../../context';

@@ -1,3 +1,6 @@
+/**
+ * Internal dependencies
+ */
 import { STATUS } from '../wizard/constants';
 import { ACTIONS, TABS } from './constants';
 

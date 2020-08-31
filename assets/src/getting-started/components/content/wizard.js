@@ -1,11 +1,18 @@
 /* global mtbGsm */
-import { Fragment } from '@wordpress/element';
+
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import Button from '../../../wizard/components/navigation/button';
 
 export const Wizard = props => {
 	return (
-		<Fragment>
+		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Onboarding wizard', 'material-theme-builder' ) }
 			</h2>
@@ -23,6 +30,6 @@ export const Wizard = props => {
 					link={ mtbGsm.wizardUrl }
 				/>
 			</div>
-		</Fragment>
+		</>
 	);
 };
