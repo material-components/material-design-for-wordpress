@@ -409,7 +409,7 @@ import {
 		},
 	} );
 
-	api.IconRadoControl = api.Control.extend( {
+	api.IconRadioControl = api.Control.extend( {
 		ready() {
 			const control = this;
 			$( 'input:radio', control.container ).change( function() {
@@ -424,7 +424,7 @@ import {
 	$.extend( api.controlConstructor, {
 		material_color: api.MaterialColorControl,
 		range_slider: api.RangeSliderControl,
-		icon_radio: api.IconRadoControl,
+		icon_radio: api.IconRadioControl,
 	} );
 
 	/**
