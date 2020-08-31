@@ -18,10 +18,12 @@ use WP_Theme;
  * @return array
  */
 function wp_get_themes() {
-	$return = [
-		'default',
-		'material-theme',
-	];
+	$return = apply_filters(
+		'wp_pre_get_themes',
+		[
+			'default',
+		]
+	);
 
 	$themes = [];
 	foreach ( $return as $theme ) {
@@ -126,12 +128,43 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 
 		wp_set_current_user( self::$admin_id );
 
+		add_filter( 'wp_pre_get_themes', [ $this, 'add_material_theme' ] );
+
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
 		$this->assertEquals( 'material-theme', $data['slug'] );
 		$this->assertEquals( 'material-theme', $data['name'] );
 		$this->assertEquals( 'success', $data['status'] );
+
+		remove_filter( 'wp_pre_get_themes', [ $this, 'add_material_theme' ] );
+	}
+
+	/**
+	 * Test install_theme().
+	 *
+	 * @see Onboarding_REST_Controller::install_theme()
+	 */
+	public function test_install_theme_errors() {
+		wp_set_current_user( self::$admin_id );
+
+		add_filter(
+			'themes_api',
+			[ $this, 'invalid_theme_error' ],
+			100
+		);
+
+		$request  = new WP_REST_Request( 'POST', $this->get_route( '/install-theme' ) );
+		$response = rest_get_server()->dispatch( $request );
+		$data     = $response->get_data();
+
+		$this->assertEquals( 'Material theme could not be installed. Theme API call failed.', $data['message'] );
+
+		remove_filter(
+			'themes_api',
+			[ $this, 'invalid_theme_error' ],
+			100
+		);
 	}
 
 	/**
@@ -154,9 +187,19 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
+		$this->assertEquals( 'material_invalid_theme', $data['code'] );
+		$this->assertEquals( 500, $data['data']['status'] );
+
+		add_filter( 'wp_pre_get_themes', [ $this, 'add_material_theme' ] );
+
+		$response = rest_get_server()->dispatch( $request );
+		$data     = $response->get_data();
+
 		$this->assertEquals( 'material-theme', $data['slug'] );
 		$this->assertEquals( 'material-theme', $data['name'] );
 		$this->assertEquals( 'success', $data['status'] );
+
+		remove_filter( 'wp_pre_get_themes', [ $this, 'add_material_theme' ] );
 	}
 
 	/**
@@ -258,5 +301,25 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 	 */
 	private function get_route( $path = '' ) {
 		return '/material-theme-builder/v1/onboarding' . "$path";
+	}
+
+	/**
+	 * Add material theme to list of installed themes.
+	 *
+	 * @param  Array $themes List of installed themes.
+	 * @return Array
+	 */
+	public function add_material_theme( $themes ) {
+		$themes[] = 'material-theme';
+		return $themes;
+	}
+
+	/**
+	 * Return invalid theme error.
+	 *
+	 * @return WP_Error
+	 */
+	public function invalid_theme_error() {
+		return new \WP_Error( 'invalid_theme', 'Invalid Theme' );
 	}
 }
