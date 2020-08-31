@@ -928,64 +928,7 @@ class Controls extends Module_Base {
 						'--mdc-typography-overline-font-family',
 					],
 				],
-				'choices'  => [
-					[
-						'id'     => 'headline_1',
-						'label'  => __( 'Headline 1', 'material-theme-builder' ),
-						'size'   => [
-							'label'   => __( 'Size', 'material-theme-builder' ),
-							'type'    => 'number',
-							'css_var' => '--mdc-headline1-size',
-						],
-						'weight' => [
-							'label'   => __( 'Weight', 'material-theme-builder' ),
-							'type'    => 'select',
-							'css_var' => '--mdc-headline1-weight',
-							'choices' => [
-								[
-									'label' => __( 'Light', 'material-theme-builder' ),
-									'value' => '100',
-								],
-								[
-									'label' => __( 'Regular', 'material-theme-builder' ),
-									'value' => '400',
-								],
-								[
-									'label' => __( 'Bold', 'material-theme-builder' ),
-									'value' => '700',
-								],
-							],
-						],
-					],
-					[
-						'id'     => 'headline_2',
-						'label'  => __( 'Headline 2', 'material-theme-builder' ),
-						'size'   => [
-							'label'   => __( 'Size', 'material-theme-builder' ),
-							'type'    => 'number',
-							'css_var' => '--mdc-headline2-size',
-						],
-						'weight' => [
-							'label'   => __( 'Weight', 'material-theme-builder' ),
-							'type'    => 'select',
-							'css_var' => '--mdc-headline2-weight',
-							'choices' => [
-								[
-									'label' => __( 'Light', 'material-theme-builder' ),
-									'value' => '100',
-								],
-								[
-									'label' => __( 'Regular', 'material-theme-builder' ),
-									'value' => '400',
-								],
-								[
-									'label' => __( 'Bold', 'material-theme-builder' ),
-									'value' => '700',
-								],
-							],
-						],
-					],
-				],
+				'choices'  => $this->get_typography_extra_controls( false ),
 			],
 		];
 	}
@@ -1346,6 +1289,56 @@ class Controls extends Module_Base {
 						[
 							'css_var' => sprintf( '--mdc-headline%s-weight', $i ),
 							'default' => intval( $default_weights[ $i - 1 ] ),
+						]
+					),
+				];
+			}
+		} else {
+			$keys = [
+				'body_1'   => [
+					'label'          => __( 'Body 1', 'material-theme-builder' ),
+					'size'           => 16,
+					'weight'         => 400,
+					'css_var_size'   => '--mdc-body1-size',
+					'css_var_weight' => '--mdc-body1-weight',
+				],
+				'body_2'   => [
+					'label'          => __( 'Body 2', 'material-theme-builder' ),
+					'size'           => 14,
+					'weight'         => 400,
+					'css_var_size'   => '--mdc-body2-size',
+					'css_var_weight' => '--mdc-body2-weight',
+				],
+				'caption'  => [
+					'label'          => __( 'Caption 2', 'material-theme-builder' ),
+					'size'           => 12,
+					'weight'         => 400,
+					'css_var_size'   => '--mdc-caption-size',
+					'css_var_weight' => '--mdc-caption-weight',
+				],
+				'overline' => [
+					'label'          => __( 'Overline', 'material-theme-builder' ),
+					'size'           => 10,
+					'weight'         => 400,
+					'css_var_size'   => '--mdc-overline-size',
+					'css_var_weight' => '--mdc-overline-weight',
+				],
+			];
+
+			foreach ( $keys as $key => $settings ) {
+				$controls[] = [
+					'id'     => esc_html( $key ),
+					'label'  => esc_html( $settings['label'] ),
+					'size'   => $this->get_typography_size_controls(
+						[
+							'css_var' => $settings['css_var_size'],
+							'default' => intval( $settings['size'] ),
+						]
+					),
+					'weight' => $this->get_typography_weight_controls(
+						[
+							'css_var' => $settings['css_var_weight'],
+							'default' => intval( $settings['weight'] ),
 						]
 					),
 				];
