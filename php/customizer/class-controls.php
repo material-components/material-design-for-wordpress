@@ -23,6 +23,17 @@ class Controls extends Module_Base {
 	 * @var string
 	 */
 	public $slug = 'material_theme_builder';
+	
+	/**
+	 * Weight used in typography controls
+	 *
+	 * @var array
+	 */
+	public $font_weights = [
+		'light'  => 100,
+		'normal' => 400,
+		'medium' => 500,
+	];
 
 	/**
 	 * WP_Customize_Manager object reference.
@@ -1209,15 +1220,15 @@ class Controls extends Module_Base {
 			[
 				[
 					'label' => __( 'Light', 'material-theme-builder' ),
-					'value' => '100',
+					'value' => $this->font_weights['light'],
 				],
 				[
-					'label' => __( 'Regular', 'material-theme-builder' ),
-					'value' => '400',
+					'label' => __( 'Normal', 'material-theme-builder' ),
+					'value' => $this->font_weights['normal'],
 				],
 				[
 					'label' => __( 'Bold', 'material-theme-builder' ),
-					'value' => '700',
+					'value' => $this->font_weights['medium'],
 				],
 			]
 		);
@@ -1228,7 +1239,7 @@ class Controls extends Module_Base {
 				'label'   => __( 'Weight', 'material-theme-builder' ),
 				'type'    => 'select',
 				'css_var' => '',
-				'default' => __( 'Regular', 'material-theme-builder' ),
+				'default' => __( 'Normal', 'material-theme-builder' ),
 				'choices' => $choices,
 			]
 		);
@@ -1266,10 +1277,18 @@ class Controls extends Module_Base {
 	 */
 	public function get_typography_extra_controls( $headlines = true ) {
 		$controls = [];
+		$weights  = $this->font_weights;
 
 		if ( $headlines ) {
 			$default_sizes   = [ 96, 60, 48, 34, 24, 20 ];
-			$default_weights = [ 100, 100, 400, 400, 400, 700 ];
+			$default_weights = [
+				$weights['light'],
+				$weights['light'],
+				$weights['normal'],
+				$weights['normal'],
+				$weights['normal'],
+				$weights['medium'],
+			];
 
 			for ( $i = 1; $i < 7; $i++ ) {
 				$controls[] = [
@@ -1293,33 +1312,69 @@ class Controls extends Module_Base {
 					),
 				];
 			}
+
+			$default_sizes   = [ 16, 14 ];
+			$default_weights = [
+				$weights['normal'],
+				$weights['medium'],
+			];
+
+			for ( $i = 1; $i < 3; $i++ ) {
+				$controls[] = [
+					'id'     => sprintf( 'subtitle_%s', $i ),
+					'label'  => sprintf(
+						/* translators: Number of heading to display */
+						esc_html__( 'Subtitle %s', 'material-theme-builder' ),
+						$i
+					),
+					'size'   => $this->get_typography_size_controls(
+						[
+							'css_var' => sprintf( '--mdc-subtitle%s-size', $i ),
+							'default' => intval( $default_sizes[ $i - 1 ] ),
+						]
+					),
+					'weight' => $this->get_typography_weight_controls(
+						[
+							'css_var' => sprintf( '--mdc-subtitle%s-weight', $i ),
+							'default' => intval( $default_weights[ $i - 1 ] ),
+						]
+					),
+				];
+			}
 		} else {
 			$keys = [
 				'body_1'   => [
 					'label'          => __( 'Body 1', 'material-theme-builder' ),
 					'size'           => 16,
-					'weight'         => 400,
+					'weight'         => $weights['normal'],
 					'css_var_size'   => '--mdc-body1-size',
 					'css_var_weight' => '--mdc-body1-weight',
 				],
 				'body_2'   => [
 					'label'          => __( 'Body 2', 'material-theme-builder' ),
 					'size'           => 14,
-					'weight'         => 400,
+					'weight'         => $weights['normal'],
 					'css_var_size'   => '--mdc-body2-size',
 					'css_var_weight' => '--mdc-body2-weight',
 				],
-				'caption'  => [
-					'label'          => __( 'Caption 2', 'material-theme-builder' ),
+				'button'   => [
+					'label'          => __( 'Button', 'material-theme-builder' ),
 					'size'           => 12,
-					'weight'         => 400,
+					'weight'         => $weights['normal'],
+					'css_var_size'   => '--mdc-button-size',
+					'css_var_weight' => '--mdc-button-weight',
+				],
+				'caption'  => [
+					'label'          => __( 'Caption', 'material-theme-builder' ),
+					'size'           => 12,
+					'weight'         => $weights['normal'],
 					'css_var_size'   => '--mdc-caption-size',
 					'css_var_weight' => '--mdc-caption-weight',
 				],
 				'overline' => [
 					'label'          => __( 'Overline', 'material-theme-builder' ),
 					'size'           => 10,
-					'weight'         => 400,
+					'weight'         => $weights['normal'],
 					'css_var_size'   => '--mdc-overline-size',
 					'css_var_weight' => '--mdc-overline-weight',
 				],
