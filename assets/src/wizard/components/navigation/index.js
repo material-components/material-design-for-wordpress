@@ -1,5 +1,3 @@
-/* global mtbWizard */
-
 /**
  * WordPress dependencies
  */
@@ -12,6 +10,7 @@ import { __ } from '@wordpress/i18n';
 import Button from './button';
 import StepContext from '../../context';
 import { STEPS, STATUS, ACTIONS } from '../../constants';
+import getConfig from '../../../admin/get-config';
 
 /**
  * Nav buttons at the bottom of app
@@ -47,7 +46,7 @@ const Navigation = () => {
 				<Button
 					style="material-wizard__close"
 					text={ __( 'Close', 'material-theme-builder' ) }
-					link={ mtbWizard.settingsUrl }
+					link={ getConfig( 'settingsUrl' ) }
 				/>
 			</div>
 			<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-5">
@@ -78,7 +77,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-theme-builder' ) }
 								trailingIcon="navigate_next"
-								link={ mtbWizard.settingsUrl }
+								link={ getConfig( 'settingsUrl' ) }
 							/>
 						) }
 					</div>

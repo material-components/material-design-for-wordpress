@@ -1,5 +1,7 @@
 /* istanbul ignore file */
-/* global jQuery, mtbOnboarding */
+/* global jQuery */
+
+import getConfig from './get-config';
 
 ( $ => {
 	const initNotificationActions = () => {
@@ -27,25 +29,25 @@
 			$target.append( span );
 
 			const ajaxArgs = {
-				url: `${ mtbOnboarding.restUrl }${ action }-theme`,
+				url: `${ getConfig( 'restUrl' ) }${ action }-theme`,
 				method: 'POST',
 				beforeSend: xhr => {
-					xhr.setRequestHeader( 'X-WP-Nonce', mtbOnboarding.nonce );
+					xhr.setRequestHeader( 'X-WP-Nonce', getConfig( 'nonce' ) );
 				},
 			};
 			const request = $.ajax( ajaxArgs );
 
 			request.done( () => {
 				if ( 'install' === action ) {
-					ajaxArgs.url = `${ mtbOnboarding.restUrl }activate-theme`;
+					ajaxArgs.url = `${ getConfig( 'restUrl' ) }activate-theme`;
 					const activationRequest = $.ajax( ajaxArgs );
 
 					activationRequest.done(
-						() => ( window.location.href = mtbOnboarding.redirect )
+						() => ( window.location.href = getConfig( 'redirect' ) )
 					);
 					activationRequest.fail( error => console.error( error ) );
 				} else {
-					window.location.href = mtbOnboarding.redirect;
+					window.location.href = getConfig( 'redirect' );
 				}
 			} );
 			request.fail( error => console.error( error ) );

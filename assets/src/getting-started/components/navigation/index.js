@@ -1,5 +1,3 @@
-/* global mtbGsm */
-
 /**
  * WordPress dependencies
  */
@@ -11,6 +9,7 @@ import { useEffect, useContext } from '@wordpress/element';
  */
 import TabContext from '../../context';
 import { TABS, ACTIONS } from '../../constants';
+import getConfig from '../../get-config';
 import Tab from './tab';
 
 const Navigation = () => {
@@ -18,7 +17,7 @@ const Navigation = () => {
 
 	useEffect( () => {
 		// Change initial tab if content and theme are already installed.
-		if ( 'ok' === mtbGsm.themeStatus ) {
+		if ( 'ok' === getConfig( 'themeStatus' ) ) {
 			dispatch( { type: ACTIONS.SET_THEME_OK } );
 			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'DEMO' } } );
 			dispatch( {
@@ -28,7 +27,7 @@ const Navigation = () => {
 			dispatch( {} );
 		}
 
-		if ( 'ok' === mtbGsm.contentStatus ) {
+		if ( 'ok' === getConfig( 'contentStatus' ) ) {
 			dispatch( { type: ACTIONS.SET_DEMO_OK } );
 			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'EDITOR' } } );
 			dispatch( {

@@ -1,4 +1,7 @@
-/* globals mtbWizard, mtbOnboarding, fetch */
+/* globals fetch */
+
+import getConfig from '../admin/get-config';
+
 /**
  * Functions that don't change the state of the world
  */
@@ -9,7 +12,7 @@
  *
  */
 export const handleThemeActivation = () => {
-	const action = mtbOnboarding.themeStatus;
+	const action = getConfig( 'themeStatus' );
 	if ( 'ok' === action ) {
 		return new Promise( resolve => {
 			return resolve( 'ok' );
@@ -18,11 +21,11 @@ export const handleThemeActivation = () => {
 
 	const parameters = {
 		method: 'POST',
-		headers: { 'X-WP-Nonce': mtbOnboarding.nonce },
+		headers: { 'X-WP-Nonce': getConfig( 'nonce' ) },
 	};
 
 	return new Promise( ( resolve, reject ) => {
-		fetch( `${ mtbOnboarding.restUrl }${ action }-theme`, parameters )
+		fetch( `${ getConfig( 'restUrl' ) }${ action }-theme`, parameters )
 			.then( response => response.json() )
 			.then( data => {
 				if ( data.code ) {
@@ -30,7 +33,7 @@ export const handleThemeActivation = () => {
 				}
 
 				if ( 'install' === action ) {
-					fetch( `${ mtbOnboarding.restUrl }activate-theme`, parameters )
+					fetch( `${ getConfig( 'restUrl' ) }activate-theme`, parameters )
 						.then( response => response.json() )
 						.then( resolve )
 						.catch( error => reject( error ) );
@@ -49,11 +52,11 @@ export const handleThemeActivation = () => {
 export const handleDemoImporter = () => {
 	const parameters = {
 		method: 'POST',
-		headers: { 'X-WP-Nonce': mtbWizard.nonce },
+		headers: { 'X-WP-Nonce': getConfig( 'nonce' ) },
 	};
 
 	return new Promise( ( resolve, reject ) => {
-		fetch( `${ mtbWizard.restUrl }install-content`, parameters )
+		fetch( `${ getConfig( 'restUrl' ) }install-content`, parameters )
 			.then( response => response.json() )
 			.then( response => {
 				if ( response.code ) {

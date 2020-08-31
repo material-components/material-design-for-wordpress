@@ -96,7 +96,7 @@ class Admin extends Module_Base {
 
 		wp_localize_script(
 			'material-admin-js',
-			'mtbOnboarding',
+			'mtbWizard',
 			[
 				'restUrl'     => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
 				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
