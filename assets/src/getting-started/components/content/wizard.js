@@ -1,5 +1,3 @@
-/* global mtbGsm */
-
 /**
  * WordPress dependencies
  */
@@ -9,6 +7,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import Button from '../../../wizard/components/navigation/button';
+import getConfig from '../../get-config';
 
 export const Wizard = props => {
 	return (
@@ -27,7 +26,7 @@ export const Wizard = props => {
 					text={ __( 'Re-run Wizard', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
 					onClick={ props.handleClick }
-					link={ mtbGsm.wizardUrl }
+					link={ getConfig( 'wizardUrl' ) }
 				/>
 			</div>
 		</>

@@ -1,5 +1,3 @@
-/* global mtbGsm */
-
 /**
  * WordPress dependencies
  */
@@ -9,6 +7,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import Button from '../../../wizard/components/navigation/button';
+import getConfig from '../../get-config';
 
 export const Blocks = () => {
 	return (
@@ -26,7 +25,7 @@ export const Blocks = () => {
 					style="mdc-button--raised"
 					text={ __( 'Explore', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
-					link={ mtbGsm.editorUrl }
+					link={ getConfig( 'editorUrl' ) }
 				/>
 			</div>
 		</>

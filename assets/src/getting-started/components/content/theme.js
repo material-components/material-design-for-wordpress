@@ -34,7 +34,7 @@ export const Theme = () => {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Material theme', 'material-theme-builder' ) }
 			</h2>
@@ -53,6 +53,6 @@ export const Theme = () => {
 					loading={ isLoading }
 				/>
 			</div>
-		</Fragment>
+		</>
 	);
 };

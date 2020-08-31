@@ -53,7 +53,7 @@ export const MaterialLogo = () => (
 );
 
 /**
- * Get Material config value
+ * Get Material Blocks config value
  *
  * @param {string} name Name of the config value to retrieve.
  * @return {string|Object|undefined} Value of config.
