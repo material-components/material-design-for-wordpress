@@ -28,6 +28,17 @@ const setup = props => {
 };
 
 describe( 'ButtonEdit', () => {
+	beforeAll( () => {
+		global.mtbDefaults = {
+			colors: {
+				primary_color: '#6200ee',
+				primary_text_color: '#ffffff',
+				secondary_color: '#018786',
+				secondary_text_color: '#ffffff',
+			},
+		};
+	} );
+
 	it( 'displays all the panels', () => {
 		setup( baseProps );
 		expect( screen.getByText( 'Styles' ) ).toBeInTheDocument();

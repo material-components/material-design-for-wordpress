@@ -4,28 +4,28 @@
 import {
 	name,
 	settings,
-} from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/telephone-input-field';
-import BlockIcon from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/telephone-input-field/block-icon';
+} from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/short-text-input-field';
+import BlockIcon from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/short-text-input-field/block-icon';
 import Edit from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/common/components/text-input-edit';
 import Save from '../../../../../../../assets/src/block-editor/blocks/contact-form/inner-blocks/common/components/text-input-save';
 
-describe( 'blocks: material/telephone-input-field', () => {
+describe( 'blocks: material/short-text-input-field', () => {
 	describe( 'name', () => {
-		it( 'should equal material/telephone-input-field', () => {
-			expect( name ).toStrictEqual( 'material/telephone-input-field' );
+		it( 'should equal material/short-text-input-field', () => {
+			expect( name ).toStrictEqual( 'material/short-text-input-field' );
 		} );
 	} );
 
 	describe( 'title settings', () => {
-		it( 'should equal Telephone', () => {
-			expect( settings.title ).toStrictEqual( 'Telephone' );
+		it( 'should equal Short text', () => {
+			expect( settings.title ).toStrictEqual( 'Short text' );
 		} );
 	} );
 
 	describe( 'description settings', () => {
-		it( 'should equal `Add a phone number input.`', () => {
+		it( 'should equal `A single-line input field for people to add a shorter response.`', () => {
 			expect( settings.description ).toStrictEqual(
-				'Add a phone number input.'
+				'A single-line input field for people to add a shorter response.'
 			);
 		} );
 	} );
@@ -56,15 +56,15 @@ describe( 'blocks: material/telephone-input-field', () => {
 				},
 				inputType: {
 					type: 'string',
-					default: 'tel',
+					default: 'text',
 				},
 				inputRole: {
 					type: 'string',
-					default: 'telephone',
+					default: 'short-text',
 				},
 				label: {
 					type: 'string',
-					default: 'Telephone',
+					default: 'Short text',
 				},
 				inputValue: {
 					type: 'string',

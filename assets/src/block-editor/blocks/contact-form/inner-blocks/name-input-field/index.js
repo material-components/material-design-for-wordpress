@@ -15,7 +15,7 @@ export const name = 'material/name-input-field';
 export const settings = {
 	title: __( 'Name', 'material-theme-builder' ),
 	description: __(
-		'Introductions are important. Add an input for folks to add their name.',
+		'An input field for people to add their name.',
 		'material-theme-builder'
 	),
 	parent: [ 'material/contact-form' ],

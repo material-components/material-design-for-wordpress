@@ -15,7 +15,7 @@ export const name = 'material/email-input-field';
 export const settings = {
 	title: __( 'Email', 'material-theme-builder' ),
 	description: __(
-		'Want to reply to folks? Add an email address input.',
+		'An input field for people to add their email address.',
 		'material-theme-builder'
 	),
 	parent: [ 'material/contact-form' ],

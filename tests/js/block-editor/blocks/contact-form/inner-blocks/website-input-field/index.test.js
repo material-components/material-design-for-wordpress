@@ -23,9 +23,9 @@ describe( 'blocks: material/website-input-field', () => {
 	} );
 
 	describe( 'description settings', () => {
-		it( 'should equal `Add an address input for a website.`', () => {
+		it( 'should equal `An input field for people to add their website URL.`', () => {
 			expect( settings.description ).toStrictEqual(
-				'Add an address input for a website.'
+				'An input field for people to add their website URL.'
 			);
 		} );
 	} );
