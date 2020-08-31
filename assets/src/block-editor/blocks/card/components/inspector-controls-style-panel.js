@@ -9,6 +9,7 @@ import { PanelBody, RadioControl, ToggleControl } from '@wordpress/components';
  */
 import GlobalShapeSize from '../../../components/global-shape-size';
 import { name as CardBlockName } from '../index';
+import { getConfig } from '../../../helpers';
 
 const CONTENT_LAYOUTS = [
 	{
@@ -68,14 +69,36 @@ const InspectorControlsStylePanel = ( {
 				onChange={ value => setter( 'contentLayout', value, cardIndex ) }
 			/>
 		) }
-		<GlobalShapeSize
-			label={ __( 'Rounded corners', 'material-theme-builder' ) }
-			value={ cornerRadius }
-			onChange={ value => setter( 'cornerRadius', value, cardIndex ) }
-			min={ MIN_CARD_ROUND_CORNERS }
-			max={ MAX_CARD_ROUND_CORNERS }
-			blockName={ CardBlockName }
-		/>
+
+		<div className="components-base-control">
+			<label className="components-base-control__label" htmlFor="shape-size">
+				{ __( 'Corner Styles', 'material-theme-builder' ) }
+			</label>
+
+			<div>
+				{ __(
+					'Overrides will only apply to these cards. Change Cards corner styles in ',
+					'material-theme-builder'
+				) }
+				<a
+					href={ getConfig( 'customizerUrls' ).shape }
+					target="_blank"
+					rel="noreferrer noopener"
+				>
+					{ __( 'Material Theme Options', 'material-theme-builder' ) }
+				</a>
+				{ __( ' to update all cards.', 'material-theme-builder' ) }
+			</div>
+
+			<GlobalShapeSize
+				value={ cornerRadius }
+				onChange={ value => setter( 'cornerRadius', value, cardIndex ) }
+				min={ MIN_CARD_ROUND_CORNERS }
+				max={ MAX_CARD_ROUND_CORNERS }
+				blockName={ CardBlockName }
+			/>
+		</div>
+
 		<ToggleControl
 			label={ __( 'Outlined', 'material-theme-builder' ) }
 			checked={ outlined }

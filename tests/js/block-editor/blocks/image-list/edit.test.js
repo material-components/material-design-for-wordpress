@@ -91,6 +91,15 @@ const galleryProps = {
 };
 
 describe( 'blocks: material/image-list: Edit', () => {
+	beforeAll( () => {
+		global.mtb = {
+			customizerUrls: {
+				shape: 'http://example.com/shape',
+				colors: 'http://example.com/colors',
+			},
+		};
+	} );
+
 	beforeEach( () => {
 		jest.clearAllMocks();
 	} );
