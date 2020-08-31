@@ -41,7 +41,7 @@ const RecaptchaInspectorControlsPanel = () => {
 			if ( isInitialFetch.current ) {
 				const newNotice = { ...defaultNotice };
 
-				sendAjaxRequest( {
+				const xhr = sendAjaxRequest( {
 					action: 'get',
 				} )
 					.then( response => {
@@ -83,6 +83,8 @@ const RecaptchaInspectorControlsPanel = () => {
 					} );
 
 				isInitialFetch.current = false;
+
+				return xhr.abort;
 			}
 		}, // eslint-disable-next-line react-hooks/exhaustive-deps
 		[]

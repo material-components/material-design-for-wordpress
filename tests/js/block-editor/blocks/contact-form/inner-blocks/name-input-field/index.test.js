@@ -23,9 +23,9 @@ describe( 'blocks: material/name-input-field', () => {
 	} );
 
 	describe( 'description settings', () => {
-		it( 'should equal `Introductions are important. Add an input for folks to add their name.`', () => {
+		it( 'should equal `An input field for people to add their name.`', () => {
 			expect( settings.description ).toStrictEqual(
-				'Introductions are important. Add an input for folks to add their name.'
+				'An input field for people to add their name.'
 			);
 		} );
 	} );
