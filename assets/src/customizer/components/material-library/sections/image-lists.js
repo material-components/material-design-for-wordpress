@@ -1,6 +1,12 @@
-/* global mtb */
-
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
+import getConfig from '../../../../block-editor/utils/get-config';
 import IconButtonLink from '../common/icon-button-link';
 
 const ImageLists = ( { radius } ) => (
@@ -17,7 +23,7 @@ const ImageLists = ( { radius } ) => (
 		</p>
 		<div>
 			<ul className="mdc-image-list mdc-image-list--masonry mdc-image-list--with-text-protection">
-				{ mtb.images.map( ( url, i ) => (
+				{ getConfig( 'images' ).map( ( url, i ) => (
 					<li
 						key={ i }
 						className="mdc-image-list__item image-list-item"

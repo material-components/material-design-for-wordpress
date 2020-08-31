@@ -1,4 +1,9 @@
-/* global requestAnimationFrame, mtb */
+/* global requestAnimationFrame */
+
+/**
+ * Internal dependencies
+ */
+import getConfig from '../block-editor/utils/get-config';
 
 export const THEME_COLOR_CONTROLS = [
 	'background_color',
@@ -67,7 +72,7 @@ export const expandSection = element => {
  * @param {string} name name of the control
  */
 export const getSlug = name =>
-	THEME_COLOR_CONTROLS.includes( name ) ? 'material' : mtb.slug;
+	THEME_COLOR_CONTROLS.includes( name ) ? 'material' : getConfig( 'slug' );
 
 /**
  * Remove the option prefix from a control name.
@@ -79,7 +84,7 @@ export const removeOptionPrefix = name => {
 	if ( match ) {
 		return match[ 1 ];
 	}
-	return name.replace( /^material_/, '' ).replace( mtb.slug, '' );
+	return name.replace( /^material_/, '' ).replace( getConfig( 'slug' ), '' );
 };
 
 /**
