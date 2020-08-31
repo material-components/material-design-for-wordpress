@@ -146,8 +146,9 @@ class Admin extends Module_Base {
 				'material-admin-js',
 				'mtbWizard',
 				[
-					'restUrl' => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
-					'nonce'   => wp_create_nonce( 'wp_rest' ),
+					'restUrl'     => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
+					'nonce'       => wp_create_nonce( 'wp_rest' ),
+					'themeStatus' => esc_html( $this->plugin->theme_status() ),
 				]
 			);
 		}
@@ -187,6 +188,7 @@ class Admin extends Module_Base {
 					'placeholderSmall' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder-small.png' ) ),
 					'nonce'            => wp_create_nonce( 'wp_rest' ),
 					'restUrl'          => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
+					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
 				]
 			);
 		}
