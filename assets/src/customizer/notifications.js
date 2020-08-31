@@ -9,8 +9,6 @@ const $ = jQuery;
 const api = wp.customize;
 let notificationCount = false;
 
-console.log( getConfig( 'l10n' ) );
-
 /**
  * Show or hide the material components notification.
  *
