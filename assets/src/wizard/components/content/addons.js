@@ -1,6 +1,13 @@
 /* global mtbWizard, mtbOnboarding */
-import React from 'react';
+
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import { ADDONS } from '../../constants';
 import Card from './card';
 

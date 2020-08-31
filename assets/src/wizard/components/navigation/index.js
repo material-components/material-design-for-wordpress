@@ -1,6 +1,14 @@
 /* global mtbWizard */
-import React, { useContext } from 'react';
+
+/**
+ * WordPress dependencies
+ */
+import { useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import Button from './button';
 import StepContext from '../../context';
 import { STEPS, STATUS, ACTIONS } from '../../constants';

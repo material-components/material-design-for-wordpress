@@ -1,7 +1,11 @@
 /* global jQuery, mtb */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
-import { useState } from 'react';
+import { useState } from '@wordpress/element';
 
 const ThemePrompt = ( { status } ) => {
 	const [ dismissed, setDismissed ] = useState( status === 'ok' );
