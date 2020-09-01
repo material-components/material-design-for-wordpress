@@ -270,9 +270,14 @@ class Controls extends Module_Base {
 		/**
 		 * Generate list of all the settings in the Typography section.
 		 */
-		$settings = [];
+		$settings     = [];
+		$all_controls = array_merge(
+			$this->get_typography_controls(),
+			$this->get_typography_extra_controls(),
+			$this->get_typography_extra_controls( false )
+		);
 
-		foreach ( $this->get_typography_controls() as $control ) {
+		foreach ( $all_controls as $control ) {
 			$settings[ $control['id'] ] = [];
 		}
 
@@ -283,7 +288,7 @@ class Controls extends Module_Base {
 		 */
 		$controls = [];
 
-		foreach ( $this->get_typography_controls() as $control ) {
+		foreach ( $all_controls as $control ) {
 			$controls[ $control['id'] ] = new Google_Fonts_Control(
 				$this->wp_customize,
 				$this->prepare_option_name( $control['id'] ),
@@ -292,7 +297,7 @@ class Controls extends Module_Base {
 					'priority' => 10,
 					'label'    => $control['label'],
 					'css_vars' => $control['css_vars'],
-					'choices'  => $control['choices'],
+					'choices'  => ( ! empty( $control['choices'] ) ) ? $control['choices'] : [],
 				]
 			);
 		}
@@ -1292,19 +1297,21 @@ class Controls extends Module_Base {
 
 			for ( $i = 1; $i < 7; $i++ ) {
 				$controls[] = [
-					'id'     => sprintf( 'headline_%s', $i ),
-					'label'  => sprintf(
+					'id'       => sprintf( 'headline_%s', $i ),
+					'setting'  => $this->prepare_option_name( sprintf( 'font_headline_%s', $i ) ),
+					'css_vars' => '',
+					'label'    => sprintf(
 						/* translators: Number of heading to display */
 						esc_html__( 'Headline %s', 'material-theme-builder' ),
 						$i
 					),
-					'size'   => $this->get_typography_size_controls(
+					'size'     => $this->get_typography_size_controls(
 						[
 							'css_var' => sprintf( '--mdc-headline%s-size', $i ),
 							'default' => intval( $default_sizes[ $i - 1 ] ),
 						]
 					),
-					'weight' => $this->get_typography_weight_controls(
+					'weight'   => $this->get_typography_weight_controls(
 						[
 							'css_var' => sprintf( '--mdc-headline%s-weight', $i ),
 							'default' => intval( $default_weights[ $i - 1 ] ),
@@ -1321,19 +1328,21 @@ class Controls extends Module_Base {
 
 			for ( $i = 1; $i < 3; $i++ ) {
 				$controls[] = [
-					'id'     => sprintf( 'subtitle_%s', $i ),
-					'label'  => sprintf(
+					'id'       => sprintf( 'subtitle_%s', $i ),
+					'setting'  => $this->prepare_option_name( sprintf( 'font_subtitle_%s', $i ) ),
+					'css_vars' => '',
+					'label'    => sprintf(
 						/* translators: Number of heading to display */
 						esc_html__( 'Subtitle %s', 'material-theme-builder' ),
 						$i
 					),
-					'size'   => $this->get_typography_size_controls(
+					'size'     => $this->get_typography_size_controls(
 						[
 							'css_var' => sprintf( '--mdc-subtitle%s-size', $i ),
 							'default' => intval( $default_sizes[ $i - 1 ] ),
 						]
 					),
-					'weight' => $this->get_typography_weight_controls(
+					'weight'   => $this->get_typography_weight_controls(
 						[
 							'css_var' => sprintf( '--mdc-subtitle%s-weight', $i ),
 							'default' => intval( $default_weights[ $i - 1 ] ),
@@ -1382,15 +1391,17 @@ class Controls extends Module_Base {
 
 			foreach ( $keys as $key => $settings ) {
 				$controls[] = [
-					'id'     => esc_html( $key ),
-					'label'  => esc_html( $settings['label'] ),
-					'size'   => $this->get_typography_size_controls(
+					'id'       => esc_html( $key ),
+					'setting'  => $this->prepare_option_name( sprintf( 'font_%s', $key ) ),
+					'label'    => esc_html( $settings['label'] ),
+					'css_vars' => '',
+					'size'     => $this->get_typography_size_controls(
 						[
 							'css_var' => $settings['css_var_size'],
 							'default' => intval( $settings['size'] ),
 						]
 					),
-					'weight' => $this->get_typography_weight_controls(
+					'weight'   => $this->get_typography_weight_controls(
 						[
 							'css_var' => $settings['css_var_weight'],
 							'default' => intval( $settings['weight'] ),

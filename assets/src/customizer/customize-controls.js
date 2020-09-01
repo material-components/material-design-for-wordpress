@@ -520,14 +520,26 @@ import {
 	};
 
 	const renderGoogleFontsControl = control => {
+		const { params, id, setting } = control;
 		const props = {
-			id: control.id,
-			label: control.params.label,
-			description: control.params.description,
-			value: control.setting.get(),
-			children: control.params.children,
+			id,
+			label: params.label,
+			description: params.description,
+			value: setting.get(),
+			children: params.children,
 			fonts: mtb.googleFonts,
+			onChange: event => {
+				const value = event.currentTarget.value;
+				setting.set( value );
+			},
+			onChildChange: event => {
+				console.log( event );
+			},
 		};
+
+		if ( 0 === params.children.length ) {
+			return;
+		}
 
 		render( <GoogleFontsControl { ...props } />, control.container.get( 0 ) );
 	};
