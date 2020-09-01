@@ -521,19 +521,46 @@ import {
 
 	const renderGoogleFontsControl = control => {
 		const { params, id, setting } = control;
+		let children = [];
+
+		if ( 0 !== params.children.length ) {
+			children = params.children.map( child => {
+				const value = api( child.setting ).get();
+
+				if ( ! value ) {
+					return child;
+				}
+
+				const valueObject = JSON.parse( value );
+
+				child.size.default = valueObject.size;
+				child.weight.default = valueObject.weight;
+
+				return child;
+			} );
+		}
+
 		const props = {
 			id,
 			label: params.label,
 			description: params.description,
 			value: setting.get(),
-			children: params.children,
+			children,
 			fonts: mtb.googleFonts,
 			onChange: event => {
 				const value = event.currentTarget.value;
 				setting.set( value );
 			},
-			onChildChange: event => {
-				console.log( event );
+			onChildChange: values => {
+				const childControl = wp.customize.control(
+					`material_theme_builder[${ values.id }]`
+				);
+				const settings = {
+					size: values.sizeValue,
+					weight: values.weightValue,
+				};
+
+				childControl.setting.set( JSON.stringify( settings ) );
 			},
 		};
 

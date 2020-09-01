@@ -1,12 +1,16 @@
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import { SelectControl } from '@wordpress/components';
 
 // @todo replace input with NumberControl once it's functional
 
 const Item = props => {
-	const { label, size, weight, id } = props;
+	const { label, size, weight, id, onChange } = props;
 	const [ sizeValue, setSizeValue ] = useState( size.default );
 	const [ weightValue, setWeightValue ] = useState( weight.default );
+
+	useEffect( () => {
+		onChange( { id, sizeValue, weightValue } );
+	}, [ sizeValue, weightValue ] );
 
 	return (
 		<div className="google-fonts-control-child">
@@ -42,7 +46,9 @@ const Item = props => {
 					value={ weightValue }
 					label={ weight.label }
 					options={ weight.choices }
-					onChange={ value => setWeightValue( value ) }
+					onChange={ value => {
+						setWeightValue( value );
+					} }
 				/>
 			</div>
 		</div>

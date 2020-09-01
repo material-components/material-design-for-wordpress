@@ -116,6 +116,10 @@ const getIconFontName = iconStyle => {
 		}
 
 		Object.keys( typographyControls ).forEach( control => {
+			if ( ! typographyControls[ control ].family ) {
+				return;
+			}
+
 			typographyControls[ control ].family.forEach( varName => {
 				styles += `${ varName }: ${ parentApi( control ).get() };`;
 			} );
@@ -172,6 +176,10 @@ const getIconFontName = iconStyle => {
 			baseURL = '//fonts.googleapis.com/css?family=';
 
 		Object.keys( typographyControls ).forEach( control => {
+			if ( ! /family]$/.test( control ) ) {
+				return;
+			}
+
 			fonts.push(
 				parentApi( control )
 					.get()

@@ -14,7 +14,7 @@ import Item from './item';
 import { sanitizeControlId } from '../../utils';
 
 const GoogleFontsControl = props => {
-	const { id, label, value, children, onChange } = props;
+	const { id, label, value, children, onChange, onChildChange } = props;
 
 	useEffect( () => {
 		jQuery( '.google-fonts-control-selection' )
@@ -73,7 +73,7 @@ const GoogleFontsControl = props => {
 			{ isExpanded && children && children.length && (
 				<div className="google-fonts-control-children">
 					{ children.map( child => (
-						<Item key={ child.id } { ...child } />
+						<Item key={ child.id } onChange={ onChildChange } { ...child } />
 					) ) }
 				</div>
 			) }
