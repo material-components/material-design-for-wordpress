@@ -68,6 +68,14 @@ class Importer extends Module_Base {
 			'https://images.unsplash.com/photo-1558906217-200fade11db0'    => 27,
 			'https://images.unsplash.com/photo-1558906217-665a4e06f741'    => 40,
 			'https://images.unsplash.com/photo-1565314912546-0d18918fdc8f' => 38,
+			'https://images.unsplash.com/photo-1565315268183-4134b0eef6e2' => 43,
+			'https://images.unsplash.com/photo-1565357153781-98bf8686488a' => 33,
+			'https://images.unsplash.com/photo-1566964423430-3e52903303a5' => 42,
+			'https://images.unsplash.com/photo-1574191942747-140df1f9c477' => 26,
+			'https://images.unsplash.com/photo-1580699133608-082eae6052a8' => 46,
+			'https://images.unsplash.com/photo-1582817954171-c3533fffde89' => 50,
+			'https://images.unsplash.com/photo-1582817954180-3c17b7036409' => 47,
+			'https://images.unsplash.com/photo-1591404789216-d03646c78f73' => 45,
 		];
 
 		$this->images_lookup = array_flip( $this->images );
@@ -513,7 +521,7 @@ class Importer extends Module_Base {
 
 		if ( ! empty( $post_data['post_thumbnail'] ) ) {
 			$image_url     = add_query_arg( 'w', 1200, $post_data['post_thumbnail'] );
-			$image_url = add_query_arg( '4', 420, $image_url );
+			$image_url     = add_query_arg( '4', 420, $image_url );
 			$attachment_id = $this->import_image( $image_url );
 
 			if ( ! is_wp_error( $attachment_id ) ) {
