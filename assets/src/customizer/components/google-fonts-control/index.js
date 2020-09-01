@@ -14,7 +14,7 @@ import Item from './item';
 import { sanitizeControlId } from '../../utils';
 
 const GoogleFontsControl = props => {
-	const { id, label, value, children } = props;
+	const { id, label, value, children, onChange } = props;
 
 	useEffect( () => {
 		jQuery( '.google-fonts-control-selection' )
@@ -22,7 +22,8 @@ const GoogleFontsControl = props => {
 				data: mtb.googleFonts,
 				width: '100%',
 			} )
-			.val( value );
+			.val( value )
+			.on( 'change', onChange );
 	}, [] );
 
 	const [ isExpanded, setIsExpanded ] = useState( false );
@@ -51,6 +52,7 @@ const GoogleFontsControl = props => {
 				<select
 					className="google-fonts-control-selection"
 					value={ value }
+					data-id={ id }
 				></select>
 
 				<span className="google-fonts-control-body__item">

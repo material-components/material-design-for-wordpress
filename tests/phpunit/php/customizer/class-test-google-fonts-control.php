@@ -36,6 +36,12 @@ class Test_Google_Fonts_Control extends \WP_UnitTestCase {
 			[
 				'label'       => 'Headlines Subtitles',
 				'description' => 'Font family for all headlines',
+				'choices'     => [
+					[
+						'id'    => 'test',
+						'label' => 'Headline 1',
+					],
+				],
 			]
 		);
 
