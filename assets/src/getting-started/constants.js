@@ -19,8 +19,7 @@ export const ACTIONS = {
  */
 export const TABS = {
 	WIZARD: __( 'Quick Start', 'material-theme-builder' ),
-	THEME: __( 'Material theme', 'material-theme-builder' ),
-	DEMO: __( 'Demo content', 'material-theme-builder' ),
-	EDITOR: __( 'Material Theme Options', 'material-theme-builder' ),
-	BLOCKS: __( 'Material blocks', 'material-theme-builder' ),
+	OVERVIEW: __( 'Overview', 'material-theme-builder' ),
+	CUSTOMIZE: __( 'Customize your Theme', 'material-theme-builder' ),
+	LAYOUT: __( 'Layout Settings', 'material-theme-builder' ),
 };
