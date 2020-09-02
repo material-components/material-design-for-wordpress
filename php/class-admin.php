@@ -89,7 +89,7 @@ class Admin extends Module_Base {
 		wp_enqueue_script(
 			'material-admin-js',
 			$this->plugin->asset_url( 'assets/js/admin.js' ),
-			[],
+			[ 'wp-api-fetch' ],
 			$this->plugin->asset_version(),
 			true
 		);
@@ -98,7 +98,7 @@ class Admin extends Module_Base {
 			'material-admin-js',
 			'mtbWizard',
 			[
-				'restUrl'     => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
+				'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
 				'nonce'       => wp_create_nonce( 'wp_rest' ),
 				'themeStatus' => esc_html( $this->plugin->theme_status() ),
@@ -146,7 +146,7 @@ class Admin extends Module_Base {
 				'material-admin-js',
 				'mtbWizard',
 				[
-					'restUrl'     => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
+					'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 					'nonce'       => wp_create_nonce( 'wp_rest' ),
 					'themeStatus' => esc_html( $this->plugin->theme_status() ),
 				]
@@ -172,7 +172,7 @@ class Admin extends Module_Base {
 			wp_enqueue_script(
 				'material-wizard',
 				$this->plugin->asset_url( 'assets/js/wizard.js' ),
-				[ 'wp-element', 'wp-i18n' ],
+				[ 'wp-element', 'wp-i18n', 'wp-api-fetch' ],
 				$this->plugin->asset_version(),
 				true
 			);
@@ -187,7 +187,7 @@ class Admin extends Module_Base {
 					'placeholderImage' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder.png' ) ),
 					'placeholderSmall' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder-small.png' ) ),
 					'nonce'            => wp_create_nonce( 'wp_rest' ),
-					'restUrl'          => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
+					'restPath'         => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
 				]
 			);

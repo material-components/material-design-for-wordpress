@@ -36,8 +36,8 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 	 *
 	 * @return string
 	 */
-	public function get_rest_base_url() {
-		return esc_url( rest_url( "/{$this->namespace}/{$this->rest_base}/" ) );
+	public function get_base_path() {
+		return esc_url( "/{$this->namespace}/{$this->rest_base}/" );
 	}
 
 	/**

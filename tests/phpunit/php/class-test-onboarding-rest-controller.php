@@ -83,16 +83,16 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 	}
 
 	/**
-	 * Test get_rest_base_url().
+	 * Test get_base_path().
 	 *
-	 * @see Onboarding_REST_Controller::get_rest_base_url()
+	 * @see Onboarding_REST_Controller::get_base_path()
 	 */
-	public function test_get_rest_base_url() {
+	public function test_get_base_path() {
 		$plugin = new Plugin();
 		$plugin->init();
 		$controller = new Onboarding_REST_Controller( $plugin );
 
-		$this->assertContains( $this->get_route(), $controller->get_rest_base_url() );
+		$this->assertContains( $this->get_route(), $controller->get_base_path() );
 	}
 
 	/**

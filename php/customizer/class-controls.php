@@ -477,7 +477,7 @@ class Controls extends Module_Base {
 		wp_enqueue_script(
 			'material-theme-builder-customizer-js',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
-			[ 'jquery', 'wp-color-picker', 'customize-controls', 'wp-element', 'wp-components', 'wp-i18n' ],
+			[ 'jquery', 'wp-color-picker', 'customize-controls', 'wp-element', 'wp-components', 'wp-i18n', 'wp-api-fetch' ],
 			$this->plugin->asset_version(),
 			false
 		);
@@ -519,7 +519,7 @@ class Controls extends Module_Base {
 				'pluginPath'             => $this->plugin->asset_url( '' ),
 				'themeStatus'            => $this->plugin->theme_status(),
 				'themeNonce'             => wp_create_nonce( 'wp_rest' ),
-				'restUrl'                => esc_url( $this->plugin->onboarding_rest_controller->get_rest_base_url() ),
+				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
 			]
 		);

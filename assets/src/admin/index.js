@@ -1,19 +1,32 @@
 /* istanbul ignore file */
-/* global jQuery */
+
+/**
+ * WordPress dependencies
+ */
+import apiFetch from '@wordpress/api-fetch';
+import domReady from '@wordpress/dom-ready';
 
 /**
  * Internal dependencies
  */
 import getConfig from './get-config';
 
-( $ => {
-	const initNotificationActions = () => {
-		let requesting = false;
+const initNotificationActions = () => {
+	let requesting = false;
 
-		$( '.material-notice-container a' ).on( 'click', event => {
-			const $target = $( event.target ),
-				className = $target.attr( 'class' ),
-				action = ( className || '' ).replace( 'material-theme-', '' );
+	document
+		.querySelector( '.material-notice-container a.install-theme' )
+		.addEventListener( 'click', event => {
+			const className = event.target.className,
+				matches = ( className || '' ).match(
+					/material-theme-(install|activate)/
+				);
+
+			let action = '';
+
+			if ( matches && matches[ 1 ] ) {
+				action = matches[ 1 ];
+			}
 
 			if ( 'activate' !== action && 'install' !== action ) {
 				return;
@@ -27,35 +40,32 @@ import getConfig from './get-config';
 
 			requesting = true;
 
-			const span = $( '<span/>' );
-			span.attr( 'class', 'spinner is-active' );
-			$target.append( span );
+			const span = document.createElement( 'span' );
+			span.setAttribute( 'class', 'spinner is-active' );
+			event.target.appendChild( span );
 
-			const ajaxArgs = {
-				url: `${ getConfig( 'restUrl' ) }${ action }-theme`,
+			const requestArgs = {
+				path: `${ getConfig( 'restPath' ) }${ action }-theme`,
 				method: 'POST',
-				beforeSend: xhr => {
-					xhr.setRequestHeader( 'X-WP-Nonce', getConfig( 'nonce' ) );
+				headers: {
+					'X-WP-Nonce': getConfig( 'nonce' ),
 				},
 			};
-			const request = $.ajax( ajaxArgs );
 
-			request.done( () => {
-				if ( 'install' === action ) {
-					ajaxArgs.url = `${ getConfig( 'restUrl' ) }activate-theme`;
-					const activationRequest = $.ajax( ajaxArgs );
+			apiFetch( requestArgs )
+				.then( () => {
+					if ( 'install' === action ) {
+						requestArgs.path = `${ getConfig( 'restPath' ) }activate-theme`;
 
-					activationRequest.done(
-						() => ( window.location.href = getConfig( 'redirect' ) )
-					);
-					activationRequest.fail( error => console.error( error ) );
-				} else {
-					window.location.href = getConfig( 'redirect' );
-				}
-			} );
-			request.fail( error => console.error( error ) );
+						apiFetch( requestArgs )
+							.then( () => ( window.location.href = getConfig( 'redirect' ) ) )
+							.catch( error => console.error( error ) );
+					} else {
+						window.location.href = getConfig( 'redirect' );
+					}
+				} )
+				.catch( error => console.error( error ) );
 		} );
-	};
+};
 
-	$( document ).ready( initNotificationActions );
-} )( jQuery );
+domReady( initNotificationActions );

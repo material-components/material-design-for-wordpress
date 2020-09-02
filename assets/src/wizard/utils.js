@@ -1,4 +1,7 @@
-/* globals fetch */
+/**
+ * WordPress dependencies
+ */
+import apiFetch from '@wordpress/api-fetch';
 
 /**
  * Internal dependencies
@@ -22,22 +25,27 @@ export const handleThemeActivation = () => {
 		} );
 	}
 
-	const parameters = {
-		method: 'POST',
-		headers: { 'X-WP-Nonce': getConfig( 'nonce' ) },
-	};
-
 	return new Promise( ( resolve, reject ) => {
-		fetch( `${ getConfig( 'restUrl' ) }${ action }-theme`, parameters )
-			.then( response => response.json() )
+		apiFetch( {
+			path: `${ getConfig( 'restPath' ) }${ action }-theme`,
+			method: 'POST',
+			headers: {
+				'X-WP-Nonce': getConfig( 'nonce' ),
+			},
+		} )
 			.then( data => {
 				if ( data.code ) {
 					return reject( data );
 				}
 
 				if ( 'install' === action ) {
-					fetch( `${ getConfig( 'restUrl' ) }activate-theme`, parameters )
-						.then( response => response.json() )
+					apiFetch( {
+						path: `${ getConfig( 'restPath' ) }activate-theme`,
+						method: 'POST',
+						headers: {
+							'X-WP-Nonce': getConfig( 'nonce' ),
+						},
+					} )
 						.then( resolve )
 						.catch( error => reject( error ) );
 				} else {
@@ -53,14 +61,14 @@ export const handleThemeActivation = () => {
  *
  */
 export const handleDemoImporter = () => {
-	const parameters = {
-		method: 'POST',
-		headers: { 'X-WP-Nonce': getConfig( 'nonce' ) },
-	};
-
 	return new Promise( ( resolve, reject ) => {
-		fetch( `${ getConfig( 'restUrl' ) }install-content`, parameters )
-			.then( response => response.json() )
+		apiFetch( {
+			path: `${ getConfig( 'restPath' ) }install-content`,
+			method: 'POST',
+			headers: {
+				'X-WP-Nonce': getConfig( 'nonce' ),
+			},
+		} )
 			.then( response => {
 				if ( response.code ) {
 					reject( response );
