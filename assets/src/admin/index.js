@@ -14,58 +14,64 @@ import getConfig from './get-config';
 const initNotificationActions = () => {
 	let requesting = false;
 
-	document
-		.querySelector( '.material-notice-container a.install-theme' )
-		.addEventListener( 'click', event => {
-			const className = event.target.className,
-				matches = ( className || '' ).match(
-					/material-theme-(install|activate)/
-				);
+	const actionButton = document.querySelector(
+		'.material-notice-container a.install-theme'
+	);
 
-			let action = '';
+	if ( ! actionButton ) {
+		return;
+	}
 
-			if ( matches && matches[ 1 ] ) {
-				action = matches[ 1 ];
-			}
+	actionButton.addEventListener( 'click', event => {
+		const className = event.target.className,
+			matches = ( className || '' ).match(
+				/material-theme-(install|activate)/
+			);
 
-			if ( 'activate' !== action && 'install' !== action ) {
-				return;
-			}
+		let action = '';
 
-			event.preventDefault();
+		if ( matches && matches[ 1 ] ) {
+			action = matches[ 1 ];
+		}
 
-			if ( requesting ) {
-				return;
-			}
+		if ( 'activate' !== action && 'install' !== action ) {
+			return;
+		}
 
-			requesting = true;
+		event.preventDefault();
 
-			const span = document.createElement( 'span' );
-			span.setAttribute( 'class', 'spinner is-active' );
-			event.target.appendChild( span );
+		if ( requesting ) {
+			return;
+		}
 
-			const requestArgs = {
-				path: `${ getConfig( 'restPath' ) }${ action }-theme`,
-				method: 'POST',
-				headers: {
-					'X-WP-Nonce': getConfig( 'nonce' ),
-				},
-			};
+		requesting = true;
 
-			apiFetch( requestArgs )
-				.then( () => {
-					if ( 'install' === action ) {
-						requestArgs.path = `${ getConfig( 'restPath' ) }activate-theme`;
+		const span = document.createElement( 'span' );
+		span.setAttribute( 'class', 'spinner is-active' );
+		event.target.appendChild( span );
 
-						apiFetch( requestArgs )
-							.then( () => ( window.location.href = getConfig( 'redirect' ) ) )
-							.catch( error => console.error( error ) );
-					} else {
-						window.location.href = getConfig( 'redirect' );
-					}
-				} )
-				.catch( error => console.error( error ) );
-		} );
+		const requestArgs = {
+			path: `${ getConfig( 'restPath' ) }${ action }-theme`,
+			method: 'POST',
+			headers: {
+				'X-WP-Nonce': getConfig( 'nonce' ),
+			},
+		};
+
+		apiFetch( requestArgs )
+			.then( () => {
+				if ( 'install' === action ) {
+					requestArgs.path = `${ getConfig( 'restPath' ) }activate-theme`;
+
+					apiFetch( requestArgs )
+						.then( () => ( window.location.href = getConfig( 'redirect' ) ) )
+						.catch( error => console.error( error ) );
+				} else {
+					window.location.href = getConfig( 'redirect' );
+				}
+			} )
+			.catch( error => console.error( error ) );
+	} );
 };
 
 domReady( initNotificationActions );
