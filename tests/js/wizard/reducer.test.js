@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { reducer } from '../../../assets/src/wizard/reducer';
 
 const initialState = {
-	addons: [ 'THEME', 'DEMO' ],
+	addons: [ 'THEME', 'OVERVIEW' ],
 	active: 'WELCOME',
 	previous: [],
 	status: 'IDLE',
@@ -82,7 +82,7 @@ describe( 'Reducer', () => {
 	it( 'should add addon to array', () => {
 		const action = {
 			type: 'TOGGLE_ADDON',
-			payload: 'DEMO',
+			payload: 'OVERVIEW',
 		};
 
 		const state = {
@@ -98,7 +98,7 @@ describe( 'Reducer', () => {
 	it( 'should remove addon', () => {
 		const action = {
 			type: 'TOGGLE_ADDON',
-			payload: 'DEMO',
+			payload: 'OVERVIEW',
 		};
 
 		const result = reducer( initialState, action );

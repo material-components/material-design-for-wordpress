@@ -38,7 +38,7 @@ const Work = () => {
 
 				<p>
 					{ __(
-						'Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor',
+						'Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor.',
 						'material-theme-builder'
 					) }
 				</p>
