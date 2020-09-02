@@ -1,4 +1,3 @@
-/* global jQuery */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 /**
@@ -6,6 +5,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { useState } from '@wordpress/element';
+import apiFetch from '@wordpress/api-fetch';
 
 /**
  * Internal dependencies
@@ -50,32 +50,31 @@ const ThemePrompt = ( { status } ) => {
 		event.preventDefault();
 
 		setRequesting( true );
-
-		const ajaxArgs = {
-			url: `${ getConfig( 'restUrl' ) }${ status }-theme`,
+		const requestArgs = {
+			path: `${ getConfig( 'restPath' ) }${ status }-theme`,
 			method: 'POST',
-			beforeSend: xhr => {
-				xhr.setRequestHeader( 'X-WP-Nonce', getConfig( 'themeNonce' ) );
+			headers: {
+				'X-WP-Nonce': getConfig( 'themeNonce' ),
 			},
 		};
-		const request = jQuery.ajax( ajaxArgs );
 		const onFail = error => {
 			console.error( error );
 			setRequesting( false );
 		};
 
-		request.done( () => {
-			if ( 'install' === status ) {
-				ajaxArgs.url = `${ getConfig( 'restUrl' ) }activate-theme`;
-				const activationRequest = jQuery.ajax( ajaxArgs );
+		apiFetch( requestArgs )
+			.then( () => {
+				if ( 'install' === status ) {
+					requestArgs.path = `${ getConfig( 'restPath' ) }activate-theme`;
 
-				activationRequest.done( () => window.location.reload() );
-				activationRequest.fail( onFail );
-			} else {
-				window.location.reload();
-			}
-		} );
-		request.fail( onFail );
+					apiFetch( requestArgs )
+						.then( () => window.location.reload() )
+						.catch( onFail );
+				} else {
+					window.location.reload();
+				}
+			} )
+			.catch( onFail );
 	};
 
 	return (
