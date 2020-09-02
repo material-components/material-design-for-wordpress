@@ -1,16 +1,9 @@
-import { useState, useEffect } from '@wordpress/element';
 import { SelectControl } from '@wordpress/components';
 
 // @todo replace input with NumberControl once it's functional
 
 const Item = props => {
 	const { label, size, weight, id, onChange } = props;
-	const [ sizeValue, setSizeValue ] = useState( size.default );
-	const [ weightValue, setWeightValue ] = useState( weight.default );
-
-	useEffect( () => {
-		onChange( { id, sizeValue, weightValue } );
-	}, [ sizeValue, weightValue ] );
 
 	return (
 		<div className="google-fonts-control-child">
@@ -32,23 +25,29 @@ const Item = props => {
 							id={ `inspector-number-control-${ id }` }
 							className="components-range-control__number"
 							type="number"
-							value={ sizeValue }
+							value={ size.value || size.default }
 							min={ size.min }
 							max={ size.max }
 							onChange={ event => {
-								setSizeValue( event.currentTarget.value );
+								const sizeValue = event.target.value;
+
+								onChange( {
+									id,
+									sizeValue,
+									weightValue: weight.value,
+								} );
 							} }
 						/>
 					</div>
 				</div>
 
 				<SelectControl
-					value={ weightValue }
+					value={ weight.value || weight.default }
 					label={ weight.label }
 					options={ weight.choices }
-					onChange={ value => {
-						setWeightValue( value );
-					} }
+					onChange={ value =>
+						onChange( { id, sizeValue: size.value, weightValue: value } )
+					}
 				/>
 			</div>
 		</div>
