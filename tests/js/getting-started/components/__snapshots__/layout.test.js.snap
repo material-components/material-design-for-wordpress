@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GSM: Theme matches snapshot 1`] = `
+exports[`GSM: Layout matches snapshot 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,12 +8,37 @@ Object {
       <h2
         class="material-gsm__content-title mdc-typography--headline6"
       >
-        Material theme
+        Posts Settings
       </h2>
       <p
         class="material-gsm__content-description"
       >
-        Aenean egestas, ante vitae placerat tempor, felis ipsum finibus lectus, at eleifend neque tellus ac elit. Praesent cursus lectus felis, a ornare metus varius in.
+        Select how posts display on your site using cards or image lists in a wide or normal width layout. Card display options include raised or outlined cards, show or hide post comments, author, excerpt, and date.
+      </p>
+      <p
+        class="material-gsm__content-description"
+      >
+        Choose how your comment fields display within each post, options include outlines of filled text fields.
+      </p>
+      <h2
+        class="material-gsm__content-title mdc-typography--headline6"
+      >
+        Site Navigation (Top app bar)
+      </h2>
+      <p
+        class="material-gsm__content-description"
+      >
+        Choose tabs, navigation drawer, or both for your site navigation. Give users the ability to search your site on every page directly from within the top app bar. By default the top app bar will hide when scrolling up, choose “Fixed” to keep the app bar in place above all content.
+      </p>
+      <h2
+        class="material-gsm__content-title mdc-typography--headline6"
+      >
+        Site Navigation (Footer)
+      </h2>
+      <p
+        class="material-gsm__content-description"
+      >
+        Add footer text and give your users a quick way to jump back to the top. Looking to add widgets? Add widgets to the bottom of your site in Widgets settings.
       </p>
       <div
         class="material-gsm__content-actions"
@@ -24,7 +49,7 @@ Object {
           <span
             class="mdc-button__label"
           >
-            Activate
+            Customize
           </span>
           <i
             aria-hidden="true"
@@ -34,18 +59,46 @@ Object {
           </i>
         </button>
       </div>
+      <div
+        style="height: 20px;"
+      />
     </div>
   </body>,
   "container": <div>
     <h2
       class="material-gsm__content-title mdc-typography--headline6"
     >
-      Material theme
+      Posts Settings
     </h2>
     <p
       class="material-gsm__content-description"
     >
-      Aenean egestas, ante vitae placerat tempor, felis ipsum finibus lectus, at eleifend neque tellus ac elit. Praesent cursus lectus felis, a ornare metus varius in.
+      Select how posts display on your site using cards or image lists in a wide or normal width layout. Card display options include raised or outlined cards, show or hide post comments, author, excerpt, and date.
+    </p>
+    <p
+      class="material-gsm__content-description"
+    >
+      Choose how your comment fields display within each post, options include outlines of filled text fields.
+    </p>
+    <h2
+      class="material-gsm__content-title mdc-typography--headline6"
+    >
+      Site Navigation (Top app bar)
+    </h2>
+    <p
+      class="material-gsm__content-description"
+    >
+      Choose tabs, navigation drawer, or both for your site navigation. Give users the ability to search your site on every page directly from within the top app bar. By default the top app bar will hide when scrolling up, choose “Fixed” to keep the app bar in place above all content.
+    </p>
+    <h2
+      class="material-gsm__content-title mdc-typography--headline6"
+    >
+      Site Navigation (Footer)
+    </h2>
+    <p
+      class="material-gsm__content-description"
+    >
+      Add footer text and give your users a quick way to jump back to the top. Looking to add widgets? Add widgets to the bottom of your site in Widgets settings.
     </p>
     <div
       class="material-gsm__content-actions"
@@ -56,7 +109,7 @@ Object {
         <span
           class="mdc-button__label"
         >
-          Activate
+          Customize
         </span>
         <i
           aria-hidden="true"
@@ -66,6 +119,9 @@ Object {
         </i>
       </button>
     </div>
+    <div
+      style="height: 20px;"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

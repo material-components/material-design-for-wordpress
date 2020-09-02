@@ -42,36 +42,6 @@ Object {
                 </div>
               </button>
               <button
-                class="material-gsm__tab material-gsm__tab-completed"
-                type="button"
-              >
-                <i
-                  class="material-icons"
-                >
-                  check_circle_outline
-                </i>
-                <div
-                  class="material-gsm__tab-title"
-                >
-                  Material theme
-                </div>
-              </button>
-              <button
-                class="material-gsm__tab material-gsm__tab-completed"
-                type="button"
-              >
-                <i
-                  class="material-icons"
-                >
-                  check_circle_outline
-                </i>
-                <div
-                  class="material-gsm__tab-title"
-                >
-                  Demo content
-                </div>
-              </button>
-              <button
                 class="material-gsm__tab material-gsm__tab-active"
                 type="button"
               >
@@ -83,7 +53,7 @@ Object {
                 <div
                   class="material-gsm__tab-title"
                 >
-                  Material Theme Options
+                  Overview
                 </div>
               </button>
               <button
@@ -98,7 +68,22 @@ Object {
                 <div
                   class="material-gsm__tab-title"
                 >
-                  Material blocks
+                  Customize your Theme
+                </div>
+              </button>
+              <button
+                class="material-gsm__tab"
+                type="button"
+              >
+                <i
+                  class="material-icons"
+                >
+                  lens
+                </i>
+                <div
+                  class="material-gsm__tab-title"
+                >
+                  Layout Settings
                 </div>
               </button>
             </div>
@@ -109,12 +94,70 @@ Object {
             <h2
               class="material-gsm__content-title mdc-typography--headline6"
             >
-              Material Theme Options
+              Time to make Material Design look the way you want
             </h2>
             <p
               class="material-gsm__content-description"
             >
-              Aenean egestas, ante vitae placerat tempor, felis ipsum finibus lectus, at eleifend neque tellus ac elit. Praesent cursus lectus felis, a ornare metus varius in.
+              With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of 
+              <a
+                href="https://fonts.google.com/"
+                target="_blank"
+              >
+                Google Fonts
+              </a>
+               and 
+              <a
+                href="https://material.io/resources/icons/?style=baseline"
+                target="_blank"
+              >
+                Material Design icons.
+              </a>
+              Check out the Customize your Theme section to dig into all the ways you can make Material your own.
+            </p>
+            <h2
+              class="material-gsm__content-title mdc-typography--headline6"
+            >
+              Material Theme
+            </h2>
+            <p
+              class="material-gsm__content-description"
+            >
+              Applies Material Design colors, typography, shapes, and icons to built-in WordPress elements like your site's header and posts.
+            </p>
+            <div
+              class="material-gsm__content-actions"
+            >
+              <button
+                class="mdc-button mdc-button--raised"
+                disabled=""
+              >
+                <span
+                  class="mdc-button__label"
+                >
+                  Activated
+                </span>
+              </button>
+            </div>
+            <h2
+              class="material-gsm__content-title mdc-typography--headline6"
+            >
+              Material Design Plugin
+            </h2>
+            <p
+              class="material-gsm__content-description"
+            >
+              Customize your Material Theme styles and Material Components blocks. Choose from over 1,000 Google Fonts and Material Design icons.
+            </p>
+            <h2
+              class="material-gsm__content-title mdc-typography--headline6"
+            >
+              Material Components available in the Block Editor
+            </h2>
+            <p
+              class="material-gsm__content-description"
+            >
+              Start building your custom site with Material Blocks available in the WordPress editor, no code required.
             </p>
             <div
               class="material-gsm__content-actions"
@@ -125,7 +168,7 @@ Object {
                 <span
                   class="mdc-button__label"
                 >
-                  Explore
+                  View all Material Blocks
                 </span>
                 <i
                   aria-hidden="true"
@@ -135,6 +178,9 @@ Object {
                 </i>
               </button>
             </div>
+            <div
+              style="height: 20px;"
+            />
           </div>
         </div>
       </div>
@@ -178,36 +224,6 @@ Object {
               </div>
             </button>
             <button
-              class="material-gsm__tab material-gsm__tab-completed"
-              type="button"
-            >
-              <i
-                class="material-icons"
-              >
-                check_circle_outline
-              </i>
-              <div
-                class="material-gsm__tab-title"
-              >
-                Material theme
-              </div>
-            </button>
-            <button
-              class="material-gsm__tab material-gsm__tab-completed"
-              type="button"
-            >
-              <i
-                class="material-icons"
-              >
-                check_circle_outline
-              </i>
-              <div
-                class="material-gsm__tab-title"
-              >
-                Demo content
-              </div>
-            </button>
-            <button
               class="material-gsm__tab material-gsm__tab-active"
               type="button"
             >
@@ -219,7 +235,7 @@ Object {
               <div
                 class="material-gsm__tab-title"
               >
-                Material Theme Options
+                Overview
               </div>
             </button>
             <button
@@ -234,7 +250,22 @@ Object {
               <div
                 class="material-gsm__tab-title"
               >
-                Material blocks
+                Customize your Theme
+              </div>
+            </button>
+            <button
+              class="material-gsm__tab"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                lens
+              </i>
+              <div
+                class="material-gsm__tab-title"
+              >
+                Layout Settings
               </div>
             </button>
           </div>
@@ -245,12 +276,70 @@ Object {
           <h2
             class="material-gsm__content-title mdc-typography--headline6"
           >
-            Material Theme Options
+            Time to make Material Design look the way you want
           </h2>
           <p
             class="material-gsm__content-description"
           >
-            Aenean egestas, ante vitae placerat tempor, felis ipsum finibus lectus, at eleifend neque tellus ac elit. Praesent cursus lectus felis, a ornare metus varius in.
+            With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of 
+            <a
+              href="https://fonts.google.com/"
+              target="_blank"
+            >
+              Google Fonts
+            </a>
+             and 
+            <a
+              href="https://material.io/resources/icons/?style=baseline"
+              target="_blank"
+            >
+              Material Design icons.
+            </a>
+            Check out the Customize your Theme section to dig into all the ways you can make Material your own.
+          </p>
+          <h2
+            class="material-gsm__content-title mdc-typography--headline6"
+          >
+            Material Theme
+          </h2>
+          <p
+            class="material-gsm__content-description"
+          >
+            Applies Material Design colors, typography, shapes, and icons to built-in WordPress elements like your site's header and posts.
+          </p>
+          <div
+            class="material-gsm__content-actions"
+          >
+            <button
+              class="mdc-button mdc-button--raised"
+              disabled=""
+            >
+              <span
+                class="mdc-button__label"
+              >
+                Activated
+              </span>
+            </button>
+          </div>
+          <h2
+            class="material-gsm__content-title mdc-typography--headline6"
+          >
+            Material Design Plugin
+          </h2>
+          <p
+            class="material-gsm__content-description"
+          >
+            Customize your Material Theme styles and Material Components blocks. Choose from over 1,000 Google Fonts and Material Design icons.
+          </p>
+          <h2
+            class="material-gsm__content-title mdc-typography--headline6"
+          >
+            Material Components available in the Block Editor
+          </h2>
+          <p
+            class="material-gsm__content-description"
+          >
+            Start building your custom site with Material Blocks available in the WordPress editor, no code required.
           </p>
           <div
             class="material-gsm__content-actions"
@@ -261,7 +350,7 @@ Object {
               <span
                 class="mdc-button__label"
               >
-                Explore
+                View all Material Blocks
               </span>
               <i
                 aria-hidden="true"
@@ -271,6 +360,9 @@ Object {
               </i>
             </button>
           </div>
+          <div
+            style="height: 20px;"
+          />
         </div>
       </div>
     </div>
