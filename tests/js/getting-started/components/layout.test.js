@@ -2,23 +2,32 @@
  * External dependencies
  */
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 
 /**
  * Internal dependencies
  */
-import { Editor } from '../../../../assets/src/getting-started/components/content/editor';
+import { Layout } from '../../../../assets/src/getting-started/components/content/layout';
 import { TabProvider } from '../../../../assets/src/getting-started/context';
 
 const setup = () => {
 	return render(
 		<TabProvider>
-			<Editor />
+			<Layout />
 		</TabProvider>
 	);
 };
 
-describe( 'GSM: Editor', () => {
+describe( 'GSM: Layout', () => {
+	beforeAll( () => {
+		global.mtbGsm = {
+			themeStatus: 'ok',
+			contentStatus: 'ok',
+		};
+	} );
+
+	afterEach( cleanup );
+
 	it( 'matches snapshot', () => {
 		const wrapper = setup();
 		expect( wrapper ).toMatchSnapshot();
