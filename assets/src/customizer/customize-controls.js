@@ -525,16 +525,14 @@ import {
 
 		if ( 0 !== params.children.length ) {
 			children = params.children.map( child => {
-				const value = api( child.setting ).get();
-
-				if ( ! value ) {
+				if ( ! child.value ) {
 					return child;
 				}
 
-				const valueObject = JSON.parse( value );
+				const valueObject = JSON.parse( child.value );
 
-				child.size.default = valueObject.size;
-				child.weight.default = valueObject.weight;
+				child.size.value = valueObject.size;
+				child.weight.value = valueObject.weight;
 
 				return child;
 			} );
@@ -550,17 +548,6 @@ import {
 			onChange: event => {
 				const value = event.currentTarget.value;
 				setting.set( value );
-			},
-			onChildChange: values => {
-				const childControl = wp.customize.control(
-					`material_theme_builder[${ values.id }]`
-				);
-				const settings = {
-					size: values.sizeValue,
-					weight: values.weightValue,
-				};
-
-				childControl.setting.set( JSON.stringify( settings ) );
 			},
 		};
 

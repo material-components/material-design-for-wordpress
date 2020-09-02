@@ -1296,10 +1296,12 @@ class Controls extends Module_Base {
 			];
 
 			for ( $i = 1; $i < 7; $i++ ) {
+				$id         = sprintf( 'headline_%s', $i );
 				$controls[] = [
-					'id'       => sprintf( 'headline_%s', $i ),
-					'setting'  => $this->prepare_option_name( sprintf( 'headline_%s', $i ) ),
+					'id'       => $id,
+					'setting'  => $this->prepare_option_name( $id ),
 					'css_vars' => '',
+					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
 						/* translators: Number of heading to display */
 						esc_html__( 'Headline %s', 'material-theme-builder' ),
@@ -1328,10 +1330,12 @@ class Controls extends Module_Base {
 			];
 
 			for ( $i = 1; $i < 3; $i++ ) {
+				$id         = sprintf( 'subtitle_%s', $i );
 				$controls[] = [
-					'id'       => sprintf( 'subtitle_%s', $i ),
-					'setting'  => $this->prepare_option_name( sprintf( 'subtitle_%s', $i ) ),
+					'id'       => $id,
+					'setting'  => $this->prepare_option_name( $id ),
 					'css_vars' => '',
+					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
 						/* translators: Number of heading to display */
 						esc_html__( 'Subtitle %s', 'material-theme-builder' ),
@@ -1396,6 +1400,7 @@ class Controls extends Module_Base {
 					'setting'  => $this->prepare_option_name( $key ),
 					'label'    => esc_html( $settings['label'] ),
 					'css_vars' => '',
+					'value'    => $this->get_option( $key ),
 					'size'     => $this->get_typography_size_controls(
 						[
 							'css_var' => $settings['css_var_size'],
