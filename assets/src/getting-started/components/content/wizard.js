@@ -10,9 +10,10 @@ export const Wizard = props => {
 				{ __( 'Get your Material site up and running', 'material-theme-builder' ) }
 			</h2>
 			<p className="material-gsm__content-description">
-			Follow this simple step-by-step flow to install the Material Theme
-			and quick start examples, so you can start customizing your WordPress site in no
-			time.
+				{ __(
+					'Follow this simple step-by-step flow to install the Material Theme and quick start examples, so you can start customizing your WordPress site in no time.',
+					'material-theme-builder'
+				) }
 			</p>
 			<div className="material-gsm__content-actions">
 				<Button
