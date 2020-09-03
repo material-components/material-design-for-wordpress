@@ -681,6 +681,33 @@ class Controls extends Module_Base {
 			}
 		}
 
+		$typography_extra_controls = array_merge(
+			$this->get_typography_extra_controls(),
+			$this->get_typography_extra_controls( false )
+		);
+
+		foreach ( $typography_extra_controls as $control ) {
+			$value = json_decode( $this->get_option( $control['id'] ), true );
+
+			if ( ! empty( $value ) && ! empty( $control['css_vars'] ) ) {
+				foreach ( $control['css_vars'] as $type => $var ) {
+					if ( 'size' === $type ) {
+						$font_vars[] = sprintf(
+							'%s: %spx !important;',
+							esc_html( $var ),
+							esc_html( $value[ $type ] )
+						);
+					} else {
+						$font_vars[] = sprintf(
+							'%s: %s;',
+							esc_html( $var ),
+							esc_html( $value[ $type ] )
+						);
+					}
+				}
+			}
+		}
+
 		foreach ( $this->get_corner_styles_controls() as $control ) {
 			if ( empty( $control['css_var'] ) ) {
 				continue;
