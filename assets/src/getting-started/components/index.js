@@ -1,3 +1,6 @@
+/**
+ * Internal dependencies
+ */
 import { TabProvider } from '../context';
 import Navigation from './navigation';
 import Content from './content';

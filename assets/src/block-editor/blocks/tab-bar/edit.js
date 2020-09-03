@@ -27,7 +27,7 @@ import { Tab, TabSchema } from './components/tab';
 import OrderToolbar from './components/order-toolbar';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
-import { getConfig } from '../../helpers';
+import getConfig from '../../utils/get-config';
 
 /**
  * Material button edit component.

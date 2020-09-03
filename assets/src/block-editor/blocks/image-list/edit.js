@@ -32,7 +32,7 @@ import {
 import ImageRadioControl from '../../components/image-radio-control';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import Gallery from './components/gallery';
-import { getConfig } from '../../helpers';
+import getConfig from '../../utils/get-config';
 import './style.css';
 import { name as ImageListBlockName } from './index';
 

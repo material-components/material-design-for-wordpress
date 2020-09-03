@@ -1,4 +1,11 @@
-import React, { useContext, useEffect, Fragment } from 'react';
+/**
+ * WordPress dependencies
+ */
+import { useContext, useEffect } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
 import StepContext from '../../context';
 import { STEPS, STATUS, ADDONS, ACTIONS } from '../../constants';
 import { handleDemoImporter, handleThemeActivation } from '../../utils';
@@ -81,7 +88,7 @@ const Content = () => {
 	}, [ status ] ); // eslint-disable-line
 
 	return (
-		<Fragment>
+		<>
 			{ STATUS.ERROR === state.status && (
 				<Notice type="notice-error" message={ state.error.message } />
 			) }
@@ -90,7 +97,7 @@ const Content = () => {
 				{ state.active === STEPS.ADDONS && <Addons /> }
 				{ state.active === STEPS.WORK && <Work /> }
 			</div>
-		</Fragment>
+		</>
 	);
 };
 

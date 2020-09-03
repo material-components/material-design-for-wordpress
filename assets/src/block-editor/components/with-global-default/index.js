@@ -13,7 +13,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import { getConfig } from '../../helpers';
+import getConfig from '../../utils/get-config';
 
 /**
  * A Higher Order Component used to set the default attribute of a block

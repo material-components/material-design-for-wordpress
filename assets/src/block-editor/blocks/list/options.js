@@ -1,4 +1,11 @@
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import { BasicList, TwoLineList } from './components/list-styles';
 
 export const LIST_STYLES = [

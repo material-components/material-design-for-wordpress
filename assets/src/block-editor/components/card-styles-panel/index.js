@@ -22,7 +22,7 @@ import ImageRadioControl from '../image-radio-control';
 import GlobalShapeSize from '../global-shape-size';
 import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
 import { name as CardCollectionBlockName } from '../../blocks/cards-collection/index';
-import { getConfig } from '../../helpers';
+import getConfig from '../../utils/get-config';
 import './style.css';
 
 const CARD_STYLES = [
