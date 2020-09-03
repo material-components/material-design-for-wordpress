@@ -10,20 +10,6 @@ import { withGlobalColorDefault, getColor } from '../with-global-default';
 import MaterialColorPalette from '../material-color-palette';
 
 /**
- * Global color control, if no value is set,
- * gets the color value from customizer.
- *
- * @param {Object} props
- */
-const GlobalColor = props => {
-	return (
-		<div className="components-global-color">
-			<MaterialColorPalette { ...props } />
-		</div>
-	);
-};
-
-/**
  * Check color contrast using global color defaults as fallback.
  *
  * @param {Object} props Component props.
@@ -51,4 +37,4 @@ export const GlobalColorContrastChecker = ( {
 	);
 };
 
-export default withGlobalColorDefault( GlobalColor );
+export default withGlobalColorDefault( MaterialColorPalette );

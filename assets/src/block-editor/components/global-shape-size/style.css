@@ -1,3 +1,7 @@
 .components-global-shape-size {
-	margin-bottom: 8px;
+
+	& .components-base-control,
+	& .components-base-control__field {
+		margin-bottom: 0;
+	}
 }

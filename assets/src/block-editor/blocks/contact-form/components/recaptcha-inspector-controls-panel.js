@@ -1,4 +1,4 @@
-/* global mtb, jQuery */
+/* global jQuery */
 
 /**
  * WordPress dependencies
@@ -12,6 +12,11 @@ import {
 	TextControl,
 } from '@wordpress/components';
 import { useEffect, useRef, useState } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
+import { getConfig } from '../../../helpers';
 
 const genericErrorMessage = __(
 	'An unknown error occurred. Please try again later.',
@@ -179,12 +184,12 @@ const RecaptchaInspectorControlsPanel = () => {
 	 */
 	const sendAjaxRequest = async data => {
 		return jQuery.ajax( {
-			url: mtb.ajax_url,
+			url: getConfig( 'ajax_url' ),
 			dataType: 'json',
 			type: 'POST',
 			data: {
 				action: 'mtb_manage_recaptcha_api_credentials',
-				nonce: mtb.recaptcha_ajax_nonce_action,
+				nonce: getConfig( 'recaptcha_ajax_nonce_action' ),
 				data: JSON.stringify( data ),
 			},
 		} );
