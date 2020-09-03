@@ -7,7 +7,10 @@ export const Wizard = props => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				{ __( 'Get your Material site up and running', 'material-theme-builder' ) }
+				{ __(
+					'Get your Material site up and running',
+					'material-theme-builder'
+				) }
 			</h2>
 			<p className="material-gsm__content-description">
 				{ __(
