@@ -125,7 +125,8 @@ export const withGlobalColorDefault = createHigherOrderComponent(
  * @return {string} Color value.
  */
 export const getColor = ( globalPropName, value ) =>
-	useMemo( () => { // eslint-disable-line
+	useMemo( () => {
+		// eslint-disable-line
 		if (
 			globalPropName &&
 			'undefined' === typeof value &&

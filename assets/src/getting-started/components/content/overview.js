@@ -44,7 +44,7 @@ export const Overview = props => {
 					href="https://material.io/resources/icons/?style=baseline"
 					target="_blank"
 				>
-					Material Design icons.
+					Material Design icons.{ ' ' }
 				</a>
 				Check out the Customize your Theme section to dig into all the ways you
 				can make Material your own.
