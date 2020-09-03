@@ -116,13 +116,21 @@ const getIconFontName = iconStyle => {
 		}
 
 		Object.keys( typographyControls ).forEach( control => {
-			if ( ! typographyControls[ control ].family ) {
-				return;
-			}
+			if ( typographyControls[ control ].family ) {
+				typographyControls[ control ].family.forEach( varName => {
+					styles += `${ varName }: ${ parentApi( control ).get() };`;
+				} );
+			} else {
+				const rules = JSON.parse( parentApi( control ).get() );
 
-			typographyControls[ control ].family.forEach( varName => {
-				styles += `${ varName }: ${ parentApi( control ).get() };`;
-			} );
+				for ( const rule in typographyControls[ control ] ) {
+					if ( 'size' === rule ) {
+						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px;`;
+					} else {
+						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] };`;
+					}
+				}
+			}
 		} );
 
 		// Generate the styles.
