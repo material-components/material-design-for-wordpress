@@ -1,4 +1,11 @@
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import { RippleColor } from '../styles';
 import IconButtonLink from '../common/icon-button-link';
 

@@ -1,4 +1,11 @@
-import React, { useContext } from 'react';
+/**
+ * WordPress dependencies
+ */
+import { useContext } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
 import StepContext from '../../context';
 import Switch from './switch';
 

@@ -1,3 +1,6 @@
+/**
+ * Internal dependencies
+ */
 import { example as cardExample } from '../card/example';
 import { DEFAULT_NUMBER_OF_CARDS } from './constants';
 

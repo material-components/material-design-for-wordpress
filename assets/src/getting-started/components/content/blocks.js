@@ -1,11 +1,17 @@
-/* global mtbGsm */
-import { Fragment } from '@wordpress/element';
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import Button from '../../../wizard/components/navigation/button';
+import getConfig from '../../get-config';
 
 export const Blocks = () => {
 	return (
-		<Fragment>
+		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Material blocks', 'material-theme-builder' ) }
 			</h2>
@@ -19,9 +25,9 @@ export const Blocks = () => {
 					style="mdc-button--raised"
 					text={ __( 'Explore', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
-					link={ mtbGsm.editorUrl }
+					link={ getConfig( 'editorUrl' ) }
 				/>
 			</div>
-		</Fragment>
+		</>
 	);
 };

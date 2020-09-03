@@ -1,4 +1,11 @@
+/**
+ * WordPress dependencies
+ */
 import { useContext, useEffect } from '@wordpress/element';
+
+/**
+ * WordPress dependencies
+ */
 import { STATUS } from '../../../wizard/constants';
 import {
 	handleThemeActivation,

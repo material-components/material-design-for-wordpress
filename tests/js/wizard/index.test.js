@@ -15,7 +15,7 @@ describe( 'Onboarding Wizard', () => {
 			placeholderImage: 'http://example.com/image.png',
 			themeStatus: 'ok',
 			nonce: 'test-nonce',
-			restUrl:
+			restPath:
 				'http://example.com/index.php?rest_route=/material-theme-builder/v1/importer/',
 		};
 	} );
