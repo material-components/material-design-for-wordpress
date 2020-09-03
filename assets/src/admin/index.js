@@ -1,43 +1,77 @@
 /* istanbul ignore file */
-/* global jQuery, mtbOnboarding */
 
-( $ => {
-	const initNotificationActions = () => {
-		$( '.material-notice-container a.install-theme' ).on( 'click', event => {
-			const className = $( event.target ).attr( 'class' ),
-				action = ( className || '' ).replace( 'material-theme-', '' );
+/**
+ * WordPress dependencies
+ */
+import apiFetch from '@wordpress/api-fetch';
+import domReady from '@wordpress/dom-ready';
 
-			if ( 'activate' !== action && 'install' !== action ) {
-				return;
-			}
+/**
+ * Internal dependencies
+ */
+import getConfig from './get-config';
 
-			event.preventDefault();
+const initNotificationActions = () => {
+	let requesting = false;
 
-			const ajaxArgs = {
-				url: `${ mtbOnboarding.restUrl }${ action }-theme`,
-				method: 'POST',
-				beforeSend: xhr => {
-					xhr.setRequestHeader( 'X-WP-Nonce', mtbOnboarding.nonce );
-				},
-			};
-			const request = $.ajax( ajaxArgs );
+	const actionButton = document.querySelector(
+		'.material-notice-container a.install-theme'
+	);
 
-			request.done( () => {
+	if ( ! actionButton ) {
+		return;
+	}
+
+	actionButton.addEventListener( 'click', event => {
+		const className = event.target.className,
+			matches = ( className || '' ).match(
+				/material-theme-(install|activate)/
+			);
+
+		let action = '';
+
+		if ( matches && matches[ 1 ] ) {
+			action = matches[ 1 ];
+		}
+
+		if ( 'activate' !== action && 'install' !== action ) {
+			return;
+		}
+
+		event.preventDefault();
+
+		if ( requesting ) {
+			return;
+		}
+
+		requesting = true;
+
+		const span = document.createElement( 'span' );
+		span.setAttribute( 'class', 'spinner is-active' );
+		event.target.appendChild( span );
+
+		const requestArgs = {
+			path: `${ getConfig( 'restPath' ) }${ action }-theme`,
+			method: 'POST',
+			headers: {
+				'X-WP-Nonce': getConfig( 'nonce' ),
+			},
+		};
+
+		apiFetch( requestArgs )
+			.then( () => {
 				if ( 'install' === action ) {
-					ajaxArgs.url = `${ mtbOnboarding.restUrl }activate-theme`;
-					const activationRequest = $.ajax( ajaxArgs );
+					requestArgs.path = `${ getConfig( 'restPath' ) }activate-theme`;
 
-					activationRequest.done(
-						() => ( window.location.href = mtbOnboarding.redirect )
-					);
-					activationRequest.fail( error => console.error( error ) );
+					apiFetch( requestArgs )
+						.then( () => ( window.location.href = getConfig( 'redirect' ) ) )
+						.catch( error => console.error( error ) );
 				} else {
-					window.location.href = mtbOnboarding.redirect;
+					window.location.href = getConfig( 'redirect' );
 				}
-			} );
-			request.fail( error => console.error( error ) );
-		} );
-	};
+			} )
+			.catch( error => console.error( error ) );
+	} );
+};
 
-	$( document ).ready( initNotificationActions );
-} )( jQuery );
+domReady( initNotificationActions );

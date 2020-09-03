@@ -31,12 +31,16 @@ const baseProps = {
 
 describe( 'withGlobalBlockDefault', () => {
 	beforeAll( () => {
-		global.mtbDefaults = {
-			'material/button': {
-				cornerRadius: 8,
-			},
-			'material/card': {
-				cornerRadius: 16,
+		global.mtb = {
+			defaults: {
+				blocks: {
+					'material/button': {
+						cornerRadius: 8,
+					},
+					'material/card': {
+						cornerRadius: 16,
+					},
+				},
 			},
 		};
 	} );

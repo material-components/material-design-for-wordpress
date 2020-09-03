@@ -1,4 +1,9 @@
-/* global jQuery, mtb */
+/* global jQuery */
+
+/**
+ * Internal dependencies
+ */
+import getConfig from '../block-editor/utils/get-config';
 
 const $ = jQuery;
 const api = wp.customize;
@@ -17,11 +22,11 @@ export const showHideNotification = ( loadMaterialLibrary = null ) => {
 		false !== notificationCount &&
 		2 > notificationCount &&
 		! materialLibrary.is( ':visible' ) &&
-		api.panel( mtb.slug ).expanded()
+		api.panel( getConfig( 'slug' ) ).expanded()
 	) {
 		api.notifications.add(
 			new api.Notification( code, {
-				message: mtb.l10n.componentsNotice,
+				message: getConfig( 'l10n' ).componentsNotice,
 				type: 'warning',
 				dismissible: true,
 				render() {
@@ -40,7 +45,7 @@ export const showHideNotification = ( loadMaterialLibrary = null ) => {
 					// Handle dismissal of notice.
 					li.find( '.notice-dismiss' ).on( 'click', () => {
 						const request = wp.ajax.post( 'mtb_notification_dismiss', {
-							nonce: mtb.notify_nonce,
+							nonce: getConfig( 'notifyNonce' ),
 						} );
 
 						request.done( response => {
@@ -69,7 +74,7 @@ export const init = () => {
 		showHideNotification();
 	} );
 
-	api.panel( mtb.slug ).expanded.bind( expanded => {
+	api.panel( getConfig( 'slug' ) ).expanded.bind( expanded => {
 		if ( ! expanded ) {
 			const code = 'mtb_components';
 			api.notifications.remove( code );

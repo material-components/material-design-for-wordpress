@@ -1,3 +1,6 @@
+/**
+ * External dependencies
+ */
 import Masonry from 'react-masonry-css';
 
 /**

@@ -22,6 +22,7 @@ import ImageRadioControl from '../image-radio-control';
 import GlobalShapeSize from '../global-shape-size';
 import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
 import { name as CardCollectionBlockName } from '../../blocks/cards-collection/index';
+import getConfig from '../../utils/get-config';
 import './style.css';
 
 const CARD_STYLES = [
@@ -142,16 +143,40 @@ const CardStylesPanel = ( {
 					) }
 				</>
 			) }
+
 			{ ! allowIndividualStyleOverride && showCornerRadius && (
-				<GlobalShapeSize
-					label={ __( 'Rounded corners', 'material-theme-builder' ) }
-					value={ cornerRadius }
-					onChange={ setter( 'cornerRadius' ) }
-					min={ minRoundedCornersRadius }
-					max={ maxRoundedCornersRadius }
-					blockName={ CardCollectionBlockName }
-				/>
+				<div className="components-base-control">
+					<label
+						className="components-base-control__label"
+						htmlFor="shape-size"
+					>
+						{ __( 'Corner Styles', 'material-theme-builder' ) }
+					</label>
+
+					<div>
+						{ __(
+							'Overrides will only apply to these cards. Change Cards corner styles in ',
+							'material-theme-builder'
+						) }
+						<a
+							href={ getConfig( 'customizerUrls' ).shape }
+							target="_blank"
+							rel="noreferrer noopener"
+						>
+							{ __( 'Material Theme Options', 'material-theme-builder' ) }
+						</a>
+						{ __( ' to update all cards.', 'material-theme-builder' ) }
+					</div>
+					<GlobalShapeSize
+						value={ cornerRadius }
+						onChange={ setter( 'cornerRadius' ) }
+						min={ minRoundedCornersRadius }
+						max={ maxRoundedCornersRadius }
+						blockName={ CardCollectionBlockName }
+					/>
+				</div>
 			) }
+
 			{ ! allowIndividualStyleOverride && showOutlined && (
 				<ToggleControl
 					label={ __( 'Outlined', 'material-theme-builder' ) }

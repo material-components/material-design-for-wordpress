@@ -1,4 +1,6 @@
-import React from 'react';
+/**
+ * Internal dependencies
+ */
 import { STEPS } from '../../constants';
 import Step from './step';
 

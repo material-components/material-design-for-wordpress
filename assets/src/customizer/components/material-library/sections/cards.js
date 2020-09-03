@@ -1,6 +1,12 @@
-/* global mtb */
-
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
+import getConfig from '../../../../block-editor/utils/get-config';
 import IconButtonLink from '../common/icon-button-link';
 
 const Cards = ( { radius, buttonRadius } ) => (
@@ -30,7 +36,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 					<div
 						className="mdc-card__media mdc-card__media--16-9 demo-card__media"
 						style={ {
-							backgroundImage: `url("${ mtb.images[ 0 ] }")`,
+							backgroundImage: `url("${ getConfig( 'images' )[ 0 ] }")`,
 						} }
 					></div>
 					<div style={ { padding: '16px' } }>

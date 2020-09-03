@@ -1,3 +1,6 @@
+/**
+ * Internal dependencies
+ */
 import { CARD_ATTRIBUTES_VALUE } from '../cards-collection/constants';
 
 export const example = {

@@ -1,7 +1,13 @@
-/* global mtbWizard */
-import React from 'react';
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import Card from './card';
+import getConfig from '../../../admin/get-config';
 
 /**
  * Welcome screen
@@ -9,7 +15,7 @@ import Card from './card';
 const Welcome = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">
-			<Card image={ `${ mtbWizard.assetsPath }welcome.png` } imageSpan="5">
+			<Card image={ `${ getConfig( 'assetsPath' ) }welcome.png` } imageSpan="5">
 				<h3 className="mdc-typography--headline3">
 					{ __( 'Start building', 'material-theme-builder' ) }
 				</h3>

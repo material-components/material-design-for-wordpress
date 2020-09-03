@@ -1,5 +1,3 @@
-/* global mtbDefaults */
-
 /**
  * External dependencies
  */
@@ -13,6 +11,11 @@ import { useMemo } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
+ * Internal dependencies
+ */
+import getConfig from '../../utils/get-config';
+
+/**
  * A Higher Order Component used to set the default attribute of a block
  * from global customizer settings.
  *
@@ -23,6 +26,7 @@ import { __ } from '@wordpress/i18n';
 export const withGlobalBlockDefault = createHigherOrderComponent(
 	WrappedComponent => {
 		return props => {
+			const mtbDefaults = getConfig( 'defaults' );
 			const { blockName, attributeName, value } = props;
 
 			// Set value to global defaults.
@@ -43,7 +47,7 @@ export const withGlobalBlockDefault = createHigherOrderComponent(
 				}
 
 				return value;
-			}, [ blockName, attributeName, value ] );
+			}, [ blockName, attributeName, value, mtbDefaults ] );
 
 			return (
 				<WrappedComponent
@@ -67,6 +71,8 @@ export const withGlobalBlockDefault = createHigherOrderComponent(
 export const withGlobalColorDefault = createHigherOrderComponent(
 	WrappedComponent => {
 		return props => {
+			const mtbDefaults = getConfig( 'defaults' );
+
 			const { globalPropName, value } = props;
 
 			// If empty set value to global default.
@@ -126,6 +132,8 @@ export const withGlobalColorDefault = createHigherOrderComponent(
  */
 export const getColor = ( globalPropName, value ) =>
 	useMemo( () => { // eslint-disable-line
+		const mtbDefaults = getConfig( 'defaults' );
+
 		if (
 			globalPropName &&
 			'undefined' === typeof value &&

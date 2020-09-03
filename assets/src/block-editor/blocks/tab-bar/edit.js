@@ -1,19 +1,8 @@
-/* global mtb */
 /**
  * External dependencies
  */
 import { isEqual } from 'lodash';
 import { MDCTabBar } from '@material/tab-bar';
-
-/**
- * Internal dependencies
- */
-import './style.css';
-import { ICON_POSITIONS } from './options';
-import { Tab, TabSchema } from './components/tab';
-import OrderToolbar from './components/order-toolbar';
-import IconPicker from '../../components/icon-picker';
-import ButtonGroup from '../../components/button-group';
 
 /**
  * WordPress dependencies
@@ -28,6 +17,17 @@ import {
 	InnerBlocks,
 } from '@wordpress/block-editor';
 import { getBlockTypes } from '@wordpress/blocks';
+
+/**
+ * Internal dependencies
+ */
+import './style.css';
+import { ICON_POSITIONS } from './options';
+import { Tab, TabSchema } from './components/tab';
+import OrderToolbar from './components/order-toolbar';
+import IconPicker from '../../components/icon-picker';
+import ButtonGroup from '../../components/button-group';
+import getConfig from '../../utils/get-config';
 
 /**
  * Material button edit component.
@@ -221,7 +221,7 @@ const TabBarEdit = ( {
 	if ( preview ) {
 		return (
 			<img
-				src={ mtb.tab_bar_preview }
+				src={ getConfig( 'tab_bar_preview' ) }
 				alt={ __( 'Tabs Preview', 'material-theme-builder' ) }
 			/>
 		);

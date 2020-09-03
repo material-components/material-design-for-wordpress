@@ -51,11 +51,13 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'regist
  * @return void
  */
 function _material_theme_builder_error( $text_function, $html_function ) {
+	// @codeCoverageIgnoreStart
 	if ( defined( 'WP_CLI' ) ) {
 		WP_CLI::warning( call_user_func( $text_function ) );
 	} else {
 		add_action( 'admin_notices', $html_function );
 	}
+	// @codeCoverageIgnoreEnd
 }
 
 /**
