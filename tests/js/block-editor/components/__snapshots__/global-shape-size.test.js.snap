@@ -30,7 +30,7 @@ Object {
     />
     <div>
       <div
-        class="components-global-shape-size"
+        class="components-base-control components-global-shape-size"
       >
         <div
           class="components-base-control components-range-control"
@@ -106,7 +106,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="components-global-shape-size"
+      class="components-base-control components-global-shape-size"
     >
       <div
         class="components-base-control components-range-control"
@@ -263,7 +263,7 @@ Object {
     />
     <div>
       <div
-        class="components-global-shape-size"
+        class="components-base-control components-global-shape-size"
       >
         <div
           class="components-base-control components-range-control"
@@ -338,7 +338,7 @@ Object {
     </div>
     <div>
       <div
-        class="components-global-shape-size"
+        class="components-base-control components-global-shape-size"
       >
         <div
           class="components-base-control components-range-control"
@@ -414,7 +414,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="components-global-shape-size"
+      class="components-base-control components-global-shape-size"
     >
       <div
         class="components-base-control components-range-control"
