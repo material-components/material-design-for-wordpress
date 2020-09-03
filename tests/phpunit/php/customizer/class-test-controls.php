@@ -268,8 +268,8 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				[ $this->equalTo( "{$controls->slug}[headline_6]" ) ],
 				[ $this->equalTo( "{$controls->slug}[subtitle_1]" ) ],
 				[ $this->equalTo( "{$controls->slug}[subtitle_2]" ) ],
-				[ $this->equalTo( "{$controls->slug}[body_1]" ) ],
-				[ $this->equalTo( "{$controls->slug}[body_2]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body1]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body2]" ) ],
 				[ $this->equalTo( "{$controls->slug}[button]" ) ],
 				[ $this->equalTo( "{$controls->slug}[caption]" ) ],
 				[ $this->equalTo( "{$controls->slug}[overline]" ) ]

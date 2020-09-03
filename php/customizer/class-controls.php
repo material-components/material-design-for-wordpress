@@ -1384,12 +1384,12 @@ class Controls extends Module_Base {
 			}
 		} else {
 			$keys = [
-				'body_1'   => [
+				'body1'    => [
 					'label'  => __( 'Body 1', 'material-theme-builder' ),
 					'size'   => 16,
 					'weight' => $weights['normal'],
 				],
-				'body_2'   => [
+				'body2'    => [
 					'label'  => __( 'Body 2', 'material-theme-builder' ),
 					'size'   => 14,
 					'weight' => $weights['normal'],

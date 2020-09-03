@@ -49,6 +49,10 @@ const GoogleFontsControl = props => {
 	const handleOnReset = event => {
 		event.preventDefault();
 
+		if ( ! window.confirm( mtb.l10n.confirmChange ) ) { // eslint-disable-line
+			return;
+		}
+
 		const newChildren = children.map( child => {
 			const { size, weight } = child;
 
