@@ -1243,7 +1243,6 @@ class Controls extends Module_Base {
 			[
 				'label'   => __( 'Weight', 'material-theme-builder' ),
 				'type'    => 'select',
-				'css_var' => '',
 				'default' => __( 'Normal', 'material-theme-builder' ),
 				'choices' => $choices,
 			]
@@ -1264,7 +1263,6 @@ class Controls extends Module_Base {
 			[
 				'label'   => __( 'Size', 'material-theme-builder' ),
 				'type'    => 'number',
-				'css_var' => '--mdc-headline1-size',
 				'min'     => 2,
 				'default' => 12,
 				'max'     => 64,
@@ -1300,7 +1298,10 @@ class Controls extends Module_Base {
 				$controls[] = [
 					'id'       => $id,
 					'setting'  => $this->prepare_option_name( $id ),
-					'css_vars' => '',
+					'css_vars' => [
+						'size'   => sprintf( '--mdc-typography-headline%s-font-size', $i ),
+						'weight' => sprintf( '--mdc-typography-headline%s-font-weight', $i ),
+					],
 					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
 						/* translators: Number of heading to display */
@@ -1309,14 +1310,12 @@ class Controls extends Module_Base {
 					),
 					'size'     => $this->get_typography_size_controls(
 						[
-							'css_var' => sprintf( '--mdc-headline%s-size', $i ),
 							'default' => intval( $default_sizes[ $i - 1 ] ),
 							'max'     => 96,
 						]
 					),
 					'weight'   => $this->get_typography_weight_controls(
 						[
-							'css_var' => sprintf( '--mdc-headline%s-weight', $i ),
 							'default' => intval( $default_weights[ $i - 1 ] ),
 						]
 					),
@@ -1334,7 +1333,10 @@ class Controls extends Module_Base {
 				$controls[] = [
 					'id'       => $id,
 					'setting'  => $this->prepare_option_name( $id ),
-					'css_vars' => '',
+					'css_vars' => [
+						'size'   => sprintf( '--mdc-typography-subtitle%s-font-size', $i ),
+						'weight' => sprintf( '--mdc-typography-subtitle%s-font-weight', $i ),
+					],
 					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
 						/* translators: Number of heading to display */
@@ -1343,13 +1345,11 @@ class Controls extends Module_Base {
 					),
 					'size'     => $this->get_typography_size_controls(
 						[
-							'css_var' => sprintf( '--mdc-subtitle%s-size', $i ),
 							'default' => intval( $default_sizes[ $i - 1 ] ),
 						]
 					),
 					'weight'   => $this->get_typography_weight_controls(
 						[
-							'css_var' => sprintf( '--mdc-subtitle%s-weight', $i ),
 							'default' => intval( $default_weights[ $i - 1 ] ),
 						]
 					),
@@ -1358,39 +1358,29 @@ class Controls extends Module_Base {
 		} else {
 			$keys = [
 				'body_1'   => [
-					'label'          => __( 'Body 1', 'material-theme-builder' ),
-					'size'           => 16,
-					'weight'         => $weights['normal'],
-					'css_var_size'   => '--mdc-body1-size',
-					'css_var_weight' => '--mdc-body1-weight',
+					'label'  => __( 'Body 1', 'material-theme-builder' ),
+					'size'   => 16,
+					'weight' => $weights['normal'],
 				],
 				'body_2'   => [
-					'label'          => __( 'Body 2', 'material-theme-builder' ),
-					'size'           => 14,
-					'weight'         => $weights['normal'],
-					'css_var_size'   => '--mdc-body2-size',
-					'css_var_weight' => '--mdc-body2-weight',
+					'label'  => __( 'Body 2', 'material-theme-builder' ),
+					'size'   => 14,
+					'weight' => $weights['normal'],
 				],
 				'button'   => [
-					'label'          => __( 'Button', 'material-theme-builder' ),
-					'size'           => 12,
-					'weight'         => $weights['normal'],
-					'css_var_size'   => '--mdc-button-size',
-					'css_var_weight' => '--mdc-button-weight',
+					'label'  => __( 'Button', 'material-theme-builder' ),
+					'size'   => 12,
+					'weight' => $weights['normal'],
 				],
 				'caption'  => [
-					'label'          => __( 'Caption', 'material-theme-builder' ),
-					'size'           => 12,
-					'weight'         => $weights['normal'],
-					'css_var_size'   => '--mdc-caption-size',
-					'css_var_weight' => '--mdc-caption-weight',
+					'label'  => __( 'Caption', 'material-theme-builder' ),
+					'size'   => 12,
+					'weight' => $weights['normal'],
 				],
 				'overline' => [
-					'label'          => __( 'Overline', 'material-theme-builder' ),
-					'size'           => 10,
-					'weight'         => $weights['normal'],
-					'css_var_size'   => '--mdc-overline-size',
-					'css_var_weight' => '--mdc-overline-weight',
+					'label'  => __( 'Overline', 'material-theme-builder' ),
+					'size'   => 10,
+					'weight' => $weights['normal'],
 				],
 			];
 
@@ -1399,17 +1389,18 @@ class Controls extends Module_Base {
 					'id'       => esc_html( $key ),
 					'setting'  => $this->prepare_option_name( $key ),
 					'label'    => esc_html( $settings['label'] ),
-					'css_vars' => '',
+					'css_vars' => [
+						'size'   => sprintf( '--mdc-typography-%s-font-size', $key ),
+						'weight' => sprintf( '--mdc-typography-%s-font-weight', $key ),
+					],
 					'value'    => $this->get_option( $key ),
 					'size'     => $this->get_typography_size_controls(
 						[
-							'css_var' => $settings['css_var_size'],
 							'default' => intval( $settings['size'] ),
 						]
 					),
 					'weight'   => $this->get_typography_weight_controls(
 						[
-							'css_var' => $settings['css_var_weight'],
 							'default' => intval( $settings['weight'] ),
 						]
 					),
