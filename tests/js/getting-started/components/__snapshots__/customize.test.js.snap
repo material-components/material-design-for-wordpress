@@ -28,16 +28,14 @@ Object {
       <p
         class="material-gsm__content-description"
       >
-        Start from our existing styles and take advantage of
-         
+        Start from our existing styles and take advantage of 
         <a
           href="https://material.io/design/material-theming/overview.html"
           target="_blank"
         >
           Material Theming
         </a>
-         
-        by customizing your theme to truly make your site your own.
+         by customizing your theme to truly make your site your own.
       </p>
       <h2
         class="material-gsm__content-title mdc-typography--headline6"
@@ -47,16 +45,13 @@ Object {
       <p
         class="material-gsm__content-description"
       >
-        Change your primary and secondary colors and see your site come to life with Material Design’s color system. Need some help? Try Material’s
+        Change your primary and secondary colors and see your site come to life with Material Design’s color system. Need some help? Try Material’s 
         <a
           href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
           target="_blank"
         >
-           
           color palette generator
         </a>
-         
-        to find complementary, analogous, and triadic tonal palettes.
       </p>
       <h2
         class="material-gsm__content-title mdc-typography--headline6"
@@ -66,24 +61,21 @@ Object {
       <p
         class="material-gsm__content-description"
       >
-        Choose from the full set of
-         
+        Choose from the full set of 
         <a
           href="https://fonts.google.com/"
           target="_blank"
         >
-          Google Fonts
+          Google Fonts.
         </a>
-        . Headlines are a great place to inject expression. To retain legibility, utilitarian fonts are better for smaller text sizes. Read Material’s
-         
+         Headlines are a great place to inject expression. To retain legibility, utilitarian fonts are better for smaller text sizes. Read Material’s 
         <a
           href="https://material.io/design/typography/the-type-system.html"
           target="_blank"
         >
           type system
         </a>
-         
-        for more guidance.
+          for more guidance.
       </p>
       <h2
         class="material-gsm__content-title mdc-typography--headline6"
@@ -103,16 +95,14 @@ Object {
       <p
         class="material-gsm__content-description"
       >
-        All of the
-         
+        All of the 
         <a
           href="http://material.io/icons"
           target="_blank"
         >
           Material Icons
         </a>
-         
-        and their variants are included with this plugin. Choose from Filled, Outlined, Rounded, Two-tone, or Sharp icons that best reflect your style.
+         and their variants are included with this plugin. Choose from Filled, Outlined, Rounded, Two-tone, or Sharp icons that best reflect your style.
       </p>
       <div
         class="material-gsm__content-actions"
@@ -162,16 +152,14 @@ Object {
     <p
       class="material-gsm__content-description"
     >
-      Start from our existing styles and take advantage of
-       
+      Start from our existing styles and take advantage of 
       <a
         href="https://material.io/design/material-theming/overview.html"
         target="_blank"
       >
         Material Theming
       </a>
-       
-      by customizing your theme to truly make your site your own.
+       by customizing your theme to truly make your site your own.
     </p>
     <h2
       class="material-gsm__content-title mdc-typography--headline6"
@@ -181,16 +169,13 @@ Object {
     <p
       class="material-gsm__content-description"
     >
-      Change your primary and secondary colors and see your site come to life with Material Design’s color system. Need some help? Try Material’s
+      Change your primary and secondary colors and see your site come to life with Material Design’s color system. Need some help? Try Material’s 
       <a
         href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
         target="_blank"
       >
-         
         color palette generator
       </a>
-       
-      to find complementary, analogous, and triadic tonal palettes.
     </p>
     <h2
       class="material-gsm__content-title mdc-typography--headline6"
@@ -200,24 +185,21 @@ Object {
     <p
       class="material-gsm__content-description"
     >
-      Choose from the full set of
-       
+      Choose from the full set of 
       <a
         href="https://fonts.google.com/"
         target="_blank"
       >
-        Google Fonts
+        Google Fonts.
       </a>
-      . Headlines are a great place to inject expression. To retain legibility, utilitarian fonts are better for smaller text sizes. Read Material’s
-       
+       Headlines are a great place to inject expression. To retain legibility, utilitarian fonts are better for smaller text sizes. Read Material’s 
       <a
         href="https://material.io/design/typography/the-type-system.html"
         target="_blank"
       >
         type system
       </a>
-       
-      for more guidance.
+        for more guidance.
     </p>
     <h2
       class="material-gsm__content-title mdc-typography--headline6"
@@ -237,16 +219,14 @@ Object {
     <p
       class="material-gsm__content-description"
     >
-      All of the
-       
+      All of the 
       <a
         href="http://material.io/icons"
         target="_blank"
       >
         Material Icons
       </a>
-       
-      and their variants are included with this plugin. Choose from Filled, Outlined, Rounded, Two-tone, or Sharp icons that best reflect your style.
+       and their variants are included with this plugin. Choose from Filled, Outlined, Rounded, Two-tone, or Sharp icons that best reflect your style.
     </p>
     <div
       class="material-gsm__content-actions"

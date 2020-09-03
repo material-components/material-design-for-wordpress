@@ -34,20 +34,24 @@ export const Overview = props => {
 				) }
 			</h2>
 			<p className="material-gsm__content-description">
-				With Material Design you can customize your navigation, colors,
-				typography, shapes, and access the full set of{ ' ' }
+				{ __(
+					'With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of ',
+					'material-theme-builder'
+				) }
 				<a href="https://fonts.google.com/" target="_blank">
-					Google Fonts
-				</a>{ ' ' }
-				and{ ' ' }
+					{ __( 'Google Fonts', 'material-theme-builder' ) }
+				</a>
+				{ __( ' and ', 'material-theme-builder' ) }
 				<a
 					href="https://material.io/resources/icons/?style=baseline"
 					target="_blank"
 				>
-					Material Design icons.{ ' ' }
+					{ __( 'Material Design icons.', 'material-theme-builder' ) }
 				</a>
-				Check out the Customize your Theme section to dig into all the ways you
-				can make Material your own.
+				{ __(
+					' Check out the Customize your Theme section to dig into all the ways you can make Material your own. ',
+					'material-theme-builder'
+				) }
 			</p>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline6">

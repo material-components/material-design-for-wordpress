@@ -13,25 +13,21 @@ Object {
       <p
         class="material-gsm__content-description"
       >
-        With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of
-         
+        With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of 
         <a
           href="https://fonts.google.com/"
           target="_blank"
         >
           Google Fonts
         </a>
-         
-        and
-         
+         and 
         <a
           href="https://material.io/resources/icons/?style=baseline"
           target="_blank"
         >
           Material Design icons.
-           
         </a>
-        Check out the Customize your Theme section to dig into all the ways you can make Material your own.
+         Check out the Customize your Theme section to dig into all the ways you can make Material your own. 
       </p>
       <h2
         class="material-gsm__content-title mdc-typography--headline6"
@@ -115,25 +111,21 @@ Object {
     <p
       class="material-gsm__content-description"
     >
-      With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of
-       
+      With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of 
       <a
         href="https://fonts.google.com/"
         target="_blank"
       >
         Google Fonts
       </a>
-       
-      and
-       
+       and 
       <a
         href="https://material.io/resources/icons/?style=baseline"
         target="_blank"
       >
         Material Design icons.
-         
       </a>
-      Check out the Customize your Theme section to dig into all the ways you can make Material your own.
+       Check out the Customize your Theme section to dig into all the ways you can make Material your own. 
     </p>
     <h2
       class="material-gsm__content-title mdc-typography--headline6"
