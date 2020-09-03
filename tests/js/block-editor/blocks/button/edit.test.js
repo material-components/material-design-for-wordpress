@@ -29,12 +29,18 @@ const setup = props => {
 
 describe( 'ButtonEdit', () => {
 	beforeAll( () => {
-		global.mtbDefaults = {
-			colors: {
-				primary_color: '#6200ee',
-				primary_text_color: '#ffffff',
-				secondary_color: '#018786',
-				secondary_text_color: '#ffffff',
+		global.mtb = {
+			defaults: {
+				colors: {
+					primary_color: '#6200ee',
+					primary_text_color: '#ffffff',
+					secondary_color: '#018786',
+					secondary_text_color: '#ffffff',
+				},
+			},
+			customizerUrls: {
+				shape: 'http://example.com/shape',
+				colors: 'http://example.com/colors',
 			},
 		};
 	} );
@@ -43,7 +49,7 @@ describe( 'ButtonEdit', () => {
 		setup( baseProps );
 		expect( screen.getByText( 'Styles' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Colors' ) ).toBeInTheDocument();
-		expect( screen.getByText( 'Rounded Corners' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Corner Styles' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Link Settings' ) ).toBeInTheDocument();
 	} );
 
@@ -59,7 +65,7 @@ describe( 'ButtonEdit', () => {
 		const matches = container.querySelector( '.mdc-button.mdc-button--text' );
 
 		expect( matches ).toBeInTheDocument();
-		expect( screen.queryByText( 'Background Color' ) ).toBeNull();
+		expect( screen.queryByText( 'Container Color' ) ).toBeNull();
 	} );
 
 	it( 'should display an text with outlined style', () => {
@@ -74,7 +80,7 @@ describe( 'ButtonEdit', () => {
 		);
 
 		expect( matches ).toBeInTheDocument();
-		expect( screen.queryByText( 'Background Color' ) ).toBeNull();
+		expect( screen.queryByText( 'Container Color' ) ).toBeNull();
 	} );
 
 	it( 'should display an text with raised style', () => {
@@ -87,7 +93,7 @@ describe( 'ButtonEdit', () => {
 		const matches = container.querySelector( '.mdc-button.mdc-button--raised' );
 
 		expect( matches ).toBeInTheDocument();
-		expect( screen.getByText( 'Background Color' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Container Color' ) ).toBeInTheDocument();
 	} );
 
 	it( 'should display an text with unelevated style', () => {
@@ -102,7 +108,7 @@ describe( 'ButtonEdit', () => {
 		);
 
 		expect( matches ).toBeInTheDocument();
-		expect( screen.getByText( 'Background Color' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Container Color' ) ).toBeInTheDocument();
 	} );
 
 	it( 'should display icon picker if icon position is set', () => {

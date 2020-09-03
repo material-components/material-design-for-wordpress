@@ -2,12 +2,11 @@
  * External dependencies
  */
 import classNames from 'classnames';
-import { capitalize } from 'lodash';
 
 /**
  * WordPress dependencies
  */
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import { useEffect } from '@wordpress/element';
 
 import { InspectorControls, RichText } from '@wordpress/block-editor';
@@ -32,6 +31,7 @@ import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
 import { name as ButtonBlockName } from './index';
+import { getConfig } from '../../helpers';
 
 /**
  * Small component which either renders an icon button or a text button.
@@ -235,9 +235,24 @@ const ButtonEdit = ( {
 					title={ __( 'Colors', 'material-theme-builder' ) }
 					initialOpen={ true }
 				>
+					<div className="components-base-control">
+						{ __(
+							'Overrides will only apply to this button. Change Primary Color in ',
+							'material-theme-builder'
+						) }
+						<a
+							href={ getConfig( 'customizerUrls' ).colors }
+							target="_blank"
+							rel="noreferrer noopener"
+						>
+							{ __( 'Material Theme Options', 'material-theme-builder' ) }
+						</a>
+						{ __( ' to update all buttons.', 'material-theme-builder' ) }
+					</div>
+
 					{ hasBg( style ) && type === 'text' && (
 						<GlobalColor
-							label={ __( 'Background Color', 'material-theme-builder' ) }
+							label={ __( 'Container Color', 'material-theme-builder' ) }
 							value={ backgroundColor }
 							onChange={ setter( 'backgroundColor' ) }
 							globalPropName={
@@ -246,10 +261,7 @@ const ButtonEdit = ( {
 						/>
 					) }
 					<GlobalColor
-						label={ sprintf(
-							__( '%s Color', 'material-theme-builder' ),
-							capitalize( type )
-						) }
+						label={ __( 'Text and icons Color', 'material-theme-builder' ) }
 						value={ textColor }
 						onChange={ setter( 'textColor' ) }
 						globalPropName={
@@ -268,17 +280,33 @@ const ButtonEdit = ( {
 				</PanelBody>
 				{ type === 'text' && (
 					<PanelBody
-						title={ __( 'Rounded Corners', 'material-theme-builder' ) }
+						title={ __( 'Corner Styles', 'material-theme-builder' ) }
 						initialOpen={ true }
 					>
 						{ style !== 'text' ? (
-							<GlobalShapeSize
-								value={ cornerRadius }
-								onChange={ setter( 'cornerRadius' ) }
-								min={ 0 }
-								max={ 20 }
-								blockName={ ButtonBlockName }
-							/>
+							<>
+								<div className="components-base-control">
+									{ __(
+										'Overrides will only apply to this button. Change Button corner styles in ',
+										'material-theme-builder'
+									) }
+									<a
+										href={ getConfig( 'customizerUrls' ).shape }
+										target="_blank"
+										rel="noreferrer noopener"
+									>
+										{ __( 'Material Theme Options', 'material-theme-builder' ) }
+									</a>
+									{ __( ' to update all buttons.', 'material-theme-builder' ) }
+								</div>
+								<GlobalShapeSize
+									value={ cornerRadius }
+									onChange={ setter( 'cornerRadius' ) }
+									min={ 0 }
+									max={ 20 }
+									blockName={ ButtonBlockName }
+								/>
+							</>
 						) : (
 							<p>
 								{ __(

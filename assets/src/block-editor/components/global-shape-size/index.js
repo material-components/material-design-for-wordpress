@@ -25,7 +25,7 @@ const GlobalShapeSize = props => {
 	};
 
 	return (
-		<div className="components-global-shape-size">
+		<div className="components-base-control components-global-shape-size">
 			<RangeControl { ...props } />
 			<button
 				type="button"

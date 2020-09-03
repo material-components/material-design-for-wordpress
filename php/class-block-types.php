@@ -136,11 +136,23 @@ class Block_Types {
 
 		wp_styles()->add_data( 'material-block-editor-css', 'rtl', 'replace' );
 
+		$slug           = $this->plugin->customizer_controls->slug;
+		$customizer_url = admin_url( 'customize.php?autofocus[panel]=' . $slug );
+
+
 		$wp_localized_script_data = [
 			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
 			'handpicked_posts_preview' => $this->plugin->asset_url( 'assets/images/preview/handpicked-posts.jpg' ),
 			'tab_bar_preview'          => $this->plugin->asset_url( 'assets/images/preview/tab-bar.jpg' ),
 			'contact_form_preview'     => $this->plugin->asset_url( 'assets/images/preview/contact-form.jpg' ),
+			'defaults'                 => [
+				'blocks' => $this->get_block_defaults(),
+				'colors' => $this->get_color_defaults(),
+			],
+			'customizerUrls'           => [
+				'colors' => add_query_arg( 'autofocus[section]', $slug . '_colors', $customizer_url ),
+				'shape'  => add_query_arg( 'autofocus[section]', $slug . '_corner_styles', $customizer_url ),
+			],
 		];
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
@@ -150,19 +162,9 @@ class Block_Types {
 
 		wp_localize_script( 'material-block-editor-js', 'mtb', $wp_localized_script_data );
 
-		$fonts_url = $this->plugin->customizer_controls->get_google_fonts_url( 'block-editor' );
-
-		wp_localize_script(
-			'material-block-editor-js',
-			'mtbDefaults',
-			[
-				'blocks' => $this->get_block_defaults(),
-				'colors' => $this->get_color_defaults(),
-			]
-		);
-
 		wp_add_inline_style( 'material-block-editor-css', $this->plugin->customizer_controls->get_frontend_css() );
 
+		$fonts_url = $this->plugin->customizer_controls->get_google_fonts_url( 'block-editor' );
 		wp_enqueue_style(
 			'material-google-fonts',
 			esc_url( $fonts_url ),
