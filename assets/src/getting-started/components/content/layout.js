@@ -9,33 +9,36 @@ export const Layout = props => {
 				{ __( 'Posts Settings', 'material-theme-builder' ) }
 			</h2>
 			<p className="material-gsm__content-description">
-			Select how posts display on your site using cards or image lists in a wide 
-			or normal width layout. Card display options include raised or outlined 
-			cards, show or hide post comments, author, excerpt, and date.
+				{ __(
+					'Select how posts display on your site using cards or image lists in a wide or normal width layout. Card display options include raised or outlined cards, show or hide post comments, author, excerpt, and date.',
+					'material-theme-builder'
+				) }
 			</p>
 			<p className="material-gsm__content-description">
-			Choose how your comment fields display within each post, options 
-			include outlines of filled text fields.
+				{ __(
+					'Choose how your comment fields display within each post, options include outlines of filled text fields.',
+					'material-theme-builder'
+				) }
 			</p>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Site Navigation (Top app bar)', 'material-theme-builder' ) }
 			</h2>
 			<p className="material-gsm__content-description">
-			Choose tabs, navigation drawer, or both for your site navigation. 
-			Give users the ability to search your site on every page directly 
-			from within the top app bar. By default the top app bar will hide 
-			when scrolling up, choose “Fixed” to keep the app bar in place 
-			above all content.
+				{ __(
+					'Choose tabs, navigation drawer, or both for your site navigation. Give users the ability to search your site on every page directly from within the top app bar. By default the top app bar will hide when scrolling up, choose “Fixed” to keep the app bar in place above all content.',
+					'material-theme-builder'
+				) }
 			</p>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Site Navigation (Footer)', 'material-theme-builder' ) }
 			</h2>
 			<p className="material-gsm__content-description">
-			Add footer text and give your users a quick way to jump back to 
-			the top. Looking to add widgets? Add widgets to the bottom of 
-			your site in Widgets settings.
+				{ __(
+					'Add footer text and give your users a quick way to jump back to the top. Looking to add widgets? Add widgets to the bottom of your site in Widgets settings.',
+					'material-theme-builder'
+				) }
 			</p>
 
 			<div className="material-gsm__content-actions">
@@ -47,7 +50,7 @@ export const Layout = props => {
 				/>
 			</div>
 
-			<div style={{ height:'20px' }}></div>
+			<div style={ { height: '20px' } }></div>
 		</Fragment>
 	);
 };

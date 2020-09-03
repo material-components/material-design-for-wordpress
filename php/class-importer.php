@@ -178,8 +178,15 @@ class Importer extends Module_Base {
 		$this->prime_imported_images_cache();
 
 		foreach ( array_keys( $this->images ) as $image_url ) {
-			$image_url = add_query_arg( 'w', 1200, $image_url );
-			$image_url = add_query_arg( '4', 420, $image_url );
+			// $image_url = add_query_arg( 'w', 1200, $image_url );
+			// $image_url = add_query_arg( 'h', 420, $image_url );
+			$image_url = add_query_arg(
+				[
+					'w' => 1200,
+					'h' => 420,
+				],
+				$image_url
+			);
 			$this->import_image( $image_url );
 		}
 

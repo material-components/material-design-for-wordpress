@@ -28,21 +28,36 @@ export const Overview = props => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				{ __( 'Time to make Material Design look the way you want', 'material-theme-builder' ) }
+				{ __(
+					'Time to make Material Design look the way you want',
+					'material-theme-builder'
+				) }
 			</h2>
 			<p className="material-gsm__content-description">
-			With Material Design you can customize your navigation, colors,
-			typography, shapes, and access the full set of <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> and <a href="https://material.io/resources/icons/?style=baseline" target="_blank">Material Design icons.</a>
-			Check out the Customize your Theme section to dig into all the ways you
-			can make Material your own.
+				With Material Design you can customize your navigation, colors,
+				typography, shapes, and access the full set of{ ' ' }
+				<a href="https://fonts.google.com/" target="_blank">
+					Google Fonts
+				</a>{ ' ' }
+				and{ ' ' }
+				<a
+					href="https://material.io/resources/icons/?style=baseline"
+					target="_blank"
+				>
+					Material Design icons.
+				</a>
+				Check out the Customize your Theme section to dig into all the ways you
+				can make Material your own.
 			</p>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Material Theme', 'material-theme-builder' ) }
 			</h2>
 			<p className="material-gsm__content-description">
-			Applies Material Design colors, typography, shapes, and icons to
-			built-in WordPress elements like your site's header and posts.
+				{ __(
+					"Applies Material Design colors, typography, shapes, and icons to built-in WordPress elements like your site's header and posts.",
+					'material-theme-builder'
+				) }
 			</p>
 			<div className="material-gsm__content-actions">
 				<Button
@@ -59,16 +74,23 @@ export const Overview = props => {
 				{ __( 'Material Design Plugin', 'material-theme-builder' ) }
 			</h2>
 			<p className="material-gsm__content-description">
-			Customize your Material Theme styles and Material Components
-			blocks. Choose from over 1,000 Google Fonts and Material Design icons.
+				{ __(
+					'Customize your Material Theme styles and Material Components blocks. Choose from over 1,000 Google Fonts and Material Design icons.',
+					'material-theme-builder'
+				) }
 			</p>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				{ __( 'Material Components available in the Block Editor', 'material-theme-builder' ) }
+				{ __(
+					'Material Components available in the Block Editor',
+					'material-theme-builder'
+				) }
 			</h2>
 			<p className="material-gsm__content-description">
-			Start building your custom site with Material Blocks available in the
-			WordPress editor, no code required.
+				{ __(
+					'Start building your custom site with Material Blocks available in the WordPress editor, no code required.',
+					'material-theme-builder'
+				) }
 			</p>
 			<div className="material-gsm__content-actions">
 				<Button
@@ -79,7 +101,7 @@ export const Overview = props => {
 				/>
 			</div>
 
-			<div style={{ height:'20px' }}></div>
+			<div style={ { height: '20px' } }></div>
 		</Fragment>
 	);
 };
