@@ -1,10 +1,20 @@
-/* global mtb */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
-import { useState } from 'react';
+import { useState } from '@wordpress/element';
+import apiFetch from '@wordpress/api-fetch';
+
+/**
+ * Internal dependencies
+ */
+import getConfig from '../../../block-editor/utils/get-config';
 
 const ThemePrompt = ( { status } ) => {
 	const [ dismissed, setDismissed ] = useState( status === 'ok' );
+	const [ requesting, setRequesting ] = useState( false );
 
 	const title =
 		status === 'install'
@@ -36,6 +46,37 @@ const ThemePrompt = ( { status } ) => {
 		return null;
 	}
 
+	const apiRequest = event => {
+		event.preventDefault();
+
+		setRequesting( true );
+		const requestArgs = {
+			path: `${ getConfig( 'restPath' ) }${ status }-theme`,
+			method: 'POST',
+			headers: {
+				'X-WP-Nonce': getConfig( 'themeNonce' ),
+			},
+		};
+		const onFail = error => {
+			console.error( error );
+			setRequesting( false );
+		};
+
+		apiFetch( requestArgs )
+			.then( () => {
+				if ( 'install' === status ) {
+					requestArgs.path = `${ getConfig( 'restPath' ) }activate-theme`;
+
+					apiFetch( requestArgs )
+						.then( () => window.location.reload() )
+						.catch( onFail );
+				} else {
+					window.location.reload();
+				}
+			} )
+			.catch( onFail );
+	};
+
 	return (
 		<>
 			<button
@@ -51,9 +92,14 @@ const ThemePrompt = ( { status } ) => {
 			<div className="accordion-section-title theme-installer-panel">
 				<h3>{ title }</h3>
 				<p className="customize-action">{ message }</p>
-				<a href={ mtb.themeSearchUrl } className="button">
+				<button
+					className="button"
+					onClick={ apiRequest }
+					disabled={ requesting }
+				>
 					{ cta }
-				</a>
+					{ requesting && <span className="spinner is-active"></span> }
+				</button>
 			</div>
 			<ul className="accordion-sub-container control-panel-content"></ul>
 		</>

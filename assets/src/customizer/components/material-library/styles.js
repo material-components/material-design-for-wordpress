@@ -1,4 +1,11 @@
+/**
+ * External dependencies
+ */
 import styled, { createGlobalStyle } from 'styled-components';
+
+/**
+ * Internal dependencies
+ */
 import colorUtils from '../../../common/color-utils';
 
 export const Overrides = createGlobalStyle`

@@ -32,6 +32,7 @@ import {
 import ImageRadioControl from '../../components/image-radio-control';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import Gallery from './components/gallery';
+import getConfig from '../../utils/get-config';
 import './style.css';
 import { name as ImageListBlockName } from './index';
 
@@ -326,14 +327,40 @@ const ImageListEdit = ( {
 						min={ 0 }
 						max={ 24 }
 					/>
-					<GlobalShapeSize
-						label={ __( 'Rounded Corners', 'material-theme-builder' ) }
-						value={ cornerRadius }
-						onChange={ setter( 'cornerRadius' ) }
-						min={ 0 }
-						max={ 16 }
-						blockName={ ImageListBlockName }
-					/>
+
+					<div className="components-base-control">
+						<label
+							className="components-base-control__label"
+							htmlFor="shape-size"
+						>
+							{ __( 'Corner Styles', 'material-theme-builder' ) }
+						</label>
+
+						<div>
+							{ __(
+								'Overrides will only apply to these images. Change Image Lists corner styles in ',
+								'material-theme-builder'
+							) }
+							<a
+								href={ getConfig( 'customizerUrls' ).shape }
+								target="_blank"
+								rel="noreferrer noopener"
+							>
+								{ __( 'Material Theme Options', 'material-theme-builder' ) }
+							</a>
+							{ __( ' to update all Image Lists.', 'material-theme-builder' ) }
+						</div>
+
+						<GlobalShapeSize
+							label={ __( 'Corner Styles', 'material-theme-builder' ) }
+							value={ cornerRadius }
+							onChange={ setter( 'cornerRadius' ) }
+							min={ 0 }
+							max={ 16 }
+							blockName={ ImageListBlockName }
+						/>
+					</div>
+
 					<ToggleControl
 						label={ __( 'Captions', 'material-theme-builder' ) }
 						checked={ displayCaptions }

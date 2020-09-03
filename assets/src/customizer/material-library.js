@@ -1,4 +1,4 @@
-/* global jQuery, mtb, mdc */
+/* global jQuery, mdc */
 
 /**
  * External dependencies
@@ -23,6 +23,7 @@ import {
 } from '../common/mdc-components-init';
 import ThemePrompt from './components/theme-prompt';
 import { THEME_COLOR_CONTROLS, removeOptionPrefix } from './utils';
+import getConfig from '../block-editor/utils/get-config';
 
 const $ = jQuery;
 const api = wp.customize;
@@ -63,15 +64,16 @@ const getSettings = () => {
 		theme: api.settings?.theme?.stylesheet,
 	};
 
+	const mtbControls = getConfig( 'controls' );
 	if (
-		! mtb.controls ||
-		! mtb.controls.length ||
-		! Array.isArray( mtb.controls )
+		! mtbControls ||
+		! mtbControls.length ||
+		! Array.isArray( mtbControls )
 	) {
 		return controlProps;
 	}
 
-	mtb.controls
+	mtbControls
 		.concat( THEME_COLOR_CONTROLS.map( name => `material_${ name }` ) )
 		.concat( radiusControls )
 		.forEach( name => {
@@ -182,7 +184,7 @@ $( '.customize-pane-parent' ).ready( function() {
 	` );
 
 	render(
-		<ThemePrompt status={ mtb.themeStatus } />,
+		<ThemePrompt status={ getConfig( 'themeStatus' ) } />,
 		$( '#accordion-section-theme-installer' ).get( 0 )
 	);
 } );
@@ -199,7 +201,7 @@ $( '#customize-save-button-wrapper' ).ready( function() {
 			.text( BUTTON_OPEN_TEXT )
 	);
 
-	api.panel( mtb.slug ).expanded.bind( function( expanded ) {
+	api.panel( getConfig( 'slug' ) ).expanded.bind( function( expanded ) {
 		const showOrHide = expanded ? 'block' : 'none';
 		$( '.toggle-material-library' ).css( 'display', showOrHide );
 
@@ -229,7 +231,9 @@ export const loadMaterialLibrary = () => {
 			initMaterialComponents
 		);
 
-		const globalRadiusControl = api.control( `${ mtb.slug }_global_radius` );
+		const globalRadiusControl = api.control(
+			`${ getConfig( 'slug' ) }_global_radius`
+		);
 
 		if ( globalRadiusControl?.params?.children ) {
 			globalRadiusControl.params.children.forEach(

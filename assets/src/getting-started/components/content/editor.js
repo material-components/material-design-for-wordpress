@@ -1,10 +1,16 @@
-import { Fragment } from '@wordpress/element';
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import Button from '../../../wizard/components/navigation/button';
 
 export const Editor = props => {
 	return (
-		<Fragment>
+		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Material Theme Options', 'material-theme-builder' ) }
 			</h2>
@@ -21,6 +27,6 @@ export const Editor = props => {
 					onClick={ props.handleClick }
 				/>
 			</div>
-		</Fragment>
+		</>
 	);
 };

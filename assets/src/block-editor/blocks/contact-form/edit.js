@@ -1,5 +1,3 @@
-/* global mtb */
-
 /**
  * WordPress dependencies
  */
@@ -16,6 +14,7 @@ import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import './editor.css';
 import ContactFormContext from './contact-form-context';
 import FormInspectorControls from './components/inspector-controls';
+import getConfig from '../../utils/get-config';
 
 const ALLOWED_BLOCKS = [
 	'material/name-input-field',
@@ -59,7 +58,7 @@ const Edit = props => {
 		insertedForms,
 	} = props;
 
-	if ( ! mtb.allow_contact_form_block ) {
+	if ( ! getConfig( 'allow_contact_form_block' ) ) {
 		return (
 			<div>
 				{ __(
@@ -74,7 +73,7 @@ const Edit = props => {
 	if ( preview ) {
 		return (
 			<img
-				src={ mtb.contact_form_preview }
+				src={ getConfig( 'contact_form_preview' ) }
 				alt={ __( 'Contact Form Preview', 'material-theme-builder' ) }
 			/>
 		);

@@ -1,7 +1,13 @@
-/* global mtbWizard */
-import React from 'react';
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import Card from './card';
+import getConfig from '../../../admin/get-config';
 
 /**
  * Congrats and how we work screen
@@ -16,7 +22,7 @@ const Work = () => {
 				) }
 			</h3>
 
-			<Card image={ `${ mtbWizard.assetsPath }welcome.png` }>
+			<Card image={ `${ getConfig( 'assetsPath' ) }welcome.png` }>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Customize Your Material Theme', 'material-theme-builder' ) }
 				</h4>
@@ -31,7 +37,9 @@ const Work = () => {
 
 			<hr />
 
-			<Card image={ `${ mtbWizard.assetsPath }complete-build-with-blocks.png` }>
+			<Card
+				image={ `${ getConfig( 'assetsPath' ) }complete-build-with-blocks.png` }
+			>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Build With Material Blocks', 'material-theme-builder' ) }
 				</h4>
@@ -46,7 +54,7 @@ const Work = () => {
 
 			<hr />
 
-			<Card image={ `${ mtbWizard.assetsPath }addon-material-theme.png` }>
+			<Card image={ `${ getConfig( 'assetsPath' ) }addon-material-theme.png` }>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Apply Your Theme', 'material-theme-builder' ) }
 				</h4>
