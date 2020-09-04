@@ -48,7 +48,7 @@
     "@testing-library/react": "9.4.1",
     "@woocommerce/components": "4.0.0",
     "@wordpress/babel-plugin-import-jsx-pragma": "2.5.0",
-    "@wordpress/block-editor": "3.8.0",
+    "@wordpress/block-editor": "^4.3.0",
     "@wordpress/blocks": "6.13.0",
     "@wordpress/browserslist-config": "2.6.0",
     "@wordpress/components": "9.3.0",
