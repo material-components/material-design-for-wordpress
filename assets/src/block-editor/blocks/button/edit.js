@@ -123,13 +123,13 @@ const ButtonEdit = ( {
 		if ( iconPosition !== 'none' && ! icon ) {
 			setAttributes( { icon: findIcon( 'favorite' ) } );
 		}
-	}, [ icon, iconPosition, setAttributes ] );
+	}, [ icon, iconPosition ] );
 
 	useEffect( () => {
 		if ( isSubmitButton ) {
 			setAttributes( { isSubmit: true } );
 		}
-	}, [ isSubmitButton, setAttributes ] );
+	}, [ isSubmitButton ] );
 
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
