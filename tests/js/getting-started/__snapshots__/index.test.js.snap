@@ -102,6 +102,7 @@ Object {
               With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of 
               <a
                 href="https://fonts.google.com/"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Google Fonts
@@ -109,6 +110,7 @@ Object {
                and 
               <a
                 href="https://material.io/resources/icons/?style=baseline"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Material Design icons.
@@ -284,6 +286,7 @@ Object {
             With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of 
             <a
               href="https://fonts.google.com/"
+              rel="noopener noreferrer"
               target="_blank"
             >
               Google Fonts
@@ -291,6 +294,7 @@ Object {
              and 
             <a
               href="https://material.io/resources/icons/?style=baseline"
+              rel="noopener noreferrer"
               target="_blank"
             >
               Material Design icons.
