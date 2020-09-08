@@ -1,3 +1,6 @@
+/**
+ * External dependencies
+ */
 import { icons as rawIcons } from '!!json-loader!material-design-icons/iconfont/MaterialIcons-Regular.ijmap';
 
 /**

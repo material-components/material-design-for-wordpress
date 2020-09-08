@@ -1,7 +1,16 @@
-/* global jQuery, mtb */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
-import { useState } from 'react';
+import { useState } from '@wordpress/element';
+import apiFetch from '@wordpress/api-fetch';
+
+/**
+ * Internal dependencies
+ */
+import getConfig from '../../../block-editor/utils/get-config';
 
 const ThemePrompt = ( { status } ) => {
 	const [ dismissed, setDismissed ] = useState( status === 'ok' );
@@ -41,32 +50,31 @@ const ThemePrompt = ( { status } ) => {
 		event.preventDefault();
 
 		setRequesting( true );
-
-		const ajaxArgs = {
-			url: `${ mtb.restUrl }${ status }-theme`,
+		const requestArgs = {
+			path: `${ getConfig( 'restPath' ) }${ status }-theme`,
 			method: 'POST',
-			beforeSend: xhr => {
-				xhr.setRequestHeader( 'X-WP-Nonce', mtb.themeNonce );
+			headers: {
+				'X-WP-Nonce': getConfig( 'themeNonce' ),
 			},
 		};
-		const request = jQuery.ajax( ajaxArgs );
 		const onFail = error => {
 			console.error( error );
 			setRequesting( false );
 		};
 
-		request.done( () => {
-			if ( 'install' === status ) {
-				ajaxArgs.url = `${ mtb.restUrl }activate-theme`;
-				const activationRequest = jQuery.ajax( ajaxArgs );
+		apiFetch( requestArgs )
+			.then( () => {
+				if ( 'install' === status ) {
+					requestArgs.path = `${ getConfig( 'restPath' ) }activate-theme`;
 
-				activationRequest.done( () => window.location.reload() );
-				activationRequest.fail( onFail );
-			} else {
-				window.location.reload();
-			}
-		} );
-		request.fail( onFail );
+					apiFetch( requestArgs )
+						.then( () => window.location.reload() )
+						.catch( onFail );
+				} else {
+					window.location.reload();
+				}
+			} )
+			.catch( onFail );
 	};
 
 	return (

@@ -1,4 +1,11 @@
+/**
+ * WordPress dependencies
+ */
 import { useContext } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
 import classNames from 'classnames';
 import TabContext from '../../context';
 import { ACTIONS } from '../../constants';

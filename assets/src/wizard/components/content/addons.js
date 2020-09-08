@@ -1,8 +1,14 @@
-/* global mtbWizard, mtbOnboarding */
-import React from 'react';
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import { ADDONS } from '../../constants';
 import Card from './card';
+import getConfig from '../../../admin/get-config';
 
 /**
  * Addon selection screen
@@ -15,9 +21,9 @@ const Addons = () => {
 			</h3>
 
 			<Card
-				image={ `${ mtbWizard.assetsPath }addon-material-theme.png` }
+				image={ `${ getConfig( 'assetsPath' ) }addon-material-theme.png` }
 				switch={ ADDONS.OVERVIEW }
-				disabled={ 'ok' === mtbOnboarding.themeStatus }
+				disabled={ 'ok' === getConfig( 'themeStatus' ) }
 			>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Material Theme', 'material-theme-builder' ) }
@@ -34,7 +40,7 @@ const Addons = () => {
 			<hr />
 
 			<Card
-				image={ `${ mtbWizard.assetsPath }addon-quick-start-examples.png` }
+				image={ `${ getConfig( 'assetsPath' ) }addon-quick-start-examples.png` }
 				switch={ ADDONS.OVERVIEW }
 			>
 				<h4 className="mdc-typography--headline4">

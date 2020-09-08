@@ -24,9 +24,6 @@ describe( 'Wizard: Addons', () => {
 			assetsPath: 'http://example.com/',
 			placeholderSmall: 'http://example.com/image-small.png',
 			placeholderImage: 'http://example.com/image.png',
-		};
-
-		global.mtbOnboarding = {
 			themeStatus: 'ok',
 		};
 	} );

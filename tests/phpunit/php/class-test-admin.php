@@ -164,8 +164,8 @@ class Test_Admin extends \WP_UnitTestCase {
 
 		$inline_js = wp_scripts()->get_data( 'material-wizard', 'data' );
 
-		// Assert inline js vars contains restUrl and nonce.
-		$this->assertRegexp( '/restUrl/', $inline_js );
+		// Assert inline js vars contains restPath and nonce.
+		$this->assertRegexp( '/restPath/', $inline_js );
 		$this->assertRegexp( '/nonce/', $inline_js );
 
 		set_current_screen( $screen );

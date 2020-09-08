@@ -16,7 +16,7 @@ import { useEffect, useRef, useState } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import { getConfig } from '../../../helpers';
+import getConfig from '../../../utils/get-config';
 
 const genericErrorMessage = __(
 	'An unknown error occurred. Please try again later.',

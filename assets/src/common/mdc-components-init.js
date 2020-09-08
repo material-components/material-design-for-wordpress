@@ -1,5 +1,8 @@
 /* istanbul ignore file */
 
+/**
+ * External dependencies
+ */
 import { MDCList } from '@material/list';
 import { MDCRipple } from '@material/ripple';
 import { MDCTabBar } from '@material/tab-bar';

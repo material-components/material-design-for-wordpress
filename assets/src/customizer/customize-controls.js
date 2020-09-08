@@ -1,4 +1,4 @@
-/* global jQuery, mtb */
+/* global jQuery */
 
 /**
  * Customizer enhancements for a better user experience.
@@ -41,10 +41,11 @@ import {
 	init as notificationsInit,
 	showHideNotification,
 } from './notifications';
+import getConfig from '../block-editor/utils/get-config';
 
 ( ( $, api ) => {
 	// Allow backbone templates access to the `sanitizeControlId` function.
-	mtb.sanitizeControlId = sanitizeControlId;
+	window.mtbSanitizeControlId = sanitizeControlId;
 
 	/**
 	 * Extend wp.customize.Section as a collapsible section
@@ -273,29 +274,26 @@ import {
 				.find( '.wp-picker-default' )
 				.off( 'click' )
 				.on( 'click', event => {
-					if ( 'custom' !== api( mtb.styleControl ).get() ) {
+					if ( 'custom' !== api( getConfig( 'styleControl' ) ).get() ) {
 						return;
 					}
 
-					const style = api( mtb.prevStyleControl ).get();
+					const style = api( getConfig( 'prevStyleControl' ) ).get();
+					const designStyles = getConfig( 'designStyles' );
 
-					if (
-						mtb &&
-						mtb.designStyles &&
-						mtb.designStyles.hasOwnProperty( style )
-					) {
+					if ( designStyles && designStyles.hasOwnProperty( style ) ) {
 						const $control = $( event.target ).closest(
 								'.customize-control-material_color'
 							),
 							name = $control
 								.attr( 'id' )
 								.replace( 'customize-control-', '' )
-								.replace( `${ mtb.slug }-`, '' ),
+								.replace( `${ getConfig( 'slug' ) }-`, '' ),
 							controlName = getControlName( name );
 
 						setSettingDefault(
 							controlName,
-							mtb.designStyles[ style ][ removeOptionPrefix( controlName ) ]
+							designStyles[ style ][ removeOptionPrefix( controlName ) ]
 						);
 					}
 				} );
@@ -415,7 +413,7 @@ import {
 		},
 	} );
 
-	api.IconRadoControl = api.Control.extend( {
+	api.IconRadioControl = api.Control.extend( {
 		ready() {
 			const control = this;
 			$( 'input:radio', control.container ).change( function() {
@@ -430,7 +428,7 @@ import {
 	$.extend( api.controlConstructor, {
 		material_color: api.MaterialColorControl,
 		range_slider: api.RangeSliderControl,
-		icon_radio: api.IconRadoControl,
+		icon_radio: api.IconRadioControl,
 	} );
 
 	/**
@@ -439,13 +437,13 @@ import {
 	 * @param {Object} control Control
 	 */
 	const onResetGlobalRangeSliderControl = control => {
-		let style = api( mtb.styleControl ).get();
+		let style = api( getConfig( 'styleControl' ) ).get();
 		if ( 'custom' === style ) {
-			style = api( mtb.prevStyleControl ).get();
+			style = api( getConfig( 'prevStyleControl' ) ).get();
 		}
 
-		if ( style && mtb.designStyles.hasOwnProperty( style ) ) {
-			const defaults = mtb.designStyles[ style ];
+		if ( style && getConfig( 'designStyles' ).hasOwnProperty( style ) ) {
+			const defaults = getConfig( 'designStyles' )[ style ];
 			let settingId = removeOptionPrefix( control.id );
 			setSettingDefault( control.id, defaults[ settingId ] );
 
@@ -524,11 +522,13 @@ import {
 	 * @param {string} oldValue Previous Value.
 	 */
 	const onStyleChange = ( newValue, oldValue ) => {
+		const designStyles = getConfig( 'designStyles' );
+
 		// Bail out if custom style is selected or if we don't have a valid style.
 		if (
 			'custom' === newValue ||
-			! mtb.designStyles ||
-			! mtb.designStyles.hasOwnProperty( newValue )
+			! designStyles ||
+			! designStyles.hasOwnProperty( newValue )
 		) {
 			return;
 		}
@@ -536,14 +536,14 @@ import {
 		// If a style is selected from custom, show confirm dialogue.
 		if (
 			'custom' === oldValue &&
-			! window.confirm( mtb.l10n.confirmChange ) // eslint-disable-line
+			! window.confirm( getConfig( 'l10n' ).confirmChange ) // eslint-disable-line
 		) {
-			api.control( mtb.styleControl ).setting.set( oldValue );
+			api.control( getConfig( 'styleControl' ) ).setting.set( oldValue );
 			return;
 		}
 
 		// Get defaults for selected design style.
-		const defaults = mtb.designStyles[ newValue ];
+		const defaults = designStyles[ newValue ];
 
 		// Iterate through all the default values for the selected style
 		// and update the corresponding control value.
@@ -578,11 +578,11 @@ import {
 	 * Callback when any of our control value is changed.
 	 */
 	const onCustomValueChange = () => {
-		const styleSetting = api( mtb.styleControl );
+		const styleSetting = api( getConfig( 'styleControl' ) );
 
 		// If the style is not custom, change it to custom.
 		if ( 'custom' !== styleSetting.get() ) {
-			api( mtb.prevStyleControl ).set( styleSetting.get() );
+			api( getConfig( 'prevStyleControl' ) ).set( styleSetting.get() );
 			styleSetting.set( 'custom' );
 		}
 
@@ -616,12 +616,15 @@ import {
 	};
 
 	api.bind( 'ready', () => {
+		const controls = getConfig( 'controls' );
+		const styleControl = getConfig( 'styleControl' );
+
 		// Iterate through our controls and bind events for value change.
-		if ( mtb.controls && Array.isArray( mtb.controls ) ) {
-			mtb.controls.forEach( name => {
+		if ( controls && Array.isArray( controls ) ) {
+			controls.forEach( name => {
 				api( name, setting => {
 					// Design style control has it's own change handler.
-					if ( mtb.styleControl === name ) {
+					if ( styleControl === name ) {
 						return setting.bind( onStyleChange );
 					}
 
@@ -640,7 +643,7 @@ import {
 
 			$select
 				.selectWoo( {
-					data: mtb.googleFonts,
+					data: getConfig( 'googleFonts' ),
 					width: '100%',
 				} )
 				.val( $select.data( 'value' ) )

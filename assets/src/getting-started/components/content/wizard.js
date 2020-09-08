@@ -1,11 +1,17 @@
-/* global mtbGsm */
-import { Fragment } from '@wordpress/element';
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import Button from '../../../wizard/components/navigation/button';
+import getConfig from '../../get-config';
 
 export const Wizard = props => {
 	return (
-		<Fragment>
+		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __(
 					'Get your Material site up and running',
@@ -24,9 +30,9 @@ export const Wizard = props => {
 					text={ __( 'Re-run quick start', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
 					onClick={ props.handleClick }
-					link={ mtbGsm.wizardUrl }
+					link={ getConfig( 'wizardUrl' ) }
 				/>
 			</div>
-		</Fragment>
+		</>
 	);
 };

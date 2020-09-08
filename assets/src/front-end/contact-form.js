@@ -1,9 +1,14 @@
-/* global grecaptcha, mtb, jQuery */
+/* global grecaptcha, jQuery */
 
 /**
  * External dependencies
  */
 import { MDCTextField } from '@material/textfield';
+
+/**
+ * Internal dependencies
+ */
+import getConfig from '../block-editor/utils/get-config';
 
 /**
  * Handle the ajax form submission error.
@@ -59,7 +64,7 @@ export const initContactForm = () => {
 		ajaxData.contact_fields = JSON.stringify( contactFields );
 
 		const jxhr = jQuery.ajax( {
-			url: mtb.ajax_url,
+			url: getConfig( 'ajax_url' ),
 			dataType: 'json',
 			type: 'POST',
 			data: ajaxData,
@@ -113,14 +118,12 @@ export const initReCaptchaToken = () => {
 	if (
 		typeof grecaptcha !== 'undefined' &&
 		grecaptcha.hasOwnProperty( 'ready' ) &&
-		mtb &&
-		mtb.hasOwnProperty( 'recaptcha_site_key' ) &&
-		mtb.recaptcha_site_key &&
+		getConfig( 'recaptcha_site_key' ) &&
 		tokenField
 	) {
 		grecaptcha.ready( function() {
 			grecaptcha
-				.execute( mtb.recaptcha_site_key, { action: 'contact' } )
+				.execute( getConfig( 'recaptcha_site_key' ), { action: 'contact' } )
 				.then( function( token ) {
 					tokenField.setAttribute( 'value', token );
 				} );

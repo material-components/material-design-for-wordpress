@@ -1,12 +1,18 @@
 /**
- * Setups context to be used across the app
- *
+ * WordPress dependencies
  */
 import { useReducer, createContext } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
 import { STATUS } from '../wizard/constants';
 import { reducer } from './reducer';
 import { TABS } from './constants';
 
+/**
+ * Setups context to be used across the app
+ */
 const TabContext = createContext();
 
 const { Provider } = TabContext;

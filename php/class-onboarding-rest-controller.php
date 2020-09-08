@@ -36,8 +36,8 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 	 *
 	 * @return string
 	 */
-	public function get_rest_base_url() {
-		return esc_url( rest_url( "/{$this->namespace}/{$this->rest_base}/" ) );
+	public function get_base_path() {
+		return esc_url( "/{$this->namespace}/{$this->rest_base}/" );
 	}
 
 	/**
@@ -116,6 +116,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 			] );
 		}
 
+		// @codeCoverageIgnoreStart
 		include_once ABSPATH . '/wp-admin/includes/admin.php';
 		include_once ABSPATH . '/wp-admin/includes/theme-install.php';
 		include_once ABSPATH . '/wp-admin/includes/theme.php';
@@ -138,6 +139,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 			10,
 			3
 		);
+		// @codeCoverageIgnoreEnd
 
 		$api = themes_api(
 			'theme_information',
@@ -157,6 +159,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 			);
 		}
 
+		// @codeCoverageIgnoreStart
 		$upgrader = new \Theme_Upgrader( new \Automatic_Upgrader_Skin() );
 		$result   = $upgrader->install( $api->download_link );
 
@@ -173,6 +176,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 			'name'   => $api->name,
 			'status' => 'success',
 		];
+		// @codeCoverageIgnoreEnd
 	}
 
 	/**
@@ -192,9 +196,11 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 
 		$result = switch_theme( Plugin::THEME_SLUG );
 
+		// @codeCoverageIgnoreStart
 		if ( ! is_null( $result ) ) {
 			return new \WP_Error( 'material_invalid_theme', __( 'Material theme cannot be activated.', 'material-theme-builder' ), [ 'status' => 500 ] );
 		}
+		// @codeCoverageIgnoreEnd
 
 		return( [
 			'slug'   => Plugin::THEME_SLUG,
@@ -216,6 +222,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 
 		$result = $this->plugin->importer->init_import();
 
+		// @codeCoverageIgnoreStart
 		if ( is_wp_error( $result ) || is_null( $result ) ) {
 			return new \WP_Error(
 				'material_importer',
@@ -223,6 +230,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 				[ 'status' => 500 ]
 			);
 		}
+		// @codeCoverageIgnoreEnd
 
 		return [
 			'slug'   => 'demo-importer',

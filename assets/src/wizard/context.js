@@ -1,12 +1,18 @@
 /**
- * Setups context to be used across the app
- *
+ * WordPress dependencies
  */
-import React, { useReducer } from 'react';
+import { createContext, useReducer } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
 import { reducer } from './reducer';
 import { STEPS, STATUS, ADDONS } from './constants';
 
-const StepContext = React.createContext();
+/**
+ * Setups context to be used across the app
+ */
+const StepContext = createContext();
 
 const { Provider } = StepContext;
 

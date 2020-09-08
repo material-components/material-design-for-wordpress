@@ -1,13 +1,13 @@
 /**
  * External dependencies
  */
-import { useEffect, useState } from 'react';
 import chroma from 'chroma-js';
 
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { useEffect, useState } from '@wordpress/element';
 
 /**
  * Internal dependencies
