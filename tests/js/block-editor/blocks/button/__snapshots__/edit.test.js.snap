@@ -1455,14 +1455,14 @@ Object {
                       class="components-button is-link"
                       type="button"
                     >
-                      Reset
+                      Custom Color
                     </button>
                   </div>
                   <button
                     class="components-button components-circular-option-picker__clear is-small"
                     type="button"
                   >
-                    Clear
+                    Reset
                   </button>
                 </div>
               </div>
@@ -3031,14 +3031,14 @@ Object {
                     class="components-button is-link"
                     type="button"
                   >
-                    Reset
+                    Custom Color
                   </button>
                 </div>
                 <button
                   class="components-button components-circular-option-picker__clear is-small"
                   type="button"
                 >
-                  Clear
+                  Reset
                 </button>
               </div>
             </div>

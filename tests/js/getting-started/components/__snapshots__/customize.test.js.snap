@@ -31,6 +31,7 @@ Object {
         Start from our existing styles and take advantage of 
         <a
           href="https://material.io/design/material-theming/overview.html"
+          rel="noopener noreferrer"
           target="_blank"
         >
           Material Theming
@@ -48,6 +49,7 @@ Object {
         Change your primary and secondary colors and see your site come to life with Material Design’s color system. Need some help? Try Material’s 
         <a
           href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
+          rel="noopener noreferrer"
           target="_blank"
         >
           color palette generator
@@ -64,6 +66,7 @@ Object {
         Choose from the full set of 
         <a
           href="https://fonts.google.com/"
+          rel="noopener noreferrer"
           target="_blank"
         >
           Google Fonts.
@@ -71,6 +74,7 @@ Object {
          Headlines are a great place to inject expression. To retain legibility, utilitarian fonts are better for smaller text sizes. Read Material’s 
         <a
           href="https://material.io/design/typography/the-type-system.html"
+          rel="noopener noreferrer"
           target="_blank"
         >
           type system
@@ -98,6 +102,7 @@ Object {
         All of the 
         <a
           href="http://material.io/icons"
+          rel="noopener noreferrer"
           target="_blank"
         >
           Material Icons
@@ -155,6 +160,7 @@ Object {
       Start from our existing styles and take advantage of 
       <a
         href="https://material.io/design/material-theming/overview.html"
+        rel="noopener noreferrer"
         target="_blank"
       >
         Material Theming
@@ -172,6 +178,7 @@ Object {
       Change your primary and secondary colors and see your site come to life with Material Design’s color system. Need some help? Try Material’s 
       <a
         href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
+        rel="noopener noreferrer"
         target="_blank"
       >
         color palette generator
@@ -188,6 +195,7 @@ Object {
       Choose from the full set of 
       <a
         href="https://fonts.google.com/"
+        rel="noopener noreferrer"
         target="_blank"
       >
         Google Fonts.
@@ -195,6 +203,7 @@ Object {
        Headlines are a great place to inject expression. To retain legibility, utilitarian fonts are better for smaller text sizes. Read Material’s 
       <a
         href="https://material.io/design/typography/the-type-system.html"
+        rel="noopener noreferrer"
         target="_blank"
       >
         type system
@@ -222,6 +231,7 @@ Object {
       All of the 
       <a
         href="http://material.io/icons"
+        rel="noopener noreferrer"
         target="_blank"
       >
         Material Icons
