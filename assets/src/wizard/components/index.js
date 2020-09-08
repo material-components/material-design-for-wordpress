@@ -1,3 +1,6 @@
+/**
+ * Internal dependencies
+ */
 import { StepProvider } from '../context';
 import ProgressBar from './progress-bar';
 import Navigation from './navigation';

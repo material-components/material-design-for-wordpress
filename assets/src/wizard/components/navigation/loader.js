@@ -1,5 +1,12 @@
-import { useEffect } from '@wordpress/element';
+/**
+ * External dependencies
+ */
 import { MDCCircularProgress } from '@material/circular-progress';
+
+/**
+ * WordPress dependencies
+ */
+import { useEffect } from '@wordpress/element';
 
 export const Loader = () => {
 	useEffect( () => {

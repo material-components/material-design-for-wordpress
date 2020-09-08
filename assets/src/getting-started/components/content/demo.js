@@ -1,5 +1,12 @@
-import { Fragment, useContext } from '@wordpress/element';
+/**
+ * WordPress dependencies
+ */
+import { useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
 import { STATUS } from '../../../wizard/constants';
 import Button from '../../../wizard/components/navigation/button';
 import TabContext from '../../context';
@@ -21,7 +28,7 @@ export const Demo = () => {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Demo content', 'material-theme-builder' ) }
 			</h2>
@@ -41,6 +48,6 @@ export const Demo = () => {
 					loading={ isLoading }
 				/>
 			</div>
-		</Fragment>
+		</>
 	);
 };

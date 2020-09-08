@@ -1,7 +1,11 @@
 /**
- * External dependencies
+ * WordPress dependencies
  */
-import React, { Fragment, useContext } from 'react';
+import { useContext } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
 import StepContext from '../../context';
 import { ACTIONS } from '../../constants';
 import classNames from 'classnames';
@@ -15,7 +19,7 @@ const Switch = ( { id, text, checked, disabled } ) => {
 	const { dispatch } = useContext( StepContext );
 
 	return (
-		<Fragment>
+		<>
 			<div
 				className={ classNames(
 					'mdc-switch material-wizard-switch',
@@ -47,7 +51,7 @@ const Switch = ( { id, text, checked, disabled } ) => {
 					{ text }
 				</label>
 			) }
-		</Fragment>
+		</>
 	);
 };
 

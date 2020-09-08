@@ -1,3 +1,6 @@
+/**
+ * Internal dependencies
+ */
 import { STEPS, STATUS, ACTIONS } from './constants';
 
 /**
