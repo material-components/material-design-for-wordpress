@@ -16,6 +16,7 @@ import { sanitizeControlId } from '../../utils';
 const GoogleFontsControl = props => {
 	const { id, label, value, children, onChange } = props;
 
+	/* istanbul ignore next */
 	useEffect( () => {
 		jQuery( '.google-fonts-control-selection' )
 			.selectWoo( {
@@ -101,10 +102,11 @@ const GoogleFontsControl = props => {
 				</div>
 			</div>
 			<div className="google-fonts-control-body">
-				<select
+				<select // eslint-disable-line
 					className="google-fonts-control-selection"
 					value={ value }
 					data-id={ id }
+					onChange={ onChange }
 				></select>
 
 				<span className="google-fonts-control-body__item">

@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoogleFontsControl matches snapshot 1`] = `
+<GoogleFontsControl
+  fonts={
+    Array [
+      Object {
+        "id": "Roboto",
+        "text": "Roboto",
+      },
+      Object {
+        "id": "Ubuntu",
+        "text": "Ubuntu",
+      },
+    ]
+  }
+  id="mtb-google-fonts-control"
+  label="Typography"
+  onChange={[MockFunction]}
+  value="Roboto"
+>
+  <div
+    className="google-fonts-control"
+    id="google-fonts-control-mtb-google-fonts-control"
+  >
+    <div
+      className="google-fonts-control-header"
+    >
+      <div
+        className="google-fonts-control-title"
+        role="link"
+        tabIndex={0}
+      >
+        <span
+          className="customize-control-title google-fonts-control-title__item"
+        >
+          Typography
+        </span>
+      </div>
+    </div>
+    <div
+      className="google-fonts-control-body"
+    >
+      <select
+        className="google-fonts-control-selection"
+        data-id="mtb-google-fonts-control"
+        onChange={[MockFunction]}
+        value="Roboto"
+      />
+      <span
+        className="google-fonts-control-body__item"
+      >
+        <ForwardRef(Button)
+          className="google-fonts-control-settings-expanded"
+          icon="admin-settings"
+          isLink={true}
+          label="View individual components"
+          onClick={[Function]}
+          showTooltip={true}
+        >
+          <Tooltip
+            text="View individual components"
+          >
+            <button
+              aria-label="View individual components"
+              className="components-button google-fonts-control-settings-expanded is-link has-icon"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              type="button"
+            >
+              <Icon
+                icon="admin-settings"
+                key="0,0"
+              >
+                <Dashicon
+                  icon="admin-settings"
+                  size={20}
+                >
+                  <SVG
+                    aria-hidden={true}
+                    className="dashicon dashicons-admin-settings"
+                    focusable="false"
+                    height={20}
+                    role="img"
+                    viewBox="0 0 20 20"
+                    width={20}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <svg
+                      aria-hidden={true}
+                      className="dashicon dashicons-admin-settings"
+                      focusable={false}
+                      height={20}
+                      role="img"
+                      viewBox="0 0 20 20"
+                      width={20}
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <Path
+                        d="M18 16V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h13c.55 0 1-.45 1-1zM8 11h1c.55 0 1 .45 1 1s-.45 1-1 1H8v1.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V13H6c-.55 0-1-.45-1-1s.45-1 1-1h1V5.5c0-.28.22-.5.5-.5s.5.22.5.5V11zm5-2h-1c-.55 0-1-.45-1-1s.45-1 1-1h1V5.5c0-.28.22-.5.5-.5s.5.22.5.5V7h1c.55 0 1 .45 1 1s-.45 1-1 1h-1v5.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V9z"
+                      >
+                        <path
+                          d="M18 16V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h13c.55 0 1-.45 1-1zM8 11h1c.55 0 1 .45 1 1s-.45 1-1 1H8v1.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V13H6c-.55 0-1-.45-1-1s.45-1 1-1h1V5.5c0-.28.22-.5.5-.5s.5.22.5.5V11zm5-2h-1c-.55 0-1-.45-1-1s.45-1 1-1h1V5.5c0-.28.22-.5.5-.5s.5.22.5.5V7h1c.55 0 1 .45 1 1s-.45 1-1 1h-1v5.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V9z"
+                        />
+                      </Path>
+                    </svg>
+                  </SVG>
+                </Dashicon>
+              </Icon>
+            </button>
+          </Tooltip>
+        </ForwardRef(Button)>
+      </span>
+    </div>
+  </div>
+</GoogleFontsControl>
+`;

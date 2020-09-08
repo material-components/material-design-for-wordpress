@@ -42,6 +42,7 @@ const Item = props => {
 				</div>
 
 				<SelectControl
+					className="components-range-control__select"
 					value={ weight.value || weight.default }
 					label={ weight.label }
 					options={ weight.choices }
