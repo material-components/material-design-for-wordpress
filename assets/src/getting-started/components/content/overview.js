@@ -4,8 +4,9 @@ import { STATUS } from '../../../wizard/constants';
 import Button from '../../../wizard/components/navigation/button';
 import TabContext from '../../context';
 import { ACTIONS } from '../../constants';
+import getConfig from '../../../admin/get-config';
 
-export const Overview = props => {
+export const Overview = () => {
 	const { state, dispatch } = useContext( TabContext );
 	const { themeStatus, status } = state;
 	const icon = 'ok' !== themeStatus ? 'navigate_next' : null;
@@ -38,13 +39,18 @@ export const Overview = props => {
 					'With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of ',
 					'material-theme-builder'
 				) }
-				<a href="https://fonts.google.com/" target="_blank">
+				<a
+					href="https://fonts.google.com/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					{ __( 'Google Fonts', 'material-theme-builder' ) }
 				</a>
 				{ __( ' and ', 'material-theme-builder' ) }
 				<a
 					href="https://material.io/resources/icons/?style=baseline"
 					target="_blank"
+					rel="noopener noreferrer"
 				>
 					{ __( 'Material Design icons.', 'material-theme-builder' ) }
 				</a>
@@ -101,7 +107,7 @@ export const Overview = props => {
 					style="mdc-button--raised"
 					text={ __( 'View all Material Blocks', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
-					link={ mtbGsm.customize }
+					link={ getConfig( 'customize' ) }
 				/>
 			</div>
 

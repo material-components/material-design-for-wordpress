@@ -33,6 +33,7 @@ export const Customize = props => {
 				<a
 					href="https://material.io/design/material-theming/overview.html"
 					target="_blank"
+					rel="noopener noreferrer"
 				>
 					{ __( 'Material Theming', 'material-theme-builder' ) }
 				</a>
@@ -53,6 +54,7 @@ export const Customize = props => {
 				<a
 					href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
 					target="_blank"
+					rel="noopener noreferrer"
 				>
 					{ __( 'color palette generator', 'material-theme-builder' ) }
 				</a>
@@ -63,7 +65,11 @@ export const Customize = props => {
 			</h2>
 			<p className="material-gsm__content-description">
 				{ __( 'Choose from the full set of ', 'material-theme-builder' ) }
-				<a href="https://fonts.google.com/" target="_blank">
+				<a
+					href="https://fonts.google.com/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					{ __( 'Google Fonts.', 'material-theme-builder' ) }
 				</a>
 				{ __(
@@ -73,6 +79,7 @@ export const Customize = props => {
 				<a
 					href="https://material.io/design/typography/the-type-system.html"
 					target="_blank"
+					rel="noopener noreferrer"
 				>
 					{ __( 'type system', 'material-theme-builder' ) }
 				</a>
@@ -94,7 +101,11 @@ export const Customize = props => {
 			</h2>
 			<p className="material-gsm__content-description">
 				{ __( 'All of the ', 'material-theme-builder' ) }
-				<a href="http://material.io/icons" target="_blank">
+				<a
+					href="http://material.io/icons"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
 					{ __( 'Material Icons', 'material-theme-builder' ) }
 				</a>
 				{ __(

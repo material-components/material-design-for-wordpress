@@ -1,8 +1,9 @@
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
+import getConfig from '../../../admin/get-config';
 
-export const Layout = props => {
+export const Layout = () => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
@@ -46,7 +47,7 @@ export const Layout = props => {
 					style="mdc-button--raised"
 					text={ __( 'Customize', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
-					link={ mtbGsm.customize }
+					link={ getConfig( 'customize' ) }
 				/>
 			</div>
 
