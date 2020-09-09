@@ -11,8 +11,9 @@ import { TextControl, Tooltip } from '@wordpress/components';
 import './style.css';
 import { icons as rawIcons } from '!!json-loader!material-design-icons/iconfont/MaterialIcons-Regular.ijmap';
 
+const icons = Object.keys( rawIcons );
+
 export default ( { currentIcon, onChange } ) => {
-	const icons = Object.keys( rawIcons );
 	const toSlug = str => str.replace( /\s/g, '_' ).toLowerCase();
 	const [ filteredIcons, setFilteredIcons ] = useState( icons );
 
@@ -26,7 +27,7 @@ export default ( { currentIcon, onChange } ) => {
 				)
 			);
 		},
-		[ setFilteredIcons, icons ]
+		[ setFilteredIcons ]
 	);
 
 	const iconsRender = useMemo(
@@ -59,31 +60,28 @@ export default ( { currentIcon, onChange } ) => {
 					</div>
 				);
 			} ),
-		[ filteredIcons, currentIcon, onChange ]
+		[ filteredIcons, currentIcon ] // eslint-disable-line
 	);
 
-	return useMemo(
-		() => (
-			<>
-				<section className="icons-search">
-					<div className="icons-search__search-input">
-						<TextControl
-							label={ __( 'Search icon', 'material-theme-builder' ) }
-							onChange={ filterIcons }
-						/>
+	return (
+		<>
+			<section className="icons-search">
+				<div className="icons-search__search-input">
+					<TextControl
+						label={ __( 'Search icon', 'material-theme-builder' ) }
+						onChange={ filterIcons }
+					/>
+				</div>
+				{ currentIcon && (
+					<div className="icons-search__selected-icon">
+						<i className="material-icons">
+							{ String.fromCharCode( currentIcon?.hex ) }
+						</i>
 					</div>
-					{ currentIcon && (
-						<div className="icons-search__selected-icon">
-							<i className="material-icons">
-								{ String.fromCharCode( currentIcon?.hex ) }
-							</i>
-						</div>
-					) }
-				</section>
+				) }
+			</section>
 
-				<section className="icons-container">{ iconsRender }</section>
-			</>
-		),
-		[ currentIcon, filterIcons, iconsRender ]
+			<section className="icons-container">{ iconsRender }</section>
+		</>
 	);
 };
