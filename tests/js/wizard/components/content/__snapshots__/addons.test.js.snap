@@ -25,7 +25,7 @@ Object {
             />
           </div>
           <div
-            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
+            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
           >
             <h4
               class="mdc-typography--headline4"
@@ -35,6 +35,32 @@ Object {
             <p>
               This applies Material Design principles and Material Theming to your site, so you can customize its style.
             </p>
+          </div>
+          <div
+            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--align-middle"
+          >
+            <div
+              class="mdc-switch material-wizard-switch material-wizard-switch__THEME mdc-switch--checked mdc-switch--disabled"
+            >
+              <div
+                class="mdc-switch__track"
+              />
+              <div
+                class="mdc-switch__thumb-underlay"
+              >
+                <div
+                  class="mdc-switch__thumb"
+                />
+                <input
+                  aria-checked="true"
+                  class="mdc-switch__native-control"
+                  disabled=""
+                  id="THEME"
+                  role="switch"
+                  type="checkbox"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <hr />
@@ -50,7 +76,7 @@ Object {
             />
           </div>
           <div
-            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
+            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
           >
             <h4
               class="mdc-typography--headline4"
@@ -60,6 +86,31 @@ Object {
             <p>
               Contains a number of page examples for home, about, a projects page, blog, and a contact page. These layouts show different ways you can use Material Components to address common user needs.
             </p>
+          </div>
+          <div
+            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--align-middle"
+          >
+            <div
+              class="mdc-switch material-wizard-switch material-wizard-switch__DEMO mdc-switch--checked"
+            >
+              <div
+                class="mdc-switch__track"
+              />
+              <div
+                class="mdc-switch__thumb-underlay"
+              >
+                <div
+                  class="mdc-switch__thumb"
+                />
+                <input
+                  aria-checked="true"
+                  class="mdc-switch__native-control"
+                  id="DEMO"
+                  role="switch"
+                  type="checkbox"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -86,7 +137,7 @@ Object {
           />
         </div>
         <div
-          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
           <h4
             class="mdc-typography--headline4"
@@ -96,6 +147,32 @@ Object {
           <p>
             This applies Material Design principles and Material Theming to your site, so you can customize its style.
           </p>
+        </div>
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--align-middle"
+        >
+          <div
+            class="mdc-switch material-wizard-switch material-wizard-switch__THEME mdc-switch--checked mdc-switch--disabled"
+          >
+            <div
+              class="mdc-switch__track"
+            />
+            <div
+              class="mdc-switch__thumb-underlay"
+            >
+              <div
+                class="mdc-switch__thumb"
+              />
+              <input
+                aria-checked="true"
+                class="mdc-switch__native-control"
+                disabled=""
+                id="THEME"
+                role="switch"
+                type="checkbox"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <hr />
@@ -111,7 +188,7 @@ Object {
           />
         </div>
         <div
-          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
           <h4
             class="mdc-typography--headline4"
@@ -121,6 +198,31 @@ Object {
           <p>
             Contains a number of page examples for home, about, a projects page, blog, and a contact page. These layouts show different ways you can use Material Components to address common user needs.
           </p>
+        </div>
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1 mdc-layout-grid__cell--align-middle"
+        >
+          <div
+            class="mdc-switch material-wizard-switch material-wizard-switch__DEMO mdc-switch--checked"
+          >
+            <div
+              class="mdc-switch__track"
+            />
+            <div
+              class="mdc-switch__thumb-underlay"
+            >
+              <div
+                class="mdc-switch__thumb"
+              />
+              <input
+                aria-checked="true"
+                class="mdc-switch__native-control"
+                id="DEMO"
+                role="switch"
+                type="checkbox"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -178,9 +178,15 @@ class Importer extends Module_Base {
 		$this->prime_imported_images_cache();
 
 		foreach ( array_keys( $this->images ) as $image_url ) {
-			$image_url = add_query_arg( 'w', 1200, $image_url );
-			$image_url = add_query_arg( 'h', 420, $image_url );
-			
+			$image_url = add_query_arg(
+				[
+					'w'   => 1200,
+					'h'   => 420,
+					'fit' => 'crop',
+				],
+				$image_url
+			);
+
 			$this->import_image( $image_url );
 		}
 
@@ -521,8 +527,14 @@ class Importer extends Module_Base {
 		$comments = $this->insert_comments( $post, $post_id );
 
 		if ( ! empty( $post_data['post_thumbnail'] ) ) {
-			$image_url     = add_query_arg( 'w', 1200, $post_data['post_thumbnail'] );
-			$image_url     = add_query_arg( '4', 420, $image_url );
+			$image_url     = add_query_arg(
+				[
+					'w'   => 1200,
+					'h'   => 420,
+					'fit' => 'crop',
+				],
+				$post_data['post_thumbnail']
+			);
 			$attachment_id = $this->import_image( $image_url );
 
 			if ( ! is_wp_error( $attachment_id ) ) {

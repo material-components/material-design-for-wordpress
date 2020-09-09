@@ -22,7 +22,7 @@ const Addons = () => {
 
 			<Card
 				image={ `${ getConfig( 'assetsPath' ) }addon-material-theme.png` }
-				switch={ ADDONS.OVERVIEW }
+				switch={ ADDONS.THEME }
 				disabled={ 'ok' === getConfig( 'themeStatus' ) }
 			>
 				<h4 className="mdc-typography--headline4">
@@ -41,7 +41,7 @@ const Addons = () => {
 
 			<Card
 				image={ `${ getConfig( 'assetsPath' ) }addon-quick-start-examples.png` }
-				switch={ ADDONS.OVERVIEW }
+				switch={ ADDONS.DEMO }
 			>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Quick Start Examples', 'material-theme-builder' ) }
