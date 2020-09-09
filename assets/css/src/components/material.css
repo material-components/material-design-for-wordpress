@@ -319,7 +319,12 @@
 	}
 }
 
+/* Buttons */
 .wp-block-material-buttons {
 	align-items: center;
 	display: flex;
+
+	& .mdc-button {
+		margin-right: 8px;
+	}
 }
