@@ -19,21 +19,21 @@ const Navigation = () => {
 		// Change initial tab if content and theme are already installed.
 		if ( 'ok' === getConfig( 'themeStatus' ) ) {
 			dispatch( { type: ACTIONS.SET_THEME_OK } );
-			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'DEMO' } } );
+			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'OVERVIEW' } } );
 			dispatch( {
 				type: ACTIONS.MARK_COMPLETE,
-				payload: { value: [ 'WIZARD', 'THEME' ] },
+				payload: { value: [ 'WIZARD' ] },
 			} );
 			dispatch( {} );
 		}
 
 		if ( 'ok' === getConfig( 'contentStatus' ) ) {
 			dispatch( { type: ACTIONS.SET_DEMO_OK } );
-			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'EDITOR' } } );
+			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'OVERVIEW' } } );
 			dispatch( {
 				type: ACTIONS.MARK_COMPLETE,
 				payload: {
-					value: [ 'WIZARD', 'THEME', 'DEMO' ],
+					value: [ 'WIZARD' ],
 				},
 			} );
 		}

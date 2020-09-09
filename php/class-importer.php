@@ -179,6 +179,8 @@ class Importer extends Module_Base {
 
 		foreach ( array_keys( $this->images ) as $image_url ) {
 			$image_url = add_query_arg( 'w', 1200, $image_url );
+			$image_url = add_query_arg( 'h', 420, $image_url );
+			
 			$this->import_image( $image_url );
 		}
 
@@ -520,6 +522,7 @@ class Importer extends Module_Base {
 
 		if ( ! empty( $post_data['post_thumbnail'] ) ) {
 			$image_url     = add_query_arg( 'w', 1200, $post_data['post_thumbnail'] );
+			$image_url     = add_query_arg( '4', 420, $image_url );
 			$attachment_id = $this->import_image( $image_url );
 
 			if ( ! is_wp_error( $attachment_id ) ) {

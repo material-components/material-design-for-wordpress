@@ -14,7 +14,7 @@ import {
 import Notice from '../../../wizard/components/notice';
 import TabContext from '../../context';
 import { ACTIONS } from '../../constants';
-import { Wizard, Theme, Demo, Editor, Blocks } from './content';
+import { Wizard, Overview, Customize, Layout } from './content';
 
 const Content = () => {
 	const { state, dispatch } = useContext( TabContext );
@@ -76,10 +76,9 @@ const Content = () => {
 				<Notice type="notice-error" message={ error.message } />
 			) }
 			{ 'WIZARD' === activeTab && <Wizard handleClick={ handleClick } /> }
-			{ 'THEME' === activeTab && <Theme /> }
-			{ 'DEMO' === activeTab && <Demo /> }
-			{ 'EDITOR' === activeTab && <Editor handleClick={ handleClick } /> }
-			{ 'BLOCKS' === activeTab && <Blocks /> }
+			{ 'OVERVIEW' === activeTab && <Overview handleClick={ handleClick } /> }
+			{ 'CUSTOMIZE' === activeTab && <Customize handleClick={ handleClick } /> }
+			{ 'LAYOUT' === activeTab && <Layout handleClick={ handleClick } /> }
 		</div>
 	);
 };

@@ -654,7 +654,7 @@ import getConfig from '../block-editor/utils/get-config';
 	// Trigger notification init on ready.
 	$( notificationsInit );
 
-	// Material Library.
+	// Material Blocks.
 	$( document ).on( 'click', '.toggle-material-library', loadMaterialLibrary );
 
 	// Show material library if the material-library hash exists.

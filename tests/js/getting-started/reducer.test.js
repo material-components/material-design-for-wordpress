@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { reducer } from '../../../assets/src/getting-started/reducer';
 
 const initialState = {
-	activeTab: 'THEME',
+	activeTab: 'OVERVIEW',
 	completed: [ 'WIZARD' ],
 	status: 'IDLE',
 	actionToInstall: null,
@@ -40,7 +40,7 @@ describe( 'Reducer', () => {
 
 		const result = reducer( initialState, action );
 
-		expect( result.activeTab ).toStrictEqual( 'DEMO' );
+		expect( result.activeTab ).toStrictEqual( 'CUSTOMIZE' );
 	} );
 
 	it( 'should go back one step', () => {
@@ -74,13 +74,13 @@ describe( 'Reducer', () => {
 		const action = {
 			type: 'GOTO_STEP',
 			payload: {
-				value: 'EDITOR',
+				value: 'LAYOUT',
 			},
 		};
 
 		const result = reducer( initialState, action );
 
-		expect( result.activeTab ).toStrictEqual( 'EDITOR' );
+		expect( result.activeTab ).toStrictEqual( 'LAYOUT' );
 	} );
 
 	it( 'should install theme', () => {
