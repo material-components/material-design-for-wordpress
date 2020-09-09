@@ -89,7 +89,7 @@ class Admin extends Module_Base {
 		wp_enqueue_script(
 			'material-admin-js',
 			$this->plugin->asset_url( 'assets/js/admin.js' ),
-			[ 'wp-api-fetch' ],
+			[ 'wp-api-fetch', 'wp-dom-ready' ],
 			$this->plugin->asset_version(),
 			true
 		);
@@ -136,6 +136,7 @@ class Admin extends Module_Base {
 				[
 					'wizardUrl'     => esc_url( menu_page_url( 'material-onboarding-wizard', false ) ),
 					'editorUrl'     => esc_url( admin_url( 'edit.php' ) ),
+					'customize'     => esc_url( admin_url( 'customize.php' ) ),
 					'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
 					'contentStatus' => esc_html( $has_demo_content ? 'ok' : 'install' ),

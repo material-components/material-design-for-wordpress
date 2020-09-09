@@ -32,37 +32,7 @@ Object {
             <div
               class="material-gsm__tab-title"
             >
-              Onboarding wizard
-            </div>
-          </button>
-          <button
-            class="material-gsm__tab material-gsm__tab-completed"
-            type="button"
-          >
-            <i
-              class="material-icons"
-            >
-              check_circle_outline
-            </i>
-            <div
-              class="material-gsm__tab-title"
-            >
-              Material theme
-            </div>
-          </button>
-          <button
-            class="material-gsm__tab material-gsm__tab-completed"
-            type="button"
-          >
-            <i
-              class="material-icons"
-            >
-              check_circle_outline
-            </i>
-            <div
-              class="material-gsm__tab-title"
-            >
-              Demo content
+              Quick Start
             </div>
           </button>
           <button
@@ -77,7 +47,7 @@ Object {
             <div
               class="material-gsm__tab-title"
             >
-              Material Theme Options
+              Overview
             </div>
           </button>
           <button
@@ -92,7 +62,22 @@ Object {
             <div
               class="material-gsm__tab-title"
             >
-              Material blocks
+              Customize your Theme
+            </div>
+          </button>
+          <button
+            class="material-gsm__tab"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              lens
+            </i>
+            <div
+              class="material-gsm__tab-title"
+            >
+              Layout Settings
             </div>
           </button>
         </div>
@@ -127,37 +112,7 @@ Object {
           <div
             class="material-gsm__tab-title"
           >
-            Onboarding wizard
-          </div>
-        </button>
-        <button
-          class="material-gsm__tab material-gsm__tab-completed"
-          type="button"
-        >
-          <i
-            class="material-icons"
-          >
-            check_circle_outline
-          </i>
-          <div
-            class="material-gsm__tab-title"
-          >
-            Material theme
-          </div>
-        </button>
-        <button
-          class="material-gsm__tab material-gsm__tab-completed"
-          type="button"
-        >
-          <i
-            class="material-icons"
-          >
-            check_circle_outline
-          </i>
-          <div
-            class="material-gsm__tab-title"
-          >
-            Demo content
+            Quick Start
           </div>
         </button>
         <button
@@ -172,7 +127,7 @@ Object {
           <div
             class="material-gsm__tab-title"
           >
-            Material Theme Options
+            Overview
           </div>
         </button>
         <button
@@ -187,7 +142,22 @@ Object {
           <div
             class="material-gsm__tab-title"
           >
-            Material blocks
+            Customize your Theme
+          </div>
+        </button>
+        <button
+          class="material-gsm__tab"
+          type="button"
+        >
+          <i
+            class="material-icons"
+          >
+            lens
+          </i>
+          <div
+            class="material-gsm__tab-title"
+          >
+            Layout Settings
           </div>
         </button>
       </div>

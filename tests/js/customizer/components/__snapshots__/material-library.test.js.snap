@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Material Library should initialize the material library 1`] = `
+exports[`Material Blocks should initialize the material library 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -19,13 +19,16 @@ Object {
           >
             Blocks
           </h3>
+          <p>
+            Build your WordPress site using these Material Components blocks.
+          </p>
           <hr />
           <div>
             <h4
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Button
+              Buttons
             </h4>
             <form
               target="_blank"
@@ -118,7 +121,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Card
+              Cards
             </h4>
             <form
               target="_blank"
@@ -208,7 +211,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Table
+              Data Tables
             </h4>
             <form
               target="_blank"
@@ -380,7 +383,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Image List
+              Gallery (Image Lists)
             </h4>
             <form
               target="_blank"
@@ -492,7 +495,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              List
+              Lists
             </h4>
             <form
               target="_blank"
@@ -880,6 +883,9 @@ Object {
             Components
           </h3>
           <p>
+            Styled components available when WordPress Material Theme is activated.
+          </p>
+          <p>
             Enable Material Theme for more components.
           </p>
           <hr />
@@ -888,7 +894,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Checkbox
+              Checkboxes
             </h4>
             <form
               target="_blank"
@@ -1097,7 +1103,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Radio
+              Radio buttons
             </h4>
             <form
               target="_blank"
@@ -1164,7 +1170,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Fields
+              Text fields
             </h4>
             <form
               target="_blank"
@@ -1254,7 +1260,7 @@ Object {
               class="mdc-typography--headline4"
               style="margin: 0px;"
             >
-              Switch
+              Switches
             </h4>
             <form
               target="_blank"
@@ -1311,13 +1317,16 @@ Object {
         >
           Blocks
         </h3>
+        <p>
+          Build your WordPress site using these Material Components blocks.
+        </p>
         <hr />
         <div>
           <h4
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Button
+            Buttons
           </h4>
           <form
             target="_blank"
@@ -1410,7 +1419,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Card
+            Cards
           </h4>
           <form
             target="_blank"
@@ -1500,7 +1509,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Table
+            Data Tables
           </h4>
           <form
             target="_blank"
@@ -1672,7 +1681,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Image List
+            Gallery (Image Lists)
           </h4>
           <form
             target="_blank"
@@ -1784,7 +1793,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            List
+            Lists
           </h4>
           <form
             target="_blank"
@@ -2172,6 +2181,9 @@ Object {
           Components
         </h3>
         <p>
+          Styled components available when WordPress Material Theme is activated.
+        </p>
+        <p>
           Enable Material Theme for more components.
         </p>
         <hr />
@@ -2180,7 +2192,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Checkbox
+            Checkboxes
           </h4>
           <form
             target="_blank"
@@ -2389,7 +2401,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Radio
+            Radio buttons
           </h4>
           <form
             target="_blank"
@@ -2456,7 +2468,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Fields
+            Text fields
           </h4>
           <form
             target="_blank"
@@ -2546,7 +2558,7 @@ Object {
             class="mdc-typography--headline4"
             style="margin: 0px;"
           >
-            Switch
+            Switches
           </h4>
           <form
             target="_blank"

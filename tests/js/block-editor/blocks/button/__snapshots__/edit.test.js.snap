@@ -164,7 +164,7 @@ Object {
           </div>
         </div>
         <span>
-          Container
+          Variations
         </span>
         <div
           class="btn-group"
@@ -1462,7 +1462,7 @@ Object {
                     class="components-button components-circular-option-picker__clear is-small"
                     type="button"
                   >
-                    Clear
+                    Reset
                   </button>
                 </div>
               </div>
@@ -1740,7 +1740,7 @@ Object {
         </div>
       </div>
       <span>
-        Container
+        Variations
       </span>
       <div
         class="btn-group"
@@ -3038,7 +3038,7 @@ Object {
                   class="components-button components-circular-option-picker__clear is-small"
                   type="button"
                 >
-                  Clear
+                  Reset
                 </button>
               </div>
             </div>
