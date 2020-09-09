@@ -123,13 +123,13 @@ const ButtonEdit = ( {
 		if ( iconPosition !== 'none' && ! icon ) {
 			setAttributes( { icon: findIcon( 'favorite' ) } );
 		}
-	}, [ icon, iconPosition ] );
+	}, [ icon, iconPosition ] ); // eslint-disable-line
 
 	useEffect( () => {
 		if ( isSubmitButton ) {
 			setAttributes( { isSubmit: true } );
 		}
-	}, [ isSubmitButton ] );
+	}, [ isSubmitButton ] ); // eslint-disable-line
 
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
