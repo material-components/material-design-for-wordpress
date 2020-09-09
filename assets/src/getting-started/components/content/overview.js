@@ -4,7 +4,7 @@ import { STATUS } from '../../../wizard/constants';
 import Button from '../../../wizard/components/navigation/button';
 import TabContext from '../../context';
 import { ACTIONS } from '../../constants';
-import getConfig from '../../../admin/get-config';
+import getConfig from '../../get-config';
 
 export const Overview = () => {
 	const { state, dispatch } = useContext( TabContext );

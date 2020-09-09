@@ -89,7 +89,7 @@ class Admin extends Module_Base {
 		wp_enqueue_script(
 			'material-admin-js',
 			$this->plugin->asset_url( 'assets/js/admin.js' ),
-			[ 'wp-api-fetch' ],
+			[ 'wp-api-fetch', 'wp-dom-ready' ],
 			$this->plugin->asset_version(),
 			true
 		);

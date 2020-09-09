@@ -1,7 +1,7 @@
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
-import getConfig from '../../../admin/get-config';
+import getConfig from '../../get-config';
 
 export const Layout = () => {
 	return (
