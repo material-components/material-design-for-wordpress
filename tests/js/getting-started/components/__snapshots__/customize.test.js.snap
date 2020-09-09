@@ -1,0 +1,316 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GSM: Customize matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <h2
+        class="material-gsm__content-title mdc-typography--headline6"
+      >
+        How to edit your Material Theme
+      </h2>
+      <p
+        class="material-gsm__content-description"
+      >
+        See your global styles applied in real time by customizing your Material Theme Options directly from the Customize panel. The live preview allows you to see your changes applied directly to your site and our Material Library shows all available Material Blocks. Once you’re satisfied with your changes “Publish” the changes to update your site
+      </p>
+      <p
+        class="material-gsm__content-description"
+      >
+        If you want to override a specific component (like a button) that can be done from the block settings.
+      </p>
+      <h2
+        class="material-gsm__content-title mdc-typography--headline6"
+      >
+        Starter Styles
+      </h2>
+      <p
+        class="material-gsm__content-description"
+      >
+        Start from our existing styles and take advantage of 
+        <a
+          href="https://material.io/design/material-theming/overview.html"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Material Theming
+        </a>
+         by customizing your theme to truly make your site your own.
+      </p>
+      <h2
+        class="material-gsm__content-title mdc-typography--headline6"
+      >
+        Color Palettes
+      </h2>
+      <p
+        class="material-gsm__content-description"
+      >
+        Change your primary and secondary colors and see your site come to life with Material Design’s color system. Need some help? Try Material’s 
+        <a
+          href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          color palette generator
+        </a>
+      </p>
+      <h2
+        class="material-gsm__content-title mdc-typography--headline6"
+      >
+        Typography (Font Styles)
+      </h2>
+      <p
+        class="material-gsm__content-description"
+      >
+        Choose from the full set of 
+        <a
+          href="https://fonts.google.com/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Google Fonts.
+        </a>
+         Headlines are a great place to inject expression. To retain legibility, utilitarian fonts are better for smaller text sizes. Read Material’s 
+        <a
+          href="https://material.io/design/typography/the-type-system.html"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          type system
+        </a>
+          for more guidance.
+      </p>
+      <h2
+        class="material-gsm__content-title mdc-typography--headline6"
+      >
+        Shape Size (Corner Styles)
+      </h2>
+      <p
+        class="material-gsm__content-description"
+      >
+        The Material Shape System enables you to systematically apply shapes across a variety of components. Change the global corner radius for all blocks or individually for each Material block.
+      </p>
+      <h2
+        class="material-gsm__content-title mdc-typography--headline6"
+      >
+        Icon Style
+      </h2>
+      <p
+        class="material-gsm__content-description"
+      >
+        All of the 
+        <a
+          href="http://material.io/icons"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Material Icons
+        </a>
+         and their variants are included with this plugin. Choose from Filled, Outlined, Rounded, Two-tone, or Sharp icons that best reflect your style.
+      </p>
+      <div
+        class="material-gsm__content-actions"
+      >
+        <button
+          class="mdc-button mdc-button--raised"
+        >
+          <span
+            class="mdc-button__label"
+          >
+            Next
+          </span>
+          <i
+            aria-hidden="true"
+            class="material-icons mdc-button__icon trailing-icon"
+          >
+            navigate_next
+          </i>
+        </button>
+      </div>
+      <div
+        style="height: 20px;"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <h2
+      class="material-gsm__content-title mdc-typography--headline6"
+    >
+      How to edit your Material Theme
+    </h2>
+    <p
+      class="material-gsm__content-description"
+    >
+      See your global styles applied in real time by customizing your Material Theme Options directly from the Customize panel. The live preview allows you to see your changes applied directly to your site and our Material Library shows all available Material Blocks. Once you’re satisfied with your changes “Publish” the changes to update your site
+    </p>
+    <p
+      class="material-gsm__content-description"
+    >
+      If you want to override a specific component (like a button) that can be done from the block settings.
+    </p>
+    <h2
+      class="material-gsm__content-title mdc-typography--headline6"
+    >
+      Starter Styles
+    </h2>
+    <p
+      class="material-gsm__content-description"
+    >
+      Start from our existing styles and take advantage of 
+      <a
+        href="https://material.io/design/material-theming/overview.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Material Theming
+      </a>
+       by customizing your theme to truly make your site your own.
+    </p>
+    <h2
+      class="material-gsm__content-title mdc-typography--headline6"
+    >
+      Color Palettes
+    </h2>
+    <p
+      class="material-gsm__content-description"
+    >
+      Change your primary and secondary colors and see your site come to life with Material Design’s color system. Need some help? Try Material’s 
+      <a
+        href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        color palette generator
+      </a>
+    </p>
+    <h2
+      class="material-gsm__content-title mdc-typography--headline6"
+    >
+      Typography (Font Styles)
+    </h2>
+    <p
+      class="material-gsm__content-description"
+    >
+      Choose from the full set of 
+      <a
+        href="https://fonts.google.com/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Google Fonts.
+      </a>
+       Headlines are a great place to inject expression. To retain legibility, utilitarian fonts are better for smaller text sizes. Read Material’s 
+      <a
+        href="https://material.io/design/typography/the-type-system.html"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        type system
+      </a>
+        for more guidance.
+    </p>
+    <h2
+      class="material-gsm__content-title mdc-typography--headline6"
+    >
+      Shape Size (Corner Styles)
+    </h2>
+    <p
+      class="material-gsm__content-description"
+    >
+      The Material Shape System enables you to systematically apply shapes across a variety of components. Change the global corner radius for all blocks or individually for each Material block.
+    </p>
+    <h2
+      class="material-gsm__content-title mdc-typography--headline6"
+    >
+      Icon Style
+    </h2>
+    <p
+      class="material-gsm__content-description"
+    >
+      All of the 
+      <a
+        href="http://material.io/icons"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Material Icons
+      </a>
+       and their variants are included with this plugin. Choose from Filled, Outlined, Rounded, Two-tone, or Sharp icons that best reflect your style.
+    </p>
+    <div
+      class="material-gsm__content-actions"
+    >
+      <button
+        class="mdc-button mdc-button--raised"
+      >
+        <span
+          class="mdc-button__label"
+        >
+          Next
+        </span>
+        <i
+          aria-hidden="true"
+          class="material-icons mdc-button__icon trailing-icon"
+        >
+          navigate_next
+        </i>
+      </button>
+    </div>
+    <div
+      style="height: 20px;"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

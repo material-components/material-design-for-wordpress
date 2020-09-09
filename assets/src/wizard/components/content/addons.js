@@ -22,7 +22,7 @@ const Addons = () => {
 
 			<Card
 				image={ `${ getConfig( 'assetsPath' ) }addon-material-theme.png` }
-				switch={ ADDONS.THEME }
+				switch={ ADDONS.OVERVIEW }
 				disabled={ 'ok' === getConfig( 'themeStatus' ) }
 			>
 				<h4 className="mdc-typography--headline4">
@@ -41,7 +41,7 @@ const Addons = () => {
 
 			<Card
 				image={ `${ getConfig( 'assetsPath' ) }addon-quick-start-examples.png` }
-				switch={ ADDONS.DEMO }
+				switch={ ADDONS.OVERVIEW }
 			>
 				<h4 className="mdc-typography--headline4">
 					{ __( 'Quick Start Examples', 'material-theme-builder' ) }
@@ -49,7 +49,7 @@ const Addons = () => {
 
 				<p>
 					{ __(
-						'From a contact page to TK, these layouts show different ways you can use Material Components to address common user needs.',
+						'Contains a number of page examples for home, about, a projects page, blog, and a contact page. These layouts show different ways you can use Material Components to address common user needs.',
 						'material-theme-builder'
 					) }
 				</p>

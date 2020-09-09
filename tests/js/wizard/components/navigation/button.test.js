@@ -24,7 +24,7 @@ const baseProps = {
 	onClick: jest.fn(),
 };
 
-describe( 'Button', () => {
+describe( 'Buttons', () => {
 	const wrapper = mount( <Button { ...baseProps } /> );
 
 	beforeEach( () => {

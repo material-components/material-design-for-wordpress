@@ -12,7 +12,7 @@ import IconButtonLink from '../common/icon-button-link';
 const ImageLists = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Image List', 'material-theme-builder' ) }
+			{ __( 'Gallery (Image Lists)', 'material-theme-builder' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/image-lists"></IconButtonLink>
 		<p>
