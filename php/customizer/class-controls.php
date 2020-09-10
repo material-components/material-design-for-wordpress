@@ -99,7 +99,7 @@ class Controls extends Module_Base {
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
 				'title'       => esc_html__( 'Material Theme Options', 'material-theme-builder' ),
-				'description' => esc_html__( 'Change the color, shape, typography, and icons below to customize your theme style. Navigate to the Material Library to see your custom styles applied across Material Components..', 'material-theme-builder' ),
+				'description' => esc_html__( 'Change the color, shape, typography, and icons below to customize your theme style. Navigate to the Material Blocks to see your custom styles applied across Material Components..', 'material-theme-builder' ),
 			]
 		);
 	}
@@ -111,11 +111,11 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			'style'         => __( 'Style', 'material-theme-builder' ),
+			'style'         => __( 'Starter Styles', 'material-theme-builder' ),
 			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
 			'typography'    => __( 'Typography (Font Styles)', 'material-theme-builder' ),
-			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
-			'icons'         => __( 'Icon Style', 'material-theme-builder' ),
+			'corner_styles' => __( 'Shape Size (Corner Styles)', 'material-theme-builder' ),
+			'icons'         => __( 'Icon Styles', 'material-theme-builder' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
@@ -515,6 +515,7 @@ class Controls extends Module_Base {
 				array_values( $demo_images )
 			);
 		}
+		$demo_images = array_slice( $demo_images, 0, 9 );
 
 		wp_localize_script(
 			'material-theme-builder-customizer-js',
@@ -994,7 +995,7 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'            => 'button_radius',
-				'label'         => __( 'Button', 'material-theme-builder' ),
+				'label'         => __( 'Buttons', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 20,
 				'initial_value' => 4,

@@ -123,13 +123,13 @@ const ButtonEdit = ( {
 		if ( iconPosition !== 'none' && ! icon ) {
 			setAttributes( { icon: findIcon( 'favorite' ) } );
 		}
-	}, [ icon, iconPosition, setAttributes ] );
+	}, [ icon, iconPosition ] ); // eslint-disable-line
 
 	useEffect( () => {
 		if ( isSubmitButton ) {
 			setAttributes( { isSubmit: true } );
 		}
-	}, [ isSubmitButton, setAttributes ] );
+	}, [ isSubmitButton ] ); // eslint-disable-line
 
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
@@ -206,7 +206,7 @@ const ButtonEdit = ( {
 
 					{ type === 'text' && (
 						<>
-							<span>{ __( 'Container', 'material-theme-builder' ) }</span>
+							<span>{ __( 'Variations', 'material-theme-builder' ) }</span>
 							<ButtonGroup
 								buttons={ BUTTON_STYLES }
 								current={ style }

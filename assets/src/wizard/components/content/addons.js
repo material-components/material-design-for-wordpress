@@ -49,7 +49,7 @@ const Addons = () => {
 
 				<p>
 					{ __(
-						'From a contact page to TK, these layouts show different ways you can use Material Components to address common user needs.',
+						'Contains a number of page examples for home, about, a projects page, blog, and a contact page. These layouts show different ways you can use Material Components to address common user needs.',
 						'material-theme-builder'
 					) }
 				</p>
