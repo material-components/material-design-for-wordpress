@@ -185,7 +185,7 @@ describe( 'Customize controls', () => {
 		} );
 	} );
 
-	describe( 'Material Library', () => {
+	describe( 'Material Blocks', () => {
 		it( 'should show the material library button', async () => {
 			expect( await page.$$( '.toggle-material-library' ) ).not.toBeNull();
 		} );

@@ -11,7 +11,7 @@ import IconButtonLink from '../common/icon-button-link';
 const Switch = () => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Switch', 'material-theme-builder' ) }
+			{ __( 'Switches', 'material-theme-builder' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/develop/web/components/input-controls/switches"></IconButtonLink>
 		<p>

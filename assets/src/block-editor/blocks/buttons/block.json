@@ -1,0 +1,9 @@
+{
+  "name": "material/buttons",
+  "category": "material",
+  "supports": {
+    "anchor": true,
+    "align": true,
+    "alignWide": false
+  }
+}
