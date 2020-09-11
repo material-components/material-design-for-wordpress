@@ -1,6 +1,7 @@
+/**
+ * WordPress dependencies
+ */
 import { SelectControl } from '@wordpress/components';
-
-// @todo replace input with NumberControl once it's functional
 
 const Item = props => {
 	const { label, size, weight, id, onChange } = props;
