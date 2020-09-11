@@ -1,17 +1,24 @@
-/* global jQuery, mtb */
+/* global jQuery */
 
 /**
  * External dependencies
  */
 import 'select-woo';
 
+/**
+ * WordPress dependencies
+ */
 import { __ } from '@wordpress/i18n';
 import { useState, useEffect, Fragment } from '@wordpress/element';
 import { Button } from '@wordpress/components';
 
+/**
+ * Internal dependencies
+ */
 import './style.css';
 import Item from './item';
 import { sanitizeControlId } from '../../utils';
+import getConfig from '../../../block-editor/utils/get-config';
 
 const GoogleFontsControl = props => {
 	const { id, label, value, children, onChange } = props;
@@ -20,7 +27,7 @@ const GoogleFontsControl = props => {
 	useEffect( () => {
 		jQuery( '.google-fonts-control-selection' )
 			.selectWoo( {
-				data: mtb.googleFonts,
+				data: getConfig( 'googleFonts' ),
 				width: '100%',
 			} )
 			.val( value )
@@ -50,7 +57,7 @@ const GoogleFontsControl = props => {
 	const handleOnReset = event => {
 		event.preventDefault();
 
-		if ( ! window.confirm( mtb.l10n.confirmChange ) ) { // eslint-disable-line
+		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) { // eslint-disable-line
 			return;
 		}
 
