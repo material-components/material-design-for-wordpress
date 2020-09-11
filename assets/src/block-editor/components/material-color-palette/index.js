@@ -191,7 +191,7 @@ export default function MaterialColorPalette( {
 							) }
 							{ !! clearable && (
 								<ButtonAction onClick={ clearColor }>
-									{ __( 'Clear', 'material-theme-builder' ) }
+									{ __( 'Reset', 'material-theme-builder' ) }
 								</ButtonAction>
 							) }
 						</>

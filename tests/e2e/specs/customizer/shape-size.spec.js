@@ -32,12 +32,12 @@ const moveRangeSlider = async ( slider, targetPercentage ) => {
 	return await page.evaluate( el => Number( el.value ), slider );
 };
 
-describe( 'Customize controls: Shape Size', () => {
+describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 	beforeAll( async () => {
 		await visitAdminPage( 'customize.php' );
 	} );
 
-	describe( 'Shape Size section', () => {
+	describe( 'Shape Size (Corner Styles) section', () => {
 		beforeAll( async () => {
 			await page.evaluate( el => {
 				el.click();
