@@ -1,0 +1,20 @@
+.wp-block.block-editor-block-list__block .block-editor-inner-blocks[data-type="material/button"] {
+	display: inline-block;
+	margin: 0;
+	width: auto;
+}
+
+.wp-block-material-buttons .block-editor-button-block-appender {
+	background: none;
+	outline: none;
+}
+
+.wp-block-material-buttons .block-editor-block-list__layout > div:last-child {
+	display: inline-block;
+}
+
+.wp-block-material-buttons .block-editor-block-list__layout {
+	align-items: center;
+	display: flex;
+	justify-content: flex-start;
+}

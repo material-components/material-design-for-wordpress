@@ -1,5 +1,18 @@
 .material-gsm {
-	--mdc-typography-headline5-font-family: "Roboto Mono", monospace;
+	--mdc-typography-headline1-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline2-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline3-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline4-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline5-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline6-font-family: "Roboto", sans-serif;
+	--mdc-typography-subtitle1-font-family: "Roboto", sans-serif;
+	--mdc-typography-subtitle2-font-family: "Roboto", sans-serif;
+	--mdc-typography-font-family: "Roboto", sans-serif;
+	--mdc-typography-body1-font-family: "Roboto", sans-serif;
+	--mdc-typography-body2-font-family: "Roboto", sans-serif;
+	--mdc-typography-caption-font-family: "Roboto", sans-serif;
+	--mdc-typography-button-font-family: "Roboto", sans-serif;
+	--mdc-typography-overline-font-family: "Roboto", sans-serif;
 	--mtb-gsm-primary-color: #212121;
 	--mtb-gsm-primary-text: #fff;
 	--mtb-gsm-background-color: #fff;

@@ -40,7 +40,7 @@ const baseProps = {
 	textFieldRadius: 16,
 };
 
-describe( 'Material Library', () => {
+describe( 'Material Blocks', () => {
 	beforeAll( () => {
 		global.mtb = {
 			images: [
