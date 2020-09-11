@@ -51,7 +51,8 @@ class Google_Fonts {
 	public static function get_font_choices() {
 		$choices = array_map(
 			__CLASS__ . '::prepare_font_choice',
-			array_keys( self::get_fonts() )
+			array_keys( self::get_fonts() ),
+			array_values( self::get_fonts() )
 		);
 
 		/**
@@ -65,13 +66,15 @@ class Google_Fonts {
 	/**
 	 * Prepare a font choice to a select2 understandable format.
 	 *
-	 * @param  string $font Font to be prepared.
+	 * @param  string $font_key Font to be prepared.
+	 * @param  string $font Font information.
 	 * @return array
 	 */
-	public static function prepare_font_choice( $font ) {
+	public static function prepare_font_choice( $font_key, $font ) {
 		return [
-			'id'   => $font,
-			'text' => $font,
+			'id'       => $font_key,
+			'text'     => $font_key,
+			'variants' => ( ! empty( $font['variants'] ) ) ? $font['variants'] : [],
 		];
 	}
 }
