@@ -1,10 +1,31 @@
 /**
+ * External dependencies
+ */
+import { useEffect, useState } from '@wordpress/element';
+
+/**
  * WordPress dependencies
  */
 import { SelectControl } from '@wordpress/components';
 
 const Item = props => {
 	const { label, size, weight, id, onChange } = props;
+	const [ choices, setChoices ] = useState( [] );
+
+	useEffect( () => {
+		const newChoices = [];
+
+		if ( 0 < weight.choices.length ) {
+			weight.choices.forEach( choice => {
+				newChoices.push( {
+					label: choice,
+					value: choice,
+				} );
+			} );
+		}
+
+		setChoices( newChoices );
+	}, [ weight ] );
 
 	return (
 		<div className="google-fonts-control-child">
@@ -46,7 +67,7 @@ const Item = props => {
 					className="components-range-control__select"
 					value={ weight.value || weight.default }
 					label={ weight.label }
-					options={ weight.choices }
+					options={ choices }
 					onChange={ value =>
 						onChange( { id, sizeValue: size.value, weightValue: value } )
 					}

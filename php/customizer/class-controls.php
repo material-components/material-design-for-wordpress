@@ -23,17 +23,6 @@ class Controls extends Module_Base {
 	 * @var string
 	 */
 	public $slug = 'material_theme_builder';
-	
-	/**
-	 * Weight used in typography controls
-	 *
-	 * @var array
-	 */
-	public $font_weights = [
-		'light'  => 100,
-		'normal' => 400,
-		'medium' => 500,
-	];
 
 	/**
 	 * WP_Customize_Manager object reference.
@@ -1249,31 +1238,13 @@ class Controls extends Module_Base {
 	 * @return array Values to use in control.
 	 */
 	public function get_typography_weight_controls( $args ) {
-		$choices = apply_filters(
-			$this->slug . '_typography_weights',
-			[
-				[
-					'label' => __( 'Light', 'material-theme-builder' ),
-					'value' => $this->font_weights['light'],
-				],
-				[
-					'label' => __( 'Normal', 'material-theme-builder' ),
-					'value' => $this->font_weights['normal'],
-				],
-				[
-					'label' => __( 'Medium', 'material-theme-builder' ),
-					'value' => $this->font_weights['medium'],
-				],
-			]
-		);
-
 		$args = wp_parse_args(
 			$args,
 			[
 				'label'   => __( 'Weight', 'material-theme-builder' ),
 				'type'    => 'select',
 				'default' => __( 'Normal', 'material-theme-builder' ),
-				'choices' => $choices,
+				'choices' => [],
 			]
 		);
 
@@ -1309,17 +1280,16 @@ class Controls extends Module_Base {
 	 */
 	public function get_typography_extra_controls( $headlines = true ) {
 		$controls = [];
-		$weights  = $this->font_weights;
 
 		if ( $headlines ) {
 			$default_sizes   = [ 96, 60, 48, 34, 24, 20 ];
 			$default_weights = [
-				$weights['light'],
-				$weights['light'],
-				$weights['normal'],
-				$weights['normal'],
-				$weights['normal'],
-				$weights['medium'],
+				100,
+				100,
+				'regular',
+				'regular',
+				'regular',
+				500,
 			];
 
 			for ( $i = 1; $i < 7; $i++ ) {
@@ -1353,8 +1323,8 @@ class Controls extends Module_Base {
 
 			$default_sizes   = [ 16, 14 ];
 			$default_weights = [
-				$weights['normal'],
-				$weights['medium'],
+				'regular',
+				500,
 			];
 
 			for ( $i = 1; $i < 3; $i++ ) {
@@ -1389,27 +1359,27 @@ class Controls extends Module_Base {
 				'body1'    => [
 					'label'  => __( 'Body 1', 'material-theme-builder' ),
 					'size'   => 16,
-					'weight' => $weights['normal'],
+					'weight' => 'regular',
 				],
 				'body2'    => [
 					'label'  => __( 'Body 2', 'material-theme-builder' ),
 					'size'   => 14,
-					'weight' => $weights['normal'],
+					'weight' => 'regular',
 				],
 				'button'   => [
 					'label'  => __( 'Button', 'material-theme-builder' ),
 					'size'   => 12,
-					'weight' => $weights['normal'],
+					'weight' => 'regular',
 				],
 				'caption'  => [
 					'label'  => __( 'Caption', 'material-theme-builder' ),
 					'size'   => 12,
-					'weight' => $weights['normal'],
+					'weight' => 'regular',
 				],
 				'overline' => [
 					'label'  => __( 'Overline', 'material-theme-builder' ),
 					'size'   => 10,
-					'weight' => $weights['normal'],
+					'weight' => 'regular',
 				],
 			];
 

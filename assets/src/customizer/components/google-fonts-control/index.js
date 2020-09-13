@@ -27,7 +27,7 @@ const GoogleFontsControl = props => {
 	useEffect( () => {
 		jQuery( '.google-fonts-control-selection' )
 			.selectWoo( {
-				data: getConfig( 'googleFonts' ),
+				data: Object.values( getConfig( 'googleFonts' ) ),
 				width: '100%',
 			} )
 			.val( value )

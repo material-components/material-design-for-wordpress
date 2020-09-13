@@ -49,11 +49,11 @@ class Google_Fonts {
 	 * @return array
 	 */
 	public static function get_font_choices() {
-		$choices = array_map(
-			__CLASS__ . '::prepare_font_choice',
-			array_keys( self::get_fonts() ),
-			array_values( self::get_fonts() )
-		);
+		$choices = [];
+
+		foreach ( self::get_fonts() as $key => $font ) {
+			$choices[ $key ] = self::prepare_font_choice( $key, $font );
+		}
 
 		/**
 		 * Filter Google Fonts choices.

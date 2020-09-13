@@ -1,18 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 
 import Item from '../../../../../assets/src/customizer/components/google-fonts-control/item';
-
-/**
- * Render the component
- *
- * @param {Object} props - Component props
- * @return {Function} A functional component.
- */
-const setup = props => {
-	return render( <Item { ...props } /> );
-};
 
 /**
  * Render the component
@@ -38,9 +27,9 @@ const baseProps = {
 		value: 500,
 		label: 'Weight',
 		choices: [
-			{ label: 'Light', value: 100 },
-			{ label: 'Normal', value: 400 },
-			{ label: 'Medium', value: 500 },
+			{ label: '100', value: '100' },
+			{ label: '400', value: '400' },
+			{ label: '500', value: '500' },
 		],
 	},
 };
@@ -50,8 +39,8 @@ describe( 'GoogleFontsControl/Item', () => {
 		jest.clearAllMocks();
 	} );
 
-	it( 'mateches snapshot', () => {
-		const wrapper = setup( baseProps );
+	it( 'matches snapshot', () => {
+		const wrapper = setupShallow( baseProps );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
@@ -99,9 +88,9 @@ describe( 'GoogleFontsControl/Item', () => {
 				label: 'Weight',
 				default: 400,
 				choices: [
-					{ label: 'Light', value: 100 },
-					{ label: 'Normal', value: 400 },
-					{ label: 'Medium', value: 500 },
+					{ label: 100, value: 100 },
+					{ label: 400, value: 400 },
+					{ label: 500, value: 500 },
 				],
 			},
 		};
