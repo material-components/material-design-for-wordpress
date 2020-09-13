@@ -1,228 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GoogleFontsControl/Item mateches snapshot 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+exports[`GoogleFontsControl/Item matches snapshot 1`] = `
+<div
+  className="google-fonts-control-child"
+>
+  <span
+    className="customize-control-title google-fonts-control-title__child"
+  >
+    Test item
+  </span>
+  <div
+    className="google-fonts-control__values"
+  >
+    <div
+      className="components-base-control"
     >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div>
       <div
-        class="google-fonts-control-child"
+        className="components-base-control__field"
       >
-        <span
-          class="customize-control-title google-fonts-control-title__child"
+        <label
+          className="components-base-control__label"
+          htmlFor="inspector-number-control-headline1"
+          id="inspector-number-label-headline1"
         >
-          Test item
-        </span>
-        <div
-          class="google-fonts-control__values"
-        >
-          <div
-            class="components-base-control"
-          >
-            <div
-              class="components-base-control__field"
-            >
-              <label
-                class="components-base-control__label"
-                for="inspector-number-control-headline1"
-                id="inspector-number-label-headline1"
-              >
-                Size
-              </label>
-              <input
-                class="components-range-control__number"
-                id="inspector-number-control-headline1"
-                max="96"
-                min="2"
-                type="number"
-                value="96"
-              />
-            </div>
-          </div>
-          <div
-            class="components-base-control components-range-control__select"
-          >
-            <div
-              class="components-base-control__field"
-            >
-              <label
-                class="components-base-control__label"
-                for="inspector-select-control-0"
-              >
-                Weight
-              </label>
-              <select
-                class="components-select-control__input"
-                id="inspector-select-control-0"
-              >
-                <option
-                  value="100"
-                >
-                  Light
-                </option>
-                <option
-                  value="400"
-                >
-                  Normal
-                </option>
-                <option
-                  value="500"
-                >
-                  Medium
-                </option>
-              </select>
-            </div>
-          </div>
-        </div>
+          Size
+        </label>
+        <input
+          className="components-range-control__number"
+          id="inspector-number-control-headline1"
+          max={96}
+          min={2}
+          onChange={[Function]}
+          type="number"
+          value={96}
+        />
       </div>
     </div>
-  </body>,
-  "container": <div>
-    <div
-      class="google-fonts-control-child"
-    >
-      <span
-        class="customize-control-title google-fonts-control-title__child"
-      >
-        Test item
-      </span>
-      <div
-        class="google-fonts-control__values"
-      >
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-number-control-headline1"
-              id="inspector-number-label-headline1"
-            >
-              Size
-            </label>
-            <input
-              class="components-range-control__number"
-              id="inspector-number-control-headline1"
-              max="96"
-              min="2"
-              type="number"
-              value="96"
-            />
-          </div>
-        </div>
-        <div
-          class="components-base-control components-range-control__select"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-select-control-0"
-            >
-              Weight
-            </label>
-            <select
-              class="components-select-control__input"
-              id="inspector-select-control-0"
-            >
-              <option
-                value="100"
-              >
-                Light
-              </option>
-              <option
-                value="400"
-              >
-                Normal
-              </option>
-              <option
-                value="500"
-              >
-                Medium
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+    <SelectControl
+      className="components-range-control__select"
+      label="Weight"
+      onChange={[Function]}
+      options={Array []}
+      value={500}
+    />
+  </div>
+</div>
 `;

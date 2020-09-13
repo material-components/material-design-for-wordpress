@@ -524,11 +524,17 @@ import getConfig from '../block-editor/utils/get-config';
 	};
 
 	const renderGoogleFontsControl = control => {
+		const googleFonts = getConfig( 'googleFonts' );
 		const { params, id, setting } = control;
+		const selectedFont = setting.get();
 		let children = [];
 
 		if ( 0 !== params.children.length ) {
 			children = params.children.map( child => {
+				if ( googleFonts.hasOwnProperty( selectedFont ) ) {
+					child.weight.choices = googleFonts[ selectedFont ].variants;
+				}
+
 				if ( ! child.value ) {
 					return child;
 				}
@@ -546,7 +552,7 @@ import getConfig from '../block-editor/utils/get-config';
 			id,
 			label: params.label,
 			description: params.description,
-			value: setting.get(),
+			value: selectedFont,
 			children,
 			fonts: getConfig( 'googleFonts' ),
 			onChange: event => {
