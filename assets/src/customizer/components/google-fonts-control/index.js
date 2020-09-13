@@ -23,22 +23,38 @@ import getConfig from '../../../block-editor/utils/get-config';
 const GoogleFontsControl = props => {
 	const { id, label, value, children, onChange } = props;
 	const elementRef = useRef( null );
+	const googleFonts = getConfig( 'googleFonts' );
+	const [ isExpanded, setIsExpanded ] = useState( false );
+	const [ items, setItems ] = useState( children );
+	const [ selectedFont, setSelectedFont ] = useState( value );
 
 	/* istanbul ignore next */
 	useEffect( () => {
 		jQuery( elementRef.current )
 			.find( '.google-fonts-control-selection' )
 			.selectWoo( {
-				data: Object.values( getConfig( 'googleFonts' ) ),
+				data: Object.values( googleFonts ),
 				width: '100%',
 			} )
-			.val( value )
+			.val( selectedFont )
 			.trigger( 'change' )
-			.on( 'change', onChange );
+			.on( 'change', event => {
+				setSelectedFont( event.target.value );
+				onChange( event );
+			} );
 	}, [ elementRef ] );
 
-	const [ isExpanded, setIsExpanded ] = useState( false );
-	const [ items, setItems ] = useState( children );
+	useEffect( () => {
+		const newChildren = children.map( child => {
+			if ( googleFonts.hasOwnProperty( selectedFont ) ) {
+				child.weight.choices = googleFonts[ selectedFont ].variants;
+			}
+
+			return child;
+		} );
+
+		setItems( newChildren );
+	}, [ selectedFont ] );
 
 	const setChildValues = child => {
 		const childControl = wp.customize.control(
@@ -115,7 +131,7 @@ const GoogleFontsControl = props => {
 			<div className="google-fonts-control-body">
 				<select // eslint-disable-line
 					className="google-fonts-control-selection"
-					value={ value }
+					value={ selectedFont }
 					data-id={ id }
 					onChange={ onChange }
 				></select>

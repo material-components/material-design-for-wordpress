@@ -25,7 +25,7 @@ const Item = props => {
 		}
 
 		setChoices( newChoices );
-	}, [ weight ] );
+	}, [ weight.choices ] );
 
 	return (
 		<div className="google-fonts-control-child">

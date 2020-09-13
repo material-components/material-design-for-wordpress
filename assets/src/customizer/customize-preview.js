@@ -224,7 +224,6 @@ const getIconFontName = iconStyle => {
 	Object.keys( typographyControls ).forEach( control => {
 		parentApi( control, value => {
 			value.bind( () => {
-				console.log( value );
 				generatePreviewStyles();
 				updateGoogleFontsURL();
 			} );
