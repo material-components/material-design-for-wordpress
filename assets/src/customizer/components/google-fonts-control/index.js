@@ -9,7 +9,7 @@ import 'select-woo';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { useState, useEffect, Fragment } from '@wordpress/element';
+import { useState, useEffect, useRef } from '@wordpress/element';
 import { Button } from '@wordpress/components';
 
 /**
@@ -22,17 +22,20 @@ import getConfig from '../../../block-editor/utils/get-config';
 
 const GoogleFontsControl = props => {
 	const { id, label, value, children, onChange } = props;
+	const elementRef = useRef( null );
 
 	/* istanbul ignore next */
 	useEffect( () => {
-		jQuery( '.google-fonts-control-selection' )
+		jQuery( elementRef.current )
+			.find( '.google-fonts-control-selection' )
 			.selectWoo( {
 				data: Object.values( getConfig( 'googleFonts' ) ),
 				width: '100%',
 			} )
 			.val( value )
+			.trigger( 'change' )
 			.on( 'change', onChange );
-	}, [] );
+	}, [ elementRef ] );
 
 	const [ isExpanded, setIsExpanded ] = useState( false );
 	const [ items, setItems ] = useState( children );
@@ -100,6 +103,7 @@ const GoogleFontsControl = props => {
 		<div
 			id={ `google-fonts-control-${ sanitizeControlId( id ) }` }
 			className="google-fonts-control"
+			ref={ elementRef }
 		>
 			<div className="google-fonts-control-header">
 				<div tabIndex={ 0 } role="link" className="google-fonts-control-title">
@@ -132,7 +136,7 @@ const GoogleFontsControl = props => {
 			</div>
 
 			{ isExpanded && items && items.length && (
-				<Fragment>
+				<>
 					<div className="google-fonts-control-children">
 						{ items.map( child => (
 							<Item key={ child.id } onChange={ onChildChange } { ...child } />
@@ -149,7 +153,7 @@ const GoogleFontsControl = props => {
 							{ __( 'Reset', 'material-theme-builder' ) }
 						</a>
 					</p>
-				</Fragment>
+				</>
 			) }
 		</div>
 	);
