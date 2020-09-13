@@ -1,9 +1,27 @@
 {
   "name": "material/buttons",
+  "title": "Buttons (Material)",
+  "description": "Buttons allow users to take actions, and make choices, with a single tap.",
   "category": "material",
   "supports": {
     "anchor": true,
     "align": true,
     "alignWide": false
-  }
+  },
+  "example": {
+    "innerBlocks": [
+      {
+        "name": "material/button",
+        "attributes": { "text":"Find out more" }
+      },
+      {
+        "name": "material/button",
+        "attributes": { "text": "Contact us" }
+      }
+    ]
+  },
+  "editorScript": "material-buttons-editor",
+  "editorStyle": "material-buttons-editor",
+  "script": "material-buttons",
+  "style": "material-buttons"
 }

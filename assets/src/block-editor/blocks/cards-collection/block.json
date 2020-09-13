@@ -1,5 +1,7 @@
 {
 	"name": "material/cards-collection",
+	"title": "Cards Collection (Material)",
+	"description": "Add a group of cards to display content and actions on multiple topics.",
 	"category": "material",
 	"attributes": {
 	   "id": {
@@ -90,5 +92,7 @@
 		   "wide",
 		   "full"
 		]
-	}
+	},
+	"editorScript": "material-cards-collection-editor",
+	"editorStyle": "material-cards-collection-editor"
  }

@@ -8,7 +8,7 @@ import { MDCTextField } from '@material/textfield';
 /**
  * Internal dependencies
  */
-import getConfig from '../block-editor/utils/get-config';
+import getConfig from '../../../utils/get-config';
 
 /**
  * Handle the ajax form submission error.

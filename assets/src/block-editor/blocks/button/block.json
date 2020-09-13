@@ -1,5 +1,7 @@
 {
   "name": "material/button",
+  "description": "Buttons allow users to take actions, and make choices, with a single tap.",
+  "title": "Button (Material)",
   "category": "material",
   "parent": [ "material/buttons" ],
   "attributes": {
@@ -57,5 +59,16 @@
       "type": "boolean",
       "default": false
     }
-  }
+  },
+  "example": {
+    "attributes": {
+      "label": "Label",
+      "type": "text",
+      "style": "text",
+      "iconPosition": "leading"
+    }
+  },
+  "editorScript": "material-button-editor",
+  "editorStyle": "material-button-editor",
+  "style": "material-button"
 }

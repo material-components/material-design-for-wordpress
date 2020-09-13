@@ -16,7 +16,6 @@ import { withSelect } from '@wordpress/data';
 /**
  * Internal dependencies
  */
-import './style.css';
 import hasBg from './utils/has-bg';
 import findIcon from '../../utils/find-icon';
 import IconPicker from '../../components/icon-picker';

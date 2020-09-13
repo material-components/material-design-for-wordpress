@@ -6,7 +6,6 @@ import { InnerBlocks } from '@wordpress/block-editor';
 /**
  * Internal dependencies
  */
-import './style.css';
 import metadata from '../button/block.json';
 
 const { name } = metadata;

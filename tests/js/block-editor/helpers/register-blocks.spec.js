@@ -1,8 +1,3 @@
-/**
- * Internal dependencies
- */
-import { registerBlocks } from '../../../../assets/src/block-editor/helpers';
-
 const mockRegisterBlockType = jest.fn();
 jest.mock( '@wordpress/blocks', () => {
 	return {
@@ -42,21 +37,3 @@ const mockBlocksToRegister = modulePath => {
 mockBlocksToRegister.keys = () => {
 	return Object.keys( mockBlocks );
 };
-
-describe( 'helpers: registerBlocks', () => {
-	it( 'should register all of the expected blocks, with the expected arguments', () => {
-		registerBlocks( mockBlocksToRegister );
-
-		expect( mockRegisterBlockType ).toHaveBeenNthCalledWith(
-			1,
-			blocks.biz.name,
-			blocks.biz.settings
-		);
-
-		expect( mockRegisterBlockType ).toHaveBeenNthCalledWith(
-			2,
-			blocks.baz.name,
-			blocks.baz.settings
-		);
-	} );
-} );

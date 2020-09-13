@@ -19,11 +19,7 @@ export { metadata, name };
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Custom Card (Material)', 'material-theme-builder' ),
-	description: __(
-		'Add a card to display content and actions on a single topic.',
-		'material-theme-builder'
-	),
+	...metadata,
 	keywords: [ __( 'Material Card', 'material-theme-builder' ) ],
 	icon: <i className="material-icons-outlined">chrome_reader_mode</i>,
 	example,

@@ -50,36 +50,6 @@ html {
 @mixin selector-typography .mdc-list-item__primary-text, body1, 1, 1.5, 400;
 @mixin selector-typography .mdc-list-item__secondary-text, body2, 0.875, 1.25, 400;
 
-/* Button */
-.mdc-button {
-	box-shadow: none !important;
-	text-decoration: none !important;
-
-	&:hover,
-	&:focus {
-		color: var(--mdc-theme-primary, #6200ee) !important;
-		text-decoration: none !important;
-	}
-
-	&--raised:not(:disabled),
-	&--unelevated:not(:disabled) {
-
-		&:hover,
-		&:focus {
-			color: var(--mdc-theme-on-primary, #fff) !important;
-		}
-	}
-
-	&--raised {
-		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
-		transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-	}
-}
-
-.mdc-button--outlined:not(:disabled) {
-	border-color: rgba(0, 0, 0, 0.12) !important;
-	border-color: rgba(var(--mdc-theme-on-surface-rgb), .12) !important;
-}
 
 /* Data Table */
 .mdc-data-table {

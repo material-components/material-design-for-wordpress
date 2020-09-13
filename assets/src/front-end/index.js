@@ -4,16 +4,9 @@
 /**
  * External dependencies
  */
-import {
-	initButtons,
-	initLists,
-	initTabBar,
-} from '../common/mdc-components-init';
-import { initContactForm } from './contact-form';
+import { initLists, initTabBar } from '../common/mdc-components-init';
 
 addEventListener( 'DOMContentLoaded', () => {
-	initButtons();
 	initLists();
 	initTabBar();
-	initContactForm();
 } );

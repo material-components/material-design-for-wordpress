@@ -1,0 +1,40 @@
+[contenteditable="true"].button-label {
+	white-space: nowrap;
+	overflow: hidden;
+	cursor: text;
+}
+
+[contenteditable="true"].button-label br {
+	display: none;
+
+}
+
+[contenteditable="true"].button-label * {
+	display: inline;
+	white-space: nowrap;
+}
+
+.mdc-button--outlined:not(:disabled) {
+	border-color: inherit !important;
+}
+
+.material-block-button__link {
+	border: none;
+	box-shadow: none;
+	color: inherit;
+	cursor: text;
+	display: inline-block;
+	margin: 0;
+	text-decoration: none;
+	overflow-wrap: break-word;
+	min-width: 10px;
+
+	& + .mdc-button__icon {
+		margin-left: 8px !important;
+		margin-right: -4px !important;
+	}
+}
+
+.wp-block-material-button {
+	display: inline-block;
+}

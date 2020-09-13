@@ -15,7 +15,6 @@ const FormInspectorControls = props => {
 		attributes: { emailTo, subject, confirmationMessage, outlined },
 		setter,
 	} = props;
-
 	return (
 		<InspectorControls>
 			<PanelBody

@@ -59,6 +59,78 @@ class Block_Types {
 	}
 
 	/**
+	 * Registers the editor JS for a block.
+	 * 
+	 * @param string $handle The editor script handle, prefixed by material- and suffixed by -edit.
+	 * @param string $type   The asset type. Either script, editor-script, style, or editor-style.
+	 */
+	private function register_block_editor_asset( $handle, $type = 'editor-script' ) {
+		$slug = preg_replace( '/^material-/', '', $handle );
+		$slug = preg_replace( '/-editor$/', '', $slug );
+
+		if ( 'editor-style' === $type ) {
+			wp_register_style(
+				$handle,
+				$this->plugin->dir_url . 'assets/css/' . $slug . '-editor-compiled.css',
+				[
+					'material-block-editor-css',
+					'material-google-fonts',
+				],
+				$this->plugin->asset_version()
+			);
+
+			return;
+		}
+
+		if ( 'style' === $type ) {
+			wp_register_style(
+				$handle,
+				$this->plugin->dir_url . 'assets/css/' . $slug . '-compiled.css',
+				[],
+				$this->plugin->asset_version()
+			);
+
+			return;
+		}
+
+		if ( 'script' === $type ) {
+			$asset_file = $this->plugin->dir_path . '/assets/js/' . $slug . '.asset.php';
+
+			if ( ! file_exists( $asset_file ) ) {
+				return;
+			}
+	
+			$asset = include $asset_file;
+
+			wp_register_script(
+				$handle,
+				$this->plugin->dir_url . 'assets/js/' . $slug . '.js',
+				$asset['dependencies'],
+				$asset['version'],
+				true
+			);
+
+			return;
+		}
+
+		$asset_file = $this->plugin->dir_path . '/assets/js/' . $slug . '-editor.asset.php';
+
+		if ( ! file_exists( $asset_file ) ) {
+			return;
+		}
+
+		$asset = include $asset_file;
+
+		wp_register_script(
+			$handle,
+			$this->plugin->dir_url . 'assets/js/' . $slug . '-editor.js',
+			$asset['dependencies'],
+			$asset['version'],
+			true
+		);
+	}
+
+	/**
 	 * Register our custom blocks.
 	 */
 	public function register_blocks() {
@@ -69,6 +141,7 @@ class Block_Types {
 		$blocks_dir    = $this->plugin->dir_path . '/assets/js/blocks/';
 		$block_folders = [
 			'button',
+			'buttons',
 			'card',
 			'cards-collection',
 			'contact-form',
@@ -87,12 +160,33 @@ class Block_Types {
 			}
 
 			$metadata = json_decode( file_get_contents( $block_json_file ), true ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
-			if ( ! is_array( $metadata ) || ! $metadata['name'] ) {
+			if ( ! is_array( $metadata ) || ! isset( $metadata['name'] ) ) {
 				continue;
 			}
 
-			$metadata['editor_script'] = 'material-block-editor-js';
-			$metadata['editor_style']  = 'material-block-editor-css';
+			if ( isset( $metadata['editorScript'] ) ) {
+				$this->register_block_editor_asset( $metadata['editorScript'], 'editor-script' );
+				$metadata['editor_script'] = $metadata['editorScript'];
+				unset( $metadata['editorScript'] );
+			} else {
+				$metadata['editor_script'] = 'material-block-editor-js';
+			}
+
+			if ( isset( $metadata['editorStyle'] ) ) {
+				$this->register_block_editor_asset( $metadata['editorStyle'], 'editor-style' );
+				$metadata['editor_style'] = $metadata['editorStyle'];
+				unset( $metadata['editorStyle'] );
+			} else {
+				$metadata['editor_style'] = 'material-block-editor-css';
+			}
+
+			if ( isset( $metadata['script'] ) ) {
+				$this->register_block_editor_asset( $metadata['script'], 'script' );
+			}
+
+			if ( isset( $metadata['style'] ) ) {
+				$this->register_block_editor_asset( $metadata['style'], 'style' );
+			}
 
 			if ( ! empty( $this->blocks[ $block_name ] ) && method_exists( $this->blocks[ $block_name ], 'render_block' ) ) {
 				$metadata['render_callback'] = [ $this->blocks[ $block_name ], 'render_block' ];
@@ -138,7 +232,6 @@ class Block_Types {
 
 		$slug           = $this->plugin->customizer_controls->slug;
 		$customizer_url = admin_url( 'customize.php?autofocus[panel]=' . $slug );
-
 
 		$wp_localized_script_data = [
 			'ajax_url'                 => admin_url( 'admin-ajax.php' ),

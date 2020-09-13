@@ -16,14 +16,11 @@ import { unmountComponentAtNode } from 'react-dom';
  * Internal dependencies
  */
 import MaterialLibrary from './components/material-library';
-import {
-	initButtons,
-	initTabBar,
-	initLists,
-} from '../common/mdc-components-init';
+import { initTabBar, initLists } from '../common/mdc-components-init';
 import ThemePrompt from './components/theme-prompt';
 import { THEME_COLOR_CONTROLS, removeOptionPrefix } from './utils';
 import getConfig from '../block-editor/utils/get-config';
+import { initButtons } from '../block-editor/blocks/buttons/utils';
 
 const $ = jQuery;
 const api = wp.customize;

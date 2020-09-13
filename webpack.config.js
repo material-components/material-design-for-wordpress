@@ -88,9 +88,38 @@ const blockEditor = {
 	...defaultConfig,
 	...sharedConfig,
 	entry: {
-		'block-editor': [
-			'./assets/src/block-editor/index.js',
-			'./assets/css/src/block-editor.css',
+		'block-editor': './assets/src/block-editor',
+		button: './assets/src/block-editor/blocks/button/style.css',
+		'button-editor': [
+			'./assets/src/block-editor/blocks/button/register',
+			'./assets/src/block-editor/blocks/button/editor.css',
+		],
+		buttons: [
+			'./assets/src/block-editor/blocks/buttons/style.css',
+			'./assets/src/block-editor/blocks/buttons/frontend',
+		],
+		'buttons-editor': [
+			'./assets/src/block-editor/blocks/buttons/register',
+			'./assets/src/block-editor/blocks/buttons/editor.css',
+		],
+		card: './assets/src/block-editor/blocks/card/style.css',
+		'card-editor': [
+			'./assets/src/block-editor/blocks/card/register',
+			'./assets/src/block-editor/blocks/card/editor.css',
+		],
+		'cards-collection-editor': [
+			'./assets/src/block-editor/blocks/cards-collection/register',
+			'./assets/src/block-editor/blocks/cards-collection/editor.css',
+		],
+		'contact-form': './assets/src/block-editor/blocks/contact-form/frontend',
+		'contact-form-editor': [
+			'./assets/src/block-editor/blocks/contact-form/register',
+			'./assets/src/block-editor/blocks/contact-form/editor.css',
+			'./assets/src/block-editor/blocks/contact-form/inner-blocks/email-input-field',
+			'./assets/src/block-editor/blocks/contact-form/inner-blocks/message-input-field',
+			'./assets/src/block-editor/blocks/contact-form/inner-blocks/name-input-field',
+			'./assets/src/block-editor/blocks/contact-form/inner-blocks/short-text-input-field',
+			'./assets/src/block-editor/blocks/contact-form/inner-blocks/website-input-field',
 		],
 	},
 	plugins: [

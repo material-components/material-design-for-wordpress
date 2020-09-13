@@ -7,14 +7,6 @@ import { MDCList } from '@material/list';
 import { MDCRipple } from '@material/ripple';
 import { MDCTabBar } from '@material/tab-bar';
 
-export const initButtons = () => {
-	const buttons = document.querySelectorAll( '.mdc-button' );
-	const iconButtons = document.querySelectorAll( '.mdc-icon-button' );
-
-	buttons.forEach( button => new MDCRipple( button ) );
-	iconButtons.forEach( button => ( new MDCRipple( button ).unbounded = true ) );
-};
-
 export const initLists = () => {
 	const lists = document.querySelectorAll( '.mdc-list' );
 
