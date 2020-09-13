@@ -685,23 +685,6 @@ import getConfig from '../block-editor/utils/get-config';
 				} );
 			} );
 		}
-
-		$( '.customize-control-google-fonts-wrap select' ).each( ( i, select ) => {
-			const $select = $( select );
-
-			// On value change, trigger a `change` event so select2 can update the selected dropdown option.
-			api( $select.attr( 'data-customize-setting-link' ) ).bind( value => {
-				$select.val( value ).trigger( 'change' );
-			} );
-
-			$select
-				.selectWoo( {
-					data: getConfig( 'googleFonts' ),
-					width: '100%',
-				} )
-				.val( $select.data( 'value' ) )
-				.trigger( 'change' );
-		} );
 	} );
 
 	// Trigger notification init on ready.
