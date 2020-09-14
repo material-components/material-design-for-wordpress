@@ -127,7 +127,7 @@ const getIconFontName = iconStyle => {
 					if ( 'size' === rule ) {
 						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
 					} else {
-						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] };`;
+						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] } !important;`;
 					}
 				}
 			}

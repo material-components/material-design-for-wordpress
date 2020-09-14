@@ -690,7 +690,7 @@ class Controls extends Module_Base {
 						);
 					} else {
 						$font_vars[] = sprintf(
-							'%s: %s;',
+							'%s: %s !important;',
 							esc_html( $var ),
 							esc_html( $value[ $type ] )
 						);
