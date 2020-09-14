@@ -188,10 +188,11 @@ const getIconFontName = iconStyle => {
 				return;
 			}
 
+			const selectedFont = parentApi( control ).get();
+			const { variants } = window.parent.mtb.googleFonts[ selectedFont ];
+
 			fonts.push(
-				parentApi( control )
-					.get()
-					.replace( /\s/g, '+' ) + ':300,400,500'
+				selectedFont.replace( /\s/g, '+' ) + ':' + variants.join( ',' )
 			);
 		} );
 
