@@ -88,7 +88,10 @@ const blockEditor = {
 	...defaultConfig,
 	...sharedConfig,
 	entry: {
-		'block-editor': './assets/src/block-editor',
+		'block-editor': [
+			'./assets/src/block-editor',
+			'./assets/css/src/block-editor.css',
+		],
 		button: './assets/src/block-editor/blocks/button/style.css',
 		'button-editor': [
 			'./assets/src/block-editor/blocks/button/register',
