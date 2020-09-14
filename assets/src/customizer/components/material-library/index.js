@@ -47,17 +47,17 @@ const googleFontsUrl = ( headings, body ) => {
 };
 
 const MaterialLibrary = ( {
-	primaryColor,
 	bodyFontFamily,
 	headFontFamily,
 	iconCollection,
+	primaryColor,
+	onPrimaryColor,
 	secondaryColor,
-	primaryTextColor,
-	secondaryTextColor,
+	onSecondaryColor,
 	surfaceColor,
-	surfaceTextColor,
+	onSurfaceColor,
 	backgroundColor,
-	backgroundTextColor,
+	onBackgroundColor,
 	buttonRadius,
 	cardRadius,
 	chipRadius,
@@ -82,14 +82,14 @@ const MaterialLibrary = ( {
 				body={ bodyFontFamily }
 				primaryColor={ primaryColor }
 				secondaryColor={ secondaryColor }
-				primaryTextColor={ primaryTextColor }
-				secondaryTextColor={ secondaryTextColor }
+				onPrimaryColor={ onPrimaryColor }
+				onSecondaryColor={ onSecondaryColor }
 				surfaceColor={ surfaceColor }
-				surfaceTextColor={ surfaceTextColor }
-				surfaceColorMix4={ chroma.mix( surfaceColor, surfaceTextColor, 0.04 ) }
-				surfaceColorMix12={ chroma.mix( surfaceColor, surfaceTextColor, 0.12 ) }
+				onSurfaceColor={ onSurfaceColor }
+				surfaceColorMix4={ chroma.mix( surfaceColor, onSurfaceColor, 0.04 ) }
+				surfaceColorMix12={ chroma.mix( surfaceColor, onSurfaceColor, 0.12 ) }
 				backgroundColor={ backgroundColor }
-				backgroundTextColor={ backgroundTextColor }
+				onBackgroundColor={ onBackgroundColor }
 				iconCollection={ materialIconFontName( iconCollection ) }
 			/>
 
@@ -111,7 +111,7 @@ const MaterialLibrary = ( {
 					<Buttons
 						iconStyle={ iconStyle }
 						primaryColor={ primaryColor }
-						primaryTextColor={ primaryTextColor }
+						onPrimaryColor={ onPrimaryColor }
 						radius={ buttonRadius }
 					/>
 					<hr />

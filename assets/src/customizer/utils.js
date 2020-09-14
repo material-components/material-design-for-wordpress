@@ -7,7 +7,7 @@ import getConfig from '../block-editor/utils/get-config';
 
 export const THEME_COLOR_CONTROLS = [
 	'background_color',
-	'background_text_color',
+	'on_background_color',
 ];
 
 /**
@@ -67,14 +67,6 @@ export const expandSection = element => {
 };
 
 /**
- * Get the slug for a control.
- *
- * @param {string} name name of the control
- */
-export const getSlug = name =>
-	THEME_COLOR_CONTROLS.includes( name ) ? 'material' : getConfig( 'slug' );
-
-/**
  * Remove the option prefix from a control name.
  *
  * @param {string} name name of the control
@@ -84,7 +76,7 @@ export const removeOptionPrefix = name => {
 	if ( match ) {
 		return match[ 1 ];
 	}
-	return name.replace( /^material_/, '' ).replace( getConfig( 'slug' ), '' );
+	return name.replace( getConfig( 'slug' ), '' );
 };
 
 /**
@@ -95,8 +87,8 @@ export const removeOptionPrefix = name => {
 export const getControlName = name => {
 	name = removeOptionPrefix( name );
 	return THEME_COLOR_CONTROLS.includes( name )
-		? `${ getSlug( name ) }_${ name }`
-		: `${ getSlug( name ) }[${ name }]`;
+		? `${ getConfig( 'slug' ) }_${ name }`
+		: `${ getConfig( 'slug' ) }[${ name }]`;
 };
 
 /**

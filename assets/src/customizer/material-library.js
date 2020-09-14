@@ -74,7 +74,9 @@ const getSettings = () => {
 	}
 
 	mtbControls
-		.concat( THEME_COLOR_CONTROLS.map( name => `material_${ name }` ) )
+		.concat(
+			THEME_COLOR_CONTROLS.map( name => `${ getConfig( 'slug' ) }_${ name }` )
+		)
 		.concat( radiusControls )
 		.forEach( name => {
 			const setting = api( name );
