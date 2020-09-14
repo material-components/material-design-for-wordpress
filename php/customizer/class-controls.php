@@ -1168,31 +1168,4 @@ class Controls extends Module_Base {
 			]
 		);
 	}
-
-	/**
-	 * Move background color contorls to Material "Color Palettes" section.
-	 *
-	 * @action material_customizer_control_args, 10, 2
-	 *
-	 * @param array|WP_Customize_Control $control Control arguments.
-	 * @param string                     $id     Control ID.
-	 *
-	 * @return array
-	 */
-	public function move_background_color_controls( $control, $id ) {
-		if ( in_array( $id, [ 'material_background_color', 'material_on_background_color' ], true ) ) {
-			$label = 'material_on_background_color' === $id ? esc_html__( 'On Background Color (text and icons)', 'material-theme-builder' ) : false;
-			if ( is_array( $control ) ) {
-				$control['section']  = $this->prepend_slug( 'colors' );
-				$control['priority'] = 20;
-				$control['label']    = $label ? $label : $control['label'];
-			} elseif ( $control instanceof \WP_Customize_Control ) {
-				$control->section  = $this->prepend_slug( 'colors' );
-				$control->priority = 20;
-				$control->label    = $label ? $label : $control->label;
-			}
-		}
-
-		return $control;
-	}
 }
