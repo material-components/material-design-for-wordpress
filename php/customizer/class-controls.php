@@ -698,7 +698,7 @@ class Controls extends Module_Base {
 						$font_vars[] = sprintf(
 							'%s: %s !important;',
 							esc_html( $var ),
-							esc_html( $value[ $type ] )
+							esc_html( intval( $value[ $type ] ) )
 						);
 
 						if ( preg_match( '/italic$/', $value[ $type ] ) ) {
@@ -706,7 +706,7 @@ class Controls extends Module_Base {
 						}
 
 						$font_vars[] = sprintf(
-							'%s: %s;',
+							'%s: %s !important;',
 							esc_html( $control['css_vars']['style'] ),
 							esc_html( $font_style )
 						);
