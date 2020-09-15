@@ -124,10 +124,22 @@ const getIconFontName = iconStyle => {
 				const rules = JSON.parse( parentApi( control ).get() );
 
 				for ( const rule in typographyControls[ control ] ) {
+					if ( 'style' === rule ) {
+						return;
+					}
+
 					if ( 'size' === rule ) {
 						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
 					} else {
-						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] } !important;`;
+						if ( /italic$/.test( rules[ rule ] ) ) {
+							styles += `${ typographyControls[ control ].style }: italic;`;
+						} else {
+							styles += `${ typographyControls[ control ].style }: normal;`;
+						}
+
+						styles += `${ typographyControls[ control ][ rule ] }: ${ parseInt(
+							rules[ rule ]
+						) } !important;`;
 					}
 				}
 			}

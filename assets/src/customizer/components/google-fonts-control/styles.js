@@ -18,7 +18,7 @@ export const STYLES = {
 	'100italic': __( 'Thin Italic', 'material-theme-builder' ),
 	'200italic': __( 'Extra Light Italic', 'material-theme-builder' ),
 	'300italic': __( 'Light Italic', 'material-theme-builder' ),
-	italic: __( 'Regular Italic', 'material-theme-builder' ),
+	italic: __( 'Italic', 'material-theme-builder' ),
 	'500italic': __( 'Medium Italic', 'material-theme-builder' ),
 	'600italic': __( 'Semi Bold Italic', 'material-theme-builder' ),
 	'700italic': __( 'Bold Italic', 'material-theme-builder' ),
