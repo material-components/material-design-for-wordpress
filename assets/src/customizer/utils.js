@@ -6,8 +6,12 @@
 import getConfig from '../block-editor/utils/get-config';
 
 export const THEME_COLOR_CONTROLS = [
-	'background_color',
+	'custom_background_color',
 	'on_background_color',
+	'header_color',
+	'on_header_color',
+	'footer_color',
+	'on_footer_color',
 ];
 
 /**
@@ -87,7 +91,7 @@ export const removeOptionPrefix = name => {
 export const getControlName = name => {
 	name = removeOptionPrefix( name );
 	return THEME_COLOR_CONTROLS.includes( name )
-		? `${ getConfig( 'slug' ) }_${ name }`
+		? name
 		: `${ getConfig( 'slug' ) }[${ name }]`;
 };
 
