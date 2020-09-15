@@ -1241,7 +1241,7 @@ class Controls extends Module_Base {
 		$args = wp_parse_args(
 			$args,
 			[
-				'label'   => __( 'Weight', 'material-theme-builder' ),
+				'label'   => __( 'Style', 'material-theme-builder' ),
 				'type'    => 'select',
 				'default' => __( 'Normal', 'material-theme-builder' ),
 				'choices' => [],

@@ -8,6 +8,11 @@ import { useEffect, useState } from '@wordpress/element';
  */
 import { SelectControl } from '@wordpress/components';
 
+/**
+ * Internal dependencies
+ */
+import { STYLES } from './styles';
+
 const Item = props => {
 	const { label, size, weight, id, onChange } = props;
 	const [ choices, setChoices ] = useState( [] );
@@ -18,7 +23,7 @@ const Item = props => {
 		if ( 0 < weight.choices.length ) {
 			weight.choices.forEach( choice => {
 				newChoices.push( {
-					label: choice,
+					label: STYLES[ choice ],
 					value: choice,
 				} );
 			} );
