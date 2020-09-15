@@ -132,9 +132,9 @@ const getIconFontName = iconStyle => {
 						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
 					} else {
 						if ( /italic$/.test( rules[ rule ] ) ) {
-							styles += `${ typographyControls[ control ].style }: italic;`;
+							styles += `${ typographyControls[ control ].style }: italic !important;`;
 						} else {
-							styles += `${ typographyControls[ control ].style }: normal;`;
+							styles += `${ typographyControls[ control ].style }: normal !important;`;
 						}
 
 						styles += `${ typographyControls[ control ][ rule ] }: ${ parseInt(
