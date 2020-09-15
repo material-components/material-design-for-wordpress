@@ -416,7 +416,7 @@ import getConfig from '../block-editor/utils/get-config';
 	api.IconRadioControl = api.Control.extend( {
 		ready() {
 			const control = this;
-			$( 'input:radio', control.container ).change( function() {
+			$( 'input:radio', control.container ).on( 'change', function() {
 				control.setting.set( $( this ).val() );
 			} );
 		},
