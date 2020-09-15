@@ -1138,7 +1138,7 @@ class Controls extends Module_Base {
 	public function update_option( $name, $value ) {
 		$values = get_option( $this->slug );
 
-		if ( empty( $options ) ) {
+		if ( empty( $values ) ) {
 			$values = [];
 		}
 
@@ -1183,5 +1183,24 @@ class Controls extends Module_Base {
 				'count' => $count,
 			]
 		);
+	}
+
+	/**
+	 * Copy color settings from theme on activation.
+	 *
+	 * @return void
+	 */
+	public function copy_saved_color_settings() {
+		if ( 'ok' === $this->plugin->theme_status() ) {
+			$values = get_option( $this->slug );
+
+			foreach ( $this->get_color_controls() as $control ) {
+				$theme_value = get_theme_mod( $control['id'] );
+
+				if ( ( empty( $values ) || empty( $values[ $control_id ] ) ) && ! empty( $theme_value ) ) {
+					$this->update_option( $control['id'], $theme_value );
+				}
+			}
+		}
 	}
 }
