@@ -681,7 +681,13 @@ class Controls extends Module_Base {
 			$value = json_decode( $this->get_option( $control['id'] ), true );
 
 			if ( ! empty( $value ) && ! empty( $control['css_vars'] ) ) {
+				$font_style = 'normal';
+
 				foreach ( $control['css_vars'] as $type => $var ) {
+					if ( 'style' === $type ) {
+						continue;
+					}
+
 					if ( 'size' === $type ) {
 						$font_vars[] = sprintf(
 							'%s: %spx !important;',
@@ -693,6 +699,16 @@ class Controls extends Module_Base {
 							'%s: %s !important;',
 							esc_html( $var ),
 							esc_html( $value[ $type ] )
+						);
+
+						if ( preg_match( '/italic$/', $value[ $type ] ) ) {
+							$font_style = 'italic';
+						}
+
+						$font_vars[] = sprintf(
+							'%s: %s;',
+							esc_html( $control['css_vars']['style'] ),
+							esc_html( $font_style )
 						);
 					}
 				}
@@ -1284,12 +1300,12 @@ class Controls extends Module_Base {
 		if ( $headlines ) {
 			$default_sizes   = [ 96, 60, 48, 34, 24, 20 ];
 			$default_weights = [
-				100,
-				100,
+				'100',
+				'100',
 				'regular',
 				'regular',
 				'regular',
-				500,
+				'500',
 			];
 
 			for ( $i = 1; $i < 7; $i++ ) {
@@ -1300,6 +1316,7 @@ class Controls extends Module_Base {
 					'css_vars' => [
 						'size'   => sprintf( '--mdc-typography-headline%s-font-size', $i ),
 						'weight' => sprintf( '--mdc-typography-headline%s-font-weight', $i ),
+						'style'  => sprintf( '--mdc-typography-headline%s-font-style', $i ),
 					],
 					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
@@ -1324,7 +1341,7 @@ class Controls extends Module_Base {
 			$default_sizes   = [ 16, 14 ];
 			$default_weights = [
 				'regular',
-				500,
+				'500',
 			];
 
 			for ( $i = 1; $i < 3; $i++ ) {
@@ -1335,6 +1352,7 @@ class Controls extends Module_Base {
 					'css_vars' => [
 						'size'   => sprintf( '--mdc-typography-subtitle%s-font-size', $i ),
 						'weight' => sprintf( '--mdc-typography-subtitle%s-font-weight', $i ),
+						'style'  => sprintf( '--mdc-typography-subtitle%s-font-style', $i ),
 					],
 					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
@@ -1391,6 +1409,7 @@ class Controls extends Module_Base {
 					'css_vars' => [
 						'size'   => sprintf( '--mdc-typography-%s-font-size', $key ),
 						'weight' => sprintf( '--mdc-typography-%s-font-weight', $key ),
+						'style'  => sprintf( '--mdc-typography-%s-font-style', $key ),
 					],
 					'value'    => $this->get_option( $key ),
 					'size'     => $this->get_typography_size_controls(
