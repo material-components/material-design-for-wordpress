@@ -16,7 +16,7 @@ const Radios = () => (
 		<IconButtonLink href="https://material.io/develop/web/components/input-controls/radio-buttons"></IconButtonLink>
 		<p>
 			{ __(
-				'Radio buttons allow the user to select one option from a set. It is unavailable as a block in WordPress.',
+				'Radio buttons allow the user to select one option from a set.',
 				'material-theme-builder'
 			) }
 		</p>
