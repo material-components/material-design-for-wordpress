@@ -633,6 +633,25 @@ import getConfig from '../block-editor/utils/get-config';
 			} );
 		}
 
+		const focusSection = api.settings.autofocus.section;
+		if (
+			focusSection &&
+			focusSection === `${ getConfig( 'slug' ) }_corner_styles`
+		) {
+			api.section( focusSection, instance => {
+				instance.deferred.embedded.done( () => {
+					api.previewer.deferred.active.done( () => {
+						setTimeout( () => {
+							api
+								.control( `${ getConfig( 'slug' ) }[global_radius]` )
+								.container.find( '.range-slider-control-settings-expanded' )
+								.trigger( 'click' );
+						}, 500 );
+					} );
+				} );
+			} );
+		}
+
 		$( '.customize-control-google-fonts-wrap select' ).each( ( i, select ) => {
 			const $select = $( select );
 
