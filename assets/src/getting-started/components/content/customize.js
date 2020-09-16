@@ -8,14 +8,14 @@ export const Customize = props => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'How to edit your Material Theme', 'material-theme-builder' ) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					'See your global styles applied in real time by customizing your Material Theme Options directly from the Customize panel. The live preview allows you to see your changes applied directly to your site and our Material Library shows all available Material Blocks. Once you’re satisfied with your changes “Publish” the changes to update your site',
 					'material-theme-builder'
 				) }
 			</p>
 			{ /* Image Here */ }
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					'If you want to override a specific component (like a button) that can be done from the block settings.',
 					'material-theme-builder'
@@ -25,7 +25,7 @@ export const Customize = props => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Starter Styles', 'material-theme-builder' ) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					'Start from our existing styles and take advantage of ',
 					'material-theme-builder'
@@ -46,7 +46,7 @@ export const Customize = props => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Color Palettes', 'material-theme-builder' ) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					'Change your primary and secondary colors and see your site come to life with Material Design’s color system. Need some help? Try Material’s ',
 					'material-theme-builder'
@@ -63,7 +63,7 @@ export const Customize = props => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Typography (Font Styles)', 'material-theme-builder' ) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __( 'Choose from the full set of ', 'material-theme-builder' ) }
 				<a
 					href="https://fonts.google.com/"
@@ -89,7 +89,7 @@ export const Customize = props => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Shape Size (Corner Styles)', 'material-theme-builder' ) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					'The Material Shape System enables you to systematically apply shapes across a variety of components. Change the global corner radius for all blocks or individually for each Material block.',
 					'material-theme-builder'
@@ -99,7 +99,7 @@ export const Customize = props => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Icon Style', 'material-theme-builder' ) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __( 'All of the ', 'material-theme-builder' ) }
 				<a
 					href="http://material.io/icons"

@@ -32,7 +32,7 @@ export const Demo = () => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Demo content', 'material-theme-builder' ) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					'Aenean egestas, ante vitae placerat tempor, felis ipsum finibus lectus, at eleifend neque tellus ac elit. Praesent cursus lectus felis, a ornare metus varius in.',
 					'material-theme-builder'
