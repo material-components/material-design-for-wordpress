@@ -16,7 +16,7 @@ const Chips = ( { radius } ) => (
 		<IconButtonLink href="https://material.io/components/chips"></IconButtonLink>
 		<p>
 			{ __(
-				'Chips are compact elements that represent an input, attribute, or action. It is unavailable as a block in WordPress.',
+				'Chips are compact elements that represent an input, attribute, or action.',
 				'material-theme-builder'
 			) }
 		</p>

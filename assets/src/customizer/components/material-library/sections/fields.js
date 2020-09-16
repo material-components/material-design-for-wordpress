@@ -16,7 +16,7 @@ const Fields = ( { radius } ) => (
 		<IconButtonLink href="https://material.io/components/text-fields"></IconButtonLink>
 		<p>
 			{ __(
-				'Text fields let users enter and edit text. It is unavailable as a block in WordPress.',
+				'Text fields let users enter and edit text.',
 				'material-theme-builder'
 			) }
 		</p>

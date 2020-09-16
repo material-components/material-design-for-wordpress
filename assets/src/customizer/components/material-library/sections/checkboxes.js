@@ -16,7 +16,7 @@ const Checkboxes = () => (
 		<IconButtonLink href="https://material.io/develop/web/components/input-controls/checkboxes"></IconButtonLink>
 		<p>
 			{ __(
-				'Selection controls allow the user to select options. It is unavailable as a block in WordPress.',
+				'Checkboxes allow the user to select one or more items from a set.',
 				'material-theme-builder'
 			) }
 		</p>

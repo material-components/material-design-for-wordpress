@@ -16,7 +16,7 @@ const Switch = () => (
 		<IconButtonLink href="https://material.io/develop/web/components/input-controls/switches"></IconButtonLink>
 		<p>
 			{ __(
-				'Switches toggle the state of a single setting on or off. It is unavailable as a block in WordPress.',
+				'Switches toggle the state of a single item on or off.',
 				'material-theme-builder'
 			) }
 		</p>
