@@ -101,9 +101,9 @@ class Controls extends Module_Base {
 	public function add_sections() {
 		$sections = [
 			'style'         => __( 'Starter Styles', 'material-theme-builder' ),
-			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
+			'colors'        => __( 'Color Palette ', 'material-theme-builder' ),
 			'typography'    => __( 'Typography (Font Styles)', 'material-theme-builder' ),
-			'corner_styles' => __( 'Shape Size (Corner Styles)', 'material-theme-builder' ),
+			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
 			'icons'         => __( 'Icon Styles', 'material-theme-builder' ),
 		];
 
@@ -941,7 +941,7 @@ class Controls extends Module_Base {
 		return [
 			[
 				'id'            => 'global_radius',
-				'label'         => __( 'Global corner styles', 'material-theme-builder' ),
+				'label'         => __( 'Global Corner Styles', 'material-theme-builder' ),
 				'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
