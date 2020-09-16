@@ -1197,7 +1197,7 @@ class Controls extends Module_Base {
 			foreach ( $this->get_color_controls() as $control ) {
 				$theme_value = get_theme_mod( $control['id'] );
 
-				if ( ( empty( $values ) || empty( $values[ $control_id ] ) ) && ! empty( $theme_value ) ) {
+				if ( ( empty( $values ) || empty( $values[ $control['id'] ] ) ) && ! empty( $theme_value ) ) {
 					$this->update_option( $control['id'], $theme_value );
 				}
 			}
