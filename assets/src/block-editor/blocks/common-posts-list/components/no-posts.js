@@ -17,7 +17,7 @@ const NoPosts = ( { name, postsToDisplay } ) => {
 	let placeholderLabel = __( 'Recent Posts', 'material-theme-builder' );
 
 	if ( name === 'material/hand-picked-posts' ) {
-		placeholderLabel = __( 'Hand-picked Posts', 'material-theme-builder' );
+		placeholderLabel = __( 'Curated Post Collection', 'material-theme-builder' );
 	}
 
 	return (

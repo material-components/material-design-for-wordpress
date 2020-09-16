@@ -20,7 +20,7 @@ export { metadata, name };
 export const settings = {
 	title: __( 'Button (Material)', 'material-theme-builder' ),
 	description: __(
-		'Buttons allow users to take actions, and make choices, with a single tap.',
+		'Allow users to take actions, and make choices, with a single tap.',
 		'material-theme-builder'
 	),
 	icon,

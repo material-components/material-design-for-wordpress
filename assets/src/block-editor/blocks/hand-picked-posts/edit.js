@@ -15,7 +15,7 @@ import EditWithSelect from '../common-posts-list/edit-with-select';
 import getConfig from '../../utils/get-config';
 
 /**
- * Hand-picked Posts Edit component.
+ * Curated Post Collection Edit component.
  *
  * @param {Object} props - Component props.
  * @param {Object} props.attributes - Component attributes.
@@ -32,7 +32,7 @@ const Edit = props => {
 		return (
 			<img
 				src={ getConfig( 'handpicked_posts_preview' ) }
-				alt={ __( 'Handpicked posts preview', 'material-theme-builder' ) }
+				alt={ __( 'Curated Post Collection Preview', 'material-theme-builder' ) }
 			/>
 		);
 	}

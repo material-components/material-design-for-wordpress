@@ -21,7 +21,7 @@ export { metadata, name };
 export const settings = {
 	title: __( 'Custom Card (Material)', 'material-theme-builder' ),
 	description: __(
-		'Add a card to display content and actions on a single topic.',
+		'Display content and actions on a single topic.',
 		'material-theme-builder'
 	),
 	keywords: [ __( 'Material Card', 'material-theme-builder' ) ],

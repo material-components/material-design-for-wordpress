@@ -27,14 +27,14 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 	const onDone = () => {
 		setAttributes( { editMode: false } );
 		debouncedSpeak(
-			__( 'Showing Hand-picked Posts block preview.', 'material-theme-builder' )
+			__( 'Showing Curated Post Collection block preview.', 'material-theme-builder' )
 		);
 	};
 
 	return (
 		<Placeholder
 			icon={ <i className="material-icons-outlined">library_books</i> }
-			label={ __( 'Hand-picked Posts', 'material-theme-builder' ) }
+			label={ __( 'Curated Post Collection', 'material-theme-builder' ) }
 			className="mtb-block-products-grid mtb-block-handpicked-posts"
 		>
 			{ __(

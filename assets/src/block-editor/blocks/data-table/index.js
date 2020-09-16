@@ -21,7 +21,7 @@ export { metadata, name };
 export const settings = {
 	title: __( 'Data Table (Material)', 'material-theme-builder' ),
 	description: __(
-		'Data tables display sets of data across rows and columns.',
+		'Display sets of data across rows and columns.',
 		'material-theme-builder'
 	),
 	keywords: [ __( 'Material Data Table', 'material-theme-builder' ) ],
