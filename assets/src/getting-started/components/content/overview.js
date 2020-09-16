@@ -34,7 +34,7 @@ export const Overview = () => {
 					'material-theme-builder'
 				) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					'With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of ',
 					'material-theme-builder'
@@ -63,7 +63,7 @@ export const Overview = () => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Material Theme', 'material-theme-builder' ) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					"Applies Material Design colors, typography, shapes, and icons to built-in WordPress elements like your site's header and posts.",
 					'material-theme-builder'
@@ -83,7 +83,7 @@ export const Overview = () => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Material Design Plugin', 'material-theme-builder' ) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					'Customize your Material Theme styles and Material Components blocks. Choose from over 1,000 Google Fonts and Material Design icons.',
 					'material-theme-builder'
@@ -96,20 +96,20 @@ export const Overview = () => {
 					'material-theme-builder'
 				) }
 			</h2>
-			<p className="material-gsm__content-description">
+			<p>
 				{ __(
 					'Start building your custom site with Material Blocks available in the WordPress editor, no code required.',
 					'material-theme-builder'
 				) }
 			</p>
-			<div className="material-gsm__content-actions">
+			{/* <div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised"
 					text={ __( 'View all Material Blocks', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
 					link={ getConfig( 'customize' ) }
 				/>
-			</div>
+			</div> */}
 
 			<div style={ { height: '20px' } }></div>
 		</Fragment>
