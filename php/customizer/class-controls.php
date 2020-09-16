@@ -564,7 +564,9 @@ class Controls extends Module_Base {
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value = $this->get_option( $control['id'] );
 
-			$font_families[] = str_replace( ' ', '+', $value ) . ':300,400,500';
+			$font_variants = Google_Fonts::get_font_variants( $value );
+
+			$font_families[] = str_replace( ' ', '+', $value ) . ':' . implode( ',', $font_variants );
 		}
 
 		$fonts_url = add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
