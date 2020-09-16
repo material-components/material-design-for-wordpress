@@ -77,4 +77,18 @@ class Google_Fonts {
 			'variants' => ( ! empty( $font['variants'] ) ) ? $font['variants'] : [],
 		];
 	}
+
+	/**
+	 * Look font weight & style variants.
+	 *
+	 * @param  string $font_name Selected font.
+	 * @return array
+	 */
+	public static function get_font_variants( $font_name ) {
+		self::get_fonts();
+
+		$font = self::$list[ $font_name ];
+
+		return ( ! empty( $font['variants'] ) ) ? $font['variants'] : [];
+	}
 }
