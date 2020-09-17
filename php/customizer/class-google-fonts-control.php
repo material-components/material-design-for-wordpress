@@ -27,7 +27,7 @@ class Google_Fonts_Control extends \WP_Customize_Control {
 	 * @var array
 	 */
 	public $css_vars = [];
-	
+
 	/**
 	 * Displays the control wrapper.
 	 *
@@ -41,7 +41,7 @@ class Google_Fonts_Control extends \WP_Customize_Control {
 		if ( empty( $this->choices ) ) {
 			$class .= ' customize-control-child-' . $this->type;
 		}
-	
+
 		printf( '<li id="%s" class="%s">', esc_attr( $id ), esc_attr( $class ) );
 		$this->render_content();
 		echo '</li>';

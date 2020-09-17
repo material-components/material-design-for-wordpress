@@ -51,19 +51,19 @@ exports[`GoogleFontsControl matches snapshot 1`] = `
         className="google-fonts-control-body__item"
       >
         <ForwardRef(Button)
-          className="google-fonts-control-settings-expanded"
+          className="control-settings-expanded google-fonts-control-settings-expanded"
           icon="admin-settings"
           isLink={true}
-          label="View individual components"
+          label="View more options"
           onClick={[Function]}
           showTooltip={true}
         >
           <Tooltip
-            text="View individual components"
+            text="View more options"
           >
             <button
-              aria-label="View individual components"
-              className="components-button google-fonts-control-settings-expanded is-link has-icon"
+              aria-label="View more options"
+              className="components-button control-settings-expanded google-fonts-control-settings-expanded is-link has-icon"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
