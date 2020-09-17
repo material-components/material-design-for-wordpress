@@ -56,10 +56,6 @@
 	.mdc-text-field--textarea  .mdc-floating-label {
 		top: 10px !important;
 	}
-
-	.mdc-text-field--outlined .mdc-text-field__input {
-		padding: 12px 16px 14px var(--mdc-text-field-radius, 32px) !important;
-	}
 }
 
 .editor-styles-wrapper .mdc-floating-label {
