@@ -256,7 +256,7 @@ const ButtonEdit = ( {
 							value={ backgroundColor }
 							onChange={ setter( 'backgroundColor' ) }
 							globalPropName={
-								hasBg( style ) ? 'primary_color' : 'primary_text_color'
+								hasBg( style ) ? 'primary_color' : 'on_primary_color'
 							}
 						/>
 					) }
@@ -265,7 +265,7 @@ const ButtonEdit = ( {
 						value={ textColor }
 						onChange={ setter( 'textColor' ) }
 						globalPropName={
-							hasBg( style ) ? 'primary_text_color' : 'primary_color'
+							hasBg( style ) ? 'on_primary_color' : 'primary_color'
 						}
 					/>
 
@@ -273,7 +273,7 @@ const ButtonEdit = ( {
 						<GlobalColorContrastChecker
 							textColor={ textColor }
 							backgroundColor={ backgroundColor }
-							textProp="primary_text_color"
+							textProp="on_primary_color"
 							backgroundProp="primary_color"
 						/>
 					) }

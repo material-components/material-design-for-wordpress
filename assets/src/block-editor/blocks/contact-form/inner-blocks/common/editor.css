@@ -50,7 +50,6 @@
 
 	.mdc-floating-label {
 		margin: 0 !important;
-		color: rgba(0, 0, 0, .6) !important;
 		top: calc(50% - 5px) !important;
 	}
 
