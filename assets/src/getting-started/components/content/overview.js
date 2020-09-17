@@ -1,115 +1,35 @@
 import { Fragment, useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import { STATUS } from '../../../wizard/constants';
 import Button from '../../../wizard/components/navigation/button';
-import TabContext from '../../context';
-import { ACTIONS } from '../../constants';
-import getConfig from '../../get-config';
+import getConfig from '../../../admin/get-config';
 
 export const Overview = () => {
-	const { state, dispatch } = useContext( TabContext );
-	const { themeStatus, status } = state;
-	const icon = 'ok' !== themeStatus ? 'navigate_next' : null;
-	const isDisabled = 'ok' === themeStatus;
-	const isLoading = STATUS.PENDING === status;
-	const text =
-		'ok' !== themeStatus
-			? __( 'Activate', 'material-theme-builder' )
-			: __( 'Activated', 'material-theme-builder' );
-
-	const handleClick = () => {
-		if ( 'install' === themeStatus ) {
-			dispatch( { type: ACTIONS.INSTALL_THEME } );
-		}
-
-		if ( 'activate' === themeStatus ) {
-			dispatch( { type: ACTIONS.ACTIVATE_THEME } );
-		}
-	};
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __(
-					'Time to make Material Design look the way you want',
+					'Build with Material Blocks',
 					'material-theme-builder'
 				) }
 			</h2>
+
 			<p>
 				{ __(
-					'With Material Design you can customize your navigation, colors, typography, shapes, and access the full set of ',
-					'material-theme-builder'
-				) }
-				<a
-					href="https://fonts.google.com/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					{ __( 'Google Fonts', 'material-theme-builder' ) }
-				</a>
-				{ __( ' and ', 'material-theme-builder' ) }
-				<a
-					href="https://material.io/resources/icons/?style=baseline"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					{ __( 'Material Design icons.', 'material-theme-builder' ) }
-				</a>
-				{ __(
-					' Check out the Customize your Theme section to dig into all the ways you can make Material your own. ',
+					'Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor.',
 					'material-theme-builder'
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				{ __( 'Material Theme', 'material-theme-builder' ) }
-			</h2>
-			<p>
-				{ __(
-					"Applies Material Design colors, typography, shapes, and icons to built-in WordPress elements like your site's header and posts.",
-					'material-theme-builder'
-				) }
-			</p>
+			<img src={ `${ getConfig( 'assetsPath' ) }build-with-material-blocks.png` } alt="" />
+
 			<div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised"
-					text={ text }
-					trailingIcon={ icon }
-					onClick={ handleClick }
-					disabled={ isDisabled }
-					loading={ isLoading }
-				/>
-			</div>
-
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				{ __( 'Material Design Plugin', 'material-theme-builder' ) }
-			</h2>
-			<p>
-				{ __(
-					'Customize your Material Theme styles and Material Components blocks. Choose from over 1,000 Google Fonts and Material Design icons.',
-					'material-theme-builder'
-				) }
-			</p>
-
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
-				{ __(
-					'Material Components available in the Block Editor',
-					'material-theme-builder'
-				) }
-			</h2>
-			<p>
-				{ __(
-					'Start building your custom site with Material Blocks available in the WordPress editor, no code required.',
-					'material-theme-builder'
-				) }
-			</p>
-			{/* <div className="material-gsm__content-actions">
-				<Button
-					style="mdc-button--raised"
-					text={ __( 'View all Material Blocks', 'material-theme-builder' ) }
+					text={ __( 'Customize', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
 					link={ getConfig( 'customize' ) }
 				/>
-			</div> */}
+			</div>
 
 			<div style={ { height: '20px' } }></div>
 		</Fragment>
