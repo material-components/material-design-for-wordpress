@@ -13,6 +13,7 @@
  * Internal dependencies
  */
 import colorUtils from '../common/color-utils';
+import { STYLES } from '../customizer/components/google-fonts-control/styles';
 
 const getIconFontName = iconStyle => {
 	return iconStyle === 'filled'
@@ -214,10 +215,11 @@ const getIconFontName = iconStyle => {
 			}
 
 			const selectedFont = parentApi( control ).get();
-			const { variants } = window.parent.mtb.googleFonts[ selectedFont ];
 
 			fonts.push(
-				selectedFont.replace( /\s/g, '+' ) + ':' + variants.join( ',' )
+				selectedFont.replace( /\s/g, '+' ) +
+					':' +
+					Object.keys( STYLES ).join( ',' )
 			);
 		} );
 
