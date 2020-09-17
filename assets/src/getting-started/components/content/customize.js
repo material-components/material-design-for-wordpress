@@ -153,15 +153,6 @@ export const Customize = props => {
 				) }
 			</p>
 
-			<div className="material-gsm__content-actions">
-				<Button
-					style="mdc-button--raised"
-					text={ __( 'Next', 'material-theme-builder' ) }
-					trailingIcon="navigate_next"
-					onClick={ props.handleClick }
-				/>
-			</div>
-
 			<div style={ { height: '20px' } }></div>
 		</Fragment>
 	);
