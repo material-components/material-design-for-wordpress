@@ -14,13 +14,13 @@ export const Wizard = props => {
 		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __(
-					'Get your Material site up and running',
+					'Quick Start',
 					'material-theme-builder'
 				) }
 			</h2>
 			<p>
 				{ __(
-					'Follow this simple step-by-step flow to install the Material Theme and quick start examples, so you can start customizing your WordPress site in no time.',
+					'Install the Material Theme and quick start examples.',
 					'material-theme-builder'
 				) }
 			</p>

@@ -22,7 +22,6 @@ export const ACTIONS = {
  */
 export const TABS = {
 	WIZARD: __( 'Quick Start', 'material-theme-builder' ),
-	OVERVIEW: __( 'Overview', 'material-theme-builder' ),
-	CUSTOMIZE: __( 'Customize your Theme', 'material-theme-builder' ),
-	LAYOUT: __( 'Layout Settings', 'material-theme-builder' ),
+	OVERVIEW: __( 'Build with Material Blocks', 'material-theme-builder' ),
+	CUSTOMIZE: __( 'Customize your theme', 'material-theme-builder' ),
 };
