@@ -31,7 +31,7 @@ class Test_Material_Color_Palette_Control extends \WP_UnitTestCase {
 		$wp_customize = new \WP_Customize_Manager();
 
 		$wp_customize->add_setting( 'mtb_primary_color' );
-		$wp_customize->add_setting( 'mtb_primary_text_color' );
+		$wp_customize->add_setting( 'mtb_on_primary_color' );
 
 		$primary_control = new Material_Color_Palette_Control(
 			$wp_customize,
@@ -40,7 +40,7 @@ class Test_Material_Color_Palette_Control extends \WP_UnitTestCase {
 				'label'                => 'Primary',
 				'section'              => 'colors',
 				'priority'             => 10,
-				'related_text_setting' => 'mtb_primary_text_color',
+				'related_text_setting' => 'mtb_on_primary_color',
 				'related_setting'      => false,
 				'css_var'              => '--mdc-theme-primary',
 			]
@@ -48,7 +48,7 @@ class Test_Material_Color_Palette_Control extends \WP_UnitTestCase {
 
 		$primary_text_control = new Material_Color_Palette_Control(
 			$wp_customize,
-			'mtb_primary_text_color',
+			'mtb_on_primary_color',
 			[
 				'label'                => 'Primary Text',
 				'section'              => 'colors',
@@ -62,7 +62,7 @@ class Test_Material_Color_Palette_Control extends \WP_UnitTestCase {
 		$json = $primary_control->json();
 
 		$this->assertEquals( 'material_color', $json['type'] );
-		$this->assertEquals( 'mtb_primary_text_color', $json['relatedTextSetting'] );
+		$this->assertEquals( 'mtb_on_primary_color', $json['relatedTextSetting'] );
 		$this->assertEquals( false, $json['relatedSetting'] );
 		$this->assertEquals( '--mdc-theme-primary', $json['cssVar'] );
 

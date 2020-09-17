@@ -64,6 +64,7 @@ class Admin extends Module_Base {
 	 * Render onboarding wizard page.
 	 */
 	public function render_onboarding_wizard_page() {
+		$this->plugin->customizer_controls->copy_saved_color_settings();
 		?>
 		<section id="material-onboarding-wizard" class="mdc-typography"></section>
 		<?php
