@@ -121,7 +121,19 @@ const getIconFontName = iconStyle => {
 					styles += `${ varName }: ${ parentApi( control ).get() };`;
 				} );
 			} else {
-				const rules = JSON.parse( parentApi( control ).get() );
+				const ruleValue = parentApi( control ).get();
+				let rules;
+
+				if ( ! ruleValue ) {
+					return;
+				}
+
+				// Bail if json is invalid.
+				try {
+					rules = JSON.parse( ruleValue );
+				} catch {
+					return;
+				}
 
 				for ( const rule in typographyControls[ control ] ) {
 					if ( 'style' === rule ) {
