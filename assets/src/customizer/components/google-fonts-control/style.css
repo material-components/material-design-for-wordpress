@@ -1,0 +1,47 @@
+.customize-control-google_fonts {
+
+	.google-fonts-control-body {
+		align-items: center;
+		display: flex;
+	}
+
+	.components-button.has-icon {
+		color: #666;
+	}
+
+	.google-fonts-control__values {
+		display: flex;
+	}
+
+	.components-base-control {
+		width: 40%;
+
+		&:last-child {
+			width: 52%;
+		}
+	}
+
+	.components-base-control__field {
+		align-items: center;
+		display: flex;
+
+		& input {
+			max-width: 50%;
+		}
+
+		& label {
+			margin-bottom: 0;
+			margin-right: 8px;
+		}
+	}
+
+	.google-fonts-control-children {
+		background-color: #ddd;
+		margin-top: 8px;
+		padding: 8px 0 8px 8px;
+	}
+}
+
+.customize-control-child-google_fonts {
+	margin-bottom: 0;
+}

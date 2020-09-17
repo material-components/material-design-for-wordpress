@@ -42,13 +42,16 @@ class Test_Google_Fonts extends \WP_UnitTestCase {
 	 * @see Google_Fonts::prepare_font_choice()
 	 */
 	public function test_prepare_font_choice() {
-		$font = Google_Fonts::prepare_font_choice( 'Raleway' );
+		$font = Google_Fonts::prepare_font_choice( 'Raleway', [ 'variants' => [ '100' ] ] );
 
 		$this->assertEquals(
 			$font,
 			[
-				'id'   => 'Raleway',
-				'text' => 'Raleway',
+				'id'       => 'Raleway',
+				'text'     => 'Raleway',
+				'variants' => [
+					'100',
+				],
 			]
 		);
 	}
