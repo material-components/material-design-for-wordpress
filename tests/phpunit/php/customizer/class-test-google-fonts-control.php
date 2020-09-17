@@ -62,7 +62,7 @@ class Test_Google_Fonts_Control extends \WP_UnitTestCase {
 		$wp_customize = new \WP_Customize_Manager();
 
 		$wp_customize->add_setting( 'mtb_primary_color' );
-		$wp_customize->add_setting( 'mtb_primary_text_color' );
+		$wp_customize->add_setting( 'mtb_on_primary_color' );
 
 		$primary_control = new Google_Fonts_Control(
 			$wp_customize,

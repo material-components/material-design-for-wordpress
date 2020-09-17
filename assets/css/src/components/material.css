@@ -128,7 +128,7 @@
 
 .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
 	border-radius: var(--mdc-text-field-radius, 4px) 0 0 var(--mdc-text-field-radius, 4px);
-	width: var(--mdc-text-field-radius, 12px);
+	width: calc(8px + var(--mdc-text-field-radius, 12px));
 }
 
 .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
@@ -162,6 +162,7 @@
 .single-post-card__title,
 .mtb-card__title {
 	color: var(--mdc-theme-on-surface, #000);
+	text-decoration: none;
 }
 
 .mdc-card--outlined {
