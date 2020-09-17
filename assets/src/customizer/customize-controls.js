@@ -417,7 +417,7 @@ import getConfig from '../block-editor/utils/get-config';
 	api.IconRadioControl = api.Control.extend( {
 		ready() {
 			const control = this;
-			$( 'input:radio', control.container ).change( function() {
+			$( 'input:radio', control.container ).on( 'change', function() {
 				control.setting.set( $( this ).val() );
 			} );
 		},
@@ -682,6 +682,25 @@ import getConfig from '../block-editor/utils/get-config';
 					}
 
 					setting.bind( onCustomValueChange );
+				} );
+			} );
+		}
+
+		const focusSection = api.settings.autofocus.section;
+		if (
+			focusSection &&
+			focusSection === `${ getConfig( 'slug' ) }_corner_styles`
+		) {
+			api.section( focusSection, instance => {
+				instance.deferred.embedded.done( () => {
+					api.previewer.deferred.active.done( () => {
+						setTimeout( () => {
+							api
+								.control( `${ getConfig( 'slug' ) }[global_radius]` )
+								.container.find( '.range-slider-control-settings-expanded' )
+								.trigger( 'click' );
+						}, 500 );
+					} );
 				} );
 			} );
 		}

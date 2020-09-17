@@ -648,7 +648,7 @@ class Controls extends Module_Base {
 
 		// Generate additional surface variant vars required by some components.
 		$surface    = $this->get_option( 'surface_color' );
-		$on_surface = $this->get_option( 'surface_text_color' );
+		$on_surface = $this->get_option( 'on_surface_color' );
 
 		if ( ! empty( $surface ) && ! empty( $on_surface ) ) {
 			$mix_4        = Helpers::mix_colors( $on_surface, $surface, 0.04 );
@@ -800,88 +800,104 @@ class Controls extends Module_Base {
 	public function get_design_styles() {
 		$design_styles = [
 			'baseline'    => [
-				'primary_color'         => '#6200ee',
-				'secondary_color'       => '#03dac6',
-				'primary_text_color'    => '#ffffff',
-				'secondary_text_color'  => '#000000',
-				'surface_color'         => '#ffffff',
-				'surface_text_color'    => '#000000',
-				'background_color'      => '#ffffff',
-				'background_text_color' => '#000000',
-				'head_font_family'      => 'Roboto',
-				'body_font_family'      => 'Roboto',
-				'global_radius'         => '4',
-				'button_radius'         => '4',
-				'card_radius'           => '4',
-				'chip_radius'           => '4',
-				'data_table_radius'     => '4',
-				'image_list_radius'     => '4',
-				'nav_drawer_radius'     => '4',
-				'text_field_radius'     => '4',
-				'icon_collection'       => 'filled',
+				'primary_color'           => '#6200ee',
+				'on_primary_color'        => '#ffffff',
+				'secondary_color'         => '#03dac6',
+				'on_secondary_color'      => '#000000',
+				'surface_color'           => '#ffffff',
+				'on_surface_color'        => '#000000',
+				'custom_background_color' => '#ffffff',
+				'on_background_color'     => '#000000',
+				'header_color'            => '#6200ee',
+				'on_header_color'         => '#ffffff',
+				'footer_color'            => '#ffffff',
+				'on_footer_color'         => '#000000',
+				'head_font_family'        => 'Roboto',
+				'body_font_family'        => 'Roboto',
+				'global_radius'           => '4',
+				'button_radius'           => '4',
+				'card_radius'             => '4',
+				'chip_radius'             => '4',
+				'data_table_radius'       => '4',
+				'image_list_radius'       => '4',
+				'nav_drawer_radius'       => '4',
+				'text_field_radius'       => '4',
+				'icon_collection'         => 'filled',
 			],
 			'crane'       => [
-				'primary_color'         => '#5d1049',
-				'secondary_color'       => '#e30425',
-				'primary_text_color'    => '#ffffff',
-				'secondary_text_color'  => '#ffffff',
-				'surface_color'         => '#ffffff',
-				'surface_text_color'    => '#000000',
-				'background_color'      => '#f4e2ed',
-				'background_text_color' => '#000000',
-				'head_font_family'      => 'Raleway',
-				'body_font_family'      => 'Raleway',
-				'global_radius'         => '16',
-				'button_radius'         => '16',
-				'card_radius'           => '16',
-				'chip_radius'           => '16',
-				'data_table_radius'     => '16',
-				'image_list_radius'     => '16',
-				'nav_drawer_radius'     => '16',
-				'text_field_radius'     => '16',
-				'icon_collection'       => 'outlined',
+				'primary_color'           => '#5d1049',
+				'secondary_color'         => '#e30425',
+				'on_primary_color'        => '#ffffff',
+				'on_secondary_color'      => '#ffffff',
+				'surface_color'           => '#ffffff',
+				'on_surface_color'        => '#000000',
+				'custom_background_color' => '#f4e2ed',
+				'on_background_color'     => '#000000',
+				'header_color'            => '#5d1049',
+				'on_header_color'         => '#ffffff',
+				'footer_color'            => '#ffffff',
+				'on_footer_color'         => '#000000',
+				'head_font_family'        => 'Raleway',
+				'body_font_family'        => 'Raleway',
+				'global_radius'           => '16',
+				'button_radius'           => '16',
+				'card_radius'             => '16',
+				'chip_radius'             => '16',
+				'data_table_radius'       => '16',
+				'image_list_radius'       => '16',
+				'nav_drawer_radius'       => '16',
+				'text_field_radius'       => '16',
+				'icon_collection'         => 'outlined',
 			],
 			'fortnightly' => [
-				'primary_color'         => '#121212',
-				'secondary_color'       => '#6b38fb',
-				'primary_text_color'    => '#ffffff',
-				'secondary_text_color'  => '#ffffff',
-				'surface_color'         => '#ffffff',
-				'surface_text_color'    => '#000000',
-				'background_color'      => '#ffffff',
-				'background_text_color' => '#000000',
-				'head_font_family'      => 'Merriweather',
-				'body_font_family'      => 'Merriweather',
-				'global_radius'         => '0',
-				'button_radius'         => '0',
-				'card_radius'           => '0',
-				'chip_radius'           => '0',
-				'data_table_radius'     => '0',
-				'image_list_radius'     => '0',
-				'nav_drawer_radius'     => '0',
-				'text_field_radius'     => '0',
-				'icon_collection'       => 'outlined',
+				'primary_color'           => '#121212',
+				'secondary_color'         => '#6b38fb',
+				'on_primary_color'        => '#ffffff',
+				'on_secondary_color'      => '#ffffff',
+				'surface_color'           => '#ffffff',
+				'on_surface_color'        => '#000000',
+				'custom_background_color' => '#ffffff',
+				'on_background_color'     => '#000000',
+				'header_color'            => '#121212',
+				'on_header_color'         => '#ffffff',
+				'footer_color'            => '#ffffff',
+				'on_footer_color'         => '#000000',
+				'head_font_family'        => 'Merriweather',
+				'body_font_family'        => 'Merriweather',
+				'global_radius'           => '0',
+				'button_radius'           => '0',
+				'card_radius'             => '0',
+				'chip_radius'             => '0',
+				'data_table_radius'       => '0',
+				'image_list_radius'       => '0',
+				'nav_drawer_radius'       => '0',
+				'text_field_radius'       => '0',
+				'icon_collection'         => 'outlined',
 			],
 			'blossom'     => [
-				'primary_color'         => '#e56969',
-				'secondary_color'       => '#ef9a9a',
-				'primary_text_color'    => '#ffffff',
-				'secondary_text_color'  => '#442c2e',
-				'surface_color'         => '#fff1ee',
-				'surface_text_color'    => '#442c2e',
-				'background_color'      => '#fff1ee',
-				'background_text_color' => '#442c2e',
-				'head_font_family'      => 'Rubik',
-				'body_font_family'      => 'Rubik',
-				'global_radius'         => '8',
-				'button_radius'         => '8',
-				'card_radius'           => '8',
-				'chip_radius'           => '8',
-				'data_table_radius'     => '8',
-				'image_list_radius'     => '8',
-				'nav_drawer_radius'     => '8',
-				'text_field_radius'     => '8',
-				'icon_collection'       => 'outlined',
+				'primary_color'           => '#e56969',
+				'secondary_color'         => '#ef9a9a',
+				'on_primary_color'        => '#ffffff',
+				'on_secondary_color'      => '#442c2e',
+				'surface_color'           => '#fff1ee',
+				'on_surface_color'        => '#442c2e',
+				'custom_background_color' => '#fff1ee',
+				'on_background_color'     => '#442c2e',
+				'header_color'            => '#e56969',
+				'on_header_color'         => '#ffffff',
+				'footer_color'            => '#fff1ee',
+				'on_footer_color'         => '#442c2e',
+				'head_font_family'        => 'Rubik',
+				'body_font_family'        => 'Rubik',
+				'global_radius'           => '8',
+				'button_radius'           => '8',
+				'card_radius'             => '8',
+				'chip_radius'             => '8',
+				'data_table_radius'       => '8',
+				'image_list_radius'       => '8',
+				'nav_drawer_radius'       => '8',
+				'text_field_radius'       => '8',
+				'icon_collection'         => 'outlined',
 			],
 		];
 
@@ -902,25 +918,25 @@ class Controls extends Module_Base {
 				'id'                   => 'primary_color',
 				'label'                => __( 'Primary Color', 'material-theme-builder' ),
 				'a11y_label'           => __( 'On Primary', 'material-theme-builder' ),
-				'related_text_setting' => $this->prepare_option_name( 'primary_text_color' ),
+				'related_text_setting' => $this->prepare_option_name( 'on_primary_color' ),
 				'css_var'              => '--mdc-theme-primary',
 			],
 			[
-				'id'                   => 'secondary_color',
-				'label'                => __( 'Secondary Color', 'material-theme-builder' ),
-				'a11y_label'           => __( 'On Secondary', 'material-theme-builder' ),
-				'related_text_setting' => $this->prepare_option_name( 'secondary_text_color' ),
-				'css_var'              => '--mdc-theme-secondary',
-			],
-			[
-				'id'              => 'primary_text_color',
+				'id'              => 'on_primary_color',
 				'label'           => __( 'On Primary Color (text and icons)', 'material-theme-builder' ),
 				'a11y_label'      => __( 'On Primary', 'material-theme-builder' ),
 				'related_setting' => $this->prepare_option_name( 'primary_color' ),
 				'css_var'         => '--mdc-theme-on-primary',
 			],
 			[
-				'id'              => 'secondary_text_color',
+				'id'                   => 'secondary_color',
+				'label'                => __( 'Secondary Color', 'material-theme-builder' ),
+				'a11y_label'           => __( 'On Secondary', 'material-theme-builder' ),
+				'related_text_setting' => $this->prepare_option_name( 'on_secondary_color' ),
+				'css_var'              => '--mdc-theme-secondary',
+			],
+			[
+				'id'              => 'on_secondary_color',
 				'label'           => __( 'On Secondary Color (text and icons)', 'material-theme-builder' ),
 				'a11y_label'      => __( 'On Secondary', 'material-theme-builder' ),
 				'related_setting' => $this->prepare_option_name( 'secondary_color' ),
@@ -930,11 +946,11 @@ class Controls extends Module_Base {
 				'id'                   => 'surface_color',
 				'label'                => __( 'Surface Color', 'material-theme-builder' ),
 				'a11y_label'           => __( 'On Surface', 'material-theme-builder' ),
-				'related_text_setting' => $this->prepare_option_name( 'surface_text_color' ),
+				'related_text_setting' => $this->prepare_option_name( 'on_surface_color' ),
 				'css_var'              => '--mdc-theme-surface',
 			],
 			[
-				'id'              => 'surface_text_color',
+				'id'              => 'on_surface_color',
 				'label'           => __( 'On Surface Color (text and icons)', 'material-theme-builder' ),
 				'a11y_label'      => __( 'On Surface', 'material-theme-builder' ),
 				'related_setting' => $this->prepare_option_name( 'surface_color' ),
@@ -1175,7 +1191,7 @@ class Controls extends Module_Base {
 	public function update_option( $name, $value ) {
 		$values = get_option( $this->slug );
 
-		if ( empty( $options ) ) {
+		if ( empty( $values ) ) {
 			$values = [];
 		}
 
@@ -1223,30 +1239,22 @@ class Controls extends Module_Base {
 	}
 
 	/**
-	 * Move background color contorls to Material "Color Palettes" section.
+	 * Copy color settings from theme on activation.
 	 *
-	 * @action material_customizer_control_args, 10, 2
-	 *
-	 * @param array|WP_Customize_Control $control Control arguments.
-	 * @param string                     $id     Control ID.
-	 *
-	 * @return array
+	 * @return void
 	 */
-	public function move_background_color_controls( $control, $id ) {
-		if ( in_array( $id, [ 'material_background_color', 'material_background_text_color' ], true ) ) {
-			$label = 'material_background_text_color' === $id ? esc_html__( 'On Background Color (text and icons)', 'material-theme-builder' ) : false;
-			if ( is_array( $control ) ) {
-				$control['section']  = $this->prepend_slug( 'colors' );
-				$control['priority'] = 20;
-				$control['label']    = $label ? $label : $control['label'];
-			} elseif ( $control instanceof \WP_Customize_Control ) {
-				$control->section  = $this->prepend_slug( 'colors' );
-				$control->priority = 20;
-				$control->label    = $label ? $label : $control->label;
+	public function copy_saved_color_settings() {
+		if ( 'ok' === $this->plugin->theme_status() ) {
+			$values = get_option( $this->slug );
+
+			foreach ( $this->get_color_controls() as $control ) {
+				$theme_value = get_theme_mod( $control['id'] );
+
+				if ( ( empty( $values ) || empty( $values[ $control['id'] ] ) ) && ! empty( $theme_value ) ) {
+					$this->update_option( $control['id'], $theme_value );
+				}
 			}
 		}
-
-		return $control;
 	}
 	
 	/**

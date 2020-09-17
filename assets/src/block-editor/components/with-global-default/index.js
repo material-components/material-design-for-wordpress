@@ -84,8 +84,8 @@ export const withGlobalColorDefault = createHigherOrderComponent(
 
 			// If the control is a text color, use the text color props.
 			if ( globalPropName.toLowerCase().includes( 'text' ) ) {
-				primayColorProp = 'primary_text_color';
-				secondaryColorProp = 'secondary_text_color';
+				primayColorProp = 'on_primary_color';
+				secondaryColorProp = 'on_secondary_color';
 			}
 
 			let colors = [
