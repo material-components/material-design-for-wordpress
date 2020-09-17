@@ -525,7 +525,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		);
 
 		// Assert we get updated fonts.
-		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic|Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic' );
+		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway:100,400,500|Open+Sans:400,500' );
 	}
 
 	/**

@@ -426,7 +426,7 @@ Object {
             <button
               aria-label="View individual components"
               aria-pressed="true"
-              class="components-button range-slider-control-settings-expanded is-pressed is-link has-icon"
+              class="components-button control-settings-expanded range-slider-control-settings-expanded is-pressed is-link has-icon"
               type="button"
             >
               <svg
@@ -556,7 +556,7 @@ Object {
           <button
             aria-label="View individual components"
             aria-pressed="true"
-            class="components-button range-slider-control-settings-expanded is-pressed is-link has-icon"
+            class="components-button control-settings-expanded range-slider-control-settings-expanded is-pressed is-link has-icon"
             type="button"
           >
             <svg

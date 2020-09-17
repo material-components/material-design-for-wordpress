@@ -42,7 +42,7 @@ const GoogleFontsControl = props => {
 				setSelectedFont( event.target.value );
 				onChange( event );
 			} );
-	}, [ elementRef ] );
+	}, [ elementRef ] ); // eslint-disable-line
 
 	useEffect( () => {
 		const newChildren = children.map( child => {
@@ -54,7 +54,7 @@ const GoogleFontsControl = props => {
 		} );
 
 		setItems( newChildren );
-	}, [ selectedFont ] );
+	}, [ selectedFont ] ); // eslint-disable-line
 
 	const setChildValues = child => {
 		const childControl = wp.customize.control(
@@ -139,13 +139,10 @@ const GoogleFontsControl = props => {
 				<span className="google-fonts-control-body__item">
 					<Button
 						isLink
-						label={ __(
-							'View individual components',
-							'material-theme-builder'
-						) }
+						label={ __( 'View more options', 'material-theme-builder' ) }
 						showTooltip={ true }
 						icon="admin-settings"
-						className="google-fonts-control-settings-expanded"
+						className="control-settings-expanded google-fonts-control-settings-expanded"
 						onClick={ handleClick }
 					/>
 				</span>
