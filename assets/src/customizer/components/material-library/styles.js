@@ -15,18 +15,18 @@ export const Overrides = createGlobalStyle`
 
 		--mdc-theme-primary: ${ props => props.primaryColor };
 		--mdc-theme-secondary: ${ props => props.secondaryColor };
-		--mdc-theme-on-primary: ${ props => props.primaryTextColor };
-		--mdc-theme-on-secondary: ${ props => props.secondaryTextColor };
+		--mdc-theme-on-primary: ${ props => props.onPrimaryColor };
+		--mdc-theme-on-secondary: ${ props => props.onSecondaryColor };
 		--mdc-theme-surface: ${ props => props.surfaceColor };
-		--mdc-theme-on-surface: ${ props => props.surfaceTextColor };
+		--mdc-theme-on-surface: ${ props => props.onSurfaceColor };
 		--mdc-theme-on-surface-rgb: ${ props =>
-			colorUtils.hexToRgb( props.surfaceTextColor ).join( ',' ) };
+			colorUtils.hexToRgb( props.onSurfaceColor ).join( ',' ) };
 		--mdc-theme-surface-mix-4: ${ props => props.surfaceColorMix4 };
 		--mdc-theme-surface-mix-12: ${ props => props.surfaceColorMix12 };
 		--mdc-theme-background: ${ props => props.backgroundColor };
-		--mdc-theme-on-background: ${ props => props.backgroundTextColor };
+		--mdc-theme-on-background: ${ props => props.onBackgroundColor };
 		--mdc-theme-on-background-rgb: ${ props =>
-			colorUtils.hexToRgb( props.backgroundTextColor ).join( ',' ) };
+			colorUtils.hexToRgb( props.onBackgroundColor ).join( ',' ) };
 
 		--mdc-icons-font-family: ${ props => props.iconCollection };
 
