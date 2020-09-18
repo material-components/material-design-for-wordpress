@@ -15,7 +15,7 @@
  */
 
 /**
- * Wordpress dependencies
+ * WordPress dependencies
  */
 import { InnerBlocks } from '@wordpress/block-editor';
 

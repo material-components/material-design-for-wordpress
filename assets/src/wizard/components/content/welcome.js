@@ -38,7 +38,7 @@ const Welcome = () => {
 
 				<p>
 					{ __(
-						'Material Design for Wordpress lets you use Material Components and custom styles in your Wordpress site.',
+						'Material Design for WordPress lets you use Material Components and custom styles in your WordPress site.',
 						'material-theme-builder'
 					) }
 				</p>
