@@ -6,6 +6,7 @@ import path from 'path';
 import '@testing-library/jest-dom/extend-expect';
 import { waitFor } from '@testing-library/dom';
 import MutationObserver from '@sheerun/mutationobserver-shim';
+import { enableFetchMocks } from 'jest-fetch-mock';
 
 /**
  * Internal dependencies
@@ -16,6 +17,7 @@ import {
 } from '../../../assets/src/front-end/contact-form';
 
 jest.dontMock( 'fs' );
+enableFetchMocks();
 
 const jQMock = jest.requireActual( 'jquery' );
 
@@ -39,7 +41,6 @@ window.jQuery = {
 	...jQMock,
 	ajax,
 };
-
 window.MutationObserver = MutationObserver;
 
 /**
@@ -70,10 +71,12 @@ describe( 'Front-end: Contact Form', () => {
 			ready,
 			execute,
 		};
+		global.fetch = fetch;
 	} );
 
 	beforeEach( () => {
 		jest.clearAllMocks();
+		fetch.resetMocks();
 	} );
 
 	describe( 'initContactForm', () => {
@@ -107,30 +110,39 @@ describe( 'Front-end: Contact Form', () => {
 			document.getElementById( 'mtb-message-1' ).value = 'Test message';
 
 			initContactForm();
+			fetch.mockResponse( JSON.stringify( { success: true } ) );
 
 			document.querySelector( '.mdc-button' ).click();
 
-			await waitFor( () =>
-				expect( window.jQuery.ajax ).toHaveBeenCalledWith( {
-					data: {
-						_wp_http_referer: '/3732-2/',
-						action: 'mtb_submit_contact_form',
-						contact_fields:
-							'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
-						mtb_contact_form_nonce: '8d2ba7b1f1',
-						mtb_token: 'token_here',
-						token: 'token_here',
-					},
-					dataType: 'json',
-					type: 'POST',
-					url: 'http://example.com/',
-				} )
-			);
+			expect( fetch.mock.calls[ 0 ][ 1 ].body ).not.toBeUndefined();
 
-			expect(
-				document.getElementById( 'mtbContactFormSuccessMsgContainer' ).style
-					.display
-			).toStrictEqual( 'block' );
+			const formDataInstance = fetch.mock.calls[ 0 ][ 1 ].body;
+			const formDataAsObject = {};
+			formDataInstance.forEach( ( value, key ) => {
+				formDataAsObject[ key ] = value;
+			} );
+
+			expect( formDataAsObject ).toStrictEqual( {
+				_wp_http_referer: '/3732-2/',
+				action: 'mtb_submit_contact_form',
+				contact_fields:
+					'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
+				mtb_contact_form_nonce: '8d2ba7b1f1',
+				mtb_token: 'token_here',
+				token: 'token_here',
+			} );
+
+			expect( fetch ).toHaveBeenCalledWith( 'http://example.com/', {
+				method: 'POST',
+				body: formDataInstance,
+			} );
+
+			await waitFor( () => {
+				expect(
+					document.getElementById( 'mtbContactFormSuccessMsgContainer' ).style
+						.display
+				).toStrictEqual( 'block' );
+			} );
 		} );
 
 		it( 'calls successfully the ajax request and shows the error message when the form submission is not successful', async () => {
@@ -145,22 +157,30 @@ describe( 'Front-end: Contact Form', () => {
 
 			document.querySelector( '.mdc-button' ).click();
 
-			await waitFor( () => {
-				expect( window.jQuery.ajax ).toHaveBeenCalledWith( {
-					data: {
-						_wp_http_referer: '',
-						action: 'mtb_submit_contact_form',
-						contact_fields:
-							'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
-						mtb_contact_form_nonce: '8d2ba7b1f1',
-						mtb_token: 'token_here',
-						token: 'token_here',
-					},
-					dataType: 'json',
-					type: 'POST',
-					url: 'http://example.com/',
-				} );
+			expect( fetch.mock.calls[ 0 ][ 1 ].body ).not.toBeUndefined();
 
+			const formDataInstance = fetch.mock.calls[ 0 ][ 1 ].body;
+			const formDataAsObject = {};
+			formDataInstance.forEach( ( value, key ) => {
+				formDataAsObject[ key ] = value;
+			} );
+
+			expect( formDataAsObject ).toStrictEqual( {
+				_wp_http_referer: '',
+				action: 'mtb_submit_contact_form',
+				contact_fields:
+					'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
+				mtb_contact_form_nonce: '8d2ba7b1f1',
+				mtb_token: 'token_here',
+				token: 'token_here',
+			} );
+
+			expect( fetch ).toHaveBeenCalledWith( 'http://example.com/', {
+				method: 'POST',
+				body: formDataInstance,
+			} );
+
+			await waitFor( () => {
 				expect(
 					document.getElementById( 'mtbContactFormErrorMsgContainer' ).style
 						.display
@@ -180,22 +200,30 @@ describe( 'Front-end: Contact Form', () => {
 
 			document.querySelector( '.mdc-button' ).click();
 
-			await waitFor( () => {
-				expect( window.jQuery.ajax ).toHaveBeenCalledWith( {
-					data: {
-						_wp_http_referer: '/3732-2/',
-						action: '',
-						contact_fields:
-							'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
-						mtb_contact_form_nonce: '8d2ba7b1f1',
-						mtb_token: 'token_here',
-						token: 'token_here',
-					},
-					dataType: 'json',
-					type: 'POST',
-					url: 'http://example.com/',
-				} );
+			expect( fetch.mock.calls[ 0 ][ 1 ].body ).not.toBeUndefined();
 
+			const formDataInstance = fetch.mock.calls[ 0 ][ 1 ].body;
+			const formDataAsObject = {};
+			formDataInstance.forEach( ( value, key ) => {
+				formDataAsObject[ key ] = value;
+			} );
+
+			expect( formDataAsObject ).toStrictEqual( {
+				_wp_http_referer: '/3732-2/',
+				action: '',
+				contact_fields:
+					'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
+				mtb_contact_form_nonce: '8d2ba7b1f1',
+				mtb_token: 'token_here',
+				token: 'token_here',
+			} );
+
+			expect( fetch ).toHaveBeenCalledWith( 'http://example.com/', {
+				method: 'POST',
+				body: formDataInstance,
+			} );
+
+			await waitFor( () => {
 				expect(
 					document.getElementById( 'mtbContactFormErrorMsgContainer' ).style
 						.display

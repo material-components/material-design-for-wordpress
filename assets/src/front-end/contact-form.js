@@ -1,4 +1,4 @@
-/* global grecaptcha, jQuery */
+/* global grecaptcha, fetch, FormData */
 
 /**
  * External dependencies
@@ -42,8 +42,8 @@ export const initContactForm = () => {
 		event.preventDefault();
 
 		const contactFields = {};
-		const ajaxData = {};
-		ajaxData.token = form.querySelector( '[name=mtb_token]' ).value;
+		const formData = new FormData();
+		formData.append( 'token', form.querySelector( '[name=mtb_token]' ).value );
 
 		for ( const field of form.querySelectorAll( 'input, textarea' ) ) {
 			const name = field.name;
@@ -57,35 +57,31 @@ export const initContactForm = () => {
 					value,
 				};
 			} else {
-				ajaxData[ name ] = value;
+				formData.append( name, value );
 			}
 		}
+		formData.append( 'contact_fields', JSON.stringify( contactFields ) );
 
-		ajaxData.contact_fields = JSON.stringify( contactFields );
-
-		const jxhr = jQuery.ajax( {
-			url: getConfig( 'ajax_url' ),
-			dataType: 'json',
-			type: 'POST',
-			data: ajaxData,
-		} );
-
-		jxhr.done( data => {
-			if ( data.success === true ) {
-				form.reset();
-				form.style.display = 'none';
-				document.getElementById(
-					'mtbContactFormSuccessMsgContainer'
-				).style.display = 'block';
-				initReCaptchaToken();
-			} else {
+		fetch( getConfig( 'ajax_url' ), {
+			method: 'POST',
+			body: formData,
+		} )
+			.then( response => response.json() )
+			.then( data => {
+				if ( data.success === true ) {
+					form.reset();
+					form.style.display = 'none';
+					document.getElementById(
+						'mtbContactFormSuccessMsgContainer'
+					).style.display = 'block';
+					initReCaptchaToken();
+				} else {
+					handleAjaxFormSubmissionError( form );
+				}
+			} )
+			.catch( () => {
 				handleAjaxFormSubmissionError( form );
-			}
-		} );
-
-		jxhr.fail( () => {
-			handleAjaxFormSubmissionError( form );
-		} );
+			} );
 
 		return false;
 	} );
