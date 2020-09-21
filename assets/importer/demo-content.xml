@@ -69,7 +69,7 @@
             <guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/home/</guid>
             <description></description>
             <content:encoded><![CDATA[<!-- wp:image {"align":"wide","id":34,"sizeSlug":"large","className":"is-style-default"} -->
-<figure class="wp-block-image alignwide size-large is-style-default"><img src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=375&q=80" alt="" height="420" class="wp-image-34"/></figure>
+<figure class="wp-block-image aligncenter size-large is-style-default"><img src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=375&q=80" alt="" height="420" class="wp-image-34"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:spacer {"height":20} -->
@@ -475,7 +475,7 @@
             <guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/about/</guid>
             <description></description>
             <content:encoded><![CDATA[<!-- wp:image {"align":"wide","id":34,"sizeSlug":"large"} -->
-<figure class="wp-block-image alignwide size-large"><img src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=375&q=80" alt="" class="wp-image-34"/></figure>
+<figure class="wp-block-image aligncenter size-large"><img src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=375&q=80" alt="" class="wp-image-34"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading -->

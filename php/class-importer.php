@@ -195,8 +195,8 @@ class Importer extends Module_Base {
 			$image_url = add_query_arg(
 				[
 					'w'   => 1200,
-					'h'   => 420,
-					'fit' => 'crop',
+					// 'h'   => 420,
+					// 'fit' => 'crop',
 				],
 				$image_url
 			);

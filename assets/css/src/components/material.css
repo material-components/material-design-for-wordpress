@@ -82,6 +82,10 @@
 	}
 }
 
+.post-thumbnail > img {
+	width: 860px;
+}
+
 /* Data Table */
 .mdc-data-table {
 	border-radius: var(--mdc-data-table-radius, 4px);
