@@ -137,7 +137,7 @@ const ButtonEdit = ( {
 
 	useEffect( () => {
 		if ( iconPosition !== 'none' && ! icon ) {
-			setAttributes( { icon: findIcon( 'favorite' ) } );
+			setAttributes( { icon: findIcon( 'spa' ) } );
 		}
 	}, [ icon, iconPosition ] ); // eslint-disable-line
 
@@ -175,7 +175,7 @@ const ButtonEdit = ( {
 	 */
 	const switchType = newType => {
 		if ( 'icon' === newType && ! icon ) {
-			setAttributes( { icon: { name: 'favorite', hex: 59517 } } );
+			setAttributes( { icon: { name: 'spa', hex: 59517 } } );
 		}
 
 		setAttributes( { type: newType } );

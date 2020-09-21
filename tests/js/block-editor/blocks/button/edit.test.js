@@ -209,7 +209,7 @@ describe( 'ButtonEdit', () => {
 		expect( props.setAttributes.mock.calls[ 1 ][ 0 ] ).toEqual( {
 			icon: {
 				hex: 59517,
-				name: 'favorite',
+				name: 'spa',
 			},
 		} );
 	} );

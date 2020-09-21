@@ -24,23 +24,23 @@ export const example = {
 		style: 'two-line',
 		items: [
 			{
-				icon: 'favorite',
+				icon: 'spa',
 				primaryText: __( 'List item', 'material-theme-builder' ),
 			},
 			{
-				icon: 'favorite',
+				icon: 'spa',
 				primaryText: __( 'List item', 'material-theme-builder' ),
 			},
 			{
-				icon: 'favorite',
+				icon: 'spa',
 				primaryText: __( 'List item', 'material-theme-builder' ),
 			},
 			{
-				icon: 'favorite',
+				icon: 'spa',
 				primaryText: __( 'List item', 'material-theme-builder' ),
 			},
 			{
-				icon: 'favorite',
+				icon: 'spa',
 				primaryText: __( 'List item', 'material-theme-builder' ),
 			},
 		],

@@ -575,7 +575,7 @@ Object {
                     aria-hidden="true"
                     class="material-icons-two-tone mdc-list-item__graphic"
                   >
-                    favorite
+                    spa
                   </i>
                   <span
                     class="mdc-list-item__text"
@@ -1873,7 +1873,7 @@ Object {
                   aria-hidden="true"
                   class="material-icons-two-tone mdc-list-item__graphic"
                 >
-                  favorite
+                  spa
                 </i>
                 <span
                   class="mdc-list-item__text"

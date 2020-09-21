@@ -54,7 +54,7 @@ const ListEdit = ( {
 					{
 						primaryText: '',
 						secondaryText: '',
-						icon: 'favorite',
+						icon: 'spa',
 					},
 				],
 			} );
@@ -81,7 +81,7 @@ const ListEdit = ( {
 		const item = {
 			primaryText: text,
 			secondaryText: '',
-			icon: 'favorite',
+			icon: 'spa',
 		};
 
 		if ( 'number' === typeof index ) {

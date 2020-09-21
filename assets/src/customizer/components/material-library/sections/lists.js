@@ -90,7 +90,7 @@ const Lists = ( { iconStyle } ) => (
 						className={ classNames( iconStyle, 'mdc-list-item__graphic' ) }
 						aria-hidden="true"
 					>
-						favorite
+						spa
 					</i>
 
 					<span className="mdc-list-item__text">
