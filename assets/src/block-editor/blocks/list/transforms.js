@@ -30,7 +30,7 @@ const transforms = {
 
 				itemValues.forEach( value => {
 					items.push( {
-						icon: 'favorite',
+						icon: 'spa',
 						primaryText: value,
 					} );
 				} );

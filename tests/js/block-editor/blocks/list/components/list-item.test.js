@@ -31,7 +31,7 @@ describe( 'ListItem', () => {
 	} );
 
 	it( 'matches snapshot when editable', () => {
-		const wrapper = setup( { ...baseProps, icon: 'favorite' } );
+		const wrapper = setup( { ...baseProps, icon: 'spa' } );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 } );

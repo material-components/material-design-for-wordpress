@@ -66,7 +66,7 @@ const baseProps = {
 			{
 				primaryText: 'List Item #1',
 				secondaryText: 'List Item #1 secondary text',
-				icon: 'favorite',
+				icon: 'spa',
 				url: 'http://example.com',
 				target: '_blank',
 			},
