@@ -919,7 +919,7 @@ class Controls extends Module_Base {
 				'image_list_radius'       => '0',
 				'nav_drawer_radius'       => '0',
 				'text_field_radius'       => '0',
-				'icon_collection'         => 'outlined',
+				'icon_collection'         => 'sharp',
 			],
 			'blossom'     => [
 				'primary_color'           => '#e56969',
@@ -944,7 +944,7 @@ class Controls extends Module_Base {
 				'image_list_radius'       => '8',
 				'nav_drawer_radius'       => '8',
 				'text_field_radius'       => '8',
-				'icon_collection'         => 'outlined',
+				'icon_collection'         => 'rounded',
 			],
 		];
 
