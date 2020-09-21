@@ -255,18 +255,70 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 2 ) )
+		$this->wp_customize->expects( $this->exactly( 15 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
 				[ $this->equalTo( "{$controls->slug}[head_font_family]" ) ],
-				[ $this->equalTo( "{$controls->slug}[body_font_family]" ) ]
+				[ $this->equalTo( "{$controls->slug}[body_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_1]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_2]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_3]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_4]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_5]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_6]" ) ],
+				[ $this->equalTo( "{$controls->slug}[subtitle_1]" ) ],
+				[ $this->equalTo( "{$controls->slug}[subtitle_2]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body1]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body2]" ) ],
+				[ $this->equalTo( "{$controls->slug}[button]" ) ],
+				[ $this->equalTo( "{$controls->slug}[caption]" ) ],
+				[ $this->equalTo( "{$controls->slug}[overline]" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 2 ) )
+		$this->wp_customize->expects( $this->exactly( 15 ) )
 			->method( 'add_control' )
 			->withConsecutive(
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
+				[
+					$this->isInstanceOf( Google_Fonts_Control::class ),
+				],
 				[
 					$this->isInstanceOf( Google_Fonts_Control::class ),
 				],
@@ -473,7 +525,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		);
 
 		// Assert we get updated fonts.
-		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway:300,400,500|Open+Sans:300,400,500' );
+		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway:100,400,500|Open+Sans:400,500' );
 	}
 
 	/**

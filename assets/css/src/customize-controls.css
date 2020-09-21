@@ -310,3 +310,36 @@
 .components-range-control__slider {
 	min-height: 30px;
 }
+
+.components-button.is-link {
+	border: none;
+	background: none !important;
+	margin-left: 6px;
+	padding: 0 6px;
+	text-decoration: none;
+
+	& .material-icons {
+		color: #666;
+		font-size: 20px;
+	}
+
+	& span {
+		font-size: 13px;
+	}
+
+	&.control-settings-expanded {
+		background: none;
+		box-shadow: none;
+		color: #666 !important;
+		min-width: auto;
+		padding: 2px;
+
+		&:hover,
+		&:focus,
+		&.is-pressed {
+			box-shadow: none;
+			color: #333 !important;
+			background-color: #ccc !important;
+		}
+	}
+}

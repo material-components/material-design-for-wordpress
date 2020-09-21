@@ -151,7 +151,7 @@ const RangeSliderControl = props => {
 							showTooltip={ true }
 							icon="admin-settings"
 							isPressed={ expandedSettings }
-							className="range-slider-control-settings-expanded"
+							className="control-settings-expanded range-slider-control-settings-expanded"
 						/>
 					</span>
 				) }
