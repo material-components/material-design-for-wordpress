@@ -275,9 +275,14 @@ class Controls extends Module_Base {
 		/**
 		 * Generate list of all the settings in the Typography section.
 		 */
-		$settings = [];
+		$settings     = [];
+		$all_controls = array_merge(
+			$this->get_typography_controls(),
+			$this->get_typography_extra_controls(),
+			$this->get_typography_extra_controls( false )
+		);
 
-		foreach ( $this->get_typography_controls() as $control ) {
+		foreach ( $all_controls as $control ) {
 			$settings[ $control['id'] ] = [];
 		}
 
@@ -288,7 +293,7 @@ class Controls extends Module_Base {
 		 */
 		$controls = [];
 
-		foreach ( $this->get_typography_controls() as $control ) {
+		foreach ( $all_controls as $control ) {
 			$controls[ $control['id'] ] = new Google_Fonts_Control(
 				$this->wp_customize,
 				$this->prepare_option_name( $control['id'] ),
@@ -297,6 +302,7 @@ class Controls extends Module_Base {
 					'priority' => 10,
 					'label'    => $control['label'],
 					'css_vars' => $control['css_vars'],
+					'choices'  => ( ! empty( $control['choices'] ) ) ? $control['choices'] : [],
 				]
 			);
 		}
@@ -566,15 +572,48 @@ class Controls extends Module_Base {
 	public function get_google_fonts_url( $context = '' ) {
 		$icons_style   = $this->get_icon_style( '+' );
 		$font_families = [ 'Material+Icons' . $icons_style ];
+		$fonts         = [];
 
 		if ( 'block-editor' === $context ) {
 			$font_families[] = 'Material+Icons+Outlined';
 		}
 
+		// Get the font families used.
 		foreach ( $this->get_typography_controls() as $control ) {
-			$value = $this->get_option( $control['id'] );
+			$type           = 'head_font_family' === $control['id'] ? 'head' : 'body';
+			$fonts[ $type ] = [
+				'family'   => $this->get_option( $control['id'] ),
+				'variants' => [],
+			];
+		}
 
-			$font_families[] = str_replace( ' ', '+', $value ) . ':300,400,500';
+		// Get the extra font controls.
+		$typography_extra_controls = array_merge(
+			$this->get_typography_extra_controls(),
+			$this->get_typography_extra_controls( false )
+		);
+
+		// Get the variant/weight used for each font control.
+		foreach ( $typography_extra_controls as $control ) {
+			$value  = json_decode( $this->get_option( $control['id'] ), true );
+			$weight = 'regular';
+
+			if ( ! empty( $value ) && ! empty( $value['weight'] ) ) {
+				$weight = $value['weight'];
+			} else {
+				$weight = $control['weight']['default'];
+			}
+
+			if ( false !== strpos( $control['id'], 'headline_' ) ) {
+				$fonts['head']['variants'][] = $weight;
+			} else {
+				$fonts['body']['variants'][] = $weight;
+			}
+		}
+
+		foreach ( $fonts as $font ) {
+			$variants        = str_replace( 'regular', '400', implode( ',', array_unique( $font['variants'] ) ) );
+			$font_families[] = str_replace( ' ', '+', $font['family'] ) . ':' . $variants;
 		}
 
 		$fonts_url = add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
@@ -678,6 +717,49 @@ class Controls extends Module_Base {
 						esc_html( $value ),
 						esc_html( $fallback )
 					);
+				}
+			}
+		}
+
+		$typography_extra_controls = array_merge(
+			$this->get_typography_extra_controls(),
+			$this->get_typography_extra_controls( false )
+		);
+
+		foreach ( $typography_extra_controls as $control ) {
+			$value = json_decode( $this->get_option( $control['id'] ), true );
+
+			if ( ! empty( $value ) && ! empty( $control['css_vars'] ) ) {
+				$font_style = 'normal';
+
+				foreach ( $control['css_vars'] as $type => $var ) {
+					if ( 'style' === $type || ! isset( $value[ $type ] ) ) {
+						continue;
+					}
+
+					if ( 'size' === $type ) {
+						$font_vars[] = sprintf(
+							'%s: %spx !important;',
+							esc_html( $var ),
+							esc_html( $value[ $type ] )
+						);
+					} else {
+						$font_vars[] = sprintf(
+							'%s: %s !important;',
+							esc_html( $var ),
+							esc_html( intval( $value[ $type ] ) )
+						);
+
+						if ( preg_match( '/italic$/', $value[ $type ] ) ) {
+							$font_style = 'italic';
+						}
+
+						$font_vars[] = sprintf(
+							'%s: %s !important;',
+							esc_html( $control['css_vars']['style'] ),
+							esc_html( $font_style )
+						);
+					}
 				}
 			}
 		}
@@ -960,6 +1042,7 @@ class Controls extends Module_Base {
 						'--mdc-typography-subtitle2-font-family',
 					],
 				],
+				'choices'  => $this->get_typography_extra_controls(),
 			],
 			[
 				'id'       => 'body_font_family',
@@ -974,6 +1057,7 @@ class Controls extends Module_Base {
 						'--mdc-typography-overline-font-family',
 					],
 				],
+				'choices'  => $this->get_typography_extra_controls( false ),
 			],
 		];
 	}
@@ -1232,5 +1316,187 @@ class Controls extends Module_Base {
 				}
 			}
 		}
+	}
+
+	/**
+	 * Default typography options
+	 *
+	 * @param  mixed $args Customized values.
+	 * @return array Values to use in control.
+	 */
+	public function get_typography_weight_controls( $args ) {
+		$args = wp_parse_args(
+			$args,
+			[
+				'label'   => __( 'Style', 'material-theme-builder' ),
+				'type'    => 'select',
+				'default' => __( 'Normal', 'material-theme-builder' ),
+				'choices' => [],
+			]
+		);
+
+		return $args;
+	}
+
+	/**
+	 * Return size control data.
+	 *
+	 * @param  mixed $args Customized values.
+	 * @return array Values to use in control.
+	 */
+	public function get_typography_size_controls( $args ) {
+		$args = wp_parse_args(
+			$args,
+			[
+				'label'   => __( 'Size', 'material-theme-builder' ),
+				'type'    => 'number',
+				'min'     => 2,
+				'default' => 12,
+				'max'     => 64,
+			]
+		);
+
+		return $args;
+	}
+
+	/**
+	 * Build typography size and weight controls.
+	 *
+	 * @param  bool $headlines Whether or not this are headlines.
+	 * @return array Values for controllers.
+	 */
+	public function get_typography_extra_controls( $headlines = true ) {
+		$controls = [];
+
+		if ( $headlines ) {
+			$default_sizes   = [ 96, 60, 48, 34, 24, 20 ];
+			$default_weights = [
+				'100',
+				'100',
+				'regular',
+				'regular',
+				'regular',
+				'500',
+			];
+
+			for ( $i = 1; $i < 7; $i++ ) {
+				$id         = sprintf( 'headline_%s', $i );
+				$controls[] = [
+					'id'       => $id,
+					'setting'  => $this->prepare_option_name( $id ),
+					'css_vars' => [
+						'size'   => sprintf( '--mdc-typography-headline%s-font-size', $i ),
+						'weight' => sprintf( '--mdc-typography-headline%s-font-weight', $i ),
+						'style'  => sprintf( '--mdc-typography-headline%s-font-style', $i ),
+					],
+					'value'    => $this->get_option( $id ),
+					'label'    => sprintf(
+						/* translators: Number of heading to display */
+						esc_html__( 'Headline %s', 'material-theme-builder' ),
+						$i
+					),
+					'size'     => $this->get_typography_size_controls(
+						[
+							'default' => intval( $default_sizes[ $i - 1 ] ),
+							'max'     => 96,
+						]
+					),
+					'weight'   => $this->get_typography_weight_controls(
+						[
+							'default' => $default_weights[ $i - 1 ],
+						]
+					),
+				];
+			}
+
+			$default_sizes   = [ 16, 14 ];
+			$default_weights = [
+				'regular',
+				'500',
+			];
+
+			for ( $i = 1; $i < 3; $i++ ) {
+				$id         = sprintf( 'subtitle_%s', $i );
+				$controls[] = [
+					'id'       => $id,
+					'setting'  => $this->prepare_option_name( $id ),
+					'css_vars' => [
+						'size'   => sprintf( '--mdc-typography-subtitle%s-font-size', $i ),
+						'weight' => sprintf( '--mdc-typography-subtitle%s-font-weight', $i ),
+						'style'  => sprintf( '--mdc-typography-subtitle%s-font-style', $i ),
+					],
+					'value'    => $this->get_option( $id ),
+					'label'    => sprintf(
+						/* translators: Number of heading to display */
+						esc_html__( 'Subtitle %s', 'material-theme-builder' ),
+						$i
+					),
+					'size'     => $this->get_typography_size_controls(
+						[
+							'default' => intval( $default_sizes[ $i - 1 ] ),
+						]
+					),
+					'weight'   => $this->get_typography_weight_controls(
+						[
+							'default' => $default_weights[ $i - 1 ],
+						]
+					),
+				];
+			}
+		} else {
+			$keys = [
+				'body1'    => [
+					'label'  => __( 'Body 1', 'material-theme-builder' ),
+					'size'   => 16,
+					'weight' => 'regular',
+				],
+				'body2'    => [
+					'label'  => __( 'Body 2', 'material-theme-builder' ),
+					'size'   => 14,
+					'weight' => 'regular',
+				],
+				'button'   => [
+					'label'  => __( 'Button', 'material-theme-builder' ),
+					'size'   => 12,
+					'weight' => 'regular',
+				],
+				'caption'  => [
+					'label'  => __( 'Caption', 'material-theme-builder' ),
+					'size'   => 12,
+					'weight' => 'regular',
+				],
+				'overline' => [
+					'label'  => __( 'Overline', 'material-theme-builder' ),
+					'size'   => 10,
+					'weight' => 'regular',
+				],
+			];
+
+			foreach ( $keys as $key => $settings ) {
+				$controls[] = [
+					'id'       => esc_html( $key ),
+					'setting'  => $this->prepare_option_name( $key ),
+					'label'    => esc_html( $settings['label'] ),
+					'css_vars' => [
+						'size'   => sprintf( '--mdc-typography-%s-font-size', $key ),
+						'weight' => sprintf( '--mdc-typography-%s-font-weight', $key ),
+						'style'  => sprintf( '--mdc-typography-%s-font-style', $key ),
+					],
+					'value'    => $this->get_option( $key ),
+					'size'     => $this->get_typography_size_controls(
+						[
+							'default' => intval( $settings['size'] ),
+						]
+					),
+					'weight'   => $this->get_typography_weight_controls(
+						[
+							'default' => $settings['weight'],
+						]
+					),
+				];
+			}
+		}
+
+		return $controls;
 	}
 }

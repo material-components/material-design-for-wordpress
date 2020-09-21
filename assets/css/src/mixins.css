@@ -16,28 +16,31 @@
 
 /* stylelint-disable */
 
-@define-mixin fontvars $type, $font-size: 1, $line-height: 1.5, $font-weight: 400, $tracking: 0.25 {
+@define-mixin fontvars $type, $font-size: 1, $line-height: 1.5, $font-weight: 400, $tracking: 0.25, $font-style: normal {
 	--mdc-typography-$(type)-font-size: calc($font-size * 16)px;
 	--mdc-typography-$(type)-line-height: calc($line-height * 16)px;
+	--mdc-typography-$(type)-font-style: $font-style;
 	--mdc-typography-$(type)-font-weight: $font-weight;
 	--mdc-typography-$(type)-letter-spacing: calc(($tracking / ($font-size * 16)) * $font-size * 16)px;
 }
 
-@define-mixin typography $type, $font-size: 1, $line-height: 1.5, $font-weight: 400, $child {
+@define-mixin typography $type, $font-size: 1, $line-height: 1.5, $font-weight: 400, $child, $font-style: normal {
 .mdc-typography--$type $child {
 	font-family: var(--mdc-typography-$(type)-font-family, var(--mdc-typography-font-family, Roboto, sans-serif)) !important;
 	font-size: var(--mdc-typography-$(type)-font-size, $(font-size)em) !important;
 	line-height: var(--mdc-typography-$(type)-line-height, $(line-height)em) !important;
+	font-style: var(--mdc-typography-$(type)-font-style, $font-style) !important;
 	font-weight: var(--mdc-typography-$(type)-font-weight, $font-weight) !important;
 	letter-spacing: var(--mdc-typography-$(type)-letter-spacing) !important;
 }
 }
 
-@define-mixin selector-typography $selector, $type, $font-size: 1, $line-height: 1.5, $font-weight: 400, $child {
+@define-mixin selector-typography $selector, $type, $font-size: 1, $line-height: 1.5, $font-weight: 400, $child, $font-style: normal {
 $selector $child {
 	font-family: var(--mdc-typography-$(type)-font-family, var(--mdc-typography-font-family, Roboto, sans-serif)) !important;
 	font-size: var(--mdc-typography-$(type)-font-size, $(font-size)em) !important;
 	line-height: var(--mdc-typography-$(type)-line-height, $(line-height)em) !important;
+	font-style: var(--mdc-typography-$(type)-font-style, $font-style) !important;
 	font-weight: var(--mdc-typography-$(type)-font-weight, $font-weight) !important;
 	letter-spacing: var(--mdc-typography-$(type)-letter-spacing) !important;
 }
