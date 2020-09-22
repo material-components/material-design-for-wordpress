@@ -15,6 +15,10 @@
 
 	.components-base-control {
 		width: 40%;
+
+		&:last-child {
+			width: 52%;
+		}
 	}
 
 	.components-base-control__field {

@@ -13,6 +13,7 @@
  * Internal dependencies
  */
 import colorUtils from '../common/color-utils';
+import { STYLES } from '../customizer/components/google-fonts-control/styles';
 
 const getIconFontName = iconStyle => {
 	return iconStyle === 'filled'
@@ -64,7 +65,7 @@ const getIconFontName = iconStyle => {
 				colorControls[ control ] = args.cssVar;
 			}
 
-			if ( args && !! args.cssVars ) {
+			if ( args && args.cssVars && args.type === 'google_fonts' ) {
 				typographyControls[ control ] = args.cssVars;
 			}
 
@@ -135,8 +136,8 @@ const getIconFontName = iconStyle => {
 					return;
 				}
 
-				for ( const rule in typographyControls[ control ] ) {
-					if ( 'style' === rule ) {
+				for ( const rule in rules ) {
+					if ( 'style' === rule || 'undefined' === typeof rules[ rule ] ) {
 						return;
 					}
 
@@ -149,9 +150,10 @@ const getIconFontName = iconStyle => {
 							styles += `${ typographyControls[ control ].style }: normal !important;`;
 						}
 
-						styles += `${ typographyControls[ control ][ rule ] }: ${ parseInt(
-							rules[ rule ]
-						) } !important;`;
+						const weight =
+							'regular' === rules[ rule ] ? 400 : parseInt( rules[ rule ], 10 );
+
+						styles += `${ typographyControls[ control ][ rule ] }: ${ weight } !important;`;
 					}
 				}
 			}
@@ -205,7 +207,7 @@ const getIconFontName = iconStyle => {
 	 */
 	const updateGoogleFontsURL = () => {
 		const fonts = [],
-			baseURL = '//fonts.googleapis.com/css?family=';
+			baseURL = 'https://fonts.googleapis.com/css?family=';
 
 		Object.keys( typographyControls ).forEach( control => {
 			if ( ! /family]$/.test( control ) ) {
@@ -213,17 +215,23 @@ const getIconFontName = iconStyle => {
 			}
 
 			const selectedFont = parentApi( control ).get();
-			const { variants } = window.parent.mtb.googleFonts[ selectedFont ];
 
 			fonts.push(
-				selectedFont.replace( /\s/g, '+' ) + ':' + variants.join( ',' )
+				selectedFont.replace( /\s/g, '+' ) +
+					':' +
+					Object.keys( STYLES ).join( ',' )
 			);
 		} );
 
-		$( '#material-google-fonts-cdn-css' ).attr(
-			'href',
-			`${ baseURL }${ [ ...new Set( fonts ) ].join( '|' ) }`
-		);
+		const $fontStyle = $( '#material-google-fonts-cdn-css' );
+		const fontURL = `${ baseURL }${ [ ...new Set( fonts ) ].join( '|' ) }`;
+
+		if ( $fontStyle.attr( 'href' ) !== fontURL ) {
+			$fontStyle.attr(
+				'href',
+				`${ baseURL }${ [ ...new Set( fonts ) ].join( '|' ) }`
+			);
+		}
 	};
 
 	// Generate preview styles on any color control change.

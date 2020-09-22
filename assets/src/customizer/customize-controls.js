@@ -620,6 +620,14 @@ import getConfig from '../block-editor/utils/get-config';
 				) {
 					onResetGlobalRangeSliderControl( control );
 				}
+
+				if ( settingName.includes( 'font_family' ) ) {
+					api
+						.control( settingName )
+						.container.find( '.google-fonts-control-selection' )
+						.val( value )
+						.trigger( 'change' );
+				}
 			} );
 		} );
 
