@@ -278,9 +278,6 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 					secondaryActionButtonNewTab: false,
 					secondaryActionButtonNoFollow: false,
 					secondaryActionButtonUrl: '',
-					secondaryText: 'Secondary text',
-					supportingText: 'Supporting text',
-					title: 'Title goes here',
 				},
 			],
 		} );
