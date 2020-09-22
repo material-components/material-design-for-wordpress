@@ -556,17 +556,48 @@ class Controls extends Module_Base {
 	public function get_google_fonts_url( $context = '' ) {
 		$icons_style   = $this->get_icon_style( '+' );
 		$font_families = [ 'Material+Icons' . $icons_style ];
+		$fonts         = [];
 
 		if ( 'block-editor' === $context ) {
 			$font_families[] = 'Material+Icons+Outlined';
 		}
 
+		// Get the font families used.
 		foreach ( $this->get_typography_controls() as $control ) {
-			$value = $this->get_option( $control['id'] );
+			$type           = 'head_font_family' === $control['id'] ? 'head' : 'body';
+			$fonts[ $type ] = [
+				'family'   => $this->get_option( $control['id'] ),
+				'variants' => [],
+			];
+		}
 
-			$font_variants = Google_Fonts::get_font_variants( $value );
+		// Get the extra font controls.
+		$typography_extra_controls = array_merge(
+			$this->get_typography_extra_controls(),
+			$this->get_typography_extra_controls( false )
+		);
 
-			$font_families[] = str_replace( ' ', '+', $value ) . ':' . implode( ',', $font_variants );
+		// Get the variant/weight used for each font control.
+		foreach ( $typography_extra_controls as $control ) {
+			$value  = json_decode( $this->get_option( $control['id'] ), true );
+			$weight = 'regular';
+
+			if ( ! empty( $value ) && ! empty( $value['weight'] ) ) {
+				$weight = $value['weight'];
+			} else {
+				$weight = $control['weight']['default'];
+			}
+
+			if ( false !== strpos( $control['id'], 'headline_' ) ) {
+				$fonts['head']['variants'][] = $weight;
+			} else {
+				$fonts['body']['variants'][] = $weight;
+			}
+		}
+
+		foreach ( $fonts as $font ) {
+			$variants        = str_replace( 'regular', '400', implode( ',', array_unique( $font['variants'] ) ) );
+			$font_families[] = str_replace( ' ', '+', $font['family'] ) . ':' . $variants;
 		}
 
 		$fonts_url = add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
@@ -686,7 +717,7 @@ class Controls extends Module_Base {
 				$font_style = 'normal';
 
 				foreach ( $control['css_vars'] as $type => $var ) {
-					if ( 'style' === $type ) {
+					if ( 'style' === $type || ! isset( $value[ $type ] ) ) {
 						continue;
 					}
 
@@ -1256,7 +1287,7 @@ class Controls extends Module_Base {
 			}
 		}
 	}
-	
+
 	/**
 	 * Default typography options
 	 *
@@ -1276,7 +1307,7 @@ class Controls extends Module_Base {
 
 		return $args;
 	}
-	
+
 	/**
 	 * Return size control data.
 	 *
@@ -1297,7 +1328,7 @@ class Controls extends Module_Base {
 
 		return $args;
 	}
-	
+
 	/**
 	 * Build typography size and weight controls.
 	 *
@@ -1342,7 +1373,7 @@ class Controls extends Module_Base {
 					),
 					'weight'   => $this->get_typography_weight_controls(
 						[
-							'default' => intval( $default_weights[ $i - 1 ] ),
+							'default' => $default_weights[ $i - 1 ],
 						]
 					),
 				];
@@ -1377,7 +1408,7 @@ class Controls extends Module_Base {
 					),
 					'weight'   => $this->get_typography_weight_controls(
 						[
-							'default' => intval( $default_weights[ $i - 1 ] ),
+							'default' => $default_weights[ $i - 1 ],
 						]
 					),
 				];
@@ -1429,7 +1460,7 @@ class Controls extends Module_Base {
 					),
 					'weight'   => $this->get_typography_weight_controls(
 						[
-							'default' => intval( $settings['weight'] ),
+							'default' => $settings['weight'],
 						]
 					),
 				];
