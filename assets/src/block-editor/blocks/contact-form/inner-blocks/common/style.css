@@ -36,7 +36,7 @@
 	}
 
 	.mdc-text-field--outlined .mdc-text-field__input {
-		padding: 12px 16px 14px calc(16px + var(--mdc-text-field-radius, 32px)) !important;
+		padding: 12px 16px 14px !important;
 	}
 
 	.components-base-control__field {
