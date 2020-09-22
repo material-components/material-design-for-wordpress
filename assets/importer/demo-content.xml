@@ -98,7 +98,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:material/button {"label":"Lorem Ipsum","style":"raised","cornerRadius":4,"url":"#","icon":{"name":"spa","hex":59517},"textColor":"#ffffff"} -->
-<div class="wp-block-material-button"><a href="#" style="color:#ffffff;border-radius:4px" class="mdc-button mdc-button--raised"><i class="material-icons mdc-button__icon"></i><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
+<div class="wp-block-material-button"><a href="#" style="color:#ffffff;border-radius:4px" class="mdc-button mdc-button--raised"><i class="material-icons mdc-button__icon">spa</i><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
 <!-- /wp:material/button --></div></div>
 <!-- /wp:cover -->
 
