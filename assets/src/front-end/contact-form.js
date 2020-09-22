@@ -1,4 +1,4 @@
-/* global grecaptcha, fetch, FormData */
+/* global grecaptcha, XMLHttpRequest, FormData */
 
 /**
  * External dependencies
@@ -62,27 +62,30 @@ export const initContactForm = () => {
 		}
 		formData.append( 'contact_fields', JSON.stringify( contactFields ) );
 
-		fetch( getConfig( 'ajax_url' ), {
-			method: 'POST',
-			body: formData,
-		} )
-			.then( response => response.json() )
-			.then( data => {
-				if ( data.success === true ) {
-					form.reset();
-					form.style.display = 'none';
-					document.getElementById(
-						'mtbContactFormSuccessMsgContainer'
-					).style.display = 'block';
-					initReCaptchaToken();
+		const xhr = new XMLHttpRequest();
+		xhr.open( 'POST', getConfig( 'ajax_url' ) );
+		xhr.send( formData );
+
+		xhr.onreadystatechange = () => {
+			if ( xhr.readyState === XMLHttpRequest.DONE ) {
+				const status = xhr.status;
+				if ( status === 0 || ( status >= 200 && status < 400 ) ) {
+					const data = JSON.parse( xhr.responseText );
+					if ( data.success === true ) {
+						form.reset();
+						form.style.display = 'none';
+						document.getElementById(
+							'mtbContactFormSuccessMsgContainer'
+						).style.display = 'block';
+						initReCaptchaToken();
+					} else {
+						handleAjaxFormSubmissionError( form );
+					}
 				} else {
 					handleAjaxFormSubmissionError( form );
 				}
-			} )
-			.catch( () => {
-				handleAjaxFormSubmissionError( form );
-			} );
-
+			}
+		};
 		return false;
 	} );
 

@@ -6,7 +6,6 @@ import path from 'path';
 import '@testing-library/jest-dom/extend-expect';
 import { waitFor } from '@testing-library/dom';
 import MutationObserver from '@sheerun/mutationobserver-shim';
-import { enableFetchMocks } from 'jest-fetch-mock';
 
 /**
  * Internal dependencies
@@ -17,30 +16,7 @@ import {
 } from '../../../assets/src/front-end/contact-form';
 
 jest.dontMock( 'fs' );
-enableFetchMocks();
 
-const jQMock = jest.requireActual( 'jquery' );
-
-const ajax = jest.fn( options => {
-	let ajaxMock = jQMock.Deferred().resolve( { success: true } );
-
-	// Simulate an issue with data sent.
-	if ( options.data._wp_http_referer === '' ) {
-		ajaxMock = jQMock.Deferred().resolve( { success: false } );
-	}
-
-	// Simulate a request error.
-	if ( options.data.action !== 'mtb_submit_contact_form' ) {
-		ajaxMock = jQMock.Deferred().reject( 'error' );
-	}
-
-	return ajaxMock.promise();
-} );
-
-window.jQuery = {
-	...jQMock,
-	ajax,
-};
 window.MutationObserver = MutationObserver;
 
 /**
@@ -51,6 +27,41 @@ const setup = () => {
 		path.resolve( __dirname, './contact-form.html' ),
 		'utf-8'
 	) }</div>`;
+};
+
+/**
+ * Retrieves FormData object from the mock.
+ *
+ * @param {Object} mock XHR mock object.
+ */
+const retrieveFormDataFromMock = mock => {
+	const formDataInstance = mock.calls[ 0 ][ 0 ];
+	const formDataAsObject = {};
+	formDataInstance.forEach( ( value, key ) => {
+		formDataAsObject[ key ] = value;
+	} );
+	return [ formDataInstance, formDataAsObject ];
+};
+
+/**
+ * XMLHttpRequest mock.
+ */
+const mockXMLHttpRequest = () => {
+	const mock = {
+		open: jest.fn(),
+		addEventListener: jest.fn(),
+		setRequestHeader: jest.fn(),
+		send: jest.fn(),
+		getResponseHeader: jest.fn(),
+
+		upload: {
+			addEventListener: jest.fn(),
+		},
+		DONE: 4,
+	};
+
+	jest.spyOn( window, 'XMLHttpRequest' ).mockImplementation( () => mock );
+	return mock;
 };
 
 describe( 'Front-end: Contact Form', () => {
@@ -71,12 +82,10 @@ describe( 'Front-end: Contact Form', () => {
 			ready,
 			execute,
 		};
-		global.fetch = fetch;
 	} );
 
 	beforeEach( () => {
 		jest.clearAllMocks();
-		fetch.resetMocks();
 	} );
 
 	describe( 'initContactForm', () => {
@@ -109,18 +118,18 @@ describe( 'Front-end: Contact Form', () => {
 			document.getElementById( 'mtb-website-1' ).value = 'http://example.com';
 			document.getElementById( 'mtb-message-1' ).value = 'Test message';
 
+			const xhr = mockXMLHttpRequest();
 			initContactForm();
-			fetch.mockResponse( JSON.stringify( { success: true } ) );
 
 			document.querySelector( '.mdc-button' ).click();
 
-			expect( fetch.mock.calls[ 0 ][ 1 ].body ).not.toBeUndefined();
+			expect( xhr.send.mock.calls[ 0 ][ 0 ] ).not.toBeUndefined();
+			const [ formDataInstance, formDataAsObject ] = retrieveFormDataFromMock(
+				xhr.send.mock
+			);
 
-			const formDataInstance = fetch.mock.calls[ 0 ][ 1 ].body;
-			const formDataAsObject = {};
-			formDataInstance.forEach( ( value, key ) => {
-				formDataAsObject[ key ] = value;
-			} );
+			expect( xhr.open ).toHaveBeenCalledWith( 'POST', global.mtb.ajax_url );
+			expect( xhr.send ).toHaveBeenCalledWith( formDataInstance );
 
 			expect( formDataAsObject ).toStrictEqual( {
 				_wp_http_referer: '/3732-2/',
@@ -132,10 +141,12 @@ describe( 'Front-end: Contact Form', () => {
 				token: 'token_here',
 			} );
 
-			expect( fetch ).toHaveBeenCalledWith( 'http://example.com/', {
-				method: 'POST',
-				body: formDataInstance,
-			} );
+			xhr.readyState = XMLHttpRequest.DONE;
+			xhr.status = 200;
+			xhr.responseText = JSON.stringify( { success: true } );
+
+			expect( xhr.onreadystatechange ).not.toBeUndefined();
+			xhr.onreadystatechange.call();
 
 			await waitFor( () => {
 				expect(
@@ -153,17 +164,17 @@ describe( 'Front-end: Contact Form', () => {
 			document.getElementById( 'mtb-message-1' ).value = 'Test message';
 			document.getElementsByName( '_wp_http_referer' )[ 0 ].value = '';
 
+			const xhr = mockXMLHttpRequest();
 			initContactForm();
-
 			document.querySelector( '.mdc-button' ).click();
 
-			expect( fetch.mock.calls[ 0 ][ 1 ].body ).not.toBeUndefined();
+			expect( xhr.send.mock.calls[ 0 ][ 0 ] ).not.toBeUndefined();
+			const [ formDataInstance, formDataAsObject ] = retrieveFormDataFromMock(
+				xhr.send.mock
+			);
 
-			const formDataInstance = fetch.mock.calls[ 0 ][ 1 ].body;
-			const formDataAsObject = {};
-			formDataInstance.forEach( ( value, key ) => {
-				formDataAsObject[ key ] = value;
-			} );
+			expect( xhr.open ).toHaveBeenCalledWith( 'POST', global.mtb.ajax_url );
+			expect( xhr.send ).toHaveBeenCalledWith( formDataInstance );
 
 			expect( formDataAsObject ).toStrictEqual( {
 				_wp_http_referer: '',
@@ -175,10 +186,14 @@ describe( 'Front-end: Contact Form', () => {
 				token: 'token_here',
 			} );
 
-			expect( fetch ).toHaveBeenCalledWith( 'http://example.com/', {
-				method: 'POST',
-				body: formDataInstance,
-			} );
+			xhr.readyState = XMLHttpRequest.DONE;
+			xhr.status = 200;
+
+			// Simulate a valid request that failed.
+			xhr.responseText = JSON.stringify( { success: false } );
+
+			expect( xhr.onreadystatechange ).not.toBeUndefined();
+			xhr.onreadystatechange.call();
 
 			await waitFor( () => {
 				expect(
@@ -196,17 +211,17 @@ describe( 'Front-end: Contact Form', () => {
 			document.getElementById( 'mtb-message-1' ).value = 'Test message';
 			document.getElementsByName( 'action' )[ 0 ].value = '';
 
+			const xhr = mockXMLHttpRequest();
 			initContactForm();
 
 			document.querySelector( '.mdc-button' ).click();
+			expect( xhr.send.mock.calls[ 0 ][ 0 ] ).not.toBeUndefined();
+			const [ formDataInstance, formDataAsObject ] = retrieveFormDataFromMock(
+				xhr.send.mock
+			);
 
-			expect( fetch.mock.calls[ 0 ][ 1 ].body ).not.toBeUndefined();
-
-			const formDataInstance = fetch.mock.calls[ 0 ][ 1 ].body;
-			const formDataAsObject = {};
-			formDataInstance.forEach( ( value, key ) => {
-				formDataAsObject[ key ] = value;
-			} );
+			expect( xhr.open ).toHaveBeenCalledWith( 'POST', global.mtb.ajax_url );
+			expect( xhr.send ).toHaveBeenCalledWith( formDataInstance );
 
 			expect( formDataAsObject ).toStrictEqual( {
 				_wp_http_referer: '/3732-2/',
@@ -218,10 +233,14 @@ describe( 'Front-end: Contact Form', () => {
 				token: 'token_here',
 			} );
 
-			expect( fetch ).toHaveBeenCalledWith( 'http://example.com/', {
-				method: 'POST',
-				body: formDataInstance,
-			} );
+			xhr.readyState = XMLHttpRequest.DONE;
+
+			// Simulate a HTTP error.
+			xhr.status = 401;
+			xhr.responseText = null;
+
+			expect( xhr.onreadystatechange ).not.toBeUndefined();
+			xhr.onreadystatechange.call();
 
 			await waitFor( () => {
 				expect(
