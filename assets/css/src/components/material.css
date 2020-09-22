@@ -128,7 +128,6 @@
 
 .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
 	border-radius: var(--mdc-text-field-radius, 4px) 0 0 var(--mdc-text-field-radius, 4px);
-	width: calc(8px + var(--mdc-text-field-radius, 12px));
 }
 
 .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
