@@ -97,7 +97,6 @@
     "istanbul-lib-coverage": "3.0.0",
     "istanbul-lib-report": "3.0.0",
     "istanbul-reports": "3.0.2",
-    "jest-fetch-mock": "^3.0.3",
     "jest-puppeteer-istanbul": "0.5.1",
     "jest-silent-reporter": "0.2.1",
     "jquery": "3.5.0",
