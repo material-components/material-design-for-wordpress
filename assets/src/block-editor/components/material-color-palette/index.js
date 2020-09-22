@@ -116,7 +116,7 @@ export default function MaterialColorPalette( {
 				</div>
 			);
 		} );
-	}, [ value, onChange, clearColor ] );
+	}, [ value ] ); // eslint-disable-line
 
 	const materialColorOptions = () => <MaterialColorOptions />;
 
