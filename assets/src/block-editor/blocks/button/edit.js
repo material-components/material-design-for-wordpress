@@ -8,7 +8,7 @@ import classNames from 'classnames';
  */
 import { __ } from '@wordpress/i18n';
 import { useEffect } from '@wordpress/element';
-
+import { compose } from '@wordpress/compose';
 import { InspectorControls, RichText } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, TextControl } from '@wordpress/components';
 import { withSelect } from '@wordpress/data';
@@ -17,12 +17,14 @@ import { withSelect } from '@wordpress/data';
  * Internal dependencies
  */
 import './style.css';
+import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
+import { name as ButtonBlockName } from './index';
 import hasBg from './utils/has-bg';
 import findIcon from '../../utils/find-icon';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
-import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
+import { withId } from '../../components/with-id';
 import GlobalShapeSize from '../../components/global-shape-size';
 import GlobalColor, {
 	GlobalColorContrastChecker,
@@ -30,7 +32,6 @@ import GlobalColor, {
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
-import { name as ButtonBlockName } from './index';
 import getConfig from '../../utils/get-config';
 
 /**
@@ -111,6 +112,7 @@ const ButtonEdit = ( {
 		iconPosition,
 		backgroundColor,
 		isSubmit,
+		tooltip,
 	},
 	setAttributes,
 	isSelected,
@@ -211,6 +213,16 @@ const ButtonEdit = ( {
 								buttons={ BUTTON_STYLES }
 								current={ style }
 								onClick={ setter( 'style' ) }
+							/>
+						</>
+					) }
+
+					{ type === 'icon' && (
+						<>
+							<TextControl
+								label={ __( 'Tooltip Text', 'material-theme-builder' ) }
+								onChange={ setter( 'tooltip' ) }
+								value={ tooltip }
 							/>
 						</>
 					) }
@@ -339,11 +351,14 @@ const ButtonEdit = ( {
 	);
 };
 
-export default withSelect( ( select, { clientId } ) => {
-	const { getBlockParentsByBlockName } = select( 'core/block-editor' );
+export default compose( [
+	withSelect( ( select, { clientId } ) => {
+		const { getBlockParentsByBlockName } = select( 'core/block-editor' );
 
-	return {
-		isSubmitButton:
-			getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0,
-	};
-} )( ButtonEdit );
+		return {
+			isSubmitButton:
+				getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0,
+		};
+	} ),
+	withId,
+] )( ButtonEdit );

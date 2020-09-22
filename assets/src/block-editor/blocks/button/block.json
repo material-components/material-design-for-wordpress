@@ -53,6 +53,15 @@
     "textColor": {
       "type": "string"
     },
+    "tooltip": {
+      "type": "string"
+    },
+    "id": {
+		  "type": "string",
+		  "source": "attribute",
+		  "attribute": "id",
+		  "selector": "*"
+	  },
     "isSubmit": {
       "type": "boolean",
       "default": false

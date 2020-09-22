@@ -49,12 +49,21 @@ const ButtonSave = ( {
 		iconPosition,
 		backgroundColor,
 		isSubmit,
+		tooltip,
+		id,
 	},
 	className,
 } ) => {
 	if ( 'icon' === type ) {
+		const tooltipId = tooltip ? `${ id }-tooltip` : false;
+		const tooltipProps = tooltipId
+			? {
+					'aria-describedby': tooltipId,
+			  }
+			: {};
+
 		return (
-			<div className={ className }>
+			<div className={ className } id={ id }>
 				{ url && ! isSubmit ? (
 					<a
 						href={ url }
@@ -62,6 +71,7 @@ const ButtonSave = ( {
 						target={ linkTarget && ! isSubmit ? linkTarget : undefined }
 						className={ classNames( 'material-icons', 'mdc-icon-button' ) }
 						style={ { ...( textColor ? { color: textColor } : {} ) } }
+						{ ...tooltipProps }
 					>
 						{ String.fromCharCode( icon?.hex ) }
 					</a>
@@ -70,17 +80,29 @@ const ButtonSave = ( {
 						className={ classNames( 'material-icons', 'mdc-icon-button' ) }
 						style={ { ...( textColor ? { color: textColor } : {} ) } }
 						type={ isSubmit ? 'submit' : undefined }
+						{ ...tooltipProps }
 					>
 						<div className="mdc-button__ripple"></div>
 						{ String.fromCharCode( icon?.hex ) }
 					</button>
+				) }
+
+				{ tooltipId && (
+					<div
+						id={ tooltipId }
+						className="mdc-tooltip"
+						role="tooltip"
+						aria-hidden="true"
+					>
+						<div className="mdc-tooltip__surface">{ tooltip }</div>
+					</div>
 				) }
 			</div>
 		);
 	}
 
 	return (
-		<div className={ className }>
+		<div className={ className } id={ id }>
 			{ url && ! isSubmit ? (
 				<a
 					href={ url }
