@@ -193,10 +193,14 @@ class Test_Admin extends \WP_UnitTestCase {
 		$mock = $this->getMockBuilder( Plugin::class )
 			->setMethods(
 				[
+					'is_debug',
 					'theme_installed',
 				]
 			)
 			->getMock();
+
+		$mock->method( 'is_debug' )
+			->willReturn( false );
 
 		$mock->method( 'theme_installed' )
 			->will(
