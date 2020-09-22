@@ -944,7 +944,7 @@ class Controls extends Module_Base {
 				'image_list_radius'       => '8',
 				'nav_drawer_radius'       => '8',
 				'text_field_radius'       => '8',
-				'icon_collection'         => 'rounded',
+				'icon_collection'         => 'round',
 			],
 		];
 
