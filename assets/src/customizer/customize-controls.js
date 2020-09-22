@@ -190,6 +190,8 @@ import getConfig from '../block-editor/utils/get-config';
 
 			api.ColorControl.prototype.ready.call( control );
 
+			control.colorContainer = control.container.find( '.wp-picker-container' );
+
 			const picker = control.container.find( '.wp-picker-holder' );
 			const container = control.container.find( '.wp-picker-container' );
 
@@ -214,9 +216,6 @@ import getConfig from '../block-editor/utils/get-config';
 				container.find( `#${ targetId }` ).addClass( 'active' );
 				link.addClass( 'active' );
 			} );
-
-			// Render the material palette component with accessibility warnings.
-			control.renderPaletteWithAccessibilityWarnings();
 
 			control.setting.bind( value => {
 				// Re-render the material palette component and accessibility warnings if the color is updated.
@@ -400,6 +399,11 @@ import getConfig from '../block-editor/utils/get-config';
 		 * @param {string|boolean} selectedColor Hex code of the selected color.
 		 */
 		renderPaletteWithAccessibilityWarnings( selectedColor = false ) {
+			// Bail out if the color picker is not active.
+			if ( ! this.colorContainer.hasClass( 'wp-picker-active' ) ) {
+				return;
+			}
+
 			// Render the material palette component.
 			this.renderMaterialPalette( selectedColor );
 
@@ -443,8 +447,9 @@ import getConfig from '../block-editor/utils/get-config';
 	 * Handle reset for global range slider control.
 	 *
 	 * @param {Object} control Control
+	 * @param {boolean} setDefault Should the default value be set for the global control ?
 	 */
-	const onResetGlobalRangeSliderControl = control => {
+	const onResetGlobalRangeSliderControl = ( control, setDefault = false ) => {
 		let style = api( getConfig( 'styleControl' ) ).get();
 		if ( 'custom' === style ) {
 			style = api( getConfig( 'prevStyleControl' ) ).get();
@@ -453,7 +458,10 @@ import getConfig from '../block-editor/utils/get-config';
 		if ( style && getConfig( 'designStyles' ).hasOwnProperty( style ) ) {
 			const defaults = getConfig( 'designStyles' )[ style ];
 			let settingId = removeOptionPrefix( control.id );
-			setSettingDefault( control.id, defaults[ settingId ] );
+
+			if ( setDefault ) {
+				setSettingDefault( control.id, defaults[ settingId ] );
+			}
 
 			if ( control.params.children ) {
 				control.params.children.forEach( slider => {
@@ -503,7 +511,7 @@ import getConfig from '../block-editor/utils/get-config';
 		};
 
 		const onReset = () => {
-			onResetGlobalRangeSliderControl( control );
+			onResetGlobalRangeSliderControl( control, true );
 		};
 
 		render(
