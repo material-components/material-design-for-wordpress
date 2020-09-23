@@ -22,7 +22,7 @@ import getConfig from '../../get-config';
 export const Customize = props => {
 	return (
 		<Fragment>
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __( 'Customize your theme', 'material-theme-builder' ) }
 			</h2>
 			<p>
@@ -45,7 +45,7 @@ export const Customize = props => {
 				/>
 			</div>
 
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Starter Styles', 'material-theme-builder' ) }
 			</h2>
 
@@ -64,7 +64,7 @@ export const Customize = props => {
 				{ __( ' to create a custom look and feel.', 'material-theme-builder' ) }
 			</p>
 
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Color Palettes', 'material-theme-builder' ) }
 			</h2>
 			<p>
@@ -85,7 +85,7 @@ export const Customize = props => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Typography', 'material-theme-builder' ) }
 			</h2>
 
@@ -118,7 +118,7 @@ export const Customize = props => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Corner Styles', 'material-theme-builder' ) }
 			</h2>
 			<p>
@@ -128,7 +128,7 @@ export const Customize = props => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Icon Style', 'material-theme-builder' ) }
 			</h2>
 			<p>
@@ -146,7 +146,7 @@ export const Customize = props => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __( 'Set Layout & Navigation', 'material-theme-builder' ) }
 			</h2>
 			<p>
@@ -160,7 +160,7 @@ export const Customize = props => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Top app bar', 'material-theme-builder' ) }
 			</h2>
 			<p>
@@ -170,7 +170,7 @@ export const Customize = props => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Footer', 'material-theme-builder' ) }
 			</h2>
 

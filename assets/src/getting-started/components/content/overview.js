@@ -22,7 +22,7 @@ import getConfig from '../../get-config';
 export const Overview = () => {
 	return (
 		<Fragment>
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __(
 					'Build with Material Blocks',
 					'material-theme-builder'
