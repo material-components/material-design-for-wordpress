@@ -26,7 +26,7 @@ exports[`GoogleFontsControl/Item matches snapshot 1`] = `
           Size
         </label>
         <input
-          className="components-range-control__number"
+          className="components-google-fonts-control__number"
           id="inspector-number-control-headline1"
           max={96}
           min={2}
@@ -37,7 +37,7 @@ exports[`GoogleFontsControl/Item matches snapshot 1`] = `
       </div>
     </div>
     <SelectControl
-      className="components-range-control__select"
+      className="components-google-fonts-control__select"
       label="Weight"
       onChange={[Function]}
       options={Array []}

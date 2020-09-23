@@ -160,15 +160,14 @@ const getIconFontName = iconStyle => {
 					if ( 'size' === rule ) {
 						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
 					} else {
-						if ( /italic$/.test( rules[ rule ] ) ) {
-							styles += `${ typographyControls[ control ].style }: italic !important;`;
-						} else {
-							styles += `${ typographyControls[ control ].style }: normal !important;`;
-						}
+						const fontStyle = /italic$/.test( rules[ rule ] )
+							? 'italic'
+							: 'normal';
+						const weight = [ 'regular', 'italic' ].includes( rules[ rule ] )
+							? 400
+							: parseInt( rules[ rule ], 10 );
 
-						const weight =
-							'regular' === rules[ rule ] ? 400 : parseInt( rules[ rule ], 10 );
-
+						styles += `${ typographyControls[ control ].style }: ${ fontStyle } !important;`;
 						styles += `${ typographyControls[ control ][ rule ] }: ${ weight } !important;`;
 					}
 				}
