@@ -4,7 +4,7 @@
 ![Banner](wp-assets/banner-1544x500.png)
 The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
 
-**Contributors:** [xwp](https://profiles.wordpress.org/xwp)  
+**Contributors:** [materialdesign](https://profiles.wordpress.org/materialdesign), [google](https://profiles.wordpress.org/google)  
 **Requires at least:** 5.0  
 **Tested up to:** 5.3.2  
 **Stable tag:** 0.0.1  
