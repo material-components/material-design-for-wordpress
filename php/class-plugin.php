@@ -68,12 +68,6 @@ class Plugin extends Plugin_Base {
 
 	/**
 	 * Initiate the plugin resources.
-	 *
-	 * Priority is 9 because WP_Customize_Widgets::register_settings() happens at
-	 * after_setup_theme priority 10. This is especially important for plugins
-	 * that extend the Customizer to ensure resources are available in time.
-	 *
-	 * @action after_setup_theme, 9
 	 */
 	public function init() {
 		$this->config = apply_filters( 'material_theme_builder_plugin_config', $this->config, $this );
@@ -95,12 +89,16 @@ class Plugin extends Plugin_Base {
 
 		$this->admin = new Admin( $this );
 		$this->admin->init();
+
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_google_fonts' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_front_end_assets' ], 100 );
+		add_action( 'wp_head', [ $this, 'frontend_inline_css' ], 1 );
+		add_action( 'admin_head', [ $this, 'frontend_inline_css' ], 1 );
+		add_action( 'activated_plugin', [ $this, 'redirect_to_wizard' ] );
 	}
 
 	/**
 	 * Enqueue google fonts.
-	 *
-	 * @action wp_enqueue_scripts
 	 */
 	public function enqueue_google_fonts() {
 		$fonts_url = $this->customizer_controls->get_google_fonts_url();
@@ -115,8 +113,6 @@ class Plugin extends Plugin_Base {
 
 	/**
 	 * Enqueue front-end styles and scripts.
-	 *
-	 * @action wp_enqueue_scripts, 100
 	 */
 	public function enqueue_front_end_assets() {
 		wp_enqueue_script(
@@ -166,9 +162,6 @@ class Plugin extends Plugin_Base {
 
 	/**
 	 * Output inline styles with css variables at the top of the head.
-	 *
-	 * @action wp_head, 1
-	 * @action admin_head, 1
 	 */
 	public function frontend_inline_css() {
 		?>
@@ -206,8 +199,6 @@ class Plugin extends Plugin_Base {
 
 	/**
 	 * Redirect after activating.
-	 *
-	 * @action activated_plugin
 	 *
 	 * @param string $plugin Path to activated plugin, relative to plugins folder.
 	 *

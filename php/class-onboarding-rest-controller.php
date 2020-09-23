@@ -14,6 +14,13 @@ use MaterialThemeBuilder\Plugin;
  */
 class Onboarding_REST_Controller extends \WP_REST_Controller {
 	/**
+	 * Plugin class.
+	 *
+	 * @var Plugin
+	 */
+	public $plugin;
+
+	/**
 	 * Constructor.
 	 *
 	 * @param Plugin $plugin Instance of the plugin abstraction.
@@ -25,10 +32,10 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 	}
 
 	/**
-	 * Initiate the class.
+	 * Initiate the class and hooks.
 	 */
 	public function init() {
-		$this->plugin->add_doc_hooks( $this );
+		add_action( 'rest_api_init', [ $this, 'register_routes' ] );
 	}
 
 	/**
@@ -42,8 +49,6 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 
 	/**
 	 * Registers the routes for the Theme API.
-	 *
-	 * @action rest_api_init
 	 */
 	public function register_routes() {
 		register_rest_route(

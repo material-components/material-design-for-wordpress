@@ -8,7 +8,10 @@
 namespace MaterialThemeBuilder;
 
 use MaterialThemeBuilder\Plugin;
+use MaterialThemeBuilder\Admin;
+use MaterialThemeBuilder\Blocks_Frontend;
 use MaterialThemeBuilder\Customizer\Controls;
+use MaterialThemeBuilder\Importer;
 
 /**
  * Stub get_transient().
@@ -72,7 +75,8 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 */
 	public function test_construct() {
 		$plugin = new Plugin();
-		$this->assertEquals( 9, has_action( 'after_setup_theme', [ $plugin, 'init' ] ) );
+		$plugin->init();
+
 		$this->assertEquals( 100, has_action( 'wp_enqueue_scripts', [ $plugin, 'enqueue_front_end_assets' ] ) );
 	}
 
@@ -90,6 +94,11 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertInternalType( 'array', $plugin->config );
 		$this->assertArrayHasKey( 'foo', $plugin->config );
 		$this->assertInstanceOf( Controls::class, $plugin->customizer_controls );
+		$this->assertInstanceOf( Block_Types::class, $plugin->block_types );
+		$this->assertInstanceOf( Blocks_Frontend::class, $plugin->blocks_frontend );
+		$this->assertInstanceOf( Onboarding_REST_Controller::class, $plugin->onboarding_rest_controller );
+		$this->assertInstanceOf( Importer::class, $plugin->importer );
+		$this->assertInstanceOf( Admin::class, $plugin->admin );
 	}
 
 	/**

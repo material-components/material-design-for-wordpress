@@ -14,12 +14,18 @@ use MaterialThemeBuilder\Blocks\Image_List_Block;
  * Blocks_Frontend class.
  */
 class Blocks_Frontend extends Module_Base {
+
+	/**
+	 * Initiate the class and hooks.
+	 */
+	public function init() {
+		add_action( 'wp_enqueue_scripts', [ $this, 'dynamic_css' ], 110 );
+	}
+
 	/**
 	 * Generate dynamics CSS for blocks in a post.
 	 *
 	 * @access public
-	 *
-	 * @action wp_enqueue_scripts, 110
 	 */
 	public function dynamic_css() {
 		if ( is_singular() && function_exists( 'has_blocks' ) && has_blocks( get_the_ID() ) ) {

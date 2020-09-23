@@ -13,11 +13,20 @@ namespace MaterialThemeBuilder;
 class Admin extends Module_Base {
 
 	/**
+	 * Initiate the class and hooks.
+	 */
+	public function init() {
+		add_action( 'admin_menu', [ $this, 'add_pages' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+		add_action( 'switch_theme', [ $this, 'switch_theme_material' ], 10, 2 );
+		add_action( 'admin_notices', [ $this, 'theme_not_installed_notice' ], 10, 2 );
+		add_action( 'admin_notices', [ $this, 'plugin_activated_notice' ], 9, 2 );
+	}
+
+	/**
 	 * Create admin pages.
 	 * - Getting started page.
 	 * - Onboarding Wizard page.
-	 *
-	 * @action admin_menu
 	 *
 	 * @return void
 	 */
@@ -72,8 +81,6 @@ class Admin extends Module_Base {
 
 	/**
 	 * Enqueue getting started assets
-	 *
-	 * @action admin_enqueue_scripts
 	 *
 	 * @return void
 	 */
@@ -199,8 +206,6 @@ class Admin extends Module_Base {
 	/**
 	 * Update theme activated option if material theme is activated.
 	 *
-	 * @action switch_theme, 10, 2
-	 *
 	 * @param  string   $new_name Name of the theme.
 	 * @param  WP_Theme $new_theme WP_Theme instance of the new theme.
 	 * @return void
@@ -254,8 +259,6 @@ class Admin extends Module_Base {
 
 	/**
 	 * Show admin notice if theme isn't installed.
-	 *
-	 * @action admin_notices, 10, 2
 	 *
 	 * @return void
 	 */
@@ -314,8 +317,6 @@ class Admin extends Module_Base {
 
 	/**
 	 * Show admin notice if theme and plugin are active.
-	 *
-	 * @action admin_notices, 9, 2
 	 *
 	 * @return void
 	 */
