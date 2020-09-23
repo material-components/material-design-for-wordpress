@@ -30,16 +30,22 @@ export const Wizard = props => {
 		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __(
-					'Quick Start',
-					'material-theme-builder'
-				) }
-			</h2>
-			<p>
-				{ __(
 					'Install the Material Theme and quick start examples.',
 					'material-theme-builder'
 				) }
+			</h2>
+
+			<p>
+				{ __(
+					'The theme applies Material Design principles and Material Theming to your site, so you can customize built-in WordPress elements like your site’s header and foote. Example layouts include pages for home, about, projects, blog, and contact.',
+					'material-theme-builder'
+				) }
 			</p>
+
+			<img src={ `${ getConfig( 'assetsPath' ) }apply-your-theme.png` } alt="" style={ { maxWidth: '40%' } } />
+
+			<div style={ { height: '15px' } }></div>
+
 			<div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised"
@@ -49,6 +55,8 @@ export const Wizard = props => {
 					link={ getConfig( 'wizardUrl' ) }
 				/>
 			</div>
+
+			<div style={ { height: '20px' } }></div>
 		</>
 	);
 };

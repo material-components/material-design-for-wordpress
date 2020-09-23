@@ -33,7 +33,6 @@ module.exports = function( grunt ) {
 					'!assets/css/src/**',
 					'!assets/js/.gitignore',
 					'!assets/src/**',
-					'!assets/images/onboarding/**',
 					'!assets/images/png/**',
 					'!assets/images/jpg/**',
 					'!bin/**',

@@ -17,7 +17,7 @@
 import { Fragment, useContext } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
-import getConfig from '../../../admin/get-config';
+import getConfig from '../../get-config';
 
 export const Overview = () => {
 	return (
@@ -36,14 +36,16 @@ export const Overview = () => {
 				) }
 			</p>
 
-			<img src={ `${ getConfig( 'assetsPath' ) }build-with-material-blocks.png` } alt="" />
+			<img src={ `${ getConfig( 'assetsPath' ) }build-with-material-blocks.png` } alt="" style={ { maxWidth: '40%' } } />
+
+			<div style={ { height: '15px' } }></div>
 
 			<div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised"
-					text={ __( 'Customize', 'material-theme-builder' ) }
+					text={ __( 'View all Material Blocks', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
-					link={ getConfig( 'customize' ) }
+					link={ getConfig( 'blocks' ) }
 				/>
 			</div>
 

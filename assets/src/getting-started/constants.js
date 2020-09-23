@@ -38,6 +38,6 @@ export const ACTIONS = {
  */
 export const TABS = {
 	WIZARD: __( 'Quick Start', 'material-theme-builder' ),
-	OVERVIEW: __( 'Build with Material Blocks', 'material-theme-builder' ),
 	CUSTOMIZE: __( 'Customize your theme', 'material-theme-builder' ),
+	OVERVIEW: __( 'Build with Material Blocks', 'material-theme-builder' ),
 };
