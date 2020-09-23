@@ -17,29 +17,6 @@ import {
 
 jest.dontMock( 'fs' );
 
-const jQMock = jest.requireActual( 'jquery' );
-
-const ajax = jest.fn( options => {
-	let ajaxMock = jQMock.Deferred().resolve( { success: true } );
-
-	// Simulate an issue with data sent.
-	if ( options.data._wp_http_referer === '' ) {
-		ajaxMock = jQMock.Deferred().resolve( { success: false } );
-	}
-
-	// Simulate a request error.
-	if ( options.data.action !== 'mtb_submit_contact_form' ) {
-		ajaxMock = jQMock.Deferred().reject( 'error' );
-	}
-
-	return ajaxMock.promise();
-} );
-
-window.jQuery = {
-	...jQMock,
-	ajax,
-};
-
 window.MutationObserver = MutationObserver;
 
 /**
@@ -50,6 +27,41 @@ const setup = () => {
 		path.resolve( __dirname, './contact-form.html' ),
 		'utf-8'
 	) }</div>`;
+};
+
+/**
+ * Retrieves FormData object from the mock.
+ *
+ * @param {Object} mock XHR mock object.
+ */
+const retrieveFormDataFromMock = mock => {
+	const formDataInstance = mock.calls[ 0 ][ 0 ];
+	const formDataAsObject = {};
+	formDataInstance.forEach( ( value, key ) => {
+		formDataAsObject[ key ] = value;
+	} );
+	return [ formDataInstance, formDataAsObject ];
+};
+
+/**
+ * XMLHttpRequest mock.
+ */
+const mockXMLHttpRequest = () => {
+	const mock = {
+		open: jest.fn(),
+		addEventListener: jest.fn(),
+		setRequestHeader: jest.fn(),
+		send: jest.fn(),
+		getResponseHeader: jest.fn(),
+
+		upload: {
+			addEventListener: jest.fn(),
+		},
+		DONE: 4,
+	};
+
+	jest.spyOn( window, 'XMLHttpRequest' ).mockImplementation( () => mock );
+	return mock;
 };
 
 describe( 'Front-end: Contact Form', () => {
@@ -106,31 +118,42 @@ describe( 'Front-end: Contact Form', () => {
 			document.getElementById( 'mtb-website-1' ).value = 'http://example.com';
 			document.getElementById( 'mtb-message-1' ).value = 'Test message';
 
+			const xhr = mockXMLHttpRequest();
 			initContactForm();
 
 			document.querySelector( '.mdc-button' ).click();
 
-			await waitFor( () =>
-				expect( window.jQuery.ajax ).toHaveBeenCalledWith( {
-					data: {
-						_wp_http_referer: '/3732-2/',
-						action: 'mtb_submit_contact_form',
-						contact_fields:
-							'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
-						mtb_contact_form_nonce: '8d2ba7b1f1',
-						mtb_token: 'token_here',
-						token: 'token_here',
-					},
-					dataType: 'json',
-					type: 'POST',
-					url: 'http://example.com/',
-				} )
+			expect( xhr.send.mock.calls[ 0 ][ 0 ] ).not.toBeUndefined();
+			const [ formDataInstance, formDataAsObject ] = retrieveFormDataFromMock(
+				xhr.send.mock
 			);
 
-			expect(
-				document.getElementById( 'mtbContactFormSuccessMsgContainer' ).style
-					.display
-			).toStrictEqual( 'block' );
+			expect( xhr.open ).toHaveBeenCalledWith( 'POST', global.mtb.ajax_url );
+			expect( xhr.send ).toHaveBeenCalledWith( formDataInstance );
+
+			expect( formDataAsObject ).toStrictEqual( {
+				_wp_http_referer: '/3732-2/',
+				action: 'mtb_submit_contact_form',
+				contact_fields:
+					'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
+				mtb_contact_form_nonce: '8d2ba7b1f1',
+				mtb_token: 'token_here',
+				token: 'token_here',
+			} );
+
+			xhr.readyState = XMLHttpRequest.DONE;
+			xhr.status = 200;
+			xhr.responseText = JSON.stringify( { success: true } );
+
+			expect( xhr.onreadystatechange ).not.toBeUndefined();
+			xhr.onreadystatechange.call();
+
+			await waitFor( () => {
+				expect(
+					document.getElementById( 'mtbContactFormSuccessMsgContainer' ).style
+						.display
+				).toStrictEqual( 'block' );
+			} );
 		} );
 
 		it( 'calls successfully the ajax request and shows the error message when the form submission is not successful', async () => {
@@ -141,26 +164,38 @@ describe( 'Front-end: Contact Form', () => {
 			document.getElementById( 'mtb-message-1' ).value = 'Test message';
 			document.getElementsByName( '_wp_http_referer' )[ 0 ].value = '';
 
+			const xhr = mockXMLHttpRequest();
 			initContactForm();
-
 			document.querySelector( '.mdc-button' ).click();
 
-			await waitFor( () => {
-				expect( window.jQuery.ajax ).toHaveBeenCalledWith( {
-					data: {
-						_wp_http_referer: '',
-						action: 'mtb_submit_contact_form',
-						contact_fields:
-							'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
-						mtb_contact_form_nonce: '8d2ba7b1f1',
-						mtb_token: 'token_here',
-						token: 'token_here',
-					},
-					dataType: 'json',
-					type: 'POST',
-					url: 'http://example.com/',
-				} );
+			expect( xhr.send.mock.calls[ 0 ][ 0 ] ).not.toBeUndefined();
+			const [ formDataInstance, formDataAsObject ] = retrieveFormDataFromMock(
+				xhr.send.mock
+			);
 
+			expect( xhr.open ).toHaveBeenCalledWith( 'POST', global.mtb.ajax_url );
+			expect( xhr.send ).toHaveBeenCalledWith( formDataInstance );
+
+			expect( formDataAsObject ).toStrictEqual( {
+				_wp_http_referer: '',
+				action: 'mtb_submit_contact_form',
+				contact_fields:
+					'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
+				mtb_contact_form_nonce: '8d2ba7b1f1',
+				mtb_token: 'token_here',
+				token: 'token_here',
+			} );
+
+			xhr.readyState = XMLHttpRequest.DONE;
+			xhr.status = 200;
+
+			// Simulate a valid request that failed.
+			xhr.responseText = JSON.stringify( { success: false } );
+
+			expect( xhr.onreadystatechange ).not.toBeUndefined();
+			xhr.onreadystatechange.call();
+
+			await waitFor( () => {
 				expect(
 					document.getElementById( 'mtbContactFormErrorMsgContainer' ).style
 						.display
@@ -176,26 +211,38 @@ describe( 'Front-end: Contact Form', () => {
 			document.getElementById( 'mtb-message-1' ).value = 'Test message';
 			document.getElementsByName( 'action' )[ 0 ].value = '';
 
+			const xhr = mockXMLHttpRequest();
 			initContactForm();
 
 			document.querySelector( '.mdc-button' ).click();
+			expect( xhr.send.mock.calls[ 0 ][ 0 ] ).not.toBeUndefined();
+			const [ formDataInstance, formDataAsObject ] = retrieveFormDataFromMock(
+				xhr.send.mock
+			);
+
+			expect( xhr.open ).toHaveBeenCalledWith( 'POST', global.mtb.ajax_url );
+			expect( xhr.send ).toHaveBeenCalledWith( formDataInstance );
+
+			expect( formDataAsObject ).toStrictEqual( {
+				_wp_http_referer: '/3732-2/',
+				action: '',
+				contact_fields:
+					'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
+				mtb_contact_form_nonce: '8d2ba7b1f1',
+				mtb_token: 'token_here',
+				token: 'token_here',
+			} );
+
+			xhr.readyState = XMLHttpRequest.DONE;
+
+			// Simulate a HTTP error.
+			xhr.status = 401;
+			xhr.responseText = null;
+
+			expect( xhr.onreadystatechange ).not.toBeUndefined();
+			xhr.onreadystatechange.call();
 
 			await waitFor( () => {
-				expect( window.jQuery.ajax ).toHaveBeenCalledWith( {
-					data: {
-						_wp_http_referer: '/3732-2/',
-						action: '',
-						contact_fields:
-							'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
-						mtb_contact_form_nonce: '8d2ba7b1f1',
-						mtb_token: 'token_here',
-						token: 'token_here',
-					},
-					dataType: 'json',
-					type: 'POST',
-					url: 'http://example.com/',
-				} );
-
 				expect(
 					document.getElementById( 'mtbContactFormErrorMsgContainer' ).style
 						.display
