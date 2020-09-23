@@ -53,7 +53,7 @@ describe( 'blocks: material/card', () => {
 				},
 				title: {
 					type: 'string',
-					default: 'Title goes here',
+					default: '',
 				},
 				displayTitle: {
 					type: 'boolean',
@@ -61,7 +61,7 @@ describe( 'blocks: material/card', () => {
 				},
 				secondaryText: {
 					type: 'string',
-					default: 'Secondary Text',
+					default: '',
 				},
 				displaySecondaryText: {
 					type: 'boolean',
@@ -79,7 +79,7 @@ describe( 'blocks: material/card', () => {
 				},
 				supportingText: {
 					type: 'string',
-					default: 'Supporting Text',
+					default: '',
 				},
 				displaySupportingText: {
 					type: 'boolean',

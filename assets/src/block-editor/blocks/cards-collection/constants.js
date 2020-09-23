@@ -1,18 +1,14 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
 
 export const CARD_ATTRIBUTES_VALUE = {
 	contentLayout: 'text-under-media',
-	title: __( 'Title goes here', 'material-theme-builder' ),
 	displayTitle: true,
-	secondaryText: __( 'Secondary text', 'material-theme-builder' ),
 	displaySecondaryText: true,
 	imageSourceUrl: '',
 	isImageEditMode: false,
 	displayImage: true,
-	supportingText: __( 'Supporting text', 'material-theme-builder' ),
 	displaySupportingText: true,
 	primaryActionButtonLabel: '',
 	primaryActionButtonUrl: '',
