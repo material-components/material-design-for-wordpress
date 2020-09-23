@@ -35,7 +35,7 @@ const Navigation = () => {
 		// Change initial tab if content and theme are already installed.
 		if ( 'ok' === getConfig( 'themeStatus' ) ) {
 			dispatch( { type: ACTIONS.SET_THEME_OK } );
-			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'OVERVIEW' } } );
+			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'CUSTOMIZE' } } );
 			dispatch( {
 				type: ACTIONS.MARK_COMPLETE,
 				payload: { value: [ 'WIZARD' ] },
@@ -45,7 +45,7 @@ const Navigation = () => {
 
 		if ( 'ok' === getConfig( 'contentStatus' ) ) {
 			dispatch( { type: ACTIONS.SET_DEMO_OK } );
-			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'OVERVIEW' } } );
+			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'CUSTOMIZE' } } );
 			dispatch( {
 				type: ACTIONS.MARK_COMPLETE,
 				payload: {

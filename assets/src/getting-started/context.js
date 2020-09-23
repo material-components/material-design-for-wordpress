@@ -40,7 +40,7 @@ const tabs = Object.keys( TABS );
  *
  */
 const initialState = {
-	activeTab: 'OVERVIEW',
+	activeTab: 'CUSTOMIZE',
 	completed: [ 'WIZARD' ],
 	status: STATUS.IDLE,
 	actionToInstall: null,

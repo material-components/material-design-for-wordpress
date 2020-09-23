@@ -27,8 +27,6 @@ It’s easy to get up and running with Material Design for WordPress:
 
 Don’t see an answer to your question? Please search the support forum to see if it has already been discussed. Otherwise, please open a new support topic.
 
-An answer to that question.
-
 ## Screenshots ##
 
 ### Start from our existing styles and use Material Theming to create a custom look and feel. (Baseline)
