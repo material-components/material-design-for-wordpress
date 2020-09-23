@@ -327,7 +327,9 @@ class Admin extends Module_Base {
 		if ( Plugin::THEME_SLUG !== get_template()
 			|| ! get_option( 'mtb_plugin_activated' )
 			|| 'toplevel_page_material-settings' === $screen->id
-			|| 'material_page_material-onboarding-wizard' === $screen->id ) {
+			|| 'material_page_material-onboarding-wizard' === $screen->id
+			|| $this->plugin->is_debug()
+		) {
 			return;
 		}
 

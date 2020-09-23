@@ -232,12 +232,24 @@ class Test_Admin extends \WP_UnitTestCase {
 	 */
 	public function test_plugin_activated_notice() {
 		add_filter( 'template', [ $this, 'template' ] );
+		$mock = $this->getMockBuilder( Plugin::class )
+			->setMethods(
+				[
+					'is_debug',
+				]
+			)
+			->getMock();
+
+		$mock->method( 'is_debug' )
+			->willReturn( false );
+
+		$admin = new Admin( $mock );
 
 		set_current_screen( 'options-general-php' );
 		update_option( 'mtb_plugin_activated', true, false );
 
 		ob_start();
-		$this->admin->plugin_activated_notice();
+		$admin->plugin_activated_notice();
 		$output = ob_get_clean();
 
 		$this->assertContains( '<div class="notice notice-info is-dismissible material-notice-container">', $output );
