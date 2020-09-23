@@ -1427,8 +1427,8 @@ class Controls extends Module_Base {
 				],
 				'button'   => [
 					'label'  => __( 'Button', 'material-theme-builder' ),
-					'size'   => 12,
-					'weight' => 'regular',
+					'size'   => 14,
+					'weight' => '500',
 				],
 				'caption'  => [
 					'label'  => __( 'Caption', 'material-theme-builder' ),
