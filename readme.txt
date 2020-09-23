@@ -37,8 +37,6 @@ Implement your colors, shapes, and typography for built-in WordPress elements li
 
 Don’t see an answer to your question? Please search the support forum to see if it has already been discussed. Otherwise, please open a new support topic.
 
-An answer to that question.
-
 
 == Screenshots ==
 
