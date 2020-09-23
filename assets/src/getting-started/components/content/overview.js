@@ -36,10 +36,10 @@ export const Overview = () => {
 				) }
 			</p>
 
-			<img src={ `${ getConfig( 'assetsPath' ) }material-blocks-getting-started.gif` } alt="" style={ { maxWidth: '40%' } } />
+			<img src={ `${ getConfig( 'assetsPath' ) }material-blocks-getting-started.gif` } alt="" style={ { maxWidth: '100%' } } />
 
 			<div style={ { height: '15px' } }></div>
-			
+
 			<div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised"
