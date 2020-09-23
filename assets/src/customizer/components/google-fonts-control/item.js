@@ -50,7 +50,7 @@ const Item = props => {
 						</label>
 						<input
 							id={ `inspector-number-control-${ id }` }
-							className="components-range-control__number"
+							className="components-google-fonts-control__number"
 							type="number"
 							value={ size.value || size.default }
 							min={ size.min }
@@ -69,7 +69,7 @@ const Item = props => {
 				</div>
 
 				<SelectControl
-					className="components-range-control__select"
+					className="components-google-fonts-control__select"
 					value={ weight.value || weight.default }
 					label={ weight.label }
 					options={ choices }
