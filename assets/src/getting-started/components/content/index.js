@@ -92,8 +92,8 @@ const Content = () => {
 				<Notice type="notice-error" message={ error.message } />
 			) }
 			{ 'WIZARD' === activeTab && <Wizard handleClick={ handleClick } /> }
-			{ 'OVERVIEW' === activeTab && <Overview handleClick={ handleClick } /> }
 			{ 'CUSTOMIZE' === activeTab && <Customize handleClick={ handleClick } /> }
+			{ 'OVERVIEW' === activeTab && <Overview handleClick={ handleClick } /> }
 		</div>
 	);
 };

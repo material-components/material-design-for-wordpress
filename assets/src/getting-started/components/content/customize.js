@@ -17,6 +17,7 @@
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
+import getConfig from '../../get-config';
 
 export const Customize = props => {
 	return (
@@ -26,16 +27,23 @@ export const Customize = props => {
 			</h2>
 			<p>
 				{ __(
-					'Set and preview your global theme styles using Material Theme Options in the Customize panel [LINK]. Choose colors, typography, shapes, and icons to express your unique style. The Material Library shows all available Material Blocks. Once you’re satisfied with your changes, hit “Publish” to update your site.',
+					'Set and preview your global theme styles using Material Theme Options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.',
 					'material-theme-builder'
 				) }
 			</p>
-			<p>
-				{ __(
-					'Jump into the Block Editor for more options.',
-					'material-theme-builder'
-				) }
-			</p>
+
+			<img src={ `${ getConfig( 'assetsPath' ) }customize-your-theme.png` } alt="" style={ { maxWidth: '40%' } } />
+
+			<div style={ { height: '15px' } }></div>
+
+			<div className="material-gsm__content-actions">
+				<Button
+					style="mdc-button--raised"
+					text={ __( 'Customize', 'material-theme-builder' ) }
+					trailingIcon="navigate_next"
+					link={ getConfig( 'customize' ) }
+				/>
+			</div>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Starter Styles', 'material-theme-builder' ) }
@@ -53,10 +61,7 @@ export const Customize = props => {
 				>
 					{ __( 'Material Theming', 'material-theme-builder' ) }
 				</a>
-				{ __(
-					' to create a custom look and feel.',
-					'material-theme-builder'
-				) }
+				{ __( ' to create a custom look and feel.', 'material-theme-builder' ) }
 			</p>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
@@ -85,7 +90,10 @@ export const Customize = props => {
 			</h2>
 
 			<p>
-				{ __( 'Choose from more than 1,000 typefaces in ', 'material-theme-builder' ) }
+				{ __(
+					'Choose from more than 1,000 typefaces in ',
+					'material-theme-builder'
+				) }
 				<a
 					href="https://fonts.google.com/"
 					target="_blank"
@@ -104,7 +112,10 @@ export const Customize = props => {
 				>
 					{ __( 'typography guidelines', 'material-theme-builder' ) }
 				</a>
-				{ __( ' for inspiration and best practices.', 'material-theme-builder' ) }
+				{ __(
+					' for inspiration and best practices.',
+					'material-theme-builder'
+				) }
 			</p>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
@@ -140,7 +151,7 @@ export const Customize = props => {
 			</h2>
 			<p>
 				{ __(
-					'Select how posts display – as either cards or image lists, in a wide or normal width. Additional card display options include raised or outlined cards, and show or hide post comments, author, excerpt, and date.',
+					'Select how posts display – as either cards or image lists, in a wide or normal width. Additional card display options include raised or outlined cards, and show or hide post comments, author, excerpt, and date. ',
 					'material-theme-builder'
 				) }
 				{ __(
@@ -162,11 +173,20 @@ export const Customize = props => {
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __( 'Footer', 'material-theme-builder' ) }
 			</h2>
+
 			<p>
 				{ __(
-					'Add footer text and give your users a quick way to jump back to the top of the page. Looking to add widgets at the bottom of your site? Use the Widgets[LINK] settings.',
+					'Add footer text and give your users a quick way to jump back to the top of the page. Looking to add widgets at the bottom of your site? Use the ',
 					'material-theme-builder'
 				) }
+				<a
+					href="${ getConfig( 'customize' ) }?autofocus[panel]=widgets"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					{ __( 'Widgets', 'material-theme-builder' ) }
+				</a>
+				{ __( ' settings.', 'material-theme-builder' ) }
 			</p>
 
 			<div style={ { height: '20px' } }></div>
