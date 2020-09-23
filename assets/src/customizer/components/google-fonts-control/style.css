@@ -40,6 +40,10 @@
 		margin-top: 8px;
 		padding: 8px 0 8px 8px;
 	}
+
+	.components-google-fonts-control__select select {
+		max-width: 80%;
+	}
 }
 
 .customize-control-child-google_fonts {
