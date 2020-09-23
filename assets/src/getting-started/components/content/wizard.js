@@ -28,7 +28,7 @@ import getConfig from '../../get-config';
 export const Wizard = props => {
 	return (
 		<>
-			<h2 className="material-gsm__content-title mdc-typography--headline6">
+			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __(
 					'Install the Material Theme and quick start examples',
 					'material-theme-builder'
