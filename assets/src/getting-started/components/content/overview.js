@@ -36,14 +36,14 @@ export const Overview = () => {
 				) }
 			</p>
 
-			<img src={ `${ getConfig( 'assetsPath' ) }build-with-material-blocks.png` } alt="" style={ { maxWidth: '40%' } } />
+			<img src={ `${ getConfig( 'assetsPath' ) }material-blocks-getting-started.gif` } alt="" style={ { maxWidth: '40%' } } />
 
 			<div style={ { height: '15px' } }></div>
-
+			
 			<div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised"
-					text={ __( 'View all Material Blocks', 'material-theme-builder' ) }
+					text={ __( 'Customize Material Blocks', 'material-theme-builder' ) }
 					trailingIcon="navigate_next"
 					link={ getConfig( 'blocks' ) }
 				/>

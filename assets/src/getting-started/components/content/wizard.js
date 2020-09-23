@@ -30,7 +30,7 @@ export const Wizard = props => {
 		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline6">
 				{ __(
-					'Install the Material Theme and quick start examples.',
+					'Install the Material Theme and quick start examples',
 					'material-theme-builder'
 				) }
 			</h2>
