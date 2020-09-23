@@ -215,7 +215,7 @@ class Block_Types {
 		// Set corner radius defaults for blocks.
 		foreach ( $controls->get_corner_styles_controls() as $control ) {
 			$value = $controls->get_option( $control['id'] );
-			if ( ! empty( $value ) && ! empty( $control['blocks'] ) && is_array( $control['blocks'] ) ) {
+			if ( ! empty( $control['blocks'] ) && is_array( $control['blocks'] ) ) {
 				foreach ( $control['blocks'] as $block ) {
 					$defaults[ $block ] = array_key_exists( $block, $defaults ) ? $defaults[ $block ] : [];
 
