@@ -1,5 +1,5 @@
 === Material Design for WordPress ===
-Contributors: xwp
+Contributors: materialdesign, google
 Requires at least: 5.0
 Tested up to: 5.3.2
 Stable tag: 0.0.1
