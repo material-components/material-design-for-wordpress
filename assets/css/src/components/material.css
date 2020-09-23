@@ -15,6 +15,87 @@
 	-webkit-font-smoothing: antialiased;
 }
 
+/* Typography */
+.mdc-typography--headline1 {
+	font-style: var(--mdc-typography-headline1-font-style, normal);
+}
+
+.mdc-typography--headline2 {
+	font-style: var(--mdc-typography-headline2-font-style, normal);
+}
+
+.mdc-typography--headline3 {
+	font-style: var(--mdc-typography-headline3-font-style, normal);
+}
+
+.mdc-typography--headline4 {
+	font-style: var(--mdc-typography-headline4-font-style, normal);
+}
+
+.mdc-typography--headline5 {
+	font-style: var(--mdc-typography-headline5-font-style, normal);
+}
+
+.mdc-typography--headline6,
+.mdc-drawer__title,
+.mdc-top-app-bar__title {
+	font-style: var(--mdc-typography-headline6-font-style, normal);
+}
+
+.mdc-typography--subtitle1,
+.mdc-floating-label,
+.mdc-image-list__label,
+.mdc-list,
+.mdc-list-group__subheader,
+.mdc-select__selected-text,
+.mdc-text-field__input,
+.mdc-text-field__affix {
+	font-style: var(--mdc-typography-subtitle1-font-style, normal);
+}
+
+.mdc-typography--subtitle2,
+.mdc-data-table__header-cell,
+.mdc-drawer .mdc-list-item,
+.mdc-slider .mdc-slider__value-indicator-text {
+	font-style: var(--mdc-typography-subtitle2-font-style, normal);
+}
+
+.mdc-typography--body1 {
+	font-style: var(--mdc-typography-body1-font-style, normal);
+}
+
+.mdc-typography--body2,
+.mdc-banner__text,
+.mdc-chip,
+.mdc-data-table__content,
+.mdc-data-table__cell,
+.mdc-data-table__pagination,
+.mdc-drawer .mdc-list-group__subheader,
+.mdc-drawer__subtitle,
+.mdc-form-field,
+.mdc-list-item__secondary-text {
+	font-style: var(--mdc-typography-body2-font-style, normal);
+}
+
+.mdc-typography--caption,
+.mdc-list-item__meta:not(.material-icons),
+.mdc-select-helper-text,
+.mdc-text-field-helper-text,
+.mdc-text-field-character-counter,
+.mdc-tooltip__surface {
+	font-style: var(--mdc-typography-caption-font-style, normal);
+}
+
+.mdc-typography--button,
+.mdc-button,
+.mdc-tab {
+	font-style: var(--mdc-typography-button-font-style, normal);
+}
+
+.mdc-typography--overline {
+	font-style: var(--mdc-typography-overline-font-style, normal);
+}
+
 /* Image List */
 .mdc-image-list__item {
 	margin: 0;
