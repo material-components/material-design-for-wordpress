@@ -39,9 +39,19 @@ class Controls extends Module_Base {
 	public $added_controls = [];
 
 	/**
+	 * Initiate the class and hooks.
+	 */
+	public function init() {
+		add_action( 'customize_register', [ $this, 'register' ] );
+		add_action( 'customize_controls_enqueue_scripts', [ $this, 'scripts' ] );
+		add_action( 'customize_preview_init', [ $this, 'preview_scripts' ], 100 );
+		add_action( 'customize_controls_print_footer_scripts', [ $this, 'templates' ] );
+		add_action( 'customize_sanitize_js_mtb_notify', [ $this, 'show_material_components_notification' ] );
+		add_action( 'wp_ajax_mtb_notification_dismiss', [ $this, 'notification_dismiss' ] );
+	}
+
+	/**
 	 * Register customizer options.
-	 *
-	 * @action customize_register
 	 *
 	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
@@ -476,8 +486,6 @@ class Controls extends Module_Base {
 
 	/**
 	 * Enqueue Customizer scripts.
-	 *
-	 * @action customize_controls_enqueue_scripts
 	 */
 	public function scripts() {
 		wp_enqueue_script(
@@ -635,8 +643,6 @@ class Controls extends Module_Base {
 
 	/**
 	 * Enqueue Customizer preview scripts.
-	 *
-	 * @action customize_preview_init, 100
 	 */
 	public function preview_scripts() {
 		wp_enqueue_script(
@@ -650,8 +656,6 @@ class Controls extends Module_Base {
 
 	/**
 	 * Render custom templates.
-	 *
-	 * @action customize_controls_print_footer_scripts
 	 */
 	public function templates() {
 		Material_Color_Palette_Control::tabs_template();
@@ -1235,8 +1239,6 @@ class Controls extends Module_Base {
 	 * Maybe show the material components notification if the current previewed
 	 * page does not contain any material blocks.
 	 *
-	 * @action customize_sanitize_js_mtb_notify
-	 *
 	 * @param mixed $value Saved value.
 	 *
 	 * @return mixed
@@ -1251,8 +1253,6 @@ class Controls extends Module_Base {
 
 	/**
 	 * Update notification dismiss count.
-	 *
-	 * @action wp_ajax_mtb_notification_dismiss
 	 */
 	public function notification_dismiss() {
 		if ( ! check_ajax_referer( 'mtb_notify_nonce', 'nonce', false ) ) {
