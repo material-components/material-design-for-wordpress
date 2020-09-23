@@ -65,7 +65,7 @@ describe( 'GoogleFontsControl/Item', () => {
 		const value = 100;
 		const wrapper = setupShallow( { ...baseProps, onChange: onChangeMock } );
 		wrapper
-			.find( '.components-range-control__select' )
+			.find( '.components-google-fonts-control__select' )
 			.simulate( 'change', value );
 
 		expect( onChangeMock ).toHaveBeenCalledWith( {
@@ -98,7 +98,7 @@ describe( 'GoogleFontsControl/Item', () => {
 		const wrapper = setupShallow( props );
 		expect( wrapper.find( 'input' ).props().value ).toStrictEqual( 96 );
 		expect(
-			wrapper.find( '.components-range-control__select' ).props().value
+			wrapper.find( '.components-google-fonts-control__select' ).props().value
 		).toStrictEqual( 400 );
 	} );
 } );
