@@ -8,41 +8,11 @@ Object {
       <div
         class="mdc-layout-grid__cell--span-12"
       >
-        <h3
-          class="mdc-typography--headline3 material-wizard__title"
-        >
-          Congrats! You’ve installed Material. Here’s how it works:
-        </h3>
         <div
           class="material-wizard__card mdc-layout-grid__inner mdc-layout-grid__cell--align-middle"
         >
           <div
-            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"
-          >
-            <img
-              alt=""
-              src="http://example.com/welcome.png"
-            />
-          </div>
-          <div
-            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
-          >
-            <h4
-              class="mdc-typography--headline4"
-            >
-              Customize Your Material Theme
-            </h4>
-            <p>
-              Set up and preview your global theme styles within the customizer. Choose colors, typography, shapes, and icons to express your unique style.
-            </p>
-          </div>
-        </div>
-        <hr />
-        <div
-          class="material-wizard__card mdc-layout-grid__inner mdc-layout-grid__cell--align-middle"
-        >
-          <div
-            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"
+            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5"
           >
             <img
               alt=""
@@ -50,40 +20,15 @@ Object {
             />
           </div>
           <div
-            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
+            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
           >
-            <h4
-              class="mdc-typography--headline4"
+            <h3
+              class="mdc-typography--headline3"
             >
-              Build With Material Blocks
-            </h4>
+              Congrats!
+            </h3>
             <p>
-              Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor.
-            </p>
-          </div>
-        </div>
-        <hr />
-        <div
-          class="material-wizard__card mdc-layout-grid__inner mdc-layout-grid__cell--align-middle"
-        >
-          <div
-            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"
-          >
-            <img
-              alt=""
-              src="http://example.com/addon-material-theme.png"
-            />
-          </div>
-          <div
-            class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
-          >
-            <h4
-              class="mdc-typography--headline4"
-            >
-              Apply Your Theme
-            </h4>
-            <p>
-              Implement your colors, shapes, and typography for built-in WordPress elements like your site’s header and footer.
+              You've installed Material. Click "Finish" and check out the rest of the Getting Started guide to customize your theme, build with Material Blocks, and apply the theme to your site.
             </p>
           </div>
         </div>
@@ -94,41 +39,11 @@ Object {
     <div
       class="mdc-layout-grid__cell--span-12"
     >
-      <h3
-        class="mdc-typography--headline3 material-wizard__title"
-      >
-        Congrats! You’ve installed Material. Here’s how it works:
-      </h3>
       <div
         class="material-wizard__card mdc-layout-grid__inner mdc-layout-grid__cell--align-middle"
       >
         <div
-          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"
-        >
-          <img
-            alt=""
-            src="http://example.com/welcome.png"
-          />
-        </div>
-        <div
-          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
-        >
-          <h4
-            class="mdc-typography--headline4"
-          >
-            Customize Your Material Theme
-          </h4>
-          <p>
-            Set up and preview your global theme styles within the customizer. Choose colors, typography, shapes, and icons to express your unique style.
-          </p>
-        </div>
-      </div>
-      <hr />
-      <div
-        class="material-wizard__card mdc-layout-grid__inner mdc-layout-grid__cell--align-middle"
-      >
-        <div
-          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-5"
         >
           <img
             alt=""
@@ -136,40 +51,15 @@ Object {
           />
         </div>
         <div
-          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
-          <h4
-            class="mdc-typography--headline4"
+          <h3
+            class="mdc-typography--headline3"
           >
-            Build With Material Blocks
-          </h4>
+            Congrats!
+          </h3>
           <p>
-            Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor.
-          </p>
-        </div>
-      </div>
-      <hr />
-      <div
-        class="material-wizard__card mdc-layout-grid__inner mdc-layout-grid__cell--align-middle"
-      >
-        <div
-          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4"
-        >
-          <img
-            alt=""
-            src="http://example.com/addon-material-theme.png"
-          />
-        </div>
-        <div
-          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle"
-        >
-          <h4
-            class="mdc-typography--headline4"
-          >
-            Apply Your Theme
-          </h4>
-          <p>
-            Implement your colors, shapes, and typography for built-in WordPress elements like your site’s header and footer.
+            You've installed Material. Click "Finish" and check out the rest of the Getting Started guide to customize your theme, build with Material Blocks, and apply the theme to your site.
           </p>
         </div>
       </div>

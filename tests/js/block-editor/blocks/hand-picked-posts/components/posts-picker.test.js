@@ -69,7 +69,7 @@ describe( 'PostsPicker', () => {
 			false
 		);
 		expect( props.debouncedSpeak.mock.calls[ 0 ][ 0 ] ).toContain(
-			'Showing Hand-picked Posts block'
+			'Showing Curated Post Collection block preview.'
 		);
 	} );
 } );

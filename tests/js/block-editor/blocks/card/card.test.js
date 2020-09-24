@@ -23,9 +23,9 @@ describe( 'blocks: material/card', () => {
 	} );
 
 	describe( 'description settings', () => {
-		it( 'should equal `Add a card to display content and actions on a single topic.`', () => {
+		it( 'should equal `Display content and actions on a single topic.`', () => {
 			expect( settings.description ).toStrictEqual(
-				'Add a card to display content and actions on a single topic.'
+				'Display content and actions on a single topic.'
 			);
 		} );
 	} );
