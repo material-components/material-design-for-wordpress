@@ -48,7 +48,7 @@ Object {
           >
             library_books
           </i>
-          Hand-picked Posts
+          Curated Post Collection
         </div>
         <div
           class="components-placeholder__fieldset"
@@ -89,7 +89,7 @@ Object {
         >
           library_books
         </i>
-        Hand-picked Posts
+        Curated Post Collection
       </div>
       <div
         class="components-placeholder__fieldset"

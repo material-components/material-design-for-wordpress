@@ -1,5 +1,23 @@
 <?php
 /**
+ * Copyright 2020 Material Design
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ * @package MaterialThemeBuilder
+ */
+
+/**
  * Class Controls.
  *
  * @package MaterialThemeBuilder
@@ -101,9 +119,9 @@ class Controls extends Module_Base {
 	public function add_sections() {
 		$sections = [
 			'style'         => __( 'Starter Styles', 'material-theme-builder' ),
-			'colors'        => __( 'Color Palettes', 'material-theme-builder' ),
+			'colors'        => __( 'Color Palette ', 'material-theme-builder' ),
 			'typography'    => __( 'Typography (Font Styles)', 'material-theme-builder' ),
-			'corner_styles' => __( 'Shape Size (Corner Styles)', 'material-theme-builder' ),
+			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
 			'icons'         => __( 'Icon Styles', 'material-theme-builder' ),
 		];
 
@@ -903,7 +921,7 @@ class Controls extends Module_Base {
 				'image_list_radius'       => '0',
 				'nav_drawer_radius'       => '0',
 				'text_field_radius'       => '0',
-				'icon_collection'         => 'outlined',
+				'icon_collection'         => 'sharp',
 			],
 			'blossom'     => [
 				'primary_color'           => '#e56969',
@@ -928,7 +946,7 @@ class Controls extends Module_Base {
 				'image_list_radius'       => '8',
 				'nav_drawer_radius'       => '8',
 				'text_field_radius'       => '8',
-				'icon_collection'         => 'outlined',
+				'icon_collection'         => 'round',
 			],
 		];
 
@@ -1041,7 +1059,7 @@ class Controls extends Module_Base {
 		return [
 			[
 				'id'            => 'global_radius',
-				'label'         => __( 'Global corner styles', 'material-theme-builder' ),
+				'label'         => __( 'Global Corner Styles', 'material-theme-builder' ),
 				'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-theme-builder' ),
 				'min'           => 0,
 				'max'           => 36,
