@@ -1003,20 +1003,20 @@ class Controls extends Module_Base {
 				'related_setting' => $this->prepare_option_name( 'surface_color' ),
 				'css_var'         => '--mdc-theme-on-surface',
 			],
-			[
-				'id'         => 'background_color',
-				'label'      => esc_html__( 'Background Color', 'material-theme' ),
-				'css_var'    => '--mdc-theme-background',
-				'related_setting' => $this->prepare_option_name( 'background_color' ),
-				'a11y_label' => __( 'Background', 'material-theme' ),
-			],
-			[
-				'id'         => 'on_background_color',
-				'label'      => esc_html__( 'On Background Color', 'material-theme' ),
-				'css_var'    => '--mdc-theme-on-background',
-				'related_text_setting' => $this->prepare_option_name( 'on_background_color' ),
-				'a11y_label' => __( 'On Background', 'material-theme' ),
-			],
+			// [
+			// 	'id'         => 'background_color',
+			// 	'label'      => esc_html__( 'Background Color', 'material-theme' ),
+			// 	'css_var'    => '--mdc-theme-background',
+			// 	'related_setting' => $this->prepare_option_name( 'background_color' ),
+			// 	'a11y_label' => __( 'Background', 'material-theme' ),
+			// ],
+			// [
+			// 	'id'         => 'on_background_color',
+			// 	'label'      => esc_html__( 'On Background Color', 'material-theme' ),
+			// 	'css_var'    => '--mdc-theme-on-background',
+			// 	'related_text_setting' => $this->prepare_option_name( 'on_background_color' ),
+			// 	'a11y_label' => __( 'On Background', 'material-theme' ),
+			// ],
 		];
 	}
 
