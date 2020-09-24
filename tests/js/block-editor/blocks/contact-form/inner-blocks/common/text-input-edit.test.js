@@ -42,8 +42,8 @@ jest.mock( '@wordpress/block-editor', () => {
 registerStore( 'core/block-editor', {
 	reducer: jest.fn(),
 	selectors: {
-		getBlockHierarchyRootClientId: () => {
-			return 'testingID';
+		getBlockParents: () => {
+			return [ 'testingID' ];
 		},
 		getBlock: () => {
 			return {

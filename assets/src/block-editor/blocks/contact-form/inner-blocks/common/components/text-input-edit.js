@@ -179,7 +179,9 @@ export default compose( [
 		const parentId = parents[ parents.length - 1 ];
 
 		return {
-			parentBlock: select( 'core/block-editor' ).getBlock( parentId ),
+			parentBlock: parentId
+				? select( 'core/block-editor' ).getBlock( parentId )
+				: {},
 		};
 	} ),
 ] )( TextInputEdit );

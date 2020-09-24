@@ -171,12 +171,16 @@ const TextAreaInputEdit = props => {
 export default compose( [
 	withInstanceId,
 	withSelect( ( select, ownProps ) => {
-		const parentId = select(
-			'core/block-editor'
-		).getBlockHierarchyRootClientId( ownProps.clientId );
+		const parents = select( 'core/block-editor' ).getBlockParents(
+			ownProps.clientId
+		);
+
+		const parentId = parents[ parents.length - 1 ];
 
 		return {
-			parentBlock: select( 'core/block-editor' ).getBlock( parentId ),
+			parentBlock: parentId
+				? select( 'core/block-editor' ).getBlock( parentId )
+				: {},
 		};
 	} ),
 ] )( TextAreaInputEdit );
