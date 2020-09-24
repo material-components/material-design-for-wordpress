@@ -34,7 +34,6 @@ Object {
       >
         <iframe
           aria-hidden="true"
-          aria-label="resize-listener"
           frameborder="0"
           src="about:blank"
           style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
@@ -73,7 +72,6 @@ Object {
     >
       <iframe
         aria-hidden="true"
-        aria-label="resize-listener"
         frameborder="0"
         src="about:blank"
         style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
@@ -193,7 +191,6 @@ Object {
       >
         <iframe
           aria-hidden="true"
-          aria-label="resize-listener"
           frameborder="0"
           src="about:blank"
           style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
@@ -232,7 +229,6 @@ Object {
     >
       <iframe
         aria-hidden="true"
-        aria-label="resize-listener"
         frameborder="0"
         src="about:blank"
         style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
@@ -352,7 +348,6 @@ Object {
       >
         <iframe
           aria-hidden="true"
-          aria-label="resize-listener"
           frameborder="0"
           src="about:blank"
           style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
@@ -393,7 +388,6 @@ Object {
     >
       <iframe
         aria-hidden="true"
-        aria-label="resize-listener"
         frameborder="0"
         src="about:blank"
         style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
