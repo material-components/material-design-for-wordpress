@@ -359,26 +359,3 @@
 .mdc-switch__track {
 	background-color: var(--mdc-theme-on-surface, #000);
 }
-
-.mdc-tab-bar {
-	background-color: var(--mdc-theme-background, var(--mdc-theme-surface, #fff));
-}
-
-.mdc-tab {
-
-	& .mdc-tab__text-label {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), 0.6);
-	}
-
-	& .mdc-tab__icon {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), 0.5);
-	}
-
-	&--active {
-
-		& .mdc-tab__icon,
-		& .mdc-tab__text-label {
-			color: var(--mdc-theme-primary, #6200ee);
-		}
-	}
-}
