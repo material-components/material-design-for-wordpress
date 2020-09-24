@@ -21,6 +21,52 @@ class Test_Google_Fonts_Control extends \WP_UnitTestCase {
 		require_once ABSPATH . WPINC . '/class-wp-customize-manager.php';
 		require_once ABSPATH . WPINC . '/class-wp-customize-control.php';
 	}
+	
+	/**
+	 * Test render.
+	 *
+	 * @see Google_Fonts_Control::render()
+	 */
+	public function test_render() {
+		$wp_customize = new \WP_Customize_Manager();
+
+		$font_control = new Google_Fonts_Control(
+			$wp_customize,
+			'head_font_family',
+			[
+				'label'       => 'Headlines Subtitles',
+				'description' => 'Font family for all headlines',
+				'choices'     => [
+					[
+						'id'    => 'test',
+						'label' => 'Headline 1',
+					],
+				],
+			]
+		);
+
+		ob_start();
+		$font_control->render();
+		$output = ob_get_clean();
+
+		// Assert wrapper is rendered.
+		$this->assertContains( '<li id="customize-control-head_font_family" class="customize-control customize-control-google_fonts">', $output );
+
+		$font_control = new Google_Fonts_Control(
+			$wp_customize,
+			'head_font_family',
+			[
+				'label' => 'Headline 1',
+			]
+		);
+
+		ob_start();
+		$font_control->render();
+		$output = ob_get_clean();
+
+		// Assert child class is present.
+		$this->assertContains( '<li id="customize-control-head_font_family" class="customize-control customize-control-google_fonts customize-control-child-google_fonts">', $output );
+	}
 
 	/**
 	 * Test render_content.
@@ -36,6 +82,12 @@ class Test_Google_Fonts_Control extends \WP_UnitTestCase {
 			[
 				'label'       => 'Headlines Subtitles',
 				'description' => 'Font family for all headlines',
+				'choices'     => [
+					[
+						'id'    => 'test',
+						'label' => 'Headline 1',
+					],
+				],
 			]
 		);
 
@@ -62,7 +114,7 @@ class Test_Google_Fonts_Control extends \WP_UnitTestCase {
 		$wp_customize = new \WP_Customize_Manager();
 
 		$wp_customize->add_setting( 'mtb_primary_color' );
-		$wp_customize->add_setting( 'mtb_primary_text_color' );
+		$wp_customize->add_setting( 'mtb_on_primary_color' );
 
 		$primary_control = new Google_Fonts_Control(
 			$wp_customize,

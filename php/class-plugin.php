@@ -122,7 +122,7 @@ class Plugin extends Plugin_Base {
 		wp_enqueue_script(
 			'material-front-end-js',
 			$this->asset_url( 'assets/js/front-end.js' ),
-			[ 'jquery' ],
+			[],
 			$this->asset_version(),
 			true
 		);
@@ -134,7 +134,7 @@ class Plugin extends Plugin_Base {
 			wp_enqueue_script(
 				'google-recaptcha-v3',
 				'https://www.google.com/recaptcha/api.js?render=' . esc_attr( $mtb_recaptcha_site_key ),
-				[ 'jquery', 'material-front-end-js' ],
+				[ 'material-front-end-js' ],
 				'3.0.0',
 				true
 			);
@@ -214,7 +214,7 @@ class Plugin extends Plugin_Base {
 	 * @return void
 	 */
 	public function redirect_to_wizard( $plugin ) {
-		if ( trailingslashit( $this->slug ) . $this->slug . '.php' !== $plugin || ( ! empty( filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ) && 'tgmpa-install-plugins' === filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ) ) {
+		if ( get_option( 'material_onboarding' ) || trailingslashit( $this->slug ) . $this->slug . '.php' !== $plugin || ( ! empty( filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ) && 'tgmpa-install-plugins' === filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ) ) {
 			return;
 		}
 

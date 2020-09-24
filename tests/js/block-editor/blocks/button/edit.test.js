@@ -33,9 +33,9 @@ describe( 'ButtonEdit', () => {
 			defaults: {
 				colors: {
 					primary_color: '#6200ee',
-					primary_text_color: '#ffffff',
+					on_primary_color: '#ffffff',
 					secondary_color: '#018786',
-					secondary_text_color: '#ffffff',
+					on_secondary_color: '#ffffff',
 				},
 			},
 			customizerUrls: {

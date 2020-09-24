@@ -26,6 +26,7 @@ import { unmountComponentAtNode } from 'react-dom';
 import colorUtils from '../common/color-utils';
 import GlobalRangeSliderControl from './components/range-slider-control/global';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
+import GoogleFontsControl from './components/google-fonts-control';
 import {
 	loadMaterialLibrary,
 	reRenderMaterialLibrary,
@@ -416,9 +417,15 @@ import getConfig from '../block-editor/utils/get-config';
 	api.IconRadioControl = api.Control.extend( {
 		ready() {
 			const control = this;
-			$( 'input:radio', control.container ).change( function() {
+			$( 'input:radio', control.container ).on( 'change', function() {
 				control.setting.set( $( this ).val() );
 			} );
+		},
+	} );
+
+	api.GoogleFontsControl = api.Control.extend( {
+		ready() {
+			renderGoogleFontsControl( this );
 		},
 	} );
 
@@ -429,6 +436,7 @@ import getConfig from '../block-editor/utils/get-config';
 		material_color: api.MaterialColorControl,
 		range_slider: api.RangeSliderControl,
 		icon_radio: api.IconRadioControl,
+		google_fonts: api.GoogleFontsControl,
 	} );
 
 	/**
@@ -515,6 +523,51 @@ import getConfig from '../block-editor/utils/get-config';
 		);
 	};
 
+	const renderGoogleFontsControl = control => {
+		const googleFonts = getConfig( 'googleFonts' );
+		const { params, id, setting } = control;
+		const selectedFont = setting.get();
+		let children = [];
+
+		if ( 0 !== params.children.length ) {
+			children = params.children.map( child => {
+				if ( googleFonts.hasOwnProperty( selectedFont ) ) {
+					child.weight.choices = googleFonts[ selectedFont ].variants;
+				}
+
+				if ( ! child.value ) {
+					return child;
+				}
+
+				const valueObject = JSON.parse( child.value );
+
+				child.size.value = valueObject.size;
+				child.weight.value = valueObject.weight;
+
+				return child;
+			} );
+		}
+
+		const props = {
+			id,
+			label: params.label,
+			description: params.description,
+			value: selectedFont,
+			children,
+			fonts: getConfig( 'googleFonts' ),
+			onChange: event => {
+				const value = event.currentTarget.value;
+				setting.set( value );
+			},
+		};
+
+		if ( 0 === params.children.length ) {
+			return;
+		}
+
+		render( <GoogleFontsControl { ...props } />, control.container.get( 0 ) );
+	};
+
 	/**
 	 * Callback when a "Design Style" is changed.
 	 *
@@ -566,6 +619,14 @@ import getConfig from '../block-editor/utils/get-config';
 					control.params.children.length
 				) {
 					onResetGlobalRangeSliderControl( control );
+				}
+
+				if ( settingName.includes( 'font_family' ) ) {
+					api
+						.control( settingName )
+						.container.find( '.google-fonts-control-selection' )
+						.val( value )
+						.trigger( 'change' );
 				}
 			} );
 		} );
@@ -633,22 +694,24 @@ import getConfig from '../block-editor/utils/get-config';
 			} );
 		}
 
-		$( '.customize-control-google-fonts-wrap select' ).each( ( i, select ) => {
-			const $select = $( select );
-
-			// On value change, trigger a `change` event so select2 can update the selected dropdown option.
-			api( $select.attr( 'data-customize-setting-link' ) ).bind( value => {
-				$select.val( value ).trigger( 'change' );
+		const focusSection = api.settings.autofocus.section;
+		if (
+			focusSection &&
+			focusSection === `${ getConfig( 'slug' ) }_corner_styles`
+		) {
+			api.section( focusSection, instance => {
+				instance.deferred.embedded.done( () => {
+					api.previewer.deferred.active.done( () => {
+						setTimeout( () => {
+							api
+								.control( `${ getConfig( 'slug' ) }[global_radius]` )
+								.container.find( '.range-slider-control-settings-expanded' )
+								.trigger( 'click' );
+						}, 500 );
+					} );
+				} );
 			} );
-
-			$select
-				.selectWoo( {
-					data: getConfig( 'googleFonts' ),
-					width: '100%',
-				} )
-				.val( $select.data( 'value' ) )
-				.trigger( 'change' );
-		} );
+		}
 	} );
 
 	// Trigger notification init on ready.

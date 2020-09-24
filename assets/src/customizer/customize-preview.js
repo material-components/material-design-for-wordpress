@@ -13,6 +13,7 @@
  * Internal dependencies
  */
 import colorUtils from '../common/color-utils';
+import { STYLES } from '../customizer/components/google-fonts-control/styles';
 
 const getIconFontName = iconStyle => {
 	return iconStyle === 'filled'
@@ -64,7 +65,7 @@ const getIconFontName = iconStyle => {
 				colorControls[ control ] = args.cssVar;
 			}
 
-			if ( args && !! args.cssVars ) {
+			if ( args && args.cssVars && args.type === 'google_fonts' ) {
 				typographyControls[ control ] = args.cssVars;
 			}
 
@@ -116,9 +117,45 @@ const getIconFontName = iconStyle => {
 		}
 
 		Object.keys( typographyControls ).forEach( control => {
-			typographyControls[ control ].family.forEach( varName => {
-				styles += `${ varName }: ${ parentApi( control ).get() };`;
-			} );
+			if ( typographyControls[ control ].family ) {
+				typographyControls[ control ].family.forEach( varName => {
+					styles += `${ varName }: ${ parentApi( control ).get() };`;
+				} );
+			} else {
+				const ruleValue = parentApi( control ).get();
+				let rules;
+
+				if ( ! ruleValue ) {
+					return;
+				}
+
+				// Bail if json is invalid.
+				try {
+					rules = JSON.parse( ruleValue );
+				} catch {
+					return;
+				}
+
+				for ( const rule in rules ) {
+					if ( 'style' === rule || 'undefined' === typeof rules[ rule ] ) {
+						return;
+					}
+
+					if ( 'size' === rule ) {
+						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
+					} else {
+						const fontStyle = /italic$/.test( rules[ rule ] )
+							? 'italic'
+							: 'normal';
+						const weight = [ 'regular', 'italic' ].includes( rules[ rule ] )
+							? 400
+							: parseInt( rules[ rule ], 10 );
+
+						styles += `${ typographyControls[ control ].style }: ${ fontStyle } !important;`;
+						styles += `${ typographyControls[ control ][ rule ] }: ${ weight } !important;`;
+					}
+				}
+			}
 		} );
 
 		// Generate the styles.
@@ -169,20 +206,31 @@ const getIconFontName = iconStyle => {
 	 */
 	const updateGoogleFontsURL = () => {
 		const fonts = [],
-			baseURL = '//fonts.googleapis.com/css?family=';
+			baseURL = 'https://fonts.googleapis.com/css?family=';
 
 		Object.keys( typographyControls ).forEach( control => {
+			if ( ! /family]$/.test( control ) ) {
+				return;
+			}
+
+			const selectedFont = parentApi( control ).get();
+
 			fonts.push(
-				parentApi( control )
-					.get()
-					.replace( /\s/g, '+' ) + ':300,400,500'
+				selectedFont.replace( /\s/g, '+' ) +
+					':' +
+					Object.keys( STYLES ).join( ',' )
 			);
 		} );
 
-		$( '#material-google-fonts-cdn-css' ).attr(
-			'href',
-			`${ baseURL }${ [ ...new Set( fonts ) ].join( '|' ) }`
-		);
+		const $fontStyle = $( '#material-google-fonts-cdn-css' );
+		const fontURL = `${ baseURL }${ [ ...new Set( fonts ) ].join( '|' ) }`;
+
+		if ( $fontStyle.attr( 'href' ) !== fontURL ) {
+			$fontStyle.attr(
+				'href',
+				`${ baseURL }${ [ ...new Set( fonts ) ].join( '|' ) }`
+			);
+		}
 	};
 
 	// Generate preview styles on any color control change.

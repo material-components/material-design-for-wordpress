@@ -10,7 +10,7 @@
 	   },
 	   "title": {
 		  "type": "string",
-		  "default": "Title goes here"
+		  "default": ""
 	   },
 	   "displayTitle": {
 		  "type": "boolean",
@@ -18,7 +18,7 @@
 	   },
 	   "secondaryText": {
 		  "type": "string",
-		  "default": "Secondary Text"
+		  "default": ""
 	   },
 	   "displaySecondaryText": {
 		  "type": "boolean",
@@ -36,7 +36,7 @@
 	   },
 	   "supportingText": {
 		  "type": "string",
-		  "default": "Supporting Text"
+		  "default": ""
 	   },
 	   "displaySupportingText": {
 		  "type": "boolean",

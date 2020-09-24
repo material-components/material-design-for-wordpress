@@ -28,7 +28,7 @@ class Admin extends Module_Base {
 			'manage_options',
 			'material-settings',
 			[ $this, 'render_getting_started_page' ],
-			trailingslashit( $this->plugin->dir_url ) . 'assets/images/logo-outline.svg'
+			'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMiAyMiI+PHBhdGggZD0iTTExIDBDNC45IDAgMCA0LjkgMCAxMXM0LjkgMTEgMTEgMTEgMTEtNC45IDExLTExUzE3LjEgMCAxMSAwek00IDE2LjZjLTEuMi0xLjUtMi0zLjUtMi01LjZzLjgtNC4xIDItNS42djExLjJ6bTcgMy40Yy0yLjEgMC00LjEtLjgtNS42LTJoMTEuM2MtMS42IDEuMi0zLjYgMi01LjcgMnptMC02LjVMNy4yIDZoNy41TDExIDEzLjV6TTE2IDh2OGgtNGw0LTh6bS02IDhINlY4bDQgOHpNNS40IDRDNi45IDIuOCA4LjkgMiAxMSAyczQuMS44IDUuNiAySDUuNHpNMTggMTYuNlY1LjRjMS4yIDEuNSAyIDMuNSAyIDUuNnMtLjggNC4xLTIgNS42eiIgZmlsbD0iI2FhYSIvPjwvc3ZnPg=='
 		);
 
 		add_submenu_page(
@@ -64,6 +64,7 @@ class Admin extends Module_Base {
 	 * Render onboarding wizard page.
 	 */
 	public function render_onboarding_wizard_page() {
+		$this->plugin->customizer_controls->copy_saved_color_settings();
 		?>
 		<section id="material-onboarding-wizard" class="mdc-typography"></section>
 		<?php
@@ -262,12 +263,13 @@ class Admin extends Module_Base {
 		$status = $this->plugin->theme_status();
 		$screen = get_current_screen();
 
-		// Theme already active or inside wizards. Don't show the notice.
+		// Theme already active, inside wizards, or WP_DEBUG is true. Don't show the notice.
 		if (
 			'ok' === $status
 			|| 'toplevel_page_material-settings' === $screen->id
 			|| 'material_page_material-onboarding-wizard' === $screen->id
 			|| ! empty( get_option( 'material_theme_activated' ) )
+			|| $this->plugin->is_debug()
 		) {
 			return;
 		}
@@ -325,7 +327,9 @@ class Admin extends Module_Base {
 		if ( Plugin::THEME_SLUG !== get_template()
 			|| ! get_option( 'mtb_plugin_activated' )
 			|| 'toplevel_page_material-settings' === $screen->id
-			|| 'material_page_material-onboarding-wizard' === $screen->id ) {
+			|| 'material_page_material-onboarding-wizard' === $screen->id
+			|| $this->plugin->is_debug()
+		) {
 			return;
 		}
 

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoogleFontsControl/Item matches snapshot 1`] = `
+<div
+  className="google-fonts-control-child"
+>
+  <span
+    className="customize-control-title google-fonts-control-title__child"
+  >
+    Test item
+  </span>
+  <div
+    className="google-fonts-control__values"
+  >
+    <div
+      className="components-base-control"
+    >
+      <div
+        className="components-base-control__field"
+      >
+        <label
+          className="components-base-control__label"
+          htmlFor="inspector-number-control-headline1"
+          id="inspector-number-label-headline1"
+        >
+          Size
+        </label>
+        <input
+          className="components-google-fonts-control__number"
+          id="inspector-number-control-headline1"
+          max={96}
+          min={2}
+          onChange={[Function]}
+          type="number"
+          value={96}
+        />
+      </div>
+    </div>
+    <SelectControl
+      className="components-google-fonts-control__select"
+      label="Weight"
+      onChange={[Function]}
+      options={Array []}
+      value={500}
+    />
+  </div>
+</div>
+`;

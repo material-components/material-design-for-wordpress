@@ -200,6 +200,8 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 		if ( ! is_null( $result ) ) {
 			return new \WP_Error( 'material_invalid_theme', __( 'Material theme cannot be activated.', 'material-theme-builder' ), [ 'status' => 500 ] );
 		}
+
+		update_option( 'material_onboarding', true, false );
 		// @codeCoverageIgnoreEnd
 
 		return( [
@@ -230,6 +232,8 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 				[ 'status' => 500 ]
 			);
 		}
+
+		update_option( 'material_onboarding', true, false );
 		// @codeCoverageIgnoreEnd
 
 		return [

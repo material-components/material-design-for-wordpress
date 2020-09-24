@@ -1,4 +1,4 @@
-/* global grecaptcha, jQuery */
+/* global grecaptcha, XMLHttpRequest, FormData */
 
 /**
  * External dependencies
@@ -42,8 +42,8 @@ export const initContactForm = () => {
 		event.preventDefault();
 
 		const contactFields = {};
-		const ajaxData = {};
-		ajaxData.token = form.querySelector( '[name=mtb_token]' ).value;
+		const formData = new FormData();
+		formData.append( 'token', form.querySelector( '[name=mtb_token]' ).value );
 
 		for ( const field of form.querySelectorAll( 'input, textarea' ) ) {
 			const name = field.name;
@@ -57,36 +57,35 @@ export const initContactForm = () => {
 					value,
 				};
 			} else {
-				ajaxData[ name ] = value;
+				formData.append( name, value );
 			}
 		}
+		formData.append( 'contact_fields', JSON.stringify( contactFields ) );
 
-		ajaxData.contact_fields = JSON.stringify( contactFields );
+		const xhr = new XMLHttpRequest();
+		xhr.open( 'POST', getConfig( 'ajax_url' ) );
+		xhr.send( formData );
 
-		const jxhr = jQuery.ajax( {
-			url: getConfig( 'ajax_url' ),
-			dataType: 'json',
-			type: 'POST',
-			data: ajaxData,
-		} );
-
-		jxhr.done( data => {
-			if ( data.success === true ) {
-				form.reset();
-				form.style.display = 'none';
-				document.getElementById(
-					'mtbContactFormSuccessMsgContainer'
-				).style.display = 'block';
-				initReCaptchaToken();
-			} else {
-				handleAjaxFormSubmissionError( form );
+		xhr.onreadystatechange = () => {
+			if ( xhr.readyState === XMLHttpRequest.DONE ) {
+				const status = xhr.status;
+				if ( status === 0 || ( status >= 200 && status < 400 ) ) {
+					const data = JSON.parse( xhr.responseText );
+					if ( data.success === true ) {
+						form.reset();
+						form.style.display = 'none';
+						document.getElementById(
+							'mtbContactFormSuccessMsgContainer'
+						).style.display = 'block';
+						initReCaptchaToken();
+					} else {
+						handleAjaxFormSubmissionError( form );
+					}
+				} else {
+					handleAjaxFormSubmissionError( form );
+				}
 			}
-		} );
-
-		jxhr.fail( () => {
-			handleAjaxFormSubmissionError( form );
-		} );
-
+		};
 		return false;
 	} );
 
