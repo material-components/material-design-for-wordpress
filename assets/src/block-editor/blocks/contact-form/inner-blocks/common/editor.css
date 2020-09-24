@@ -16,6 +16,7 @@
 
 
 .edit-post-visual-editor .mdc-text-field__input {
+	pointer-events: none;
 
 	&:focus {
 		border: none !important;
