@@ -48,7 +48,7 @@ Object {
           >
             library_books
           </i>
-          Hand-picked Posts
+          Curated Post Collection
         </div>
         <div
           class="components-placeholder__fieldset"
@@ -89,7 +89,7 @@ Object {
         >
           library_books
         </i>
-        Hand-picked Posts
+        Curated Post Collection
       </div>
       <div
         class="components-placeholder__fieldset"
@@ -173,7 +173,7 @@ exports[`PostsPicker matches snapshot using shallow rendering 1`] = `
       library_books
     </i>
   }
-  label="Hand-picked Posts"
+  label="Curated Post Collection"
 >
   Display a selection of hand-picked posts.
   <div

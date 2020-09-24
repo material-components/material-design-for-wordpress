@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
@@ -15,53 +31,17 @@ import getConfig from '../../../admin/get-config';
 const Work = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">
-			<h3 className="mdc-typography--headline3 material-wizard__title">
-				{ __(
-					'Congrats! You’ve installed Material. Here’s how it works:',
-					'material-theme-builder'
-				) }
-			</h3>
-
-			<Card image={ `${ getConfig( 'assetsPath' ) }welcome.png` }>
-				<h4 className="mdc-typography--headline4">
-					{ __( 'Customize Your Material Theme', 'material-theme-builder' ) }
-				</h4>
-
-				<p>
-					{ __(
-						'Set up and preview your global theme styles within the customizer. Choose colors, typography, shapes, and icons to express your unique style.',
-						'material-theme-builder'
-					) }
-				</p>
-			</Card>
-
-			<hr />
-
 			<Card
 				image={ `${ getConfig( 'assetsPath' ) }complete-build-with-blocks.png` }
+				imageSpan="5"
 			>
-				<h4 className="mdc-typography--headline4">
-					{ __( 'Build With Material Blocks', 'material-theme-builder' ) }
-				</h4>
+				<h3 className="mdc-typography--headline3">
+					{ __( 'Congrats!', 'material-theme-builder' ) }
+				</h3>
 
 				<p>
 					{ __(
-						'Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor.',
-						'material-theme-builder'
-					) }
-				</p>
-			</Card>
-
-			<hr />
-
-			<Card image={ `${ getConfig( 'assetsPath' ) }addon-material-theme.png` }>
-				<h4 className="mdc-typography--headline4">
-					{ __( 'Apply Your Theme', 'material-theme-builder' ) }
-				</h4>
-
-				<p>
-					{ __(
-						'Implement your colors, shapes, and typography for built-in WordPress elements like your site’s header and footer.',
+						'You\'ve installed Material. Click "Finish" and check out the rest of the Getting Started guide to customize your theme, build with Material Blocks, and apply the theme to your site.',
 						'material-theme-builder'
 					) }
 				</p>
