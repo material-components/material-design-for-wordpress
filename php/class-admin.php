@@ -263,12 +263,13 @@ class Admin extends Module_Base {
 		$status = $this->plugin->theme_status();
 		$screen = get_current_screen();
 
-		// Theme already active or inside wizards. Don't show the notice.
+		// Theme already active, inside wizards, or WP_DEBUG is true. Don't show the notice.
 		if (
 			'ok' === $status
 			|| 'toplevel_page_material-settings' === $screen->id
 			|| 'material_page_material-onboarding-wizard' === $screen->id
 			|| ! empty( get_option( 'material_theme_activated' ) )
+			|| $this->plugin->is_debug()
 		) {
 			return;
 		}
@@ -326,7 +327,9 @@ class Admin extends Module_Base {
 		if ( Plugin::THEME_SLUG !== get_template()
 			|| ! get_option( 'mtb_plugin_activated' )
 			|| 'toplevel_page_material-settings' === $screen->id
-			|| 'material_page_material-onboarding-wizard' === $screen->id ) {
+			|| 'material_page_material-onboarding-wizard' === $screen->id
+			|| $this->plugin->is_debug()
+		) {
 			return;
 		}
 
