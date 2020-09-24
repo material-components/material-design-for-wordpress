@@ -41,7 +41,7 @@ const Work = () => {
 
 				<p>
 					{ __(
-						`You've installed Material. Click "Finish" and check out the rest of the Getting Started guide to customize your theme, build with Material Blocks, and apply the theme to your site.`,
+						'You\'ve installed Material. Click "Finish" and check out the rest of the Getting Started guide to customize your theme, build with Material Blocks, and apply the theme to your site.',
 						'material-theme-builder'
 					) }
 				</p>

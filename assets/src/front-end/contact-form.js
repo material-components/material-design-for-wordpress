@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-/* global grecaptcha, jQuery */
+/* global grecaptcha, XMLHttpRequest, FormData */
 
 /**
  * External dependencies

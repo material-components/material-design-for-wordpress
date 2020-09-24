@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { Fragment, useContext } from '@wordpress/element';
+import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
 import getConfig from '../../get-config';

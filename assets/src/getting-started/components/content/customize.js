@@ -19,7 +19,7 @@ import { __ } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
 import getConfig from '../../get-config';
 
-export const Customize = props => {
+export const Customize = () => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline3">
