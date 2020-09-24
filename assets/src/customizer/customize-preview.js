@@ -10,6 +10,11 @@
  */
 
 /**
+ * External dependencies
+ */
+import debounce from 'lodash/debounce';
+
+/**
  * Internal dependencies
  */
 import colorUtils from '../common/color-utils';
@@ -105,7 +110,7 @@ const getIconFontName = iconStyle => {
 	 *
 	 * @return {void}
 	 */
-	const generatePreviewStyles = () => {
+	const generatePreviewStyles = debounce( () => {
 		const stylesheetID = 'mtb-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
 			styles = '';
@@ -195,7 +200,7 @@ const getIconFontName = iconStyle => {
 
 		// Add styles.
 		stylesheet.html( styles );
-	};
+	}, 300 );
 
 	/**
 	 * Update Google fonts CDN URL based on selected font families.
@@ -204,7 +209,7 @@ const getIconFontName = iconStyle => {
 	 *
 	 * @return {void}
 	 */
-	const updateGoogleFontsURL = () => {
+	const updateGoogleFontsURL = debounce( () => {
 		const fonts = [],
 			baseURL = 'https://fonts.googleapis.com/css?family=';
 
@@ -231,48 +236,29 @@ const getIconFontName = iconStyle => {
 				`${ baseURL }${ [ ...new Set( fonts ) ].join( '|' ) }`
 			);
 		}
-	};
+	}, 300 );
 
-	// Generate preview styles on any color control change.
-	Object.keys( colorControls ).forEach( control => {
-		parentApi( control, value => {
-			// If any color control value changes, generate the preview styles.
-			value.bind( () => {
-				generatePreviewStyles();
+	/**
+	 * Generate preview styles for any control value change.
+	 */
+	Object.keys( colorControls )
+		.concat( Object.keys( cornerStyleControls ) )
+		.concat( Object.keys( typographyControls ) )
+		.concat( Object.keys( iconControls ) )
+		.forEach( control => {
+			parentApi( control, value => {
+				value.bind( () => {
+					if ( typographyControls.hasOwnProperty( control ) ) {
+						updateGoogleFontsURL();
+					}
+
+					generatePreviewStyles();
+				} );
 			} );
 		} );
-	} );
-
-	// Generate preview styles on any corner styles control change.
-	Object.keys( cornerStyleControls ).forEach( control => {
-		parentApi( control, value => {
-			value.bind( () => {
-				generatePreviewStyles();
-			} );
-		} );
-	} );
-
-	// Generate preview styles and update google fonts URL on any typography control change.
-	Object.keys( typographyControls ).forEach( control => {
-		parentApi( control, value => {
-			value.bind( () => {
-				generatePreviewStyles();
-				updateGoogleFontsURL();
-			} );
-		} );
-	} );
 
 	// Load all material icon styles in preview.
 	$( 'head' ).append(
 		'<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">'
 	);
-
-	// Generate preview styles on icon control change.
-	Object.keys( iconControls ).forEach( control => {
-		parentApi( control, value => {
-			value.bind( () => {
-				generatePreviewStyles();
-			} );
-		} );
-	} );
 } )( jQuery );
