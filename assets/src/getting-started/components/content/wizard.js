@@ -42,7 +42,11 @@ export const Wizard = props => {
 				) }
 			</p>
 
-			<img src={ `${ getConfig( 'assetsPath' ) }apply-your-theme.png` } alt="" style={ { maxWidth: '40%' } } />
+			<img
+				src={ `${ getConfig( 'assetsPath' ) }apply-your-theme.png` }
+				alt=""
+				style={ { maxWidth: '40%' } }
+			/>
 
 			<div style={ { height: '15px' } }></div>
 
