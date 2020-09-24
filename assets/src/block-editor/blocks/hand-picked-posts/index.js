@@ -17,6 +17,7 @@ export { metadata, name };
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, supports: Object}}
  */
 export const settings = {
+	...metadata,
 	title: __( 'Hand-Picked Posts (Material)', 'material-theme-builder' ),
 	description: __(
 		'Display a list of your hand-picked posts.',

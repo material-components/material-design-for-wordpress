@@ -129,14 +129,19 @@ const blockEditor = {
 			'./assets/src/block-editor/blocks/data-table/register',
 			'./assets/src/block-editor/blocks/data-table/editor.css',
 		],
+		'hand-picked-posts': [
+			'./assets/src/block-editor/blocks/hand-picked-posts/style.css',
+		],
 		'hand-picked-posts-editor': [
 			'./assets/src/block-editor/blocks/hand-picked-posts/register',
 			'./assets/src/block-editor/blocks/hand-picked-posts/editor.css',
 		],
+		'image-list': './assets/src/block-editor/blocks/image-list/style.css',
 		'image-list-editor': [
 			'./assets/src/block-editor/blocks/image-list/register',
 			'./assets/src/block-editor/blocks/image-list/editor.css',
 		],
+		list: [ './assets/src/block-editor/blocks/list/style.css' ],
 		'list-editor': [
 			'./assets/src/block-editor/blocks/list/register',
 			'./assets/src/block-editor/blocks/list/editor.css',

@@ -89,5 +89,5 @@
 	},
 	"editorScript": "material-image-list-editor",
 	"editorStyle": "material-image-list-editor",
-	"style": "mdc-image-list"
+	"style": "material-image-list"
 }

@@ -30,6 +30,20 @@ class Block_Types {
 	public $blocks = [];
 
 	/**
+	 * Associative array of styles required on the frontend for the current post.
+	 *
+	 * @var array
+	 */
+	private $frontend_styles = [];
+
+	/**
+	 * Associative array of scripts required on the frontend for the current post.
+	 *
+	 * @var array
+	 */
+	private $frontend_scripts = [];
+
+	/**
 	 * Block_Type constructor.
 	 *
 	 * @param Plugin $plugin Instance of the plugin abstraction.
@@ -57,6 +71,7 @@ class Block_Types {
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
 		add_filter( 'block_categories', [ $this, 'block_category' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_required_frontend_assets' ] );
 	}
 
 	/**
@@ -97,15 +112,56 @@ class Block_Types {
 	 * @param string $handle CSS handle.
 	 * @return array CSS dependencies.
 	 */
-	private function get_frontend_css_dependencies( $handle ) {
+	private function get_block_css_dependencies( $handle ) {
 		switch ( $handle ) {
+			case 'material-button':
+			case 'material-button-editor':
+			case 'material-buttons':
+			case 'material-buttons-editor':
+				return [
+					'mdc-button',
+					'mdc-icon-button',
+				];
+
+			case 'material-card':
+			case 'material-card-editor':
+			case 'material-cards-collection-editor':
+				return [
+					'mdc-card',
+				];
+
+			case 'material-contact-form-editor':
+				return [];
+
+
+			case 'material-data-table':
+			case 'material-data-table-editor':
+				return [
+					'mdc-data-table',
+				];
+
+			case 'material-hand-picked-posts':
+			case 'material-hand-picked-posts-editor':
 			case 'material-recent-posts':
 				return [
 					'mdc-button',
 					'mdc-card',
 				];
 
+			case 'material-image-list':
+			case 'material-image-list-editor':
+				return [
+					'mdc-image-list',
+				];
+
+			case 'material-list':
+			case 'material-list-editor':
+				return [
+					'mdc-list',
+				];
+
 			case 'material-tab-bar':
+			case 'material-tab-bar-editor':
 				return [
 					'mdc-tab',
 					'mdc-tab-bar',
@@ -119,17 +175,19 @@ class Block_Types {
 	}
 
 	/**
-	 * Provides an array of CSS dependencies for a given handle to load in the editor.
-	 *
-	 * @param string $handle CSS handle.
-	 * @return array CSS dependencies.
+	 * Enqueue only the scripts and styles that are needed for the current post.
 	 */
-	private function get_editor_css_dependencies( $handle ) {
-		switch ( $handle ) {
-			
+	public function enqueue_required_frontend_assets() {
+		foreach ( $this->frontend_scripts as $block_name => $handle ) {
+			if ( has_block( $block_name ) ) {
+				wp_enqueue_script( $handle );
+			}
+		}
 
-			default:
-				return [];
+		foreach ( $this->frontend_styles as $block_name => $handle ) {
+			if ( has_block( $block_name ) ) {
+				wp_enqueue_style( $handle );
+			}
 		}
 	}
 
@@ -152,7 +210,7 @@ class Block_Types {
 						'material-block-editor-css',
 						'material-google-fonts',
 					],
-					$this->get_editor_css_dependencies( $handle )
+					$this->get_block_css_dependencies( $handle )
 				),
 				$this->plugin->asset_version()
 			);
@@ -164,7 +222,7 @@ class Block_Types {
 			wp_register_style(
 				$handle,
 				$this->plugin->dir_url . 'assets/css/' . $slug . '-compiled.css',
-				$this->get_frontend_css_dependencies( $handle ),
+				$this->get_block_css_dependencies( $handle ),
 				$this->plugin->asset_version()
 			);
 
@@ -260,10 +318,19 @@ class Block_Types {
 
 			if ( isset( $metadata['script'] ) ) {
 				$this->register_block_editor_asset( $metadata['script'], 'script' );
+
+				// Frontend scripts will be loaded conditionally in wp_enqueue_scripts.
+				$this->frontend_scripts[ $metadata['name'] ] = $metadata['script'];
+				unset( $metadata['script'] );
+
 			}
 
 			if ( isset( $metadata['style'] ) ) {
 				$this->register_block_editor_asset( $metadata['style'], 'style' );
+
+				// Frontend styles will be loaded conditionally in wp_enqueue_scripts.
+				$this->frontend_styles[ $metadata['name'] ] = $metadata['style'];
+				unset( $metadata['style'] );
 			}
 
 			if ( ! empty( $this->blocks[ $block_name ] ) && method_exists( $this->blocks[ $block_name ], 'render_block' ) ) {
