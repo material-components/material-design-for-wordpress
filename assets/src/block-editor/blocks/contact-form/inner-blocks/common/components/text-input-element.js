@@ -53,6 +53,7 @@ const TextInputElement = ( {
 			data-form="contact"
 			data-meta={ inputRole }
 			data-label={ label }
+			tabIndex={ editMode ? -1 : undefined }
 		/>
 	);
 };

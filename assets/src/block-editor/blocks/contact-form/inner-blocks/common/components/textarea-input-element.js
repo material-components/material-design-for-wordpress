@@ -51,6 +51,7 @@ const TextareaInputElement = ( {
 			data-meta={ inputRole }
 			data-label={ label }
 			required={ ! editMode ? isRequired : undefined }
+			tabIndex={ editMode ? -1 : undefined }
 		></textarea>
 	);
 };
