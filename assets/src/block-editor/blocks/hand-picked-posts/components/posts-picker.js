@@ -43,7 +43,10 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 	const onDone = () => {
 		setAttributes( { editMode: false } );
 		debouncedSpeak(
-			__( 'Showing Curated Post Collection block preview.', 'material-theme-builder' )
+			__(
+				'Showing Curated Post Collection block preview.',
+				'material-theme-builder'
+			)
 		);
 	};
 

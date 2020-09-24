@@ -23,10 +23,7 @@ export const Overview = () => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline3">
-				{ __(
-					'Build with Material Blocks',
-					'material-theme-builder'
-				) }
+				{ __( 'Build with Material Blocks', 'material-theme-builder' ) }
 			</h2>
 
 			<p>
@@ -36,7 +33,13 @@ export const Overview = () => {
 				) }
 			</p>
 
-			<img src={ `${ getConfig( 'assetsPath' ) }material-blocks-getting-started.gif` } alt="" style={ { maxWidth: '100%' } } />
+			<img
+				src={ `${ getConfig(
+					'assetsPath'
+				) }material-blocks-getting-started.gif` }
+				alt=""
+				style={ { maxWidth: '100%' } }
+			/>
 
 			<div style={ { height: '15px' } }></div>
 

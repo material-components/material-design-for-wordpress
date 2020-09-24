@@ -32,7 +32,11 @@ export const Customize = props => {
 				) }
 			</p>
 
-			<img src={ `${ getConfig( 'assetsPath' ) }customize-your-theme.png` } alt="" style={ { maxWidth: '40%' } } />
+			<img
+				src={ `${ getConfig( 'assetsPath' ) }customize-your-theme.png` }
+				alt=""
+				style={ { maxWidth: '40%' } }
+			/>
 
 			<div style={ { height: '15px' } }></div>
 

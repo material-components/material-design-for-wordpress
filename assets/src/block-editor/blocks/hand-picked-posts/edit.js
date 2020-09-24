@@ -48,7 +48,10 @@ const Edit = props => {
 		return (
 			<img
 				src={ getConfig( 'handpicked_posts_preview' ) }
-				alt={ __( 'Curated Post Collection Preview', 'material-theme-builder' ) }
+				alt={ __(
+					'Curated Post Collection Preview',
+					'material-theme-builder'
+				) }
 			/>
 		);
 	}

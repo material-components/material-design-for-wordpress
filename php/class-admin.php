@@ -5,7 +5,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-//      http://www.apache.org/licenses/LICENSE-2.0
+// http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -152,9 +152,9 @@ class Admin extends Module_Base {
 					'wizardUrl'     => esc_url( menu_page_url( 'material-onboarding-wizard', false ) ),
 					'editorUrl'     => esc_url( admin_url( 'edit.php' ) ),
 					'customize'     => esc_url( admin_url( 'customize.php' ) ),
-					'widgets'     => esc_url( admin_url( 'customize.php?autofocus[panel]=widgets' ) ),
-					'blocks'     => esc_url( admin_url( 'customize.php?autofocus[panel]=material_theme_builder' ) ),
-					'assetsPath'       => esc_url( $this->plugin->asset_url( 'assets/images/onboarding/' ) ),
+					'widgets'       => esc_url( admin_url( 'customize.php?autofocus[panel]=widgets' ) ),
+					'blocks'        => esc_url( admin_url( 'customize.php?autofocus[panel]=material_theme_builder' ) ),
+					'assetsPath'    => esc_url( $this->plugin->asset_url( 'assets/images/onboarding/' ) ),
 					'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
 					'contentStatus' => esc_html( $has_demo_content ? 'ok' : 'install' ),

@@ -31,7 +31,10 @@ import getConfig from '../../../admin/get-config';
 const Work = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">
-			<Card image={ `${ getConfig( 'assetsPath' ) }complete-build-with-blocks.png` } imageSpan="5">
+			<Card
+				image={ `${ getConfig( 'assetsPath' ) }complete-build-with-blocks.png` }
+				imageSpan="5"
+			>
 				<h3 className="mdc-typography--headline3">
 					{ __( 'Congrats!', 'material-theme-builder' ) }
 				</h3>
