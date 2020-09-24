@@ -591,8 +591,6 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$this->assertContains( '--mdc-theme-on-primary-rgb: 255,255,255;', $css );
 		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
 		$this->assertContains( '--mdc-theme-on-secondary-rgb: 0,0,0;', $css );
-		$this->assertContains( '--mdc-theme-background: #03dac6;', $css );
-		$this->assertContains( '--mdc-theme-background-rgb: 3,218,198;', $css );
 		$this->assertContains( '--mdc-theme-surface: #ffffff;', $css );
 		$this->assertContains( '--mdc-theme-surface-rgb: 255,255,255;', $css );
 		$this->assertContains( '--mdc-theme-on-surface: #000000;', $css );
@@ -672,7 +670,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 			[
 				[
 					'id'            => 'global_radius',
-					'label'         => __( 'Global corner styles', 'material-theme-builder' ),
+					'label'         => __( 'Global Corner Styles', 'material-theme-builder' ),
 					'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-theme-builder' ),
 					'min'           => 0,
 					'max'           => 36,
