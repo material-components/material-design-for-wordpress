@@ -442,6 +442,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -884,6 +885,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -1413,6 +1415,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -1860,6 +1863,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -2427,6 +2431,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -2912,6 +2917,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -3436,6 +3442,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -3868,6 +3875,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -4382,6 +4390,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -4824,6 +4833,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -5348,6 +5358,7 @@ Object {
             data-meta="name"
             id=""
             name=""
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -5790,6 +5801,7 @@ Object {
           data-meta="name"
           id=""
           name=""
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -6317,6 +6329,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -6751,6 +6764,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -7267,6 +7281,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -7701,6 +7716,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -8217,6 +8233,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -8645,6 +8662,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -9155,6 +9173,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -9589,6 +9608,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />

@@ -14,6 +14,7 @@ Object {
         id="test-id"
         name="test-id"
         rows="8"
+        tabindex="-1"
       >
         test message
       </textarea>
@@ -29,6 +30,7 @@ Object {
       id="test-id"
       name="test-id"
       rows="8"
+      tabindex="-1"
     >
       test message
     </textarea>
@@ -190,6 +192,7 @@ Object {
         id="test-id"
         name="test-id"
         rows="8"
+        tabindex="-1"
       >
         test message
       </textarea>
@@ -205,6 +208,7 @@ Object {
       id="test-id"
       name="test-id"
       rows="8"
+      tabindex="-1"
     >
       test message
     </textarea>
@@ -277,6 +281,7 @@ Object {
         id="test-id"
         name="test-id"
         rows="8"
+        tabindex="-1"
       >
         test message
       </textarea>
@@ -292,6 +297,7 @@ Object {
       id="test-id"
       name="test-id"
       rows="8"
+      tabindex="-1"
     >
       test message
     </textarea>

@@ -29,7 +29,6 @@ class Helpers {
 		if ( $post ) {
 			$blocks = parse_blocks( $post->post_content );
 		}
-
 		return current( self::get_block_by_name( $blocks, $block_name ) );
 	}
 
@@ -42,12 +41,20 @@ class Helpers {
 	 * @return array
 	 */
 	public static function get_block_by_name( $blocks, $block_name ) {
-		return array_filter(
-			$blocks,
-			function ( $block ) use ( $block_name ) {
-				return $block['blockName'] === $block_name;
+		$matched_blocks = [];
+
+		foreach ( $blocks as $block ) {
+			if ( isset( $block['innerBlocks'] ) && is_array( $block['innerBlocks'] ) ) {
+				$matched_blocks = array_merge(
+					$matched_blocks,
+					self::get_block_by_name( $block['innerBlocks'], $block_name )
+				);
 			}
-		);
+			if ( $block['blockName'] === $block_name ) {
+				$matched_blocks[] = $block;
+			}
+		}
+		return $matched_blocks;
 	}
 
 	/**
@@ -59,16 +66,10 @@ class Helpers {
 	 * @return int
 	 */
 	public static function get_block_count_from_post( $post, $block_name ) {
-		$blocks = parse_blocks( $post->post_content );
+		$blocks         = parse_blocks( $post->post_content );
+		$matched_blocks = self::get_block_by_name( $blocks, $block_name );
 
-		$found_blocks = array_filter(
-			$blocks,
-			function ( $block ) use ( $block_name ) {
-				return $block['blockName'] === $block_name;
-			}
-		);
-
-		return count( $found_blocks );
+		return count( $matched_blocks );
 	}
 
 	/**
