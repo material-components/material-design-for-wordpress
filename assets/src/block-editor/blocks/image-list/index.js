@@ -20,6 +20,7 @@ export { metadata, name };
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
+	...metadata,
 	title: __( 'Gallery (Material)', 'material-theme-builder' ),
 	description: __(
 		'Image lists display a collection of images in an organized grid.',

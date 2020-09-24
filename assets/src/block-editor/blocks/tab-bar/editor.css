@@ -1,0 +1,61 @@
+.tab-add {
+	align-self: flex-end;
+	margin-bottom: 8px;
+	margin-left: 10px;
+	padding: 4px 0;
+	background-color: #f4f5f6;
+	font-size: 13px;
+	border: 1px solid #639ec7;
+	border-radius: 2px;
+	color: #639ec7;
+	cursor: pointer;
+	width: 90px;
+
+	&__icon {
+		vertical-align: middle;
+		font-size: 18px !important;
+		position: relative;
+		top: -2px;
+	}
+}
+
+.tab {
+	position: relative !important;
+	padding-right: 32px !important;
+
+	&__label-field {
+		cursor: text !important;
+		min-width: 50px !important;
+	}
+
+	&__delete {
+		position: absolute;
+		top: calc(50% - 7.5px);
+		display: none;
+		right: 0;
+		font-size: 15px !important;
+		background: none;
+		padding: 0;
+		margin: 0 10px 0 0;
+		border: none;
+		cursor: pointer;
+		color: #62605a;
+	}
+
+	&:hover &__delete,
+	.mdc-tab--active &__delete {
+		display: block;
+	}
+}
+
+.tab-wrap {
+	display: flex;
+}
+
+.mdc-tab-bar {
+	width: calc(100% - 100px) !important;
+}
+
+.mdc-tab__ripple {
+	display: none;
+}

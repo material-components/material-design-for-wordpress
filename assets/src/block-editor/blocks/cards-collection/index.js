@@ -20,6 +20,11 @@ export { metadata, name };
  */
 export const settings = {
 	...metadata,
+	title: __( 'Cards Collection (Material)', 'material-theme-builder' ),
+	description: __(
+		'Add a group of cards to display content and actions on multiple topics.',
+		'material-theme-builder'
+	),
 	keywords: [ __( 'Material Cards Collection', 'material-theme-builder' ) ],
 	icon: <i className="material-icons-outlined">dashboard</i>,
 	edit,

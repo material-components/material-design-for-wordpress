@@ -87,5 +87,7 @@
 		  "wide",
 		  "full"
 	   ]
-	}
+	},
+	"editorScript": "material-hand-picked-posts-editor",
+	"editorStyle": "material-hand-picked-posts-editor"
  }

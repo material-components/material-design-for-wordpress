@@ -1,7 +1,5 @@
 {
 	"name": "material/contact-form",
-	"title": "Contact Form (Material)",
-	"description": "A simple way for people to get in contact with you.",
 	"category": "material",
 	"attributes": {
 		"emailTo": {

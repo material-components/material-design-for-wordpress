@@ -6,7 +6,6 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import './style.css';
 import edit from './edit';
 import save from './save';
 import metadata from './block.json';
@@ -18,6 +17,7 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
+	...metadata,
 	title: __( 'List (Material)', 'material-theme-builder' ),
 	description: __(
 		'Lists allow you to list out your information in a clear manner.',

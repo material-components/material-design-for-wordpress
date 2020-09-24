@@ -1,7 +1,5 @@
 {
 	"name": "material/card",
-	"title": "Custom Card (Material)",
-	"description": "Add a card to display content and actions on a single topic.",
 	"category": "material",
 	"attributes": {
 	   "contentLayout": {

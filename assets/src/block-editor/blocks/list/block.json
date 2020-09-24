@@ -52,5 +52,8 @@
 			 }
 		  }
 	   }
-	}
+	},
+	"editorScript": "material-list-editor",
+	"editorStyle": "material-list-editor",
+	"style": "mdc-list"
  }

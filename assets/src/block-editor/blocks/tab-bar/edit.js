@@ -21,7 +21,6 @@ import { getBlockTypes } from '@wordpress/blocks';
 /**
  * Internal dependencies
  */
-import './style.css';
 import { ICON_POSITIONS } from './options';
 import { Tab, TabSchema } from './components/tab';
 import OrderToolbar from './components/order-toolbar';

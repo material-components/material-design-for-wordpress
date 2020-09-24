@@ -124,6 +124,35 @@ const blockEditor = {
 			'./assets/src/block-editor/blocks/contact-form/inner-blocks/short-text-input-field',
 			'./assets/src/block-editor/blocks/contact-form/inner-blocks/website-input-field',
 		],
+		'data-table': './assets/src/block-editor/blocks/data-table/style.css',
+		'data-table-editor': [
+			'./assets/src/block-editor/blocks/data-table/register',
+			'./assets/src/block-editor/blocks/data-table/editor.css',
+		],
+		'hand-picked-posts-editor': [
+			'./assets/src/block-editor/blocks/hand-picked-posts/register',
+			'./assets/src/block-editor/blocks/hand-picked-posts/editor.css',
+		],
+		'image-list-editor': [
+			'./assets/src/block-editor/blocks/image-list/register',
+			'./assets/src/block-editor/blocks/image-list/editor.css',
+		],
+		'list-editor': [
+			'./assets/src/block-editor/blocks/list/register',
+			'./assets/src/block-editor/blocks/list/editor.css',
+		],
+		'recent-posts': './assets/src/block-editor/blocks/recent-posts/style.css',
+		'recent-posts-editor': [
+			'./assets/src/block-editor/blocks/recent-posts/register',
+		],
+		'tab-bar': [
+			'./assets/src/block-editor/blocks/tab-bar/frontend',
+			'./assets/src/block-editor/blocks/tab-bar/style.css',
+		],
+		'tab-bar-editor': [
+			'./assets/src/block-editor/blocks/tab-bar/register',
+			'./assets/src/block-editor/blocks/tab-bar/editor.css',
+		],
 	},
 	plugins: [
 		...sharedConfig.plugins.filter(
@@ -281,6 +310,42 @@ const gsm = {
 	],
 };
 
+const materialCssPackages = [
+	'@material/button/dist/mdc.button.css',
+	'@material/card/dist/mdc.card.css',
+	'@material/data-table/dist/mdc.data-table.css',
+	'@material/icon-button/dist/mdc.icon-button.css',
+	'@material/image-list/dist/mdc.image-list.css',
+	'@material/layout-grid/dist/mdc.layout-grid.css',
+	'@material/list/dist/mdc.list.css',
+	'@material/tab/dist/mdc.tab.css',
+	'@material/tab-bar/dist/mdc.tab-bar.css',
+	'@material/tab-indicator/dist/mdc.tab-indicator.css',
+	'@material/tab-scroller/dist/mdc.tab-scroller.css',
+	'@material/textfield/dist/mdc.textfield.css',
+	'@material/typography/dist/mdc.typography.css',
+];
+const materialCss = {
+	...defaultConfig,
+	...sharedConfig,
+	entry: materialCssPackages.reduce( ( entryConfig, packagePath ) => {
+		const packageHandle = `mdc-${ packagePath
+			.split( 'mdc.' )[ 1 ]
+			.replace( '.css', '' ) }`;
+		return {
+			...entryConfig,
+			[ packageHandle ]: packagePath,
+		};
+	}, {} ),
+	plugins: [
+		...sharedConfig.plugins,
+		new WebpackBar( {
+			name: 'Material CSS',
+			color: '#3ce1bb',
+		} ),
+	],
+};
+
 module.exports = [
 	// prettier-ignore
 	blockEditor,
@@ -290,4 +355,5 @@ module.exports = [
 	overrides,
 	wizard,
 	gsm,
+	materialCss,
 ];

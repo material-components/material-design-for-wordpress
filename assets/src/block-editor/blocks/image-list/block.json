@@ -86,5 +86,8 @@
 	},
 	"supports": {
 		"align": true
-	}
+	},
+	"editorScript": "material-image-list-editor",
+	"editorStyle": "material-image-list-editor",
+	"style": "mdc-image-list"
 }

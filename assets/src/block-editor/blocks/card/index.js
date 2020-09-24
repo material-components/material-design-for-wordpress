@@ -20,6 +20,11 @@ export { metadata, name };
  */
 export const settings = {
 	...metadata,
+	title: __( 'Custom Card (Material)', 'material-theme-builder' ),
+	description: __(
+		'Add a card to display content and actions on a single topic.',
+		'material-theme-builder'
+	),
 	keywords: [ __( 'Material Card', 'material-theme-builder' ) ],
 	icon: <i className="material-icons-outlined">chrome_reader_mode</i>,
 	example,

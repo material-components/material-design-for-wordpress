@@ -16,11 +16,12 @@ import { unmountComponentAtNode } from 'react-dom';
  * Internal dependencies
  */
 import MaterialLibrary from './components/material-library';
-import { initTabBar, initLists } from '../common/mdc-components-init';
+import { initLists } from '../common/mdc-components-init';
 import ThemePrompt from './components/theme-prompt';
 import { THEME_COLOR_CONTROLS, removeOptionPrefix } from './utils';
 import getConfig from '../block-editor/utils/get-config';
 import { initButtons } from '../block-editor/blocks/buttons/utils';
+import { initTabBar } from '../block-editor/blocks/tab-bar/utils/init-tab-bar';
 
 const $ = jQuery;
 const api = wp.customize;

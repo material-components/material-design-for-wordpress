@@ -1,3 +1,5 @@
+import { __ } from '@wordpress/i18n';
+
 /**
  * Internal dependencies
  */
@@ -15,6 +17,11 @@ export { metadata, name };
 
 export const settings = {
 	...metadata,
+	title: __( 'Buttons (Material)', 'material-theme-builder' ),
+	description: __(
+		'Buttons allow users to take actions, and make choices, with a single tap.',
+		'material-theme-builder'
+	),
 	icon,
 	edit,
 	save,

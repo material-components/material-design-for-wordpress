@@ -2,7 +2,7 @@
  * Material components used in the blocks and frontend.
  */
 
-@import "@material/button/dist/mdc.button.css";
+/*@import "@material/button/dist/mdc.button.css";
 @import "@material/card/dist/mdc.card.css";
 @import "@material/data-table/dist/mdc.data-table.css";
 @import "@material/icon-button/dist/mdc.icon-button.css";
@@ -14,5 +14,8 @@
 @import "@material/tab-indicator/dist/mdc.tab-indicator.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
 @import "@material/textfield/dist/mdc.textfield.css";
+*/
+
 @import "@material/typography/dist/mdc.typography.css";
 @import "./components/material.css";
+

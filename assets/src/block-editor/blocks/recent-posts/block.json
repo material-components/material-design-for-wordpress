@@ -66,5 +66,7 @@
 		  "wide",
 		  "full"
 	   ]
-	}
+	},
+	"editorScript": "material-recent-posts-editor",
+	"style": "material-recent-posts"
  }

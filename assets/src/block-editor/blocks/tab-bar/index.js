@@ -15,6 +15,7 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
+	...metadata,
 	title: __( 'Tabs (Material)', 'material-theme-builder' ),
 	description: __(
 		'Organize and allow navigation between related groups of content.',

@@ -53,9 +53,84 @@ class Block_Types {
 		$contact_form_block->init();
 		$this->blocks['contact-form'] = $contact_form_block;
 
+		add_action( 'init', [ $this, 'register_mdc_assets' ] );
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
 		add_filter( 'block_categories', [ $this, 'block_category' ] );
+	}
+
+	/**
+	 * Registers assets compiled from Material packages.
+	 */
+	public function register_mdc_assets() {
+		$packages = [
+			'@material/button/dist/mdc.button.css',
+			'@material/card/dist/mdc.card.css',
+			'@material/data-table/dist/mdc.data-table.css',
+			'@material/icon-button/dist/mdc.icon-button.css',
+			'@material/image-list/dist/mdc.image-list.css',
+			'@material/layout-grid/dist/mdc.layout-grid.css',
+			'@material/list/dist/mdc.list.css',
+			'@material/tab/dist/mdc.tab.css',
+			'@material/tab-bar/dist/mdc.tab-bar.css',
+			'@material/tab-indicator/dist/mdc.tab-indicator.css',
+			'@material/tab-scroller/dist/mdc.tab-scroller.css',
+			'@material/textfield/dist/mdc.textfield.css',
+			'@material/typography/dist/mdc.typography.css',
+		];
+
+		foreach ( $packages as $package_path ) {
+			$handle = 'mdc-' . str_replace( '.css', '', explode( 'mdc.', $package_path )[1] );
+
+			wp_register_style(
+				$handle,
+				$this->plugin->dir_url . 'assets/css/' . $handle . '-compiled.css',
+				[],
+				$this->plugin->asset_version()
+			);
+		}
+	}
+
+	/**
+	 * Provides an array of CSS dependencies for a given handle.
+	 *
+	 * @param string $handle CSS handle.
+	 * @return array CSS dependencies.
+	 */
+	private function get_frontend_css_dependencies( $handle ) {
+		switch ( $handle ) {
+			case 'material-recent-posts':
+				return [
+					'mdc-button',
+					'mdc-card',
+				];
+
+			case 'material-tab-bar':
+				return [
+					'mdc-tab',
+					'mdc-tab-bar',
+					'mdc-tab-indicator',
+					'mdc-tab-scroller',
+				];
+
+			default:
+				return [];
+		}
+	}
+
+	/**
+	 * Provides an array of CSS dependencies for a given handle to load in the editor.
+	 *
+	 * @param string $handle CSS handle.
+	 * @return array CSS dependencies.
+	 */
+	private function get_editor_css_dependencies( $handle ) {
+		switch ( $handle ) {
+			
+
+			default:
+				return [];
+		}
 	}
 
 	/**
@@ -72,10 +147,13 @@ class Block_Types {
 			wp_register_style(
 				$handle,
 				$this->plugin->dir_url . 'assets/css/' . $slug . '-editor-compiled.css',
-				[
-					'material-block-editor-css',
-					'material-google-fonts',
-				],
+				array_merge(
+					[
+						'material-block-editor-css',
+						'material-google-fonts',
+					],
+					$this->get_editor_css_dependencies( $handle )
+				),
 				$this->plugin->asset_version()
 			);
 
@@ -86,7 +164,7 @@ class Block_Types {
 			wp_register_style(
 				$handle,
 				$this->plugin->dir_url . 'assets/css/' . $slug . '-compiled.css',
-				[],
+				$this->get_frontend_css_dependencies( $handle ),
 				$this->plugin->asset_version()
 			);
 
