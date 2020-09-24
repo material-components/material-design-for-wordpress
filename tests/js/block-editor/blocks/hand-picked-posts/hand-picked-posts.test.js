@@ -48,7 +48,9 @@ describe( 'blocks: material/hand-picked-posts', () => {
 
 	describe( 'title settings', () => {
 		it( 'should equal Curated Card Collection (Material)', () => {
-			expect( settings.title ).toStrictEqual( 'Curated Card Collection (Material)' );
+			expect( settings.title ).toStrictEqual(
+				'Curated Card Collection (Material)'
+			);
 		} );
 	} );
 

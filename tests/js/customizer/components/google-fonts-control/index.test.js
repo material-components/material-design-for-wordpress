@@ -90,7 +90,7 @@ const baseProps = {
 describe( 'GoogleFontsControl', () => {
 	beforeAll( () => {
 		global.$ = global.jQuery = jQMock;
-		global.jQuery.fn.selectWoo = jest.fn(() => jQMock(this)); // eslint-disable-line
+		global.jQuery.fn.selectWoo = jest.fn( () => jQMock( this ) ); // eslint-disable-line
 
 		global.mtb = {
 			googleFonts: [
