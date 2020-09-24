@@ -71,11 +71,13 @@ export const Overrides = createGlobalStyle`
 		border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .12);
 	}
 
-	h4, form, button {
-		display: inline-block;
-		button {
-			color: var(--mdc-theme-on-background) !important;
-			vertical-align: sub;
+	#material-library-preview {
+		h4, form, button {
+			display: inline-block;
+			button {
+				color: var(--mdc-theme-on-background) !important;
+				vertical-align: sub;
+			}
 		}
 	}
 `;
