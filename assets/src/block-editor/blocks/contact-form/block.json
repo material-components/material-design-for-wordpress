@@ -15,7 +15,7 @@
 		},
 		"outlined": {
 		   "type": "boolean",
-		   "default": true
+		   "default": false
 		},
 		"fullWidth": {
 		   "type": "boolean",

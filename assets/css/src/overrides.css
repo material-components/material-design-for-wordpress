@@ -143,3 +143,10 @@ ul.mdc-list {
 .mdc-card__link {
 	box-shadow: none !important;
 }
+
+/* Text fields */
+.mdc-text-field__input {
+	background-color: transparent !important;
+	color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .87) !important;
+	margin: 0 !important;
+}
