@@ -3,7 +3,8 @@
 	"category": "material",
 	"attributes": {
 		"emailTo": {
-		   "type": "string"
+		   "type": "string",
+		   "default": ""
 		},
 		"subject": {
 		   "type": "string",

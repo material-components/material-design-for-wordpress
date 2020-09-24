@@ -59,12 +59,6 @@ const TextInputEdit = props => {
 		ContactFormContext
 	);
 
-	const setter = genericAttributesSetter( setAttributes );
-
-	if ( ! id || id.length === 0 ) {
-		setAttributes( { id: `mtb-${ inputRole }-${ instanceId }` } );
-	}
-
 	useEffect(
 		() => {
 			setAttributes( {
@@ -80,6 +74,12 @@ const TextInputEdit = props => {
 		textFields.forEach( textField => new MDCTextField( textField ) );
 	}, [ outlined, displayLabel, fullWidth ] );
 
+	if ( ! id || id.length === 0 ) {
+		setAttributes( { id: `mtb-${ inputRole }-${ instanceId }` } );
+		return null;
+	}
+
+	const setter = genericAttributesSetter( setAttributes );
 	const textInputProps = {
 		inputValue,
 		id,
@@ -172,9 +172,11 @@ const TextInputEdit = props => {
 export default compose( [
 	withInstanceId,
 	withSelect( ( select, ownProps ) => {
-		const parentId = select(
-			'core/block-editor'
-		).getBlockHierarchyRootClientId( ownProps.clientId );
+		const parents = select( 'core/block-editor' ).getBlockParents(
+			ownProps.clientId
+		);
+
+		const parentId = parents[ parents.length - 1 ];
 
 		return {
 			parentBlock: select( 'core/block-editor' ).getBlock( parentId ),
