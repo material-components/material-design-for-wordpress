@@ -9,7 +9,7 @@ import { TextControl, Tooltip } from '@wordpress/components';
  * Internal dependencies
  */
 import './style.css';
-import { icons as rawIcons } from '!!json-loader!material-design-icons/iconfont/MaterialIcons-Regular.ijmap';
+import { icons as rawIcons } from '../../../../fonts/icons.json';
 
 const icons = Object.keys( rawIcons );
 
