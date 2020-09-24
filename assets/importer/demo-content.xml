@@ -97,8 +97,8 @@
 <p>Praesent at mauris felis. Cras ac libero aliquet, gravida quam ac, sollicitudin felis. In vel ultricies eros. Vivamus id condimentum diam.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:material/button {"label":"Lorem Ipsum","style":"raised","cornerRadius":4,"url":"#","icon":{"name":"spa","hex":59517},"textColor":"#ffffff"} -->
-<div class="wp-block-material-button"><a href="#" style="color:#ffffff;border-radius:4px" class="mdc-button mdc-button--raised"><i class="material-icons mdc-button__icon">spa</i><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
+<!-- wp:material/button {"label":"Lorem Ipsum","style":"raised","url":"#","icon":{"name":"spa","hex":59517},"textColor":"#ffffff"} -->
+<div class="wp-block-material-button"><a href="#" class="mdc-button mdc-button--raised"><i class="material-icons mdc-button__icon">spa</i><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
 <!-- /wp:material/button --></div></div>
 <!-- /wp:cover -->
 
@@ -215,8 +215,8 @@
 <div class="mdc-text-field-container"><div class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--custom-full"><span class="mdc-text-field__ripple"></span><textarea id="mtb-message-0" name="mtb-message-0" class="mdc-text-field__input" rows="8" aria-labelledby="label-mtb-message-0" data-form="contact" data-meta="message" data-label="Message" required></textarea><div class="mdc-notched-outline"><div class="mdc-notched-outline__leading"></div><div class="mdc-notched-outline__notch"><label for="mtb-message-0" class="mdc-floating-label" id="label-mtb-message-0">Message</label></div><span class="mdc-notched-outline__trailing"></span></div></div></div>
 <!-- /wp:material/message-input-field -->
 
-<!-- wp:material/button {"label":"Submit","style":"unelevated","iconPosition":"none","cornerRadius":4,"icon":{"name":"spa","hex":59517},"isSubmit":true} -->
-<div class="wp-block-material-button"><button class="mdc-button mdc-button--unelevated" style="border-radius:4px" type="submit"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Submit</span></button></div>
+<!-- wp:material/button {"label":"Submit","style":"unelevated","iconPosition":"none","icon":{"name":"spa","hex":59517},"isSubmit":true} -->
+<div class="wp-block-material-button"><button class="mdc-button mdc-button--unelevated" type="submit"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Submit</span></button></div>
 <!-- /wp:material/button --></div>
 <!-- /wp:material/contact-form -->]]></content:encoded>
             <excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -551,8 +551,8 @@
 <p class="has-text-color has-medium-font-size has-very-dark-gray-color">Praesent non convallis tortor. Sed bibendum mauris vel nunc gravida ultrices. Sed elementum augue quis maximus ultrices quisque.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:material/button {"label":"Lorem Ipsum","style":"outlined","iconPosition":"none","cornerRadius":4,"url":"#","icon":{"name":"spa","hex":59517}} -->
-<div class="wp-block-material-button"><a href="#" style="border-radius:4px" class="mdc-button mdc-button--outlined"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
+<!-- wp:material/button {"label":"Lorem Ipsum","style":"outlined","iconPosition":"none","url":"#","icon":{"name":"spa","hex":59517}} -->
+<div class="wp-block-material-button"><a href="#" class="mdc-button mdc-button--outlined"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
 <!-- /wp:material/button --></div></div>
 <!-- /wp:media-text --></div></div>
 <!-- /wp:cover -->
@@ -686,8 +686,8 @@
 <div class="mdc-text-field-container"><div class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--custom-full"><span class="mdc-text-field__ripple"></span><textarea id="mtb-message-0" name="mtb-message-0" class="mdc-text-field__input" rows="8" aria-labelledby="label-mtb-message-0" data-form="contact" data-meta="message" data-label="Message" required></textarea><div class="mdc-notched-outline"><div class="mdc-notched-outline__leading"></div><div class="mdc-notched-outline__notch"><label for="mtb-message-0" class="mdc-floating-label" id="label-mtb-message-0">Message</label></div><span class="mdc-notched-outline__trailing"></span></div></div></div>
 <!-- /wp:material/message-input-field -->
 
-<!-- wp:material/button {"label":"Submit","style":"unelevated","iconPosition":"none","cornerRadius":4,"icon":{"name":"spa","hex":59517},"isSubmit":true} -->
-<div class="wp-block-material-button"><button class="mdc-button mdc-button--unelevated" style="border-radius:4px" type="submit"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Submit</span></button></div>
+<!-- wp:material/button {"label":"Submit","style":"unelevated","iconPosition":"none","icon":{"name":"spa","hex":59517},"isSubmit":true} -->
+<div class="wp-block-material-button"><button class="mdc-button mdc-button--unelevated" type="submit"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Submit</span></button></div>
 <!-- /wp:material/button --></div>
 <!-- /wp:material/contact-form --></div>
 <!-- /wp:column --></div>
