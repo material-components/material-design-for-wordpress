@@ -19,7 +19,7 @@ export { metadata, name };
  */
 export const settings = {
 	keywords: [ __( 'Material Data Table', 'material-theme-builder' ) ],
-	title: __( 'Material Data Table', 'material-theme-builder' ),
+	title: __( 'Data Table (Material)', 'material-theme-builder' ),
 	icon: <i className="material-icons-outlined">grid_on</i>,
 	edit,
 	save,
