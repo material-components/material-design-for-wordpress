@@ -149,6 +149,7 @@
     "format:css": "npm run lint:css -- --fix",
     "format:js": "wp-scripts format-js",
     "format:php": "composer format",
+    "icons": "grunt icon_mapping",
     "lint": "npm-run-all --parallel lint:*",
     "lint:css": "wp-scripts lint-style 'assets/ php/ tests/'",
     "lint:js": "wp-scripts lint-js",
