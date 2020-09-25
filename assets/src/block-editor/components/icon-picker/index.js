@@ -50,10 +50,9 @@ export default ( { currentIcon, onChange } ) => {
 		() =>
 			filteredIcons.map( icon => {
 				const iconName = toSlug( rawIcons[ icon ].name );
-				const iconHex = parseInt( icon, 16 );
 
 				const isSelected =
-					currentIcon?.name === iconName
+					currentIcon === iconName
 						? ' icons-container__icon__icon-btn--active'
 						: '';
 
@@ -63,14 +62,9 @@ export default ( { currentIcon, onChange } ) => {
 							<button
 								type="button"
 								className={ `icons-container__icon__icon-btn${ isSelected }` }
-								onClick={ onChange.bind( this, {
-									name: iconName,
-									hex: iconHex,
-								} ) }
+								onClick={ onChange.bind( this, iconName ) }
 							>
-								<i className="material-icons">
-									{ String.fromCharCode( iconHex ) }
-								</i>
+								<i className="material-icons">{ iconName }</i>
 							</button>
 						</Tooltip>
 					</div>
@@ -90,9 +84,7 @@ export default ( { currentIcon, onChange } ) => {
 				</div>
 				{ currentIcon && (
 					<div className="icons-search__selected-icon">
-						<i className="material-icons">
-							{ String.fromCharCode( currentIcon?.hex ) }
-						</i>
+						<i className="material-icons">{ currentIcon }</i>
 					</div>
 				) }
 			</section>

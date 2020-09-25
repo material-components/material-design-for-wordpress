@@ -105,7 +105,7 @@ Object {
           <i
             class="material-icons mdc-button__icon"
           >
-            
+            account_balance_wallet
           </i>
           <div
             class="mdc-button__ripple"
@@ -127,7 +127,7 @@ Object {
         <i
           class="material-icons mdc-button__icon"
         >
-          
+          account_balance_wallet
         </i>
         <div
           class="mdc-button__ripple"
@@ -212,7 +212,7 @@ Object {
           <i
             class="material-icons mdc-button__icon"
           >
-            
+            account_balance_wallet
           </i>
         </a>
       </div>
@@ -234,7 +234,7 @@ Object {
         <i
           class="material-icons mdc-button__icon"
         >
-          
+          account_balance_wallet
         </i>
       </a>
     </div>
@@ -304,7 +304,7 @@ Object {
           href="https://google.com"
           style="color: rgb(241, 241, 241);"
         >
-          
+          account_balance_wallet
         </a>
       </div>
     </div>
@@ -316,7 +316,7 @@ Object {
         href="https://google.com"
         style="color: rgb(241, 241, 241);"
       >
-        
+        account_balance_wallet
       </a>
     </div>
   </div>,
@@ -386,7 +386,7 @@ Object {
           <div
             class="mdc-button__ripple"
           />
-          
+          account_balance_wallet
         </button>
       </div>
     </div>
@@ -399,7 +399,7 @@ Object {
         <div
           class="mdc-button__ripple"
         />
-        
+        account_balance_wallet
       </button>
     </div>
   </div>,

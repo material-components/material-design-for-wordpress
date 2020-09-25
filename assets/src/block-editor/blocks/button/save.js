@@ -37,16 +37,12 @@ import hasBg from './utils/has-bg';
 const ButtonChildren = ( { icon, iconPosition, label } ) => (
 	<>
 		{ icon && iconPosition === 'leading' && (
-			<i className="material-icons mdc-button__icon">
-				{ String.fromCharCode( icon?.hex ) }
-			</i>
+			<i className="material-icons mdc-button__icon">{ icon }</i>
 		) }
 		<div className="mdc-button__ripple"></div>
 		<span className="mdc-button__label">{ label }</span>
 		{ icon && iconPosition === 'trailing' && (
-			<i className="material-icons mdc-button__icon">
-				{ String.fromCharCode( icon?.hex ) }
-			</i>
+			<i className="material-icons mdc-button__icon">{ icon }</i>
 		) }
 	</>
 );
@@ -79,7 +75,7 @@ const ButtonSave = ( {
 						className={ classNames( 'material-icons', 'mdc-icon-button' ) }
 						style={ { ...( textColor ? { color: textColor } : {} ) } }
 					>
-						{ String.fromCharCode( icon?.hex ) }
+						{ icon }
 					</a>
 				) : (
 					<button
@@ -88,7 +84,7 @@ const ButtonSave = ( {
 						type={ isSubmit ? 'submit' : undefined }
 					>
 						<div className="mdc-button__ripple"></div>
-						{ String.fromCharCode( icon?.hex ) }
+						{ icon }
 					</button>
 				) }
 			</div>
