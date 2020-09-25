@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2020 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
 <!-- generator="WordPress/5.4.1" created="2020-05-07 17:45" -->
 <rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
     <channel>
@@ -52,8 +68,8 @@
             <dc:creator><![CDATA[wildpangolin]]></dc:creator>
             <guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/home/</guid>
             <description></description>
-            <content:encoded><![CDATA[<!-- wp:image {"align":"wide","id":34,"sizeSlug":"large","className":"is-style-default"} -->
-<figure class="wp-block-image alignwide size-large is-style-default"><img src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=375&q=80" alt="" class="wp-image-34"/></figure>
+            <content:encoded><![CDATA[<!-- wp:image {"align":"center","id":34,"sizeSlug":"large","className":"is-style-default"} -->
+<figure class="wp-block-image aligncenter size-large is-style-default"><img src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=375&q=80" alt="" class="wp-image-34"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:spacer {"height":20} -->
@@ -81,8 +97,8 @@
 <p>Praesent at mauris felis. Cras ac libero aliquet, gravida quam ac, sollicitudin felis. In vel ultricies eros. Vivamus id condimentum diam.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:material/button {"label":"Lorem Ipsum","style":"raised","url":"#","icon":{"name":"favorite","hex":59517}} -->
-<div class="wp-block-material-button"><a href="#" class="mdc-button mdc-button--raised"><i class="material-icons mdc-button__icon"></i><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
+<!-- wp:material/button {"label":"Lorem Ipsum","style":"raised","url":"#"} -->
+<div class="wp-block-material-button"><a href="#" class="mdc-button mdc-button--raised"><i class="material-icons mdc-button__icon">spa</i><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
 <!-- /wp:material/button --></div></div>
 <!-- /wp:cover -->
 
@@ -199,7 +215,7 @@
 <div class="mdc-text-field-container"><div class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--custom-full"><span class="mdc-text-field__ripple"></span><textarea id="mtb-message-0" name="mtb-message-0" class="mdc-text-field__input" rows="8" aria-labelledby="label-mtb-message-0" data-form="contact" data-meta="message" data-label="Message" required></textarea><div class="mdc-notched-outline"><div class="mdc-notched-outline__leading"></div><div class="mdc-notched-outline__notch"><label for="mtb-message-0" class="mdc-floating-label" id="label-mtb-message-0">Message</label></div><span class="mdc-notched-outline__trailing"></span></div></div></div>
 <!-- /wp:material/message-input-field -->
 
-<!-- wp:material/button {"label":"Submit","style":"unelevated","iconPosition":"none","icon":{"name":"favorite","hex":59517},"isSubmit":true} -->
+<!-- wp:material/button {"label":"Submit","style":"unelevated","isSubmit":true} -->
 <div class="wp-block-material-button"><button class="mdc-button mdc-button--unelevated" type="submit"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Submit</span></button></div>
 <!-- /wp:material/button --></div>
 <!-- /wp:material/contact-form -->]]></content:encoded>
@@ -458,8 +474,8 @@
             <dc:creator><![CDATA[wildpangolin]]></dc:creator>
             <guid isPermaLink="false">https://wildpangolin.mystagingwebsite.com/about/</guid>
             <description></description>
-            <content:encoded><![CDATA[<!-- wp:image {"align":"wide","id":34,"sizeSlug":"large"} -->
-<figure class="wp-block-image alignwide size-large"><img src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=375&q=80" alt="" class="wp-image-34"/></figure>
+            <content:encoded><![CDATA[<!-- wp:image {"align":"center","id":34,"sizeSlug":"large"} -->
+<figure class="wp-block-image aligncenter size-large"><img src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=375&q=80" alt="" class="wp-image-34"/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading -->
@@ -535,8 +551,8 @@
 <p class="has-text-color has-medium-font-size has-very-dark-gray-color">Praesent non convallis tortor. Sed bibendum mauris vel nunc gravida ultrices. Sed elementum augue quis maximus ultrices quisque.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:material/button {"label":"Lorem Ipsum","style":"outlined","iconPosition":"none","url":"#","icon":{"name":"favorite","hex":59517}} -->
-<div class="wp-block-material-button"><a href="#" class="mdc-button mdc-button--outlined"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
+<!-- wp:material/button {"label":"Lorem Ipsum","style":"outlined","url":"#"} -->
+<div class="wp-block-material-button"><a href="#" class="mdc-button mdc-button--outlined"><i class="material-icons mdc-button__icon">spa</i><div class="mdc-button__ripple"></div><span class="mdc-button__label">Lorem Ipsum</span></a></div>
 <!-- /wp:material/button --></div></div>
 <!-- /wp:media-text --></div></div>
 <!-- /wp:cover -->
@@ -547,7 +563,7 @@
 
 <!-- wp:media-text {"mediaId":36,"mediaLink":"https://wildpangolin.mystagingwebsite.com/projects/liam-spradlin-sqzwshdis48-unsplash-2/","mediaType":"image","verticalAlignment":"center"} -->
 <div class="wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-center"><figure class="wp-block-media-text__media"><img src="https://images.unsplash.com/photo-1558905585-24d5d344c91d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=683&q=80" alt="" class="wp-image-36"/></figure><div class="wp-block-media-text__content"><!-- wp:material/list {"style":"two-line"} -->
-<div class="wp-block-material-list"><ul class="mdc-list mdc-list--two-line"><li class="mdc-list-item"><span class="mdc-list-item__graphic material-icons">favorite</span><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text">List Item 1</span><span class="mdc-list-item__secondary-text">Lorem ipsum dolor</span></span></li><li class="mdc-list-item"><span class="mdc-list-item__graphic material-icons">camera</span><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text">List Item 2</span><span class="mdc-list-item__secondary-text">Nullam iaculis nisi</span></span></li><li class="mdc-list-item"><span class="mdc-list-item__graphic material-icons">local_dining</span><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text">List Item 3</span><span class="mdc-list-item__secondary-text">Nulla pharetra maximus </span></span></li></ul></div>
+<div class="wp-block-material-list"><ul class="mdc-list mdc-list--two-line"><li class="mdc-list-item"><span class="mdc-list-item__graphic material-icons">spa</span><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text">List Item 1</span><span class="mdc-list-item__secondary-text">Lorem ipsum dolor</span></span></li><li class="mdc-list-item"><span class="mdc-list-item__graphic material-icons">camera</span><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text">List Item 2</span><span class="mdc-list-item__secondary-text">Nullam iaculis nisi</span></span></li><li class="mdc-list-item"><span class="mdc-list-item__graphic material-icons">local_dining</span><span class="mdc-list-item__text"><span class="mdc-list-item__primary-text">List Item 3</span><span class="mdc-list-item__secondary-text">Nulla pharetra maximus </span></span></li></ul></div>
 <!-- /wp:material/list -->
 </div></div>
 <!-- /wp:media-text -->
@@ -571,8 +587,8 @@
 <!-- /wp:heading -->
 
 <!-- wp:media-text {"mediaId":38,"mediaLink":"https://wildpangolin.mystagingwebsite.com/home/liam-spradlin-emv3yer-emw-unsplash/","mediaType":"image"} -->
-<div class="wp-block-media-text alignwide is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="https://images.unsplash.com/photo-1565314912546-0d18918fdc8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=683&q=80" alt="" class="wp-image-38"/></figure><div class="wp-block-media-text__content"><!-- wp:material/tab-bar {"iconPosition":"leading","tabs":[{"label":"Tab 1","icon":{"name":"location_on","hex":57544},"content":[{"clientId":"c9df5716-7989-4c1e-9c9d-76ce4fdcd6ba","name":"core/paragraph","isValid":true,"attributes":{"content":"Cras ac nibh eleifend, ultricies nunc nec, facilisis tortor. Nulla finibus mi vel elit tempus tincidunt. Fusce pretium accumsan laoreet. Aliquam ac massa nibh. Nullam tristique accumsan odio, vel tincidunt odio feugiat vel. Mauris viverra condimentum ultrices. Duis ultrices urna eget nibh volutpat tincidunt.","dropCap":false},"innerBlocks":[]}]},{"label":"Tab 2","icon":{"name":"favorite","hex":59517},"content":[{"clientId":"22abf7fc-1b48-4255-855c-b21c401cc786","name":"core/paragraph","isValid":true,"attributes":{"content":"Eu aliquet lectus augue duis cursus vulputate ante dis consectetur efficitur amet feugiat senectus vestibulum metus curabitur nisi, tellus ornare velit ultrices rutrum nec porttitor tortor accumsan magnis tempor varius integer diam vel.","dropCap":false},"innerBlocks":[]}]}]} -->
-<div class="wp-block-material-tab-bar mdc-tab-bar-container"><div class="mdc-tab-bar" role="tablist"><div class="mdc-tab-scroller"><div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"><div class="mdc-tab-scroller__scroll-content"><div role="tab" tabindex="0" class="mdc-tab tab mdc-tab--active"><span class="mdc-tab__content"><i class="material-icons mdc-tab__icon"></i><span class="mdc-tab__text-label tab__label-field"><span role="tab" tabindex="0">Tab 1</span></span></span><span class="mdc-tab-indicator mdc-tab-indicator--active"><span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span></span><span class="mdc-tab__ripple"></span></div><div role="tab" tabindex="0" class="mdc-tab tab"><span class="mdc-tab__content"><i class="material-icons mdc-tab__icon"></i><span class="mdc-tab__text-label tab__label-field"><span role="tab" tabindex="0">Tab 2</span></span></span><span class="mdc-tab-indicator"><span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span></span><span class="mdc-tab__ripple"></span></div></div></div></div></div><div><div class="mdc-tab-content mdc-typography--body1 mdc-tab-content--active"><p>Cras ac nibh eleifend, ultricies nunc nec, facilisis tortor. Nulla finibus mi vel elit tempus tincidunt. Fusce pretium accumsan laoreet. Aliquam ac massa nibh. Nullam tristique accumsan odio, vel tincidunt odio feugiat vel. Mauris viverra condimentum ultrices. Duis ultrices urna eget nibh volutpat tincidunt.</p></div><div class="mdc-tab-content mdc-typography--body1"><p>Eu aliquet lectus augue duis cursus vulputate ante dis consectetur efficitur amet feugiat senectus vestibulum metus curabitur nisi, tellus ornare velit ultrices rutrum nec porttitor tortor accumsan magnis tempor varius integer diam vel.</p></div></div></div>
+<div class="wp-block-media-text alignwide is-stacked-on-mobile"><figure class="wp-block-media-text__media"><img src="https://images.unsplash.com/photo-1565314912546-0d18918fdc8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&h=683&q=80" alt="" class="wp-image-38"/></figure><div class="wp-block-media-text__content"><!-- wp:material/tab-bar {"iconPosition":"leading","tabs":[{"label":"Tab 1","icon":"location_on","content":[{"clientId":"c9df5716-7989-4c1e-9c9d-76ce4fdcd6ba","name":"core/paragraph","isValid":true,"attributes":{"content":"Cras ac nibh eleifend, ultricies nunc nec, facilisis tortor. Nulla finibus mi vel elit tempus tincidunt. Fusce pretium accumsan laoreet. Aliquam ac massa nibh. Nullam tristique accumsan odio, vel tincidunt odio feugiat vel. Mauris viverra condimentum ultrices. Duis ultrices urna eget nibh volutpat tincidunt.","dropCap":false},"innerBlocks":[]}]},{"label":"Tab 2","icon":"spa","content":[{"clientId":"22abf7fc-1b48-4255-855c-b21c401cc786","name":"core/paragraph","isValid":true,"attributes":{"content":"Eu aliquet lectus augue duis cursus vulputate ante dis consectetur efficitur amet feugiat senectus vestibulum metus curabitur nisi, tellus ornare velit ultrices rutrum nec porttitor tortor accumsan magnis tempor varius integer diam vel.","dropCap":false},"innerBlocks":[]}]}]} -->
+<div class="wp-block-material-tab-bar mdc-tab-bar-container"><div class="mdc-tab-bar" role="tablist"><div class="mdc-tab-scroller"><div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"><div class="mdc-tab-scroller__scroll-content"><div role="tab" tabindex="0" class="mdc-tab tab mdc-tab--active"><span class="mdc-tab__content"><i class="material-icons mdc-tab__icon">location_on</i><span class="mdc-tab__text-label tab__label-field"><span role="tab" tabindex="0">Tab 1</span></span></span><span class="mdc-tab-indicator mdc-tab-indicator--active"><span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span></span><span class="mdc-tab__ripple"></span></div><div role="tab" tabindex="0" class="mdc-tab tab"><span class="mdc-tab__content"><i class="material-icons mdc-tab__icon">spa</i><span class="mdc-tab__text-label tab__label-field"><span role="tab" tabindex="0">Tab 2</span></span></span><span class="mdc-tab-indicator"><span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span></span><span class="mdc-tab__ripple"></span></div></div></div></div></div><div><div class="mdc-tab-content mdc-typography--body1 mdc-tab-content--active"><p>Cras ac nibh eleifend, ultricies nunc nec, facilisis tortor. Nulla finibus mi vel elit tempus tincidunt. Fusce pretium accumsan laoreet. Aliquam ac massa nibh. Nullam tristique accumsan odio, vel tincidunt odio feugiat vel. Mauris viverra condimentum ultrices. Duis ultrices urna eget nibh volutpat tincidunt.</p></div><div class="mdc-tab-content mdc-typography--body1"><p>Eu aliquet lectus augue duis cursus vulputate ante dis consectetur efficitur amet feugiat senectus vestibulum metus curabitur nisi, tellus ornare velit ultrices rutrum nec porttitor tortor accumsan magnis tempor varius integer diam vel.</p></div></div></div>
 <!-- /wp:material/tab-bar -->
 
 <!-- wp:paragraph -->
@@ -670,7 +686,7 @@
 <div class="mdc-text-field-container"><div class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--custom-full"><span class="mdc-text-field__ripple"></span><textarea id="mtb-message-0" name="mtb-message-0" class="mdc-text-field__input" rows="8" aria-labelledby="label-mtb-message-0" data-form="contact" data-meta="message" data-label="Message" required></textarea><div class="mdc-notched-outline"><div class="mdc-notched-outline__leading"></div><div class="mdc-notched-outline__notch"><label for="mtb-message-0" class="mdc-floating-label" id="label-mtb-message-0">Message</label></div><span class="mdc-notched-outline__trailing"></span></div></div></div>
 <!-- /wp:material/message-input-field -->
 
-<!-- wp:material/button {"label":"Submit","style":"unelevated","iconPosition":"none","icon":{"name":"favorite","hex":59517},"isSubmit":true} -->
+<!-- wp:material/button {"label":"Submit","style":"unelevated","iconPosition":"none","isSubmit":true} -->
 <div class="wp-block-material-button"><button class="mdc-button mdc-button--unelevated" type="submit"><div class="mdc-button__ripple"></div><span class="mdc-button__label">Submit</span></button></div>
 <!-- /wp:material/button --></div>
 <!-- /wp:material/contact-form --></div>

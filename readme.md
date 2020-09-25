@@ -2,19 +2,21 @@
 # Material Theme Builder Plugin for WordPress
 
 ![Banner](wp-assets/banner-1544x500.png)
-@todo short description
+The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
 
-**Contributors:** [xwp](https://profiles.wordpress.org/xwp)  
+**Contributors:** [materialdesign](https://profiles.wordpress.org/materialdesign), [google](https://profiles.wordpress.org/google)  
 **Requires at least:** 5.0  
 **Tested up to:** 5.3.2  
 **Stable tag:** 0.0.1  
-**License:** [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)  
+**License:** [Apache License](https://www.apache.org/licenses/)  
 
 [![Build Status](https://travis-ci.com/xwp/material-theme-builder-wp.svg?token=DzyA3Sey2BLS5sL6HDJq&branch=develop)](https://travis-ci.com/xwp/material-theme-builder-wp) [![Coverage Status](https://coveralls.io/repos/xwp/material-theme-builder-wp/badge.svg?branch=develop&service=github&t=hsQNDq)](https://coveralls.io/github/xwp/material-theme-builder-wp) [![Built with Grunt](https://gruntjs.com/cdn/builtwith.svg)](http://gruntjs.com) 
 
 ## Description ##
 
-@todo long description
+The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
+
+It’s easy to get up and running with Material Design for WordPress:
 
 ## Installation ##
 
@@ -23,19 +25,48 @@
 
 ## Frequently Asked Questions ##
 
-### A question that someone might have ###
-An answer to that question.
-
-
-## Getting Started ##
-
-If you are a developer, we encourage you to [follow along](https://github.com/xwp/material-theme-builder-wp) or [contribute](https://github.com/xwp/material-theme-builder-wp/contributing.md) to the development of this plugin on GitHub.
+Don’t see an answer to your question? Please search the support forum to see if it has already been discussed. Otherwise, please open a new support topic.
 
 ## Screenshots ##
 
-### Look at this demo photo!
+### Start from our existing styles and use Material Theming to create a custom look and feel. (Baseline)
 
-![Look at this demo photo!](wp-assets/screenshot-1.png)
+![Start from our existing styles and use Material Theming to create a custom look and feel. (Baseline)](wp-assets/screenshot-1.png)
+
+### Start from our existing styles and use Material Theming to create a custom look and feel. (Crane)
+
+![Start from our existing styles and use Material Theming to create a custom look and feel. (Crane)](wp-assets/screenshot-2.png)
+
+### Start from our existing styles and use Material Theming to create a custom look and feel. (Fortnightly)
+
+![Start from our existing styles and use Material Theming to create a custom look and feel. (Fortnightly)](wp-assets/screenshot-3.png)
+
+### Start from our existing styles and use Material Theming to create a custom look and feel. (Blossom)
+
+![Start from our existing styles and use Material Theming to create a custom look and feel. (Blossom)](wp-assets/screenshot-4.png)
+
+### Choose from more than 1,000 typefaces in Google Fonts to set your headline and body styles.
+
+![Choose from more than 1,000 typefaces in Google Fonts to set your headline and body styles.](wp-assets/screenshot-5.png)
+
+### Material Icons are included with this plugin. Choose from Filled, Sharp, Rounded, Outlined, or Two-Tone styles.
+
+![Material Icons are included with this plugin. Choose from Filled, Sharp, Rounded, Outlined, or Two-Tone styles.](wp-assets/screenshot-6.png)
+
+### Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms.
+
+![Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms.](wp-assets/screenshot-7.png)
+
+### Choose colors, typography, shapes, and icons to express your unique style.
+
+![Choose colors, typography, shapes, and icons to express your unique style.](wp-assets/screenshot-8.png)
+
+## Contributors ##
+
+Material Design is a design system created by Google and backed by open-source code that helps teams build high-quality digital experiences.
+
+- [Google](https://profiles.wordpress.org/google/)
+- [Material Design](https://profiles.wordpress.org/materialdesign/)
 
 ## Changelog ##
 

@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * External dependencies
  */
 import classNames from 'classnames';
@@ -18,7 +34,7 @@ import { withSelect } from '@wordpress/data';
  */
 import './style.css';
 import hasBg from './utils/has-bg';
-import findIcon from '../../utils/find-icon';
+import { getConfig, getIconName } from '../../utils';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
@@ -31,7 +47,6 @@ import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
 import { name as ButtonBlockName } from './index';
-import getConfig from '../../utils/get-config';
 
 /**
  * Small component which either renders an icon button or a text button.
@@ -47,13 +62,15 @@ const MdcButton = ( {
 	label,
 	setter,
 } ) => {
+	icon = getIconName( icon );
+
 	if ( 'icon' === type ) {
 		return (
 			<button
 				className="material-icons mdc-icon-button"
 				style={ { ...( textColor ? { color: textColor } : {} ) } }
 			>
-				{ String.fromCharCode( icon?.hex ) }
+				{ icon }
 			</button>
 		);
 	}
@@ -72,9 +89,7 @@ const MdcButton = ( {
 			} ) }
 		>
 			{ icon && ( iconPosition === 'leading' || type === 'icon' ) && (
-				<i className="material-icons mdc-button__icon">
-					{ String.fromCharCode( icon?.hex ) }
-				</i>
+				<i className="material-icons mdc-button__icon">{ icon }</i>
 			) }
 			<RichText
 				value={ label }
@@ -86,9 +101,7 @@ const MdcButton = ( {
 				identifier="text"
 			/>
 			{ icon && iconPosition === 'trailing' && (
-				<i className="material-icons mdc-button__icon">
-					{ String.fromCharCode( icon?.hex ) }
-				</i>
+				<i className="material-icons mdc-button__icon">{ icon }</i>
 			) }
 		</div>
 	);
@@ -121,7 +134,7 @@ const ButtonEdit = ( {
 
 	useEffect( () => {
 		if ( iconPosition !== 'none' && ! icon ) {
-			setAttributes( { icon: findIcon( 'favorite' ) } );
+			setAttributes( { icon: 'spa' } );
 		}
 	}, [ icon, iconPosition ] ); // eslint-disable-line
 
@@ -159,7 +172,7 @@ const ButtonEdit = ( {
 	 */
 	const switchType = newType => {
 		if ( 'icon' === newType && ! icon ) {
-			setAttributes( { icon: { name: 'favorite', hex: 59517 } } );
+			setAttributes( { icon: 'spa' } );
 		}
 
 		setAttributes( { type: newType } );
