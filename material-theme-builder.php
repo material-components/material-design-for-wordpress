@@ -2,12 +2,12 @@
 /**
  * Plugin Name: Material Design for WordPress
  * Plugin URI: https://github.com/xwp/material-theme-builder-wp
- * Description: Build beautiful sites, faster. Material Design is a design system – backed by open-source code – that helps teams build high-quality digital experiences. This plugin lets you use Material Components and custom styles in your WordPress site.
+ * Description: The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
  * Version: 1.0.0-alpha
  * Author:  Material Design
  * Author URI: http://material.io
- * License: GPLv2+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * License: Apache License
+ * License URI: https://www.apache.org/licenses/
  * Text Domain: material-theme-builder
  * Domain Path: /languages
  *
