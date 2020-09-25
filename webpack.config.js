@@ -95,6 +95,11 @@ const sharedConfig = {
 			filename: '../css/[name]-compiled-rtl.css',
 		} ),
 	],
+	resolve: {
+		alias: {
+			'bn.js': path.resolve( __dirname, 'node_modules/bn.js' ),
+		},
+	},
 };
 
 // These packages need to be bundled and not extracted to `wp.*`.
