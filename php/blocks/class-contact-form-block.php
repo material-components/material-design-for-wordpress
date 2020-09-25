@@ -45,11 +45,18 @@ class Contact_Form_Block extends Module_Base {
 	public $block_name = 'material/contact-form';
 
 	/**
+	 * Initiate the class and hooks.
+	 */
+	public function init() {
+		add_action( 'wp_ajax_mtb_submit_contact_form', [ $this, 'priv_submit_contact_form' ] );
+		add_action( 'wp_ajax_nopriv_mtb_submit_contact_form', [ $this, 'nopriv_submit_contact_form' ] );
+		add_action( 'wp_ajax_mtb_manage_recaptcha_api_credentials', [ $this, 'manage_recaptcha_api_credentials' ] );
+	}
+
+	/**
 	 * Submit contact form for authenticated user.
 	 *
 	 * @access public
-	 *
-	 * @action wp_ajax_mtb_submit_contact_form
 	 */
 	public function priv_submit_contact_form() {
 		$this->submit_contact_form();
@@ -59,8 +66,6 @@ class Contact_Form_Block extends Module_Base {
 	 * Submit contact form for unauthenticated user.
 	 *
 	 * @access public
-	 *
-	 * @action wp_ajax_nopriv_mtb_submit_contact_form
 	 */
 	public function nopriv_submit_contact_form() {
 		$this->submit_contact_form();
@@ -242,8 +247,6 @@ class Contact_Form_Block extends Module_Base {
 	 * Manage the reCAPTCHA API credentials.
 	 *
 	 * @access public
-	 *
-	 * @action wp_ajax_mtb_manage_recaptcha_api_credentials
 	 */
 	public function manage_recaptcha_api_credentials() {
 		$nonce = isset( $_POST['nonce'] ) ? filter_var( $_POST['nonce'], FILTER_SANITIZE_STRING ) : '';
