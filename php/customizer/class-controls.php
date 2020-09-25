@@ -660,7 +660,7 @@ class Controls extends Module_Base {
 		wp_enqueue_script(
 			'material-theme-builder-customizer-preview-js',
 			$this->plugin->asset_url( 'assets/js/customize-preview.js' ),
-			[ 'jquery' ],
+			[ 'jquery', 'lodash', 'wp-i18n' ],
 			$this->plugin->asset_version(),
 			true
 		);

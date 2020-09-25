@@ -223,10 +223,7 @@ describe( 'ButtonEdit', () => {
 
 		// eslint-disable-next-line jest/prefer-strict-equal
 		expect( props.setAttributes.mock.calls[ 1 ][ 0 ] ).toEqual( {
-			icon: {
-				hex: 59517,
-				name: 'spa',
-			},
+			icon: 'spa',
 		} );
 	} );
 } );

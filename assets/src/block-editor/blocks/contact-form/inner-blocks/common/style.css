@@ -46,8 +46,6 @@
 	}
 
 	.mdc-text-field__input {
-		background-color: transparent !important;
-		margin: 0 !important;
 		padding: 20px 16px 6px !important;
 	}
 
