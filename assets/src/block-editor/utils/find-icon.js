@@ -17,7 +17,7 @@
 /**
  * External dependencies
  */
-import { icons as rawIcons } from '!!json-loader!material-design-icons/iconfont/MaterialIcons-Regular.ijmap';
+import { icons as rawIcons } from '../../../fonts/icons.json';
 
 /**
  * Search and find a material icon by name.
