@@ -45,8 +45,11 @@
       "attribute": "target"
     },
     "icon": {
-      "type": "object"
-    },
+      "type": "string",
+      "default": "",
+      "source": "html",
+      "selector": ".material-icons"
+     },
     "backgroundColor": {
       "type": "string"
     },
