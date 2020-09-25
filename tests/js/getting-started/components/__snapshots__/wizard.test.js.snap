@@ -6,15 +6,21 @@ Object {
   "baseElement": <body>
     <div>
       <h2
-        class="material-gsm__content-title mdc-typography--headline6"
+        class="material-gsm__content-title mdc-typography--headline3"
       >
-        Get your Material site up and running
+        Install the Material Theme and quick start examples
       </h2>
-      <p
-        class="material-gsm__content-description"
-      >
-        Follow this simple step-by-step flow to install the Material Theme and quick start examples, so you can start customizing your WordPress site in no time.
+      <p>
+        The theme applies Material Design principles and Material Theming to your site, so you can customize built-in WordPress elements like your site’s header and foote. Example layouts include pages for home, about, projects, blog, and contact.
       </p>
+      <img
+        alt=""
+        src="undefinedapply-your-theme.png"
+        style="max-width: 40%;"
+      />
+      <div
+        style="height: 15px;"
+      />
       <div
         class="material-gsm__content-actions"
       >
@@ -35,19 +41,28 @@ Object {
           </i>
         </a>
       </div>
+      <div
+        style="height: 20px;"
+      />
     </div>
   </body>,
   "container": <div>
     <h2
-      class="material-gsm__content-title mdc-typography--headline6"
+      class="material-gsm__content-title mdc-typography--headline3"
     >
-      Get your Material site up and running
+      Install the Material Theme and quick start examples
     </h2>
-    <p
-      class="material-gsm__content-description"
-    >
-      Follow this simple step-by-step flow to install the Material Theme and quick start examples, so you can start customizing your WordPress site in no time.
+    <p>
+      The theme applies Material Design principles and Material Theming to your site, so you can customize built-in WordPress elements like your site’s header and foote. Example layouts include pages for home, about, projects, blog, and contact.
     </p>
+    <img
+      alt=""
+      src="undefinedapply-your-theme.png"
+      style="max-width: 40%;"
+    />
+    <div
+      style="height: 15px;"
+    />
     <div
       class="material-gsm__content-actions"
     >
@@ -68,6 +83,9 @@ Object {
         </i>
       </a>
     </div>
+    <div
+      style="height: 20px;"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
