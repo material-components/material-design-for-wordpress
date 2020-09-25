@@ -47,7 +47,7 @@ Object {
             <div
               class="material-gsm__tab-title"
             >
-              Overview
+              Customize your theme
             </div>
           </button>
           <button
@@ -62,22 +62,7 @@ Object {
             <div
               class="material-gsm__tab-title"
             >
-              Customize your Theme
-            </div>
-          </button>
-          <button
-            class="material-gsm__tab"
-            type="button"
-          >
-            <i
-              class="material-icons"
-            >
-              lens
-            </i>
-            <div
-              class="material-gsm__tab-title"
-            >
-              Layout Settings
+              Build with Material Blocks
             </div>
           </button>
         </div>
@@ -127,7 +112,7 @@ Object {
           <div
             class="material-gsm__tab-title"
           >
-            Overview
+            Customize your theme
           </div>
         </button>
         <button
@@ -142,22 +127,7 @@ Object {
           <div
             class="material-gsm__tab-title"
           >
-            Customize your Theme
-          </div>
-        </button>
-        <button
-          class="material-gsm__tab"
-          type="button"
-        >
-          <i
-            class="material-icons"
-          >
-            lens
-          </i>
-          <div
-            class="material-gsm__tab-title"
-          >
-            Layout Settings
+            Build with Material Blocks
           </div>
         </button>
       </div>
