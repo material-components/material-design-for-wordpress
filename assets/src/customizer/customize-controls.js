@@ -288,6 +288,11 @@ import getConfig from '../block-editor/utils/get-config';
 
 			container
 				.find( '.wp-picker-default' )
+				.val( __( 'Reset', 'material-theme-builder' ) )
+				.attr(
+					'aria-label',
+					__( 'Reset to default color', 'material-theme-builder' )
+				)
 				.off( 'click' )
 				.on( 'click', event => {
 					if ( 'custom' !== api( getConfig( 'styleControl' ) ).get() ) {
