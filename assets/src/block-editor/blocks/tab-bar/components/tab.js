@@ -26,6 +26,11 @@ import classNames from 'classnames';
 import { RichText } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
+/**
+ * Internal dependencies
+ */
+import { getIconName } from '../../../utils';
+
 const Tab = ( {
 	icon,
 	label,
@@ -37,6 +42,8 @@ const Tab = ( {
 	index,
 	frontend = false,
 } ) => {
+	icon = getIconName( icon );
+
 	return (
 		<div
 			role="tab"
@@ -50,9 +57,7 @@ const Tab = ( {
 		>
 			<span className="mdc-tab__content">
 				{ icon && iconPosition !== 'none' && (
-					<i className="material-icons mdc-tab__icon">
-						{ String.fromCharCode( icon?.hex ) }
-					</i>
+					<i className="material-icons mdc-tab__icon">{ icon }</i>
 				) }
 
 				<span className="mdc-tab__text-label tab__label-field">

@@ -34,7 +34,7 @@ import { withSelect } from '@wordpress/data';
  */
 import './style.css';
 import hasBg from './utils/has-bg';
-import findIcon from '../../utils/find-icon';
+import { getConfig, getIconName } from '../../utils';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
@@ -47,7 +47,6 @@ import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
 import { name as ButtonBlockName } from './index';
-import getConfig from '../../utils/get-config';
 
 /**
  * Small component which either renders an icon button or a text button.
@@ -63,13 +62,15 @@ const MdcButton = ( {
 	label,
 	setter,
 } ) => {
+	icon = getIconName( icon );
+
 	if ( 'icon' === type ) {
 		return (
 			<button
 				className="material-icons mdc-icon-button"
 				style={ { ...( textColor ? { color: textColor } : {} ) } }
 			>
-				{ String.fromCharCode( icon?.hex ) }
+				{ icon }
 			</button>
 		);
 	}
@@ -88,9 +89,7 @@ const MdcButton = ( {
 			} ) }
 		>
 			{ icon && ( iconPosition === 'leading' || type === 'icon' ) && (
-				<i className="material-icons mdc-button__icon">
-					{ String.fromCharCode( icon?.hex ) }
-				</i>
+				<i className="material-icons mdc-button__icon">{ icon }</i>
 			) }
 			<RichText
 				value={ label }
@@ -102,9 +101,7 @@ const MdcButton = ( {
 				identifier="text"
 			/>
 			{ icon && iconPosition === 'trailing' && (
-				<i className="material-icons mdc-button__icon">
-					{ String.fromCharCode( icon?.hex ) }
-				</i>
+				<i className="material-icons mdc-button__icon">{ icon }</i>
 			) }
 		</div>
 	);
@@ -137,7 +134,7 @@ const ButtonEdit = ( {
 
 	useEffect( () => {
 		if ( iconPosition !== 'none' && ! icon ) {
-			setAttributes( { icon: findIcon( 'spa' ) } );
+			setAttributes( { icon: 'spa' } );
 		}
 	}, [ icon, iconPosition ] ); // eslint-disable-line
 
@@ -175,7 +172,7 @@ const ButtonEdit = ( {
 	 */
 	const switchType = newType => {
 		if ( 'icon' === newType && ! icon ) {
-			setAttributes( { icon: { name: 'spa', hex: 59517 } } );
+			setAttributes( { icon: 'spa' } );
 		}
 
 		setAttributes( { type: newType } );

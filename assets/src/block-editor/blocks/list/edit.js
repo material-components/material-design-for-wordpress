@@ -192,7 +192,7 @@ const ListEdit = ( {
 	 */
 	const onIconChange = icon => {
 		const newItems = [ ...items ];
-		newItems[ selected.index ].icon = icon.name;
+		newItems[ selected.index ].icon = icon;
 		setAttributes( { items: newItems } );
 	};
 
@@ -301,9 +301,7 @@ const ListEdit = ( {
 						initialOpen={ true }
 					>
 						<IconPicker
-							currentIcon={ {
-								name: getSelectedItem().icon,
-							} }
+							currentIcon={ getSelectedItem().icon }
 							onChange={ onIconChange }
 						/>
 					</PanelBody>

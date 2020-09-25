@@ -33,10 +33,7 @@ const baseProps = {
 		textColor: '#f1f1f1',
 		url: 'https://google.com',
 		cornerRadius: 5,
-		icon: {
-			name: 'account_balance wallet',
-			hex: 59472,
-		},
+		icon: 'account_balance_wallet',
 	},
 };
 
