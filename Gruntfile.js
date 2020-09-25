@@ -115,12 +115,35 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-shell' );
 	grunt.loadNpmTasks( 'grunt-wp-deploy' );
 
+	// Register custom tasks.
+	grunt.registerTask( 'icon_mapping', 'Turn codepoints into JSON', () => {
+		const filePath = 'assets/fonts/icons.json';
+		const iconFile = grunt.file.read( 'assets/fonts/icons.codepoints' );
+		const iconItems = iconFile.split( /\r?\n/g );
+		const icons = {
+			icons: {},
+		};
+
+		if ( iconItems ) {
+			iconItems.forEach( item => {
+				const iconArray = item.split( /\s/g );
+
+				icons.icons[ iconArray[ 1 ] ] = {
+					name: iconArray[ 0 ],
+				};
+			} );
+		}
+
+		grunt.file.delete( filePath );
+		grunt.file.write( filePath, JSON.stringify( icons ) );
+	} );
+
 	// Register tasks.
 	grunt.registerTask( 'default', [ 'build' ] );
 
 	grunt.registerTask( 'readme', [ 'shell:readme' ] );
 
-	grunt.registerTask( 'build', [ 'readme', 'copy' ] );
+	grunt.registerTask( 'build', [ 'readme', 'copy', 'icon_mapping' ] );
 
 	grunt.registerTask( 'create-build-zip', [ 'shell:create_build_zip' ] );
 
