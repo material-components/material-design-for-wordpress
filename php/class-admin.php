@@ -34,11 +34,34 @@ class Admin extends Module_Base {
 	 * Initiate the class and hooks.
 	 */
 	public function init() {
+		add_action( 'admin_init', [ $this, 'redirects' ] );
 		add_action( 'admin_menu', [ $this, 'add_pages' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		add_action( 'switch_theme', [ $this, 'switch_theme_material' ], 10, 2 );
 		add_action( 'admin_notices', [ $this, 'theme_not_installed_notice' ], 10, 2 );
 		add_action( 'admin_notices', [ $this, 'plugin_activated_notice' ], 9, 2 );
+	}
+
+	/**
+	 * Redirect to onboarding wizard or getting started module after activating.
+	 *
+	 * @return void
+	 */
+	public function redirects() {
+		if ( ! get_transient( '_material_activation_redirect' ) ) {
+			return;
+		}
+
+		$redirect_to = 'admin.php?page=material-settings';
+
+		// If Onboarding is not completed, redirect to onboarding wizard.
+		if ( ! get_option( 'material_onboarding' ) ) {
+			$redirect_to = 'admin.php?page=material-onboarding-wizard';
+		}
+
+		delete_transient( '_material_activation_redirect' );
+		wp_safe_redirect( admin_url( $redirect_to ) );
+		exit;
 	}
 
 	/**
@@ -347,7 +370,7 @@ class Admin extends Module_Base {
 
 		// Theme not active or plugin didn't JUST activate. Stop here.
 		if ( Plugin::THEME_SLUG !== get_template()
-			|| ! get_option( 'mtb_plugin_activated' )
+			|| ! get_option( 'material_plugin_activated' )
 			|| 'toplevel_page_material-settings' === $screen->id
 			|| 'material_page_material-onboarding-wizard' === $screen->id
 			|| $this->plugin->is_debug()
@@ -355,7 +378,7 @@ class Admin extends Module_Base {
 			return;
 		}
 
-		delete_option( 'mtb_plugin_activated' );
+		delete_option( 'material_plugin_activated' );
 
 		$message = esc_html__( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer.", 'material-theme-builder' );
 
