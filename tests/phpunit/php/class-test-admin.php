@@ -62,10 +62,9 @@ class Test_Admin extends \WP_UnitTestCase {
 	 * @see Admin::init()
 	 */
 	public function test_construct() {
+		$this->assertEquals( 10, has_action( 'admin_init', [ $this->plugin->admin, 'redirects' ] ) );
 		$this->assertEquals( 10, has_action( 'admin_menu', [ $this->plugin->admin, 'add_pages' ] ) );
-
 		$this->assertEquals( 10, has_action( 'admin_enqueue_scripts', [ $this->plugin->admin, 'enqueue_assets' ] ) );
-
 		$this->assertEquals( 10, has_action( 'switch_theme', [ $this->plugin->admin, 'switch_theme_material' ] ) );
 		$this->assertEquals( 10, has_action( 'admin_notices', [ $this->plugin->admin, 'theme_not_installed_notice' ] ) );
 		$this->assertEquals( 9, has_action( 'admin_notices', [ $this->plugin->admin, 'plugin_activated_notice' ] ) );
@@ -264,7 +263,7 @@ class Test_Admin extends \WP_UnitTestCase {
 		$admin = new Admin( $mock );
 
 		set_current_screen( 'options-general-php' );
-		update_option( 'mtb_plugin_activated', true, false );
+		update_option( 'material_plugin_activated', true, false );
 
 		ob_start();
 		$admin->plugin_activated_notice();
