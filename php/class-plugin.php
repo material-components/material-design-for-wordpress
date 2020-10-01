@@ -112,7 +112,6 @@ class Plugin extends Plugin_Base {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_front_end_assets' ], 100 );
 		add_action( 'wp_head', [ $this, 'frontend_inline_css' ], 1 );
 		add_action( 'admin_head', [ $this, 'frontend_inline_css' ], 1 );
-		add_action( 'activated_plugin', [ $this, 'redirect_to_wizard' ] );
 	}
 
 	/**
@@ -213,21 +212,5 @@ class Plugin extends Plugin_Base {
 		}
 
 		return 'ok';
-	}
-
-	/**
-	 * Redirect after activating.
-	 *
-	 * @param string $plugin Path to activated plugin, relative to plugins folder.
-	 *
-	 * @return void
-	 */
-	public function redirect_to_wizard( $plugin ) {
-		if ( get_option( 'material_onboarding' ) || trailingslashit( $this->slug ) . $this->slug . '.php' !== $plugin || ( ! empty( filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ) && 'tgmpa-install-plugins' === filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ) ) {
-			return;
-		}
-
-		wp_safe_redirect( admin_url( 'admin.php?page=material-onboarding-wizard' ) );
-		exit;
 	}
 }

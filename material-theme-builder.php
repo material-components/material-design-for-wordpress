@@ -33,6 +33,11 @@
 if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'register_block_type' ) ) {
 	require_once __DIR__ . '/instance.php';
 
+	register_activation_hook(
+		__FILE__,
+		'_material_theme_builder_activation'
+	);
+
 	/**
 	 * Setup Material Theme Builder plugin.
 	 *
@@ -44,7 +49,9 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'regist
 		$material_theme_builder_plugin = \MaterialThemeBuilder\get_plugin_instance();
 		$material_theme_builder_plugin->init();
 	}
+
 	add_action( 'plugins_loaded', '_material_theme_builder_load_plugin' );
+
 } elseif ( ! function_exists( 'register_block_type' ) ) {
 	_material_theme_builder_error( '_material_theme_builder_gutenberg_text_only', '_material_theme_builder_gutenberg_error' );
 } else {
@@ -135,5 +142,6 @@ function _material_theme_builder_gutenberg_text_only() {
  * @return void
  */
 function _material_theme_builder_activation() {
-	update_option( 'mtb_plugin_activated', true, false );
+	update_option( 'material_plugin_activated', true, false );
+	set_transient( '_material_activation_redirect', 1, 30 );
 }

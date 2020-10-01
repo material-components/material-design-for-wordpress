@@ -32,17 +32,6 @@ use MaterialThemeBuilder\Customizer\Controls;
 use MaterialThemeBuilder\Importer;
 
 /**
- * Stub get_transient().
- *
- * @param string $key Some key.
- *
- * @return bool
- */
-function get_transient( $key ) {
-	return true;
-}
-
-/**
  * Tests for Plugin class.
  */
 class Test_Plugin extends \WP_UnitTestCase {
