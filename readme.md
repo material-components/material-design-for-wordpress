@@ -31,35 +31,35 @@ Don’t see an answer to your question? Please search the support forum to see i
 
 ### Start from our existing styles and use Material Theming to create a custom look and feel. (Baseline)
 
-![Start from our existing styles and use Material Theming to create a custom look and feel. (Baseline)](wp-assets/screenshot-1.png)
+![Start from our existing styles and use Material Theming to create a custom look and feel. (Baseline)](wp-assets/screenshot-1.jpg)
 
 ### Start from our existing styles and use Material Theming to create a custom look and feel. (Crane)
 
-![Start from our existing styles and use Material Theming to create a custom look and feel. (Crane)](wp-assets/screenshot-2.png)
+![Start from our existing styles and use Material Theming to create a custom look and feel. (Crane)](wp-assets/screenshot-2.jpg)
 
 ### Start from our existing styles and use Material Theming to create a custom look and feel. (Fortnightly)
 
-![Start from our existing styles and use Material Theming to create a custom look and feel. (Fortnightly)](wp-assets/screenshot-3.png)
+![Start from our existing styles and use Material Theming to create a custom look and feel. (Fortnightly)](wp-assets/screenshot-3.jpg)
 
 ### Start from our existing styles and use Material Theming to create a custom look and feel. (Blossom)
 
-![Start from our existing styles and use Material Theming to create a custom look and feel. (Blossom)](wp-assets/screenshot-4.png)
+![Start from our existing styles and use Material Theming to create a custom look and feel. (Blossom)](wp-assets/screenshot-4.jpg)
 
 ### Choose from more than 1,000 typefaces in Google Fonts to set your headline and body styles.
 
-![Choose from more than 1,000 typefaces in Google Fonts to set your headline and body styles.](wp-assets/screenshot-5.png)
+![Choose from more than 1,000 typefaces in Google Fonts to set your headline and body styles.](wp-assets/screenshot-5.jpg)
 
 ### Material Icons are included with this plugin. Choose from Filled, Sharp, Rounded, Outlined, or Two-Tone styles.
 
-![Material Icons are included with this plugin. Choose from Filled, Sharp, Rounded, Outlined, or Two-Tone styles.](wp-assets/screenshot-6.png)
+![Material Icons are included with this plugin. Choose from Filled, Sharp, Rounded, Outlined, or Two-Tone styles.](wp-assets/screenshot-6.jpg)
 
 ### Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms.
 
-![Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms.](wp-assets/screenshot-7.png)
+![Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms.](wp-assets/screenshot-7.jpg)
 
 ### Choose colors, typography, shapes, and icons to express your unique style.
 
-![Choose colors, typography, shapes, and icons to express your unique style.](wp-assets/screenshot-8.png)
+![Choose colors, typography, shapes, and icons to express your unique style.](wp-assets/screenshot-8.jpg)
 
 ## Contributors ##
 
