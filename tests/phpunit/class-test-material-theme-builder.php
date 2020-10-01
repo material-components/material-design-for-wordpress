@@ -91,6 +91,6 @@ class Test_Material_Theme_Builder extends \WP_UnitTestCase {
 	 */
 	public function test_material_theme_builder_activation() {
 		_material_theme_builder_activation();
-		$this->assertNotEmpty( get_option( 'mtb_plugin_activated' ) );
+		$this->assertNotEmpty( get_option( 'material_plugin_activated' ) );
 	}
 }
