@@ -17,7 +17,7 @@
 /**
  * External dependencies
  */
-import { some, find, findIndex, get, pick } from 'lodash';
+import { some, find, findIndex, get, pick, map } from 'lodash';
 import classNames from 'classnames';
 
 /**
@@ -135,8 +135,27 @@ const ImageListEdit = ( {
 	noticeUI,
 	noticeOperations,
 	onFocus,
-	setAttributes,
+	setAttributes: origSetAttributes,
 } ) => {
+	/**
+	 * When images are set, ensure the ids attribute is set.
+	 */
+	const setAttributes = useCallback(
+		attributes => {
+			if ( attributes.images ) {
+				attributes = {
+					...attributes,
+					// Unlike images[ n ].id which is a string, always ensure the
+					// ids array contains numbers as per its attribute type.
+					ids: map( attributes.images, ( { id } ) => parseInt( id, 10 ) ),
+				};
+			}
+
+			origSetAttributes( attributes );
+		},
+		[ origSetAttributes ]
+	);
+
 	/**
 	 * Get captions from media library using REST API.
 	 */
