@@ -8,6 +8,13 @@
 		   "attribute": "id",
 		   "selector": "*"
 		},
+		"ids": {
+			"type": "array",
+			"items": {
+				"type": "number"
+			},
+			"default": []
+		},
 		"images": {
 		   "type": "array",
 		   "default": [],
