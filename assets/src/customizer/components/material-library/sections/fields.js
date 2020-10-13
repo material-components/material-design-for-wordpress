@@ -31,10 +31,7 @@ const Fields = ( { radius } ) => (
 		</h4>
 		<IconButtonLink href="https://material.io/components/text-fields"></IconButtonLink>
 		<p>
-			{ __(
-				'Text fields let users enter and edit text.',
-				'material-design'
-			) }
+			{ __( 'Text fields let users enter and edit text.', 'material-design' ) }
 		</p>
 		<div style={ { display: 'flex' } }>
 			<div

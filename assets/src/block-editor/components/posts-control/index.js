@@ -61,12 +61,7 @@ const PostsControl = ( {
 		search: __( 'Search for posts to display', 'material-design' ),
 		selected: n =>
 			sprintf(
-				_n(
-					'%d post selected',
-					'%d posts selected',
-					n,
-					'material-design'
-				),
+				_n( '%d post selected', '%d posts selected', n, 'material-design' ),
 				n
 			),
 		updated: __( 'Posts search results updated.', 'material-design' ),

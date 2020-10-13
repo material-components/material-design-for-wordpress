@@ -298,8 +298,7 @@ const ImageListEdit = ( {
 					! hasImages && <i className="material-icons-outlined">filter</i>
 				}
 				labels={ {
-					title:
-						! hasImages && __( 'Gallery (Material)', 'material-design' ),
+					title: ! hasImages && __( 'Gallery (Material)', 'material-design' ),
 					instructions: __(
 						'Drag images, upload new ones or select files from your library.',
 						'material-design'

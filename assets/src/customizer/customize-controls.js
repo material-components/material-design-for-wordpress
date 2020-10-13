@@ -289,10 +289,7 @@ import getConfig from '../block-editor/utils/get-config';
 			container
 				.find( '.wp-picker-default' )
 				.val( __( 'Reset', 'material-design' ) )
-				.attr(
-					'aria-label',
-					__( 'Reset to default color', 'material-design' )
-				)
+				.attr( 'aria-label', __( 'Reset to default color', 'material-design' ) )
 				.off( 'click' )
 				.on( 'click', event => {
 					if ( 'custom' !== api( getConfig( 'styleControl' ) ).get() ) {

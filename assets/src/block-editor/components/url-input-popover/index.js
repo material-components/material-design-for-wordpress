@@ -91,10 +91,7 @@ const UrlInputPopover = ( {
 								value={ value }
 								onChange={ onChange }
 								autoFocus={ false } // eslint-disable-line
-								placeholder={ __(
-									'Paste or type URL',
-									'material-design'
-								) }
+								placeholder={ __( 'Paste or type URL', 'material-design' ) }
 							/>
 						) }
 					{ onChangeNewTab && (
