@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 /**
  * Tests for Onboarding_REST_Controller class.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 namespace MaterialThemeBuilder;

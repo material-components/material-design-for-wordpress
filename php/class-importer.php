@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 /**
  * Material Theme Builder Importer.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 namespace MaterialThemeBuilder;
@@ -30,7 +30,7 @@ use MaterialThemeBuilder\Plugin;
 /**
  * Plugin Importer class.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 class Importer extends Module_Base {
 	/**

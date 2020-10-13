@@ -14,14 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 /**
  * Base class to allow sharing functionality between blocks listing posts
  * such as Recent Posts and Hand-picked posts blocks.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 namespace MaterialThemeBuilder\Blocks;

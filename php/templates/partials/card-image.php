@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 /**
  * Template for displaying featured image in card.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 use MaterialThemeBuilder\Template;
