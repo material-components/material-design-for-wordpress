@@ -23,12 +23,12 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Blocks_Frontend;
-use MaterialThemeBuilder\Customizer\Controls;
-use MaterialThemeBuilder\Importer;
-use MaterialThemeBuilder\Admin;
+use MaterialDesign\Plugin\Blocks_Frontend;
+use MaterialDesign\Plugin\Customizer\Controls;
+use MaterialDesign\Plugin\Importer;
+use MaterialDesign\Plugin\Admin;
 
 /**
  * Main plugin bootstrap file.

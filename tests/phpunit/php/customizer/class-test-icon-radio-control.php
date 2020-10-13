@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+namespace MaterialDesign\Plugin\Customizer;
 
 /**
  * Tests for Icon_Radio_Control class.

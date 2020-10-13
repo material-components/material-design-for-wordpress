@@ -23,10 +23,10 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
 use WP_UnitTest_Factory;
-use MaterialThemeBuilder\Plugin;
+use MaterialDesign\Plugin\Plugin;
 
 /**
  * Tests for Importer class.

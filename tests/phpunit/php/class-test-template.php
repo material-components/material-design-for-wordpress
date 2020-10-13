@@ -23,10 +23,10 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Template;
-use function MaterialThemeBuilder\get_plugin_instance;
+use MaterialDesign\Plugin\Template;
+use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
  * Tests for Template class.

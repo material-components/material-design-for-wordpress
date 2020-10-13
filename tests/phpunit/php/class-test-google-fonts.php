@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
 /**
  * Tests for Google_Fonts class.

@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+namespace MaterialDesign\Plugin\Customizer;
 
 /**
  * Material color palette control.

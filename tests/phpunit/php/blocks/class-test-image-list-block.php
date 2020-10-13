@@ -23,9 +23,9 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Blocks;
+namespace MaterialDesign\Plugin\Blocks;
 
-use function MaterialThemeBuilder\get_plugin_instance;
+use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
  * Tests for Image_List_Block class.

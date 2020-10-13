@@ -23,9 +23,9 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Blocks;
+namespace MaterialDesign\Plugin\Blocks;
 
-use MaterialThemeBuilder\Plugin;
+use MaterialDesign\Plugin\Plugin;
 
 /**
  * Tests for Contact_Form_Block class.

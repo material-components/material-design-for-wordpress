@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
 /**
  * Plugin Exception class.

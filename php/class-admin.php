@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
 /**
  * Class to handle admin settings and actions.

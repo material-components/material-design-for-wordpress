@@ -23,13 +23,13 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Admin;
-use MaterialThemeBuilder\Blocks_Frontend;
-use MaterialThemeBuilder\Customizer\Controls;
-use MaterialThemeBuilder\Importer;
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Admin;
+use MaterialDesign\Plugin\Blocks_Frontend;
+use MaterialDesign\Plugin\Customizer\Controls;
+use MaterialDesign\Plugin\Importer;
 
 /**
  * Tests for Plugin class.

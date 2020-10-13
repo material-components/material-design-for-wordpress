@@ -23,12 +23,12 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+namespace MaterialDesign\Plugin\Customizer;
 
-use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Google_Fonts;
-use MaterialThemeBuilder\Blocks_Frontend;
-use MaterialThemeBuilder\Helpers;
+use MaterialDesign\Plugin\Module_Base;
+use MaterialDesign\Plugin\Google_Fonts;
+use MaterialDesign\Plugin\Blocks_Frontend;
+use MaterialDesign\Plugin\Helpers;
 
 /**
  * Class Controls.

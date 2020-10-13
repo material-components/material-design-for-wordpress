@@ -23,11 +23,11 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Blocks;
+namespace MaterialDesign\Plugin\Blocks;
 
 use WP_UnitTest_Factory;
 use WP_UnitTestCase;
-use MaterialThemeBuilder\Plugin;
+use MaterialDesign\Plugin\Plugin;
 
 /**
  * Test_Posts_List_Block class.

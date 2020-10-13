@@ -23,10 +23,10 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Helpers;
-use function MaterialThemeBuilder\get_plugin_instance;
+use MaterialDesign\Plugin\Helpers;
+use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
  * Tests for Helpers class.

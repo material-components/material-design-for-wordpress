@@ -23,10 +23,10 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Blocks\Posts_List_Block;
-use MaterialThemeBuilder\Blocks\Contact_Form_Block;
+use MaterialDesign\Plugin\Blocks\Posts_List_Block;
+use MaterialDesign\Plugin\Blocks\Contact_Form_Block;
 
 /**
  * Block type class.

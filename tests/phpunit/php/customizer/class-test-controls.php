@@ -23,12 +23,12 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+namespace MaterialDesign\Plugin\Customizer;
 
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Customizer\Icon_Radio_Control;
-use MaterialThemeBuilder\Customizer\Material_Color_Palette_Control;
-use function MaterialThemeBuilder\get_plugin_instance;
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Customizer\Icon_Radio_Control;
+use MaterialDesign\Plugin\Customizer\Material_Color_Palette_Control;
+use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
  * Tests for Controls class.
@@ -266,7 +266,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::add_typography_controls()
 	 */
 	public function test_add_typography_controls() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = \MaterialDesign\Plugin\get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -354,7 +354,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::add_corner_styles_controls()
 	 */
 	public function test_add_corner_styles_controls() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = \MaterialDesign\Plugin\get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -400,7 +400,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::add_icon_collection_controls()
 	 */
 	public function test_add_icon_collection_controls() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = \MaterialDesign\Plugin\get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -521,7 +521,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::get_google_fonts_url()
 	 */
 	public function test_get_google_fonts_url() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = \MaterialDesign\Plugin\get_plugin_instance()->customizer_controls;
 
 		// Assert we get Roboto font.
 		$this->assertContains( '//fonts.googleapis.com/css?family=Material+Icons', $controls->get_google_fonts_url() );

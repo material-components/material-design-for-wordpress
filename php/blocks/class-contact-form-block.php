@@ -23,12 +23,12 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Blocks;
+namespace MaterialDesign\Plugin\Blocks;
 
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Template;
-use MaterialThemeBuilder\Helpers;
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Module_Base;
+use MaterialDesign\Plugin\Template;
+use MaterialDesign\Plugin\Helpers;
 
 /**
  * Contact_Form_Block class.
