@@ -36,7 +36,7 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'regist
 	);
 
 	/**
-	 * Setup Material Theme Builder plugin.
+	 * Setup Material Design plugin.
 	 *
 	 * @codeCoverageIgnore
 	 *

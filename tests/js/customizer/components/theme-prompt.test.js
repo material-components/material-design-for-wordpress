@@ -46,22 +46,18 @@ describe( 'ThemePrompt', () => {
 
 	it( 'should render the prompt and ask to install', () => {
 		setup( baseProps );
-		expect(
-			screen.getAllByText( 'Install Material Theme' )[ 0 ]
-		).toBeInTheDocument();
+		expect( screen.getAllByText( 'Install' )[ 0 ] ).toBeInTheDocument();
 	} );
 
 	it( 'should render the prompt and ask to activate', () => {
 		setup( { status: 'activate' } );
-		expect(
-			screen.getAllByText( 'Activate Material Theme' )[ 0 ]
-		).toBeInTheDocument();
+		expect( screen.getAllByText( 'Activate' )[ 0 ] ).toBeInTheDocument();
 	} );
 
 	it( 'should not render the prompt if the status is "ok"', () => {
 		setup( { status: 'ok' } );
 
-		expect( screen.queryByText( 'Install Material Theme' ) ).toBeNull();
-		expect( screen.queryByText( 'Activate Material Theme' ) ).toBeNull();
+		expect( screen.queryByText( 'Install' ) ).toBeNull();
+		expect( screen.queryByText( 'Activate' ) ).toBeNull();
 	} );
 } );

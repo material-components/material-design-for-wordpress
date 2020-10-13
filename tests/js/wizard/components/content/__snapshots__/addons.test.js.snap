@@ -30,7 +30,7 @@ Object {
             <h4
               class="mdc-typography--headline4"
             >
-              Material Theme
+              Material Design theme
             </h4>
             <p>
               This applies Material Design principles and Material Theming to your site, so you can customize its style.
@@ -142,7 +142,7 @@ Object {
           <h4
             class="mdc-typography--headline4"
           >
-            Material Theme
+            Material Design theme
           </h4>
           <p>
             This applies Material Design principles and Material Theming to your site, so you can customize its style.

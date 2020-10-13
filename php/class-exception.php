@@ -18,7 +18,7 @@
  */
 
 /**
- * Material Theme Builder Exceptions.
+ * Material Design Exceptions.
  *
  * @package MaterialDesign
  */

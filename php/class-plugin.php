@@ -18,7 +18,7 @@
  */
 
 /**
- * Bootstraps the Material Theme Builder plugin.
+ * Bootstraps the Material Design plugin.
  *
  * @package MaterialDesign
  */

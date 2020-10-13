@@ -18,7 +18,7 @@
  */
 
 /**
- * Material Theme Builder Importer.
+ * Material Design Importer.
  *
  * @package MaterialDesign
  */

@@ -29,7 +29,7 @@ require_once __DIR__ . '/php/class-plugin.php';
 $material_design_plugin = new Plugin();
 
 /**
- * Material Theme Builder Plugin Instance
+ * Material Design Plugin Instance
  *
  * @return Plugin
  */
