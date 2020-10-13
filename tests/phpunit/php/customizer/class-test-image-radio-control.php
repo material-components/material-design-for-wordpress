@@ -49,7 +49,7 @@ class Test_Image_Radio_Control extends \WP_UnitTestCase {
 		$wp_customize  = new \WP_Customize_Manager();
 		$radio_control = new Image_Radio_Control(
 			$wp_customize,
-			'material_theme_theme',
+			'material_design_theme',
 			[]
 		);
 
@@ -62,7 +62,7 @@ class Test_Image_Radio_Control extends \WP_UnitTestCase {
 
 		$radio_control = new Image_Radio_Control(
 			$wp_customize,
-			'material_theme_theme',
+			'material_design_theme',
 			[
 				'choices' => [
 					'baseline' => [

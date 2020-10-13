@@ -256,7 +256,7 @@ class Admin extends Module_Base {
 	 */
 	public function switch_theme_material( $new_name, $new_theme ) {
 		if ( Plugin::THEME_SLUG === $new_theme->get_stylesheet() ) {
-			update_option( 'material_theme_activated', true, false );
+			update_option( 'material_design_theme_activated', true, false );
 		}
 	}
 
@@ -315,7 +315,7 @@ class Admin extends Module_Base {
 			'ok' === $status
 			|| 'toplevel_page_material-settings' === $screen->id
 			|| 'material_page_material-onboarding-wizard' === $screen->id
-			|| ! empty( get_option( 'material_theme_activated' ) )
+			|| ! empty( get_option( 'material_design_theme_activated' ) )
 			|| $this->plugin->is_debug()
 		) {
 			return;
