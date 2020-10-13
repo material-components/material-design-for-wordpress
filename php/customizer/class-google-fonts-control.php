@@ -23,9 +23,9 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+namespace MaterialDesign\Plugin\Customizer;
 
-use MaterialThemeBuilder\Helpers;
+use MaterialDesign\Plugin\Helpers;
 
 /**
  * Google Fonts control.

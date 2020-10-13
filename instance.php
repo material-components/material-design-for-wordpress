@@ -19,7 +19,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
 global $material_theme_builder_plugin;
 

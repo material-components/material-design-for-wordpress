@@ -23,9 +23,9 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Plugin;
+use MaterialDesign\Plugin\Plugin;
 use WP_REST_Request;
 use WP_Test_REST_Controller_Testcase;
 use WP_Theme;

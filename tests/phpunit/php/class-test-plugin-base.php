@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
 /**
  * Tests for Plugin_Base.
@@ -98,7 +98,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 		// phpcs:disable
 		set_error_handler(
 			function( $errno, $errstr ) use ( $obj ) {
-				$obj->assertEquals( 'MaterialThemeBuilder\Plugin: Param is 0!', $errstr );
+				$obj->assertEquals( 'MaterialDesign\Plugin\Plugin: Param is 0!', $errstr );
 				$obj->assertEquals( \E_USER_WARNING, $errno );
 			}
 		);
@@ -113,7 +113,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 * @see Plugin_Base::asset_version()
 	 */
 	public function test_asset_version() {
-		$mock = $this->getMockBuilder( 'MaterialThemeBuilder\Plugin' )
+		$mock = $this->getMockBuilder( 'MaterialDesign\Plugin\Plugin' )
 			->setMethods(
 				[
 					'is_debug',
@@ -132,7 +132,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 		$this->assertFalse( $mock->is_script_debug() );
 		$this->assertEquals( $mock->version(), $mock->asset_version() );
 
-		$mock = $this->getMockBuilder( 'MaterialThemeBuilder\Plugin' )
+		$mock = $this->getMockBuilder( 'MaterialDesign\Plugin\Plugin' )
 			->setMethods(
 				[
 					'is_debug',
@@ -196,7 +196,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 * @see Plugin_Base::add_doc_hooks()
 	 */
 	public function test_add_doc_hooks_error() {
-		$mock = $this->getMockBuilder( 'MaterialThemeBuilder\Plugin' )
+		$mock = $this->getMockBuilder( 'MaterialDesign\Plugin\Plugin' )
 			->setMethods( [ 'is_wpcom_vip_prod' ] )
 			->getMock();
 

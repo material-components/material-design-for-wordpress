@@ -23,10 +23,10 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Customizer\Controls;
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Customizer\Controls;
 
 /**
  * Tests for Block_Types class.
@@ -59,9 +59,9 @@ class Test_Block_Types extends \WP_UnitTestCase {
 	public function test_init() {
 		$block_types = get_plugin_instance()->block_types;
 
-		$this->assertTrue( is_a( $block_types->blocks['recent-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
-		$this->assertTrue( is_a( $block_types->blocks['hand-picked-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
-		$this->assertTrue( is_a( $block_types->blocks['contact-form'], '\MaterialThemeBuilder\Blocks\Contact_Form_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['recent-posts'], '\MaterialDesign\Plugin\Blocks\Posts_List_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['hand-picked-posts'], '\MaterialDesign\Plugin\Blocks\Posts_List_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['contact-form'], '\MaterialDesign\Plugin\Blocks\Contact_Form_Block' ) );
 
 		$this->assertEquals( 10, has_action( 'init', [ $block_types, 'register_blocks' ] ) );
 		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $block_types, 'enqueue_block_editor_assets' ] ) );

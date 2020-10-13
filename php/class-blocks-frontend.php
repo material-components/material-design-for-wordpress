@@ -23,10 +23,10 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Blocks\Image_List_Block;
+use MaterialDesign\Plugin\Module_Base;
+use MaterialDesign\Plugin\Blocks\Image_List_Block;
 
 /**
  * Blocks_Frontend class.

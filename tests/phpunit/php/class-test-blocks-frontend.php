@@ -23,9 +23,9 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use function MaterialThemeBuilder\get_plugin_instance;
+use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
  * Tests for Blocks_Frontend class.

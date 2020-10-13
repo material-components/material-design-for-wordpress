@@ -43,7 +43,7 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'regist
 	 * @return void
 	 */
 	function _material_theme_builder_load_plugin() {
-		$material_theme_builder_plugin = \MaterialThemeBuilder\get_plugin_instance();
+		$material_theme_builder_plugin = \MaterialDesign\Plugin\get_plugin_instance();
 		$material_theme_builder_plugin->init();
 	}
 

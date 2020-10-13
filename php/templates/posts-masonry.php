@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-use MaterialThemeBuilder\Template;
+use MaterialDesign\Plugin\Template;
 
 defined( 'ABSPATH' ) || exit;
 

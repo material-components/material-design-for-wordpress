@@ -23,9 +23,9 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Plugin;
+use MaterialDesign\Plugin\Plugin;
 
 /**
  * Class Onboarding_REST_Controller.

@@ -24,11 +24,11 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Blocks;
+namespace MaterialDesign\Plugin\Blocks;
 
-use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Template;
+use MaterialDesign\Plugin\Module_Base;
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Template;
 use WP_Post;
 use WP_Query;
 use WP_REST_Request;

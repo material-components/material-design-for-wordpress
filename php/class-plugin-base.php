@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
 /**
  * Class Plugin_Base
@@ -154,7 +154,7 @@ abstract class Plugin_Base {
 			$class_path .= \trailingslashit( $this->autoload_class_dir );
 
 			$sub_path = str_replace( $namespace . '\\', '', $matches['namespace'] );
-			if ( ! empty( $sub_path ) && 'MaterialThemeBuilder' !== $sub_path ) {
+			if ( ! empty( $sub_path ) && 'MaterialDesign\Plugin' !== $sub_path ) {
 				$class_path .= str_replace( '\\-', '/', strtolower( preg_replace( '/(?<!^)([A-Z])/', '-\\1', $sub_path ) ) . '/' );
 			}
 		}
