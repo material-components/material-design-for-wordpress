@@ -56,7 +56,7 @@ class Template {
 	 *
 	 * This is the load order:
 	 *
-	 * yourtheme/{$template_path OR material-theme}/$template_name
+	 * yourtheme/{$template_path OR material-design}/$template_name
 	 * $default_path/$template_name
 	 *
 	 * @param  string $template_name Name of the template.
@@ -81,7 +81,7 @@ class Template {
 			$template = trailingslashit( $default_path ) . $template_name;
 		}
 
-		return apply_filters( 'material_theme_builder_locate_template', $template, $template_name, $default_path );
+		return apply_filters( 'material_design_locate_template', $template, $template_name, $default_path );
 	}
 
 	/**
@@ -90,7 +90,7 @@ class Template {
 	 * @return string
 	 */
 	public static function template_path() {
-		return apply_filters( 'material_theme_builder_template_path', 'material-theme/' );
+		return apply_filters( 'material_design_template_path', 'material-design/' );
 	}
 
 	/**

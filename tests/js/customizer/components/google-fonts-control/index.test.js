@@ -62,7 +62,7 @@ const baseProps = {
 	children: [
 		{
 			id: 'headline_1',
-			setting: 'material_theme_builder_wp[headline_1]',
+			setting: 'material_design_wp[headline_1]',
 			cssVars: [
 				{
 					size: '--mdc-typography-headline1-font-size',

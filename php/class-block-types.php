@@ -121,7 +121,7 @@ class Block_Types {
 			 *
 			 * @param array $metadata Array of arguments for registering a block type.
 			 */
-			$args = apply_filters( 'material_theme_builder_block_type_args', $metadata );
+			$args = apply_filters( 'material_design_block_type_args', $metadata );
 
 			register_block_type( $metadata['name'], $args );
 		}

@@ -95,7 +95,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 	public function test_init() {
 		$plugin = get_plugin_instance();
 
-		add_filter( 'material_theme_builder_plugin_config', [ $this, 'filter_config' ], 10, 2 );
+		add_filter( 'material_design_plugin_config', [ $this, 'filter_config' ], 10, 2 );
 		$plugin->init();
 
 		$this->assertInternalType( 'array', $plugin->config );
@@ -201,7 +201,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Filter to test 'material_theme_builder_plugin_config'.
+	 * Filter to test 'material_design_plugin_config'.
 	 *
 	 * @param array       $config Plugin config.
 	 * @param Plugin_Base $plugin Plugin instance.
@@ -221,6 +221,6 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 * @return string
 	 */
 	public function template() {
-		return 'material-theme';
+		return 'material-design';
 	}
 }

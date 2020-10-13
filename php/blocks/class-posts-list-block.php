@@ -165,7 +165,7 @@ class Posts_List_Block {
 		 * @param array $args       The args for the WP_Query.
 		 * @param array $attributes The block's attributes.
 		 */
-		$args = apply_filters( 'material_theme_builder_recent_posts_query_args', $args, $attributes );
+		$args = apply_filters( 'material_design_recent_posts_query_args', $args, $attributes );
 
 		$posts_query = new WP_Query( $args );
 
