@@ -318,7 +318,7 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 	 * @return string Route path.
 	 */
 	private function get_route( $path = '' ) {
-		return '/material-theme-builder/v1/onboarding' . "$path";
+		return '/material-design/v1/onboarding' . "$path";
 	}
 
 	/**

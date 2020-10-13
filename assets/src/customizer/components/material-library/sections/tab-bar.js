@@ -32,13 +32,13 @@ import IconButtonLink from '../common/icon-button-link';
 const TabBar = ( { iconStyle } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Tabs', 'material-theme-builder' ) }
+			{ __( 'Tabs', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/tabs"></IconButtonLink>
 		<p>
 			{ __(
 				'Tabs organize content across different screens, data sets, and other interactions.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div
@@ -65,7 +65,7 @@ const TabBar = ( { iconStyle } ) => (
 									</i>
 									<span className="mdc-tab__text-label tab__label-field">
 										<span role="tab" tabIndex="0">
-											{ __( 'Tab 1', 'material-theme-builder' ) }
+											{ __( 'Tab 1', 'material-design' ) }
 										</span>
 									</span>
 								</span>
@@ -87,7 +87,7 @@ const TabBar = ( { iconStyle } ) => (
 									</i>
 									<span className="mdc-tab__text-label tab__label-field">
 										<span role="tab" tabIndex="0">
-											{ __( 'Tab 2', 'material-theme-builder' ) }
+											{ __( 'Tab 2', 'material-design' ) }
 										</span>
 									</span>
 								</span>

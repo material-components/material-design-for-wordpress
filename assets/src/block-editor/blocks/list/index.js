@@ -34,13 +34,13 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'List (Material)', 'material-theme-builder' ),
+	title: __( 'List (Material)', 'material-design' ),
 	description: __(
 		'Display text or images in a continuous, vertical index.',
-		'material-theme-builder'
+		'material-design'
 	),
 	icon: <i className="material-icons-outlined">list_alt</i>,
-	keywords: [ __( 'Material List', 'material-theme-builder' ), 'mlist' ],
+	keywords: [ __( 'Material List', 'material-design' ), 'mlist' ],
 	edit,
 	save,
 	example,

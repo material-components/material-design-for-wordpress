@@ -29,10 +29,10 @@ import save from '../common/components/text-input-save';
 export const name = 'material/short-text-input-field';
 
 export const settings = {
-	title: __( 'Short text', 'material-theme-builder' ),
+	title: __( 'Short text', 'material-design' ),
 	description: __(
 		'A single-line input field for people to add a shorter response.',
-		'material-theme-builder'
+		'material-design'
 	),
 	parent: [ 'material/contact-form' ],
 	category: 'material',
@@ -51,7 +51,7 @@ export const settings = {
 		},
 		label: {
 			type: 'string',
-			default: __( 'Short text', 'material-theme-builder' ),
+			default: __( 'Short text', 'material-design' ),
 		},
 		inputValue: {
 			type: 'string',

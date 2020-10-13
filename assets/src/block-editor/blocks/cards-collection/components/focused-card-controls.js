@@ -46,8 +46,8 @@ const FocusedCardControls = ( {
 				className="mtb-card-move-button-left-up"
 				title={
 					style !== 'list'
-						? __( 'Move left', 'material-theme-builder' )
-						: __( 'Move up', 'material-theme-builder' )
+						? __( 'Move left', 'material-design' )
+						: __( 'Move up', 'material-design' )
 				}
 				onClick={ onMoveLeftOrUp }
 				disabled={ cardIndex === 0 }
@@ -58,8 +58,8 @@ const FocusedCardControls = ( {
 				className="mtb-card-move-button-right-down"
 				title={
 					style !== 'list'
-						? __( 'Move right', 'material-theme-builder' )
-						: __( 'Move down', 'material-theme-builder' )
+						? __( 'Move right', 'material-design' )
+						: __( 'Move down', 'material-design' )
 				}
 				onClick={ onMoveRightOrDown }
 				disabled={ numberOfCards === cardIndex + 1 }
@@ -69,13 +69,13 @@ const FocusedCardControls = ( {
 		</div>
 
 		<span className="card-number-title">
-			{ sprintf( __( 'Card #%d', 'material-theme-builder' ), cardIndex + 1 ) }
+			{ sprintf( __( 'Card #%d', 'material-design' ), cardIndex + 1 ) }
 		</span>
 
 		<div className="remove-card">
 			<button
 				className="mtb-card-close-button"
-				title={ __( 'Remove card', 'material-theme-builder' ) }
+				title={ __( 'Remove card', 'material-design' ) }
 				onClick={ onRemove }
 			>
 				<i className="material-icons">close</i>

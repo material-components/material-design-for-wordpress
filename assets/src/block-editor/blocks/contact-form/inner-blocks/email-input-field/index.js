@@ -29,10 +29,10 @@ import save from '../common/components/text-input-save';
 export const name = 'material/email-input-field';
 
 export const settings = {
-	title: __( 'Email', 'material-theme-builder' ),
+	title: __( 'Email', 'material-design' ),
 	description: __(
 		'An input field for people to add their email address.',
-		'material-theme-builder'
+		'material-design'
 	),
 	parent: [ 'material/contact-form' ],
 	category: 'material',
@@ -51,7 +51,7 @@ export const settings = {
 		},
 		label: {
 			type: 'string',
-			default: __( 'Email', 'material-theme-builder' ),
+			default: __( 'Email', 'material-design' ),
 		},
 		inputValue: {
 			type: 'string',

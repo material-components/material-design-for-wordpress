@@ -92,7 +92,7 @@ class Contact_Form_Block extends Module_Base {
 			return sprintf(
 				'<div class="%s">%s</div>',
 				esc_attr( $class ),
-				__( 'The contact form cannot be displayed because the sender email is incorrect.', 'material-theme-builder' )
+				__( 'The contact form cannot be displayed because the sender email is incorrect.', 'material-design' )
 			);
 		}
 
@@ -100,7 +100,7 @@ class Contact_Form_Block extends Module_Base {
 			return sprintf(
 				'<div class="%s">%s</div>',
 				esc_attr( $class ),
-				__( 'The contact form cannot be displayed because the email subject is not provided.', 'material-theme-builder' )
+				__( 'The contact form cannot be displayed because the email subject is not provided.', 'material-design' )
 			);
 		}
 
@@ -108,7 +108,7 @@ class Contact_Form_Block extends Module_Base {
 			return sprintf(
 				'<div class="%s">%s</div>',
 				esc_attr( $class ),
-				__( 'You cannot have multiple contact form instances in one page.', 'material-theme-builder' )
+				__( 'You cannot have multiple contact form instances in one page.', 'material-design' )
 			);
 		}
 
@@ -149,7 +149,7 @@ class Contact_Form_Block extends Module_Base {
 			'subject'  => isset( $block_attributes['subject'] )
 				? sanitize_text_field( $block_attributes['subject'] )
 				/* translators: %s: blog name */
-				: sprintf( __( 'This e-mail was sent from a contact form on %s', 'material-theme-builder' ), get_option( 'blogname' ) ),
+				: sprintf( __( 'This e-mail was sent from a contact form on %s', 'material-design' ), get_option( 'blogname' ) ),
 		];
 	}
 
@@ -159,7 +159,7 @@ class Contact_Form_Block extends Module_Base {
 	private function submit_contact_form() {
 		if ( ! check_ajax_referer( 'contact_form_action', 'mtb_contact_form_nonce', false ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Invalid nonce.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Invalid nonce.', 'material-design' ) ]
 			);
 		}
 
@@ -169,7 +169,7 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( empty( $wp_http_referer ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Missing http referer.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Missing http referer.', 'material-design' ) ]
 			);
 		}
 
@@ -177,7 +177,7 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( empty( $block_attributes['email_to'] ) || empty( $block_attributes['subject'] ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Missing email address for sending or subject.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Missing email address for sending or subject.', 'material-design' ) ]
 			);
 		}
 
@@ -185,7 +185,7 @@ class Contact_Form_Block extends Module_Base {
 		$verified        = $this->verify_recaptcha( $recaptcha_token );
 		if ( ! $verified ) {
 			wp_send_json_error(
-				[ 'message' => __( 'The submission could not be verified.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'The submission could not be verified.', 'material-design' ) ]
 			);
 		}
 
@@ -196,7 +196,7 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( ! $contact_fields ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Invalid submission data.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Invalid submission data.', 'material-design' ) ]
 			);
 		}
 
@@ -217,7 +217,7 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( ! $is_contact_fields_valid ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Invalid submission data.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Invalid submission data.', 'material-design' ) ]
 			);
 		}
 
@@ -225,7 +225,7 @@ class Contact_Form_Block extends Module_Base {
 		Template::get_template(
 			'contact-form-email.php',
 			[
-				'pre_message' => __( 'The following data has been submitted:', 'material-theme-builder' ),
+				'pre_message' => __( 'The following data has been submitted:', 'material-design' ),
 				'fields'      => $sanitized_contact_fields,
 			]
 		);
@@ -238,7 +238,7 @@ class Contact_Form_Block extends Module_Base {
 			wp_send_json_success();
 		} else {
 			wp_send_json_error(
-				[ 'message' => __( 'An unknown error occurred.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'An unknown error occurred.', 'material-design' ) ]
 			);
 		}
 	}
@@ -252,13 +252,13 @@ class Contact_Form_Block extends Module_Base {
 		$nonce = isset( $_POST['nonce'] ) ? filter_var( $_POST['nonce'], FILTER_SANITIZE_STRING ) : '';
 		if ( ! wp_verify_nonce( $nonce, 'mtb_recaptcha_ajax_nonce' ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Invalid nonce.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Invalid nonce.', 'material-design' ) ]
 			);
 		}
 
 		if ( ! Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
 			wp_send_json_error(
-				[ 'message' => __( 'You are not authorized.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'You are not authorized.', 'material-design' ) ]
 			);
 		}
 
@@ -276,20 +276,20 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( ! isset( $data['action'] ) || empty( $data['action'] ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Missing or invalid action.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Missing or invalid action.', 'material-design' ) ]
 			);
 		}
 
 		if ( 'save' === $data['action'] ) {
 			if ( ! isset( $data['site_key'] ) || empty( $data['site_key'] ) ) {
 				wp_send_json_error(
-					[ 'message' => __( 'Missing site key for saving.', 'material-theme-builder' ) ]
+					[ 'message' => __( 'Missing site key for saving.', 'material-design' ) ]
 				);
 			}
 
 			if ( ! isset( $data['client_secret'] ) || empty( $data['client_secret'] ) ) {
 				wp_send_json_error(
-					[ 'message' => __( 'Missing client secret for saving.', 'material-theme-builder' ) ]
+					[ 'message' => __( 'Missing client secret for saving.', 'material-design' ) ]
 				);
 			}
 		}

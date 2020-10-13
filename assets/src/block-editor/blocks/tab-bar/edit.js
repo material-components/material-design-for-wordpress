@@ -238,7 +238,7 @@ const TabBarEdit = ( {
 		return (
 			<img
 				src={ getConfig( 'tab_bar_preview' ) }
-				alt={ __( 'Tabs Preview', 'material-theme-builder' ) }
+				alt={ __( 'Tabs Preview', 'material-design' ) }
 			/>
 		);
 	}
@@ -269,7 +269,7 @@ const TabBarEdit = ( {
 
 				<button className="tab-add" onClick={ createTab }>
 					<i className="material-icons tab-add__icon">add</i>
-					<span>{ __( 'New Tab', 'material-theme-builder' ) }</span>
+					<span>{ __( 'New Tab', 'material-design' ) }</span>
 				</button>
 			</div>
 
@@ -281,7 +281,7 @@ const TabBarEdit = ( {
 
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Icon', 'material-theme-builder' ) }
+					title={ __( 'Icon', 'material-design' ) }
 					initialOpen={ true }
 				>
 					<ButtonGroup

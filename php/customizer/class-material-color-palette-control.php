@@ -75,8 +75,8 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 		<script type="text/html" id="tmpl-customize-control-material_color-tabs">
 			<# var id = mtbSanitizeControlId( data.id ) #>
 			<div class="mtb-tabs">
-				<a class="mtb-tab-link" href="#mtb-palette-{{id}}"><?php esc_html_e( 'Palette', 'material-theme-builder' ); ?></a>
-				<a class="mtb-tab-link" href="#mtb-custom-{{id}}"><?php esc_html_e( 'Custom', 'material-theme-builder' ); ?></a>
+				<a class="mtb-tab-link" href="#mtb-palette-{{id}}"><?php esc_html_e( 'Palette', 'material-design' ); ?></a>
+				<a class="mtb-tab-link" href="#mtb-custom-{{id}}"><?php esc_html_e( 'Custom', 'material-design' ); ?></a>
 			</div>
 			<div class="mtb-tab-content tab-palette" id="mtb-palette-{{id}}"></div>
 			<div class="mtb-tab-content tab-custom" id="mtb-custom-{{id}}"></div>
@@ -84,7 +84,7 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 		</script>
 		<script type="text/html" id="tmpl-customize-control-material_color-accessibility">
 			<div class="material-color-accessibility">
-				<label><?php esc_html_e( 'Current Scheme', 'material-theme-builder' ); ?></label>
+				<label><?php esc_html_e( 'Current Scheme', 'material-design' ); ?></label>
 				<div class="material-color-accessibility-inner">
 					<# _.each( data.colors, function( color ) { #>
 						<div class="material-color-accessibility-row">
@@ -94,10 +94,10 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 
 							<# _.each( color.variations, function( variation ) { #>
 								<# if ( null === variation.result ) { #>
-									{{ variation.size }} <?php esc_html_e( 'text', 'material-theme-builder' ); ?>:
+									{{ variation.size }} <?php esc_html_e( 'text', 'material-design' ); ?>:
 									{{ variation.textColor }}
-									<?php esc_html_e( ' text not legible', 'material-theme-builder' ); ?>
-									<span style="background-color: {{ variation.colorHex }}; color: {{ variation.textColorHex }}"><?php esc_html_e( 'Aa', 'material-theme-builder' ); ?></span>
+									<?php esc_html_e( ' text not legible', 'material-design' ); ?>
+									<span style="background-color: {{ variation.colorHex }}; color: {{ variation.textColorHex }}"><?php esc_html_e( 'Aa', 'material-design' ); ?></span>
 									<span class="dashicons dashicons-warning"></span><br/>
 								<# } #>
 							<# } ); #>

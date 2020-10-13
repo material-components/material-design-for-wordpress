@@ -27,13 +27,13 @@ import IconButtonLink from '../common/icon-button-link';
 const Fields = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Text fields', 'material-theme-builder' ) }
+			{ __( 'Text fields', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/text-fields"></IconButtonLink>
 		<p>
 			{ __(
 				'Text fields let users enter and edit text.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div style={ { display: 'flex' } }>
@@ -50,7 +50,7 @@ const Fields = ( { radius } ) => (
 				<input className="mdc-text-field__input" id="text-field-hero-input" />
 				<div className="mdc-line-ripple"></div>
 				<label htmlFor="text-field-hero-input" className="mdc-floating-label">
-					{ __( 'First name', 'material-theme-builder' ) }
+					{ __( 'First name', 'material-design' ) }
 				</label>
 			</div>
 
@@ -75,7 +75,7 @@ const Fields = ( { radius } ) => (
 					></div>
 					<div className="mdc-notched-outline__notch">
 						<label htmlFor="outlined-textfield" className="mdc-floating-label">
-							{ __( 'Last name', 'material-theme-builder' ) }
+							{ __( 'Last name', 'material-design' ) }
 						</label>
 					</div>
 					<div

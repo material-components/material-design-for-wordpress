@@ -107,11 +107,11 @@ export const withGlobalColorDefault = createHigherOrderComponent(
 			let colors = [
 				{
 					color: mtbDefaults.colors[ primayColorProp ],
-					name: __( 'Primary', 'material-theme-builder' ),
+					name: __( 'Primary', 'material-design' ),
 				},
 				{
 					color: mtbDefaults.colors[ secondaryColorProp ],
-					name: __( 'Secondary', 'material-theme-builder' ),
+					name: __( 'Secondary', 'material-design' ),
 				},
 			];
 

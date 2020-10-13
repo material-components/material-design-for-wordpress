@@ -288,10 +288,10 @@ import getConfig from '../block-editor/utils/get-config';
 
 			container
 				.find( '.wp-picker-default' )
-				.val( __( 'Reset', 'material-theme-builder' ) )
+				.val( __( 'Reset', 'material-design' ) )
 				.attr(
 					'aria-label',
-					__( 'Reset to default color', 'material-theme-builder' )
+					__( 'Reset to default color', 'material-design' )
 				)
 				.off( 'click' )
 				.on( 'click', event => {
@@ -385,11 +385,11 @@ import getConfig from '../block-editor/utils/get-config';
 				},
 				{
 					color: colorRange.range.light.hex,
-					name: __( 'Light variation', 'material-theme-builder' ),
+					name: __( 'Light variation', 'material-design' ),
 				},
 				{
 					color: colorRange.range.dark.hex,
-					name: __( 'Dark variation', 'material-theme-builder' ),
+					name: __( 'Dark variation', 'material-design' ),
 				},
 			];
 

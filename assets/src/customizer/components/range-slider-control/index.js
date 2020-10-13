@@ -102,7 +102,7 @@ const RangeSliderControl = props => {
 					{ enableDescriptionToggling && (
 						<i
 							className="material-icons range-slider-control-title__item info-icon"
-							title={ __( 'More info', 'material-theme-builder' ) }
+							title={ __( 'More info', 'material-design' ) }
 						>
 							info
 						</i>
@@ -131,7 +131,7 @@ const RangeSliderControl = props => {
 						<Button
 							isLink
 							onClick={ onResetLinked }
-							label={ __( 'Link to global', 'material-theme-builder' ) }
+							label={ __( 'Link to global', 'material-design' ) }
 							showTooltip={ true }
 						>
 							<span className="material-icons">link</span>
@@ -146,7 +146,7 @@ const RangeSliderControl = props => {
 							onClick={ handleExpandedSettings }
 							label={ __(
 								'View individual components',
-								'material-theme-builder'
+								'material-design'
 							) }
 							showTooltip={ true }
 							icon="admin-settings"

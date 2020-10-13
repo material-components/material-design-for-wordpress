@@ -55,21 +55,21 @@ const PostsControl = ( {
 } ) => {
 	/* istanbul ignore next */
 	const messages = {
-		clear: __( 'Clear all posts', 'material-theme-builder' ),
-		list: __( 'Posts', 'material-theme-builder' ),
-		noItems: __( 'There are no posts.', 'material-theme-builder' ),
-		search: __( 'Search for posts to display', 'material-theme-builder' ),
+		clear: __( 'Clear all posts', 'material-design' ),
+		list: __( 'Posts', 'material-design' ),
+		noItems: __( 'There are no posts.', 'material-design' ),
+		search: __( 'Search for posts to display', 'material-design' ),
 		selected: n =>
 			sprintf(
 				_n(
 					'%d post selected',
 					'%d posts selected',
 					n,
-					'material-theme-builder'
+					'material-design'
 				),
 				n
 			),
-		updated: __( 'Posts search results updated.', 'material-theme-builder' ),
+		updated: __( 'Posts search results updated.', 'material-design' ),
 	};
 
 	if ( error ) {

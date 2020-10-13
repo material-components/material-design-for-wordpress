@@ -32,7 +32,7 @@ describe( 'Onboarding Wizard', () => {
 			themeStatus: 'ok',
 			nonce: 'test-nonce',
 			restPath:
-				'http://example.com/index.php?rest_route=/material-theme-builder/v1/importer/',
+				'http://example.com/index.php?rest_route=/material-design/v1/importer/',
 		};
 	} );
 

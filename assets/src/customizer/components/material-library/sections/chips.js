@@ -27,13 +27,13 @@ import IconButtonLink from '../common/icon-button-link';
 const Chips = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Chips', 'material-theme-builder' ) }
+			{ __( 'Chips', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/chips"></IconButtonLink>
 		<p>
 			{ __(
 				'Chips are compact elements that represent an input, attribute, or action.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div className="mdc-chip-set" role="grid">
@@ -46,7 +46,7 @@ const Chips = ( { radius } ) => (
 				<span role="gridcell">
 					<span role="button" tabIndex="0" className="mdc-chip__primary-action">
 						<span className="mdc-chip__text">
-							{ __( 'Chip One', 'material-theme-builder' ) }
+							{ __( 'Chip One', 'material-design' ) }
 						</span>
 					</span>
 				</span>
@@ -64,7 +64,7 @@ const Chips = ( { radius } ) => (
 						className="mdc-chip__primary-action"
 					>
 						<span className="mdc-chip__text">
-							{ __( 'Chip Two', 'material-theme-builder' ) }
+							{ __( 'Chip Two', 'material-design' ) }
 						</span>
 					</span>
 				</span>

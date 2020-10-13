@@ -271,7 +271,7 @@ const ListEdit = ( {
 
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'material-theme-builder' ) }
+					title={ __( 'Block Settings', 'material-design' ) }
 					initialOpen={ true }
 				>
 					<ImageRadioControl
@@ -297,7 +297,7 @@ const ListEdit = ( {
 
 				{ selected && 'none' !== iconPosition && (
 					<PanelBody
-						title={ __( 'List item Settings', 'material-theme-builder' ) }
+						title={ __( 'List item Settings', 'material-design' ) }
 						initialOpen={ true }
 					>
 						<IconPicker

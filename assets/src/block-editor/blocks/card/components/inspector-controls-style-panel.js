@@ -29,15 +29,15 @@ import getConfig from '../../../utils/get-config';
 
 const CONTENT_LAYOUTS = [
 	{
-		label: __( 'Text above media', 'material-theme-builder' ),
+		label: __( 'Text above media', 'material-design' ),
 		value: 'text-above-media',
 	},
 	{
-		label: __( 'Text over media', 'material-theme-builder' ),
+		label: __( 'Text over media', 'material-design' ),
 		value: 'text-over-media',
 	},
 	{
-		label: __( 'Text under media', 'material-theme-builder' ),
+		label: __( 'Text under media', 'material-design' ),
 		value: 'text-under-media',
 	},
 ];
@@ -72,14 +72,14 @@ const InspectorControlsStylePanel = ( {
 	<PanelBody
 		title={
 			isSingleCard
-				? __( 'Style Settings', 'material-theme-builder' )
+				? __( 'Style Settings', 'material-design' )
 				: sprintf( __( 'Card #%d Style Settings' ), cardIndex + 1 )
 		}
 		initialOpen={ isPanelInitialOpened }
 	>
 		{ cardLayoutStyle === 'vertical' && (
 			<RadioControl
-				label={ __( 'Content layout', 'material-theme-builder' ) }
+				label={ __( 'Content layout', 'material-design' ) }
 				selected={ contentLayout }
 				options={ CONTENT_LAYOUTS }
 				onChange={ value => setter( 'contentLayout', value, cardIndex ) }
@@ -88,22 +88,22 @@ const InspectorControlsStylePanel = ( {
 
 		<div className="components-base-control">
 			<label className="components-base-control__label" htmlFor="shape-size">
-				{ __( 'Corner Styles', 'material-theme-builder' ) }
+				{ __( 'Corner Styles', 'material-design' ) }
 			</label>
 
 			<div>
 				{ __(
 					'Overrides will only apply to these cards. Change Cards corner styles in ',
-					'material-theme-builder'
+					'material-design'
 				) }
 				<a
 					href={ getConfig( 'customizerUrls' ).shape }
 					target="_blank"
 					rel="noreferrer noopener"
 				>
-					{ __( 'Material Theme Options', 'material-theme-builder' ) }
+					{ __( 'Material Theme Options', 'material-design' ) }
 				</a>
-				{ __( ' to update all cards.', 'material-theme-builder' ) }
+				{ __( ' to update all cards.', 'material-design' ) }
 			</div>
 
 			<GlobalShapeSize
@@ -116,7 +116,7 @@ const InspectorControlsStylePanel = ( {
 		</div>
 
 		<ToggleControl
-			label={ __( 'Outlined', 'material-theme-builder' ) }
+			label={ __( 'Outlined', 'material-design' ) }
 			checked={ outlined }
 			onChange={ value => setter( 'outlined', value, cardIndex ) }
 		/>

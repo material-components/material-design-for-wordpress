@@ -44,16 +44,16 @@ const InputInspectorControls = ( {
 	return (
 		<InspectorControls>
 			<PanelBody
-				title={ __( 'Field Settings', 'material-theme-builder' ) }
+				title={ __( 'Field Settings', 'material-design' ) }
 				initialOpen={ true }
 			>
 				<TextControl
-					label={ __( 'ID', 'material-theme-builder' ) }
+					label={ __( 'ID', 'material-design' ) }
 					value={ id }
 					onChange={ setter( 'id' ) }
 				/>
 				<TextControl
-					label={ __( 'Label', 'material-theme-builder' ) }
+					label={ __( 'Label', 'material-design' ) }
 					value={ label }
 					onChange={ setter( 'label' ) }
 				/>

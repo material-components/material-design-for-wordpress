@@ -275,13 +275,13 @@ This will create an `material-design.zip` in the plugin directory which you can 
 
 1. Create changelog draft on [Wiki page](https://github.com/xwp/material-design-wp-plugin/wiki/Release-Changelog-Draft).
 1. Check out the branch intended for release (`develop` for major, `x.y` for minor) and pull latest commits.
-1. Bump plugin versions in `material-theme-builder.php`.
+1. Bump plugin versions in `material-design.php`.
 1. Do `npm install`.
-1. Do `npm run build` and install the `material-theme-builder.zip` onto a normal WordPress install running a stable release build; do smoke test to ensure it works.
+1. Do `npm run build` and install the `material-design.zip` onto a normal WordPress install running a stable release build; do smoke test to ensure it works.
 1. [Draft new release](https://github.com/xwp/material-design-wp-plugin/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor).
     1. Use the new plugin version as the tag (e.g. `1.2-beta3` or `1.2.1-RC1`)
     1. Use new version as the title, followed by some highlight tagline of the release.
-    1. Attach the `material-theme-builder.zip` build to the release.
+    1. Attach the `material-design.zip` build to the release.
     1. Add a changelog entry to the release, link to the compare view (comparing the previous release), and a link to the milestone.
     1. Make sure “Pre-release” is checked.
 1. Publish GitHub release.
@@ -302,13 +302,13 @@ Contributors who want to make a new release, follow these steps:
 1. For minor releases, make sure all merged commits in `develop` have been also merged onto release branch.
 1. Check out the branch intended for release (`develop` for major, `x.y` for minor) and pull latest commits.
 1. Do `npm install`.
-1. Bump plugin versions in `material-theme-builder.php`. Ensure patch version number is supplied for major releases, so `1.2-RC1` should bump to `1.2.0`.
+1. Bump plugin versions in `material-design.php`. Ensure patch version number is supplied for major releases, so `1.2-RC1` should bump to `1.2.0`.
 1. Ensure "Tested Up To" is updated to current WordPress version.
-1. Do `npm run build` and install the `material-theme-builder.zip` onto a normal WordPress install running a stable release build; do smoke test to ensure it works.
-1. Optionally do sanity check by comparing the `build` directory with the previously-deployed plugin on WordPress.org for example: `svn export https://plugins.svn.wordpress.org/material-theme-builder/trunk /tmp/material-theme-builder-trunk; diff /tmp/material-theme-builder-trunk/ ./build/` (instead of straight `diff`, it's best to use a GUI like `idea diff`, `phpstorm diff`, or `opendiff`).
+1. Do `npm run build` and install the `material-design.zip` onto a normal WordPress install running a stable release build; do smoke test to ensure it works.
+1. Optionally do sanity check by comparing the `build` directory with the previously-deployed plugin on WordPress.org for example: `svn export https://plugins.svn.wordpress.org/material-design/trunk /tmp/material-design-trunk; diff /tmp/material-design-trunk/ ./build/` (instead of straight `diff`, it's best to use a GUI like `idea diff`, `phpstorm diff`, or `opendiff`).
 1. [Draft new release](https://github.com/xwp/material-design-wp-plugin/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor):
     1. Use the new plugin version as the tag (e.g. `1.2.0` or `1.2.1`)
-    1. Attach the `material-theme-builder.zip` build to the release.
+    1. Attach the `material-design.zip` build to the release.
     1. Add a changelog entry to the release, link to the compare view (comparing the previous release), and a link to the milestone.
 1. Publish GitHub release.
 1. Run `npm run deploy` to commit the plugin to WordPress.org.

@@ -37,8 +37,8 @@ import { URLInput } from '@wordpress/block-editor';
 import './editor.css';
 import classnames from 'classnames';
 
-const ariaClosed = __( 'Show more tools & options', 'material-theme-builder' );
-const ariaOpen = __( 'Hide more tools & options', 'material-theme-builder' );
+const ariaClosed = __( 'Show more tools & options', 'material-design' );
+const ariaOpen = __( 'Hide more tools & options', 'material-design' );
 
 const UrlInputPopover = ( {
 	value = '',
@@ -93,7 +93,7 @@ const UrlInputPopover = ( {
 								autoFocus={ false } // eslint-disable-line
 								placeholder={ __(
 									'Paste or type URL',
-									'material-theme-builder'
+									'material-design'
 								) }
 							/>
 						) }
@@ -115,7 +115,7 @@ const UrlInputPopover = ( {
 						</Tooltip>
 					) }
 					{ onPopupClose && (
-						<Tooltip text={ __( 'Close', 'material-theme-builder' ) }>
+						<Tooltip text={ __( 'Close', 'material-design' ) }>
 							<Button
 								className={ classnames(
 									[ 'mtb-url-input-control__close-button' ],
@@ -133,14 +133,14 @@ const UrlInputPopover = ( {
 				</div>
 				{ onChangeNewTab && expanded && (
 					<ToggleControl
-						label={ __( 'Open link in new tab', 'material-theme-builder' ) }
+						label={ __( 'Open link in new tab', 'material-design' ) }
 						checked={ newTab }
 						onChange={ onChangeNewTab }
 					/>
 				) }
 				{ onChangeNoFollow && expanded && (
 					<ToggleControl
-						label={ __( 'Nofollow link', 'material-theme-builder' ) }
+						label={ __( 'Nofollow link', 'material-design' ) }
 						checked={ noFollow }
 						onChange={ onChangeNoFollow }
 					/>

@@ -23,13 +23,13 @@ export const Overview = () => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline3">
-				{ __( 'Build with Material Blocks', 'material-theme-builder' ) }
+				{ __( 'Build with Material Blocks', 'material-design' ) }
 			</h2>
 
 			<p>
 				{ __(
 					'Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor.',
-					'material-theme-builder'
+					'material-design'
 				) }
 			</p>
 
@@ -46,7 +46,7 @@ export const Overview = () => {
 			<div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised"
-					text={ __( 'Customize Material Blocks', 'material-theme-builder' ) }
+					text={ __( 'Customize Material Blocks', 'material-design' ) }
 					trailingIcon="navigate_next"
 					link={ getConfig( 'blocks' ) }
 				/>

@@ -48,7 +48,7 @@ import ErrorIcon from './error-icon';
 const ErrorPlaceholder = ( { className, error, isLoading, onRetry } ) => (
 	<Placeholder
 		icon={ <ErrorIcon /> }
-		label={ __( 'Sorry, an error occurred', 'material-theme-builder' ) }
+		label={ __( 'Sorry, an error occurred', 'material-design' ) }
 		className={ classNames( 'mtb-block-api-error', className ) }
 	>
 		<ErrorMessage error={ error } />
@@ -58,7 +58,7 @@ const ErrorPlaceholder = ( { className, error, isLoading, onRetry } ) => (
 					<Spinner />
 				) : (
 					<Button isSecondary onClick={ onRetry }>
-						{ __( 'Retry', 'material-theme-builder' ) }
+						{ __( 'Retry', 'material-design' ) }
 					</Button>
 				) }
 			</>

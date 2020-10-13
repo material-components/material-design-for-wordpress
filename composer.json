@@ -57,7 +57,7 @@
     ]
   },
   "extra": {
-    "installer-name": "material-theme-builder",
+    "installer-name": "material-design",
     "copy-file": {
       "tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
     }

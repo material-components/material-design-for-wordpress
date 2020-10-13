@@ -33,13 +33,13 @@ const Welcome = () => {
 		<div className="mdc-layout-grid__cell--span-12">
 			<Card image={ `${ getConfig( 'assetsPath' ) }welcome.png` } imageSpan="5">
 				<h3 className="mdc-typography--headline3">
-					{ __( 'Start building', 'material-theme-builder' ) }
+					{ __( 'Start building', 'material-design' ) }
 				</h3>
 
 				<p>
 					{ __(
 						'Material Design for WordPress lets you use Material Components and custom styles in your WordPress site.',
-						'material-theme-builder'
+						'material-design'
 					) }
 				</p>
 			</Card>
