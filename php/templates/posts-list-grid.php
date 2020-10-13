@@ -14,13 +14,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 /**
  * Template for displaying posts in grid or list layout.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 use MaterialThemeBuilder\Template;

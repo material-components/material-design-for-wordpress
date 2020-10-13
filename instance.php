@@ -16,7 +16,7 @@
  *
  * Instantiates the plugin.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 namespace MaterialThemeBuilder;

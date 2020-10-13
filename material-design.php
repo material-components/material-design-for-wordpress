@@ -24,7 +24,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
 if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'register_block_type' ) ) {
