@@ -49,10 +49,7 @@ const FormInspectorControls = props => {
 					onChange={ setter( 'subject' ) }
 				/>
 				<TextControl
-					label={ __(
-						'Submission confirmation message',
-						'material-design'
-					) }
+					label={ __( 'Submission confirmation message', 'material-design' ) }
 					value={ confirmationMessage }
 					onChange={ setter( 'confirmationMessage' ) }
 				/>

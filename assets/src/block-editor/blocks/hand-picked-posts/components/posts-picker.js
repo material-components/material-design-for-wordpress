@@ -43,10 +43,7 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 	const onDone = () => {
 		setAttributes( { editMode: false } );
 		debouncedSpeak(
-			__(
-				'Showing Curated Post Collection block preview.',
-				'material-design'
-			)
+			__( 'Showing Curated Post Collection block preview.', 'material-design' )
 		);
 	};
 
@@ -56,10 +53,7 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 			label={ __( 'Curated Post Collection', 'material-design' ) }
 			className="mtb-block-products-grid mtb-block-handpicked-posts"
 		>
-			{ __(
-				'Display a selection of hand-picked posts.',
-				'material-design'
-			) }
+			{ __( 'Display a selection of hand-picked posts.', 'material-design' ) }
 			<div className="mtb-block-handpicked-posts__selection">
 				<PostsControl
 					selected={ attributes.posts }

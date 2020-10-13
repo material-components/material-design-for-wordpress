@@ -144,10 +144,7 @@ const RangeSliderControl = props => {
 						<Button
 							isLink
 							onClick={ handleExpandedSettings }
-							label={ __(
-								'View individual components',
-								'material-design'
-							) }
+							label={ __( 'View individual components', 'material-design' ) }
 							showTooltip={ true }
 							icon="admin-settings"
 							isPressed={ expandedSettings }

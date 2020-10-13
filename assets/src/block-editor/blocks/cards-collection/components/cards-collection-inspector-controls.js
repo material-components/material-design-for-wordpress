@@ -144,10 +144,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 				/>
 
 				<ToggleControl
-					label={ __(
-						'Allow individual card override',
-						'material-design'
-					) }
+					label={ __( 'Allow individual card override', 'material-design' ) }
 					checked={ allowIndividualContentOverride }
 					onChange={ standardSetter( 'allowIndividualContentOverride' ) }
 				/>

@@ -183,10 +183,7 @@ export default function MaterialColorPalette( {
 												'components-material-color-palette__picker',
 										} }
 										buttonProps={ {
-											'aria-label': __(
-												'Color palette',
-												'material-design'
-											),
+											'aria-label': __( 'Color palette', 'material-design' ),
 										} }
 										linkText={ __( 'Color palette', 'material-design' ) }
 									/>

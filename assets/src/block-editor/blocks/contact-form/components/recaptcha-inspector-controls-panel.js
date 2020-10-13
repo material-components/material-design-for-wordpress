@@ -172,10 +172,7 @@ const RecaptchaInspectorControlsPanel = () => {
 				}
 
 				newNotice.type = 'success';
-				newNotice.message = __(
-					'Saved successfully',
-					'material-design'
-				);
+				newNotice.message = __( 'Saved successfully', 'material-design' );
 			} )
 			.catch( () => {
 				newNotice.show = true;

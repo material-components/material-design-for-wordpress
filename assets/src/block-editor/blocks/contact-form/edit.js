@@ -100,10 +100,7 @@ const Edit = props => {
 
 	if ( displayNotice ) {
 		createWarningNotice(
-			__(
-				'Only one contact form is supported per page',
-				'material-design'
-			)
+			__( 'Only one contact form is supported per page', 'material-design' )
 		);
 	}
 
@@ -134,10 +131,7 @@ export default compose( [
 			formNotices: pageNotices.filter(
 				notice =>
 					notice.content ===
-					__(
-						'Only one contact form is supported per page',
-						'material-design'
-					)
+					__( 'Only one contact form is supported per page', 'material-design' )
 			),
 		};
 	} ),
