@@ -176,7 +176,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 
 		if ( is_wp_error( $api ) ) {
 			return new \WP_Error(
-				'material_theme_install',
+				'material_design_theme_install',
 				__( 'The Material Design theme could not be installed. Theme API call failed.', 'material-design' ),
 				[ 'status' => 500 ]
 			);
@@ -188,7 +188,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 
 		if ( is_wp_error( $result ) || is_null( $result ) ) {
 			return new \WP_Error(
-				'material_theme_install',
+				'material_design_theme_install',
 				__( 'The Material Design theme could not be installed.', 'material-design' ),
 				[ 'status' => 500 ]
 			);
