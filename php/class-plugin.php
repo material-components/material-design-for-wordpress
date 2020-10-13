@@ -40,7 +40,7 @@ class Plugin extends Plugin_Base {
 	 *
 	 * @var string
 	 */
-	const THEME_SLUG = 'material-theme';
+	const THEME_SLUG = 'material-design';
 
 	/**
 	 * Controls class.
@@ -88,7 +88,7 @@ class Plugin extends Plugin_Base {
 	 * Initiate the plugin resources.
 	 */
 	public function init() {
-		$this->config = apply_filters( 'material_theme_builder_plugin_config', $this->config, $this );
+		$this->config = apply_filters( 'material_design_plugin_config', $this->config, $this );
 
 		$this->customizer_controls = new Controls( $this );
 		$this->customizer_controls->init();

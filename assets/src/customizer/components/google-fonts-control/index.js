@@ -74,7 +74,7 @@ const GoogleFontsControl = props => {
 
 	const setChildValues = child => {
 		const childControl = wp.customize.control(
-			`material_theme_builder[${ child.id }]`
+			`material_design[${ child.id }]`
 		);
 
 		const settings = {

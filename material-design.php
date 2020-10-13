@@ -32,7 +32,7 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'regist
 
 	register_activation_hook(
 		__FILE__,
-		'_material_theme_builder_activation'
+		'_material_design_activation'
 	);
 
 	/**
@@ -42,17 +42,17 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'regist
 	 *
 	 * @return void
 	 */
-	function _material_theme_builder_load_plugin() {
-		$material_theme_builder_plugin = \MaterialDesign\Plugin\get_plugin_instance();
-		$material_theme_builder_plugin->init();
+	function _material_design_load_plugin() {
+		$material_design_plugin = \MaterialDesign\Plugin\get_plugin_instance();
+		$material_design_plugin->init();
 	}
 
-	add_action( 'plugins_loaded', '_material_theme_builder_load_plugin' );
+	add_action( 'plugins_loaded', '_material_design_load_plugin' );
 
 } elseif ( ! function_exists( 'register_block_type' ) ) {
-	_material_theme_builder_error( '_material_theme_builder_gutenberg_text_only', '_material_theme_builder_gutenberg_error' );
+	_material_design_error( '_material_design_gutenberg_text_only', '_material_design_gutenberg_error' );
 } else {
-	_material_theme_builder_error( '_material_theme_builder_php_version_text', '_material_theme_builder_php_version_error' );
+	_material_design_error( '_material_design_php_version_text', '_material_design_php_version_error' );
 }
 
 /**
@@ -63,7 +63,7 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'regist
  *
  * @return void
  */
-function _material_theme_builder_error( $text_function, $html_function ) {
+function _material_design_error( $text_function, $html_function ) {
 	// @codeCoverageIgnoreStart
 	if ( defined( 'WP_CLI' ) ) {
 		WP_CLI::warning( call_user_func( $text_function ) );
@@ -76,8 +76,8 @@ function _material_theme_builder_error( $text_function, $html_function ) {
 /**
  * Admin notice for incompatible versions of PHP.
  */
-function _material_theme_builder_php_version_error() {
-	printf( '<div class="error"><p>%s</p></div>', esc_html( _material_theme_builder_php_version_text() ) );
+function _material_design_php_version_error() {
+	printf( '<div class="error"><p>%s</p></div>', esc_html( _material_design_php_version_text() ) );
 }
 
 /**
@@ -85,15 +85,15 @@ function _material_theme_builder_php_version_error() {
  *
  * @return string
  */
-function _material_theme_builder_php_version_text() {
+function _material_design_php_version_text() {
 	return esc_html__( 'Material Design plugin error: Your version of PHP is too old to run this plugin. You must be running PHP 5.6.20 or higher.', 'material-design' );
 }
 
 /**
  * Admin notice if Gutenberg is not available.
  */
-function _material_theme_builder_gutenberg_error() {
-	printf( '<div class="error"><p>%s</p></div>', wp_kses_post( _material_theme_builder_gutenberg_text() ) );
+function _material_design_gutenberg_error() {
+	printf( '<div class="error"><p>%s</p></div>', wp_kses_post( _material_design_gutenberg_text() ) );
 }
 
 /**
@@ -101,7 +101,7 @@ function _material_theme_builder_gutenberg_error() {
  *
  * @return string
  */
-function _material_theme_builder_gutenberg_text() {
+function _material_design_gutenberg_text() {
 	$update = sprintf(
 		'<a href="%1$s">%2$s</a>',
 		esc_url( admin_url( 'update-core.php' ) ),
@@ -129,8 +129,8 @@ function _material_theme_builder_gutenberg_text() {
  *
  * @return string
  */
-function _material_theme_builder_gutenberg_text_only() {
-	return esc_html( wp_strip_all_tags( _material_theme_builder_gutenberg_text() ) );
+function _material_design_gutenberg_text_only() {
+	return esc_html( wp_strip_all_tags( _material_design_gutenberg_text() ) );
 }
 
 /**
@@ -138,7 +138,7 @@ function _material_theme_builder_gutenberg_text_only() {
  *
  * @return void
  */
-function _material_theme_builder_activation() {
+function _material_design_activation() {
 	update_option( 'material_plugin_activated', true, false );
 	set_transient( '_material_activation_redirect', 1, 30 );
 }

@@ -58,7 +58,7 @@ class Google_Fonts {
 		 *
 		 * @param array $list Google fonts list.
 		 */
-		return apply_filters( 'material_theme_builder_google_fonts_list', self::$list );
+		return apply_filters( 'material_design_google_fonts_list', self::$list );
 	}
 
 	/**
@@ -78,7 +78,7 @@ class Google_Fonts {
 		 *
 		 * @param array $choices Google fonts choices.
 		 */
-		return apply_filters( 'material_theme_builder_google_fonts_choices', $choices );
+		return apply_filters( 'material_design_google_fonts_choices', $choices );
 	}
 
 	/**

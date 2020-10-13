@@ -49,12 +49,12 @@ class Test_Template extends \WP_UnitTestCase {
 		parent::setUp();
 
 		$this->theme_dir = DIR_TESTDATA . '/themedir1/default/';
-		mkdir( $this->theme_dir . 'material-theme' ); //phpcs:ignore
+		mkdir( $this->theme_dir . 'material-design' ); //phpcs:ignore
 		mkdir( $this->theme_dir . 'custom-templates' ); //phpcs:ignore
 
 		$content = '<h1>A simple card in material template. Vars: <?php echo wp_json_encode( $params ); ?></h1>';
 
-		file_put_contents( $this->theme_dir . 'material-theme/card.php', $content ); //phpcs:ignore
+		file_put_contents( $this->theme_dir . 'material-design/card.php', $content ); //phpcs:ignore
 		file_put_contents( $this->theme_dir . 'custom-templates/card.php', $content ); //phpcs:ignore
 	}
 
@@ -66,10 +66,10 @@ class Test_Template extends \WP_UnitTestCase {
 	public function tearDown() {
 		parent::tearDown();
 
-		array_map( 'unlink', glob( $this->theme_dir . 'material-theme/*.*' ) );
+		array_map( 'unlink', glob( $this->theme_dir . 'material-design/*.*' ) );
 		array_map( 'unlink', glob( $this->theme_dir . 'custom-templates/*.*' ) );
 
-		rmdir( $this->theme_dir . 'material-theme' ); //phpcs:ignore
+		rmdir( $this->theme_dir . 'material-design' ); //phpcs:ignore
 		rmdir( $this->theme_dir . 'custom-templates' ); //phpcs:ignore
 	}
 
@@ -119,9 +119,9 @@ class Test_Template extends \WP_UnitTestCase {
 	 * @see Template::locate_template()
 	 */
 	public function test_locate_template() {
-		// Assert the template is located from `theme/material-theme/`.
+		// Assert the template is located from `theme/material-design/`.
 		$template = Template::locate_template( 'card.php' );
-		$this->assertEquals( $this->theme_dir . 'material-theme/card.php', $template );
+		$this->assertEquals( $this->theme_dir . 'material-design/card.php', $template );
 
 		// Assert the template is located from `theme/custom-templates/`.
 		$template = Template::locate_template( 'card.php', 'custom-templates' );
@@ -142,7 +142,7 @@ class Test_Template extends \WP_UnitTestCase {
 	 * @see Template::template_path()
 	 */
 	public function test_template_path() {
-		$this->assertEquals( 'material-theme/', Template::template_path() );
+		$this->assertEquals( 'material-design/', Template::template_path() );
 	}
 
 	/**

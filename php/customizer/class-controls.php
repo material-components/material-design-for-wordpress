@@ -40,7 +40,7 @@ class Controls extends Module_Base {
 	 *
 	 * @var string
 	 */
-	public $slug = 'material_theme_builder';
+	public $slug = 'material_design';
 
 	/**
 	 * WP_Customize_Manager object reference.
@@ -634,7 +634,7 @@ class Controls extends Module_Base {
 		 * @param string $fonts_url     Fonts URL.
 		 * @param array  $font_families Font families set in customizer.
 		 */
-		return apply_filters( 'material_theme_builder_google_fonts_url', $fonts_url, $font_families );
+		return apply_filters( 'material_design_google_fonts_url', $fonts_url, $font_families );
 	}
 
 	/**

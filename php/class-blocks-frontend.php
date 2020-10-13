@@ -63,7 +63,7 @@ class Blocks_Frontend extends Module_Base {
 			 * @param string $styles Generated block styles.
 			 * @param array $blocks  Blocks in the page/post.
 			 */
-			$styles = apply_filters( 'material_theme_builder_frontend_blocks_css', $styles, $blocks );
+			$styles = apply_filters( 'material_design_frontend_blocks_css', $styles, $blocks );
 
 			wp_add_inline_style(
 				'material-front-end-css',
@@ -126,7 +126,7 @@ class Blocks_Frontend extends Module_Base {
 		 * @param array $styles Generated block styles.
 		 * @param array $block  Block.
 		 */
-		return apply_filters( 'material_theme_builder_block_css', $styles, $block );
+		return apply_filters( 'material_design_block_css', $styles, $block );
 	}
 
 	/**
@@ -161,7 +161,7 @@ class Blocks_Frontend extends Module_Base {
 		 * @param array  $styles  Generated media queries.
 		 * @param string $device  Device type.
 		 */
-		return apply_filters( 'material_theme_builder_media_queries', $styles, $device );
+		return apply_filters( 'material_design_media_queries', $styles, $device );
 	}
 
 	/**
@@ -196,7 +196,7 @@ class Blocks_Frontend extends Module_Base {
 		 * @param array $styles Generated layout gutter styles.
 		 * @param array $block  Current Block.
 		 */
-		$styles = apply_filters( 'material_theme_builder_layout_gutter_styles', $styles, $block );
+		$styles = apply_filters( 'material_design_layout_gutter_styles', $styles, $block );
 
 		return implode( "\n", $styles );
 	}
@@ -238,7 +238,7 @@ class Blocks_Frontend extends Module_Base {
 		 * @param array  $attributes Attributes of the block..
 		 * @param string $device     Device type.
 		 */
-		return apply_filters( 'material_theme_builder_layout_gutter_device_styles', $styles, $id, $attributes, $device );
+		return apply_filters( 'material_design_layout_gutter_device_styles', $styles, $id, $attributes, $device );
 	}
 
 	/**

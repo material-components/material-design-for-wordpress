@@ -150,14 +150,14 @@ const MaterialLibrary = ( {
 					</h3>
 					<p>
 						{ __(
-							'Styled components available when WordPress Material Theme is activated.',
+							'Styled components available when the Material Design theme is activated.',
 							'material-design'
 						) }
 					</p>
-					{ 'material-theme' !== theme && (
+					{ 'material-design' !== theme && (
 						<p>
 							{ __(
-								'Enable Material Theme for more components.',
+								'Enable Material Design theme for more components.',
 								'material-design'
 							) }
 						</p>

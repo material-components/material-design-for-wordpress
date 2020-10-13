@@ -883,10 +883,10 @@ Object {
             Components
           </h3>
           <p>
-            Styled components available when WordPress Material Theme is activated.
+            Styled components available when the Material Design theme is activated.
           </p>
           <p>
-            Enable Material Theme for more components.
+            Enable Material Design theme for more components.
           </p>
           <hr />
           <div>
@@ -2181,10 +2181,10 @@ Object {
           Components
         </h3>
         <p>
-          Styled components available when WordPress Material Theme is activated.
+          Styled components available when the Material Design theme is activated.
         </p>
         <p>
-          Enable Material Theme for more components.
+          Enable Material Design theme for more components.
         </p>
         <hr />
         <div>

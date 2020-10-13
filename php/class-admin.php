@@ -187,7 +187,7 @@ class Admin extends Module_Base {
 					'editorUrl'     => esc_url( admin_url( 'edit.php' ) ),
 					'customize'     => esc_url( admin_url( 'customize.php' ) ),
 					'widgets'       => esc_url( admin_url( 'customize.php?autofocus[panel]=widgets' ) ),
-					'blocks'        => esc_url( admin_url( 'customize.php?autofocus[panel]=material_theme_builder' ) ),
+					'blocks'        => esc_url( admin_url( 'customize.php?autofocus[panel]=material_design' ) ),
 					'assetsPath'    => esc_url( $this->plugin->asset_url( 'assets/images/onboarding/' ) ),
 					'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
@@ -344,8 +344,8 @@ class Admin extends Module_Base {
 		}
 
 		$action_link = sprintf(
-			'<a href="%s" class="material-theme-%s install-theme">%s</a>',
-			esc_url( admin_url( '/themes.php?search=Material+Theme' ) ),
+			'<a href="%s" class="material-design-%s install-theme">%s</a>',
+			esc_url( admin_url( '/themes.php?search=Material+Design' ) ),
 			esc_attr( $status ),
 			esc_html( $label )
 		);

@@ -33,64 +33,64 @@ namespace MaterialDesign\Plugin;
 class Test_Material_Design extends \WP_UnitTestCase {
 
 	/**
-	 * Test _material_theme_builder_php_version_error().
+	 * Test _material_design_php_version_error().
 	 *
-	 * @see _material_theme_builder_php_version_error()
+	 * @see _material_design_php_version_error()
 	 */
-	public function test_material_theme_builder_php_version_error() {
+	public function test_material_design_php_version_error() {
 		ob_start();
-		_material_theme_builder_php_version_error();
+		_material_design_php_version_error();
 		$buffer = ob_get_clean();
 		$this->assertContains( '<div class="error">', $buffer );
 	}
 
 	/**
-	 * Test _material_theme_builder_php_version_text().
+	 * Test _material_design_php_version_text().
 	 *
-	 * @see _material_theme_builder_php_version_text()
+	 * @see _material_design_php_version_text()
 	 */
-	public function test_material_theme_builder_php_version_text() {
-		$this->assertContains( 'Material Design plugin error:', _material_theme_builder_php_version_text() );
+	public function test_material_design_php_version_text() {
+		$this->assertContains( 'Material Design plugin error:', _material_design_php_version_text() );
 	}
 
 	/**
-	 * Test _material_theme_builder_gutenberg_error().
+	 * Test _material_design_gutenberg_error().
 	 *
-	 * @see _material_theme_builder_gutenberg_error()
+	 * @see _material_design_gutenberg_error()
 	 */
-	public function test_material_theme_builder_gutenberg_error() {
+	public function test_material_design_gutenberg_error() {
 		ob_start();
-		_material_theme_builder_gutenberg_error();
+		_material_design_gutenberg_error();
 		$buffer = ob_get_clean();
 		$this->assertContains( '<div class="error">', $buffer );
 	}
 
 	/**
-	 * Test _material_theme_builder_gutenberg_text().
+	 * Test _material_design_gutenberg_text().
 	 *
-	 * @see _material_theme_builder_gutenberg_text()
+	 * @see _material_design_gutenberg_text()
 	 */
-	public function test_material_theme_builder_gutenberg_text() {
-		$this->assertContains( 'Oops, we ran into an issue with installing the Material Design plugin.', _material_theme_builder_gutenberg_text() );
+	public function test_material_design_gutenberg_text() {
+		$this->assertContains( 'Oops, we ran into an issue with installing the Material Design plugin.', _material_design_gutenberg_text() );
 	}
 
 	/**
-	 * Test _material_theme_builder_gutenberg_text_only().
+	 * Test _material_design_gutenberg_text_only().
 	 *
-	 * @see _material_theme_builder_gutenberg_text_only()
+	 * @see _material_design_gutenberg_text_only()
 	 */
-	public function test_material_theme_builder_gutenberg_text_only() {
-		$this->assertContains( 'Oops, we ran into an issue with installing the Material Design plugin.', _material_theme_builder_gutenberg_text_only() );
-		$this->assertNotContains( '<a href', _material_theme_builder_gutenberg_text_only() );
+	public function test_material_design_gutenberg_text_only() {
+		$this->assertContains( 'Oops, we ran into an issue with installing the Material Design plugin.', _material_design_gutenberg_text_only() );
+		$this->assertNotContains( '<a href', _material_design_gutenberg_text_only() );
 	}
 
 	/**
-	 * Test _material_theme_builder_activation().
+	 * Test _material_design_activation().
 	 *
-	 * @see _material_theme_builder_activation()
+	 * @see _material_design_activation()
 	 */
-	public function test_material_theme_builder_activation() {
-		_material_theme_builder_activation();
+	public function test_material_design_activation() {
+		_material_design_activation();
 		$this->assertNotEmpty( get_option( 'material_plugin_activated' ) );
 	}
 }

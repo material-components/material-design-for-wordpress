@@ -21,12 +21,12 @@
 
 namespace MaterialDesign\Plugin;
 
-global $material_theme_builder_plugin;
+global $material_design_plugin;
 
 require_once __DIR__ . '/php/class-plugin-base.php';
 require_once __DIR__ . '/php/class-plugin.php';
 
-$material_theme_builder_plugin = new Plugin();
+$material_design_plugin = new Plugin();
 
 /**
  * Material Theme Builder Plugin Instance
@@ -34,6 +34,6 @@ $material_theme_builder_plugin = new Plugin();
  * @return Plugin
  */
 function get_plugin_instance() {
-	global $material_theme_builder_plugin;
-	return $material_theme_builder_plugin;
+	global $material_design_plugin;
+	return $material_design_plugin;
 }

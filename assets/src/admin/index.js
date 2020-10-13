@@ -41,7 +41,7 @@ const initNotificationActions = () => {
 	actionButton.addEventListener( 'click', event => {
 		const className = event.target.className,
 			matches = ( className || '' ).match(
-				/material-theme-(install|activate)/
+				/material-design-(install|activate)/
 			);
 
 		let action = '';
