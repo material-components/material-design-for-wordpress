@@ -36,10 +36,10 @@ export { metadata, name };
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Gallery (Material)', 'material-theme-builder' ),
+	title: __( 'Gallery (Material)', 'material-design' ),
 	description: __(
 		'Image lists display a collection of images in an organized grid.',
-		'material-theme-builder'
+		'material-design'
 	),
 	icon: <i className="material-icons-outlined">filter</i>,
 	edit,

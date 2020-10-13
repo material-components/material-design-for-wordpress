@@ -53,7 +53,7 @@ $_plugins_array = glob( realpath( __DIR__ . '/../..' ) . '/*' );
 foreach ( $_plugins_array as $_plugin_candidate ) {
 	if ( is_dir( $_plugin_candidate ) && 'akismet' !== basename( $_plugin_candidate ) ) {
 		foreach ( glob( $_plugin_candidate . '/*.php' ) as $_plugin_file_candidate ) {
-			if ( basename( $_plugin_file_candidate ) !== 'material-theme-builder.php' && basename( $_plugin_candidate ) !== basename( $_plugin_file_candidate, '.php' ) ) {
+			if ( basename( $_plugin_file_candidate ) !== 'material-design.php' && basename( $_plugin_candidate ) !== basename( $_plugin_file_candidate, '.php' ) ) {
 				continue;
 			}
 			// @codingStandardsIgnoreStart

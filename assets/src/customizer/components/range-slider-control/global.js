@@ -123,7 +123,7 @@ const GlobalRangeSliderControl = props => {
 			<p>
 				{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
 				<a href="#" onClick={ onReset } className="global-range-slider-reset">
-					{ __( 'Reset', 'material-theme-builder' ) }
+					{ __( 'Reset', 'material-design' ) }
 				</a>
 			</p>
 		</div>

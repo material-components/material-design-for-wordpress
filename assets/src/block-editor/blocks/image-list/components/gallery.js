@@ -196,13 +196,13 @@ const Gallery = ( {
 								<>
 									<div className="move-image">
 										<button
-											title={ __( 'Move left', 'material-theme-builder' ) }
+											title={ __( 'Move left', 'material-design' ) }
 											onClick={ () => onMove( image.id, 'left' ) }
 										>
 											<i className="material-icons">arrow_left</i>
 										</button>
 										<button
-											title={ __( 'Move right', 'material-theme-builder' ) }
+											title={ __( 'Move right', 'material-design' ) }
 											onClick={ () => onMove( image.id, 'right' ) }
 										>
 											<i className="material-icons">arrow_right</i>
@@ -211,7 +211,7 @@ const Gallery = ( {
 
 									<div className="remove-image">
 										<button
-											title={ __( 'Remove image', 'material-theme-builder' ) }
+											title={ __( 'Remove image', 'material-design' ) }
 											onClick={ () => onRemove( image.id ) }
 										>
 											<i className="material-icons">close</i>

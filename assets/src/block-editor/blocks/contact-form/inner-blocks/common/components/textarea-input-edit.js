@@ -114,14 +114,14 @@ const TextAreaInputEdit = props => {
 			<div className="mdc-text-field-container">
 				{ isSelected ? (
 					<ToggleControl
-						label={ __( 'Required', 'material-theme-builder' ) }
+						label={ __( 'Required', 'material-design' ) }
 						checked={ isRequired }
 						onChange={ setter( 'isRequired' ) }
 					/>
 				) : (
 					isRequired && (
 						<div className="required">
-							{ __( '(required)', 'material-theme-builder' ) }
+							{ __( '(required)', 'material-design' ) }
 						</div>
 					)
 				) }

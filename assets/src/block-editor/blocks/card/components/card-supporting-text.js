@@ -56,7 +56,7 @@ const CardSupportingText = ( {
 				) }
 				value={ supportingText }
 				onChange={ value => setter( 'supportingText', value, cardIndex ) }
-				placeholder={ __( 'Supporting text', 'material-theme-builder' ) }
+				placeholder={ __( 'Supporting text', 'material-design' ) }
 			/>
 		) : (
 			<div

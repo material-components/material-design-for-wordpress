@@ -32,13 +32,13 @@ import IconButtonLink from '../common/icon-button-link';
 const Lists = ( { iconStyle } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Lists', 'material-theme-builder' ) }
+			{ __( 'Lists', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/lists"></IconButtonLink>
 		<p>
 			{ __(
 				'Lists are continuous, vertical indexes of text or images.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div style={ { display: 'flex' } }>
@@ -54,7 +54,7 @@ const Lists = ( { iconStyle } ) => (
 						wifi
 					</i>
 					<span className="mdc-list-item__text list-item__text">
-						{ __( 'List item', 'material-theme-builder' ) }
+						{ __( 'List item', 'material-design' ) }
 					</span>
 				</li>
 				<li
@@ -65,7 +65,7 @@ const Lists = ( { iconStyle } ) => (
 						bluetooth
 					</i>
 					<span className="mdc-list-item__text list-item__text">
-						{ __( 'List item', 'material-theme-builder' ) }
+						{ __( 'List item', 'material-design' ) }
 					</span>
 				</li>
 				<li
@@ -76,7 +76,7 @@ const Lists = ( { iconStyle } ) => (
 						http
 					</i>
 					<span className="mdc-list-item__text list-item__text">
-						{ __( 'List item', 'material-theme-builder' ) }
+						{ __( 'List item', 'material-design' ) }
 					</span>
 				</li>
 			</ul>
@@ -95,10 +95,10 @@ const Lists = ( { iconStyle } ) => (
 
 					<span className="mdc-list-item__text">
 						<span className="mdc-list-item__primary-text">
-							{ __( 'List item', 'material-theme-builder' ) }
+							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-theme-builder' ) }
+							{ __( 'Secondary Text...', 'material-design' ) }
 						</span>
 					</span>
 				</li>
@@ -112,10 +112,10 @@ const Lists = ( { iconStyle } ) => (
 
 					<span className="mdc-list-item__text">
 						<span className="mdc-list-item__primary-text">
-							{ __( 'List item', 'material-theme-builder' ) }
+							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-theme-builder' ) }
+							{ __( 'Secondary Text...', 'material-design' ) }
 						</span>
 					</span>
 				</li>
@@ -129,10 +129,10 @@ const Lists = ( { iconStyle } ) => (
 
 					<span className="mdc-list-item__text">
 						<span className="mdc-list-item__primary-text">
-							{ __( 'List item', 'material-theme-builder' ) }
+							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-theme-builder' ) }
+							{ __( 'Secondary Text...', 'material-design' ) }
 						</span>
 					</span>
 				</li>
@@ -145,10 +145,10 @@ const Lists = ( { iconStyle } ) => (
 				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="0">
 					<span className="mdc-list-item__text">
 						<span className="mdc-list-item__primary-text">
-							{ __( 'List item', 'material-theme-builder' ) }
+							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-theme-builder' ) }
+							{ __( 'Secondary Text...', 'material-design' ) }
 						</span>
 					</span>
 
@@ -168,10 +168,10 @@ const Lists = ( { iconStyle } ) => (
 				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="-1">
 					<span className="mdc-list-item__text">
 						<span className="mdc-list-item__primary-text">
-							{ __( 'List item', 'material-theme-builder' ) }
+							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-theme-builder' ) }
+							{ __( 'Secondary Text...', 'material-design' ) }
 						</span>
 					</span>
 
@@ -191,10 +191,10 @@ const Lists = ( { iconStyle } ) => (
 				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="-1">
 					<span className="mdc-list-item__text">
 						<span className="mdc-list-item__primary-text">
-							{ __( 'List item', 'material-theme-builder' ) }
+							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-theme-builder' ) }
+							{ __( 'Secondary Text...', 'material-design' ) }
 						</span>
 					</span>
 

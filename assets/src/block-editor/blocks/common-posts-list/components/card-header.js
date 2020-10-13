@@ -38,7 +38,7 @@ const CardHeader = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
 			{ titleTrimmed ? (
 				<RawHTML>{ titleTrimmed }</RawHTML>
 			) : (
-				__( '(no title)', 'material-theme-builder' )
+				__( '(no title)', 'material-design' )
 			) }
 		</h2>
 		{ displayPostDate && (

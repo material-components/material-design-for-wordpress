@@ -8,7 +8,7 @@
  * Author URI: http://material.io
  * License: Apache License, Version 2.0
  * License URI: https://www.apache.org/licenses/LICENSE-2.0
- * Text Domain: material-theme-builder
+ * Text Domain: material-design
  *
  * Copyright 2020 Google LLC
  *
@@ -86,7 +86,7 @@ function _material_theme_builder_php_version_error() {
  * @return string
  */
 function _material_theme_builder_php_version_text() {
-	return esc_html__( 'Material Design plugin error: Your version of PHP is too old to run this plugin. You must be running PHP 5.6.20 or higher.', 'material-theme-builder' );
+	return esc_html__( 'Material Design plugin error: Your version of PHP is too old to run this plugin. You must be running PHP 5.6.20 or higher.', 'material-design' );
 }
 
 /**
@@ -105,13 +105,13 @@ function _material_theme_builder_gutenberg_text() {
 	$update = sprintf(
 		'<a href="%1$s">%2$s</a>',
 		esc_url( admin_url( 'update-core.php' ) ),
-		esc_html__( 'update your site', 'material-theme-builder' )
+		esc_html__( 'update your site', 'material-design' )
 	);
 
 	$install = sprintf(
 		'<a href="%1$s">%2$s</a>',
 		esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=gutenberg' ) ),
-		esc_html__( 'Gutenberg WordPress Plugin', 'material-theme-builder' )
+		esc_html__( 'Gutenberg WordPress Plugin', 'material-design' )
 	);
 
 	return wp_kses_post(
@@ -120,7 +120,7 @@ function _material_theme_builder_gutenberg_text() {
 			$update,
 			$install
 		),
-		'material-theme-builder'
+		'material-design'
 	);
 }
 

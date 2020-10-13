@@ -27,13 +27,13 @@ import IconButtonLink from '../common/icon-button-link';
 const Switch = () => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Switches', 'material-theme-builder' ) }
+			{ __( 'Switches', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/develop/web/components/input-controls/switches"></IconButtonLink>
 		<p>
 			{ __(
 				'Switches toggle the state of a single item on or off.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div className="mdc-switch" style={ { marginTop: '2px' } }>

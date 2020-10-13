@@ -201,7 +201,7 @@ class Block_Types {
 	public function block_category( $categories ) {
 		$categories[] = [
 			'slug'  => 'material',
-			'title' => __( 'Material Blocks', 'material-theme-builder' ),
+			'title' => __( 'Material Blocks', 'material-design' ),
 		];
 
 		return $categories;

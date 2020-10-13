@@ -52,7 +52,7 @@ const CardPrimary = ( {
 						className="mtb-card__title mdc-typography mdc-typography--headline6"
 						value={ title }
 						onChange={ value => setter( 'title', value, cardIndex ) }
-						placeholder={ __( 'Title goes here', 'material-theme-builder' ) }
+						placeholder={ __( 'Title goes here', 'material-design' ) }
 						place
 					/>
 				) }
@@ -62,7 +62,7 @@ const CardPrimary = ( {
 						className="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
 						value={ secondaryText }
 						onChange={ value => setter( 'secondaryText', value, cardIndex ) }
-						placeholder={ __( 'Secondary text', 'material-theme-builder' ) }
+						placeholder={ __( 'Secondary text', 'material-design' ) }
 					/>
 				) }
 			</>

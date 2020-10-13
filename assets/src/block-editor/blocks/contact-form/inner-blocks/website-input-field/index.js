@@ -29,10 +29,10 @@ import save from '../common/components/text-input-save';
 export const name = 'material/website-input-field';
 
 export const settings = {
-	title: __( 'Website', 'material-theme-builder' ),
+	title: __( 'Website', 'material-design' ),
 	description: __(
 		'An input field for people to add their website URL.',
-		'material-theme-builder'
+		'material-design'
 	),
 	parent: [ 'material/contact-form' ],
 	category: 'material',
@@ -51,7 +51,7 @@ export const settings = {
 		},
 		label: {
 			type: 'string',
-			default: __( 'Website', 'material-theme-builder' ),
+			default: __( 'Website', 'material-design' ),
 		},
 		inputValue: {
 			type: 'string',

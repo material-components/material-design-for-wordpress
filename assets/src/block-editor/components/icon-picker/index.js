@@ -78,7 +78,7 @@ export default ( { currentIcon, onChange } ) => {
 			<section className="icons-search">
 				<div className="icons-search__search-input">
 					<TextControl
-						label={ __( 'Search icon', 'material-theme-builder' ) }
+						label={ __( 'Search icon', 'material-design' ) }
 						onChange={ filterIcons }
 					/>
 				</div>

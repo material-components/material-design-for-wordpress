@@ -34,10 +34,10 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Buttons (Material)', 'material-theme-builder' ),
+	title: __( 'Buttons (Material)', 'material-design' ),
 	description: __(
 		'Buttons allow users to take actions, and make choices, with a single tap.',
-		'material-theme-builder'
+		'material-design'
 	),
 	icon,
 	edit,

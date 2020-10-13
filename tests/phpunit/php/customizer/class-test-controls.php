@@ -506,12 +506,12 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	public function test_scripts() {
 		get_plugin_instance()->customizer_controls->scripts();
 
-		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-theme-builder-icons-css', 'enqueued' ) );
+		$this->assertTrue( wp_script_is( 'material-design-plugin-customizer-js', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-design-plugin-customizer-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-design-plugin-icons-css', 'enqueued' ) );
 
 		// Assert data is added.
-		$localized_data = wp_scripts()->get_data( 'material-theme-builder-customizer-js', 'data' );
+		$localized_data = wp_scripts()->get_data( 'material-design-plugin-customizer-js', 'data' );
 		$this->assertNotEmpty( $localized_data );
 	}
 
@@ -554,7 +554,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	public function test_preview_scripts() {
 		get_plugin_instance()->customizer_controls->preview_scripts();
 
-		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-preview-js', 'enqueued' ) );
+		$this->assertTrue( wp_script_is( 'material-design-plugin-customizer-preview-js', 'enqueued' ) );
 	}
 
 	/**
@@ -670,15 +670,15 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 			[
 				[
 					'id'            => 'global_radius',
-					'label'         => __( 'Global Corner Styles', 'material-theme-builder' ),
-					'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-theme-builder' ),
+					'label'         => __( 'Global Corner Styles', 'material-design' ),
+					'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-design' ),
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 4,
 				],
 				[
 					'id'            => 'button_radius',
-					'label'         => __( 'Buttons', 'material-theme-builder' ),
+					'label'         => __( 'Buttons', 'material-design' ),
 					'min'           => 0,
 					'max'           => 20,
 					'initial_value' => 4,
@@ -689,7 +689,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'card_radius',
-					'label'         => __( 'Card', 'material-theme-builder' ),
+					'label'         => __( 'Card', 'material-design' ),
 					'min'           => 0,
 					'max'           => 24,
 					'initial_value' => 0,
@@ -702,7 +702,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'chip_radius',
-					'label'         => __( 'Chip', 'material-theme-builder' ),
+					'label'         => __( 'Chip', 'material-design' ),
 					'min'           => 0,
 					'max'           => 16,
 					'initial_value' => 0,
@@ -710,7 +710,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'data_table_radius',
-					'label'         => __( 'Data table', 'material-theme-builder' ),
+					'label'         => __( 'Data table', 'material-design' ),
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 0,
@@ -721,7 +721,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'image_list_radius',
-					'label'         => __( 'Image List', 'material-theme-builder' ),
+					'label'         => __( 'Image List', 'material-design' ),
 					'min'           => 0,
 					'max'           => 24,
 					'initial_value' => 0,
@@ -732,7 +732,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'nav_drawer_radius',
-					'label'         => __( 'Nav Drawer', 'material-theme-builder' ),
+					'label'         => __( 'Nav Drawer', 'material-design' ),
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 0,
@@ -740,7 +740,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'text_field_radius',
-					'label'         => __( 'Text Field', 'material-theme-builder' ),
+					'label'         => __( 'Text Field', 'material-design' ),
 					'min'           => 0,
 					'max'           => 20,
 					'initial_value' => 0,

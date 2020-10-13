@@ -45,8 +45,8 @@ const $ = jQuery;
 const api = wp.customize;
 
 // Material Blocks button
-const BUTTON_OPEN_TEXT = __( 'Material Blocks', 'material-theme-builder' );
-const BUTTON_CLOSE_TEXT = __( 'Exit Blocks', 'material-theme-builder' );
+const BUTTON_OPEN_TEXT = __( 'Material Blocks', 'material-design' );
+const BUTTON_CLOSE_TEXT = __( 'Exit Blocks', 'material-design' );
 
 /**
  * Renders the material library with all the settings.

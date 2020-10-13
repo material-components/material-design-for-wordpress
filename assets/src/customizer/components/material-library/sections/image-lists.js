@@ -28,13 +28,13 @@ import IconButtonLink from '../common/icon-button-link';
 const ImageLists = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Gallery (Image Lists)', 'material-theme-builder' ) }
+			{ __( 'Gallery (Image Lists)', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/image-lists"></IconButtonLink>
 		<p>
 			{ __(
 				'Image lists display a collection of images in an organized grid.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div>
@@ -49,7 +49,7 @@ const ImageLists = ( { radius } ) => (
 							style={ { borderRadius: `${ radius }px` } }
 							className="mdc-image-list__image"
 							src={ url }
-							alt={ __( 'Text label', 'material-theme-builder' ) }
+							alt={ __( 'Text label', 'material-design' ) }
 						/>
 						<div
 							className="mdc-image-list__supporting"
@@ -59,7 +59,7 @@ const ImageLists = ( { radius } ) => (
 							} }
 						>
 							<span className="mdc-image-list__label">
-								{ __( 'Text label', 'material-theme-builder' ) }
+								{ __( 'Text label', 'material-design' ) }
 							</span>
 						</div>
 					</li>

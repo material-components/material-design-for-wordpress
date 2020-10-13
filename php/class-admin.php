@@ -73,8 +73,8 @@ class Admin extends Module_Base {
 	 */
 	public function add_pages() {
 		add_menu_page(
-			esc_html__( 'Material Design for WordPress', 'material-theme-builder' ),
-			esc_html__( 'Material', 'material-theme-builder' ),
+			esc_html__( 'Material Design for WordPress', 'material-design' ),
+			esc_html__( 'Material', 'material-design' ),
 			'manage_options',
 			'material-settings',
 			[ $this, 'render_getting_started_page' ],
@@ -83,8 +83,8 @@ class Admin extends Module_Base {
 
 		add_submenu_page(
 			'material-settings',
-			esc_html__( 'Getting Started', 'material-theme-builder' ),
-			esc_html__( 'Getting Started', 'material-theme-builder' ),
+			esc_html__( 'Getting Started', 'material-design' ),
+			esc_html__( 'Getting Started', 'material-design' ),
 			'manage_options',
 			'material-settings',
 			[ $this, 'render_getting_started_page' ]
@@ -92,8 +92,8 @@ class Admin extends Module_Base {
 
 		add_submenu_page(
 			'material-settings',
-			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
-			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
+			esc_html__( 'Onboarding Wizard', 'material-design' ),
+			esc_html__( 'Onboarding Wizard', 'material-design' ),
 			'manage_options',
 			'material-onboarding-wizard',
 			[ $this, 'render_onboarding_wizard_page' ]
@@ -274,7 +274,7 @@ class Admin extends Module_Base {
 		<div class="notice notice-info is-dismissible material-notice-container">
 			<img
 				src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-logo.png' ) ); ?>"
-				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
+				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-design' ); ?>"
 			/>
 
 			<div class="material-notice-container__content">
@@ -323,24 +323,24 @@ class Admin extends Module_Base {
 
 		$title   = esc_html__(
 			'Install Material Theme to take advantage of all Material Plugin customizations',
-			'material-theme-builder'
+			'material-design'
 		);
 		$message = esc_html__(
 			'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization.',
-			'material-theme-builder'
+			'material-design'
 		);
-		$label   = esc_html__( 'Install theme', 'material-theme-builder' );
+		$label   = esc_html__( 'Install theme', 'material-design' );
 
 		if ( 'activate' === $status ) {
 			$title   = esc_html__(
 				'Activate Material Theme to take advantage of all Material Plugin customizations',
-				'material-theme-builder'
+				'material-design'
 			);
 			$message = esc_html__(
 				'The Material Plugin enables you to customize Material Components. We recommend activating the companion Material Theme for full site customization.',
-				'material-theme-builder'
+				'material-design'
 			);
-			$label   = esc_html__( 'Activate theme', 'material-theme-builder' );
+			$label   = esc_html__( 'Activate theme', 'material-design' );
 		}
 
 		$action_link = sprintf(
@@ -380,16 +380,16 @@ class Admin extends Module_Base {
 
 		delete_option( 'material_plugin_activated' );
 
-		$message = esc_html__( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer.", 'material-theme-builder' );
+		$message = esc_html__( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer.", 'material-design' );
 
 		$action_link = sprintf(
 			'<br/><a href="%s">%s</a>',
 			esc_url( admin_url( 'admin.php?page=material-settings' ) ),
-			esc_html__( "Let's go!", 'material-theme-builder' )
+			esc_html__( "Let's go!", 'material-design' )
 		);
 
 		$this->material_notice(
-			esc_html__( 'See Material Theming in action', 'material-theme-builder' ),
+			esc_html__( 'See Material Theming in action', 'material-design' ),
 			sprintf(
 				'%s %s',
 				$message,

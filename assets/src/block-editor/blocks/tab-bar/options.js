@@ -21,15 +21,15 @@ import { __ } from '@wordpress/i18n';
 
 export const ICON_POSITIONS = [
 	{
-		label: __( 'None', 'material-theme-builder' ),
+		label: __( 'None', 'material-design' ),
 		value: 'none',
 	},
 	{
-		label: __( 'Leading', 'material-theme-builder' ),
+		label: __( 'Leading', 'material-design' ),
 		value: 'leading',
 	},
 	{
-		label: __( 'Above', 'material-theme-builder' ),
+		label: __( 'Above', 'material-design' ),
 		value: 'above',
 	},
 ];

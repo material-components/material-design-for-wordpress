@@ -35,12 +35,12 @@ export { metadata, name };
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Cards Collection (Material)', 'material-theme-builder' ),
+	title: __( 'Cards Collection (Material)', 'material-design' ),
 	description: __(
 		'Add a group of cards to display content and actions on multiple topics.',
-		'material-theme-builder'
+		'material-design'
 	),
-	keywords: [ __( 'Material Cards Collection', 'material-theme-builder' ) ],
+	keywords: [ __( 'Material Cards Collection', 'material-design' ) ],
 	icon: <i className="material-icons-outlined">dashboard</i>,
 	edit,
 	save,

@@ -34,7 +34,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="material-theme-builder" />
+				<element value="material-design" />
 			</property>
 		</properties>
 	</rule>

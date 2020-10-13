@@ -155,7 +155,7 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function add_menu_items() {
-		$menu_name = esc_html__( 'Importer Primary', 'material-theme-builder' );
+		$menu_name = esc_html__( 'Importer Primary', 'material-design' );
 		wp_delete_nav_menu( $menu_name );
 
 		$menu_id    = wp_create_nav_menu( $menu_name );
@@ -386,7 +386,7 @@ class Importer extends Module_Base {
 		}
 
 		if ( empty( $file ) || ! is_array( $file ) ) {
-			return new WP_Error( 'no_file_found', esc_html__( 'No file found', 'material-theme-builder' ) );
+			return new WP_Error( 'no_file_found', esc_html__( 'No file found', 'material-design' ) );
 		}
 		// @codeCoverageIgnoreEnd
 
@@ -610,11 +610,11 @@ class Importer extends Module_Base {
 	 */
 	public function get_menu_items() {
 		return [
-			esc_html__( 'Home', 'material-theme-builder' ),
-			esc_html__( 'About', 'material-theme-builder' ),
-			esc_html__( 'Projects', 'material-theme-builder' ),
-			esc_html__( 'Blog', 'material-theme-builder' ),
-			esc_html__( 'Contact', 'material-theme-builder' ),
+			esc_html__( 'Home', 'material-design' ),
+			esc_html__( 'About', 'material-design' ),
+			esc_html__( 'Projects', 'material-design' ),
+			esc_html__( 'Blog', 'material-design' ),
+			esc_html__( 'Contact', 'material-design' ),
 		];
 	}
 
@@ -625,8 +625,8 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function update_blog_info() {
-		$home_page = Helpers::get_page_by_title( __( 'Home', 'material-theme-builder' ) );
-		$blog_page = Helpers::get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
+		$home_page = Helpers::get_page_by_title( __( 'Home', 'material-design' ) );
+		$blog_page = Helpers::get_page_by_title( __( 'Blog', 'material-design' ) );
 
 		set_theme_mod( 'material_header_search_display', true );
 

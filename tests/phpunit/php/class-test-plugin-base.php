@@ -75,8 +75,8 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 * @see Plugin_Base::relative_path()
 	 */
 	public function test_relative_path() {
-		$this->assertEquals( 'plugins/material-theme-builder', $this->plugin->relative_path( '/var/www/html/wp-content/plugins/material-theme-builder', 'wp-content', '/' ) );
-		$this->assertEquals( 'themes/twentysixteen/plugins/material-theme-builder', $this->plugin->relative_path( '/var/www/html/wp-content/themes/twentysixteen/plugins/material-theme-builder', 'wp-content', '/' ) );
+		$this->assertEquals( 'plugins/material-design', $this->plugin->relative_path( '/var/www/html/wp-content/plugins/material-design', 'wp-content', '/' ) );
+		$this->assertEquals( 'themes/twentysixteen/plugins/material-design', $this->plugin->relative_path( '/var/www/html/wp-content/themes/twentysixteen/plugins/material-design', 'wp-content', '/' ) );
 	}
 
 	/**

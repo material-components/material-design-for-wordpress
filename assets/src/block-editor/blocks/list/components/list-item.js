@@ -253,7 +253,7 @@ const ListItem = ( {
 							onPaste={ onPaste }
 							unstableOnFocus={ () => onFocus( index, isSecondaryEnabled ) }
 							className="rich-text block-editor-rich-text__editable"
-							placeholder={ __( 'Secondary text…', 'material-theme-builder' ) }
+							placeholder={ __( 'Secondary text…', 'material-design' ) }
 							__unstableIsSelected={ isSecondarySelected }
 							onSelectionChange={ noop }
 							selectionStart={ rangeStartRef.current }

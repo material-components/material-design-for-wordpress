@@ -25,23 +25,23 @@ export const example = {
 		items: [
 			{
 				icon: 'spa',
-				primaryText: __( 'List item', 'material-theme-builder' ),
+				primaryText: __( 'List item', 'material-design' ),
 			},
 			{
 				icon: 'spa',
-				primaryText: __( 'List item', 'material-theme-builder' ),
+				primaryText: __( 'List item', 'material-design' ),
 			},
 			{
 				icon: 'spa',
-				primaryText: __( 'List item', 'material-theme-builder' ),
+				primaryText: __( 'List item', 'material-design' ),
 			},
 			{
 				icon: 'spa',
-				primaryText: __( 'List item', 'material-theme-builder' ),
+				primaryText: __( 'List item', 'material-design' ),
 			},
 			{
 				icon: 'spa',
-				primaryText: __( 'List item', 'material-theme-builder' ),
+				primaryText: __( 'List item', 'material-design' ),
 			},
 		],
 	},

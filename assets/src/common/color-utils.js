@@ -472,7 +472,7 @@ const colorUtils = {
 			type: name.replace( /Text on\s*|\s*Color/, '' ),
 			variations: [
 				{
-					size: __( 'Large', 'material-theme-builder' ),
+					size: __( 'Large', 'material-design' ),
 					colorHex: color,
 					textColor: textColorLabel,
 					textColorHex: textColor,
@@ -483,7 +483,7 @@ const colorUtils = {
 					),
 				},
 				{
-					size: __( 'Normal', 'material-theme-builder' ),
+					size: __( 'Normal', 'material-design' ),
 					colorHex: color,
 					textColor: textColorLabel,
 					textColorHex: textColor,

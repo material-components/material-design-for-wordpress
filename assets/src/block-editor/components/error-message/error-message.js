@@ -35,14 +35,14 @@ const getErrorMessage = ( { message, type } ) => {
 	if ( ! message ) {
 		return __(
 			'An unknown error occurred which prevented the block from being updated.',
-			'material-theme-builder'
+			'material-design'
 		);
 	}
 
 	if ( type === 'general' ) {
 		return (
 			<span>
-				{ __( 'The following error was returned', 'material-theme-builder' ) }
+				{ __( 'The following error was returned', 'material-design' ) }
 				<br />
 				<code>{ escapeHTML( message ) }</code>
 			</span>
@@ -54,7 +54,7 @@ const getErrorMessage = ( { message, type } ) => {
 			<span>
 				{ __(
 					'The following error was returned from the API',
-					'material-theme-builder'
+					'material-design'
 				) }
 				<br />
 				<code>{ escapeHTML( message ) }</code>

@@ -54,12 +54,12 @@ import { name as ImageListBlockName } from './index';
 
 const STYLES = [
 	{
-		label: __( 'Masonry', 'material-theme-builder' ),
+		label: __( 'Masonry', 'material-design' ),
 		value: 'masonry',
 		src: MasonryIcon,
 	},
 	{
-		label: __( 'Grid', 'material-theme-builder' ),
+		label: __( 'Grid', 'material-design' ),
 		value: 'grid',
 		src: GridIcon,
 	},
@@ -68,17 +68,17 @@ const STYLES = [
 const GUTTER_DEVICES = [
 	{
 		name: 'desktop',
-		label: __( 'Desktop', 'material-theme-builder' ),
+		label: __( 'Desktop', 'material-design' ),
 		icon: 'computer',
 	},
 	{
 		name: 'tablet',
-		label: __( 'Tablet', 'material-theme-builder' ),
+		label: __( 'Tablet', 'material-design' ),
 		icon: 'tablet',
 	},
 	{
 		name: 'mobile',
-		label: __( 'Phone', 'material-theme-builder' ),
+		label: __( 'Phone', 'material-design' ),
 		icon: 'smartphone',
 	},
 ];
@@ -299,10 +299,10 @@ const ImageListEdit = ( {
 				}
 				labels={ {
 					title:
-						! hasImages && __( 'Gallery (Material)', 'material-theme-builder' ),
+						! hasImages && __( 'Gallery (Material)', 'material-design' ),
 					instructions: __(
 						'Drag images, upload new ones or select files from your library.',
-						'material-theme-builder'
+						'material-design'
 					),
 				} }
 				onSelect={ selectImages }
@@ -317,7 +317,7 @@ const ImageListEdit = ( {
 
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Styles', 'material-theme-builder' ) }
+					title={ __( 'Styles', 'material-design' ) }
 					initialOpen={ true }
 				>
 					<ImageRadioControl
@@ -327,11 +327,11 @@ const ImageListEdit = ( {
 					/>
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Settings', 'material-theme-builder' ) }
+					title={ __( 'Settings', 'material-design' ) }
 					initialOpen={ true }
 				>
 					<RangeControl
-						label={ __( 'Columns', 'material-theme-builder' ) }
+						label={ __( 'Columns', 'material-design' ) }
 						value={ columns }
 						onChange={ setter( 'columns' ) }
 						min={ 2 }
@@ -340,7 +340,7 @@ const ImageListEdit = ( {
 					<RangeControl
 						label={
 							<>
-								{ __( 'Gutter', 'material-theme-builder' ) }
+								{ __( 'Gutter', 'material-design' ) }
 								<div className="components-base-control__label-actions">
 									{ GUTTER_DEVICES.map( device => (
 										<button
@@ -368,26 +368,26 @@ const ImageListEdit = ( {
 							className="components-base-control__label"
 							htmlFor="shape-size"
 						>
-							{ __( 'Corner Styles', 'material-theme-builder' ) }
+							{ __( 'Corner Styles', 'material-design' ) }
 						</label>
 
 						<div>
 							{ __(
 								'Overrides will only apply to these images. Change Image Lists corner styles in ',
-								'material-theme-builder'
+								'material-design'
 							) }
 							<a
 								href={ getConfig( 'customizerUrls' ).shape }
 								target="_blank"
 								rel="noreferrer noopener"
 							>
-								{ __( 'Material Theme Options', 'material-theme-builder' ) }
+								{ __( 'Material Theme Options', 'material-design' ) }
 							</a>
-							{ __( ' to update all Image Lists.', 'material-theme-builder' ) }
+							{ __( ' to update all Image Lists.', 'material-design' ) }
 						</div>
 
 						<GlobalShapeSize
-							label={ __( 'Corner Styles', 'material-theme-builder' ) }
+							label={ __( 'Corner Styles', 'material-design' ) }
 							value={ cornerRadius }
 							onChange={ setter( 'cornerRadius' ) }
 							min={ 0 }
@@ -397,39 +397,39 @@ const ImageListEdit = ( {
 					</div>
 
 					<ToggleControl
-						label={ __( 'Captions', 'material-theme-builder' ) }
+						label={ __( 'Captions', 'material-design' ) }
 						checked={ displayCaptions }
 						onChange={ setter( 'displayCaptions' ) }
 					/>
 					<ToggleControl
-						label={ __( 'Text Protection', 'material-theme-builder' ) }
+						label={ __( 'Text Protection', 'material-design' ) }
 						checked={ textProtection }
 						onChange={ setter( 'textProtection' ) }
 					/>
 				</PanelBody>
 
 				<PanelBody
-					title={ __( 'Link Settings', 'material-theme-builder' ) }
+					title={ __( 'Link Settings', 'material-design' ) }
 					initialOpen={ true }
 				>
 					<SelectControl
-						label={ __( 'Link to', 'material-theme-builder' ) }
+						label={ __( 'Link to', 'material-design' ) }
 						value={ linkTo }
 						options={ [
 							{
-								label: __( 'Media File', 'material-theme-builder' ),
+								label: __( 'Media File', 'material-design' ),
 								value: 'media',
 							},
 							{
-								label: __( 'Attachment Page', 'material-theme-builder' ),
+								label: __( 'Attachment Page', 'material-design' ),
 								value: 'attachment',
 							},
 							{
-								label: __( 'Custom URL', 'material-theme-builder' ),
+								label: __( 'Custom URL', 'material-design' ),
 								value: 'custom',
 							},
 							{
-								label: __( 'None', 'material-theme-builder' ),
+								label: __( 'None', 'material-design' ),
 								value: 'none',
 							},
 						] }

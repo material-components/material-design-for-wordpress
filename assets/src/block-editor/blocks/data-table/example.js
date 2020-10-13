@@ -25,11 +25,11 @@ export const example = {
 			{
 				cells: [
 					{
-						content: __( 'Column One', 'material-theme-builder' ),
+						content: __( 'Column One', 'material-design' ),
 						tag: 'td',
 					},
 					{
-						content: __( 'Column Two', 'material-theme-builder' ),
+						content: __( 'Column Two', 'material-design' ),
 						tag: 'td',
 					},
 				],
@@ -37,11 +37,11 @@ export const example = {
 			{
 				cells: [
 					{
-						content: __( 'Column Three', 'material-theme-builder' ),
+						content: __( 'Column Three', 'material-design' ),
 						tag: 'td',
 					},
 					{
-						content: __( 'Column Four', 'material-theme-builder' ),
+						content: __( 'Column Four', 'material-design' ),
 						tag: 'td',
 					},
 				],

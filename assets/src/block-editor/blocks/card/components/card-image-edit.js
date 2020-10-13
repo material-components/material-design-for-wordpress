@@ -113,7 +113,7 @@ const CardImageEdit = ( {
 					allowedTypes={ [ 'image' ] }
 					multiple={ false }
 					labels={ {
-						title: __( 'Card Image selector', 'material-theme-builder' ),
+						title: __( 'Card Image selector', 'material-design' ),
 					} }
 					accept="image/*"
 				></MediaPlaceholder>
@@ -152,7 +152,7 @@ const CardImageEdit = ( {
 								className="mtb-card__media-close-button"
 								icon="no"
 								showTooltip={ true }
-								label={ __( 'Remove Card Image', 'material-theme-builder' ) }
+								label={ __( 'Remove Card Image', 'material-design' ) }
 								onClick={ onRemoveImage }
 							/>
 						</div>
