@@ -1,24 +1,22 @@
 {
-  "name": "material-theme-builder-wp",
+  "name": "material-design-wp-plugin",
   "private": true,
-  "title": "Material Theme Builder Plugin for WordPress",
-  "description": "WordPress plugin template for extending Gutenberg at XWP.",
-  "author": "XWP",
-  "license": "GPL-2.0-or-later",
+  "title": "Material Design plugin for WordPress",
+  "license": "Apache-2.0",
   "keywords": [
     "material",
     "material-theme",
-    "material-theme-builder",
+    "material-design",
     "wordpress",
     "wordpress-plugin"
   ],
-  "homepage": "https://github.com/xwp/material-theme-builder-wp#readme",
+  "homepage": "https://github.com/xwp/material-design-wp-plugin#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xwp/material-theme-builder-wp.git"
+    "url": "git+https://github.com/xwp/material-design-wp-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/xwp/material-theme-builder-wp/issues"
+    "url": "https://github.com/xwp/material-design-wp-plugin/issues"
   },
   "engines": {
     "node": ">=10",
@@ -77,7 +75,7 @@
     "browserslist": "4.8.6",
     "chroma-js": "2.1.0",
     "classnames": "2.2.6",
-    "copy-webpack-plugin": "^6.0.3",
+    "copy-webpack-plugin": "^6.2.1",
     "coveralls": "3.1.0",
     "cross-env": "7.0.0",
     "css-loader": "3.4.2",
@@ -142,7 +140,7 @@
     "build:run": "grunt build",
     "build:zip": "grunt create-build-zip",
     "dev": "wp-scripts start",
-    "docker": "docker-compose run --rm -u 1000 --workdir=/var/www/html/wp-content/plugins/material-theme-builder wordpress",
+    "docker": "docker-compose run --rm -u 1000 --workdir=/var/www/html/wp-content/plugins/material-design wordpress",
     "env:logs": "bin/logs.sh",
     "env:start": "bin/start.sh",
     "env:stop": "bin/stop.sh",

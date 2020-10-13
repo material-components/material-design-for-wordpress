@@ -95,7 +95,7 @@ jobs:
       script:
         - npm run env:start
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
-        - npm run wp -- wp plugin activate material-theme-builder
+        - npm run wp -- wp plugin activate material-design
         - npm run build:js
         - npm run test:e2e:coveralls
 
