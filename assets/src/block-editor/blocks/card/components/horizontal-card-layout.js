@@ -117,14 +117,14 @@ const HorizontalCardLayout = ( {
 			className={ classnames(
 				'mdc-card',
 				{ 'mdc-card--outlined': outlined },
-				'mtb-card',
-				'mtb-card__list',
-				'mtb-basic'
+				'material-design-card',
+				'material-design-card__list',
+				'material-design-basic'
 			) }
 			style={ styles }
 		>
 			<div
-				className="mdc-card__primary-action mtb-card__primary-action"
+				className="mdc-card__primary-action material-design-card__primary-action"
 				tabIndex={ 0 }
 			>
 				{ displayImage && <CardImage { ...cardImageProps } /> }

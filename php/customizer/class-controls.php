@@ -64,8 +64,8 @@ class Controls extends Module_Base {
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'scripts' ] );
 		add_action( 'customize_preview_init', [ $this, 'preview_scripts' ], 100 );
 		add_action( 'customize_controls_print_footer_scripts', [ $this, 'templates' ] );
-		add_action( 'customize_sanitize_js_mtb_notify', [ $this, 'show_material_components_notification' ] );
-		add_action( 'wp_ajax_mtb_notification_dismiss', [ $this, 'notification_dismiss' ] );
+		add_action( 'customize_sanitize_js_material_design_notify', [ $this, 'show_material_components_notification' ] );
+		add_action( 'wp_ajax_material_design_notification_dismiss', [ $this, 'notification_dismiss' ] );
 	}
 
 	/**
@@ -534,7 +534,7 @@ class Controls extends Module_Base {
 
 		wp_localize_script(
 			'material-design-plugin-customizer-js',
-			'mtb',
+			'materialDesign',
 			[
 				'slug'                   => $this->slug,
 				'designStyles'           => $this->get_design_styles(),
@@ -548,7 +548,7 @@ class Controls extends Module_Base {
 					'componentsNotice' => __( 'Customize Material Components and styles throughout your site.<br/><a href="#">View example page</a>', 'material-design' ),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
-				'notifyNonce'            => wp_create_nonce( 'mtb_notify_nonce' ),
+				'notifyNonce'            => wp_create_nonce( 'material_design_notify_nonce' ),
 				'pluginPath'             => $this->plugin->asset_url( '' ),
 				'themeStatus'            => $this->plugin->theme_status(),
 				'themeNonce'             => wp_create_nonce( 'wp_rest' ),
@@ -1273,7 +1273,7 @@ class Controls extends Module_Base {
 	 * Update notification dismiss count.
 	 */
 	public function notification_dismiss() {
-		if ( ! check_ajax_referer( 'mtb_notify_nonce', 'nonce', false ) ) {
+		if ( ! check_ajax_referer( 'material_design_notify_nonce', 'nonce', false ) ) {
 			wp_send_json_error( 'invalid_nonce' );
 		}
 

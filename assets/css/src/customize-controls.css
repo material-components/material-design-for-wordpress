@@ -92,15 +92,15 @@
 
 	&.wp-picker-active {
 
-		& .mtb-tabs {
+		& .material-design-tabs {
 			display: flex;
 		}
 
-		& .mtb-tab-content.active {
+		& .material-design-tab-content.active {
 			display: block;
 		}
 
-		& .mtb-accessibility {
+		& .material-design-accessibility {
 			display: block;
 		}
 	}
@@ -110,12 +110,12 @@
 	}
 }
 
-.mtb-tabs {
+.material-design-tabs {
 	display: none;
 	margin: 15px 0;
 }
 
-.mtb-tab-link {
+.material-design-tab-link {
 	display: inline-block;
 	width: 50%;
 	text-align: center;
@@ -137,11 +137,11 @@
 	}
 }
 
-.mtb-tab-content {
+.material-design-tab-content {
 	display: none;
 }
 
-.mtb-accessibility {
+.material-design-accessibility {
 	display: none;
 	margin: 10px 0;
 

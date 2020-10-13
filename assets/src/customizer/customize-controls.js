@@ -62,7 +62,7 @@ import getConfig from '../block-editor/utils/get-config';
 
 ( ( $, api ) => {
 	// Allow backbone templates access to the `sanitizeControlId` function.
-	window.mtbSanitizeControlId = sanitizeControlId;
+	window.materialDesignSanitizeControlId = sanitizeControlId;
 
 	/**
 	 * Extend wp.customize.Section as a collapsible section
@@ -218,7 +218,7 @@ import getConfig from '../block-editor/utils/get-config';
 			container.find( '.tab-custom' ).append( picker );
 
 			// Add the tab links click event to show/hide tab content.
-			container.find( '.mtb-tab-link' ).on( 'click', event => {
+			container.find( '.material-design-tab-link' ).on( 'click', event => {
 				event.preventDefault();
 
 				const link = $( event.target );
@@ -282,7 +282,7 @@ import getConfig from '../block-editor/utils/get-config';
 
 			// Activate the first tab.
 			container
-				.find( '.mtb-tab-link' )
+				.find( '.material-design-tab-link' )
 				.first()
 				.trigger( 'click' );
 
@@ -407,7 +407,7 @@ import getConfig from '../block-editor/utils/get-config';
 			} );
 
 			control.container
-				.find( '.mtb-accessibility' )
+				.find( '.material-design-accessibility' )
 				.html( control.accessibilityTemplate( { colors } ) );
 		},
 
@@ -489,7 +489,7 @@ import getConfig from '../block-editor/utils/get-config';
 			}
 
 			unmountComponentAtNode(
-				control.container.find( '.mtb-range_slider' ).get( 0 )
+				control.container.find( '.material-design-range_slider' ).get( 0 )
 			);
 			renderRangeSliderControl( control );
 			reRenderMaterialLibrary();
@@ -545,7 +545,7 @@ import getConfig from '../block-editor/utils/get-config';
 				} }
 				onResetToDefault={ onReset }
 			/>,
-			control.container.find( '.mtb-range_slider' ).get( 0 )
+			control.container.find( '.material-design-range_slider' ).get( 0 )
 		);
 	};
 

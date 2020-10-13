@@ -160,10 +160,10 @@ describe( 'Customize controls', () => {
 			}, picker );
 
 			const tabOne = await page.$(
-				'#mtb-palette-material_design-primary_color'
+				'#material-design-palette-material_design-primary_color'
 			);
 			const tabTwo = await page.$(
-				'#mtb-custom-material_design-primary_color'
+				'#material-design-custom-material_design-primary_color'
 			);
 
 			expect( tabOne ).not.toBeNull();
@@ -172,7 +172,7 @@ describe( 'Customize controls', () => {
 
 		it( 'should render all material colors', async () => {
 			const colors = await page.$$(
-				'#mtb-palette-material_design-primary_color .components-circular-option-picker__option-wrapper'
+				'#material-design-palette-material_design-primary_color .components-circular-option-picker__option-wrapper'
 			);
 
 			expect( colors.length ).toEqual( 254 );
@@ -180,7 +180,7 @@ describe( 'Customize controls', () => {
 
 		it( 'should select a color on click', async () => {
 			const firstColor = await page.$(
-				'#mtb-palette-material_design-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
+				'#material-design-palette-material_design-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
 			);
 			await page.evaluate( btn => {
 				btn.click();

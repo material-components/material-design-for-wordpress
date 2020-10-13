@@ -51,10 +51,10 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 		<Placeholder
 			icon={ <i className="material-icons-outlined">library_books</i> }
 			label={ __( 'Curated Post Collection', 'material-design' ) }
-			className="mtb-block-products-grid mtb-block-handpicked-posts"
+			className="material-design-block-products-grid material-design-block-handpicked-posts"
 		>
 			{ __( 'Display a selection of hand-picked posts.', 'material-design' ) }
-			<div className="mtb-block-handpicked-posts__selection">
+			<div className="material-design-block-handpicked-posts__selection">
 				<PostsControl
 					selected={ attributes.posts }
 					onChange={ setter( 'posts', ( value = [] ) => {

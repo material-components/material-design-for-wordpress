@@ -91,7 +91,7 @@ const TextInputEdit = props => {
 	}, [ outlined, displayLabel, fullWidth ] );
 
 	if ( ! id || id.length === 0 ) {
-		setAttributes( { id: `mtb-${ inputRole }-${ instanceId }` } );
+		setAttributes( { id: `material-design-${ inputRole }-${ instanceId }` } );
 		return null;
 	}
 

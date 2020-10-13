@@ -74,7 +74,7 @@ const TextAreaInputEdit = props => {
 	const setter = genericAttributesSetter( setAttributes );
 
 	if ( ! id || id.length === 0 ) {
-		setAttributes( { id: `mtb-${ inputRole }-${ instanceId }` } );
+		setAttributes( { id: `material-design-${ inputRole }-${ instanceId }` } );
 	}
 
 	const textareaInputProps = {

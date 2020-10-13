@@ -216,7 +216,7 @@ class Importer extends Module_Base {
 				'post_status'            => 'publish',
 				'post_type'              => [ 'page', 'post' ],
 				'posts_per_page'         => 25,
-				'meta_key'               => '_mtb-demo-content',
+				'meta_key'               => '_material-design-demo-content',
 				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'no_found_rows'          => true,
 				'update_post_meta_cache' => false,
@@ -245,7 +245,7 @@ class Importer extends Module_Base {
 				'post_status'            => 'publish',
 				'post_type'              => [ 'page' ],
 				'posts_per_page'         => 1,
-				'meta_key'               => '_mtb-demo-content',
+				'meta_key'               => '_material-design-demo-content',
 				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'no_found_rows'          => true,
 				'update_post_meta_cache' => false,
@@ -527,7 +527,7 @@ class Importer extends Module_Base {
 		}
 
 		// Add a flag to know these were imported.
-		$postmeta['_mtb-demo-content'] = 1;
+		$postmeta['_material-design-demo-content'] = 1;
 
 		return $postmeta;
 	}

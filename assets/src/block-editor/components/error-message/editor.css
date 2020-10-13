@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-.mtb-block-error-message {
+.material-design-block-error-message {
 	margin-bottom: 16px;
 	margin-top: 8px;
 }
 
-.mtb-block-api-error {
+.material-design-block-api-error {
 
 	.components-placeholder__fieldset {
 		display: block;
 	}
 
-	.mtb-block-error-message {
+	.material-design-block-error-message {
 		margin-top: 0;
 	}
 

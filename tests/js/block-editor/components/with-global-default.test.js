@@ -47,7 +47,7 @@ const baseProps = {
 
 describe( 'withGlobalBlockDefault', () => {
 	beforeAll( () => {
-		global.mtb = {
+		global.materialDesign = {
 			defaults: {
 				blocks: {
 					'material/button': {

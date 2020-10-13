@@ -57,13 +57,13 @@ const Cards = ( { radius, buttonRadius } ) => (
 					></div>
 					<div style={ { padding: '16px' } }>
 						<h2
-							className="mdc-typography mdc-typography--headline6 mtb-card__title"
+							className="mdc-typography mdc-typography--headline6 material-design-card__title"
 							style={ { margin: 0, marginBottom: '5px' } }
 						>
 							{ __( 'Our Changing Planet', 'material-design' ) }
 						</h2>
 						<h3
-							className="mdc-typography mtb-card__secondary-text"
+							className="mdc-typography material-design-card__secondary-text"
 							style={ {
 								fontSize: '0.875rem',
 								fontWeight: 500,

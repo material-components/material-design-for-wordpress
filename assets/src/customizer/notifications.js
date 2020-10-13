@@ -31,7 +31,7 @@ let notificationCount = false;
  * @param {Function} loadMaterialLibrary
  */
 export const showHideNotification = ( loadMaterialLibrary = null ) => {
-	const code = 'mtb_components';
+	const code = 'material_design_components';
 	const materialLibrary = $( '#mcb-material-library-preview' );
 
 	if (
@@ -60,9 +60,12 @@ export const showHideNotification = ( loadMaterialLibrary = null ) => {
 
 					// Handle dismissal of notice.
 					li.find( '.notice-dismiss' ).on( 'click', () => {
-						const request = wp.ajax.post( 'mtb_notification_dismiss', {
-							nonce: getConfig( 'notifyNonce' ),
-						} );
+						const request = wp.ajax.post(
+							'material_design_notification_dismiss',
+							{
+								nonce: getConfig( 'notifyNonce' ),
+							}
+						);
 
 						request.done( response => {
 							if ( response && response.count ) {
@@ -85,14 +88,14 @@ export const showHideNotification = ( loadMaterialLibrary = null ) => {
  */
 export const init = () => {
 	// Bind for previewer events.
-	api.previewer.bind( 'mtb', settings => {
+	api.previewer.bind( 'materialDesign', settings => {
 		notificationCount = settings.notificationCount;
 		showHideNotification();
 	} );
 
 	api.panel( getConfig( 'slug' ) ).expanded.bind( expanded => {
 		if ( ! expanded ) {
-			const code = 'mtb_components';
+			const code = 'material_design_components';
 			api.notifications.remove( code );
 		}
 	} );

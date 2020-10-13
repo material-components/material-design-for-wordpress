@@ -48,9 +48,9 @@ class Contact_Form_Block extends Module_Base {
 	 * Initiate the class and hooks.
 	 */
 	public function init() {
-		add_action( 'wp_ajax_mtb_submit_contact_form', [ $this, 'priv_submit_contact_form' ] );
-		add_action( 'wp_ajax_nopriv_mtb_submit_contact_form', [ $this, 'nopriv_submit_contact_form' ] );
-		add_action( 'wp_ajax_mtb_manage_recaptcha_api_credentials', [ $this, 'manage_recaptcha_api_credentials' ] );
+		add_action( 'wp_ajax_material_design_submit_contact_form', [ $this, 'priv_submit_contact_form' ] );
+		add_action( 'wp_ajax_nopriv_material_design_submit_contact_form', [ $this, 'nopriv_submit_contact_form' ] );
+		add_action( 'wp_ajax_material_design_manage_recaptcha_api_credentials', [ $this, 'manage_recaptcha_api_credentials' ] );
 	}
 
 	/**
@@ -157,7 +157,7 @@ class Contact_Form_Block extends Module_Base {
 	 * Submit contact form.
 	 */
 	private function submit_contact_form() {
-		if ( ! check_ajax_referer( 'contact_form_action', 'mtb_contact_form_nonce', false ) ) {
+		if ( ! check_ajax_referer( 'contact_form_action', 'material_design_contact_form_nonce', false ) ) {
 			wp_send_json_error(
 				[ 'message' => __( 'Invalid nonce.', 'material-design' ) ]
 			);
@@ -250,7 +250,7 @@ class Contact_Form_Block extends Module_Base {
 	 */
 	public function manage_recaptcha_api_credentials() {
 		$nonce = isset( $_POST['nonce'] ) ? filter_var( $_POST['nonce'], FILTER_SANITIZE_STRING ) : '';
-		if ( ! wp_verify_nonce( $nonce, 'mtb_recaptcha_ajax_nonce' ) ) {
+		if ( ! wp_verify_nonce( $nonce, 'material_design_recaptcha_ajax_nonce' ) ) {
 			wp_send_json_error(
 				[ 'message' => __( 'Invalid nonce.', 'material-design' ) ]
 			);
@@ -297,33 +297,33 @@ class Contact_Form_Block extends Module_Base {
 		if ( 'get' === $data['action'] ) {
 			wp_send_json_success(
 				[
-					'mtb_recaptcha_site_key'      => trim( esc_attr( get_option( 'mtb_recaptcha_site_key', '' ) ) ),
-					'mtb_recaptcha_client_secret' => trim( esc_attr( get_option( 'mtb_recaptcha_client_secret', '' ) ) ),
+					'material_design_recaptcha_site_key' => trim( esc_attr( get_option( 'material_design_recaptcha_site_key', '' ) ) ),
+					'material_design_recaptcha_client_secret' => trim( esc_attr( get_option( 'material_design_recaptcha_client_secret', '' ) ) ),
 				]
 			);
 		}
 
 		if ( 'save' === $data['action'] ) {
-			$mtb_recaptcha_site_key_result      = update_option( 'mtb_recaptcha_site_key', $data['site_key'] );
-			$mtb_recaptcha_client_secret_result = update_option( 'mtb_recaptcha_client_secret', $data['client_secret'] );
+			$material_design_recaptcha_site_key_result      = update_option( 'material_design_recaptcha_site_key', $data['site_key'] );
+			$material_design_recaptcha_client_secret_result = update_option( 'material_design_recaptcha_client_secret', $data['client_secret'] );
 
-			if ( $mtb_recaptcha_site_key_result && $mtb_recaptcha_client_secret_result ) {
+			if ( $material_design_recaptcha_site_key_result && $material_design_recaptcha_client_secret_result ) {
 				wp_send_json_success();
 			}
 		}
 
 		if ( 'clear' === $data['action'] ) {
-			$mtb_recaptcha_site_key_result      = true;
-			$mtb_recaptcha_client_secret_result = true;
-			if ( get_option( 'mtb_recaptcha_site_key', false ) ) {
-				$mtb_recaptcha_site_key_result = delete_option( 'mtb_recaptcha_site_key' );
+			$material_design_recaptcha_site_key_result      = true;
+			$material_design_recaptcha_client_secret_result = true;
+			if ( get_option( 'material_design_recaptcha_site_key', false ) ) {
+				$material_design_recaptcha_site_key_result = delete_option( 'material_design_recaptcha_site_key' );
 			}
 
-			if ( get_option( 'mtb_recaptcha_client_secret', false ) ) {
-				$mtb_recaptcha_client_secret_result = delete_option( 'mtb_recaptcha_client_secret' );
+			if ( get_option( 'material_design_recaptcha_client_secret', false ) ) {
+				$material_design_recaptcha_client_secret_result = delete_option( 'material_design_recaptcha_client_secret' );
 			}
 
-			if ( $mtb_recaptcha_site_key_result && $mtb_recaptcha_client_secret_result ) {
+			if ( $material_design_recaptcha_site_key_result && $material_design_recaptcha_client_secret_result ) {
 				wp_send_json_success();
 			}
 		}
@@ -343,15 +343,15 @@ class Contact_Form_Block extends Module_Base {
 			return false;
 		}
 
-		$mtb_recaptcha_site_key      = get_option( 'mtb_recaptcha_site_key', '' );
-		$mtb_recaptcha_client_secret = get_option( 'mtb_recaptcha_client_secret', '' );
+		$material_design_recaptcha_site_key      = get_option( 'material_design_recaptcha_site_key', '' );
+		$material_design_recaptcha_client_secret = get_option( 'material_design_recaptcha_client_secret', '' );
 
 		// if both empty then it means that reCAPTCHA is not used.
-		if ( empty( $mtb_recaptcha_site_key ) && empty( $mtb_recaptcha_client_secret ) ) {
+		if ( empty( $material_design_recaptcha_site_key ) && empty( $material_design_recaptcha_client_secret ) ) {
 			return true;
 		}
 
-		if ( empty( $mtb_recaptcha_site_key ) || empty( $mtb_recaptcha_client_secret ) ) {
+		if ( empty( $material_design_recaptcha_site_key ) || empty( $material_design_recaptcha_client_secret ) ) {
 			return false;
 		}
 
@@ -360,7 +360,7 @@ class Contact_Form_Block extends Module_Base {
 			[
 				'timeout' => 2,
 				'body'    => [
-					'secret'   => $mtb_recaptcha_client_secret,
+					'secret'   => $material_design_recaptcha_client_secret,
 					'response' => $recaptcha_token,
 				],
 			]

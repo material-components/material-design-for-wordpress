@@ -80,16 +80,16 @@ const getSettings = () => {
 		theme: api.settings?.theme?.stylesheet,
 	};
 
-	const mtbControls = getConfig( 'controls' );
+	const materialDesignControls = getConfig( 'controls' );
 	if (
-		! mtbControls ||
-		! mtbControls.length ||
-		! Array.isArray( mtbControls )
+		! materialDesignControls ||
+		! materialDesignControls.length ||
+		! Array.isArray( materialDesignControls )
 	) {
 		return controlProps;
 	}
 
-	mtbControls
+	materialDesignControls
 		.concat( THEME_COLOR_CONTROLS )
 		.concat( radiusControls )
 		.forEach( name => {

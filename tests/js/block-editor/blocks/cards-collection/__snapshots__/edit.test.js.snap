@@ -45,10 +45,10 @@ Object {
               style="margin-bottom: 24px;"
             >
               <div
-                class="mdc-card mtb-card"
+                class="mdc-card material-design-card"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                  class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                   tabindex="0"
                 >
                   <div
@@ -76,12 +76,12 @@ Object {
                     />
                   </div>
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -91,7 +91,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -102,7 +102,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -149,10 +149,10 @@ Object {
               style="margin-bottom: 24px;"
             >
               <div
-                class="mdc-card mtb-card"
+                class="mdc-card material-design-card"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                  class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                   tabindex="0"
                 >
                   <div
@@ -180,12 +180,12 @@ Object {
                     />
                   </div>
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -195,7 +195,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -206,7 +206,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -253,10 +253,10 @@ Object {
               style="margin-bottom: 24px;"
             >
               <div
-                class="mdc-card mtb-card"
+                class="mdc-card material-design-card"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                  class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                   tabindex="0"
                 >
                   <div
@@ -284,12 +284,12 @@ Object {
                     />
                   </div>
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -299,7 +299,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -310,7 +310,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -368,10 +368,10 @@ Object {
             style="margin-bottom: 24px;"
           >
             <div
-              class="mdc-card mtb-card"
+              class="mdc-card material-design-card"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
                 <div
@@ -399,12 +399,12 @@ Object {
                   />
                 </div>
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -414,7 +414,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -425,7 +425,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
@@ -472,10 +472,10 @@ Object {
             style="margin-bottom: 24px;"
           >
             <div
-              class="mdc-card mtb-card"
+              class="mdc-card material-design-card"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
                 <div
@@ -503,12 +503,12 @@ Object {
                   />
                 </div>
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -518,7 +518,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -529,7 +529,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
@@ -576,10 +576,10 @@ Object {
             style="margin-bottom: 24px;"
           >
             <div
-              class="mdc-card mtb-card"
+              class="mdc-card material-design-card"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
                 <div
@@ -607,12 +607,12 @@ Object {
                   />
                 </div>
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -622,7 +622,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -633,7 +633,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
@@ -770,10 +770,10 @@ Object {
               data-card-index="0"
             >
               <div
-                class="mdc-card mtb-card"
+                class="mdc-card material-design-card"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                  class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                   tabindex="0"
                 >
                   <div
@@ -801,12 +801,12 @@ Object {
                     />
                   </div>
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -816,7 +816,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -827,7 +827,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -868,10 +868,10 @@ Object {
               data-card-index="1"
             >
               <div
-                class="mdc-card mtb-card"
+                class="mdc-card material-design-card"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                  class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                   tabindex="0"
                 >
                   <div
@@ -899,12 +899,12 @@ Object {
                     />
                   </div>
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -914,7 +914,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -925,7 +925,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -966,10 +966,10 @@ Object {
               data-card-index="2"
             >
               <div
-                class="mdc-card mtb-card"
+                class="mdc-card material-design-card"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                  class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                   tabindex="0"
                 >
                   <div
@@ -997,12 +997,12 @@ Object {
                     />
                   </div>
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -1012,7 +1012,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -1023,7 +1023,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1079,10 +1079,10 @@ Object {
             data-card-index="0"
           >
             <div
-              class="mdc-card mtb-card"
+              class="mdc-card material-design-card"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
                 <div
@@ -1110,12 +1110,12 @@ Object {
                   />
                 </div>
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1125,7 +1125,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1136,7 +1136,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
@@ -1177,10 +1177,10 @@ Object {
             data-card-index="1"
           >
             <div
-              class="mdc-card mtb-card"
+              class="mdc-card material-design-card"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
                 <div
@@ -1208,12 +1208,12 @@ Object {
                   />
                 </div>
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1223,7 +1223,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1234,7 +1234,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
@@ -1275,10 +1275,10 @@ Object {
             data-card-index="2"
           >
             <div
-              class="mdc-card mtb-card"
+              class="mdc-card material-design-card"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
                 <div
@@ -1306,12 +1306,12 @@ Object {
                   />
                 </div>
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1321,7 +1321,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1332,7 +1332,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
@@ -1469,10 +1469,10 @@ Object {
               data-card-index="0"
             >
               <div
-                class="mdc-card mtb-card mtb-card__list mtb-basic"
+                class="mdc-card material-design-card material-design-card__list material-design-basic"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action"
+                  class="mdc-card__primary-action material-design-card__primary-action"
                   tabindex="0"
                 >
                   <div
@@ -1500,12 +1500,12 @@ Object {
                     />
                   </div>
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -1515,7 +1515,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -1557,10 +1557,10 @@ Object {
               data-card-index="1"
             >
               <div
-                class="mdc-card mtb-card mtb-card__list mtb-basic"
+                class="mdc-card material-design-card material-design-card__list material-design-basic"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action"
+                  class="mdc-card__primary-action material-design-card__primary-action"
                   tabindex="0"
                 >
                   <div
@@ -1588,12 +1588,12 @@ Object {
                     />
                   </div>
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -1603,7 +1603,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -1645,10 +1645,10 @@ Object {
               data-card-index="2"
             >
               <div
-                class="mdc-card mtb-card mtb-card__list mtb-basic"
+                class="mdc-card material-design-card material-design-card__list material-design-basic"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action"
+                  class="mdc-card__primary-action material-design-card__primary-action"
                   tabindex="0"
                 >
                   <div
@@ -1676,12 +1676,12 @@ Object {
                     />
                   </div>
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -1691,7 +1691,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                       contenteditable="true"
                       role="textbox"
                       style="white-space: pre-wrap;"
@@ -1748,10 +1748,10 @@ Object {
             data-card-index="0"
           >
             <div
-              class="mdc-card mtb-card mtb-card__list mtb-basic"
+              class="mdc-card material-design-card material-design-card__list material-design-basic"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action"
+                class="mdc-card__primary-action material-design-card__primary-action"
                 tabindex="0"
               >
                 <div
@@ -1779,12 +1779,12 @@ Object {
                   />
                 </div>
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1794,7 +1794,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1836,10 +1836,10 @@ Object {
             data-card-index="1"
           >
             <div
-              class="mdc-card mtb-card mtb-card__list mtb-basic"
+              class="mdc-card material-design-card material-design-card__list material-design-basic"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action"
+                class="mdc-card__primary-action material-design-card__primary-action"
                 tabindex="0"
               >
                 <div
@@ -1867,12 +1867,12 @@ Object {
                   />
                 </div>
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1882,7 +1882,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1924,10 +1924,10 @@ Object {
             data-card-index="2"
           >
             <div
-              class="mdc-card mtb-card mtb-card__list mtb-basic"
+              class="mdc-card material-design-card material-design-card__list material-design-basic"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action"
+                class="mdc-card__primary-action material-design-card__primary-action"
                 tabindex="0"
               >
                 <div
@@ -1955,12 +1955,12 @@ Object {
                   />
                 </div>
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -1970,7 +1970,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
@@ -2419,11 +2419,11 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                 title="Title #1 goes here"
               >
                 <div
-                  className="mdc-card mtb-card"
+                  className="mdc-card material-design-card"
                   style={Object {}}
                 >
                   <div
-                    className="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                    className="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                     tabIndex={0}
                   >
                     <CardImage
@@ -2623,10 +2623,10 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       title="Title #1 goes here"
                     >
                       <div
-                        className="mtb-card__primary"
+                        className="material-design-card__primary"
                       >
                         <ForwardRef(RichTextWrapper)
-                          className="mtb-card__title mdc-typography mdc-typography--headline6"
+                          className="material-design-card__title mdc-typography mdc-typography--headline6"
                           onChange={[Function]}
                           place={true}
                           placeholder="Title goes here"
@@ -2643,7 +2643,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             __unstableOnEnterFormattedText={[Function]}
                             __unstableOnExitFormattedText={[Function]}
                             blockIsSelected={false}
-                            className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                            className="block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                             clientId={null}
                             disabled={false}
                             identifier={97}
@@ -2667,7 +2667,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               __unstableOnEnterFormattedText={[Function]}
                               __unstableOnExitFormattedText={[Function]}
                               blockIsSelected={false}
-                              className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                              className="block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                               clientId={null}
                               disabled={false}
                               forwardedRef={
@@ -2675,7 +2675,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   "current": <h2
                                     aria-label="Title goes here"
                                     aria-multiline="true"
-                                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                     contenteditable="true"
                                     role="textbox"
                                     style="white-space: pre-wrap;"
@@ -2705,7 +2705,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 __unstableOnEnterFormattedText={[Function]}
                                 __unstableOnExitFormattedText={[Function]}
                                 blockIsSelected={false}
-                                className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                className="block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                 clearTimeout={[Function]}
                                 clientId={null}
                                 disabled={false}
@@ -2714,7 +2714,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     "current": <h2
                                       aria-label="Title goes here"
                                       aria-multiline="true"
-                                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                       contenteditable="true"
                                       role="textbox"
                                       style="white-space: pre-wrap;"
@@ -2745,7 +2745,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   __unstableOnEnterFormattedText={[Function]}
                                   __unstableOnExitFormattedText={[Function]}
                                   blockIsSelected={false}
-                                  className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                  className="block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                   clearTimeout={[Function]}
                                   clientId={null}
                                   disabled={false}
@@ -2756,7 +2756,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       "current": <h2
                                         aria-label="Title goes here"
                                         aria-multiline="true"
-                                        class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                        class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                         contenteditable="true"
                                         role="textbox"
                                         style="white-space: pre-wrap;"
@@ -2783,7 +2783,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         "current": <h2
                                           aria-label="Title goes here"
                                           aria-multiline="true"
-                                          class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                          class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                           contenteditable="true"
                                           role="textbox"
                                           style="white-space: pre-wrap;"
@@ -2799,7 +2799,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         "current": <h2
                                           aria-label="Title goes here"
                                           aria-multiline="true"
-                                          class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                          class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                           contenteditable="true"
                                           role="textbox"
                                           style="white-space: pre-wrap;"
@@ -3086,7 +3086,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                                 aria-label="Title goes here"
                                                 aria-multiline={true}
                                                 aria-owns={null}
-                                                className="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                                className="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                                 contentEditable={true}
                                                 onBlur={[Function]}
                                                 onCompositionEnd={[Function]}
@@ -3120,7 +3120,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           </ForwardRef>
                         </ForwardRef(RichTextWrapper)>
                         <ForwardRef(RichTextWrapper)
-                          className="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                          className="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                           onChange={[Function]}
                           placeholder="Secondary text"
                           tagName="h3"
@@ -3136,7 +3136,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             __unstableOnEnterFormattedText={[Function]}
                             __unstableOnExitFormattedText={[Function]}
                             blockIsSelected={false}
-                            className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                            className="block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                             clientId={null}
                             disabled={false}
                             identifier={98}
@@ -3159,7 +3159,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               __unstableOnEnterFormattedText={[Function]}
                               __unstableOnExitFormattedText={[Function]}
                               blockIsSelected={false}
-                              className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                              className="block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                               clientId={null}
                               disabled={false}
                               forwardedRef={
@@ -3167,7 +3167,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   "current": <h3
                                     aria-label="Secondary text"
                                     aria-multiline="true"
-                                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                     contenteditable="true"
                                     role="textbox"
                                     style="white-space: pre-wrap;"
@@ -3196,7 +3196,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 __unstableOnEnterFormattedText={[Function]}
                                 __unstableOnExitFormattedText={[Function]}
                                 blockIsSelected={false}
-                                className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                className="block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                 clearTimeout={[Function]}
                                 clientId={null}
                                 disabled={false}
@@ -3205,7 +3205,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     "current": <h3
                                       aria-label="Secondary text"
                                       aria-multiline="true"
-                                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                       contenteditable="true"
                                       role="textbox"
                                       style="white-space: pre-wrap;"
@@ -3235,7 +3235,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   __unstableOnEnterFormattedText={[Function]}
                                   __unstableOnExitFormattedText={[Function]}
                                   blockIsSelected={false}
-                                  className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                  className="block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                   clearTimeout={[Function]}
                                   clientId={null}
                                   disabled={false}
@@ -3246,7 +3246,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       "current": <h3
                                         aria-label="Secondary text"
                                         aria-multiline="true"
-                                        class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                        class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                         contenteditable="true"
                                         role="textbox"
                                         style="white-space: pre-wrap;"
@@ -3272,7 +3272,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         "current": <h3
                                           aria-label="Secondary text"
                                           aria-multiline="true"
-                                          class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                           contenteditable="true"
                                           role="textbox"
                                           style="white-space: pre-wrap;"
@@ -3288,7 +3288,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         "current": <h3
                                           aria-label="Secondary text"
                                           aria-multiline="true"
-                                          class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                           contenteditable="true"
                                           role="textbox"
                                           style="white-space: pre-wrap;"
@@ -3565,7 +3565,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                                 aria-label="Secondary text"
                                                 aria-multiline={true}
                                                 aria-owns={null}
-                                                className="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                                className="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                                 contentEditable={true}
                                                 onBlur={[Function]}
                                                 onCompositionEnd={[Function]}
@@ -3608,7 +3608,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       supportingText="Supporting text #1"
                     >
                       <ForwardRef(RichTextWrapper)
-                        className="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                         onChange={[Function]}
                         placeholder="Supporting text"
                         tagName="div"
@@ -3624,7 +3624,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           __unstableOnEnterFormattedText={[Function]}
                           __unstableOnExitFormattedText={[Function]}
                           blockIsSelected={false}
-                          className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                          className="block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                           clientId={null}
                           disabled={false}
                           identifier={99}
@@ -3647,7 +3647,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             __unstableOnEnterFormattedText={[Function]}
                             __unstableOnExitFormattedText={[Function]}
                             blockIsSelected={false}
-                            className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                            className="block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                             clientId={null}
                             disabled={false}
                             forwardedRef={
@@ -3655,7 +3655,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 "current": <div
                                   aria-label="Supporting text"
                                   aria-multiline="true"
-                                  class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                   contenteditable="true"
                                   role="textbox"
                                   style="white-space: pre-wrap;"
@@ -3684,7 +3684,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               __unstableOnEnterFormattedText={[Function]}
                               __unstableOnExitFormattedText={[Function]}
                               blockIsSelected={false}
-                              className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                              className="block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                               clearTimeout={[Function]}
                               clientId={null}
                               disabled={false}
@@ -3693,7 +3693,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   "current": <div
                                     aria-label="Supporting text"
                                     aria-multiline="true"
-                                    class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                     contenteditable="true"
                                     role="textbox"
                                     style="white-space: pre-wrap;"
@@ -3723,7 +3723,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 __unstableOnEnterFormattedText={[Function]}
                                 __unstableOnExitFormattedText={[Function]}
                                 blockIsSelected={false}
-                                className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                className="block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                 clearTimeout={[Function]}
                                 clientId={null}
                                 disabled={false}
@@ -3734,7 +3734,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     "current": <div
                                       aria-label="Supporting text"
                                       aria-multiline="true"
-                                      class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                      class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                       contenteditable="true"
                                       role="textbox"
                                       style="white-space: pre-wrap;"
@@ -3760,7 +3760,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       "current": <div
                                         aria-label="Supporting text"
                                         aria-multiline="true"
-                                        class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                        class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                         contenteditable="true"
                                         role="textbox"
                                         style="white-space: pre-wrap;"
@@ -3776,7 +3776,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       "current": <div
                                         aria-label="Supporting text"
                                         aria-multiline="true"
-                                        class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                        class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                         contenteditable="true"
                                         role="textbox"
                                         style="white-space: pre-wrap;"
@@ -4063,7 +4063,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                               aria-label="Supporting text"
                                               aria-multiline={true}
                                               aria-owns={null}
-                                              className="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                              className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                               contentEditable={true}
                                               onBlur={[Function]}
                                               onCompositionEnd={[Function]}
@@ -4685,11 +4685,11 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                 title="Title #2 goes here"
               >
                 <div
-                  className="mdc-card mtb-card"
+                  className="mdc-card material-design-card"
                   style={Object {}}
                 >
                   <div
-                    className="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                    className="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                     tabIndex={0}
                   >
                     <CardImage
@@ -4889,10 +4889,10 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       title="Title #2 goes here"
                     >
                       <div
-                        className="mtb-card__primary"
+                        className="material-design-card__primary"
                       >
                         <ForwardRef(RichTextWrapper)
-                          className="mtb-card__title mdc-typography mdc-typography--headline6"
+                          className="material-design-card__title mdc-typography mdc-typography--headline6"
                           onChange={[Function]}
                           place={true}
                           placeholder="Title goes here"
@@ -4909,7 +4909,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             __unstableOnEnterFormattedText={[Function]}
                             __unstableOnExitFormattedText={[Function]}
                             blockIsSelected={false}
-                            className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                            className="block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                             clientId={null}
                             disabled={false}
                             identifier={101}
@@ -4933,7 +4933,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               __unstableOnEnterFormattedText={[Function]}
                               __unstableOnExitFormattedText={[Function]}
                               blockIsSelected={false}
-                              className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                              className="block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                               clientId={null}
                               disabled={false}
                               forwardedRef={
@@ -4941,7 +4941,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   "current": <h2
                                     aria-label="Title goes here"
                                     aria-multiline="true"
-                                    class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                     contenteditable="true"
                                     role="textbox"
                                     style="white-space: pre-wrap;"
@@ -4971,7 +4971,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 __unstableOnEnterFormattedText={[Function]}
                                 __unstableOnExitFormattedText={[Function]}
                                 blockIsSelected={false}
-                                className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                className="block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                 clearTimeout={[Function]}
                                 clientId={null}
                                 disabled={false}
@@ -4980,7 +4980,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     "current": <h2
                                       aria-label="Title goes here"
                                       aria-multiline="true"
-                                      class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                       contenteditable="true"
                                       role="textbox"
                                       style="white-space: pre-wrap;"
@@ -5011,7 +5011,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   __unstableOnEnterFormattedText={[Function]}
                                   __unstableOnExitFormattedText={[Function]}
                                   blockIsSelected={false}
-                                  className="block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                  className="block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                   clearTimeout={[Function]}
                                   clientId={null}
                                   disabled={false}
@@ -5022,7 +5022,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       "current": <h2
                                         aria-label="Title goes here"
                                         aria-multiline="true"
-                                        class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                        class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                         contenteditable="true"
                                         role="textbox"
                                         style="white-space: pre-wrap;"
@@ -5049,7 +5049,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         "current": <h2
                                           aria-label="Title goes here"
                                           aria-multiline="true"
-                                          class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                          class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                           contenteditable="true"
                                           role="textbox"
                                           style="white-space: pre-wrap;"
@@ -5065,7 +5065,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         "current": <h2
                                           aria-label="Title goes here"
                                           aria-multiline="true"
-                                          class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                          class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                           contenteditable="true"
                                           role="textbox"
                                           style="white-space: pre-wrap;"
@@ -5352,7 +5352,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                                 aria-label="Title goes here"
                                                 aria-multiline={true}
                                                 aria-owns={null}
-                                                className="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                                                className="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                                                 contentEditable={true}
                                                 onBlur={[Function]}
                                                 onCompositionEnd={[Function]}
@@ -5386,7 +5386,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           </ForwardRef>
                         </ForwardRef(RichTextWrapper)>
                         <ForwardRef(RichTextWrapper)
-                          className="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                          className="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                           onChange={[Function]}
                           placeholder="Secondary text"
                           tagName="h3"
@@ -5402,7 +5402,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             __unstableOnEnterFormattedText={[Function]}
                             __unstableOnExitFormattedText={[Function]}
                             blockIsSelected={false}
-                            className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                            className="block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                             clientId={null}
                             disabled={false}
                             identifier={102}
@@ -5425,7 +5425,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               __unstableOnEnterFormattedText={[Function]}
                               __unstableOnExitFormattedText={[Function]}
                               blockIsSelected={false}
-                              className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                              className="block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                               clientId={null}
                               disabled={false}
                               forwardedRef={
@@ -5433,7 +5433,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   "current": <h3
                                     aria-label="Secondary text"
                                     aria-multiline="true"
-                                    class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                     contenteditable="true"
                                     role="textbox"
                                     style="white-space: pre-wrap;"
@@ -5462,7 +5462,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 __unstableOnEnterFormattedText={[Function]}
                                 __unstableOnExitFormattedText={[Function]}
                                 blockIsSelected={false}
-                                className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                className="block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                 clearTimeout={[Function]}
                                 clientId={null}
                                 disabled={false}
@@ -5471,7 +5471,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     "current": <h3
                                       aria-label="Secondary text"
                                       aria-multiline="true"
-                                      class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                       contenteditable="true"
                                       role="textbox"
                                       style="white-space: pre-wrap;"
@@ -5501,7 +5501,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   __unstableOnEnterFormattedText={[Function]}
                                   __unstableOnExitFormattedText={[Function]}
                                   blockIsSelected={false}
-                                  className="block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                  className="block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                   clearTimeout={[Function]}
                                   clientId={null}
                                   disabled={false}
@@ -5512,7 +5512,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       "current": <h3
                                         aria-label="Secondary text"
                                         aria-multiline="true"
-                                        class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                        class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                         contenteditable="true"
                                         role="textbox"
                                         style="white-space: pre-wrap;"
@@ -5538,7 +5538,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         "current": <h3
                                           aria-label="Secondary text"
                                           aria-multiline="true"
-                                          class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                           contenteditable="true"
                                           role="textbox"
                                           style="white-space: pre-wrap;"
@@ -5554,7 +5554,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         "current": <h3
                                           aria-label="Secondary text"
                                           aria-multiline="true"
-                                          class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                           contenteditable="true"
                                           role="textbox"
                                           style="white-space: pre-wrap;"
@@ -5831,7 +5831,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                                 aria-label="Secondary text"
                                                 aria-multiline={true}
                                                 aria-owns={null}
-                                                className="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                                                className="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                                                 contentEditable={true}
                                                 onBlur={[Function]}
                                                 onCompositionEnd={[Function]}
@@ -5874,7 +5874,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       supportingText="Supporting text #2"
                     >
                       <ForwardRef(RichTextWrapper)
-                        className="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                         onChange={[Function]}
                         placeholder="Supporting text"
                         tagName="div"
@@ -5890,7 +5890,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           __unstableOnEnterFormattedText={[Function]}
                           __unstableOnExitFormattedText={[Function]}
                           blockIsSelected={false}
-                          className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                          className="block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                           clientId={null}
                           disabled={false}
                           identifier={103}
@@ -5913,7 +5913,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             __unstableOnEnterFormattedText={[Function]}
                             __unstableOnExitFormattedText={[Function]}
                             blockIsSelected={false}
-                            className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                            className="block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                             clientId={null}
                             disabled={false}
                             forwardedRef={
@@ -5921,7 +5921,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 "current": <div
                                   aria-label="Supporting text"
                                   aria-multiline="true"
-                                  class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                   contenteditable="true"
                                   role="textbox"
                                   style="white-space: pre-wrap;"
@@ -5950,7 +5950,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               __unstableOnEnterFormattedText={[Function]}
                               __unstableOnExitFormattedText={[Function]}
                               blockIsSelected={false}
-                              className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                              className="block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                               clearTimeout={[Function]}
                               clientId={null}
                               disabled={false}
@@ -5959,7 +5959,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   "current": <div
                                     aria-label="Supporting text"
                                     aria-multiline="true"
-                                    class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                     contenteditable="true"
                                     role="textbox"
                                     style="white-space: pre-wrap;"
@@ -5989,7 +5989,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 __unstableOnEnterFormattedText={[Function]}
                                 __unstableOnExitFormattedText={[Function]}
                                 blockIsSelected={false}
-                                className="block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                className="block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                 clearTimeout={[Function]}
                                 clientId={null}
                                 disabled={false}
@@ -6000,7 +6000,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     "current": <div
                                       aria-label="Supporting text"
                                       aria-multiline="true"
-                                      class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                      class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                       contenteditable="true"
                                       role="textbox"
                                       style="white-space: pre-wrap;"
@@ -6026,7 +6026,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       "current": <div
                                         aria-label="Supporting text"
                                         aria-multiline="true"
-                                        class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                        class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                         contenteditable="true"
                                         role="textbox"
                                         style="white-space: pre-wrap;"
@@ -6042,7 +6042,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       "current": <div
                                         aria-label="Supporting text"
                                         aria-multiline="true"
-                                        class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                        class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                         contenteditable="true"
                                         role="textbox"
                                         style="white-space: pre-wrap;"
@@ -6329,7 +6329,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                               aria-label="Supporting text"
                                               aria-multiline={true}
                                               aria-owns={null}
-                                              className="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                                              className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                                               contentEditable={true}
                                               onBlur={[Function]}
                                               onCompositionEnd={[Function]}

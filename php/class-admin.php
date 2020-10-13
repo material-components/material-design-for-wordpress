@@ -145,7 +145,7 @@ class Admin extends Module_Base {
 
 		wp_localize_script(
 			'material-admin-js',
-			'mtbWizard',
+			'materialDesignWizard',
 			[
 				'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
@@ -181,7 +181,7 @@ class Admin extends Module_Base {
 			$has_demo_content = $this->plugin->importer->has_demo_content();
 			wp_localize_script(
 				'material-gsm',
-				'mtbGsm',
+				'materialDesignGsm',
 				[
 					'wizardUrl'     => esc_url( menu_page_url( 'material-onboarding-wizard', false ) ),
 					'editorUrl'     => esc_url( admin_url( 'edit.php' ) ),
@@ -197,7 +197,7 @@ class Admin extends Module_Base {
 
 			wp_localize_script(
 				'material-admin-js',
-				'mtbWizard',
+				'materialDesignWizard',
 				[
 					'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 					'nonce'       => wp_create_nonce( 'wp_rest' ),
@@ -232,7 +232,7 @@ class Admin extends Module_Base {
 
 			wp_localize_script(
 				'material-wizard',
-				'mtbWizard',
+				'materialDesignWizard',
 				[
 					'pagesUrl'         => esc_url( admin_url( 'edit.php?post_type=page' ) ),
 					'settingsUrl'      => esc_url( admin_url( 'admin.php?page=material-settings' ) ),

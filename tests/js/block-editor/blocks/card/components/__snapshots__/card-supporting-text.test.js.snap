@@ -30,7 +30,7 @@ Object {
     />
     <div>
       <div
-        class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+        class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
       >
         Test supporting text
       </div>
@@ -38,7 +38,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+      class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
     >
       Test supporting text
     </div>
@@ -129,7 +129,7 @@ Object {
       <div
         aria-label="Supporting text"
         aria-multiline="true"
-        class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+        class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
         contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
@@ -142,7 +142,7 @@ Object {
     <div
       aria-label="Supporting text"
       aria-multiline="true"
-      class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+      class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
       contenteditable="true"
       role="textbox"
       style="white-space: pre-wrap;"

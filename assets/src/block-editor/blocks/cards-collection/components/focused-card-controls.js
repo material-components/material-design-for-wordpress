@@ -43,7 +43,7 @@ const FocusedCardControls = ( {
 	<div className="card-container-controls">
 		<div className="move-card">
 			<button
-				className="mtb-card-move-button-left-up"
+				className="material-design-card-move-button-left-up"
 				title={
 					style !== 'list'
 						? __( 'Move left', 'material-design' )
@@ -55,7 +55,7 @@ const FocusedCardControls = ( {
 				<i className="material-icons">arrow_left</i>
 			</button>
 			<button
-				className="mtb-card-move-button-right-down"
+				className="material-design-card-move-button-right-down"
 				title={
 					style !== 'list'
 						? __( 'Move right', 'material-design' )
@@ -74,7 +74,7 @@ const FocusedCardControls = ( {
 
 		<div className="remove-card">
 			<button
-				className="mtb-card-close-button"
+				className="material-design-card-close-button"
 				title={ __( 'Remove card', 'material-design' ) }
 				onClick={ onRemove }
 			>

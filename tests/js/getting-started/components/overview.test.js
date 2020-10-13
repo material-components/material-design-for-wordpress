@@ -36,7 +36,7 @@ const setup = () => {
 
 describe( 'GSM: Overview', () => {
 	beforeAll( () => {
-		global.mtbGsm = {
+		global.materialDesignGsm = {
 			themeStatus: 'ok',
 			contentStatus: 'ok',
 		};

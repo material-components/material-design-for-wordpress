@@ -18,7 +18,7 @@
  * Override core admin styles
  */
 .material-wizard-switch {
-	--mdc-theme-secondary: var(--mtb-wizard-primary-color);
+	--mdc-theme-secondary: var(--material-design-wizard-primary-color);
 
 	& input[type="checkbox"] {
 		height: 48px;

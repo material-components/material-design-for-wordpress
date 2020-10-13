@@ -15,7 +15,7 @@
  */
 
 :root {
-	--mtb-wizard-bar-bg: #a2aab2;
+	--material-design-wizard-bar-bg: #a2aab2;
 }
 
 .material-wizard {
@@ -44,7 +44,7 @@
 
 		&::before {
 			background: #fff;
-			border: 3px solid var(--mtb-wizard-bar-bg);
+			border: 3px solid var(--material-design-wizard-bar-bg);
 			border-radius: 50%;
 			content: "";
 			counter-increment: step;
@@ -54,7 +54,7 @@
 		}
 
 		&::after {
-			background: var(--mtb-wizard-bar-bg);
+			background: var(--material-design-wizard-bar-bg);
 			content: "";
 			height: 3px;
 			left: 0;
@@ -88,7 +88,7 @@
 		}
 
 		& .material-wizard__progress-dot {
-			background-color: var(--mtb-wizard-primary-color);
+			background-color: var(--material-design-wizard-primary-color);
 			border-radius: 50%;
 			display: block;
 			height: 10px;
@@ -100,10 +100,10 @@
 	}
 
 	& .material-wizard__progress .checked {
-		--mtb-wizard-bar-bg: var(--mtb-wizard-primary-color);
+		--material-design-wizard-bar-bg: var(--material-design-wizard-primary-color);
 
 		&::before {
-			background: var(--mtb-wizard-primary-color);
+			background: var(--material-design-wizard-primary-color);
 		}
 
 		& .material-wizard__progress-check {

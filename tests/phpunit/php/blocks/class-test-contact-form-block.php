@@ -101,9 +101,9 @@ class Test_Contact_Form_Block extends \WP_UnitTestCase {
 	public function test_init() {
 		$block = new Contact_Form_Block( new Plugin() );
 		$block->init();
-		$this->assertEquals( 10, has_action( 'wp_ajax_mtb_submit_contact_form', [ $block, 'priv_submit_contact_form' ] ) );
-		$this->assertEquals( 10, has_action( 'wp_ajax_nopriv_mtb_submit_contact_form', [ $block, 'nopriv_submit_contact_form' ] ) );
-		$this->assertEquals( 10, has_action( 'wp_ajax_mtb_manage_recaptcha_api_credentials', [ $block, 'manage_recaptcha_api_credentials' ] ) );
+		$this->assertEquals( 10, has_action( 'wp_ajax_material_design_submit_contact_form', [ $block, 'priv_submit_contact_form' ] ) );
+		$this->assertEquals( 10, has_action( 'wp_ajax_nopriv_material_design_submit_contact_form', [ $block, 'nopriv_submit_contact_form' ] ) );
+		$this->assertEquals( 10, has_action( 'wp_ajax_material_design_manage_recaptcha_api_credentials', [ $block, 'manage_recaptcha_api_credentials' ] ) );
 	}
 
 	/**
@@ -188,11 +188,11 @@ class Test_Contact_Form_Block extends \WP_UnitTestCase {
 		$post   = get_post( self::$valid_post_id );
 		$output = $block->render_block( $attributes, $content );
 
-		$this->assertContains( '<div class="mtb-contact-form test-class">', $output );
-		$this->assertContains( '<form id="mtbContactForm"', $output );
-		$this->assertContains( 'mtb_contact_form_nonce', $output );
-		$this->assertContains( 'mtb_submit_contact_form', $output );
-		$this->assertContains( 'mtb_token', $output );
+		$this->assertContains( '<div class="material-design-contact-form test-class">', $output );
+		$this->assertContains( '<form id="materialDesignContactForm"', $output );
+		$this->assertContains( 'material_design_contact_form_nonce', $output );
+		$this->assertContains( 'material_design_submit_contact_form', $output );
+		$this->assertContains( 'material_design_token', $output );
 		$this->assertContains( 'Test Content', $output );
 		$this->assertContains( 'Test Confirmation message', $output );
 	}

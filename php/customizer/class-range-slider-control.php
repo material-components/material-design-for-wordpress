@@ -90,7 +90,7 @@ class Range_Slider_Control extends \WP_Customize_Control {
 	public function render_content() {
 		$id = Helpers::sanitize_control_id( $this->id );
 		?>
-		<div class="mtb-range_slider" id="<?php echo esc_html( $id ); ?>"></div>
+		<div class="material-design-range_slider" id="<?php echo esc_html( $id ); ?>"></div>
 		<?php
 	}
 

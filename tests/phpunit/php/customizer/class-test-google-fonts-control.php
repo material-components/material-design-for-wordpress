@@ -131,16 +131,16 @@ class Test_Google_Fonts_Control extends \WP_UnitTestCase {
 	public function test_to_json() {
 		$wp_customize = new \WP_Customize_Manager();
 
-		$wp_customize->add_setting( 'mtb_primary_color' );
-		$wp_customize->add_setting( 'mtb_on_primary_color' );
+		$wp_customize->add_setting( 'material_design_primary_color' );
+		$wp_customize->add_setting( 'material_design_on_primary_color' );
 
 		$primary_control = new Google_Fonts_Control(
 			$wp_customize,
-			'mtb_primary_color',
+			'material_design_primary_color',
 			[
 				'label'                => 'Headlines',
 				'priority'             => 10,
-				'related_text_setting' => 'mtb_head_font_family',
+				'related_text_setting' => 'material_design_head_font_family',
 				'related_setting'      => false,
 				'css_vars'             => [
 					'family' => [

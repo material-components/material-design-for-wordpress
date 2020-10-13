@@ -50,8 +50,8 @@ describe( 'RecaptchaInspectorControlsPanel', () => {
 		if ( 'get' === data.action && getData < 2 ) {
 			getData++;
 			response.data = {
-				mtb_recaptcha_client_secret: 'CLIENT_SECRET_FROM_AJAX',
-				mtb_recaptcha_site_key: 'SITE_KEY_FROM_AJAX',
+				material_design_recaptcha_client_secret: 'CLIENT_SECRET_FROM_AJAX',
+				material_design_recaptcha_site_key: 'SITE_KEY_FROM_AJAX',
 			};
 		}
 
@@ -59,7 +59,7 @@ describe( 'RecaptchaInspectorControlsPanel', () => {
 	} );
 
 	beforeAll( () => {
-		global.mtb = {
+		global.materialDesign = {
 			ajax_url: 'http://example.com/',
 			recaptcha_ajax_nonce_action: 'CAPTCHA_NONCE',
 		};

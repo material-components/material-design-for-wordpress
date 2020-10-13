@@ -23,7 +23,7 @@
  * @return {string|Object|undefined} Value of config.
  */
 const getConfig = name => {
-	const configData = window.mtbGsm;
+	const configData = window.materialDesignGsm;
 
 	if ( undefined === configData ) {
 		return undefined;

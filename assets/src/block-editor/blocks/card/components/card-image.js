@@ -75,8 +75,10 @@ const CardImage = ( {
 						className={ classnames(
 							'mdc-card__media',
 							`mdc-card__media--${ type }`,
-							'mtb-card__media',
-							{ [ `mtb-card-with-${ contentLayout }` ]: contentLayout }
+							'material-design-card__media',
+							{
+								[ `material-design-card-with-${ contentLayout }` ]: contentLayout,
+							}
 						) }
 						style={ { backgroundImage: `url(${ imageSourceUrl })` } }
 					>
