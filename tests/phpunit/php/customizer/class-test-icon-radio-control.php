@@ -96,11 +96,11 @@ class Test_Icon_Radio_Control extends \WP_UnitTestCase {
 	public function test_to_json() {
 		$wp_customize = new \WP_Customize_Manager();
 
-		$wp_customize->add_setting( 'mtb_icon_collection' );
+		$wp_customize->add_setting( 'material_design_icon_collection' );
 
 		$primary_control = new Icon_Radio_Control(
 			$wp_customize,
-			'mtb_icon_collection',
+			'material_design_icon_collection',
 			[
 				'label'    => 'Icon Styles',
 				'section'  => 'icon',

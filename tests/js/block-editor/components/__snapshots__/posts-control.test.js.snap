@@ -123,7 +123,7 @@ Object {
     />
     <div>
       <div
-        class="components-placeholder mtb-block-api-error is-small"
+        class="components-placeholder material-design-block-api-error is-small"
       >
         <iframe
           aria-hidden="true"
@@ -171,7 +171,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="components-placeholder mtb-block-api-error is-small"
+      class="components-placeholder material-design-block-api-error is-small"
     >
       <iframe
         aria-hidden="true"

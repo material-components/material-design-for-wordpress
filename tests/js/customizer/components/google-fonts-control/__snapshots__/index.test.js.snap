@@ -14,14 +14,14 @@ exports[`GoogleFontsControl matches snapshot 1`] = `
       },
     ]
   }
-  id="mtb-google-fonts-control"
+  id="material-design-google-fonts-control"
   label="Typography"
   onChange={[MockFunction]}
   value="Roboto"
 >
   <div
     className="google-fonts-control"
-    id="google-fonts-control-mtb-google-fonts-control"
+    id="google-fonts-control-material-design-google-fonts-control"
   >
     <div
       className="google-fonts-control-header"
@@ -43,7 +43,7 @@ exports[`GoogleFontsControl matches snapshot 1`] = `
     >
       <select
         className="google-fonts-control-selection"
-        data-id="mtb-google-fonts-control"
+        data-id="material-design-google-fonts-control"
         onChange={[MockFunction]}
         value="Roboto"
       />

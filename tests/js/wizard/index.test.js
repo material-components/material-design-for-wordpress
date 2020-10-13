@@ -23,7 +23,7 @@ import Wizard from '../../../assets/src/wizard/components';
 
 describe( 'Onboarding Wizard', () => {
 	beforeAll( () => {
-		global.mtbWizard = {
+		global.materialDesignWizard = {
 			pagesUrl: 'http://example.com/wp-admin/edit.php?post_type=page',
 			settingsUrl: 'http://example.com/wp-admin/plugins.php',
 			assetsPath: 'http://example.com/',

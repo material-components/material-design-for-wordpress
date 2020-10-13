@@ -122,8 +122,8 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		parent::setup();
 		$this->contact_form_block = new Contact_Form_Block( new Plugin() );
 		$this->contact_form_block->init();
-		update_option( 'mtb_recaptcha_site_key', 'test-site-key' );
-		update_option( 'mtb_recaptcha_client_secret', 'test-client-secret' );
+		update_option( 'material_design_recaptcha_site_key', 'test-site-key' );
+		update_option( 'material_design_recaptcha_client_secret', 'test-client-secret' );
 		add_filter( 'pre_http_request', [ $this, 'disable_google_recaptcha_remote_check' ] );
 		$this->reset_mailer();
 	}
@@ -135,8 +135,8 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		parent::tearDown();
 
 		$this->contact_form_block = null;
-		delete_option( 'mtb_recaptcha_site_key' );
-		delete_option( 'mtb_recaptcha_client_secret' );
+		delete_option( 'material_design_recaptcha_site_key' );
+		delete_option( 'material_design_recaptcha_client_secret' );
 		remove_filter( 'pre_http_request', [ $this, 'disable_google_recaptcha_remote_check' ] );
 		$this->reset_mailer();
 	}
@@ -157,28 +157,29 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 			$this->logout();
 		}
 
-		$_POST['mtb_contact_form_nonce'] = wp_create_nonce( 'contact_form_action' );
-		$_POST['token']                  = 'test-token';
-		$_POST['_wp_http_referer']       = get_permalink( $post->id );
-		$_POST['contact_fields']         = json_encode( // phpcs:ignore
+		$_POST['material_design_contact_form_nonce'] = wp_create_nonce( 'contact_form_action' );
+
+		$_POST['token']            = 'test-token';
+		$_POST['_wp_http_referer'] = get_permalink( $post->id );
+		$_POST['contact_fields']   = json_encode( // phpcs:ignore
 			[
-				'mtb-name-1'    => [
-					'name'  => 'mtb-name-11',
+				'material-design-name-1'    => [
+					'name'  => 'material-design-name-11',
 					'label' => 'Name',
 					'value' => 'Test name',
 				],
-				'mtb-email-1'   => [
-					'name'  => 'mtb-email-1',
+				'material-design-email-1'   => [
+					'name'  => 'material-design-email-1',
 					'label' => 'Email',
 					'value' => 'test-sender@test.loc',
 				],
-				'mtb-website-1' => [
-					'name'  => 'mtb-website-1',
+				'material-design-website-1' => [
+					'name'  => 'material-design-website-1',
 					'label' => 'Website',
 					'value' => 'http://www.example.com',
 				],
-				'mtb-message-1' => [
-					'name'  => 'mtb-message-1',
+				'material-design-message-1' => [
+					'name'  => 'material-design-message-1',
 					'label' => 'Message',
 					'value' => 'Test message',
 				],
@@ -214,9 +215,9 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 */
 	public function test_submit_contact_form_invalid_nonce() {
 		$this->setup_ajax( true );
-		$_POST['mtb_contact_form_nonce'] = wp_create_nonce( 'invalid_action' );
+		$_POST['material_design_contact_form_nonce'] = wp_create_nonce( 'invalid_action' );
 
-		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'material_design_submit_contact_form' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -240,7 +241,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$post                      = get_post( - 1 );
 		$_POST['_wp_http_referer'] = '';
 
-		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'material_design_submit_contact_form' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -264,7 +265,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$post                      = get_post( self::$invalid_post_id );
 		$_POST['_wp_http_referer'] = get_permalink( $post );
 
-		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'material_design_submit_contact_form' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -285,7 +286,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$this->setup_ajax( true );
 		$_POST['token'] = '';
 
-		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'material_design_submit_contact_form' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -303,10 +304,10 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
 	public function test_submit_contact_form_missing_recaptcha_site_key_option() {
-		delete_option( 'mtb_recaptcha_site_key' );
+		delete_option( 'material_design_recaptcha_site_key' );
 		$this->setup_ajax( true );
 
-		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'material_design_submit_contact_form' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -324,10 +325,10 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
 	public function test_submit_contact_form_missing_recaptcha_client_secret_option() {
-		delete_option( 'mtb_recaptcha_client_secret' );
+		delete_option( 'material_design_recaptcha_client_secret' );
 		$this->setup_ajax( true );
 
-		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'material_design_submit_contact_form' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -346,7 +347,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 */
 	public function test_submit_contact_form_success() {
 		$this->setup_ajax( true );
-		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'material_design_submit_contact_form' );
 
 		$this->assertTrue( $response['success'] );
 		$mailer = tests_retrieve_phpmailer_instance();
@@ -368,7 +369,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	public function test_submit_contact_form_with_non_structured_contact_fields() {
 		$this->setup_ajax( true );
 		$_POST['contact_fields'] = '';
-		$response                = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response                = $this->do_ajax( 'material_design_submit_contact_form' );
 
 		$this->assertEquals(
 			[
@@ -390,15 +391,15 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 		$this->setup_ajax( true );
 		$_POST['contact_fields'] = wp_json_encode(
 			[
-				'mtb-name-1' => [
-					'name'  => [ 'mtb-name-11' ],
+				'material-design-name-1' => [
+					'name'  => [ 'material-design-name-11' ],
 					'label' => [ 'Name' ],
 					'value' => [ 'Test name' ],
 				],
 			]
 		);
 
-		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'material_design_submit_contact_form' );
 
 		$this->assertEquals(
 			[
@@ -417,11 +418,11 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 * @see Contact_Form_Block::submit_contact_form()
 	 */
 	public function test_submit_contact_form_success_without_recaptcha() {
-		delete_option( 'mtb_recaptcha_site_key' );
-		delete_option( 'mtb_recaptcha_client_secret' );
+		delete_option( 'material_design_recaptcha_site_key' );
+		delete_option( 'material_design_recaptcha_client_secret' );
 
 		$this->setup_ajax( true );
-		$response = $this->do_ajax( 'mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'material_design_submit_contact_form' );
 
 		$this->assertTrue( $response['success'] );
 		$mailer = tests_retrieve_phpmailer_instance();
@@ -442,7 +443,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	 */
 	public function test_submit_contact_form_when_not_logged_in_success() {
 		$this->setup_ajax( false );
-		$response = $this->do_ajax( 'nopriv_mtb_submit_contact_form' );
+		$response = $this->do_ajax( 'nopriv_material_design_submit_contact_form' );
 
 		$this->assertTrue( $response['success'] );
 		$mailer = tests_retrieve_phpmailer_instance();
@@ -457,15 +458,15 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials with an invalid nonce.
+	 * Test material_design_manage_recaptcha_api_credentials with an invalid nonce.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_invalid_nonce() {
+	public function test_material_design_manage_recaptcha_api_credentials_invalid_nonce() {
 		$this->_setRole( 'administrator' );
 		$_POST['nonce'] = wp_create_nonce( 'invalid_action' );
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -478,16 +479,16 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials for an editor without the manage options capability.
+	 * Test material_design_manage_recaptcha_api_credentials for an editor without the manage options capability.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_editor_without_manage_options() {
+	public function test_material_design_manage_recaptcha_api_credentials_editor_without_manage_options() {
 		$this->logout();
 		$this->_setRole( 'editor' );
-		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -500,54 +501,54 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials for an editor with the manage options capability.
+	 * Test material_design_manage_recaptcha_api_credentials for an editor with the manage options capability.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_editor_with_manage_options() {
+	public function test_material_design_manage_recaptcha_api_credentials_editor_with_manage_options() {
 		$editor_role = get_role( 'editor' );
 		$editor_role->add_cap( 'manage_options' );
 
 		$this->logout();
 		$this->_setRole( 'editor' );
-		update_option( 'mtb_recaptcha_site_key', 'test-key' );
-		update_option( 'mtb_recaptcha_client_secret', 'test-secret' );
+		update_option( 'material_design_recaptcha_site_key', 'test-key' );
+		update_option( 'material_design_recaptcha_client_secret', 'test-secret' );
 
-		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 		$_POST['data']  = wp_json_encode(
 			[
 				'action' => 'get',
 			]
 		);
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 
 		$this->assertEquals(
 			[
 				'success' => true,
 				'data'    => [
-					'mtb_recaptcha_site_key'      => 'test-key',
-					'mtb_recaptcha_client_secret' => 'test-secret',
+					'material_design_recaptcha_site_key' => 'test-key',
+					'material_design_recaptcha_client_secret' => 'test-secret',
 				],
 			],
 			$response
 		);
 
-		delete_option( 'mtb_recaptcha_site_key' );
-		delete_option( 'mtb_recaptcha_client_secret' );
+		delete_option( 'material_design_recaptcha_site_key' );
+		delete_option( 'material_design_recaptcha_client_secret' );
 		$editor_role->remove_cap( 'manage_options' );
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials with missing data.
+	 * Test material_design_manage_recaptcha_api_credentials with missing data.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_missing_data() {
+	public function test_material_design_manage_recaptcha_api_credentials_missing_data() {
 		$this->_setRole( 'administrator' );
-		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -560,46 +561,46 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials for a successful get action request.
+	 * Test material_design_manage_recaptcha_api_credentials for a successful get action request.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_get_success() {
+	public function test_material_design_manage_recaptcha_api_credentials_get_success() {
 		$this->_setRole( 'administrator' );
-		update_option( 'mtb_recaptcha_site_key', 'test-key' );
-		update_option( 'mtb_recaptcha_client_secret', 'test-secret' );
+		update_option( 'material_design_recaptcha_site_key', 'test-key' );
+		update_option( 'material_design_recaptcha_client_secret', 'test-secret' );
 
-		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 		$_POST['data']  = json_encode( // phpcs:ignore
 			[
 				'action' => 'get',
 			]
 		);
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 		$this->assertEquals(
 			[
 				'success' => true,
 				'data'    => [
-					'mtb_recaptcha_site_key'      => 'test-key',
-					'mtb_recaptcha_client_secret' => 'test-secret',
+					'material_design_recaptcha_site_key' => 'test-key',
+					'material_design_recaptcha_client_secret' => 'test-secret',
 				],
 			],
 			$response
 		);
 
-		delete_option( 'mtb_recaptcha_site_key' );
-		delete_option( 'mtb_recaptcha_client_secret' );
+		delete_option( 'material_design_recaptcha_site_key' );
+		delete_option( 'material_design_recaptcha_client_secret' );
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials for a successful save submission.
+	 * Test material_design_manage_recaptcha_api_credentials for a successful save submission.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_save_success() {
+	public function test_material_design_manage_recaptcha_api_credentials_save_success() {
 		$this->_setRole( 'administrator' );
-		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 		$_POST['data']  = json_encode( // phpcs:ignore
 			[
 				'action'        => 'save',
@@ -608,24 +609,24 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 			]
 		);
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 		$this->assertEquals( [ 'success' => true ], $response );
 
-		delete_option( 'mtb_recaptcha_client_secret' );
-		delete_option( 'mtb_recaptcha_site_key' );
+		delete_option( 'material_design_recaptcha_client_secret' );
+		delete_option( 'material_design_recaptcha_site_key' );
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials for a successful clear submission.
+	 * Test material_design_manage_recaptcha_api_credentials for a successful clear submission.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_clear_success() {
+	public function test_material_design_manage_recaptcha_api_credentials_clear_success() {
 		$this->_setRole( 'administrator' );
-		update_option( 'mtb_recaptcha_site_key', 'test-key' );
-		update_option( 'mtb_recaptcha_client_secret', 'test-secret' );
+		update_option( 'material_design_recaptcha_site_key', 'test-key' );
+		update_option( 'material_design_recaptcha_client_secret', 'test-secret' );
 
-		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 		$_POST['data']  = json_encode( // phpcs:ignore
 			[
 				'action'        => 'clear',
@@ -634,21 +635,21 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 			]
 		);
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 		$this->assertEquals( [ 'success' => true ], $response );
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials with invalid data.
+	 * Test material_design_manage_recaptcha_api_credentials with invalid data.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_with_invalid_data() {
+	public function test_material_design_manage_recaptcha_api_credentials_with_invalid_data() {
 		$this->_setRole( 'administrator' );
-		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 		$_POST['data']  = 'invalid';
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 
 		$this->assertEquals(
 			[
@@ -662,13 +663,13 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials with missing site key on save.
+	 * Test material_design_manage_recaptcha_api_credentials with missing site key on save.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_with_some_missing_site_key_on_save() {
+	public function test_material_design_manage_recaptcha_api_credentials_with_some_missing_site_key_on_save() {
 		$this->_setRole( 'administrator' );
-		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 		$_POST['data']  = json_encode( // phpcs:ignore
 			[
 				'action'        => 'save',
@@ -676,7 +677,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 			]
 		);
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 		$this->assertEquals(
 			[
 				'success' => false,
@@ -689,13 +690,13 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test mtb_manage_recaptcha_api_credentials with missing client_secret on save.
+	 * Test material_design_manage_recaptcha_api_credentials with missing client_secret on save.
 	 *
-	 * @see Contact_Form_Block::mtb_manage_recaptcha_api_credentials()
+	 * @see Contact_Form_Block::material_design_manage_recaptcha_api_credentials()
 	 */
-	public function test_mtb_manage_recaptcha_api_credentials_with_some_missing_client_secret_on_save() {
+	public function test_material_design_manage_recaptcha_api_credentials_with_some_missing_client_secret_on_save() {
 		$this->_setRole( 'administrator' );
-		$_POST['nonce'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 		$_POST['data']  = json_encode( // phpcs:ignore
 			[
 				'action'   => 'save',
@@ -703,7 +704,7 @@ class Test_Ajax_Contact_Form_Block extends \WP_Ajax_UnitTestCase {
 			]
 		);
 
-		$response = $this->do_ajax( 'mtb_manage_recaptcha_api_credentials' );
+		$response = $this->do_ajax( 'material_design_manage_recaptcha_api_credentials' );
 		$this->assertEquals(
 			[
 				'success' => false,

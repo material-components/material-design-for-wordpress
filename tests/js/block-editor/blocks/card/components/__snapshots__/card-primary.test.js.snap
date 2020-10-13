@@ -30,10 +30,10 @@ Object {
     />
     <div>
       <div
-        class="mtb-card__primary"
+        class="material-design-card__primary"
       >
         <h3
-          class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+          class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
         >
           Test Secondary text
         </h3>
@@ -42,10 +42,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mtb-card__primary"
+      class="material-design-card__primary"
     >
       <h3
-        class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+        class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
       >
         Test Secondary text
       </h3>
@@ -135,10 +135,10 @@ Object {
     />
     <div>
       <div
-        class="mtb-card__primary"
+        class="material-design-card__primary"
       >
         <h2
-          class="mtb-card__title mdc-typography mdc-typography--headline6"
+          class="material-design-card__title mdc-typography mdc-typography--headline6"
         >
           Test Title
         </h2>
@@ -147,10 +147,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mtb-card__primary"
+      class="material-design-card__primary"
     >
       <h2
-        class="mtb-card__title mdc-typography mdc-typography--headline6"
+        class="material-design-card__title mdc-typography mdc-typography--headline6"
       >
         Test Title
       </h2>
@@ -240,12 +240,12 @@ Object {
     />
     <div>
       <div
-        class="mtb-card__primary"
+        class="material-design-card__primary"
       >
         <h3
           aria-label="Secondary text"
           aria-multiline="true"
-          class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
@@ -257,12 +257,12 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mtb-card__primary"
+      class="material-design-card__primary"
     >
       <h3
         aria-label="Secondary text"
         aria-multiline="true"
-        class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+        class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
         contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
@@ -355,12 +355,12 @@ Object {
     />
     <div>
       <div
-        class="mtb-card__primary"
+        class="material-design-card__primary"
       >
         <h2
           aria-label="Title goes here"
           aria-multiline="true"
-          class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+          class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
           contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
@@ -372,12 +372,12 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mtb-card__primary"
+      class="material-design-card__primary"
     >
       <h2
         aria-label="Title goes here"
         aria-multiline="true"
-        class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+        class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
         contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
@@ -470,12 +470,12 @@ Object {
     />
     <div>
       <div
-        class="mtb-card__primary"
+        class="material-design-card__primary"
       >
         <h2
           aria-label="Title goes here"
           aria-multiline="true"
-          class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+          class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
           contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
@@ -485,7 +485,7 @@ Object {
         <h3
           aria-label="Secondary text"
           aria-multiline="true"
-          class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
@@ -497,12 +497,12 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mtb-card__primary"
+      class="material-design-card__primary"
     >
       <h2
         aria-label="Title goes here"
         aria-multiline="true"
-        class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+        class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
         contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
@@ -512,7 +512,7 @@ Object {
       <h3
         aria-label="Secondary text"
         aria-multiline="true"
-        class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+        class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
         contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
@@ -605,15 +605,15 @@ Object {
     />
     <div>
       <div
-        class="mtb-card__primary"
+        class="material-design-card__primary"
       >
         <h2
-          class="mtb-card__title mdc-typography mdc-typography--headline6"
+          class="material-design-card__title mdc-typography mdc-typography--headline6"
         >
           Test Title
         </h2>
         <h3
-          class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+          class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
         >
           Test Secondary text
         </h3>
@@ -622,15 +622,15 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mtb-card__primary"
+      class="material-design-card__primary"
     >
       <h2
-        class="mtb-card__title mdc-typography mdc-typography--headline6"
+        class="material-design-card__title mdc-typography mdc-typography--headline6"
       >
         Test Title
       </h2>
       <h3
-        class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+        class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
       >
         Test Secondary text
       </h3>

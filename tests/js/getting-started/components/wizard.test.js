@@ -36,7 +36,7 @@ const setup = () => {
 
 describe( 'GSM: Wizard', () => {
 	beforeAll( () => {
-		global.mtbGsm = {
+		global.materialDesignGsm = {
 			wizardUrl: 'http://example.com',
 		};
 	} );

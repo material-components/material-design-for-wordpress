@@ -123,13 +123,13 @@ describe( 'UrlInputPopover', () => {
 		act( async () => {
 			const { container } = setup( baseProps );
 			const expandButton = container.querySelector(
-				'.mtb-url-input-control__more-button'
+				'.material-design-url-input-control__more-button'
 			);
 
 			await fireEvent.click( expandButton );
-			expect( container.querySelector( '.mtb-url-input-popover' ) ).toHaveClass(
-				'mtb--show-advanced'
-			);
+			expect(
+				container.querySelector( '.material-design-url-input-popover' )
+			).toHaveClass( 'material-design--show-advanced' );
 		} );
 	} );
 } );

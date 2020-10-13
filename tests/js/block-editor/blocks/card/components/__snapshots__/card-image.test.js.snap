@@ -30,7 +30,7 @@ Object {
     />
     <div>
       <div
-        class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+        class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
         style="background-image: url(http://test.loc/test.jpg);"
         tabindex="0"
       />
@@ -38,7 +38,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+      class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
       style="background-image: url(http://test.loc/test.jpg);"
       tabindex="0"
     />
@@ -127,7 +127,7 @@ Object {
     />
     <div>
       <div
-        class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"
+        class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
         style="background-image: url(http://test.loc/test.jpg);"
         tabindex="0"
       >
@@ -135,7 +135,7 @@ Object {
           class="mdc-card__media-content"
         >
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           />
         </div>
       </div>
@@ -143,7 +143,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"
+      class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
       style="background-image: url(http://test.loc/test.jpg);"
       tabindex="0"
     >
@@ -151,7 +151,7 @@ Object {
         class="mdc-card__media-content"
       >
         <div
-          class="mtb-card__primary"
+          class="material-design-card__primary"
         />
       </div>
     </div>
@@ -240,10 +240,10 @@ Object {
     />
     <div>
       <div
-        class="mtb-card__media-container"
+        class="material-design-card__media-container"
       >
         <div
-          class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"
+          class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
           style="background-image: url(http://test.loc/test.jpg);"
           tabindex="0"
         >
@@ -251,16 +251,16 @@ Object {
             class="mdc-card__media-content"
           >
             <div
-              class="mtb-card__primary"
+              class="material-design-card__primary"
             />
           </div>
         </div>
         <div
-          class="mtb-card__media-actions"
+          class="material-design-card__media-actions"
         >
           <button
             aria-label="Remove Card Image"
-            class="components-button mtb-card__media-close-button has-icon"
+            class="components-button material-design-card__media-close-button has-icon"
             type="button"
           >
             <svg
@@ -284,10 +284,10 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mtb-card__media-container"
+      class="material-design-card__media-container"
     >
       <div
-        class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"
+        class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
         style="background-image: url(http://test.loc/test.jpg);"
         tabindex="0"
       >
@@ -295,16 +295,16 @@ Object {
           class="mdc-card__media-content"
         >
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           />
         </div>
       </div>
       <div
-        class="mtb-card__media-actions"
+        class="material-design-card__media-actions"
       >
         <button
           aria-label="Remove Card Image"
-          class="components-button mtb-card__media-close-button has-icon"
+          class="components-button material-design-card__media-close-button has-icon"
           type="button"
         >
           <svg

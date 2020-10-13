@@ -260,7 +260,7 @@
 .mdc-card,
 .mdc-card__link,
 .single-post-card__title,
-.mtb-card__title {
+.material-design-card__title {
 	color: var(--mdc-theme-on-surface, #000);
 	text-decoration: none;
 }
@@ -270,8 +270,8 @@
 }
 
 .single-post-card__subtitle,
-.mtb-card__secondary-text,
-.mtb-card__supporting-text {
+.material-design-card__secondary-text,
+.material-design-card__supporting-text {
 	color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .54);
 }
 

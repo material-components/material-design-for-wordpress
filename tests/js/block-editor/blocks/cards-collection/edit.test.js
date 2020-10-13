@@ -214,7 +214,9 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 			.at( 1 )
 			.simulate( 'focus' );
 
-		wrapper.find( 'button.mtb-card-move-button-left-up' ).simulate( 'click' );
+		wrapper
+			.find( 'button.material-design-card-move-button-left-up' )
+			.simulate( 'click' );
 		//
 		expect( props.setAttributes ).toHaveBeenCalledWith( {
 			cardsProps: [
@@ -234,7 +236,7 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 			.simulate( 'focus' );
 
 		wrapper
-			.find( 'button.mtb-card-move-button-right-down' )
+			.find( 'button.material-design-card-move-button-right-down' )
 			.simulate( 'click' );
 
 		expect( props.setAttributes ).toHaveBeenCalledWith( {
@@ -254,7 +256,9 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 			.at( 1 )
 			.simulate( 'focus' );
 
-		wrapper.find( 'button.mtb-card-close-button' ).simulate( 'click' );
+		wrapper
+			.find( 'button.material-design-card-close-button' )
+			.simulate( 'click' );
 
 		expect( props.setAttributes ).toHaveBeenCalledWith( {
 			cardsProps: [ { ...firstCardProps }, { ...thirdCardProps } ],

@@ -43,29 +43,29 @@ Object {
               class="card-container"
             >
               <div
-                class="mdc-card mtb-card"
+                class="mdc-card material-design-card"
                 style="border-radius: 4px;"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                  class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                   tabindex="0"
                 >
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
-                      class="mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="material-design-card__title mdc-typography mdc-typography--headline6"
                     >
                       Title goes here
                     </h2>
                     <h3
-                      class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     >
                       Secondary text
                     </h3>
                   </div>
                   <div
-                    class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   >
                     Supporting text
                   </div>
@@ -113,29 +113,29 @@ Object {
             class="card-container"
           >
             <div
-              class="mdc-card mtb-card"
+              class="mdc-card material-design-card"
               style="border-radius: 4px;"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
-                    class="mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="material-design-card__title mdc-typography mdc-typography--headline6"
                   >
                     Title goes here
                   </h2>
                   <h3
-                    class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                   >
                     Secondary text
                   </h3>
                 </div>
                 <div
-                  class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                 >
                   Supporting text
                 </div>
@@ -263,29 +263,29 @@ Object {
               class="card-container mdc-layout-grid__cell--span-3"
             >
               <div
-                class="mdc-card mtb-card"
+                class="mdc-card material-design-card"
                 style="border-radius: 4px;"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                  class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                   tabindex="0"
                 >
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
-                      class="mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="material-design-card__title mdc-typography mdc-typography--headline6"
                     >
                       Title goes here
                     </h2>
                     <h3
-                      class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     >
                       Secondary text
                     </h3>
                   </div>
                   <div
-                    class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   >
                     Supporting text
                   </div>
@@ -332,29 +332,29 @@ Object {
             class="card-container mdc-layout-grid__cell--span-3"
           >
             <div
-              class="mdc-card mtb-card"
+              class="mdc-card material-design-card"
               style="border-radius: 4px;"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+                class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
                 tabindex="0"
               >
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
-                    class="mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="material-design-card__title mdc-typography mdc-typography--headline6"
                   >
                     Title goes here
                   </h2>
                   <h3
-                    class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                   >
                     Secondary text
                   </h3>
                 </div>
                 <div
-                  class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                 >
                   Supporting text
                 </div>
@@ -482,23 +482,23 @@ Object {
               class="card-container mdc-layout-grid__cell--span-12"
             >
               <div
-                class="mdc-card mtb-card mtb-card__list mtb-basic"
+                class="mdc-card material-design-card material-design-card__list material-design-basic"
                 style="border-radius: 4px;"
               >
                 <div
-                  class="mdc-card__primary-action mtb-card__primary-action"
+                  class="mdc-card__primary-action material-design-card__primary-action"
                   tabindex="0"
                 >
                   <div
-                    class="mtb-card__primary"
+                    class="material-design-card__primary"
                   >
                     <h2
-                      class="mtb-card__title mdc-typography mdc-typography--headline6"
+                      class="material-design-card__title mdc-typography mdc-typography--headline6"
                     >
                       Title goes here
                     </h2>
                     <h3
-                      class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     >
                       Secondary text
                     </h3>
@@ -546,23 +546,23 @@ Object {
             class="card-container mdc-layout-grid__cell--span-12"
           >
             <div
-              class="mdc-card mtb-card mtb-card__list mtb-basic"
+              class="mdc-card material-design-card material-design-card__list material-design-basic"
               style="border-radius: 4px;"
             >
               <div
-                class="mdc-card__primary-action mtb-card__primary-action"
+                class="mdc-card__primary-action material-design-card__primary-action"
                 tabindex="0"
               >
                 <div
-                  class="mtb-card__primary"
+                  class="material-design-card__primary"
                 >
                   <h2
-                    class="mtb-card__title mdc-typography mdc-typography--headline6"
+                    class="material-design-card__title mdc-typography mdc-typography--headline6"
                   >
                     Title goes here
                   </h2>
                   <h3
-                    class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                   >
                     Secondary text
                   </h3>

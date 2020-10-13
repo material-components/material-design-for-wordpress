@@ -131,7 +131,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		add_filter( 'template', [ $this, 'template' ] );
 
 		$post = get_post( self::$post_id );
-		update_option( 'mtb_recaptcha_site_key', 'test-key' );
+		update_option( 'material_design_recaptcha_site_key', 'test-key' );
 
 		$plugin = get_plugin_instance();
 
@@ -157,7 +157,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_style_is( 'material-overrides-css', 'enqueued' ) );
 
-		delete_option( 'mtb_recaptcha_site_key' );
+		delete_option( 'material_design_recaptcha_site_key' );
 	}
 
 	/**

@@ -73,14 +73,14 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	public static function tabs_template() {
 		?>
 		<script type="text/html" id="tmpl-customize-control-material_color-tabs">
-			<# var id = mtbSanitizeControlId( data.id ) #>
-			<div class="mtb-tabs">
-				<a class="mtb-tab-link" href="#mtb-palette-{{id}}"><?php esc_html_e( 'Palette', 'material-design' ); ?></a>
-				<a class="mtb-tab-link" href="#mtb-custom-{{id}}"><?php esc_html_e( 'Custom', 'material-design' ); ?></a>
+			<# var id = materialDesignSanitizeControlId( data.id ) #>
+			<div class="material-design-tabs">
+				<a class="material-design-tab-link" href="#material-design-palette-{{id}}"><?php esc_html_e( 'Palette', 'material-design' ); ?></a>
+				<a class="material-design-tab-link" href="#material-design-custom-{{id}}"><?php esc_html_e( 'Custom', 'material-design' ); ?></a>
 			</div>
-			<div class="mtb-tab-content tab-palette" id="mtb-palette-{{id}}"></div>
-			<div class="mtb-tab-content tab-custom" id="mtb-custom-{{id}}"></div>
-			<div class="mtb-accessibility"></div>
+			<div class="material-design-tab-content tab-palette" id="material-design-palette-{{id}}"></div>
+			<div class="material-design-tab-content tab-custom" id="material-design-custom-{{id}}"></div>
+			<div class="material-design-accessibility"></div>
 		</script>
 		<script type="text/html" id="tmpl-customize-control-material_color-accessibility">
 			<div class="material-color-accessibility">

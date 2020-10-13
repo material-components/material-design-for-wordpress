@@ -39,7 +39,7 @@ const baseProps = { status: 'install' };
 
 describe( 'ThemePrompt', () => {
 	beforeAll( () => {
-		global.mtb = {
+		global.materialDesign = {
 			themeNonce: 'NONCE',
 		};
 	} );

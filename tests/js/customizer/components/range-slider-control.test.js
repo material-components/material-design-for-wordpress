@@ -50,7 +50,7 @@ const mockOnChangeFn = jest.fn();
 const mockOnExpandedFn = jest.fn();
 
 const baseProps = {
-	id: 'mtb-small_component_radius',
+	id: 'material-design-small_component_radius',
 	label: 'Small Component Radius',
 	description: 'This is a test description',
 	value: 10,

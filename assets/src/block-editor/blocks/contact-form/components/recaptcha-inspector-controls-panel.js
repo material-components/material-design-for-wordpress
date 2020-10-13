@@ -84,13 +84,19 @@ const RecaptchaInspectorControlsPanel = () => {
 
 						if (
 							response.hasOwnProperty( 'data' ) &&
-							response.data.hasOwnProperty( 'mtb_recaptcha_site_key' )
+							response.data.hasOwnProperty(
+								'material_design_recaptcha_site_key'
+							)
 						) {
-							setSiteKey( response.data.mtb_recaptcha_site_key );
+							setSiteKey( response.data.material_design_recaptcha_site_key );
 							if (
-								response.data.hasOwnProperty( 'mtb_recaptcha_client_secret' )
+								response.data.hasOwnProperty(
+									'material_design_recaptcha_client_secret'
+								)
 							) {
-								setClientSecret( response.data.mtb_recaptcha_client_secret );
+								setClientSecret(
+									response.data.material_design_recaptcha_client_secret
+								);
 							}
 						}
 					} )
@@ -201,7 +207,7 @@ const RecaptchaInspectorControlsPanel = () => {
 			dataType: 'json',
 			type: 'POST',
 			data: {
-				action: 'mtb_manage_recaptcha_api_credentials',
+				action: 'material_design_manage_recaptcha_api_credentials',
 				nonce: getConfig( 'recaptcha_ajax_nonce_action' ),
 				data: JSON.stringify( data ),
 			},

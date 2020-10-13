@@ -49,7 +49,7 @@ const ErrorPlaceholder = ( { className, error, isLoading, onRetry } ) => (
 	<Placeholder
 		icon={ <ErrorIcon /> }
 		label={ __( 'Sorry, an error occurred', 'material-design' ) }
-		className={ classNames( 'mtb-block-api-error', className ) }
+		className={ classNames( 'material-design-block-api-error', className ) }
 	>
 		<ErrorMessage error={ error } />
 		{ onRetry && (

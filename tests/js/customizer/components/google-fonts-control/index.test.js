@@ -51,7 +51,7 @@ const setupShallow = props => {
 const mockOnChangeFn = jest.fn();
 
 const baseProps = {
-	id: 'mtb-google-fonts-control',
+	id: 'material-design-google-fonts-control',
 	label: 'Typography',
 	value: 'Roboto',
 	fonts: [
@@ -92,7 +92,7 @@ describe( 'GoogleFontsControl', () => {
 		global.$ = global.jQuery = jQMock;
 		global.jQuery.fn.selectWoo = jest.fn( () => jQMock( this ) ); // eslint-disable-line
 
-		global.mtb = {
+		global.materialDesign = {
 			googleFonts: [
 				{ id: 'Roboto', text: 'Roboto' },
 				{ id: 'Ubuntu', text: 'Ubuntu' },

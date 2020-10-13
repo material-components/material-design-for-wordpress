@@ -121,8 +121,8 @@ const CardImageEdit = ( {
 			{ hasImage && ! isImageEditMode && imageSourceUrl && (
 				<>
 					<div
-						className={ classnames( 'mtb-card__media-container', {
-							'mtb-card__media-container-focused': isFocused,
+						className={ classnames( 'material-design-card__media-container', {
+							'material-design-card__media-container-focused': isFocused,
 						} ) }
 						onFocus={ () => setIsFocused( true ) }
 						onBlur={ onImageContainerBlur }
@@ -132,8 +132,10 @@ const CardImageEdit = ( {
 							className={ classnames(
 								'mdc-card__media',
 								`mdc-card__media--${ type }`,
-								'mtb-card__media',
-								{ [ `mtb-card-with-${ contentLayout }` ]: contentLayout }
+								'material-design-card__media',
+								{
+									[ `material-design-card-with-${ contentLayout }` ]: contentLayout,
+								}
 							) }
 							style={ { backgroundImage: `url(${ imageSourceUrl })` } }
 						>
@@ -144,12 +146,12 @@ const CardImageEdit = ( {
 							) }
 						</div>
 						<div
-							className={ classnames( 'mtb-card__media-actions', {
-								'mtb-card__media-actions-shown': isFocused,
+							className={ classnames( 'material-design-card__media-actions', {
+								'material-design-card__media-actions-shown': isFocused,
 							} ) }
 						>
 							<Button
-								className="mtb-card__media-close-button"
+								className="material-design-card__media-close-button"
 								icon="no"
 								showTooltip={ true }
 								label={ __( 'Remove Card Image', 'material-design' ) }

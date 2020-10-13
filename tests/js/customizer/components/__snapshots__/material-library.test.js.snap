@@ -155,13 +155,13 @@ Object {
                     style="padding: 16px;"
                   >
                     <h2
-                      class="mdc-typography mdc-typography--headline6 mtb-card__title"
+                      class="mdc-typography mdc-typography--headline6 material-design-card__title"
                       style="margin: 0px 0px 5px 0px;"
                     >
                       Our Changing Planet
                     </h2>
                     <h3
-                      class="mdc-typography mtb-card__secondary-text"
+                      class="mdc-typography material-design-card__secondary-text"
                       style="font-size: 0.875rem; font-weight: 500; line-height: 1.375rem; margin: 0px;"
                     >
                       by John Smith
@@ -1453,13 +1453,13 @@ Object {
                   style="padding: 16px;"
                 >
                   <h2
-                    class="mdc-typography mdc-typography--headline6 mtb-card__title"
+                    class="mdc-typography mdc-typography--headline6 material-design-card__title"
                     style="margin: 0px 0px 5px 0px;"
                   >
                     Our Changing Planet
                   </h2>
                   <h3
-                    class="mdc-typography mtb-card__secondary-text"
+                    class="mdc-typography material-design-card__secondary-text"
                     style="font-size: 0.875rem; font-weight: 500; line-height: 1.375rem; margin: 0px;"
                   >
                     by John Smith

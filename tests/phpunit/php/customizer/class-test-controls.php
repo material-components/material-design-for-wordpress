@@ -798,13 +798,13 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		// Bad nonce.
 		$_POST['nonce'] = 'bad';
 		wp_set_current_user( 1 );
-		$this->make_ajax_call( 'mtb_notification_dismiss' );
+		$this->make_ajax_call( 'material_design_notification_dismiss' );
 		$this->assertFalse( $this->_last_response_parsed['success'] );
 		$this->assertEquals( 'invalid_nonce', $this->_last_response_parsed['data'] );
 
 		// Valid.
-		$_POST['nonce'] = wp_create_nonce( 'mtb_notify_nonce' );
-		$this->make_ajax_call( 'mtb_notification_dismiss' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_notify_nonce' );
+		$this->make_ajax_call( 'material_design_notification_dismiss' );
 		$this->assertTrue( $this->_last_response_parsed['success'] );
 		$this->assertEquals( [ 'count' => 1 ], $this->_last_response_parsed['data'] );
 	}

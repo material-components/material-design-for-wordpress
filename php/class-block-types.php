@@ -175,10 +175,10 @@ class Block_Types {
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
 			$wp_localized_script_data['allow_contact_form_block']    = true;
-			$wp_localized_script_data['recaptcha_ajax_nonce_action'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+			$wp_localized_script_data['recaptcha_ajax_nonce_action'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 		}
 
-		wp_localize_script( 'material-block-editor-js', 'mtb', $wp_localized_script_data );
+		wp_localize_script( 'material-block-editor-js', 'materialDesign', $wp_localized_script_data );
 
 		wp_add_inline_style( 'material-block-editor-css', $this->plugin->customizer_controls->get_frontend_css() );
 

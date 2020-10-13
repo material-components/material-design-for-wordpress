@@ -111,7 +111,9 @@ describe( 'CardPrimary', () => {
 		const mockEvent = {
 			target: { value: 'This is a new title just for test' },
 		};
-		wrapper.find( '.mtb-card__title' ).simulate( 'change', mockEvent );
+		wrapper
+			.find( '.material-design-card__title' )
+			.simulate( 'change', mockEvent );
 		expect( props.setter ).toHaveBeenCalledWith( 'title', mockEvent, 0 );
 	} );
 
@@ -123,7 +125,9 @@ describe( 'CardPrimary', () => {
 		const mockEvent = {
 			target: { value: 'This is a new secondary text just for test' },
 		};
-		wrapper.find( '.mtb-card__secondary-text' ).simulate( 'change', mockEvent );
+		wrapper
+			.find( '.material-design-card__secondary-text' )
+			.simulate( 'change', mockEvent );
 		expect( props.setter ).toHaveBeenCalledWith(
 			'secondaryText',
 			mockEvent,

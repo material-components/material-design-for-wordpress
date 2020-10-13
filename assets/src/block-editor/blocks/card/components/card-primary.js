@@ -43,13 +43,13 @@ const CardPrimary = ( {
 	setter,
 	isEditMode,
 } ) => (
-	<div className="mtb-card__primary">
+	<div className="material-design-card__primary">
 		{ isEditMode ? (
 			<>
 				{ displayTitle && (
 					<RichText
 						tagName="h2"
-						className="mtb-card__title mdc-typography mdc-typography--headline6"
+						className="material-design-card__title mdc-typography mdc-typography--headline6"
 						value={ title }
 						onChange={ value => setter( 'title', value, cardIndex ) }
 						placeholder={ __( 'Title goes here', 'material-design' ) }
@@ -59,7 +59,7 @@ const CardPrimary = ( {
 				{ displaySecondaryText && (
 					<RichText
 						tagName="h3"
-						className="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+						className="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
 						value={ secondaryText }
 						onChange={ value => setter( 'secondaryText', value, cardIndex ) }
 						placeholder={ __( 'Secondary text', 'material-design' ) }
@@ -69,12 +69,12 @@ const CardPrimary = ( {
 		) : (
 			<>
 				{ displayTitle && (
-					<h2 className="mtb-card__title mdc-typography mdc-typography--headline6">
+					<h2 className="material-design-card__title mdc-typography mdc-typography--headline6">
 						{ title }
 					</h2>
 				) }
 				{ displaySecondaryText && (
-					<h3 className="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2">
+					<h3 className="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2">
 						{ secondaryText }
 					</h3>
 				) }
