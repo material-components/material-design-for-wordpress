@@ -3,7 +3,7 @@
 .env
 .idea
 composer.lock
-material-theme-builder.zip
+material-design.zip
 yarn.lock
 assets/css/*
 !assets/css/src/

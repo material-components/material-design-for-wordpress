@@ -24,7 +24,7 @@
 	>
 
 	<testsuites>
-		<testsuite name="Material Theme Builder">
+		<testsuite name="Material Design plugin for WordPress">
 			<directory suffix=".php">./tests/phpunit/</directory>
 		</testsuite>
 	</testsuites>

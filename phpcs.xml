@@ -15,7 +15,7 @@
  limitations under the License.
 -->
 
-<ruleset name="Material Theme Builder Coding Standards">
+<ruleset name="Material Design plugin Coding Standards">
 	<arg name="extensions" value="php" />
 	<arg name="colors" />
 	<arg name="parallel" value="16" />

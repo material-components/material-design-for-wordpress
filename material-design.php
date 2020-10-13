@@ -1,31 +1,28 @@
 <?php
 /**
  * Plugin Name: Material Design for WordPress
- * Plugin URI: https://github.com/xwp/material-theme-builder-wp
+ * Plugin URI: https://github.com/xwp/material-design-wp-plugin
  * Description: The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
  * Version: 1.0.0-alpha
  * Author:  Material Design
  * Author URI: http://material.io
- * License: Apache License
- * License URI: https://www.apache.org/licenses/
+ * License: Apache License, Version 2.0
+ * License URI: https://www.apache.org/licenses/LICENSE-2.0
  * Text Domain: material-theme-builder
- * Domain Path: /languages
  *
- * Copyright (c) 2020 XWP (https://xwp.co/)
+ * Copyright 2020 Google LLC
  *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License, version 2 or, at
- * your discretion, any later version, as published by the Free
- * Software Foundation.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  *
  * @package MaterialThemeBuilder
  */
@@ -89,7 +86,7 @@ function _material_theme_builder_php_version_error() {
  * @return string
  */
 function _material_theme_builder_php_version_text() {
-	return esc_html__( 'Material Theme Builder plugin error: Your version of PHP is too old to run this plugin. You must be running PHP 5.6.20 or higher.', 'material-theme-builder' );
+	return esc_html__( 'Material Design plugin error: Your version of PHP is too old to run this plugin. You must be running PHP 5.6.20 or higher.', 'material-theme-builder' );
 }
 
 /**
@@ -119,7 +116,7 @@ function _material_theme_builder_gutenberg_text() {
 
 	return wp_kses_post(
 		sprintf(
-			'Oops, we ran into an issue with installing the Material Builder Plugin. You will need to %s to WordPress 5.0 or later or install the %s.',
+			'Oops, we ran into an issue with installing the Material Design plugin. You will need to %s to WordPress 5.0 or later or install the %s.',
 			$update,
 			$install
 		),

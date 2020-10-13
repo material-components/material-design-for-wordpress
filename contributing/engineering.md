@@ -39,8 +39,8 @@ Since you need a WordPress environment to run the plugin, the quickest way to ge
 Clone this project somewhere on your computer:
 
 ```bash
-git clone git@github.com:xwp/material-theme-builder-wp.git material-theme-builder
-cd material-theme-builder
+git clone git@github.com:xwp/material-design-wp-plugin.git material-design
+cd material-design
 ```
 
 Alternatively, you can use your own local WordPress environment and clone this repository right into your `wp-content/plugins` directory. However, the phpunit tests need Docker to be setup unless the environment can run them outside of the container.
@@ -51,8 +51,8 @@ Support for the following environments have been verified to work
 
 ```bash
 cd wp-content/plugins
-git clone git@github.com:xwp/material-theme-builder-wp.git material-theme-builder
-cd material-theme-builder
+git clone git@github.com:xwp/material-design-wp-plugin.git material-design
+cd material-design
 ```
 
 Setup the development tools using [Node.js](https://nodejs.org) and [Composer](https://getcomposer.org):
@@ -76,14 +76,9 @@ If everything was successful, you'll see this on your screen:
 ```bash
 Starting up containers ... done
 
-Welcome to:
-  _____             ____             
- |  ___|__   ___   | __ )  __ _ _ __ 
- | |_ / _ \ / _ \  |  _ \ / _` | '__|
- |  _| (_) | (_) | | |_) | (_| | |   
- |_|  \___/ \___/  |____/ \__,_|_|   
-                                     
-Run npm run dev to build the latest version of the Material Theme Builder plugin,
+Welcome to the Material Design plugin for WordPress
+
+Run npm run dev to build the latest version of the Material Design plugin,
 then open http://localhost:8088/ to get started!
 ```
 
@@ -107,17 +102,30 @@ Build of the JavaScript files:
 npm run build:js
 ```
 
+Next, install WordPress in your browser by going to `http://localhost:8088`, or the following `wp-cli` command:
+
+```bash
+wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
+```
+
+If running `wp-cli` from the included Docker environment use this commands:
+
+```bash
+npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
+```
+
+_You will likely need to stop and start the Docker containers after running this command to ensure the plugin is mounted in the Docker container to activate._
+
 Lastly, to get the plugin running in your WordPress install, activate the plugin via the WordPress dashboard, or the following `wp-cli` command:
 
 ```bash
-wp plugin activate material-theme-builder
+wp plugin activate material-design
 ```
 
-If running this from the included Docker environment:
+If running `wp-cli` from the included Docker environment use this commands:
 
 ```bash
-npm run wp -- wp plugin activate material-theme-builder
-
+npm run wp -- wp plugin activate material-design
 ```
 
 _This command assumes you went through the WordPress install process already_
@@ -261,16 +269,16 @@ To create a build of the plugin for installing in WordPress as a ZIP package, ru
 npm run build
 ```
 
-This will create an `material-theme-builder.zip` in the plugin directory which you can install. The contents of this ZIP are also located in the `build` directory which you can `rsync` somewhere as well if needed.
+This will create an `material-design.zip` in the plugin directory which you can install. The contents of this ZIP are also located in the `build` directory which you can `rsync` somewhere as well if needed.
 
 ## Creating a pre-release
 
-1. Create changelog draft on [Wiki page](https://github.com/xwp/material-theme-builder-wp/wiki/Release-Changelog-Draft).
+1. Create changelog draft on [Wiki page](https://github.com/xwp/material-design-wp-plugin/wiki/Release-Changelog-Draft).
 1. Check out the branch intended for release (`develop` for major, `x.y` for minor) and pull latest commits.
 1. Bump plugin versions in `material-theme-builder.php`.
 1. Do `npm install`.
 1. Do `npm run build` and install the `material-theme-builder.zip` onto a normal WordPress install running a stable release build; do smoke test to ensure it works.
-1. [Draft new release](https://github.com/xwp/material-theme-builder-wp/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor).
+1. [Draft new release](https://github.com/xwp/material-design-wp-plugin/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor).
     1. Use the new plugin version as the tag (e.g. `1.2-beta3` or `1.2.1-RC1`)
     1. Use new version as the title, followed by some highlight tagline of the release.
     1. Attach the `material-theme-builder.zip` build to the release.
@@ -287,7 +295,7 @@ This will create an `material-theme-builder.zip` in the plugin directory which y
 
 Contributors who want to make a new release, follow these steps:
 
-1. Create changelog draft on [Wiki page](https://github.com/xwp/material-theme-builder-wp/wiki/Release-Changelog-Draft).
+1. Create changelog draft on [Wiki page](https://github.com/xwp/material-design-wp-plugin/wiki/Release-Changelog-Draft).
     1. Gather props list of the entire release, including contributors of code, design, testing, project management, etc.
 1. Update readme including the description, contributors, and screenshots (as needed).
 1. For major release, draft blog post about the new release.
@@ -298,7 +306,7 @@ Contributors who want to make a new release, follow these steps:
 1. Ensure "Tested Up To" is updated to current WordPress version.
 1. Do `npm run build` and install the `material-theme-builder.zip` onto a normal WordPress install running a stable release build; do smoke test to ensure it works.
 1. Optionally do sanity check by comparing the `build` directory with the previously-deployed plugin on WordPress.org for example: `svn export https://plugins.svn.wordpress.org/material-theme-builder/trunk /tmp/material-theme-builder-trunk; diff /tmp/material-theme-builder-trunk/ ./build/` (instead of straight `diff`, it's best to use a GUI like `idea diff`, `phpstorm diff`, or `opendiff`).
-1. [Draft new release](https://github.com/xwp/material-theme-builder-wp/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor):
+1. [Draft new release](https://github.com/xwp/material-design-wp-plugin/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor):
     1. Use the new plugin version as the tag (e.g. `1.2.0` or `1.2.1`)
     1. Attach the `material-theme-builder.zip` build to the release.
     1. Add a changelog entry to the release, link to the compare view (comparing the previous release), and a link to the milestone.

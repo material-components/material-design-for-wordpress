@@ -102,7 +102,7 @@ const Edit = props => {
 		createWarningNotice(
 			__(
 				'Only one contact form is supported per page',
-				'material-theme-builder-wp'
+				'material-theme-builder'
 			)
 		);
 	}
@@ -136,7 +136,7 @@ export default compose( [
 					notice.content ===
 					__(
 						'Only one contact form is supported per page',
-						'material-theme-builder-wp'
+						'material-theme-builder'
 					)
 			),
 		};
