@@ -115,7 +115,7 @@ class Controls extends Module_Base {
 			[
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
-				'title'       => esc_html__( 'Material Theme Options', 'material-design' ),
+				'title'       => esc_html__( 'Material Design Options', 'material-design' ),
 				'description' => esc_html__( 'Change the color, shape, typography, and icons below to customize your theme style. Navigate to the Material Blocks to see your custom styles applied across Material Components..', 'material-design' ),
 			]
 		);

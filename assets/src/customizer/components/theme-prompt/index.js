@@ -32,26 +32,23 @@ const ThemePrompt = ( { status } ) => {
 	const [ dismissed, setDismissed ] = useState( status === 'ok' );
 	const [ requesting, setRequesting ] = useState( false );
 
-	const title =
-		status === 'install'
-			? __( 'Install Material Theme', 'material-design' )
-			: __( 'Activate Material Theme', 'material-design' );
+	const title = __( 'Material Design theme', 'material-design' );
 
 	const message =
 		status === 'install'
 			? __(
-					'Install and activate Material Theme for full site customization.',
+					'Install and activate the Material Design theme for full site customization.',
 					'material-design'
 			  )
 			: __(
-					'Activate Material Theme for full site customization.',
+					'Activate the Material Design theme for full site customization.',
 					'material-design'
 			  );
 
 	const cta =
 		status === 'install'
-			? __( 'Install Material Theme', 'material-design' )
-			: __( 'Activate Material Theme', 'material-design' );
+			? __( 'Install', 'material-design' )
+			: __( 'Activate', 'material-design' );
 
 	const dismiss = () => {
 		setDismissed( true );

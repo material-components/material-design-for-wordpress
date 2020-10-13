@@ -274,7 +274,7 @@ class Admin extends Module_Base {
 		<div class="notice notice-info is-dismissible material-notice-container">
 			<img
 				src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-logo.png' ) ); ?>"
-				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-design' ); ?>"
+				alt="<?php esc_attr_e( 'Material Design', 'material-design' ); ?>"
 			/>
 
 			<div class="material-notice-container__content">
@@ -322,22 +322,22 @@ class Admin extends Module_Base {
 		}
 
 		$title   = esc_html__(
-			'Install Material Theme to take advantage of all Material Plugin customizations',
+			'Install the Material Design theme to take advantage of all the Material Design plugin customizations',
 			'material-design'
 		);
 		$message = esc_html__(
-			'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization.',
+			'The Material Design plugin enables you to customize Material Components. We recommend installing the companion Material Design theme for full site customization.',
 			'material-design'
 		);
 		$label   = esc_html__( 'Install theme', 'material-design' );
 
 		if ( 'activate' === $status ) {
 			$title   = esc_html__(
-				'Activate Material Theme to take advantage of all Material Plugin customizations',
+				'Activate the Material Design theme to take advantage of all the Material Design plugin customizations',
 				'material-design'
 			);
 			$message = esc_html__(
-				'The Material Plugin enables you to customize Material Components. We recommend activating the companion Material Theme for full site customization.',
+				'The Material Design plugin enables you to customize Material Components. We recommend activating the companion Material Design theme for full site customization.',
 				'material-design'
 			);
 			$label   = esc_html__( 'Activate theme', 'material-design' );

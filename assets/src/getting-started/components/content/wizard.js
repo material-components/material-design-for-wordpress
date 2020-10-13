@@ -30,14 +30,14 @@ export const Wizard = props => {
 		<>
 			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __(
-					'Install the Material Theme and quick start examples',
+					'Install the Material Design theme and quick start examples',
 					'material-design'
 				) }
 			</h2>
 
 			<p>
 				{ __(
-					'The theme applies Material Design principles and Material Theming to your site, so you can customize built-in WordPress elements like your site’s header and foote. Example layouts include pages for home, about, projects, blog, and contact.',
+					'The theme applies Material Design principles and Material Theming to your site, so you can customize built-in WordPress elements like your site’s header and footer. Example layouts include pages for home, about, projects, blog, and contact.',
 					'material-design'
 				) }
 			</p>

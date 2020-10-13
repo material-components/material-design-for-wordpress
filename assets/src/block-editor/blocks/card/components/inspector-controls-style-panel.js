@@ -101,7 +101,7 @@ const InspectorControlsStylePanel = ( {
 					target="_blank"
 					rel="noreferrer noopener"
 				>
-					{ __( 'Material Theme Options', 'material-design' ) }
+					{ __( 'Material Design Options', 'material-design' ) }
 				</a>
 				{ __( ' to update all cards.', 'material-design' ) }
 			</div>
