@@ -51,6 +51,10 @@
 				"attribute": "target"
 			 }
 		  }
+	   },
+	   "preview": {
+		   "type": "boolean",
+		   "default": false
 	   }
 	}
  }
