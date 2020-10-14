@@ -44,5 +44,6 @@ export const example = {
 				primaryText: __( 'List item', 'material-design' ),
 			},
 		],
+		preview: true,
 	},
 };

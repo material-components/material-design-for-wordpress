@@ -42,7 +42,7 @@ import ListItem from './components/list-item';
  * Material list edit component.
  */
 const ListEdit = ( {
-	attributes: { style, iconPosition, iconSize, items },
+	attributes: { style, iconPosition, iconSize, items, preview },
 	className,
 	setAttributes,
 } ) => {
@@ -246,6 +246,7 @@ const ListEdit = ( {
 							iconPosition,
 							isSecondaryEnabled,
 						} }
+						preview={ preview }
 						onSplit={ onSplit }
 						onFocus={ onFocus }
 						isSelected={ i === selected.index }
