@@ -34,8 +34,9 @@ import getConfig from '../block-editor/utils/get-config';
 const handleAjaxFormSubmissionError = form => {
 	form.reset();
 	form.style.display = 'none';
-	document.getElementById( 'mtbContactFormErrorMsgContainer' ).style.display =
-		'block';
+	document.getElementById(
+		'materialDesignContactFormErrorMsgContainer'
+	).style.display = 'block';
 	initReCaptchaToken();
 };
 
@@ -43,7 +44,7 @@ const handleAjaxFormSubmissionError = form => {
  * Initialize contact form.
  */
 export const initContactForm = () => {
-	const form = document.getElementById( 'mtbContactForm' );
+	const form = document.getElementById( 'materialDesignContactForm' );
 	if ( ! form ) {
 		return false;
 	}
@@ -59,7 +60,10 @@ export const initContactForm = () => {
 
 		const contactFields = {};
 		const formData = new FormData();
-		formData.append( 'token', form.querySelector( '[name=mtb_token]' ).value );
+		formData.append(
+			'token',
+			form.querySelector( '[name=material_design_token]' ).value
+		);
 
 		for ( const field of form.querySelectorAll( 'input, textarea' ) ) {
 			const name = field.name;
@@ -91,7 +95,7 @@ export const initContactForm = () => {
 						form.reset();
 						form.style.display = 'none';
 						document.getElementById(
-							'mtbContactFormSuccessMsgContainer'
+							'materialDesignContactFormSuccessMsgContainer'
 						).style.display = 'block';
 						initReCaptchaToken();
 					} else {
@@ -122,13 +126,13 @@ export const initContactForm = () => {
  * Initialize reCAPTCHA token.
  */
 export const initReCaptchaToken = () => {
-	const form = document.getElementById( 'mtbContactForm' );
+	const form = document.getElementById( 'materialDesignContactForm' );
 
 	if ( ! form ) {
 		return;
 	}
 
-	const tokenField = form.querySelector( '[name=mtb_token]' );
+	const tokenField = form.querySelector( '[name=material_design_token]' );
 
 	if (
 		typeof grecaptcha !== 'undefined' &&

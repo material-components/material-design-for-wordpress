@@ -18,7 +18,7 @@ import { __ } from '@wordpress/i18n';
 
 export const example = {
 	attributes: {
-		label: __( 'Label', 'material-theme-builder' ),
+		label: __( 'Label', 'material-design' ),
 		type: 'text',
 		style: 'text',
 		iconPosition: 'leading',

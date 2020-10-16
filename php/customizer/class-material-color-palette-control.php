@@ -1,29 +1,29 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Class Material_Color_Palette_Control.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+namespace MaterialDesign\Plugin\Customizer;
 
 /**
  * Material color palette control.
@@ -73,18 +73,18 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	public static function tabs_template() {
 		?>
 		<script type="text/html" id="tmpl-customize-control-material_color-tabs">
-			<# var id = mtbSanitizeControlId( data.id ) #>
-			<div class="mtb-tabs">
-				<a class="mtb-tab-link" href="#mtb-palette-{{id}}"><?php esc_html_e( 'Palette', 'material-theme-builder' ); ?></a>
-				<a class="mtb-tab-link" href="#mtb-custom-{{id}}"><?php esc_html_e( 'Custom', 'material-theme-builder' ); ?></a>
+			<# var id = materialDesignSanitizeControlId( data.id ) #>
+			<div class="material-design-tabs">
+				<a class="material-design-tab-link" href="#material-design-palette-{{id}}"><?php esc_html_e( 'Palette', 'material-design' ); ?></a>
+				<a class="material-design-tab-link" href="#material-design-custom-{{id}}"><?php esc_html_e( 'Custom', 'material-design' ); ?></a>
 			</div>
-			<div class="mtb-tab-content tab-palette" id="mtb-palette-{{id}}"></div>
-			<div class="mtb-tab-content tab-custom" id="mtb-custom-{{id}}"></div>
-			<div class="mtb-accessibility"></div>
+			<div class="material-design-tab-content tab-palette" id="material-design-palette-{{id}}"></div>
+			<div class="material-design-tab-content tab-custom" id="material-design-custom-{{id}}"></div>
+			<div class="material-design-accessibility"></div>
 		</script>
 		<script type="text/html" id="tmpl-customize-control-material_color-accessibility">
 			<div class="material-color-accessibility">
-				<label><?php esc_html_e( 'Current Scheme', 'material-theme-builder' ); ?></label>
+				<label><?php esc_html_e( 'Current Scheme', 'material-design' ); ?></label>
 				<div class="material-color-accessibility-inner">
 					<# _.each( data.colors, function( color ) { #>
 						<div class="material-color-accessibility-row">
@@ -94,10 +94,10 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 
 							<# _.each( color.variations, function( variation ) { #>
 								<# if ( null === variation.result ) { #>
-									{{ variation.size }} <?php esc_html_e( 'text', 'material-theme-builder' ); ?>:
+									{{ variation.size }} <?php esc_html_e( 'text', 'material-design' ); ?>:
 									{{ variation.textColor }}
-									<?php esc_html_e( ' text not legible', 'material-theme-builder' ); ?>
-									<span style="background-color: {{ variation.colorHex }}; color: {{ variation.textColorHex }}"><?php esc_html_e( 'Aa', 'material-theme-builder' ); ?></span>
+									<?php esc_html_e( ' text not legible', 'material-design' ); ?>
+									<span style="background-color: {{ variation.colorHex }}; color: {{ variation.textColorHex }}"><?php esc_html_e( 'Aa', 'material-design' ); ?></span>
 									<span class="dashicons dashicons-warning"></span><br/>
 								<# } #>
 							<# } ); #>

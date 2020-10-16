@@ -1,29 +1,29 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Class Admin.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
 /**
  * Class to handle admin settings and actions.
@@ -73,8 +73,8 @@ class Admin extends Module_Base {
 	 */
 	public function add_pages() {
 		add_menu_page(
-			esc_html__( 'Material Design for WordPress', 'material-theme-builder' ),
-			esc_html__( 'Material', 'material-theme-builder' ),
+			esc_html__( 'Material Design for WordPress', 'material-design' ),
+			esc_html__( 'Material', 'material-design' ),
 			'manage_options',
 			'material-settings',
 			[ $this, 'render_getting_started_page' ],
@@ -83,8 +83,8 @@ class Admin extends Module_Base {
 
 		add_submenu_page(
 			'material-settings',
-			esc_html__( 'Getting Started', 'material-theme-builder' ),
-			esc_html__( 'Getting Started', 'material-theme-builder' ),
+			esc_html__( 'Getting Started', 'material-design' ),
+			esc_html__( 'Getting Started', 'material-design' ),
 			'manage_options',
 			'material-settings',
 			[ $this, 'render_getting_started_page' ]
@@ -92,8 +92,8 @@ class Admin extends Module_Base {
 
 		add_submenu_page(
 			'material-settings',
-			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
-			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
+			esc_html__( 'Onboarding Wizard', 'material-design' ),
+			esc_html__( 'Onboarding Wizard', 'material-design' ),
 			'manage_options',
 			'material-onboarding-wizard',
 			[ $this, 'render_onboarding_wizard_page' ]
@@ -145,7 +145,7 @@ class Admin extends Module_Base {
 
 		wp_localize_script(
 			'material-admin-js',
-			'mtbWizard',
+			'materialDesignWizard',
 			[
 				'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
@@ -181,13 +181,13 @@ class Admin extends Module_Base {
 			$has_demo_content = $this->plugin->importer->has_demo_content();
 			wp_localize_script(
 				'material-gsm',
-				'mtbGsm',
+				'materialDesignGsm',
 				[
 					'wizardUrl'     => esc_url( menu_page_url( 'material-onboarding-wizard', false ) ),
 					'editorUrl'     => esc_url( admin_url( 'edit.php' ) ),
 					'customize'     => esc_url( admin_url( 'customize.php' ) ),
 					'widgets'       => esc_url( admin_url( 'customize.php?autofocus[panel]=widgets' ) ),
-					'blocks'        => esc_url( admin_url( 'customize.php?autofocus[panel]=material_theme_builder' ) ),
+					'blocks'        => esc_url( admin_url( 'customize.php?autofocus[panel]=material_design' ) ),
 					'assetsPath'    => esc_url( $this->plugin->asset_url( 'assets/images/onboarding/' ) ),
 					'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
@@ -197,7 +197,7 @@ class Admin extends Module_Base {
 
 			wp_localize_script(
 				'material-admin-js',
-				'mtbWizard',
+				'materialDesignWizard',
 				[
 					'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 					'nonce'       => wp_create_nonce( 'wp_rest' ),
@@ -232,7 +232,7 @@ class Admin extends Module_Base {
 
 			wp_localize_script(
 				'material-wizard',
-				'mtbWizard',
+				'materialDesignWizard',
 				[
 					'pagesUrl'         => esc_url( admin_url( 'edit.php?post_type=page' ) ),
 					'settingsUrl'      => esc_url( admin_url( 'admin.php?page=material-settings' ) ),
@@ -256,7 +256,7 @@ class Admin extends Module_Base {
 	 */
 	public function switch_theme_material( $new_name, $new_theme ) {
 		if ( Plugin::THEME_SLUG === $new_theme->get_stylesheet() ) {
-			update_option( 'material_theme_activated', true, false );
+			update_option( 'material_design_theme_activated', true, false );
 		}
 	}
 
@@ -274,7 +274,7 @@ class Admin extends Module_Base {
 		<div class="notice notice-info is-dismissible material-notice-container">
 			<img
 				src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-logo.png' ) ); ?>"
-				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
+				alt="<?php esc_attr_e( 'Material Design', 'material-design' ); ?>"
 			/>
 
 			<div class="material-notice-container__content">
@@ -315,37 +315,37 @@ class Admin extends Module_Base {
 			'ok' === $status
 			|| 'toplevel_page_material-settings' === $screen->id
 			|| 'material_page_material-onboarding-wizard' === $screen->id
-			|| ! empty( get_option( 'material_theme_activated' ) )
+			|| ! empty( get_option( 'material_design_theme_activated' ) )
 			|| $this->plugin->is_debug()
 		) {
 			return;
 		}
 
 		$title   = esc_html__(
-			'Install Material Theme to take advantage of all Material Plugin customizations',
-			'material-theme-builder'
+			'Install the Material Design theme to take advantage of all the Material Design plugin customizations',
+			'material-design'
 		);
 		$message = esc_html__(
-			'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization.',
-			'material-theme-builder'
+			'The Material Design plugin enables you to customize Material Components. We recommend installing the companion Material Design theme for full site customization.',
+			'material-design'
 		);
-		$label   = esc_html__( 'Install theme', 'material-theme-builder' );
+		$label   = esc_html__( 'Install theme', 'material-design' );
 
 		if ( 'activate' === $status ) {
 			$title   = esc_html__(
-				'Activate Material Theme to take advantage of all Material Plugin customizations',
-				'material-theme-builder'
+				'Activate the Material Design theme to take advantage of all the Material Design plugin customizations',
+				'material-design'
 			);
 			$message = esc_html__(
-				'The Material Plugin enables you to customize Material Components. We recommend activating the companion Material Theme for full site customization.',
-				'material-theme-builder'
+				'The Material Design plugin enables you to customize Material Components. We recommend activating the companion Material Design theme for full site customization.',
+				'material-design'
 			);
-			$label   = esc_html__( 'Activate theme', 'material-theme-builder' );
+			$label   = esc_html__( 'Activate theme', 'material-design' );
 		}
 
 		$action_link = sprintf(
-			'<a href="%s" class="material-theme-%s install-theme">%s</a>',
-			esc_url( admin_url( '/themes.php?search=Material+Theme' ) ),
+			'<a href="%s" class="material-design-%s install-theme">%s</a>',
+			esc_url( admin_url( '/themes.php?search=Material+Design' ) ),
 			esc_attr( $status ),
 			esc_html( $label )
 		);
@@ -380,16 +380,16 @@ class Admin extends Module_Base {
 
 		delete_option( 'material_plugin_activated' );
 
-		$message = esc_html__( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer.", 'material-theme-builder' );
+		$message = esc_html__( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer.", 'material-design' );
 
 		$action_link = sprintf(
 			'<br/><a href="%s">%s</a>',
 			esc_url( admin_url( 'admin.php?page=material-settings' ) ),
-			esc_html__( "Let's go!", 'material-theme-builder' )
+			esc_html__( "Let's go!", 'material-design' )
 		);
 
 		$this->material_notice(
-			esc_html__( 'See Material Theming in action', 'material-theme-builder' ),
+			esc_html__( 'See Material Theming in action', 'material-design' ),
 			sprintf(
 				'%s %s',
 				$message,

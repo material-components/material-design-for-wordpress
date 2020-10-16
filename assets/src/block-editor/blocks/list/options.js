@@ -26,12 +26,12 @@ import { BasicList, TwoLineList } from './components/list-styles';
 
 export const LIST_STYLES = [
 	{
-		label: __( 'Basic List Item', 'material-theme-builder' ),
+		label: __( 'Basic List Item', 'material-design' ),
 		value: 'basic',
 		src: BasicList,
 	},
 	{
-		label: __( 'List Item With Secondary Text', 'material-theme-builder' ),
+		label: __( 'List Item With Secondary Text', 'material-design' ),
 		value: 'two-line',
 		src: TwoLineList,
 	},
@@ -39,26 +39,26 @@ export const LIST_STYLES = [
 
 export const ICON_POSITIONS = [
 	{
-		label: __( 'None', 'material-theme-builder' ),
+		label: __( 'None', 'material-design' ),
 		value: 'none',
 	},
 	{
-		label: __( 'Leading', 'material-theme-builder' ),
+		label: __( 'Leading', 'material-design' ),
 		value: 'leading',
 	},
 	{
-		label: __( 'Trailing', 'material-theme-builder' ),
+		label: __( 'Trailing', 'material-design' ),
 		value: 'trailing',
 	},
 ];
 
 export const ICON_SIZES = [
 	{
-		label: __( 'Small', 'material-theme-builder' ),
+		label: __( 'Small', 'material-design' ),
 		value: 'small',
 	},
 	{
-		label: __( 'Large', 'material-theme-builder' ),
+		label: __( 'Large', 'material-design' ),
 		value: 'large',
 	},
 ];

@@ -1,32 +1,32 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Blocks frontend class.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Blocks\Image_List_Block;
+use MaterialDesign\Plugin\Module_Base;
+use MaterialDesign\Plugin\Blocks\Image_List_Block;
 
 /**
  * Blocks_Frontend class.
@@ -63,7 +63,7 @@ class Blocks_Frontend extends Module_Base {
 			 * @param string $styles Generated block styles.
 			 * @param array $blocks  Blocks in the page/post.
 			 */
-			$styles = apply_filters( 'material_theme_builder_frontend_blocks_css', $styles, $blocks );
+			$styles = apply_filters( 'material_design_frontend_blocks_css', $styles, $blocks );
 
 			wp_add_inline_style(
 				'material-front-end-css',
@@ -126,7 +126,7 @@ class Blocks_Frontend extends Module_Base {
 		 * @param array $styles Generated block styles.
 		 * @param array $block  Block.
 		 */
-		return apply_filters( 'material_theme_builder_block_css', $styles, $block );
+		return apply_filters( 'material_design_block_css', $styles, $block );
 	}
 
 	/**
@@ -161,7 +161,7 @@ class Blocks_Frontend extends Module_Base {
 		 * @param array  $styles  Generated media queries.
 		 * @param string $device  Device type.
 		 */
-		return apply_filters( 'material_theme_builder_media_queries', $styles, $device );
+		return apply_filters( 'material_design_media_queries', $styles, $device );
 	}
 
 	/**
@@ -196,7 +196,7 @@ class Blocks_Frontend extends Module_Base {
 		 * @param array $styles Generated layout gutter styles.
 		 * @param array $block  Current Block.
 		 */
-		$styles = apply_filters( 'material_theme_builder_layout_gutter_styles', $styles, $block );
+		$styles = apply_filters( 'material_design_layout_gutter_styles', $styles, $block );
 
 		return implode( "\n", $styles );
 	}
@@ -238,7 +238,7 @@ class Blocks_Frontend extends Module_Base {
 		 * @param array  $attributes Attributes of the block..
 		 * @param string $device     Device type.
 		 */
-		return apply_filters( 'material_theme_builder_layout_gutter_device_styles', $styles, $id, $attributes, $device );
+		return apply_filters( 'material_design_layout_gutter_device_styles', $styles, $id, $attributes, $device );
 	}
 
 	/**

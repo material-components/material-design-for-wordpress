@@ -23,7 +23,7 @@ import Wizard from '../../../assets/src/wizard/components';
 
 describe( 'Onboarding Wizard', () => {
 	beforeAll( () => {
-		global.mtbWizard = {
+		global.materialDesignWizard = {
 			pagesUrl: 'http://example.com/wp-admin/edit.php?post_type=page',
 			settingsUrl: 'http://example.com/wp-admin/plugins.php',
 			assetsPath: 'http://example.com/',
@@ -32,7 +32,7 @@ describe( 'Onboarding Wizard', () => {
 			themeStatus: 'ok',
 			nonce: 'test-nonce',
 			restPath:
-				'http://example.com/index.php?rest_route=/material-theme-builder/v1/importer/',
+				'http://example.com/index.php?rest_route=/material-design/v1/importer/',
 		};
 	} );
 

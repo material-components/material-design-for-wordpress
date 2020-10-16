@@ -1,32 +1,32 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Tests for Block_Types class.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Customizer\Controls;
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Customizer\Controls;
 
 /**
  * Tests for Block_Types class.
@@ -59,9 +59,9 @@ class Test_Block_Types extends \WP_UnitTestCase {
 	public function test_init() {
 		$block_types = get_plugin_instance()->block_types;
 
-		$this->assertTrue( is_a( $block_types->blocks['recent-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
-		$this->assertTrue( is_a( $block_types->blocks['hand-picked-posts'], '\MaterialThemeBuilder\Blocks\Posts_List_Block' ) );
-		$this->assertTrue( is_a( $block_types->blocks['contact-form'], '\MaterialThemeBuilder\Blocks\Contact_Form_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['recent-posts'], '\MaterialDesign\Plugin\Blocks\Posts_List_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['hand-picked-posts'], '\MaterialDesign\Plugin\Blocks\Posts_List_Block' ) );
+		$this->assertTrue( is_a( $block_types->blocks['contact-form'], '\MaterialDesign\Plugin\Blocks\Contact_Form_Block' ) );
 
 		$this->assertEquals( 10, has_action( 'init', [ $block_types, 'register_blocks' ] ) );
 		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $block_types, 'enqueue_block_editor_assets' ] ) );

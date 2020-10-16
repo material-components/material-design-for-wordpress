@@ -49,20 +49,20 @@ const CardSupportingText = ( {
 			<RichText
 				tagName="div"
 				className={ classnames(
-					'mtb-card__supporting-text',
-					`mtb-card__supporting-text_${ contentLayout }`,
+					'material-design-card__supporting-text',
+					`material-design-card__supporting-text_${ contentLayout }`,
 					'mdc-typography',
 					'mdc-typography--body2'
 				) }
 				value={ supportingText }
 				onChange={ value => setter( 'supportingText', value, cardIndex ) }
-				placeholder={ __( 'Supporting text', 'material-theme-builder' ) }
+				placeholder={ __( 'Supporting text', 'material-design' ) }
 			/>
 		) : (
 			<div
 				className={ classnames(
-					'mtb-card__supporting-text',
-					`mtb-card__supporting-text_${ contentLayout }`,
+					'material-design-card__supporting-text',
+					`material-design-card__supporting-text_${ contentLayout }`,
 					'mdc-typography',
 					'mdc-typography--body2'
 				) }

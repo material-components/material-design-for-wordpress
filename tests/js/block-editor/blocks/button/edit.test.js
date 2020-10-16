@@ -45,7 +45,7 @@ const setup = props => {
 
 describe( 'ButtonEdit', () => {
 	beforeAll( () => {
-		global.mtb = {
+		global.materialDesign = {
 			defaults: {
 				colors: {
 					primary_color: '#6200ee',

@@ -35,12 +35,12 @@ export { metadata, name };
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Data Table (Material)', 'material-theme-builder' ),
+	title: __( 'Data Table (Material)', 'material-design' ),
 	description: __(
 		'Display sets of data across rows and columns.',
-		'material-theme-builder'
+		'material-design'
 	),
-	keywords: [ __( 'Material Data Table', 'material-theme-builder' ) ],
+	keywords: [ __( 'Material Data Table', 'material-design' ) ],
 	icon: <i className="material-icons-outlined">grid_on</i>,
 	edit,
 	save,

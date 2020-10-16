@@ -111,16 +111,16 @@ const MaterialLibrary = ( {
 
 			<div id="material-library-preview">
 				<h2 className="mdc-typography--headline2">
-					{ __( 'Material Components', 'material-theme-builder' ) }
+					{ __( 'Material Components', 'material-design' ) }
 				</h2>
 				<section>
 					<h3 className="mdc-typography--headline3">
-						{ __( 'Blocks', 'material-theme-builder' ) }
+						{ __( 'Blocks', 'material-design' ) }
 					</h3>
 					<p>
 						{ __(
 							'Build your WordPress site using these Material Components blocks.',
-							'material-theme-builder'
+							'material-design'
 						) }
 					</p>
 					<hr />
@@ -146,19 +146,19 @@ const MaterialLibrary = ( {
 
 				<section style={ { marginTop: '100px' } }>
 					<h3 className="mdc-typography--headline3">
-						{ __( 'Components', 'material-theme-builder' ) }
+						{ __( 'Components', 'material-design' ) }
 					</h3>
 					<p>
 						{ __(
-							'Styled components available when WordPress Material Theme is activated.',
-							'material-theme-builder'
+							'Styled components available when the Material Design theme is activated.',
+							'material-design'
 						) }
 					</p>
-					{ 'material-theme' !== theme && (
+					{ 'material-design' !== theme && (
 						<p>
 							{ __(
-								'Enable Material Theme for more components.',
-								'material-theme-builder'
+								'Enable Material Design theme for more components.',
+								'material-design'
 							) }
 						</p>
 					) }

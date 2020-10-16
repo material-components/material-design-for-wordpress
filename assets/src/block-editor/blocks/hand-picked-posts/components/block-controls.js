@@ -39,7 +39,7 @@ const HandPickedPostsBlockControls = ( { attributes, setAttributes } ) => {
 				controls={ [
 					{
 						icon: 'edit',
-						title: __( 'Edit', 'material-theme=builder' ),
+						title: __( 'Edit', 'material-design' ),
 						onClick: () => setAttributes( { editMode: ! editMode } ),
 						isActive: editMode,
 					},

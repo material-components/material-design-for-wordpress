@@ -1,34 +1,34 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Base class to allow sharing functionality between blocks listing posts
  * such as Recent Posts and Hand-picked posts blocks.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Blocks;
+namespace MaterialDesign\Plugin\Blocks;
 
-use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Template;
+use MaterialDesign\Plugin\Module_Base;
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Template;
 use WP_Post;
 use WP_Query;
 use WP_REST_Request;
@@ -165,7 +165,7 @@ class Posts_List_Block {
 		 * @param array $args       The args for the WP_Query.
 		 * @param array $attributes The block's attributes.
 		 */
-		$args = apply_filters( 'material_theme_builder_recent_posts_query_args', $args, $attributes );
+		$args = apply_filters( 'material_design_recent_posts_query_args', $args, $attributes );
 
 		$posts_query = new WP_Query( $args );
 

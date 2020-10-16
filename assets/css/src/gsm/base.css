@@ -29,12 +29,12 @@
 	--mdc-typography-caption-font-family: "Roboto", sans-serif;
 	--mdc-typography-button-font-family: "Roboto", sans-serif;
 	--mdc-typography-overline-font-family: "Roboto", sans-serif;
-	--mtb-gsm-primary-color: #212121;
-	--mtb-gsm-primary-text: #fff;
-	--mtb-gsm-background-color: #fff;
-	--mtb-gsm-icon-color: #c4c4c4;
+	--material-design-gsm-primary-color: #212121;
+	--material-design-gsm-primary-text: #fff;
+	--material-design-gsm-background-color: #fff;
+	--material-design-gsm-icon-color: #c4c4c4;
 
-	background-color: var(--mtb-gsm-background-color);
+	background-color: var(--material-design-gsm-background-color);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 	margin-top: 1rem;
 	max-width: 1024px;
@@ -44,8 +44,8 @@
 	}
 
 	& .mdc-button {
-		--mdc-theme-primary: var(--mtb-gsm-primary-color);
-		--mdc-theme-on-primary: var(--mtb-gsm-primary-text);
+		--mdc-theme-primary: var(--material-design-gsm-primary-color);
+		--mdc-theme-on-primary: var(--material-design-gsm-primary-text);
 	}
 
 	& h1,

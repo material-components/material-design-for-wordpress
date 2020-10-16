@@ -90,7 +90,7 @@ describe( 'Front-end: Contact Form', () => {
 	} );
 
 	beforeAll( () => {
-		global.mtb = {
+		global.materialDesign = {
 			ajax_url: 'http://example.com/',
 			recaptcha_site_key: 'SITE_KEY',
 		};
@@ -129,10 +129,13 @@ describe( 'Front-end: Contact Form', () => {
 
 		it( 'calls successfully the ajax request and shows the success message when the form submission is successful', async () => {
 			setup();
-			document.getElementById( 'mtb-name-1' ).value = 'Test Name';
-			document.getElementById( 'mtb-email-1' ).value = 'email@example.com';
-			document.getElementById( 'mtb-website-1' ).value = 'http://example.com';
-			document.getElementById( 'mtb-message-1' ).value = 'Test message';
+			document.getElementById( 'material-design-name-1' ).value = 'Test Name';
+			document.getElementById( 'material-design-email-1' ).value =
+				'email@example.com';
+			document.getElementById( 'material-design-website-1' ).value =
+				'http://example.com';
+			document.getElementById( 'material-design-message-1' ).value =
+				'Test message';
 
 			const xhr = mockXMLHttpRequest();
 			initContactForm();
@@ -144,16 +147,19 @@ describe( 'Front-end: Contact Form', () => {
 				xhr.send.mock
 			);
 
-			expect( xhr.open ).toHaveBeenCalledWith( 'POST', global.mtb.ajax_url );
+			expect( xhr.open ).toHaveBeenCalledWith(
+				'POST',
+				global.materialDesign.ajax_url
+			);
 			expect( xhr.send ).toHaveBeenCalledWith( formDataInstance );
 
 			expect( formDataAsObject ).toStrictEqual( {
 				_wp_http_referer: '/3732-2/',
-				action: 'mtb_submit_contact_form',
+				action: 'material_design_submit_contact_form',
 				contact_fields:
-					'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
-				mtb_contact_form_nonce: '8d2ba7b1f1',
-				mtb_token: 'token_here',
+					'{"material-design-name-1":{"name":"material-design-name-1","label":"Name","value":"Test Name"},"material-design-email-1":{"name":"material-design-email-1","label":"Email","value":"email@example.com"},"material-design-website-1":{"name":"material-design-website-1","label":"Website","value":"http://example.com"},"material-design-message-1":{"name":"material-design-message-1","label":"Message","value":"Test message"}}',
+				material_design_contact_form_nonce: '8d2ba7b1f1',
+				material_design_token: 'token_here',
 				token: 'token_here',
 			} );
 
@@ -166,18 +172,22 @@ describe( 'Front-end: Contact Form', () => {
 
 			await waitFor( () => {
 				expect(
-					document.getElementById( 'mtbContactFormSuccessMsgContainer' ).style
-						.display
+					document.getElementById(
+						'materialDesignContactFormSuccessMsgContainer'
+					).style.display
 				).toStrictEqual( 'block' );
 			} );
 		} );
 
 		it( 'calls successfully the ajax request and shows the error message when the form submission is not successful', async () => {
 			setup();
-			document.getElementById( 'mtb-name-1' ).value = 'Test Name';
-			document.getElementById( 'mtb-email-1' ).value = 'email@example.com';
-			document.getElementById( 'mtb-website-1' ).value = 'http://example.com';
-			document.getElementById( 'mtb-message-1' ).value = 'Test message';
+			document.getElementById( 'material-design-name-1' ).value = 'Test Name';
+			document.getElementById( 'material-design-email-1' ).value =
+				'email@example.com';
+			document.getElementById( 'material-design-website-1' ).value =
+				'http://example.com';
+			document.getElementById( 'material-design-message-1' ).value =
+				'Test message';
 			document.getElementsByName( '_wp_http_referer' )[ 0 ].value = '';
 
 			const xhr = mockXMLHttpRequest();
@@ -189,16 +199,19 @@ describe( 'Front-end: Contact Form', () => {
 				xhr.send.mock
 			);
 
-			expect( xhr.open ).toHaveBeenCalledWith( 'POST', global.mtb.ajax_url );
+			expect( xhr.open ).toHaveBeenCalledWith(
+				'POST',
+				global.materialDesign.ajax_url
+			);
 			expect( xhr.send ).toHaveBeenCalledWith( formDataInstance );
 
 			expect( formDataAsObject ).toStrictEqual( {
 				_wp_http_referer: '',
-				action: 'mtb_submit_contact_form',
+				action: 'material_design_submit_contact_form',
 				contact_fields:
-					'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
-				mtb_contact_form_nonce: '8d2ba7b1f1',
-				mtb_token: 'token_here',
+					'{"material-design-name-1":{"name":"material-design-name-1","label":"Name","value":"Test Name"},"material-design-email-1":{"name":"material-design-email-1","label":"Email","value":"email@example.com"},"material-design-website-1":{"name":"material-design-website-1","label":"Website","value":"http://example.com"},"material-design-message-1":{"name":"material-design-message-1","label":"Message","value":"Test message"}}',
+				material_design_contact_form_nonce: '8d2ba7b1f1',
+				material_design_token: 'token_here',
 				token: 'token_here',
 			} );
 
@@ -213,18 +226,22 @@ describe( 'Front-end: Contact Form', () => {
 
 			await waitFor( () => {
 				expect(
-					document.getElementById( 'mtbContactFormErrorMsgContainer' ).style
-						.display
+					document.getElementById(
+						'materialDesignContactFormErrorMsgContainer'
+					).style.display
 				).toStrictEqual( 'block' );
 			} );
 		} );
 
 		it( 'calls the ajax request with failure and shows the error message when the form submission is not successful', async () => {
 			setup();
-			document.getElementById( 'mtb-name-1' ).value = 'Test Name';
-			document.getElementById( 'mtb-email-1' ).value = 'email@example.com';
-			document.getElementById( 'mtb-website-1' ).value = 'http://example.com';
-			document.getElementById( 'mtb-message-1' ).value = 'Test message';
+			document.getElementById( 'material-design-name-1' ).value = 'Test Name';
+			document.getElementById( 'material-design-email-1' ).value =
+				'email@example.com';
+			document.getElementById( 'material-design-website-1' ).value =
+				'http://example.com';
+			document.getElementById( 'material-design-message-1' ).value =
+				'Test message';
 			document.getElementsByName( 'action' )[ 0 ].value = '';
 
 			const xhr = mockXMLHttpRequest();
@@ -236,16 +253,19 @@ describe( 'Front-end: Contact Form', () => {
 				xhr.send.mock
 			);
 
-			expect( xhr.open ).toHaveBeenCalledWith( 'POST', global.mtb.ajax_url );
+			expect( xhr.open ).toHaveBeenCalledWith(
+				'POST',
+				global.materialDesign.ajax_url
+			);
 			expect( xhr.send ).toHaveBeenCalledWith( formDataInstance );
 
 			expect( formDataAsObject ).toStrictEqual( {
 				_wp_http_referer: '/3732-2/',
 				action: '',
 				contact_fields:
-					'{"mtb-name-1":{"name":"mtb-name-1","label":"Name","value":"Test Name"},"mtb-email-1":{"name":"mtb-email-1","label":"Email","value":"email@example.com"},"mtb-website-1":{"name":"mtb-website-1","label":"Website","value":"http://example.com"},"mtb-message-1":{"name":"mtb-message-1","label":"Message","value":"Test message"}}',
-				mtb_contact_form_nonce: '8d2ba7b1f1',
-				mtb_token: 'token_here',
+					'{"material-design-name-1":{"name":"material-design-name-1","label":"Name","value":"Test Name"},"material-design-email-1":{"name":"material-design-email-1","label":"Email","value":"email@example.com"},"material-design-website-1":{"name":"material-design-website-1","label":"Website","value":"http://example.com"},"material-design-message-1":{"name":"material-design-message-1","label":"Message","value":"Test message"}}',
+				material_design_contact_form_nonce: '8d2ba7b1f1',
+				material_design_token: 'token_here',
 				token: 'token_here',
 			} );
 
@@ -260,23 +280,24 @@ describe( 'Front-end: Contact Form', () => {
 
 			await waitFor( () => {
 				expect(
-					document.getElementById( 'mtbContactFormErrorMsgContainer' ).style
-						.display
+					document.getElementById(
+						'materialDesignContactFormErrorMsgContainer'
+					).style.display
 				).toStrictEqual( 'block' );
 			} );
 		} );
 
 		it( 'errors', () => {
 			setup();
-			document.getElementById( 'mtb-email-1' ).value = 'bad email';
+			document.getElementById( 'material-design-email-1' ).value = 'bad email';
 
 			initContactForm();
 
-			document.getElementById( 'mtbContactForm' ).checkValidity();
+			document.getElementById( 'materialDesignContactForm' ).checkValidity();
 
 			expect(
 				document
-					.getElementById( 'mtb-email-1' )
+					.getElementById( 'material-design-email-1' )
 					.closest( '.mdc-text-field' )
 					.classList.contains( 'mdc-text-field--invalid' )
 			).toStrictEqual( true );
@@ -284,19 +305,19 @@ describe( 'Front-end: Contact Form', () => {
 	} );
 
 	describe( 'initReCaptchaToken', () => {
-		it( 'runs only when an element with id `mtbContactForm` exists', () => {
+		it( 'runs only when an element with id `materialDesignContactForm` exists', () => {
 			setup();
 			// Remove the form element.
-			document.getElementById( 'mtbContactForm' ).remove();
+			document.getElementById( 'materialDesignContactForm' ).remove();
 			initReCaptchaToken();
 
 			expect( ready ).toHaveBeenCalledTimes( 0 );
 		} );
 
-		it( 'runs only when an element with name `mtb_token` exists', () => {
+		it( 'runs only when an element with name `material_design_token` exists', () => {
 			setup();
 			// Remove the token text element.
-			document.querySelector( '[name=mtb_token]' ).remove();
+			document.querySelector( '[name=material_design_token]' ).remove();
 			initReCaptchaToken();
 
 			expect( ready ).toHaveBeenCalledTimes( 0 );
@@ -304,19 +325,19 @@ describe( 'Front-end: Contact Form', () => {
 
 		it( 'runs only when `recaptcha_site_key` is set and valid', () => {
 			setup();
-			delete global.mtb.recaptcha_site_key;
+			delete global.materialDesign.recaptcha_site_key;
 			initReCaptchaToken();
 
 			expect( ready ).toHaveBeenCalledTimes( 0 );
 
-			global.mtb.recaptcha_site_key = '';
+			global.materialDesign.recaptcha_site_key = '';
 			initReCaptchaToken();
 
 			expect( ready ).toHaveBeenCalledTimes( 0 );
 		} );
 
 		it( 'invokes grecaptcha ready, executes and sets the token field value', async () => {
-			global.mtb.recaptcha_site_key = 'SITE_KEY';
+			global.materialDesign.recaptcha_site_key = 'SITE_KEY';
 			setup();
 			initReCaptchaToken();
 			expect( ready ).toHaveBeenCalledTimes( 1 );
@@ -324,7 +345,7 @@ describe( 'Front-end: Contact Form', () => {
 
 			await waitFor( () =>
 				expect(
-					document.querySelector( '[name=mtb_token]' ).value
+					document.querySelector( '[name=material_design_token]' ).value
 				).toStrictEqual( tokenValue )
 			);
 		} );

@@ -24,7 +24,7 @@
 	>
 
 	<testsuites>
-		<testsuite name="Material Theme Builder">
+		<testsuite name="Material Design plugin for WordPress">
 			<directory suffix=".php">./tests/phpunit/</directory>
 		</testsuite>
 	</testsuites>
@@ -32,7 +32,7 @@
 	<filter>
 		<whitelist processUncoveredFilesFromWhitelist="false">
 			<directory suffix=".php">./php</directory>
-			<file>material-theme-builder.php</file>
+			<file>material-design.php</file>
 			<file>instance.php</file>
 		</whitelist>
 	</filter>

@@ -30,13 +30,10 @@ import { __ } from '@wordpress/i18n';
  * @return {Function} A functional component.
  */
 const NoPosts = ( { name, postsToDisplay } ) => {
-	let placeholderLabel = __( 'Recent Posts', 'material-theme-builder' );
+	let placeholderLabel = __( 'Recent Posts', 'material-design' );
 
 	if ( name === 'material/hand-picked-posts' ) {
-		placeholderLabel = __(
-			'Curated Post Collection',
-			'material-theme-builder'
-		);
+		placeholderLabel = __( 'Curated Post Collection', 'material-design' );
 	}
 
 	return (
@@ -45,7 +42,7 @@ const NoPosts = ( { name, postsToDisplay } ) => {
 				{ ! Array.isArray( postsToDisplay ) ? (
 					<Spinner />
 				) : (
-					__( 'No posts found.', 'material-theme-builder' )
+					__( 'No posts found.', 'material-design' )
 				) }
 			</Placeholder>
 		</>

@@ -31,14 +31,14 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Tabs (Material)', 'material-theme-builder' ),
+	title: __( 'Tabs (Material)', 'material-design' ),
 	description: __(
 		'Organize and allow navigation between related groups of content.',
-		'material-theme-builder'
+		'material-design'
 	),
 	keywords: [
-		__( 'Material Tabs', 'material-theme-builder' ),
-		__( 'Material Tabs', 'material-theme-builder' ),
+		__( 'Material Tabs', 'material-design' ),
+		__( 'Material Tabs', 'material-design' ),
 	],
 	icon: <i className="material-icons-outlined">tab</i>,
 	edit,

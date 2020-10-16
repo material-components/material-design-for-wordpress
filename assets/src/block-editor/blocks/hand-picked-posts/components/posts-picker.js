@@ -43,24 +43,18 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 	const onDone = () => {
 		setAttributes( { editMode: false } );
 		debouncedSpeak(
-			__(
-				'Showing Curated Post Collection block preview.',
-				'material-theme-builder'
-			)
+			__( 'Showing Curated Post Collection block preview.', 'material-design' )
 		);
 	};
 
 	return (
 		<Placeholder
 			icon={ <i className="material-icons-outlined">library_books</i> }
-			label={ __( 'Curated Post Collection', 'material-theme-builder' ) }
-			className="mtb-block-products-grid mtb-block-handpicked-posts"
+			label={ __( 'Curated Post Collection', 'material-design' ) }
+			className="material-design-block-products-grid material-design-block-handpicked-posts"
 		>
-			{ __(
-				'Display a selection of hand-picked posts.',
-				'material-theme-builder'
-			) }
-			<div className="mtb-block-handpicked-posts__selection">
+			{ __( 'Display a selection of hand-picked posts.', 'material-design' ) }
+			<div className="material-design-block-handpicked-posts__selection">
 				<PostsControl
 					selected={ attributes.posts }
 					onChange={ setter( 'posts', ( value = [] ) => {
@@ -69,7 +63,7 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 					} ) }
 				/>
 				<Button isPrimary onClick={ onDone }>
-					{ __( 'Done', 'material-theme-builder' ) }
+					{ __( 'Done', 'material-design' ) }
 				</Button>
 			</div>
 		</Placeholder>

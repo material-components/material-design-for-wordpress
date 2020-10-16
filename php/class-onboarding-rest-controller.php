@@ -1,31 +1,31 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Class Onboarding_REST_Controller.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Plugin;
+use MaterialDesign\Plugin\Plugin;
 
 /**
  * Class Onboarding_REST_Controller.
@@ -45,7 +45,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 	 */
 	public function __construct( $plugin ) {
 		$this->plugin    = $plugin;
-		$this->namespace = 'material-theme-builder/v1';
+		$this->namespace = 'material-design/v1';
 		$this->rest_base = 'onboarding';
 	}
 
@@ -117,7 +117,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 	 */
 	public function update_item_permissions_check( $request ) {
 		if ( ! current_user_can( 'install_themes' ) ) {
-			return new \WP_Error( 'material_rest_cannot_update', __( 'Sorry, you cannot manage themes or import content.', 'material-theme-builder' ), [ 'status' => rest_authorization_required_code() ] );
+			return new \WP_Error( 'material_rest_cannot_update', __( 'Sorry, you cannot manage themes or import content.', 'material-design' ), [ 'status' => rest_authorization_required_code() ] );
 		}
 		return true;
 	}
@@ -152,8 +152,8 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 			function( $return, $action, $args ) {
 				if ( 'theme_information' === $action && isset( $args->slug ) && Plugin::THEME_SLUG === $args->slug ) {
 					return (object) [
-						'name'          => 'Material Theme',
-						'download_link' => 'https://storage.googleapis.com/xwp-mdc/material-theme/material-theme.zip',
+						'name'          => 'Material Design',
+						'download_link' => 'https://storage.googleapis.com/xwp-mdc/theme/material-design.zip',
 					];
 				}
 
@@ -176,8 +176,8 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 
 		if ( is_wp_error( $api ) ) {
 			return new \WP_Error(
-				'material_theme_install',
-				__( 'Material theme could not be installed. Theme API call failed.', 'material-theme-builder' ),
+				'material_design_theme_install',
+				__( 'The Material Design theme could not be installed. Theme API call failed.', 'material-design' ),
 				[ 'status' => 500 ]
 			);
 		}
@@ -188,8 +188,8 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 
 		if ( is_wp_error( $result ) || is_null( $result ) ) {
 			return new \WP_Error(
-				'material_theme_install',
-				__( 'Material theme could not be installed.', 'material-theme-builder' ),
+				'material_design_theme_install',
+				__( 'The Material Design theme could not be installed.', 'material-design' ),
 				[ 'status' => 500 ]
 			);
 		}
@@ -214,14 +214,14 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 		$installed_themes = wp_get_themes();
 
 		if ( ! in_array( Plugin::THEME_SLUG, array_keys( $installed_themes ), true ) ) {
-			return new \WP_Error( 'material_invalid_theme', __( 'Material theme is not installed.', 'material-theme-builder' ), [ 'status' => 500 ] );
+			return new \WP_Error( 'material_invalid_theme', __( 'The Material Design theme is not installed.', 'material-design' ), [ 'status' => 500 ] );
 		}
 
 		$result = switch_theme( Plugin::THEME_SLUG );
 
 		// @codeCoverageIgnoreStart
 		if ( ! is_null( $result ) ) {
-			return new \WP_Error( 'material_invalid_theme', __( 'Material theme cannot be activated.', 'material-theme-builder' ), [ 'status' => 500 ] );
+			return new \WP_Error( 'material_invalid_theme', __( 'The Material Design theme cannot be activated.', 'material-design' ), [ 'status' => 500 ] );
 		}
 
 		update_option( 'material_onboarding', true, false );
@@ -251,7 +251,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 		if ( is_wp_error( $result ) || is_null( $result ) ) {
 			return new \WP_Error(
 				'material_importer',
-				__( 'Material demo content could not be installed.', 'material-theme-builder' ),
+				__( 'Material Design demo content could not be installed.', 'material-design' ),
 				[ 'status' => 500 ]
 			);
 		}
@@ -278,19 +278,19 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 			'type'       => 'object',
 			'properties' => [
 				'slug'   => [
-					'description' => __( 'Action slug.', 'material-theme-builder' ),
+					'description' => __( 'Action slug.', 'material-design' ),
 					'type'        => 'string',
 					'context'     => [ 'view', 'edit' ],
 					'readonly'    => true,
 				],
 				'name'   => [
-					'description' => __( 'Action readable name.', 'material-theme-builder' ),
+					'description' => __( 'Action readable name.', 'material-design' ),
 					'type'        => 'string',
 					'context'     => [ 'view', 'edit' ],
 					'readonly'    => true,
 				],
 				'status' => [
-					'description' => __( 'Success status.', 'material-theme-builder' ),
+					'description' => __( 'Success status.', 'material-design' ),
 					'type'        => 'string',
 					'context'     => [ 'view', 'edit' ],
 					'readonly'    => true,

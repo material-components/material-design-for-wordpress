@@ -85,11 +85,11 @@ export default function MaterialColorPalette( {
 		colors = [
 			{
 				color: '#6200ee',
-				name: __( 'Primary', 'material-theme-builder' ),
+				name: __( 'Primary', 'material-design' ),
 			},
 			{
 				color: '#018786',
-				name: __( 'Secondary', 'material-theme-builder' ),
+				name: __( 'Secondary', 'material-design' ),
 			},
 		];
 	}
@@ -183,12 +183,9 @@ export default function MaterialColorPalette( {
 												'components-material-color-palette__picker',
 										} }
 										buttonProps={ {
-											'aria-label': __(
-												'Color palette',
-												'material-theme-builder'
-											),
+											'aria-label': __( 'Color palette', 'material-design' ),
 										} }
-										linkText={ __( 'Color palette', 'material-theme-builder' ) }
+										linkText={ __( 'Color palette', 'material-design' ) }
 									/>
 									<DropdownLinkAction
 										dropdownProps={ {
@@ -198,16 +195,16 @@ export default function MaterialColorPalette( {
 										buttonProps={ {
 											'aria-label': __(
 												'Custom color picker',
-												'material-theme-builder'
+												'material-design'
 											),
 										} }
-										linkText={ __( 'Custom Color', 'material-theme-builder' ) }
+										linkText={ __( 'Custom Color', 'material-design' ) }
 									/>
 								</>
 							) }
 							{ !! clearable && (
 								<ButtonAction onClick={ clearColor }>
-									{ __( 'Reset', 'material-theme-builder' ) }
+									{ __( 'Reset', 'material-design' ) }
 								</ButtonAction>
 							) }
 						</>

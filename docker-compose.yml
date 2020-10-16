@@ -41,7 +41,7 @@ services:
       - 8088:80
     volumes:
       - ./bin/local-dev/wordpress/html:/var/www/html
-      - .:/var/www/html/wp-content/plugins/material-theme-builder
+      - .:/var/www/html/wp-content/plugins/material-design
     restart: always
     environment:
       WORDPRESS_DEBUG: 1
@@ -53,7 +53,7 @@ services:
     user: xfs
     volumes:
       - ./bin/local-dev/wordpress/html:/var/www/html
-      - .:/var/www/html/wp-content/plugins/material-theme-builder
+      - .:/var/www/html/wp-content/plugins/material-design
     depends_on:
       - mysql
       - wordpress

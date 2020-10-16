@@ -14,4 +14,4 @@
 # limitations under the License.
 
 
-docker-compose run --rm -u 1000 --workdir=/var/www/html/wp-content/plugins/material-theme-builder wordpress -- composer test
+docker-compose run --rm -u 1000 --workdir=/var/www/html/wp-content/plugins/material-design wordpress -- composer test

@@ -31,13 +31,13 @@ const { name } = metadata;
 export { metadata, name };
 
 export const settings = {
-	title: __( 'Contact Form (Material)', 'material-theme-builder' ),
+	title: __( 'Contact Form (Material)', 'material-design' ),
 	description: __(
 		'Get feedback from folks visiting your site.',
-		'material-theme-builder'
+		'material-design'
 	),
 	category: 'material',
-	keywords: [ __( 'Material Contact Form', 'material-theme-builder' ) ],
+	keywords: [ __( 'Material Contact Form', 'material-design' ) ],
 	icon: <i className="material-icons-outlined">mail</i>,
 	example: {
 		attributes: {

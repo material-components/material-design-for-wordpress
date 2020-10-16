@@ -27,13 +27,13 @@ import IconButtonLink from '../common/icon-button-link';
 const Table = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Data Tables', 'material-theme-builder' ) }
+			{ __( 'Data Tables', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/data-tables"></IconButtonLink>
 		<p>
 			{ __(
 				'Data tables display sets of data across rows and columns.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div className="mdc-data-table" style={ { borderRadius: `${ radius }px` } }>
@@ -45,35 +45,35 @@ const Table = ( { radius } ) => (
 							role="columnheader"
 							scope="col"
 						>
-							{ __( 'Dessert', 'material-theme-builder' ) }
+							{ __( 'Dessert', 'material-design' ) }
 						</th>
 						<th
 							className="mdc-data-table__header-cell"
 							role="columnheader"
 							scope="col"
 						>
-							{ __( 'Calories', 'material-theme-builder' ) }
+							{ __( 'Calories', 'material-design' ) }
 						</th>
 						<th
 							className="mdc-data-table__header-cell"
 							role="columnheader"
 							scope="col"
 						>
-							{ __( 'Fat', 'material-theme-builder' ) }
+							{ __( 'Fat', 'material-design' ) }
 						</th>
 						<th
 							className="mdc-data-table__header-cell"
 							role="columnheader"
 							scope="col"
 						>
-							{ __( 'Carbs', 'material-theme-builder' ) }
+							{ __( 'Carbs', 'material-design' ) }
 						</th>
 						<th
 							className="mdc-data-table__header-cell"
 							role="columnheader"
 							scope="col"
 						>
-							{ __( 'Protein (g)', 'material-theme-builder' ) }
+							{ __( 'Protein (g)', 'material-design' ) }
 						</th>
 					</tr>
 				</thead>
@@ -84,7 +84,7 @@ const Table = ( { radius } ) => (
 						aria-selected="false"
 					>
 						<td className="mdc-data-table__cell" id="u9">
-							{ __( 'Frozen Yogurt', 'material-theme-builder' ) }
+							{ __( 'Frozen Yogurt', 'material-design' ) }
 						</td>
 						<td className="mdc-data-table__cell mdc-data-table__cell--numeric">
 							159
@@ -105,7 +105,7 @@ const Table = ( { radius } ) => (
 						aria-selected="false"
 					>
 						<td className="mdc-data-table__cell" id="u10">
-							{ __( 'Ice Cream Sandwich', 'material-theme-builder' ) }
+							{ __( 'Ice Cream Sandwich', 'material-design' ) }
 						</td>
 						<td className="mdc-data-table__cell mdc-data-table__cell--numeric">
 							237
@@ -126,7 +126,7 @@ const Table = ( { radius } ) => (
 						aria-selected="false"
 					>
 						<td className="mdc-data-table__cell" id="u11">
-							{ __( 'Eclair', 'material-theme-builder' ) }
+							{ __( 'Eclair', 'material-design' ) }
 						</td>
 						<td className="mdc-data-table__cell mdc-data-table__cell--numeric">
 							262

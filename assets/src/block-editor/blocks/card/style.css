@@ -15,30 +15,30 @@
  */
 
 /* Card style */
-.mtb-card {
+.material-design-card {
 	font-size: 16px;
 
 }
 
-.mtb-card__primary {
+.material-design-card__primary {
 	padding: 1em;
 }
 
-.mtb-card__title {
+.material-design-card__title {
 	margin: 0 !important;
 }
 
 
-.mtb-card__secondary-text {
+.material-design-card__secondary-text {
 	padding: 0 1em 0 0;
 	margin: 0 !important;
 }
 
-.mtb-card__supporting-text {
+.material-design-card__supporting-text {
 	padding: 0 1em 8px 1em;
 }
 
-.mtb-card__media {
+.material-design-card__media {
 	position: relative;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -49,33 +49,33 @@
 	padding: 1em;
 }
 
-.mtb-card__supporting-text_text-over-media,
-.mtb-card__supporting-text_text-above-media {
+.material-design-card__supporting-text_text-over-media,
+.material-design-card__supporting-text_text-above-media {
 	padding-top: 1em !important;
 }
 
-.mtb-card__media.mdc-card__media--square {
+.material-design-card__media.mdc-card__media--square {
 	width: 110px;
 	height: 110px;
 }
 
-.mtb-card-with-text-over-media .mdc-card__media-content {
+.material-design-card-with-text-over-media .mdc-card__media-content {
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-align: end;
 	align-items: flex-end;
 }
 
-.mtb-card-with-text-over-media .mdc-card__media-content .mtb-card__title,
-.mtb-card-with-text-over-media .mdc-card__media-content .mtb-card__secondary-text {
+.material-design-card-with-text-over-media .mdc-card__media-content .material-design-card__title,
+.material-design-card-with-text-over-media .mdc-card__media-content .material-design-card__secondary-text {
 	color: #fff !important;
 }
 
-.mtb-card__list .mtb-card__primary {
+.material-design-card__list .material-design-card__primary {
 	flex: 1;
 }
 
-.mtb-card__list .mtb-card__primary-action {
+.material-design-card__list .material-design-card__primary-action {
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-direction: row;
@@ -87,7 +87,7 @@
 	flex-wrap: wrap;
 }
 
-.mtb-card {
+.material-design-card {
 
 	.mdc-button span {
 		font-size: .875em !important;

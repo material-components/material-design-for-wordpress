@@ -48,7 +48,7 @@ const GlobalShapeSize = props => {
 				className="components-button global-shape-size-reset is-small"
 				onClick={ onReset }
 			>
-				{ __( 'Reset', 'material-theme-builder' ) }
+				{ __( 'Reset', 'material-design' ) }
 			</button>
 		</div>
 	);

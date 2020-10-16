@@ -28,13 +28,13 @@ import IconButtonLink from '../common/icon-button-link';
 const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Buttons', 'material-theme-builder' ) }
+			{ __( 'Buttons', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/buttons"></IconButtonLink>
 		<p>
 			{ __(
 				'Buttons allow users to take actions, and make choices, with a single tap.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div className="mdc-button-wrap">
@@ -44,7 +44,7 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 					style={ { borderRadius: `${ radius }px` } }
 				></div>
 				<span className="mdc-button__label">
-					{ __( 'Text Button', 'material-theme-builder' ) }
+					{ __( 'Text Button', 'material-design' ) }
 				</span>
 			</button>
 			<button
@@ -58,7 +58,7 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 					></div>
 				</RippleColor>
 				<span className="mdc-button__label">
-					{ __( 'Outlined Button', 'material-theme-builder' ) }
+					{ __( 'Outlined Button', 'material-design' ) }
 				</span>
 			</button>
 			<button
@@ -67,7 +67,7 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 			>
 				<div className="mdc-button__ripple"></div>
 				<span className="mdc-button__label">
-					{ __( 'Raised Button', 'material-theme-builder' ) }
+					{ __( 'Raised Button', 'material-design' ) }
 				</span>
 			</button>
 			<button
@@ -76,7 +76,7 @@ const Buttons = ( { radius, iconStyle, primaryColor } ) => (
 			>
 				<div className="mdc-button__ripple"></div>
 				<span className="mdc-button__label">
-					{ __( 'Unelevated Button', 'material-theme-builder' ) }
+					{ __( 'Unelevated Button', 'material-design' ) }
 				</span>
 			</button>
 			<button className="mdc-icon-button" style={ { marginTop: '55px' } }>

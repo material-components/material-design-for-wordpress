@@ -85,12 +85,12 @@ export const addMaterialStyle = ( settings, name ) => {
 		settings.styles = [
 			{
 				name: 'material',
-				label: __( 'Material', 'material-theme-builder' ),
+				label: __( 'Material', 'material-design' ),
 				isDefault: true,
 			},
 			{
 				name: 'regular',
-				label: __( 'Regular', 'material-theme-builder' ),
+				label: __( 'Regular', 'material-design' ),
 			},
 			settings.styles[ 1 ],
 		];

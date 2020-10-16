@@ -1,29 +1,29 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Tests for Icon_Radio_Control class.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+namespace MaterialDesign\Plugin\Customizer;
 
 /**
  * Tests for Icon_Radio_Control class.
@@ -49,7 +49,7 @@ class Test_Icon_Radio_Control extends \WP_UnitTestCase {
 		$wp_customize  = new \WP_Customize_Manager();
 		$radio_control = new Icon_Radio_Control(
 			$wp_customize,
-			'material_theme_theme',
+			'material_design_theme',
 			[]
 		);
 
@@ -62,7 +62,7 @@ class Test_Icon_Radio_Control extends \WP_UnitTestCase {
 
 		$radio_control = new Icon_Radio_Control(
 			$wp_customize,
-			'material_theme_theme',
+			'material_design_theme',
 			[
 				'choices' => [
 					'foo' => [
@@ -96,11 +96,11 @@ class Test_Icon_Radio_Control extends \WP_UnitTestCase {
 	public function test_to_json() {
 		$wp_customize = new \WP_Customize_Manager();
 
-		$wp_customize->add_setting( 'mtb_icon_collection' );
+		$wp_customize->add_setting( 'material_design_icon_collection' );
 
 		$primary_control = new Icon_Radio_Control(
 			$wp_customize,
-			'mtb_icon_collection',
+			'material_design_icon_collection',
 			[
 				'label'    => 'Icon Styles',
 				'section'  => 'icon',

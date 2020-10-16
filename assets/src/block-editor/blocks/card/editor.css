@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-.mtb-card__media-container-focused {
+.material-design-card__media-container-focused {
 	border: 4px rgb(0, 113, 161) solid;
 
 }
 
-.mtb-card__media-actions {
+.material-design-card__media-actions {
 	display: none;
 	position: absolute;
 	right: 10px;
@@ -35,18 +35,18 @@
 	}
 }
 
-.mtb-card__media-actions-shown {
+.material-design-card__media-actions-shown {
 	display: block !important;
 }
 
-.mtb-card__media-close-button {
+.material-design-card__media-close-button {
 	padding: 2px !important;
 }
 
-.mtb-card__supporting-text {
+.material-design-card__supporting-text {
 	padding: 0 1rem 8px 1rem;
 }
 
-.mtb-card .components-placeholder {
+.material-design-card .components-placeholder {
 	margin-bottom: 0;
 }

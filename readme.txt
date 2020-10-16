@@ -1,10 +1,10 @@
 === Material Design for WordPress ===
-Contributors: materialdesign, google
+Contributors: google, materialdesign, xwp
 Requires at least: 5.0
-Tested up to: 5.3.2
-Stable tag: 0.0.1
-License: Apache License
-License URI: https://www.apache.org/licenses/
+Tested up to: 5.5.1
+Stable tag: 1.0.0-alpha
+License: Apache License, Version 2.0
+License URI: https://www.apache.org/licenses/LICENSE-2.0
 
 The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
 
@@ -56,8 +56,9 @@ Material Design is a design system created by Google and backed by open-source c
 
 - [Google](https://profiles.wordpress.org/google/)
 - [Material Design](https://profiles.wordpress.org/materialdesign/)
+- [XWP](https://profiles.wordpress.org/xwp/)
 
 
 == Changelog ==
 
-For the plugin’s changelog, please see [the Releases page on GitHub](https://github.com/xwp/material-theme-builder-wp/releases).
+For the plugin’s changelog, please see [the Releases page on GitHub](https://github.com/xwp/material-design-wp-plugin/releases).

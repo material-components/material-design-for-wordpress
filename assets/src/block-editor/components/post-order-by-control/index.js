@@ -29,19 +29,19 @@ import { SelectControl } from '@wordpress/components';
  */
 const PostsOrderbyControl = ( { value, onChange } ) => (
 	<SelectControl
-		label={ __( 'Order posts by', 'material-theme-builder' ) }
+		label={ __( 'Order posts by', 'material-design' ) }
 		value={ value }
 		options={ [
 			{
-				label: __( 'Newness - newest first', 'material-theme-builder' ),
+				label: __( 'Newness - newest first', 'material-design' ),
 				value: 'date',
 			},
 			{
-				label: __( 'Title - alphabetical', 'material-theme-builder' ),
+				label: __( 'Title - alphabetical', 'material-design' ),
 				value: 'title',
 			},
 			{
-				label: __( 'Comments - most first', 'material-theme-builder' ),
+				label: __( 'Comments - most first', 'material-design' ),
 				value: 'popularity',
 			},
 		] }

@@ -34,12 +34,12 @@ export { metadata, name };
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Recent Posts (Material)', 'material-theme-builder' ),
+	title: __( 'Recent Posts (Material)', 'material-design' ),
 	description: __(
 		'Display a list of your most recent posts.',
-		'material-theme-builder'
+		'material-design'
 	),
-	keywords: [ __( 'Material Card', 'material-theme-builder' ) ],
+	keywords: [ __( 'Material Card', 'material-design' ) ],
 	icon: <i className="material-icons-outlined">description</i>,
 	edit,
 	example,

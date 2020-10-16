@@ -57,33 +57,29 @@ describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 		beforeAll( async () => {
 			await page.evaluate( el => {
 				el.click();
-			}, await page.$( '#accordion-panel-material_theme_builder h3' ) );
+			}, await page.$( '#accordion-panel-material_design h3' ) );
 
 			await page.waitFor( 500 );
 
 			await page.evaluate( el => {
 				el.click();
-			}, await page.$( '#accordion-section-material_theme_builder_corner_styles h3' ) );
+			}, await page.$( '#accordion-section-material_design_corner_styles h3' ) );
 		} );
 
 		it( 'should always display the `Global corner styles` setting control', async () => {
 			expect(
-				await isVisible(
-					'#range-slider-control-material_theme_builder-global_radius'
-				)
+				await isVisible( '#range-slider-control-material_design-global_radius' )
 			).toBeTruthy();
 		} );
 
 		it( 'should hide all individual component controls', async () => {
 			expect(
-				await page.$(
-					'#range-slider-control-material_theme_builder-button_radius'
-				)
+				await page.$( '#range-slider-control-material_design-button_radius' )
 			).toBeNull();
 
 			expect(
 				await page.$(
-					'#range-slider-control-material_theme_builder-text_field_radius'
+					'#range-slider-control-material_design-text_field_radius'
 				)
 			).toBeNull();
 		} );
@@ -94,20 +90,18 @@ describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 			}, await page.$( '.range-slider-control-settings-expanded' ) );
 
 			expect(
+				await isVisible( '#range-slider-control-material_design-button_radius' )
+			).toBeTruthy();
+
+			expect(
 				await isVisible(
-					'#range-slider-control-material_theme_builder-button_radius'
+					'#range-slider-control-material_design-image_list_radius'
 				)
 			).toBeTruthy();
 
 			expect(
 				await isVisible(
-					'#range-slider-control-material_theme_builder-image_list_radius'
-				)
-			).toBeTruthy();
-
-			expect(
-				await isVisible(
-					'#range-slider-control-material_theme_builder-text_field_radius'
+					'#range-slider-control-material_design-text_field_radius'
 				)
 			).toBeTruthy();
 		} );

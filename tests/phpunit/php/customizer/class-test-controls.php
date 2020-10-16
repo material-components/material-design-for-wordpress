@@ -1,34 +1,34 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Tests for Controls class.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+namespace MaterialDesign\Plugin\Customizer;
 
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Customizer\Icon_Radio_Control;
-use MaterialThemeBuilder\Customizer\Material_Color_Palette_Control;
-use function MaterialThemeBuilder\get_plugin_instance;
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Customizer\Icon_Radio_Control;
+use MaterialDesign\Plugin\Customizer\Material_Color_Palette_Control;
+use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
  * Tests for Controls class.
@@ -266,7 +266,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::add_typography_controls()
 	 */
 	public function test_add_typography_controls() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = \MaterialDesign\Plugin\get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -354,7 +354,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::add_corner_styles_controls()
 	 */
 	public function test_add_corner_styles_controls() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = \MaterialDesign\Plugin\get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -400,7 +400,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::add_icon_collection_controls()
 	 */
 	public function test_add_icon_collection_controls() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = \MaterialDesign\Plugin\get_plugin_instance()->customizer_controls;
 
 		// Set $wp_customize to the mocked object.
 		$controls->wp_customize = $this->wp_customize;
@@ -506,12 +506,12 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	public function test_scripts() {
 		get_plugin_instance()->customizer_controls->scripts();
 
-		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-js', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-theme-builder-customizer-css', 'enqueued' ) );
-		$this->assertTrue( wp_style_is( 'material-theme-builder-icons-css', 'enqueued' ) );
+		$this->assertTrue( wp_script_is( 'material-design-plugin-customizer-js', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-design-plugin-customizer-css', 'enqueued' ) );
+		$this->assertTrue( wp_style_is( 'material-design-plugin-icons-css', 'enqueued' ) );
 
 		// Assert data is added.
-		$localized_data = wp_scripts()->get_data( 'material-theme-builder-customizer-js', 'data' );
+		$localized_data = wp_scripts()->get_data( 'material-design-plugin-customizer-js', 'data' );
 		$this->assertNotEmpty( $localized_data );
 	}
 
@@ -521,7 +521,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::get_google_fonts_url()
 	 */
 	public function test_get_google_fonts_url() {
-		$controls = \MaterialThemeBuilder\get_plugin_instance()->customizer_controls;
+		$controls = \MaterialDesign\Plugin\get_plugin_instance()->customizer_controls;
 
 		// Assert we get Roboto font.
 		$this->assertContains( '//fonts.googleapis.com/css?family=Material+Icons', $controls->get_google_fonts_url() );
@@ -554,7 +554,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	public function test_preview_scripts() {
 		get_plugin_instance()->customizer_controls->preview_scripts();
 
-		$this->assertTrue( wp_script_is( 'material-theme-builder-customizer-preview-js', 'enqueued' ) );
+		$this->assertTrue( wp_script_is( 'material-design-plugin-customizer-preview-js', 'enqueued' ) );
 	}
 
 	/**
@@ -670,15 +670,15 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 			[
 				[
 					'id'            => 'global_radius',
-					'label'         => __( 'Global Corner Styles', 'material-theme-builder' ),
-					'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-theme-builder' ),
+					'label'         => __( 'Global Corner Styles', 'material-design' ),
+					'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-design' ),
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 4,
 				],
 				[
 					'id'            => 'button_radius',
-					'label'         => __( 'Buttons', 'material-theme-builder' ),
+					'label'         => __( 'Buttons', 'material-design' ),
 					'min'           => 0,
 					'max'           => 20,
 					'initial_value' => 4,
@@ -689,7 +689,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'card_radius',
-					'label'         => __( 'Card', 'material-theme-builder' ),
+					'label'         => __( 'Card', 'material-design' ),
 					'min'           => 0,
 					'max'           => 24,
 					'initial_value' => 0,
@@ -702,7 +702,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'chip_radius',
-					'label'         => __( 'Chip', 'material-theme-builder' ),
+					'label'         => __( 'Chip', 'material-design' ),
 					'min'           => 0,
 					'max'           => 16,
 					'initial_value' => 0,
@@ -710,7 +710,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'data_table_radius',
-					'label'         => __( 'Data table', 'material-theme-builder' ),
+					'label'         => __( 'Data table', 'material-design' ),
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 0,
@@ -721,7 +721,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'image_list_radius',
-					'label'         => __( 'Image List', 'material-theme-builder' ),
+					'label'         => __( 'Image List', 'material-design' ),
 					'min'           => 0,
 					'max'           => 24,
 					'initial_value' => 0,
@@ -732,7 +732,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'nav_drawer_radius',
-					'label'         => __( 'Nav Drawer', 'material-theme-builder' ),
+					'label'         => __( 'Nav Drawer', 'material-design' ),
 					'min'           => 0,
 					'max'           => 36,
 					'initial_value' => 0,
@@ -740,7 +740,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 				],
 				[
 					'id'            => 'text_field_radius',
-					'label'         => __( 'Text Field', 'material-theme-builder' ),
+					'label'         => __( 'Text Field', 'material-design' ),
 					'min'           => 0,
 					'max'           => 20,
 					'initial_value' => 0,
@@ -798,13 +798,13 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		// Bad nonce.
 		$_POST['nonce'] = 'bad';
 		wp_set_current_user( 1 );
-		$this->make_ajax_call( 'mtb_notification_dismiss' );
+		$this->make_ajax_call( 'material_design_notification_dismiss' );
 		$this->assertFalse( $this->_last_response_parsed['success'] );
 		$this->assertEquals( 'invalid_nonce', $this->_last_response_parsed['data'] );
 
 		// Valid.
-		$_POST['nonce'] = wp_create_nonce( 'mtb_notify_nonce' );
-		$this->make_ajax_call( 'mtb_notification_dismiss' );
+		$_POST['nonce'] = wp_create_nonce( 'material_design_notify_nonce' );
+		$this->make_ajax_call( 'material_design_notification_dismiss' );
 		$this->assertTrue( $this->_last_response_parsed['success'] );
 		$this->assertEquals( [ 'count' => 1 ], $this->_last_response_parsed['data'] );
 	}
