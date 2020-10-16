@@ -31,27 +31,27 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-card mtb-card mdc-card--outlined"
+          class="mdc-card material-design-card mdc-card--outlined"
           style="border-radius: 4px;"
         >
           <div
-            class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+            class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
             tabindex="0"
           >
             <div
-              class="mtb-card__media-container"
+              class="material-design-card__media-container"
             >
               <div
-                class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+                class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
                 style="background-image: url(http://test.loc/test.jpg);"
                 tabindex="0"
               />
               <div
-                class="mtb-card__media-actions"
+                class="material-design-card__media-actions"
               >
                 <button
                   aria-label="Remove Card Image"
-                  class="components-button mtb-card__media-close-button has-icon"
+                  class="components-button material-design-card__media-close-button has-icon"
                   type="button"
                 >
                   <svg
@@ -72,12 +72,12 @@ Object {
               </div>
             </div>
             <div
-              class="mtb-card__primary"
+              class="material-design-card__primary"
             >
               <h2
                 aria-label="Title goes here"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                 contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
@@ -87,7 +87,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                 contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
@@ -98,7 +98,7 @@ Object {
             <div
               aria-label="Supporting text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
               contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
@@ -157,27 +157,27 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mtb-card__media-container"
+            class="material-design-card__media-container"
           >
             <div
-              class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+              class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
               style="background-image: url(http://test.loc/test.jpg);"
               tabindex="0"
             />
             <div
-              class="mtb-card__media-actions"
+              class="material-design-card__media-actions"
             >
               <button
                 aria-label="Remove Card Image"
-                class="components-button mtb-card__media-close-button has-icon"
+                class="components-button material-design-card__media-close-button has-icon"
                 type="button"
               >
                 <svg
@@ -198,12 +198,12 @@ Object {
             </div>
           </div>
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
               aria-label="Title goes here"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
               contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
@@ -213,7 +213,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
               contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
@@ -224,7 +224,7 @@ Object {
           <div
             aria-label="Supporting text"
             aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
             contenteditable="true"
             role="textbox"
             style="white-space: pre-wrap;"
@@ -364,27 +364,27 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-card mtb-card mdc-card--outlined"
+          class="mdc-card material-design-card mdc-card--outlined"
           style="border-radius: 4px;"
         >
           <div
-            class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+            class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
             tabindex="0"
           >
             <div
-              class="mtb-card__media-container"
+              class="material-design-card__media-container"
             >
               <div
-                class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+                class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
                 style="background-image: url(http://test.loc/test.jpg);"
                 tabindex="0"
               />
               <div
-                class="mtb-card__media-actions"
+                class="material-design-card__media-actions"
               >
                 <button
                   aria-label="Remove Card Image"
-                  class="components-button mtb-card__media-close-button has-icon"
+                  class="components-button material-design-card__media-close-button has-icon"
                   type="button"
                 >
                   <svg
@@ -405,12 +405,12 @@ Object {
               </div>
             </div>
             <div
-              class="mtb-card__primary"
+              class="material-design-card__primary"
             >
               <h2
                 aria-label="Title goes here"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                 contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
@@ -420,7 +420,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                 contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
@@ -431,7 +431,7 @@ Object {
             <div
               aria-label="Supporting text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
               contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
@@ -490,27 +490,27 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mtb-card__media-container"
+            class="material-design-card__media-container"
           >
             <div
-              class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+              class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
               style="background-image: url(http://test.loc/test.jpg);"
               tabindex="0"
             />
             <div
-              class="mtb-card__media-actions"
+              class="material-design-card__media-actions"
             >
               <button
                 aria-label="Remove Card Image"
-                class="components-button mtb-card__media-close-button has-icon"
+                class="components-button material-design-card__media-close-button has-icon"
                 type="button"
               >
                 <svg
@@ -531,12 +531,12 @@ Object {
             </div>
           </div>
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
               aria-label="Title goes here"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
               contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
@@ -546,7 +546,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
               contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
@@ -557,7 +557,7 @@ Object {
           <div
             aria-label="Supporting text"
             aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
             contenteditable="true"
             role="textbox"
             style="white-space: pre-wrap;"
@@ -697,27 +697,27 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-card mdc-card--outlined mtb-card mtb-card__list mtb-basic"
+          class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
           style="border-radius: 4px;"
         >
           <div
-            class="mdc-card__primary-action mtb-card__primary-action"
+            class="mdc-card__primary-action material-design-card__primary-action"
             tabindex="0"
           >
             <div
-              class="mtb-card__media-container"
+              class="material-design-card__media-container"
             >
               <div
-                class="mdc-card__media mdc-card__media--square mtb-card__media mtb-card-with-text-under-media"
+                class="mdc-card__media mdc-card__media--square material-design-card__media material-design-card-with-text-under-media"
                 style="background-image: url(http://test.loc/test.jpg);"
                 tabindex="0"
               />
               <div
-                class="mtb-card__media-actions"
+                class="material-design-card__media-actions"
               >
                 <button
                   aria-label="Remove Card Image"
-                  class="components-button mtb-card__media-close-button has-icon"
+                  class="components-button material-design-card__media-close-button has-icon"
                   type="button"
                 >
                   <svg
@@ -738,12 +738,12 @@ Object {
               </div>
             </div>
             <div
-              class="mtb-card__primary"
+              class="material-design-card__primary"
             >
               <h2
                 aria-label="Title goes here"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
                 contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
@@ -753,7 +753,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                 contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
@@ -813,27 +813,27 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-card mdc-card--outlined mtb-card mtb-card__list mtb-basic"
+        class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action"
+          class="mdc-card__primary-action material-design-card__primary-action"
           tabindex="0"
         >
           <div
-            class="mtb-card__media-container"
+            class="material-design-card__media-container"
           >
             <div
-              class="mdc-card__media mdc-card__media--square mtb-card__media mtb-card-with-text-under-media"
+              class="mdc-card__media mdc-card__media--square material-design-card__media material-design-card-with-text-under-media"
               style="background-image: url(http://test.loc/test.jpg);"
               tabindex="0"
             />
             <div
-              class="mtb-card__media-actions"
+              class="material-design-card__media-actions"
             >
               <button
                 aria-label="Remove Card Image"
-                class="components-button mtb-card__media-close-button has-icon"
+                class="components-button material-design-card__media-close-button has-icon"
                 type="button"
               >
                 <svg
@@ -854,12 +854,12 @@ Object {
             </div>
           </div>
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
               aria-label="Title goes here"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable mtb-card__title mdc-typography mdc-typography--headline6"
+              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
               contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
@@ -869,7 +869,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
               contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"

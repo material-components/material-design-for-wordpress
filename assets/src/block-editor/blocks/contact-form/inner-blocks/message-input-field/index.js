@@ -29,10 +29,10 @@ import save from '../common/components/textarea-input-save';
 export const name = 'material/message-input-field';
 
 export const settings = {
-	title: __( 'Message', 'material-theme-builder' ),
+	title: __( 'Message', 'material-design' ),
 	description: __(
 		'A text area for people to add longer responses.',
-		'material-theme-builder'
+		'material-design'
 	),
 	parent: [ 'material/contact-form' ],
 	category: 'material',
@@ -43,7 +43,7 @@ export const settings = {
 		},
 		label: {
 			type: 'string',
-			default: __( 'Message', 'material-theme-builder' ),
+			default: __( 'Message', 'material-design' ),
 		},
 		inputValue: {
 			type: 'string',

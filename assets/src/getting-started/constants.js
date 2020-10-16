@@ -37,7 +37,7 @@ export const ACTIONS = {
  * @todo Probably better if we turn these into components like the wizard
  */
 export const TABS = {
-	WIZARD: __( 'Quick Start', 'material-theme-builder' ),
-	CUSTOMIZE: __( 'Customize your theme', 'material-theme-builder' ),
-	OVERVIEW: __( 'Build with Material Blocks', 'material-theme-builder' ),
+	WIZARD: __( 'Quick Start', 'material-design' ),
+	CUSTOMIZE: __( 'Customize your theme', 'material-design' ),
+	OVERVIEW: __( 'Build with Material Blocks', 'material-design' ),
 };

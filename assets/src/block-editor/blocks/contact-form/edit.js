@@ -49,7 +49,7 @@ const TEMPLATES = [
 	[
 		'material/button',
 		{
-			label: __( 'Send', 'material-theme-builder' ),
+			label: __( 'Send', 'material-design' ),
 			style: 'unelevated',
 			isSubmit: true,
 		},
@@ -79,7 +79,7 @@ const Edit = props => {
 			<div>
 				{ __(
 					'Only administrators or editor with the manage options capability can use this block',
-					'material-theme-builder'
+					'material-design'
 				) }
 			</div>
 		);
@@ -90,7 +90,7 @@ const Edit = props => {
 		return (
 			<img
 				src={ getConfig( 'contact_form_preview' ) }
-				alt={ __( 'Contact Form Preview', 'material-theme-builder' ) }
+				alt={ __( 'Contact Form Preview', 'material-design' ) }
 			/>
 		);
 	}
@@ -100,10 +100,7 @@ const Edit = props => {
 
 	if ( displayNotice ) {
 		createWarningNotice(
-			__(
-				'Only one contact form is supported per page',
-				'material-theme-builder-wp'
-			)
+			__( 'Only one contact form is supported per page', 'material-design' )
 		);
 	}
 
@@ -134,10 +131,7 @@ export default compose( [
 			formNotices: pageNotices.filter(
 				notice =>
 					notice.content ===
-					__(
-						'Only one contact form is supported per page',
-						'material-theme-builder-wp'
-					)
+					__( 'Only one contact form is supported per page', 'material-design' )
 			),
 		};
 	} ),

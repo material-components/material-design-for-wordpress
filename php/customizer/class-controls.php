@@ -1,34 +1,34 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Class Controls.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+namespace MaterialDesign\Plugin\Customizer;
 
-use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Google_Fonts;
-use MaterialThemeBuilder\Blocks_Frontend;
-use MaterialThemeBuilder\Helpers;
+use MaterialDesign\Plugin\Module_Base;
+use MaterialDesign\Plugin\Google_Fonts;
+use MaterialDesign\Plugin\Blocks_Frontend;
+use MaterialDesign\Plugin\Helpers;
 
 /**
  * Class Controls.
@@ -40,7 +40,7 @@ class Controls extends Module_Base {
 	 *
 	 * @var string
 	 */
-	public $slug = 'material_theme_builder';
+	public $slug = 'material_design';
 
 	/**
 	 * WP_Customize_Manager object reference.
@@ -64,8 +64,8 @@ class Controls extends Module_Base {
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'scripts' ] );
 		add_action( 'customize_preview_init', [ $this, 'preview_scripts' ], 100 );
 		add_action( 'customize_controls_print_footer_scripts', [ $this, 'templates' ] );
-		add_action( 'customize_sanitize_js_mtb_notify', [ $this, 'show_material_components_notification' ] );
-		add_action( 'wp_ajax_mtb_notification_dismiss', [ $this, 'notification_dismiss' ] );
+		add_action( 'customize_sanitize_js_material_design_notify', [ $this, 'show_material_components_notification' ] );
+		add_action( 'wp_ajax_material_design_notification_dismiss', [ $this, 'notification_dismiss' ] );
 	}
 
 	/**
@@ -115,8 +115,8 @@ class Controls extends Module_Base {
 			[
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
-				'title'       => esc_html__( 'Material Theme Options', 'material-theme-builder' ),
-				'description' => esc_html__( 'Change the color, shape, typography, and icons below to customize your theme style. Navigate to the Material Blocks to see your custom styles applied across Material Components..', 'material-theme-builder' ),
+				'title'       => esc_html__( 'Material Design Options', 'material-design' ),
+				'description' => esc_html__( 'Change the color, shape, typography, and icons below to customize your theme style. Navigate to the Material Blocks to see your custom styles applied across Material Components..', 'material-design' ),
 			]
 		);
 	}
@@ -128,11 +128,11 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			'style'         => __( 'Starter Styles', 'material-theme-builder' ),
-			'colors'        => __( 'Color Palette ', 'material-theme-builder' ),
-			'typography'    => __( 'Typography (Font Styles)', 'material-theme-builder' ),
-			'corner_styles' => __( 'Shape Size', 'material-theme-builder' ),
-			'icons'         => __( 'Icon Styles', 'material-theme-builder' ),
+			'style'         => __( 'Starter Styles', 'material-design' ),
+			'colors'        => __( 'Color Palette ', 'material-design' ),
+			'typography'    => __( 'Typography (Font Styles)', 'material-design' ),
+			'corner_styles' => __( 'Shape Size', 'material-design' ),
+			'icons'         => __( 'Icon Styles', 'material-design' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
@@ -208,23 +208,23 @@ class Controls extends Module_Base {
 					'priority' => 10,
 					'choices'  => [
 						'baseline'    => [
-							'label' => __( 'Baseline', 'material-theme-builder' ),
+							'label' => __( 'Baseline', 'material-design' ),
 							'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
 						],
 						'crane'       => [
-							'label' => __( 'Crane', 'material-theme-builder' ),
+							'label' => __( 'Crane', 'material-design' ),
 							'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
 						],
 						'fortnightly' => [
-							'label' => __( 'Fortnightly', 'material-theme-builder' ),
+							'label' => __( 'Fortnightly', 'material-design' ),
 							'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
 						],
 						'blossom'     => [
-							'label' => __( 'Blossom', 'material-theme-builder' ),
+							'label' => __( 'Blossom', 'material-design' ),
 							'url'   => $this->plugin->asset_url( 'assets/images/blossom.svg' ),
 						],
 						'custom'      => [
-							'label' => __( 'Custom', 'material-theme-builder' ),
+							'label' => __( 'Custom', 'material-design' ),
 							'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
 						],
 					],
@@ -507,7 +507,7 @@ class Controls extends Module_Base {
 	 */
 	public function scripts() {
 		wp_enqueue_script(
-			'material-theme-builder-customizer-js',
+			'material-design-plugin-customizer-js',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
 			[ 'jquery', 'wp-color-picker', 'customize-controls', 'wp-element', 'wp-components', 'wp-i18n', 'wp-api-fetch' ],
 			$this->plugin->asset_version(),
@@ -533,8 +533,8 @@ class Controls extends Module_Base {
 		$demo_images = array_slice( $demo_images, 0, 9 );
 
 		wp_localize_script(
-			'material-theme-builder-customizer-js',
-			'mtb',
+			'material-design-plugin-customizer-js',
+			'materialDesign',
 			[
 				'slug'                   => $this->slug,
 				'designStyles'           => $this->get_design_styles(),
@@ -544,11 +544,11 @@ class Controls extends Module_Base {
 				'iconCollectionsControl' => $this->prepare_option_name( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
-					'confirmChange'    => esc_html__( 'You will lose any custom theme changes. Would you like to continue ?', 'material-theme-builder' ),
-					'componentsNotice' => __( 'Customize Material Components and styles throughout your site.<br/><a href="#">View example page</a>', 'material-theme-builder' ),
+					'confirmChange'    => esc_html__( 'You will lose any custom theme changes. Would you like to continue ?', 'material-design' ),
+					'componentsNotice' => __( 'Customize Material Components and styles throughout your site.<br/><a href="#">View example page</a>', 'material-design' ),
 				],
 				'googleFonts'            => Google_Fonts::get_font_choices(),
-				'notifyNonce'            => wp_create_nonce( 'mtb_notify_nonce' ),
+				'notifyNonce'            => wp_create_nonce( 'material_design_notify_nonce' ),
 				'pluginPath'             => $this->plugin->asset_url( '' ),
 				'themeStatus'            => $this->plugin->theme_status(),
 				'themeNonce'             => wp_create_nonce( 'wp_rest' ),
@@ -558,14 +558,14 @@ class Controls extends Module_Base {
 		);
 
 		wp_enqueue_style(
-			'material-theme-builder-customizer-css',
+			'material-design-plugin-customizer-css',
 			$this->plugin->asset_url( 'assets/css/customize-controls-compiled.css' ),
 			[ 'wp-components' ],
 			$this->plugin->asset_version()
 		);
 
 		wp_enqueue_style(
-			'material-theme-builder-icons-css',
+			'material-design-plugin-icons-css',
 			esc_url( '//fonts.googleapis.com/icon?family=Material+Icons' ),
 			[],
 			$this->plugin->asset_version()
@@ -634,7 +634,7 @@ class Controls extends Module_Base {
 		 * @param string $fonts_url     Fonts URL.
 		 * @param array  $font_families Font families set in customizer.
 		 */
-		return apply_filters( 'material_theme_builder_google_fonts_url', $fonts_url, $font_families );
+		return apply_filters( 'material_design_google_fonts_url', $fonts_url, $font_families );
 	}
 
 	/**
@@ -664,7 +664,7 @@ class Controls extends Module_Base {
 	 */
 	public function preview_scripts() {
 		wp_enqueue_script(
-			'material-theme-builder-customizer-preview-js',
+			'material-design-plugin-customizer-preview-js',
 			$this->plugin->asset_url( 'assets/js/customize-preview.js' ),
 			[ 'jquery', 'lodash', 'wp-i18n' ],
 			$this->plugin->asset_version(),
@@ -969,43 +969,43 @@ class Controls extends Module_Base {
 		return [
 			[
 				'id'                   => 'primary_color',
-				'label'                => __( 'Primary Color', 'material-theme-builder' ),
-				'a11y_label'           => __( 'On Primary', 'material-theme-builder' ),
+				'label'                => __( 'Primary Color', 'material-design' ),
+				'a11y_label'           => __( 'On Primary', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_primary_color' ),
 				'css_var'              => '--mdc-theme-primary',
 			],
 			[
 				'id'              => 'on_primary_color',
-				'label'           => __( 'On Primary Color (text and icons)', 'material-theme-builder' ),
-				'a11y_label'      => __( 'On Primary', 'material-theme-builder' ),
+				'label'           => __( 'On Primary Color (text and icons)', 'material-design' ),
+				'a11y_label'      => __( 'On Primary', 'material-design' ),
 				'related_setting' => $this->prepare_option_name( 'primary_color' ),
 				'css_var'         => '--mdc-theme-on-primary',
 			],
 			[
 				'id'                   => 'secondary_color',
-				'label'                => __( 'Secondary Color', 'material-theme-builder' ),
-				'a11y_label'           => __( 'On Secondary', 'material-theme-builder' ),
+				'label'                => __( 'Secondary Color', 'material-design' ),
+				'a11y_label'           => __( 'On Secondary', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_secondary_color' ),
 				'css_var'              => '--mdc-theme-secondary',
 			],
 			[
 				'id'              => 'on_secondary_color',
-				'label'           => __( 'On Secondary Color (text and icons)', 'material-theme-builder' ),
-				'a11y_label'      => __( 'On Secondary', 'material-theme-builder' ),
+				'label'           => __( 'On Secondary Color (text and icons)', 'material-design' ),
+				'a11y_label'      => __( 'On Secondary', 'material-design' ),
 				'related_setting' => $this->prepare_option_name( 'secondary_color' ),
 				'css_var'         => '--mdc-theme-on-secondary',
 			],
 			[
 				'id'                   => 'surface_color',
-				'label'                => __( 'Surface Color', 'material-theme-builder' ),
-				'a11y_label'           => __( 'On Surface', 'material-theme-builder' ),
+				'label'                => __( 'Surface Color', 'material-design' ),
+				'a11y_label'           => __( 'On Surface', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_surface_color' ),
 				'css_var'              => '--mdc-theme-surface',
 			],
 			[
 				'id'              => 'on_surface_color',
-				'label'           => __( 'On Surface Color (text and icons)', 'material-theme-builder' ),
-				'a11y_label'      => __( 'On Surface', 'material-theme-builder' ),
+				'label'           => __( 'On Surface Color (text and icons)', 'material-design' ),
+				'a11y_label'      => __( 'On Surface', 'material-design' ),
 				'related_setting' => $this->prepare_option_name( 'surface_color' ),
 				'css_var'         => '--mdc-theme-on-surface',
 			],
@@ -1021,7 +1021,7 @@ class Controls extends Module_Base {
 		return [
 			[
 				'id'       => 'head_font_family',
-				'label'    => __( 'Headlines & Subtitles', 'material-theme-builder' ),
+				'label'    => __( 'Headlines & Subtitles', 'material-design' ),
 				'css_vars' => [
 					'family' => [
 						'--mdc-typography-headline1-font-family',
@@ -1038,7 +1038,7 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'       => 'body_font_family',
-				'label'    => __( 'Body & Captions', 'material-theme-builder' ),
+				'label'    => __( 'Body & Captions', 'material-design' ),
 				'css_vars' => [
 					'family' => [
 						'--mdc-typography-font-family',
@@ -1063,15 +1063,15 @@ class Controls extends Module_Base {
 		return [
 			[
 				'id'            => 'global_radius',
-				'label'         => __( 'Global Corner Styles', 'material-theme-builder' ),
-				'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-theme-builder' ),
+				'label'         => __( 'Global Corner Styles', 'material-design' ),
+				'description'   => __( 'Change the global shape size for all components, expand to customize the shape size for individual components.', 'material-design' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 4,
 			],
 			[
 				'id'            => 'button_radius',
-				'label'         => __( 'Buttons', 'material-theme-builder' ),
+				'label'         => __( 'Buttons', 'material-design' ),
 				'min'           => 0,
 				'max'           => 20,
 				'initial_value' => 4,
@@ -1082,7 +1082,7 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'            => 'card_radius',
-				'label'         => __( 'Card', 'material-theme-builder' ),
+				'label'         => __( 'Card', 'material-design' ),
 				'min'           => 0,
 				'max'           => 24,
 				'initial_value' => 0,
@@ -1095,7 +1095,7 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'            => 'chip_radius',
-				'label'         => __( 'Chip', 'material-theme-builder' ),
+				'label'         => __( 'Chip', 'material-design' ),
 				'min'           => 0,
 				'max'           => 16,
 				'initial_value' => 0,
@@ -1103,7 +1103,7 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'            => 'data_table_radius',
-				'label'         => __( 'Data table', 'material-theme-builder' ),
+				'label'         => __( 'Data table', 'material-design' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 0,
@@ -1114,7 +1114,7 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'            => 'image_list_radius',
-				'label'         => __( 'Image List', 'material-theme-builder' ),
+				'label'         => __( 'Image List', 'material-design' ),
 				'min'           => 0,
 				'max'           => 24,
 				'initial_value' => 0,
@@ -1125,7 +1125,7 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'            => 'nav_drawer_radius',
-				'label'         => __( 'Nav Drawer', 'material-theme-builder' ),
+				'label'         => __( 'Nav Drawer', 'material-design' ),
 				'min'           => 0,
 				'max'           => 36,
 				'initial_value' => 0,
@@ -1133,7 +1133,7 @@ class Controls extends Module_Base {
 			],
 			[
 				'id'            => 'text_field_radius',
-				'label'         => __( 'Text Field', 'material-theme-builder' ),
+				'label'         => __( 'Text Field', 'material-design' ),
 				'min'           => 0,
 				'max'           => 20,
 				'initial_value' => 0,
@@ -1150,23 +1150,23 @@ class Controls extends Module_Base {
 	public function get_icon_collection_controls() {
 		return [
 			'filled'   => [
-				'label' => __( 'Filled', 'material-theme-builder' ),
+				'label' => __( 'Filled', 'material-design' ),
 				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/filled.svg' ),
 			],
 			'outlined' => [
-				'label' => __( 'Outlined', 'material-theme-builder' ),
+				'label' => __( 'Outlined', 'material-design' ),
 				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/outlined.svg' ),
 			],
 			'round'    => [
-				'label' => __( 'Rounded', 'material-theme-builder' ),
+				'label' => __( 'Rounded', 'material-design' ),
 				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/rounded.svg' ),
 			],
 			'two-tone' => [
-				'label' => __( 'Two-tone', 'material-theme-builder' ),
+				'label' => __( 'Two-tone', 'material-design' ),
 				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/two-tone.svg' ),
 			],
 			'sharp'    => [
-				'label' => __( 'Sharp', 'material-theme-builder' ),
+				'label' => __( 'Sharp', 'material-design' ),
 				'icon'  => $this->plugin->asset_url( 'assets/images/icon-collections/sharp.svg' ),
 			],
 		];
@@ -1273,7 +1273,7 @@ class Controls extends Module_Base {
 	 * Update notification dismiss count.
 	 */
 	public function notification_dismiss() {
-		if ( ! check_ajax_referer( 'mtb_notify_nonce', 'nonce', false ) ) {
+		if ( ! check_ajax_referer( 'material_design_notify_nonce', 'nonce', false ) ) {
 			wp_send_json_error( 'invalid_nonce' );
 		}
 
@@ -1316,9 +1316,9 @@ class Controls extends Module_Base {
 		$args = wp_parse_args(
 			$args,
 			[
-				'label'   => __( 'Style', 'material-theme-builder' ),
+				'label'   => __( 'Style', 'material-design' ),
 				'type'    => 'select',
-				'default' => __( 'Normal', 'material-theme-builder' ),
+				'default' => __( 'Normal', 'material-design' ),
 				'choices' => [],
 			]
 		);
@@ -1336,7 +1336,7 @@ class Controls extends Module_Base {
 		$args = wp_parse_args(
 			$args,
 			[
-				'label'   => __( 'Size', 'material-theme-builder' ),
+				'label'   => __( 'Size', 'material-design' ),
 				'type'    => 'number',
 				'min'     => 2,
 				'default' => 12,
@@ -1380,7 +1380,7 @@ class Controls extends Module_Base {
 					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
 						/* translators: Number of heading to display */
-						esc_html__( 'Headline %s', 'material-theme-builder' ),
+						esc_html__( 'Headline %s', 'material-design' ),
 						$i
 					),
 					'size'     => $this->get_typography_size_controls(
@@ -1416,7 +1416,7 @@ class Controls extends Module_Base {
 					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
 						/* translators: Number of heading to display */
-						esc_html__( 'Subtitle %s', 'material-theme-builder' ),
+						esc_html__( 'Subtitle %s', 'material-design' ),
 						$i
 					),
 					'size'     => $this->get_typography_size_controls(
@@ -1434,27 +1434,27 @@ class Controls extends Module_Base {
 		} else {
 			$keys = [
 				'body1'    => [
-					'label'  => __( 'Body 1', 'material-theme-builder' ),
+					'label'  => __( 'Body 1', 'material-design' ),
 					'size'   => 16,
 					'weight' => 'regular',
 				],
 				'body2'    => [
-					'label'  => __( 'Body 2', 'material-theme-builder' ),
+					'label'  => __( 'Body 2', 'material-design' ),
 					'size'   => 14,
 					'weight' => 'regular',
 				],
 				'button'   => [
-					'label'  => __( 'Button', 'material-theme-builder' ),
+					'label'  => __( 'Button', 'material-design' ),
 					'size'   => 14,
 					'weight' => '500',
 				],
 				'caption'  => [
-					'label'  => __( 'Caption', 'material-theme-builder' ),
+					'label'  => __( 'Caption', 'material-design' ),
 					'size'   => 12,
 					'weight' => 'regular',
 				],
 				'overline' => [
-					'label'  => __( 'Overline', 'material-theme-builder' ),
+					'label'  => __( 'Overline', 'material-design' ),
 					'size'   => 10,
 					'weight' => 'regular',
 				],

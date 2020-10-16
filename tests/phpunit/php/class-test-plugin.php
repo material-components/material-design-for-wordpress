@@ -1,35 +1,35 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Tests for Plugin class.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Admin;
-use MaterialThemeBuilder\Blocks_Frontend;
-use MaterialThemeBuilder\Customizer\Controls;
-use MaterialThemeBuilder\Importer;
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Admin;
+use MaterialDesign\Plugin\Blocks_Frontend;
+use MaterialDesign\Plugin\Customizer\Controls;
+use MaterialDesign\Plugin\Importer;
 
 /**
  * Tests for Plugin class.
@@ -95,7 +95,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 	public function test_init() {
 		$plugin = get_plugin_instance();
 
-		add_filter( 'material_theme_builder_plugin_config', [ $this, 'filter_config' ], 10, 2 );
+		add_filter( 'material_design_plugin_config', [ $this, 'filter_config' ], 10, 2 );
 		$plugin->init();
 
 		$this->assertInternalType( 'array', $plugin->config );
@@ -131,7 +131,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		add_filter( 'template', [ $this, 'template' ] );
 
 		$post = get_post( self::$post_id );
-		update_option( 'mtb_recaptcha_site_key', 'test-key' );
+		update_option( 'material_design_recaptcha_site_key', 'test-key' );
 
 		$plugin = get_plugin_instance();
 
@@ -157,7 +157,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$plugin->enqueue_front_end_assets();
 		$this->assertTrue( wp_style_is( 'material-overrides-css', 'enqueued' ) );
 
-		delete_option( 'mtb_recaptcha_site_key' );
+		delete_option( 'material_design_recaptcha_site_key' );
 	}
 
 	/**
@@ -201,7 +201,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 	}
 
 	/**
-	 * Filter to test 'material_theme_builder_plugin_config'.
+	 * Filter to test 'material_design_plugin_config'.
 	 *
 	 * @param array       $config Plugin config.
 	 * @param Plugin_Base $plugin Plugin instance.
@@ -221,6 +221,6 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 * @return string
 	 */
 	public function template() {
-		return 'material-theme';
+		return 'material-design';
 	}
 }

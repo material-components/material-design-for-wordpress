@@ -35,12 +35,12 @@ export { metadata, name };
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
  */
 export const settings = {
-	title: __( 'Custom Card (Material)', 'material-theme-builder' ),
+	title: __( 'Custom Card (Material)', 'material-design' ),
 	description: __(
 		'Display content and actions on a single topic.',
-		'material-theme-builder'
+		'material-design'
 	),
-	keywords: [ __( 'Material Card', 'material-theme-builder' ) ],
+	keywords: [ __( 'Material Card', 'material-design' ) ],
 	icon: <i className="material-icons-outlined">chrome_reader_mode</i>,
 	example,
 	edit,

@@ -1,34 +1,34 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
- * Bootstraps the Material Theme Builder plugin.
+ * Bootstraps the Material Design plugin.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Blocks_Frontend;
-use MaterialThemeBuilder\Customizer\Controls;
-use MaterialThemeBuilder\Importer;
-use MaterialThemeBuilder\Admin;
+use MaterialDesign\Plugin\Blocks_Frontend;
+use MaterialDesign\Plugin\Customizer\Controls;
+use MaterialDesign\Plugin\Importer;
+use MaterialDesign\Plugin\Admin;
 
 /**
  * Main plugin bootstrap file.
@@ -40,7 +40,7 @@ class Plugin extends Plugin_Base {
 	 *
 	 * @var string
 	 */
-	const THEME_SLUG = 'material-theme';
+	const THEME_SLUG = 'material-design';
 
 	/**
 	 * Controls class.
@@ -88,7 +88,7 @@ class Plugin extends Plugin_Base {
 	 * Initiate the plugin resources.
 	 */
 	public function init() {
-		$this->config = apply_filters( 'material_theme_builder_plugin_config', $this->config, $this );
+		$this->config = apply_filters( 'material_design_plugin_config', $this->config, $this );
 
 		$this->customizer_controls = new Controls( $this );
 		$this->customizer_controls->init();
@@ -140,22 +140,22 @@ class Plugin extends Plugin_Base {
 			true
 		);
 
-		$mtb_recaptcha_site_key   = get_option( 'mtb_recaptcha_site_key', '' );
-		$wp_localized_script_data = [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ];
+		$material_design_recaptcha_site_key = get_option( 'material_design_recaptcha_site_key', '' );
+		$wp_localized_script_data           = [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ];
 
-		if ( function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $mtb_recaptcha_site_key ) ) {
+		if ( function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $material_design_recaptcha_site_key ) ) {
 			wp_enqueue_script(
 				'google-recaptcha-v3',
-				'https://www.google.com/recaptcha/api.js?render=' . esc_attr( $mtb_recaptcha_site_key ),
+				'https://www.google.com/recaptcha/api.js?render=' . esc_attr( $material_design_recaptcha_site_key ),
 				[ 'material-front-end-js' ],
 				'3.0.0',
 				true
 			);
 
-			$wp_localized_script_data['recaptcha_site_key'] = $mtb_recaptcha_site_key;
+			$wp_localized_script_data['recaptcha_site_key'] = $material_design_recaptcha_site_key;
 		}
 
-		wp_localize_script( 'material-front-end-js', 'mtb', $wp_localized_script_data );
+		wp_localize_script( 'material-front-end-js', 'materialDesign', $wp_localized_script_data );
 
 		wp_enqueue_style(
 			'material-front-end-css',

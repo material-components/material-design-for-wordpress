@@ -64,8 +64,8 @@ const getIconFontName = iconStyle => {
 
 	$( function() {
 		api.preview.bind( 'active', function() {
-			api.preview.send( 'mtb', {
-				notificationCount: _wpCustomizeSettings.values.mtb_notify,
+			api.preview.send( 'materialDesign', {
+				notificationCount: _wpCustomizeSettings.values.material_design_notify,
 			} );
 		} );
 	} );
@@ -127,7 +127,7 @@ const getIconFontName = iconStyle => {
 	 * @return {void}
 	 */
 	const generatePreviewStyles = debounce( () => {
-		const stylesheetID = 'mtb-customizer-preview-styles';
+		const stylesheetID = 'material-design-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
 			styles = '';
 

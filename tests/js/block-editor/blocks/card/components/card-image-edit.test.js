@@ -124,11 +124,13 @@ describe( 'CardImageEdit', () => {
 		const props = { ...baseProps };
 		props.isImageEditMode = false;
 		const wrapper = setupMount( props );
-		wrapper.find( '.mtb-card__media-container' ).simulate( 'focus' );
+		wrapper
+			.find( '.material-design-card__media-container' )
+			.simulate( 'focus' );
 		expect(
 			wrapper
-				.find( '.mtb-card__media-container' )
-				.hasClass( 'mtb-card__media-container-focused' )
+				.find( '.material-design-card__media-container' )
+				.hasClass( 'material-design-card__media-container-focused' )
 		).toBe( true );
 	} );
 
@@ -136,11 +138,11 @@ describe( 'CardImageEdit', () => {
 		const props = { ...baseProps };
 		props.isImageEditMode = false;
 		const wrapper = setupMount( props );
-		wrapper.find( '.mtb-card__media-container' ).simulate( 'blur' );
+		wrapper.find( '.material-design-card__media-container' ).simulate( 'blur' );
 		expect(
 			wrapper
-				.find( '.mtb-card__media-container' )
-				.hasClass( 'mtb-card__media-container-focused' )
+				.find( '.material-design-card__media-container' )
+				.hasClass( 'material-design-card__media-container-focused' )
 		).toBe( false );
 	} );
 } );

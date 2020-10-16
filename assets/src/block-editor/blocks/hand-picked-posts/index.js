@@ -33,12 +33,12 @@ export { metadata, name };
  * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, supports: Object}}
  */
 export const settings = {
-	title: __( 'Curated Card Collection (Material)', 'material-theme-builder' ),
+	title: __( 'Curated Card Collection (Material)', 'material-design' ),
 	description: __(
 		'Display a list of your hand-picked posts.',
-		'material-theme-builder'
+		'material-design'
 	),
-	keywords: [ __( 'Material Card', 'material-theme-builder' ) ],
+	keywords: [ __( 'Material Card', 'material-design' ) ],
 	icon: <i className="material-icons-outlined">library_books</i>,
 	example: {
 		attributes: {

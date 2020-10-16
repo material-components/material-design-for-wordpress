@@ -30,7 +30,7 @@ Object {
     />
     <div>
       <div
-        class="components-placeholder mtb-block-products-grid mtb-block-handpicked-posts is-small"
+        class="components-placeholder material-design-block-products-grid material-design-block-handpicked-posts is-small"
       >
         <iframe
           aria-hidden="true"
@@ -55,7 +55,7 @@ Object {
         >
           Display a selection of hand-picked posts.
           <div
-            class="mtb-block-handpicked-posts__selection"
+            class="material-design-block-handpicked-posts__selection"
           >
             <div />
             <button
@@ -71,7 +71,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="components-placeholder mtb-block-products-grid mtb-block-handpicked-posts is-small"
+      class="components-placeholder material-design-block-products-grid material-design-block-handpicked-posts is-small"
     >
       <iframe
         aria-hidden="true"
@@ -96,7 +96,7 @@ Object {
       >
         Display a selection of hand-picked posts.
         <div
-          class="mtb-block-handpicked-posts__selection"
+          class="material-design-block-handpicked-posts__selection"
         >
           <div />
           <button

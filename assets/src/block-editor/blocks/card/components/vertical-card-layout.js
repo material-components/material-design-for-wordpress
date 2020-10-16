@@ -117,13 +117,13 @@ const VerticalCardLayout = ( {
 
 	return (
 		<div
-			className={ classnames( 'mdc-card', 'mtb-card', {
+			className={ classnames( 'mdc-card', 'material-design-card', {
 				'mdc-card--outlined': outlined,
 			} ) }
 			style={ styles }
 		>
 			<div
-				className="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+				className="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
 				tabIndex={ 0 }
 			>
 				{ contentLayout === 'text-above-media' && (

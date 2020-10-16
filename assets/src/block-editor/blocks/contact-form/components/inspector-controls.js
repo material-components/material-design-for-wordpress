@@ -35,34 +35,31 @@ const FormInspectorControls = props => {
 	return (
 		<InspectorControls>
 			<PanelBody
-				title={ __( 'Form Email Settings', 'material-theme-builder' ) }
+				title={ __( 'Form Email Settings', 'material-design' ) }
 				initialOpen={ true }
 			>
 				<TextControl
-					label={ __( 'Email address', 'material-theme-builder' ) }
+					label={ __( 'Email address', 'material-design' ) }
 					value={ emailTo }
 					onChange={ setter( 'emailTo' ) }
 				/>
 				<TextControl
-					label={ __( 'Subject', 'material-theme-builder' ) }
+					label={ __( 'Subject', 'material-design' ) }
 					value={ subject }
 					onChange={ setter( 'subject' ) }
 				/>
 				<TextControl
-					label={ __(
-						'Submission confirmation message',
-						'material-theme-builder'
-					) }
+					label={ __( 'Submission confirmation message', 'material-design' ) }
 					value={ confirmationMessage }
 					onChange={ setter( 'confirmationMessage' ) }
 				/>
 			</PanelBody>
 			<PanelBody
-				title={ __( 'Style', 'material-theme-builder' ) }
+				title={ __( 'Style', 'material-design' ) }
 				initialOpen={ true }
 			>
 				<ToggleControl
-					label={ __( 'Outlined', 'material-theme-builder' ) }
+					label={ __( 'Outlined', 'material-design' ) }
 					checked={ outlined }
 					onChange={ setter( 'outlined' ) }
 				/>

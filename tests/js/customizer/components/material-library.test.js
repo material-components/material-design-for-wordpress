@@ -58,7 +58,7 @@ const baseProps = {
 
 describe( 'Material Blocks', () => {
 	beforeAll( () => {
-		global.mtb = {
+		global.materialDesign = {
 			images: [
 				'https://images.unsplash.com/photo-1531306760863-7fb02a41db12',
 				'https://images.unsplash.com/photo-1531307119710-accdb402fe03',

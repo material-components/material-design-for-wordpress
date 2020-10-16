@@ -93,7 +93,7 @@ const MdcButton = ( {
 			) }
 			<RichText
 				value={ label }
-				placeholder={ __( 'Add text...', 'material-theme-builder' ) }
+				placeholder={ __( 'Add text...', 'material-design' ) }
 				withoutInteractiveFormatting
 				allowedFormats={ [] }
 				onChange={ setter( 'label' ) }
@@ -208,7 +208,7 @@ const ButtonEdit = ( {
 
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Styles', 'material-theme-builder' ) }
+					title={ __( 'Styles', 'material-design' ) }
 					initialOpen={ true }
 				>
 					<ImageRadioControl
@@ -219,7 +219,7 @@ const ButtonEdit = ( {
 
 					{ type === 'text' && (
 						<>
-							<span>{ __( 'Variations', 'material-theme-builder' ) }</span>
+							<span>{ __( 'Variations', 'material-design' ) }</span>
 							<ButtonGroup
 								buttons={ BUTTON_STYLES }
 								current={ style }
@@ -229,7 +229,7 @@ const ButtonEdit = ( {
 					) }
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Icon', 'material-theme-builder' ) }
+					title={ __( 'Icon', 'material-design' ) }
 					initialOpen={ true }
 				>
 					{ type !== 'icon' && (
@@ -245,27 +245,27 @@ const ButtonEdit = ( {
 					) }
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Colors', 'material-theme-builder' ) }
+					title={ __( 'Colors', 'material-design' ) }
 					initialOpen={ true }
 				>
 					<div className="components-base-control">
 						{ __(
 							'Overrides will only apply to this button. Change Primary Color in ',
-							'material-theme-builder'
+							'material-design'
 						) }
 						<a
 							href={ getConfig( 'customizerUrls' ).colors }
 							target="_blank"
 							rel="noreferrer noopener"
 						>
-							{ __( 'Material Theme Options', 'material-theme-builder' ) }
+							{ __( 'Material Design Options', 'material-design' ) }
 						</a>
-						{ __( ' to update all buttons.', 'material-theme-builder' ) }
+						{ __( ' to update all buttons.', 'material-design' ) }
 					</div>
 
 					{ hasBg( style ) && type === 'text' && (
 						<GlobalColor
-							label={ __( 'Container Color', 'material-theme-builder' ) }
+							label={ __( 'Container Color', 'material-design' ) }
 							value={ backgroundColor }
 							onChange={ setter( 'backgroundColor' ) }
 							globalPropName={
@@ -274,7 +274,7 @@ const ButtonEdit = ( {
 						/>
 					) }
 					<GlobalColor
-						label={ __( 'Text and icons Color', 'material-theme-builder' ) }
+						label={ __( 'Text and icons Color', 'material-design' ) }
 						value={ textColor }
 						onChange={ setter( 'textColor' ) }
 						globalPropName={
@@ -293,7 +293,7 @@ const ButtonEdit = ( {
 				</PanelBody>
 				{ type === 'text' && (
 					<PanelBody
-						title={ __( 'Corner Styles', 'material-theme-builder' ) }
+						title={ __( 'Corner Styles', 'material-design' ) }
 						initialOpen={ true }
 					>
 						{ style !== 'text' ? (
@@ -301,16 +301,16 @@ const ButtonEdit = ( {
 								<div className="components-base-control">
 									{ __(
 										'Overrides will only apply to this button. Change Button corner styles in ',
-										'material-theme-builder'
+										'material-design'
 									) }
 									<a
 										href={ getConfig( 'customizerUrls' ).shape }
 										target="_blank"
 										rel="noreferrer noopener"
 									>
-										{ __( 'Material Theme Options', 'material-theme-builder' ) }
+										{ __( 'Material Design Options', 'material-design' ) }
 									</a>
-									{ __( ' to update all buttons.', 'material-theme-builder' ) }
+									{ __( ' to update all buttons.', 'material-design' ) }
 								</div>
 								<GlobalShapeSize
 									value={ cornerRadius }
@@ -324,7 +324,7 @@ const ButtonEdit = ( {
 							<p>
 								{ __(
 									'Current button style does not support rounded corners.',
-									'material-theme-builder'
+									'material-design'
 								) }
 							</p>
 						) }
@@ -332,17 +332,17 @@ const ButtonEdit = ( {
 				) }
 				{ ! isSubmit && (
 					<PanelBody
-						title={ __( 'Link Settings', 'material-theme-builder' ) }
+						title={ __( 'Link Settings', 'material-design' ) }
 						initialOpen={ true }
 					>
 						<ToggleControl
-							label={ __( 'Open in new tab', 'material-theme-builder' ) }
+							label={ __( 'Open in new tab', 'material-design' ) }
 							onChange={ onToggleOpenInNewTab }
 							checked={ linkTarget === '_blank' }
 						/>
 						<TextControl
 							value={ rel }
-							label={ __( 'Link rel', 'material-theme-builder' ) }
+							label={ __( 'Link rel', 'material-design' ) }
 							onChange={ setter( 'rel' ) }
 						/>
 					</PanelBody>

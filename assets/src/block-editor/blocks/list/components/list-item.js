@@ -44,6 +44,7 @@ const ListItem = ( {
 	deleteItem,
 	onPrimaryTextChange: primaryTextChange,
 	onSecondaryTextChange: secondaryTextChange,
+	preview,
 } ) => {
 	const primaryRef = useRef();
 	const secondaryRef = useRef();
@@ -58,6 +59,10 @@ const ListItem = ( {
 
 	// Focus element based on selected status.
 	useEffect( () => {
+		if ( preview ) {
+			return;
+		}
+
 		if ( isSecondarySelected ) {
 			setEditedText( secondaryText );
 			focusElement( secondaryRef.current );
@@ -226,7 +231,7 @@ const ListItem = ( {
 				<span className="mdc-list-item__primary-text">
 					<RichText
 						ref={ primaryRef }
-						value={ isPrimarySelected ? editedText : primaryText }
+						value={ isPrimarySelected && ! preview ? editedText : primaryText }
 						onChange={ onPrimaryTextChange }
 						__unstableOnCreateUndoLevel={ noop }
 						onDelete={ onPrimaryDelete }
@@ -245,7 +250,9 @@ const ListItem = ( {
 					<span className="mdc-list-item__secondary-text">
 						<RichText
 							ref={ secondaryRef }
-							value={ isSecondarySelected ? editedText : secondaryText }
+							value={
+								isSecondarySelected && ! preview ? editedText : secondaryText
+							}
 							onChange={ onSecondaryTextChange }
 							__unstableOnCreateUndoLevel={ noop }
 							onDelete={ onSecondaryDelete }
@@ -253,7 +260,7 @@ const ListItem = ( {
 							onPaste={ onPaste }
 							unstableOnFocus={ () => onFocus( index, isSecondaryEnabled ) }
 							className="rich-text block-editor-rich-text__editable"
-							placeholder={ __( 'Secondary text…', 'material-theme-builder' ) }
+							placeholder={ __( 'Secondary text…', 'material-design' ) }
 							__unstableIsSelected={ isSecondarySelected }
 							onSelectionChange={ noop }
 							selectionStart={ rangeStartRef.current }

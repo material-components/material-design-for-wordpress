@@ -16,9 +16,9 @@
 
 set -e
 
-tag=$(cat build/material-theme-builder.php | grep 'Version:' | sed 's/.*: //' | sed 's/-[0-9]\{8\}T[0-9]\{6\}Z-[a-f0-9]*$//')
+tag=$(cat build/material-design.php | grep 'Version:' | sed 's/.*: //' | sed 's/-[0-9]\{8\}T[0-9]\{6\}Z-[a-f0-9]*$//')
 if [[ -z "$tag" ]]; then
-    echo "Error: Unable to determine tag from build/material-theme-builder.php."
+    echo "Error: Unable to determine tag from build/material-design.php."
     exit 1
 fi
 if ! git rev-parse "$tag" >/dev/null 2>&1; then
@@ -55,5 +55,5 @@ git push origin "$built_tag"
 rm -rf built
 
 echo "Pushed tag $built_tag."
-echo "See https://github.com/xwp/material-theme-builder-wp/releases/tag/$built_tag"
-echo "For https://github.com/xwp/material-theme-builder-wp/releases/tag/$tag"
+echo "See https://github.com/xwp/material-design-wp-plugin/releases/tag/$built_tag"
+echo "For https://github.com/xwp/material-design-wp-plugin/releases/tag/$tag"

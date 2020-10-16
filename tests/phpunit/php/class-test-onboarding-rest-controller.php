@@ -1,31 +1,31 @@
 <?php
 /**
- * Copyright 2020 Material Design
- * 
+ * Copyright 2020 Google LLC
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
- * @package MaterialThemeBuilder
+ *
+ * @package MaterialDesign
  */
 
 /**
  * Tests for Onboarding_REST_Controller class.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+namespace MaterialDesign\Plugin;
 
-use MaterialThemeBuilder\Plugin;
+use MaterialDesign\Plugin\Plugin;
 use WP_REST_Request;
 use WP_Test_REST_Controller_Testcase;
 use WP_Theme;
@@ -151,8 +151,8 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
-		$this->assertEquals( 'material-theme', $data['slug'] );
-		$this->assertEquals( 'material-theme', $data['name'] );
+		$this->assertEquals( 'material-design', $data['slug'] );
+		$this->assertEquals( 'material-design', $data['name'] );
 		$this->assertEquals( 'success', $data['status'] );
 
 		remove_filter( 'wp_pre_get_themes', [ $this, 'add_material_theme' ] );
@@ -176,7 +176,7 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
-		$this->assertEquals( 'Material theme could not be installed. Theme API call failed.', $data['message'] );
+		$this->assertEquals( 'The Material Design theme could not be installed. Theme API call failed.', $data['message'] );
 
 		remove_filter(
 			'themes_api',
@@ -213,8 +213,8 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
-		$this->assertEquals( 'material-theme', $data['slug'] );
-		$this->assertEquals( 'material-theme', $data['name'] );
+		$this->assertEquals( 'material-design', $data['slug'] );
+		$this->assertEquals( 'material-design', $data['name'] );
 		$this->assertEquals( 'success', $data['status'] );
 
 		remove_filter( 'wp_pre_get_themes', [ $this, 'add_material_theme' ] );
@@ -318,7 +318,7 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 	 * @return string Route path.
 	 */
 	private function get_route( $path = '' ) {
-		return '/material-theme-builder/v1/onboarding' . "$path";
+		return '/material-design/v1/onboarding' . "$path";
 	}
 
 	/**
@@ -328,7 +328,7 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 	 * @return Array
 	 */
 	public function add_material_theme( $themes ) {
-		$themes[] = 'material-theme';
+		$themes[] = 'material-design';
 		return $themes;
 	}
 

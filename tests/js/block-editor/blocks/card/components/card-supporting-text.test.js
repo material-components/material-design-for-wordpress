@@ -70,7 +70,7 @@ describe( 'CardSupportingText', () => {
 			target: { value: 'This is a new supporting text just for test' },
 		};
 		wrapper
-			.find( '.mtb-card__supporting-text' )
+			.find( '.material-design-card__supporting-text' )
 			.simulate( 'change', mockEvent );
 		expect( props.setter ).toHaveBeenCalledWith(
 			'supportingText',

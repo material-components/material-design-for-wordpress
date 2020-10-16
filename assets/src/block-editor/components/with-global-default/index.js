@@ -42,7 +42,7 @@ import getConfig from '../../utils/get-config';
 export const withGlobalBlockDefault = createHigherOrderComponent(
 	WrappedComponent => {
 		return props => {
-			const mtbDefaults = getConfig( 'defaults' );
+			const materialDesignDefaults = getConfig( 'defaults' );
 			const { blockName, attributeName, value } = props;
 
 			// Set value to global defaults.
@@ -51,19 +51,20 @@ export const withGlobalBlockDefault = createHigherOrderComponent(
 					blockName &&
 					attributeName &&
 					'undefined' === typeof value &&
-					'object' === typeof mtbDefaults &&
-					'object' === typeof mtbDefaults.blocks &&
-					mtbDefaults.blocks.hasOwnProperty( blockName ) &&
-					'undefined' !== mtbDefaults.blocks[ blockName ][ attributeName ]
+					'object' === typeof materialDesignDefaults &&
+					'object' === typeof materialDesignDefaults.blocks &&
+					materialDesignDefaults.blocks.hasOwnProperty( blockName ) &&
+					'undefined' !==
+						materialDesignDefaults.blocks[ blockName ][ attributeName ]
 				) {
 					/**
 					 * If the value is undefined, set it to customizer value.
 					 */
-					return mtbDefaults.blocks[ blockName ][ attributeName ];
+					return materialDesignDefaults.blocks[ blockName ][ attributeName ];
 				}
 
 				return value;
-			}, [ blockName, attributeName, value, mtbDefaults ] );
+			}, [ blockName, attributeName, value, materialDesignDefaults ] );
 
 			return (
 				<WrappedComponent
@@ -87,7 +88,7 @@ export const withGlobalBlockDefault = createHigherOrderComponent(
 export const withGlobalColorDefault = createHigherOrderComponent(
 	WrappedComponent => {
 		return props => {
-			const mtbDefaults = getConfig( 'defaults' );
+			const materialDesignDefaults = getConfig( 'defaults' );
 
 			const { globalPropName, value } = props;
 
@@ -106,19 +107,19 @@ export const withGlobalColorDefault = createHigherOrderComponent(
 
 			let colors = [
 				{
-					color: mtbDefaults.colors[ primayColorProp ],
-					name: __( 'Primary', 'material-theme-builder' ),
+					color: materialDesignDefaults.colors[ primayColorProp ],
+					name: __( 'Primary', 'material-design' ),
 				},
 				{
-					color: mtbDefaults.colors[ secondaryColorProp ],
-					name: __( 'Secondary', 'material-theme-builder' ),
+					color: materialDesignDefaults.colors[ secondaryColorProp ],
+					name: __( 'Secondary', 'material-design' ),
 				},
 			];
 
 			// If both primary and secondary colors at same, show only one color.
 			if (
-				mtbDefaults.colors[ primayColorProp ] ===
-				mtbDefaults.colors[ secondaryColorProp ]
+				materialDesignDefaults.colors[ primayColorProp ] ===
+				materialDesignDefaults.colors[ secondaryColorProp ]
 			) {
 				colors = colors.slice( 0, 1 );
 			}
@@ -147,20 +148,20 @@ export const withGlobalColorDefault = createHigherOrderComponent(
  * @return {string} Color value.
  */
 export const getColor = ( globalPropName, value ) =>
-	useMemo( () => { // eslint-disable-line
-		const mtbDefaults = getConfig( 'defaults' );
+	useMemo( () => {// eslint-disable-line
+		const materialDesignDefaults = getConfig( 'defaults' );
 
 		if (
 			globalPropName &&
 			'undefined' === typeof value &&
-			'object' === typeof mtbDefaults &&
-			'object' === typeof mtbDefaults.colors &&
-			'undefined' !== mtbDefaults.colors[ globalPropName ]
+			'object' === typeof materialDesignDefaults &&
+			'object' === typeof materialDesignDefaults.colors &&
+			'undefined' !== materialDesignDefaults.colors[ globalPropName ]
 		) {
 			/**
 			 * If the value is undefined, return the global customizer value.
 			 */
-			return mtbDefaults.colors[ globalPropName ];
+			return materialDesignDefaults.colors[ globalPropName ];
 		}
 
 		return value;

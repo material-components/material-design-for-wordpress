@@ -15,7 +15,7 @@
  limitations under the License.
 -->
 
-<ruleset name="Material Theme Builder Coding Standards">
+<ruleset name="Material Design plugin Coding Standards">
 	<arg name="extensions" value="php" />
 	<arg name="colors" />
 	<arg name="parallel" value="16" />
@@ -34,7 +34,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="material-theme-builder" />
+				<element value="material-design" />
 			</property>
 		</properties>
 	</rule>

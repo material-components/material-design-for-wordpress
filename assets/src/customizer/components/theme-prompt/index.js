@@ -32,26 +32,23 @@ const ThemePrompt = ( { status } ) => {
 	const [ dismissed, setDismissed ] = useState( status === 'ok' );
 	const [ requesting, setRequesting ] = useState( false );
 
-	const title =
-		status === 'install'
-			? __( 'Install Material Theme', 'material-theme-builder' )
-			: __( 'Activate Material Theme', 'material-theme-builder' );
+	const title = __( 'Material Design theme', 'material-design' );
 
 	const message =
 		status === 'install'
 			? __(
-					'Install and activate Material Theme for full site customization.',
-					'material-theme-builder'
+					'Install and activate the Material Design theme for full site customization.',
+					'material-design'
 			  )
 			: __(
-					'Activate Material Theme for full site customization.',
-					'material-theme-builder'
+					'Activate the Material Design theme for full site customization.',
+					'material-design'
 			  );
 
 	const cta =
 		status === 'install'
-			? __( 'Install Material Theme', 'material-theme-builder' )
-			: __( 'Activate Material Theme', 'material-theme-builder' );
+			? __( 'Install', 'material-design' )
+			: __( 'Activate', 'material-design' );
 
 	const dismiss = () => {
 		setDismissed( true );
@@ -102,7 +99,7 @@ const ThemePrompt = ( { status } ) => {
 				onClick={ dismiss }
 			>
 				<span className="screen-reader-text">
-					{ __( 'Dismiss', 'material-theme-builder' ) }
+					{ __( 'Dismiss', 'material-design' ) }
 				</span>
 			</button>
 			<div className="accordion-section-title theme-installer-panel">

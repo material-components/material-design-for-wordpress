@@ -91,7 +91,7 @@ const TextInputEdit = props => {
 	}, [ outlined, displayLabel, fullWidth ] );
 
 	if ( ! id || id.length === 0 ) {
-		setAttributes( { id: `mtb-${ inputRole }-${ instanceId }` } );
+		setAttributes( { id: `material-design-${ inputRole }-${ instanceId }` } );
 		return null;
 	}
 
@@ -119,14 +119,14 @@ const TextInputEdit = props => {
 			>
 				{ isSelected ? (
 					<ToggleControl
-						label={ __( 'Required', 'material-theme-builder' ) }
+						label={ __( 'Required', 'material-design' ) }
 						checked={ isRequired }
 						onChange={ setter( 'isRequired' ) }
 					/>
 				) : (
 					isRequired && (
 						<div className="required">
-							{ __( '(required)', 'material-theme-builder' ) }
+							{ __( '(required)', 'material-design' ) }
 						</div>
 					)
 				) }

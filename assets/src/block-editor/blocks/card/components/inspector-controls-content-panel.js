@@ -54,13 +54,13 @@ const InspectorControlsStylePanel = ( {
 	<PanelBody
 		title={
 			isSingleCard
-				? __( 'Content Settings', 'material-theme-builder' )
+				? __( 'Content Settings', 'material-design' )
 				: sprintf( __( 'Card #%d Content Settings' ), cardIndex + 1 )
 		}
 		initialOpen={ isPanelInitialOpened }
 	>
 		<ToggleControl
-			label={ __( 'Show title', 'material-theme-builder' ) }
+			label={ __( 'Show title', 'material-design' ) }
 			checked={ displayTitle }
 			onChange={ value => {
 				setter( 'displayTitle', value, cardIndex );
@@ -69,19 +69,19 @@ const InspectorControlsStylePanel = ( {
 		/>
 		{ displayTitle && (
 			<ToggleControl
-				label={ __( 'Show secondary text', 'material-theme-builder' ) }
+				label={ __( 'Show secondary text', 'material-design' ) }
 				checked={ displaySecondaryText }
 				onChange={ value => setter( 'displaySecondaryText', value, cardIndex ) }
 			/>
 		) }
 		<ToggleControl
-			label={ __( 'Show image', 'material-theme-builder' ) }
+			label={ __( 'Show image', 'material-design' ) }
 			checked={ displayImage }
 			onChange={ value => setter( 'displayImage', value, cardIndex ) }
 		/>
 		{ cardLayoutStyle === 'vertical' && (
 			<ToggleControl
-				label={ __( 'Show supporting text', 'material-theme-builder' ) }
+				label={ __( 'Show supporting text', 'material-design' ) }
 				checked={ displaySupportingText }
 				onChange={ value =>
 					setter( 'displaySupportingText', value, cardIndex )
@@ -89,13 +89,13 @@ const InspectorControlsStylePanel = ( {
 			/>
 		) }
 		<ToggleControl
-			label={ __( 'Show actions', 'material-theme-builder' ) }
+			label={ __( 'Show actions', 'material-design' ) }
 			checked={ displayActions }
 			onChange={ value => setter( 'displayActions', value, cardIndex ) }
 		/>
 		{ displayActions && (
 			<ToggleControl
-				label={ __( 'Show secondary action button', 'material-theme-builder' ) }
+				label={ __( 'Show secondary action button', 'material-design' ) }
 				checked={ displaySecondaryActionButton }
 				onChange={ value =>
 					setter( 'displaySecondaryActionButton', value, cardIndex )

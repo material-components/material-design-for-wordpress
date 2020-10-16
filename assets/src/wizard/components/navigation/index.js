@@ -61,7 +61,7 @@ const Navigation = () => {
 			<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-7">
 				<Button
 					style="material-wizard__close"
-					text={ __( 'Close', 'material-theme-builder' ) }
+					text={ __( 'Close', 'material-design' ) }
 					link={ getConfig( 'settingsUrl' ) }
 				/>
 			</div>
@@ -71,7 +71,7 @@ const Navigation = () => {
 						{ state.active !== STEPS.WELCOME && (
 							<Button
 								style="material-wizard__next"
-								text={ __( 'Previous Step', 'material-theme-builder' ) }
+								text={ __( 'Previous Step', 'material-design' ) }
 								leadingIcon="navigate_before"
 								onClick={ () => handleClick( ACTIONS.PREVIOUS_STEP ) }
 							/>
@@ -82,7 +82,7 @@ const Navigation = () => {
 						{ ! isLast && (
 							<Button
 								style="material-wizard__next mdc-button--raised"
-								text={ __( 'Next Step', 'material-theme-builder' ) }
+								text={ __( 'Next Step', 'material-design' ) }
 								trailingIcon="navigate_next"
 								onClick={ () => handleClick( ACTIONS.NEXT_STEP ) }
 								loading={ isLoading }
@@ -91,7 +91,7 @@ const Navigation = () => {
 						{ isLast && (
 							<Button
 								style="material-wizard__next mdc-button--raised"
-								text={ __( 'Finish', 'material-theme-builder' ) }
+								text={ __( 'Finish', 'material-design' ) }
 								trailingIcon="navigate_next"
 								link={ getConfig( 'settingsUrl' ) }
 							/>

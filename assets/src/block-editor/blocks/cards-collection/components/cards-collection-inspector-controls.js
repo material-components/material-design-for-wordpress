@@ -132,11 +132,11 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 				setter={ standardSetter }
 			/>
 			<PanelBody
-				title={ __( 'Content', 'material-theme-builder' ) }
+				title={ __( 'Content', 'material-design' ) }
 				initialOpen={ true }
 			>
 				<RangeControl
-					label={ __( 'Number of cards', 'material-theme-builder' ) }
+					label={ __( 'Number of cards', 'material-design' ) }
 					value={ numberOfCards }
 					onChange={ standardSetter( 'numberOfCards' ) }
 					min={ MIN_NUMBER_OF_CARDS }
@@ -144,10 +144,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 				/>
 
 				<ToggleControl
-					label={ __(
-						'Allow individual card override',
-						'material-theme-builder'
-					) }
+					label={ __( 'Allow individual card override', 'material-design' ) }
 					checked={ allowIndividualContentOverride }
 					onChange={ standardSetter( 'allowIndividualContentOverride' ) }
 				/>
@@ -155,31 +152,31 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 				{ ! allowIndividualContentOverride && (
 					<>
 						<ToggleControl
-							label={ __( 'Show title', 'material-theme-builder' ) }
+							label={ __( 'Show title', 'material-design' ) }
 							checked={ displayTitle }
 							onChange={ onDisplayTitleChange }
 						/>
 						{ displayTitle && (
 							<ToggleControl
-								label={ __( 'Show secondary text', 'material-theme-builder' ) }
+								label={ __( 'Show secondary text', 'material-design' ) }
 								checked={ displaySecondaryText }
 								onChange={ standardSetter( 'displaySecondaryText' ) }
 							/>
 						) }
 						<ToggleControl
-							label={ __( 'Show image', 'material-theme-builder' ) }
+							label={ __( 'Show image', 'material-design' ) }
 							checked={ displayImage }
 							onChange={ standardSetter( 'displayImage' ) }
 						/>
 						{ style !== 'list' && (
 							<ToggleControl
-								label={ __( 'Show supporting text', 'material-theme-builder' ) }
+								label={ __( 'Show supporting text', 'material-design' ) }
 								checked={ displaySupportingText }
 								onChange={ standardSetter( 'displaySupportingText' ) }
 							/>
 						) }
 						<ToggleControl
-							label={ __( 'Show actions', 'material-theme-builder' ) }
+							label={ __( 'Show actions', 'material-design' ) }
 							checked={ displayActions }
 							onChange={ standardSetter( 'displayActions' ) }
 						/>
@@ -187,7 +184,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 							<ToggleControl
 								label={ __(
 									'Show secondary action button',
-									'material-theme-builder'
+									'material-design'
 								) }
 								checked={ displaySecondaryActionButton }
 								onChange={ standardSetter( 'displaySecondaryActionButton' ) }

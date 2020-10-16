@@ -43,17 +43,17 @@ import './style.css';
 
 const CARD_STYLES = [
 	{
-		label: __( 'Masonry', 'material-theme-builder' ),
+		label: __( 'Masonry', 'material-design' ),
 		value: 'masonry',
 		src: MasonryIcon,
 	},
 	{
-		label: __( 'List', 'material-theme-builder' ),
+		label: __( 'List', 'material-design' ),
 		value: 'list',
 		src: ListIcon,
 	},
 	{
-		label: __( 'Grid', 'material-theme-builder' ),
+		label: __( 'Grid', 'material-design' ),
 		value: 'grid',
 		src: GridIcon,
 	},
@@ -61,15 +61,15 @@ const CARD_STYLES = [
 
 const CONTENT_LAYOUTS = [
 	{
-		label: __( 'Text above media', 'material-theme-builder' ),
+		label: __( 'Text above media', 'material-design' ),
 		value: 'text-above-media',
 	},
 	{
-		label: __( 'Text over media', 'material-theme-builder' ),
+		label: __( 'Text over media', 'material-design' ),
 		value: 'text-over-media',
 	},
 	{
-		label: __( 'Text under media', 'material-theme-builder' ),
+		label: __( 'Text under media', 'material-design' ),
 		value: 'text-under-media',
 	},
 ];
@@ -120,10 +120,7 @@ const CardStylesPanel = ( {
 	} );
 
 	return (
-		<PanelBody
-			title={ __( 'Styles', 'material-theme-builder' ) }
-			initialOpen={ true }
-		>
+		<PanelBody title={ __( 'Styles', 'material-design' ) } initialOpen={ true }>
 			<ImageRadioControl
 				selected={ style }
 				options={ CARD_STYLES }
@@ -133,7 +130,7 @@ const CardStylesPanel = ( {
 			{ ( style === 'masonry' || style === 'grid' ) && showColumns && (
 				<>
 					<RangeControl
-						label={ __( 'Columns', 'material-theme-builder' ) }
+						label={ __( 'Columns', 'material-design' ) }
 						value={ columns }
 						onChange={ setter( 'columns' ) }
 						min={ minColumns }
@@ -143,7 +140,7 @@ const CardStylesPanel = ( {
 						<ToggleControl
 							label={ __(
 								'Allow individual card override',
-								'material-theme-builder'
+								'material-design'
 							) }
 							checked={ allowIndividualStyleOverride }
 							onChange={ setter( 'allowIndividualStyleOverride' ) }
@@ -151,7 +148,7 @@ const CardStylesPanel = ( {
 					) }
 					{ ! allowIndividualStyleOverride && showContentLayout && (
 						<RadioControl
-							label={ __( 'Content layout', 'material-theme-builder' ) }
+							label={ __( 'Content layout', 'material-design' ) }
 							selected={ contentLayout }
 							options={ CONTENT_LAYOUTS }
 							onChange={ setter( 'contentLayout' ) }
@@ -166,22 +163,22 @@ const CardStylesPanel = ( {
 						className="components-base-control__label"
 						htmlFor="shape-size"
 					>
-						{ __( 'Corner Styles', 'material-theme-builder' ) }
+						{ __( 'Corner Styles', 'material-design' ) }
 					</label>
 
 					<div>
 						{ __(
 							'Overrides will only apply to these cards. Change Cards corner styles in ',
-							'material-theme-builder'
+							'material-design'
 						) }
 						<a
 							href={ getConfig( 'customizerUrls' ).shape }
 							target="_blank"
 							rel="noreferrer noopener"
 						>
-							{ __( 'Material Theme Options', 'material-theme-builder' ) }
+							{ __( 'Material Design Options', 'material-design' ) }
 						</a>
-						{ __( ' to update all cards.', 'material-theme-builder' ) }
+						{ __( ' to update all cards.', 'material-design' ) }
 					</div>
 					<GlobalShapeSize
 						value={ cornerRadius }
@@ -195,7 +192,7 @@ const CardStylesPanel = ( {
 
 			{ ! allowIndividualStyleOverride && showOutlined && (
 				<ToggleControl
-					label={ __( 'Outlined', 'material-theme-builder' ) }
+					label={ __( 'Outlined', 'material-design' ) }
 					checked={ outlined }
 					onChange={ setter( 'outlined' ) }
 				/>
@@ -204,7 +201,7 @@ const CardStylesPanel = ( {
 				<RangeControl
 					label={
 						<>
-							{ __( 'Gutter', 'material-theme-builder' ) }
+							{ __( 'Gutter', 'material-design' ) }
 							<div className="components-base-control__label-actions">
 								{ GUTTER_DEVICES.map( device => (
 									<button

@@ -84,7 +84,7 @@ jobs:
     - stage: test
       name: E2E tests with Docker (7.4, WordPress latest, with code coverage)
       php: "7.4"
-      env: NODE_ENV=teste2e
+      env: NODE_ENV=teste2e COVERALLS_REPO_TOKEN=$CR_TOKEN
       before_install:
         - nvm install
         - nvm use
@@ -95,12 +95,13 @@ jobs:
       script:
         - npm run env:start
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
-        - npm run wp -- wp plugin activate material-theme-builder
+        - npm run wp -- wp plugin activate material-design
         - npm run build:js
         - npm run test:e2e:coveralls
 
     - name: JS unit tests (7.4, WordPress latest, with code coverage)
       php: "7.4"
+      env: COVERALLS_REPO_TOKEN=$CR_TOKEN
       before_script:
         - echo "Running JS unit tests with code coverage ..."
       script:

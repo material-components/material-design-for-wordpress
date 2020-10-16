@@ -36,7 +36,7 @@ Object {
           <div>
             <div>
               <div
-                class="components-popover mtb-url-input-popover is-without-arrow"
+                class="components-popover material-design-url-input-popover is-without-arrow"
               >
                 <div
                   class="components-popover__content"
@@ -46,11 +46,11 @@ Object {
                     class="components-panel__body is-opened"
                   >
                     <div
-                      class="mtb-url-input-popover__input-wrapper"
+                      class="material-design-url-input-popover__input-wrapper"
                     >
                       <svg
                         aria-hidden="true"
-                        class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                        class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                         focusable="false"
                         height="20"
                         role="img"
@@ -63,7 +63,7 @@ Object {
                         />
                       </svg>
                       <div
-                        class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                        class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                       >
                         <div
                           class="components-base-control__field"
@@ -79,7 +79,7 @@ Object {
                       </div>
                       <button
                         aria-expanded="false"
-                        class="components-button mtb-url-input-control__more-button mtb--active"
+                        class="components-button material-design-url-input-control__more-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -99,7 +99,7 @@ Object {
                         </svg>
                       </button>
                       <button
-                        class="components-button mtb-url-input-control__close-button mtb--active"
+                        class="components-button material-design-url-input-control__close-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -136,7 +136,7 @@ Object {
         <div>
           <div>
             <div
-              class="components-popover mtb-url-input-popover is-without-arrow"
+              class="components-popover material-design-url-input-popover is-without-arrow"
             >
               <div
                 class="components-popover__content"
@@ -146,11 +146,11 @@ Object {
                   class="components-panel__body is-opened"
                 >
                   <div
-                    class="mtb-url-input-popover__input-wrapper"
+                    class="material-design-url-input-popover__input-wrapper"
                   >
                     <svg
                       aria-hidden="true"
-                      class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                      class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                       focusable="false"
                       height="20"
                       role="img"
@@ -163,7 +163,7 @@ Object {
                       />
                     </svg>
                     <div
-                      class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                      class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                     >
                       <div
                         class="components-base-control__field"
@@ -179,7 +179,7 @@ Object {
                     </div>
                     <button
                       aria-expanded="false"
-                      class="components-button mtb-url-input-control__more-button mtb--active"
+                      class="components-button material-design-url-input-control__more-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -199,7 +199,7 @@ Object {
                       </svg>
                     </button>
                     <button
-                      class="components-button mtb-url-input-control__close-button mtb--active"
+                      class="components-button material-design-url-input-control__close-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -402,7 +402,7 @@ Object {
           <div>
             <div>
               <div
-                class="components-popover mtb-url-input-popover is-without-arrow"
+                class="components-popover material-design-url-input-popover is-without-arrow"
               >
                 <div
                   class="components-popover__content"
@@ -412,11 +412,11 @@ Object {
                     class="components-panel__body is-opened"
                   >
                     <div
-                      class="mtb-url-input-popover__input-wrapper"
+                      class="material-design-url-input-popover__input-wrapper"
                     >
                       <svg
                         aria-hidden="true"
-                        class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                        class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                         focusable="false"
                         height="20"
                         role="img"
@@ -429,7 +429,7 @@ Object {
                         />
                       </svg>
                       <div
-                        class="components-base-control block-editor-url-input mtb-url-input-control__input"
+                        class="components-base-control block-editor-url-input material-design-url-input-control__input"
                       >
                         <div
                           class="components-base-control__field"
@@ -450,7 +450,7 @@ Object {
                       </div>
                       <button
                         aria-expanded="false"
-                        class="components-button mtb-url-input-control__more-button mtb--active"
+                        class="components-button material-design-url-input-control__more-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -470,7 +470,7 @@ Object {
                         </svg>
                       </button>
                       <button
-                        class="components-button mtb-url-input-control__close-button mtb--active"
+                        class="components-button material-design-url-input-control__close-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -507,7 +507,7 @@ Object {
         <div>
           <div>
             <div
-              class="components-popover mtb-url-input-popover is-without-arrow"
+              class="components-popover material-design-url-input-popover is-without-arrow"
             >
               <div
                 class="components-popover__content"
@@ -517,11 +517,11 @@ Object {
                   class="components-panel__body is-opened"
                 >
                   <div
-                    class="mtb-url-input-popover__input-wrapper"
+                    class="material-design-url-input-popover__input-wrapper"
                   >
                     <svg
                       aria-hidden="true"
-                      class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                      class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                       focusable="false"
                       height="20"
                       role="img"
@@ -534,7 +534,7 @@ Object {
                       />
                     </svg>
                     <div
-                      class="components-base-control block-editor-url-input mtb-url-input-control__input"
+                      class="components-base-control block-editor-url-input material-design-url-input-control__input"
                     >
                       <div
                         class="components-base-control__field"
@@ -555,7 +555,7 @@ Object {
                     </div>
                     <button
                       aria-expanded="false"
-                      class="components-button mtb-url-input-control__more-button mtb--active"
+                      class="components-button material-design-url-input-control__more-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -575,7 +575,7 @@ Object {
                       </svg>
                     </button>
                     <button
-                      class="components-button mtb-url-input-control__close-button mtb--active"
+                      class="components-button material-design-url-input-control__close-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -693,7 +693,7 @@ Object {
           <div>
             <div>
               <div
-                class="components-popover mtb-url-input-popover is-without-arrow"
+                class="components-popover material-design-url-input-popover is-without-arrow"
               >
                 <div
                   class="components-popover__content"
@@ -703,11 +703,11 @@ Object {
                     class="components-panel__body is-opened"
                   >
                     <div
-                      class="mtb-url-input-popover__input-wrapper"
+                      class="material-design-url-input-popover__input-wrapper"
                     >
                       <svg
                         aria-hidden="true"
-                        class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                        class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                         focusable="false"
                         height="20"
                         role="img"
@@ -720,7 +720,7 @@ Object {
                         />
                       </svg>
                       <div
-                        class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                        class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                       >
                         <div
                           class="components-base-control__field"
@@ -736,7 +736,7 @@ Object {
                       </div>
                       <button
                         aria-expanded="false"
-                        class="components-button mtb-url-input-control__more-button"
+                        class="components-button material-design-url-input-control__more-button"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -756,7 +756,7 @@ Object {
                         </svg>
                       </button>
                       <button
-                        class="components-button mtb-url-input-control__close-button"
+                        class="components-button material-design-url-input-control__close-button"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -793,7 +793,7 @@ Object {
         <div>
           <div>
             <div
-              class="components-popover mtb-url-input-popover is-without-arrow"
+              class="components-popover material-design-url-input-popover is-without-arrow"
             >
               <div
                 class="components-popover__content"
@@ -803,11 +803,11 @@ Object {
                   class="components-panel__body is-opened"
                 >
                   <div
-                    class="mtb-url-input-popover__input-wrapper"
+                    class="material-design-url-input-popover__input-wrapper"
                   >
                     <svg
                       aria-hidden="true"
-                      class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                      class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                       focusable="false"
                       height="20"
                       role="img"
@@ -820,7 +820,7 @@ Object {
                       />
                     </svg>
                     <div
-                      class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                      class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                     >
                       <div
                         class="components-base-control__field"
@@ -836,7 +836,7 @@ Object {
                     </div>
                     <button
                       aria-expanded="false"
-                      class="components-button mtb-url-input-control__more-button"
+                      class="components-button material-design-url-input-control__more-button"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -856,7 +856,7 @@ Object {
                       </svg>
                     </button>
                     <button
-                      class="components-button mtb-url-input-control__close-button"
+                      class="components-button material-design-url-input-control__close-button"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -974,7 +974,7 @@ Object {
           <div>
             <div>
               <div
-                class="components-popover mtb-url-input-popover is-without-arrow"
+                class="components-popover material-design-url-input-popover is-without-arrow"
               >
                 <div
                   class="components-popover__content"
@@ -984,11 +984,11 @@ Object {
                     class="components-panel__body is-opened"
                   >
                     <div
-                      class="mtb-url-input-popover__input-wrapper"
+                      class="material-design-url-input-popover__input-wrapper"
                     >
                       <svg
                         aria-hidden="true"
-                        class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                        class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                         focusable="false"
                         height="20"
                         role="img"
@@ -1001,7 +1001,7 @@ Object {
                         />
                       </svg>
                       <div
-                        class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                        class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                       >
                         <div
                           class="components-base-control__field"
@@ -1017,7 +1017,7 @@ Object {
                       </div>
                       <button
                         aria-expanded="false"
-                        class="components-button mtb-url-input-control__more-button mtb--active"
+                        class="components-button material-design-url-input-control__more-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -1037,7 +1037,7 @@ Object {
                         </svg>
                       </button>
                       <button
-                        class="components-button mtb-url-input-control__close-button mtb--active"
+                        class="components-button material-design-url-input-control__close-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -1074,7 +1074,7 @@ Object {
         <div>
           <div>
             <div
-              class="components-popover mtb-url-input-popover is-without-arrow"
+              class="components-popover material-design-url-input-popover is-without-arrow"
             >
               <div
                 class="components-popover__content"
@@ -1084,11 +1084,11 @@ Object {
                   class="components-panel__body is-opened"
                 >
                   <div
-                    class="mtb-url-input-popover__input-wrapper"
+                    class="material-design-url-input-popover__input-wrapper"
                   >
                     <svg
                       aria-hidden="true"
-                      class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                      class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                       focusable="false"
                       height="20"
                       role="img"
@@ -1101,7 +1101,7 @@ Object {
                       />
                     </svg>
                     <div
-                      class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                      class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                     >
                       <div
                         class="components-base-control__field"
@@ -1117,7 +1117,7 @@ Object {
                     </div>
                     <button
                       aria-expanded="false"
-                      class="components-button mtb-url-input-control__more-button mtb--active"
+                      class="components-button material-design-url-input-control__more-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -1137,7 +1137,7 @@ Object {
                       </svg>
                     </button>
                     <button
-                      class="components-button mtb-url-input-control__close-button mtb--active"
+                      class="components-button material-design-url-input-control__close-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -1255,7 +1255,7 @@ Object {
           <div>
             <div>
               <div
-                class="components-popover mtb-url-input-popover is-without-arrow"
+                class="components-popover material-design-url-input-popover is-without-arrow"
               >
                 <div
                   class="components-popover__content"
@@ -1265,11 +1265,11 @@ Object {
                     class="components-panel__body is-opened"
                   >
                     <div
-                      class="mtb-url-input-popover__input-wrapper"
+                      class="material-design-url-input-popover__input-wrapper"
                     >
                       <svg
                         aria-hidden="true"
-                        class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                        class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                         focusable="false"
                         height="20"
                         role="img"
@@ -1282,7 +1282,7 @@ Object {
                         />
                       </svg>
                       <div
-                        class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                        class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                       >
                         <div
                           class="components-base-control__field"
@@ -1298,7 +1298,7 @@ Object {
                       </div>
                       <button
                         aria-expanded="false"
-                        class="components-button mtb-url-input-control__more-button mtb--active"
+                        class="components-button material-design-url-input-control__more-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -1318,7 +1318,7 @@ Object {
                         </svg>
                       </button>
                       <button
-                        class="components-button mtb-url-input-control__close-button mtb--active"
+                        class="components-button material-design-url-input-control__close-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -1355,7 +1355,7 @@ Object {
         <div>
           <div>
             <div
-              class="components-popover mtb-url-input-popover is-without-arrow"
+              class="components-popover material-design-url-input-popover is-without-arrow"
             >
               <div
                 class="components-popover__content"
@@ -1365,11 +1365,11 @@ Object {
                   class="components-panel__body is-opened"
                 >
                   <div
-                    class="mtb-url-input-popover__input-wrapper"
+                    class="material-design-url-input-popover__input-wrapper"
                   >
                     <svg
                       aria-hidden="true"
-                      class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                      class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                       focusable="false"
                       height="20"
                       role="img"
@@ -1382,7 +1382,7 @@ Object {
                       />
                     </svg>
                     <div
-                      class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                      class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                     >
                       <div
                         class="components-base-control__field"
@@ -1398,7 +1398,7 @@ Object {
                     </div>
                     <button
                       aria-expanded="false"
-                      class="components-button mtb-url-input-control__more-button mtb--active"
+                      class="components-button material-design-url-input-control__more-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -1418,7 +1418,7 @@ Object {
                       </svg>
                     </button>
                     <button
-                      class="components-button mtb-url-input-control__close-button mtb--active"
+                      class="components-button material-design-url-input-control__close-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -1621,7 +1621,7 @@ Object {
           <div>
             <div>
               <div
-                class="components-popover mtb-url-input-popover is-without-arrow"
+                class="components-popover material-design-url-input-popover is-without-arrow"
               >
                 <div
                   class="components-popover__content"
@@ -1631,11 +1631,11 @@ Object {
                     class="components-panel__body is-opened"
                   >
                     <div
-                      class="mtb-url-input-popover__input-wrapper"
+                      class="material-design-url-input-popover__input-wrapper"
                     >
                       <svg
                         aria-hidden="true"
-                        class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                        class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                         focusable="false"
                         height="20"
                         role="img"
@@ -1648,7 +1648,7 @@ Object {
                         />
                       </svg>
                       <div
-                        class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                        class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                       >
                         <div
                           class="components-base-control__field"
@@ -1663,7 +1663,7 @@ Object {
                         </div>
                       </div>
                       <button
-                        class="components-button mtb-url-input-control__close-button mtb--active"
+                        class="components-button material-design-url-input-control__close-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -1700,7 +1700,7 @@ Object {
         <div>
           <div>
             <div
-              class="components-popover mtb-url-input-popover is-without-arrow"
+              class="components-popover material-design-url-input-popover is-without-arrow"
             >
               <div
                 class="components-popover__content"
@@ -1710,11 +1710,11 @@ Object {
                   class="components-panel__body is-opened"
                 >
                   <div
-                    class="mtb-url-input-popover__input-wrapper"
+                    class="material-design-url-input-popover__input-wrapper"
                   >
                     <svg
                       aria-hidden="true"
-                      class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                      class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                       focusable="false"
                       height="20"
                       role="img"
@@ -1727,7 +1727,7 @@ Object {
                       />
                     </svg>
                     <div
-                      class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                      class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                     >
                       <div
                         class="components-base-control__field"
@@ -1742,7 +1742,7 @@ Object {
                       </div>
                     </div>
                     <button
-                      class="components-button mtb-url-input-control__close-button mtb--active"
+                      class="components-button material-design-url-input-control__close-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -1860,7 +1860,7 @@ Object {
           <div>
             <div>
               <div
-                class="components-popover mtb-url-input-popover is-without-arrow"
+                class="components-popover material-design-url-input-popover is-without-arrow"
               >
                 <div
                   class="components-popover__content"
@@ -1870,11 +1870,11 @@ Object {
                     class="components-panel__body is-opened"
                   >
                     <div
-                      class="mtb-url-input-popover__input-wrapper"
+                      class="material-design-url-input-popover__input-wrapper"
                     >
                       <svg
                         aria-hidden="true"
-                        class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                        class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                         focusable="false"
                         height="20"
                         role="img"
@@ -1887,7 +1887,7 @@ Object {
                         />
                       </svg>
                       <div
-                        class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                        class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                       >
                         <div
                           class="components-base-control__field"
@@ -1903,7 +1903,7 @@ Object {
                       </div>
                       <button
                         aria-expanded="false"
-                        class="components-button mtb-url-input-control__more-button mtb--active"
+                        class="components-button material-design-url-input-control__more-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -1923,7 +1923,7 @@ Object {
                         </svg>
                       </button>
                       <button
-                        class="components-button mtb-url-input-control__close-button mtb--active"
+                        class="components-button material-design-url-input-control__close-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -1960,7 +1960,7 @@ Object {
         <div>
           <div>
             <div
-              class="components-popover mtb-url-input-popover is-without-arrow"
+              class="components-popover material-design-url-input-popover is-without-arrow"
             >
               <div
                 class="components-popover__content"
@@ -1970,11 +1970,11 @@ Object {
                   class="components-panel__body is-opened"
                 >
                   <div
-                    class="mtb-url-input-popover__input-wrapper"
+                    class="material-design-url-input-popover__input-wrapper"
                   >
                     <svg
                       aria-hidden="true"
-                      class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                      class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                       focusable="false"
                       height="20"
                       role="img"
@@ -1987,7 +1987,7 @@ Object {
                       />
                     </svg>
                     <div
-                      class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                      class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                     >
                       <div
                         class="components-base-control__field"
@@ -2003,7 +2003,7 @@ Object {
                     </div>
                     <button
                       aria-expanded="false"
-                      class="components-button mtb-url-input-control__more-button mtb--active"
+                      class="components-button material-design-url-input-control__more-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -2023,7 +2023,7 @@ Object {
                       </svg>
                     </button>
                     <button
-                      class="components-button mtb-url-input-control__close-button mtb--active"
+                      class="components-button material-design-url-input-control__close-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >
@@ -2141,7 +2141,7 @@ Object {
           <div>
             <div>
               <div
-                class="components-popover mtb-url-input-popover is-without-arrow"
+                class="components-popover material-design-url-input-popover is-without-arrow"
               >
                 <div
                   class="components-popover__content"
@@ -2151,11 +2151,11 @@ Object {
                     class="components-panel__body is-opened"
                   >
                     <div
-                      class="mtb-url-input-popover__input-wrapper"
+                      class="material-design-url-input-popover__input-wrapper"
                     >
                       <svg
                         aria-hidden="true"
-                        class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                        class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                         focusable="false"
                         height="20"
                         role="img"
@@ -2168,7 +2168,7 @@ Object {
                         />
                       </svg>
                       <div
-                        class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                        class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                       >
                         <div
                           class="components-base-control__field"
@@ -2184,7 +2184,7 @@ Object {
                       </div>
                       <button
                         aria-expanded="false"
-                        class="components-button mtb-url-input-control__more-button mtb--active"
+                        class="components-button material-design-url-input-control__more-button material-design--active"
                         style="padding: 6px;"
                         type="button"
                       >
@@ -2221,7 +2221,7 @@ Object {
         <div>
           <div>
             <div
-              class="components-popover mtb-url-input-popover is-without-arrow"
+              class="components-popover material-design-url-input-popover is-without-arrow"
             >
               <div
                 class="components-popover__content"
@@ -2231,11 +2231,11 @@ Object {
                   class="components-panel__body is-opened"
                 >
                   <div
-                    class="mtb-url-input-popover__input-wrapper"
+                    class="material-design-url-input-popover__input-wrapper"
                   >
                     <svg
                       aria-hidden="true"
-                      class="dashicon dashicons-admin-links mtb-url-input-control__icon"
+                      class="dashicon dashicons-admin-links material-design-url-input-control__icon"
                       focusable="false"
                       height="20"
                       role="img"
@@ -2248,7 +2248,7 @@ Object {
                       />
                     </svg>
                     <div
-                      class="components-base-control mtb-url-input-control__input mtb-url-input-control__input--plain"
+                      class="components-base-control material-design-url-input-control__input material-design-url-input-control__input--plain"
                     >
                       <div
                         class="components-base-control__field"
@@ -2264,7 +2264,7 @@ Object {
                     </div>
                     <button
                       aria-expanded="false"
-                      class="components-button mtb-url-input-control__more-button mtb--active"
+                      class="components-button material-design-url-input-control__more-button material-design--active"
                       style="padding: 6px;"
                       type="button"
                     >

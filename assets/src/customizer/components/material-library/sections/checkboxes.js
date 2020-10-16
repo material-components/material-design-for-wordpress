@@ -27,13 +27,13 @@ import IconButtonLink from '../common/icon-button-link';
 const Checkboxes = () => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Checkboxes', 'material-theme-builder' ) }
+			{ __( 'Checkboxes', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/develop/web/components/input-controls/checkboxes"></IconButtonLink>
 		<p>
 			{ __(
 				'Checkboxes allow the user to select one or more items from a set.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div className="mdc-checkbox">

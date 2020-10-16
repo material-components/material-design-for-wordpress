@@ -42,7 +42,7 @@ import ListItem from './components/list-item';
  * Material list edit component.
  */
 const ListEdit = ( {
-	attributes: { style, iconPosition, iconSize, items },
+	attributes: { style, iconPosition, iconSize, items, preview },
 	className,
 	setAttributes,
 } ) => {
@@ -246,6 +246,7 @@ const ListEdit = ( {
 							iconPosition,
 							isSecondaryEnabled,
 						} }
+						preview={ preview }
 						onSplit={ onSplit }
 						onFocus={ onFocus }
 						isSelected={ i === selected.index }
@@ -271,7 +272,7 @@ const ListEdit = ( {
 
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Block Settings', 'material-theme-builder' ) }
+					title={ __( 'Block Settings', 'material-design' ) }
 					initialOpen={ true }
 				>
 					<ImageRadioControl
@@ -297,7 +298,7 @@ const ListEdit = ( {
 
 				{ selected && 'none' !== iconPosition && (
 					<PanelBody
-						title={ __( 'List item Settings', 'material-theme-builder' ) }
+						title={ __( 'List item Settings', 'material-design' ) }
 						initialOpen={ true }
 					>
 						<IconPicker
