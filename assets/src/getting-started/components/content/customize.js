@@ -27,7 +27,7 @@ export const Customize = () => {
 			</h2>
 			<p>
 				{ __(
-					'Set and preview your global theme styles using the Material Design theme options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.',
+					'Set and preview your global theme styles using the Material Design options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.',
 					'material-design'
 				) }
 			</p>

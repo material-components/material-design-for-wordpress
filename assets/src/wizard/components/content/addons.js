@@ -42,7 +42,7 @@ const Addons = () => {
 				disabled={ 'ok' === getConfig( 'themeStatus' ) }
 			>
 				<h4 className="mdc-typography--headline4">
-					{ __( 'Material Design theme', 'material-design' ) }
+					{ __( 'Material Design Theme', 'material-design' ) }
 				</h4>
 
 				<p>

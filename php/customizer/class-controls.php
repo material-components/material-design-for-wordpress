@@ -108,7 +108,7 @@ class Controls extends Module_Base {
 	 */
 	public function add_panel() {
 		/**
-		 * Add "Your Material Theme" custom panel.
+		 * Add "Material Design Options" custom panel.
 		 */
 		$this->wp_customize->add_panel(
 			$this->slug,
