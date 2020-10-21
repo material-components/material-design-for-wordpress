@@ -53,7 +53,7 @@ Object {
                 <div
                   class="material-gsm__tab-title"
                 >
-                  Customize your theme
+                  Customize your Theme
                 </div>
               </button>
               <button
@@ -79,10 +79,10 @@ Object {
             <h2
               class="material-gsm__content-title mdc-typography--headline3"
             >
-              Customize your theme
+              Customize your Theme
             </h2>
             <p>
-              Set and preview your global theme styles using the Material Design theme options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.
+              Set and preview your global theme styles using the Material Design options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.
             </p>
             <img
               alt=""
@@ -281,7 +281,7 @@ Object {
               <div
                 class="material-gsm__tab-title"
               >
-                Customize your theme
+                Customize your Theme
               </div>
             </button>
             <button
@@ -307,10 +307,10 @@ Object {
           <h2
             class="material-gsm__content-title mdc-typography--headline3"
           >
-            Customize your theme
+            Customize your Theme
           </h2>
           <p>
-            Set and preview your global theme styles using the Material Design theme options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.
+            Set and preview your global theme styles using the Material Design options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.
           </p>
           <img
             alt=""
