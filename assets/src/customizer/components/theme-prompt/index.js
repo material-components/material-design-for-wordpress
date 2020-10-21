@@ -32,7 +32,7 @@ const ThemePrompt = ( { status } ) => {
 	const [ dismissed, setDismissed ] = useState( status === 'ok' );
 	const [ requesting, setRequesting ] = useState( false );
 
-	const title = __( 'Material Design theme', 'material-design' );
+	const title = __( 'Material Design Theme', 'material-design' );
 
 	const message =
 		status === 'install'
