@@ -23,7 +23,7 @@ export const Customize = () => {
 	return (
 		<Fragment>
 			<h2 className="material-gsm__content-title mdc-typography--headline3">
-				{ __( 'Customize your theme', 'material-design' ) }
+				{ __( 'Customize your Theme', 'material-design' ) }
 			</h2>
 			<p>
 				{ __(
