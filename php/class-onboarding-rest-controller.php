@@ -152,8 +152,8 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 			function( $return, $action, $args ) {
 				if ( 'theme_information' === $action && isset( $args->slug ) && Plugin::THEME_SLUG === $args->slug ) {
 					return (object) [
-						'name'          => 'Material Design',
-						'download_link' => 'https://storage.googleapis.com/xwp-mdc/theme/material-design.zip',
+						'name'          => 'Material Design Google',
+						'download_link' => 'https://storage.googleapis.com/xwp-mdc/theme/material-design-google.zip',
 					];
 				}
 
@@ -177,7 +177,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 		if ( is_wp_error( $api ) ) {
 			return new \WP_Error(
 				'material_design_theme_install',
-				__( 'The Material Design theme could not be installed. Theme API call failed.', 'material-design' ),
+				__( 'The Material Design Theme could not be installed. Theme API call failed.', 'material-design' ),
 				[ 'status' => 500 ]
 			);
 		}
@@ -189,7 +189,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 		if ( is_wp_error( $result ) || is_null( $result ) ) {
 			return new \WP_Error(
 				'material_design_theme_install',
-				__( 'The Material Design theme could not be installed.', 'material-design' ),
+				__( 'The Material Design Theme could not be installed.', 'material-design' ),
 				[ 'status' => 500 ]
 			);
 		}
@@ -214,14 +214,14 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 		$installed_themes = wp_get_themes();
 
 		if ( ! in_array( Plugin::THEME_SLUG, array_keys( $installed_themes ), true ) ) {
-			return new \WP_Error( 'material_invalid_theme', __( 'The Material Design theme is not installed.', 'material-design' ), [ 'status' => 500 ] );
+			return new \WP_Error( 'material_invalid_theme', __( 'The Material Design Theme is not installed.', 'material-design' ), [ 'status' => 500 ] );
 		}
 
 		$result = switch_theme( Plugin::THEME_SLUG );
 
 		// @codeCoverageIgnoreStart
 		if ( ! is_null( $result ) ) {
-			return new \WP_Error( 'material_invalid_theme', __( 'The Material Design theme cannot be activated.', 'material-design' ), [ 'status' => 500 ] );
+			return new \WP_Error( 'material_invalid_theme', __( 'The Material Design Theme cannot be activated.', 'material-design' ), [ 'status' => 500 ] );
 		}
 
 		update_option( 'material_onboarding', true, false );
