@@ -153,7 +153,7 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 				if ( 'theme_information' === $action && isset( $args->slug ) && Plugin::THEME_SLUG === $args->slug ) {
 					return (object) [
 						'name'          => 'Material Design Theme',
-						'download_link' => 'https://storage.googleapis.com/xwp-mdc/theme/material-design-theme.zip',
+						'download_link' => 'https://storage.googleapis.com/xwp-mdc/theme/material-design-google.zip',
 					];
 				}
 
