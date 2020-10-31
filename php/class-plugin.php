@@ -40,7 +40,7 @@ class Plugin extends Plugin_Base {
 	 *
 	 * @var string
 	 */
-	const THEME_SLUG = 'material-design';
+	const THEME_SLUG = 'material-design-theme';
 
 	/**
 	 * Controls class.
