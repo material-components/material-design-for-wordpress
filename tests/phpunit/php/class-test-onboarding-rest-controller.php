@@ -151,8 +151,8 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
-		$this->assertEquals( 'material-design-theme', $data['slug'] );
-		$this->assertEquals( 'material-design-theme', $data['name'] );
+		$this->assertEquals( 'material-design-google', $data['slug'] );
+		$this->assertEquals( 'material-design-google', $data['name'] );
 		$this->assertEquals( 'success', $data['status'] );
 
 		remove_filter( 'wp_pre_get_themes', [ $this, 'add_material_theme' ] );
@@ -213,8 +213,8 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
-		$this->assertEquals( 'material-design-theme', $data['slug'] );
-		$this->assertEquals( 'material-design-theme', $data['name'] );
+		$this->assertEquals( 'material-design-google', $data['slug'] );
+		$this->assertEquals( 'material-design-google', $data['name'] );
 		$this->assertEquals( 'success', $data['status'] );
 
 		remove_filter( 'wp_pre_get_themes', [ $this, 'add_material_theme' ] );
@@ -328,7 +328,7 @@ class Test_Onboarding_REST_Controller extends WP_Test_REST_Controller_Testcase {
 	 * @return Array
 	 */
 	public function add_material_theme( $themes ) {
-		$themes[] = 'material-design-theme';
+		$themes[] = 'material-design-google';
 		return $themes;
 	}
 
