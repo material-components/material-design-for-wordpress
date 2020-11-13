@@ -278,6 +278,6 @@ class Test_Admin extends \WP_UnitTestCase {
 	 * @return string
 	 */
 	public function template() {
-		return 'material-design';
+		return 'material-design-google';
 	}
 }
