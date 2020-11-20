@@ -32,7 +32,7 @@ export const initButtons = () => {
 };
 
 export const initLists = () => {
-	const lists = document.querySelectorAll( '.mdc-list' );
+	const lists = document.querySelectorAll( '.mdc-list:not(.mdc-drawer__list)' );
 
 	lists.forEach( list => {
 		const mdcList = new MDCList( list );

@@ -37,6 +37,7 @@
 	&-title {
 		padding-bottom: 1rem;
 		padding-top: 1rem;
+		text-align: left;
 	}
 
 	&-active {
