@@ -71,7 +71,7 @@ if ( empty( $_plugin_files ) ) {
 	trigger_error( 'Unable to locate any files containing a plugin metadata block.', E_USER_ERROR ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
 }
 
-unset( $_plugins, $_plugin_candidate, $_plugin_file_candidate, $_plugin_file_src ); //phpcs:ignore WordPressVIPMinimum.Variables.VariableAnalysis.UndefinedUnsetVariable,VariableAnalysis.CodeAnalysis.VariableAnalysis.UndefinedUnsetVariable
+unset( $_plugin_candidate, $_plugin_file_candidate, $_plugin_file_src );
 
 /**
  * Loads the plugins for testing.
