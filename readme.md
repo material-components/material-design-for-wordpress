@@ -10,7 +10,7 @@ The official Material Design plugin for WordPress. Customize your site’s navig
 **Stable tag:** 0.1.0  
 **License:** [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
 
-[![Build Status](https://travis-ci.org/xwp/material-design-wp-plugin.svg?branch=develop)](https://travis-ci.org/xwp/material-design-wp-plugin) [![Coverage Status](https://coveralls.io/repos/xwp/material-design-wp-plugin/badge.svg?branch=develop)](https://coveralls.io/github/xwp/material-design-wp-plugin) [![Built with Grunt](https://gruntjs.com/cdn/builtwith.svg)](http://gruntjs.com) 
+[![Build Status](https://travis-ci.com/xwp/material-design-wp-plugin.svg?branch=develop)](https://travis-ci.com/xwp/material-design-wp-plugin) [![Coverage Status](https://coveralls.io/repos/xwp/material-design-wp-plugin/badge.svg?branch=develop)](https://coveralls.io/github/xwp/material-design-wp-plugin) [![Built with Grunt](https://gruntjs.com/cdn/builtwith.svg)](http://gruntjs.com) 
 
 ## Description ##
 
