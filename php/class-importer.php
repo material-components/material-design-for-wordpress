@@ -1,18 +1,36 @@
 <?php
 /**
- * Material Theme Builder Importer.
+ * Copyright 2020 Google LLC
  *
- * @package MaterialThemeBuilder
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+/**
+ * Material Design Importer.
+ *
+ * @package MaterialDesign
+ */
 
-use MaterialThemeBuilder\Plugin;
+namespace MaterialDesign\Plugin;
+
+use MaterialDesign\Plugin\Plugin;
 
 /**
  * Plugin Importer class.
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
  */
 class Importer extends Module_Base {
 	/**
@@ -137,7 +155,7 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function add_menu_items() {
-		$menu_name = esc_html__( 'Importer Primary', 'material-theme-builder' );
+		$menu_name = esc_html__( 'Importer Primary', 'material-design' );
 		wp_delete_nav_menu( $menu_name );
 
 		$menu_id    = wp_create_nav_menu( $menu_name );
@@ -180,9 +198,9 @@ class Importer extends Module_Base {
 		foreach ( array_keys( $this->images ) as $image_url ) {
 			$image_url = add_query_arg(
 				[
-					'w'   => 1200,
-					'h'   => 420,
-					'fit' => 'crop',
+					'w' => 1200,
+					// 'h'   => 420,
+					// 'fit' => 'crop',
 				],
 				$image_url
 			);
@@ -198,7 +216,7 @@ class Importer extends Module_Base {
 				'post_status'            => 'publish',
 				'post_type'              => [ 'page', 'post' ],
 				'posts_per_page'         => 25,
-				'meta_key'               => '_mtb-demo-content',
+				'meta_key'               => '_material-design-demo-content',
 				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'no_found_rows'          => true,
 				'update_post_meta_cache' => false,
@@ -227,7 +245,7 @@ class Importer extends Module_Base {
 				'post_status'            => 'publish',
 				'post_type'              => [ 'page' ],
 				'posts_per_page'         => 1,
-				'meta_key'               => '_mtb-demo-content',
+				'meta_key'               => '_material-design-demo-content',
 				'meta_value'             => 1, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'no_found_rows'          => true,
 				'update_post_meta_cache' => false,
@@ -368,7 +386,7 @@ class Importer extends Module_Base {
 		}
 
 		if ( empty( $file ) || ! is_array( $file ) ) {
-			return new WP_Error( 'no_file_found', esc_html__( 'No file found', 'material-theme-builder' ) );
+			return new WP_Error( 'no_file_found', esc_html__( 'No file found', 'material-design' ) );
 		}
 		// @codeCoverageIgnoreEnd
 
@@ -509,7 +527,7 @@ class Importer extends Module_Base {
 		}
 
 		// Add a flag to know these were imported.
-		$postmeta['_mtb-demo-content'] = 1;
+		$postmeta['_material-design-demo-content'] = 1;
 
 		return $postmeta;
 	}
@@ -592,11 +610,11 @@ class Importer extends Module_Base {
 	 */
 	public function get_menu_items() {
 		return [
-			esc_html__( 'Home', 'material-theme-builder' ),
-			esc_html__( 'About', 'material-theme-builder' ),
-			esc_html__( 'Projects', 'material-theme-builder' ),
-			esc_html__( 'Blog', 'material-theme-builder' ),
-			esc_html__( 'Contact', 'material-theme-builder' ),
+			esc_html__( 'Home', 'material-design' ),
+			esc_html__( 'About', 'material-design' ),
+			esc_html__( 'Projects', 'material-design' ),
+			esc_html__( 'Blog', 'material-design' ),
+			esc_html__( 'Contact', 'material-design' ),
 		];
 	}
 
@@ -607,8 +625,8 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function update_blog_info() {
-		$home_page = Helpers::get_page_by_title( __( 'Home', 'material-theme-builder' ) );
-		$blog_page = Helpers::get_page_by_title( __( 'Blog', 'material-theme-builder' ) );
+		$home_page = Helpers::get_page_by_title( __( 'Home', 'material-design' ) );
+		$blog_page = Helpers::get_page_by_title( __( 'Blog', 'material-design' ) );
 
 		set_theme_mod( 'material_header_search_display', true );
 

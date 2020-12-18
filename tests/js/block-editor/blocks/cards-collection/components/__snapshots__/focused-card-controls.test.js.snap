@@ -12,7 +12,7 @@ Object {
           class="move-card"
         >
           <button
-            class="mtb-card-move-button-left-up"
+            class="material-design-card-move-button-left-up"
             disabled=""
             title="Move left"
           >
@@ -23,7 +23,7 @@ Object {
             </i>
           </button>
           <button
-            class="mtb-card-move-button-right-down"
+            class="material-design-card-move-button-right-down"
             disabled=""
             title="Move right"
           >
@@ -43,7 +43,7 @@ Object {
           class="remove-card"
         >
           <button
-            class="mtb-card-close-button"
+            class="material-design-card-close-button"
             title="Remove card"
           >
             <i
@@ -64,7 +64,7 @@ Object {
         class="move-card"
       >
         <button
-          class="mtb-card-move-button-left-up"
+          class="material-design-card-move-button-left-up"
           disabled=""
           title="Move left"
         >
@@ -75,7 +75,7 @@ Object {
           </i>
         </button>
         <button
-          class="mtb-card-move-button-right-down"
+          class="material-design-card-move-button-right-down"
           disabled=""
           title="Move right"
         >
@@ -95,7 +95,7 @@ Object {
         class="remove-card"
       >
         <button
-          class="mtb-card-close-button"
+          class="material-design-card-close-button"
           title="Remove card"
         >
           <i
@@ -173,7 +173,7 @@ Object {
           class="move-card"
         >
           <button
-            class="mtb-card-move-button-left-up"
+            class="material-design-card-move-button-left-up"
             title="Move left"
           >
             <i
@@ -183,7 +183,7 @@ Object {
             </i>
           </button>
           <button
-            class="mtb-card-move-button-right-down"
+            class="material-design-card-move-button-right-down"
             title="Move right"
           >
             <i
@@ -202,7 +202,7 @@ Object {
           class="remove-card"
         >
           <button
-            class="mtb-card-close-button"
+            class="material-design-card-close-button"
             title="Remove card"
           >
             <i
@@ -223,7 +223,7 @@ Object {
         class="move-card"
       >
         <button
-          class="mtb-card-move-button-left-up"
+          class="material-design-card-move-button-left-up"
           title="Move left"
         >
           <i
@@ -233,7 +233,7 @@ Object {
           </i>
         </button>
         <button
-          class="mtb-card-move-button-right-down"
+          class="material-design-card-move-button-right-down"
           title="Move right"
         >
           <i
@@ -252,7 +252,7 @@ Object {
         class="remove-card"
       >
         <button
-          class="mtb-card-close-button"
+          class="material-design-card-close-button"
           title="Remove card"
         >
           <i
@@ -330,7 +330,7 @@ Object {
           class="move-card"
         >
           <button
-            class="mtb-card-move-button-left-up"
+            class="material-design-card-move-button-left-up"
             disabled=""
             title="Move up"
           >
@@ -341,7 +341,7 @@ Object {
             </i>
           </button>
           <button
-            class="mtb-card-move-button-right-down"
+            class="material-design-card-move-button-right-down"
             disabled=""
             title="Move down"
           >
@@ -361,7 +361,7 @@ Object {
           class="remove-card"
         >
           <button
-            class="mtb-card-close-button"
+            class="material-design-card-close-button"
             title="Remove card"
           >
             <i
@@ -382,7 +382,7 @@ Object {
         class="move-card"
       >
         <button
-          class="mtb-card-move-button-left-up"
+          class="material-design-card-move-button-left-up"
           disabled=""
           title="Move up"
         >
@@ -393,7 +393,7 @@ Object {
           </i>
         </button>
         <button
-          class="mtb-card-move-button-right-down"
+          class="material-design-card-move-button-right-down"
           disabled=""
           title="Move down"
         >
@@ -413,7 +413,7 @@ Object {
         class="remove-card"
       >
         <button
-          class="mtb-card-close-button"
+          class="material-design-card-close-button"
           title="Remove card"
         >
           <i

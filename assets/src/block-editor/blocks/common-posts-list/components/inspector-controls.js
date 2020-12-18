@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
@@ -70,11 +86,11 @@ const CommonPostsListInspectorControls = ( {
 			/>
 			{ name !== 'material/hand-picked-posts' && (
 				<PanelBody
-					title={ __( 'Content', 'material-theme-builder' ) }
+					title={ __( 'Content', 'material-design' ) }
 					initialOpen={ true }
 				>
 					<RangeControl
-						label={ __( 'Number of posts', 'material-theme-builder' ) }
+						label={ __( 'Number of posts', 'material-design' ) }
 						value={ postsToShow }
 						onChange={ setter( 'postsToShow' ) }
 						min={ MIN_NUMBER_OF_POSTS }
@@ -83,16 +99,16 @@ const CommonPostsListInspectorControls = ( {
 				</PanelBody>
 			) }
 			<PanelBody
-				title={ __( 'Post meta settings', 'material-theme-builder' ) }
+				title={ __( 'Post meta settings', 'material-design' ) }
 				initialOpen={ true }
 			>
 				<ToggleControl
-					label={ __( 'Post date', 'material-theme-builder' ) }
+					label={ __( 'Post date', 'material-design' ) }
 					checked={ displayPostDate }
 					onChange={ setter( 'displayPostDate' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post excerpt', 'material-theme-builder' ) }
+					label={ __( 'Post excerpt', 'material-design' ) }
 					checked={ displayPostContent }
 					onChange={ setter( 'displayPostContent' ) }
 				/>
@@ -100,7 +116,7 @@ const CommonPostsListInspectorControls = ( {
 					<RangeControl
 						label={ __(
 							'Max number of words in post excerpt',
-							'material-theme-builder'
+							'material-design'
 						) }
 						value={ postContentLength }
 						onChange={ setter( 'postContentLength' ) }
@@ -109,25 +125,25 @@ const CommonPostsListInspectorControls = ( {
 					/>
 				) }
 				<ToggleControl
-					label={ __( 'Featured image', 'material-theme-builder' ) }
+					label={ __( 'Featured image', 'material-design' ) }
 					checked={ displayFeaturedImage }
 					onChange={ setter( 'displayFeaturedImage' ) }
 				/>
 
 				<ToggleControl
-					label={ __( 'Comments count', 'material-theme-builder' ) }
+					label={ __( 'Comments count', 'material-design' ) }
 					checked={ displayCommentsCount }
 					onChange={ setter( 'displayCommentsCount' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post author', 'material-theme-builder' ) }
+					label={ __( 'Post author', 'material-design' ) }
 					checked={ displayPostAuthor }
 					onChange={ setter( 'displayPostAuthor' ) }
 				/>
 			</PanelBody>
 
 			{ name === 'material/recent-posts' && (
-				<PanelBody title={ __( 'Filtering', 'material-theme-builder' ) }>
+				<PanelBody title={ __( 'Filtering', 'material-design' ) }>
 					<QueryControls
 						categoriesList={ categoriesList }
 						selectedCategoryId={ category }
@@ -140,7 +156,7 @@ const CommonPostsListInspectorControls = ( {
 			{ name === 'material/hand-picked-posts' && (
 				<>
 					<PanelBody
-						title={ __( 'Order By', 'material-theme-builder' ) }
+						title={ __( 'Order By', 'material-design' ) }
 						initialOpen={ true }
 					>
 						<PostsOrderbyControl
@@ -151,7 +167,7 @@ const CommonPostsListInspectorControls = ( {
 						/>
 					</PanelBody>
 					<PanelBody
-						title={ __( 'Posts', 'material-theme-builder' ) }
+						title={ __( 'Posts', 'material-design' ) }
 						initialOpen={ false }
 					>
 						<PostsControl

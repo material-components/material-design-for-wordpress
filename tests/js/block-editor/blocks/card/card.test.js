@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * Internal dependencies
  */
 import {
@@ -23,9 +39,9 @@ describe( 'blocks: material/card', () => {
 	} );
 
 	describe( 'description settings', () => {
-		it( 'should equal `Add a card to display content and actions on a single topic.`', () => {
+		it( 'should equal `Display content and actions on a single topic.`', () => {
 			expect( settings.description ).toStrictEqual(
-				'Add a card to display content and actions on a single topic.'
+				'Display content and actions on a single topic.'
 			);
 		} );
 	} );
@@ -53,7 +69,7 @@ describe( 'blocks: material/card', () => {
 				},
 				title: {
 					type: 'string',
-					default: 'Title goes here',
+					default: '',
 				},
 				displayTitle: {
 					type: 'boolean',
@@ -61,7 +77,7 @@ describe( 'blocks: material/card', () => {
 				},
 				secondaryText: {
 					type: 'string',
-					default: 'Secondary Text',
+					default: '',
 				},
 				displaySecondaryText: {
 					type: 'boolean',
@@ -79,7 +95,7 @@ describe( 'blocks: material/card', () => {
 				},
 				supportingText: {
 					type: 'string',
-					default: 'Supporting Text',
+					default: '',
 				},
 				displaySupportingText: {
 					type: 'boolean',

@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
@@ -33,7 +49,7 @@ const TEMPLATES = [
 	[
 		'material/button',
 		{
-			label: __( 'Send', 'material-theme-builder' ),
+			label: __( 'Send', 'material-design' ),
 			style: 'unelevated',
 			isSubmit: true,
 		},
@@ -63,7 +79,7 @@ const Edit = props => {
 			<div>
 				{ __(
 					'Only administrators or editor with the manage options capability can use this block',
-					'material-theme-builder'
+					'material-design'
 				) }
 			</div>
 		);
@@ -74,7 +90,7 @@ const Edit = props => {
 		return (
 			<img
 				src={ getConfig( 'contact_form_preview' ) }
-				alt={ __( 'Contact Form Preview', 'material-theme-builder' ) }
+				alt={ __( 'Contact Form Preview', 'material-design' ) }
 			/>
 		);
 	}
@@ -84,10 +100,7 @@ const Edit = props => {
 
 	if ( displayNotice ) {
 		createWarningNotice(
-			__(
-				'Only one contact form is supported per page',
-				'material-theme-builder-wp'
-			)
+			__( 'Only one contact form is supported per page', 'material-design' )
 		);
 	}
 
@@ -118,10 +131,7 @@ export default compose( [
 			formNotices: pageNotices.filter(
 				notice =>
 					notice.content ===
-					__(
-						'Only one contact form is supported per page',
-						'material-theme-builder-wp'
-					)
+					__( 'Only one contact form is supported per page', 'material-design' )
 			),
 		};
 	} ),

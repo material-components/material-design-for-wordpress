@@ -1,3 +1,19 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* global jQuery */
 
 /**
@@ -58,7 +74,7 @@ const GoogleFontsControl = props => {
 
 	const setChildValues = child => {
 		const childControl = wp.customize.control(
-			`material_theme_builder[${ child.id }]`
+			`material_design[${ child.id }]`
 		);
 
 		const settings = {
@@ -76,7 +92,7 @@ const GoogleFontsControl = props => {
 	const handleOnReset = event => {
 		event.preventDefault();
 
-		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) { // eslint-disable-line
+		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) {// eslint-disable-line
 			return;
 		}
 
@@ -139,7 +155,7 @@ const GoogleFontsControl = props => {
 				<span className="google-fonts-control-body__item">
 					<Button
 						isLink
-						label={ __( 'View more options', 'material-theme-builder' ) }
+						label={ __( 'View more options', 'material-design' ) }
 						showTooltip={ true }
 						icon="admin-settings"
 						className="control-settings-expanded google-fonts-control-settings-expanded"
@@ -163,7 +179,7 @@ const GoogleFontsControl = props => {
 							onClick={ handleOnReset }
 							className="google-fonts-control-reset"
 						>
-							{ __( 'Reset', 'material-theme-builder' ) }
+							{ __( 'Reset', 'material-design' ) }
 						</a>
 					</p>
 				</>

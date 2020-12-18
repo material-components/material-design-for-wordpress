@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * External dependencies
  */
 import { SearchListControl } from '@woocommerce/components';
@@ -39,21 +55,16 @@ const PostsControl = ( {
 } ) => {
 	/* istanbul ignore next */
 	const messages = {
-		clear: __( 'Clear all posts', 'material-theme-builder' ),
-		list: __( 'Posts', 'material-theme-builder' ),
-		noItems: __( 'There are no posts.', 'material-theme-builder' ),
-		search: __( 'Search for posts to display', 'material-theme-builder' ),
+		clear: __( 'Clear all posts', 'material-design' ),
+		list: __( 'Posts', 'material-design' ),
+		noItems: __( 'There are no posts.', 'material-design' ),
+		search: __( 'Search for posts to display', 'material-design' ),
 		selected: n =>
 			sprintf(
-				_n(
-					'%d post selected',
-					'%d posts selected',
-					n,
-					'material-theme-builder'
-				),
+				_n( '%d post selected', '%d posts selected', n, 'material-design' ),
 				n
 			),
-		updated: __( 'Posts search results updated.', 'material-theme-builder' ),
+		updated: __( 'Posts search results updated.', 'material-design' ),
 	};
 
 	if ( error ) {

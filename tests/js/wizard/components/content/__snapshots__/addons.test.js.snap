@@ -30,7 +30,7 @@ Object {
             <h4
               class="mdc-typography--headline4"
             >
-              Material Theme
+              Material Design Theme
             </h4>
             <p>
               This applies Material Design principles and Material Theming to your site, so you can customize its style.
@@ -84,7 +84,7 @@ Object {
               Quick Start Examples
             </h4>
             <p>
-              Contains a number of page examples for home, about, a projects page, blog, and a contact page. These layouts show different ways you can use Material Components to address common user needs.
+              See examples of how you can use Material Components to build popular pages and flows, like a homepage, contact page, or blog.
             </p>
           </div>
           <div
@@ -142,7 +142,7 @@ Object {
           <h4
             class="mdc-typography--headline4"
           >
-            Material Theme
+            Material Design Theme
           </h4>
           <p>
             This applies Material Design principles and Material Theming to your site, so you can customize its style.
@@ -196,7 +196,7 @@ Object {
             Quick Start Examples
           </h4>
           <p>
-            Contains a number of page examples for home, about, a projects page, blog, and a contact page. These layouts show different ways you can use Material Components to address common user needs.
+            See examples of how you can use Material Components to build popular pages and flows, like a homepage, contact page, or blog.
           </p>
         </div>
         <div

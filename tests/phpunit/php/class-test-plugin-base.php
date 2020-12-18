@@ -1,11 +1,29 @@
 <?php
 /**
- * Tests for Plugin_Base.
+ * Copyright 2020 Google LLC
  *
- * @package MaterialThemeBuilder
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+/**
+ * Tests for Plugin_Base.
+ *
+ * @package MaterialDesign
+ */
+
+namespace MaterialDesign\Plugin;
 
 /**
  * Tests for Plugin_Base.
@@ -57,8 +75,8 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 * @see Plugin_Base::relative_path()
 	 */
 	public function test_relative_path() {
-		$this->assertEquals( 'plugins/material-theme-builder', $this->plugin->relative_path( '/var/www/html/wp-content/plugins/material-theme-builder', 'wp-content', '/' ) );
-		$this->assertEquals( 'themes/twentysixteen/plugins/material-theme-builder', $this->plugin->relative_path( '/var/www/html/wp-content/themes/twentysixteen/plugins/material-theme-builder', 'wp-content', '/' ) );
+		$this->assertEquals( 'plugins/material-design', $this->plugin->relative_path( '/var/www/html/wp-content/plugins/material-design', 'wp-content', '/' ) );
+		$this->assertEquals( 'themes/twentysixteen/plugins/material-design', $this->plugin->relative_path( '/var/www/html/wp-content/themes/twentysixteen/plugins/material-design', 'wp-content', '/' ) );
 	}
 
 	/**
@@ -80,7 +98,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 		// phpcs:disable
 		set_error_handler(
 			function( $errno, $errstr ) use ( $obj ) {
-				$obj->assertEquals( 'MaterialThemeBuilder\Plugin: Param is 0!', $errstr );
+				$obj->assertEquals( 'MaterialDesign\Plugin\Plugin: Param is 0!', $errstr );
 				$obj->assertEquals( \E_USER_WARNING, $errno );
 			}
 		);
@@ -95,7 +113,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 * @see Plugin_Base::asset_version()
 	 */
 	public function test_asset_version() {
-		$mock = $this->getMockBuilder( 'MaterialThemeBuilder\Plugin' )
+		$mock = $this->getMockBuilder( 'MaterialDesign\Plugin\Plugin' )
 			->setMethods(
 				[
 					'is_debug',
@@ -114,7 +132,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 		$this->assertFalse( $mock->is_script_debug() );
 		$this->assertEquals( $mock->version(), $mock->asset_version() );
 
-		$mock = $this->getMockBuilder( 'MaterialThemeBuilder\Plugin' )
+		$mock = $this->getMockBuilder( 'MaterialDesign\Plugin\Plugin' )
 			->setMethods(
 				[
 					'is_debug',
@@ -178,7 +196,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 * @see Plugin_Base::add_doc_hooks()
 	 */
 	public function test_add_doc_hooks_error() {
-		$mock = $this->getMockBuilder( 'MaterialThemeBuilder\Plugin' )
+		$mock = $this->getMockBuilder( 'MaterialDesign\Plugin\Plugin' )
 			->setMethods( [ 'is_wpcom_vip_prod' ] )
 			->getMock();
 

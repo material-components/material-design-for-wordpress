@@ -1,13 +1,31 @@
 <?php
 /**
- * Class Range_Slider_Control.
+ * Copyright 2020 Google LLC
  *
- * @package MaterialThemeBuilder
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+/**
+ * Class Range_Slider_Control.
+ *
+ * @package MaterialDesign
+ */
 
-use MaterialThemeBuilder\Helpers;
+namespace MaterialDesign\Plugin\Customizer;
+
+use MaterialDesign\Plugin\Helpers;
 
 /**
  * Range Slider control.
@@ -72,7 +90,7 @@ class Range_Slider_Control extends \WP_Customize_Control {
 	public function render_content() {
 		$id = Helpers::sanitize_control_id( $this->id );
 		?>
-		<div class="mtb-range_slider" id="<?php echo esc_html( $id ); ?>"></div>
+		<div class="material-design-range_slider" id="<?php echo esc_html( $id ); ?>"></div>
 		<?php
 	}
 

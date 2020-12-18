@@ -1,11 +1,29 @@
 <?php
 /**
- * Class Admin.
+ * Copyright 2020 Google LLC
  *
- * @package MaterialThemeBuilder
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+/**
+ * Class Admin.
+ *
+ * @package MaterialDesign
+ */
+
+namespace MaterialDesign\Plugin;
 
 /**
  * Class to handle admin settings and actions.
@@ -13,28 +31,60 @@ namespace MaterialThemeBuilder;
 class Admin extends Module_Base {
 
 	/**
+	 * Initiate the class and hooks.
+	 */
+	public function init() {
+		add_action( 'admin_init', [ $this, 'redirects' ] );
+		add_action( 'admin_menu', [ $this, 'add_pages' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+		add_action( 'switch_theme', [ $this, 'switch_theme_material' ], 10, 2 );
+		add_action( 'admin_notices', [ $this, 'theme_not_installed_notice' ], 10, 2 );
+		add_action( 'admin_notices', [ $this, 'plugin_activated_notice' ], 9, 2 );
+	}
+
+	/**
+	 * Redirect to onboarding wizard or getting started module after activating.
+	 *
+	 * @return void
+	 */
+	public function redirects() {
+		if ( ! get_transient( '_material_activation_redirect' ) ) {
+			return;
+		}
+
+		$redirect_to = 'admin.php?page=material-settings';
+
+		// If Onboarding is not completed, redirect to onboarding wizard.
+		if ( ! get_option( 'material_onboarding' ) ) {
+			$redirect_to = 'admin.php?page=material-onboarding-wizard';
+		}
+
+		delete_transient( '_material_activation_redirect' );
+		wp_safe_redirect( admin_url( $redirect_to ) );
+		exit;
+	}
+
+	/**
 	 * Create admin pages.
 	 * - Getting started page.
 	 * - Onboarding Wizard page.
-	 *
-	 * @action admin_menu
 	 *
 	 * @return void
 	 */
 	public function add_pages() {
 		add_menu_page(
-			esc_html__( 'Material Design for WordPress', 'material-theme-builder' ),
-			esc_html__( 'Material', 'material-theme-builder' ),
+			esc_html__( 'Material Design for WordPress', 'material-design' ),
+			esc_html__( 'Material', 'material-design' ),
 			'manage_options',
 			'material-settings',
 			[ $this, 'render_getting_started_page' ],
-			trailingslashit( $this->plugin->dir_url ) . 'assets/images/logo-outline.svg'
+			'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMiAyMiI+PHBhdGggZD0iTTExIDBDNC45IDAgMCA0LjkgMCAxMXM0LjkgMTEgMTEgMTEgMTEtNC45IDExLTExUzE3LjEgMCAxMSAwek00IDE2LjZjLTEuMi0xLjUtMi0zLjUtMi01LjZzLjgtNC4xIDItNS42djExLjJ6bTcgMy40Yy0yLjEgMC00LjEtLjgtNS42LTJoMTEuM2MtMS42IDEuMi0zLjYgMi01LjcgMnptMC02LjVMNy4yIDZoNy41TDExIDEzLjV6TTE2IDh2OGgtNGw0LTh6bS02IDhINlY4bDQgOHpNNS40IDRDNi45IDIuOCA4LjkgMiAxMSAyczQuMS44IDUuNiAySDUuNHpNMTggMTYuNlY1LjRjMS4yIDEuNSAyIDMuNSAyIDUuNnMtLjggNC4xLTIgNS42eiIgZmlsbD0iI2FhYSIvPjwvc3ZnPg=='
 		);
 
 		add_submenu_page(
 			'material-settings',
-			esc_html__( 'Getting Started', 'material-theme-builder' ),
-			esc_html__( 'Getting Started', 'material-theme-builder' ),
+			esc_html__( 'Getting Started', 'material-design' ),
+			esc_html__( 'Getting Started', 'material-design' ),
 			'manage_options',
 			'material-settings',
 			[ $this, 'render_getting_started_page' ]
@@ -42,8 +92,8 @@ class Admin extends Module_Base {
 
 		add_submenu_page(
 			'material-settings',
-			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
-			esc_html__( 'Onboarding Wizard', 'material-theme-builder' ),
+			esc_html__( 'Onboarding Wizard', 'material-design' ),
+			esc_html__( 'Onboarding Wizard', 'material-design' ),
 			'manage_options',
 			'material-onboarding-wizard',
 			[ $this, 'render_onboarding_wizard_page' ]
@@ -73,8 +123,6 @@ class Admin extends Module_Base {
 	/**
 	 * Enqueue getting started assets
 	 *
-	 * @action admin_enqueue_scripts
-	 *
 	 * @return void
 	 */
 	public function enqueue_assets() {
@@ -97,7 +145,7 @@ class Admin extends Module_Base {
 
 		wp_localize_script(
 			'material-admin-js',
-			'mtbWizard',
+			'materialDesignWizard',
 			[
 				'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
@@ -133,11 +181,14 @@ class Admin extends Module_Base {
 			$has_demo_content = $this->plugin->importer->has_demo_content();
 			wp_localize_script(
 				'material-gsm',
-				'mtbGsm',
+				'materialDesignGsm',
 				[
 					'wizardUrl'     => esc_url( menu_page_url( 'material-onboarding-wizard', false ) ),
 					'editorUrl'     => esc_url( admin_url( 'edit.php' ) ),
 					'customize'     => esc_url( admin_url( 'customize.php' ) ),
+					'widgets'       => esc_url( admin_url( 'customize.php?autofocus[panel]=widgets' ) ),
+					'blocks'        => esc_url( admin_url( 'customize.php?autofocus[panel]=material_design' ) ),
+					'assetsPath'    => esc_url( $this->plugin->asset_url( 'assets/images/onboarding/' ) ),
 					'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
 					'contentStatus' => esc_html( $has_demo_content ? 'ok' : 'install' ),
@@ -146,7 +197,7 @@ class Admin extends Module_Base {
 
 			wp_localize_script(
 				'material-admin-js',
-				'mtbWizard',
+				'materialDesignWizard',
 				[
 					'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 					'nonce'       => wp_create_nonce( 'wp_rest' ),
@@ -181,7 +232,7 @@ class Admin extends Module_Base {
 
 			wp_localize_script(
 				'material-wizard',
-				'mtbWizard',
+				'materialDesignWizard',
 				[
 					'pagesUrl'         => esc_url( admin_url( 'edit.php?post_type=page' ) ),
 					'settingsUrl'      => esc_url( admin_url( 'admin.php?page=material-settings' ) ),
@@ -199,15 +250,13 @@ class Admin extends Module_Base {
 	/**
 	 * Update theme activated option if material theme is activated.
 	 *
-	 * @action switch_theme, 10, 2
-	 *
 	 * @param  string   $new_name Name of the theme.
 	 * @param  WP_Theme $new_theme WP_Theme instance of the new theme.
 	 * @return void
 	 */
 	public function switch_theme_material( $new_name, $new_theme ) {
 		if ( Plugin::THEME_SLUG === $new_theme->get_stylesheet() ) {
-			update_option( 'material_theme_activated', true, false );
+			update_option( 'material_design_theme_activated', true, false );
 		}
 	}
 
@@ -225,7 +274,7 @@ class Admin extends Module_Base {
 		<div class="notice notice-info is-dismissible material-notice-container">
 			<img
 				src="<?php echo esc_url( $this->plugin->asset_url( 'assets/images/plugin-logo.png' ) ); ?>"
-				alt="<?php esc_attr_e( 'Material Theme Builder', 'material-theme-builder' ); ?>"
+				alt="<?php esc_attr_e( 'Material Design', 'material-design' ); ?>"
 			/>
 
 			<div class="material-notice-container__content">
@@ -255,49 +304,48 @@ class Admin extends Module_Base {
 	/**
 	 * Show admin notice if theme isn't installed.
 	 *
-	 * @action admin_notices, 10, 2
-	 *
 	 * @return void
 	 */
 	public function theme_not_installed_notice() {
 		$status = $this->plugin->theme_status();
 		$screen = get_current_screen();
 
-		// Theme already active or inside wizards. Don't show the notice.
+		// Theme already active, inside wizards, or WP_DEBUG is true. Don't show the notice.
 		if (
 			'ok' === $status
 			|| 'toplevel_page_material-settings' === $screen->id
 			|| 'material_page_material-onboarding-wizard' === $screen->id
-			|| ! empty( get_option( 'material_theme_activated' ) )
+			|| ! empty( get_option( 'material_design_theme_activated' ) )
+			|| $this->plugin->is_debug()
 		) {
 			return;
 		}
 
 		$title   = esc_html__(
-			'Install Material Theme to take advantage of all Material Plugin customizations',
-			'material-theme-builder'
+			'Install the Material Design theme to take advantage of all the Material Design plugin customizations',
+			'material-design'
 		);
 		$message = esc_html__(
-			'The Material Plugin enables you to customize Material Components. We recommend installing the companion Material Theme for full site customization.',
-			'material-theme-builder'
+			'The Material Design plugin enables you to customize Material Components. We recommend installing the companion Material Design theme for full site customization.',
+			'material-design'
 		);
-		$label   = esc_html__( 'Install theme', 'material-theme-builder' );
+		$label   = esc_html__( 'Install theme', 'material-design' );
 
 		if ( 'activate' === $status ) {
 			$title   = esc_html__(
-				'Activate Material Theme to take advantage of all Material Plugin customizations',
-				'material-theme-builder'
+				'Activate the Material Design theme to take advantage of all the Material Design plugin customizations',
+				'material-design'
 			);
 			$message = esc_html__(
-				'The Material Plugin enables you to customize Material Components. We recommend activating the companion Material Theme for full site customization.',
-				'material-theme-builder'
+				'The Material Design plugin enables you to customize Material Components. We recommend activating the companion Material Design theme for full site customization.',
+				'material-design'
 			);
-			$label   = esc_html__( 'Activate theme', 'material-theme-builder' );
+			$label   = esc_html__( 'Activate theme', 'material-design' );
 		}
 
 		$action_link = sprintf(
-			'<a href="%s" class="material-theme-%s install-theme">%s</a>',
-			esc_url( admin_url( '/themes.php?search=Material+Theme' ) ),
+			'<a href="%s" class="material-design-%s install-theme">%s</a>',
+			esc_url( admin_url( '/themes.php?search=Material+Design' ) ),
 			esc_attr( $status ),
 			esc_html( $label )
 		);
@@ -315,8 +363,6 @@ class Admin extends Module_Base {
 	/**
 	 * Show admin notice if theme and plugin are active.
 	 *
-	 * @action admin_notices, 9, 2
-	 *
 	 * @return void
 	 */
 	public function plugin_activated_notice() {
@@ -324,24 +370,26 @@ class Admin extends Module_Base {
 
 		// Theme not active or plugin didn't JUST activate. Stop here.
 		if ( Plugin::THEME_SLUG !== get_template()
-			|| ! get_option( 'mtb_plugin_activated' )
+			|| ! get_option( 'material_plugin_activated' )
 			|| 'toplevel_page_material-settings' === $screen->id
-			|| 'material_page_material-onboarding-wizard' === $screen->id ) {
+			|| 'material_page_material-onboarding-wizard' === $screen->id
+			|| $this->plugin->is_debug()
+		) {
 			return;
 		}
 
-		delete_option( 'mtb_plugin_activated' );
+		delete_option( 'material_plugin_activated' );
 
-		$message = esc_html__( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer.", 'material-theme-builder' );
+		$message = esc_html__( "You've set up Material, now it's time to customize your site. Get started by viewing the demo content and entering the Customizer.", 'material-design' );
 
 		$action_link = sprintf(
 			'<br/><a href="%s">%s</a>',
 			esc_url( admin_url( 'admin.php?page=material-settings' ) ),
-			esc_html__( "Let's go!", 'material-theme-builder' )
+			esc_html__( "Let's go!", 'material-design' )
 		);
 
 		$this->material_notice(
-			esc_html__( 'See Material Theming in action', 'material-theme-builder' ),
+			esc_html__( 'See Material Theming in action', 'material-design' ),
 			sprintf(
 				'%s %s',
 				$message,

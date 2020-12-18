@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
@@ -21,8 +37,8 @@ import { URLInput } from '@wordpress/block-editor';
 import './editor.css';
 import classnames from 'classnames';
 
-const ariaClosed = __( 'Show more tools & options', 'material-theme-builder' );
-const ariaOpen = __( 'Hide more tools & options', 'material-theme-builder' );
+const ariaClosed = __( 'Show more tools & options', 'material-design' );
+const ariaOpen = __( 'Hide more tools & options', 'material-design' );
 
 const UrlInputPopover = ( {
 	value = '',
@@ -42,8 +58,8 @@ const UrlInputPopover = ( {
 		return null;
 	}
 
-	const mainClassName = classnames( [ 'mtb-url-input-popover' ], {
-		'mtb--show-advanced': expanded,
+	const mainClassName = classnames( [ 'material-design-url-input-popover' ], {
+		'material-design--show-advanced': expanded,
 	} );
 
 	return (
@@ -54,15 +70,15 @@ const UrlInputPopover = ( {
 			onFocusOutside={ onFocusOutside }
 		>
 			<PanelBody>
-				<div className="mtb-url-input-popover__input-wrapper">
+				<div className="material-design-url-input-popover__input-wrapper">
 					<Dashicon
-						className="mtb-url-input-control__icon"
+						className="material-design-url-input-control__icon"
 						icon="admin-links"
 					/>
 					{ onChange &&
 					! disableSuggestions && ( // Auto-suggestions for inputting url.
 							<URLInput
-								className="mtb-url-input-control__input"
+								className="material-design-url-input-control__input"
 								value={ value }
 								onChange={ onChange }
 								autoFocus={ false } // eslint-disable-line
@@ -71,23 +87,20 @@ const UrlInputPopover = ( {
 					{ onChange &&
 					disableSuggestions && ( // Plain text control for inputting url.
 							<TextControl
-								className="mtb-url-input-control__input mtb-url-input-control__input--plain"
+								className="material-design-url-input-control__input material-design-url-input-control__input--plain"
 								value={ value }
 								onChange={ onChange }
 								autoFocus={ false } // eslint-disable-line
-								placeholder={ __(
-									'Paste or type URL',
-									'material-theme-builder'
-								) }
+								placeholder={ __( 'Paste or type URL', 'material-design' ) }
 							/>
 						) }
 					{ onChangeNewTab && (
 						<Tooltip text={ expanded ? ariaOpen : ariaClosed }>
 							<Button
 								className={ classnames(
-									[ 'mtb-url-input-control__more-button' ],
+									[ 'material-design-url-input-control__more-button' ],
 									{
-										'mtb--active': newTab || noFollow,
+										'material-design--active': newTab || noFollow,
 									}
 								) }
 								onClick={ () => setExpanded( ! expanded ) }
@@ -99,12 +112,12 @@ const UrlInputPopover = ( {
 						</Tooltip>
 					) }
 					{ onPopupClose && (
-						<Tooltip text={ __( 'Close', 'material-theme-builder' ) }>
+						<Tooltip text={ __( 'Close', 'material-design' ) }>
 							<Button
 								className={ classnames(
-									[ 'mtb-url-input-control__close-button' ],
+									[ 'material-design-url-input-control__close-button' ],
 									{
-										'mtb--active': newTab || noFollow,
+										'material-design--active': newTab || noFollow,
 									}
 								) }
 								onClick={ onPopupClose }
@@ -117,14 +130,14 @@ const UrlInputPopover = ( {
 				</div>
 				{ onChangeNewTab && expanded && (
 					<ToggleControl
-						label={ __( 'Open link in new tab', 'material-theme-builder' ) }
+						label={ __( 'Open link in new tab', 'material-design' ) }
 						checked={ newTab }
 						onChange={ onChangeNewTab }
 					/>
 				) }
 				{ onChangeNoFollow && expanded && (
 					<ToggleControl
-						label={ __( 'Nofollow link', 'material-theme-builder' ) }
+						label={ __( 'Nofollow link', 'material-design' ) }
 						checked={ noFollow }
 						onChange={ onChangeNoFollow }
 					/>

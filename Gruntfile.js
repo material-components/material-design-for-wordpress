@@ -1,3 +1,19 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* eslint-env node */
 
 module.exports = function( grunt ) {
@@ -17,7 +33,6 @@ module.exports = function( grunt ) {
 					'!assets/css/src/**',
 					'!assets/js/.gitignore',
 					'!assets/src/**',
-					'!assets/images/onboarding/**',
 					'!assets/images/png/**',
 					'!assets/images/jpg/**',
 					'!bin/**',
@@ -29,7 +44,7 @@ module.exports = function( grunt ) {
 					'!composer.lock',
 					'!contributing.md',
 					'!docker-compose.yml',
-					'!material-theme-builder.zip',
+					'!material-design.zip',
 					'!Gruntfile.js',
 					'!jest.config.js',
 					'!node_modules/**',
@@ -78,7 +93,7 @@ module.exports = function( grunt ) {
 				command: './vendor/xwp/wp-dev-lib/scripts/generate-markdown-readme', // Generate the readme.md.
 			},
 			create_build_zip: {
-				command: 'if [ ! -e build ]; then echo "Run grunt build first."; exit 1; fi; if [ -e material-theme-builder.zip ]; then rm material-theme-builder.zip; fi; mv build material-theme-builder; zip -r ./material-theme-builder.zip material-theme-builder; mv material-theme-builder build; echo; echo "ZIP of build: $(pwd)/material-theme-builder.zip"',
+				command: 'if [ ! -e build ]; then echo "Run grunt build first."; exit 1; fi; if [ -e material-design.zip ]; then rm material-design.zip; fi; mv build material-design; zip -r ./material-design.zip material-design; mv material-design build; echo; echo "ZIP of build: $(pwd)/material-design.zip"',
 			},
 		},
 
@@ -86,7 +101,7 @@ module.exports = function( grunt ) {
 		wp_deploy: {
 			deploy: {
 				options: {
-					plugin_slug: 'material-theme-builder',
+					plugin_slug: 'material-design',
 					build_dir: 'build',
 				  	assets_dir: 'wp-assets',
 				},
@@ -100,12 +115,35 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-shell' );
 	grunt.loadNpmTasks( 'grunt-wp-deploy' );
 
+	// Register custom tasks.
+	grunt.registerTask( 'icon_mapping', 'Turn codepoints into JSON', () => {
+		const filePath = 'assets/fonts/icons.json';
+		const iconFile = grunt.file.read( 'assets/fonts/icons.codepoints' );
+		const iconItems = iconFile.split( /\r?\n/g );
+		const icons = {
+			icons: {},
+		};
+
+		if ( iconItems ) {
+			iconItems.forEach( item => {
+				const iconArray = item.split( /\s/g );
+
+				icons.icons[ iconArray[ 1 ] ] = {
+					name: iconArray[ 0 ],
+				};
+			} );
+		}
+
+		grunt.file.delete( filePath );
+		grunt.file.write( filePath, JSON.stringify( icons ) );
+	} );
+
 	// Register tasks.
 	grunt.registerTask( 'default', [ 'build' ] );
 
 	grunt.registerTask( 'readme', [ 'shell:readme' ] );
 
-	grunt.registerTask( 'build', [ 'readme', 'copy' ] );
+	grunt.registerTask( 'build', [ 'readme', 'copy', 'icon_mapping' ] );
 
 	grunt.registerTask( 'create-build-zip', [ 'shell:create_build_zip' ] );
 

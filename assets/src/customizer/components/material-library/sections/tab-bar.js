@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * External dependencies
  */
 import classNames from 'classnames';
@@ -16,13 +32,13 @@ import IconButtonLink from '../common/icon-button-link';
 const TabBar = ( { iconStyle } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Tabs', 'material-theme-builder' ) }
+			{ __( 'Tabs', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/tabs"></IconButtonLink>
 		<p>
 			{ __(
 				'Tabs organize content across different screens, data sets, and other interactions.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div
@@ -49,7 +65,7 @@ const TabBar = ( { iconStyle } ) => (
 									</i>
 									<span className="mdc-tab__text-label tab__label-field">
 										<span role="tab" tabIndex="0">
-											{ __( 'Tab 1', 'material-theme-builder' ) }
+											{ __( 'Tab 1', 'material-design' ) }
 										</span>
 									</span>
 								</span>
@@ -71,7 +87,7 @@ const TabBar = ( { iconStyle } ) => (
 									</i>
 									<span className="mdc-tab__text-label tab__label-field">
 										<span role="tab" tabIndex="0">
-											{ __( 'Tab 2', 'material-theme-builder' ) }
+											{ __( 'Tab 2', 'material-design' ) }
 										</span>
 									</span>
 								</span>

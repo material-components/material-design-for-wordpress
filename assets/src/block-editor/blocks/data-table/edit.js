@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * External dependencies
  */
 import classnames from 'classnames';
@@ -57,17 +73,17 @@ import {
 const ALIGNMENT_CONTROLS = [
 	{
 		icon: alignLeft,
-		title: __( 'Align Column Left', 'material-theme-builder' ),
+		title: __( 'Align Column Left', 'material-design' ),
 		align: 'left',
 	},
 	{
 		icon: alignCenter,
-		title: __( 'Align Column Center', 'material-theme-builder' ),
+		title: __( 'Align Column Center', 'material-design' ),
 		align: 'center',
 	},
 	{
 		icon: alignRight,
-		title: __( 'Align Column Right', 'material-theme-builder' ),
+		title: __( 'Align Column Right', 'material-design' ),
 		align: 'right',
 	},
 ];
@@ -115,9 +131,9 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 
 							let placeholder = '';
 							if ( name === 'head' ) {
-								placeholder = __( 'Header label', 'material-theme-builder' );
+								placeholder = __( 'Header label', 'material-design' );
 							} else if ( name === 'foot' ) {
-								placeholder = __( 'Footer label', 'material-theme-builder' );
+								placeholder = __( 'Footer label', 'material-design' );
 							}
 
 							return (
@@ -364,37 +380,37 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 		return [
 			{
 				icon: tableRowBefore,
-				title: __( 'Add Row Before', 'material-theme-builder' ),
+				title: __( 'Add Row Before', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertRowBefore,
 			},
 			{
 				icon: tableRowAfter,
-				title: __( 'Add Row After', 'material-theme-builder' ),
+				title: __( 'Add Row After', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertRowAfter,
 			},
 			{
 				icon: tableRowDelete,
-				title: __( 'Delete Row', 'material-theme-builder' ),
+				title: __( 'Delete Row', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onDeleteRow,
 			},
 			{
 				icon: tableColumnBefore,
-				title: __( 'Add Column Before', 'material-theme-builder' ),
+				title: __( 'Add Column Before', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertColumnBefore,
 			},
 			{
 				icon: tableColumnAfter,
-				title: __( 'Add Column After', 'material-theme-builder' ),
+				title: __( 'Add Column After', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertColumnAfter,
 			},
 			{
 				icon: tableColumnDelete,
-				title: __( 'Delete Column', 'material-theme-builder' ),
+				title: __( 'Delete Column', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onDeleteColumn,
 			},
@@ -404,11 +420,11 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 	if ( isEmpty ) {
 		return (
 			<Placeholder
-				label={ __( 'Material Data Table', 'material-theme-builder' ) }
+				label={ __( 'Material Data Table', 'material-design' ) }
 				icon={ <i className="material-icons-outlined">grid_on</i> }
 				instructions={ __(
 					'Data tables display sets of data across rows and columns.',
-					'material-theme-builder'
+					'material-design'
 				) }
 			>
 				<form
@@ -417,7 +433,7 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 				>
 					<TextControl
 						type="number"
-						label={ __( 'Column count', 'material-theme-builder' ) }
+						label={ __( 'Column count', 'material-design' ) }
 						value={ initialColumnCount }
 						onChange={ setinitialColumnCount }
 						min="1"
@@ -425,7 +441,7 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 					/>
 					<TextControl
 						type="number"
-						label={ __( 'Row count', 'material-theme-builder' ) }
+						label={ __( 'Row count', 'material-design' ) }
 						value={ initialRowCount }
 						onChange={ setinitialRowCount }
 						min="1"
@@ -436,7 +452,7 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 						isPrimary
 						type="submit"
 					>
-						{ __( 'Create Table', 'material-theme-builder' ) }
+						{ __( 'Create Table', 'material-design' ) }
 					</Button>
 				</form>
 			</Placeholder>
@@ -450,12 +466,12 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 					<DropdownMenu
 						hasArrowIndicator
 						icon={ table }
-						label={ __( 'Edit table', 'material-theme-builder' ) }
+						label={ __( 'Edit table', 'material-design' ) }
 						controls={ getTableControls() }
 					/>
 				</ToolbarGroup>
 				<AlignmentToolbar
-					label={ __( 'Change column alignment', 'material-theme-builder' ) }
+					label={ __( 'Change column alignment', 'material-design' ) }
 					alignmentControls={ ALIGNMENT_CONTROLS }
 					value={ getCellAlignment() }
 					onChange={ nextAlign => onChangeColumnAlignment( nextAlign ) }
@@ -463,16 +479,16 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 			</BlockControls>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Table settings', 'material-theme-builder' ) }
+					title={ __( 'Table settings', 'material-design' ) }
 					className="blocks-table-settings"
 				>
 					<ToggleControl
-						label={ __( 'Header section', 'material-theme-builder' ) }
+						label={ __( 'Header section', 'material-design' ) }
 						checked={ !! ( head && head.length ) }
 						onChange={ onToggleHeaderSection }
 					/>
 					<ToggleControl
-						label={ __( 'Footer section', 'material-theme-builder' ) }
+						label={ __( 'Footer section', 'material-design' ) }
 						checked={ !! ( foot && foot.length ) }
 						onChange={ onToggleFooterSection }
 					/>
@@ -517,7 +533,7 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 					<div className="mdc-data-table__caption">
 						<RichText
 							tagName="figcaption"
-							placeholder={ __( 'Write caption…', 'material-theme-builder' ) }
+							placeholder={ __( 'Write caption…', 'material-design' ) }
 							value={ caption }
 							onChange={
 								/* istanbul ignore next */
