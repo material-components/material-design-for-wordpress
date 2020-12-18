@@ -222,16 +222,8 @@ describe( 'ButtonEdit', () => {
 		expect( props.setAttributes ).toHaveBeenCalledTimes( 4 );
 
 		// eslint-disable-next-line jest/prefer-strict-equal
-		expect( props.setAttributes.mock.calls[ 1 ][ 0 ] ).toEqual( {
+		expect( props.setAttributes.mock.calls[ 0 ][ 0 ] ).toEqual( {
 			icon: 'spa',
-		} );
-
-		// eslint-disable-next-line jest/prefer-strict-equal
-		expect( props.setAttributes.mock.calls[ 2 ][ 0 ] ).toEqual( {
-			icon: {
-				hex: 59517,
-				name: 'favorite',
-			},
 		} );
 	} );
 } );

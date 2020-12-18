@@ -73,6 +73,7 @@ html {
 
 	&:hover,
 	&:focus {
+		background-color: transparent !important;
 		color: var(--mdc-theme-primary, #6200ee) !important;
 		text-decoration: none !important;
 	}
@@ -82,6 +83,7 @@ html {
 
 		&:hover,
 		&:focus {
+			background-color: var(--mdc-theme-primary, #6200ee) !important;
 			color: var(--mdc-theme-on-primary, #fff) !important;
 		}
 	}
@@ -95,6 +97,18 @@ html {
 .mdc-button--outlined:not(:disabled) {
 	border-color: rgba(0, 0, 0, 0.12) !important;
 	border-color: rgba(var(--mdc-theme-on-surface-rgb), .12) !important;
+}
+
+.mdc-icon-button {
+	&:before,
+	&:after {
+		background-color: var(--mdc-theme-on-surface, #000) !important;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: transparent !important;
+	}
 }
 
 /* Data Table */
