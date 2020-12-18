@@ -1,10 +1,24 @@
 #!/bin/bash
+# Copyright 2020 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 
 set -e
 
-tag=$(cat build/material-theme-builder.php | grep 'Version:' | sed 's/.*: //' | sed 's/-[0-9]\{8\}T[0-9]\{6\}Z-[a-f0-9]*$//')
+tag=$(cat build/material-design.php | grep 'Version:' | sed 's/.*: //' | sed 's/-[0-9]\{8\}T[0-9]\{6\}Z-[a-f0-9]*$//')
 if [[ -z "$tag" ]]; then
-    echo "Error: Unable to determine tag from build/material-theme-builder.php."
+    echo "Error: Unable to determine tag from build/material-design.php."
     exit 1
 fi
 if ! git rev-parse "$tag" >/dev/null 2>&1; then
@@ -41,5 +55,5 @@ git push origin "$built_tag"
 rm -rf built
 
 echo "Pushed tag $built_tag."
-echo "See https://github.com/xwp/material-theme-builder-wp/releases/tag/$built_tag"
-echo "For https://github.com/xwp/material-theme-builder-wp/releases/tag/$tag"
+echo "See https://github.com/xwp/material-design-wp-plugin/releases/tag/$built_tag"
+echo "For https://github.com/xwp/material-design-wp-plugin/releases/tag/$tag"

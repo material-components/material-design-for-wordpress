@@ -1,9 +1,9 @@
 {
-  "name": "xwp/material-theme-builder-wp",
+  "name": "xwp/material-design-wp-plugin",
   "type": "wordpress-plugin",
-  "description": "Plugin Scaffolding for WordPress.",
-  "homepage": "https://github.com/xwp/material-theme-builder-wp",
-  "license": "GPL-2.0-or-later",
+  "description": "Material Design plugin for WordPress.",
+  "homepage": "https://github.com/xwp/material-design-wp-plugin",
+  "license": "Apache-2.0",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
@@ -57,7 +57,7 @@
     ]
   },
   "extra": {
-    "installer-name": "material-theme-builder",
+    "installer-name": "material-design",
     "copy-file": {
       "tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
     }

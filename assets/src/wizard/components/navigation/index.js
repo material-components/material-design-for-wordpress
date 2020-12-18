@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { useContext } from '@wordpress/element';
@@ -45,7 +61,7 @@ const Navigation = () => {
 			<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-7">
 				<Button
 					style="material-wizard__close"
-					text={ __( 'Close', 'material-theme-builder' ) }
+					text={ __( 'Close', 'material-design' ) }
 					link={ getConfig( 'settingsUrl' ) }
 				/>
 			</div>
@@ -55,7 +71,7 @@ const Navigation = () => {
 						{ state.active !== STEPS.WELCOME && (
 							<Button
 								style="material-wizard__next"
-								text={ __( 'Previous Step', 'material-theme-builder' ) }
+								text={ __( 'Previous Step', 'material-design' ) }
 								leadingIcon="navigate_before"
 								onClick={ () => handleClick( ACTIONS.PREVIOUS_STEP ) }
 							/>
@@ -66,7 +82,7 @@ const Navigation = () => {
 						{ ! isLast && (
 							<Button
 								style="material-wizard__next mdc-button--raised"
-								text={ __( 'Next Step', 'material-theme-builder' ) }
+								text={ __( 'Next Step', 'material-design' ) }
 								trailingIcon="navigate_next"
 								onClick={ () => handleClick( ACTIONS.NEXT_STEP ) }
 								loading={ isLoading }
@@ -75,7 +91,7 @@ const Navigation = () => {
 						{ isLast && (
 							<Button
 								style="material-wizard__next mdc-button--raised"
-								text={ __( 'Finish', 'material-theme-builder' ) }
+								text={ __( 'Finish', 'material-design' ) }
 								trailingIcon="navigate_next"
 								link={ getConfig( 'settingsUrl' ) }
 							/>

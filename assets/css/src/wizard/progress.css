@@ -1,5 +1,21 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 :root {
-	--mtb-wizard-bar-bg: #a2aab2;
+	--material-design-wizard-bar-bg: #a2aab2;
 }
 
 .material-wizard {
@@ -28,7 +44,7 @@
 
 		&::before {
 			background: #fff;
-			border: 3px solid var(--mtb-wizard-bar-bg);
+			border: 3px solid var(--material-design-wizard-bar-bg);
 			border-radius: 50%;
 			content: "";
 			counter-increment: step;
@@ -38,7 +54,7 @@
 		}
 
 		&::after {
-			background: var(--mtb-wizard-bar-bg);
+			background: var(--material-design-wizard-bar-bg);
 			content: "";
 			height: 3px;
 			left: 0;
@@ -72,7 +88,7 @@
 		}
 
 		& .material-wizard__progress-dot {
-			background-color: var(--mtb-wizard-primary-color);
+			background-color: var(--material-design-wizard-primary-color);
 			border-radius: 50%;
 			display: block;
 			height: 10px;
@@ -84,10 +100,10 @@
 	}
 
 	& .material-wizard__progress .checked {
-		--mtb-wizard-bar-bg: var(--mtb-wizard-primary-color);
+		--material-design-wizard-bar-bg: var(--material-design-wizard-primary-color);
 
 		&::before {
-			background: var(--mtb-wizard-primary-color);
+			background: var(--material-design-wizard-primary-color);
 		}
 
 		& .material-wizard__progress-check {

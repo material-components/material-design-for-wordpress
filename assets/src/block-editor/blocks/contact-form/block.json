@@ -3,7 +3,8 @@
 	"category": "material",
 	"attributes": {
 		"emailTo": {
-		   "type": "string"
+		   "type": "string",
+		   "default": ""
 		},
 		"subject": {
 		   "type": "string",
@@ -15,7 +16,7 @@
 		},
 		"outlined": {
 		   "type": "boolean",
-		   "default": true
+		   "default": false
 		},
 		"fullWidth": {
 		   "type": "boolean",

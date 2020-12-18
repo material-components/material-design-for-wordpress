@@ -1,3 +1,19 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* global jQuery */
 
 /**
@@ -20,7 +36,7 @@ import getConfig from '../../../utils/get-config';
 
 const genericErrorMessage = __(
 	'An unknown error occurred. Please try again later.',
-	'material-theme-builder'
+	'material-design'
 );
 
 /**
@@ -68,13 +84,19 @@ const RecaptchaInspectorControlsPanel = () => {
 
 						if (
 							response.hasOwnProperty( 'data' ) &&
-							response.data.hasOwnProperty( 'mtb_recaptcha_site_key' )
+							response.data.hasOwnProperty(
+								'material_design_recaptcha_site_key'
+							)
 						) {
-							setSiteKey( response.data.mtb_recaptcha_site_key );
+							setSiteKey( response.data.material_design_recaptcha_site_key );
 							if (
-								response.data.hasOwnProperty( 'mtb_recaptcha_client_secret' )
+								response.data.hasOwnProperty(
+									'material_design_recaptcha_client_secret'
+								)
 							) {
-								setClientSecret( response.data.mtb_recaptcha_client_secret );
+								setClientSecret(
+									response.data.material_design_recaptcha_client_secret
+								);
 							}
 						}
 					} )
@@ -127,7 +149,7 @@ const RecaptchaInspectorControlsPanel = () => {
 			newNotice.show = true;
 			newNotice.message = __(
 				'The Site Key or Client Secret cannot be empty',
-				'material-theme-builder'
+				'material-design'
 			);
 			setNotice( newNotice );
 			setIsDisabled( false );
@@ -156,10 +178,7 @@ const RecaptchaInspectorControlsPanel = () => {
 				}
 
 				newNotice.type = 'success';
-				newNotice.message = __(
-					'Saved successfully',
-					'material-theme-builder'
-				);
+				newNotice.message = __( 'Saved successfully', 'material-design' );
 			} )
 			.catch( () => {
 				newNotice.show = true;
@@ -188,7 +207,7 @@ const RecaptchaInspectorControlsPanel = () => {
 			dataType: 'json',
 			type: 'POST',
 			data: {
-				action: 'mtb_manage_recaptcha_api_credentials',
+				action: 'material_design_manage_recaptcha_api_credentials',
 				nonce: getConfig( 'recaptcha_ajax_nonce_action' ),
 				data: JSON.stringify( data ),
 			},
@@ -205,32 +224,32 @@ const RecaptchaInspectorControlsPanel = () => {
 
 	return (
 		<PanelBody
-			title={ __( 'Google reCAPTCHA v3', 'material-theme-builder' ) }
+			title={ __( 'Google reCAPTCHA v3', 'material-design' ) }
 			initialOpen={ true }
 		>
 			<p>
 				{ __(
 					'Add your reCAPTCHA site and secret keys to protect your form from spam.',
-					'material-theme-builder'
+					'material-design'
 				) }
 			</p>
 
 			<ExternalLink href="https://g.co/recaptcha/v3">
-				{ __( 'Generate keys', 'material-theme-builder' ) }
+				{ __( 'Generate keys', 'material-design' ) }
 			</ExternalLink>
 			<ExternalLink href="https://developers.google.com/recaptcha/docs/v3">
-				{ __( 'Documentation', 'material-theme-builder' ) }
+				{ __( 'Documentation', 'material-design' ) }
 			</ExternalLink>
 			<br />
 			<br />
 			<TextControl
-				label={ __( 'Site Key', 'material-theme-builder' ) }
+				label={ __( 'Site Key', 'material-design' ) }
 				value={ siteKey }
 				onChange={ onChangeSiteKey }
 				disabled={ isDisabled }
 			/>
 			<TextControl
-				label={ __( 'Client Secret', 'material-theme-builder' ) }
+				label={ __( 'Client Secret', 'material-design' ) }
 				value={ clientSecret }
 				onChange={ onChangeClientSecret }
 				disabled={ isDisabled }
@@ -240,7 +259,7 @@ const RecaptchaInspectorControlsPanel = () => {
 				<i className="material-icons tab-add__icon">warning</i>
 				{ __(
 					'Google reCAPTCHA will only work and be rendered on the frontend',
-					'material-theme-builder'
+					'material-design'
 				) }
 			</p>
 			<br />
@@ -251,7 +270,7 @@ const RecaptchaInspectorControlsPanel = () => {
 				onClick={ () => manageCredentials( 'save' ) }
 				disabled={ isDisabled }
 			>
-				{ __( 'Save', 'material-theme-builder' ) }
+				{ __( 'Save', 'material-design' ) }
 			</Button>
 			<Button
 				isPrimary
@@ -259,7 +278,7 @@ const RecaptchaInspectorControlsPanel = () => {
 				onClick={ () => manageCredentials( 'clear' ) }
 				disabled={ isDisabled }
 			>
-				{ __( 'Clear', 'material-theme-builder' ) }
+				{ __( 'Clear', 'material-design' ) }
 			</Button>
 			<br />
 			<br />

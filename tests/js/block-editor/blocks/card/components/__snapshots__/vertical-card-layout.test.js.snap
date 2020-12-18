@@ -30,34 +30,34 @@ Object {
     />
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+            class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
             style="background-image: url(http://test.loc/test.jpg);"
             tabindex="0"
           />
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
-              class="mtb-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title mdc-typography mdc-typography--headline6"
             >
               Test title
             </h2>
             <h3
-              class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
           >
             Test supporting text
           </div>
@@ -105,34 +105,34 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mtb-card mdc-card--outlined"
+      class="mdc-card material-design-card mdc-card--outlined"
       style="border-radius: 4px;"
     >
       <div
-        class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+        class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+          class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
           style="background-image: url(http://test.loc/test.jpg);"
           tabindex="0"
         />
         <div
-          class="mtb-card__primary"
+          class="material-design-card__primary"
         >
           <h2
-            class="mtb-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title mdc-typography mdc-typography--headline6"
           >
             Test title
           </h2>
           <h3
-            class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
         >
           Test supporting text
         </div>
@@ -261,34 +261,34 @@ Object {
     />
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+            class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
             style="background-image: url(http://test.loc/test.jpg);"
             tabindex="0"
           />
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
-              class="mtb-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title mdc-typography mdc-typography--headline6"
             >
               Test title
             </h2>
             <h3
-              class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
           >
             Test supporting text
           </div>
@@ -298,34 +298,34 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mtb-card mdc-card--outlined"
+      class="mdc-card material-design-card mdc-card--outlined"
       style="border-radius: 4px;"
     >
       <div
-        class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+        class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+          class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
           style="background-image: url(http://test.loc/test.jpg);"
           tabindex="0"
         />
         <div
-          class="mtb-card__primary"
+          class="material-design-card__primary"
         >
           <h2
-            class="mtb-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title mdc-typography mdc-typography--headline6"
           >
             Test title
           </h2>
           <h3
-            class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
         >
           Test supporting text
         </div>
@@ -416,34 +416,34 @@ Object {
     />
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
-              class="mtb-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title mdc-typography mdc-typography--headline6"
             >
               Test title
             </h2>
             <h3
-              class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-above-media"
+            class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-above-media"
             style="background-image: url(http://test.loc/test.jpg);"
             tabindex="0"
           />
           <div
-            class="mtb-card__supporting-text mtb-card__supporting-text_text-above-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-above-media mdc-typography mdc-typography--body2"
           >
             Test supporting text
           </div>
@@ -491,34 +491,34 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mtb-card mdc-card--outlined"
+      class="mdc-card material-design-card mdc-card--outlined"
       style="border-radius: 4px;"
     >
       <div
-        class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+        class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
         tabindex="0"
       >
         <div
-          class="mtb-card__primary"
+          class="material-design-card__primary"
         >
           <h2
-            class="mtb-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title mdc-typography mdc-typography--headline6"
           >
             Test title
           </h2>
           <h3
-            class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-above-media"
+          class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-above-media"
           style="background-image: url(http://test.loc/test.jpg);"
           tabindex="0"
         />
         <div
-          class="mtb-card__supporting-text mtb-card__supporting-text_text-above-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-above-media mdc-typography mdc-typography--body2"
         >
           Test supporting text
         </div>
@@ -647,15 +647,15 @@ Object {
     />
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"
+            class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
             style="background-image: url(http://test.loc/test.jpg);"
             tabindex="0"
           >
@@ -663,15 +663,15 @@ Object {
               class="mdc-card__media-content"
             >
               <div
-                class="mtb-card__primary"
+                class="material-design-card__primary"
               >
                 <h2
-                  class="mtb-card__title mdc-typography mdc-typography--headline6"
+                  class="material-design-card__title mdc-typography mdc-typography--headline6"
                 >
                   Test title
                 </h2>
                 <h3
-                  class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                  class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                 >
                   Test secondary text
                 </h3>
@@ -679,7 +679,7 @@ Object {
             </div>
           </div>
           <div
-            class="mtb-card__supporting-text mtb-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
           >
             Test supporting text
           </div>
@@ -727,15 +727,15 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mtb-card mdc-card--outlined"
+      class="mdc-card material-design-card mdc-card--outlined"
       style="border-radius: 4px;"
     >
       <div
-        class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+        class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"
+          class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
           style="background-image: url(http://test.loc/test.jpg);"
           tabindex="0"
         >
@@ -743,15 +743,15 @@ Object {
             class="mdc-card__media-content"
           >
             <div
-              class="mtb-card__primary"
+              class="material-design-card__primary"
             >
               <h2
-                class="mtb-card__title mdc-typography mdc-typography--headline6"
+                class="material-design-card__title mdc-typography mdc-typography--headline6"
               >
                 Test title
               </h2>
               <h3
-                class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
               >
                 Test secondary text
               </h3>
@@ -759,7 +759,7 @@ Object {
           </div>
         </div>
         <div
-          class="mtb-card__supporting-text mtb-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
         >
           Test supporting text
         </div>
@@ -888,29 +888,29 @@ Object {
     />
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
-              class="mtb-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title mdc-typography mdc-typography--headline6"
             >
               Test title
             </h2>
             <h3
-              class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="mtb-card__supporting-text mtb-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
           >
             Test supporting text
           </div>
@@ -958,29 +958,29 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mtb-card mdc-card--outlined"
+      class="mdc-card material-design-card mdc-card--outlined"
       style="border-radius: 4px;"
     >
       <div
-        class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+        class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
         tabindex="0"
       >
         <div
-          class="mtb-card__primary"
+          class="material-design-card__primary"
         >
           <h2
-            class="mtb-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title mdc-typography mdc-typography--headline6"
           >
             Test title
           </h2>
           <h3
-            class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="mtb-card__supporting-text mtb-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
         >
           Test supporting text
         </div>
@@ -1109,29 +1109,29 @@ Object {
     />
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
-              class="mtb-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title mdc-typography mdc-typography--headline6"
             >
               Test title
             </h2>
             <h3
-              class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"
+            class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
             style="background-image: url();"
             tabindex="0"
           >
@@ -1139,15 +1139,15 @@ Object {
               class="mdc-card__media-content"
             >
               <div
-                class="mtb-card__primary"
+                class="material-design-card__primary"
               >
                 <h2
-                  class="mtb-card__title mdc-typography mdc-typography--headline6"
+                  class="material-design-card__title mdc-typography mdc-typography--headline6"
                 >
                   Test title
                 </h2>
                 <h3
-                  class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                  class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                 >
                   Test secondary text
                 </h3>
@@ -1155,7 +1155,7 @@ Object {
             </div>
           </div>
           <div
-            class="mtb-card__supporting-text mtb-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
           >
             Test supporting text
           </div>
@@ -1203,29 +1203,29 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mtb-card mdc-card--outlined"
+      class="mdc-card material-design-card mdc-card--outlined"
       style="border-radius: 4px;"
     >
       <div
-        class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+        class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
         tabindex="0"
       >
         <div
-          class="mtb-card__primary"
+          class="material-design-card__primary"
         >
           <h2
-            class="mtb-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title mdc-typography mdc-typography--headline6"
           >
             Test title
           </h2>
           <h3
-            class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-over-media"
+          class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
           style="background-image: url();"
           tabindex="0"
         >
@@ -1233,15 +1233,15 @@ Object {
             class="mdc-card__media-content"
           >
             <div
-              class="mtb-card__primary"
+              class="material-design-card__primary"
             >
               <h2
-                class="mtb-card__title mdc-typography mdc-typography--headline6"
+                class="material-design-card__title mdc-typography mdc-typography--headline6"
               >
                 Test title
               </h2>
               <h3
-                class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
               >
                 Test secondary text
               </h3>
@@ -1249,7 +1249,7 @@ Object {
           </div>
         </div>
         <div
-          class="mtb-card__supporting-text mtb-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
         >
           Test supporting text
         </div>
@@ -1378,33 +1378,33 @@ Object {
     />
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+            class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
             style="background-image: url(http://test.loc/test.jpg);"
             tabindex="0"
           />
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
-              class="mtb-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title mdc-typography mdc-typography--headline6"
             >
               Test title
             </h2>
             <h3
-              class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
           >
             Test supporting text
           </div>
@@ -1452,33 +1452,33 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mtb-card mdc-card--outlined"
+      class="mdc-card material-design-card mdc-card--outlined"
     >
       <div
-        class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+        class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+          class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
           style="background-image: url(http://test.loc/test.jpg);"
           tabindex="0"
         />
         <div
-          class="mtb-card__primary"
+          class="material-design-card__primary"
         >
           <h2
-            class="mtb-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title mdc-typography mdc-typography--headline6"
           >
             Test title
           </h2>
           <h3
-            class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
         >
           Test supporting text
         </div>
@@ -1607,29 +1607,29 @@ Object {
     />
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
-              class="mtb-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title mdc-typography mdc-typography--headline6"
             >
               Test title
             </h2>
             <h3
-              class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
           >
             Test supporting text
           </div>
@@ -1677,29 +1677,29 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mtb-card mdc-card--outlined"
+      class="mdc-card material-design-card mdc-card--outlined"
       style="border-radius: 4px;"
     >
       <div
-        class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+        class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
         tabindex="0"
       >
         <div
-          class="mtb-card__primary"
+          class="material-design-card__primary"
         >
           <h2
-            class="mtb-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title mdc-typography mdc-typography--headline6"
           >
             Test title
           </h2>
           <h3
-            class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="mtb-card__supporting-text mtb-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
         >
           Test supporting text
         </div>
@@ -1828,28 +1828,28 @@ Object {
     />
     <div>
       <div
-        class="mdc-card mtb-card mdc-card--outlined"
+        class="mdc-card material-design-card mdc-card--outlined"
         style="border-radius: 4px;"
       >
         <div
-          class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+          class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
           tabindex="0"
         >
           <div
-            class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+            class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
             style="background-image: url(http://test.loc/test.jpg);"
             tabindex="0"
           />
           <div
-            class="mtb-card__primary"
+            class="material-design-card__primary"
           >
             <h2
-              class="mtb-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title mdc-typography mdc-typography--headline6"
             >
               Test title
             </h2>
             <h3
-              class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
             >
               Test secondary text
             </h3>
@@ -1898,28 +1898,28 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mtb-card mdc-card--outlined"
+      class="mdc-card material-design-card mdc-card--outlined"
       style="border-radius: 4px;"
     >
       <div
-        class="mdc-card__primary-action mtb-card__primary-action mdc-ripple-upgraded"
+        class="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
         tabindex="0"
       >
         <div
-          class="mdc-card__media mdc-card__media--16-9 mtb-card__media mtb-card-with-text-under-media"
+          class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-under-media"
           style="background-image: url(http://test.loc/test.jpg);"
           tabindex="0"
         />
         <div
-          class="mtb-card__primary"
+          class="material-design-card__primary"
         >
           <h2
-            class="mtb-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title mdc-typography mdc-typography--headline6"
           >
             Test title
           </h2>
           <h3
-            class="mtb-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
           >
             Test secondary text
           </h3>

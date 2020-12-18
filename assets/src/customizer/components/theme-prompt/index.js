@@ -1,3 +1,19 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 /**
@@ -16,26 +32,23 @@ const ThemePrompt = ( { status } ) => {
 	const [ dismissed, setDismissed ] = useState( status === 'ok' );
 	const [ requesting, setRequesting ] = useState( false );
 
-	const title =
-		status === 'install'
-			? __( 'Install Material Theme', 'material-theme-builder' )
-			: __( 'Activate Material Theme', 'material-theme-builder' );
+	const title = __( 'Material Design Theme', 'material-design' );
 
 	const message =
 		status === 'install'
 			? __(
-					'Install and activate Material Theme for full site customization.',
-					'material-theme-builder'
+					'Install and activate the Material Design theme for full site customization.',
+					'material-design'
 			  )
 			: __(
-					'Activate Material Theme for full site customization.',
-					'material-theme-builder'
+					'Activate the Material Design theme for full site customization.',
+					'material-design'
 			  );
 
 	const cta =
 		status === 'install'
-			? __( 'Install Material Theme', 'material-theme-builder' )
-			: __( 'Activate Material Theme', 'material-theme-builder' );
+			? __( 'Install', 'material-design' )
+			: __( 'Activate', 'material-design' );
 
 	const dismiss = () => {
 		setDismissed( true );
@@ -86,7 +99,7 @@ const ThemePrompt = ( { status } ) => {
 				onClick={ dismiss }
 			>
 				<span className="screen-reader-text">
-					{ __( 'Dismiss', 'material-theme-builder' ) }
+					{ __( 'Dismiss', 'material-design' ) }
 				</span>
 			</button>
 			<div className="accordion-section-title theme-installer-panel">

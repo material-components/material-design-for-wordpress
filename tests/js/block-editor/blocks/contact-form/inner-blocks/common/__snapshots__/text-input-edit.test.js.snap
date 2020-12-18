@@ -442,6 +442,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -884,6 +885,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -984,7 +986,7 @@ Object {
       id="a11y-speak-assertive"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     >
-      An unknown error occurred. Please try again later. 
+      An unknown error occurred. Please try again later.
     </div>
     <div
       aria-atomic="true"
@@ -1035,13 +1037,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-28"
+              for="inspector-text-control-21"
             >
               Email address
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-28"
+              id="inspector-text-control-21"
               type="text"
               value="recipient@test.loc"
             />
@@ -1055,13 +1057,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-29"
+              for="inspector-text-control-22"
             >
               Subject
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-29"
+              id="inspector-text-control-22"
               type="text"
               value="Test contact form"
             />
@@ -1075,13 +1077,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-30"
+              for="inspector-text-control-23"
             >
               Submission confirmation message
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-30"
+              id="inspector-text-control-23"
               type="text"
               value="The form was submitted"
             />
@@ -1132,7 +1134,7 @@ Object {
               <input
                 checked=""
                 class="components-form-toggle__input"
-                id="inspector-toggle-control-5"
+                id="inspector-toggle-control-4"
                 type="checkbox"
               />
               <span
@@ -1158,7 +1160,7 @@ Object {
             </span>
             <label
               class="components-toggle-control__label"
-              for="inspector-toggle-control-5"
+              for="inspector-toggle-control-4"
             >
               Outlined
             </label>
@@ -1264,13 +1266,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-31"
+              for="inspector-text-control-24"
             >
               Site Key
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-31"
+              id="inspector-text-control-24"
               type="text"
               value=""
             />
@@ -1284,13 +1286,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-32"
+              for="inspector-text-control-25"
             >
               Client Secret
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-32"
+              id="inspector-text-control-25"
               type="text"
               value=""
             />
@@ -1361,13 +1363,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-33"
+              for="inspector-text-control-26"
             >
               ID
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-33"
+              id="inspector-text-control-26"
               type="text"
               value="test-id"
             />
@@ -1381,13 +1383,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-34"
+              for="inspector-text-control-27"
             >
               Label
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-34"
+              id="inspector-text-control-27"
               type="text"
               value="Name"
             />
@@ -1413,6 +1415,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -1482,13 +1485,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-28"
+            for="inspector-text-control-21"
           >
             Email address
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-28"
+            id="inspector-text-control-21"
             type="text"
             value="recipient@test.loc"
           />
@@ -1502,13 +1505,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-29"
+            for="inspector-text-control-22"
           >
             Subject
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-29"
+            id="inspector-text-control-22"
             type="text"
             value="Test contact form"
           />
@@ -1522,13 +1525,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-30"
+            for="inspector-text-control-23"
           >
             Submission confirmation message
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-30"
+            id="inspector-text-control-23"
             type="text"
             value="The form was submitted"
           />
@@ -1579,7 +1582,7 @@ Object {
             <input
               checked=""
               class="components-form-toggle__input"
-              id="inspector-toggle-control-5"
+              id="inspector-toggle-control-4"
               type="checkbox"
             />
             <span
@@ -1605,7 +1608,7 @@ Object {
           </span>
           <label
             class="components-toggle-control__label"
-            for="inspector-toggle-control-5"
+            for="inspector-toggle-control-4"
           >
             Outlined
           </label>
@@ -1711,13 +1714,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-31"
+            for="inspector-text-control-24"
           >
             Site Key
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-31"
+            id="inspector-text-control-24"
             type="text"
             value=""
           />
@@ -1731,13 +1734,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-32"
+            for="inspector-text-control-25"
           >
             Client Secret
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-32"
+            id="inspector-text-control-25"
             type="text"
             value=""
           />
@@ -1808,13 +1811,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-33"
+            for="inspector-text-control-26"
           >
             ID
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-33"
+            id="inspector-text-control-26"
             type="text"
             value="test-id"
           />
@@ -1828,13 +1831,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-34"
+            for="inspector-text-control-27"
           >
             Label
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-34"
+            id="inspector-text-control-27"
             type="text"
             value="Name"
           />
@@ -1860,6 +1863,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -2427,6 +2431,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -2912,6 +2917,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -3012,7 +3018,7 @@ Object {
       id="a11y-speak-assertive"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     >
-      An unknown error occurred. Please try again later.
+      An unknown error occurred. Please try again later. 
     </div>
     <div
       aria-atomic="true"
@@ -3063,13 +3069,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-21"
+              for="inspector-text-control-14"
             >
               Email address
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-21"
+              id="inspector-text-control-14"
               type="text"
               value="recipient@test.loc"
             />
@@ -3083,13 +3089,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-22"
+              for="inspector-text-control-15"
             >
               Subject
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-22"
+              id="inspector-text-control-15"
               type="text"
               value="Test contact form"
             />
@@ -3103,13 +3109,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-23"
+              for="inspector-text-control-16"
             >
               Submission confirmation message
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-23"
+              id="inspector-text-control-16"
               type="text"
               value="The form was submitted"
             />
@@ -3160,7 +3166,7 @@ Object {
               <input
                 checked=""
                 class="components-form-toggle__input"
-                id="inspector-toggle-control-4"
+                id="inspector-toggle-control-3"
                 type="checkbox"
               />
               <span
@@ -3186,7 +3192,7 @@ Object {
             </span>
             <label
               class="components-toggle-control__label"
-              for="inspector-toggle-control-4"
+              for="inspector-toggle-control-3"
             >
               Outlined
             </label>
@@ -3292,13 +3298,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-24"
+              for="inspector-text-control-17"
             >
               Site Key
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-24"
+              id="inspector-text-control-17"
               type="text"
               value=""
             />
@@ -3312,13 +3318,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-25"
+              for="inspector-text-control-18"
             >
               Client Secret
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-25"
+              id="inspector-text-control-18"
               type="text"
               value=""
             />
@@ -3389,13 +3395,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-26"
+              for="inspector-text-control-19"
             >
               ID
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-26"
+              id="inspector-text-control-19"
               type="text"
               value="test-id"
             />
@@ -3409,13 +3415,13 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-text-control-27"
+              for="inspector-text-control-20"
             >
               Label
             </label>
             <input
               class="components-text-control__input"
-              id="inspector-text-control-27"
+              id="inspector-text-control-20"
               type="text"
               value="Name"
             />
@@ -3436,6 +3442,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -3495,13 +3502,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-21"
+            for="inspector-text-control-14"
           >
             Email address
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-21"
+            id="inspector-text-control-14"
             type="text"
             value="recipient@test.loc"
           />
@@ -3515,13 +3522,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-22"
+            for="inspector-text-control-15"
           >
             Subject
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-22"
+            id="inspector-text-control-15"
             type="text"
             value="Test contact form"
           />
@@ -3535,13 +3542,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-23"
+            for="inspector-text-control-16"
           >
             Submission confirmation message
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-23"
+            id="inspector-text-control-16"
             type="text"
             value="The form was submitted"
           />
@@ -3592,7 +3599,7 @@ Object {
             <input
               checked=""
               class="components-form-toggle__input"
-              id="inspector-toggle-control-4"
+              id="inspector-toggle-control-3"
               type="checkbox"
             />
             <span
@@ -3618,7 +3625,7 @@ Object {
           </span>
           <label
             class="components-toggle-control__label"
-            for="inspector-toggle-control-4"
+            for="inspector-toggle-control-3"
           >
             Outlined
           </label>
@@ -3724,13 +3731,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-24"
+            for="inspector-text-control-17"
           >
             Site Key
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-24"
+            id="inspector-text-control-17"
             type="text"
             value=""
           />
@@ -3744,13 +3751,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-25"
+            for="inspector-text-control-18"
           >
             Client Secret
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-25"
+            id="inspector-text-control-18"
             type="text"
             value=""
           />
@@ -3821,13 +3828,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-26"
+            for="inspector-text-control-19"
           >
             ID
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-26"
+            id="inspector-text-control-19"
             type="text"
             value="test-id"
           />
@@ -3841,13 +3848,13 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-text-control-27"
+            for="inspector-text-control-20"
           >
             Label
           </label>
           <input
             class="components-text-control__input"
-            id="inspector-text-control-27"
+            id="inspector-text-control-20"
             type="text"
             value="Name"
           />
@@ -3868,6 +3875,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -3940,6 +3948,1060 @@ Object {
 `;
 
 exports[`TextInputEdit matches snapshot when the full width attribute is true 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      An unknown error occurred. Please try again later. 
+    </div>
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Form Email Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-28"
+            >
+              Email address
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-28"
+              type="text"
+              value="recipient@test.loc"
+            />
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-29"
+            >
+              Subject
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-29"
+              type="text"
+              value="Test contact form"
+            />
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-30"
+            >
+              Submission confirmation message
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-30"
+              type="text"
+              value="The form was submitted"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Style
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-5"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-5"
+            >
+              Outlined
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Google reCAPTCHA v3
+          </button>
+        </h2>
+        <p>
+          Add your reCAPTCHA site and secret keys to protect your form from spam.
+        </p>
+        <a
+          class="components-external-link"
+          href="https://g.co/recaptcha/v3"
+          rel="external noreferrer noopener"
+          target="_blank"
+        >
+          Generate keys
+          <span
+            class="components-visually-hidden"
+          >
+            (opens in a new tab)
+          </span>
+          <svg
+            aria-hidden="true"
+            class="components-external-link__icon"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
+            />
+          </svg>
+        </a>
+        <a
+          class="components-external-link"
+          href="https://developers.google.com/recaptcha/docs/v3"
+          rel="external noreferrer noopener"
+          target="_blank"
+        >
+          Documentation
+          <span
+            class="components-visually-hidden"
+          >
+            (opens in a new tab)
+          </span>
+          <svg
+            aria-hidden="true"
+            class="components-external-link__icon"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
+            />
+          </svg>
+        </a>
+        <br />
+        <br />
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-31"
+            >
+              Site Key
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-31"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-32"
+            >
+              Client Secret
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-32"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <p>
+          <i
+            class="material-icons tab-add__icon"
+          >
+            warning
+          </i>
+          Google reCAPTCHA will only work and be rendered on the frontend
+        </p>
+        <br />
+        <button
+          class="components-button save-button is-primary"
+          style="margin-right: 20px;"
+          type="button"
+        >
+          Save
+        </button>
+        <button
+          class="components-button clear-button is-primary"
+          type="button"
+        >
+          Clear
+        </button>
+        <br />
+        <br />
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Field Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-33"
+            >
+              ID
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-33"
+              type="text"
+              value="test-id"
+            />
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-text-control-34"
+            >
+              Label
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-34"
+              type="text"
+              value="Name"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="mdc-text-field-container mdc-text-field-container--not-required"
+      >
+        <div
+          class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"
+        >
+          <input
+            aria-labelledby="label-test-id"
+            class="mdc-text-field__input"
+            data-form="contact"
+            data-label="Name"
+            data-meta="name"
+            id="test-id"
+            name="test-id"
+            tabindex="-1"
+            type="text"
+            value="test name"
+          />
+          <div
+            class="mdc-notched-outline"
+          >
+            <div
+              class="mdc-notched-outline__leading"
+            />
+            <div
+              class="mdc-notched-outline__notch"
+            >
+              <label
+                class="mdc-floating-label"
+                for="test-id"
+                id="label-test-id"
+              >
+                Name
+              </label>
+            </div>
+            <div
+              class="mdc-notched-outline__trailing"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Form Email Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-28"
+          >
+            Email address
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-28"
+            type="text"
+            value="recipient@test.loc"
+          />
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-29"
+          >
+            Subject
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-29"
+            type="text"
+            value="Test contact form"
+          />
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-30"
+          >
+            Submission confirmation message
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-30"
+            type="text"
+            value="The form was submitted"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Style
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-5"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-5"
+          >
+            Outlined
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Google reCAPTCHA v3
+        </button>
+      </h2>
+      <p>
+        Add your reCAPTCHA site and secret keys to protect your form from spam.
+      </p>
+      <a
+        class="components-external-link"
+        href="https://g.co/recaptcha/v3"
+        rel="external noreferrer noopener"
+        target="_blank"
+      >
+        Generate keys
+        <span
+          class="components-visually-hidden"
+        >
+          (opens in a new tab)
+        </span>
+        <svg
+          aria-hidden="true"
+          class="components-external-link__icon"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
+          />
+        </svg>
+      </a>
+      <a
+        class="components-external-link"
+        href="https://developers.google.com/recaptcha/docs/v3"
+        rel="external noreferrer noopener"
+        target="_blank"
+      >
+        Documentation
+        <span
+          class="components-visually-hidden"
+        >
+          (opens in a new tab)
+        </span>
+        <svg
+          aria-hidden="true"
+          class="components-external-link__icon"
+          focusable="false"
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
+          />
+        </svg>
+      </a>
+      <br />
+      <br />
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-31"
+          >
+            Site Key
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-31"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-32"
+          >
+            Client Secret
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-32"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <p>
+        <i
+          class="material-icons tab-add__icon"
+        >
+          warning
+        </i>
+        Google reCAPTCHA will only work and be rendered on the frontend
+      </p>
+      <br />
+      <button
+        class="components-button save-button is-primary"
+        style="margin-right: 20px;"
+        type="button"
+      >
+        Save
+      </button>
+      <button
+        class="components-button clear-button is-primary"
+        type="button"
+      >
+        Clear
+      </button>
+      <br />
+      <br />
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Field Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-33"
+          >
+            ID
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-33"
+            type="text"
+            value="test-id"
+          />
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-text-control-34"
+          >
+            Label
+          </label>
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-34"
+            type="text"
+            value="Name"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="mdc-text-field-container mdc-text-field-container--not-required"
+    >
+      <div
+        class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"
+      >
+        <input
+          aria-labelledby="label-test-id"
+          class="mdc-text-field__input"
+          data-form="contact"
+          data-label="Name"
+          data-meta="name"
+          id="test-id"
+          name="test-id"
+          tabindex="-1"
+          type="text"
+          value="test name"
+        />
+        <div
+          class="mdc-notched-outline"
+        >
+          <div
+            class="mdc-notched-outline__leading"
+          />
+          <div
+            class="mdc-notched-outline__notch"
+          >
+            <label
+              class="mdc-floating-label"
+              for="test-id"
+              id="label-test-id"
+            >
+              Name
+            </label>
+          </div>
+          <div
+            class="mdc-notched-outline__trailing"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TextInputEdit matches snapshot when the id attribute is empty 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      An unknown error occurred. Please try again later. 
+    </div>
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div />
+  </body>,
+  "container": <div />,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`TextInputEdit matches snapshot when the outlined attribute is false 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -4372,8 +5434,11 @@ Object {
         class="mdc-text-field-container mdc-text-field-container--not-required"
       >
         <div
-          class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"
+          class="test-class mdc-text-field"
         >
+          <span
+            class="mdc-text-field__ripple"
+          />
           <input
             aria-labelledby="label-test-id"
             class="mdc-text-field__input"
@@ -4382,30 +5447,20 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
           <div
-            class="mdc-notched-outline"
+            class="mdc-line-ripple"
+          />
+          <label
+            class="mdc-floating-label"
+            for="test-id"
+            id="label-test-id"
           >
-            <div
-              class="mdc-notched-outline__leading"
-            />
-            <div
-              class="mdc-notched-outline__notch"
-            >
-              <label
-                class="mdc-floating-label"
-                for="test-id"
-                id="label-test-id"
-              >
-                Name
-              </label>
-            </div>
-            <div
-              class="mdc-notched-outline__trailing"
-            />
-          </div>
+            Name
+          </label>
         </div>
       </div>
     </div>
@@ -4814,8 +5869,11 @@ Object {
       class="mdc-text-field-container mdc-text-field-container--not-required"
     >
       <div
-        class="test-class mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"
+        class="test-class mdc-text-field"
       >
+        <span
+          class="mdc-text-field__ripple"
+        />
         <input
           aria-labelledby="label-test-id"
           class="mdc-text-field__input"
@@ -4824,30 +5882,20 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
         <div
-          class="mdc-notched-outline"
+          class="mdc-line-ripple"
+        />
+        <label
+          class="mdc-floating-label"
+          for="test-id"
+          id="label-test-id"
         >
-          <div
-            class="mdc-notched-outline__leading"
-          />
-          <div
-            class="mdc-notched-outline__notch"
-          >
-            <label
-              class="mdc-floating-label"
-              for="test-id"
-              id="label-test-id"
-            >
-              Name
-            </label>
-          </div>
-          <div
-            class="mdc-notched-outline__trailing"
-          />
-        </div>
+          Name
+        </label>
       </div>
     </div>
   </div>,
@@ -4905,973 +5953,7 @@ Object {
 }
 `;
 
-exports[`TextInputEdit matches snapshot when the id attribute is empty 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      An unknown error occurred. Please try again later. 
-    </div>
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div>
-      <div
-        class="components-panel__body is-opened"
-      >
-        <h2
-          class="components-panel__body-title"
-        >
-          <button
-            aria-expanded="true"
-            class="components-button components-panel__body-toggle"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-            >
-              <svg
-                aria-hidden="true"
-                class="components-panel__arrow"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
-              </svg>
-            </span>
-            Form Email Settings
-          </button>
-        </h2>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-14"
-            >
-              Email address
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-14"
-              type="text"
-              value="recipient@test.loc"
-            />
-          </div>
-        </div>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-15"
-            >
-              Subject
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-15"
-              type="text"
-              value="Test contact form"
-            />
-          </div>
-        </div>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-16"
-            >
-              Submission confirmation message
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-16"
-              type="text"
-              value="The form was submitted"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-panel__body is-opened"
-      >
-        <h2
-          class="components-panel__body-title"
-        >
-          <button
-            aria-expanded="true"
-            class="components-button components-panel__body-toggle"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-            >
-              <svg
-                aria-hidden="true"
-                class="components-panel__arrow"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
-              </svg>
-            </span>
-            Style
-          </button>
-        </h2>
-        <div
-          class="components-base-control components-toggle-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <span
-              class="components-form-toggle is-checked"
-            >
-              <input
-                checked=""
-                class="components-form-toggle__input"
-                id="inspector-toggle-control-3"
-                type="checkbox"
-              />
-              <span
-                class="components-form-toggle__track"
-              />
-              <span
-                class="components-form-toggle__thumb"
-              />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
-            </span>
-            <label
-              class="components-toggle-control__label"
-              for="inspector-toggle-control-3"
-            >
-              Outlined
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-panel__body is-opened"
-      >
-        <h2
-          class="components-panel__body-title"
-        >
-          <button
-            aria-expanded="true"
-            class="components-button components-panel__body-toggle"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-            >
-              <svg
-                aria-hidden="true"
-                class="components-panel__arrow"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
-              </svg>
-            </span>
-            Google reCAPTCHA v3
-          </button>
-        </h2>
-        <p>
-          Add your reCAPTCHA site and secret keys to protect your form from spam.
-        </p>
-        <a
-          class="components-external-link"
-          href="https://g.co/recaptcha/v3"
-          rel="external noreferrer noopener"
-          target="_blank"
-        >
-          Generate keys
-          <span
-            class="components-visually-hidden"
-          >
-            (opens in a new tab)
-          </span>
-          <svg
-            aria-hidden="true"
-            class="components-external-link__icon"
-            focusable="false"
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
-            />
-          </svg>
-        </a>
-        <a
-          class="components-external-link"
-          href="https://developers.google.com/recaptcha/docs/v3"
-          rel="external noreferrer noopener"
-          target="_blank"
-        >
-          Documentation
-          <span
-            class="components-visually-hidden"
-          >
-            (opens in a new tab)
-          </span>
-          <svg
-            aria-hidden="true"
-            class="components-external-link__icon"
-            focusable="false"
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
-            />
-          </svg>
-        </a>
-        <br />
-        <br />
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-17"
-            >
-              Site Key
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-17"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-18"
-            >
-              Client Secret
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-18"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-        <p>
-          <i
-            class="material-icons tab-add__icon"
-          >
-            warning
-          </i>
-          Google reCAPTCHA will only work and be rendered on the frontend
-        </p>
-        <br />
-        <button
-          class="components-button save-button is-primary"
-          style="margin-right: 20px;"
-          type="button"
-        >
-          Save
-        </button>
-        <button
-          class="components-button clear-button is-primary"
-          type="button"
-        >
-          Clear
-        </button>
-        <br />
-        <br />
-      </div>
-      <div
-        class="components-panel__body is-opened"
-      >
-        <h2
-          class="components-panel__body-title"
-        >
-          <button
-            aria-expanded="true"
-            class="components-button components-panel__body-toggle"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-            >
-              <svg
-                aria-hidden="true"
-                class="components-panel__arrow"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
-              </svg>
-            </span>
-            Field Settings
-          </button>
-        </h2>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-19"
-            >
-              ID
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-19"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-20"
-            >
-              Label
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-20"
-              type="text"
-              value="Name"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="mdc-text-field-container mdc-text-field-container--not-required"
-      >
-        <div
-          class="test-class mdc-text-field mdc-text-field--outlined"
-        >
-          <input
-            aria-labelledby="label-"
-            class="mdc-text-field__input"
-            data-form="contact"
-            data-label="Name"
-            data-meta="name"
-            id=""
-            name=""
-            type="text"
-            value="test name"
-          />
-          <div
-            class="mdc-notched-outline"
-          >
-            <div
-              class="mdc-notched-outline__leading"
-            />
-            <div
-              class="mdc-notched-outline__notch"
-            >
-              <label
-                class="mdc-floating-label"
-                for=""
-                id="label-"
-              >
-                Name
-              </label>
-            </div>
-            <div
-              class="mdc-notched-outline__trailing"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
-            </svg>
-          </span>
-          Form Email Settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-14"
-          >
-            Email address
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-14"
-            type="text"
-            value="recipient@test.loc"
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-15"
-          >
-            Subject
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-15"
-            type="text"
-            value="Test contact form"
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-16"
-          >
-            Submission confirmation message
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-16"
-            type="text"
-            value="The form was submitted"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
-            </svg>
-          </span>
-          Style
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-toggle-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-3"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-3"
-          >
-            Outlined
-          </label>
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
-            </svg>
-          </span>
-          Google reCAPTCHA v3
-        </button>
-      </h2>
-      <p>
-        Add your reCAPTCHA site and secret keys to protect your form from spam.
-      </p>
-      <a
-        class="components-external-link"
-        href="https://g.co/recaptcha/v3"
-        rel="external noreferrer noopener"
-        target="_blank"
-      >
-        Generate keys
-        <span
-          class="components-visually-hidden"
-        >
-          (opens in a new tab)
-        </span>
-        <svg
-          aria-hidden="true"
-          class="components-external-link__icon"
-          focusable="false"
-          height="24"
-          role="img"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
-          />
-        </svg>
-      </a>
-      <a
-        class="components-external-link"
-        href="https://developers.google.com/recaptcha/docs/v3"
-        rel="external noreferrer noopener"
-        target="_blank"
-      >
-        Documentation
-        <span
-          class="components-visually-hidden"
-        >
-          (opens in a new tab)
-        </span>
-        <svg
-          aria-hidden="true"
-          class="components-external-link__icon"
-          focusable="false"
-          height="24"
-          role="img"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
-          />
-        </svg>
-      </a>
-      <br />
-      <br />
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-17"
-          >
-            Site Key
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-17"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-18"
-          >
-            Client Secret
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-18"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <p>
-        <i
-          class="material-icons tab-add__icon"
-        >
-          warning
-        </i>
-        Google reCAPTCHA will only work and be rendered on the frontend
-      </p>
-      <br />
-      <button
-        class="components-button save-button is-primary"
-        style="margin-right: 20px;"
-        type="button"
-      >
-        Save
-      </button>
-      <button
-        class="components-button clear-button is-primary"
-        type="button"
-      >
-        Clear
-      </button>
-      <br />
-      <br />
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
-            </svg>
-          </span>
-          Field Settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-19"
-          >
-            ID
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-19"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-20"
-          >
-            Label
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-20"
-            type="text"
-            value="Name"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="mdc-text-field-container mdc-text-field-container--not-required"
-    >
-      <div
-        class="test-class mdc-text-field mdc-text-field--outlined"
-      >
-        <input
-          aria-labelledby="label-"
-          class="mdc-text-field__input"
-          data-form="contact"
-          data-label="Name"
-          data-meta="name"
-          id=""
-          name=""
-          type="text"
-          value="test name"
-        />
-        <div
-          class="mdc-notched-outline"
-        >
-          <div
-            class="mdc-notched-outline__leading"
-          />
-          <div
-            class="mdc-notched-outline__notch"
-          >
-            <label
-              class="mdc-floating-label"
-              for=""
-              id="label-"
-            >
-              Name
-            </label>
-          </div>
-          <div
-            class="mdc-notched-outline__trailing"
-          />
-        </div>
-      </div>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`TextInputEdit matches snapshot when the outlined attribute is false 1`] = `
+exports[`TextInputEdit matches snapshot when the outlined attribute is false and the \`is required\` attribute is false 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -6317,6 +6399,7 @@ Object {
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
@@ -6751,6 +6834,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
@@ -6821,7 +6905,7 @@ Object {
 }
 `;
 
-exports[`TextInputEdit matches snapshot when the outlined attribute is false and the \`is required\` attribute is false 1`] = `
+exports[`TextInputEdit matches snapshot when the outlined attribute is false and the display label attribute is empty 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -7254,32 +7338,27 @@ Object {
         class="mdc-text-field-container mdc-text-field-container--not-required"
       >
         <div
-          class="test-class mdc-text-field"
+          class="test-class mdc-text-field mdc-text-field--no-label"
         >
           <span
             class="mdc-text-field__ripple"
           />
           <input
-            aria-labelledby="label-test-id"
+            aria-label="Name"
             class="mdc-text-field__input"
             data-form="contact"
             data-label="Name"
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
           <div
             class="mdc-line-ripple"
           />
-          <label
-            class="mdc-floating-label"
-            for="test-id"
-            id="label-test-id"
-          >
-            Name
-          </label>
+          
         </div>
       </div>
     </div>
@@ -7688,32 +7767,27 @@ Object {
       class="mdc-text-field-container mdc-text-field-container--not-required"
     >
       <div
-        class="test-class mdc-text-field"
+        class="test-class mdc-text-field mdc-text-field--no-label"
       >
         <span
           class="mdc-text-field__ripple"
         />
         <input
-          aria-labelledby="label-test-id"
+          aria-label="Name"
           class="mdc-text-field__input"
           data-form="contact"
           data-label="Name"
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />
         <div
           class="mdc-line-ripple"
         />
-        <label
-          class="mdc-floating-label"
-          for="test-id"
-          id="label-test-id"
-        >
-          Name
-        </label>
+        
       </div>
     </div>
   </div>,
@@ -7771,7 +7845,7 @@ Object {
 }
 `;
 
-exports[`TextInputEdit matches snapshot when the outlined attribute is false and the display label attribute is empty 1`] = `
+exports[`TextInputEdit matches snapshot when the outlined attribute is false and the full width attribute is true 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8204,26 +8278,33 @@ Object {
         class="mdc-text-field-container mdc-text-field-container--not-required"
       >
         <div
-          class="test-class mdc-text-field mdc-text-field--no-label"
+          class="test-class mdc-text-field mdc-text-field--custom-full"
         >
           <span
             class="mdc-text-field__ripple"
           />
           <input
-            aria-label="Name"
+            aria-labelledby="label-test-id"
             class="mdc-text-field__input"
             data-form="contact"
             data-label="Name"
             data-meta="name"
             id="test-id"
             name="test-id"
+            tabindex="-1"
             type="text"
             value="test name"
           />
           <div
             class="mdc-line-ripple"
           />
-          
+          <label
+            class="mdc-floating-label"
+            for="test-id"
+            id="label-test-id"
+          >
+            Name
+          </label>
         </div>
       </div>
     </div>
@@ -8632,950 +8713,6 @@ Object {
       class="mdc-text-field-container mdc-text-field-container--not-required"
     >
       <div
-        class="test-class mdc-text-field mdc-text-field--no-label"
-      >
-        <span
-          class="mdc-text-field__ripple"
-        />
-        <input
-          aria-label="Name"
-          class="mdc-text-field__input"
-          data-form="contact"
-          data-label="Name"
-          data-meta="name"
-          id="test-id"
-          name="test-id"
-          type="text"
-          value="test name"
-        />
-        <div
-          class="mdc-line-ripple"
-        />
-        
-      </div>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`TextInputEdit matches snapshot when the outlined attribute is false and the full width attribute is true 1`] = `
-Object {
-  "asFragment": [Function],
-  "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      An unknown error occurred. Please try again later.
-    </div>
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div>
-      <div
-        class="components-panel__body is-opened"
-      >
-        <h2
-          class="components-panel__body-title"
-        >
-          <button
-            aria-expanded="true"
-            class="components-button components-panel__body-toggle"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-            >
-              <svg
-                aria-hidden="true"
-                class="components-panel__arrow"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
-              </svg>
-            </span>
-            Form Email Settings
-          </button>
-        </h2>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-63"
-            >
-              Email address
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-63"
-              type="text"
-              value="recipient@test.loc"
-            />
-          </div>
-        </div>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-64"
-            >
-              Subject
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-64"
-              type="text"
-              value="Test contact form"
-            />
-          </div>
-        </div>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-65"
-            >
-              Submission confirmation message
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-65"
-              type="text"
-              value="The form was submitted"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-panel__body is-opened"
-      >
-        <h2
-          class="components-panel__body-title"
-        >
-          <button
-            aria-expanded="true"
-            class="components-button components-panel__body-toggle"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-            >
-              <svg
-                aria-hidden="true"
-                class="components-panel__arrow"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
-              </svg>
-            </span>
-            Style
-          </button>
-        </h2>
-        <div
-          class="components-base-control components-toggle-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <span
-              class="components-form-toggle is-checked"
-            >
-              <input
-                checked=""
-                class="components-form-toggle__input"
-                id="inspector-toggle-control-10"
-                type="checkbox"
-              />
-              <span
-                class="components-form-toggle__track"
-              />
-              <span
-                class="components-form-toggle__thumb"
-              />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
-            </span>
-            <label
-              class="components-toggle-control__label"
-              for="inspector-toggle-control-10"
-            >
-              Outlined
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-panel__body is-opened"
-      >
-        <h2
-          class="components-panel__body-title"
-        >
-          <button
-            aria-expanded="true"
-            class="components-button components-panel__body-toggle"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-            >
-              <svg
-                aria-hidden="true"
-                class="components-panel__arrow"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
-              </svg>
-            </span>
-            Google reCAPTCHA v3
-          </button>
-        </h2>
-        <p>
-          Add your reCAPTCHA site and secret keys to protect your form from spam.
-        </p>
-        <a
-          class="components-external-link"
-          href="https://g.co/recaptcha/v3"
-          rel="external noreferrer noopener"
-          target="_blank"
-        >
-          Generate keys
-          <span
-            class="components-visually-hidden"
-          >
-            (opens in a new tab)
-          </span>
-          <svg
-            aria-hidden="true"
-            class="components-external-link__icon"
-            focusable="false"
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
-            />
-          </svg>
-        </a>
-        <a
-          class="components-external-link"
-          href="https://developers.google.com/recaptcha/docs/v3"
-          rel="external noreferrer noopener"
-          target="_blank"
-        >
-          Documentation
-          <span
-            class="components-visually-hidden"
-          >
-            (opens in a new tab)
-          </span>
-          <svg
-            aria-hidden="true"
-            class="components-external-link__icon"
-            focusable="false"
-            height="24"
-            role="img"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
-            />
-          </svg>
-        </a>
-        <br />
-        <br />
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-66"
-            >
-              Site Key
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-66"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-67"
-            >
-              Client Secret
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-67"
-              type="text"
-              value=""
-            />
-          </div>
-        </div>
-        <p>
-          <i
-            class="material-icons tab-add__icon"
-          >
-            warning
-          </i>
-          Google reCAPTCHA will only work and be rendered on the frontend
-        </p>
-        <br />
-        <button
-          class="components-button save-button is-primary"
-          style="margin-right: 20px;"
-          type="button"
-        >
-          Save
-        </button>
-        <button
-          class="components-button clear-button is-primary"
-          type="button"
-        >
-          Clear
-        </button>
-        <br />
-        <br />
-      </div>
-      <div
-        class="components-panel__body is-opened"
-      >
-        <h2
-          class="components-panel__body-title"
-        >
-          <button
-            aria-expanded="true"
-            class="components-button components-panel__body-toggle"
-            type="button"
-          >
-            <span
-              aria-hidden="true"
-            >
-              <svg
-                aria-hidden="true"
-                class="components-panel__arrow"
-                focusable="false"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                />
-              </svg>
-            </span>
-            Field Settings
-          </button>
-        </h2>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-68"
-            >
-              ID
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-68"
-              type="text"
-              value="test-id"
-            />
-          </div>
-        </div>
-        <div
-          class="components-base-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-text-control-69"
-            >
-              Label
-            </label>
-            <input
-              class="components-text-control__input"
-              id="inspector-text-control-69"
-              type="text"
-              value="Name"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class="mdc-text-field-container mdc-text-field-container--not-required"
-      >
-        <div
-          class="test-class mdc-text-field mdc-text-field--custom-full"
-        >
-          <span
-            class="mdc-text-field__ripple"
-          />
-          <input
-            aria-labelledby="label-test-id"
-            class="mdc-text-field__input"
-            data-form="contact"
-            data-label="Name"
-            data-meta="name"
-            id="test-id"
-            name="test-id"
-            type="text"
-            value="test name"
-          />
-          <div
-            class="mdc-line-ripple"
-          />
-          <label
-            class="mdc-floating-label"
-            for="test-id"
-            id="label-test-id"
-          >
-            Name
-          </label>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
-            </svg>
-          </span>
-          Form Email Settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-63"
-          >
-            Email address
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-63"
-            type="text"
-            value="recipient@test.loc"
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-64"
-          >
-            Subject
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-64"
-            type="text"
-            value="Test contact form"
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-65"
-          >
-            Submission confirmation message
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-65"
-            type="text"
-            value="The form was submitted"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
-            </svg>
-          </span>
-          Style
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-toggle-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-10"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-10"
-          >
-            Outlined
-          </label>
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
-            </svg>
-          </span>
-          Google reCAPTCHA v3
-        </button>
-      </h2>
-      <p>
-        Add your reCAPTCHA site and secret keys to protect your form from spam.
-      </p>
-      <a
-        class="components-external-link"
-        href="https://g.co/recaptcha/v3"
-        rel="external noreferrer noopener"
-        target="_blank"
-      >
-        Generate keys
-        <span
-          class="components-visually-hidden"
-        >
-          (opens in a new tab)
-        </span>
-        <svg
-          aria-hidden="true"
-          class="components-external-link__icon"
-          focusable="false"
-          height="24"
-          role="img"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
-          />
-        </svg>
-      </a>
-      <a
-        class="components-external-link"
-        href="https://developers.google.com/recaptcha/docs/v3"
-        rel="external noreferrer noopener"
-        target="_blank"
-      >
-        Documentation
-        <span
-          class="components-visually-hidden"
-        >
-          (opens in a new tab)
-        </span>
-        <svg
-          aria-hidden="true"
-          class="components-external-link__icon"
-          focusable="false"
-          height="24"
-          role="img"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z"
-          />
-        </svg>
-      </a>
-      <br />
-      <br />
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-66"
-          >
-            Site Key
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-66"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-67"
-          >
-            Client Secret
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-67"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <p>
-        <i
-          class="material-icons tab-add__icon"
-        >
-          warning
-        </i>
-        Google reCAPTCHA will only work and be rendered on the frontend
-      </p>
-      <br />
-      <button
-        class="components-button save-button is-primary"
-        style="margin-right: 20px;"
-        type="button"
-      >
-        Save
-      </button>
-      <button
-        class="components-button clear-button is-primary"
-        type="button"
-      >
-        Clear
-      </button>
-      <br />
-      <br />
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-              />
-            </svg>
-          </span>
-          Field Settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-68"
-          >
-            ID
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-68"
-            type="text"
-            value="test-id"
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-text-control-69"
-          >
-            Label
-          </label>
-          <input
-            class="components-text-control__input"
-            id="inspector-text-control-69"
-            type="text"
-            value="Name"
-          />
-        </div>
-      </div>
-    </div>
-    <div
-      class="mdc-text-field-container mdc-text-field-container--not-required"
-    >
-      <div
         class="test-class mdc-text-field mdc-text-field--custom-full"
       >
         <span
@@ -9589,6 +8726,7 @@ Object {
           data-meta="name"
           id="test-id"
           name="test-id"
+          tabindex="-1"
           type="text"
           value="test name"
         />

@@ -1,3 +1,17 @@
+# Copyright 2020 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 cache:
   directories:
     - $HOME/.composer/cache
@@ -70,7 +84,7 @@ jobs:
     - stage: test
       name: E2E tests with Docker (7.4, WordPress latest, with code coverage)
       php: "7.4"
-      env: NODE_ENV=teste2e
+      env: NODE_ENV=teste2e COVERALLS_REPO_TOKEN=$CR_TOKEN
       before_install:
         - nvm install
         - nvm use
@@ -81,12 +95,13 @@ jobs:
       script:
         - npm run env:start
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
-        - npm run wp -- wp plugin activate material-theme-builder
+        - npm run wp -- wp plugin activate material-design
         - npm run build:js
         - npm run test:e2e:coveralls
 
     - name: JS unit tests (7.4, WordPress latest, with code coverage)
       php: "7.4"
+      env: COVERALLS_REPO_TOKEN=$CR_TOKEN
       before_script:
         - echo "Running JS unit tests with code coverage ..."
       script:
@@ -128,14 +143,3 @@ jobs:
     - name: PHP unit tests (5.6, WordPress trunk)
       php: "5.6"
       env: WP_VERSION=trunk DEV_LIB_ONLY=phpunit
-
-    - stage: deploy to staging
-      if: (NOT type IN (pull_request))
-      script: skip
-      deploy:
-        skip_cleanup: true
-        # deploy builds in develop to the pantheon dev environment
-        provider: script
-        script: bash bin/deploy.sh
-        on:
-          branch: develop

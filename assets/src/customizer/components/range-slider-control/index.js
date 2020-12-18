@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * External dependencies
  */
 import classNames from 'classnames';
@@ -86,7 +102,7 @@ const RangeSliderControl = props => {
 					{ enableDescriptionToggling && (
 						<i
 							className="material-icons range-slider-control-title__item info-icon"
-							title={ __( 'More info', 'material-theme-builder' ) }
+							title={ __( 'More info', 'material-design' ) }
 						>
 							info
 						</i>
@@ -115,7 +131,7 @@ const RangeSliderControl = props => {
 						<Button
 							isLink
 							onClick={ onResetLinked }
-							label={ __( 'Link to global', 'material-theme-builder' ) }
+							label={ __( 'Link to global', 'material-design' ) }
 							showTooltip={ true }
 						>
 							<span className="material-icons">link</span>
@@ -128,10 +144,7 @@ const RangeSliderControl = props => {
 						<Button
 							isLink
 							onClick={ handleExpandedSettings }
-							label={ __(
-								'View individual components',
-								'material-theme-builder'
-							) }
+							label={ __( 'View individual components', 'material-design' ) }
 							showTooltip={ true }
 							icon="admin-settings"
 							isPressed={ expandedSettings }

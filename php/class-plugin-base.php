@@ -1,16 +1,34 @@
 <?php
 /**
- * Class Plugin_Base
+ * Copyright 2020 Google LLC
  *
- * @package MaterialThemeBuilder
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
  */
-
-namespace MaterialThemeBuilder;
 
 /**
  * Class Plugin_Base
  *
- * @package MaterialThemeBuilder
+ * @package MaterialDesign
+ */
+
+namespace MaterialDesign\Plugin;
+
+/**
+ * Class Plugin_Base
+ *
+ * @package MaterialDesign
  */
 abstract class Plugin_Base {
 
@@ -136,7 +154,7 @@ abstract class Plugin_Base {
 			$class_path .= \trailingslashit( $this->autoload_class_dir );
 
 			$sub_path = str_replace( $namespace . '\\', '', $matches['namespace'] );
-			if ( ! empty( $sub_path ) && 'MaterialThemeBuilder' !== $sub_path ) {
+			if ( ! empty( $sub_path ) && 'MaterialDesign\Plugin' !== $sub_path ) {
 				$class_path .= str_replace( '\\-', '/', strtolower( preg_replace( '/(?<!^)([A-Z])/', '-\\1', $sub_path ) ) . '/' );
 			}
 		}
@@ -261,7 +279,7 @@ abstract class Plugin_Base {
 		$args = [
 			'Version' => 'Version',
 		];
-		$meta = get_file_data( $this->dir_path . '/material-theme-builder.php', $args );
+		$meta = get_file_data( $this->dir_path . '/material-design.php', $args );
 
 		return isset( $meta['Version'] ) ? $meta['Version'] : time();
 	}

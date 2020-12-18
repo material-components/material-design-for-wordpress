@@ -1,16 +1,34 @@
 <?php
 /**
- * Contact Form Block class.
+ * Copyright 2020 Google LLC
  *
- * @package MaterialThemeBuilder
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Blocks;
+/**
+ * Contact Form Block class.
+ *
+ * @package MaterialDesign
+ */
 
-use MaterialThemeBuilder\Plugin;
-use MaterialThemeBuilder\Module_Base;
-use MaterialThemeBuilder\Template;
-use MaterialThemeBuilder\Helpers;
+namespace MaterialDesign\Plugin\Blocks;
+
+use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Module_Base;
+use MaterialDesign\Plugin\Template;
+use MaterialDesign\Plugin\Helpers;
 
 /**
  * Contact_Form_Block class.
@@ -27,11 +45,18 @@ class Contact_Form_Block extends Module_Base {
 	public $block_name = 'material/contact-form';
 
 	/**
+	 * Initiate the class and hooks.
+	 */
+	public function init() {
+		add_action( 'wp_ajax_material_design_submit_contact_form', [ $this, 'priv_submit_contact_form' ] );
+		add_action( 'wp_ajax_nopriv_material_design_submit_contact_form', [ $this, 'nopriv_submit_contact_form' ] );
+		add_action( 'wp_ajax_material_design_manage_recaptcha_api_credentials', [ $this, 'manage_recaptcha_api_credentials' ] );
+	}
+
+	/**
 	 * Submit contact form for authenticated user.
 	 *
 	 * @access public
-	 *
-	 * @action wp_ajax_mtb_submit_contact_form
 	 */
 	public function priv_submit_contact_form() {
 		$this->submit_contact_form();
@@ -41,8 +66,6 @@ class Contact_Form_Block extends Module_Base {
 	 * Submit contact form for unauthenticated user.
 	 *
 	 * @access public
-	 *
-	 * @action wp_ajax_nopriv_mtb_submit_contact_form
 	 */
 	public function nopriv_submit_contact_form() {
 		$this->submit_contact_form();
@@ -69,7 +92,7 @@ class Contact_Form_Block extends Module_Base {
 			return sprintf(
 				'<div class="%s">%s</div>',
 				esc_attr( $class ),
-				__( 'The contact form cannot be displayed because the sender email is incorrect.', 'material-theme-builder' )
+				__( 'The contact form cannot be displayed because the sender email is incorrect.', 'material-design' )
 			);
 		}
 
@@ -77,7 +100,7 @@ class Contact_Form_Block extends Module_Base {
 			return sprintf(
 				'<div class="%s">%s</div>',
 				esc_attr( $class ),
-				__( 'The contact form cannot be displayed because the email subject is not provided.', 'material-theme-builder' )
+				__( 'The contact form cannot be displayed because the email subject is not provided.', 'material-design' )
 			);
 		}
 
@@ -85,7 +108,7 @@ class Contact_Form_Block extends Module_Base {
 			return sprintf(
 				'<div class="%s">%s</div>',
 				esc_attr( $class ),
-				__( 'You cannot have multiple contact form instances in one page.', 'material-theme-builder' )
+				__( 'You cannot have multiple contact form instances in one page.', 'material-design' )
 			);
 		}
 
@@ -126,7 +149,7 @@ class Contact_Form_Block extends Module_Base {
 			'subject'  => isset( $block_attributes['subject'] )
 				? sanitize_text_field( $block_attributes['subject'] )
 				/* translators: %s: blog name */
-				: sprintf( __( 'This e-mail was sent from a contact form on %s', 'material-theme-builder' ), get_option( 'blogname' ) ),
+				: sprintf( __( 'This e-mail was sent from a contact form on %s', 'material-design' ), get_option( 'blogname' ) ),
 		];
 	}
 
@@ -134,9 +157,9 @@ class Contact_Form_Block extends Module_Base {
 	 * Submit contact form.
 	 */
 	private function submit_contact_form() {
-		if ( ! check_ajax_referer( 'contact_form_action', 'mtb_contact_form_nonce', false ) ) {
+		if ( ! check_ajax_referer( 'contact_form_action', 'material_design_contact_form_nonce', false ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Invalid nonce.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Invalid nonce.', 'material-design' ) ]
 			);
 		}
 
@@ -146,7 +169,7 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( empty( $wp_http_referer ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Missing http referer.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Missing http referer.', 'material-design' ) ]
 			);
 		}
 
@@ -154,7 +177,7 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( empty( $block_attributes['email_to'] ) || empty( $block_attributes['subject'] ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Missing email address for sending or subject.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Missing email address for sending or subject.', 'material-design' ) ]
 			);
 		}
 
@@ -162,7 +185,7 @@ class Contact_Form_Block extends Module_Base {
 		$verified        = $this->verify_recaptcha( $recaptcha_token );
 		if ( ! $verified ) {
 			wp_send_json_error(
-				[ 'message' => __( 'The submission could not be verified.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'The submission could not be verified.', 'material-design' ) ]
 			);
 		}
 
@@ -173,7 +196,7 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( ! $contact_fields ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Invalid submission data.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Invalid submission data.', 'material-design' ) ]
 			);
 		}
 
@@ -194,7 +217,7 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( ! $is_contact_fields_valid ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Invalid submission data.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Invalid submission data.', 'material-design' ) ]
 			);
 		}
 
@@ -202,7 +225,7 @@ class Contact_Form_Block extends Module_Base {
 		Template::get_template(
 			'contact-form-email.php',
 			[
-				'pre_message' => __( 'The following data has been submitted:', 'material-theme-builder' ),
+				'pre_message' => __( 'The following data has been submitted:', 'material-design' ),
 				'fields'      => $sanitized_contact_fields,
 			]
 		);
@@ -215,7 +238,7 @@ class Contact_Form_Block extends Module_Base {
 			wp_send_json_success();
 		} else {
 			wp_send_json_error(
-				[ 'message' => __( 'An unknown error occurred.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'An unknown error occurred.', 'material-design' ) ]
 			);
 		}
 	}
@@ -224,20 +247,18 @@ class Contact_Form_Block extends Module_Base {
 	 * Manage the reCAPTCHA API credentials.
 	 *
 	 * @access public
-	 *
-	 * @action wp_ajax_mtb_manage_recaptcha_api_credentials
 	 */
 	public function manage_recaptcha_api_credentials() {
 		$nonce = isset( $_POST['nonce'] ) ? filter_var( $_POST['nonce'], FILTER_SANITIZE_STRING ) : '';
-		if ( ! wp_verify_nonce( $nonce, 'mtb_recaptcha_ajax_nonce' ) ) {
+		if ( ! wp_verify_nonce( $nonce, 'material_design_recaptcha_ajax_nonce' ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Invalid nonce.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Invalid nonce.', 'material-design' ) ]
 			);
 		}
 
 		if ( ! Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
 			wp_send_json_error(
-				[ 'message' => __( 'You are not authorized.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'You are not authorized.', 'material-design' ) ]
 			);
 		}
 
@@ -255,20 +276,20 @@ class Contact_Form_Block extends Module_Base {
 
 		if ( ! isset( $data['action'] ) || empty( $data['action'] ) ) {
 			wp_send_json_error(
-				[ 'message' => __( 'Missing or invalid action.', 'material-theme-builder' ) ]
+				[ 'message' => __( 'Missing or invalid action.', 'material-design' ) ]
 			);
 		}
 
 		if ( 'save' === $data['action'] ) {
 			if ( ! isset( $data['site_key'] ) || empty( $data['site_key'] ) ) {
 				wp_send_json_error(
-					[ 'message' => __( 'Missing site key for saving.', 'material-theme-builder' ) ]
+					[ 'message' => __( 'Missing site key for saving.', 'material-design' ) ]
 				);
 			}
 
 			if ( ! isset( $data['client_secret'] ) || empty( $data['client_secret'] ) ) {
 				wp_send_json_error(
-					[ 'message' => __( 'Missing client secret for saving.', 'material-theme-builder' ) ]
+					[ 'message' => __( 'Missing client secret for saving.', 'material-design' ) ]
 				);
 			}
 		}
@@ -276,33 +297,33 @@ class Contact_Form_Block extends Module_Base {
 		if ( 'get' === $data['action'] ) {
 			wp_send_json_success(
 				[
-					'mtb_recaptcha_site_key'      => trim( esc_attr( get_option( 'mtb_recaptcha_site_key', '' ) ) ),
-					'mtb_recaptcha_client_secret' => trim( esc_attr( get_option( 'mtb_recaptcha_client_secret', '' ) ) ),
+					'material_design_recaptcha_site_key' => trim( esc_attr( get_option( 'material_design_recaptcha_site_key', '' ) ) ),
+					'material_design_recaptcha_client_secret' => trim( esc_attr( get_option( 'material_design_recaptcha_client_secret', '' ) ) ),
 				]
 			);
 		}
 
 		if ( 'save' === $data['action'] ) {
-			$mtb_recaptcha_site_key_result      = update_option( 'mtb_recaptcha_site_key', $data['site_key'] );
-			$mtb_recaptcha_client_secret_result = update_option( 'mtb_recaptcha_client_secret', $data['client_secret'] );
+			$material_design_recaptcha_site_key_result      = update_option( 'material_design_recaptcha_site_key', $data['site_key'] );
+			$material_design_recaptcha_client_secret_result = update_option( 'material_design_recaptcha_client_secret', $data['client_secret'] );
 
-			if ( $mtb_recaptcha_site_key_result && $mtb_recaptcha_client_secret_result ) {
+			if ( $material_design_recaptcha_site_key_result && $material_design_recaptcha_client_secret_result ) {
 				wp_send_json_success();
 			}
 		}
 
 		if ( 'clear' === $data['action'] ) {
-			$mtb_recaptcha_site_key_result      = true;
-			$mtb_recaptcha_client_secret_result = true;
-			if ( get_option( 'mtb_recaptcha_site_key', false ) ) {
-				$mtb_recaptcha_site_key_result = delete_option( 'mtb_recaptcha_site_key' );
+			$material_design_recaptcha_site_key_result      = true;
+			$material_design_recaptcha_client_secret_result = true;
+			if ( get_option( 'material_design_recaptcha_site_key', false ) ) {
+				$material_design_recaptcha_site_key_result = delete_option( 'material_design_recaptcha_site_key' );
 			}
 
-			if ( get_option( 'mtb_recaptcha_client_secret', false ) ) {
-				$mtb_recaptcha_client_secret_result = delete_option( 'mtb_recaptcha_client_secret' );
+			if ( get_option( 'material_design_recaptcha_client_secret', false ) ) {
+				$material_design_recaptcha_client_secret_result = delete_option( 'material_design_recaptcha_client_secret' );
 			}
 
-			if ( $mtb_recaptcha_site_key_result && $mtb_recaptcha_client_secret_result ) {
+			if ( $material_design_recaptcha_site_key_result && $material_design_recaptcha_client_secret_result ) {
 				wp_send_json_success();
 			}
 		}
@@ -322,15 +343,15 @@ class Contact_Form_Block extends Module_Base {
 			return false;
 		}
 
-		$mtb_recaptcha_site_key      = get_option( 'mtb_recaptcha_site_key', '' );
-		$mtb_recaptcha_client_secret = get_option( 'mtb_recaptcha_client_secret', '' );
+		$material_design_recaptcha_site_key      = get_option( 'material_design_recaptcha_site_key', '' );
+		$material_design_recaptcha_client_secret = get_option( 'material_design_recaptcha_client_secret', '' );
 
 		// if both empty then it means that reCAPTCHA is not used.
-		if ( empty( $mtb_recaptcha_site_key ) && empty( $mtb_recaptcha_client_secret ) ) {
+		if ( empty( $material_design_recaptcha_site_key ) && empty( $material_design_recaptcha_client_secret ) ) {
 			return true;
 		}
 
-		if ( empty( $mtb_recaptcha_site_key ) || empty( $mtb_recaptcha_client_secret ) ) {
+		if ( empty( $material_design_recaptcha_site_key ) || empty( $material_design_recaptcha_client_secret ) ) {
 			return false;
 		}
 
@@ -339,7 +360,7 @@ class Contact_Form_Block extends Module_Base {
 			[
 				'timeout' => 2,
 				'body'    => [
-					'secret'   => $mtb_recaptcha_client_secret,
+					'secret'   => $material_design_recaptcha_client_secret,
 					'response' => $recaptcha_token,
 				],
 			]

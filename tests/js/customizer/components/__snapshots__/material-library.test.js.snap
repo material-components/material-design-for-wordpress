@@ -155,13 +155,13 @@ Object {
                     style="padding: 16px;"
                   >
                     <h2
-                      class="mdc-typography mdc-typography--headline6 mtb-card__title"
+                      class="mdc-typography mdc-typography--headline6 material-design-card__title"
                       style="margin: 0px 0px 5px 0px;"
                     >
                       Our Changing Planet
                     </h2>
                     <h3
-                      class="mdc-typography mtb-card__secondary-text"
+                      class="mdc-typography material-design-card__secondary-text"
                       style="font-size: 0.875rem; font-weight: 500; line-height: 1.375rem; margin: 0px;"
                     >
                       by John Smith
@@ -575,7 +575,7 @@ Object {
                     aria-hidden="true"
                     class="material-icons-two-tone mdc-list-item__graphic"
                   >
-                    favorite
+                    spa
                   </i>
                   <span
                     class="mdc-list-item__text"
@@ -883,10 +883,10 @@ Object {
             Components
           </h3>
           <p>
-            Styled components available when WordPress Material Theme is activated.
+            Styled components available when the Material Design theme is activated.
           </p>
           <p>
-            Enable Material Theme for more components.
+            Enable Material Design theme for more components.
           </p>
           <hr />
           <div>
@@ -907,7 +907,7 @@ Object {
               </button>
             </form>
             <p>
-              Selection controls allow the user to select options. It is unavailable as a block in WordPress.
+              Checkboxes allow the user to select one or more items from a set.
             </p>
             <div
               class="mdc-checkbox"
@@ -1041,7 +1041,7 @@ Object {
               </button>
             </form>
             <p>
-              Chips are compact elements that represent an input, attribute, or action. It is unavailable as a block in WordPress.
+              Chips are compact elements that represent an input, attribute, or action.
             </p>
             <div
               class="mdc-chip-set"
@@ -1116,7 +1116,7 @@ Object {
               </button>
             </form>
             <p>
-              Radio buttons allow the user to select one option from a set. It is unavailable as a block in WordPress.
+              Radio buttons allow the user to select one option from a set.
             </p>
             <div
               class="mdc-radio"
@@ -1183,7 +1183,7 @@ Object {
               </button>
             </form>
             <p>
-              Text fields let users enter and edit text. It is unavailable as a block in WordPress.
+              Text fields let users enter and edit text.
             </p>
             <div
               style="display: flex;"
@@ -1273,7 +1273,7 @@ Object {
               </button>
             </form>
             <p>
-              Switches toggle the state of a single setting on or off. It is unavailable as a block in WordPress.
+              Switches toggle the state of a single item on or off.
             </p>
             <div
               class="mdc-switch"
@@ -1453,13 +1453,13 @@ Object {
                   style="padding: 16px;"
                 >
                   <h2
-                    class="mdc-typography mdc-typography--headline6 mtb-card__title"
+                    class="mdc-typography mdc-typography--headline6 material-design-card__title"
                     style="margin: 0px 0px 5px 0px;"
                   >
                     Our Changing Planet
                   </h2>
                   <h3
-                    class="mdc-typography mtb-card__secondary-text"
+                    class="mdc-typography material-design-card__secondary-text"
                     style="font-size: 0.875rem; font-weight: 500; line-height: 1.375rem; margin: 0px;"
                   >
                     by John Smith
@@ -1873,7 +1873,7 @@ Object {
                   aria-hidden="true"
                   class="material-icons-two-tone mdc-list-item__graphic"
                 >
-                  favorite
+                  spa
                 </i>
                 <span
                   class="mdc-list-item__text"
@@ -2181,10 +2181,10 @@ Object {
           Components
         </h3>
         <p>
-          Styled components available when WordPress Material Theme is activated.
+          Styled components available when the Material Design theme is activated.
         </p>
         <p>
-          Enable Material Theme for more components.
+          Enable Material Design theme for more components.
         </p>
         <hr />
         <div>
@@ -2205,7 +2205,7 @@ Object {
             </button>
           </form>
           <p>
-            Selection controls allow the user to select options. It is unavailable as a block in WordPress.
+            Checkboxes allow the user to select one or more items from a set.
           </p>
           <div
             class="mdc-checkbox"
@@ -2339,7 +2339,7 @@ Object {
             </button>
           </form>
           <p>
-            Chips are compact elements that represent an input, attribute, or action. It is unavailable as a block in WordPress.
+            Chips are compact elements that represent an input, attribute, or action.
           </p>
           <div
             class="mdc-chip-set"
@@ -2414,7 +2414,7 @@ Object {
             </button>
           </form>
           <p>
-            Radio buttons allow the user to select one option from a set. It is unavailable as a block in WordPress.
+            Radio buttons allow the user to select one option from a set.
           </p>
           <div
             class="mdc-radio"
@@ -2481,7 +2481,7 @@ Object {
             </button>
           </form>
           <p>
-            Text fields let users enter and edit text. It is unavailable as a block in WordPress.
+            Text fields let users enter and edit text.
           </p>
           <div
             style="display: flex;"
@@ -2571,7 +2571,7 @@ Object {
             </button>
           </form>
           <p>
-            Switches toggle the state of a single setting on or off. It is unavailable as a block in WordPress.
+            Switches toggle the state of a single item on or off.
           </p>
           <div
             class="mdc-switch"

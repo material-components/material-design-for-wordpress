@@ -1,3 +1,19 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /*
  * Put Customize Controls CSS here.
  */
@@ -76,15 +92,15 @@
 
 	&.wp-picker-active {
 
-		& .mtb-tabs {
+		& .material-design-tabs {
 			display: flex;
 		}
 
-		& .mtb-tab-content.active {
+		& .material-design-tab-content.active {
 			display: block;
 		}
 
-		& .mtb-accessibility {
+		& .material-design-accessibility {
 			display: block;
 		}
 	}
@@ -94,12 +110,12 @@
 	}
 }
 
-.mtb-tabs {
+.material-design-tabs {
 	display: none;
 	margin: 15px 0;
 }
 
-.mtb-tab-link {
+.material-design-tab-link {
 	display: inline-block;
 	width: 50%;
 	text-align: center;
@@ -121,11 +137,11 @@
 	}
 }
 
-.mtb-tab-content {
+.material-design-tab-content {
 	display: none;
 }
 
-.mtb-accessibility {
+.material-design-accessibility {
 	display: none;
 	margin: 10px 0;
 

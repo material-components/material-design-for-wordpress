@@ -1,11 +1,29 @@
 <?php
 /**
- * Tests for Admin class.
+ * Copyright 2020 Google LLC
  *
- * @package MaterialThemeBuilder
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+/**
+ * Tests for Admin class.
+ *
+ * @package MaterialDesign
+ */
+
+namespace MaterialDesign\Plugin;
 
 use WP_UnitTest_Factory;
 
@@ -44,10 +62,9 @@ class Test_Admin extends \WP_UnitTestCase {
 	 * @see Admin::init()
 	 */
 	public function test_construct() {
+		$this->assertEquals( 10, has_action( 'admin_init', [ $this->plugin->admin, 'redirects' ] ) );
 		$this->assertEquals( 10, has_action( 'admin_menu', [ $this->plugin->admin, 'add_pages' ] ) );
-
 		$this->assertEquals( 10, has_action( 'admin_enqueue_scripts', [ $this->plugin->admin, 'enqueue_assets' ] ) );
-
 		$this->assertEquals( 10, has_action( 'switch_theme', [ $this->plugin->admin, 'switch_theme_material' ] ) );
 		$this->assertEquals( 10, has_action( 'admin_notices', [ $this->plugin->admin, 'theme_not_installed_notice' ] ) );
 		$this->assertEquals( 9, has_action( 'admin_notices', [ $this->plugin->admin, 'plugin_activated_notice' ] ) );
@@ -193,10 +210,14 @@ class Test_Admin extends \WP_UnitTestCase {
 		$mock = $this->getMockBuilder( Plugin::class )
 			->setMethods(
 				[
+					'is_debug',
 					'theme_installed',
 				]
 			)
 			->getMock();
+
+		$mock->method( 'is_debug' )
+			->willReturn( false );
 
 		$mock->method( 'theme_installed' )
 			->will(
@@ -228,12 +249,24 @@ class Test_Admin extends \WP_UnitTestCase {
 	 */
 	public function test_plugin_activated_notice() {
 		add_filter( 'template', [ $this, 'template' ] );
+		$mock = $this->getMockBuilder( Plugin::class )
+			->setMethods(
+				[
+					'is_debug',
+				]
+			)
+			->getMock();
+
+		$mock->method( 'is_debug' )
+			->willReturn( false );
+
+		$admin = new Admin( $mock );
 
 		set_current_screen( 'options-general-php' );
-		update_option( 'mtb_plugin_activated', true, false );
+		update_option( 'material_plugin_activated', true, false );
 
 		ob_start();
-		$this->admin->plugin_activated_notice();
+		$admin->plugin_activated_notice();
 		$output = ob_get_clean();
 
 		$this->assertContains( '<div class="notice notice-info is-dismissible material-notice-container">', $output );
@@ -245,6 +278,6 @@ class Test_Admin extends \WP_UnitTestCase {
 	 * @return string
 	 */
 	public function template() {
-		return 'material-theme';
+		return 'material-design-google';
 	}
 }

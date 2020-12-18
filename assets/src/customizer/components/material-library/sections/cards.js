@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
@@ -12,13 +28,13 @@ import IconButtonLink from '../common/icon-button-link';
 const Cards = ( { radius, buttonRadius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
-			{ __( 'Cards', 'material-theme-builder' ) }
+			{ __( 'Cards', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/cards"></IconButtonLink>
 		<p>
 			{ __(
 				'Cards contain content and actions about a single subject.',
-				'material-theme-builder'
+				'material-design'
 			) }
 		</p>
 		<div style={ { display: 'flex' } }>
@@ -41,13 +57,13 @@ const Cards = ( { radius, buttonRadius } ) => (
 					></div>
 					<div style={ { padding: '16px' } }>
 						<h2
-							className="mdc-typography mdc-typography--headline6 mtb-card__title"
+							className="mdc-typography mdc-typography--headline6 material-design-card__title"
 							style={ { margin: 0, marginBottom: '5px' } }
 						>
-							{ __( 'Our Changing Planet', 'material-theme-builder' ) }
+							{ __( 'Our Changing Planet', 'material-design' ) }
 						</h2>
 						<h3
-							className="mdc-typography mtb-card__secondary-text"
+							className="mdc-typography material-design-card__secondary-text"
 							style={ {
 								fontSize: '0.875rem',
 								fontWeight: 500,
@@ -55,7 +71,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 								margin: 0,
 							} }
 						>
-							{ __( 'by John Smith', 'material-theme-builder' ) }
+							{ __( 'by John Smith', 'material-design' ) }
 						</h3>
 					</div>
 					<div
@@ -64,7 +80,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 					>
 						{ __(
 							'Visit ten places on our planet that are undergoing the biggest changes today.',
-							'material-theme-builder'
+							'material-design'
 						) }
 					</div>
 				</div>
@@ -78,7 +94,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 								className="mdc-button__ripple"
 								style={ { borderRadius: `${ buttonRadius }px` } }
 							></span>
-							{ __( 'Read', 'material-theme-builder' ) }
+							{ __( 'Read', 'material-design' ) }
 						</button>
 						<button
 							className="mdc-button mdc-card__action mdc-card__action--button"
@@ -88,7 +104,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 								className="mdc-button__ripple"
 								style={ { borderRadius: `${ buttonRadius }px` } }
 							></span>
-							{ __( 'Bookmark', 'material-theme-builder' ) }
+							{ __( 'Bookmark', 'material-design' ) }
 						</button>
 					</div>
 				</div>

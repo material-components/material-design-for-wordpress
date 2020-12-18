@@ -1,3 +1,19 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* global jQuery */
 
 /**
@@ -46,7 +62,7 @@ import getConfig from '../block-editor/utils/get-config';
 
 ( ( $, api ) => {
 	// Allow backbone templates access to the `sanitizeControlId` function.
-	window.mtbSanitizeControlId = sanitizeControlId;
+	window.materialDesignSanitizeControlId = sanitizeControlId;
 
 	/**
 	 * Extend wp.customize.Section as a collapsible section
@@ -190,6 +206,8 @@ import getConfig from '../block-editor/utils/get-config';
 
 			api.ColorControl.prototype.ready.call( control );
 
+			control.colorContainer = control.container.find( '.wp-picker-container' );
+
 			const picker = control.container.find( '.wp-picker-holder' );
 			const container = control.container.find( '.wp-picker-container' );
 
@@ -200,7 +218,7 @@ import getConfig from '../block-editor/utils/get-config';
 			container.find( '.tab-custom' ).append( picker );
 
 			// Add the tab links click event to show/hide tab content.
-			container.find( '.mtb-tab-link' ).on( 'click', event => {
+			container.find( '.material-design-tab-link' ).on( 'click', event => {
 				event.preventDefault();
 
 				const link = $( event.target );
@@ -214,9 +232,6 @@ import getConfig from '../block-editor/utils/get-config';
 				container.find( `#${ targetId }` ).addClass( 'active' );
 				link.addClass( 'active' );
 			} );
-
-			// Render the material palette component with accessibility warnings.
-			control.renderPaletteWithAccessibilityWarnings();
 
 			control.setting.bind( value => {
 				// Re-render the material palette component and accessibility warnings if the color is updated.
@@ -267,12 +282,14 @@ import getConfig from '../block-editor/utils/get-config';
 
 			// Activate the first tab.
 			container
-				.find( '.mtb-tab-link' )
+				.find( '.material-design-tab-link' )
 				.first()
 				.trigger( 'click' );
 
 			container
 				.find( '.wp-picker-default' )
+				.val( __( 'Reset', 'material-design' ) )
+				.attr( 'aria-label', __( 'Reset to default color', 'material-design' ) )
 				.off( 'click' )
 				.on( 'click', event => {
 					if ( 'custom' !== api( getConfig( 'styleControl' ) ).get() ) {
@@ -365,11 +382,11 @@ import getConfig from '../block-editor/utils/get-config';
 				},
 				{
 					color: colorRange.range.light.hex,
-					name: __( 'Light variation', 'material-theme-builder' ),
+					name: __( 'Light variation', 'material-design' ),
 				},
 				{
 					color: colorRange.range.dark.hex,
-					name: __( 'Dark variation', 'material-theme-builder' ),
+					name: __( 'Dark variation', 'material-design' ),
 				},
 			];
 
@@ -390,7 +407,7 @@ import getConfig from '../block-editor/utils/get-config';
 			} );
 
 			control.container
-				.find( '.mtb-accessibility' )
+				.find( '.material-design-accessibility' )
 				.html( control.accessibilityTemplate( { colors } ) );
 		},
 
@@ -400,6 +417,11 @@ import getConfig from '../block-editor/utils/get-config';
 		 * @param {string|boolean} selectedColor Hex code of the selected color.
 		 */
 		renderPaletteWithAccessibilityWarnings( selectedColor = false ) {
+			// Bail out if the color picker is not active.
+			if ( ! this.colorContainer.hasClass( 'wp-picker-active' ) ) {
+				return;
+			}
+
 			// Render the material palette component.
 			this.renderMaterialPalette( selectedColor );
 
@@ -443,8 +465,9 @@ import getConfig from '../block-editor/utils/get-config';
 	 * Handle reset for global range slider control.
 	 *
 	 * @param {Object} control Control
+	 * @param {boolean} setDefault Should the default value be set for the global control ?
 	 */
-	const onResetGlobalRangeSliderControl = control => {
+	const onResetGlobalRangeSliderControl = ( control, setDefault = false ) => {
 		let style = api( getConfig( 'styleControl' ) ).get();
 		if ( 'custom' === style ) {
 			style = api( getConfig( 'prevStyleControl' ) ).get();
@@ -453,7 +476,10 @@ import getConfig from '../block-editor/utils/get-config';
 		if ( style && getConfig( 'designStyles' ).hasOwnProperty( style ) ) {
 			const defaults = getConfig( 'designStyles' )[ style ];
 			let settingId = removeOptionPrefix( control.id );
-			setSettingDefault( control.id, defaults[ settingId ] );
+
+			if ( setDefault ) {
+				setSettingDefault( control.id, defaults[ settingId ] );
+			}
 
 			if ( control.params.children ) {
 				control.params.children.forEach( slider => {
@@ -463,7 +489,7 @@ import getConfig from '../block-editor/utils/get-config';
 			}
 
 			unmountComponentAtNode(
-				control.container.find( '.mtb-range_slider' ).get( 0 )
+				control.container.find( '.material-design-range_slider' ).get( 0 )
 			);
 			renderRangeSliderControl( control );
 			reRenderMaterialLibrary();
@@ -503,7 +529,7 @@ import getConfig from '../block-editor/utils/get-config';
 		};
 
 		const onReset = () => {
-			onResetGlobalRangeSliderControl( control );
+			onResetGlobalRangeSliderControl( control, true );
 		};
 
 		render(
@@ -519,7 +545,7 @@ import getConfig from '../block-editor/utils/get-config';
 				} }
 				onResetToDefault={ onReset }
 			/>,
-			control.container.find( '.mtb-range_slider' ).get( 0 )
+			control.container.find( '.material-design-range_slider' ).get( 0 )
 		);
 	};
 

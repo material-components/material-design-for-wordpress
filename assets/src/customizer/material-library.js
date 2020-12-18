@@ -1,3 +1,19 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 /* global jQuery, mdc */
 
 /**
@@ -29,8 +45,8 @@ const $ = jQuery;
 const api = wp.customize;
 
 // Material Blocks button
-const BUTTON_OPEN_TEXT = __( 'Material Blocks', 'material-theme-builder' );
-const BUTTON_CLOSE_TEXT = __( 'Exit Blocks', 'material-theme-builder' );
+const BUTTON_OPEN_TEXT = __( 'Material Blocks', 'material-design' );
+const BUTTON_CLOSE_TEXT = __( 'Exit Blocks', 'material-design' );
 
 /**
  * Renders the material library with all the settings.
@@ -64,16 +80,16 @@ const getSettings = () => {
 		theme: api.settings?.theme?.stylesheet,
 	};
 
-	const mtbControls = getConfig( 'controls' );
+	const materialDesignControls = getConfig( 'controls' );
 	if (
-		! mtbControls ||
-		! mtbControls.length ||
-		! Array.isArray( mtbControls )
+		! materialDesignControls ||
+		! materialDesignControls.length ||
+		! Array.isArray( materialDesignControls )
 	) {
 		return controlProps;
 	}
 
-	mtbControls
+	materialDesignControls
 		.concat( THEME_COLOR_CONTROLS )
 		.concat( radiusControls )
 		.forEach( name => {

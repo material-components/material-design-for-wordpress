@@ -1,4 +1,20 @@
-/* global grecaptcha, jQuery */
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* global grecaptcha, XMLHttpRequest, FormData */
 
 /**
  * External dependencies
@@ -18,8 +34,9 @@ import getConfig from '../block-editor/utils/get-config';
 const handleAjaxFormSubmissionError = form => {
 	form.reset();
 	form.style.display = 'none';
-	document.getElementById( 'mtbContactFormErrorMsgContainer' ).style.display =
-		'block';
+	document.getElementById(
+		'materialDesignContactFormErrorMsgContainer'
+	).style.display = 'block';
 	initReCaptchaToken();
 };
 
@@ -27,7 +44,7 @@ const handleAjaxFormSubmissionError = form => {
  * Initialize contact form.
  */
 export const initContactForm = () => {
-	const form = document.getElementById( 'mtbContactForm' );
+	const form = document.getElementById( 'materialDesignContactForm' );
 	if ( ! form ) {
 		return false;
 	}
@@ -42,8 +59,11 @@ export const initContactForm = () => {
 		event.preventDefault();
 
 		const contactFields = {};
-		const ajaxData = {};
-		ajaxData.token = form.querySelector( '[name=mtb_token]' ).value;
+		const formData = new FormData();
+		formData.append(
+			'token',
+			form.querySelector( '[name=material_design_token]' ).value
+		);
 
 		for ( const field of form.querySelectorAll( 'input, textarea' ) ) {
 			const name = field.name;
@@ -57,36 +77,35 @@ export const initContactForm = () => {
 					value,
 				};
 			} else {
-				ajaxData[ name ] = value;
+				formData.append( name, value );
 			}
 		}
+		formData.append( 'contact_fields', JSON.stringify( contactFields ) );
 
-		ajaxData.contact_fields = JSON.stringify( contactFields );
+		const xhr = new XMLHttpRequest();
+		xhr.open( 'POST', getConfig( 'ajax_url' ) );
+		xhr.send( formData );
 
-		const jxhr = jQuery.ajax( {
-			url: getConfig( 'ajax_url' ),
-			dataType: 'json',
-			type: 'POST',
-			data: ajaxData,
-		} );
-
-		jxhr.done( data => {
-			if ( data.success === true ) {
-				form.reset();
-				form.style.display = 'none';
-				document.getElementById(
-					'mtbContactFormSuccessMsgContainer'
-				).style.display = 'block';
-				initReCaptchaToken();
-			} else {
-				handleAjaxFormSubmissionError( form );
+		xhr.onreadystatechange = () => {
+			if ( xhr.readyState === XMLHttpRequest.DONE ) {
+				const status = xhr.status;
+				if ( status === 0 || ( status >= 200 && status < 400 ) ) {
+					const data = JSON.parse( xhr.responseText );
+					if ( data.success === true ) {
+						form.reset();
+						form.style.display = 'none';
+						document.getElementById(
+							'materialDesignContactFormSuccessMsgContainer'
+						).style.display = 'block';
+						initReCaptchaToken();
+					} else {
+						handleAjaxFormSubmissionError( form );
+					}
+				} else {
+					handleAjaxFormSubmissionError( form );
+				}
 			}
-		} );
-
-		jxhr.fail( () => {
-			handleAjaxFormSubmissionError( form );
-		} );
-
+		};
 		return false;
 	} );
 
@@ -107,13 +126,13 @@ export const initContactForm = () => {
  * Initialize reCAPTCHA token.
  */
 export const initReCaptchaToken = () => {
-	const form = document.getElementById( 'mtbContactForm' );
+	const form = document.getElementById( 'materialDesignContactForm' );
 
 	if ( ! form ) {
 		return;
 	}
 
-	const tokenField = form.querySelector( '[name=mtb_token]' );
+	const tokenField = form.querySelector( '[name=material_design_token]' );
 
 	if (
 		typeof grecaptcha !== 'undefined' &&

@@ -1,14 +1,32 @@
 <?php
 /**
- * Bootstraps custom blocks.
+ * Copyright 2020 Google LLC
  *
- * @package MaterialThemeBuilder
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder;
+/**
+ * Bootstraps custom blocks.
+ *
+ * @package MaterialDesign
+ */
 
-use MaterialThemeBuilder\Blocks\Posts_List_Block;
-use MaterialThemeBuilder\Blocks\Contact_Form_Block;
+namespace MaterialDesign\Plugin;
+
+use MaterialDesign\Plugin\Blocks\Posts_List_Block;
+use MaterialDesign\Plugin\Blocks\Contact_Form_Block;
 
 /**
  * Block type class.
@@ -103,7 +121,7 @@ class Block_Types {
 			 *
 			 * @param array $metadata Array of arguments for registering a block type.
 			 */
-			$args = apply_filters( 'material_theme_builder_block_type_args', $metadata );
+			$args = apply_filters( 'material_design_block_type_args', $metadata );
 
 			register_block_type( $metadata['name'], $args );
 		}
@@ -157,10 +175,10 @@ class Block_Types {
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
 			$wp_localized_script_data['allow_contact_form_block']    = true;
-			$wp_localized_script_data['recaptcha_ajax_nonce_action'] = wp_create_nonce( 'mtb_recaptcha_ajax_nonce' );
+			$wp_localized_script_data['recaptcha_ajax_nonce_action'] = wp_create_nonce( 'material_design_recaptcha_ajax_nonce' );
 		}
 
-		wp_localize_script( 'material-block-editor-js', 'mtb', $wp_localized_script_data );
+		wp_localize_script( 'material-block-editor-js', 'materialDesign', $wp_localized_script_data );
 
 		wp_add_inline_style( 'material-block-editor-css', $this->plugin->customizer_controls->get_frontend_css() );
 
@@ -183,7 +201,7 @@ class Block_Types {
 	public function block_category( $categories ) {
 		$categories[] = [
 			'slug'  => 'material',
-			'title' => __( 'Material Blocks', 'material-theme-builder' ),
+			'title' => __( 'Material Blocks', 'material-design' ),
 		];
 
 		return $categories;
@@ -201,7 +219,7 @@ class Block_Types {
 		// Set corner radius defaults for blocks.
 		foreach ( $controls->get_corner_styles_controls() as $control ) {
 			$value = $controls->get_option( $control['id'] );
-			if ( ! empty( $value ) && ! empty( $control['blocks'] ) && is_array( $control['blocks'] ) ) {
+			if ( ! empty( $control['blocks'] ) && is_array( $control['blocks'] ) ) {
 				foreach ( $control['blocks'] as $block ) {
 					$defaults[ $block ] = array_key_exists( $block, $defaults ) ? $defaults[ $block ] : [];
 

@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { visitAdminPage } from '@wordpress/e2e-test-utils';
@@ -21,14 +37,12 @@ describe( 'Customize controls', () => {
 		it( 'should add custom material theme settings panel', async () => {
 			// Check if panel is added
 			expect(
-				await page.$( '#accordion-panel-material_theme_builder' )
+				await page.$( '#accordion-panel-material_design' )
 			).not.toBeNull();
 		} );
 
 		it( 'should display custom material theme sections', async () => {
-			const title = await page.$(
-				'#accordion-panel-material_theme_builder h3'
-			);
+			const title = await page.$( '#accordion-panel-material_design h3' );
 			await page.evaluate( btn => {
 				btn.click();
 			}, title );
@@ -37,13 +51,13 @@ describe( 'Customize controls', () => {
 
 			// Assert style section is displayed.
 			expect(
-				await isVisible( '#accordion-section-material_theme_builder_style' )
+				await isVisible( '#accordion-section-material_design_style' )
 			).toBeTruthy();
 		} );
 
 		it( 'should expand collapsible section', async () => {
 			const title = await page.$(
-				'#accordion-section-material_theme_builder_style h3'
+				'#accordion-section-material_design_style h3'
 			);
 			await page.evaluate( btn => {
 				btn.click();
@@ -53,13 +67,13 @@ describe( 'Customize controls', () => {
 
 			// Assert style section is displayed.
 			expect(
-				await isVisible( '#sub-accordion-section-material_theme_builder_style' )
+				await isVisible( '#sub-accordion-section-material_design_style' )
 			).toBeTruthy();
 		} );
 
 		it( 'should collapse collapsible section', async () => {
 			const title = await page.$(
-				'#accordion-section-material_theme_builder_style h3'
+				'#accordion-section-material_design_style h3'
 			);
 			await page.evaluate( btn => {
 				btn.click();
@@ -69,18 +83,18 @@ describe( 'Customize controls', () => {
 
 			// Assert style section is displayed.
 			expect(
-				await isVisible( '#sub-accordion-section-material_theme_builder_style' )
+				await isVisible( '#sub-accordion-section-material_design_style' )
 			).toBeFalsy();
 		} );
 	} );
 
 	describe( 'Design Style section', () => {
 		it( 'should update primary color if a style is selected', async () => {
-			const crane = await page.$( '#material_theme_builder-style-crane' );
+			const crane = await page.$( '#material_design-style-crane' );
 			await page.evaluate( radio => radio.click(), crane );
 
 			const primaryColor = await page.$(
-				'#customize-control-material_theme_builder-primary_color .color-picker-hex'
+				'#customize-control-material_design-primary_color .color-picker-hex'
 			);
 
 			// Assert primary color is updated.
@@ -88,9 +102,7 @@ describe( 'Customize controls', () => {
 				await page.evaluate( input => input.value, primaryColor )
 			).toEqual( '#5d1049' );
 
-			const fortnightly = await page.$(
-				'#material_theme_builder-style-fortnightly'
-			);
+			const fortnightly = await page.$( '#material_design-style-fortnightly' );
 			await page.evaluate( radio => radio.click(), fortnightly );
 
 			// Assert primary color is updated.
@@ -101,7 +113,7 @@ describe( 'Customize controls', () => {
 
 		it( 'should update design style to custom if any value is updated', async () => {
 			const primaryColor = await page.$(
-				'#customize-control-material_theme_builder-primary_color .color-picker-hex'
+				'#customize-control-material_design-primary_color .color-picker-hex'
 			);
 			await page.evaluate( input => {
 				input.value = '#000000';
@@ -109,7 +121,7 @@ describe( 'Customize controls', () => {
 			}, primaryColor );
 
 			const selectedOption = await page.$(
-				'[name="_customize-radio-material_theme_builder-style"]:checked'
+				'[name="_customize-radio-material_design-style"]:checked'
 			);
 
 			// Assert style is updated to custom.
@@ -122,7 +134,7 @@ describe( 'Customize controls', () => {
 	describe( 'Color Palettes section', () => {
 		beforeAll( async () => {
 			const title = await page.$(
-				'#accordion-section-material_theme_builder_colors h3'
+				'#accordion-section-material_design_colors h3'
 			);
 			await page.evaluate( btn => {
 				btn.click();
@@ -134,24 +146,24 @@ describe( 'Customize controls', () => {
 		it( 'should always display color input field', async () => {
 			expect(
 				await isVisible(
-					'#customize-control-material_theme_builder-primary_color .color-picker-hex'
+					'#customize-control-material_design-primary_color .color-picker-hex'
 				)
 			).toBeTruthy();
 		} );
 
 		it( 'should show two tabs on "Select Color" button click', async () => {
 			const picker = await page.$(
-				'#customize-control-material_theme_builder-primary_color .wp-color-result'
+				'#customize-control-material_design-primary_color .wp-color-result'
 			);
 			await page.evaluate( btn => {
 				btn.click();
 			}, picker );
 
 			const tabOne = await page.$(
-				'#mtb-palette-material_theme_builder-primary_color'
+				'#material-design-palette-material_design-primary_color'
 			);
 			const tabTwo = await page.$(
-				'#mtb-custom-material_theme_builder-primary_color'
+				'#material-design-custom-material_design-primary_color'
 			);
 
 			expect( tabOne ).not.toBeNull();
@@ -160,7 +172,7 @@ describe( 'Customize controls', () => {
 
 		it( 'should render all material colors', async () => {
 			const colors = await page.$$(
-				'#mtb-palette-material_theme_builder-primary_color .components-circular-option-picker__option-wrapper'
+				'#material-design-palette-material_design-primary_color .components-circular-option-picker__option-wrapper'
 			);
 
 			expect( colors.length ).toEqual( 254 );
@@ -168,14 +180,14 @@ describe( 'Customize controls', () => {
 
 		it( 'should select a color on click', async () => {
 			const firstColor = await page.$(
-				'#mtb-palette-material_theme_builder-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
+				'#material-design-palette-material_design-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
 			);
 			await page.evaluate( btn => {
 				btn.click();
 			}, firstColor );
 
 			const primaryColor = await page.$(
-				'#customize-control-material_theme_builder-primary_color .color-picker-hex'
+				'#customize-control-material_design-primary_color .color-picker-hex'
 			);
 
 			// Assert primary color is updated.

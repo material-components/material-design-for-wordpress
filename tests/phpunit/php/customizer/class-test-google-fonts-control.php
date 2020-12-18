@@ -1,11 +1,29 @@
 <?php
 /**
- * Tests for Google_Fonts_Control class.
+ * Copyright 2020 Google LLC
  *
- * @package MaterialThemeBuilder
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-namespace MaterialThemeBuilder\Customizer;
+/**
+ * Tests for Google_Fonts_Control class.
+ *
+ * @package MaterialDesign
+ */
+
+namespace MaterialDesign\Plugin\Customizer;
 
 /**
  * Tests for Google_Fonts_Control class.
@@ -21,7 +39,7 @@ class Test_Google_Fonts_Control extends \WP_UnitTestCase {
 		require_once ABSPATH . WPINC . '/class-wp-customize-manager.php';
 		require_once ABSPATH . WPINC . '/class-wp-customize-control.php';
 	}
-	
+
 	/**
 	 * Test render.
 	 *
@@ -113,16 +131,16 @@ class Test_Google_Fonts_Control extends \WP_UnitTestCase {
 	public function test_to_json() {
 		$wp_customize = new \WP_Customize_Manager();
 
-		$wp_customize->add_setting( 'mtb_primary_color' );
-		$wp_customize->add_setting( 'mtb_on_primary_color' );
+		$wp_customize->add_setting( 'material_design_primary_color' );
+		$wp_customize->add_setting( 'material_design_on_primary_color' );
 
 		$primary_control = new Google_Fonts_Control(
 			$wp_customize,
-			'mtb_primary_color',
+			'material_design_primary_color',
 			[
 				'label'                => 'Headlines',
 				'priority'             => 10,
-				'related_text_setting' => 'mtb_head_font_family',
+				'related_text_setting' => 'material_design_head_font_family',
 				'related_setting'      => false,
 				'css_vars'             => [
 					'family' => [

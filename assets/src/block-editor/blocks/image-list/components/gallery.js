@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * External dependencies
  */
 import classNames from 'classnames';
@@ -180,13 +196,13 @@ const Gallery = ( {
 								<>
 									<div className="move-image">
 										<button
-											title={ __( 'Move left', 'material-theme-builder' ) }
+											title={ __( 'Move left', 'material-design' ) }
 											onClick={ () => onMove( image.id, 'left' ) }
 										>
 											<i className="material-icons">arrow_left</i>
 										</button>
 										<button
-											title={ __( 'Move right', 'material-theme-builder' ) }
+											title={ __( 'Move right', 'material-design' ) }
 											onClick={ () => onMove( image.id, 'right' ) }
 										>
 											<i className="material-icons">arrow_right</i>
@@ -195,7 +211,7 @@ const Gallery = ( {
 
 									<div className="remove-image">
 										<button
-											title={ __( 'Remove image', 'material-theme-builder' ) }
+											title={ __( 'Remove image', 'material-design' ) }
 											onClick={ () => onRemove( image.id ) }
 										>
 											<i className="material-icons">close</i>
