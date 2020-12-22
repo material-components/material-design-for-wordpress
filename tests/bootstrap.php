@@ -71,7 +71,7 @@ if ( empty( $_plugin_files ) ) {
 	trigger_error( 'Unable to locate any files containing a plugin metadata block.', E_USER_ERROR ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
 }
 
-unset( $_plugins, $_plugin_candidate, $_plugin_file_candidate, $_plugin_file_src );
+unset( $_plugins, $_plugin_candidate, $_plugin_file_candidate, $_plugin_file_src ); // phpcs:ignore
 
 /**
  * Loads the plugins for testing.
