@@ -73,9 +73,11 @@ const TextAreaInputEdit = props => {
 
 	const setter = genericAttributesSetter( setAttributes );
 
-	if ( ! id || id.length === 0 ) {
-		setAttributes( { id: `material-design-${ inputRole }-${ instanceId }` } );
-	}
+	useEffect( () => {
+		if ( ! id || id.length === 0 ) {
+			setAttributes( { id: `material-design-${ inputRole }-${ instanceId }` } );
+		} // eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ id ] );
 
 	const textareaInputProps = {
 		inputValue,
@@ -187,11 +189,9 @@ const TextAreaInputEdit = props => {
 export default compose( [
 	withInstanceId,
 	withSelect( ( select, ownProps ) => {
-		const parents = select( 'core/block-editor' ).getBlockParents(
+		const parentId = select( 'core/block-editor' ).getBlockRootClientId(
 			ownProps.clientId
 		);
-
-		const parentId = parents[ parents.length - 1 ];
 
 		return {
 			parentBlock: parentId
