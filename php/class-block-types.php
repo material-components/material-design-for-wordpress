@@ -132,15 +132,14 @@ class Block_Types {
 	 */
 	public function enqueue_block_editor_assets() {
 		// Register block editor assets.
-		$asset_file   = $this->plugin->dir_path . '/assets/js/block-editor.asset.php';
-		$asset        = is_readable( $asset_file ) ? require $asset_file : [];
-		$version      = isset( $asset['version'] ) ? $asset['version'] : $this->plugin->asset_version();
-		$dependencies = isset( $asset['dependencies'] ) ? $asset['dependencies'] : [];
+		$asset_file = $this->plugin->dir_path . '/assets/js/block-editor.asset.php';
+		$asset      = is_readable( $asset_file ) ? require $asset_file : [];
+		$version    = isset( $asset['version'] ) ? $asset['version'] : $this->plugin->asset_version();
 
 		wp_register_script(
 			'material-block-editor-js',
 			$this->plugin->asset_url( 'assets/js/block-editor.js' ),
-			$dependencies,
+			[ 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-data', 'wp-dom-ready', 'wp-hooks', 'wp-i18n', 'wp-viewport' ], // Manually set dependencies to ensure WP back-compat.
 			$version,
 			false
 		);
