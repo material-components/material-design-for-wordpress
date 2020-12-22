@@ -17,13 +17,14 @@
 /**
  * WordPress dependencies
  */
-import { useEffect, useRef, useState } from '@wordpress/element';
-import {
-	__experimentalRichText as RichText,
-	create,
-	insert,
-} from '@wordpress/rich-text';
+import { findDOMNode, useEffect, useRef, useState } from '@wordpress/element';
+import { create, insert } from '@wordpress/rich-text';
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
+import { RichText } from '../../../components/polyfills';
 
 /**
  * Material list item edit component.
@@ -85,13 +86,22 @@ const ListItem = ( {
 		const selection = window.getSelection(),
 			range = document.createRange();
 
+		let target = element.childNodes ? element.childNodes[ 0 ] : element;
+
+		if ( ! ( target instanceof window.Node ) ) {
+			/*
+			 * For back-compat. Older versions of `rich-text` do not use `forwardRef`
+			 * that results in the ref incorrectly set to the React component
+			 */
+			target = findDOMNode( target ); // eslint-disable-line react/no-find-dom-node
+		}
+
 		try {
-			range.setStart(
-				element.childNodes[ 0 ] || element,
-				rangeStartRef.current
-			);
+			range.setStart( target, rangeStartRef.current );
 		} catch ( e ) {
-			range.setStart( element.childNodes[ 0 ] || element, 0 );
+			if ( target instanceof window.Node ) {
+				range.setStart( target, 0 );
+			}
 		}
 
 		range.collapse( true );
@@ -218,6 +228,8 @@ const ListItem = ( {
 
 	const isPrimarySelected = isSelected && ! isSecondarySelected;
 
+	const onSelectionChange = start => ( rangeStartRef.current = start );
+
 	// Noop function.
 	const noop = () => {};
 
@@ -240,7 +252,7 @@ const ListItem = ( {
 						unstableOnFocus={ () => onFocus( index ) }
 						className="rich-text block-editor-rich-text__editable"
 						__unstableIsSelected={ isPrimarySelected }
-						onSelectionChange={ noop }
+						onSelectionChange={ onSelectionChange }
 						selectionStart={ rangeStartRef.current }
 						selectionEnd={ rangeStartRef.current }
 					/>
@@ -262,7 +274,7 @@ const ListItem = ( {
 							className="rich-text block-editor-rich-text__editable"
 							placeholder={ __( 'Secondary text…', 'material-design' ) }
 							__unstableIsSelected={ isSecondarySelected }
-							onSelectionChange={ noop }
+							onSelectionChange={ onSelectionChange }
 							selectionStart={ rangeStartRef.current }
 							selectionEnd={ rangeStartRef.current }
 						/>
