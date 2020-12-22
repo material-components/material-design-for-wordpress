@@ -55,9 +55,7 @@ const ListItem = ( {
 	const secondaryRef = useRef();
 	const rangeStartRef = useRef( 0 );
 
-	const [ editedText, setEditedText ] = useStateCallback(
-		isSecondarySelected ? secondaryText : primaryText
-	);
+	const [ editedText, setEditedText ] = useStateCallback( '' );
 
 	// Focus element based on selected status.
 	useEffect( () => {
@@ -68,11 +66,21 @@ const ListItem = ( {
 		rangeStartRef.current = selectionStart;
 
 		if ( isSecondarySelected ) {
-			setEditedText( secondaryText, () =>
-				focusElement( secondaryRef.current )
-			);
+			// If text is empty focus immediately.
+			if ( ! secondaryText ) {
+				focusElement( secondaryRef.current );
+			} else {
+				setEditedText( secondaryText, () =>
+					focusElement( secondaryRef.current )
+				);
+			}
 		} else if ( isSelected ) {
-			setEditedText( primaryText, () => focusElement( primaryRef.current ) );
+			// If text is empty focus immediately.
+			if ( ! primaryText ) {
+				focusElement( primaryRef.current );
+			} else {
+				setEditedText( primaryText, () => focusElement( primaryRef.current ) );
+			}
 		}
 	}, [ isSecondaryEnabled, isSelected, isSecondarySelected, selectionStart ] ); // eslint-disable-line
 
