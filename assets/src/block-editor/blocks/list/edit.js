@@ -177,13 +177,20 @@ const ListEdit = ( {
 	const onSplit = ( index, text ) => addItem( index + 1, text );
 
 	/**
-	 * Handle focus of al ist item.
+	 * Handle focus of a list item.
 	 *
-	 * @param {number} index Index of the item.
+	 * @param {number}  index Index of the item.
 	 * @param {boolean} isSecondary Detemine if the secondary text beng focused.
+	 * @param {number}  start Start range of the cursor.
 	 */
-	const onFocus = ( index, isSecondary = false ) =>
-		setSelected( { ...selected, index, isSecondary } );
+	const onFocus = ( index, isSecondary = false, start = false ) => {
+		const newProps = { ...selected, index, isSecondary };
+		if ( false !== start ) {
+			newProps.start = start;
+		}
+
+		setSelected( newProps );
+	};
 
 	/**
 	 * Handle icon change for a list item.
