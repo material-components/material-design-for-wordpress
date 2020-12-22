@@ -66,21 +66,15 @@ const ListItem = ( {
 		rangeStartRef.current = selectionStart;
 
 		if ( isSecondarySelected ) {
-			// If text is empty focus immediately.
-			if ( ! secondaryText ) {
-				focusElement( secondaryRef.current );
-			} else {
-				setEditedText( secondaryText, () =>
-					focusElement( secondaryRef.current )
-				);
-			}
+			focusElement( secondaryRef.current );
+
+			setEditedText( secondaryText, () =>
+				focusElement( secondaryRef.current )
+			);
 		} else if ( isSelected ) {
-			// If text is empty focus immediately.
-			if ( ! primaryText ) {
-				focusElement( primaryRef.current );
-			} else {
-				setEditedText( primaryText, () => focusElement( primaryRef.current ) );
-			}
+			focusElement( primaryRef.current );
+
+			setEditedText( primaryText, () => focusElement( primaryRef.current ) );
 		}
 	}, [ isSecondaryEnabled, isSelected, isSecondarySelected, selectionStart ] ); // eslint-disable-line
 
@@ -150,11 +144,13 @@ const ListItem = ( {
 		const splitValues = getSplitValues( event );
 
 		if ( isSecondaryEnabled ) {
+			const secondText = `${ splitValues.after }${ secondaryText }`;
 			setItem( index, {
 				primaryText: splitValues.before,
-				secondaryText: `${ splitValues.after }${ secondaryText }`,
+				secondaryText: secondText,
 			} );
-			onFocus( index, isSecondaryEnabled );
+			setEditedText( secondText );
+			onFocus( index, isSecondaryEnabled, 0 );
 			return;
 		}
 
@@ -193,12 +189,11 @@ const ListItem = ( {
 	 */
 	const onSecondaryDelete = event => {
 		if ( event.value && 0 === event.value.start ) {
-			rangeStartRef.current = primaryText.length;
 			setItem( index, {
 				primaryText: `${ primaryText }${ event.value.text }`,
 				secondaryText: '',
 			} );
-			onFocus( index );
+			onFocus( index, false, primaryText.length );
 		}
 	};
 
@@ -269,11 +264,7 @@ const ListItem = ( {
 				<span className="mdc-list-item__primary-text">
 					<RichText
 						ref={ primaryRef }
-						value={
-							isPrimarySelected && ! preview
-								? editedText || primaryText
-								: primaryText
-						}
+						value={ isPrimarySelected && ! preview ? editedText : primaryText }
 						onChange={ onPrimaryTextChange }
 						__unstableOnCreateUndoLevel={ noop }
 						onDelete={ onPrimaryDelete }
