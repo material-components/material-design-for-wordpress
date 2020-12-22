@@ -381,9 +381,19 @@
 	}
 }
 
-.mdc-icon-button::before,
-.mdc-icon-button::after {
-	background-color: var(--mdc-theme-on-surface, #000);
+.mdc-icon-button {
+	color: var(--mdc-theme-primary, #6200ee);
+
+	&:hover,
+	&:focus,
+	&:visited {
+		color: var(--mdc-theme-primary, #6200ee);
+	}
+
+	&:before,
+	&:after {
+		background-color: var(--mdc-theme-on-surface, #000);
+	}
 }
 
 .mdc-switch:not(.mdc-switch--checked)

@@ -47,7 +47,7 @@
     "icon": {
       "type": "string",
       "default": "",
-      "source": "html",
+      "source": "text",
       "selector": ".material-icons"
      },
     "backgroundColor": {
@@ -57,7 +57,10 @@
       "type": "string"
     },
     "tooltip": {
-      "type": "string"
+      "type": "string",
+      "default": "",
+      "source": "text",
+      "selector": ".mdc-tooltip"
     },
     "id": {
 		  "type": "string",
