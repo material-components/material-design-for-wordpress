@@ -41,7 +41,7 @@ export const settings = {
 		'Image lists display a collection of images in an organized grid.',
 		'material-design'
 	),
-	icon: <i className="material-icons-outlined">filter</i>,
+	icon: () => <i className="material-icons-outlined">filter</i>,
 	edit,
 	save,
 	example,
