@@ -22,12 +22,12 @@ import { Toolbar } from '@wordpress/components';
 
 const DIRECTIONS = [
 	{
-		icon: <i className="material-icons">keyboard_arrow_left</i>,
+		icon: () => <i className="material-icons">keyboard_arrow_left</i>,
 		title: __( 'Move left', 'material-design' ),
 		direction: 'left',
 	},
 	{
-		icon: <i className="material-icons">keyboard_arrow_right</i>,
+		icon: () => <i className="material-icons">keyboard_arrow_right</i>,
 		title: __( 'Move right', 'material-design' ),
 		direction: 'right',
 	},
