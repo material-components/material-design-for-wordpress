@@ -341,7 +341,6 @@ Object {
                 aria-label="Button"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable"
-                contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -370,7 +369,6 @@ Object {
               aria-label="Button"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -480,7 +478,6 @@ Object {
                 aria-label="Button"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable"
-                contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -498,7 +495,6 @@ Object {
                 aria-label="Button"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable"
-                contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -527,7 +523,6 @@ Object {
               aria-label="Button"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -545,7 +540,6 @@ Object {
               aria-label="Button"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >

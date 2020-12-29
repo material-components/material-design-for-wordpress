@@ -36,15 +36,6 @@ jest.mock( '@material/textfield', () => {
 	};
 } );
 
-// Mock the <InspectorControls> component only, so that the other components in this package behave as usual.
-jest.mock( '@wordpress/block-editor', () => {
-	const original = require.requireActual( '@wordpress/block-editor' );
-	return {
-		...original,
-		InspectorControls: ( { children } ) => children,
-	};
-} );
-
 registerStore( 'core/block-editor', {
 	reducer: jest.fn(),
 	selectors: {
@@ -66,6 +57,43 @@ registerStore( 'core/block-editor', {
 		},
 	},
 } );
+
+jest.unmock( '@wordpress/data' );
+jest.mock( '@wordpress/data', () => ( {
+	combineReducers: jest.fn(),
+	registerStore: jest.fn(),
+	select: store => {
+		switch ( store ) {
+			case 'core/block-editor':
+				return {
+					getBlocks: () => [],
+				};
+
+			default:
+				return {};
+		}
+	},
+	withSelect: mapSelectToProps => WrappedComponent => ownProps => {
+		const parentBlock = {
+			attributes: {
+				emailTo: 'recipient@test.loc',
+				subject: 'Test contact form',
+				confirmationMessage: 'The form was submitted',
+				outlined: true,
+				fullWidth: true,
+			},
+			className: 'test-class',
+			setAttributes: jest.fn(),
+		};
+		return (
+			<WrappedComponent
+				{ ...ownProps }
+				{ ...mapSelectToProps }
+				parentBlock={ parentBlock }
+			/>
+		);
+	},
+} ) );
 
 /**
  * Render the component.
