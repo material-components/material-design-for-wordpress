@@ -30,6 +30,36 @@ Object {
     />
     <div>
       <div
+        class="components-toolbar"
+      >
+        <div
+          class="components-dropdown components-dropdown-menu"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="Edit table"
+            class="components-button components-dropdown-menu__toggle has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="dashicon dashicons-editor-table"
+              focusable="false"
+              height="20"
+              role="img"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
         class="components-panel__body blocks-table-settings is-opened"
       >
         <h2
@@ -172,7 +202,6 @@ Object {
                     aria-label="Header label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -186,7 +215,6 @@ Object {
                     aria-label="Header label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -200,7 +228,6 @@ Object {
                     aria-label="Header label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -222,7 +249,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -236,7 +262,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -250,7 +275,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -268,7 +292,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -282,7 +305,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -296,7 +318,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -314,7 +335,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -328,7 +348,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -342,7 +361,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -364,7 +382,6 @@ Object {
                     aria-label="Footer label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -378,7 +395,6 @@ Object {
                     aria-label="Footer label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -392,7 +408,6 @@ Object {
                     aria-label="Footer label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -410,7 +425,6 @@ Object {
             aria-label="Write caption…"
             aria-multiline="true"
             class="rich-text block-editor-rich-text__editable"
-            contenteditable="true"
             role="textbox"
             style="white-space: pre-wrap;"
           >
@@ -421,6 +435,36 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="components-toolbar"
+    >
+      <div
+        class="components-dropdown components-dropdown-menu"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Edit table"
+          class="components-button components-dropdown-menu__toggle has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="dashicon dashicons-editor-table"
+            focusable="false"
+            height="20"
+            role="img"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
     <div
       class="components-panel__body blocks-table-settings is-opened"
     >
@@ -564,7 +608,6 @@ Object {
                   aria-label="Header label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -578,7 +621,6 @@ Object {
                   aria-label="Header label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -592,7 +634,6 @@ Object {
                   aria-label="Header label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -614,7 +655,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -628,7 +668,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -642,7 +681,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -660,7 +698,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -674,7 +711,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -688,7 +724,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -706,7 +741,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -720,7 +754,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -734,7 +767,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -756,7 +788,6 @@ Object {
                   aria-label="Footer label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -770,7 +801,6 @@ Object {
                   aria-label="Footer label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -784,7 +814,6 @@ Object {
                   aria-label="Footer label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -802,7 +831,6 @@ Object {
           aria-label="Write caption…"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
         >
@@ -894,6 +922,36 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
+      <div
+        class="components-toolbar"
+      >
+        <div
+          class="components-dropdown components-dropdown-menu"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="Edit table"
+            class="components-button components-dropdown-menu__toggle has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="dashicon dashicons-editor-table"
+              focusable="false"
+              height="20"
+              role="img"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
       <div
         class="components-panel__body blocks-table-settings is-opened"
       >
@@ -1037,7 +1095,6 @@ Object {
                     aria-label="Header label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1051,7 +1108,6 @@ Object {
                     aria-label="Header label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1065,7 +1121,6 @@ Object {
                     aria-label="Header label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1087,7 +1142,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1101,7 +1155,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1115,7 +1168,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1133,7 +1185,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1147,7 +1198,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1161,7 +1211,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1179,7 +1228,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1193,7 +1241,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1207,7 +1254,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1229,7 +1275,6 @@ Object {
                     aria-label="Footer label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1243,7 +1288,6 @@ Object {
                     aria-label="Footer label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1257,7 +1301,6 @@ Object {
                     aria-label="Footer label"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1275,22 +1318,44 @@ Object {
             aria-label="Write caption…"
             aria-multiline="true"
             class="rich-text block-editor-rich-text__editable"
-            contenteditable="true"
             role="textbox"
             style="white-space: pre-wrap;"
-          >
-            
-            ﻿
-            <span
-              contenteditable="false"
-              data-rich-text-placeholder="Write caption…"
-            />
-          </figcaption>
+          />
         </div>
       </figure>
     </div>
   </body>,
   "container": <div>
+    <div
+      class="components-toolbar"
+    >
+      <div
+        class="components-dropdown components-dropdown-menu"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Edit table"
+          class="components-button components-dropdown-menu__toggle has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="dashicon dashicons-editor-table"
+            focusable="false"
+            height="20"
+            role="img"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
     <div
       class="components-panel__body blocks-table-settings is-opened"
     >
@@ -1434,7 +1499,6 @@ Object {
                   aria-label="Header label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1448,7 +1512,6 @@ Object {
                   aria-label="Header label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1462,7 +1525,6 @@ Object {
                   aria-label="Header label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1484,7 +1546,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1498,7 +1559,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1512,7 +1572,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1530,7 +1589,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1544,7 +1602,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1558,7 +1615,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1576,7 +1632,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1590,7 +1645,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1604,7 +1658,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1626,7 +1679,6 @@ Object {
                   aria-label="Footer label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1640,7 +1692,6 @@ Object {
                   aria-label="Footer label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1654,7 +1705,6 @@ Object {
                   aria-label="Footer label"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -1672,17 +1722,9 @@ Object {
           aria-label="Write caption…"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
-        >
-          
-          ﻿
-          <span
-            contenteditable="false"
-            data-rich-text-placeholder="Write caption…"
-          />
-        </figcaption>
+        />
       </div>
     </figure>
   </div>,
@@ -2023,6 +2065,36 @@ Object {
     />
     <div>
       <div
+        class="components-toolbar"
+      >
+        <div
+          class="components-dropdown components-dropdown-menu"
+        >
+          <button
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="Edit table"
+            class="components-button components-dropdown-menu__toggle has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="dashicon dashicons-editor-table"
+              focusable="false"
+              height="20"
+              role="img"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
         class="components-panel__body blocks-table-settings is-opened"
       >
         <h2
@@ -2163,7 +2235,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2177,7 +2248,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2191,7 +2261,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2209,7 +2278,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2223,7 +2291,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2237,7 +2304,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2255,7 +2321,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2269,7 +2334,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2283,7 +2347,6 @@ Object {
                     aria-label=""
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2301,22 +2364,44 @@ Object {
             aria-label="Write caption…"
             aria-multiline="true"
             class="rich-text block-editor-rich-text__editable"
-            contenteditable="true"
             role="textbox"
             style="white-space: pre-wrap;"
-          >
-            
-            ﻿
-            <span
-              contenteditable="false"
-              data-rich-text-placeholder="Write caption…"
-            />
-          </figcaption>
+          />
         </div>
       </figure>
     </div>
   </body>,
   "container": <div>
+    <div
+      class="components-toolbar"
+    >
+      <div
+        class="components-dropdown components-dropdown-menu"
+      >
+        <button
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-label="Edit table"
+          class="components-button components-dropdown-menu__toggle has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="dashicon dashicons-editor-table"
+            focusable="false"
+            height="20"
+            role="img"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
     <div
       class="components-panel__body blocks-table-settings is-opened"
     >
@@ -2458,7 +2543,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2472,7 +2556,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2486,7 +2569,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2504,7 +2586,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2518,7 +2599,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2532,7 +2612,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2550,7 +2629,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2564,7 +2642,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2578,7 +2655,6 @@ Object {
                   aria-label=""
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable wp-block-table__cell-content"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2596,17 +2672,9 @@ Object {
           aria-label="Write caption…"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
-        >
-          
-          ﻿
-          <span
-            contenteditable="false"
-            data-rich-text-placeholder="Write caption…"
-          />
-        </figcaption>
+        />
       </div>
     </figure>
   </div>,
