@@ -429,7 +429,7 @@ Object {
                         />
                       </svg>
                       <div
-                        class="components-base-control block-editor-url-input material-design-url-input-control__input"
+                        class="components-base-control block-editor-url-input"
                       >
                         <div
                           class="components-base-control__field"
@@ -438,10 +438,9 @@ Object {
                             aria-autocomplete="list"
                             aria-expanded="false"
                             aria-label="URL"
-                            aria-owns="block-editor-url-input-suggestions-0"
+                            aria-owns="block-editor-url-input-suggestions-1"
                             class="block-editor-url-input__input"
                             placeholder="Paste URL or type to search"
-                            required=""
                             role="combobox"
                             type="text"
                             value="http://test.loc"
@@ -534,7 +533,7 @@ Object {
                       />
                     </svg>
                     <div
-                      class="components-base-control block-editor-url-input material-design-url-input-control__input"
+                      class="components-base-control block-editor-url-input"
                     >
                       <div
                         class="components-base-control__field"
@@ -543,10 +542,9 @@ Object {
                           aria-autocomplete="list"
                           aria-expanded="false"
                           aria-label="URL"
-                          aria-owns="block-editor-url-input-suggestions-0"
+                          aria-owns="block-editor-url-input-suggestions-1"
                           class="block-editor-url-input__input"
                           placeholder="Paste URL or type to search"
-                          required=""
                           role="combobox"
                           type="text"
                           value="http://test.loc"
