@@ -90,6 +90,7 @@ jobs:
         - nvm use
         - unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
       before_script:
+        - sudo chown -R travis:travis /home/travis/ # ensure coverage folder can be created
         - sudo service mysql stop
         - echo "Running E2E tests with code coverage ..."
       script:
