@@ -17,7 +17,7 @@
 /**
  * WordPress dependencies
  */
-import { createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
+import { createNewPost } from '@wordpress/e2e-test-utils';
 
 /**
  * Internal dependencies
@@ -28,12 +28,11 @@ import { insertBlockByKeyword } from '../../../../utils/insert-block';
 describe( 'blocks: material/data-table core/table style', () => {
 	it( 'should be inserted', async () => {
 		await createNewPost( {} );
-		await insertBlock( 'Table' );
-
-		const createButton = await page.$$(
-			'form .blocks-table__placeholder-button[type="submit"]'
+		await insertBlockByKeyword( 'Table' );
+		const createButton = await page.$(
+			'[data-type="core/table"] form [type="submit"]'
 		);
-		createButton[ 0 ].click();
+		createButton.click();
 
 		// Check if block was inserted
 		expect( await page.$( '[data-type="core/table"]' ) ).not.toBeNull();
@@ -57,16 +56,9 @@ describe( 'blocks: material/data-table core/table style', () => {
 		expect( styles ).toHaveLength( 3 );
 	} );
 
-	it( 'should select Material table style as default', async () => {
-		await selectBlockByName( 'core/table' );
-
-		const table = await page.$$( '.edit-post-visual-editor .mdc-data-table' );
-		expect( table ).toHaveLength( 1 );
-	} );
-
 	it( 'should update table cell content', async () => {
 		const tableCells = await page.$$(
-			'.edit-post-visual-editor .mdc-data-table .wp-block-table__cell-content'
+			'.edit-post-visual-editor .wp-block-table .wp-block-table__cell-content'
 		);
 		await tableCells[ 0 ].focus();
 		await page.keyboard.type( 'Column 1' );
@@ -74,7 +66,7 @@ describe( 'blocks: material/data-table core/table style', () => {
 		const content = await page.evaluate(
 			() =>
 				document.querySelectorAll(
-					'.edit-post-visual-editor .mdc-data-table .wp-block-table__cell-content'
+					'.edit-post-visual-editor .wp-block-table .wp-block-table__cell-content'
 				)[ 0 ].textContent
 		);
 		expect( content ).toBe( 'Column 1' );
