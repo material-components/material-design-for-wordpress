@@ -27,6 +27,7 @@ namespace MaterialDesign\Plugin\Cli;
 
 use Exception;
 use MaterialDesign\Plugin\Api\Update_Fonts;
+use stdClass;
 
 /**
  * Class Fonts
@@ -87,10 +88,19 @@ class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	/**
 	 * Executes the command
 	 *
-	 * @param array $args           Positional Arguments.
-	 * @param array $assoc_args      Associative Arguments.
+	 * @param array $args Positional Arguments.
+	 * @param array $assoc_args Associative Arguments.
+	 *
+	 * @throws Exception Generic Exception.
 	 */
 	public function run_command( $args, $assoc_args ) {
 		$google_fonts = new Update_Fonts();
+		$data         = $google_fonts->get_fonts();
+
+		if ( ! empty( $data ) ) {
+			\WP_CLI::success( __( 'Fonts have been updated.', 'material-design' ) );
+		} else {
+			\WP_CLI::error( __( 'Fonts were not updated.', 'material-design' ) );
+		}
 	}
 }
