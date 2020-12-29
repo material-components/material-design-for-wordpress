@@ -33,7 +33,7 @@ import {
 } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
 import { useCallback, useEffect, useState } from '@wordpress/element';
-import { useSelect } from '@wordpress/data';
+import { withSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -136,6 +136,7 @@ const ImageListEdit = ( {
 	noticeOperations,
 	onFocus,
 	setAttributes: origSetAttributes,
+	useCaptions,
 } ) => {
 	/**
 	 * When images are set, ensure the ids attribute is set.
@@ -154,18 +155,6 @@ const ImageListEdit = ( {
 			origSetAttributes( attributes );
 		},
 		[ origSetAttributes ]
-	);
-
-	/**
-	 * Get captions from media library using REST API.
-	 */
-	const useCaptions = useSelect(
-		select => {
-			return select( 'core' ).getEntityRecords( 'root', 'media', {
-				include: images.map( image => image.id ),
-			} );
-		},
-		[ images ]
 	);
 
 	const [ selectedImage, setSelectedImage ] = useState( 0 );
@@ -440,4 +429,29 @@ const ImageListEdit = ( {
 	);
 };
 
-export default compose( [ withId, withNotices ] )( ImageListEdit );
+export default compose( [
+	withId,
+	withNotices,
+	withSelect( ( select, { attributes } ) => {
+		let useCaptions = [];
+
+		if (
+			! attributes ||
+			! attributes.images ||
+			! Array.isArray( attributes.images )
+		) {
+			return { useCaptions };
+		}
+
+		/**
+		 * Get captions from media library using REST API.
+		 */
+		useCaptions = select( 'core' ).getEntityRecords( 'root', 'media', {
+			include: attributes.images.map( image => image.id ),
+		} );
+
+		return {
+			useCaptions,
+		};
+	} ),
+] )( ImageListEdit );
