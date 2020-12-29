@@ -1,0 +1,100 @@
+<?php
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @package MaterialDesign
+ */
+
+/**
+ * Class Google Fonts API .
+ *
+ * @package MaterialDesign
+ */
+namespace MaterialDesign\Plugin\Api;
+
+use Exception;
+use function MaterialDesign\Plugin\get_plugin_instance;
+
+/**
+ * Class Update_Fonts
+ *
+ * @package MaterialDesign\Plugin\Api
+ */
+class Update_Fonts extends API_Base {
+
+	/**
+	 * Holds the Google Fonts API key.
+	 *
+	 * @var string|null
+	 */
+	protected $api_key;
+
+	/**
+	 * Update_Fonts constructor.
+	 */
+	public function __construct() {
+		parent::__construct();
+
+		$this->api_key = defined( 'GOOGLE_FONTS_API_KEY' ) && false !== GOOGLE_FONTS_API_KEY ? GOOGLE_FONTS_API_KEY : null;
+		if ( empty( $this->api_key ) ) {
+			_material_design_error( '_material_design_no_apikey_textonly', $this->material_design_no_apikey() );
+		}
+
+		$this->endpoint        = sprintf( 'https://www.googleapis.com/webfonts/v1/webfonts?key=%s&fields=items(category,variants,family)', $this->api_key );
+		$this->local_file_path = get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json';
+	}
+
+	/**
+	 * Retrieves data from Fonts API
+	 *
+	 * @throws Exception Generic exception.
+	 */
+	public function get_http_response() {
+		$response = wp_remote_get( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
+		if ( is_wp_error( $response ) ) {
+			throw new Exception( $response->get_error_message() );
+		}
+
+		$json = wp_remote_retrieve_body( $response );
+		if ( is_wp_error( $json ) ) {
+			throw new Exception( $response->get_error_message() );
+		}
+	}
+
+	/**
+	 * Returns error message
+	 *
+	 * @return string|void
+	 */
+	public function material_design_no_apikey() {
+		return __( 'No Google API Key defined. Please define as add <pre>define( "GOOGLE_FONTS_API_KEY", "your-key" );</pre> to <pre>wp-config.php</pre>', 'material-design' );
+	}
+
+	/**
+	 * Returns error message
+	 *
+	 * @return string
+	 */
+	public function material_design_no_apikey_textonly() {
+		return esc_html( wp_strip_all_tags( $this->material_design_no_apikey() ) );
+	}
+
+	/**
+	 * Displays HTML error message
+	 */
+	public function material_design_no_apikey_error() {
+		printf( '<div class="error"><p>%s</p></div>', wp_kses_post( $this->material_design_no_apikey() ) );
+	}
+}

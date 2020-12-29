@@ -38,7 +38,7 @@
 			</property>
 		</properties>
 	</rule>
-	<rule ref="PHPCompatibilityWP" />
+
 
 	<!-- Disallow long array syntax -->
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>

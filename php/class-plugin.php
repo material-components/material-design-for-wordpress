@@ -25,10 +25,8 @@
 
 namespace MaterialDesign\Plugin;
 
-use MaterialDesign\Plugin\Blocks_Frontend;
+use MaterialDesign\Plugin\Cli\Fonts;
 use MaterialDesign\Plugin\Customizer\Controls;
-use MaterialDesign\Plugin\Importer;
-use MaterialDesign\Plugin\Admin;
 
 /**
  * Main plugin bootstrap file.
@@ -85,7 +83,16 @@ class Plugin extends Plugin_Base {
 	public $admin;
 
 	/**
+	 * Holds the CLI class for updating Fonts
+	 *
+	 * @var Fonts
+	 */
+	public $fonts;
+
+	/**
 	 * Initiate the plugin resources.
+	 *
+	 * @throws \Exception Generic Exception.
 	 */
 	public function init() {
 		$this->config = apply_filters( 'material_design_plugin_config', $this->config, $this );
@@ -107,6 +114,12 @@ class Plugin extends Plugin_Base {
 
 		$this->admin = new Admin( $this );
 		$this->admin->init();
+
+		// Init CLI.
+		if ( defined( 'WP_CLI' ) && false !== WP_CLI ) {
+			$this->fonts = new Fonts();
+			$this->fonts->register();
+		}
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_google_fonts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_front_end_assets' ], 100 );
