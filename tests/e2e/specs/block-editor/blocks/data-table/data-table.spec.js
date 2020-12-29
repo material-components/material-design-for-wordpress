@@ -31,7 +31,7 @@ describe( 'blocks: material/data-table core/table style', () => {
 		await insertBlock( 'Table' );
 
 		const createButton = await page.$$(
-			'[data-type="core/table"] form [type="submit"]'
+			'form .blocks-table__placeholder-button[type="submit"]'
 		);
 		createButton[ 0 ].click();
 
