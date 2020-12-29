@@ -97,6 +97,7 @@ jobs:
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
         - npm run wp -- wp plugin activate material-design
         - npm run build:js
+        - docker-compose exec wordpress bash -c "mkdir -p /var/www/html/wp-content/uploads && chown -R www-data:www-data /var/www/html/wp-content/uploads" # ensure the uploads folder is writable
         - npm run test:e2e:coveralls
 
     - name: JS unit tests (7.4, WordPress latest, with code coverage)
