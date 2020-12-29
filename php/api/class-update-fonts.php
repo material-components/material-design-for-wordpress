@@ -22,9 +22,12 @@
  *
  * @package MaterialDesign
  */
+
 namespace MaterialDesign\Plugin\Api;
 
 use Exception;
+use stdClass;
+use function json_decode;
 use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
@@ -33,6 +36,8 @@ use function MaterialDesign\Plugin\get_plugin_instance;
  * @package MaterialDesign\Plugin\Api
  */
 class Update_Fonts extends API_Base {
+
+	const TRANSIENT = 'google-fonts-json';
 
 	/**
 	 * Holds the Google Fonts API key.
@@ -47,7 +52,8 @@ class Update_Fonts extends API_Base {
 	public function __construct() {
 		parent::__construct();
 
-		$this->api_key = defined( 'GOOGLE_FONTS_API_KEY' ) && false !== GOOGLE_FONTS_API_KEY ? GOOGLE_FONTS_API_KEY : null;
+		$this->api_key =
+			defined( 'GOOGLE_FONTS_API_KEY' ) && false !== GOOGLE_FONTS_API_KEY ? GOOGLE_FONTS_API_KEY : null;
 		if ( empty( $this->api_key ) ) {
 			_material_design_error( '_material_design_no_apikey_textonly', $this->material_design_no_apikey() );
 		}
@@ -57,12 +63,65 @@ class Update_Fonts extends API_Base {
 	}
 
 	/**
+	 * Checks if transient exists. If it does, return the contents of `assets/fonts/google-fonts.json`. If transient doesn't
+	 * exist or is expired, retrieve from Google Fonts API and store as `assets/fonts/google-fonts.json`
+	 *
+	 * @return string
+	 */
+	public function get_fonts() {
+
+		$new = null;
+
+		if ( false === get_transient( self::TRANSIENT ) ) {
+			try {
+				$json = $this->get_http_response();
+				$new  = $this->json_to_file( $json );
+
+				set_transient( self::TRANSIENT, time(), DAY_IN_SECONDS );
+			} catch ( Exception $e ) {
+				return false;
+			}
+		} else {
+			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
+		}
+
+		return $new;
+	}
+
+	/**
+	 * Take Google Fonts JSON and turns it into our local format, then write to local file store
+	 *
+	 * @param string $json A JSON string.
+	 *
+	 * @return stdClass
+	 */
+	public function json_to_file( $json ) {
+		$data = json_decode( $json );
+
+		$fonts = new stdClass();
+		foreach ( $data->items as $font ) {
+			$item             = new stdClass();
+			$item->variants   = $font->variants;
+			$item->categories = $font->categories;
+
+			$fonts->{$font->family} = $item;
+		}
+
+		file_put_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json', wp_json_encode( $fonts ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+
+		return $fonts;
+	}
+
+	/**
 	 * Retrieves data from Fonts API
 	 *
 	 * @throws Exception Generic exception.
+	 *
+	 * @return string|bool
 	 */
 	public function get_http_response() {
-		$response = wp_remote_get( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
+		$response =
+			wp_remote_get( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
 		if ( is_wp_error( $response ) ) {
 			throw new Exception( $response->get_error_message() );
 		}
@@ -71,6 +130,8 @@ class Update_Fonts extends API_Base {
 		if ( is_wp_error( $json ) ) {
 			throw new Exception( $response->get_error_message() );
 		}
+
+		return ! empty( $json ) ? $json : false;
 	}
 
 	/**
