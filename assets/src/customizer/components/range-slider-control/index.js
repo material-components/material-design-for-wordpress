@@ -144,7 +144,6 @@ const RangeSliderControl = props => {
 						<button
 							type="button"
 							onClick={ handleExpandedSettings }
-							isPressed={ expandedSettings }
 							label={ __( 'View individual components', 'material-design' ) }
 							className={ `components-button is-link control-settings-expanded range-slider-control-settings-expanded ${
 								expandedSettings ? 'is-pressed' : ''

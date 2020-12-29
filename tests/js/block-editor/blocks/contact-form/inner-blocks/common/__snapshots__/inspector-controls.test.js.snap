@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`InspectorControls matches snapshot 1`] = `
-<IfBlockEditSelected(InspectorControlsFill)>
+<InspectorControls>
   <ForwardRef(PanelBody)
     initialOpen={true}
     title="Field Settings"
@@ -17,5 +17,5 @@ exports[`InspectorControls matches snapshot 1`] = `
       value="Test Label"
     />
   </ForwardRef(PanelBody)>
-</IfBlockEditSelected(InspectorControlsFill)>
+</InspectorControls>
 `;

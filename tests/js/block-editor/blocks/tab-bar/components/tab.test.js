@@ -33,6 +33,19 @@ jest.mock( '@wordpress/block-editor', () => {
 	return {
 		...original,
 		InspectorControls: ( { children } ) => children,
+		RichText: ( { tagName: Tag, value, placeholder, onChange } ) => (
+			<Tag
+				aria-label={ placeholder }
+				aria-multiline="true"
+				className="rich-text block-editor-rich-text__editable"
+				contentEditable="true"
+				style={ { whiteSpace: 'pre-wrap' } }
+				role="textbox"
+				onInput={ node => onChange( node.currentTarget.textContent ) }
+			>
+				{ value }
+			</Tag>
+		),
 	};
 } );
 
