@@ -27,6 +27,7 @@ namespace MaterialDesign\Plugin\Cli;
 
 use Exception;
 use MaterialDesign\Plugin\Api\Update_Fonts;
+use MaterialDesign\Plugin\Api\Update_Icons;
 use stdClass;
 
 /**
@@ -34,7 +35,7 @@ use stdClass;
  *
  * @package MaterialDesign\Plugin\Cli
  */
-class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli*/ {
+class Icons extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli*/ {
 
 	/**
 	 * Registers command with WP-CLI
@@ -59,7 +60,7 @@ class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	 * @return string
 	 */
 	public function description() {
-		return __( 'Retrieves and stores fonts from the Google Fonts API', 'material-design' );
+		return __( 'Retrieves and stores fonts from the Google Material Icons from Github', 'material-design' );
 	}
 
 	/**
@@ -68,21 +69,14 @@ class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	 * @return array[]
 	 */
 	public function arguments() {
-		return [
-			[
-				'type'        => 'optional',
-				'name'        => 'api-key',
-				'optional'    => true,
-				'description' => $this->description(),
-			],
-		];
+		return [];
 	}
 
 	/**
 	 * Registers the command name e.g. `wp material fonts-update`
 	 */
 	public function command() {
-		return 'fonts-update';
+		return 'icons-update';
 	}
 
 	/**
@@ -94,13 +88,13 @@ class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	 * @throws Exception Generic Exception.
 	 */
 	public function run_command( $args, $assoc_args ) {
-		$google_fonts = new Update_Fonts();
-		$data         = $google_fonts->get_fonts();
+		$google_fonts = new Update_Icons();
+		$data         = $google_fonts->get_icons();
 
 		if ( ! empty( $data ) ) {
-			\WP_CLI::success( __( 'Fonts have been updated.', 'material-design' ) );
+			\WP_CLI::success( __( 'Icons have been updated.', 'material-design' ) );
 		} else {
-			\WP_CLI::error( __( 'Fonts have not been updated.', 'material-design' ) );
+			\WP_CLI::error( __( 'Icons have not been updated.', 'material-design' ) );
 		}
 	}
 }
