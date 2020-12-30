@@ -38,6 +38,7 @@
 			</property>
 		</properties>
 	</rule>
+	<rule ref="PHPCompatibilityWP" />
 
 
 	<!-- Disallow long array syntax -->
