@@ -26,6 +26,7 @@
 namespace MaterialDesign\Plugin;
 
 use MaterialDesign\Plugin\Cli\Fonts;
+use MaterialDesign\Plugin\Cli\Icons;
 use MaterialDesign\Plugin\Customizer\Controls;
 
 /**
@@ -90,6 +91,13 @@ class Plugin extends Plugin_Base {
 	public $fonts;
 
 	/**
+	 * Holds the CLI class for updating Icons
+	 *
+	 * @var Icons
+	 */
+	public $icons;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * @throws \Exception Generic Exception.
@@ -119,6 +127,9 @@ class Plugin extends Plugin_Base {
 		if ( defined( 'WP_CLI' ) && false !== WP_CLI ) {
 			$this->fonts = new Fonts();
 			$this->fonts->register();
+
+			$this->icons = new Icons();
+			$this->icons->register();
 		}
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_google_fonts' ] );
