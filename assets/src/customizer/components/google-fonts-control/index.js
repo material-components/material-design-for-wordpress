@@ -59,7 +59,7 @@ const GoogleFontsControl = props => {
 				onChange( event );
 			} )
 			// Trigger when dropdown opens
-			// select2:opening triggers right before this, choose whicever you feel fist betetr
+			// select2:opening triggers right before this, choose whichever you feel fits better
 			.on( 'select2:open', event => {
 				updateFontList( event );
 			} );
