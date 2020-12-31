@@ -197,6 +197,10 @@ const GoogleFontsControl = props => {
 						.append( option )
 						.trigger( 'change' );
 				} );
+			} )
+			.catch( error => {
+				// Handle error
+				// console.log( 'OMG we failed', error )
 			} );
 	};
 
