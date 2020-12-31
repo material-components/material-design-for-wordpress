@@ -57,6 +57,11 @@ const GoogleFontsControl = props => {
 			.on( 'change', event => {
 				setSelectedFont( event.target.value );
 				onChange( event );
+			} )
+			// Trigger when dropdown opens
+			// select2:opening triggers right before this, choose whicever you feel fist betetr
+			.on( 'select2:open', event => {
+				updateFontList( event );
 			} );
 	}, [ elementRef ] ); // eslint-disable-line
 
@@ -92,7 +97,8 @@ const GoogleFontsControl = props => {
 	const handleOnReset = event => {
 		event.preventDefault();
 
-		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) {// eslint-disable-line
+		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) {
+			// eslint-disable-line
 			return;
 		}
 
@@ -129,6 +135,69 @@ const GoogleFontsControl = props => {
 		} );
 
 		setItems( newChildren );
+	};
+
+	/**
+	 * Update font list when dropdown is openened
+	 *
+	 * @param {*} event
+	 */
+	const updateFontList = event => {
+		const select = event.target;
+
+		// Which dropdown
+		// console.log( select.dataset.id );
+
+		// Trigger ajax call
+
+		// const requestArgs = {
+		// 	path: `${ getConfig( 'restPath' ) }myaction`,
+		// 	method: 'GET',
+		// 	headers: {
+		// 		'X-WP-Nonce': getConfig( 'nonce' ),
+		// 	},
+		// };
+
+		// Import and use apiFetch if requesting from WP API
+		// apiFetch( requestArgs )
+		// .then()...
+
+		// Dummy call for example
+		fetch( 'https://reqres.in/api/unknown' )
+			.then( response => response.json() )
+			.then( data => {
+				// Filter dummy data into something usable
+				// Not needed if json comes in this format
+				const results = data.data.map( item => {
+					return {
+						id: item.id,
+						text: item.name,
+					};
+				} );
+
+				// Add new items to dropdown
+				results.forEach( item => {
+					const { id, text } = item;
+
+					// Is it already in dropdown?
+					const existingOption = select.querySelector(
+						`option[value="${ id }"]`
+					);
+
+					if ( existingOption ) {
+						return;
+					}
+
+					// It's new!
+					const option = new Option( text, id );
+
+					// SelectWoo already uses jQuery anyways
+					// Add it to dropdown
+					jQuery( select )
+						.append( option )
+						.trigger( 'change' );
+				} );
+			} );
 	};
 
 	return (
