@@ -95,10 +95,9 @@ jobs:
         - echo "Running E2E tests with code coverage ..."
       script:
         - npm run env:start
+        - docker-compose exec wordpress bash -c "chown -R www-data:www-data /var/www/html/" # ensure WP folders have correct permissions
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
         - npm run wp -- wp plugin activate material-design
-        - npm run build:js
-        - docker-compose exec wordpress bash -c "chown -R www-data:www-data /var/www/html/wp-content/ && chmod -R 755 /var/www/html/wp-admin && chmod -R 755 /var/www/html/wp-content && chmod -R 755 /var/www/html/wp-includes && chmod 644 /var/www/html/" # ensure WP folders have correct permissions
         - npm run test:e2e:coveralls
 
     - name: JS unit tests (7.4, WordPress latest, with code coverage)
