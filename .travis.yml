@@ -90,7 +90,6 @@ jobs:
         - nvm use
         - unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
       before_script:
-        - sudo chown -R travis:travis /home/travis/ # ensure coverage folder can be created
         - sudo service mysql stop
         - echo "Running E2E tests with code coverage ..."
       script:
@@ -99,6 +98,7 @@ jobs:
         - docker-compose exec mysql bash -c "chown -R mysql:mysql /var/lib/mysql"
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088
         - npm run wp -- wp plugin activate material-design
+        - sudo chown -R travis:travis tests # ensure coverage folder can be created
         - npm run test:e2e:coveralls
 
     - name: JS unit tests (7.4, WordPress latest, with code coverage)
