@@ -86,6 +86,10 @@ class Update_Fonts extends API_Base {
 			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
 		}
 
+		echo '<pre>';
+		print_r( json_decode( $new ) );
+		exit;
+
 		return json_decode( $new );
 	}
 

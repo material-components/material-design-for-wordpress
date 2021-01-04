@@ -61,6 +61,7 @@ const GoogleFontsControl = props => {
 			// Trigger when dropdown opens
 			// select2:opening triggers right before this, choose whichever you feel fits better
 			.on( 'select2:open', event => {
+				console.debug( event );
 				updateFontList( event );
 			} );
 	}, [ elementRef ] ); // eslint-disable-line
@@ -142,6 +143,7 @@ const GoogleFontsControl = props => {
 	 */
 	const updateFontList = event => {
 		const select = event.target;
+		console.debug( select );
 
 		// Which dropdown
 		// console.log( select.dataset.id );
