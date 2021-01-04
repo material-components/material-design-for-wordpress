@@ -47,10 +47,21 @@ class Update_Fonts extends API_Base {
 	protected $api_key;
 
 	/**
-	 * Update_Fonts constructor.
+	 * Whether to force loading from HTTP.
+	 *
+	 * @var bool
 	 */
-	public function __construct() {
+	public $force_http;
+
+	/**
+	 * Update_Fonts constructor.
+	 *
+	 * @param bool $force_http Whether to force loading from HTTP.
+	 */
+	public function __construct( $force_http ) {
 		parent::__construct();
+
+		$this->force_http = $force_http;
 
 		$this->api_key =
 			defined( 'GOOGLE_FONTS_API_KEY' ) && false !== GOOGLE_FONTS_API_KEY ? GOOGLE_FONTS_API_KEY : null;
@@ -73,7 +84,7 @@ class Update_Fonts extends API_Base {
 
 		$new = null;
 
-		if ( false === get_transient( self::TRANSIENT ) ) {
+		if ( false === get_transient( self::TRANSIENT ) || true === $this->force_http ) {
 			try {
 				$json = $this->get_http_response();
 				$new  = $this->json_to_file( $json );
@@ -84,13 +95,19 @@ class Update_Fonts extends API_Base {
 			}
 		} else {
 			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
+			$new = json_decode( $new );
 		}
 
-		echo '<pre>';
-		print_r( json_decode( $new ) );
-		exit;
+		$data       = new stdClass();
+		$data->data = [];
+		foreach ( $new as $name => $font ) {
+			$data->data[] = (object) [
+				'id'   => esc_attr( strtolower( $name ) ),
+				'name' => esc_html( $name ),
+			];
+		}
 
-		return json_decode( $new );
+		return $data;
 	}
 
 	/**
@@ -113,7 +130,8 @@ class Update_Fonts extends API_Base {
 			$fonts->{$font->family} = $item;
 		}
 
-		file_put_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json', wp_json_encode( $fonts ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+		file_put_contents( get_plugin_instance()->dir_path .
+		                   '/assets/fonts/google-fonts.json', wp_json_encode( $fonts ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
 
 		return $fonts;
 	}

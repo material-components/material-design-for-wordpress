@@ -61,8 +61,7 @@ class Update_Icons extends API_Base {
 		parent::__construct();
 
 		$this->force_http       = (bool) $force_http;
-		$this->endpoint         =
-			'https://raw.githubusercontent.com/google/material-design-icons/master/font/MaterialIcons-Regular.codepoints';
+		$this->endpoint         = 'https://raw.githubusercontent.com/google/material-design-icons/master/font/MaterialIcons-Regular.codepoints';
 		$this->local_file_path  = get_plugin_instance()->dir_path . '/assets/fonts/icons.json';
 		$this->local_codepoints = get_plugin_instance()->dir_path . '/assets/fonts/icons.codepoints';
 	}
@@ -87,6 +86,7 @@ class Update_Icons extends API_Base {
 			}
 		} else {
 			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
+			$new = json_decode( $new );
 		}
 
 		$new->data = $new->icons;

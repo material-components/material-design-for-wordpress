@@ -150,16 +150,19 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	 *
 	 * @return false|\stdClass|string
 	 */
-	public function get_fonts() {
-		$fonts  = new Update_Fonts();
-		$data   = $fonts->get_fonts();
-		$count  = count( $data );
+	public function get_fonts( $request ) {
+		$force = $request->get_param( 'force_http' );
+
+		$fonts = new Update_Fonts( $force );
+		$data  = $fonts->get_fonts();
+		$count = count( $data->data );
+
 		$parsed = (object) [
 			'page'        => 1,
 			'per_page'    => $count,
 			'count'       => $count,
 			'total_pages' => 1,
-			'data'        => $data,
+			'data'        => $data->data,
 		];
 
 		return $parsed;
@@ -171,7 +174,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	 *  /wp-json/material-design/v1/design-assets/retrieve-icons
 	 *  /wp-json/material-design/v1/design-assets/retrieve-icons/force (forces load from HTTP source)
 	 *
-	 * @var WP_REST_Request $request REST request object.
+	 * @param WP_REST_Request $request REST request object.
 	 *
 	 * @return mixed
 	 */
@@ -189,7 +192,6 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 			'total_pages' => 1,
 			'data'        => $data->data,
 		];
-
 
 		return $parsed;
 	}
