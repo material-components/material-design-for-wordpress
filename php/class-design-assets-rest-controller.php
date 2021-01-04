@@ -167,6 +167,9 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 
 	/**
 	 * Returns fonts data.
+	 * Usage:
+	 *  /wp-json/material-design/v1/design-assets/retrieve-icons
+	 *  /wp-json/material-design/v1/design-assets/retrieve-icons/force (forces load from HTTP source)
 	 *
 	 * @var WP_REST_Request $request REST request object.
 	 *
