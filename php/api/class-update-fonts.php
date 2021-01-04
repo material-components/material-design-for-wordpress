@@ -130,8 +130,7 @@ class Update_Fonts extends API_Base {
 			$fonts->{$font->family} = $item;
 		}
 
-		file_put_contents( get_plugin_instance()->dir_path .
-		                   '/assets/fonts/google-fonts.json', wp_json_encode( $fonts ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+		file_put_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json', wp_json_encode( $fonts ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
 
 		return $fonts;
 	}

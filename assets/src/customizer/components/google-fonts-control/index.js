@@ -27,6 +27,7 @@ import 'select-woo';
 import { __ } from '@wordpress/i18n';
 import { useState, useEffect, useRef } from '@wordpress/element';
 import { Button } from '@wordpress/components';
+import apiFetch from '@wordpress/api-fetch';
 
 /**
  * Internal dependencies
@@ -43,6 +44,7 @@ const GoogleFontsControl = props => {
 	const [ isExpanded, setIsExpanded ] = useState( false );
 	const [ items, setItems ] = useState( children );
 	const [ selectedFont, setSelectedFont ] = useState( value );
+	const [ setRequesting ] = useState( false );
 
 	/* istanbul ignore next */
 	useEffect( () => {
@@ -61,7 +63,7 @@ const GoogleFontsControl = props => {
 			// Trigger when dropdown opens
 			// select2:opening triggers right before this, choose whichever you feel fits better
 			.on( 'select2:open', event => {
-				console.debug( event );
+				//console.debug( event );
 				updateFontList( event );
 			} );
 	}, [ elementRef ] ); // eslint-disable-line
@@ -143,27 +145,55 @@ const GoogleFontsControl = props => {
 	 */
 	const updateFontList = event => {
 		const select = event.target;
-		console.debug( select );
 
 		// Which dropdown
 		// console.log( select.dataset.id );
 
 		// Trigger ajax call
 
-		// const requestArgs = {
-		// 	path: `${ getConfig( 'restPath' ) }myaction`,
-		// 	method: 'GET',
-		// 	headers: {
-		// 		'X-WP-Nonce': getConfig( 'nonce' ),
-		// 	},
-		// };
+		const requestArgs = {
+			path: `${ getConfig( 'fontsRestPath' ) }`,
+			method: 'GET',
+			headers: {
+				'X-WP-Nonce': getConfig( 'nonce' ),
+			},
+		};
 
 		// Import and use apiFetch if requesting from WP API
-		// apiFetch( requestArgs )
-		// .then()...
+		apiFetch( requestArgs )
+			.then( response => {
+				console.debug( response );
+				response.data.forEach( item => {
+					const { text } = item;
+					const optionId = item.id;
+
+					// Is it already in dropdown?
+					const existingOption = select.querySelector(
+						`option[value="${ optionId }"]`
+					);
+
+					if ( existingOption ) {
+						return;
+					}
+
+					// It's new!
+					const option = new Option( text, optionId );
+
+					// SelectWoo already uses jQuery anyways
+					// Add it to dropdown
+					jQuery( select )
+						.append( option )
+						.trigger( 'change' );
+				} );
+			} )
+			//.then( data => {
+			// Add new items to dropdown
+			/**/
+			//} )
+			.catch( onFail );
 
 		// Dummy call for example
-		fetch( 'https://reqres.in/api/unknown' ) // eslint-disable-line
+		/*fetch( 'https://reqres.in/api/unknown' ) // eslint-disable-line
 			.then( response => response.json() )
 			.then( data => {
 				// Filter dummy data into something usable
@@ -174,6 +204,8 @@ const GoogleFontsControl = props => {
 						text: item.name,
 					};
 				} );
+				console.debug( results );
+
 
 				// Add new items to dropdown
 				results.forEach( item => {
@@ -202,7 +234,12 @@ const GoogleFontsControl = props => {
 			.catch( () => {
 				// Handle error
 				// console.log( 'OMG we failed', error )
-			} );
+			} );*/
+	};
+
+	const onFail = error => {
+		console.error( error );
+		setRequesting( false );
 	};
 
 	return (
