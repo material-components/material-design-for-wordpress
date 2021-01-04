@@ -41,7 +41,7 @@ export const settings = {
 		'material-design'
 	),
 	keywords: [ __( 'Material Data Table', 'material-design' ) ],
-	icon: <i className="material-icons-outlined">grid_on</i>,
+	icon: () => <i className="material-icons-outlined">grid_on</i>,
 	edit,
 	save,
 	example,

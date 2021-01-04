@@ -106,9 +106,7 @@ describe( 'CardImageEdit', () => {
 		// The mock event itself is not correct but not too important in the case to test
 		// the number of times the prop setters has been called
 		const mockEvent = { el: { url: 'http://test.loc/test.jpg' } };
-		wrapper
-			.find( 'WithSelect(WithFilters(MediaPlaceholder))' )
-			.simulate( 'select', mockEvent );
+		wrapper.find( 'MediaPlaceholder' ).simulate( 'select', mockEvent );
 		expect( props.setter ).toHaveBeenCalledTimes( 2 );
 	} );
 

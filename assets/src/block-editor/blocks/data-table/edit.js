@@ -35,24 +35,11 @@ import {
 	Placeholder,
 	TextControl,
 	ToggleControl,
-	ToolbarGroup,
 } from '@wordpress/components';
 import { compose } from '@wordpress/compose';
 import { withSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import {
-	alignLeft,
-	alignRight,
-	alignCenter,
-	tableColumnAfter,
-	tableColumnBefore,
-	tableColumnDelete,
-	tableRowAfter,
-	tableRowBefore,
-	tableRowDelete,
-	table,
-} from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -69,20 +56,21 @@ import {
 	toggleSection,
 	isEmptyTableSection,
 } from './state';
+import { ToolbarGroup } from '../../components/polyfills';
 
 const ALIGNMENT_CONTROLS = [
 	{
-		icon: alignLeft,
+		icon: 'editor-alignleft',
 		title: __( 'Align Column Left', 'material-design' ),
 		align: 'left',
 	},
 	{
-		icon: alignCenter,
+		icon: 'editor-aligncenter',
 		title: __( 'Align Column Center', 'material-design' ),
 		align: 'center',
 	},
 	{
-		icon: alignRight,
+		icon: 'editor-alignright',
 		title: __( 'Align Column Right', 'material-design' ),
 		align: 'right',
 	},
@@ -379,37 +367,37 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 	const getTableControls = () => {
 		return [
 			{
-				icon: tableRowBefore,
+				icon: 'table-row-before',
 				title: __( 'Add Row Before', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertRowBefore,
 			},
 			{
-				icon: tableRowAfter,
+				icon: 'table-row-after',
 				title: __( 'Add Row After', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertRowAfter,
 			},
 			{
-				icon: tableRowDelete,
+				icon: 'table-row-delete',
 				title: __( 'Delete Row', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onDeleteRow,
 			},
 			{
-				icon: tableColumnBefore,
+				icon: 'table-col-before',
 				title: __( 'Add Column Before', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertColumnBefore,
 			},
 			{
-				icon: tableColumnAfter,
+				icon: 'table-col-after',
 				title: __( 'Add Column After', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onInsertColumnAfter,
 			},
 			{
-				icon: tableColumnDelete,
+				icon: 'table-col-delete',
 				title: __( 'Delete Column', 'material-design' ),
 				isDisabled: ! selectedCell,
 				onClick: onDeleteColumn,
@@ -465,7 +453,7 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 				<ToolbarGroup>
 					<DropdownMenu
 						hasArrowIndicator
-						icon={ table }
+						icon="editor-table"
 						label={ __( 'Edit table', 'material-design' ) }
 						controls={ getTableControls() }
 					/>
