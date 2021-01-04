@@ -78,7 +78,7 @@ class Update_Icons extends API_Base {
 			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
 		}
 
-		return $new;
+		return json_decode( $new );
 	}
 
 	/**
@@ -92,17 +92,20 @@ class Update_Icons extends API_Base {
 		$lines = explode( "\n", $codepoints );
 
 		$icons        = new \stdClass();
-		$icons->icons = new \stdClass();
+		$icons->icons = [];
 		foreach ( $lines as $line ) {
 			$parts = explode( ' ', $line );
 
-			$icon       = new \stdClass();
-			$icon->name = $parts[0];
+			$icon = (object) [
+				'name' => $parts[0],
+			];
 
-			$icons->{$parts[1]} = $icon;
+			$icons[ $parts[1] ] = $icon;
 		}
 
 		if ( ! empty( $icons ) ) {
+			$icons = (object) $icons;
+
 			file_put_contents( $this->local_file_path, wp_json_encode( $icons ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
 		}
 
