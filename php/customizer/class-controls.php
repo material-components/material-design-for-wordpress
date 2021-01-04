@@ -151,8 +151,8 @@ class Controls extends Module_Base {
 			 *
 			 * This allows other plugins/themes to change the customizer section args.
 			 *
-			 * @param array  $args Array of section args.
-			 * @param string $id   ID of the section.
+			 * @param array $args Array of section args.
+			 * @param string $id ID of the section.
 			 */
 			$section = apply_filters( $this->slug . '_customizer_section_args', $args, $id );
 
@@ -267,8 +267,10 @@ class Controls extends Module_Base {
 					'label'                => $control['label'],
 					'section'              => 'colors',
 					'priority'             => 10,
-					'related_text_setting' => ! empty( $control['related_text_setting'] ) ? $control['related_text_setting'] : false,
-					'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] : false,
+					'related_text_setting' => ! empty( $control['related_text_setting'] ) ?
+						$control['related_text_setting'] : false,
+					'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] :
+						false,
 					'css_var'              => $control['css_var'],
 					'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
 				]
@@ -432,8 +434,8 @@ class Controls extends Module_Base {
 			 *
 			 * This allows other plugins/themes to change the customizer setting args.
 			 *
-			 * @param array  $setting Array of setting args.
-			 * @param string $id      ID of the setting.
+			 * @param array $setting Array of setting args.
+			 * @param string $id ID of the setting.
 			 */
 			$setting = apply_filters( $this->slug . '_customizer_setting_args', $setting, $id );
 
@@ -465,8 +467,8 @@ class Controls extends Module_Base {
 			 *
 			 * This allows other plugins/themes to change the customizer controls args.
 			 *
-			 * @param array  $control Array of control args.
-			 * @param string $id      ID of the control.
+			 * @param array $control Array of control args.
+			 * @param string $id ID of the control.
 			 */
 			$control = apply_filters( $this->slug . '_customizer_control_args', $control, $id );
 
@@ -492,7 +494,7 @@ class Controls extends Module_Base {
 				$this->added_controls = array_merge(
 					$this->added_controls,
 					array_map(
-						function( $child ) {
+						function ( $child ) {
 							return $child['id'];
 						},
 						$control->children
@@ -509,7 +511,15 @@ class Controls extends Module_Base {
 		wp_enqueue_script(
 			'material-design-plugin-customizer-js',
 			$this->plugin->asset_url( 'assets/js/customize-controls.js' ),
-			[ 'jquery', 'wp-color-picker', 'customize-controls', 'wp-element', 'wp-components', 'wp-i18n', 'wp-api-fetch' ],
+			[
+				'jquery',
+				'wp-color-picker',
+				'customize-controls',
+				'wp-element',
+				'wp-components',
+				'wp-i18n',
+				'wp-api-fetch',
+			],
 			$this->plugin->asset_version(),
 			false
 		);
@@ -517,14 +527,14 @@ class Controls extends Module_Base {
 		$demo_images = $this->plugin->importer->get_attachments( true );
 		if ( empty( $demo_images ) ) {
 			$demo_images = array_map(
-				function( $image ) {
+				function ( $image ) {
 					return add_query_arg( 'w', 720, $image );
 				},
 				array_keys( $this->plugin->importer->images )
 			);
 		} else {
 			$demo_images = array_map(
-				function( $image ) {
+				function ( $image ) {
 					return $image['url'];
 				},
 				array_values( $demo_images )
@@ -554,6 +564,8 @@ class Controls extends Module_Base {
 				'themeNonce'             => wp_create_nonce( 'wp_rest' ),
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
+				'fontsRestPath'          => esc_url( '/material-design/v1/design-assets/retrieve-fonts' ),
+				'iconsRestPath'          => esc_url( '/material-design/v1/design-assets/icons-fonts' ),
 			]
 		);
 
@@ -626,13 +638,14 @@ class Controls extends Module_Base {
 			$font_families[] = str_replace( ' ', '+', $font['family'] ) . ':' . $variants;
 		}
 
-		$fonts_url = add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
+		$fonts_url =
+			add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
 
 		/**
 		 * Filter Google Fonts URL.
 		 *
-		 * @param string $fonts_url     Fonts URL.
-		 * @param array  $font_families Font families set in customizer.
+		 * @param string $fonts_url Fonts URL.
+		 * @param array $font_families Font families set in customizer.
 		 */
 		return apply_filters( 'material_design_google_fonts_url', $fonts_url, $font_families );
 	}
@@ -655,6 +668,7 @@ class Controls extends Module_Base {
 	 */
 	public function get_icon_style( $replace = ' ' ) {
 		$icons_style = $this->get_option( 'icon_collection' );
+
 		return ( $icons_style && 'filled' !== $icons_style )
 			? $replace . str_replace( '-', $replace, ucwords( $icons_style, '-' ) ) : '';
 	}
@@ -839,8 +853,8 @@ class Controls extends Module_Base {
 		/**
 		 * Filter default value for an option.
 		 *
-		 * @param mixed  $value Value of the option.
-		 * @param string $name  Name of the option.
+		 * @param mixed $value Value of the option.
+		 * @param string $name Name of the option.
 		 */
 		return apply_filters( $this->slug . '_get_default_option', $value, $name );
 	}
@@ -1197,6 +1211,7 @@ class Controls extends Module_Base {
 		if ( preg_match( '/\[([^\]]+)\]/', $name, $matches ) ) {
 			return $matches[1];
 		}
+
 		return $name;
 	}
 
@@ -1219,8 +1234,8 @@ class Controls extends Module_Base {
 		/**
 		 * Filter option value.
 		 *
-		 * @param mixed  $value Option value.
-		 * @param string $name  Option name.
+		 * @param mixed $value Option value.
+		 * @param string $name Option name.
 		 */
 		return apply_filters( "{$this->slug}_get_option_{$name}", $value, $name );
 	}
@@ -1271,7 +1286,7 @@ class Controls extends Module_Base {
 
 		$count = $this->get_option( 'notify' );
 		$count = empty( $count ) ? 0 : $count;
-		$this->update_option( 'notify', ++$count );
+		$this->update_option( 'notify', ++ $count );
 		wp_send_json_success(
 			[
 				'count' => $count,
@@ -1301,7 +1316,8 @@ class Controls extends Module_Base {
 	/**
 	 * Default typography options
 	 *
-	 * @param  mixed $args Customized values.
+	 * @param mixed $args Customized values.
+	 *
 	 * @return array Values to use in control.
 	 */
 	public function get_typography_weight_controls( $args ) {
@@ -1321,7 +1337,8 @@ class Controls extends Module_Base {
 	/**
 	 * Return size control data.
 	 *
-	 * @param  mixed $args Customized values.
+	 * @param mixed $args Customized values.
+	 *
 	 * @return array Values to use in control.
 	 */
 	public function get_typography_size_controls( $args ) {
@@ -1342,7 +1359,8 @@ class Controls extends Module_Base {
 	/**
 	 * Build typography size and weight controls.
 	 *
-	 * @param  bool $headlines Whether or not this are headlines.
+	 * @param bool $headlines Whether or not this are headlines.
+	 *
 	 * @return array Values for controllers.
 	 */
 	public function get_typography_extra_controls( $headlines = true ) {
@@ -1359,7 +1377,7 @@ class Controls extends Module_Base {
 				'500',
 			];
 
-			for ( $i = 1; $i < 7; $i++ ) {
+			for ( $i = 1; $i < 7; $i ++ ) {
 				$id         = sprintf( 'headline_%s', $i );
 				$controls[] = [
 					'id'       => $id,
@@ -1371,7 +1389,7 @@ class Controls extends Module_Base {
 					],
 					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
-						/* translators: Number of heading to display */
+					/* translators: Number of heading to display */
 						esc_html__( 'Headline %s', 'material-design' ),
 						$i
 					),
@@ -1395,7 +1413,7 @@ class Controls extends Module_Base {
 				'500',
 			];
 
-			for ( $i = 1; $i < 3; $i++ ) {
+			for ( $i = 1; $i < 3; $i ++ ) {
 				$id         = sprintf( 'subtitle_%s', $i );
 				$controls[] = [
 					'id'       => $id,
@@ -1407,7 +1425,7 @@ class Controls extends Module_Base {
 					],
 					'value'    => $this->get_option( $id ),
 					'label'    => sprintf(
-						/* translators: Number of heading to display */
+					/* translators: Number of heading to display */
 						esc_html__( 'Subtitle %s', 'material-design' ),
 						$i
 					),

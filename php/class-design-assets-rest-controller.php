@@ -148,6 +148,8 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	/**
 	 * Returns fonts data
 	 *
+	 * @param WP_REST_Request $request REST request object.
+	 *
 	 * @return false|\stdClass|string
 	 */
 	public function get_fonts( $request ) {
@@ -162,7 +164,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 			'per_page'    => $count,
 			'count'       => $count,
 			'total_pages' => 1,
-			'data'        => $data->data,
+			'data'        => (array) $data->data,
 		];
 
 		return $parsed;
