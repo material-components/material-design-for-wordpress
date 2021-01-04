@@ -4,30 +4,6 @@ exports[`CardPrimary matches snapshot when only the secondary text should be dis
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
     <div>
       <div
         class="material-design-card__primary"
@@ -109,30 +85,6 @@ exports[`CardPrimary matches snapshot when only the title should be displayed 1`
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
     <div>
       <div
         class="material-design-card__primary"
@@ -214,30 +166,6 @@ exports[`CardPrimary matches snapshot when the edit mode is enabled and only the
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
     <div>
       <div
         class="material-design-card__primary"
@@ -246,7 +174,6 @@ Object {
           aria-label="Secondary text"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
         >
@@ -263,7 +190,6 @@ Object {
         aria-label="Secondary text"
         aria-multiline="true"
         class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-        contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
       >
@@ -329,30 +255,6 @@ exports[`CardPrimary matches snapshot when the edit mode is enabled and only the
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
     <div>
       <div
         class="material-design-card__primary"
@@ -361,7 +263,6 @@ Object {
           aria-label="Title goes here"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
         >
@@ -378,7 +279,6 @@ Object {
         aria-label="Title goes here"
         aria-multiline="true"
         class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-        contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
       >
@@ -444,30 +344,6 @@ exports[`CardPrimary matches snapshot when the edit mode is enabled and the titl
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
     <div>
       <div
         class="material-design-card__primary"
@@ -476,7 +352,6 @@ Object {
           aria-label="Title goes here"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
         >
@@ -486,7 +361,6 @@ Object {
           aria-label="Secondary text"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
         >
@@ -503,7 +377,6 @@ Object {
         aria-label="Title goes here"
         aria-multiline="true"
         class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-        contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
       >
@@ -513,7 +386,6 @@ Object {
         aria-label="Secondary text"
         aria-multiline="true"
         class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-        contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
       >
@@ -579,30 +451,6 @@ exports[`CardPrimary matches snapshot when the title and secondary text are bein
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <p
-      class="a11y-speak-intro-text"
-      hidden="hidden"
-      id="a11y-speak-intro-text"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    >
-      Notifications
-    </p>
-    <div
-      aria-atomic="true"
-      aria-live="assertive"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-assertive"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
-    <div
-      aria-atomic="true"
-      aria-live="polite"
-      aria-relevant="additions text"
-      class="a11y-speak-region"
-      id="a11y-speak-polite"
-      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
     <div>
       <div
         class="material-design-card__primary"

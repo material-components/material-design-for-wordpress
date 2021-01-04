@@ -161,26 +161,9 @@ Object {
         </li>
       </ul>
       <div
-        class="components-placeholder block-editor-media-placeholder wp-block-material-image-list is-appender is-small"
+        class="components-placeholder block-editor-media-placeholder is-small"
       >
-        <iframe
-          aria-hidden="true"
-          frameborder="0"
-          src="about:blank"
-          style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
-          tabindex="-1"
-        />
-        <div
-          class="components-placeholder__label"
-        />
-        <div
-          class="components-placeholder__instructions"
-        >
-          To edit this block, you need permission to upload media.
-        </div>
-        <div
-          class="components-placeholder__fieldset"
-        />
+        Placeholder
       </div>
       <div
         class="components-panel__body is-opened"
@@ -1002,26 +985,9 @@ Object {
       </li>
     </ul>
     <div
-      class="components-placeholder block-editor-media-placeholder wp-block-material-image-list is-appender is-small"
+      class="components-placeholder block-editor-media-placeholder is-small"
     >
-      <iframe
-        aria-hidden="true"
-        frameborder="0"
-        src="about:blank"
-        style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
-        tabindex="-1"
-      />
-      <div
-        class="components-placeholder__label"
-      />
-      <div
-        class="components-placeholder__instructions"
-      >
-        To edit this block, you need permission to upload media.
-      </div>
-      <div
-        class="components-placeholder__fieldset"
-      />
+      Placeholder
     </div>
     <div
       class="components-panel__body is-opened"

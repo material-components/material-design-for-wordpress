@@ -168,6 +168,23 @@ const baseProps = {
 };
 
 describe( 'blocks: material/cards-collection: Edit', () => {
+	beforeAll( () => {
+		global.materialDesign = {
+			defaults: {
+				colors: {
+					primary_color: '#6200ee',
+					on_primary_color: '#ffffff',
+					secondary_color: '#018786',
+					on_secondary_color: '#ffffff',
+				},
+			},
+			customizerUrls: {
+				shape: 'http://example.com/shape',
+				colors: 'http://example.com/colors',
+			},
+		};
+	} );
+
 	afterEach( () => {
 		jest.clearAllMocks();
 	} );

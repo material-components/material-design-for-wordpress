@@ -29,6 +29,537 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Style Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-radio-control-0"
+            >
+              Content layout
+            </label>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-0"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="text-above-media"
+              />
+              <label
+                for="inspector-radio-control-0-0"
+              >
+                Text above media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-1"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="text-over-media"
+              />
+              <label
+                for="inspector-radio-control-0-1"
+              >
+                Text over media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-2"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="text-under-media"
+              />
+              <label
+                for="inspector-radio-control-0-2"
+              >
+                Text under media
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <label
+            class="components-base-control__label"
+            for="shape-size"
+          >
+            Corner Styles
+          </label>
+          <div>
+            Overrides will only apply to these cards. Change Cards corner styles in 
+            <a
+              href="http://example.com/shape"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Material Design Options
+            </a>
+             to update all cards.
+          </div>
+          <div
+            class="components-base-control components-global-shape-size"
+          >
+            <div
+              class="components-base-control components-range-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <span
+                  class="components-range-control__root css-yaebbd-Root exqw8y20"
+                >
+                  <span
+                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    color="#00669b"
+                  >
+                    <input
+                      aria-hidden="false"
+                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                      id="inspector-range-control-0"
+                      max="20"
+                      min="0"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="4"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="css-1lwhlrq-Rail exqw8y24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="components-range-control__track css-ogrpie-Track exqw8y25"
+                      style="width: 20%;"
+                    />
+                    <span
+                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      style="left: 20%;"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="css-c88ajq-Thumb exqw8y210"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="false"
+                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      role="tooltip"
+                      style="left: 20%; z-index: 100;"
+                    >
+                      4
+                    </span>
+                  </span>
+                  <input
+                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    inputmode="decimal"
+                    max="20"
+                    min="0"
+                    step="1"
+                    type="number"
+                    value="4"
+                  />
+                </span>
+              </div>
+            </div>
+            <button
+              class="components-button global-shape-size-reset is-small"
+              type="button"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-0"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-0"
+            >
+              Outlined
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Content Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-1"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-1"
+            >
+              Show title
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-2"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-2"
+            >
+              Show secondary text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-3"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-3"
+            >
+              Show image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-4"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-4"
+            >
+              Show supporting text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-5"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-5"
+            >
+              Show actions
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-6"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-6"
+            >
+              Show secondary action button
+            </label>
+          </div>
+        </div>
+      </div>
       <div>
         <div
           class="mdc-card material-design-card mdc-card--outlined"
@@ -78,7 +609,6 @@ Object {
                 aria-label="Title goes here"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-                contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -88,7 +618,6 @@ Object {
                 aria-label="Secondary text"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-                contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -99,7 +628,6 @@ Object {
               aria-label="Supporting text"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -122,7 +650,6 @@ Object {
                     aria-label="Button"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -140,7 +667,6 @@ Object {
                     aria-label="Button"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -155,6 +681,537 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Style Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-radio-control-0"
+          >
+            Content layout
+          </label>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-0-0"
+              name="inspector-radio-control-0"
+              type="radio"
+              value="text-above-media"
+            />
+            <label
+              for="inspector-radio-control-0-0"
+            >
+              Text above media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-0-1"
+              name="inspector-radio-control-0"
+              type="radio"
+              value="text-over-media"
+            />
+            <label
+              for="inspector-radio-control-0-1"
+            >
+              Text over media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="inspector-radio-control-0-2"
+              name="inspector-radio-control-0"
+              type="radio"
+              value="text-under-media"
+            />
+            <label
+              for="inspector-radio-control-0-2"
+            >
+              Text under media
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <label
+          class="components-base-control__label"
+          for="shape-size"
+        >
+          Corner Styles
+        </label>
+        <div>
+          Overrides will only apply to these cards. Change Cards corner styles in 
+          <a
+            href="http://example.com/shape"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            Material Design Options
+          </a>
+           to update all cards.
+        </div>
+        <div
+          class="components-base-control components-global-shape-size"
+        >
+          <div
+            class="components-base-control components-range-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <span
+                class="components-range-control__root css-yaebbd-Root exqw8y20"
+              >
+                <span
+                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  color="#00669b"
+                >
+                  <input
+                    aria-hidden="false"
+                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                    id="inspector-range-control-0"
+                    max="20"
+                    min="0"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="4"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-1lwhlrq-Rail exqw8y24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-ogrpie-Track exqw8y25"
+                    style="width: 20%;"
+                  />
+                  <span
+                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    style="left: 20%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-c88ajq-Thumb exqw8y210"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    role="tooltip"
+                    style="left: 20%; z-index: 100;"
+                  >
+                    4
+                  </span>
+                </span>
+                <input
+                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  inputmode="decimal"
+                  max="20"
+                  min="0"
+                  step="1"
+                  type="number"
+                  value="4"
+                />
+              </span>
+            </div>
+          </div>
+          <button
+            class="components-button global-shape-size-reset is-small"
+            type="button"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-0"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-0"
+          >
+            Outlined
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Content Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-1"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-1"
+          >
+            Show title
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-2"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-2"
+          >
+            Show secondary text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-3"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-3"
+          >
+            Show image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-4"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-4"
+          >
+            Show supporting text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-5"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-5"
+          >
+            Show actions
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-6"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-6"
+          >
+            Show secondary action button
+          </label>
+        </div>
+      </div>
+    </div>
     <div>
       <div
         class="mdc-card material-design-card mdc-card--outlined"
@@ -204,7 +1261,6 @@ Object {
               aria-label="Title goes here"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -214,7 +1270,6 @@ Object {
               aria-label="Secondary text"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -225,7 +1280,6 @@ Object {
             aria-label="Supporting text"
             aria-multiline="true"
             class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
-            contenteditable="true"
             role="textbox"
             style="white-space: pre-wrap;"
           >
@@ -248,7 +1302,6 @@ Object {
                   aria-label="Button"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -266,7 +1319,6 @@ Object {
                   aria-label="Button"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -362,6 +1414,537 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Style Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-radio-control-2"
+            >
+              Content layout
+            </label>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-2-0"
+                name="inspector-radio-control-2"
+                type="radio"
+                value="text-above-media"
+              />
+              <label
+                for="inspector-radio-control-2-0"
+              >
+                Text above media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-2-1"
+                name="inspector-radio-control-2"
+                type="radio"
+                value="text-over-media"
+              />
+              <label
+                for="inspector-radio-control-2-1"
+              >
+                Text over media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="inspector-radio-control-2-2"
+                name="inspector-radio-control-2"
+                type="radio"
+                value="text-under-media"
+              />
+              <label
+                for="inspector-radio-control-2-2"
+              >
+                Text under media
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <label
+            class="components-base-control__label"
+            for="shape-size"
+          >
+            Corner Styles
+          </label>
+          <div>
+            Overrides will only apply to these cards. Change Cards corner styles in 
+            <a
+              href="http://example.com/shape"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Material Design Options
+            </a>
+             to update all cards.
+          </div>
+          <div
+            class="components-base-control components-global-shape-size"
+          >
+            <div
+              class="components-base-control components-range-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <span
+                  class="components-range-control__root css-yaebbd-Root exqw8y20"
+                >
+                  <span
+                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    color="#00669b"
+                  >
+                    <input
+                      aria-hidden="false"
+                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                      id="inspector-range-control-2"
+                      max="20"
+                      min="0"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="4"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="css-1lwhlrq-Rail exqw8y24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="components-range-control__track css-ogrpie-Track exqw8y25"
+                      style="width: 20%;"
+                    />
+                    <span
+                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      style="left: 20%;"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="css-c88ajq-Thumb exqw8y210"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="false"
+                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      role="tooltip"
+                      style="left: 20%; z-index: 100;"
+                    >
+                      4
+                    </span>
+                  </span>
+                  <input
+                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    inputmode="decimal"
+                    max="20"
+                    min="0"
+                    step="1"
+                    type="number"
+                    value="4"
+                  />
+                </span>
+              </div>
+            </div>
+            <button
+              class="components-button global-shape-size-reset is-small"
+              type="button"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-14"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-14"
+            >
+              Outlined
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Content Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-15"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-15"
+            >
+              Show title
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-16"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-16"
+            >
+              Show secondary text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-17"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-17"
+            >
+              Show image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-18"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-18"
+            >
+              Show supporting text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-19"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-19"
+            >
+              Show actions
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-20"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-20"
+            >
+              Show secondary action button
+            </label>
+          </div>
+        </div>
+      </div>
       <div>
         <div
           class="mdc-card material-design-card mdc-card--outlined"
@@ -411,7 +1994,6 @@ Object {
                 aria-label="Title goes here"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-                contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -421,7 +2003,6 @@ Object {
                 aria-label="Secondary text"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-                contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -432,7 +2013,6 @@ Object {
               aria-label="Supporting text"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -455,7 +2035,6 @@ Object {
                     aria-label="Button"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -473,7 +2052,6 @@ Object {
                     aria-label="Button"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -488,6 +2066,537 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Style Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-radio-control-2"
+          >
+            Content layout
+          </label>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-2-0"
+              name="inspector-radio-control-2"
+              type="radio"
+              value="text-above-media"
+            />
+            <label
+              for="inspector-radio-control-2-0"
+            >
+              Text above media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-2-1"
+              name="inspector-radio-control-2"
+              type="radio"
+              value="text-over-media"
+            />
+            <label
+              for="inspector-radio-control-2-1"
+            >
+              Text over media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="inspector-radio-control-2-2"
+              name="inspector-radio-control-2"
+              type="radio"
+              value="text-under-media"
+            />
+            <label
+              for="inspector-radio-control-2-2"
+            >
+              Text under media
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <label
+          class="components-base-control__label"
+          for="shape-size"
+        >
+          Corner Styles
+        </label>
+        <div>
+          Overrides will only apply to these cards. Change Cards corner styles in 
+          <a
+            href="http://example.com/shape"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            Material Design Options
+          </a>
+           to update all cards.
+        </div>
+        <div
+          class="components-base-control components-global-shape-size"
+        >
+          <div
+            class="components-base-control components-range-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <span
+                class="components-range-control__root css-yaebbd-Root exqw8y20"
+              >
+                <span
+                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  color="#00669b"
+                >
+                  <input
+                    aria-hidden="false"
+                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                    id="inspector-range-control-2"
+                    max="20"
+                    min="0"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="4"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-1lwhlrq-Rail exqw8y24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-ogrpie-Track exqw8y25"
+                    style="width: 20%;"
+                  />
+                  <span
+                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    style="left: 20%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-c88ajq-Thumb exqw8y210"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    role="tooltip"
+                    style="left: 20%; z-index: 100;"
+                  >
+                    4
+                  </span>
+                </span>
+                <input
+                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  inputmode="decimal"
+                  max="20"
+                  min="0"
+                  step="1"
+                  type="number"
+                  value="4"
+                />
+              </span>
+            </div>
+          </div>
+          <button
+            class="components-button global-shape-size-reset is-small"
+            type="button"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-14"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-14"
+          >
+            Outlined
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Content Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-15"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-15"
+          >
+            Show title
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-16"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-16"
+          >
+            Show secondary text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-17"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-17"
+          >
+            Show image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-18"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-18"
+          >
+            Show supporting text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-19"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-19"
+          >
+            Show actions
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-20"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-20"
+          >
+            Show secondary action button
+          </label>
+        </div>
+      </div>
+    </div>
     <div>
       <div
         class="mdc-card material-design-card mdc-card--outlined"
@@ -537,7 +2646,6 @@ Object {
               aria-label="Title goes here"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -547,7 +2655,6 @@ Object {
               aria-label="Secondary text"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -558,7 +2665,6 @@ Object {
             aria-label="Supporting text"
             aria-multiline="true"
             class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
-            contenteditable="true"
             role="textbox"
             style="white-space: pre-wrap;"
           >
@@ -581,7 +2687,6 @@ Object {
                   aria-label="Button"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -599,7 +2704,6 @@ Object {
                   aria-label="Button"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -695,6 +2799,537 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Style Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-radio-control-1"
+            >
+              Content layout
+            </label>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-1-0"
+                name="inspector-radio-control-1"
+                type="radio"
+                value="text-above-media"
+              />
+              <label
+                for="inspector-radio-control-1-0"
+              >
+                Text above media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-1-1"
+                name="inspector-radio-control-1"
+                type="radio"
+                value="text-over-media"
+              />
+              <label
+                for="inspector-radio-control-1-1"
+              >
+                Text over media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="inspector-radio-control-1-2"
+                name="inspector-radio-control-1"
+                type="radio"
+                value="text-under-media"
+              />
+              <label
+                for="inspector-radio-control-1-2"
+              >
+                Text under media
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <label
+            class="components-base-control__label"
+            for="shape-size"
+          >
+            Corner Styles
+          </label>
+          <div>
+            Overrides will only apply to these cards. Change Cards corner styles in 
+            <a
+              href="http://example.com/shape"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Material Design Options
+            </a>
+             to update all cards.
+          </div>
+          <div
+            class="components-base-control components-global-shape-size"
+          >
+            <div
+              class="components-base-control components-range-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <span
+                  class="components-range-control__root css-yaebbd-Root exqw8y20"
+                >
+                  <span
+                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    color="#00669b"
+                  >
+                    <input
+                      aria-hidden="false"
+                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                      id="inspector-range-control-1"
+                      max="20"
+                      min="0"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="4"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="css-1lwhlrq-Rail exqw8y24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="components-range-control__track css-ogrpie-Track exqw8y25"
+                      style="width: 20%;"
+                    />
+                    <span
+                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      style="left: 20%;"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="css-c88ajq-Thumb exqw8y210"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="false"
+                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      role="tooltip"
+                      style="left: 20%; z-index: 100;"
+                    >
+                      4
+                    </span>
+                  </span>
+                  <input
+                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    inputmode="decimal"
+                    max="20"
+                    min="0"
+                    step="1"
+                    type="number"
+                    value="4"
+                  />
+                </span>
+              </div>
+            </div>
+            <button
+              class="components-button global-shape-size-reset is-small"
+              type="button"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-7"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-7"
+            >
+              Outlined
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Content Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-8"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-8"
+            >
+              Show title
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-9"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-9"
+            >
+              Show secondary text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-10"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-10"
+            >
+              Show image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-11"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-11"
+            >
+              Show supporting text
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-12"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-12"
+            >
+              Show actions
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-13"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-13"
+            >
+              Show secondary action button
+            </label>
+          </div>
+        </div>
+      </div>
       <div>
         <div
           class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
@@ -744,7 +3379,6 @@ Object {
                 aria-label="Title goes here"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-                contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -754,7 +3388,6 @@ Object {
                 aria-label="Secondary text"
                 aria-multiline="true"
                 class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-                contenteditable="true"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -778,7 +3411,6 @@ Object {
                     aria-label="Button"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -796,7 +3428,6 @@ Object {
                     aria-label="Button"
                     aria-multiline="true"
                     class="rich-text block-editor-rich-text__editable"
-                    contenteditable="true"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -811,6 +3442,537 @@ Object {
     </div>
   </body>,
   "container": <div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Style Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-radio-control-1"
+          >
+            Content layout
+          </label>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-1-0"
+              name="inspector-radio-control-1"
+              type="radio"
+              value="text-above-media"
+            />
+            <label
+              for="inspector-radio-control-1-0"
+            >
+              Text above media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-1-1"
+              name="inspector-radio-control-1"
+              type="radio"
+              value="text-over-media"
+            />
+            <label
+              for="inspector-radio-control-1-1"
+            >
+              Text over media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="inspector-radio-control-1-2"
+              name="inspector-radio-control-1"
+              type="radio"
+              value="text-under-media"
+            />
+            <label
+              for="inspector-radio-control-1-2"
+            >
+              Text under media
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <label
+          class="components-base-control__label"
+          for="shape-size"
+        >
+          Corner Styles
+        </label>
+        <div>
+          Overrides will only apply to these cards. Change Cards corner styles in 
+          <a
+            href="http://example.com/shape"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            Material Design Options
+          </a>
+           to update all cards.
+        </div>
+        <div
+          class="components-base-control components-global-shape-size"
+        >
+          <div
+            class="components-base-control components-range-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <span
+                class="components-range-control__root css-yaebbd-Root exqw8y20"
+              >
+                <span
+                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  color="#00669b"
+                >
+                  <input
+                    aria-hidden="false"
+                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                    id="inspector-range-control-1"
+                    max="20"
+                    min="0"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="4"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-1lwhlrq-Rail exqw8y24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-ogrpie-Track exqw8y25"
+                    style="width: 20%;"
+                  />
+                  <span
+                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    style="left: 20%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-c88ajq-Thumb exqw8y210"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    role="tooltip"
+                    style="left: 20%; z-index: 100;"
+                  >
+                    4
+                  </span>
+                </span>
+                <input
+                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  inputmode="decimal"
+                  max="20"
+                  min="0"
+                  step="1"
+                  type="number"
+                  value="4"
+                />
+              </span>
+            </div>
+          </div>
+          <button
+            class="components-button global-shape-size-reset is-small"
+            type="button"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-7"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-7"
+          >
+            Outlined
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Content Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-8"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-8"
+          >
+            Show title
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-9"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-9"
+          >
+            Show secondary text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-10"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-10"
+          >
+            Show image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-11"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-11"
+          >
+            Show supporting text
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-12"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-12"
+          >
+            Show actions
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-13"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-13"
+          >
+            Show secondary action button
+          </label>
+        </div>
+      </div>
+    </div>
     <div>
       <div
         class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
@@ -860,7 +4022,6 @@ Object {
               aria-label="Title goes here"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -870,7 +4031,6 @@ Object {
               aria-label="Secondary text"
               aria-multiline="true"
               class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
-              contenteditable="true"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -894,7 +4054,6 @@ Object {
                   aria-label="Button"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -912,7 +4071,6 @@ Object {
                   aria-label="Button"
                   aria-multiline="true"
                   class="rich-text block-editor-rich-text__editable"
-                  contenteditable="true"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >

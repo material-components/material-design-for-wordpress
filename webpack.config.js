@@ -103,7 +103,7 @@ const sharedConfig = {
 };
 
 // These packages need to be bundled and not extracted to `wp.*`.
-const PACKAGES_TO_BUNDLE = [ '@wordpress/rich-text' ];
+const PACKAGES_TO_BUNDLE = [];
 
 const blockEditor = {
 	...defaultConfig,
