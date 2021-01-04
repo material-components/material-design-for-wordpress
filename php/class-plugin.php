@@ -70,6 +70,13 @@ class Plugin extends Plugin_Base {
 	public $onboarding_rest_controller;
 
 	/**
+	 * Design_Assets_Rest_Controller class
+	 *
+	 * @var Design_Assets_Rest_Controller
+	 */
+	public $assets_rest_controller;
+
+	/**
 	 * Importer class.
 	 *
 	 * @var Importer
@@ -116,6 +123,9 @@ class Plugin extends Plugin_Base {
 
 		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
 		$this->onboarding_rest_controller->init();
+
+		$this->assets_rest_controller = new Design_Assets_Rest_Controller( $this );
+		$this->assets_rest_controller->init();
 
 		$this->importer = new Importer( $this );
 		$this->importer->init();

@@ -58,7 +58,8 @@ class Update_Fonts extends API_Base {
 			_material_design_error( '_material_design_no_apikey_textonly', $this->material_design_no_apikey() );
 		}
 
-		$this->endpoint        = sprintf( 'https://www.googleapis.com/webfonts/v1/webfonts?key=%s&fields=items(category,variants,family)', $this->api_key );
+		$this->endpoint        =
+			sprintf( 'https://www.googleapis.com/webfonts/v1/webfonts?key=%s&fields=items(category,variants,family)', $this->api_key );
 		$this->local_file_path = get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json';
 	}
 
@@ -85,7 +86,7 @@ class Update_Fonts extends API_Base {
 			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
 		}
 
-		return $new;
+		return json_decode( $new );
 	}
 
 	/**
@@ -100,9 +101,10 @@ class Update_Fonts extends API_Base {
 
 		$fonts = new stdClass();
 		foreach ( $data->items as $font ) {
-			$item             = new stdClass();
-			$item->variants   = $font->variants;
-			$item->categories = $font->categories;
+			$item = (object) [
+				'variants'   => $font->variants,
+				'categories' => $font->categories,
+			];
 
 			$fonts->{$font->family} = $item;
 		}
@@ -115,9 +117,8 @@ class Update_Fonts extends API_Base {
 	/**
 	 * Retrieves data from Fonts API
 	 *
-	 * @throws Exception Generic exception.
-	 *
 	 * @return string|bool
+	 * @throws Exception Generic exception.
 	 */
 	public function get_http_response() {
 		$response =

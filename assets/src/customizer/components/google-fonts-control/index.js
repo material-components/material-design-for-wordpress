@@ -24,62 +24,62 @@ import 'select-woo';
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { useState, useEffect, useRef } from '@wordpress/element';
-import { Button } from '@wordpress/components';
+import {__} from '@wordpress/i18n';
+import {useState, useEffect, useRef} from '@wordpress/element';
+import {Button} from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
 import './style.css';
 import Item from './item';
-import { sanitizeControlId } from '../../utils';
+import {sanitizeControlId} from '../../utils';
 import getConfig from '../../../block-editor/utils/get-config';
 
 const GoogleFontsControl = props => {
-	const { id, label, value, children, onChange } = props;
-	const elementRef = useRef( null );
-	const googleFonts = getConfig( 'googleFonts' );
-	const [ isExpanded, setIsExpanded ] = useState( false );
-	const [ items, setItems ] = useState( children );
-	const [ selectedFont, setSelectedFont ] = useState( value );
+	const {id, label, value, children, onChange} = props;
+	const elementRef = useRef(null);
+	const googleFonts = getConfig('googleFonts');
+	const [isExpanded, setIsExpanded] = useState(false);
+	const [items, setItems] = useState(children);
+	const [selectedFont, setSelectedFont] = useState(value);
 
 	/* istanbul ignore next */
-	useEffect( () => {
-		jQuery( elementRef.current )
-			.find( '.google-fonts-control-selection' )
-			.selectWoo( {
-				data: Object.values( googleFonts ),
+	useEffect(() => {
+		jQuery(elementRef.current)
+			.find('.google-fonts-control-selection')
+			.selectWoo({
+				data: Object.values(googleFonts),
 				width: '100%',
-			} )
-			.val( selectedFont )
-			.trigger( 'change' )
-			.on( 'change', event => {
-				setSelectedFont( event.target.value );
-				onChange( event );
-			} )
+			})
+			.val(selectedFont)
+			.trigger('change')
+			.on('change', event => {
+				setSelectedFont(event.target.value);
+				onChange(event);
+			})
 			// Trigger when dropdown opens
 			// select2:opening triggers right before this, choose whichever you feel fits better
-			.on( 'select2:open', event => {
-				updateFontList( event );
-			} );
-	}, [ elementRef ] ); // eslint-disable-line
+			.on('select2:open', event => {
+				updateFontList(event);
+			});
+	}, [elementRef]); // eslint-disable-line
 
-	useEffect( () => {
-		const newChildren = children.map( child => {
-			if ( googleFonts.hasOwnProperty( selectedFont ) ) {
-				child.weight.choices = googleFonts[ selectedFont ].variants;
+	useEffect(() => {
+		const newChildren = children.map(child => {
+			if (googleFonts.hasOwnProperty(selectedFont)) {
+				child.weight.choices = googleFonts[selectedFont].variants;
 			}
 
 			return child;
-		} );
+		});
 
-		setItems( newChildren );
-	}, [ selectedFont ] ); // eslint-disable-line
+		setItems(newChildren);
+	}, [selectedFont]); // eslint-disable-line
 
 	const setChildValues = child => {
 		const childControl = wp.customize.control(
-			`material_design[${ child.id }]`
+			`material_design[${child.id}]`
 		);
 
 		const settings = {
@@ -87,44 +87,44 @@ const GoogleFontsControl = props => {
 			weight: child.weightValue,
 		};
 
-		childControl.setting.set( JSON.stringify( settings ) );
+		childControl.setting.set(JSON.stringify(settings));
 	};
 
 	const handleClick = () => {
-		setIsExpanded( ! isExpanded );
+		setIsExpanded(!isExpanded);
 	};
 
 	const handleOnReset = event => {
-		event.preventDefault();
+			event.preventDefault();
 
-		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) {
-			// eslint-disable-line
-			return;
+			if (!window.confirm(getConfig('l10n').confirmChange)) {// eslint-disable-line
+				return;
+			}
+
+			const newChildren = children.map(child => {
+				const {size, weight} = child;
+
+				setChildValues({
+					id: child.id,
+					sizeValue: size.default,
+					weightValue: weight.default,
+				});
+
+				size.value = size.default;
+				weight.value = weight.default;
+
+				return child;
+			});
+
+			setItems(newChildren);
 		}
-
-		const newChildren = children.map( child => {
-			const { size, weight } = child;
-
-			setChildValues( {
-				id: child.id,
-				sizeValue: size.default,
-				weightValue: weight.default,
-			} );
-
-			size.value = size.default;
-			weight.value = weight.default;
-
-			return child;
-		} );
-
-		setItems( newChildren );
-	};
+	;
 
 	const onChildChange = values => {
-		setChildValues( values );
+		setChildValues(values);
 
-		const newChildren = children.map( child => {
-			if ( values.id !== child.id ) {
+		const newChildren = children.map(child => {
+			if (values.id !== child.id) {
 				return child;
 			}
 
@@ -132,9 +132,9 @@ const GoogleFontsControl = props => {
 			child.weight.value = values.weightValue;
 
 			return child;
-		} );
+		});
 
-		setItems( newChildren );
+		setItems(newChildren);
 	};
 
 	/**
@@ -163,102 +163,103 @@ const GoogleFontsControl = props => {
 		// .then()...
 
 		// Dummy call for example
-		fetch( 'https://reqres.in/api/unknown' )
-			.then( response => response.json() )
-			.then( data => {
+		fetch('https://reqres.in/api/unknown')
+			.then(response => response.json())
+			.then(data => {
 				// Filter dummy data into something usable
 				// Not needed if json comes in this format
-				const results = data.data.map( item => {
+				const results = data.data.map(item => {
 					return {
 						id: item.id,
 						text: item.name,
 					};
-				} );
+				});
 
 				// Add new items to dropdown
-				results.forEach( item => {
-					const { id, text } = item;
+				results.forEach(item => {
+					const {id, text} = item;
 
 					// Is it already in dropdown?
 					const existingOption = select.querySelector(
-						`option[value="${ id }"]`
+						`option[value="${id}"]`
 					);
 
-					if ( existingOption ) {
+					if (existingOption) {
 						return;
 					}
 
 					// It's new!
-					const option = new Option( text, id );
+					const option = new Option(text, id);
 
 					// SelectWoo already uses jQuery anyways
 					// Add it to dropdown
-					jQuery( select )
-						.append( option )
-						.trigger( 'change' );
-				} );
-			} )
-			.catch( error => {
+					jQuery(select)
+						.append(option)
+						.trigger('change');
+				});
+			})
+			.catch(error => {
 				// Handle error
 				// console.log( 'OMG we failed', error )
-			} );
+			});
 	};
 
 	return (
 		<div
-			id={ `google-fonts-control-${ sanitizeControlId( id ) }` }
+			id={`google-fonts-control-${sanitizeControlId(id)}`}
 			className="google-fonts-control"
-			ref={ elementRef }
+			ref={elementRef}
 		>
 			<div className="google-fonts-control-header">
-				<div tabIndex={ 0 } role="link" className="google-fonts-control-title">
+				<div tabIndex={0} role="link" className="google-fonts-control-title">
 					<span className="customize-control-title google-fonts-control-title__item">
-						{ label }
+						{label}
 					</span>
 				</div>
 			</div>
 			<div className="google-fonts-control-body">
 				<select // eslint-disable-line
 					className="google-fonts-control-selection"
-					value={ selectedFont }
-					data-id={ id }
-					onChange={ onChange }
+					value={selectedFont}
+					data-id={id}
+					onChange={onChange}
 				></select>
 
 				<span className="google-fonts-control-body__item">
 					<Button
 						isLink
-						label={ __( 'View more options', 'material-design' ) }
-						showTooltip={ true }
+						label={__('View more options', 'material-design')}
+						showTooltip={true}
 						icon="admin-settings"
 						className="control-settings-expanded google-fonts-control-settings-expanded"
-						onClick={ handleClick }
+						onClick={handleClick}
 					/>
 				</span>
 			</div>
 
-			{ isExpanded && items && items.length && (
+			{isExpanded && items && items.length && (
 				<>
 					<div className="google-fonts-control-children">
-						{ items.map( child => (
-							<Item key={ child.id } onChange={ onChildChange } { ...child } />
-						) ) }
+						{items.map(child => (
+							<Item key={child.id} onChange={onChildChange} {...child} />
+						))}
 					</div>
 
 					<p>
-						{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
+						{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 						<a
 							href="#"
-							onClick={ handleOnReset }
+							onClick={handleOnReset}
 							className="google-fonts-control-reset"
 						>
-							{ __( 'Reset', 'material-design' ) }
+							{__('Reset', 'material-design')}
 						</a>
 					</p>
 				</>
-			) }
+			)}
 		</div>
 	);
 };
+
 
 export default GoogleFontsControl;
