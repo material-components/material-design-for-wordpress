@@ -39,11 +39,12 @@ export const settings = {
 		'material-design'
 	),
 	keywords: [ __( 'Material Card', 'material-design' ) ],
-	icon: <i className="material-icons-outlined">library_books</i>,
+	icon: () => <i className="material-icons-outlined">library_books</i>,
 	example: {
 		attributes: {
 			preview: true,
 		},
 	},
 	edit,
+	save: () => '',
 };

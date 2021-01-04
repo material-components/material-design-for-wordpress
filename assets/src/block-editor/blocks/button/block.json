@@ -47,7 +47,7 @@
     "icon": {
       "type": "string",
       "default": "",
-      "source": "html",
+      "source": "text",
       "selector": ".material-icons"
      },
     "backgroundColor": {

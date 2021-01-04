@@ -41,7 +41,6 @@ Object {
           >
             <i
               class="material-icons"
-              size="24"
             >
               keyboard_arrow_left
             </i>
@@ -55,7 +54,6 @@ Object {
           >
             <i
               class="material-icons"
-              size="24"
             >
               keyboard_arrow_right
             </i>
@@ -77,7 +75,6 @@ Object {
         >
           <i
             class="material-icons"
-            size="24"
           >
             keyboard_arrow_left
           </i>
@@ -91,7 +88,6 @@ Object {
         >
           <i
             class="material-icons"
-            size="24"
           >
             keyboard_arrow_right
           </i>
@@ -194,7 +190,6 @@ Object {
           >
             <i
               class="material-icons"
-              size="24"
             >
               keyboard_arrow_left
             </i>
@@ -208,7 +203,6 @@ Object {
           >
             <i
               class="material-icons"
-              size="24"
             >
               keyboard_arrow_right
             </i>
@@ -230,7 +224,6 @@ Object {
         >
           <i
             class="material-icons"
-            size="24"
           >
             keyboard_arrow_left
           </i>
@@ -244,7 +237,6 @@ Object {
         >
           <i
             class="material-icons"
-            size="24"
           >
             keyboard_arrow_right
           </i>

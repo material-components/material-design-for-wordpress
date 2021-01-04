@@ -40,7 +40,8 @@ export const settings = {
 		'material-design'
 	),
 	keywords: [ __( 'Material Card', 'material-design' ) ],
-	icon: <i className="material-icons-outlined">description</i>,
+	icon: () => <i className="material-icons-outlined">description</i>,
 	edit,
+	save: () => '',
 	example,
 };

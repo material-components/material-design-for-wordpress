@@ -137,6 +137,13 @@ class Block_Types {
 		$version      = isset( $asset['version'] ) ? $asset['version'] : $this->plugin->asset_version();
 		$dependencies = isset( $asset['dependencies'] ) ? $asset['dependencies'] : [];
 
+		// Remove any unregistered deps for back-compat.
+		foreach ( $dependencies as $index => $script ) {
+			if ( ! wp_script_is( $script, 'registered' ) ) {
+				unset( $dependencies[ $index ] );
+			}
+		}
+
 		wp_register_script(
 			'material-block-editor-js',
 			$this->plugin->asset_url( 'assets/js/block-editor.js' ),

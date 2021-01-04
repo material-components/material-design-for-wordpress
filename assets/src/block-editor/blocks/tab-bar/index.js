@@ -40,7 +40,7 @@ export const settings = {
 		__( 'Material Tabs', 'material-design' ),
 		__( 'Material Tabs', 'material-design' ),
 	],
-	icon: <i className="material-icons-outlined">tab</i>,
+	icon: () => <i className="material-icons-outlined">tab</i>,
 	edit,
 	save,
 	example: {

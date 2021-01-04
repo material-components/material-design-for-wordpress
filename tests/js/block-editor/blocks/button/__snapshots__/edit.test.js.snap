@@ -37,17 +37,9 @@ Object {
             aria-label="Add text..."
             aria-multiline="true"
             class="rich-text block-editor-rich-text__editable material-block-button__link"
-            contenteditable="true"
             role="textbox"
             style="white-space: pre-wrap;"
-          >
-            
-            ﻿
-            <span
-              contenteditable="false"
-              data-rich-text-placeholder="Add text..."
-            />
-          </div>
+          />
         </div>
       </div>
       <div
@@ -19099,17 +19091,9 @@ Object {
           aria-label="Add text..."
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable material-block-button__link"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
-        >
-          
-          ﻿
-          <span
-            contenteditable="false"
-            data-rich-text-placeholder="Add text..."
-          />
-        </div>
+        />
       </div>
     </div>
     <div

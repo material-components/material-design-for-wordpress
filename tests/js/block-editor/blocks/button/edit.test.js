@@ -25,14 +25,46 @@ import { render, screen, fireEvent } from '@testing-library/react';
  */
 import ButtonEdit from '../../../../../assets/src/block-editor/blocks/button/edit';
 
-// Mock the <InspectorControls> component only, so that the other components in this package behave as usual.
-jest.mock( '@wordpress/block-editor', () => {
-	const original = require.requireActual( '@wordpress/block-editor' );
-	return {
-		...original,
-		InspectorControls: ( { children } ) => children,
-	};
-} );
+jest.unmock( '@wordpress/data' );
+jest.mock( '@wordpress/data', () => ( {
+	combineReducers: jest.fn(),
+	registerStore: jest.fn(),
+	select: store => {
+		switch ( store ) {
+			case 'core/block-editor':
+				return {
+					getBlock: () => {},
+					getBlockParentsByBlockName: () => null,
+					getBlockRootClientId: () => null,
+				};
+
+			default:
+				return {};
+		}
+	},
+	withSelect: mapSelectToProps => WrappedComponent => ownProps => {
+		return (
+			<WrappedComponent
+				{ ...ownProps }
+				{ ...mapSelectToProps }
+				tabContent={ [] }
+			/>
+		);
+	},
+	withDispatch: () => () => {},
+	dispatch: store => {
+		switch ( store ) {
+			case 'core/block-editor':
+				return {
+					replaceInnerBlocks: jest.fn(),
+					removeBlocks: jest.fn(),
+				};
+
+			default:
+				return {};
+		}
+	},
+} ) );
 
 const baseProps = {
 	attributes: { type: 'text', style: 'text' },
