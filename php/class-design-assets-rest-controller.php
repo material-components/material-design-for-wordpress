@@ -27,6 +27,7 @@ namespace MaterialDesign\Plugin;
 
 use MaterialDesign\Plugin\Api\Update_Fonts;
 use MaterialDesign\Plugin\Api\Update_Icons;
+use WP_REST_Request;
 
 /**
  * Class Design_Assets_Rest_Controller
@@ -74,11 +75,23 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	public function register_routes() {
 		register_rest_route(
 			$this->namespace,
-			'/' . $this->rest_base . '/retrieve-assets',
+			'/' . $this->rest_base . '/retrieve-fonts',
 			[
 				[
 					'methods'  => \WP_REST_Server::READABLE,
-					'callback' => [ $this, 'retrieve_assets' ],
+					'callback' => [ $this, 'get_fonts' ],
+				],
+				'schema' => [ $this, 'get_item_schema' ],
+			]
+		);
+
+		register_rest_route(
+			$this->namespace,
+			'/' . $this->rest_base . '/retrieve-icons',
+			[
+				[
+					'methods'  => \WP_REST_Server::READABLE,
+					'callback' => [ $this, 'get_icons' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
@@ -138,19 +151,43 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	 * @return false|\stdClass|string
 	 */
 	public function get_fonts() {
-		$fonts = new Update_Fonts();
+		$fonts  = new Update_Fonts();
+		$data   = $fonts->get_fonts();
+		$count  = count( $data );
+		$parsed = (object) [
+			'page'        => 1,
+			'per_page'    => $count,
+			'count'       => $count,
+			'total_pages' => 1,
+			'data'        => $data,
+		];
 
-		return $fonts->get_fonts();
+		return $parsed;
 	}
 
 	/**
-	 * Returns fonts data
+	 * Returns fonts data.
+	 *
+	 * @var WP_REST_Request $request REST request object.
 	 *
 	 * @return mixed
 	 */
-	public function get_icons() {
-		$icons = new Update_Icons();
+	public function get_icons( $request ) {
+		$force = $request->get_param( 'force_http' );
 
-		return $icons->get_icons();
+		$icons = new Update_Icons( $force );
+		$data  = $icons->get_icons();
+		$count = count( $data->data );
+
+		$parsed = (object) [
+			'page'        => 1,
+			'per_page'    => $count,
+			'count'       => $count,
+			'total_pages' => 1,
+			'data'        => $data->data,
+		];
+
+
+		return $parsed;
 	}
 }

@@ -26,6 +26,7 @@
 namespace MaterialDesign\Plugin\Api;
 
 use Exception;
+use stdClass;
 use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
@@ -45,11 +46,21 @@ class Update_Icons extends API_Base {
 	public $local_codepoints;
 
 	/**
-	 * Update_Icons constructor.
+	 * Whether to force loading from HTTP.
+	 *
+	 * @var bool
 	 */
-	public function __construct() {
+	public $force_http;
+
+	/**
+	 * Update_Icons constructor.
+	 *
+	 * @param bool $force_http Whether to force loading from HTTP.
+	 */
+	public function __construct( $force_http = false ) {
 		parent::__construct();
 
+		$this->force_http       = (bool) $force_http;
 		$this->endpoint         =
 			'https://raw.githubusercontent.com/google/material-design-icons/master/font/MaterialIcons-Regular.codepoints';
 		$this->local_file_path  = get_plugin_instance()->dir_path . '/assets/fonts/icons.json';
@@ -65,7 +76,7 @@ class Update_Icons extends API_Base {
 
 		$new = null;
 
-		if ( false === get_transient( self::TRANSIENT ) ) {
+		if ( false === get_transient( self::TRANSIENT ) || true === $this->force_http ) {
 			try {
 				$codepoints = $this->get_http_response();
 				$new        = $this->parse_codepoints( $codepoints );
@@ -78,7 +89,10 @@ class Update_Icons extends API_Base {
 			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
 		}
 
-		return json_decode( $new );
+		$new->data = $new->icons;
+		unset( $new->icons );
+
+		return $new;
 	}
 
 	/**
@@ -93,14 +107,19 @@ class Update_Icons extends API_Base {
 
 		$icons        = new \stdClass();
 		$icons->icons = [];
+
 		foreach ( $lines as $line ) {
 			$parts = explode( ' ', $line );
+			if ( ! is_array( $parts ) || 2 !== count( $parts ) ) {
+				continue;
+			}
 
 			$icon = (object) [
+				'id'   => $parts[1],
 				'name' => $parts[0],
 			];
 
-			$icons[ $parts[1] ] = $icon;
+			$icons->icons[ $parts[1] ] = $icon;
 		}
 
 		if ( ! empty( $icons ) ) {
@@ -118,7 +137,8 @@ class Update_Icons extends API_Base {
 	 * @return false|mixed|string
 	 */
 	public function get_http_response() {
-		$codepoints = file_get_contents( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get, WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+		$codepoints =
+			file_get_contents( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get, WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
 		if ( empty( $codepoints ) ) {
 			return false;
 		}
