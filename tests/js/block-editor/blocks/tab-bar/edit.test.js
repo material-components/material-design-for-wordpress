@@ -25,15 +25,47 @@ import { render, fireEvent } from '@testing-library/react';
  */
 import Edit from '../../../../../assets/src/block-editor/blocks/tab-bar/edit';
 
-// Mock the <InspectorControls> component only, so that the other components in this package behave as usual.
-jest.mock( '@wordpress/block-editor', () => {
-	const original = require.requireActual( '@wordpress/block-editor' );
-	return {
-		...original,
-		InspectorControls: ( { children } ) => children,
-		InnerBlocks: () => <div></div>,
-	};
-} );
+jest.mock( '@wordpress/blocks', () => ( {
+	getBlockTypes: () => [],
+} ) );
+
+jest.unmock( '@wordpress/data' );
+jest.mock( '@wordpress/data', () => ( {
+	combineReducers: jest.fn(),
+	registerStore: jest.fn(),
+	select: store => {
+		switch ( store ) {
+			case 'core/block-editor':
+				return {
+					getBlocks: () => [],
+				};
+
+			default:
+				return {};
+		}
+	},
+	withSelect: mapSelectToProps => WrappedComponent => ownProps => {
+		return (
+			<WrappedComponent
+				{ ...ownProps }
+				{ ...mapSelectToProps }
+				tabContent={ [] }
+			/>
+		);
+	},
+	dispatch: store => {
+		switch ( store ) {
+			case 'core/block-editor':
+				return {
+					replaceInnerBlocks: jest.fn(),
+					removeBlocks: jest.fn(),
+				};
+
+			default:
+				return {};
+		}
+	},
+} ) );
 
 /**
  * Render the component.

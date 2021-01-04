@@ -38,7 +38,7 @@ export const settings = {
 	),
 	category: 'material',
 	keywords: [ __( 'Material Contact Form', 'material-design' ) ],
-	icon: <i className="material-icons-outlined">mail</i>,
+	icon: () => <i className="material-icons-outlined">mail</i>,
 	example: {
 		attributes: {
 			preview: true,

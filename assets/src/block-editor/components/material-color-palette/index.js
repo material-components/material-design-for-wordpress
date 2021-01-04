@@ -158,14 +158,16 @@ export default function MaterialColorPalette( {
 		);
 	}
 
+	const VisualLabel = BaseControl.VisualLabel || 'label';
+
 	return (
 		<BaseControl className="material-component-color-palette">
-			<BaseControl.VisualLabel>
+			<VisualLabel>
 				<span className="material-component-color-palette__label">
 					{ label }
 				</span>
 				<ColorIndicator colorValue={ value } aria-label={ label } />
-			</BaseControl.VisualLabel>
+			</VisualLabel>
 
 			<div className="material-colors-wrap">
 				<CircularOptionPicker
