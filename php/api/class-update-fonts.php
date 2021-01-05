@@ -56,7 +56,8 @@ class Update_Fonts extends API_Base {
 	/**
 	 * Update_Fonts constructor.
 	 *
-	 * @param bool $force_http Whether to force loading from HTTP.
+	 * @param bool   $force_http Whether to force loading from HTTP. Defaults to false.
+	 * @param string $api_key    Manually pass in a Google API key. Defaults to false.
 	 */
 	public function __construct( $force_http = false, $api_key = false ) {
 		parent::__construct();
@@ -65,7 +66,7 @@ class Update_Fonts extends API_Base {
 
 		if ( ! empty( $api_key ) ) {
 			$this->api_key = $api_key;
-		} else if ( defined( 'GOOGLE_FONTS_API_KEY' ) && false !== GOOGLE_FONTS_API_KEY ? GOOGLE_FONTS_API_KEY ) {
+		} elseif ( defined( 'GOOGLE_FONTS_API_KEY' ) && false !== GOOGLE_FONTS_API_KEY ) {
 			$this->api_key = GOOGLE_FONTS_API_KEY;
 		} else {
 			$this->api_key = null;
