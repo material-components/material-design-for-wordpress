@@ -34,7 +34,13 @@ use stdClass;
  *
  * @package MaterialDesign\Plugin\Cli
  */
-class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli*/ {
+class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli*/
+{
+
+	const NAME = 'fonts-update';
+
+	const FLAG_FORCE_HTTP = 'force-http';
+	const FLAG_API_KEY    = 'api-key';
 
 	/**
 	 * Registers command with WP-CLI
@@ -70,10 +76,16 @@ class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	public function arguments() {
 		return [
 			[
-				'type'        => 'optional',
-				'name'        => 'api-key',
+				'type'        => 'assoc',
+				'name'        => self::FLAG_API_KEY,
 				'optional'    => true,
-				'description' => $this->description(),
+				'description' => __( 'Use Google API key different than what is defined in wp-config.php', 'material-design' ),
+			],
+			[
+				'type'        => 'flag',
+				'name'        => self::FLAG_FORCE_HTTP,
+				'optional'    => true,
+				'description' => __( 'Force CLI to retrieve fonts from the Google fonts API, instead of the local store', 'material-design' ),
 			],
 		];
 	}
@@ -82,7 +94,7 @@ class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	 * Registers the command name e.g. `wp material fonts-update`
 	 */
 	public function command() {
-		return 'fonts-update';
+		return self::NAME;
 	}
 
 	/**
@@ -94,7 +106,11 @@ class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	 * @throws Exception Generic Exception.
 	 */
 	public function run_command( $args, $assoc_args ) {
-		$google_fonts = new Update_Fonts();
+
+		$force_http = \WP_CLI\Utils\get_flag_value( $assoc_args, self::FLAG_FORCE_HTTP, false );
+		$api_key    = \WP_CLI\Utils\get_flag_value( $assoc_args, self::FLAG_API_KEY, false );
+
+		$google_fonts = new Update_Fonts( $force_http, $api_key );
 		$data         = $google_fonts->get_fonts();
 
 		if ( ! empty( $data ) ) {
