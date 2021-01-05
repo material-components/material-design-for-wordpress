@@ -70,6 +70,17 @@ const CardActionButton = ( {
 						value={ label }
 						onChange={ onChangeLabel }
 						placeholder={ __( 'Button', 'material-design' ) }
+						allowedFormats={ [
+							'core/bold',
+							'core/italic',
+							'core/code',
+							'core/image',
+							'core/strikethrough',
+							'core/underline',
+							'core/text-color',
+							'core/subscript',
+							'core/superscript',
+						] }
 					/>
 				</button>
 			) : (
