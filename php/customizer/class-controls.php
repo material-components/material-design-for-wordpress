@@ -729,6 +729,13 @@ class Controls extends Module_Base {
 			$value    = $this->get_option( $control['id'] );
 			$fallback = array_key_exists( $value, $google_fonts ) ? $google_fonts[ $value ]['category'] : 'sans-serif';
 
+			$fallback = 'sans-serif';
+			if ( array_key_exists( $value, $google_fonts ) ) {
+				if ( array_key_exists( 'category', $google_fonts[ $value ] ) ) {
+					$fallback = $google_fonts[ $value ]['category'];
+				}
+			}
+
 			if ( ! empty( $control['css_vars']['family'] ) ) {
 				foreach ( $control['css_vars']['family'] as $var ) {
 					$font_vars[] = sprintf(

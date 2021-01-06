@@ -78,8 +78,9 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 			'/' . $this->rest_base . '/retrieve-fonts',
 			[
 				[
-					'methods'  => \WP_REST_Server::READABLE,
-					'callback' => [ $this, 'get_fonts' ],
+					'methods'             => \WP_REST_Server::READABLE,
+					'callback'            => [ $this, 'get_fonts' ],
+					'permission_callback' => '__return_true',
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
@@ -90,8 +91,9 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 			'/' . $this->rest_base . '/retrieve-icons',
 			[
 				[
-					'methods'  => \WP_REST_Server::READABLE,
-					'callback' => [ $this, 'get_icons' ],
+					'methods'             => \WP_REST_Server::READABLE,
+					'callback'            => [ $this, 'get_icons' ],
+					'permission_callback' => '__return_true',
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
