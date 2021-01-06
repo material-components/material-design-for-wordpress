@@ -727,7 +727,6 @@ class Controls extends Module_Base {
 
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value    = $this->get_option( $control['id'] );
-			$fallback = array_key_exists( $value, $google_fonts ) ? $google_fonts[ $value ]['category'] : 'sans-serif';
 
 			$fallback = 'sans-serif';
 			if ( array_key_exists( $value, $google_fonts ) ) {
