@@ -64,10 +64,7 @@ class Controls extends Module_Base {
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'scripts' ] );
 		add_action( 'customize_preview_init', [ $this, 'preview_scripts' ], 100 );
 		add_action( 'customize_controls_print_footer_scripts', [ $this, 'templates' ] );
-		add_action( 'customize_sanitize_js_material_design_notify', [
-			$this,
-			'show_material_components_notification',
-		] );
+		add_action( 'customize_sanitize_js_material_design_notify', [ $this, 'show_material_components_notification' ] );
 		add_action( 'wp_ajax_material_design_notification_dismiss', [ $this, 'notification_dismiss' ] );
 	}
 
@@ -493,8 +490,7 @@ class Controls extends Module_Base {
 			 * If the control is Range Slider and has childen, add them to the `added_controls` list
 			 * so the JS events are atatched.
 			 */
-			if ( ! empty( $control->children ) && is_array( $control->children ) &&
-			     $control instanceof Range_Slider_Control ) {
+			if ( ! empty( $control->children ) && is_array( $control->children ) && ( $control instanceof Range_Slider_Control ) ) {
 				$this->added_controls = array_merge(
 					$this->added_controls,
 					array_map(
@@ -1254,7 +1250,7 @@ class Controls extends Module_Base {
 	 * Update option value.
 	 *
 	 * @param string $name Name of the option.
-	 * @param mixed $value Value of the option.
+	 * @param mixed  $value Value of the option.
 	 *
 	 * @return mixed
 	 */

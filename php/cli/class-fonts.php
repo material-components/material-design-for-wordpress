@@ -34,8 +34,7 @@ use stdClass;
  *
  * @package MaterialDesign\Plugin\Cli
  */
-class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli*/
-{
+class Fonts extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli*/ {
 
 	const NAME = 'fonts-update';
 

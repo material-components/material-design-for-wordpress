@@ -44,12 +44,12 @@ const GoogleFontsControl = props => {
 	const [ isExpanded, setIsExpanded ] = useState( false );
 	const [ items, setItems ] = useState( children );
 	const [ selectedFont, setSelectedFont ] = useState( value );
-	const [ requesting, setRequesting ] = useState( false );
+	const [ setRequesting ] = useState( false );
 
 	// Run only once
 	useEffect( () => {
-		updateFontList();
-	}, [ updateFontList ] );
+		updateFontIconList();
+	}, [ updateFontIconList ] );
 
 	/* istanbul ignore next */
 	useEffect( () => {
@@ -99,8 +99,7 @@ const GoogleFontsControl = props => {
 	const handleOnReset = event => {
 		event.preventDefault();
 
-		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) {
-			// eslint-disable-line
+		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) { // eslint-disable-line
 			return;
 		}
 
@@ -141,13 +140,13 @@ const GoogleFontsControl = props => {
 	/**
 	 * Update font list when dropdown is openened
 	 */
-	const updateFontList = () => {
+	const updateFontIconList = () => {
 		const select = document.getElementsByClassName(
 			'google-fonts-control-selection'
 		); //.google-fonts-control-selection
 		jQuery( select ).empty();
 
-		const requestArgs = {
+		const requestFontArgs = {
 			path: `${ getConfig( 'fontsRestPath' ) }`,
 			method: 'GET',
 			headers: {
@@ -156,7 +155,7 @@ const GoogleFontsControl = props => {
 		};
 
 		// Import and use apiFetch if requesting from WP API
-		apiFetch( requestArgs )
+		apiFetch( requestFontArgs )
 			.then( response => {
 				response.data.forEach( item => {
 					const option = new Option( item.name, item.id );
@@ -168,25 +167,17 @@ const GoogleFontsControl = props => {
 				} );
 			} )
 			.catch( onFail );
-	};
 
-	/**
-	 * Update font list when dropdown is openened
-	 *
-	 * @param {*} event
-	 */
-	const updateIconList = event => {
-		const select = event.target;
-		const requestArgs = {
+		const requestIconArgs = {
 			path: `${ getConfig( 'iconsRestPath' ) }`,
 			method: 'GET',
 			headers: {
-				'X-WP-Nonce': getConfig( 'nonce' ),
+				'X-WP-Nonce': getConfig( 'themeNonce' ),
 			},
 		};
 
 		// Import and use apiFetch if requesting from WP API
-		apiFetch( requestArgs ).catch( onFail );
+		apiFetch( requestIconArgs ).catch( onFail );
 	};
 
 	const onFail = error => {
