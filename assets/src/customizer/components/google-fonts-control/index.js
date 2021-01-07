@@ -44,7 +44,12 @@ const GoogleFontsControl = props => {
 	const [ isExpanded, setIsExpanded ] = useState( false );
 	const [ items, setItems ] = useState( children );
 	const [ selectedFont, setSelectedFont ] = useState( value );
-	const [ setRequesting ] = useState( false );
+	const [ requesting, setRequesting ] = useState( false );
+
+	// Run only once
+	useEffect( () => {
+		updateFontList();
+	}, [] );
 
 	/* istanbul ignore next */
 	useEffect( () => {
@@ -60,7 +65,6 @@ const GoogleFontsControl = props => {
 				setSelectedFont( event.target.value );
 				onChange( event );
 			} );
-		updateFontList();
 	}, [ elementRef ] ); // eslint-disable-line
 
 	useEffect( () => {
@@ -95,7 +99,8 @@ const GoogleFontsControl = props => {
 	const handleOnReset = event => {
 		event.preventDefault();
 
-		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) { // eslint-disable-line
+		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) {
+			// eslint-disable-line
 			return;
 		}
 
@@ -135,10 +140,8 @@ const GoogleFontsControl = props => {
 
 	/**
 	 * Update font list when dropdown is openened
-	 *
-	 * @param {*} event
 	 */
-	const updateFontList = event => {
+	const updateFontList = () => {
 		const select = document.getElementsByClassName(
 			'google-fonts-control-selection'
 		); //.google-fonts-control-selection
@@ -146,14 +149,14 @@ const GoogleFontsControl = props => {
 			path: `${ getConfig( 'fontsRestPath' ) }`,
 			method: 'GET',
 			headers: {
-				'X-WP-Nonce': getConfig( 'nonce' ),
+				'X-WP-Nonce': getConfig( 'themeNonce' ),
 			},
-			data: select,
 		};
 
 		// Import and use apiFetch if requesting from WP API
 		apiFetch( requestArgs )
 			.then( response => {
+				console.log( response );
 				response.data.forEach( item => {
 					const { text } = item;
 					const optionId = item.id;
