@@ -49,7 +49,7 @@ const GoogleFontsControl = props => {
 	// Run only once
 	useEffect( () => {
 		updateFontList();
-	}, [] );
+	}, [ updateFontList ] );
 
 	/* istanbul ignore next */
 	useEffect( () => {
@@ -145,6 +145,8 @@ const GoogleFontsControl = props => {
 		const select = document.getElementsByClassName(
 			'google-fonts-control-selection'
 		); //.google-fonts-control-selection
+		jQuery( select ).empty();
+
 		const requestArgs = {
 			path: `${ getConfig( 'fontsRestPath' ) }`,
 			method: 'GET',
@@ -156,31 +158,13 @@ const GoogleFontsControl = props => {
 		// Import and use apiFetch if requesting from WP API
 		apiFetch( requestArgs )
 			.then( response => {
-				console.log( response );
-				console.log( select );
 				response.data.forEach( item => {
-					const { text } = item;
-					const optionId = item.id;
-
-					console.debug( select );
-					// Is it already in dropdown?
-					const existingOption = {};
-					//const existingOption = select.querySelector(
-					//	`option[value="${ optionId }"]`
-					//);
-
-					//if ( existingOption ) {
-					//	return;
-					//}
-
-					// It's new!
-					//const option = new Option( text, optionId );
+					const option = new Option( item.name, item.id );
 
 					// SelectWoo already uses jQuery anyways
-					// Add it to dropdown
-					//jQuery( select )
-					//	.append( option )
-					//	.trigger( 'change' );
+					jQuery( select )
+						.append( option )
+						.trigger( 'change' );
 				} );
 			} )
 			.catch( onFail );
