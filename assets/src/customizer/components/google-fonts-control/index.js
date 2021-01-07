@@ -157,6 +157,7 @@ const GoogleFontsControl = props => {
 		apiFetch( requestArgs )
 			.then( response => {
 				console.log( response );
+				console.log( select );
 				response.data.forEach( item => {
 					const { text } = item;
 					const optionId = item.id;
