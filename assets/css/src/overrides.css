@@ -108,6 +108,7 @@ html {
 	&:hover,
 	&:focus {
 		background-color: transparent !important;
+		text-decoration: none !important;
 	}
 }
 
