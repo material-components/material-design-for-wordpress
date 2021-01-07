@@ -366,11 +366,33 @@ const ButtonEdit = ( {
 
 export default compose( [
 	withSelect( ( select, { clientId } ) => {
-		const { getBlockParentsByBlockName } = select( 'core/block-editor' );
+		const {
+			getBlock,
+			getBlockParentsByBlockName,
+			getBlockRootClientId,
+		} = select( 'core/block-editor' );
+		let isSubmitButton = false;
+
+		if ( 'undefined' === typeof getBlockParentsByBlockName ) {
+			let parentId = getBlockRootClientId( clientId );
+
+			while ( parentId ) {
+				const parentBlock = getBlock( clientId );
+
+				if ( parentBlock && parentBlock.name === ContactFormBlockName ) {
+					isSubmitButton = true;
+					break;
+				}
+
+				parentId = getBlockRootClientId( parentId );
+			}
+		} else {
+			isSubmitButton =
+				getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0;
+		}
 
 		return {
-			isSubmitButton:
-				getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0,
+			isSubmitButton,
 		};
 	} ),
 	withId,

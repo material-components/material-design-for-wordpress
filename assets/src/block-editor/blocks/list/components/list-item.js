@@ -17,13 +17,18 @@
 /**
  * WordPress dependencies
  */
-import { useEffect, useRef, useState } from '@wordpress/element';
-import {
-	__experimentalRichText as RichText,
-	create,
-	insert,
-} from '@wordpress/rich-text';
+import { findDOMNode, useEffect, useRef } from '@wordpress/element';
+import { create, insert } from '@wordpress/rich-text';
 import { __ } from '@wordpress/i18n';
+
+/**
+ * Internal dependencies
+ */
+import {
+	RichText,
+	isExperimentalRichText,
+} from '../../../components/polyfills';
+import { useStateCallback } from '../../../helpers/hooks';
 
 /**
  * Material list item edit component.
@@ -50,12 +55,7 @@ const ListItem = ( {
 	const secondaryRef = useRef();
 	const rangeStartRef = useRef( 0 );
 
-	const [ editedText, setEditedText ] = useState( '' );
-
-	// Set rangeStartRef based on selectionStart prop.
-	useEffect( () => {
-		rangeStartRef.current = selectionStart;
-	}, [ selectionStart ] );
+	const [ editedText, setEditedText ] = useStateCallback( '' );
 
 	// Focus element based on selected status.
 	useEffect( () => {
@@ -63,12 +63,18 @@ const ListItem = ( {
 			return;
 		}
 
+		rangeStartRef.current = selectionStart;
+
 		if ( isSecondarySelected ) {
-			setEditedText( secondaryText );
 			focusElement( secondaryRef.current );
+
+			setEditedText( secondaryText, () =>
+				focusElement( secondaryRef.current )
+			);
 		} else if ( isSelected ) {
-			setEditedText( primaryText );
 			focusElement( primaryRef.current );
+
+			setEditedText( primaryText, () => focusElement( primaryRef.current ) );
 		}
 	}, [ isSecondaryEnabled, isSelected, isSecondarySelected, selectionStart ] ); // eslint-disable-line
 
@@ -82,16 +88,28 @@ const ListItem = ( {
 			return;
 		}
 
+		if ( ! ( element instanceof window.Node ) ) {
+			/*
+			 * For back-compat. Older versions of `rich-text` do not use `forwardRef`
+			 * that results in the ref incorrectly set to the React component
+			 */
+			element = findDOMNode( element ); // eslint-disable-line react/no-find-dom-node
+		}
+
+		if ( ! element ) {
+			return;
+		}
+
 		const selection = window.getSelection(),
-			range = document.createRange();
+			range = document.createRange(),
+			target = element.childNodes ? element.childNodes[ 0 ] : element;
 
 		try {
-			range.setStart(
-				element.childNodes[ 0 ] || element,
-				rangeStartRef.current
-			);
+			range.setStart( target, rangeStartRef.current );
 		} catch ( e ) {
-			range.setStart( element.childNodes[ 0 ] || element, 0 );
+			if ( target instanceof window.Node ) {
+				range.setStart( target, 0 );
+			}
 		}
 
 		range.collapse( true );
@@ -126,11 +144,13 @@ const ListItem = ( {
 		const splitValues = getSplitValues( event );
 
 		if ( isSecondaryEnabled ) {
+			const secondText = `${ splitValues.after }${ secondaryText }`;
 			setItem( index, {
 				primaryText: splitValues.before,
-				secondaryText: `${ splitValues.after }${ secondaryText }`,
+				secondaryText: secondText,
 			} );
-			onFocus( index, isSecondaryEnabled );
+			setEditedText( secondText );
+			onFocus( index, isSecondaryEnabled, 0 );
 			return;
 		}
 
@@ -169,12 +189,11 @@ const ListItem = ( {
 	 */
 	const onSecondaryDelete = event => {
 		if ( event.value && 0 === event.value.start ) {
-			rangeStartRef.current = primaryText.length;
 			setItem( index, {
 				primaryText: `${ primaryText }${ event.value.text }`,
 				secondaryText: '',
 			} );
-			onFocus( index );
+			onFocus( index, false, primaryText.length );
 		}
 	};
 
@@ -218,8 +237,22 @@ const ListItem = ( {
 
 	const isPrimarySelected = isSelected && ! isSecondarySelected;
 
+	const onSelectionChange = start => {
+		if ( 'undefined' !== typeof start ) {
+			rangeStartRef.current = start;
+		}
+	};
+
 	// Noop function.
 	const noop = () => {};
+
+	const richTextProps = ! isExperimentalRichText
+		? {
+				selectionStart: rangeStartRef.current,
+				selectionEnd: rangeStartRef.current,
+				onSelectionChange,
+		  }
+		: { onSelectionChange: noop };
 
 	return (
 		<li className="mdc-list-item">
@@ -240,9 +273,7 @@ const ListItem = ( {
 						unstableOnFocus={ () => onFocus( index ) }
 						className="rich-text block-editor-rich-text__editable"
 						__unstableIsSelected={ isPrimarySelected }
-						onSelectionChange={ noop }
-						selectionStart={ rangeStartRef.current }
-						selectionEnd={ rangeStartRef.current }
+						{ ...richTextProps }
 					/>
 				</span>
 
@@ -262,9 +293,7 @@ const ListItem = ( {
 							className="rich-text block-editor-rich-text__editable"
 							placeholder={ __( 'Secondary text…', 'material-design' ) }
 							__unstableIsSelected={ isSecondarySelected }
-							onSelectionChange={ noop }
-							selectionStart={ rangeStartRef.current }
-							selectionEnd={ rangeStartRef.current }
+							{ ...richTextProps }
 						/>
 					</span>
 				) }

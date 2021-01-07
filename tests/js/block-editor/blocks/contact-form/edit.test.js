@@ -60,6 +60,8 @@ registerStore( 'core/notices', {
 	},
 } );
 
+jest.unmock( '@wordpress/data' );
+
 // Mock the <InspectorControls> and <InnerBlocks> components only, so that the other components in this package behave as usual.
 jest.mock( '@wordpress/block-editor', () => {
 	const original = require.requireActual( '@wordpress/block-editor' );
