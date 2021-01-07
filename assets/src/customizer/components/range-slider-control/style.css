@@ -46,6 +46,10 @@
 		overflow: hidden;
 	}
 
+	.components-button.is-link span {
+		font-size: 20px;
+	}
+
 	.expanded {
 
 		.customize-control-description {

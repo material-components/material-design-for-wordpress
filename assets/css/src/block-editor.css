@@ -32,7 +32,8 @@
 }
 
 .block-editor-block-types-list__item[class*="editor-block-list-item-material-"],
-.editor-autocompleters__block {
+.editor-autocompleters__block,
+.components-autocomplete__popover {
 
 	& .material-icons-outlined,
 	& .material-icons__button {

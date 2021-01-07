@@ -20,6 +20,7 @@
  * External dependencies.
  */
 import { setDefaultOptions } from 'expect-puppeteer';
+import fetch from 'node-fetch';
 
 /**
  * WordPress dependencies.
@@ -124,6 +125,33 @@ function observeConsoleLogging() {
 }
 
 /**
+ * Remove `beforeunload` ewvent in the `editor.js` file to rpevent a DOMException.
+ */
+async function removeBeforeunloadEvents() {
+	await page.setRequestInterception( true );
+	await page.on( 'request', async request => {
+		if ( request.url().includes( 'dist/editor.js' ) ) {
+			fetch( request.url() )
+				.then( response => response.text() )
+				.then( response => {
+					const body = response.replace( 'beforeunload', 'nobeforeunload' );
+
+					// Send response
+					request.respond( {
+						ok: true,
+						status: 200,
+						contentType: 'application/javascript',
+						body,
+					} );
+				} )
+				.catch( () => request.continue() );
+		} else {
+			request.continue();
+		}
+	} );
+}
+
+/**
  * Runs Axe tests when the block editor is found on the current page.
  *
  * @return {?Promise} Promise resolving once Axe texts are finished.
@@ -137,6 +165,7 @@ async function runAxeTestsForBlockEditor() {
 		// Temporary disabled rules to enable initial integration.
 		// See: https://github.com/WordPress/gutenberg/pull/15018.
 		disabledRules: [
+			'aria-allowed-attr',
 			'aria-allowed-role',
 			'aria-hidden-focus',
 			'aria-input-field-name',
@@ -168,6 +197,7 @@ async function runAxeTestsForBlockEditor() {
 // eslint-disable-next-line jest/require-top-level-describe
 beforeAll( async () => {
 	capturePageEventsForTearDown();
+	removeBeforeunloadEvents();
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	// 15inch screen.

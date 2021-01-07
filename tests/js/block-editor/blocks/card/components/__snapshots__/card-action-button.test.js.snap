@@ -266,7 +266,6 @@ Object {
           aria-label="Button"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
         >
@@ -283,7 +282,6 @@ Object {
         aria-label="Button"
         aria-multiline="true"
         class="rich-text block-editor-rich-text__editable"
-        contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
       >
@@ -381,13 +379,59 @@ Object {
           aria-label="Button"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable"
-          contenteditable="true"
           role="textbox"
           style="white-space: pre-wrap;"
         >
           Test Button
         </div>
       </button>
+      <div
+        class="components-toolbar"
+      >
+        <div>
+          <button
+            aria-label="Link"
+            class="components-button components-toolbar__control has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <button
+            aria-label="Unlink"
+            aria-pressed="true"
+            class="components-button components-toolbar__control is-pressed has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -398,13 +442,59 @@ Object {
         aria-label="Button"
         aria-multiline="true"
         class="rich-text block-editor-rich-text__editable"
-        contenteditable="true"
         role="textbox"
         style="white-space: pre-wrap;"
       >
         Test Button
       </div>
     </button>
+    <div
+      class="components-toolbar"
+    >
+      <div>
+        <button
+          aria-label="Link"
+          class="components-button components-toolbar__control has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div>
+        <button
+          aria-label="Unlink"
+          aria-pressed="true"
+          class="components-button components-toolbar__control is-pressed has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
