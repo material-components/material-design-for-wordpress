@@ -59,13 +59,8 @@ const GoogleFontsControl = props => {
 			.on( 'change', event => {
 				setSelectedFont( event.target.value );
 				onChange( event );
-			} )
-			// Trigger when dropdown opens
-			// select2:opening triggers right before this, choose whichever you feel fits better
-			.on( 'select2:open', event => {
-				//console.debug( event );
-				updateFontList( event );
 			} );
+		updateFontList();
 	}, [ elementRef ] ); // eslint-disable-line
 
 	useEffect( () => {
@@ -144,15 +139,58 @@ const GoogleFontsControl = props => {
 	 * @param {*} event
 	 */
 	const updateFontList = event => {
-		const select = event.target;
-
-		// Which dropdown
-		// console.log( select.dataset.id );
-
-		// Trigger ajax call
-
+		const select = document.getElementsByClassName(
+			'google-fonts-control-selection'
+		); //.google-fonts-control-selection
 		const requestArgs = {
 			path: `${ getConfig( 'fontsRestPath' ) }`,
+			method: 'GET',
+			headers: {
+				'X-WP-Nonce': getConfig( 'nonce' ),
+			},
+			data: select,
+		};
+
+		// Import and use apiFetch if requesting from WP API
+		apiFetch( requestArgs )
+			.then( response => {
+				response.data.forEach( item => {
+					const { text } = item;
+					const optionId = item.id;
+
+					console.debug( select );
+					// Is it already in dropdown?
+					const existingOption = {};
+					//const existingOption = select.querySelector(
+					//	`option[value="${ optionId }"]`
+					//);
+
+					//if ( existingOption ) {
+					//	return;
+					//}
+
+					// It's new!
+					//const option = new Option( text, optionId );
+
+					// SelectWoo already uses jQuery anyways
+					// Add it to dropdown
+					//jQuery( select )
+					//	.append( option )
+					//	.trigger( 'change' );
+				} );
+			} )
+			.catch( onFail );
+	};
+
+	/**
+	 * Update font list when dropdown is openened
+	 *
+	 * @param {*} event
+	 */
+	const updateIconList = event => {
+		const select = event.target;
+		const requestArgs = {
+			path: `${ getConfig( 'iconsRestPath' ) }`,
 			method: 'GET',
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),
@@ -160,81 +198,7 @@ const GoogleFontsControl = props => {
 		};
 
 		// Import and use apiFetch if requesting from WP API
-		apiFetch( requestArgs )
-			.then( response => {
-				console.debug( response );
-				response.data.forEach( item => {
-					const { text } = item;
-					const optionId = item.id;
-
-					// Is it already in dropdown?
-					const existingOption = select.querySelector(
-						`option[value="${ optionId }"]`
-					);
-
-					if ( existingOption ) {
-						return;
-					}
-
-					// It's new!
-					const option = new Option( text, optionId );
-
-					// SelectWoo already uses jQuery anyways
-					// Add it to dropdown
-					jQuery( select )
-						.append( option )
-						.trigger( 'change' );
-				} );
-			} )
-			//.then( data => {
-			// Add new items to dropdown
-			/**/
-			//} )
-			.catch( onFail );
-
-		// Dummy call for example
-		/*fetch( 'https://reqres.in/api/unknown' ) // eslint-disable-line
-			.then( response => response.json() )
-			.then( data => {
-				// Filter dummy data into something usable
-				// Not needed if json comes in this format
-				const results = data.data.map( item => {
-					return {
-						id: item.id,
-						text: item.name,
-					};
-				} );
-				console.debug( results );
-
-
-				// Add new items to dropdown
-				results.forEach( item => {
-					const { text } = item;
-					const optionId = item.id;
-
-					// Is it already in dropdown?
-					const existingOption = select.querySelector(
-						`option[value="${ optionId }"]`
-					);
-
-					if ( existingOption ) {
-						return;
-					}
-
-					// It's new!
-					const option = new Option( text, optionId );
-
-					// SelectWoo already uses jQuery anyways
-					// Add it to dropdown
-					jQuery( select )
-						.append( option )
-						.trigger( 'change' );
-				} );
-			} )
-			.catch( () => {
-				// Handle error
-				// console.log( 'OMG we failed', error )
-			} );*/
+		apiFetch( requestArgs ).catch( onFail );
 	};
 
 	const onFail = error => {
