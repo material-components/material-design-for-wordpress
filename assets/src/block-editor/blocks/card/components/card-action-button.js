@@ -70,6 +70,17 @@ const CardActionButton = ( {
 						value={ label }
 						onChange={ onChangeLabel }
 						placeholder={ __( 'Button', 'material-design' ) }
+						allowedFormats={ [
+							'core/bold',
+							'core/italic',
+							'core/code',
+							'core/image',
+							'core/strikethrough',
+							'core/underline',
+							'core/text-color',
+							'core/subscript',
+							'core/superscript',
+						] }
 					/>
 				</button>
 			) : (
@@ -80,7 +91,10 @@ const CardActionButton = ( {
 					className="mdc-button mdc-card__action mdc-card__action--button"
 				>
 					<div className="mdc-button__ripple"></div>
-					<span className="mdc-button__label">{ label }</span>
+					<span
+						className="mdc-button__label"
+						dangerouslySetInnerHTML={ { __html: label } }
+					></span>
 				</a>
 			) }
 			{ isFocused && isEditMode && (
