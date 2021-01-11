@@ -11316,6 +11316,19 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 className="mdc-button mdc-card__action mdc-card__action--button"
                               >
                                 <ForwardRef
+                                  allowedFormats={
+                                    Array [
+                                      "core/bold",
+                                      "core/italic",
+                                      "core/code",
+                                      "core/image",
+                                      "core/strikethrough",
+                                      "core/underline",
+                                      "core/text-color",
+                                      "core/subscript",
+                                      "core/superscript",
+                                    ]
+                                  }
                                   onChange={[Function]}
                                   placeholder="Button"
                                   tagName="div"
@@ -11619,6 +11632,19 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 className="mdc-button mdc-card__action mdc-card__action--button"
                               >
                                 <ForwardRef
+                                  allowedFormats={
+                                    Array [
+                                      "core/bold",
+                                      "core/italic",
+                                      "core/code",
+                                      "core/image",
+                                      "core/strikethrough",
+                                      "core/underline",
+                                      "core/text-color",
+                                      "core/subscript",
+                                      "core/superscript",
+                                    ]
+                                  }
                                   onChange={[Function]}
                                   placeholder="Button"
                                   tagName="div"
