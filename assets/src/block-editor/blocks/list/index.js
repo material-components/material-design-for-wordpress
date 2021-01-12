@@ -39,7 +39,7 @@ export const settings = {
 		'Display text or images in a continuous, vertical index.',
 		'material-design'
 	),
-	icon: <i className="material-icons-outlined">list_alt</i>,
+	icon: () => <i className="material-icons-outlined">list_alt</i>,
 	keywords: [ __( 'Material List', 'material-design' ), 'mlist' ],
 	edit,
 	save,

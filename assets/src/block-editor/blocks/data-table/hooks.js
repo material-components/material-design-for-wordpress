@@ -120,8 +120,9 @@ domReady( () => {
 	);
 
 	if (
-		! stylePreferences[ 'core/table' ] ||
-		'material' !== stylePreferences[ 'core/table' ]
+		stylePreferences &&
+		( ! stylePreferences[ 'core/table' ] ||
+			'material' !== stylePreferences[ 'core/table' ] )
 	) {
 		dispatch( 'core/edit-post' ).updatePreferredStyleVariations(
 			'core/table',

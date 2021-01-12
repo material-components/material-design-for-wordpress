@@ -21,7 +21,6 @@ import {
 	KeyboardShortcuts,
 	Popover,
 	ToolbarButton,
-	ToolbarGroup,
 } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { rawShortcut, displayShortcut } from '@wordpress/keycodes';
@@ -29,13 +28,14 @@ import {
 	BlockControls,
 	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
-import { link, linkOff } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
 import UrlInputPopover from '../url-input-popover';
+import { ToolbarGroup } from '../polyfills';
+import { link, linkOff } from './icons';
 
 const ToolbarUrlInputPopover = ( {
 	isSelected,

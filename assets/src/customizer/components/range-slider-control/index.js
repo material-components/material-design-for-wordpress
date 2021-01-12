@@ -141,15 +141,16 @@ const RangeSliderControl = props => {
 
 				{ isGlobal && (
 					<span className="range-slider-control-body__item">
-						<Button
-							isLink
+						<button
+							type="button"
 							onClick={ handleExpandedSettings }
 							label={ __( 'View individual components', 'material-design' ) }
-							showTooltip={ true }
-							icon="admin-settings"
-							isPressed={ expandedSettings }
-							className="control-settings-expanded range-slider-control-settings-expanded"
-						/>
+							className={ `components-button is-link control-settings-expanded range-slider-control-settings-expanded ${
+								expandedSettings ? 'is-pressed' : ''
+							}` }
+						>
+							<span className="dashicons dashicons-admin-settings"></span>
+						</button>
 					</span>
 				) }
 			</div>
