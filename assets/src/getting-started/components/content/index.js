@@ -30,7 +30,7 @@ import {
 import Notice from '../../../wizard/components/notice';
 import TabContext from '../../context';
 import { ACTIONS } from '../../constants';
-import { Wizard, Overview, Customize } from './content';
+import { Wizard, Overview, Customize, Updates } from './content';
 
 const Content = () => {
 	const { state, dispatch } = useContext( TabContext );
@@ -94,6 +94,7 @@ const Content = () => {
 			{ 'WIZARD' === activeTab && <Wizard handleClick={ handleClick } /> }
 			{ 'CUSTOMIZE' === activeTab && <Customize handleClick={ handleClick } /> }
 			{ 'OVERVIEW' === activeTab && <Overview handleClick={ handleClick } /> }
+			{ 'UPDATES' === activeTab && <Updates handleClick={ handleClick } /> }
 		</div>
 	);
 };

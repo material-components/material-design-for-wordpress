@@ -40,7 +40,7 @@ const baseProps = { status: 'install' };
 describe( 'ThemePrompt', () => {
 	beforeAll( () => {
 		global.materialDesign = {
-			themeNonce: 'NONCE',
+			nonce: 'NONCE',
 		};
 	} );
 

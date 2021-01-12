@@ -150,7 +150,7 @@ const GoogleFontsControl = props => {
 			path: `${ getConfig( 'fontsRestPath' ) }`,
 			method: 'GET',
 			headers: {
-				'X-WP-Nonce': getConfig( 'themeNonce' ),
+				'X-WP-Nonce': getConfig( 'nonce' ),
 			},
 		};
 
@@ -172,7 +172,7 @@ const GoogleFontsControl = props => {
 			path: `${ getConfig( 'iconsRestPath' ) }`,
 			method: 'GET',
 			headers: {
-				'X-WP-Nonce': getConfig( 'themeNonce' ),
+				'X-WP-Nonce': getConfig( 'nonce' ),
 			},
 		};
 
