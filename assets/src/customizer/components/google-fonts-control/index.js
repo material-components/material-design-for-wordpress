@@ -46,11 +46,6 @@ const GoogleFontsControl = props => {
 	const [ selectedFont, setSelectedFont ] = useState( value );
 	const [ setRequesting ] = useState( false );
 
-	// Run only once
-	useEffect( () => {
-		updateFontIconList();
-	}, [ updateFontIconList ] );
-
 	/* istanbul ignore next */
 	useEffect( () => {
 		jQuery( elementRef.current )
@@ -135,49 +130,6 @@ const GoogleFontsControl = props => {
 		} );
 
 		setItems( newChildren );
-	};
-
-	/**
-	 * Update font list when dropdown is openened
-	 */
-	const updateFontIconList = () => {
-		const select = document.getElementsByClassName(
-			'google-fonts-control-selection'
-		); //.google-fonts-control-selection
-		jQuery( select ).empty();
-
-		const requestFontArgs = {
-			path: `${ getConfig( 'fontsRestPath' ) }`,
-			method: 'GET',
-			headers: {
-				'X-WP-Nonce': getConfig( 'nonce' ),
-			},
-		};
-
-		// Import and use apiFetch if requesting from WP API
-		apiFetch( requestFontArgs )
-			.then( response => {
-				response.data.forEach( item => {
-					const option = new Option( item.name, item.id );
-
-					// SelectWoo already uses jQuery anyways
-					jQuery( select )
-						.append( option )
-						.trigger( 'change' );
-				} );
-			} )
-			.catch( onFail );
-
-		const requestIconArgs = {
-			path: `${ getConfig( 'iconsRestPath' ) }`,
-			method: 'GET',
-			headers: {
-				'X-WP-Nonce': getConfig( 'nonce' ),
-			},
-		};
-
-		// Import and use apiFetch if requesting from WP API
-		apiFetch( requestIconArgs ).catch( onFail );
 	};
 
 	const onFail = error => {
