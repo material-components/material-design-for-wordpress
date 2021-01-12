@@ -68,6 +68,7 @@ class Admin extends Module_Base {
 	 * Create admin pages.
 	 * - Getting started page.
 	 * - Onboarding Wizard page.
+	 * - Options page
 	 *
 	 * @return void
 	 */
@@ -98,6 +99,15 @@ class Admin extends Module_Base {
 			'material-onboarding-wizard',
 			[ $this, 'render_onboarding_wizard_page' ]
 		);
+
+		add_submenu_page(
+			'material-settings',
+			esc_html__( 'Material Options', 'material-design' ),
+			esc_html__( 'Material Options', 'material-design' ),
+			'manage_options',
+			'material-options',
+			[ $this, 'render_settings_page' ]
+		);
 	}
 
 
@@ -117,6 +127,15 @@ class Admin extends Module_Base {
 		$this->plugin->customizer_controls->copy_saved_color_settings();
 		?>
 		<section id="material-onboarding-wizard" class="mdc-typography"></section>
+		<?php
+	}
+
+	/**
+	 * Render settings page.
+	 */
+	public function render_settings_page() {
+		?>
+		<div id="material-gsm-options" class="material-gsm-options"></div>
 		<?php
 	}
 
@@ -147,10 +166,12 @@ class Admin extends Module_Base {
 			'material-admin-js',
 			'materialDesignWizard',
 			[
-				'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
-				'nonce'       => wp_create_nonce( 'wp_rest' ),
-				'themeStatus' => esc_html( $this->plugin->theme_status() ),
+				'restPath'      => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+				'redirect'      => esc_url( admin_url( 'themes.php' ) ),
+				'nonce'         => wp_create_nonce( 'wp_rest' ),
+				'themeStatus'   => esc_html( $this->plugin->theme_status() ),
+				'fontsRestPath' => esc_url( '/material-design/v1/design-assets/retrieve-fonts' ),
+				'iconsRestPath' => esc_url( '/material-design/v1/design-assets/icons-fonts' ),
 			]
 		);
 
@@ -199,9 +220,11 @@ class Admin extends Module_Base {
 				'material-admin-js',
 				'materialDesignWizard',
 				[
-					'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-					'nonce'       => wp_create_nonce( 'wp_rest' ),
-					'themeStatus' => esc_html( $this->plugin->theme_status() ),
+					'restPath'      => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'nonce'         => wp_create_nonce( 'wp_rest' ),
+					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
+					'fontsRestPath' => esc_url( '/material-design/v1/design-assets/retrieve-fonts' ),
+					'iconsRestPath' => esc_url( '/material-design/v1/design-assets/retrieve-icons' ),
 				]
 			);
 		}
