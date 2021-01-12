@@ -1,5 +1,3 @@
-/*jshint esversion: 6 */
-
 /**
  * Copyright 2020 Google LLC
  *
