@@ -189,9 +189,7 @@ describe( 'blocks: material/recent-posts', () => {
 		await insertBlock( 'Recent Posts (Material)' );
 		await selectBlockByName( 'material/recent-posts' );
 		expect(
-			await page.$x(
-				"//label[contains(text(), 'Category')]/following-sibling::select"
-			)
+			await page.$x( "//label[contains(text(), 'Category')]" )
 		).toHaveLength( 1 );
 	} );
 } );

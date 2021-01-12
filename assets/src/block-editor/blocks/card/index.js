@@ -41,7 +41,7 @@ export const settings = {
 		'material-design'
 	),
 	keywords: [ __( 'Material Card', 'material-design' ) ],
-	icon: <i className="material-icons-outlined">chrome_reader_mode</i>,
+	icon: () => <i className="material-icons-outlined">chrome_reader_mode</i>,
 	example,
 	edit,
 	save,

@@ -26,15 +26,6 @@ import { registerStore } from '@wordpress/data';
  */
 import Edit from '../../../../../assets/src/block-editor/blocks/image-list/edit';
 
-// Mock the <InspectorControls> component only, so that the other components in this package behave as usual.
-jest.mock( '@wordpress/block-editor', () => {
-	const original = require.requireActual( '@wordpress/block-editor' );
-	return {
-		...original,
-		InspectorControls: ( { children } ) => children,
-	};
-} );
-
 registerStore( 'core', {
 	reducer: jest.fn(),
 	selectors: {
