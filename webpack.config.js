@@ -24,7 +24,6 @@ const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
 const RtlCssPlugin = require( 'rtlcss-webpack-plugin' );
 const TerserPlugin = require( 'terser-webpack-plugin' );
 const WebpackBar = require( 'webpackbar' );
-const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 const { escapeRegExp } = require( 'lodash' );
 
@@ -74,12 +73,29 @@ const sharedConfig = {
 	},
 	module: {
 		...defaultConfig.module,
-		rules: [ ...defaultConfig.module.rules ],
+		rules: [
+			// Remove the css/postcss loaders from `@wordpress/scripts` due to version conflicts.
+			...defaultConfig.module.rules.filter(
+				rule => ! rule.test.toString().match( '.css' )
+			),
+			{
+				test: /\.css$/,
+				use: [
+					// prettier-ignore
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'postcss-loader',
+				],
+			},
+		],
 	},
 	plugins: [
+		// Remove the CleanWebpackPlugin and FixStyleWebpackPlugin plugins from `@wordpress/scripts` due to version conflicts.
 		...defaultConfig.plugins.filter(
-			// Remove the `CleanWebpackPlugin`.
-			plugin => ! ( plugin instanceof CleanWebpackPlugin )
+			plugin =>
+				! [ 'CleanWebpackPlugin', 'FixStyleWebpackPlugin' ].includes(
+					plugin.constructor.name
+				)
 		),
 		new MiniCssExtractPlugin( {
 			filename: '../css/[name]-compiled.css',
