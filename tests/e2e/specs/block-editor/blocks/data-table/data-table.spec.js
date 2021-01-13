@@ -22,8 +22,7 @@ import { createNewPost } from '@wordpress/e2e-test-utils';
 /**
  * Internal dependencies
  */
-import { selectBlockByName } from '../../../../utils';
-import { insertBlockByKeyword } from '../../../../utils/insert-block';
+import { insertBlockByKeyword, selectBlockByName } from '../../../../utils';
 
 describe( 'blocks: material/data-table core/table style', () => {
 	it( 'should be inserted', async () => {

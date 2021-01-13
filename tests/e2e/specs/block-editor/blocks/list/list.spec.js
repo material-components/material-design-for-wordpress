@@ -19,8 +19,7 @@
  */
 import { createNewPost, ensureSidebarOpened } from '@wordpress/e2e-test-utils';
 
-import { selectBlockByName } from '../../../../utils';
-import { insertBlockByKeyword } from '../../../../utils/insert-block';
+import { insertBlockByKeyword, selectBlockByName } from '../../../../utils';
 
 describe( 'blocks: material/list', () => {
 	beforeEach( async () => {
