@@ -164,7 +164,9 @@ describe( 'blocks: material/tab-bar', () => {
 		await headingBlock.click();
 
 		expect(
-			await page.$x( "//h2[span/@data-rich-text-placeholder='Write heading…']" )
+			await page.$$(
+				'[data-type="material/tab-bar"] h2[aria-label="Write heading…"]'
+			)
 		).toHaveLength( 1 );
 
 		const labels = await page.$$( '.mdc-tab__text-label span' );
