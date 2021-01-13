@@ -24,6 +24,7 @@ const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
 const RtlCssPlugin = require( 'rtlcss-webpack-plugin' );
 const TerserPlugin = require( 'terser-webpack-plugin' );
 const WebpackBar = require( 'webpackbar' );
+const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 const { escapeRegExp } = require( 'lodash' );
 
@@ -35,7 +36,7 @@ const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extrac
 const {
 	defaultRequestToExternal,
 	defaultRequestToHandle,
-} = require( '@wordpress/dependency-extraction-webpack-plugin/util' );
+} = require( '@wordpress/dependency-extraction-webpack-plugin/lib/util' );
 
 // Exclude `node_modules` folder from `source-map-loader` to prevent webpack warnings.
 if ( defaultConfig.module && Array.isArray( defaultConfig.module.rules ) ) {
@@ -73,21 +74,13 @@ const sharedConfig = {
 	},
 	module: {
 		...defaultConfig.module,
-		rules: [
-			...defaultConfig.module.rules,
-			{
-				test: /\.css$/,
-				use: [
-					// prettier-ignore
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					'postcss-loader',
-				],
-			},
-		],
+		rules: [ ...defaultConfig.module.rules ],
 	},
 	plugins: [
-		...defaultConfig.plugins,
+		...defaultConfig.plugins.filter(
+			// Remove the `CleanWebpackPlugin`.
+			plugin => ! ( plugin instanceof CleanWebpackPlugin )
+		),
 		new MiniCssExtractPlugin( {
 			filename: '../css/[name]-compiled.css',
 		} ),
