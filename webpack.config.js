@@ -111,9 +111,6 @@ const sharedConfig = {
 	},
 };
 
-// These packages need to be bundled and not extracted to `wp.*`.
-const PACKAGES_TO_BUNDLE = [];
-
 const blockEditor = {
 	...defaultConfig,
 	...sharedConfig,
@@ -124,10 +121,7 @@ const blockEditor = {
 		],
 	},
 	plugins: [
-		...sharedConfig.plugins.filter(
-			// Remove the `DependencyExtractionWebpackPlugin` if it already exists.
-			plugin => ! ( plugin instanceof DependencyExtractionWebpackPlugin )
-		),
+		...sharedConfig.plugins,
 		new CopyWebpackPlugin( {
 			patterns: [
 				{
@@ -148,23 +142,6 @@ const blockEditor = {
 					},
 				},
 			],
-		} ),
-		new DependencyExtractionWebpackPlugin( {
-			useDefaults: false,
-			requestToExternal( request ) {
-				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
-					return undefined;
-				}
-
-				return defaultRequestToExternal( request );
-			},
-			requestToHandle( request ) {
-				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
-					return 'wp-block-editor'; // Return block-editor as a dep.
-				}
-
-				return defaultRequestToHandle( request );
-			},
 		} ),
 		new WebpackBar( {
 			name: 'Block Editor',
@@ -279,13 +256,56 @@ const gsm = {
 	],
 };
 
+// These packages need to be bundled and not extracted to `wp.*`.
+const PACKAGES_TO_BUNDLE = [
+	'@wordpress/data',
+	'@wordpress/escape-html',
+	'@wordpress/rich-text',
+];
+
+const polyfills = {
+	...defaultConfig,
+	...sharedConfig,
+	entry: {
+		polyfills: [ './assets/src/polyfills/index.js' ],
+	},
+	plugins: [
+		...sharedConfig.plugins.filter(
+			// Remove the `DependencyExtractionWebpackPlugin` if it already exists.
+			plugin => ! ( plugin instanceof DependencyExtractionWebpackPlugin )
+		),
+		new DependencyExtractionWebpackPlugin( {
+			useDefaults: false,
+			requestToExternal( request ) {
+				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
+					return undefined;
+				}
+
+				return defaultRequestToExternal( request );
+			},
+			requestToHandle( request ) {
+				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
+					return 'wp-block-editor'; // Return block-editor as a dep.
+				}
+
+				return defaultRequestToHandle( request );
+			},
+		} ),
+		new WebpackBar( {
+			name: 'Polyfills',
+			color: '#3ce1bb',
+		} ),
+	],
+};
+
 module.exports = [
 	// prettier-ignore
 	blockEditor,
-	customizer,
+	// customizer,
 	frontEnd,
 	admin,
 	overrides,
 	wizard,
 	gsm,
+	polyfills,
 ];
