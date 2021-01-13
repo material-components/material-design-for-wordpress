@@ -157,10 +157,11 @@ const GoogleFontsControl = props => {
 						isLink
 						label={ __( 'View more options', 'material-design' ) }
 						showTooltip={ true }
-						icon="admin-settings"
 						className="control-settings-expanded google-fonts-control-settings-expanded"
 						onClick={ handleClick }
-					/>
+					>
+						<span className="dashicons dashicons-admin-settings"></span>
+					</Button>
 				</span>
 			</div>
 
