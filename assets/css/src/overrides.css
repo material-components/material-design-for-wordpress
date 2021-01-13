@@ -64,18 +64,18 @@ html {
 
 /* Additional selectors requiring typography styles */
 @mixin selector-typography .mdc-button, button, 0.875, 2.25, 500;
-@mixin selector-typography .mdc-button *, button, 0.875, 2.25, 500;
+@mixin selector-typography .mdc-button .mdc-button__label, button, 0.875, 2.25, 500;
 @mixin selector-typography .mdc-list-item__primary-text, body1, 1, 1.5, 400;
 @mixin selector-typography .mdc-list-item__secondary-text, body2, 0.875, 1.25, 400;
 
 /* Material Design Icons */
 .material-icons {
 	font-family: var(--mdc-icons-font-family) !important;
-	font-weight: normal !important;
-	font-size: 24px !important;
-	font-style: normal !important;
+	font-weight: normal;
+	font-size: 24px;
+	font-style: normal;
 	line-height: 1 !important;
-	letter-spacing: normal !important;
+	letter-spacing: normal;
 }
 
 /* Button */
