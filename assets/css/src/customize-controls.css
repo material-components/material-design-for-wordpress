@@ -325,6 +325,10 @@
 
 	& span {
 		font-size: 13px;
+
+		&.dashicons {
+			font-size: 20px;
+		}
 	}
 
 	&.control-settings-expanded {
