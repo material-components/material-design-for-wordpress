@@ -164,7 +164,6 @@ const customizer = {
 		],
 	},
 	plugins: [
-		...defaultConfig.plugins,
 		...sharedConfig.plugins,
 		new WebpackBar( {
 			name: 'Customizer',
@@ -301,7 +300,7 @@ const polyfills = {
 module.exports = [
 	// prettier-ignore
 	blockEditor,
-	// customizer,
+	customizer,
 	frontEnd,
 	admin,
 	overrides,
