@@ -17,12 +17,12 @@
 /**
  * WordPress dependencies
  */
-import { insertBlock, createNewPost } from '@wordpress/e2e-test-utils';
+import { createNewPost } from '@wordpress/e2e-test-utils';
 
 /**
  * Internal dependencies
  */
-import { selectBlockByName } from '../../../../utils';
+import { insertBlock, selectBlockByName } from '../../../../utils';
 
 describe( 'blocks: material/tab-bar', () => {
 	beforeEach( async () => {

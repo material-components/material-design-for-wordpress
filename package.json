@@ -60,7 +60,7 @@
     "@wordpress/jest-preset-default": "5.5.0",
     "@wordpress/jest-puppeteer-axe": "1.6.0",
     "@wordpress/postcss-themes": "2.3.0",
-    "@wordpress/scripts": "7.2.0",
+    "@wordpress/scripts": "12.6.1",
     "@wordpress/server-side-render": "1.9.0",
     "@wordpress/url": "2.12.0",
     "accessible-autocomplete": "2.0.2",
