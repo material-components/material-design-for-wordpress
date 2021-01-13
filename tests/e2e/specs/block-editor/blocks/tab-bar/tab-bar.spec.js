@@ -165,7 +165,7 @@ describe( 'blocks: material/tab-bar', () => {
 
 		expect(
 			await page.$$(
-				'[data-type="material/tab-bar"] h2[aria-label="Write heading…"]'
+				'[data-type="material/tab-bar"] [data-type="core/heading"]'
 			)
 		).toHaveLength( 1 );
 
