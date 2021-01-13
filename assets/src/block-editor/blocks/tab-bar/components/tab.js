@@ -70,6 +70,7 @@ const Tab = ( {
 							tagName={ 'span' }
 							placeholder={ __( 'Tab Title', 'material-design' ) }
 							value={ label }
+							onFocus={ onChange }
 							onChange={ value => onInput( value, index ) }
 							withoutInteractiveFormatting
 							allowedFormats={ [] }
