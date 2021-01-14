@@ -17,19 +17,19 @@
 /**
  * WordPress dependencies
  */
-import { useContext, useEffect } from '@wordpress/element';
+import { useContext, useEffect, useState } from '@wordpress/element';
 
 /**
  * WordPress dependencies
  */
 import TabContext from '../../context';
-import { __ } from '@wordpress/i18n';
+import { __, sprintf } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
 import apiFetch from '@wordpress/api-fetch';
-import getConfig from '../../../block-editor/utils/get-config';
-import { useState } from 'react';
+import getConfig from '../../../admin/get-config';
+import handleError from 'index';
 
-export const Updates = () => {
+export const Updates = ( text, domain ) => {
 	const { state } = useContext( TabContext );
 	const { activeTab } = state;
 
@@ -38,28 +38,35 @@ export const Updates = () => {
 	}
 
 	const onFail = error => {
-		console.error( error );
+		const notification = new wp.customize.Notification(
+			'asset_update_failure',
+			{
+				message: 'Assets update failure.',
+			}
+		);
+		setting.notifications.add( 'asset_update_failure', notification );
+
 		setRequesting( false );
 	};
 
 	function updateFonts() {
 		apiFetch( {
-			path: materialDesignWizard.fontsRestPath,
+			path: getConfig( 'fontsRestPath' ),
 			method: 'GET',
 			headers: {
-				'X-WP-Nonce': materialDesignWizard.nonce,
+				'X-WP-Nonce': getConfig( 'nonce' ),
 			},
-		} ).catch( onFail );
+		} ).catch( handleError );
 	}
 
 	function updateIcons() {
 		apiFetch( {
-			path: materialDesignWizard.iconsRestPath,
+			path: getConfig( 'iconsRestPath' ),
 			method: 'GET',
 			headers: {
-				'X-WP-Nonce': materialDesignWizard.nonce,
+				'X-WP-Nonce': getConfig( 'nonce' ),
 			},
-		} ).catch( onFail );
+		} ).catch( handleError );
 	}
 
 	return (
@@ -70,8 +77,18 @@ export const Updates = () => {
 
 			<p>
 				{ __(
-					'You must have a Google Fonts API Key and it must be defined in your wp-config.php',
+					'You must have a Google Fonts API Key and it must be defined',
 					'material-design'
+				) }
+			</p>
+			<p>
+				{ sprintf(
+					__(
+						'This can be done by adding the following to your %s file: %s',
+						'material-design'
+					),
+					'<pre>wp-config.php</pre>',
+					"<pre>define( 'GOOGLE_FONTS_API_KEY', 'your_google_fonts_api_key' );</pre>"
 				) }
 			</p>
 
