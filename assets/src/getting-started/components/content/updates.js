@@ -51,7 +51,7 @@ export const Updates = ( text, domain ) => {
 
 	function updateFonts() {
 		apiFetch( {
-			path: getConfig( 'fontsRestPath' ),
+			path: getConfig( 'restPath' ) + 'retrieve-fonts',
 			method: 'GET',
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),
@@ -61,7 +61,7 @@ export const Updates = ( text, domain ) => {
 
 	function updateIcons() {
 		apiFetch( {
-			path: getConfig( 'iconsRestPath' ),
+			path: getConfig( 'restPath' ) + 'retrieve-icons',
 			method: 'GET',
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),

@@ -129,12 +129,13 @@ class Update_Fonts extends API_Base {
 
 		$fonts = new stdClass();
 		foreach ( $data->items as $font ) {
-			$item = (object) [
-				'variants'   => $font->variants,
-				'categories' => $font->categories,
-			];
+			$item['variants'] = $font->variants;
 
-			$fonts->{$font->family} = $item;
+			if ( ! empty( $item->categories ) ) {
+				$item['categories'] = $item->categories;
+			}
+
+			$fonts->{$font->family} = (object) $item;
 		}
 
 		file_put_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json', wp_json_encode( $fonts ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents

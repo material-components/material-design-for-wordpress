@@ -170,8 +170,8 @@ class Admin extends Module_Base {
 				'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 				'nonce'         => wp_create_nonce( 'wp_rest' ),
 				'themeStatus'   => esc_html( $this->plugin->theme_status() ),
-				'fontsRestPath' => esc_url( '/material-design/v1/design-assets/retrieve-fonts' ),
-				'iconsRestPath' => esc_url( '/material-design/v1/design-assets/icons-fonts' ),
+				'fontsRestPath' => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() . 'retrieve-fonts' ),
+				'iconsRestPath' => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() . 'retrieve-icons' ),
 			]
 		);
 
@@ -220,11 +220,9 @@ class Admin extends Module_Base {
 				'material-admin-js',
 				'materialDesignWizard',
 				[
-					'restPath'      => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-					'nonce'         => wp_create_nonce( 'wp_rest' ),
-					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
-					'fontsRestPath' => esc_url( '/material-design/v1/design-assets/retrieve-fonts' ),
-					'iconsRestPath' => esc_url( '/material-design/v1/design-assets/retrieve-icons' ),
+					'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'nonce'       => wp_create_nonce( 'wp_rest' ),
+					'themeStatus' => esc_html( $this->plugin->theme_status() ),
 				]
 			);
 		}
