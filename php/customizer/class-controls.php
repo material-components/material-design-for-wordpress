@@ -564,8 +564,6 @@ class Controls extends Module_Base {
 				'nonce'                  => wp_create_nonce( 'wp_rest' ),
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
-				'fontsRestPath'          => esc_url( '/material-design/v1/design-assets/retrieve-fonts' ),
-				'iconsRestPath'          => esc_url( '/material-design/v1/design-assets/retrieve-icons' ),
 			]
 		);
 
