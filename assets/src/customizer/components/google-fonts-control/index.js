@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-/* global jQuery, Option */
+/* global jQuery */
 
 /**
  * External dependencies
@@ -27,7 +27,6 @@ import 'select-woo';
 import { __ } from '@wordpress/i18n';
 import { useState, useEffect, useRef } from '@wordpress/element';
 import { Button } from '@wordpress/components';
-import apiFetch from '@wordpress/api-fetch';
 
 /**
  * Internal dependencies
@@ -44,7 +43,6 @@ const GoogleFontsControl = props => {
 	const [ isExpanded, setIsExpanded ] = useState( false );
 	const [ items, setItems ] = useState( children );
 	const [ selectedFont, setSelectedFont ] = useState( value );
-	const [ setRequesting ] = useState( false );
 
 	/* istanbul ignore next */
 	useEffect( () => {
@@ -94,7 +92,7 @@ const GoogleFontsControl = props => {
 	const handleOnReset = event => {
 		event.preventDefault();
 
-		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) { // eslint-disable-line
+		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) {// eslint-disable-line
 			return;
 		}
 
@@ -115,6 +113,7 @@ const GoogleFontsControl = props => {
 
 		setItems( newChildren );
 	};
+
 	const onChildChange = values => {
 		setChildValues( values );
 
@@ -130,11 +129,6 @@ const GoogleFontsControl = props => {
 		} );
 
 		setItems( newChildren );
-	};
-
-	const onFail = error => {
-		console.error( error );
-		setRequesting( false );
 	};
 
 	return (
