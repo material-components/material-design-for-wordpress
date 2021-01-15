@@ -80,7 +80,9 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'get_fonts' ],
-					'permission_callback' => '__return_true',
+					'permission_callback' => function( WP_REST_Request $request ) {
+						return current_user_can( 'manage_options' );
+					},
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
@@ -93,7 +95,9 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'get_icons' ],
-					'permission_callback' => '__return_true',
+					'permission_callback' => function( WP_REST_Request $request ) {
+						return current_user_can( 'manage_options' );
+					},
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]

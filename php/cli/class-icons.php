@@ -37,6 +37,8 @@ use stdClass;
  */
 class Icons extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.RestrictedExtendClasses.wp_cli*/ {
 
+	const FLAG_FORCE_HTTP = 'force-http';
+
 	/**
 	 * Registers command with WP-CLI
 	 *
@@ -69,7 +71,14 @@ class Icons extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	 * @return array[]
 	 */
 	public function arguments() {
-		return [];
+		return [
+			[
+				'type'        => 'flag',
+				'name'        => self::FLAG_FORCE_HTTP,
+				'optional'    => true,
+				'description' => __( 'Force CLI to retrieve fonts from Github, instead of the local store', 'material-design' ),
+			],
+		];
 	}
 
 	/**
@@ -88,7 +97,10 @@ class Icons extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	 * @throws Exception Generic Exception.
 	 */
 	public function run_command( $args, $assoc_args ) {
-		$google_fonts = new Update_Icons();
+
+		$force_http = \WP_CLI\Utils\get_flag_value( $assoc_args, self::FLAG_FORCE_HTTP, false );
+
+		$google_fonts = new Update_Icons( $force_http );
 		$data         = $google_fonts->get_icons();
 
 		if ( ! empty( $data ) ) {
