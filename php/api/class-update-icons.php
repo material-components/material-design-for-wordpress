@@ -26,7 +26,6 @@
 namespace MaterialDesign\Plugin\Api;
 
 use Exception;
-use stdClass;
 use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
@@ -34,7 +33,7 @@ use function MaterialDesign\Plugin\get_plugin_instance;
  *
  * @package MaterialDesign\Plugin\Api
  */
-class Update_Icons extends API_Base {
+class Update_Icons extends Updates_API_Base {
 
 	const TRANSIENT = 'google-icons-json';
 
