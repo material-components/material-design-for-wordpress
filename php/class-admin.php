@@ -99,15 +99,6 @@ class Admin extends Module_Base {
 			'material-onboarding-wizard',
 			[ $this, 'render_onboarding_wizard_page' ]
 		);
-
-		add_submenu_page(
-			'material-settings',
-			esc_html__( 'Material Options', 'material-design' ),
-			esc_html__( 'Material Options', 'material-design' ),
-			'manage_options',
-			'material-options',
-			[ $this, 'render_settings_page' ]
-		);
 	}
 
 
@@ -127,15 +118,6 @@ class Admin extends Module_Base {
 		$this->plugin->customizer_controls->copy_saved_color_settings();
 		?>
 		<section id="material-onboarding-wizard" class="mdc-typography"></section>
-		<?php
-	}
-
-	/**
-	 * Render settings page.
-	 */
-	public function render_settings_page() {
-		?>
-		<div id="material-gsm-options" class="material-gsm-options"></div>
 		<?php
 	}
 

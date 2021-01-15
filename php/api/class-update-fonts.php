@@ -76,8 +76,7 @@ class Update_Fonts extends Updates_API_Base {
 			_material_design_error( '_material_design_no_apikey_textonly', $this->material_design_no_apikey() );
 		}
 
-		$this->endpoint        =
-			sprintf( 'https://www.googleapis.com/webfonts/v1/webfonts?key=%s&fields=items(category,variants,family)', $this->api_key );
+		$this->endpoint        = sprintf( 'https://www.googleapis.com/webfonts/v1/webfonts?key=%s&fields=items(category,variants,family)', $this->api_key );
 		$this->local_file_path = get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json';
 	}
 
@@ -128,6 +127,12 @@ class Update_Fonts extends Updates_API_Base {
 		$data = json_decode( $json );
 
 		$fonts = new stdClass();
+
+		// Bail if there are no items to prevent writing emptiness to the local file.
+		if ( empty( $data->items ) ) {
+			return $fonts;
+		}
+
 		foreach ( $data->items as $font ) {
 			$item['variants'] = $font->variants;
 
@@ -150,8 +155,7 @@ class Update_Fonts extends Updates_API_Base {
 	 * @throws Exception Generic exception.
 	 */
 	public function get_http_response() {
-		$response =
-			wp_remote_get( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
+		$response = function_exists( 'vip_safe_wp_remote_get' ) ? vip_safe_wp_remote_get( $this->endpoint ) : wp_remote_get( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
 		if ( is_wp_error( $response ) ) {
 			throw new Exception( $response->get_error_message() );
 		}

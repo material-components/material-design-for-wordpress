@@ -107,18 +107,25 @@ class Update_Icons extends Updates_API_Base {
 		$icons        = new \stdClass();
 		$icons->icons = [];
 
+		// Sometimes icons have the same name so skip. Store these names here for future processing.
+		$no_dupes = [];
 		foreach ( $lines as $line ) {
 			$parts = explode( ' ', $line );
 			if ( ! is_array( $parts ) || 2 !== count( $parts ) ) {
 				continue;
 			}
 
-			$icon = (object) [
+			if ( in_array( $parts[1], $no_dupes ) ) {
+				continue;
+			}
+			$no_dupes[] = $parts[1];
+
+			$icon = [
 				'id'   => $parts[1],
 				'name' => $parts[0],
 			];
 
-			$icons->icons[ $parts[1] ] = $icon;
+			$icons->icons[ $parts[1] ] = (object) $icon;
 		}
 
 		if ( ! empty( $icons ) ) {
@@ -136,12 +143,15 @@ class Update_Icons extends Updates_API_Base {
 	 * @return false|mixed|string
 	 */
 	public function get_http_response() {
-		$codepoints =
-			file_get_contents( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get, WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+		$request    = function_exists( 'vip_safe_wp_remote_get' ) ? vip_safe_wp_remote_get( $this->endpoint ) : wp_remote_get( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get, WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+		$codepoints = wp_remote_retrieve_body( $request );
+
 		if ( empty( $codepoints ) ) {
 			return false;
 		}
 
+		print_r( $this->local_codepoints );
+		exit;
 		file_put_contents( $this->local_codepoints, $codepoints ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
 
 		return $codepoints;

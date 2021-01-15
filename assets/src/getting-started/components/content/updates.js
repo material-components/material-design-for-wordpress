@@ -18,7 +18,7 @@
  * WordPress dependencies
  */
 import { useContext, useState } from '@wordpress/element';
-import { __, sprintf } from '@wordpress/i18n';
+import { __ } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 
 /**
@@ -79,23 +79,6 @@ export const Updates = () => {
 			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __( 'Font and Icons Updates', 'material-design' ) }
 			</h2>
-
-			<p>
-				{ __(
-					'You must have a Google Fonts API Key and it must be defined',
-					'material-design'
-				) }
-			</p>
-			<p>
-				{ sprintf(
-					__(
-						'This can be done by adding the following to your %s file: %s',
-						'material-design'
-					),
-					'<pre>wp-config.php</pre>',
-					"<pre>define( 'GOOGLE_FONTS_API_KEY', 'your_google_fonts_api_key' );</pre>"
-				) }
-			</p>
 
 			<p className="material-gsm__content-actions material-gsm__content-options">
 				<Button
