@@ -35,7 +35,7 @@ use function MaterialDesign\Plugin\get_plugin_instance;
  *
  * @package MaterialDesign\Plugin\Api
  */
-class Update_Fonts extends API_Base {
+class Update_Fonts extends Updates_API_Base {
 
 	const TRANSIENT = 'google-fonts-json';
 
