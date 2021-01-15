@@ -17,41 +17,33 @@
 /**
  * WordPress dependencies
  */
-import { useContext, useEffect, useState } from '@wordpress/element';
+import { useContext } from '@wordpress/element';
+import { __, sprintf } from '@wordpress/i18n';
+import apiFetch from '@wordpress/api-fetch';
 
 /**
- * WordPress dependencies
+ * Internal dependencies
  */
 import TabContext from '../../context';
-import { __, sprintf } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
-import apiFetch from '@wordpress/api-fetch';
 import getConfig from '../../../admin/get-config';
-import handleError from 'index';
+import { ACTIONS } from '../../constants';
 
-export const Updates = ( text, domain ) => {
-	const { state } = useContext( TabContext );
-	const { activeTab } = state;
+export const Updates = () => {
+	const { dispatch } = useContext( TabContext );
 
-	function setRequesting( b ) {
-		return b;
-	}
-
-	const onFail = error => {
-		const notification = new wp.customize.Notification(
-			'asset_update_failure',
-			{
-				message: 'Assets update failure.',
-			}
-		);
-		setting.notifications.add( 'asset_update_failure', notification );
-
-		setRequesting( false );
+	/**
+	 * Display error when found
+	 *
+	 * @param {Object} errorObject WP_Error
+	 */
+	const handleError = errorObject => {
+		dispatch( { type: ACTIONS.ERROR, payload: errorObject } );
 	};
 
 	function updateFonts() {
 		apiFetch( {
-			path: getConfig( 'restPath' ) + 'retrieve-fonts',
+			path: getConfig( 'assetsRestPath' ) + 'retrieve-fonts',
 			method: 'GET',
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),
@@ -61,7 +53,7 @@ export const Updates = ( text, domain ) => {
 
 	function updateIcons() {
 		apiFetch( {
-			path: getConfig( 'restPath' ) + 'retrieve-icons',
+			path: getConfig( 'assetsRestPath' ) + 'retrieve-icons',
 			method: 'GET',
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),

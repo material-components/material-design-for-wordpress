@@ -170,8 +170,6 @@ class Admin extends Module_Base {
 				'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 				'nonce'         => wp_create_nonce( 'wp_rest' ),
 				'themeStatus'   => esc_html( $this->plugin->theme_status() ),
-				'fontsRestPath' => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() . 'retrieve-fonts' ),
-				'iconsRestPath' => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() . 'retrieve-icons' ),
 			]
 		);
 
@@ -220,9 +218,10 @@ class Admin extends Module_Base {
 				'material-admin-js',
 				'materialDesignWizard',
 				[
-					'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-					'nonce'       => wp_create_nonce( 'wp_rest' ),
-					'themeStatus' => esc_html( $this->plugin->theme_status() ),
+					'restPath'       => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'nonce'          => wp_create_nonce( 'wp_rest' ),
+					'themeStatus'    => esc_html( $this->plugin->theme_status() ),
+					'assetsRestPath' => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
 				]
 			);
 		}

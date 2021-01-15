@@ -20,7 +20,7 @@
 import { useContext, useEffect } from '@wordpress/element';
 
 /**
- * WordPress dependencies
+ * Internal dependencies
  */
 import { STATUS } from '../../../wizard/constants';
 import {
