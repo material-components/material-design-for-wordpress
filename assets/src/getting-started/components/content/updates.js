@@ -17,7 +17,7 @@
 /**
  * WordPress dependencies
  */
-import { useContext } from '@wordpress/element';
+import { useContext, useState } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 import apiFetch from '@wordpress/api-fetch';
 
@@ -32,33 +32,46 @@ import { ACTIONS } from '../../constants';
 export const Updates = () => {
 	const { dispatch } = useContext( TabContext );
 
+	// Track update request status.
+	const [ isUpdatingFonts, setIsUpdatingFonts ] = useState( false );
+	const [ isUpdatingIcons, setIsUpdatingIcons ] = useState( false );
+
 	/**
 	 * Display error when found
 	 *
 	 * @param {Object} errorObject WP_Error
 	 */
 	const handleError = errorObject => {
+		setIsUpdatingFonts( false );
+		setIsUpdatingIcons( false );
+
 		dispatch( { type: ACTIONS.ERROR, payload: errorObject } );
 	};
 
 	function updateFonts() {
+		setIsUpdatingFonts( true );
 		apiFetch( {
 			path: getConfig( 'assetsRestPath' ) + 'retrieve-fonts',
 			method: 'GET',
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),
 			},
-		} ).catch( handleError );
+		} )
+			.then( () => setIsUpdatingFonts( false ) )
+			.catch( handleError );
 	}
 
 	function updateIcons() {
+		setIsUpdatingIcons( true );
 		apiFetch( {
 			path: getConfig( 'assetsRestPath' ) + 'retrieve-icons',
 			method: 'GET',
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),
 			},
-		} ).catch( handleError );
+		} )
+			.then( () => setIsUpdatingIcons( false ) )
+			.catch( handleError );
 	}
 
 	return (
@@ -89,6 +102,7 @@ export const Updates = () => {
 					style="mdc-button-options mdc-button--raised"
 					text={ __( 'Update Fonts', 'material-design' ) }
 					onClick={ updateFonts }
+					loading={ isUpdatingFonts }
 				/>
 			</p>
 
@@ -97,6 +111,7 @@ export const Updates = () => {
 					style="mdc-button-options mdc-button--raised"
 					text={ __( 'Update Icons', 'material-design' ) }
 					onClick={ updateIcons }
+					loading={ isUpdatingIcons }
 				/>
 			</p>
 		</div>
