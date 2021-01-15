@@ -150,8 +150,6 @@ class Update_Icons extends Updates_API_Base {
 			return false;
 		}
 
-		print_r( $this->local_codepoints );
-		exit;
 		file_put_contents( $this->local_codepoints, $codepoints ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
 
 		return $codepoints;

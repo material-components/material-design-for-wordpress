@@ -1676,7 +1676,7 @@ Object {
               <i
                 class="material-icons"
               >
-                airplanemode_on
+                airplanemode_active
               </i>
             </button>
           </div>
@@ -1690,7 +1690,7 @@ Object {
               <i
                 class="material-icons"
               >
-                airplanemode_off
+                airplanemode_inactive
               </i>
             </button>
           </div>
@@ -3314,7 +3314,7 @@ Object {
               <i
                 class="material-icons"
               >
-                bookmark_outline
+                bookmark_border
               </i>
             </button>
           </div>
@@ -4084,7 +4084,7 @@ Object {
               <i
                 class="material-icons"
               >
-                enhance_photo_translate
+                camera_enhance
               </i>
             </button>
           </div>
@@ -4224,7 +4224,7 @@ Object {
               <i
                 class="material-icons"
               >
-                wallet_giftcard
+                card_giftcard
               </i>
             </button>
           </div>
@@ -4238,7 +4238,7 @@ Object {
               <i
                 class="material-icons"
               >
-                wallet_membership
+                card_membership
               </i>
             </button>
           </div>
@@ -4252,7 +4252,7 @@ Object {
               <i
                 class="material-icons"
               >
-                wallet_travel
+                card_travel
               </i>
             </button>
           </div>
@@ -4462,7 +4462,7 @@ Object {
               <i
                 class="material-icons"
               >
-                messenger
+                chat_bubble
               </i>
             </button>
           </div>
@@ -4476,7 +4476,7 @@ Object {
               <i
                 class="material-icons"
               >
-                messenger_outline
+                chat_bubble_outline
               </i>
             </button>
           </div>
@@ -5092,7 +5092,7 @@ Object {
               <i
                 class="material-icons"
               >
-                confirmation_number
+                confirmation_num
               </i>
             </button>
           </div>
@@ -5148,7 +5148,7 @@ Object {
               <i
                 class="material-icons"
               >
-                quick_contacts_mail
+                contact_mail
               </i>
             </button>
           </div>
@@ -5176,7 +5176,7 @@ Object {
               <i
                 class="material-icons"
               >
-                quick_contacts_dialer
+                contact_phone
               </i>
             </button>
           </div>
@@ -6016,7 +6016,7 @@ Object {
               <i
                 class="material-icons"
               >
-                directions_ferry
+                directions_boat
               </i>
             </button>
           </div>
@@ -6072,7 +6072,7 @@ Object {
               <i
                 class="material-icons"
               >
-                directions_train
+                directions_railway
               </i>
             </button>
           </div>
@@ -6184,7 +6184,7 @@ Object {
               <i
                 class="material-icons"
               >
-                do_not_disturb_alt
+                dnd_forwardslash
               </i>
             </button>
           </div>
@@ -7304,7 +7304,7 @@ Object {
               <i
                 class="material-icons"
               >
-                exposure_neg_1
+                exposure_minus_1
               </i>
             </button>
           </div>
@@ -7318,7 +7318,7 @@ Object {
               <i
                 class="material-icons"
               >
-                exposure_neg_2
+                exposure_minus_2
               </i>
             </button>
           </div>
@@ -7514,7 +7514,7 @@ Object {
               <i
                 class="material-icons"
               >
-                favorite_outline
+                favorite_border
               </i>
             </button>
           </div>
@@ -8788,7 +8788,7 @@ Object {
               <i
                 class="material-icons"
               >
-                format_underlined
+                format_underline
               </i>
             </button>
           </div>
@@ -9180,7 +9180,7 @@ Object {
               <i
                 class="material-icons"
               >
-                multitrack_audio
+                graphic_eq
               </i>
             </button>
           </div>
@@ -9614,7 +9614,7 @@ Object {
               <i
                 class="material-icons"
               >
-                highlight_remove
+                highlight_off
               </i>
             </button>
           </div>
@@ -10314,7 +10314,7 @@ Object {
               <i
                 class="material-icons"
               >
-                invert_colors_on
+                invert_colors
               </i>
             </button>
           </div>
@@ -10468,7 +10468,7 @@ Object {
               <i
                 class="material-icons"
               >
-                more_horiz
+                keyboard_control
               </i>
             </button>
           </div>
@@ -10860,7 +10860,7 @@ Object {
               <i
                 class="material-icons"
               >
-                my_library_add
+                library_add
               </i>
             </button>
           </div>
@@ -10888,7 +10888,7 @@ Object {
               <i
                 class="material-icons"
               >
-                my_library_books
+                library_books
               </i>
             </button>
           </div>
@@ -10902,7 +10902,7 @@ Object {
               <i
                 class="material-icons"
               >
-                my_library_music
+                library_music
               </i>
             </button>
           </div>
@@ -11098,7 +11098,7 @@ Object {
               <i
                 class="material-icons"
               >
-                local_attraction
+                local_activity
               </i>
             </button>
           </div>
@@ -11196,7 +11196,7 @@ Object {
               <i
                 class="material-icons"
               >
-                local_restaurant
+                local_dining
               </i>
             </button>
           </div>
@@ -11476,7 +11476,7 @@ Object {
               <i
                 class="material-icons"
               >
-                local_printshop
+                local_print_shop
               </i>
             </button>
           </div>
@@ -11560,7 +11560,7 @@ Object {
               <i
                 class="material-icons"
               >
-                person_pin
+                location_history
               </i>
             </button>
           </div>
@@ -13506,7 +13506,7 @@ Object {
               <i
                 class="material-icons"
               >
-                notifications_on
+                notifications_active
               </i>
             </button>
           </div>
@@ -13562,7 +13562,7 @@ Object {
               <i
                 class="material-icons"
               >
-                wallpaper
+                now_wallpaper
               </i>
             </button>
           </div>
@@ -13576,7 +13576,7 @@ Object {
               <i
                 class="material-icons"
               >
-                widgets
+                now_widgets
               </i>
             </button>
           </div>
@@ -13898,7 +13898,7 @@ Object {
               <i
                 class="material-icons"
               >
-                panorama_fisheye
+                panorama_fish_eye
               </i>
             </button>
           </div>
@@ -14234,7 +14234,7 @@ Object {
               <i
                 class="material-icons"
               >
-                perm_contact_calendar
+                perm_contact_cal
               </i>
             </button>
           </div>
@@ -14262,7 +14262,7 @@ Object {
               <i
                 class="material-icons"
               >
-                perm_device_information
+                perm_device_info
               </i>
             </button>
           </div>
@@ -15060,7 +15060,7 @@ Object {
               <i
                 class="material-icons"
               >
-                play_circle_filled
+                play_circle_fill
               </i>
             </button>
           </div>
@@ -15676,7 +15676,7 @@ Object {
               <i
                 class="material-icons"
               >
-                radio_button_on
+                radio_button_checked
               </i>
             </button>
           </div>
@@ -15690,7 +15690,7 @@ Object {
               <i
                 class="material-icons"
               >
-                radio_button_unchecked
+                radio_button_off
               </i>
             </button>
           </div>
@@ -17174,7 +17174,7 @@ Object {
               <i
                 class="material-icons"
               >
-                settings_display
+                settings_brightness
               </i>
             </button>
           </div>
@@ -18448,7 +18448,7 @@ Object {
               <i
                 class="material-icons"
               >
-                star_outline
+                star_border
               </i>
             </button>
           </div>
@@ -19022,7 +19022,7 @@ Object {
               <i
                 class="material-icons"
               >
-                swap_vertical_circle
+                swap_vert_circle
               </i>
             </button>
           </div>
@@ -19190,7 +19190,7 @@ Object {
               <i
                 class="material-icons"
               >
-                system_update_tv
+                system_update_alt
               </i>
             </button>
           </div>
@@ -20072,7 +20072,7 @@ Object {
               <i
                 class="material-icons"
               >
-                trending_neutral
+                trending_flat
               </i>
             </button>
           </div>
@@ -20506,7 +20506,7 @@ Object {
               <i
                 class="material-icons"
               >
-                video_library
+                video_collection
               </i>
             </button>
           </div>
@@ -20646,7 +20646,7 @@ Object {
               <i
                 class="material-icons"
               >
-                view_comfy
+                view_comfortable
               </i>
             </button>
           </div>
@@ -23474,7 +23474,7 @@ Object {
             <i
               class="material-icons"
             >
-              airplanemode_on
+              airplanemode_active
             </i>
           </button>
         </div>
@@ -23488,7 +23488,7 @@ Object {
             <i
               class="material-icons"
             >
-              airplanemode_off
+              airplanemode_inactive
             </i>
           </button>
         </div>
@@ -25112,7 +25112,7 @@ Object {
             <i
               class="material-icons"
             >
-              bookmark_outline
+              bookmark_border
             </i>
           </button>
         </div>
@@ -25882,7 +25882,7 @@ Object {
             <i
               class="material-icons"
             >
-              enhance_photo_translate
+              camera_enhance
             </i>
           </button>
         </div>
@@ -26022,7 +26022,7 @@ Object {
             <i
               class="material-icons"
             >
-              wallet_giftcard
+              card_giftcard
             </i>
           </button>
         </div>
@@ -26036,7 +26036,7 @@ Object {
             <i
               class="material-icons"
             >
-              wallet_membership
+              card_membership
             </i>
           </button>
         </div>
@@ -26050,7 +26050,7 @@ Object {
             <i
               class="material-icons"
             >
-              wallet_travel
+              card_travel
             </i>
           </button>
         </div>
@@ -26260,7 +26260,7 @@ Object {
             <i
               class="material-icons"
             >
-              messenger
+              chat_bubble
             </i>
           </button>
         </div>
@@ -26274,7 +26274,7 @@ Object {
             <i
               class="material-icons"
             >
-              messenger_outline
+              chat_bubble_outline
             </i>
           </button>
         </div>
@@ -26890,7 +26890,7 @@ Object {
             <i
               class="material-icons"
             >
-              confirmation_number
+              confirmation_num
             </i>
           </button>
         </div>
@@ -26946,7 +26946,7 @@ Object {
             <i
               class="material-icons"
             >
-              quick_contacts_mail
+              contact_mail
             </i>
           </button>
         </div>
@@ -26974,7 +26974,7 @@ Object {
             <i
               class="material-icons"
             >
-              quick_contacts_dialer
+              contact_phone
             </i>
           </button>
         </div>
@@ -27814,7 +27814,7 @@ Object {
             <i
               class="material-icons"
             >
-              directions_ferry
+              directions_boat
             </i>
           </button>
         </div>
@@ -27870,7 +27870,7 @@ Object {
             <i
               class="material-icons"
             >
-              directions_train
+              directions_railway
             </i>
           </button>
         </div>
@@ -27982,7 +27982,7 @@ Object {
             <i
               class="material-icons"
             >
-              do_not_disturb_alt
+              dnd_forwardslash
             </i>
           </button>
         </div>
@@ -29102,7 +29102,7 @@ Object {
             <i
               class="material-icons"
             >
-              exposure_neg_1
+              exposure_minus_1
             </i>
           </button>
         </div>
@@ -29116,7 +29116,7 @@ Object {
             <i
               class="material-icons"
             >
-              exposure_neg_2
+              exposure_minus_2
             </i>
           </button>
         </div>
@@ -29312,7 +29312,7 @@ Object {
             <i
               class="material-icons"
             >
-              favorite_outline
+              favorite_border
             </i>
           </button>
         </div>
@@ -30586,7 +30586,7 @@ Object {
             <i
               class="material-icons"
             >
-              format_underlined
+              format_underline
             </i>
           </button>
         </div>
@@ -30978,7 +30978,7 @@ Object {
             <i
               class="material-icons"
             >
-              multitrack_audio
+              graphic_eq
             </i>
           </button>
         </div>
@@ -31412,7 +31412,7 @@ Object {
             <i
               class="material-icons"
             >
-              highlight_remove
+              highlight_off
             </i>
           </button>
         </div>
@@ -32112,7 +32112,7 @@ Object {
             <i
               class="material-icons"
             >
-              invert_colors_on
+              invert_colors
             </i>
           </button>
         </div>
@@ -32266,7 +32266,7 @@ Object {
             <i
               class="material-icons"
             >
-              more_horiz
+              keyboard_control
             </i>
           </button>
         </div>
@@ -32658,7 +32658,7 @@ Object {
             <i
               class="material-icons"
             >
-              my_library_add
+              library_add
             </i>
           </button>
         </div>
@@ -32686,7 +32686,7 @@ Object {
             <i
               class="material-icons"
             >
-              my_library_books
+              library_books
             </i>
           </button>
         </div>
@@ -32700,7 +32700,7 @@ Object {
             <i
               class="material-icons"
             >
-              my_library_music
+              library_music
             </i>
           </button>
         </div>
@@ -32896,7 +32896,7 @@ Object {
             <i
               class="material-icons"
             >
-              local_attraction
+              local_activity
             </i>
           </button>
         </div>
@@ -32994,7 +32994,7 @@ Object {
             <i
               class="material-icons"
             >
-              local_restaurant
+              local_dining
             </i>
           </button>
         </div>
@@ -33274,7 +33274,7 @@ Object {
             <i
               class="material-icons"
             >
-              local_printshop
+              local_print_shop
             </i>
           </button>
         </div>
@@ -33358,7 +33358,7 @@ Object {
             <i
               class="material-icons"
             >
-              person_pin
+              location_history
             </i>
           </button>
         </div>
@@ -35304,7 +35304,7 @@ Object {
             <i
               class="material-icons"
             >
-              notifications_on
+              notifications_active
             </i>
           </button>
         </div>
@@ -35360,7 +35360,7 @@ Object {
             <i
               class="material-icons"
             >
-              wallpaper
+              now_wallpaper
             </i>
           </button>
         </div>
@@ -35374,7 +35374,7 @@ Object {
             <i
               class="material-icons"
             >
-              widgets
+              now_widgets
             </i>
           </button>
         </div>
@@ -35696,7 +35696,7 @@ Object {
             <i
               class="material-icons"
             >
-              panorama_fisheye
+              panorama_fish_eye
             </i>
           </button>
         </div>
@@ -36032,7 +36032,7 @@ Object {
             <i
               class="material-icons"
             >
-              perm_contact_calendar
+              perm_contact_cal
             </i>
           </button>
         </div>
@@ -36060,7 +36060,7 @@ Object {
             <i
               class="material-icons"
             >
-              perm_device_information
+              perm_device_info
             </i>
           </button>
         </div>
@@ -36858,7 +36858,7 @@ Object {
             <i
               class="material-icons"
             >
-              play_circle_filled
+              play_circle_fill
             </i>
           </button>
         </div>
@@ -37474,7 +37474,7 @@ Object {
             <i
               class="material-icons"
             >
-              radio_button_on
+              radio_button_checked
             </i>
           </button>
         </div>
@@ -37488,7 +37488,7 @@ Object {
             <i
               class="material-icons"
             >
-              radio_button_unchecked
+              radio_button_off
             </i>
           </button>
         </div>
@@ -38972,7 +38972,7 @@ Object {
             <i
               class="material-icons"
             >
-              settings_display
+              settings_brightness
             </i>
           </button>
         </div>
@@ -40246,7 +40246,7 @@ Object {
             <i
               class="material-icons"
             >
-              star_outline
+              star_border
             </i>
           </button>
         </div>
@@ -40820,7 +40820,7 @@ Object {
             <i
               class="material-icons"
             >
-              swap_vertical_circle
+              swap_vert_circle
             </i>
           </button>
         </div>
@@ -40988,7 +40988,7 @@ Object {
             <i
               class="material-icons"
             >
-              system_update_tv
+              system_update_alt
             </i>
           </button>
         </div>
@@ -41870,7 +41870,7 @@ Object {
             <i
               class="material-icons"
             >
-              trending_neutral
+              trending_flat
             </i>
           </button>
         </div>
@@ -42304,7 +42304,7 @@ Object {
             <i
               class="material-icons"
             >
-              video_library
+              video_collection
             </i>
           </button>
         </div>
@@ -42444,7 +42444,7 @@ Object {
             <i
               class="material-icons"
             >
-              view_comfy
+              view_comfortable
             </i>
           </button>
         </div>
