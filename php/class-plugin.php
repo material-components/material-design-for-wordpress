@@ -25,6 +25,7 @@
 
 namespace MaterialDesign\Plugin;
 
+use MaterialDesign\Plugin\Admin\Admin_Updates;
 use MaterialDesign\Plugin\Cli\Fonts;
 use MaterialDesign\Plugin\Cli\Icons;
 use MaterialDesign\Plugin\Customizer\Controls;
@@ -91,6 +92,13 @@ class Plugin extends Plugin_Base {
 	public $admin;
 
 	/**
+	 * Handles API Updates for Fonts and Icons.
+	 *
+	 * @var Admin_Updates
+	 */
+	public $admin_updates;
+
+	/**
 	 * Holds the CLI class for updating Fonts
 	 *
 	 * @var Fonts
@@ -132,6 +140,9 @@ class Plugin extends Plugin_Base {
 
 		$this->admin = new Admin( $this );
 		$this->admin->init();
+
+		$this->admin_updates = new Admin_Updates();
+		$this->admin_updates->init();
 
 		// Init CLI.
 		if ( defined( 'WP_CLI' ) && false !== WP_CLI ) {
