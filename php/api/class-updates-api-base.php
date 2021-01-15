@@ -30,7 +30,7 @@ namespace MaterialDesign\Plugin\Api;
  *
  * @package MaterialDesign\Plugin\Api
  */
-abstract class API_Base {
+abstract class Updates_API_Base {
 
 	/**
 	 * Override this in a child class. This is the remote URL to retrieve data from
