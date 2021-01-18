@@ -65,7 +65,7 @@ class Admin_Updates {
 	public function update_fonts() {
 
 		$expired = get_transient( Update_Fonts::TRANSIENT );
-		if ( false === $expired ) {
+		if ( false !== $expired ) {
 			return false;
 		}
 
@@ -83,7 +83,7 @@ class Admin_Updates {
 	public function update_icons() {
 
 		$expired = get_transient( Update_Icons::TRANSIENT );
-		if ( false === $expired ) {
+		if ( false !== $expired ) {
 			return false;
 		}
 
