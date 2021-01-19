@@ -51,18 +51,28 @@ class Admin_Updates {
 	 * Callback for updaters.
 	 *
 	 * @hook admin_init
+	 *
+	 * @param bool $write_response Whether to force file writes.
+	 *
+	 * @return bool Whether the updates happened successful.
+	 * @throws \Exception Exception.
 	 */
-	public function run_updates() {
-		$this->update_fonts();
-		$this->update_fonts();
+	public function run_updates( $write_response = true ) {
+		$success = $this->update_fonts( $write_response );
+		$success = $this->update_icons( $write_response );
+
+		return $success;
 	}
 
 	/**
 	 * Runs the Font Updater but bails if transient exists.
 	 *
+	 * @param bool $write_response Whether to write output to file.
+	 *
 	 * @return bool
+	 * @throws \Exception Exception.
 	 */
-	public function update_fonts() {
+	public function update_fonts( $write_response = true ) {
 
 		$expired = get_transient( Update_Fonts::TRANSIENT );
 		if ( false !== $expired ) {
@@ -70,7 +80,7 @@ class Admin_Updates {
 		}
 
 		$fonts = new Update_Fonts( false );
-		$fonts->get_fonts();
+		$fonts->get_fonts( $write_response );
 
 		return true;
 	}
@@ -78,9 +88,11 @@ class Admin_Updates {
 	/**
 	 * Runs the Icon Updater but bails if transient is exists.
 	 *
+	 * @param bool $write_response Whether to write output to file.
+	 *
 	 * @return bool
 	 */
-	public function update_icons() {
+	public function update_icons( $write_response = true ) {
 
 		$expired = get_transient( Update_Icons::TRANSIENT );
 		if ( false !== $expired ) {
@@ -88,7 +100,7 @@ class Admin_Updates {
 		}
 
 		$icons = new Update_Icons( false );
-		$icons->get_icons();
+		$icons->get_icons( $write_response );
 
 		return true;
 	}
