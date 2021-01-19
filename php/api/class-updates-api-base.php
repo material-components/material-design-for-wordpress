@@ -60,4 +60,19 @@ abstract class Updates_API_Base {
 	 * @return mixed
 	 */
 	abstract public function get_http_response();
+
+	/**
+	 * Wrapper function to accommodate tests.
+	 *
+	 * @param string $filename         See native.
+	 * @param false  $use_include_path See native.
+	 * @param null   $context          See native.
+	 * @param int    $offset           See native.
+	 * @param null   $length           See native.
+	 *
+	 * @return false|string
+	 */
+	public function file_get_contents( $filename, $use_include_path = false, $context = null, $offset = 0, $length = null ) {
+		return apply_filters( 'material_design_file_get_contents', file_get_contents( $filename, $use_include_path, $context, $offset, $length ) ); //phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+	}
 }
