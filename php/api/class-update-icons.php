@@ -68,23 +68,20 @@ class Update_Icons extends Updates_API_Base {
 	/**
 	 * Retrieves codepoint icons from local file store or URL, depending on presence of transient
 	 *
+	 * @param bool $write_output If false, skips writing to file.
+	 *
 	 * @return false|\stdClass|string
 	 */
-	public function get_icons() {
+	public function get_icons( $write_output = true ) {
 
 		$new = null;
-
 		if ( false === get_transient( self::TRANSIENT ) || true === $this->force_http ) {
-			try {
-				$codepoints = $this->get_http_response();
-				$new        = $this->parse_codepoints( $codepoints );
+			$codepoints = $this->get_http_response();
+			$new        = $this->parse_codepoints( $codepoints, $write_output );
 
-				set_transient( self::TRANSIENT, time(), DAY_IN_SECONDS );
-			} catch ( Exception $e ) {
-				return false;
-			}
+			set_transient( self::TRANSIENT, time(), DAY_IN_SECONDS );
 		} else {
-			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
+			$new = $this->file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/icons.json' );
 			$new = json_decode( $new );
 		}
 
@@ -98,10 +95,11 @@ class Update_Icons extends Updates_API_Base {
 	 * Parses the codepoint data into expected JSON format
 	 *
 	 * @param string $codepoints Raw data from github.
+	 * @param bool   $write_response If false, skips writing to file.
 	 *
 	 * @return \stdClass
 	 */
-	public function parse_codepoints( $codepoints ) {
+	public function parse_codepoints( $codepoints, $write_response = true ) {
 		$lines = explode( "\n", $codepoints );
 
 		$icons        = new \stdClass();
@@ -131,7 +129,9 @@ class Update_Icons extends Updates_API_Base {
 		if ( ! empty( $icons ) ) {
 			$icons = (object) $icons;
 
-			file_put_contents( $this->local_file_path, wp_json_encode( $icons ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+			if ( ! empty( $write_response ) ) {
+				file_put_contents( $this->local_file_path, wp_json_encode( $icons ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+			}
 		}
 
 		return $icons;
@@ -140,9 +140,11 @@ class Update_Icons extends Updates_API_Base {
 	/**
 	 * Get codepoints data from github and write to local store
 	 *
+	 * @param bool $write_response If false, skips writing to file.
+	 *
 	 * @return false|mixed|string
 	 */
-	public function get_http_response() {
+	public function get_http_response( $write_response = true ) {
 		$request    = function_exists( 'vip_safe_wp_remote_get' ) ? vip_safe_wp_remote_get( $this->endpoint ) : wp_remote_get( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get, WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
 		$codepoints = wp_remote_retrieve_body( $request );
 
@@ -150,7 +152,9 @@ class Update_Icons extends Updates_API_Base {
 			return false;
 		}
 
-		file_put_contents( $this->local_codepoints, $codepoints ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+		if ( ! empty( $write_response ) ) {
+			file_put_contents( $this->local_codepoints, $codepoints ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+		}
 
 		return $codepoints;
 	}
