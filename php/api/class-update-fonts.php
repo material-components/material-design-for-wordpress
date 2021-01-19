@@ -84,21 +84,19 @@ class Update_Fonts extends Updates_API_Base {
 	 * Checks if transient exists. If it does, return the contents of `assets/fonts/google-fonts.json`. If transient doesn't
 	 * exist or is expired, retrieve from Google Fonts API and store as `assets/fonts/google-fonts.json`
 	 *
+	 * @param bool $write_output Whether to short-circuit file writing.
+	 *
 	 * @return string
+	 * @throws Exception An exception.
 	 */
-	public function get_fonts() {
+	public function get_fonts( $write_output = true ) {
 
 		$new = null;
-
 		if ( false === get_transient( self::TRANSIENT ) || true === $this->force_http ) {
-			try {
-				$json = $this->get_http_response();
-				$new  = $this->json_to_file( $json );
+			$json = $this->get_http_response();
+			$new  = json_decode( $this->json_to_file( $json, $write_output ) );
 
-				set_transient( self::TRANSIENT, time(), DAY_IN_SECONDS );
-			} catch ( Exception $e ) {
-				return false;
-			}
+			set_transient( self::TRANSIENT, time(), DAY_IN_SECONDS );
 		} else {
 			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
 			$new = json_decode( $new );
@@ -119,11 +117,12 @@ class Update_Fonts extends Updates_API_Base {
 	/**
 	 * Take Google Fonts JSON and turns it into our local format, then write to local file store
 	 *
-	 * @param string $json A JSON string.
+	 * @param string $json           A JSON string.
+	 * @param bool   $write_response Whether to write the file contents.
 	 *
-	 * @return stdClass
+	 * @return false|stdClass|string
 	 */
-	public function json_to_file( $json ) {
+	public function json_to_file( $json, $write_response = true ) {
 		$data = json_decode( $json );
 
 		$fonts = new stdClass();
@@ -136,26 +135,31 @@ class Update_Fonts extends Updates_API_Base {
 		foreach ( $data->items as $font ) {
 			$item['variants'] = $font->variants;
 
-			if ( ! empty( $item->categories ) ) {
-				$item['categories'] = $item->categories;
+			if ( ! empty( $font->category ) ) {
+				$item['category'] = $font->category;
 			}
 
 			$fonts->{$font->family} = (object) $item;
 		}
 
-		file_put_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json', wp_json_encode( $fonts ) ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+		$fonts = wp_json_encode( $fonts );
+		if ( ! empty( $write_response ) ) {
+			file_put_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json', $fonts ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+		}
 
 		return $fonts;
 	}
 
 	/**
 	 * Retrieves data from Fonts API
+	 * *
 	 *
 	 * @return string|bool
 	 * @throws Exception Generic exception.
 	 */
 	public function get_http_response() {
-		$response = function_exists( 'vip_safe_wp_remote_get' ) ? vip_safe_wp_remote_get( $this->endpoint ) : wp_remote_get( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
+		$response = function_exists( 'vip_safe_wp_remote_get' ) ? vip_safe_wp_remote_get( $this->endpoint ) :
+			wp_remote_get( $this->endpoint ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
 		if ( is_wp_error( $response ) ) {
 			throw new Exception( $response->get_error_message() );
 		}
