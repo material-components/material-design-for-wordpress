@@ -144,8 +144,8 @@ class Block_Types {
 			}
 		}
 
-		// Enqueue RichText polyfills if WP version is less than 5.2.
-		if ( version_compare( get_bloginfo( 'version' ), '5.2', '<=' ) ) {
+		// Enqueue RichText polyfills if WP version is less than 5.3.
+		if ( version_compare( get_bloginfo( 'version' ), '5.3', '<' ) ) {
 			wp_enqueue_script(
 				'material-block-editor-polyfills',
 				$this->plugin->asset_url( 'assets/js/polyfills.js' ),
