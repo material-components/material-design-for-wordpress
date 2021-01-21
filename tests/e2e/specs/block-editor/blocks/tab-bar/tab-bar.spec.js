@@ -17,12 +17,12 @@
 /**
  * WordPress dependencies
  */
-import { insertBlock, createNewPost } from '@wordpress/e2e-test-utils';
+import { createNewPost } from '@wordpress/e2e-test-utils';
 
 /**
  * Internal dependencies
  */
-import { selectBlockByName } from '../../../../utils';
+import { insertBlock, selectBlockByName } from '../../../../utils';
 
 describe( 'blocks: material/tab-bar', () => {
 	beforeEach( async () => {
@@ -164,7 +164,9 @@ describe( 'blocks: material/tab-bar', () => {
 		await headingBlock.click();
 
 		expect(
-			await page.$x( "//h2[span/@data-rich-text-placeholder='Write heading…']" )
+			await page.$$(
+				'[data-type="material/tab-bar"] [data-type="core/heading"]'
+			)
 		).toHaveLength( 1 );
 
 		const labels = await page.$$( '.mdc-tab__text-label span' );
