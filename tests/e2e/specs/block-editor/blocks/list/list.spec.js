@@ -141,11 +141,11 @@ describe( 'blocks: material/list', () => {
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
 
 		await primary.click();
-		await page.keyboard.type( 'List Item 1' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'List Item 2' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'List Item 3' );
+		await page.keyboard.type( 'List Item 1', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'List Item 2', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'List Item 3', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 3 );
 
@@ -190,9 +190,9 @@ describe( 'blocks: material/list', () => {
 		); // wait until all the list items are updated.
 
 		await primary.click();
-		await page.keyboard.type( 'List Item 1' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'Secondary Text 1' );
+		await page.keyboard.type( 'List Item 1', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'Secondary Text 1', { delay: 50 } );
 
 		const [ secondary ] = await page.$$( '.mdc-list-item__secondary-text' );
 
@@ -235,14 +235,14 @@ describe( 'blocks: material/list', () => {
 		); // wait until all the list items are updated.
 
 		await primary.click();
-		await page.keyboard.type( 'List Item 1' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'Secondary Text 1' );
-		await primary.press( 'Enter' );
+		await page.keyboard.type( 'List Item 1', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'Secondary Text 1', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
 
-		await page.keyboard.type( 'List Item 2' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'Secondary Text 2' );
+		await page.keyboard.type( 'List Item 2', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'Secondary Text 2', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
 
