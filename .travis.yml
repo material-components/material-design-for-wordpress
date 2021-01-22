@@ -104,7 +104,7 @@ jobs:
 
     - name: E2E tests with Docker (7.3, WordPress 5.2)
       php: "7.3"
-      env: NODE_ENV=teste2e PHP_VERSION=7.3 WP_VERSION=5.2
+      env: NODE_ENV=teste2e PHP_VERSION=php7.3-apache WP_VERSION=5.2
       before_install:
         - unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
         - nvm install
