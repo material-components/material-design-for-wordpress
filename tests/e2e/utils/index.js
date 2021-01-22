@@ -20,3 +20,4 @@ export { clickButton } from './click-button';
 export { clickButtonByLabel } from './click-button-by-label';
 export { insertBlock, insertBlockByKeyword } from './insert-block';
 export { selectBlockByName } from './select-block-by-name';
+export { switchEditorModeTo } from './switch-editor-mode-to';
