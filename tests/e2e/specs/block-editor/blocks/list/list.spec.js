@@ -19,6 +19,9 @@
  */
 import { createNewPost, ensureSidebarOpened } from '@wordpress/e2e-test-utils';
 
+/**
+ * Internal dependencies
+ */
 import { insertBlockByKeyword, selectBlockByName } from '../../../../utils';
 
 describe( 'blocks: material/list', () => {
@@ -152,15 +155,15 @@ describe( 'blocks: material/list', () => {
 		let items = await page.$$( '.mdc-list-item__primary-text' );
 
 		await items[ 1 ].click();
-		await primary.press( 'Home' );
-		await primary.press( 'Backspace' );
+		await primary.press( 'Home', { delay: 50 } );
+		await primary.press( 'Backspace', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
 		expect(
 			await page.evaluate( el => el.innerText.trim(), primary )
 		).toStrictEqual( 'List Item 1List Item 2' );
 
-		await page.keyboard.press( 'Enter' );
+		await page.keyboard.press( 'Enter', { delay: 50 } );
 
 		items = await page.$$( '.mdc-list-item__primary-text' );
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 3 );
@@ -203,14 +206,14 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( el => el.innerText.trim(), secondary )
 		).toStrictEqual( 'Secondary Text 1' );
 
-		await primary.press( 'Home' );
-		await primary.press( 'Backspace' );
+		await primary.press( 'Home', { delay: 50 } );
+		await primary.press( 'Backspace', { delay: 50 } );
 
 		expect(
 			await page.evaluate( el => el.innerText.trim(), primary )
 		).toStrictEqual( 'List Item 1Secondary Text 1' );
 
-		await primary.press( 'Enter' );
+		await primary.press( 'Enter', { delay: 50 } );
 
 		expect(
 			await page.evaluate( el => el.innerText.trim(), primary )
@@ -250,8 +253,8 @@ describe( 'blocks: material/list', () => {
 		let secondaryItems = await page.$$( '.mdc-list-item__secondary-text' );
 
 		await items[ 1 ].click();
-		await primary.press( 'Home' );
-		await primary.press( 'Backspace' );
+		await primary.press( 'Home', { delay: 50 } );
+		await primary.press( 'Backspace', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
 		expect(
@@ -261,7 +264,7 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 0 ] )
 		).toStrictEqual( 'Secondary Text 1List Item 2 Secondary Text 2' );
 
-		await primary.press( 'Enter' );
+		await primary.press( 'Enter', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
 
