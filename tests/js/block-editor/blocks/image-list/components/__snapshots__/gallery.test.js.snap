@@ -11,7 +11,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -64,7 +63,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap is-selected"
@@ -125,7 +123,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -178,7 +175,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap is-selected"
@@ -296,7 +292,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -359,7 +354,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -430,7 +424,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -493,7 +486,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -621,7 +613,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -674,7 +665,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -735,7 +725,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -788,7 +777,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -906,7 +894,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -959,7 +946,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -1020,7 +1006,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -1073,7 +1058,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -1261,7 +1245,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <a
             class="mdc-image-list__item-wrap"
@@ -1278,7 +1261,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <a
             class="mdc-image-list__item-wrap"
@@ -1302,7 +1284,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <a
           class="mdc-image-list__item-wrap"
@@ -1319,7 +1300,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <a
           class="mdc-image-list__item-wrap"
@@ -1401,7 +1381,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -1487,7 +1466,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -1581,7 +1559,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -1667,7 +1644,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -1818,7 +1794,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -1871,7 +1846,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -1932,7 +1906,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -1985,7 +1958,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -2103,7 +2075,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -2156,7 +2127,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -2217,7 +2187,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -2270,7 +2239,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -2388,7 +2356,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -2441,7 +2408,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -2502,7 +2468,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -2555,7 +2520,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -2673,7 +2637,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -2726,7 +2689,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -2787,7 +2749,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -2840,7 +2801,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -2957,7 +2917,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
           style="margin: 12px;"
         >
           <div
@@ -3014,7 +2973,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
           style="margin: 12px;"
         >
           <div
@@ -3078,7 +3036,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
         style="margin: 12px;"
       >
         <div
@@ -3135,7 +3092,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
         style="margin: 12px;"
       >
         <div
