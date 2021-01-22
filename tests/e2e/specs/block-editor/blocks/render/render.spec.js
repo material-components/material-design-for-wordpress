@@ -35,7 +35,7 @@ const blocksHTML = fs.readFileSync(
 	'utf-8'
 );
 
-describe( 'blocks: material/recent-posts', () => {
+describe( 'blocks: all', () => {
 	beforeEach( async () => {
 		await createNewPost( {} );
 	} );
@@ -87,9 +87,6 @@ describe( 'blocks: material/recent-posts', () => {
 		expect( await page.$$( '[data-type="material/data-table"]' ) ).toHaveLength(
 			1
 		);
-
-		// Check if core/table block is rendered.
-		expect( await page.$$( '[data-type="core/table"]' ) ).toHaveLength( 1 );
 
 		// Check if image-list block is rendered.
 		expect( await page.$$( '[data-type="material/image-list"]' ) ).toHaveLength(
