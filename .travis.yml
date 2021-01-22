@@ -102,9 +102,9 @@ jobs:
         - sudo chown -R travis:travis tests node_modules # ensure coverage folder can be created
         - npm run test:e2e:coveralls
 
-    - name: E2E tests with Docker (7.4, WordPress 5.2)
-      php: "7.4"
-      env: NODE_ENV=teste2e WP_VERSION=5.2
+    - name: E2E tests with Docker (7.3, WordPress 5.2)
+      php: "7.3"
+      env: NODE_ENV=teste2e PHP_VERSION=7.3 WP_VERSION=5.2
       before_install:
         - unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
         - nvm install
@@ -115,8 +115,6 @@ jobs:
         - echo "Running E2E tests"
       script:
         - npm run env:start
-        - docker-compose exec wordpress bash -c "chown -R www-data:www-data /var/www/html/wp-content/" # ensure WP folders have correct permissions
-        - docker-compose exec mysql bash -c "chown -R mysql:mysql /var/lib/mysql"
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088
         - npm run wp -- wp plugin activate material-design
         - npm run test:e2e
