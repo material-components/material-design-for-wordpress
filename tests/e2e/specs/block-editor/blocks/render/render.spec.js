@@ -15,11 +15,15 @@
  */
 
 /**
+ * External dependencies
+ */
+import fs from 'fs';
+import path from 'path';
+
+/**
  * WordPress dependencies
  */
 import { createNewPost } from '@wordpress/e2e-test-utils';
-import fs from 'fs';
-import path from 'path';
 
 /**
  * Internal dependencies
