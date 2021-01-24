@@ -84,7 +84,7 @@ jobs:
     - stage: test
       name: E2E tests with Docker (7.4, WordPress latest, with code coverage)
       php: "7.4"
-      env: NODE_ENV=teste2e COVERALLS_REPO_TOKEN=$CR_TOKEN
+      env: NODE_ENV=teste2e COVERALLS_REPO_TOKEN=$CR_TOKEN WP_VERSION=5.6
       before_install:
         - unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
         - nvm install
