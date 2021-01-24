@@ -21,7 +21,6 @@ services:
     volumes:
     - ./bin/local-dev/mysql:/var/lib/mysql
     - ./bin/local-dev/wordpress/config/mysql/wptests.sql:/docker-entrypoint-initdb.d/wptests.sql
-    user: "mysql:mysql"
     restart: always
     ports:
     - 3306:3306
@@ -44,7 +43,6 @@ services:
     volumes:
       - ./bin/local-dev/wordpress/html:/var/www/html
       - .:/var/www/html/wp-content/plugins/material-design
-    user: "www-data:www-data"
     restart: always
     environment:
       WORDPRESS_DEBUG: 1
