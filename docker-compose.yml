@@ -35,7 +35,7 @@ services:
       context: ./bin/local-dev/wordpress
       args:
         WP_VERSION: ${WP_VERSION}
-        PHP_VERSION: ${PHP_VERSION}
+        PHP_IMAGE: ${PHP_IMAGE}
     depends_on:
       - mysql
     ports:
