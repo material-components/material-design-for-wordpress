@@ -873,7 +873,7 @@ class Controls extends Module_Base {
 			'baseline'    => [
 				'primary_color'           => '#6200ee',
 				'on_primary_color'        => '#ffffff',
-				'secondary_color'         => '#03dac6',
+				'secondary_color'         => '#018786',
 				'on_secondary_color'      => '#000000',
 				'surface_color'           => '#ffffff',
 				'on_surface_color'        => '#000000',
