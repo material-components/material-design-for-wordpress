@@ -13,8 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-source .env
 source ./bin/includes.sh
 
 printf "Starting up containers ..."
