@@ -130,7 +130,7 @@ function observeConsoleLogging() {
 async function removeBeforeunloadEvents() {
 	await page.setRequestInterception( true );
 	await page.on( 'request', async request => {
-		if ( request.url().includes( 'dist/editor.js' ) ) {
+		if ( request.url().match( /dist\/editor(\.min)?\.js/ ) ) {
 			fetch( request.url() )
 				.then( response => response.text() )
 				.then( response => {

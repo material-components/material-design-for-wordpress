@@ -13,8 +13,9 @@
 # limitations under the License.
 
 ARG WP_VERSION
+ARG PHP_VERSION
 
-FROM wordpress:${WP_VERSION}-php7.4-apache
+FROM wordpress:${WP_VERSION}-${PHP_VERSION}
 
 ENV NODE_VERSION 10.18.1
 ENV YARN_VERSION 1.21.1
