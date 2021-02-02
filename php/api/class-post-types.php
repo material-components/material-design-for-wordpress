@@ -44,6 +44,8 @@ class Post_Types extends API_Base {
 	 */
 	public function register_routes() {
 
+		$posts_controller = new \WP_REST_Posts_Controller( 'post' );
+
 		register_rest_route(
 			$this->namespace,
 			'/' . $this->rest_base . '/get-posts',
@@ -51,20 +53,40 @@ class Post_Types extends API_Base {
 				[
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'query_multiple_post_types' ],
-					'permission_callback' => function( \WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
+					'permission_callback' => '__return_true',
+					'schema'              => $posts_controller->get_item_schema(),
 				],
 			]
 		);
 	}
 
 	/**
-	 * Performs the query that largely is the same as the core posts query, but with support for multiple post types.
+	 * Performs the query with support for multiple post types.
 	 *
 	 * @param \WP_REST_Request $request Request object.
 	 */
 	public function query_multiple_post_types( \WP_REST_Request $request ) {
+		$post_types = apply_filters( 'material_design_query_post_types', get_post_types( [ 'show_in_rest' => true ] ) );
 
+		$query = new \WP_Query(
+			[
+				'post_type'      => $post_types,
+				'categories'     => $request->get_param( 'category' ),
+				'posts_per_page' => $request->get_param( 'postsToShow' ),
+				'include'        => $request->get_param( 'posts' ),
+				'orderby'        => $request->get_param( 'orderby' ),
+				'order'          => $request->get_param( 'order' ),
+			]
+		);
+
+		if ( ! $query->have_posts() ) {
+			return new \WP_Error(
+				'material_design_no_posts_found',
+				esc_html__( 'No posts found.', 'material-design' ),
+				[ 'status' => 404 ]
+			);
+		}
+
+		return new \WP_REST_Response( $query->posts );
 	}
 }
