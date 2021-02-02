@@ -25,10 +25,9 @@
 
 namespace MaterialDesign\Plugin;
 
-use MaterialDesign\Plugin\Blocks_Frontend;
+use MaterialDesign\Plugin\Api\Onboarding_REST_Controller;
+use MaterialDesign\Plugin\Api\Post_Types;
 use MaterialDesign\Plugin\Customizer\Controls;
-use MaterialDesign\Plugin\Importer;
-use MaterialDesign\Plugin\Admin;
 
 /**
  * Main plugin bootstrap file.
@@ -71,6 +70,13 @@ class Plugin extends Plugin_Base {
 	public $onboarding_rest_controller;
 
 	/**
+	 * Post Types REST Controller Class.
+	 *
+	 * @var Post_Types
+	 */
+	public $post_types_rest_controller;
+
+	/**
 	 * Importer class.
 	 *
 	 * @var Importer
@@ -101,6 +107,9 @@ class Plugin extends Plugin_Base {
 
 		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
 		$this->onboarding_rest_controller->init();
+
+		$this->post_types_rest_controller = new Post_Types( $this );
+		$this->post_types_rest_controller->init();
 
 		$this->importer = new Importer( $this );
 		$this->importer->init();

@@ -23,12 +23,13 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin;
+namespace MaterialDesign\Plugin\Api;
 
 use MaterialDesign\Plugin\Plugin;
 use WP_REST_Request;
 use WP_Test_REST_Controller_Testcase;
 use WP_Theme;
+use WP_UnitTest_Factory;
 
 /**
  * Stub to return specific values for `wp_get_themes`.
