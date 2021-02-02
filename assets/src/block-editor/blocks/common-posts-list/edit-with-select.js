@@ -17,12 +17,13 @@
 /**
  * External dependencies
  */
-import { get, isUndefined, pickBy } from 'lodash';
+import { get } from 'lodash';
 
 /**
  * WordPress dependencies
  */
 import { withSelect } from '@wordpress/data';
+import apiFetch from '@wordpress/api-fetch';
 
 /**
  * Internal dependencies
@@ -65,7 +66,7 @@ const EditWithSelect = withSelect( ( select, props ) => {
 
 	const featuredImageSizeSlug = style === 'list' ? 'medium' : 'large';
 
-	const { getEntityRecords, getMedia } = select( 'core' );
+	const { getMedia } = select( 'core' );
 
 	let queryArgs = {
 		categories: category,
@@ -91,16 +92,16 @@ const EditWithSelect = withSelect( ( select, props ) => {
 		}
 	}
 
-	const fetchedPostsQuery = pickBy(
-		queryArgs,
-		value => ! isUndefined( value )
-	);
+	const apiEndpoint =
+		name === 'material/hand-picked-posts'
+			? '/material-design/v1/post-types/get-posts'
+			: '/wp-json/wp/v2/post';
 
-	const fetchedPosts = getEntityRecords(
-		'postType',
-		'post',
-		fetchedPostsQuery
-	);
+	const fetchedPosts = apiFetch( {
+		path: apiEndpoint,
+		method: 'GET',
+		data: queryArgs,
+	} );
 
 	return {
 		postsToDisplay: ! Array.isArray( fetchedPosts )
