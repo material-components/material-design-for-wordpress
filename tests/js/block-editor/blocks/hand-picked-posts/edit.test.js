@@ -19,6 +19,10 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
+
+/**
+ * WordPress dependencies
+ */
 import { registerStore } from '@wordpress/data';
 
 /**
@@ -35,44 +39,6 @@ jest.mock(
 		return PostsControl;
 	}
 );
-
-registerStore( 'core', {
-	reducer: jest.fn(),
-	selectors: {
-		getEntityRecords: () => {
-			return [
-				{
-					id: 1,
-					caption: {
-						raw: 'Example 1 caption',
-					},
-					title: {
-						rendered: 'Example 1 Title',
-					},
-					excerpt: {
-						rendered: 'Example 1 excerpt',
-					},
-					// eslint-disable-next-line prettier/prettier
-					date_gmt: '2020-03-26',
-				},
-				{
-					id: 2,
-					caption: {
-						raw: 'Example 2 caption',
-					},
-					title: {
-						rendered: 'Example 2 Title',
-					},
-					excerpt: {
-						rendered: 'Example 2 excerpt',
-					},
-					// eslint-disable-next-line prettier/prettier
-					date_gmt: '2020-03-26',
-				},
-			];
-		},
-	},
-} );
 
 /**
  * Shallow render the component.
@@ -103,7 +69,93 @@ const baseProps = {
 	},
 };
 
+registerStore( 'core', {
+	reducer: jest.fn(),
+	selectors: {
+		getMedia: () => {
+			return {
+				id: 1,
+				media_details: {
+					width: 587,
+					height: 469,
+					file: 'test.png',
+					sizes: {
+						medium: {
+							file: 'test-300x240.png',
+							width: 300,
+							height: 240,
+							mime_type: 'image/png',
+							source_url: 'http://test-url.com/test-300x240.png',
+						},
+						thumbnail: {
+							file: 'test-150x150.png',
+							width: 150,
+							height: 150,
+							mime_type: 'image/png',
+							source_url: 'http://test-url.com/test-150x150.png',
+						},
+						full: {
+							file: 'http://test-url.com/test.png',
+							width: 587,
+							height: 469,
+							mime_type: 'image/png',
+							source_url: 'http://test-url.com/test.png',
+						},
+					},
+				},
+			};
+		},
+	},
+} );
+
 describe( 'Edit', () => {
+	const originalFetch = window.fetch;
+	beforeEach( () => {
+		// eslint-disable-next-line jest/prefer-spy-on
+		window.fetch = jest.fn();
+		window.fetch.mockReturnValue(
+			Promise.resolve( {
+				status: 200,
+				json() {
+					return Promise.resolve( [
+						{
+							id: 1,
+							caption: {
+								raw: 'Example 1 caption',
+							},
+							title: {
+								rendered: 'Example 1 Title',
+							},
+							excerpt: {
+								rendered: 'Example 1 excerpt',
+							},
+							// eslint-disable-next-line prettier/prettier
+							date_gmt: '2020-03-26',
+						},
+						{
+							id: 2,
+							caption: {
+								raw: 'Example 2 caption',
+							},
+							title: {
+								rendered: 'Example 2 Title',
+							},
+							excerpt: {
+								rendered: 'Example 2 excerpt',
+							},
+							// eslint-disable-next-line prettier/prettier
+							date_gmt: '2020-03-26',
+						},
+					] );
+				},
+			} )
+		);
+	} );
+
+	afterAll( () => {
+		window.fetch = originalFetch;
+	} );
+
 	it( 'matches snapshot when normal mode', () => {
 		const props = {
 			...baseProps,

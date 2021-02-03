@@ -17,12 +17,13 @@
 /**
  * External dependencies
  */
-import { get, isUndefined, pickBy } from 'lodash';
+import { get, pickBy } from 'lodash';
 
 /**
  * WordPress dependencies
  */
 import { withSelect } from '@wordpress/data';
+import apiFetch from '@wordpress/api-fetch';
 
 /**
  * Internal dependencies
@@ -52,7 +53,7 @@ const Edit = props => {
 /**
  * @type {Function} A functional component.
  */
-const EditWithSelect = withSelect( ( select, props ) => {
+const EditWithSelectMultiplePostTypes = withSelect( ( select, props ) => {
 	const {
 		category,
 		postsToShow,
@@ -65,23 +66,37 @@ const EditWithSelect = withSelect( ( select, props ) => {
 
 	const featuredImageSizeSlug = style === 'list' ? 'medium' : 'large';
 
-	const { getEntityRecords, getMedia } = select( 'core' );
+	const { getMedia } = select( 'core' );
 
 	const queryArgs = {
 		categories: category,
-		per_page: postsToShow,
+		include: posts.map( Number ),
+		per_page: posts.length,
+		orderby: 'date',
+		order: 'desc',
 	};
 
-	const fetchedPostsQuery = pickBy(
-		queryArgs,
-		value => ! isUndefined( value )
-	);
+	if ( orderby ) {
+		if ( orderby === 'title' ) {
+			queryArgs.orderby = 'title';
+			queryArgs.order = 'asc';
+		} else if ( orderby === 'popularity' ) {
+			queryArgs.orderby = 'comment_count';
+			queryArgs.order = 'desc';
+		}
+	}
 
-	const fetchedPosts = getEntityRecords(
-		'postType',
-		'post',
-		fetchedPostsQuery
-	);
+	const fetchedPosts = apiFetch( {
+		path: '/material-design/v1/post-types/get-posts',
+		method: 'GET',
+		data: queryArgs,
+	} )
+		.then( data => {
+			return data;
+		} )
+		.catch( e => {
+			throw e;
+		} );
 
 	return {
 		postsToDisplay: ! Array.isArray( fetchedPosts )
@@ -104,4 +119,4 @@ const EditWithSelect = withSelect( ( select, props ) => {
 	};
 } )( Edit );
 
-export default EditWithSelect;
+export default EditWithSelectMultiplePostTypes;
