@@ -169,4 +169,4 @@ export const EditWithApiFetch = createHigherOrderComponent(
 		};
 	},
 	'EditWithApiFetch'
-);
+)( Edit );

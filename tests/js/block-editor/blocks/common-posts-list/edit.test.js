@@ -24,7 +24,7 @@ import { registerStore } from '@wordpress/data';
 /**
  * Internal dependencies
  */
-import { EditWithSelect } from '../../../../../assets/src/block-editor/blocks/common-posts-list/edit';
+import EditWithSelect from '../../../../../assets/src/block-editor/blocks/common-posts-list/edit';
 
 // Mock PostsControl component as not relevant in this test and failing to pass tests
 // due to the SearchListControl WooCommerce component.
@@ -35,6 +35,8 @@ jest.mock(
 		return PostsControl;
 	}
 );
+
+global.wp = { apiFetch: () => {} };
 
 registerStore( 'core', {
 	reducer: jest.fn(),
