@@ -17,12 +17,14 @@
 /**
  * External dependencies
  */
-import { get, pickBy } from 'lodash';
+import { get, isUndefined, pickBy } from 'lodash';
 
 /**
  * WordPress dependencies
  */
 import { withSelect } from '@wordpress/data';
+import { createHigherOrderComponent } from '@wordpress/compose';
+import { useState } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
 
 /**
@@ -53,7 +55,7 @@ const Edit = props => {
 /**
  * @type {Function} A functional component.
  */
-const EditWithSelectMultiplePostTypes = withSelect( ( select, props ) => {
+const EditWithSelect = withSelect( ( select, props ) => {
 	const {
 		category,
 		postsToShow,
@@ -66,37 +68,42 @@ const EditWithSelectMultiplePostTypes = withSelect( ( select, props ) => {
 
 	const featuredImageSizeSlug = style === 'list' ? 'medium' : 'large';
 
-	const { getMedia } = select( 'core' );
+	const { getEntityRecords, getMedia } = select( 'core' );
 
-	const queryArgs = {
+	let queryArgs = {
 		categories: category,
-		include: posts.map( Number ),
-		per_page: posts.length,
-		orderby: 'date',
-		order: 'desc',
+		per_page: postsToShow,
 	};
 
-	if ( orderby ) {
-		if ( orderby === 'title' ) {
-			queryArgs.orderby = 'title';
-			queryArgs.order = 'asc';
-		} else if ( orderby === 'popularity' ) {
-			queryArgs.orderby = 'comment_count';
-			queryArgs.order = 'desc';
+	if ( name === 'material/hand-picked-posts' ) {
+		queryArgs = {
+			include: posts.map( Number ),
+			per_page: posts.length,
+			orderby: 'date',
+			order: 'desc',
+		};
+
+		if ( orderby ) {
+			if ( orderby === 'title' ) {
+				queryArgs.orderby = 'title';
+				queryArgs.order = 'asc';
+			} else if ( orderby === 'popularity' ) {
+				queryArgs.orderby = 'comment_count';
+				queryArgs.order = 'desc';
+			}
 		}
 	}
 
-	const fetchedPosts = apiFetch( {
-		path: '/material-design/v1/post-types/get-posts',
-		method: 'GET',
-		data: queryArgs,
-	} )
-		.then( data => {
-			return data;
-		} )
-		.catch( e => {
-			throw e;
-		} );
+	const fetchedPostsQuery = pickBy(
+		queryArgs,
+		value => ! isUndefined( value )
+	);
+
+	const fetchedPosts = getEntityRecords(
+		'postType',
+		'post',
+		fetchedPostsQuery
+	);
 
 	return {
 		postsToDisplay: ! Array.isArray( fetchedPosts )
@@ -119,4 +126,47 @@ const EditWithSelectMultiplePostTypes = withSelect( ( select, props ) => {
 	};
 } )( Edit );
 
-export default EditWithSelectMultiplePostTypes;
+export default EditWithSelect;
+
+export const EditWithApiFetch = createHigherOrderComponent(
+	WrappedComponent => {
+		return props => {
+			const { category, posts, orderby } = props.attributes;
+
+			const queryArgs = {
+				categories: category,
+				include: posts.map( Number ),
+				per_page: posts.length,
+				orderby: 'date',
+				order: 'desc',
+			};
+
+			if ( orderby ) {
+				if ( orderby === 'title' ) {
+					queryArgs.orderby = 'title';
+					queryArgs.order = 'asc';
+				} else if ( orderby === 'popularity' ) {
+					queryArgs.orderby = 'comment_count';
+					queryArgs.order = 'desc';
+				}
+			}
+
+			const [ postsToDisplay, setPostsToDisplay ] = useState( [] );
+			apiFetch( {
+				path: '/material-design/v1/post-types/get-posts',
+				method: 'GET',
+				data: queryArgs,
+			} )
+				.then( data => {
+					setPostsToDisplay( data );
+				} )
+				.catch( e => {
+					throw e;
+				} );
+			return (
+				<WrappedComponent { ...props } postsToDisplay={ postsToDisplay } />
+			);
+		};
+	},
+	'EditWithApiFetch'
+);

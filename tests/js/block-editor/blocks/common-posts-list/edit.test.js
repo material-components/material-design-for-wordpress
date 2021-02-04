@@ -19,12 +19,12 @@
  */
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
+import { registerStore } from '@wordpress/data';
 
 /**
  * Internal dependencies
  */
-import EditWithSelectMultiplePostTypes from '../../../../../assets/src/block-editor/blocks/common-posts-list/edit-with-select-multiple-post-types';
-import { registerStore } from '@wordpress/data';
+import { EditWithSelect } from '../../../../../assets/src/block-editor/blocks/common-posts-list/edit';
 
 // Mock PostsControl component as not relevant in this test and failing to pass tests
 // due to the SearchListControl WooCommerce component.
@@ -36,19 +36,43 @@ jest.mock(
 	}
 );
 
-/**
- * Render the component.
- *
- * @param {Object} props - Component props.
- * @return {Function} A functional component.
- */
-const setup = props => {
-	return render( <EditWithSelectMultiplePostTypes { ...props } /> );
-};
-
 registerStore( 'core', {
 	reducer: jest.fn(),
 	selectors: {
+		getEntityRecords: () => {
+			return [
+				{
+					id: 1,
+					caption: {
+						raw: 'Example 1 caption',
+					},
+					title: {
+						rendered: 'Example 1 Title',
+					},
+					excerpt: {
+						rendered: 'Example 1 excerpt',
+					},
+					// eslint-disable-next-line prettier/prettier
+					date_gmt: '2020-03-26',
+					// eslint-disable-next-line prettier/prettier
+					featured_media: 1,
+				},
+				{
+					id: 2,
+					caption: {
+						raw: 'Example 2 caption',
+					},
+					title: {
+						rendered: 'Example 2 Title',
+					},
+					excerpt: {
+						rendered: 'Example 2 excerpt',
+					},
+					// eslint-disable-next-line prettier/prettier
+					date_gmt: '2020-03-26',
+				},
+			];
+		},
 		getMedia: () => {
 			return {
 				id: 1,
@@ -85,6 +109,16 @@ registerStore( 'core', {
 	},
 } );
 
+/**
+ * Render the component.
+ *
+ * @param {Object} props - Component props.
+ * @return {Function} A functional component.
+ */
+const setup = props => {
+	return render( <EditWithSelect { ...props } /> );
+};
+
 const baseProps = {
 	attributes: {
 		style: 'masonry',
@@ -104,54 +138,7 @@ const baseProps = {
 	},
 };
 
-describe( 'EditWithSelectMultiplePostTypes', () => {
-	const originalFetch = window.fetch;
-	beforeEach( () => {
-		// eslint-disable-next-line jest/prefer-spy-on
-		window.fetch = jest.fn();
-		window.fetch.mockReturnValue(
-			Promise.resolve( {
-				status: 200,
-				json() {
-					return Promise.resolve( [
-						{
-							id: 1,
-							caption: {
-								raw: 'Example 1 caption',
-							},
-							title: {
-								rendered: 'Example 1 Title',
-							},
-							excerpt: {
-								rendered: 'Example 1 excerpt',
-							},
-							// eslint-disable-next-line prettier/prettier
-							date_gmt: '2020-03-26',
-						},
-						{
-							id: 2,
-							caption: {
-								raw: 'Example 2 caption',
-							},
-							title: {
-								rendered: 'Example 2 Title',
-							},
-							excerpt: {
-								rendered: 'Example 2 excerpt',
-							},
-							// eslint-disable-next-line prettier/prettier
-							date_gmt: '2020-03-26',
-						},
-					] );
-				},
-			} )
-		);
-	} );
-
-	afterAll( () => {
-		window.fetch = originalFetch;
-	} );
-
+describe( 'EditWithSelect', () => {
 	afterEach( () => {
 		jest.clearAllMocks();
 	} );
@@ -177,7 +164,7 @@ describe( 'EditWithSelectMultiplePostTypes', () => {
 	} );
 
 	it( 'set the correct arguments when the block is the "Hand-picked posts"', () => {
-		const lodash = jest.requireActual( 'lodash' );
+		const lodash = require.requireActual( 'lodash' );
 		jest.spyOn( lodash, 'pickBy' ).mockImplementation( () => 1 );
 
 		const props = {
@@ -199,7 +186,7 @@ describe( 'EditWithSelectMultiplePostTypes', () => {
 	} );
 
 	it( 'set the correct arguments when the block is the "Hand-picked posts" and title ordering', () => {
-		const lodash = jest.requireActual( 'lodash' );
+		const lodash = require.requireActual( 'lodash' );
 		jest.spyOn( lodash, 'pickBy' ).mockImplementation( () => 1 );
 
 		const props = {
@@ -225,7 +212,7 @@ describe( 'EditWithSelectMultiplePostTypes', () => {
 	} );
 
 	it( 'set the correct arguments when the block is the "Hand-picked posts" and popularity ordering', () => {
-		const lodash = jest.requireActual( 'lodash' );
+		const lodash = require.requireActual( 'lodash' );
 		jest.spyOn( lodash, 'pickBy' ).mockImplementation( () => 1 );
 
 		const props = {
@@ -251,33 +238,16 @@ describe( 'EditWithSelectMultiplePostTypes', () => {
 	} );
 
 	it( 'matches snapshot when no Posts are found', () => {
-		const wrapper = setup( baseProps );
-		expect( wrapper ).toMatchSnapshot();
-	} );
-
-	it( 'set the correct arguments when the block is the "Hand-picked posts" and popularity ordering', () => {
-		const lodash = jest.requireActual( 'lodash' );
-		jest.spyOn( lodash, 'pickBy' ).mockImplementation( () => 1 );
-
-		const props = {
-			...baseProps,
-			...{
-				name: 'material/hand-picked-posts',
-				attributes: {
-					...baseProps.attributes,
-					orderby: 'popularity',
+		registerStore( 'core', {
+			reducer: jest.fn(),
+			selectors: {
+				getEntityRecords: () => {
+					return [];
 				},
 			},
-		};
-
-		setup( props );
-		expect( lodash.pickBy.mock.calls[ 0 ][ 0 ] ).toStrictEqual( {
-			include: [],
-			order: 'desc',
-			orderby: 'comment_count',
-			per_page: 0,
 		} );
 
-		// lodash.pickBy.mockClear();
+		const wrapper = setup( baseProps );
+		expect( wrapper ).toMatchSnapshot();
 	} );
 } );
