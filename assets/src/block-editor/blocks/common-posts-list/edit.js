@@ -22,10 +22,11 @@ import { get, isUndefined, pickBy } from 'lodash';
 /**
  * WordPress dependencies
  */
-import { withSelect } from '@wordpress/data';
-import { createHigherOrderComponent } from '@wordpress/compose';
-import { useState } from '@wordpress/element';
 import apiFetch from '@wordpress/api-fetch';
+import { createHigherOrderComponent } from '@wordpress/compose';
+import { withSelect } from '@wordpress/data';
+import { useEffect, useState } from '@wordpress/element';
+import { addQueryArgs } from '@wordpress/url';
 
 /**
  * Internal dependencies
@@ -128,45 +129,48 @@ const EditWithSelect = withSelect( ( select, props ) => {
 
 export default EditWithSelect;
 
-export const EditWithApiFetch = createHigherOrderComponent(
-	WrappedComponent => {
-		return props => {
-			const { category, posts, orderby } = props.attributes;
+const withApiFetch = createHigherOrderComponent( WrappedComponent => {
+	return props => {
+		const { category, posts, orderby } = props.attributes;
 
-			const queryArgs = {
-				categories: category,
-				include: posts.map( Number ),
-				per_page: posts.length,
-				orderby: 'date',
-				order: 'desc',
-			};
+		const queryArgs = {
+			categories: category,
+			include: posts.map( Number ),
+			per_page: posts.length,
+			orderby: 'date',
+			order: 'desc',
+		};
 
-			if ( orderby ) {
-				if ( orderby === 'title' ) {
-					queryArgs.orderby = 'title';
-					queryArgs.order = 'asc';
-				} else if ( orderby === 'popularity' ) {
-					queryArgs.orderby = 'comment_count';
-					queryArgs.order = 'desc';
-				}
+		if ( orderby ) {
+			if ( orderby === 'title' ) {
+				queryArgs.orderby = 'title';
+				queryArgs.order = 'asc';
+			} else if ( orderby === 'popularity' ) {
+				queryArgs.orderby = 'comment_count';
+				queryArgs.order = 'desc';
 			}
+		}
 
-			const [ postsToDisplay, setPostsToDisplay ] = useState( [] );
+		const [ postsToDisplay, setPostsToDisplay ] = useState( [] );
+
+		useEffect( () => {
 			apiFetch( {
-				path: '/material-design/v1/post-types/get-posts',
+				path: addQueryArgs(
+					'/material-design/v1/post-types/get-posts',
+					pickBy( queryArgs, value => ! isUndefined( value ) )
+				),
 				method: 'GET',
-				data: queryArgs,
 			} )
 				.then( data => {
 					setPostsToDisplay( data );
 				} )
 				.catch( e => {
-					throw e;
+					console.error( e );
 				} );
-			return (
-				<WrappedComponent { ...props } postsToDisplay={ postsToDisplay } />
-			);
-		};
-	},
-	'EditWithApiFetch'
-);
+		}, [] ); // eslint-disable-line react-hooks/exhaustive-deps
+
+		return <WrappedComponent { ...props } postsToDisplay={ postsToDisplay } />;
+	};
+}, 'EditWithApiFetch' );
+
+export const EditWithApiFetch = withApiFetch( Edit );

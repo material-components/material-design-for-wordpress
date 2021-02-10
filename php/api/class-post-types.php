@@ -28,6 +28,8 @@ use MaterialDesign\Plugin\Plugin;
  */
 class Post_Types extends API_Base {
 
+	private $posts_controller;
+
 	/**
 	 * Post_Types constructor.
 	 *
@@ -44,7 +46,7 @@ class Post_Types extends API_Base {
 	 */
 	public function register_routes() {
 
-		$posts_controller = new \WP_REST_Posts_Controller( 'post' );
+		$this->posts_controller = new \WP_REST_Posts_Controller( 'post' );
 
 		register_rest_route(
 			$this->namespace,
@@ -54,7 +56,7 @@ class Post_Types extends API_Base {
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'query_multiple_post_types' ],
 					'permission_callback' => '__return_true',
-					'schema'              => $posts_controller->get_item_schema(),
+					'schema'              => $this->posts_controller->get_item_schema(),
 				],
 			]
 		);
@@ -87,6 +89,13 @@ class Post_Types extends API_Base {
 			);
 		}
 
-		return new \WP_REST_Response( $query->posts );
+		$posts = [];
+
+		foreach ( $query->posts as $post ) {
+			$data    = $this->posts_controller->prepare_item_for_response( $post, $request );
+			$posts[] = $this->posts_controller->prepare_response_for_collection( $data );
+		}
+
+		return new \WP_REST_Response( $posts );
 	}
 }
