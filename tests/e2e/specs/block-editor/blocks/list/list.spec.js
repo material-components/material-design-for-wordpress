@@ -19,8 +19,10 @@
  */
 import { createNewPost, ensureSidebarOpened } from '@wordpress/e2e-test-utils';
 
-import { selectBlockByName } from '../../../../utils';
-import { insertBlockByKeyword } from '../../../../utils/insert-block';
+/**
+ * Internal dependencies
+ */
+import { insertBlockByKeyword, selectBlockByName } from '../../../../utils';
 
 describe( 'blocks: material/list', () => {
 	beforeEach( async () => {
@@ -142,26 +144,26 @@ describe( 'blocks: material/list', () => {
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
 
 		await primary.click();
-		await page.keyboard.type( 'List Item 1' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'List Item 2' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'List Item 3' );
+		await page.keyboard.type( 'List Item 1', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'List Item 2', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'List Item 3', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 3 );
 
 		let items = await page.$$( '.mdc-list-item__primary-text' );
 
 		await items[ 1 ].click();
-		await primary.press( 'Home' );
-		await primary.press( 'Backspace' );
+		await primary.press( 'Home', { delay: 50 } );
+		await primary.press( 'Backspace', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
 		expect(
 			await page.evaluate( el => el.innerText.trim(), primary )
 		).toStrictEqual( 'List Item 1List Item 2' );
 
-		await page.keyboard.press( 'Enter' );
+		await page.keyboard.press( 'Enter', { delay: 50 } );
 
 		items = await page.$$( '.mdc-list-item__primary-text' );
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 3 );
@@ -191,9 +193,9 @@ describe( 'blocks: material/list', () => {
 		); // wait until all the list items are updated.
 
 		await primary.click();
-		await page.keyboard.type( 'List Item 1' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'Secondary Text 1' );
+		await page.keyboard.type( 'List Item 1', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'Secondary Text 1', { delay: 50 } );
 
 		const [ secondary ] = await page.$$( '.mdc-list-item__secondary-text' );
 
@@ -204,14 +206,14 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( el => el.innerText.trim(), secondary )
 		).toStrictEqual( 'Secondary Text 1' );
 
-		await primary.press( 'Home' );
-		await primary.press( 'Backspace' );
+		await primary.press( 'Home', { delay: 50 } );
+		await primary.press( 'Backspace', { delay: 50 } );
 
 		expect(
 			await page.evaluate( el => el.innerText.trim(), primary )
 		).toStrictEqual( 'List Item 1Secondary Text 1' );
 
-		await primary.press( 'Enter' );
+		await primary.press( 'Enter', { delay: 50 } );
 
 		expect(
 			await page.evaluate( el => el.innerText.trim(), primary )
@@ -236,14 +238,14 @@ describe( 'blocks: material/list', () => {
 		); // wait until all the list items are updated.
 
 		await primary.click();
-		await page.keyboard.type( 'List Item 1' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'Secondary Text 1' );
-		await primary.press( 'Enter' );
+		await page.keyboard.type( 'List Item 1', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'Secondary Text 1', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
 
-		await page.keyboard.type( 'List Item 2' );
-		await primary.press( 'Enter' );
-		await page.keyboard.type( 'Secondary Text 2' );
+		await page.keyboard.type( 'List Item 2', { delay: 50 } );
+		await primary.press( 'Enter', { delay: 50 } );
+		await page.keyboard.type( 'Secondary Text 2', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
 
@@ -251,8 +253,8 @@ describe( 'blocks: material/list', () => {
 		let secondaryItems = await page.$$( '.mdc-list-item__secondary-text' );
 
 		await items[ 1 ].click();
-		await primary.press( 'Home' );
-		await primary.press( 'Backspace' );
+		await primary.press( 'Home', { delay: 50 } );
+		await primary.press( 'Backspace', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
 		expect(
@@ -262,7 +264,7 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 0 ] )
 		).toStrictEqual( 'Secondary Text 1List Item 2 Secondary Text 2' );
 
-		await primary.press( 'Enter' );
+		await primary.press( 'Enter', { delay: 50 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
 
