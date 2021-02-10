@@ -146,7 +146,7 @@ class Test_Post_Types extends WP_Test_REST_Controller_Testcase {
 
 		// They are only type 'foo' and 'post'.
 		foreach ( $data as $post ) {
-			$this->assertTrue( in_array( $post->post_type, [ 'foo', 'post' ] ) );
+			$this->assertTrue( in_array( $post['type'], [ 'foo', 'post' ] ) );
 		}
 
 		// What about no posts found.

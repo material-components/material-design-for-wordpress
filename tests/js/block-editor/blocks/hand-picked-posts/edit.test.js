@@ -110,53 +110,53 @@ registerStore( 'core', {
 
 describe( 'Edit', () => {
 	const originalFetch = window.fetch;
-	beforeEach( () => {
-		// eslint-disable-next-line jest/prefer-spy-on
-		window.fetch = jest.fn();
-		window.fetch.mockReturnValue(
-			Promise.resolve( {
-				status: 200,
-				json() {
-					return Promise.resolve( [
-						{
-							id: 1,
-							caption: {
-								raw: 'Example 1 caption',
-							},
-							title: {
-								rendered: 'Example 1 Title',
-							},
-							excerpt: {
-								rendered: 'Example 1 excerpt',
-							},
-							// eslint-disable-next-line prettier/prettier
-							date_gmt: '2020-03-26',
-						},
-						{
-							id: 2,
-							caption: {
-								raw: 'Example 2 caption',
-							},
-							title: {
-								rendered: 'Example 2 Title',
-							},
-							excerpt: {
-								rendered: 'Example 2 excerpt',
-							},
-							// eslint-disable-next-line prettier/prettier
-							date_gmt: '2020-03-26',
-						},
-					] );
+
+	beforeAll( () => {
+		const mockSuccessResponse = [
+			{
+				id: 1,
+				caption: {
+					raw: 'Example 1 caption',
 				},
-			} )
-		);
+				title: {
+					rendered: 'Example 1 Title',
+				},
+				excerpt: {
+					rendered: 'Example 1 excerpt',
+				},
+				// eslint-disable-next-line prettier/prettier
+				date_gmt: '2020-03-26',
+			},
+			{
+				id: 2,
+				caption: {
+					raw: 'Example 2 caption',
+				},
+				title: {
+					rendered: 'Example 2 Title',
+				},
+				excerpt: {
+					rendered: 'Example 2 excerpt',
+				},
+				// eslint-disable-next-line prettier/prettier
+				date_gmt: '2020-03-26',
+			},
+		];
+		const mockJsonPromise = Promise.resolve( mockSuccessResponse );
+		const mockFetchPromise = Promise.resolve( {
+			status: 200,
+			json: () => mockJsonPromise,
+		} );
+
+		// eslint-disable-next-line jest/prefer-spy-on
+		global.fetch = jest.fn().mockImplementation( () => mockFetchPromise );
 	} );
 
 	afterAll( () => {
 		window.fetch = originalFetch;
 	} );
 
-	it( 'matches snapshot when normal mode', () => {
+	it( 'matches snapshot when normal mode', async () => {
 		const props = {
 			...baseProps,
 			...{
@@ -168,6 +168,8 @@ describe( 'Edit', () => {
 		};
 
 		const wrapper = setup( props );
+
+		expect( await wrapper.findByText( 'Example 1 Title' ) ).toBeInTheDocument();
 		expect( wrapper ).toMatchSnapshot();
 	} );
 

@@ -1,4 +1,5 @@
 import { forwardRef } from '@wordpress/element';
+import { jest } from '@jest/globals';
 
 const original = jest.requireActual( '@wordpress/rich-text' );
 

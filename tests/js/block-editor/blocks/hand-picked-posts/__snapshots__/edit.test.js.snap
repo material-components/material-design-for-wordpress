@@ -3024,6 +3024,144 @@ Object {
           </button>
         </div>
       </div>
+      <div
+        class="masonry-grid layout-masonry"
+      >
+        <div
+          class="masonry-grid_column"
+          style="width: 33.333333333333336%;"
+        >
+          <div>
+            <div
+              class="mdc-card single-post-card single-post-basic"
+            >
+              <div
+                class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
+                tabindex="0"
+              >
+                <div
+                  class="single-post-card__primary"
+                >
+                  <h2
+                    class="single-post-card__title mdc-typography mdc-typography--headline6"
+                  >
+                    <div>
+                      Example 1 Title
+                    </div>
+                  </h2>
+                  <h3
+                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                  >
+                    <time
+                      datetime="2020-03-26 12:00:00"
+                    >
+                      March 26, 2020
+                    </time>
+                  </h3>
+                </div>
+                <div
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                >
+                  <div>
+                    Example 1 excerpt
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mdc-card__actions"
+              >
+                <div
+                  class="mdc-card__action-buttons"
+                >
+                  <button
+                    class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
+                  >
+                    <span
+                      class="mdc-button__ripple"
+                    />
+                    <i
+                      aria-hidden="true"
+                      class="material-icons mdc-button__icon"
+                    >
+                      comment
+                    </i>
+                    <span
+                      class="mdc-button__label"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="masonry-grid_column"
+          style="width: 33.333333333333336%;"
+        >
+          <div>
+            <div
+              class="mdc-card single-post-card single-post-basic"
+            >
+              <div
+                class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
+                tabindex="0"
+              >
+                <div
+                  class="single-post-card__primary"
+                >
+                  <h2
+                    class="single-post-card__title mdc-typography mdc-typography--headline6"
+                  >
+                    <div>
+                      Example 2 Title
+                    </div>
+                  </h2>
+                  <h3
+                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                  >
+                    <time
+                      datetime="2020-03-26 12:00:00"
+                    >
+                      March 26, 2020
+                    </time>
+                  </h3>
+                </div>
+                <div
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                >
+                  <div>
+                    Example 2 excerpt
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mdc-card__actions"
+              >
+                <div
+                  class="mdc-card__action-buttons"
+                >
+                  <button
+                    class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
+                  >
+                    <span
+                      class="mdc-button__ripple"
+                    />
+                    <i
+                      aria-hidden="true"
+                      class="material-icons mdc-button__icon"
+                    >
+                      comment
+                    </i>
+                    <span
+                      class="mdc-button__label"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
@@ -3969,6 +4107,144 @@ Object {
             />
           </svg>
         </button>
+      </div>
+    </div>
+    <div
+      class="masonry-grid layout-masonry"
+    >
+      <div
+        class="masonry-grid_column"
+        style="width: 33.333333333333336%;"
+      >
+        <div>
+          <div
+            class="mdc-card single-post-card single-post-basic"
+          >
+            <div
+              class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
+              tabindex="0"
+            >
+              <div
+                class="single-post-card__primary"
+              >
+                <h2
+                  class="single-post-card__title mdc-typography mdc-typography--headline6"
+                >
+                  <div>
+                    Example 1 Title
+                  </div>
+                </h2>
+                <h3
+                  class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                >
+                  <time
+                    datetime="2020-03-26 12:00:00"
+                  >
+                    March 26, 2020
+                  </time>
+                </h3>
+              </div>
+              <div
+                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+              >
+                <div>
+                  Example 1 excerpt
+                </div>
+              </div>
+            </div>
+            <div
+              class="mdc-card__actions"
+            >
+              <div
+                class="mdc-card__action-buttons"
+              >
+                <button
+                  class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
+                >
+                  <span
+                    class="mdc-button__ripple"
+                  />
+                  <i
+                    aria-hidden="true"
+                    class="material-icons mdc-button__icon"
+                  >
+                    comment
+                  </i>
+                  <span
+                    class="mdc-button__label"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="masonry-grid_column"
+        style="width: 33.333333333333336%;"
+      >
+        <div>
+          <div
+            class="mdc-card single-post-card single-post-basic"
+          >
+            <div
+              class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
+              tabindex="0"
+            >
+              <div
+                class="single-post-card__primary"
+              >
+                <h2
+                  class="single-post-card__title mdc-typography mdc-typography--headline6"
+                >
+                  <div>
+                    Example 2 Title
+                  </div>
+                </h2>
+                <h3
+                  class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                >
+                  <time
+                    datetime="2020-03-26 12:00:00"
+                  >
+                    March 26, 2020
+                  </time>
+                </h3>
+              </div>
+              <div
+                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+              >
+                <div>
+                  Example 2 excerpt
+                </div>
+              </div>
+            </div>
+            <div
+              class="mdc-card__actions"
+            >
+              <div
+                class="mdc-card__action-buttons"
+              >
+                <button
+                  class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
+                >
+                  <span
+                    class="mdc-button__ripple"
+                  />
+                  <i
+                    aria-hidden="true"
+                    class="material-icons mdc-button__icon"
+                  >
+                    comment
+                  </i>
+                  <span
+                    class="mdc-button__label"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>,
