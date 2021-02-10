@@ -35,7 +35,7 @@ const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extrac
 const {
 	defaultRequestToExternal,
 	defaultRequestToHandle,
-} = require( '@wordpress/dependency-extraction-webpack-plugin/util' );
+} = require( '@wordpress/dependency-extraction-webpack-plugin/lib/util' );
 
 // Exclude `node_modules` folder from `source-map-loader` to prevent webpack warnings.
 if ( defaultConfig.module && Array.isArray( defaultConfig.module.rules ) ) {
@@ -74,7 +74,10 @@ const sharedConfig = {
 	module: {
 		...defaultConfig.module,
 		rules: [
-			...defaultConfig.module.rules,
+			// Remove the css/postcss loaders from `@wordpress/scripts` due to version conflicts.
+			...defaultConfig.module.rules.filter(
+				rule => ! rule.test.toString().match( '.css' )
+			),
 			{
 				test: /\.css$/,
 				use: [
@@ -87,7 +90,13 @@ const sharedConfig = {
 		],
 	},
 	plugins: [
-		...defaultConfig.plugins,
+		// Remove the CleanWebpackPlugin and FixStyleWebpackPlugin plugins from `@wordpress/scripts` due to version conflicts.
+		...defaultConfig.plugins.filter(
+			plugin =>
+				! [ 'CleanWebpackPlugin', 'FixStyleWebpackPlugin' ].includes(
+					plugin.constructor.name
+				)
+		),
 		new MiniCssExtractPlugin( {
 			filename: '../css/[name]-compiled.css',
 		} ),
@@ -102,9 +111,6 @@ const sharedConfig = {
 	},
 };
 
-// These packages need to be bundled and not extracted to `wp.*`.
-const PACKAGES_TO_BUNDLE = [];
-
 const blockEditor = {
 	...defaultConfig,
 	...sharedConfig,
@@ -115,10 +121,7 @@ const blockEditor = {
 		],
 	},
 	plugins: [
-		...sharedConfig.plugins.filter(
-			// Remove the `DependencyExtractionWebpackPlugin` if it already exists.
-			plugin => ! ( plugin instanceof DependencyExtractionWebpackPlugin )
-		),
+		...sharedConfig.plugins,
 		new CopyWebpackPlugin( {
 			patterns: [
 				{
@@ -139,23 +142,6 @@ const blockEditor = {
 					},
 				},
 			],
-		} ),
-		new DependencyExtractionWebpackPlugin( {
-			useDefaults: false,
-			requestToExternal( request ) {
-				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
-					return undefined;
-				}
-
-				return defaultRequestToExternal( request );
-			},
-			requestToHandle( request ) {
-				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
-					return 'wp-block-editor'; // Return block-editor as a dep.
-				}
-
-				return defaultRequestToHandle( request );
-			},
 		} ),
 		new WebpackBar( {
 			name: 'Block Editor',
@@ -178,7 +164,6 @@ const customizer = {
 		],
 	},
 	plugins: [
-		...defaultConfig.plugins,
 		...sharedConfig.plugins,
 		new WebpackBar( {
 			name: 'Customizer',
@@ -270,6 +255,48 @@ const gsm = {
 	],
 };
 
+// These packages need to be bundled and not extracted to `wp.*`.
+const PACKAGES_TO_BUNDLE = [
+	'@wordpress/data',
+	'@wordpress/escape-html',
+	'@wordpress/rich-text',
+];
+
+const polyfills = {
+	...defaultConfig,
+	...sharedConfig,
+	entry: {
+		polyfills: [ './assets/src/polyfills/index.js' ],
+	},
+	plugins: [
+		...sharedConfig.plugins.filter(
+			// Remove the `DependencyExtractionWebpackPlugin` if it already exists.
+			plugin => ! ( plugin instanceof DependencyExtractionWebpackPlugin )
+		),
+		new DependencyExtractionWebpackPlugin( {
+			useDefaults: false,
+			requestToExternal( request ) {
+				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
+					return undefined;
+				}
+
+				return defaultRequestToExternal( request );
+			},
+			requestToHandle( request ) {
+				if ( PACKAGES_TO_BUNDLE.includes( request ) ) {
+					return 'wp-block-editor'; // Return block-editor as a dep.
+				}
+
+				return defaultRequestToHandle( request );
+			},
+		} ),
+		new WebpackBar( {
+			name: 'Polyfills',
+			color: '#3ce1bb',
+		} ),
+	],
+};
+
 module.exports = [
 	// prettier-ignore
 	blockEditor,
@@ -279,4 +306,5 @@ module.exports = [
 	overrides,
 	wizard,
 	gsm,
+	polyfills,
 ];

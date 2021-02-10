@@ -27,30 +27,36 @@
  * @package MaterialDesign
  */
 
-if ( version_compare( phpversion(), '5.6.20', '>=' ) && function_exists( 'register_block_type' ) ) {
-	require_once __DIR__ . '/instance.php';
+if ( version_compare( phpversion(), '5.6.20', '>=' ) ) {
 
-	register_activation_hook(
-		__FILE__,
-		'_material_design_activation'
-	);
+	// Gutenberg v5.4 was bundled with WP 5.2, which is the earliest required.
+	$gb_supported = defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '5.4.0', '>=' );
+	$wp_supported = ! $gb_supported && version_compare( get_bloginfo( 'version' ), '5.2', '>=' );
 
-	/**
-	 * Setup Material Design plugin.
-	 *
-	 * @codeCoverageIgnore
-	 *
-	 * @return void
-	 */
-	function _material_design_load_plugin() {
-		$material_design_plugin = \MaterialDesign\Plugin\get_plugin_instance();
-		$material_design_plugin->init();
+	if ( ! $gb_supported && ! $wp_supported ) {
+		_material_design_error( '_material_design_gutenberg_text_only', '_material_design_gutenberg_error' );
+	} else {
+		require_once __DIR__ . '/instance.php';
+
+		register_activation_hook(
+			__FILE__,
+			'_material_design_activation'
+		);
+
+		/**
+		 * Setup Material Design plugin.
+		 *
+		 * @codeCoverageIgnore
+		 *
+		 * @return void
+		 */
+		function _material_design_load_plugin() {
+			$material_design_plugin = \MaterialDesign\Plugin\get_plugin_instance();
+			$material_design_plugin->init();
+		}
+
+		add_action( 'plugins_loaded', '_material_design_load_plugin' );
 	}
-
-	add_action( 'plugins_loaded', '_material_design_load_plugin' );
-
-} elseif ( ! function_exists( 'register_block_type' ) ) {
-	_material_design_error( '_material_design_gutenberg_text_only', '_material_design_gutenberg_error' );
 } else {
 	_material_design_error( '_material_design_php_version_text', '_material_design_php_version_error' );
 }
@@ -116,7 +122,7 @@ function _material_design_gutenberg_text() {
 
 	return wp_kses_post(
 		sprintf(
-			'Oops, we ran into an issue with installing the Material Design plugin. You will need to %s to WordPress 5.0 or later or install the %s.',
+			'Material Design plugin is not available since your version of the Block Editor is too old. You will need to %s to WordPress 5.2 or later or install the %s.',
 			$update,
 			$install
 		),

@@ -71,7 +71,7 @@ class Test_Material_Design extends \WP_UnitTestCase {
 	 * @see _material_design_gutenberg_text()
 	 */
 	public function test_material_design_gutenberg_text() {
-		$this->assertContains( 'Oops, we ran into an issue with installing the Material Design plugin.', _material_design_gutenberg_text() );
+		$this->assertContains( 'Material Design plugin is not available since your version of the Block Editor is too old.', _material_design_gutenberg_text() );
 	}
 
 	/**
@@ -80,7 +80,7 @@ class Test_Material_Design extends \WP_UnitTestCase {
 	 * @see _material_design_gutenberg_text_only()
 	 */
 	public function test_material_design_gutenberg_text_only() {
-		$this->assertContains( 'Oops, we ran into an issue with installing the Material Design plugin.', _material_design_gutenberg_text_only() );
+		$this->assertContains( 'Material Design plugin is not available since your version of the Block Editor is too old.', _material_design_gutenberg_text_only() );
 		$this->assertNotContains( '<a href', _material_design_gutenberg_text_only() );
 	}
 
