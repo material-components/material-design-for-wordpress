@@ -175,6 +175,27 @@ class Block_Types {
 		$slug           = $this->plugin->customizer_controls->slug;
 		$customizer_url = admin_url( 'customize.php?autofocus[panel]=' . $slug );
 
+		// Posts and Pages is not a post type. It's a combination. Set it manually.
+		$post_types_raw = [
+			(object) [
+				'label' => esc_html__( 'Posts and Pages', 'material-desgin' ),
+				'value' => 'posts-pages',
+			],
+		];
+
+		// Only find post types that are available in_rest, and parse them into expected data structure.
+		$post_type_objects = get_post_types( [ 'show_in_rest' => true ], 'objects' );
+		foreach ( $post_type_objects as $slug => $post_type_object ) {
+			$post_types_raw[] = (object) [
+				'label' => esc_html( $post_type_object->label ),
+				'value' => esc_attr( $slug ),
+			];
+		}
+
+		// Filter our list down to remove non-sensical post types and post and page, which is handled as combined.
+		$post_types = array_filter( $post_types_raw, function( $item ) {
+			return ! in_array( $item->value, [ 'attachment', 'wp_block', 'post', 'page' ] );
+		} );
 
 		$wp_localized_script_data = [
 			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
@@ -189,6 +210,7 @@ class Block_Types {
 				'colors' => add_query_arg( 'autofocus[section]', $slug . '_colors', $customizer_url ),
 				'shape'  => add_query_arg( 'autofocus[section]', $slug . '_corner_styles', $customizer_url ),
 			],
+			'postTypes' => $post_types,
 		];
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {

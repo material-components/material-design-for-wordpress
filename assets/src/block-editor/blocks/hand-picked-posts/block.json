@@ -80,7 +80,11 @@
 		"preview": {
 			"type": "boolean",
 			"default": false
-		}
+		},
+    "radio": {
+      "type": "string",
+      "default": "posts-pages"
+    }
 	},
 	"supports": {
 	   "align": [
