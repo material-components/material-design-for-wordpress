@@ -19,7 +19,7 @@
  */
 import { addQueryArgs } from '@wordpress/url';
 import apiFetch from '@wordpress/api-fetch';
-import { flatten, uniqBy } from 'lodash';
+import { flatten, uniqBy, isUndefined, pickBy } from 'lodash';
 import { ENDPOINTS } from '../constants';
 
 /**
@@ -39,14 +39,23 @@ const getPostsRequests = ( { selected = [], search = '', queryArgs = [] } ) => {
 		order: 'asc',
 	};
 
+	const postType = _.defaultTo( queryArgs[ type ], 'post' );
+
+	let endpoint = null;
+	if ( 'posts-pages' === postType ) {
+		endpoint = '/material-design/v1/post-types/get-posts';
+	} else {
+		endpoint = ENDPOINTS.namespace + '/' + postType;
+	}
+
 	const requests = [
-		addQueryArgs( ENDPOINTS.posts, { ...defaultArgs, ...queryArgs } ),
+		addQueryArgs( endpoint, { ...defaultArgs, ...queryArgs } ),
 	];
 
 	// If there are a lot of posts, we might not get all selected posts in the first page.
 	if ( selected.length ) {
 		requests.push(
-			addQueryArgs( ENDPOINTS.posts, {
+			addQueryArgs( endpoint, {
 				status: 'publish',
 				include: selected,
 			} )
