@@ -141,8 +141,10 @@ const RangeSliderControl = props => {
 
 				{ isGlobal && (
 					<span className="range-slider-control-body__item">
-						<button
-							type="button"
+						<Button
+							isLink
+							showTooltip={ true }
+							isPressed={ expandedSettings }
 							onClick={ handleExpandedSettings }
 							label={ __( 'View individual components', 'material-design' ) }
 							className={ `components-button is-link control-settings-expanded range-slider-control-settings-expanded ${
@@ -150,7 +152,7 @@ const RangeSliderControl = props => {
 							}` }
 						>
 							<span className="dashicons dashicons-admin-settings"></span>
-						</button>
+						</Button>
 					</span>
 				) }
 			</div>

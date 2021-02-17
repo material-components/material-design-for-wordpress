@@ -35,7 +35,6 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -98,7 +97,6 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          role="presentation"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -859,7 +857,6 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -922,7 +919,6 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        role="presentation"
       >
         <div
           class="mdc-image-list__item-wrap"

@@ -18,16 +18,16 @@
  * WordPress dependencies
  */
 import { findDOMNode, useEffect, useRef } from '@wordpress/element';
-import { create, insert } from '@wordpress/rich-text';
+import {
+	create,
+	insert,
+	__experimentalRichText as RichText,
+} from '@wordpress/rich-text';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
-import {
-	RichText,
-	isExperimentalRichText,
-} from '../../../components/polyfills';
 import { useStateCallback } from '../../../helpers/hooks';
 
 /**
@@ -246,14 +246,6 @@ const ListItem = ( {
 	// Noop function.
 	const noop = () => {};
 
-	const richTextProps = ! isExperimentalRichText
-		? {
-				selectionStart: rangeStartRef.current,
-				selectionEnd: rangeStartRef.current,
-				onSelectionChange,
-		  }
-		: { onSelectionChange: noop };
-
 	return (
 		<li className="mdc-list-item">
 			{ 'leading' === iconPosition && (
@@ -273,7 +265,7 @@ const ListItem = ( {
 						unstableOnFocus={ () => onFocus( index ) }
 						className="rich-text block-editor-rich-text__editable"
 						__unstableIsSelected={ isPrimarySelected }
-						{ ...richTextProps }
+						onSelectionChange={ onSelectionChange }
 					/>
 				</span>
 
@@ -293,7 +285,7 @@ const ListItem = ( {
 							className="rich-text block-editor-rich-text__editable"
 							placeholder={ __( 'Secondary text…', 'material-design' ) }
 							__unstableIsSelected={ isSecondarySelected }
-							{ ...richTextProps }
+							onSelectionChange={ onSelectionChange }
 						/>
 					</span>
 				) }
