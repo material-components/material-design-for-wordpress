@@ -59,6 +59,8 @@
 
 .mdc-image-list--with-text-protection .mdc-image-list__supporting {
 	height: auto;
+	min-height: 48px;
+	padding: 8px 16px;
 
 	& .mdc-image-list__label {
 		white-space: normal;
