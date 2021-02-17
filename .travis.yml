@@ -86,9 +86,10 @@ jobs:
       php: "7.4"
       env: NODE_ENV=teste2e COVERALLS_REPO_TOKEN=$CR_TOKEN
       before_install:
+        - unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
         - nvm install
         - nvm use
-        - unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
+        - set PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
       before_script:
         - sudo service mysql stop
         - echo "Running E2E tests with code coverage ..."
@@ -98,8 +99,28 @@ jobs:
         - docker-compose exec mysql bash -c "chown -R mysql:mysql /var/lib/mysql"
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088
         - npm run wp -- wp plugin activate material-design
-        - sudo chown -R travis:travis tests # ensure coverage folder can be created
+        - sudo chown -R travis:travis tests node_modules # ensure coverage folder can be created
         - npm run test:e2e:coveralls
+
+    - name: E2E tests with Docker (7.3, WordPress 5.2)
+      php: "7.3"
+      env: NODE_ENV=teste2e PHP_VERSION=php7.3-apache WP_VERSION=5.2
+      before_install:
+        - unset PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
+        - nvm install
+        - nvm use
+        - set PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+      before_script:
+        - sudo service mysql stop
+        - echo "Running E2E tests"
+      script:
+        - npm run env:start
+        - docker-compose exec wordpress bash -c "chown -R www-data:www-data /var/www/html/wp-content/" # ensure WP folders have correct permissions
+        - docker-compose exec mysql bash -c "chown -R mysql:mysql /var/lib/mysql"
+        - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088
+        - npm run wp -- wp plugin activate material-design
+        - sudo chown -R travis:travis tests node_modules
+        - npm run test:e2e
 
     - name: JS unit tests (7.4, WordPress latest, with code coverage)
       php: "7.4"
@@ -130,13 +151,13 @@ jobs:
       php: "7.1"
       env: WP_VERSION=latest DEV_LIB_ONLY=phpunit
 
-    - name: PHP unit tests (7.0, WordPress 5.1)
+    - name: PHP unit tests (7.0, WordPress 5.3)
       php: "7.0"
-      env: WP_VERSION=5.1 DEV_LIB_ONLY=phpunit
+      env: WP_VERSION=5.3 DEV_LIB_ONLY=phpunit
 
-    - name: PHP unit tests (5.6, WordPress 5.0)
+    - name: PHP unit tests (5.6, WordPress 5.2)
       php: "5.6"
-      env: WP_VERSION=5.0 DEV_LIB_ONLY=phpunit
+      env: WP_VERSION=5.2 DEV_LIB_ONLY=phpunit
 
     - name: PHP unit tests (7.4, WordPress trunk)
       php: "7.4"
