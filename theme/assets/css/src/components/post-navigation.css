@@ -1,0 +1,84 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.site-main .post-navigation {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 0 auto 1.5em;
+	max-width: var(--mdc-theme-max-content-width);
+
+	@media (--medium-viewport) {
+		flex-direction: row;
+	}
+
+	& .post-navigation__next,
+	& .post-navigation__previous {
+		align-items: center;
+		display: flex;
+		overflow: hidden;
+		width: 100%;
+
+		@media (--medium-viewport) {
+			width: 50%;
+		}
+	}
+
+	& .post-navigation__next {
+		justify-content: flex-end;
+		padding-left: 0.5rem;
+
+		& .material-icons {
+			margin-left: 0.5rem;
+		}
+
+		@media (--small-viewport-max) {
+			flex-direction: row-reverse;
+			margin-top: 1rem;
+			padding-left: 0;
+
+			& .material-icons {
+				margin-left: 0;
+				margin-right: 0.5rem;
+			}
+		}
+	}
+
+	& .post-navigation__previous {
+		padding-right: 0.5rem;
+	}
+
+	& .post-navigation__previous .material-icons {
+		margin-right: 0.5rem;
+	}
+
+	& a {
+		margin-bottom: 2px;
+		margin-top: 2px;
+		max-width: calc(100% - 55px);
+		text-decoration: none;
+		word-wrap: break-word;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		@media (--medium-viewport) {
+			max-width: 380px;
+		}
+	}
+}

@@ -5,9 +5,12 @@
 composer.lock
 material-design.zip
 yarn.lock
-assets/css/*
-!assets/css/src/
-assets/js/*
+plugin/assets/css/*
+!plugin/assets/css/src/
+plugin/assets/js/*
+theme/assets/css/*
+!theme/assets/css/src/
+theme/assets/js/*
 bin/local-dev/mysql/
 bin/local-dev/wordpress/html/
 build/
