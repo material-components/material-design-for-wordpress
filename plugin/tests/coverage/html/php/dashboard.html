@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /var/www/html/wp-content/plugins/material-theme-builder/php</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/nv.d3.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="../js/html5shiv.min.js"></script>
+  <script src="../js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">/var/www/html/wp-content/plugins/material-theme-builder</a></li>
+        <li><a href="index.html">php</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="class-plugin.php.html#216"><abbr title="Plugin::redirect_to_wizard">redirect_to_wizard</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="customizer/class-controls.php.html#495"><abbr title="Controls::anonymousFunction:495#2621">anonymousFunction:495#2621</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="customizer/class-controls.php.html#1181"><abbr title="Controls::move_background_color_controls">move_background_color_controls</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="blocks/class-contact-form-block.php.html#36"><abbr title="Contact_Form_Block::priv_submit_contact_form">priv_submit_contact_form</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="blocks/class-contact-form-block.php.html#47"><abbr title="Contact_Form_Block::nopriv_submit_contact_form">nopriv_submit_contact_form</abbr></a></td><td class="text-right">50%</td></tr>
+       <tr><td><a href="class-helpers.php.html#95"><abbr title="Helpers::get_page_by_title">get_page_by_title</abbr></a></td><td class="text-right">57%</td></tr>
+       <tr><td><a href="class-block-types.php.html#64"><abbr title="Block_Types::register_blocks">register_blocks</abbr></a></td><td class="text-right">77%</td></tr>
+       <tr><td><a href="class-admin.php.html#258"><abbr title="Admin::theme_not_installed_notice">theme_not_installed_notice</abbr></a></td><td class="text-right">78%</td></tr>
+       <tr><td><a href="customizer/class-controls.php.html#1095"><abbr title="Controls::get_option">get_option</abbr></a></td><td class="text-right">80%</td></tr>
+       <tr><td><a href="class-importer.php.html#686"><abbr title="Importer::add_custom_css">add_custom_css</abbr></a></td><td class="text-right">83%</td></tr>
+       <tr><td><a href="class-importer.php.html#277"><abbr title="Importer::anonymousFunction:277#1335">anonymousFunction:277#1335</abbr></a></td><td class="text-right">85%</td></tr>
+       <tr><td><a href="blocks/class-contact-form-block.php.html#320"><abbr title="Contact_Form_Block::verify_recaptcha">verify_recaptcha</abbr></a></td><td class="text-right">86%</td></tr>
+       <tr><td><a href="customizer/class-controls.php.html#1156"><abbr title="Controls::notification_dismiss">notification_dismiss</abbr></a></td><td class="text-right">87%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="customizer/class-controls.php.html#1181"><abbr title="Controls::move_background_color_controls">move_background_color_controls</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="class-plugin.php.html#216"><abbr title="Plugin::redirect_to_wizard">redirect_to_wizard</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="blocks/class-contact-form-block.php.html#320"><abbr title="Contact_Form_Block::verify_recaptcha">verify_recaptcha</abbr></a></td><td class="text-right">9</td></tr>
+       <tr><td><a href="class-block-types.php.html#64"><abbr title="Block_Types::register_blocks">register_blocks</abbr></a></td><td class="text-right">8</td></tr>
+       <tr><td><a href="class-admin.php.html#258"><abbr title="Admin::theme_not_installed_notice">theme_not_installed_notice</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="customizer/class-controls.php.html#1095"><abbr title="Controls::get_option">get_option</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="class-importer.php.html#686"><abbr title="Importer::add_custom_css">add_custom_css</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="class-importer.php.html#277"><abbr title="Importer::anonymousFunction:277#1335">anonymousFunction:277#1335</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="customizer/class-controls.php.html#1156"><abbr title="Controls::notification_dismiss">notification_dismiss</abbr></a></td><td class="text-right">3</td></tr>
+       <tr><td><a href="class-helpers.php.html#95"><abbr title="Helpers::get_page_by_title">get_page_by_title</abbr></a></td><td class="text-right">2</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.8</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.6</a> with <a href="https://xdebug.org/">Xdebug 2.9.6</a> and <a href="https://phpunit.de/">PHPUnit 5.7.27</a> at Mon Aug 31 12:04:09 UTC 2020.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../js/jquery.min.js" type="text/javascript"></script>
+  <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="../js/holder.min.js" type="text/javascript"></script>
+  <script src="../js/d3.min.js" type="text/javascript"></script>
+  <script src="../js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,7,14], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([3,0,0,0,0,0,3,0,2,5,3,142], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[94.19354838709677,58,"<a href=\"blocks\/class-contact-form-block.php.html#18\">Contact_Form_Block<\/a>"],[100,12,"<a href=\"blocks\/class-image-list-block.php.html#16\">Image_List_Block<\/a>"],[100,17,"<a href=\"blocks\/class-posts-list-block.php.html#22\">Posts_List_Block<\/a>"],[95.06172839506173,23,"<a href=\"class-admin.php.html#13\">Admin<\/a>"],[95.55555555555556,30,"<a href=\"class-block-types.php.html#16\">Block_Types<\/a>"],[100,40,"<a href=\"class-blocks-frontend.php.html#16\">Blocks_Frontend<\/a>"],[100,0,"<a href=\"class-exception.php.html#15\">Exception<\/a>"],[100,5,"<a href=\"class-google-fonts.php.html#13\">Google_Fonts<\/a>"],[93.47826086956522,22,"<a href=\"class-helpers.php.html#13\">Helpers<\/a>"],[98.53658536585365,68,"<a href=\"class-importer.php.html#17\">Importer<\/a>"],[100,2,"<a href=\"class-module-base.php.html#13\">Module_Base<\/a>"],[100,25,"<a href=\"class-onboarding-rest-controller.php.html#15\">Onboarding_REST_Controller<\/a>"],[100,52,"<a href=\"class-plugin-base.php.html#15\">Plugin_Base<\/a>"],[93.65079365079364,16,"<a href=\"class-plugin.php.html#18\">Plugin<\/a>"],[100,15,"<a href=\"class-template.php.html#13\">Template<\/a>"],[95.92326139088729,103,"<a href=\"customizer\/class-controls.php.html#18\">Controls<\/a>"],[100,5,"<a href=\"customizer\/class-google-fonts-control.php.html#15\">Google_Fonts_Control<\/a>"],[100,7,"<a href=\"customizer\/class-icon-radio-control.php.html#15\">Icon_Radio_Control<\/a>"],[100,7,"<a href=\"customizer\/class-image-radio-control.php.html#15\">Image_Radio_Control<\/a>"],[100,6,"<a href=\"customizer\/class-material-color-palette-control.php.html#13\">Material_Color_Palette_Control<\/a>"],[100,8,"<a href=\"customizer\/class-range-slider-control.php.html#15\">Range_Slider_Control<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[50,1,"<a href=\"blocks\/class-contact-form-block.php.html#36\">Contact_Form_Block::priv_submit_contact_form<\/a>"],[50,1,"<a href=\"blocks\/class-contact-form-block.php.html#47\">Contact_Form_Block::nopriv_submit_contact_form<\/a>"],[100,6,"<a href=\"blocks\/class-contact-form-block.php.html#61\">Contact_Form_Block::render_block<\/a>"],[100,4,"<a href=\"blocks\/class-contact-form-block.php.html#118\">Contact_Form_Block::get_block_attributes<\/a>"],[93.47826086956522,15,"<a href=\"blocks\/class-contact-form-block.php.html#136\">Contact_Form_Block::submit_contact_form<\/a>"],[97.67441860465115,21,"<a href=\"blocks\/class-contact-form-block.php.html#230\">Contact_Form_Block::manage_recaptcha_api_credentials<\/a>"],[86.36363636363636,9,"<a href=\"blocks\/class-contact-form-block.php.html#320\">Contact_Form_Block::verify_recaptcha<\/a>"],[100,1,"<a href=\"blocks\/class-contact-form-block.php.html#374\">Contact_Form_Block::get_form_allowed_tags<\/a>"],[100,6,"<a href=\"blocks\/class-image-list-block.php.html#27\">Image_List_Block::styles<\/a>"],[100,6,"<a href=\"blocks\/class-image-list-block.php.html#61\">Image_List_Block::get_device_styles<\/a>"],[100,1,"<a href=\"blocks\/class-posts-list-block.php.html#38\">Posts_List_Block::__construct<\/a>"],[100,1,"<a href=\"blocks\/class-posts-list-block.php.html#48\">Posts_List_Block::init<\/a>"],[100,2,"<a href=\"blocks\/class-posts-list-block.php.html#64\">Posts_List_Block::add_extra_post_meta<\/a>"],[100,1,"<a href=\"blocks\/class-posts-list-block.php.html#85\">Posts_List_Block::add_comment_count_to_rest_orderby_params<\/a>"],[100,12,"<a href=\"blocks\/class-posts-list-block.php.html#99\">Posts_List_Block::render_block<\/a>"],[100,1,"<a href=\"class-admin.php.html#24\">Admin::add_pages<\/a>"],[100,1,"<a href=\"class-admin.php.html#57\">Admin::render_getting_started_page<\/a>"],[100,1,"<a href=\"class-admin.php.html#66\">Admin::render_onboarding_wizard_page<\/a>"],[100,6,"<a href=\"class-admin.php.html#79\">Admin::enqueue_assets<\/a>"],[100,2,"<a href=\"class-admin.php.html#204\">Admin::switch_theme_material<\/a>"],[100,1,"<a href=\"class-admin.php.html#218\">Admin::material_notice<\/a>"],[78.125,6,"<a href=\"class-admin.php.html#258\">Admin::theme_not_installed_notice<\/a>"],[94.11764705882352,5,"<a href=\"class-admin.php.html#318\">Admin::plugin_activated_notice<\/a>"],[100,1,"<a href=\"class-block-types.php.html#37\">Block_Types::__construct<\/a>"],[100,1,"<a href=\"class-block-types.php.html#44\">Block_Types::init<\/a>"],[77.77777777777779,8,"<a href=\"class-block-types.php.html#64\">Block_Types::register_blocks<\/a>"],[100,5,"<a href=\"class-block-types.php.html#115\">Block_Types::enqueue_block_editor_assets<\/a>"],[100,1,"<a href=\"class-block-types.php.html#181\">Block_Types::block_category<\/a>"],[100,11,"<a href=\"class-block-types.php.html#195\">Block_Types::get_block_defaults<\/a>"],[100,3,"<a href=\"class-block-types.php.html#226\">Block_Types::get_color_defaults<\/a>"],[100,7,"<a href=\"class-blocks-frontend.php.html#24\">Blocks_Frontend::dynamic_css<\/a>"],[100,13,"<a href=\"class-blocks-frontend.php.html#57\">Blocks_Frontend::get_block_css<\/a>"],[100,3,"<a href=\"class-blocks-frontend.php.html#115\">Blocks_Frontend::get_media_queries<\/a>"],[100,4,"<a href=\"class-blocks-frontend.php.html#153\">Blocks_Frontend::layout_gutter_styles<\/a>"],[100,5,"<a href=\"class-blocks-frontend.php.html#188\">Blocks_Frontend::layout_gutter_device_styles<\/a>"],[100,8,"<a href=\"class-blocks-frontend.php.html#225\">Blocks_Frontend::has_material_blocks<\/a>"],[100,3,"<a href=\"class-google-fonts.php.html#27\">Google_Fonts::get_fonts<\/a>"],[100,1,"<a href=\"class-google-fonts.php.html#51\">Google_Fonts::get_font_choices<\/a>"],[100,1,"<a href=\"class-google-fonts.php.html#71\">Google_Fonts::prepare_font_choice<\/a>"],[100,2,"<a href=\"class-helpers.php.html#22\">Helpers::get_block_from_referer<\/a>"],[100,1,"<a href=\"class-helpers.php.html#44\">Helpers::get_block_by_name<\/a>"],[100,1,"<a href=\"class-helpers.php.html#47\">Helpers::anonymousFunction:47#146<\/a>"],[100,1,"<a href=\"class-helpers.php.html#61\">Helpers::get_block_count_from_post<\/a>"],[100,1,"<a href=\"class-helpers.php.html#66\">Helpers::anonymousFunction:66#227<\/a>"],[100,3,"<a href=\"class-helpers.php.html#79\">Helpers::is_current_user_admin_or_editor_with_manage_options<\/a>"],[57.14285714285714,2,"<a href=\"class-helpers.php.html#95\">Helpers::get_page_by_title<\/a>"],[100,6,"<a href=\"class-helpers.php.html#117\">Helpers::hex_to_rgb<\/a>"],[100,2,"<a href=\"class-helpers.php.html#142\">Helpers::mix_colors<\/a>"],[100,1,"<a href=\"class-helpers.php.html#168\">Helpers::hexdec<\/a>"],[100,1,"<a href=\"class-helpers.php.html#178\">Helpers::dechex<\/a>"],[100,1,"<a href=\"class-helpers.php.html#188\">Helpers::sanitize_control_id<\/a>"],[100,1,"<a href=\"class-importer.php.html#53\">Importer::__construct<\/a>"],[100,1,"<a href=\"class-importer.php.html#89\">Importer::get_import_file<\/a>"],[100,1,"<a href=\"class-importer.php.html#98\">Importer::init_import<\/a>"],[100,2,"<a href=\"class-importer.php.html#123\">Importer::import_terms<\/a>"],[100,3,"<a href=\"class-importer.php.html#139\">Importer::add_menu_items<\/a>"],[100,4,"<a href=\"class-importer.php.html#177\">Importer::import_and_update_images<\/a>"],[100,1,"<a href=\"class-importer.php.html#213\">Importer::has_demo_content<\/a>"],[100,11,"<a href=\"class-importer.php.html#241\">Importer::update_images<\/a>"],[85.71428571428571,3,"<a href=\"class-importer.php.html#277\">Importer::anonymousFunction:277#1335<\/a>"],[100,12,"<a href=\"class-importer.php.html#308\">Importer::import_image<\/a>"],[100,4,"<a href=\"class-importer.php.html#402\">Importer::import_posts<\/a>"],[100,3,"<a href=\"class-importer.php.html#436\">Importer::get_attachments<\/a>"],[100,2,"<a href=\"class-importer.php.html#450\">Importer::get_attachment<\/a>"],[100,3,"<a href=\"class-importer.php.html#464\">Importer::prime_imported_images_cache<\/a>"],[100,2,"<a href=\"class-importer.php.html#496\">Importer::attach_meta_data<\/a>"],[100,3,"<a href=\"class-importer.php.html#516\">Importer::insert_post<\/a>"],[100,2,"<a href=\"class-importer.php.html#540\">Importer::insert_comments<\/a>"],[100,1,"<a href=\"class-importer.php.html#562\">Importer::setup_widgets<\/a>"],[100,1,"<a href=\"class-importer.php.html#578\">Importer::get_menu_items<\/a>"],[100,3,"<a href=\"class-importer.php.html#594\">Importer::update_blog_info<\/a>"],[100,1,"<a href=\"class-importer.php.html#619\">Importer::kses_post<\/a>"],[100,1,"<a href=\"class-importer.php.html#676\">Importer::safe_style_css<\/a>"],[83.33333333333334,3,"<a href=\"class-importer.php.html#686\">Importer::add_custom_css<\/a>"],[100,1,"<a href=\"class-module-base.php.html#28\">Module_Base::__construct<\/a>"],[100,1,"<a href=\"class-module-base.php.html#37\">Module_Base::init<\/a>"],[100,1,"<a href=\"class-onboarding-rest-controller.php.html#21\">Onboarding_REST_Controller::__construct<\/a>"],[100,1,"<a href=\"class-onboarding-rest-controller.php.html#30\">Onboarding_REST_Controller::init<\/a>"],[100,1,"<a href=\"class-onboarding-rest-controller.php.html#39\">Onboarding_REST_Controller::get_rest_base_url<\/a>"],[100,1,"<a href=\"class-onboarding-rest-controller.php.html#48\">Onboarding_REST_Controller::register_routes<\/a>"],[100,2,"<a href=\"class-onboarding-rest-controller.php.html#95\">Onboarding_REST_Controller::update_item_permissions_check<\/a>"],[100,8,"<a href=\"class-onboarding-rest-controller.php.html#108\">Onboarding_REST_Controller::install_theme<\/a>"],[100,4,"<a href=\"class-onboarding-rest-controller.php.html#129\">Onboarding_REST_Controller::anonymousFunction:129#644<\/a>"],[100,3,"<a href=\"class-onboarding-rest-controller.php.html#188\">Onboarding_REST_Controller::activate_theme<\/a>"],[100,3,"<a href=\"class-onboarding-rest-controller.php.html#218\">Onboarding_REST_Controller::import_content<\/a>"],[100,1,"<a href=\"class-onboarding-rest-controller.php.html#247\">Onboarding_REST_Controller::get_item_schema<\/a>"],[100,1,"<a href=\"class-plugin-base.php.html#70\">Plugin_Base::__construct<\/a>"],[100,1,"<a href=\"class-plugin-base.php.html#82\">Plugin_Base::__destruct<\/a>"],[100,2,"<a href=\"class-plugin-base.php.html#91\">Plugin_Base::get_object_reflection<\/a>"],[100,9,"<a href=\"class-plugin-base.php.html#111\">Plugin_Base::autoload<\/a>"],[100,2,"<a href=\"class-plugin-base.php.html#158\">Plugin_Base::locate_plugin<\/a>"],[100,4,"<a href=\"class-plugin-base.php.html#189\">Plugin_Base::relative_path<\/a>"],[100,1,"<a href=\"class-plugin-base.php.html#210\">Plugin_Base::asset_url<\/a>"],[100,2,"<a href=\"class-plugin-base.php.html#220\">Plugin_Base::trigger_warning<\/a>"],[100,2,"<a href=\"class-plugin-base.php.html#233\">Plugin_Base::is_wpcom_vip_prod<\/a>"],[100,2,"<a href=\"class-plugin-base.php.html#242\">Plugin_Base::is_debug<\/a>"],[100,2,"<a href=\"class-plugin-base.php.html#251\">Plugin_Base::is_script_debug<\/a>"],[100,2,"<a href=\"class-plugin-base.php.html#260\">Plugin_Base::version<\/a>"],[100,3,"<a href=\"class-plugin-base.php.html#274\">Plugin_Base::asset_version<\/a>"],[100,1,"<a href=\"class-plugin-base.php.html#291\">Plugin_Base::add_filter<\/a>"],[100,1,"<a href=\"class-plugin-base.php.html#311\">Plugin_Base::add_action<\/a>"],[100,3,"<a href=\"class-plugin-base.php.html#332\">Plugin_Base::add_hook<\/a>"],[100,8,"<a href=\"class-plugin-base.php.html#346\">Plugin_Base::add_doc_hooks<\/a>"],[100,6,"<a href=\"class-plugin-base.php.html#384\">Plugin_Base::remove_doc_hooks<\/a>"],[100,1,"<a href=\"class-plugin.php.html#78\">Plugin::init<\/a>"],[100,1,"<a href=\"class-plugin.php.html#105\">Plugin::enqueue_google_fonts<\/a>"],[100,5,"<a href=\"class-plugin.php.html#121\">Plugin::enqueue_front_end_assets<\/a>"],[100,1,"<a href=\"class-plugin.php.html#173\">Plugin::frontend_inline_css<\/a>"],[100,1,"<a href=\"class-plugin.php.html#186\">Plugin::theme_installed<\/a>"],[100,3,"<a href=\"class-plugin.php.html#195\">Plugin::theme_status<\/a>"],[0,4,"<a href=\"class-plugin.php.html#216\">Plugin::redirect_to_wizard<\/a>"],[100,4,"<a href=\"class-template.php.html#24\">Template::get_template<\/a>"],[100,4,"<a href=\"class-template.php.html#49\">Template::locate_template<\/a>"],[100,1,"<a href=\"class-template.php.html#74\">Template::template_path<\/a>"],[100,6,"<a href=\"class-template.php.html#84\">Template::classnames<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#48\">Controls::register<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#81\">Controls::add_panel<\/a>"],[100,4,"<a href=\"customizer\/class-controls.php.html#101\">Controls::add_sections<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#148\">Controls::add_theme_controls<\/a>"],[100,6,"<a href=\"customizer\/class-controls.php.html#215\">Controls::add_color_controls<\/a>"],[100,3,"<a href=\"customizer\/class-controls.php.html#258\">Controls::add_typography_controls<\/a>"],[100,9,"<a href=\"customizer\/class-controls.php.html#296\">Controls::add_corner_styles_controls<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#345\">Controls::add_icon_collection_controls<\/a>"],[100,5,"<a href=\"customizer\/class-controls.php.html#380\">Controls::add_settings<\/a>"],[100,9,"<a href=\"customizer\/class-controls.php.html#425\">Controls::add_controls<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#461\">Controls::anonymousFunction:461#2423<\/a>"],[100,2,"<a href=\"customizer\/class-controls.php.html#476\">Controls::scripts<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#488\">Controls::anonymousFunction:488#2564<\/a>"],[0,1,"<a href=\"customizer\/class-controls.php.html#495\">Controls::anonymousFunction:495#2621<\/a>"],[100,3,"<a href=\"customizer\/class-controls.php.html#549\">Controls::get_google_fonts_url<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#579\">Controls::get_icon_collection_css<\/a>"],[100,3,"<a href=\"customizer\/class-controls.php.html#590\">Controls::get_icon_style<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#601\">Controls::preview_scripts<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#616\">Controls::templates<\/a>"],[100,17,"<a href=\"customizer\/class-controls.php.html#623\">Controls::get_frontend_css<\/a>"],[100,2,"<a href=\"customizer\/class-controls.php.html#729\">Controls::get_default<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#748\">Controls::get_design_styles<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#847\">Controls::get_color_controls<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#899\">Controls::get_typography_controls<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#939\">Controls::get_corner_styles_controls<\/a>"],[100,1,"<a href=\"customizer\/class-controls.php.html#1027\">Controls::get_icon_collection_controls<\/a>"],[100,2,"<a href=\"customizer\/class-controls.php.html#1059\">Controls::prepend_slug<\/a>"],[100,2,"<a href=\"customizer\/class-controls.php.html#1070\">Controls::prepare_option_name<\/a>"],[100,2,"<a href=\"customizer\/class-controls.php.html#1081\">Controls::remove_option_prefix<\/a>"],[80,3,"<a href=\"customizer\/class-controls.php.html#1095\">Controls::get_option<\/a>"],[100,2,"<a href=\"customizer\/class-controls.php.html#1121\">Controls::update_option<\/a>"],[100,4,"<a href=\"customizer\/class-controls.php.html#1143\">Controls::show_material_components_notification<\/a>"],[87.5,3,"<a href=\"customizer\/class-controls.php.html#1156\">Controls::notification_dismiss<\/a>"],[0,7,"<a href=\"customizer\/class-controls.php.html#1181\">Controls::move_background_color_controls<\/a>"],[100,3,"<a href=\"customizer\/class-google-fonts-control.php.html#37\">Google_Fonts_Control::render_content<\/a>"],[100,2,"<a href=\"customizer\/class-google-fonts-control.php.html#56\">Google_Fonts_Control::to_json<\/a>"],[100,5,"<a href=\"customizer\/class-icon-radio-control.php.html#36\">Icon_Radio_Control::render_content<\/a>"],[100,2,"<a href=\"customizer\/class-icon-radio-control.php.html#79\">Icon_Radio_Control::to_json<\/a>"],[100,7,"<a href=\"customizer\/class-image-radio-control.php.html#30\">Image_Radio_Control::render_content<\/a>"],[100,1,"<a href=\"customizer\/class-material-color-palette-control.php.html#55\">Material_Color_Palette_Control::tabs_template<\/a>"],[100,5,"<a href=\"customizer\/class-material-color-palette-control.php.html#97\">Material_Color_Palette_Control::to_json<\/a>"],[100,1,"<a href=\"customizer\/class-range-slider-control.php.html#72\">Range_Slider_Control::render_content<\/a>"],[100,7,"<a href=\"customizer\/class-range-slider-control.php.html#82\">Range_Slider_Control::to_json<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

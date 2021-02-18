@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Code Coverage for /var/www/html/wp-content/plugins/material-theme-builder/instance.php</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">/var/www/html/wp-content/plugins/material-theme-builder</a></li>
+        <li class="active">instance.php</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <table class="table table-bordered">
+    <thead>
+     <tr>
+      <td>&nbsp;</td>
+      <td colspan="10"><div align="center"><strong>Code Coverage</strong></div></td>
+     </tr>
+     <tr>
+      <td>&nbsp;</td>
+      <td colspan="3"><div align="center"><strong>Classes and Traits</strong></div></td>
+      <td colspan="4"><div align="center"><strong>Functions and Methods</strong></div></td>
+      <td colspan="3"><div align="center"><strong>Lines</strong></div></td>
+     </tr>
+    </thead>
+    <tbody>
+     <tr>
+      <td class="">Total</td>
+      <td class=" big"></td>
+      <td class=" small"><div align="right">n/a</div></td>
+      <td class=" small"><div align="right">0&nbsp;/&nbsp;0</div></td>
+      <td class=" big"></td>
+      <td class=" small"><div align="right">n/a</div></td>
+      <td class=" small"><div align="right">0&nbsp;/&nbsp;0</div></td>
+      <td class=" small"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></td>
+      <td class="success big">       <div class="progress">
+         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
+           <span class="sr-only">100.00% covered (success)</span>
+         </div>
+       </div>
+</td>
+      <td class="success small"><div align="right">100.00%</div></td>
+      <td class="success small"><div align="right">2&nbsp;/&nbsp;2</div></td>
+     </tr>
+
+     <tr>
+      <td class="success" colspan="4"><a href="#22"><abbr title="get_plugin_instance()">MaterialThemeBuilder\get_plugin_instance</abbr></a></td>
+      <td class="success big">       <div class="progress">
+         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
+           <span class="sr-only">100.00% covered (success)</span>
+         </div>
+       </div>
+</td>
+      <td class="success small"><div align="right">100.00%</div></td>
+      <td class="success small"><div align="right">1&nbsp;/&nbsp;1</div></td>
+      <td class="success small">0</td>
+      <td class="success big">       <div class="progress">
+         <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100.00" aria-valuemin="0" aria-valuemax="100" style="width: 100.00%">
+           <span class="sr-only">100.00% covered (success)</span>
+         </div>
+       </div>
+</td>
+      <td class="success small"><div align="right">100.00%</div></td>
+      <td class="success small"><div align="right">2&nbsp;/&nbsp;2</div></td>
+     </tr>
+
+
+    </tbody>
+   </table>
+   <table id="code" class="table table-borderless table-condensed">
+    <tbody>
+     <tr><td><div align="right"><a name="1"></a><a href="#1">1</a></div></td><td class="codeLine"><span class="default">&lt;?php</span></td></tr>
+     <tr><td><div align="right"><a name="2"></a><a href="#2">2</a></div></td><td class="codeLine"><span class="comment">/**</span></td></tr>
+     <tr><td><div align="right"><a name="3"></a><a href="#3">3</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;Instantiates&nbsp;the&nbsp;Material&nbsp;Theme&nbsp;Builder&nbsp;plugin</span></td></tr>
+     <tr><td><div align="right"><a name="4"></a><a href="#4">4</a></div></td><td class="codeLine"><span class="comment">&nbsp;*</span></td></tr>
+     <tr><td><div align="right"><a name="5"></a><a href="#5">5</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;@package&nbsp;MaterialThemeBuilder</span></td></tr>
+     <tr><td><div align="right"><a name="6"></a><a href="#6">6</a></div></td><td class="codeLine"><span class="comment">&nbsp;*/</span></td></tr>
+     <tr><td><div align="right"><a name="7"></a><a href="#7">7</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="8"></a><a href="#8">8</a></div></td><td class="codeLine"><span class="keyword">namespace</span><span class="default">&nbsp;</span><span class="default">MaterialThemeBuilder</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="9"></a><a href="#9">9</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="10"></a><a href="#10">10</a></div></td><td class="codeLine"><span class="keyword">global</span><span class="default">&nbsp;</span><span class="default">$material_theme_builder_plugin</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="11"></a><a href="#11">11</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="12"></a><a href="#12">12</a></div></td><td class="codeLine"><span class="keyword">require_once</span><span class="default">&nbsp;</span><span class="default">__DIR__</span><span class="default">&nbsp;</span><span class="keyword">.</span><span class="default">&nbsp;</span><span class="default">'/php/class-plugin-base.php'</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="13"></a><a href="#13">13</a></div></td><td class="codeLine"><span class="keyword">require_once</span><span class="default">&nbsp;</span><span class="default">__DIR__</span><span class="default">&nbsp;</span><span class="keyword">.</span><span class="default">&nbsp;</span><span class="default">'/php/class-plugin.php'</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="14"></a><a href="#14">14</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="15"></a><a href="#15">15</a></div></td><td class="codeLine"><span class="default">$material_theme_builder_plugin</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="keyword">new</span><span class="default">&nbsp;</span><span class="default">Plugin</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr><td><div align="right"><a name="16"></a><a href="#16">16</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="17"></a><a href="#17">17</a></div></td><td class="codeLine"><span class="comment">/**</span></td></tr>
+     <tr><td><div align="right"><a name="18"></a><a href="#18">18</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;Material&nbsp;Theme&nbsp;Builder&nbsp;Plugin&nbsp;Instance</span></td></tr>
+     <tr><td><div align="right"><a name="19"></a><a href="#19">19</a></div></td><td class="codeLine"><span class="comment">&nbsp;*</span></td></tr>
+     <tr><td><div align="right"><a name="20"></a><a href="#20">20</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;@return&nbsp;Plugin</span></td></tr>
+     <tr><td><div align="right"><a name="21"></a><a href="#21">21</a></div></td><td class="codeLine"><span class="comment">&nbsp;*/</span></td></tr>
+     <tr><td><div align="right"><a name="22"></a><a href="#22">22</a></div></td><td class="codeLine"><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">get_plugin_instance</span><span class="keyword">(</span><span class="keyword">)</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="covered-by-large-tests popin" data-title="66 tests cover line 23" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_construct&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_add_pages&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_render_getting_started_page&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_render_onboarding_wizard_page&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_enqueue_assets&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_enqueue_assets_getting_started&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_enqueue_assets_onboarding_wizard&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_material_notice&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_theme_not_installed_notice&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_plugin_activated_notice&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_init&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_register_blocks&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_enqueue_block_editor_assets&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_enqueue_block_editor_assets_for_editor_role_with_manage_options_cap&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_enqueue_block_editor_assets_for_administrator&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_block_category&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_get_block_defaults&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Blocks_Frontend::test_init&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Blocks_Frontend::test_dynamic_css&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Google_Fonts::test_get_fonts&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_get_import_file&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_get_menu_items&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_import_terms&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_attach_meta_data&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_insert_comments&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_insert_post&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_update_blog_info&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_kses_post&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_add_custom_css&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Onboarding_REST_Controller::test_import_content&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_locate_plugin&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_relative_path&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_asset_url&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_trigger_warning&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_asset_version&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_is_wpcom_vip_prod&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_is_debug&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_is_script_debug&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_add_doc_hooks&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_add_doc_hooks_error&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_remove_doc_hooks&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test___destruct&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin::test_init&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin::test_enqueue_google_fonts&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin::test_enqueue_front_end_assets&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin::test_frontend_inline_css&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Template::test_locate_template&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_construct&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_register&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_panel&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_sections&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_theme_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_typography_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_corner_styles_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_icon_collection_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_settings&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_scripts&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_get_google_fonts_url&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_preview_scripts&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_templates&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_get_frontend_css&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_get_default&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_get_corner_styles_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_prepend_slug&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_show_material_components_notification&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="23"></a><a href="#23">23</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">global</span><span class="default">&nbsp;</span><span class="default">$material_theme_builder_plugin</span><span class="keyword">;</span></td></tr>
+     <tr class="covered-by-large-tests popin" data-title="66 tests cover line 24" data-content="&lt;ul&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_construct&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_add_pages&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_render_getting_started_page&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_render_onboarding_wizard_page&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_enqueue_assets&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_enqueue_assets_getting_started&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_enqueue_assets_onboarding_wizard&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_material_notice&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_theme_not_installed_notice&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Admin::test_plugin_activated_notice&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_init&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_register_blocks&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_enqueue_block_editor_assets&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_enqueue_block_editor_assets_for_editor_role_with_manage_options_cap&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_enqueue_block_editor_assets_for_administrator&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_block_category&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Block_Types::test_get_block_defaults&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Blocks_Frontend::test_init&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Blocks_Frontend::test_dynamic_css&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Google_Fonts::test_get_fonts&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_get_import_file&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_get_menu_items&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_import_terms&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_attach_meta_data&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_insert_comments&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_insert_post&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_update_blog_info&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_kses_post&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Importer::test_add_custom_css&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Onboarding_REST_Controller::test_import_content&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_locate_plugin&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_relative_path&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_asset_url&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_trigger_warning&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_asset_version&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_is_wpcom_vip_prod&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_is_debug&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_is_script_debug&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_add_doc_hooks&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_add_doc_hooks_error&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test_remove_doc_hooks&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin_Base::test___destruct&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin::test_init&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin::test_enqueue_google_fonts&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin::test_enqueue_front_end_assets&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Plugin::test_frontend_inline_css&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Test_Template::test_locate_template&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_construct&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_register&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_panel&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_sections&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_theme_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_typography_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_corner_styles_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_icon_collection_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_settings&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_add_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_scripts&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_get_google_fonts_url&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_preview_scripts&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_templates&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_get_frontend_css&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_get_default&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_get_corner_styles_controls&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_prepend_slug&lt;/li&gt;&lt;li class=&quot;covered-by-large-tests&quot;&gt;MaterialThemeBuilder\Customizer\Test_Controls::test_show_material_components_notification&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="24"></a><a href="#24">24</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return</span><span class="default">&nbsp;</span><span class="default">$material_theme_builder_plugin</span><span class="keyword">;</span></td></tr>
+     <tr class="warning"><td><div align="right"><a name="25"></a><a href="#25">25</a></div></td><td class="codeLine"><span class="keyword">}</span></td></tr>
+
+    </tbody>
+   </table>
+   <footer>
+    <hr/>
+    <h4>Legend</h4>
+    <p>
+     <span class="success"><strong>Executed</strong></span>
+     <span class="danger"><strong>Not Executed</strong></span>
+     <span class="warning"><strong>Dead Code</strong></span>
+    </p>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.8</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.6</a> with <a href="https://xdebug.org/">Xdebug 2.9.6</a> and <a href="https://phpunit.de/">PHPUnit 5.7.27</a> at Mon Aug 31 12:04:09 UTC 2020.</small>
+    </p>
+    <a title="Back to the top" id="toplink" href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
+   </footer>
+  </div>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/holder.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  $(function() {
+   var $window   = $(window)
+     , $top_link = $('#toplink')
+     , $body     = $('body, html')
+     , offset    = $('#code').offset().top;
+
+   $top_link.hide().click(function(event) {
+    event.preventDefault();
+    $body.animate({scrollTop:0}, 800);
+   });
+
+   $window.scroll(function() {
+    if($window.scrollTop() > offset) {
+     $top_link.fadeIn();
+    } else {
+     $top_link.fadeOut();
+    }
+   }).scroll();
+
+   $('.popin').popover({trigger: 'hover'});
+  });
+  </script>
+ </body>
+</html>
