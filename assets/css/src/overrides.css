@@ -116,8 +116,9 @@ html {
 }
 
 .mdc-icon-button {
-	&:before,
-	&:after {
+
+	&::before,
+	&::after {
 		background-color: var(--mdc-theme-on-surface, #000) !important;
 	}
 
