@@ -52,7 +52,6 @@ exports[`GoogleFontsControl matches snapshot 1`] = `
       >
         <ForwardRef(Button)
           className="control-settings-expanded google-fonts-control-settings-expanded"
-          icon="admin-settings"
           isLink={true}
           label="View more options"
           onClick={[Function]}
@@ -63,7 +62,7 @@ exports[`GoogleFontsControl matches snapshot 1`] = `
           >
             <button
               aria-label="View more options"
-              className="components-button control-settings-expanded google-fonts-control-settings-expanded is-link has-icon"
+              className="components-button control-settings-expanded google-fonts-control-settings-expanded is-link"
               onBlur={[Function]}
               onClick={[Function]}
               onFocus={[Function]}
@@ -72,45 +71,10 @@ exports[`GoogleFontsControl matches snapshot 1`] = `
               onMouseLeave={[Function]}
               type="button"
             >
-              <Icon
-                icon="admin-settings"
-                key="0,0"
-              >
-                <Dashicon
-                  icon="admin-settings"
-                  size={20}
-                >
-                  <SVG
-                    aria-hidden={true}
-                    className="dashicon dashicons-admin-settings"
-                    focusable="false"
-                    height={20}
-                    role="img"
-                    viewBox="0 0 20 20"
-                    width={20}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <svg
-                      aria-hidden={true}
-                      className="dashicon dashicons-admin-settings"
-                      focusable={false}
-                      height={20}
-                      role="img"
-                      viewBox="0 0 20 20"
-                      width={20}
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <Path
-                        d="M18 16V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h13c.55 0 1-.45 1-1zM8 11h1c.55 0 1 .45 1 1s-.45 1-1 1H8v1.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V13H6c-.55 0-1-.45-1-1s.45-1 1-1h1V5.5c0-.28.22-.5.5-.5s.5.22.5.5V11zm5-2h-1c-.55 0-1-.45-1-1s.45-1 1-1h1V5.5c0-.28.22-.5.5-.5s.5.22.5.5V7h1c.55 0 1 .45 1 1s-.45 1-1 1h-1v5.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V9z"
-                      >
-                        <path
-                          d="M18 16V4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h13c.55 0 1-.45 1-1zM8 11h1c.55 0 1 .45 1 1s-.45 1-1 1H8v1.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V13H6c-.55 0-1-.45-1-1s.45-1 1-1h1V5.5c0-.28.22-.5.5-.5s.5.22.5.5V11zm5-2h-1c-.55 0-1-.45-1-1s.45-1 1-1h1V5.5c0-.28.22-.5.5-.5s.5.22.5.5V7h1c.55 0 1 .45 1 1s-.45 1-1 1h-1v5.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V9z"
-                        />
-                      </Path>
-                    </svg>
-                  </SVG>
-                </Dashicon>
-              </Icon>
+              <span
+                className="dashicons dashicons-admin-settings"
+                key="0,1"
+              />
             </button>
           </Tooltip>
         </ForwardRef(Button)>

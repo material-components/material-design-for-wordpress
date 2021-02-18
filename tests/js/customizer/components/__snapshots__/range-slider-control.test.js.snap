@@ -424,8 +424,9 @@ Object {
             class="range-slider-control-body__item"
           >
             <button
-              class="components-button is-link control-settings-expanded range-slider-control-settings-expanded is-pressed"
-              label="View individual components"
+              aria-label="View individual components"
+              aria-pressed="true"
+              class="components-button components-button is-link control-settings-expanded range-slider-control-settings-expanded is-pressed is-pressed is-link"
               type="button"
             >
               <span
@@ -542,8 +543,9 @@ Object {
           class="range-slider-control-body__item"
         >
           <button
-            class="components-button is-link control-settings-expanded range-slider-control-settings-expanded is-pressed"
-            label="View individual components"
+            aria-label="View individual components"
+            aria-pressed="true"
+            class="components-button components-button is-link control-settings-expanded range-slider-control-settings-expanded is-pressed is-pressed is-link"
             type="button"
           >
             <span
