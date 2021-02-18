@@ -44,7 +44,7 @@
 		min-width: 50px !important;
 	}
 
-	&__delete {
+	&__delete.material-icons {
 		position: absolute;
 		top: calc(50% - 7.5px);
 		display: none;

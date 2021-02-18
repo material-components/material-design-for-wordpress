@@ -17,9 +17,12 @@
 /**
  * WordPress dependencies
  */
-import { createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
+import { createNewPost } from '@wordpress/e2e-test-utils';
 
-import { selectBlockByName } from '../../../../utils';
+/**
+ * Internal dependencies
+ */
+import { insertBlock, selectBlockByName } from '../../../../utils';
 
 describe( 'blocks: material/recent-posts', () => {
 	beforeEach( async () => {
