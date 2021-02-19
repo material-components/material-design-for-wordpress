@@ -29,11 +29,13 @@
       "composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts"
     ],
     "format": [
-      "phpcbf ."
+      "phpcbf ./plugin",
+      "phpcbf ./theme --standard=phpcs-theme.xml"
     ],
     "lint": [
       "@composer validate --strict",
-      "phpcs ."
+      "phpcs ./plugin",
+      "phpcs ./theme --standard=phpcs-theme.xml"
     ],
     "post-install-cmd": [
       "@setup"
