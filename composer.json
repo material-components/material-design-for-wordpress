@@ -59,7 +59,7 @@
   "extra": {
     "installer-name": "material-design",
     "copy-file": {
-      "tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
+      "plugin/tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
     }
   }
 }
