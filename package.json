@@ -161,7 +161,7 @@
     "format:php": "composer format",
     "icons": "grunt icon_mapping",
     "lint": "npm-run-all --parallel lint:*",
-    "lint:css": "wp-scripts lint-style 'assets/(src|css)/**/*.css'",
+    "lint:css": "wp-scripts lint-style '(plugin|theme)/assets/(src|css)/**/*.css'",
     "lint:js": "wp-scripts lint-js",
     "lint:php": "composer lint",
     "postinstall": "node node_modules/puppeteer/install && composer install",
