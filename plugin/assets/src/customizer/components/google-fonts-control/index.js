@@ -92,7 +92,8 @@ const GoogleFontsControl = props => {
 	const handleOnReset = event => {
 		event.preventDefault();
 
-		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) {// eslint-disable-line
+		// eslint-disable-next-line
+		if ( ! window.confirm( getConfig( 'l10n' ).confirmChange ) ) {
 			return;
 		}
 
