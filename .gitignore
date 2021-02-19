@@ -17,3 +17,5 @@ build/
 node_modules/
 tests/coverage
 vendor/
+plugin/composer*
+theme/composer*
