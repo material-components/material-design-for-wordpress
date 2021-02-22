@@ -155,27 +155,33 @@ class Importer extends Module_Base {
 	 * @return void
 	 */
 	public function add_menu_items() {
-		$menu_name = esc_html__( 'Importer Primary', 'material-design' );
-		wp_delete_nav_menu( $menu_name );
+		$menus = get_terms( 'nav_menu', [ 'hide_empty' => true ] );
 
-		$menu_id    = wp_create_nav_menu( $menu_name );
-		$menu_items = $this->get_menu_items();
+		if ( ! empty( $menus ) && ! empty( $menus[0] ) ) {
+			$menu_id = $menus[0]->term_id;
+		} else {
+			$menu_name = esc_html__( 'Importer Primary', 'material-design' );
+			wp_delete_nav_menu( $menu_name );
 
-		foreach ( $menu_items as $menu_item ) {
-			$page    = Helpers::get_page_by_title( $menu_item );
-			$page_id = ! empty( $page ) ? $page->ID : null;
+			$menu_id    = wp_create_nav_menu( $menu_name );
+			$menu_items = $this->get_menu_items();
 
-			wp_update_nav_menu_item(
-				$menu_id,
-				0,
-				[
-					'menu-item-title'     => $menu_item,
-					'menu-item-status'    => 'publish',
-					'menu-item-object'    => 'page',
-					'menu-item-object-id' => $page->ID,
-					'menu-item-type'      => 'post_type',
-				]
-			);
+			foreach ( $menu_items as $menu_item ) {
+				$page    = Helpers::get_page_by_title( $menu_item );
+				$page_id = ! empty( $page ) ? $page->ID : null;
+
+				wp_update_nav_menu_item(
+					$menu_id,
+					0,
+					[
+						'menu-item-title'     => $menu_item,
+						'menu-item-status'    => 'publish',
+						'menu-item-object'    => 'page',
+						'menu-item-object-id' => $page->ID,
+						'menu-item-type'      => 'post_type',
+					]
+				);
+			}
 		}
 
 		$menu_locations = get_theme_mod( 'nav_menu_locations' );
