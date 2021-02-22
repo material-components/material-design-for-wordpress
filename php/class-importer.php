@@ -630,16 +630,14 @@ class Importer extends Module_Base {
 
 		set_theme_mod( 'material_header_search_display', true );
 
-		if ( $home_page ) {
+		if ( $home_page && empty( get_option( 'page_on_front' ) ) ) {
 			update_option( 'page_on_front', $home_page->ID );
 			update_option( 'show_on_front', 'page' );
 		}
 
-		if ( $blog_page ) {
+		if ( $blog_page && empty( get_option( 'page_for_posts' ) ) ) {
 			update_option( 'page_for_posts', $blog_page->ID );
 		}
-
-		set_theme_mod( 'material_header_search_display', true );
 	}
 
 	/**
