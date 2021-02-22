@@ -16,7 +16,7 @@
 
 module.exports = {
 	verbose: true,
-	rootDir: '../../',
+	rootDir: '../../../',
 	...require( '@wordpress/scripts/config/jest-e2e.config' ),
 	transform: {
 		'^.+\\.[jt]sx?$':
@@ -24,7 +24,7 @@ module.exports = {
 	},
 	transformIgnorePatterns: [ 'node_modules' ],
 	setupFilesAfterEnv: [
-		'<rootDir>/tests/e2e/config/bootstrap.js',
+		'<rootDir>/plugin/tests/e2e/config/bootstrap.js',
 		'@wordpress/jest-puppeteer-axe',
 		'expect-puppeteer',
 		'jest-puppeteer-istanbul/lib/setup',
@@ -34,10 +34,10 @@ module.exports = {
 		'<rootDir>/node_modules',
 		'<rootDir>/bin',
 		'<rootDir>/build',
-		'<rootDir>/tests/coverage',
-		'<rootDir>/tests/js',
+		'<rootDir>**/tests/coverage',
+		'<rootDir>**/tests/js',
 		'<rootDir>/vendor',
 	],
-	collectCoverageFrom: [ '<rootDir>/assets/src/**/*.js' ],
+	collectCoverageFrom: [ '<rootDir>/**/assets/src/**/*.js' ],
 	reporters: [ 'default', 'jest-puppeteer-istanbul/lib/reporter' ],
 };
