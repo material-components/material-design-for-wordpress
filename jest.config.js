@@ -18,17 +18,18 @@ module.exports = {
 	verbose: true,
 	testMatch: [ '**/?(*.)+(spec|test).[jt]s?(x)' ],
 	preset: '@wordpress/jest-preset-default',
-	collectCoverageFrom: [ 'assets/src/**/*.js' ],
+	collectCoverageFrom: [ 'plugin/assets/src/**/*.js' ],
 	testPathIgnorePatterns: [
 		'/node_modules/',
 		'/vendor/',
 		'/bin/',
-		'/tests/e2e/',
+		'/plugin/tests/e2e/',
 	],
 	moduleNameMapper: {
-		'^!!json-loader!(.*).ijmap$': '<rootDir>/tests/mocks/ijmap.js',
+		'^!!json-loader!(.*).ijmap$': '<rootDir>/plugin/tests/mocks/ijmap.js',
 		'@wordpress/block-editor':
-			'<rootDir>/tests/mocks/@wordpress/block-editor.js',
-		'@wordpress/rich-text': '<rootDir>/tests/mocks/@wordpress/rich-text.js',
+			'<rootDir>/plugin/tests/mocks/@wordpress/block-editor.js',
+		'@wordpress/rich-text':
+			'<rootDir>/plugin/tests/mocks/@wordpress/rich-text.js',
 	},
 };
