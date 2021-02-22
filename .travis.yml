@@ -99,7 +99,7 @@ jobs:
         - docker-compose exec mysql bash -c "chown -R mysql:mysql /var/lib/mysql"
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088
         - npm run wp -- wp plugin activate material-design
-        - sudo chown -R travis:travis tests node_modules # ensure coverage folder can be created
+        - sudo chown -R travis:travis plugin/tests node_modules # ensure coverage folder can be created
         - npm run test:e2e:coveralls
 
     - name: E2E tests with Docker (7.3, WordPress 5.2)
@@ -119,7 +119,7 @@ jobs:
         - docker-compose exec mysql bash -c "chown -R mysql:mysql /var/lib/mysql"
         - npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088
         - npm run wp -- wp plugin activate material-design
-        - sudo chown -R travis:travis tests node_modules
+        - sudo chown -R travis:travis plugin/tests node_modules
         - npm run test:e2e
 
     - name: JS unit tests (7.4, WordPress latest, with code coverage)
