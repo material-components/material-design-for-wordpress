@@ -18,6 +18,7 @@
  * Customizer custom controls
  */
 
+/* stylelint-disable-next-line selector-id-pattern */
 #customize-control-material_header_layout {
 
 	& .customize-control-image-radio-wrap {
@@ -35,6 +36,7 @@
 	}
 }
 
+/* stylelint-disable-next-line selector-id-pattern */
 #customize-control-material_header_title_display {
 
 	& .description {
