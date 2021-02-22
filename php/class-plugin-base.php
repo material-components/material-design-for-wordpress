@@ -184,7 +184,7 @@ abstract class Plugin_Base {
 		}
 
 		$plugin_dir  = dirname( dirname( $file_name ) );
-		$plugin_path = $this->relative_path( $plugin_dir, basename( content_url() ), \DIRECTORY_SEPARATOR );
+		$plugin_path = $this->relative_path( $plugin_dir, basename( content_url() ), '/' );
 
 		$dir_url      = content_url( trailingslashit( $plugin_path ) );
 		$dir_path     = $plugin_dir;
