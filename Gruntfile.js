@@ -23,18 +23,23 @@ module.exports = function( grunt ) {
 	grunt.initConfig( {
 		// Build a deploy-able plugin.
 		copy: {
-			build: {
+			plugin: {
 				src: [
-					'**',
-					'!.*',
-					'!.*/**',
-					'!**/._.DS_Store',
-					'!**/.DS_Store',
-					'!assets/css/src/**',
-					'!assets/js/.gitignore',
-					'!assets/src/**',
-					'!assets/images/png/**',
-					'!assets/images/jpg/**',
+					'plugin/**',
+					'!plugin/.*',
+					'!plugin/.*/**',
+					'!plugin/**/._.DS_Store',
+					'!plugin/**/.DS_Store',
+					'!plugin/assets/css/src/**',
+					'!plugin/assets/js/.gitignore',
+					'!plugin/assets/src/**',
+					'!plugin/assets/images/png/**',
+					'!plugin/assets/images/jpg/**',
+					'!plugin/tests/**',
+					'!plugin/composer*',
+					'!plugin/readme.md',
+					'!plugin/vendor/**',
+					'!plugin/phpunit.xml',
 					'!bin/**',
 					'!build/**',
 					'!built/**',
@@ -56,9 +61,60 @@ module.exports = function( grunt ) {
 					'!postcss.config.js',
 					'!readme.md',
 					'!renovate.json',
-					'!tests/**',
 					'!vendor/**',
 					'!webpack.config.js',
+					'!webpack/**',
+				],
+				dest: 'build',
+				expand: true,
+				dot: true,
+			},
+			theme: {
+				src: [
+					'theme/**',
+					'!theme/.*',
+					'!theme/.*/**',
+					'!theme/**/._.DS_Store',
+					'!theme/**/.DS_Store',
+					'!theme/assets/css/src/**',
+					'!theme/assets/css/*.map',
+					'!theme/assets/js/.gitignore',
+					'!theme/assets/js/*.php',
+					'!theme/assets/js/*.map',
+					'!theme/assets/src/**',
+					'!theme/tests/**',
+					'!theme/wp-assets/**',
+					'!theme/composer*',
+					'!theme/readme.md',
+					'!theme/vendor/**',
+					'!theme/phpunit.xml',
+					'!bin/**',
+					'!build/**',
+					'!built/**',
+					'!code_of_conduct.md',
+					'!CONTRIBUTING.md',
+					'!contributing/**',
+					'!composer.json',
+					'!composer.lock',
+					'!contributing.md',
+					'!docker-compose.yml',
+					'!docker-compose-plugin-dev.yml',
+					'!material-design-google.zip',
+					'!Gruntfile.js',
+					'!jest.config.js',
+					'!node_modules/**',
+					'!npm-debug.log',
+					'!package.json',
+					'!package-lock.json',
+					'!phpcs.xml',
+					'!phpcs.xml.dist',
+					'!phpunit.xml',
+					'!postcss.config.js',
+					'!README.md',
+					'!renovate.json',
+					'!vendor/**',
+					'!webpack.config.js',
+					'!webpack/**',
 				],
 				dest: 'build',
 				expand: true,
@@ -70,12 +126,18 @@ module.exports = function( grunt ) {
 		clean: {
 			compiled: {
 				src: [
-					'assets/js/*.js',
-					'assets/js/*.js.map',
-					'assets/js/*.asset.php',
-					'assets/css/*.css',
-					'!assets/css/src/*',
-					'assets/css/*.css.map',
+					'plugin/assets/js/*.js',
+					'plugin/assets/js/*.js.map',
+					'plugin/assets/js/*.asset.php',
+					'plugin/assets/css/*.css',
+					'!plugin/assets/css/src/*',
+					'plugin/assets/css/*.css.map',
+					'theme/assets/js/*.js',
+					'theme/assets/js/*.js.map',
+					'theme/assets/js/*.asset.php',
+					'theme/assets/css/*.css',
+					'!theme/assets/css/src/*',
+					'theme/assets/css/*.css.map',
 				],
 			},
 			build: {
@@ -92,8 +154,11 @@ module.exports = function( grunt ) {
 			readme: {
 				command: './vendor/xwp/wp-dev-lib/scripts/generate-markdown-readme', // Generate the readme.md.
 			},
-			create_build_zip: {
-				command: 'if [ ! -e build ]; then echo "Run grunt build first."; exit 1; fi; if [ -e material-design.zip ]; then rm material-design.zip; fi; mv build material-design; zip -r ./material-design.zip material-design; mv material-design build; echo; echo "ZIP of build: $(pwd)/material-design.zip"',
+			create_plugin_zip: {
+				command: 'if [ ! -e build ]; then echo "Run grunt build first."; exit 1; fi; if [ -e material-design.zip ]; then rm material-design.zip; fi; mv build/plugin ./material-design; zip -r ./material-design.zip ./material-design; mv ./material-design build/plugin; echo; echo "ZIP of build: $(pwd)/material-design.zip"',
+			},
+			create_theme_zip: {
+				command: 'if [ ! -e build ]; then echo "Run grunt build first."; exit 1; fi; if [ -e material-design-google.zip ]; then rm material-design-google.zip; fi; mv build/theme ./material-design-google; zip -r ./material-design-google.zip ./material-design-google; mv ./material-design-google build/theme; echo; echo "ZIP of build: $(pwd)/material-design-google.zip"',
 			},
 		},
 
@@ -102,7 +167,7 @@ module.exports = function( grunt ) {
 			deploy: {
 				options: {
 					plugin_slug: 'material-design',
-					build_dir: 'build',
+					build_dir: 'build/plugin',
 				  	assets_dir: 'wp-assets',
 				},
 			},
@@ -117,8 +182,8 @@ module.exports = function( grunt ) {
 
 	// Register custom tasks.
 	grunt.registerTask( 'icon_mapping', 'Turn codepoints into JSON', () => {
-		const filePath = 'assets/fonts/icons.json';
-		const iconFile = grunt.file.read( 'assets/fonts/icons.codepoints' );
+		const filePath = 'plugin/assets/fonts/icons.json';
+		const iconFile = grunt.file.read( 'plugin/assets/fonts/icons.codepoints' );
 		const iconItems = iconFile.split( /\r?\n/g );
 		const icons = {
 			icons: {},
@@ -145,7 +210,10 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'build', [ 'readme', 'copy', 'icon_mapping' ] );
 
-	grunt.registerTask( 'create-build-zip', [ 'shell:create_build_zip' ] );
+	grunt.registerTask( 'create-build-zip', [
+		'shell:create_plugin_zip',
+		'shell:create_theme_zip',
+	] );
 
 	grunt.registerTask( 'deploy', [ 'build', 'wp_deploy', 'clean' ] );
 };
