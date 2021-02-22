@@ -56,6 +56,18 @@
     "textColor": {
       "type": "string"
     },
+    "tooltip": {
+      "type": "string",
+      "default": "",
+      "source": "text",
+      "selector": ".mdc-tooltip"
+    },
+    "id": {
+		  "type": "string",
+		  "source": "attribute",
+		  "attribute": "id",
+		  "selector": "*"
+	  },
     "isSubmit": {
       "type": "boolean",
       "default": false
