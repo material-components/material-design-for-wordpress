@@ -25,8 +25,8 @@ const istanbulCoverage = require( 'istanbul-lib-coverage' );
 const args = require( 'minimist' )( process.argv.slice( 2 ) );
 
 /* [ Configuration ] */
-const rootDir = './tests/coverage';
-const reportOut = './tests/coverage/js-e2e';
+const rootDir = './plugin/tests/coverage';
+const reportOut = './plugin/tests/coverage/js-e2e';
 
 const mergeAllReports = ( coverageMap, reports ) => {
 	if ( Array.isArray( reports ) === false ) {
