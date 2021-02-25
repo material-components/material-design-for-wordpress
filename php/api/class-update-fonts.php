@@ -90,20 +90,27 @@ class Update_Fonts extends Updates_API_Base {
 	 * @throws Exception An exception.
 	 */
 	public function get_fonts( $write_output = true ) {
+		$data       = new stdClass();
+		$data->data = [];
 
 		$new = null;
-		if ( false === get_transient( self::TRANSIENT ) || true === $this->force_http ) {
-			$json = $this->get_http_response();
-			$new  = json_decode( $this->json_to_file( $json, $write_output ) );
+		if ( ! empty( $this->api_key ) && ( false === get_transient( self::TRANSIENT ) || true === $this->force_http ) ) {
+			$json  = $this->get_http_response();
+			$fonts = $this->json_to_file( $json, $write_output );
+
+			if ( ! empty( $fonts ) ) {
+				$new = json_decode( $this->json_to_file( $json, $write_output ) );
+			}
 
 			set_transient( self::TRANSIENT, time(), DAY_IN_SECONDS );
-		} else {
+		}
+
+		// If we still don't have fonts, fetch from local.
+		if ( empty( $new ) ) {
 			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
 			$new = json_decode( $new );
 		}
 
-		$data       = new stdClass();
-		$data->data = [];
 		foreach ( $new as $name => $font ) {
 			$data->data[] = (object) [
 				'id'   => esc_attr( strtolower( $name ) ),
@@ -129,7 +136,7 @@ class Update_Fonts extends Updates_API_Base {
 
 		// Bail if there are no items to prevent writing emptiness to the local file.
 		if ( empty( $data->items ) ) {
-			return $fonts;
+			return '';
 		}
 
 		foreach ( $data->items as $font ) {
