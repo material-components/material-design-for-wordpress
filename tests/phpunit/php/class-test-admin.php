@@ -68,6 +68,8 @@ class Test_Admin extends \WP_UnitTestCase {
 		$this->assertEquals( 10, has_action( 'switch_theme', [ $this->plugin->admin, 'switch_theme_material' ] ) );
 		$this->assertEquals( 10, has_action( 'admin_notices', [ $this->plugin->admin, 'theme_not_installed_notice' ] ) );
 		$this->assertEquals( 9, has_action( 'admin_notices', [ $this->plugin->admin, 'plugin_activated_notice' ] ) );
+		$this->assertEquals( 10, has_filter( 'auto_update_plugin', [ $this->plugin->admin, 'enable_plugin_auto_update' ] ) );
+		$this->assertEquals( 10, has_filter( 'auto_update_theme', [ $this->plugin->admin, 'enable_theme_auto_update' ] ) );
 	}
 
 
@@ -270,6 +272,38 @@ class Test_Admin extends \WP_UnitTestCase {
 		$output = ob_get_clean();
 
 		$this->assertContains( '<div class="notice notice-info is-dismissible material-notice-container">', $output );
+	}
+
+	/**
+	 * Test for enable_plugin_auto_update() method.
+	 *
+	 * @see Plugin::enable_plugin_auto_update()
+	 */
+	public function test_enable_plugin_auto_update() {
+		$obj       = new \stdClass();
+		$obj->slug = 'generic-plugin';
+
+		$this->assertEquals( null, $this->admin->enable_plugin_auto_update( null, $obj ) );
+		$this->assertEquals( false, $this->admin->enable_plugin_auto_update( false, $obj ) );
+
+		$obj->slug = 'material-design';
+		$this->assertEquals( true, $this->admin->enable_plugin_auto_update( null, $obj ) );
+	}
+
+	/**
+	 * Test for enable_theme_auto_update() method.
+	 *
+	 * @see Plugin::enable_theme_auto_update()
+	 */
+	public function enable_theme_auto_update() {
+		$obj       = new \stdClass();
+		$obj->slug = 'generic-theme';
+
+		$this->assertEquals( null, $this->admin->enable_theme_auto_update( null, $obj ) );
+		$this->assertEquals( false, $this->admin->enable_theme_auto_update( false, $obj ) );
+
+		$obj->slug = Plugin::THEME_SLUG;
+		$this->assertEquals( true, $this->admin->enable_theme_auto_update( null, $obj ) );
 	}
 
 	/**
