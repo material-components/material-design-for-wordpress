@@ -75,7 +75,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	public function register_routes() {
 		register_rest_route(
 			$this->namespace,
-			'/' . $this->rest_base . '/retrieve-fonts',
+			'/' . $this->rest_base . '/retrieve-fonts(?:/(?P<force>force))?',
 			[
 				[
 					'methods'             => \WP_REST_Server::READABLE,
@@ -90,7 +90,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 
 		register_rest_route(
 			$this->namespace,
-			'/' . $this->rest_base . '/retrieve-icons',
+			'/' . $this->rest_base . '/retrieve-icons(?:/(?P<force>force))?',
 			[
 				[
 					'methods'             => \WP_REST_Server::READABLE,
@@ -159,9 +159,9 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	 * @return false|\stdClass|string
 	 */
 	public function get_fonts( $request ) {
-		$force = $request->get_param( 'force_http' );
+		$force = $request->get_param( 'force' );
 
-		$fonts = new Update_Fonts( $force );
+		$fonts = new Update_Fonts( 'force' === $force );
 		$data  = $fonts->get_fonts();
 		$count = count( $data->data );
 
@@ -187,9 +187,9 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	 * @return mixed
 	 */
 	public function get_icons( $request ) {
-		$force = $request->get_param( 'force_http' );
+		$force = $request->get_param( 'force' );
 
-		$icons = new Update_Icons( $force );
+		$icons = new Update_Icons( 'force' === $force );
 		$data  = $icons->get_icons();
 		$count = count( $data->data );
 

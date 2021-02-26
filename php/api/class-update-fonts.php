@@ -73,7 +73,7 @@ class Update_Fonts extends Updates_API_Base {
 		}
 
 		if ( empty( $this->api_key ) ) {
-			_material_design_error( '_material_design_no_apikey_textonly', $this->material_design_no_apikey() );
+			_material_design_error( [ $this, 'material_design_no_apikey_textonly' ], [ $this, 'material_design_no_apikey' ] );
 		}
 
 		$this->endpoint        = sprintf( 'https://www.googleapis.com/webfonts/v1/webfonts?key=%s&fields=items(category,variants,family)', $this->api_key );
@@ -106,9 +106,13 @@ class Update_Fonts extends Updates_API_Base {
 		}
 
 		// If we still don't have fonts, fetch from local.
-		if ( empty( $new ) ) {
+		if ( empty( $new ) && ! $this->force_http ) {
 			$new = file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json' );
 			$new = json_decode( $new );
+		}
+
+		if ( empty( $new ) ) {
+			return $data;
 		}
 
 		foreach ( $new as $name => $font ) {
