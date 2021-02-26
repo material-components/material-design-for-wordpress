@@ -289,12 +289,12 @@ const ImageListEdit = ( {
 					title={ __( 'Settings', 'material-design' ) }
 					initialOpen={ true }
 				>
-					<RangeControl
+					<AttributeWithDevices
 						label={ __( 'Columns', 'material-design' ) }
 						value={ columns }
 						onChange={ setter( 'columns' ) }
-						min={ 2 }
-						max={ 5 }
+						min={ 1 }
+						max={ 6 }
 					/>
 
 					<AttributeWithDevices

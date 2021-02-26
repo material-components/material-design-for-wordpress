@@ -69,6 +69,7 @@ const Gallery = ( {
 	isSaveContext = false,
 } ) => {
 	const desktopGutter = gutter.desktop || 0;
+	const desktopColumns = 'number' === columns ? columns : columns.desktop || 4;
 	let Tag = 'a';
 	let tagProps = {};
 	let wrapStyles = {},
@@ -80,7 +81,7 @@ const Gallery = ( {
 	if ( ! isSaveContext ) {
 		if ( 'masonry' === style ) {
 			wrapStyles = {
-				columnCount: columns,
+				columnCount: desktopColumns,
 				columnGap: `${ desktopGutter }px`,
 			};
 
@@ -89,7 +90,8 @@ const Gallery = ( {
 			};
 		} else {
 			itemStyles = {
-				width: `calc(100% / ${ columns } - ${ desktopGutter + 1 / columns }px)`,
+				width: `calc(100% / ${ desktopColumns } - ${ desktopGutter +
+					1 / desktopColumns }px)`,
 				margin: `${ desktopGutter / 2 }px`,
 			};
 		}
