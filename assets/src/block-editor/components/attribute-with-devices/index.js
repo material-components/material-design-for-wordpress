@@ -24,7 +24,6 @@ import classNames from 'classnames';
  */
 import { RangeControl } from '@wordpress/components';
 import { useState } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -32,7 +31,7 @@ import { __ } from '@wordpress/i18n';
 import './style.css';
 import { DEVICES } from '../../constants';
 
-export default ( { value, min = 0, max = 24, onChange } ) => {
+export default ( { label, value, min = 0, max = 24, onChange } ) => {
 	const [ selectedDevice, setSelectedDevice ] = useState( 'desktop' );
 
 	const setGutter = newGutter => {
@@ -43,8 +42,8 @@ export default ( { value, min = 0, max = 24, onChange } ) => {
 		<RangeControl
 			label={
 				<>
-					{ __( 'Gutter', 'material-design' ) }
-					<div className="components-base-control__label-actions components-base-control__gutter-device-label">
+					{ label }
+					<div className="components-base-control__label-actions components-base-control__attr-device-label">
 						{ DEVICES.map( device => (
 							<button
 								key={ device.name }

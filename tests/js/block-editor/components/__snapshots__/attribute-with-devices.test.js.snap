@@ -39,9 +39,8 @@ Object {
             class="components-base-control__label"
             for="inspector-range-control-0"
           >
-            Gutter
             <div
-              class="components-base-control__label-actions components-base-control__gutter-device-label"
+              class="components-base-control__label-actions components-base-control__attr-device-label"
             >
               <button
                 class="is-selected"
@@ -144,9 +143,8 @@ Object {
           class="components-base-control__label"
           for="inspector-range-control-0"
         >
-          Gutter
           <div
-            class="components-base-control__label-actions components-base-control__gutter-device-label"
+            class="components-base-control__label-actions components-base-control__attr-device-label"
           >
             <button
               class="is-selected"
