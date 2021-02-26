@@ -198,8 +198,8 @@ describe( 'blocks: material/image-list: Edit', () => {
 
 	it( 'updates correct device gutter on gutter change', () => {
 		const props = { ...galleryProps };
-		const { container, getByText } = setup( props );
-		let button = getByText( /tablet/i );
+		const { container, getAllByText } = setup( props );
+		let button = getAllByText( /tablet/i )[ 1 ];
 
 		fireEvent.click( button );
 		fireEvent.change(
@@ -213,7 +213,7 @@ describe( 'blocks: material/image-list: Edit', () => {
 			props.setAttributes.mock.calls[ 0 ][ 0 ].gutter.tablet
 		).toStrictEqual( 12 );
 
-		button = getByText( /smartphone/i );
+		button = getAllByText( /smartphone/i )[ 1 ];
 		fireEvent.click( button );
 		fireEvent.change(
 			container.querySelectorAll( '.components-range-control__number' )[ 1 ],
