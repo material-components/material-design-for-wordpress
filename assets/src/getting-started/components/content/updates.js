@@ -51,7 +51,7 @@ export const Updates = () => {
 	function updateFonts() {
 		setIsUpdatingFonts( true );
 		apiFetch( {
-			path: getConfig( 'assetsRestPath' ) + 'retrieve-fonts',
+			path: getConfig( 'assetsRestPath' ) + 'retrieve-fonts/force',
 			method: 'GET',
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),
@@ -64,7 +64,7 @@ export const Updates = () => {
 	function updateIcons() {
 		setIsUpdatingIcons( true );
 		apiFetch( {
-			path: getConfig( 'assetsRestPath' ) + 'retrieve-icons',
+			path: getConfig( 'assetsRestPath' ) + 'retrieve-icons/force',
 			method: 'GET',
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),
