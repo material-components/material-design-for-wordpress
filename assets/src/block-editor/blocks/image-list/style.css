@@ -22,7 +22,7 @@
 .mdc-image-list {
 	list-style: none;
 	padding: 0 !important;
-	margin: 0 !important;
+	margin: 0 0 1rem !important;
 }
 
 .mdc-image-list__item-wrap {
