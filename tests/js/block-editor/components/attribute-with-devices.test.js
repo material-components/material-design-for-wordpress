@@ -23,7 +23,7 @@ import { render, fireEvent } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import GutterWithDevices from '../../../../assets/src/block-editor/components/gutter-with-devices';
+import GutterWithDevices from '../../../../assets/src/block-editor/components/attribute-with-devices';
 
 /**
  * Render the component.

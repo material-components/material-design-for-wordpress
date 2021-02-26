@@ -50,7 +50,7 @@ import Gallery from './components/gallery';
 import getConfig from '../../utils/get-config';
 import './style.css';
 import { name as ImageListBlockName } from './index';
-import GutterWithDevices from '../../components/gutter-with-devices';
+import AttributeWithDevices from '../../components/attribute-with-devices';
 
 const STYLES = [
 	{
@@ -297,7 +297,8 @@ const ImageListEdit = ( {
 						max={ 5 }
 					/>
 
-					<GutterWithDevices
+					<AttributeWithDevices
+						label={ __( 'Gutter', 'material-design' ) }
 						value={ gutter }
 						onChange={ setter( 'gutter' ) }
 						min={ 0 }

@@ -33,7 +33,7 @@ import GlobalShapeSize from '../global-shape-size';
 import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
 import { name as CardCollectionBlockName } from '../../blocks/cards-collection/index';
 import getConfig from '../../utils/get-config';
-import GutterWithDevices from '../gutter-with-devices';
+import AttributeWithDevices from '../attribute-with-devices';
 
 const CARD_STYLES = [
 	{
@@ -160,7 +160,8 @@ const CardStylesPanel = ( {
 			/>
 		) }
 		{ showGutter && (
-			<GutterWithDevices
+			<AttributeWithDevices
+				label={ __( 'Gutter', 'material-design' ) }
 				value={ gutter }
 				onChange={ setter( 'gutter' ) }
 				min={ 1 }

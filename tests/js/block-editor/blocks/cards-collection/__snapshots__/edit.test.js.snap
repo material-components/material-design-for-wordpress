@@ -668,7 +668,7 @@ Object {
             >
               Gutter
               <div
-                class="components-base-control__label-actions components-base-control__gutter-device-label"
+                class="components-base-control__label-actions components-base-control__attr-device-label"
               >
                 <button
                   class="is-selected"
@@ -2066,7 +2066,7 @@ Object {
           >
             Gutter
             <div
-              class="components-base-control__label-actions components-base-control__gutter-device-label"
+              class="components-base-control__label-actions components-base-control__attr-device-label"
             >
               <button
                 class="is-selected"
@@ -3545,7 +3545,7 @@ Object {
             >
               Gutter
               <div
-                class="components-base-control__label-actions components-base-control__gutter-device-label"
+                class="components-base-control__label-actions components-base-control__attr-device-label"
               >
                 <button
                   class="is-selected"
@@ -4929,7 +4929,7 @@ Object {
           >
             Gutter
             <div
-              class="components-base-control__label-actions components-base-control__gutter-device-label"
+              class="components-base-control__label-actions components-base-control__attr-device-label"
             >
               <button
                 class="is-selected"
@@ -6217,7 +6217,7 @@ Object {
             >
               Gutter
               <div
-                class="components-base-control__label-actions components-base-control__gutter-device-label"
+                class="components-base-control__label-actions components-base-control__attr-device-label"
               >
                 <button
                   class="is-selected"
@@ -7353,7 +7353,7 @@ Object {
           >
             Gutter
             <div
-              class="components-base-control__label-actions components-base-control__gutter-device-label"
+              class="components-base-control__label-actions components-base-control__attr-device-label"
             >
               <button
                 class="is-selected"
@@ -9499,6 +9499,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                 </ToggleControl>
               </WithInstanceId(ToggleControl)>
               <_default
+                label="Gutter"
                 max={24}
                 min={1}
                 onChange={[Function]}
@@ -9509,7 +9510,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                     <React.Fragment>
                       Gutter
                       <div
-                        className="components-base-control__label-actions components-base-control__gutter-device-label"
+                        className="components-base-control__label-actions components-base-control__attr-device-label"
                       >
                         <button
                           className="is-selected"
@@ -9555,7 +9556,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       <React.Fragment>
                         Gutter
                         <div
-                          className="components-base-control__label-actions components-base-control__gutter-device-label"
+                          className="components-base-control__label-actions components-base-control__attr-device-label"
                         >
                           <button
                             className="is-selected"
@@ -9602,7 +9603,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         <React.Fragment>
                           Gutter
                           <div
-                            className="components-base-control__label-actions components-base-control__gutter-device-label"
+                            className="components-base-control__label-actions components-base-control__attr-device-label"
                           >
                             <button
                               className="is-selected"
@@ -9650,7 +9651,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           >
                             Gutter
                             <div
-                              className="components-base-control__label-actions components-base-control__gutter-device-label"
+                              className="components-base-control__label-actions components-base-control__attr-device-label"
                             >
                               <button
                                 className="is-selected"
@@ -9709,7 +9710,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       <React.Fragment>
                                         Gutter
                                         <div
-                                          className="components-base-control__label-actions components-base-control__gutter-device-label"
+                                          className="components-base-control__label-actions components-base-control__attr-device-label"
                                         >
                                           <button
                                             className="is-selected"
@@ -9765,7 +9766,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         <React.Fragment>
                                           Gutter
                                           <div
-                                            className="components-base-control__label-actions components-base-control__gutter-device-label"
+                                            className="components-base-control__label-actions components-base-control__attr-device-label"
                                           >
                                             <button
                                               className="is-selected"
@@ -9944,7 +9945,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   <React.Fragment>
                                     Gutter
                                     <div
-                                      className="components-base-control__label-actions components-base-control__gutter-device-label"
+                                      className="components-base-control__label-actions components-base-control__attr-device-label"
                                     >
                                       <button
                                         className="is-selected"
@@ -9994,7 +9995,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     <React.Fragment>
                                       Gutter
                                       <div
-                                        className="components-base-control__label-actions components-base-control__gutter-device-label"
+                                        className="components-base-control__label-actions components-base-control__attr-device-label"
                                       >
                                         <button
                                           className="is-selected"
