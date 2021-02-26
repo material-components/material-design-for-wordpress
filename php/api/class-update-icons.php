@@ -85,6 +85,10 @@ class Update_Icons extends Updates_API_Base {
 			$new = json_decode( $new );
 		}
 
+		if ( empty( $new ) ) {
+			return false;
+		}
+
 		$new->data = $new->icons;
 		unset( $new->icons );
 

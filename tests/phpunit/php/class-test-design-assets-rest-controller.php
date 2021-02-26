@@ -83,11 +83,11 @@ class Test_Design_Assets_Rest_Controller extends \WP_UnitTestCase {
 	 * Test register_routes().
 	 */
 	public function test_register_routes() {
-		$this->assertArrayHasKey( $this->get_route( '/retrieve-fonts' ), $this->routes );
-		$this->assertCount( 1, $this->routes[ $this->get_route( '/retrieve-fonts' ) ] );
+		$this->assertArrayHasKey( $this->get_route( '/retrieve-fonts(?:/(?P<force>force))?' ), $this->routes );
+		$this->assertCount( 1, $this->routes[ $this->get_route( '/retrieve-fonts(?:/(?P<force>force))?' ) ] );
 
-		$this->assertArrayHasKey( $this->get_route( '/retrieve-icons' ), $this->routes );
-		$this->assertCount( 1, $this->routes[ $this->get_route( '/retrieve-icons' ) ] );
+		$this->assertArrayHasKey( $this->get_route( '/retrieve-icons(?:/(?P<force>force))?' ), $this->routes );
+		$this->assertCount( 1, $this->routes[ $this->get_route( '/retrieve-icons(?:/(?P<force>force))?' ) ] );
 	}
 
 	/**

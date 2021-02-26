@@ -98,12 +98,12 @@ class Icons extends \WP_CLI_Command /*phpcs:ignore WordPressVIPMinimum.Classes.R
 	 */
 	public function run_command( $args, $assoc_args ) {
 
-		$force_http = \WP_CLI\Utils\get_flag_value( $assoc_args, self::FLAG_FORCE_HTTP, false );
+		$force_http = \WP_CLI\Utils\get_flag_value( $assoc_args, self::FLAG_FORCE_HTTP, true );
 
-		$google_fonts = new Update_Icons( $force_http );
-		$data         = $google_fonts->get_icons();
+		$icons = new Update_Icons( $force_http );
+		$data  = $icons->get_icons();
 
-		if ( ! empty( $data ) ) {
+		if ( ! empty( $data ) && ! empty( $data->data ) ) {
 			\WP_CLI::success( __( 'Icons have been updated.', 'material-design' ) );
 		} else {
 			\WP_CLI::error( __( 'Icons have not been updated.', 'material-design' ) );
