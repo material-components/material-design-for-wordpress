@@ -15,11 +15,6 @@
  */
 
 /**
- * External dependencies
- */
-import classNames from 'classnames';
-
-/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
@@ -29,7 +24,6 @@ import {
 	RadioControl,
 	ToggleControl,
 } from '@wordpress/components';
-import { useState } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -39,7 +33,7 @@ import GlobalShapeSize from '../global-shape-size';
 import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
 import { name as CardCollectionBlockName } from '../../blocks/cards-collection/index';
 import getConfig from '../../utils/get-config';
-import './style.css';
+import GutterWithDevices from '../gutter-with-devices';
 
 const CARD_STYLES = [
 	{
@@ -74,24 +68,6 @@ const CONTENT_LAYOUTS = [
 	},
 ];
 
-const GUTTER_DEVICES = [
-	{
-		name: 'desktop',
-		icon: 'computer',
-	},
-	{
-		name: 'mobile',
-		icon: 'smartphone',
-	},
-	{
-		name: 'tablet',
-		icon: 'tablet',
-	},
-];
-
-const GUTTER_MIN_VALUE = 1;
-const GUTTER_MAX_VALUE = 24;
-
 const CardStylesPanel = ( {
 	style,
 	columns,
@@ -111,120 +87,87 @@ const CardStylesPanel = ( {
 	outlined,
 	showOutlined = true,
 	setter,
-} ) => {
-	const [ gutterDevice, setGutterDevice ] = useState( 'desktop' );
-	// Set the gutter for selected device.
+} ) => (
+	<PanelBody title={ __( 'Styles', 'material-design' ) } initialOpen={ true }>
+		<ImageRadioControl
+			selected={ style }
+			options={ CARD_STYLES }
+			onChange={ setter( 'style' ) }
+		/>
 
-	const setGutter = setter( 'gutter', newGutter => {
-		return { ...gutter, ...{ [ gutterDevice ]: newGutter } };
-	} );
-
-	return (
-		<PanelBody title={ __( 'Styles', 'material-design' ) } initialOpen={ true }>
-			<ImageRadioControl
-				selected={ style }
-				options={ CARD_STYLES }
-				onChange={ setter( 'style' ) }
-			/>
-
-			{ ( style === 'masonry' || style === 'grid' ) && showColumns && (
-				<>
-					<RangeControl
-						label={ __( 'Columns', 'material-design' ) }
-						value={ columns }
-						onChange={ setter( 'columns' ) }
-						min={ minColumns }
-						max={ maxColumns }
-					/>
-					{ showAllowIndividualStyleOverride && (
-						<ToggleControl
-							label={ __(
-								'Allow individual card override',
-								'material-design'
-							) }
-							checked={ allowIndividualStyleOverride }
-							onChange={ setter( 'allowIndividualStyleOverride' ) }
-						/>
-					) }
-					{ ! allowIndividualStyleOverride && showContentLayout && (
-						<RadioControl
-							label={ __( 'Content layout', 'material-design' ) }
-							selected={ contentLayout }
-							options={ CONTENT_LAYOUTS }
-							onChange={ setter( 'contentLayout' ) }
-						/>
-					) }
-				</>
-			) }
-
-			{ ! allowIndividualStyleOverride && showCornerRadius && (
-				<div className="components-base-control">
-					<label
-						className="components-base-control__label"
-						htmlFor="shape-size"
-					>
-						{ __( 'Corner Styles', 'material-design' ) }
-					</label>
-
-					<div>
-						{ __(
-							'Overrides will only apply to these cards. Change Cards corner styles in ',
-							'material-design'
-						) }
-						<a
-							href={ getConfig( 'customizerUrls' ).shape }
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							{ __( 'Material Design Options', 'material-design' ) }
-						</a>
-						{ __( ' to update all cards.', 'material-design' ) }
-					</div>
-					<GlobalShapeSize
-						value={ cornerRadius }
-						onChange={ setter( 'cornerRadius' ) }
-						min={ minRoundedCornersRadius }
-						max={ maxRoundedCornersRadius }
-						blockName={ CardCollectionBlockName }
-					/>
-				</div>
-			) }
-
-			{ ! allowIndividualStyleOverride && showOutlined && (
-				<ToggleControl
-					label={ __( 'Outlined', 'material-design' ) }
-					checked={ outlined }
-					onChange={ setter( 'outlined' ) }
-				/>
-			) }
-			{ showGutter && (
+		{ ( style === 'masonry' || style === 'grid' ) && showColumns && (
+			<>
 				<RangeControl
-					label={
-						<>
-							{ __( 'Gutter', 'material-design' ) }
-							<div className="components-base-control__label-actions">
-								{ GUTTER_DEVICES.map( device => (
-									<button
-										key={ device.name }
-										className={ classNames( '', {
-											'is-selected': device.name === gutterDevice,
-										} ) }
-										onClick={ () => setGutterDevice( device.name ) }
-									>
-										<i className="material-icons">{ device.icon }</i>
-									</button>
-								) ) }
-							</div>
-						</>
-					}
-					value={ gutter[ gutterDevice ] || 1 }
-					onChange={ value => setGutter( value ) }
-					min={ GUTTER_MIN_VALUE }
-					max={ GUTTER_MAX_VALUE }
+					label={ __( 'Columns', 'material-design' ) }
+					value={ columns }
+					onChange={ setter( 'columns' ) }
+					min={ minColumns }
+					max={ maxColumns }
 				/>
-			) }
-		</PanelBody>
-	);
-};
+				{ showAllowIndividualStyleOverride && (
+					<ToggleControl
+						label={ __( 'Allow individual card override', 'material-design' ) }
+						checked={ allowIndividualStyleOverride }
+						onChange={ setter( 'allowIndividualStyleOverride' ) }
+					/>
+				) }
+				{ ! allowIndividualStyleOverride && showContentLayout && (
+					<RadioControl
+						label={ __( 'Content layout', 'material-design' ) }
+						selected={ contentLayout }
+						options={ CONTENT_LAYOUTS }
+						onChange={ setter( 'contentLayout' ) }
+					/>
+				) }
+			</>
+		) }
+
+		{ ! allowIndividualStyleOverride && showCornerRadius && (
+			<div className="components-base-control">
+				<label className="components-base-control__label" htmlFor="shape-size">
+					{ __( 'Corner Styles', 'material-design' ) }
+				</label>
+
+				<div>
+					{ __(
+						'Overrides will only apply to these cards. Change Cards corner styles in ',
+						'material-design'
+					) }
+					<a
+						href={ getConfig( 'customizerUrls' ).shape }
+						target="_blank"
+						rel="noreferrer noopener"
+					>
+						{ __( 'Material Design Options', 'material-design' ) }
+					</a>
+					{ __( ' to update all cards.', 'material-design' ) }
+				</div>
+				<GlobalShapeSize
+					value={ cornerRadius }
+					onChange={ setter( 'cornerRadius' ) }
+					min={ minRoundedCornersRadius }
+					max={ maxRoundedCornersRadius }
+					blockName={ CardCollectionBlockName }
+				/>
+			</div>
+		) }
+
+		{ ! allowIndividualStyleOverride && showOutlined && (
+			<ToggleControl
+				label={ __( 'Outlined', 'material-design' ) }
+				checked={ outlined }
+				onChange={ setter( 'outlined' ) }
+			/>
+		) }
+		{ showGutter && (
+			<GutterWithDevices
+				value={ gutter }
+				onChange={ setter( 'gutter' ) }
+				min={ 1 }
+				max={ 24 }
+			/>
+		) }
+	</PanelBody>
+);
 
 export default CardStylesPanel;

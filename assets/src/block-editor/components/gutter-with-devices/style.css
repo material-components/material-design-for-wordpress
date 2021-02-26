@@ -1,0 +1,28 @@
+.components-base-control__gutter-device-label {
+	display: inline-block;
+	margin-left: 10px;
+
+	& button {
+		background-color: #eee;
+		border: none;
+		border-radius: 20px;
+		padding: 0;
+		margin-left: 6px;
+		display: inline-block;
+		cursor: pointer;
+		width: 32px;
+    	height: 32px;
+
+		&.is-selected,
+		&:hover {
+			background-color: #888;
+			color: var(--var-text-color);
+		}
+
+		i {
+			font-size: 14px;
+			line-height: 24px;
+			text-align: center;
+		}
+	}
+}

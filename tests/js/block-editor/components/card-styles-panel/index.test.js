@@ -18,7 +18,7 @@
  * External dependencies
  */
 import '@testing-library/jest-dom/extend-expect';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 /**
  * Internal dependencies
@@ -72,22 +72,5 @@ describe( 'CardStylesPanel', () => {
 		baseProps.allowIndividualStyleOverride = true;
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
-	} );
-
-	it( 'updates correct device gutter on gutter change', () => {
-		const props = { ...baseProps };
-		const { container, getByText } = setup( props );
-		const button = getByText( /computer/i );
-
-		fireEvent.click( button );
-		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 0 ],
-			{
-				target: { value: 12 },
-			}
-		);
-
-		// TODO: This might not be the correct test.
-		expect( props.setter.mock.calls[ 0 ][ 0 ] ).toStrictEqual( 'gutter' );
 	} );
 } );
