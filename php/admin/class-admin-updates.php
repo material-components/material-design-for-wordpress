@@ -52,14 +52,12 @@ class Admin_Updates {
 	 *
 	 * @hook admin_init
 	 *
-	 * @param bool $write_response Whether to force file writes.
-	 *
 	 * @return bool Whether the updates happened successful.
 	 * @throws \Exception Exception.
 	 */
-	public function run_updates( $write_response = true ) {
-		$success = $this->update_fonts( $write_response );
-		$success = $this->update_icons( $write_response );
+	public function run_updates() {
+		$success = $this->update_fonts( true );
+		$success = $this->update_icons( true );
 
 		return $success;
 	}
