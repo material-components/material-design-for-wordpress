@@ -98,34 +98,6 @@
 	}
 }
 
-.components-base-control__label-actions {
-	display: inline-block;
-	margin-left: 10px;
-
-	& button {
-		background-color: #eee;
-		border: none;
-		border-radius: 20px;
-		padding: 0;
-		margin-left: 6px;
-		display: inline-block;
-		cursor: pointer;
-
-		&.is-selected,
-		&:hover {
-			background-color: #c4c4c4;
-			color: var(--var-text-color);
-		}
-
-		i {
-			font-size: 12px;
-			line-height: 22px;
-			text-align: center;
-			width: 22px;
-		}
-	}
-}
-
 .wp-block-material-image-list .components-placeholder__label .material-icons-outlined {
 	margin-right: 10px;
 }

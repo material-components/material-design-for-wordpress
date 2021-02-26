@@ -531,7 +531,7 @@ Object {
             >
               Gutter
               <div
-                class="components-base-control__label-actions"
+                class="components-base-control__label-actions components-base-control__gutter-device-label"
               >
                 <button
                   class="is-selected"
@@ -548,7 +548,7 @@ Object {
                   <i
                     class="material-icons"
                   >
-                    smartphone
+                    tablet
                   </i>
                 </button>
                 <button
@@ -557,7 +557,7 @@ Object {
                   <i
                     class="material-icons"
                   >
-                    tablet
+                    smartphone
                   </i>
                 </button>
               </div>
@@ -1127,7 +1127,7 @@ Object {
           >
             Gutter
             <div
-              class="components-base-control__label-actions"
+              class="components-base-control__label-actions components-base-control__gutter-device-label"
             >
               <button
                 class="is-selected"
@@ -1144,7 +1144,7 @@ Object {
                 <i
                   class="material-icons"
                 >
-                  smartphone
+                  tablet
                 </i>
               </button>
               <button
@@ -1153,7 +1153,7 @@ Object {
                 <i
                   class="material-icons"
                 >
-                  tablet
+                  smartphone
                 </i>
               </button>
             </div>
@@ -1804,7 +1804,7 @@ Object {
             >
               Gutter
               <div
-                class="components-base-control__label-actions"
+                class="components-base-control__label-actions components-base-control__gutter-device-label"
               >
                 <button
                   class="is-selected"
@@ -1821,7 +1821,7 @@ Object {
                   <i
                     class="material-icons"
                   >
-                    smartphone
+                    tablet
                   </i>
                 </button>
                 <button
@@ -1830,7 +1830,7 @@ Object {
                   <i
                     class="material-icons"
                   >
-                    tablet
+                    smartphone
                   </i>
                 </button>
               </div>
@@ -2400,7 +2400,7 @@ Object {
           >
             Gutter
             <div
-              class="components-base-control__label-actions"
+              class="components-base-control__label-actions components-base-control__gutter-device-label"
             >
               <button
                 class="is-selected"
@@ -2417,7 +2417,7 @@ Object {
                 <i
                   class="material-icons"
                 >
-                  smartphone
+                  tablet
                 </i>
               </button>
               <button
@@ -2426,7 +2426,7 @@ Object {
                 <i
                   class="material-icons"
                 >
-                  tablet
+                  smartphone
                 </i>
               </button>
             </div>

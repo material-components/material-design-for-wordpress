@@ -18,7 +18,6 @@
  * External dependencies
  */
 import { some, find, findIndex, get, pick, map } from 'lodash';
-import classNames from 'classnames';
 
 /**
  * WordPress dependencies
@@ -51,6 +50,7 @@ import Gallery from './components/gallery';
 import getConfig from '../../utils/get-config';
 import './style.css';
 import { name as ImageListBlockName } from './index';
+import GutterWithDevices from '../../components/gutter-with-devices';
 
 const STYLES = [
 	{
@@ -62,24 +62,6 @@ const STYLES = [
 		label: __( 'Grid', 'material-design' ),
 		value: 'grid',
 		src: GridIcon,
-	},
-];
-
-const GUTTER_DEVICES = [
-	{
-		name: 'desktop',
-		label: __( 'Desktop', 'material-design' ),
-		icon: 'computer',
-	},
-	{
-		name: 'tablet',
-		label: __( 'Tablet', 'material-design' ),
-		icon: 'tablet',
-	},
-	{
-		name: 'mobile',
-		label: __( 'Phone', 'material-design' ),
-		icon: 'smartphone',
 	},
 ];
 
@@ -158,7 +140,6 @@ const ImageListEdit = ( {
 	);
 
 	const [ selectedImage, setSelectedImage ] = useState( 0 );
-	const [ gutterDevice, setGutterDevice ] = useState( 'desktop' );
 
 	// If `isSelected` is updated unselect images in the gallery.
 	useEffect( () => {
@@ -169,16 +150,6 @@ const ImageListEdit = ( {
 	const hasImagesWithId = hasImages && some( images, ( { id } ) => id );
 
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
-
-	// Set the gutter for selected device.
-	const setGutter = useCallback(
-		newGutter => {
-			setAttributes( {
-				gutter: { ...gutter, ...{ [ gutterDevice ]: newGutter } },
-			} );
-		},
-		[ gutter, gutterDevice, setAttributes ]
-	);
 
 	// Get the caption for an image.
 	const getCaption = id => {
@@ -325,28 +296,10 @@ const ImageListEdit = ( {
 						min={ 2 }
 						max={ 5 }
 					/>
-					<RangeControl
-						label={
-							<>
-								{ __( 'Gutter', 'material-design' ) }
-								<div className="components-base-control__label-actions">
-									{ GUTTER_DEVICES.map( device => (
-										<button
-											key={ device.name }
-											className={ classNames( '', {
-												'is-selected': device.name === gutterDevice,
-											} ) }
-											onClick={ () => setGutterDevice( device.name ) }
-											title={ device.title }
-										>
-											<i className="material-icons">{ device.icon }</i>
-										</button>
-									) ) }
-								</div>
-							</>
-						}
-						value={ gutter[ gutterDevice ] || 0 }
-						onChange={ value => setGutter( value ) }
+
+					<GutterWithDevices
+						value={ gutter }
+						onChange={ setter( 'gutter' ) }
 						min={ 0 }
 						max={ 24 }
 					/>
