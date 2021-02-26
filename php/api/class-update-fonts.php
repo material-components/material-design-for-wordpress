@@ -69,7 +69,7 @@ class Update_Fonts extends Updates_API_Base {
 		} elseif ( defined( 'GOOGLE_FONTS_API_KEY' ) && false !== GOOGLE_FONTS_API_KEY ) {
 			$this->api_key = GOOGLE_FONTS_API_KEY;
 		} else {
-			$this->api_key = null;
+			$this->api_key = '';
 		}
 
 		if ( empty( $this->api_key ) ) {
@@ -92,14 +92,14 @@ class Update_Fonts extends Updates_API_Base {
 	public function get_fonts( $write_output = true ) {
 		$data       = new stdClass();
 		$data->data = [];
+		$new        = null;
 
-		$new = null;
 		if ( ! empty( $this->api_key ) && ( false === get_transient( self::TRANSIENT ) || true === $this->force_http ) ) {
-			$json  = $this->get_http_response();
-			$fonts = $this->json_to_file( $json, $write_output );
+			$json = $this->get_http_response();
 
-			if ( ! empty( $fonts ) ) {
-				$new = json_decode( $this->json_to_file( $json, $write_output ) );
+			if ( ! empty( $json ) ) {
+				$fonts = $this->json_to_file( $json, $write_output );
+				$new   = json_decode( $fonts );
 			}
 
 			set_transient( self::TRANSIENT, time(), DAY_IN_SECONDS );
@@ -149,7 +149,7 @@ class Update_Fonts extends Updates_API_Base {
 			$fonts->{$font->family} = (object) $item;
 		}
 
-		$fonts = wp_json_encode( $fonts );
+		$fonts = wp_json_encode( $fonts, JSON_PRETTY_PRINT );
 		if ( ! empty( $write_response ) ) {
 			file_put_contents( get_plugin_instance()->dir_path . '/assets/fonts/google-fonts.json', $fonts ); //phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
 		}

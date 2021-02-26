@@ -166,6 +166,6 @@ class Test_Update_Fonts extends \WP_UnitTestCase {
 	 * @return string
 	 */
 	public function mock_file_json() {
-		return '{"ABeeZee":{"variants":["regular","italic"],"category":"sans-serif"}}';
+		return json_encode( json_decode( '{"ABeeZee":{"variants":["regular","italic"],"category":"sans-serif"}}' ), JSON_PRETTY_PRINT ); /* phpcs:ignore */
 	}
 }
