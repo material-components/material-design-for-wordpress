@@ -136,7 +136,7 @@ class Admin extends Module_Base {
 	 */
 	public function render_settings_page() {
 		?>
-		<div id="material-settings" class="material-settings"></div>
+		<div id="material-settings" class="material-settings mdc-layout-grid mdc-typography"></div>
 		<?php
 	}
 
