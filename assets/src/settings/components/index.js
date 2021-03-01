@@ -3,6 +3,11 @@
  */
 import { __ } from '@wordpress/i18n';
 
+/**
+ * Internal dependencies
+ */
+import Integrations from './integrations';
+
 const Settings = () => {
 	return (
 		<>
@@ -10,6 +15,8 @@ const Settings = () => {
 				<h1 className="mdc-typography--headline3">
 					{ __( 'Material Settings', 'material-design' ) }
 				</h1>
+
+				<Integrations />
 			</div>
 		</>
 	);
