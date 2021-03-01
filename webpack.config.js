@@ -255,6 +255,25 @@ const gsm = {
 	],
 };
 
+// Settings Page.
+const settingsPage = {
+	...defaultConfig,
+	...sharedConfig,
+	entry: {
+		settings: [
+			'./assets/src/settings/index.js',
+			'./assets/css/src/settings.css',
+		],
+	},
+	plugins: [
+		...sharedConfig.plugins,
+		new WebpackBar( {
+			name: 'Settings',
+			color: '#555555',
+		} ),
+	],
+};
+
 // These packages need to be bundled and not extracted to `wp.*`.
 const PACKAGES_TO_BUNDLE = [
 	'@wordpress/data',
@@ -306,5 +325,6 @@ module.exports = [
 	overrides,
 	wizard,
 	gsm,
+	settingsPage,
 	polyfills,
 ];

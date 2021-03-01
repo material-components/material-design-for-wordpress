@@ -135,7 +135,9 @@ class Admin extends Module_Base {
 	 * Render settings page.
 	 */
 	public function render_settings_page() {
-		echo 'Settings page';
+		?>
+		<div id="material-settings" class="material-settings"></div>
+		<?php
 	}
 
 	/**
@@ -261,6 +263,31 @@ class Admin extends Module_Base {
 					'restPath'         => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
 				]
+			);
+		}
+
+		if ( $screen && 'material_page_material-settings-page' === $screen->id ) {
+			// Get Roboto Mono and icons.
+			wp_enqueue_style(
+				'material-admin-google-fonts',
+				'//fonts.googleapis.com/css2?family=Roboto+Mono&family=Material+Icons',
+				[],
+				$this->plugin->asset_version()
+			);
+
+			wp_enqueue_style(
+				'material-settings',
+				$this->plugin->asset_url( 'assets/css/settings-compiled.css' ),
+				[ 'material-admin-google-fonts' ],
+				$this->plugin->asset_version()
+			);
+
+			wp_enqueue_script(
+				'material-settings',
+				$this->plugin->asset_url( 'assets/js/settings.js' ),
+				[ 'wp-element', 'wp-i18n', 'wp-api-fetch' ],
+				$this->plugin->asset_version(),
+				true
 			);
 		}
 	}
