@@ -13,3 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * WordPress dependencies
+ */
+import { render } from '@wordpress/element';
+
+/**
+ * Internal dependencies
+ */
+import Settings from './components';
+
+render( <Settings />, document.getElementById( 'material-settings' ) );
