@@ -94,20 +94,20 @@ class Admin extends Module_Base {
 
 		add_submenu_page(
 			'material-settings',
-			esc_html__( 'Onboarding Wizard', 'material-design' ),
-			esc_html__( 'Onboarding Wizard', 'material-design' ),
-			'manage_options',
-			'material-onboarding-wizard',
-			[ $this, 'render_onboarding_wizard_page' ]
-		);
-
-		add_submenu_page(
-			'material-settings',
 			esc_html__( 'Material Settings', 'material-design' ),
 			esc_html__( 'Settings', 'material-design' ),
 			'manage_options',
 			'material-settings-page',
 			[ $this, 'render_settings_page' ]
+		);
+
+		add_submenu_page(
+			'material-settings',
+			esc_html__( 'Onboarding Wizard', 'material-design' ),
+			esc_html__( 'Onboarding Wizard', 'material-design' ),
+			'manage_options',
+			'material-onboarding-wizard',
+			[ $this, 'render_onboarding_wizard_page' ]
 		);
 	}
 
