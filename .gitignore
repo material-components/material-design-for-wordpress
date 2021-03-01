@@ -1,0 +1,16 @@
+.DS_Store
+._.DS_Store
+.env
+.idea
+composer.lock
+material-design.zip
+yarn.lock
+assets/css/*
+!assets/css/src/
+assets/js/*
+bin/local-dev/mysql/
+bin/local-dev/wordpress/html/
+build/
+node_modules/
+tests/coverage
+vendor/

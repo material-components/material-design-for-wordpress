@@ -1,0 +1,116 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+:root {
+	--material-design-wizard-bar-bg: #a2aab2;
+}
+
+.material-wizard {
+
+	& h2 {
+		margin-left: 1rem;
+		text-transform: uppercase;
+	}
+
+	& .material-wizard__progress {
+		counter-reset: step;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 0;
+		margin-top: 0;
+		min-height: 1.875rem;
+		overflow: hidden;
+		padding-left: 0.25rem;
+		padding-right: 0.25rem;
+	}
+
+	& .material-wizard__progress li {
+		margin-bottom: 0;
+		position: relative;
+		width: 100%;
+
+		&::before {
+			background: #fff;
+			border: 3px solid var(--material-design-wizard-bar-bg);
+			border-radius: 50%;
+			content: "";
+			counter-increment: step;
+			display: block;
+			height: 21px;
+			width: 21px;
+		}
+
+		&::after {
+			background: var(--material-design-wizard-bar-bg);
+			content: "";
+			height: 3px;
+			left: 0;
+			position: absolute;
+			top: 12px;
+			width: 100%;
+			z-index: -1;
+		}
+
+		&:last-child {
+			width: auto;
+
+			&::after {
+				content: none;
+			}
+		}
+	}
+
+	& .material-wizard__progress-dot,
+	& .material-wizard__progress-check {
+		display: none;
+	}
+
+	& .material-wizard__progress .active {
+
+		&::before {
+			border: 0;
+			box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+			height: 24px;
+			width: 24px;
+		}
+
+		& .material-wizard__progress-dot {
+			background-color: var(--material-design-wizard-primary-color);
+			border-radius: 50%;
+			display: block;
+			height: 10px;
+			left: 7px;
+			position: absolute;
+			top: 7px;
+			width: 10px;
+		}
+	}
+
+	& .material-wizard__progress .checked {
+		--material-design-wizard-bar-bg: var(--material-design-wizard-primary-color);
+
+		&::before {
+			background: var(--material-design-wizard-primary-color);
+		}
+
+		& .material-wizard__progress-check {
+			display: block;
+			left: 2px;
+			position: absolute;
+			top: 3px;
+		}
+	}
+}

@@ -1,0 +1,886 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Save matches snapshot with basic style 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <ul
+          class="mdc-list"
+        >
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__graphic material-icons"
+            >
+              spa
+            </span>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #1
+              </span>
+            </span>
+          </li>
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com/item-2"
+              target=""
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__graphic material-icons"
+            >
+              book
+            </span>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #2
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <ul
+        class="mdc-list"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            spa
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #1
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com/item-2"
+            target=""
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            book
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #2
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Save matches snapshot with large icon size 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <ul
+          class="mdc-list mdc-list--avatar-list"
+        >
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__graphic material-icons"
+            >
+              spa
+            </span>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #1
+              </span>
+            </span>
+          </li>
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com/item-2"
+              target=""
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__graphic material-icons"
+            >
+              book
+            </span>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #2
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <ul
+        class="mdc-list mdc-list--avatar-list"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            spa
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #1
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com/item-2"
+            target=""
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            book
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #2
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Save matches snapshot with no icon position 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <ul
+          class="mdc-list"
+        >
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #1
+              </span>
+            </span>
+          </li>
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com/item-2"
+              target=""
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #2
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <ul
+        class="mdc-list"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #1
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com/item-2"
+            target=""
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #2
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Save matches snapshot with trailing icon position 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <ul
+          class="mdc-list"
+        >
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #1
+              </span>
+            </span>
+            <span
+              class="mdc-list-item__meta material-icons"
+            >
+              spa
+            </span>
+          </li>
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com/item-2"
+              target=""
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #2
+              </span>
+            </span>
+            <span
+              class="mdc-list-item__meta material-icons"
+            >
+              book
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <ul
+        class="mdc-list"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #1
+            </span>
+          </span>
+          <span
+            class="mdc-list-item__meta material-icons"
+          >
+            spa
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com/item-2"
+            target=""
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #2
+            </span>
+          </span>
+          <span
+            class="mdc-list-item__meta material-icons"
+          >
+            book
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Save matches snapshot with two-line style 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <ul
+          class="mdc-list mdc-list--two-line"
+        >
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__graphic material-icons"
+            >
+              spa
+            </span>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #1
+              </span>
+              <span
+                class="mdc-list-item__secondary-text"
+              >
+                List Item #1 secondary text
+              </span>
+            </span>
+          </li>
+          <li
+            class="mdc-list-item"
+          >
+            <a
+              class="list-item__link"
+              href="http://example.com/item-2"
+              target=""
+            >
+               
+            </a>
+            <span
+              class="mdc-list-item__graphic material-icons"
+            >
+              book
+            </span>
+            <span
+              class="mdc-list-item__text"
+            >
+              <span
+                class="mdc-list-item__primary-text"
+              >
+                List Item #2
+              </span>
+              <span
+                class="mdc-list-item__secondary-text"
+              >
+                List Item #2 secondary text
+              </span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <ul
+        class="mdc-list mdc-list--two-line"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            spa
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #1
+            </span>
+            <span
+              class="mdc-list-item__secondary-text"
+            >
+              List Item #1 secondary text
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <a
+            class="list-item__link"
+            href="http://example.com/item-2"
+            target=""
+          >
+             
+          </a>
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            book
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              List Item #2
+            </span>
+            <span
+              class="mdc-list-item__secondary-text"
+            >
+              List Item #2 secondary text
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

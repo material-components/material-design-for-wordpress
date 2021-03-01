@@ -1,0 +1,30 @@
+{
+	"name": "material/contact-form",
+	"category": "material",
+	"attributes": {
+		"emailTo": {
+		   "type": "string",
+		   "default": ""
+		},
+		"subject": {
+		   "type": "string",
+		   "default": "This e-mail was sent from a contact form"
+		},
+		"confirmationMessage": {
+		   "type": "string",
+		   "default": "Your message has been successfully sent"
+		},
+		"outlined": {
+		   "type": "boolean",
+		   "default": false
+		},
+		"fullWidth": {
+		   "type": "boolean",
+		   "default": true
+		},
+		"preview": {
+		   "type": "boolean",
+		   "default": false
+		}
+	}
+}

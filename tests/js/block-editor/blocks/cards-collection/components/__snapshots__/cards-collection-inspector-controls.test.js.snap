@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardsCollectionInspectorControls matches snapshot 1`] = `
+<InspectorControls>
+  <CardStylesPanel
+    allowIndividualStyleOverride={false}
+    columns={2}
+    contentLayout="text-under-media"
+    cornerRadius={4}
+    gutter={16}
+    outlined={true}
+    setter={[Function]}
+    showAllowIndividualStyleOverride={true}
+    showContentLayout={true}
+    showCornerRadius={true}
+    showGutter={true}
+    style="masonry"
+  />
+  <ForwardRef(PanelBody)
+    initialOpen={true}
+    title="Content"
+  >
+    <WithInstanceId(Component)
+      label="Number of cards"
+      max={20}
+      min={1}
+      onChange={[Function]}
+      value={1}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={false}
+      label="Allow individual card override"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show title"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show secondary text"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show image"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show supporting text"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show actions"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show secondary action button"
+      onChange={[Function]}
+    />
+  </ForwardRef(PanelBody)>
+  <div
+    key="0"
+  />
+</InspectorControls>
+`;
+
+exports[`CardsCollectionInspectorControls matches snapshot when individual overrides attributes are enabled 1`] = `
+<InspectorControls>
+  <CardStylesPanel
+    allowIndividualStyleOverride={true}
+    columns={2}
+    contentLayout="text-under-media"
+    cornerRadius={4}
+    gutter={16}
+    outlined={true}
+    setter={[Function]}
+    showAllowIndividualStyleOverride={true}
+    showContentLayout={true}
+    showCornerRadius={true}
+    showGutter={true}
+    style="masonry"
+  />
+  <ForwardRef(PanelBody)
+    initialOpen={true}
+    title="Content"
+  >
+    <WithInstanceId(Component)
+      label="Number of cards"
+      max={20}
+      min={1}
+      onChange={[Function]}
+      value={1}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Allow individual card override"
+      onChange={[Function]}
+    />
+  </ForwardRef(PanelBody)>
+  <div
+    key="0"
+  >
+    <InspectorControlsStylePanel
+      cardIndex={0}
+      cardLayoutStyle="vertical"
+      contentLayout="text-under-media"
+      cornerRadius={4}
+      isPanelInitialOpened={false}
+      isSingleCard={false}
+      outlined={false}
+      setter={[MockFunction]}
+    />
+    <InspectorControlsStylePanel
+      cardIndex={0}
+      displayActions={true}
+      displayImage={true}
+      displaySecondaryActionButton={false}
+      displaySecondaryText={true}
+      displaySupportingText={true}
+      displayTitle={true}
+      isPanelInitialOpened={false}
+      isSingleCard={false}
+      setter={[MockFunction]}
+    />
+  </div>
+</InspectorControls>
+`;
+
+exports[`CardsCollectionInspectorControls matches snapshot when the style attributes is \`list\` 1`] = `
+<InspectorControls>
+  <CardStylesPanel
+    allowIndividualStyleOverride={false}
+    columns={2}
+    contentLayout="text-under-media"
+    cornerRadius={4}
+    gutter={16}
+    outlined={true}
+    setter={[Function]}
+    showAllowIndividualStyleOverride={true}
+    showContentLayout={false}
+    showCornerRadius={true}
+    showGutter={true}
+    style="list"
+  />
+  <ForwardRef(PanelBody)
+    initialOpen={true}
+    title="Content"
+  >
+    <WithInstanceId(Component)
+      label="Number of cards"
+      max={20}
+      min={1}
+      onChange={[Function]}
+      value={1}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={false}
+      label="Allow individual card override"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show title"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show secondary text"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show image"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show actions"
+      onChange={[Function]}
+    />
+    <WithInstanceId(ToggleControl)
+      checked={true}
+      label="Show secondary action button"
+      onChange={[Function]}
+    />
+  </ForwardRef(PanelBody)>
+  <div
+    key="0"
+  />
+</InspectorControls>
+`;

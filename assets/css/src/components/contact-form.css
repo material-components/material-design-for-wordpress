@@ -1,0 +1,44 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.material-design-contact-form {
+	margin-bottom: 2em;
+}
+
+.mdc-text-field-container--not-required {
+	margin-top: 2.5em;
+}
+
+.mdc-text-field-container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1.5em;
+
+	.components-base-control__field {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+	}
+}
+
+.editor-styles-wrapper .mdc-floating-label {
+	font-weight: 400 !important;
+}
+
+
+.mdc-text-field--custom-full {
+	width: 100%;
+}

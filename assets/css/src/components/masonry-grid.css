@@ -1,0 +1,83 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.masonry-grid {
+	display: flex;
+	flex-direction: column;
+	padding: 24px;
+	padding: var(--mdc-layout-grid-margin-desktop, 24px);
+	width: auto;
+
+	@media (--medium-viewport) {
+		flex-direction: row;
+	}
+}
+
+.masonry-grid_column {
+	background-clip: padding-box;
+	box-sizing: content-box;
+	padding-left: 0;
+
+	@media (--medium-viewport) {
+		padding-left: 24px;
+		padding-left: var(--mdc-layout-grid-gutter-desktop, 24px);
+	}
+
+	&:first-child {
+		padding-left: 0 !important;
+	}
+}
+
+/* @todo adjust width based on breakpoints */
+.layout-masonry-2 {
+
+	& .masonry-grid_column {
+		width: 100%;
+
+		@media (--medium-viewport) {
+			width: 50%;
+		}
+	}
+}
+
+.layout-masonry-3 {
+
+	& .masonry-grid_column {
+
+		@media (--medium-viewport) {
+			width: 33.33%;
+		}
+	}
+}
+
+.layout-masonry-4 {
+
+	& .masonry-grid_column {
+
+		@media (--medium-viewport) {
+			width: 25%;
+		}
+	}
+}
+
+.masonry-grid_column > div {
+	margin-bottom: 24px;
+	margin-bottom: var(--mdc-layout-grid-gutter-desktop, 24px);
+}
+
+.wp-block-material-cards-collection .masonry-grid {
+	flex-direction: row;
+}

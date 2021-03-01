@@ -1,0 +1,36 @@
+DEFAULT_BASE_BRANCH=develop
+ASSETS_DIR=wp-assets
+README_MD_TITLE="Material Design for WordPress"
+CHECK_SCOPE=all
+DOCKER_PHPUNIT_BIN=bin/phpunit.sh
+TRAVIS_CI_COM_URL=true
+
+source ./bin/includes.sh
+
+function can_run_e2e() {
+	if command_exists "curl" && is_wp_available "$1"; then
+		return 0
+	fi
+
+	return 1
+}
+
+function run_tests {
+	if [ "$TRAVIS" != true ]; then
+		echo ""
+        echo "## Linting"
+		npm run lint
+
+		echo ""
+		echo "## JavaScript tests"
+		npm run test:js
+
+		if can_run_e2e "localhost:8088"; then
+			echo ""
+			echo "## E2E tests"
+			npm run test:e2e
+		fi
+
+		echo ""
+	fi
+}

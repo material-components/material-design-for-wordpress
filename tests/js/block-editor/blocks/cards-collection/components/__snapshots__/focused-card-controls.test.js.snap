@@ -1,0 +1,480 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FocusedCardControls matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-container-controls"
+      >
+        <div
+          class="move-card"
+        >
+          <button
+            class="material-design-card-move-button-left-up"
+            disabled=""
+            title="Move left"
+          >
+            <i
+              class="material-icons"
+            >
+              arrow_left
+            </i>
+          </button>
+          <button
+            class="material-design-card-move-button-right-down"
+            disabled=""
+            title="Move right"
+          >
+            <i
+              class="material-icons"
+            >
+              arrow_right
+            </i>
+          </button>
+        </div>
+        <span
+          class="card-number-title"
+        >
+          Card #1
+        </span>
+        <div
+          class="remove-card"
+        >
+          <button
+            class="material-design-card-close-button"
+            title="Remove card"
+          >
+            <i
+              class="material-icons"
+            >
+              close
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-container-controls"
+    >
+      <div
+        class="move-card"
+      >
+        <button
+          class="material-design-card-move-button-left-up"
+          disabled=""
+          title="Move left"
+        >
+          <i
+            class="material-icons"
+          >
+            arrow_left
+          </i>
+        </button>
+        <button
+          class="material-design-card-move-button-right-down"
+          disabled=""
+          title="Move right"
+        >
+          <i
+            class="material-icons"
+          >
+            arrow_right
+          </i>
+        </button>
+      </div>
+      <span
+        class="card-number-title"
+      >
+        Card #1
+      </span>
+      <div
+        class="remove-card"
+      >
+        <button
+          class="material-design-card-close-button"
+          title="Remove card"
+        >
+          <i
+            class="material-icons"
+          >
+            close
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`FocusedCardControls matches snapshot when number of cards is more than 1 and the card index less than the number of cards 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-container-controls"
+      >
+        <div
+          class="move-card"
+        >
+          <button
+            class="material-design-card-move-button-left-up"
+            title="Move left"
+          >
+            <i
+              class="material-icons"
+            >
+              arrow_left
+            </i>
+          </button>
+          <button
+            class="material-design-card-move-button-right-down"
+            title="Move right"
+          >
+            <i
+              class="material-icons"
+            >
+              arrow_right
+            </i>
+          </button>
+        </div>
+        <span
+          class="card-number-title"
+        >
+          Card #3
+        </span>
+        <div
+          class="remove-card"
+        >
+          <button
+            class="material-design-card-close-button"
+            title="Remove card"
+          >
+            <i
+              class="material-icons"
+            >
+              close
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-container-controls"
+    >
+      <div
+        class="move-card"
+      >
+        <button
+          class="material-design-card-move-button-left-up"
+          title="Move left"
+        >
+          <i
+            class="material-icons"
+          >
+            arrow_left
+          </i>
+        </button>
+        <button
+          class="material-design-card-move-button-right-down"
+          title="Move right"
+        >
+          <i
+            class="material-icons"
+          >
+            arrow_right
+          </i>
+        </button>
+      </div>
+      <span
+        class="card-number-title"
+      >
+        Card #3
+      </span>
+      <div
+        class="remove-card"
+      >
+        <button
+          class="material-design-card-close-button"
+          title="Remove card"
+        >
+          <i
+            class="material-icons"
+          >
+            close
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`FocusedCardControls matches snapshot when style prop is \`list\` 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="card-container-controls"
+      >
+        <div
+          class="move-card"
+        >
+          <button
+            class="material-design-card-move-button-left-up"
+            disabled=""
+            title="Move up"
+          >
+            <i
+              class="material-icons"
+            >
+              arrow_left
+            </i>
+          </button>
+          <button
+            class="material-design-card-move-button-right-down"
+            disabled=""
+            title="Move down"
+          >
+            <i
+              class="material-icons"
+            >
+              arrow_right
+            </i>
+          </button>
+        </div>
+        <span
+          class="card-number-title"
+        >
+          Card #1
+        </span>
+        <div
+          class="remove-card"
+        >
+          <button
+            class="material-design-card-close-button"
+            title="Remove card"
+          >
+            <i
+              class="material-icons"
+            >
+              close
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="card-container-controls"
+    >
+      <div
+        class="move-card"
+      >
+        <button
+          class="material-design-card-move-button-left-up"
+          disabled=""
+          title="Move up"
+        >
+          <i
+            class="material-icons"
+          >
+            arrow_left
+          </i>
+        </button>
+        <button
+          class="material-design-card-move-button-right-down"
+          disabled=""
+          title="Move down"
+        >
+          <i
+            class="material-icons"
+          >
+            arrow_right
+          </i>
+        </button>
+      </div>
+      <span
+        class="card-number-title"
+      >
+        Card #1
+      </span>
+      <div
+        class="remove-card"
+      >
+        <button
+          class="material-design-card-close-button"
+          title="Remove card"
+        >
+          <i
+            class="material-icons"
+          >
+            close
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -1,0 +1,95 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.masonry-grid .masonry-grid_column {
+
+	> .editor-inner-blocks {
+
+		> .editor-block-list__layout {
+			display: flex;
+		}
+	}
+}
+
+.card-container {
+	position: relative;
+	border: 4px transparent solid;
+}
+
+.card-container-focused {
+	border-color: var(--var-accent-color);
+}
+
+.card-container-controls {
+	color: #fff;
+	background: var(--var-accent-color);
+	font-size: 12px;
+	font-weight: bold;
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	height: 30px;
+	line-height: 30px;
+	justify-content: left;
+	top: -30px;
+	left: -4px;
+
+	& button {
+		width: 30px;
+		height: 30px;
+		background: var(--var-accent-color);
+		text-align: center;
+		color: var(--var-text-color);
+		padding: 0;
+		border: none;
+		cursor: pointer;
+		outline: none !important;
+
+		i {
+			line-height: 30px;
+		}
+	}
+}
+
+.material-design-card-buttons {
+	padding: 2px !important;
+	color: #fff;
+}
+
+.card-number-title {
+	margin: 0 10px;
+	justify-self: center;
+}
+
+.material-design-card-close-button {
+	justify-self: right;
+	margin-left: 20px;
+}
+
+.layout-list {
+
+	& .card-container {
+		margin-bottom: 2em;
+	}
+
+	& .block-editor-media-placeholder {
+		max-width: 480px;
+	}
+
+	& .move-card .material-icons {
+		transform: rotate(90deg);
+	}
+}
