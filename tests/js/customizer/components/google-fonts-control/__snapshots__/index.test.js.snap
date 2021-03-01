@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoogleFontsControl matches snapshot 1`] = `
+<GoogleFontsControl
+  fonts={
+    Array [
+      Object {
+        "id": "Roboto",
+        "text": "Roboto",
+      },
+      Object {
+        "id": "Ubuntu",
+        "text": "Ubuntu",
+      },
+    ]
+  }
+  id="material-design-google-fonts-control"
+  label="Typography"
+  onChange={[MockFunction]}
+  value="Roboto"
+>
+  <div
+    className="google-fonts-control"
+    id="google-fonts-control-material-design-google-fonts-control"
+  >
+    <div
+      className="google-fonts-control-header"
+    >
+      <div
+        className="google-fonts-control-title"
+        role="link"
+        tabIndex={0}
+      >
+        <span
+          className="customize-control-title google-fonts-control-title__item"
+        >
+          Typography
+        </span>
+      </div>
+    </div>
+    <div
+      className="google-fonts-control-body"
+    >
+      <select
+        className="google-fonts-control-selection"
+        data-id="material-design-google-fonts-control"
+        onChange={[MockFunction]}
+        value="Roboto"
+      />
+      <span
+        className="google-fonts-control-body__item"
+      >
+        <ForwardRef(Button)
+          className="control-settings-expanded google-fonts-control-settings-expanded"
+          isLink={true}
+          label="View more options"
+          onClick={[Function]}
+          showTooltip={true}
+        >
+          <Tooltip
+            text="View more options"
+          >
+            <button
+              aria-label="View more options"
+              className="components-button control-settings-expanded google-fonts-control-settings-expanded is-link"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseDown={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              type="button"
+            >
+              <span
+                className="dashicons dashicons-admin-settings"
+                key="0,1"
+              />
+            </button>
+          </Tooltip>
+        </ForwardRef(Button)>
+      </span>
+    </div>
+  </div>
+</GoogleFontsControl>
+`;

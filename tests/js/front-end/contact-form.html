@@ -1,0 +1,110 @@
+<!--
+ Copyright 2020 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<div class="wp-block-material-contact-form">
+	<div class="material-design-contact-form ">
+		<form id="materialDesignContactForm">
+
+			<div class="wp-block-material-contact-form">
+				<div class="mdc-text-field-container">
+					<div
+							class="mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"><input
+							id="material-design-name-1" name="material-design-name-1" type="text" required="" class="mdc-text-field__input"
+							aria-labelledby="label-material-design-name-1" data-form="contact" data-meta="name" data-label="Name">
+						<div class="mdc-notched-outline">
+							<div class="mdc-notched-outline__leading"></div>
+							<div class="mdc-notched-outline__notch"><label for="material-design-name-1"
+																		   class="mdc-floating-label"
+																		   id="label-material-design-name-1">Name</label></div>
+							<div class="mdc-notched-outline__trailing"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mdc-text-field-container">
+					<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"><input
+							id="material-design-email-1" name="material-design-email-1" type="email" required="" class="mdc-text-field__input"
+							aria-labelledby="label-material-design-email-1" data-form="contact" data-meta="email"
+							data-label="Email">
+						<div class="mdc-notched-outline">
+							<div class="mdc-notched-outline__leading"></div>
+							<div class="mdc-notched-outline__notch"><label for="material-design-email-1" class="mdc-floating-label"
+																		   id="label-material-design-email-1">Email</label></div>
+							<div class="mdc-notched-outline__trailing"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mdc-text-field-container mdc-text-field-container--not-required">
+					<div class="mdc-text-field mdc-text-field--outlined mdc-text-field--custom-full"><input
+							id="material-design-website-1" name="material-design-website-1" type="url" class="mdc-text-field__input"
+							aria-labelledby="label-material-design-website-1" data-form="contact" data-meta="website"
+							data-label="Website">
+						<div class="mdc-notched-outline">
+							<div class="mdc-notched-outline__leading"></div>
+							<div class="mdc-notched-outline__notch"><label for="material-design-website-1"
+																		   class="mdc-floating-label"
+																		   id="label-material-design-website-1">Website</label>
+							</div>
+							<div class="mdc-notched-outline__trailing"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mdc-text-field-container">
+					<div
+							class="mdc-text-field mdc-text-field--outlined mdc-text-field--textarea mdc-text-field--custom-full">
+						<span class="mdc-text-field__ripple"></span><textarea id="material-design-message-1" name="material-design-message-1"
+																			  class="mdc-text-field__input" rows="8"
+																			  aria-labelledby="label-material-design-message-1"
+																			  data-form="contact" data-meta="message"
+																			  data-label="Message"></textarea>
+						<div class="mdc-notched-outline">
+							<div class="mdc-notched-outline__leading"></div>
+							<div class="mdc-notched-outline__notch"><label for="material-design-message-1"
+																		   class="mdc-floating-label"
+																		   id="label-material-design-message-1">Message</label>
+							</div>
+							<span class="mdc-notched-outline__trailing"></span>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="wp-block-material-button">
+					<button
+							class="mdc-button mdc-button--unelevated mdc-ripple-upgraded" style="border-radius:8px"
+							type="submit">
+						<div class="mdc-button__ripple"></div>
+						<span class="mdc-button__label">Submit</span>
+					</button>
+				</div>
+
+				<p></p>
+			</div>
+			<input type="hidden" name="action" value="material_design_submit_contact_form">
+			<input type="hidden" name="material_design_token" value="token_here">
+			<input type="hidden" id="material_design_contact_form_nonce" name="material_design_contact_form_nonce" value="8d2ba7b1f1"><input
+				type="hidden" id ="_wp_http_referer" name="_wp_http_referer" value="/3732-2/">
+		</form>
+		<div id="materialDesignContactFormSuccessMsgContainer" style="display: none">
+			Your request has been successfully submitted
+		</div>
+		<div id="materialDesignContactFormErrorMsgContainer" style="display: none">
+			An error has occurred. Please try again later.
+		</div>
+	</div>
+</div>

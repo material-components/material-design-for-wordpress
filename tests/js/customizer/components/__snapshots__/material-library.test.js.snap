@@ -1,0 +1,2654 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Material Blocks should initialize the material library 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        id="material-library-preview"
+      >
+        <h2
+          class="mdc-typography--headline2"
+        >
+          Material Components
+        </h2>
+        <section>
+          <h3
+            class="mdc-typography--headline3"
+          >
+            Blocks
+          </h3>
+          <p>
+            Build your WordPress site using these Material Components blocks.
+          </p>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Buttons
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/buttons"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Buttons allow users to take actions, and make choices, with a single tap.
+            </p>
+            <div
+              class="mdc-button-wrap"
+            >
+              <button
+                class="mdc-button"
+              >
+                <div
+                  class="mdc-button__ripple"
+                  style="border-radius: 4px;"
+                />
+                <span
+                  class="mdc-button__label"
+                >
+                  Text Button
+                </span>
+              </button>
+              <button
+                class="mdc-button mdc-button--outlined"
+                style="border-radius: 4px;"
+              >
+                <div
+                  class="sc-AxjAm hekVKn"
+                >
+                  <div
+                    class="mdc-button__ripple"
+                    style="border-radius: 4px;"
+                  />
+                </div>
+                <span
+                  class="mdc-button__label"
+                >
+                  Outlined Button
+                </span>
+              </button>
+              <button
+                class="mdc-button mdc-button--raised"
+                style="border-radius: 4px;"
+              >
+                <div
+                  class="mdc-button__ripple"
+                />
+                <span
+                  class="mdc-button__label"
+                >
+                  Raised Button
+                </span>
+              </button>
+              <button
+                class="mdc-button mdc-button--unelevated"
+                style="border-radius: 4px;"
+              >
+                <div
+                  class="mdc-button__ripple"
+                />
+                <span
+                  class="mdc-button__label"
+                >
+                  Unelevated Button
+                </span>
+              </button>
+              <button
+                class="mdc-icon-button"
+                style="margin-top: 55px;"
+              >
+                <i
+                  class="material-icons-two-tone mdc-icon-button__icon"
+                >
+                  account_circle
+                </i>
+              </button>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Cards
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/cards"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Cards contain content and actions about a single subject.
+            </p>
+            <div
+              style="display: flex;"
+            >
+              <div
+                class="mdc-card"
+                style="width: 350px; border-radius: 6px;"
+              >
+                <div
+                  class="mdc-card__primary-action demo-card__primary-action"
+                  tabindex="0"
+                >
+                  <div
+                    class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                    style="background-image: url(https://images.unsplash.com/photo-1531306760863-7fb02a41db12);"
+                  />
+                  <div
+                    style="padding: 16px;"
+                  >
+                    <h2
+                      class="mdc-typography mdc-typography--headline6 material-design-card__title"
+                      style="margin: 0px 0px 5px 0px;"
+                    >
+                      Our Changing Planet
+                    </h2>
+                    <h3
+                      class="mdc-typography material-design-card__secondary-text"
+                      style="font-size: 0.875rem; font-weight: 500; line-height: 1.375rem; margin: 0px;"
+                    >
+                      by John Smith
+                    </h3>
+                  </div>
+                  <div
+                    class="mdc-typography mdc-typography--body2"
+                    style="padding: 16px;"
+                  >
+                    Visit ten places on our planet that are undergoing the biggest changes today.
+                  </div>
+                </div>
+                <div
+                  class="mdc-card__actions"
+                >
+                  <div
+                    class="mdc-card__action-buttons"
+                  >
+                    <button
+                      class="mdc-button mdc-card__action mdc-card__action--button"
+                      style="border-radius: 4px;"
+                    >
+                      <span
+                        class="mdc-button__ripple"
+                        style="border-radius: 4px;"
+                      />
+                      Read
+                    </button>
+                    <button
+                      class="mdc-button mdc-card__action mdc-card__action--button"
+                      style="border-radius: 4px;"
+                    >
+                      <span
+                        class="mdc-button__ripple"
+                        style="border-radius: 4px;"
+                      />
+                      Bookmark
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Data Tables
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/data-tables"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Data tables display sets of data across rows and columns.
+            </p>
+            <div
+              class="mdc-data-table"
+              style="border-radius: 10px;"
+            >
+              <table
+                class="mdc-data-table__table"
+              >
+                <thead>
+                  <tr
+                    class="mdc-data-table__header-row"
+                  >
+                    <th
+                      class="mdc-data-table__header-cell"
+                      role="columnheader"
+                      scope="col"
+                    >
+                      Dessert
+                    </th>
+                    <th
+                      class="mdc-data-table__header-cell"
+                      role="columnheader"
+                      scope="col"
+                    >
+                      Calories
+                    </th>
+                    <th
+                      class="mdc-data-table__header-cell"
+                      role="columnheader"
+                      scope="col"
+                    >
+                      Fat
+                    </th>
+                    <th
+                      class="mdc-data-table__header-cell"
+                      role="columnheader"
+                      scope="col"
+                    >
+                      Carbs
+                    </th>
+                    <th
+                      class="mdc-data-table__header-cell"
+                      role="columnheader"
+                      scope="col"
+                    >
+                      Protein (g)
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="mdc-data-table__content"
+                >
+                  <tr
+                    aria-selected="false"
+                    class="mdc-data-table__row"
+                    data-row-id="u9"
+                  >
+                    <td
+                      class="mdc-data-table__cell"
+                      id="u9"
+                    >
+                      Frozen Yogurt
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      159
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      6
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      24
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      4
+                    </td>
+                  </tr>
+                  <tr
+                    aria-selected="false"
+                    class="mdc-data-table__row"
+                    data-row-id="u10"
+                  >
+                    <td
+                      class="mdc-data-table__cell"
+                      id="u10"
+                    >
+                      Ice Cream Sandwich
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      237
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      9
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      37
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      4.3
+                    </td>
+                  </tr>
+                  <tr
+                    aria-selected="false"
+                    class="mdc-data-table__row"
+                    data-row-id="u11"
+                  >
+                    <td
+                      class="mdc-data-table__cell"
+                      id="u11"
+                    >
+                      Eclair
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      262
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      16
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      24
+                    </td>
+                    <td
+                      class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                    >
+                      6
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Gallery (Image Lists)
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/image-lists"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Image lists display a collection of images in an organized grid.
+            </p>
+            <div>
+              <ul
+                class="mdc-image-list mdc-image-list--masonry mdc-image-list--with-text-protection"
+              >
+                <li
+                  class="mdc-image-list__item image-list-item"
+                  style="border-radius: 12px;"
+                >
+                  <img
+                    alt="Text label"
+                    class="mdc-image-list__image"
+                    src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12"
+                    style="border-radius: 12px;"
+                  />
+                  <div
+                    class="mdc-image-list__supporting"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
+                  >
+                    <span
+                      class="mdc-image-list__label"
+                    >
+                      Text label
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="mdc-image-list__item image-list-item"
+                  style="border-radius: 12px;"
+                >
+                  <img
+                    alt="Text label"
+                    class="mdc-image-list__image"
+                    src="https://images.unsplash.com/photo-1531307119710-accdb402fe03"
+                    style="border-radius: 12px;"
+                  />
+                  <div
+                    class="mdc-image-list__supporting"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
+                  >
+                    <span
+                      class="mdc-image-list__label"
+                    >
+                      Text label
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="mdc-image-list__item image-list-item"
+                  style="border-radius: 12px;"
+                >
+                  <img
+                    alt="Text label"
+                    class="mdc-image-list__image"
+                    src="https://images.unsplash.com/photo-1558905585-24d5d344c91d"
+                    style="border-radius: 12px;"
+                  />
+                  <div
+                    class="mdc-image-list__supporting"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
+                  >
+                    <span
+                      class="mdc-image-list__label"
+                    >
+                      Text label
+                    </span>
+                  </div>
+                </li>
+                <li
+                  class="mdc-image-list__item image-list-item"
+                  style="border-radius: 12px;"
+                >
+                  <img
+                    alt="Text label"
+                    class="mdc-image-list__image"
+                    src="https://images.unsplash.com/photo-1558905586-b023029262f1"
+                    style="border-radius: 12px;"
+                  />
+                  <div
+                    class="mdc-image-list__supporting"
+                    style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
+                  >
+                    <span
+                      class="mdc-image-list__label"
+                    >
+                      Text label
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Lists
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/lists"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Lists are continuous, vertical indexes of text or images.
+            </p>
+            <div
+              style="display: flex;"
+            >
+              <ul
+                class="wp-block-material-list mdc-list"
+                style="width: 33%;"
+              >
+                <li
+                  class="wp-block-material-list-item mdc-list-item list-item"
+                  tabindex="0"
+                >
+                  <i
+                    class="material-icons-two-tone mdc-list-item__graphic"
+                  >
+                    wifi
+                  </i>
+                  <span
+                    class="mdc-list-item__text list-item__text"
+                  >
+                    List item
+                  </span>
+                </li>
+                <li
+                  class="wp-block-material-list-item mdc-list-item list-item"
+                  tabindex="0"
+                >
+                  <i
+                    class="mdc-list-item__graphic material-icons-two-tone"
+                  >
+                    bluetooth
+                  </i>
+                  <span
+                    class="mdc-list-item__text list-item__text"
+                  >
+                    List item
+                  </span>
+                </li>
+                <li
+                  class="wp-block-material-list-item mdc-list-item list-item"
+                  tabindex="0"
+                >
+                  <i
+                    class="material-icons-two-tone mdc-list-item__graphic"
+                  >
+                    http
+                  </i>
+                  <span
+                    class="mdc-list-item__text list-item__text"
+                  >
+                    List item
+                  </span>
+                </li>
+              </ul>
+              <ul
+                class="mdc-list mdc-list--two-line inline-demo-list"
+                style="width: 33%;"
+              >
+                <li
+                  class="mdc-list-item mdc-ripple-upgraded"
+                  tabindex="0"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="material-icons-two-tone mdc-list-item__graphic"
+                  >
+                    spa
+                  </i>
+                  <span
+                    class="mdc-list-item__text"
+                  >
+                    <span
+                      class="mdc-list-item__primary-text"
+                    >
+                      List item
+                    </span>
+                    <span
+                      class="mdc-list-item__secondary-text"
+                    >
+                      Secondary Text...
+                    </span>
+                  </span>
+                </li>
+                <li
+                  class="mdc-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="mdc-list-item__graphic material-icons-two-tone"
+                  >
+                    grade
+                  </i>
+                  <span
+                    class="mdc-list-item__text"
+                  >
+                    <span
+                      class="mdc-list-item__primary-text"
+                    >
+                      List item
+                    </span>
+                    <span
+                      class="mdc-list-item__secondary-text"
+                    >
+                      Secondary Text...
+                    </span>
+                  </span>
+                </li>
+                <li
+                  class="mdc-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
+                >
+                  <i
+                    aria-hidden="true"
+                    class="material-icons-two-tone mdc-list-item__graphic"
+                  >
+                    search
+                  </i>
+                  <span
+                    class="mdc-list-item__text"
+                  >
+                    <span
+                      class="mdc-list-item__primary-text"
+                    >
+                      List item
+                    </span>
+                    <span
+                      class="mdc-list-item__secondary-text"
+                    >
+                      Secondary Text...
+                    </span>
+                  </span>
+                </li>
+              </ul>
+              <ul
+                class="mdc-list mdc-list--two-line inline-demo-list"
+                style="width: 33%;"
+              >
+                <li
+                  class="mdc-list-item mdc-ripple-upgraded"
+                  tabindex="0"
+                >
+                  <span
+                    class="mdc-list-item__text"
+                  >
+                    <span
+                      class="mdc-list-item__primary-text"
+                    >
+                      List item
+                    </span>
+                    <span
+                      class="mdc-list-item__secondary-text"
+                    >
+                      Secondary Text...
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="mdc-list-item__meta"
+                  >
+                    <button
+                      class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                    >
+                      remove_red_eye
+                    </button>
+                  </span>
+                </li>
+                <li
+                  class="mdc-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
+                >
+                  <span
+                    class="mdc-list-item__text"
+                  >
+                    <span
+                      class="mdc-list-item__primary-text"
+                    >
+                      List item
+                    </span>
+                    <span
+                      class="mdc-list-item__secondary-text"
+                    >
+                      Secondary Text...
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="mdc-list-item__meta"
+                  >
+                    <button
+                      class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                    >
+                      email
+                    </button>
+                  </span>
+                </li>
+                <li
+                  class="mdc-list-item mdc-ripple-upgraded"
+                  tabindex="-1"
+                >
+                  <span
+                    class="mdc-list-item__text"
+                  >
+                    <span
+                      class="mdc-list-item__primary-text"
+                    >
+                      List item
+                    </span>
+                    <span
+                      class="mdc-list-item__secondary-text"
+                    >
+                      Secondary Text...
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    class="mdc-list-item__meta"
+                  >
+                    <button
+                      class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                    >
+                      share
+                    </button>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Tabs
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/tabs"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Tabs organize content across different screens, data sets, and other interactions.
+            </p>
+            <div
+              class="wp-block-material-tab-bar mdc-tab-bar-container"
+              style="width: 80%;"
+            >
+              <div
+                class="mdc-tab-bar"
+                role="tablist"
+              >
+                <div
+                  class="mdc-tab-scroller"
+                >
+                  <div
+                    class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+                    style="margin-bottom: 0px;"
+                  >
+                    <div
+                      class="mdc-tab-scroller__scroll-content"
+                    >
+                      <div
+                        aria-selected="true"
+                        class="mdc-tab tab mdc-tab--active"
+                        id="mdc-tab-1"
+                        role="tab"
+                        tabindex="0"
+                      >
+                        <span
+                          class="mdc-tab__content"
+                        >
+                          <i
+                            class="material-icons-two-tone mdc-tab__icon"
+                          >
+                            wifi
+                          </i>
+                          <span
+                            class="mdc-tab__text-label tab__label-field"
+                          >
+                            <span
+                              role="tab"
+                              tabindex="0"
+                            >
+                              Tab 1
+                            </span>
+                          </span>
+                        </span>
+                        <span
+                          class="mdc-tab-indicator mdc-tab-indicator--active"
+                        >
+                          <span
+                            class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                          />
+                        </span>
+                        <span
+                          class="mdc-tab__ripple mdc-ripple-upgraded"
+                        />
+                      </div>
+                      <div
+                        aria-selected="false"
+                        class="mdc-tab tab"
+                        id="mdc-tab-2"
+                        role="tab"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="mdc-tab__content"
+                        >
+                          <i
+                            class="material-icons-two-tone mdc-tab__icon"
+                          >
+                            bluetooth
+                          </i>
+                          <span
+                            class="mdc-tab__text-label tab__label-field"
+                          >
+                            <span
+                              role="tab"
+                              tabindex="0"
+                            >
+                              Tab 2
+                            </span>
+                          </span>
+                        </span>
+                        <span
+                          class="mdc-tab-indicator"
+                        >
+                          <span
+                            class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                          />
+                        </span>
+                        <span
+                          class="mdc-tab__ripple mdc-ripple-upgraded"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="mdc-tab-content mdc-tab-content--active"
+                >
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus congue massa velit, venenatis egestas sapien finibus vitae. Praesent eu arcu eleifend, rutrum dui at, sodales dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sed arcu vel lectus accumsan rutrum volutpat et risus. Sed tristique sit amet nisl vitae congue. Praesent vestibulum quam et luctus convallis. Fusce a enim ut purus venenatis pulvinar eu ullamcorper arcu. Sed laoreet augue nisi, at convallis sem placerat sit amet. Praesent varius congue nibh, sit amet aliquam libero tincidunt eget. Nulla et magna lobortis, pellentesque arcu sollicitudin, pellentesque justo. Mauris rutrum nunc felis, sed cursus dui feugiat vitae.
+                  </p>
+                </div>
+                <div
+                  class="mdc-tab-content"
+                >
+                  <p>
+                    Proin quis ornare leo. In pellentesque libero a consequat ultricies. Aliquam ornare neque non justo dignissim, vel gravida purus posuere. Cras a neque eu nisi facilisis aliquet. Integer faucibus, lorem et tempor pellentesque, est tellus molestie libero, a ullamcorper ligula est et sapien. Nunc placerat sollicitudin nisl et viverra. Sed pellentesque nunc sed tellus dignissim, et rhoncus velit porttitor.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr />
+        <section
+          style="margin-top: 100px;"
+        >
+          <h3
+            class="mdc-typography--headline3"
+          >
+            Components
+          </h3>
+          <p>
+            Styled components available when the Material Design theme is activated.
+          </p>
+          <p>
+            Enable Material Design theme for more components.
+          </p>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Checkboxes
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/develop/web/components/input-controls/checkboxes"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Checkboxes allow the user to select one or more items from a set.
+            </p>
+            <div
+              class="mdc-checkbox"
+            >
+              <input
+                class="mdc-checkbox__native-control"
+                type="checkbox"
+              />
+              <div
+                class="mdc-checkbox__background"
+              >
+                <svg
+                  class="mdc-checkbox__checkmark"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    class="mdc-checkbox__checkmark-path"
+                    d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                    fill="none"
+                  />
+                </svg>
+                <div
+                  class="mdc-checkbox__mixedmark"
+                />
+              </div>
+              <div
+                class="mdc-checkbox__ripple"
+              />
+            </div>
+            <div
+              class="mdc-checkbox"
+            >
+              <input
+                class="mdc-checkbox__native-control"
+                type="checkbox"
+              />
+              <div
+                class="mdc-checkbox__background"
+              >
+                <svg
+                  class="mdc-checkbox__checkmark"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    class="mdc-checkbox__checkmark-path"
+                    d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                    fill="none"
+                  />
+                </svg>
+                <div
+                  class="mdc-checkbox__mixedmark"
+                />
+              </div>
+              <div
+                class="mdc-checkbox__ripple"
+              />
+            </div>
+            <div
+              class="mdc-checkbox"
+            >
+              <input
+                class="mdc-checkbox__native-control"
+                type="checkbox"
+              />
+              <div
+                class="mdc-checkbox__background"
+              >
+                <svg
+                  class="mdc-checkbox__checkmark"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    class="mdc-checkbox__checkmark-path"
+                    d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                    fill="none"
+                  />
+                </svg>
+                <div
+                  class="mdc-checkbox__mixedmark"
+                />
+              </div>
+              <div
+                class="mdc-checkbox__ripple"
+              />
+            </div>
+            <div
+              class="mdc-checkbox"
+            >
+              <input
+                class="mdc-checkbox__native-control"
+                type="checkbox"
+              />
+              <div
+                class="mdc-checkbox__background"
+              >
+                <svg
+                  class="mdc-checkbox__checkmark"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    class="mdc-checkbox__checkmark-path"
+                    d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                    fill="none"
+                  />
+                </svg>
+                <div
+                  class="mdc-checkbox__mixedmark"
+                />
+              </div>
+              <div
+                class="mdc-checkbox__ripple"
+              />
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Chips
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/chips"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Chips are compact elements that represent an input, attribute, or action.
+            </p>
+            <div
+              class="mdc-chip-set"
+              role="grid"
+            >
+              <div
+                class="mdc-chip"
+                role="row"
+                style="border-radius: 8px;"
+              >
+                <div
+                  class="mdc-chip__ripple"
+                />
+                <span
+                  role="gridcell"
+                >
+                  <span
+                    class="mdc-chip__primary-action"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <span
+                      class="mdc-chip__text"
+                    >
+                      Chip One
+                    </span>
+                  </span>
+                </span>
+              </div>
+              <div
+                class="mdc-chip"
+                role="row"
+                style="border-radius: 8px;"
+              >
+                <div
+                  class="mdc-chip__ripple"
+                />
+                <span
+                  role="gridcell"
+                >
+                  <span
+                    class="mdc-chip__primary-action"
+                    role="button"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="mdc-chip__text"
+                    >
+                      Chip Two
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Radio buttons
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/develop/web/components/input-controls/radio-buttons"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Radio buttons allow the user to select one option from a set.
+            </p>
+            <div
+              class="mdc-radio"
+            >
+              <input
+                checked=""
+                class="mdc-radio__native-control"
+                name="radios"
+                type="radio"
+              />
+              <div
+                class="mdc-radio__background"
+              >
+                <div
+                  class="mdc-radio__outer-circle"
+                />
+                <div
+                  class="mdc-radio__inner-circle"
+                />
+              </div>
+              <div
+                class="mdc-radio__ripple"
+              />
+            </div>
+            <div
+              class="mdc-radio"
+            >
+              <input
+                class="mdc-radio__native-control"
+                name="radios"
+                type="radio"
+              />
+              <div
+                class="mdc-radio__background"
+              >
+                <div
+                  class="mdc-radio__outer-circle"
+                />
+                <div
+                  class="mdc-radio__inner-circle"
+                />
+              </div>
+              <div
+                class="mdc-radio__ripple"
+              />
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Text fields
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/components/text-fields"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Text fields let users enter and edit text.
+            </p>
+            <div
+              style="display: flex;"
+            >
+              <div
+                class="mdc-text-field mdc-text-field--with-leading-icon"
+                style="border-top-left-radius: 16px; border-top-right-radius: 16px;"
+              >
+                <i
+                  class="material-icons mdc-text-field__icon mdc-text-field__icon--leading"
+                >
+                  account_circle
+                </i>
+                <input
+                  class="mdc-text-field__input"
+                  id="text-field-hero-input"
+                />
+                <div
+                  class="mdc-line-ripple"
+                />
+                <label
+                  class="mdc-floating-label"
+                  for="text-field-hero-input"
+                >
+                  First name
+                </label>
+              </div>
+              <div
+                class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon"
+                style="margin-left: 10px;"
+              >
+                <i
+                  class="material-icons mdc-text-field__icon mdc-text-field__icon--leading"
+                >
+                  account_circle
+                </i>
+                <i
+                  class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing"
+                >
+                  close
+                </i>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                />
+                <div
+                  class="mdc-notched-outline"
+                >
+                  <div
+                    class="mdc-notched-outline__leading"
+                    style="border-radius: 16px 0 0 16px; min-width: 16px;"
+                  />
+                  <div
+                    class="mdc-notched-outline__notch"
+                  >
+                    <label
+                      class="mdc-floating-label"
+                      for="outlined-textfield"
+                    >
+                      Last name
+                    </label>
+                  </div>
+                  <div
+                    class="mdc-notched-outline__trailing"
+                    style="border-radius: 0 16px 16px 0; min-width: 16px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div>
+            <h4
+              class="mdc-typography--headline4"
+              style="margin: 0px;"
+            >
+              Switches
+            </h4>
+            <form
+              target="_blank"
+            >
+              <button
+                class="mdc-icon-button material-icons"
+                formaction="https://material.io/develop/web/components/input-controls/switches"
+              >
+                open_in_new
+              </button>
+            </form>
+            <p>
+              Switches toggle the state of a single item on or off.
+            </p>
+            <div
+              class="mdc-switch"
+              style="margin-top: 2px;"
+            >
+              <div
+                class="mdc-switch__track"
+              />
+              <div
+                class="mdc-switch__thumb-underlay"
+              >
+                <div
+                  class="mdc-switch__thumb"
+                />
+                <input
+                  aria-checked="false"
+                  class="mdc-switch__native-control"
+                  id="basic-switch"
+                  role="switch"
+                  type="checkbox"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      id="material-library-preview"
+    >
+      <h2
+        class="mdc-typography--headline2"
+      >
+        Material Components
+      </h2>
+      <section>
+        <h3
+          class="mdc-typography--headline3"
+        >
+          Blocks
+        </h3>
+        <p>
+          Build your WordPress site using these Material Components blocks.
+        </p>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Buttons
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/buttons"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Buttons allow users to take actions, and make choices, with a single tap.
+          </p>
+          <div
+            class="mdc-button-wrap"
+          >
+            <button
+              class="mdc-button"
+            >
+              <div
+                class="mdc-button__ripple"
+                style="border-radius: 4px;"
+              />
+              <span
+                class="mdc-button__label"
+              >
+                Text Button
+              </span>
+            </button>
+            <button
+              class="mdc-button mdc-button--outlined"
+              style="border-radius: 4px;"
+            >
+              <div
+                class="sc-AxjAm hekVKn"
+              >
+                <div
+                  class="mdc-button__ripple"
+                  style="border-radius: 4px;"
+                />
+              </div>
+              <span
+                class="mdc-button__label"
+              >
+                Outlined Button
+              </span>
+            </button>
+            <button
+              class="mdc-button mdc-button--raised"
+              style="border-radius: 4px;"
+            >
+              <div
+                class="mdc-button__ripple"
+              />
+              <span
+                class="mdc-button__label"
+              >
+                Raised Button
+              </span>
+            </button>
+            <button
+              class="mdc-button mdc-button--unelevated"
+              style="border-radius: 4px;"
+            >
+              <div
+                class="mdc-button__ripple"
+              />
+              <span
+                class="mdc-button__label"
+              >
+                Unelevated Button
+              </span>
+            </button>
+            <button
+              class="mdc-icon-button"
+              style="margin-top: 55px;"
+            >
+              <i
+                class="material-icons-two-tone mdc-icon-button__icon"
+              >
+                account_circle
+              </i>
+            </button>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Cards
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/cards"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Cards contain content and actions about a single subject.
+          </p>
+          <div
+            style="display: flex;"
+          >
+            <div
+              class="mdc-card"
+              style="width: 350px; border-radius: 6px;"
+            >
+              <div
+                class="mdc-card__primary-action demo-card__primary-action"
+                tabindex="0"
+              >
+                <div
+                  class="mdc-card__media mdc-card__media--16-9 demo-card__media"
+                  style="background-image: url(https://images.unsplash.com/photo-1531306760863-7fb02a41db12);"
+                />
+                <div
+                  style="padding: 16px;"
+                >
+                  <h2
+                    class="mdc-typography mdc-typography--headline6 material-design-card__title"
+                    style="margin: 0px 0px 5px 0px;"
+                  >
+                    Our Changing Planet
+                  </h2>
+                  <h3
+                    class="mdc-typography material-design-card__secondary-text"
+                    style="font-size: 0.875rem; font-weight: 500; line-height: 1.375rem; margin: 0px;"
+                  >
+                    by John Smith
+                  </h3>
+                </div>
+                <div
+                  class="mdc-typography mdc-typography--body2"
+                  style="padding: 16px;"
+                >
+                  Visit ten places on our planet that are undergoing the biggest changes today.
+                </div>
+              </div>
+              <div
+                class="mdc-card__actions"
+              >
+                <div
+                  class="mdc-card__action-buttons"
+                >
+                  <button
+                    class="mdc-button mdc-card__action mdc-card__action--button"
+                    style="border-radius: 4px;"
+                  >
+                    <span
+                      class="mdc-button__ripple"
+                      style="border-radius: 4px;"
+                    />
+                    Read
+                  </button>
+                  <button
+                    class="mdc-button mdc-card__action mdc-card__action--button"
+                    style="border-radius: 4px;"
+                  >
+                    <span
+                      class="mdc-button__ripple"
+                      style="border-radius: 4px;"
+                    />
+                    Bookmark
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Data Tables
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/data-tables"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Data tables display sets of data across rows and columns.
+          </p>
+          <div
+            class="mdc-data-table"
+            style="border-radius: 10px;"
+          >
+            <table
+              class="mdc-data-table__table"
+            >
+              <thead>
+                <tr
+                  class="mdc-data-table__header-row"
+                >
+                  <th
+                    class="mdc-data-table__header-cell"
+                    role="columnheader"
+                    scope="col"
+                  >
+                    Dessert
+                  </th>
+                  <th
+                    class="mdc-data-table__header-cell"
+                    role="columnheader"
+                    scope="col"
+                  >
+                    Calories
+                  </th>
+                  <th
+                    class="mdc-data-table__header-cell"
+                    role="columnheader"
+                    scope="col"
+                  >
+                    Fat
+                  </th>
+                  <th
+                    class="mdc-data-table__header-cell"
+                    role="columnheader"
+                    scope="col"
+                  >
+                    Carbs
+                  </th>
+                  <th
+                    class="mdc-data-table__header-cell"
+                    role="columnheader"
+                    scope="col"
+                  >
+                    Protein (g)
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="mdc-data-table__content"
+              >
+                <tr
+                  aria-selected="false"
+                  class="mdc-data-table__row"
+                  data-row-id="u9"
+                >
+                  <td
+                    class="mdc-data-table__cell"
+                    id="u9"
+                  >
+                    Frozen Yogurt
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    159
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    6
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    24
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    4
+                  </td>
+                </tr>
+                <tr
+                  aria-selected="false"
+                  class="mdc-data-table__row"
+                  data-row-id="u10"
+                >
+                  <td
+                    class="mdc-data-table__cell"
+                    id="u10"
+                  >
+                    Ice Cream Sandwich
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    237
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    9
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    37
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    4.3
+                  </td>
+                </tr>
+                <tr
+                  aria-selected="false"
+                  class="mdc-data-table__row"
+                  data-row-id="u11"
+                >
+                  <td
+                    class="mdc-data-table__cell"
+                    id="u11"
+                  >
+                    Eclair
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    262
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    16
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    24
+                  </td>
+                  <td
+                    class="mdc-data-table__cell mdc-data-table__cell--numeric"
+                  >
+                    6
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Gallery (Image Lists)
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/image-lists"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Image lists display a collection of images in an organized grid.
+          </p>
+          <div>
+            <ul
+              class="mdc-image-list mdc-image-list--masonry mdc-image-list--with-text-protection"
+            >
+              <li
+                class="mdc-image-list__item image-list-item"
+                style="border-radius: 12px;"
+              >
+                <img
+                  alt="Text label"
+                  class="mdc-image-list__image"
+                  src="https://images.unsplash.com/photo-1531306760863-7fb02a41db12"
+                  style="border-radius: 12px;"
+                />
+                <div
+                  class="mdc-image-list__supporting"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
+                >
+                  <span
+                    class="mdc-image-list__label"
+                  >
+                    Text label
+                  </span>
+                </div>
+              </li>
+              <li
+                class="mdc-image-list__item image-list-item"
+                style="border-radius: 12px;"
+              >
+                <img
+                  alt="Text label"
+                  class="mdc-image-list__image"
+                  src="https://images.unsplash.com/photo-1531307119710-accdb402fe03"
+                  style="border-radius: 12px;"
+                />
+                <div
+                  class="mdc-image-list__supporting"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
+                >
+                  <span
+                    class="mdc-image-list__label"
+                  >
+                    Text label
+                  </span>
+                </div>
+              </li>
+              <li
+                class="mdc-image-list__item image-list-item"
+                style="border-radius: 12px;"
+              >
+                <img
+                  alt="Text label"
+                  class="mdc-image-list__image"
+                  src="https://images.unsplash.com/photo-1558905585-24d5d344c91d"
+                  style="border-radius: 12px;"
+                />
+                <div
+                  class="mdc-image-list__supporting"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
+                >
+                  <span
+                    class="mdc-image-list__label"
+                  >
+                    Text label
+                  </span>
+                </div>
+              </li>
+              <li
+                class="mdc-image-list__item image-list-item"
+                style="border-radius: 12px;"
+              >
+                <img
+                  alt="Text label"
+                  class="mdc-image-list__image"
+                  src="https://images.unsplash.com/photo-1558905586-b023029262f1"
+                  style="border-radius: 12px;"
+                />
+                <div
+                  class="mdc-image-list__supporting"
+                  style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;"
+                >
+                  <span
+                    class="mdc-image-list__label"
+                  >
+                    Text label
+                  </span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Lists
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/lists"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Lists are continuous, vertical indexes of text or images.
+          </p>
+          <div
+            style="display: flex;"
+          >
+            <ul
+              class="wp-block-material-list mdc-list"
+              style="width: 33%;"
+            >
+              <li
+                class="wp-block-material-list-item mdc-list-item list-item"
+                tabindex="0"
+              >
+                <i
+                  class="material-icons-two-tone mdc-list-item__graphic"
+                >
+                  wifi
+                </i>
+                <span
+                  class="mdc-list-item__text list-item__text"
+                >
+                  List item
+                </span>
+              </li>
+              <li
+                class="wp-block-material-list-item mdc-list-item list-item"
+                tabindex="0"
+              >
+                <i
+                  class="mdc-list-item__graphic material-icons-two-tone"
+                >
+                  bluetooth
+                </i>
+                <span
+                  class="mdc-list-item__text list-item__text"
+                >
+                  List item
+                </span>
+              </li>
+              <li
+                class="wp-block-material-list-item mdc-list-item list-item"
+                tabindex="0"
+              >
+                <i
+                  class="material-icons-two-tone mdc-list-item__graphic"
+                >
+                  http
+                </i>
+                <span
+                  class="mdc-list-item__text list-item__text"
+                >
+                  List item
+                </span>
+              </li>
+            </ul>
+            <ul
+              class="mdc-list mdc-list--two-line inline-demo-list"
+              style="width: 33%;"
+            >
+              <li
+                class="mdc-list-item mdc-ripple-upgraded"
+                tabindex="0"
+              >
+                <i
+                  aria-hidden="true"
+                  class="material-icons-two-tone mdc-list-item__graphic"
+                >
+                  spa
+                </i>
+                <span
+                  class="mdc-list-item__text"
+                >
+                  <span
+                    class="mdc-list-item__primary-text"
+                  >
+                    List item
+                  </span>
+                  <span
+                    class="mdc-list-item__secondary-text"
+                  >
+                    Secondary Text...
+                  </span>
+                </span>
+              </li>
+              <li
+                class="mdc-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+              >
+                <i
+                  aria-hidden="true"
+                  class="mdc-list-item__graphic material-icons-two-tone"
+                >
+                  grade
+                </i>
+                <span
+                  class="mdc-list-item__text"
+                >
+                  <span
+                    class="mdc-list-item__primary-text"
+                  >
+                    List item
+                  </span>
+                  <span
+                    class="mdc-list-item__secondary-text"
+                  >
+                    Secondary Text...
+                  </span>
+                </span>
+              </li>
+              <li
+                class="mdc-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+              >
+                <i
+                  aria-hidden="true"
+                  class="material-icons-two-tone mdc-list-item__graphic"
+                >
+                  search
+                </i>
+                <span
+                  class="mdc-list-item__text"
+                >
+                  <span
+                    class="mdc-list-item__primary-text"
+                  >
+                    List item
+                  </span>
+                  <span
+                    class="mdc-list-item__secondary-text"
+                  >
+                    Secondary Text...
+                  </span>
+                </span>
+              </li>
+            </ul>
+            <ul
+              class="mdc-list mdc-list--two-line inline-demo-list"
+              style="width: 33%;"
+            >
+              <li
+                class="mdc-list-item mdc-ripple-upgraded"
+                tabindex="0"
+              >
+                <span
+                  class="mdc-list-item__text"
+                >
+                  <span
+                    class="mdc-list-item__primary-text"
+                  >
+                    List item
+                  </span>
+                  <span
+                    class="mdc-list-item__secondary-text"
+                  >
+                    Secondary Text...
+                  </span>
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="mdc-list-item__meta"
+                >
+                  <button
+                    class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                  >
+                    remove_red_eye
+                  </button>
+                </span>
+              </li>
+              <li
+                class="mdc-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+              >
+                <span
+                  class="mdc-list-item__text"
+                >
+                  <span
+                    class="mdc-list-item__primary-text"
+                  >
+                    List item
+                  </span>
+                  <span
+                    class="mdc-list-item__secondary-text"
+                  >
+                    Secondary Text...
+                  </span>
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="mdc-list-item__meta"
+                >
+                  <button
+                    class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                  >
+                    email
+                  </button>
+                </span>
+              </li>
+              <li
+                class="mdc-list-item mdc-ripple-upgraded"
+                tabindex="-1"
+              >
+                <span
+                  class="mdc-list-item__text"
+                >
+                  <span
+                    class="mdc-list-item__primary-text"
+                  >
+                    List item
+                  </span>
+                  <span
+                    class="mdc-list-item__secondary-text"
+                  >
+                    Secondary Text...
+                  </span>
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="mdc-list-item__meta"
+                >
+                  <button
+                    class="material-icons-two-tone mdc-icon-button mdc-ripple-upgraded mdc-ripple-upgraded--unbounded"
+                  >
+                    share
+                  </button>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Tabs
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/tabs"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Tabs organize content across different screens, data sets, and other interactions.
+          </p>
+          <div
+            class="wp-block-material-tab-bar mdc-tab-bar-container"
+            style="width: 80%;"
+          >
+            <div
+              class="mdc-tab-bar"
+              role="tablist"
+            >
+              <div
+                class="mdc-tab-scroller"
+              >
+                <div
+                  class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+                  style="margin-bottom: 0px;"
+                >
+                  <div
+                    class="mdc-tab-scroller__scroll-content"
+                  >
+                    <div
+                      aria-selected="true"
+                      class="mdc-tab tab mdc-tab--active"
+                      id="mdc-tab-1"
+                      role="tab"
+                      tabindex="0"
+                    >
+                      <span
+                        class="mdc-tab__content"
+                      >
+                        <i
+                          class="material-icons-two-tone mdc-tab__icon"
+                        >
+                          wifi
+                        </i>
+                        <span
+                          class="mdc-tab__text-label tab__label-field"
+                        >
+                          <span
+                            role="tab"
+                            tabindex="0"
+                          >
+                            Tab 1
+                          </span>
+                        </span>
+                      </span>
+                      <span
+                        class="mdc-tab-indicator mdc-tab-indicator--active"
+                      >
+                        <span
+                          class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                        />
+                      </span>
+                      <span
+                        class="mdc-tab__ripple mdc-ripple-upgraded"
+                      />
+                    </div>
+                    <div
+                      aria-selected="false"
+                      class="mdc-tab tab"
+                      id="mdc-tab-2"
+                      role="tab"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="mdc-tab__content"
+                      >
+                        <i
+                          class="material-icons-two-tone mdc-tab__icon"
+                        >
+                          bluetooth
+                        </i>
+                        <span
+                          class="mdc-tab__text-label tab__label-field"
+                        >
+                          <span
+                            role="tab"
+                            tabindex="0"
+                          >
+                            Tab 2
+                          </span>
+                        </span>
+                      </span>
+                      <span
+                        class="mdc-tab-indicator"
+                      >
+                        <span
+                          class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"
+                        />
+                      </span>
+                      <span
+                        class="mdc-tab__ripple mdc-ripple-upgraded"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="mdc-tab-content mdc-tab-content--active"
+              >
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus congue massa velit, venenatis egestas sapien finibus vitae. Praesent eu arcu eleifend, rutrum dui at, sodales dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sed arcu vel lectus accumsan rutrum volutpat et risus. Sed tristique sit amet nisl vitae congue. Praesent vestibulum quam et luctus convallis. Fusce a enim ut purus venenatis pulvinar eu ullamcorper arcu. Sed laoreet augue nisi, at convallis sem placerat sit amet. Praesent varius congue nibh, sit amet aliquam libero tincidunt eget. Nulla et magna lobortis, pellentesque arcu sollicitudin, pellentesque justo. Mauris rutrum nunc felis, sed cursus dui feugiat vitae.
+                </p>
+              </div>
+              <div
+                class="mdc-tab-content"
+              >
+                <p>
+                  Proin quis ornare leo. In pellentesque libero a consequat ultricies. Aliquam ornare neque non justo dignissim, vel gravida purus posuere. Cras a neque eu nisi facilisis aliquet. Integer faucibus, lorem et tempor pellentesque, est tellus molestie libero, a ullamcorper ligula est et sapien. Nunc placerat sollicitudin nisl et viverra. Sed pellentesque nunc sed tellus dignissim, et rhoncus velit porttitor.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section
+        style="margin-top: 100px;"
+      >
+        <h3
+          class="mdc-typography--headline3"
+        >
+          Components
+        </h3>
+        <p>
+          Styled components available when the Material Design theme is activated.
+        </p>
+        <p>
+          Enable Material Design theme for more components.
+        </p>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Checkboxes
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/develop/web/components/input-controls/checkboxes"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Checkboxes allow the user to select one or more items from a set.
+          </p>
+          <div
+            class="mdc-checkbox"
+          >
+            <input
+              class="mdc-checkbox__native-control"
+              type="checkbox"
+            />
+            <div
+              class="mdc-checkbox__background"
+            >
+              <svg
+                class="mdc-checkbox__checkmark"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  class="mdc-checkbox__checkmark-path"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                  fill="none"
+                />
+              </svg>
+              <div
+                class="mdc-checkbox__mixedmark"
+              />
+            </div>
+            <div
+              class="mdc-checkbox__ripple"
+            />
+          </div>
+          <div
+            class="mdc-checkbox"
+          >
+            <input
+              class="mdc-checkbox__native-control"
+              type="checkbox"
+            />
+            <div
+              class="mdc-checkbox__background"
+            >
+              <svg
+                class="mdc-checkbox__checkmark"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  class="mdc-checkbox__checkmark-path"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                  fill="none"
+                />
+              </svg>
+              <div
+                class="mdc-checkbox__mixedmark"
+              />
+            </div>
+            <div
+              class="mdc-checkbox__ripple"
+            />
+          </div>
+          <div
+            class="mdc-checkbox"
+          >
+            <input
+              class="mdc-checkbox__native-control"
+              type="checkbox"
+            />
+            <div
+              class="mdc-checkbox__background"
+            >
+              <svg
+                class="mdc-checkbox__checkmark"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  class="mdc-checkbox__checkmark-path"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                  fill="none"
+                />
+              </svg>
+              <div
+                class="mdc-checkbox__mixedmark"
+              />
+            </div>
+            <div
+              class="mdc-checkbox__ripple"
+            />
+          </div>
+          <div
+            class="mdc-checkbox"
+          >
+            <input
+              class="mdc-checkbox__native-control"
+              type="checkbox"
+            />
+            <div
+              class="mdc-checkbox__background"
+            >
+              <svg
+                class="mdc-checkbox__checkmark"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  class="mdc-checkbox__checkmark-path"
+                  d="M1.73,12.91 8.1,19.28 22.79,4.59"
+                  fill="none"
+                />
+              </svg>
+              <div
+                class="mdc-checkbox__mixedmark"
+              />
+            </div>
+            <div
+              class="mdc-checkbox__ripple"
+            />
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Chips
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/chips"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Chips are compact elements that represent an input, attribute, or action.
+          </p>
+          <div
+            class="mdc-chip-set"
+            role="grid"
+          >
+            <div
+              class="mdc-chip"
+              role="row"
+              style="border-radius: 8px;"
+            >
+              <div
+                class="mdc-chip__ripple"
+              />
+              <span
+                role="gridcell"
+              >
+                <span
+                  class="mdc-chip__primary-action"
+                  role="button"
+                  tabindex="0"
+                >
+                  <span
+                    class="mdc-chip__text"
+                  >
+                    Chip One
+                  </span>
+                </span>
+              </span>
+            </div>
+            <div
+              class="mdc-chip"
+              role="row"
+              style="border-radius: 8px;"
+            >
+              <div
+                class="mdc-chip__ripple"
+              />
+              <span
+                role="gridcell"
+              >
+                <span
+                  class="mdc-chip__primary-action"
+                  role="button"
+                  tabindex="-1"
+                >
+                  <span
+                    class="mdc-chip__text"
+                  >
+                    Chip Two
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Radio buttons
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/develop/web/components/input-controls/radio-buttons"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Radio buttons allow the user to select one option from a set.
+          </p>
+          <div
+            class="mdc-radio"
+          >
+            <input
+              checked=""
+              class="mdc-radio__native-control"
+              name="radios"
+              type="radio"
+            />
+            <div
+              class="mdc-radio__background"
+            >
+              <div
+                class="mdc-radio__outer-circle"
+              />
+              <div
+                class="mdc-radio__inner-circle"
+              />
+            </div>
+            <div
+              class="mdc-radio__ripple"
+            />
+          </div>
+          <div
+            class="mdc-radio"
+          >
+            <input
+              class="mdc-radio__native-control"
+              name="radios"
+              type="radio"
+            />
+            <div
+              class="mdc-radio__background"
+            >
+              <div
+                class="mdc-radio__outer-circle"
+              />
+              <div
+                class="mdc-radio__inner-circle"
+              />
+            </div>
+            <div
+              class="mdc-radio__ripple"
+            />
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Text fields
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/components/text-fields"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Text fields let users enter and edit text.
+          </p>
+          <div
+            style="display: flex;"
+          >
+            <div
+              class="mdc-text-field mdc-text-field--with-leading-icon"
+              style="border-top-left-radius: 16px; border-top-right-radius: 16px;"
+            >
+              <i
+                class="material-icons mdc-text-field__icon mdc-text-field__icon--leading"
+              >
+                account_circle
+              </i>
+              <input
+                class="mdc-text-field__input"
+                id="text-field-hero-input"
+              />
+              <div
+                class="mdc-line-ripple"
+              />
+              <label
+                class="mdc-floating-label"
+                for="text-field-hero-input"
+              >
+                First name
+              </label>
+            </div>
+            <div
+              class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-leading-icon mdc-text-field--with-trailing-icon"
+              style="margin-left: 10px;"
+            >
+              <i
+                class="material-icons mdc-text-field__icon mdc-text-field__icon--leading"
+              >
+                account_circle
+              </i>
+              <i
+                class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing"
+              >
+                close
+              </i>
+              <input
+                class="mdc-text-field__input"
+                type="text"
+              />
+              <div
+                class="mdc-notched-outline"
+              >
+                <div
+                  class="mdc-notched-outline__leading"
+                  style="border-radius: 16px 0 0 16px; min-width: 16px;"
+                />
+                <div
+                  class="mdc-notched-outline__notch"
+                >
+                  <label
+                    class="mdc-floating-label"
+                    for="outlined-textfield"
+                  >
+                    Last name
+                  </label>
+                </div>
+                <div
+                  class="mdc-notched-outline__trailing"
+                  style="border-radius: 0 16px 16px 0; min-width: 16px;"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h4
+            class="mdc-typography--headline4"
+            style="margin: 0px;"
+          >
+            Switches
+          </h4>
+          <form
+            target="_blank"
+          >
+            <button
+              class="mdc-icon-button material-icons"
+              formaction="https://material.io/develop/web/components/input-controls/switches"
+            >
+              open_in_new
+            </button>
+          </form>
+          <p>
+            Switches toggle the state of a single item on or off.
+          </p>
+          <div
+            class="mdc-switch"
+            style="margin-top: 2px;"
+          >
+            <div
+              class="mdc-switch__track"
+            />
+            <div
+              class="mdc-switch__thumb-underlay"
+            >
+              <div
+                class="mdc-switch__thumb"
+              />
+              <input
+                aria-checked="false"
+                class="mdc-switch__native-control"
+                id="basic-switch"
+                role="switch"
+                type="checkbox"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

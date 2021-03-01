@@ -1,0 +1,668 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Data Table Save matches snapshot when table has data 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="wp-block-table is-style-material"
+      >
+        <div
+          class="mdc-data-table"
+        >
+          <table
+            class="mdc-data-table__table has-fixed-layout"
+          >
+            <thead
+              class=""
+            >
+              <tr
+                class="mdc-data-table__header-row"
+              >
+                <th
+                  class="mdc-data-table__header-cell"
+                >
+                  <div>
+                    Version
+                  </div>
+                </th>
+                <th
+                  class="mdc-data-table__header-cell"
+                >
+                  <div>
+                    Jazz Musician
+                  </div>
+                </th>
+                <th
+                  class="mdc-data-table__header-cell"
+                >
+                  <div>
+                    Release Date
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              class="mdc-data-table__content"
+            >
+              <tr
+                class="mdc-data-table__row"
+              >
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    5.2
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    Jaco Pastorius
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    May 7, 2019
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class="mdc-data-table__row"
+              >
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    5.1
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    Betty Carter
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    February 21, 2019
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class="mdc-data-table__row"
+              >
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    5.0
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    Bebo Valdés
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    December 6, 2018
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot
+              class=""
+            >
+              <tr
+                class="mdc-data-table__row"
+              >
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    Footer Col 1
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    Footer Col 2
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    Footer Col 3
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="wp-block-table is-style-material"
+    >
+      <div
+        class="mdc-data-table"
+      >
+        <table
+          class="mdc-data-table__table has-fixed-layout"
+        >
+          <thead
+            class=""
+          >
+            <tr
+              class="mdc-data-table__header-row"
+            >
+              <th
+                class="mdc-data-table__header-cell"
+              >
+                <div>
+                  Version
+                </div>
+              </th>
+              <th
+                class="mdc-data-table__header-cell"
+              >
+                <div>
+                  Jazz Musician
+                </div>
+              </th>
+              <th
+                class="mdc-data-table__header-cell"
+              >
+                <div>
+                  Release Date
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="mdc-data-table__content"
+          >
+            <tr
+              class="mdc-data-table__row"
+            >
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  5.2
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  Jaco Pastorius
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  May 7, 2019
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="mdc-data-table__row"
+            >
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  5.1
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  Betty Carter
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  February 21, 2019
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="mdc-data-table__row"
+            >
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  5.0
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  Bebo Valdés
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  December 6, 2018
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot
+            class=""
+          >
+            <tr
+              class="mdc-data-table__row"
+            >
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  Footer Col 1
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  Footer Col 2
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  Footer Col 3
+                </div>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Data Table Save matches snapshot when table has no data 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div />
+  </body>,
+  "container": <div />,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Data Table Save matches snapshot when table has rows 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="wp-block-table is-style-material"
+      >
+        <div
+          class="mdc-data-table"
+        >
+          <table
+            class="mdc-data-table__table has-fixed-layout"
+          >
+            <tbody
+              class="mdc-data-table__content"
+            >
+              <tr
+                class="mdc-data-table__row"
+              >
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    5.2
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    Jaco Pastorius
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    May 7, 2019
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class="mdc-data-table__row"
+              >
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    5.1
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    Betty Carter
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    February 21, 2019
+                  </div>
+                </td>
+              </tr>
+              <tr
+                class="mdc-data-table__row"
+              >
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    5.0
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    Bebo Valdés
+                  </div>
+                </td>
+                <td
+                  class="mdc-data-table__cell"
+                >
+                  <div>
+                    December 6, 2018
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="wp-block-table is-style-material"
+    >
+      <div
+        class="mdc-data-table"
+      >
+        <table
+          class="mdc-data-table__table has-fixed-layout"
+        >
+          <tbody
+            class="mdc-data-table__content"
+          >
+            <tr
+              class="mdc-data-table__row"
+            >
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  5.2
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  Jaco Pastorius
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  May 7, 2019
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="mdc-data-table__row"
+            >
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  5.1
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  Betty Carter
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  February 21, 2019
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="mdc-data-table__row"
+            >
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  5.0
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  Bebo Valdés
+                </div>
+              </td>
+              <td
+                class="mdc-data-table__cell"
+              >
+                <div>
+                  December 6, 2018
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

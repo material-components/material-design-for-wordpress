@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Copyright 2020 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<!-- generator="WordPress/5.4.1" created="2020-05-07 17:45" -->
+<rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
+    <channel>
+        <wp:term>
+            <wp:term_id><![CDATA[2]]></wp:term_id>
+            <wp:term_taxonomy><![CDATA[nav_menu]]></wp:term_taxonomy>
+            <wp:term_slug><![CDATA[primary]]></wp:term_slug>
+            <wp:term_parent><![CDATA[]]></wp:term_parent>
+            <wp:term_name><![CDATA[Primary]]></wp:term_name>
+        </wp:term>
+        <generator>https://wordpress.org/?v=5.4.1</generator>
+        <item>
+            <title>Nunc lacinia libero eu pulvinar aliquet</title>
+            <link>http://localhost:8088/?p=28</link>
+            <pubDate>Wed, 06 May 2020 19:59:11 +0000</pubDate>
+            <dc:creator><![CDATA[emeaguiar]]></dc:creator>
+            <guid isPermaLink="false">http://localhost:8088/?p=28</guid>
+            <description></description>
+            <content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Seed malesuada massa vehicula molestie eu efficitur montes cubilia tincidunt maecenas, platea metus elementum nisl nulla mollis arcu tellus litora integer, at ullamcorper tempus magnis nullam ac ut ipsum tempor. Habitant cursus habitasse pellentesque felis sed egestas aptent vitae, nunc pharetra himenaeos purus leo ridiculus pretium, primis enim ac lacus dictum eget elementum. Penatibus curae ultricies cubilia sapien massa tortor lacinia suspendisse, tempor hendrerit metus diam imperdiet posuere lorem, nostra lacus congue duis varius enim felis. Fames dis posuere duis vivamus rhoncus sagittis arcu dui facilisi tellus, orci commodo class bibendum justo conubia molestie aliquet praesent. Platea mattis cursus tellus id etiam neque, praesent pellentesque semper eget tempor conubia massa, sociosqu tincidunt suspendisse at mi. Ipsum nullam pharetra risus ex sociosqu odio vehicula molestie varius, vulputate facilisi phasellus maecenas porttitor dui ut non sagittis quis, arcu sit ornare per egestas elit blandit purus. Laoreet praesent aptent habitant scelerisque ipsum odio, diam nullam convallis litora leo euismod lobortis, purus et turpis netus ridiculus. Vehicula a ligula torquent interdum pulvinar scelerisque cras congue, faucibus suspendisse venenatis curae fermentum sed tortor dis, blandit etiam inceptos praesent quis commodo aenean.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Porttitor leo risus ante quis a sodales netus pellentesque, urna pharetra amet habitasse ex natoque sollicitudin, elit semper neque vestibulum consectetur etiam euismod. Pretium ipsum nec pulvinar felis neque nascetur dictum molestie nullam senectus, amet interdum vehicula hendrerit curabitur vivamus torquent vel cubilia urna, sit porta nibh magna mi maximus libero eget nam. Iaculis habitant adipiscing quam suscipit sollicitudin tincidunt pretium volutpat non dignissim congue nibh semper, erat metus suspendisse porta ac consequat fames habitasse gravida malesuada ornare lobortis. Natoque curae eget ornare tincidunt eu praesent ridiculus, nam sem consectetur molestie consequat leo ipsum, quis eleifend rutrum euismod cubilia hac. Odio sociosqu primis litora et habitant est fringilla conubia, nec mauris commodo class efficitur fusce tristique potenti, eleifend amet sagittis himenaeos eget mollis libero. Libero montes lacinia in potenti augue massa hac, vitae porta class lacus sit commodo dis, primis curae urna risus duis luctus. Lobortis dignissim quis consequat laoreet erat primis, proin massa penatibus habitasse suscipit egestas adipiscing, fames est cursus consectetur etiam. Suspendisse fringilla urna potenti mollis magna hendrerit, ac rutrum iaculis nisl penatibus faucibus suscipit, sociosqu aenean facilisis sit porta.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Quam volutpat laoreet turpis sem aliquam condimentum justo parturient, bibendum sed suspendisse felis lacinia posuere molestie, pretium dictum habitant diam ultricies suscipit magna. Pulvinar quam luctus magnis praesent lectus ridiculus metus quisque consectetur, massa turpis quis molestie maximus condimentum erat. Fermentum cursus nisi donec lacus himenaeos dolor vivamus ac aliquet, sed sapien dictumst hac lobortis scelerisque interdum nam, nunc adipiscing tellus consequat nibh vehicula malesuada convallis. Lorem curae nascetur inceptos integer hendrerit nec, sed nam taciti euismod scelerisque, dis interdum eget sodales vehicula. Interdum auctor lacinia class torquent taciti libero nascetur magnis lectus, mus condimentum tristique ante porttitor eu consectetur maecenas, habitant fames inceptos erat luctus quisque suscipit nec.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+            <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+            <wp:post_id>28</wp:post_id>
+            <wp:post_date><![CDATA[2020-05-06 19:59:11]]></wp:post_date>
+            <wp:post_date_gmt><![CDATA[2020-05-06 19:59:11]]></wp:post_date_gmt>
+            <wp:comment_status><![CDATA[open]]></wp:comment_status>
+            <wp:ping_status><![CDATA[open]]></wp:ping_status>
+            <wp:post_name><![CDATA[nunc-lacinia-libero-eu-pulvinar-aliquet]]></wp:post_name>
+            <wp:status><![CDATA[publish]]></wp:status>
+            <wp:post_parent>0</wp:post_parent>
+            <wp:menu_order>0</wp:menu_order>
+            <wp:post_type><![CDATA[post]]></wp:post_type>
+            <wp:post_password><![CDATA[]]></wp:post_password>
+            <wp:is_sticky>0</wp:is_sticky>
+            <category domain="category" nicename="uncategorized"><![CDATA[Uncategorized]]></category>
+            <wp:postmeta>
+                <wp:meta_key><![CDATA[_encloseme]]></wp:meta_key>
+                <wp:meta_value><![CDATA[1]]></wp:meta_value>
+            </wp:postmeta>
+            <wp:postmeta>
+                <wp:meta_key><![CDATA[_thumbnail_id]]></wp:meta_key>
+                <wp:meta_value><![CDATA[]]></wp:meta_value>
+            </wp:postmeta>
+            <wp:comment>
+                <wp:comment_id>2</wp:comment_id>
+                <wp:comment_author><![CDATA[John Mechling]]></wp:comment_author>
+                <wp:comment_author_email><![CDATA[]]></wp:comment_author_email>
+                <wp:comment_author_url></wp:comment_author_url>
+                <wp:comment_author_IP><![CDATA[192.168.16.1]]></wp:comment_author_IP>
+                <wp:comment_date><![CDATA[2020-05-07 16:57:17]]></wp:comment_date>
+                <wp:comment_date_gmt><![CDATA[2020-05-07 16:57:17]]></wp:comment_date_gmt>
+                <wp:comment_content><![CDATA[lNunc feugiat cursus netus urna pharetra maecenas magnis nisl libero eleifend, ultrices id ex massa sociosqu lectus orci ultricies etiam, in pellentesque varius eu purus ligula pretium ullamcorper vestibulum.]]></wp:comment_content>
+                <wp:comment_approved><![CDATA[1]]></wp:comment_approved>
+                <wp:comment_type><![CDATA[]]></wp:comment_type>
+                <wp:comment_parent>0</wp:comment_parent>
+                <wp:comment_user_id>1</wp:comment_user_id>
+            </wp:comment>
+            <wp:comment>
+                <wp:comment_id>3</wp:comment_id>
+                <wp:comment_author><![CDATA[Tanya Munhall]]></wp:comment_author>
+                <wp:comment_author_email><![CDATA[]]></wp:comment_author_email>
+                <wp:comment_author_url></wp:comment_author_url>
+                <wp:comment_author_IP><![CDATA[192.168.16.1]]></wp:comment_author_IP>
+                <wp:comment_date><![CDATA[2020-05-07 16:57:38]]></wp:comment_date>
+                <wp:comment_date_gmt><![CDATA[2020-05-07 16:57:38]]></wp:comment_date_gmt>
+                <wp:comment_content><![CDATA[Dapibus himenaeos dolor mus habitasse efficitur ex bibendum auctor, erat tempus facilisi adipiscing class cubilia metus pretium, egestas litora risus massa accumsan leo ipsum elit, turpis dui enim purus fermentum primis phasellus.]]></wp:comment_content>
+                <wp:comment_approved><![CDATA[1]]></wp:comment_approved>
+                <wp:comment_type><![CDATA[]]></wp:comment_type>
+                <wp:comment_parent>0</wp:comment_parent>
+                <wp:comment_user_id>1</wp:comment_user_id>
+            </wp:comment>
+            <wp:comment>
+                <wp:comment_id>4</wp:comment_id>
+                <wp:comment_author><![CDATA[John Doe]]></wp:comment_author>
+                <wp:comment_author_email><![CDATA[]]></wp:comment_author_email>
+                <wp:comment_author_url></wp:comment_author_url>
+                <wp:comment_author_IP><![CDATA[192.168.16.1]]></wp:comment_author_IP>
+                <wp:comment_date><![CDATA[2020-05-07 16:57:54]]></wp:comment_date>
+                <wp:comment_date_gmt><![CDATA[2020-05-07 16:57:54]]></wp:comment_date_gmt>
+                <wp:comment_content><![CDATA[Nam platea fringilla ad senectus eget taciti feugiat neque eleifend, mauris dolor rhoncus dapibus euismod placerat lacinia bibendum, praesent lorem nec augue risus hendrerit diam enim.]]></wp:comment_content>
+                <wp:comment_approved><![CDATA[1]]></wp:comment_approved>
+                <wp:comment_type><![CDATA[]]></wp:comment_type>
+                <wp:comment_parent>2</wp:comment_parent>
+                <wp:comment_user_id>1</wp:comment_user_id>
+            </wp:comment>
+        </item>
+    </channel>
+</rss>

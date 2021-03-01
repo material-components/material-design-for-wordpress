@@ -1,0 +1,14 @@
+{
+  "extends": "stylelint-config-wordpress",
+  "rules": {
+    "font-weight-notation": null,
+    "function-url-quotes": null,
+    "max-line-length": null,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "number-leading-zero": null,
+    "selector-class-pattern": null,
+    "selector-type-no-unknown": [ true, { "ignore": ["custom-elements"] } ],
+    "at-rule-no-unknown": [ true, { "ignoreAtRules": ["mixin"] } ]
+  }
+}

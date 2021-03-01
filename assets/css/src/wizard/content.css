@@ -1,0 +1,44 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.material-wizard__content {
+	background-color: #fff;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+	padding: 2.5rem;
+
+	& p {
+		font-family: var(--mdc-typography-body1-font-family, var(--mdc-typography-font-family, Roboto,));
+		font-size: var(--mdc-typography-body1-font-size, 1rem);
+		line-height: var(--mdc-typography-body1-line-height, 1.5);
+		font-weight: var(--mdc-typography-body1-font-weight, 400);
+		letter-spacing: var(--mdc-typography-body1-letter-spacing, 0.03125em);
+		text-decoration: var(--mdc-typography-body1-text-decoration, inherit);
+		text-transform: var(--mdc-typography-body1-text-transform, inherit);
+	}
+
+	& hr {
+		margin: 2.5rem auto;
+		width: 80%;
+	}
+
+	& .material-wizard__title {
+		margin-top: 0;
+	}
+
+	& .material-wizard__card img {
+		width: 100%;
+	}
+}

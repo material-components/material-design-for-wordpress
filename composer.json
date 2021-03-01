@@ -1,0 +1,65 @@
+{
+  "name": "xwp/material-design-wp-plugin",
+  "type": "wordpress-plugin",
+  "description": "Material Design plugin for WordPress.",
+  "homepage": "https://github.com/xwp/material-design-wp-plugin",
+  "license": "Apache-2.0",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "php": ">=5.6.20"
+  },
+  "require-dev": {
+    "automattic/vipwpcs": "*",
+    "dealerdirect/phpcodesniffer-composer-installer": "*",
+    "php-coveralls/php-coveralls": "2.2.0",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "phpunit/phpcov": "^3.1 || ^6.0",
+    "phpunit/phpunit": "^5.7 || ^7",
+    "slowprog/composer-copy-file": "*",
+    "wp-coding-standards/wpcs": "*",
+    "xwp/wordpress-tests-installer": "*",
+    "xwp/wp-dev-lib": "*"
+  },
+  "scripts": {
+    "build": [
+      "composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts"
+    ],
+    "format": [
+      "phpcbf ."
+    ],
+    "lint": [
+      "@composer validate --strict",
+      "phpcs ."
+    ],
+    "post-install-cmd": [
+      "@setup"
+    ],
+    "post-update-cmd": [
+      "@setup"
+    ],
+    "readme": [
+      "vendor/xwp/wp-dev-lib/scripts/generate-markdown-readme"
+    ],
+    "setup": [
+      "SlowProg\\CopyFile\\ScriptHandler::copy",
+      "if [ ! -f .git/hooks/pre-commit ]; then vendor/xwp/wp-dev-lib/scripts/install-pre-commit-hook.sh; fi",
+      "if [ ! -f .env ]; then cp .env.dist .env; fi"
+    ],
+    "test": [
+      "phpunit"
+    ],
+    "test-coverage": [
+      "phpunit --coverage-html tests/coverage/html"
+    ]
+  },
+  "extra": {
+    "installer-name": "material-design",
+    "copy-file": {
+      "tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
+    }
+  }
+}

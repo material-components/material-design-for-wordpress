@@ -1,0 +1,141 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.range-slider-control {
+
+	.customize-control-title {
+		margin-right: 10px;
+	}
+
+	.info-icon {
+		font-size: 18px !important;
+		margin-bottom: 4px;
+	}
+
+	.slider {
+		flex-grow: 1;
+		margin-right: 10px;
+	}
+
+	.components-range-control__number {
+		margin-left: 8px !important;
+		width: 54px !important;
+	}
+
+	.components-base-control__field {
+		margin-bottom: 0 !important;
+	}
+
+	.customize-control-description {
+		transition: opacity 1s ease-out;
+		opacity: 0;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.components-button.is-link span {
+		font-size: 20px;
+	}
+
+	.expanded {
+
+		.customize-control-description {
+			opacity: 1;
+			height: auto;
+		}
+	}
+
+}
+
+.range-slider-control-title {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+}
+
+.range-slider-control-title-with-description {
+
+	&:hover {
+		color: #0073aa;
+		cursor: pointer;
+	}
+}
+
+.range-slider-control-body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.range-slider-control-body__item {
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.global-range-slider-control-children {
+	background: #ddd;
+	padding: 8px 0 8px 8px;
+	margin-top: 8px;
+
+	& .range-slider-control .slider {
+		margin-right: 32px;
+	}
+
+	& .range-slider-control .has-link.slider {
+		margin-right: 0;
+	}
+}
+
+.components-range-control__wrapper {
+
+	[class*="ThumbWrapper"] {
+		height: 12px;
+		top: 4px;
+		width: 12px;
+
+		& span {
+			background-color: #666;
+		}
+	}
+
+	[class*="Rail"] {
+		background-color: #999;
+		height: 2px;
+	}
+
+	[class*="Track"] {
+		height: 2px;
+	}
+}
+
+.range-slider-control {
+
+	& input[type="range"]::-webkit-slider-runnable-track {
+		background: #999;
+	}
+
+	& input[type="range"]::-moz-range-track {
+		background: #999;
+	}
+
+	& input[type="range"]::-ms-fill-lower {
+		background: #999;
+	}
+
+	& input[type="range"]::-ms-fill-upper {
+		background: #999;
+	}
+}

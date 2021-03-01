@@ -1,0 +1,93 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.material-design-contact-form {
+	margin-bottom: 30px;
+}
+
+.mdc-text-field-container--not-required {
+	margin-top: 40px;
+}
+
+.mdc-text-field-container {
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 30px;
+
+	.mdc-text-field__input {
+		border: none;
+		padding: 20px 16px 7px !important;
+	}
+
+	.mdc-floating-label {
+		margin: 0 !important;
+	}
+
+	.required {
+		color: #f00;
+		margin-bottom: 10px;
+		text-align: right;
+		font-weight: 600;
+		font-size: 12px;
+	}
+
+	.mdc-text-field__input {
+		padding: 20px 16px 6px !important;
+	}
+
+	.mdc-text-field--outlined .mdc-text-field__input {
+		padding: 12px 16px 14px !important;
+	}
+
+	.components-base-control__field {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	.mdc-floating-label {
+
+		line-height: 1.15em !important; /* stylelint-disable-line */
+	}
+
+	.mdc-notched-outline {
+
+		.mdc-floating-label {
+
+			font-size: 1em !important;
+		}
+	}
+
+	.mdc-text-field--textarea {
+
+		.mdc-floating-label--float-above {
+			font-size: 0.75em !important;
+		}
+
+		.mdc-notched-outline {
+
+			.mdc-floating-label--float-above {
+
+				font-size: 1em !important;
+			}
+		}
+	}
+}
+
+.mdc-text-field--custom-full {
+	width: 100%;
+}

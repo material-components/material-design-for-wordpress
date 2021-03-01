@@ -1,0 +1,34 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * Material components used in the blocks and frontend.
+ */
+
+@import "@material/button/dist/mdc.button.css";
+@import "@material/card/dist/mdc.card.css";
+@import "@material/data-table/dist/mdc.data-table.css";
+@import "@material/icon-button/dist/mdc.icon-button.css";
+@import "@material/image-list/dist/mdc.image-list.css";
+@import "@material/layout-grid/dist/mdc.layout-grid.css";
+@import "@material/list/dist/mdc.list.css";
+@import "@material/tab/dist/mdc.tab.css";
+@import "@material/tab-bar/dist/mdc.tab-bar.css";
+@import "@material/tab-indicator/dist/mdc.tab-indicator.css";
+@import "@material/tab-scroller/dist/mdc.tab-scroller.css";
+@import "@material/textfield/dist/mdc.textfield.css";
+@import "@material/typography/dist/mdc.typography.css";
+@import "./components/material.css";
