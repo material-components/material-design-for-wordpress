@@ -12,13 +12,11 @@ import Integrations from './integrations';
 const Settings = () => {
 	return (
 		<SettingsProvider>
-			<div className="mdc-layout-grid__inner">
-				<h1 className="mdc-typography--headline3">
-					{ __( 'Material Settings', 'material-design' ) }
-				</h1>
+			<h1 className="mdc-typography--headline3">
+				{ __( 'Material Settings', 'material-design' ) }
+			</h1>
 
-				<Integrations />
-			</div>
+			<Integrations />
 		</SettingsProvider>
 	);
 };

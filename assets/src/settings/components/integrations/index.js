@@ -5,7 +5,7 @@ import { __, sprintf } from '@wordpress/i18n';
 
 const Integrations = () => {
 	return (
-		<div className="mdc-layout-grid material-settings__integrations">
+		<div className="material-settings__integrations">
 			<h2 className="mdc-typography--headline6">
 				{ __( 'Integrations', 'material-design' ) }
 			</h2>
@@ -36,6 +36,34 @@ const Integrations = () => {
 					'material-design'
 				) }
 			</p>
+
+			<div className="material-settings__updater">
+				<div className="mdc-layout-grid">
+					<div className="mdc-layout-grid__inner">
+						<div className="mdc-layout-grid__cell">
+							<h3 className="mdc-typography--headline6">
+								{ __( 'Google Fonts', 'material-design' ) }
+							</h3>
+
+							<p
+								className="mdc-typography--body1"
+								dangerouslySetInnerHTML={ {
+									__html: sprintf(
+										__(
+											'To enable Google Fonts updates please %s first',
+											'material-design'
+										),
+										`<a href="http://google.com">${ __(
+											'activate Google API Key',
+											'material-design'
+										) }</a>`
+									),
+								} }
+							></p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 };
