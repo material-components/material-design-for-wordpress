@@ -3,6 +3,11 @@
  */
 import { __, sprintf } from '@wordpress/i18n';
 
+/**
+ * Internal dependencies
+ */
+import Updater from './updater';
+
 const Integrations = () => {
 	return (
 		<div className="material-settings__integrations">
@@ -37,33 +42,15 @@ const Integrations = () => {
 				) }
 			</p>
 
-			<div className="material-settings__updater">
-				<div className="mdc-layout-grid">
-					<div className="mdc-layout-grid__inner">
-						<div className="mdc-layout-grid__cell">
-							<h3 className="mdc-typography--headline6">
-								{ __( 'Google Fonts', 'material-design' ) }
-							</h3>
+			<Updater
+				title={ __( 'Google Fonts', 'material-design' ) }
+				disabled={ true }
+			/>
 
-							<p
-								className="mdc-typography--body1"
-								dangerouslySetInnerHTML={ {
-									__html: sprintf(
-										__(
-											'To enable Google Fonts updates please %s first',
-											'material-design'
-										),
-										`<a href="http://google.com">${ __(
-											'activate Google API Key',
-											'material-design'
-										) }</a>`
-									),
-								} }
-							></p>
-						</div>
-					</div>
-				</div>
-			</div>
+			<Updater
+				title={ __( 'Material Icons', 'material-design' ) }
+				lastUpdated={ Date.now() }
+			/>
 		</div>
 	);
 };
