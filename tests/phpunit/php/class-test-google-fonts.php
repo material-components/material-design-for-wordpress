@@ -50,8 +50,8 @@ class Test_Google_Fonts extends \WP_UnitTestCase {
 
 		Google_Fonts::$list = [];
 
-		// Assert we read the json file and return all fonts.
-		$this->assertEquals( count( array_keys( Google_Fonts::get_fonts() ) ), 969 );
+		// Assert we read the json file and return fonts. Actual number will change with updates.
+		$this->assertNotEmpty( array_keys( Google_Fonts::get_fonts() ) );
 	}
 
 	/**

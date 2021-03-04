@@ -67,7 +67,7 @@ const ThemePrompt = ( { status } ) => {
 			path: `${ getConfig( 'restPath' ) }${ status }-theme`,
 			method: 'POST',
 			headers: {
-				'X-WP-Nonce': getConfig( 'themeNonce' ),
+				'X-WP-Nonce': getConfig( 'nonce' ),
 			},
 		};
 		const onFail = error => {
