@@ -16,3 +16,4 @@
 
 @import "@material/typography/dist/mdc.typography.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
+@import "./settings/index.css";
