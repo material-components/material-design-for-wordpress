@@ -31,5 +31,7 @@ module.exports = {
 			'<rootDir>/plugin/tests/mocks/@wordpress/block-editor.js',
 		'@wordpress/rich-text':
 			'<rootDir>/plugin/tests/mocks/@wordpress/rich-text.js',
+			'<rootDir>/tests/mocks/@wordpress/block-editor.js',
+		'icon-picker*': '<rootDir>/plugin/tests/mocks/icon-picker.js',
 	},
 };
