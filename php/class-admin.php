@@ -70,6 +70,7 @@ class Admin extends Module_Base {
 	 * Create admin pages.
 	 * - Getting started page.
 	 * - Onboarding Wizard page.
+	 * - Options page
 	 *
 	 * @return void
 	 */
@@ -201,9 +202,10 @@ class Admin extends Module_Base {
 				'material-admin-js',
 				'materialDesignWizard',
 				[
-					'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-					'nonce'       => wp_create_nonce( 'wp_rest' ),
-					'themeStatus' => esc_html( $this->plugin->theme_status() ),
+					'restPath'       => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'nonce'          => wp_create_nonce( 'wp_rest' ),
+					'themeStatus'    => esc_html( $this->plugin->theme_status() ),
+					'assetsRestPath' => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
 				]
 			);
 		}
