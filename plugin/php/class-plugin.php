@@ -25,10 +25,10 @@
 
 namespace MaterialDesign\Plugin;
 
-use MaterialDesign\Plugin\Blocks_Frontend;
+use MaterialDesign\Plugin\Admin\Admin_Updates;
+use MaterialDesign\Plugin\Cli\Fonts;
+use MaterialDesign\Plugin\Cli\Icons;
 use MaterialDesign\Plugin\Customizer\Controls;
-use MaterialDesign\Plugin\Importer;
-use MaterialDesign\Plugin\Admin;
 
 /**
  * Main plugin bootstrap file.
@@ -71,6 +71,13 @@ class Plugin extends Plugin_Base {
 	public $onboarding_rest_controller;
 
 	/**
+	 * Design_Assets_Rest_Controller class
+	 *
+	 * @var Design_Assets_Rest_Controller
+	 */
+	public $assets_rest_controller;
+
+	/**
 	 * Importer class.
 	 *
 	 * @var Importer
@@ -85,7 +92,30 @@ class Plugin extends Plugin_Base {
 	public $admin;
 
 	/**
+	 * Handles API Updates for Fonts and Icons.
+	 *
+	 * @var Admin_Updates
+	 */
+	public $admin_updates;
+
+	/**
+	 * Holds the CLI class for updating Fonts
+	 *
+	 * @var Fonts
+	 */
+	public $fonts;
+
+	/**
+	 * Holds the CLI class for updating Icons
+	 *
+	 * @var Icons
+	 */
+	public $icons;
+
+	/**
 	 * Initiate the plugin resources.
+	 *
+	 * @throws \Exception Generic Exception.
 	 */
 	public function init() {
 		$this->config = apply_filters( 'material_design_plugin_config', $this->config, $this );
@@ -102,11 +132,26 @@ class Plugin extends Plugin_Base {
 		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
 		$this->onboarding_rest_controller->init();
 
+		$this->assets_rest_controller = new Design_Assets_Rest_Controller( $this );
+		$this->assets_rest_controller->init();
+
 		$this->importer = new Importer( $this );
 		$this->importer->init();
 
 		$this->admin = new Admin( $this );
 		$this->admin->init();
+
+		$this->admin_updates = new Admin_Updates();
+		$this->admin_updates->init();
+
+		// Init CLI.
+		if ( defined( 'WP_CLI' ) && false !== WP_CLI ) {
+			$this->fonts = new Fonts();
+			$this->fonts->register();
+
+			$this->icons = new Icons();
+			$this->icons->register();
+		}
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_google_fonts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_front_end_assets' ], 100 );

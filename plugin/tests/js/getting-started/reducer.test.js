@@ -56,7 +56,7 @@ describe( 'Reducer', () => {
 
 		const result = reducer( initialState, action );
 
-		expect( result.activeTab ).toStrictEqual( 'OVERVIEW' );
+		expect( result.activeTab ).toStrictEqual( 'UPDATES' );
 	} );
 
 	it( 'should go back one step', () => {
@@ -83,7 +83,7 @@ describe( 'Reducer', () => {
 
 		const result = reducer( initialState, action );
 
-		expect( result.completed ).toHaveLength( 1 );
+		expect( result.completed ).toHaveLength( 2 );
 	} );
 
 	it( 'should go to specific step', () => {
