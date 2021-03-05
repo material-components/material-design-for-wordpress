@@ -19,7 +19,7 @@
  */
 import { addQueryArgs } from '@wordpress/url';
 import apiFetch from '@wordpress/api-fetch';
-import { flatten, uniqBy, isUndefined, pickBy } from 'lodash';
+import { flatten, uniqBy, isUndefined, pickBy, defaultTo } from 'lodash';
 import { ENDPOINTS } from '../constants';
 
 /**
@@ -39,13 +39,13 @@ const getPostsRequests = ( { selected = [], search = '', queryArgs = [] } ) => {
 		order: 'asc',
 	};
 
-	const postType = _.defaultTo( queryArgs[ type ], 'post' );
+	const postType = defaultTo( queryArgs.type, 'post' );
 
 	let endpoint = null;
 	if ( 'posts-pages' === postType ) {
 		endpoint = '/material-design/v1/post-types/get-posts';
 	} else {
-		endpoint = ENDPOINTS.namespace + '/' + postType;
+		endpoint = ENDPOINTS.root + '/' + postType + 's';
 	}
 
 	const requests = [

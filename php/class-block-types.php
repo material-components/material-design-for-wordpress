@@ -178,7 +178,7 @@ class Block_Types {
 		// Posts and Pages is not a post type. It's a combination. Set it manually.
 		$post_types_raw = [
 			(object) [
-				'label' => esc_html__( 'Posts and Pages', 'material-desgin' ),
+				'label' => esc_html__( 'Posts and Pages', 'material-design' ),
 				'value' => 'posts-pages',
 			],
 		];
@@ -194,7 +194,7 @@ class Block_Types {
 
 		// Filter our list down to remove non-sensical post types and post and page, which is handled as combined.
 		$post_types = array_filter( $post_types_raw, function( $item ) {
-			return ! in_array( $item->value, [ 'attachment', 'wp_block', 'post', 'page' ] );
+			return ! in_array( $item->value, [ 'attachment', 'wp_block' ] );
 		} );
 
 		$wp_localized_script_data = [
@@ -210,7 +210,7 @@ class Block_Types {
 				'colors' => add_query_arg( 'autofocus[section]', $slug . '_colors', $customizer_url ),
 				'shape'  => add_query_arg( 'autofocus[section]', $slug . '_corner_styles', $customizer_url ),
 			],
-			'postTypes' => $post_types,
+			'postTypes'                => $post_types,
 		];
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
