@@ -40,4 +40,5 @@ export const TABS = {
 	WIZARD: __( 'Quick Start', 'material-design' ),
 	CUSTOMIZE: __( 'Customize your Theme', 'material-design' ),
 	OVERVIEW: __( 'Build with Material Blocks', 'material-design' ),
+	UPDATES: __( 'Updates', 'material-design' ),
 };
