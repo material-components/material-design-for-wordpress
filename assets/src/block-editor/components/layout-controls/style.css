@@ -14,7 +14,13 @@
  * limitations under the License.
  */
 
-.components-base-control__attr-device-label {
+.components-base-control__layout-controls-label {
+    display: block;
+	font-size: 1.1em;
+    margin-bottom: 1rem;
+}
+
+.components-base-control__layout-controls {
 	display: inline-block;
 	margin-left: 10px;
 
