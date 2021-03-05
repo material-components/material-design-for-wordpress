@@ -69,7 +69,8 @@ const Gallery = ( {
 	isSaveContext = false,
 } ) => {
 	const desktopGutter = gutter.desktop || 0;
-	const desktopColumns = 'number' === columns ? columns : columns.desktop || 4;
+	const desktopColumns =
+		typeof 'number' === columns ? columns : columns.desktop || 4;
 	let Tag = 'a';
 	let tagProps = {};
 	let wrapStyles = {},
