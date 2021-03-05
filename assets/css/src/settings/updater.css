@@ -1,3 +1,6 @@
 .material-settings__updater {
 	background-color: var(--material-design-settings-background-color);
+	border-radius: 10px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+	margin-bottom: 15px;
 }
