@@ -25,7 +25,6 @@ import { some, find, findIndex, get, pick, map } from 'lodash';
 import { InspectorControls, MediaPlaceholder } from '@wordpress/block-editor';
 import {
 	PanelBody,
-	RangeControl,
 	SelectControl,
 	ToggleControl,
 	withNotices,

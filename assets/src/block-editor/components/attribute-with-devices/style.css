@@ -27,7 +27,7 @@
 		display: inline-block;
 		cursor: pointer;
 		width: 32px;
-    	height: 32px;
+		height: 32px;
 
 		&.is-selected,
 		&:hover {
