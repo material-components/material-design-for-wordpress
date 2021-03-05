@@ -2,23 +2,24 @@
  * External dependencies
  */
 import _uniqueId from 'lodash/uniqueId';
-import { MDCSwitch } from '@material/switch';
+import classNames from 'classnames';
 
 /**
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import { useState, useEffect } from '@wordpress/element';
+import { useState } from '@wordpress/element';
 
-const Updater = ( { title, disabled, lastUpdated, needsKey } ) => {
+const Updater = ( {
+	title,
+	disabled,
+	lastUpdated,
+	needsKey,
+	checked,
+	onChange,
+} ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
 	const isDisabled = disabled || needsKey;
-
-	useEffect( () => {
-		const switches = document.querySelectorAll( '.mdc-switch' );
-
-		switches.forEach( item => new MDCSwitch( item ) );
-	}, [] );
 
 	return (
 		<div className="material-settings__updater">
@@ -50,9 +51,14 @@ const Updater = ( { title, disabled, lastUpdated, needsKey } ) => {
 						) }
 					</div>
 
+					{ console.log( checked ) }
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end">
 						<div className="material-settings__switch">
-							<div className="mdc-switch material-wizard-switch">
+							<div
+								className={ classNames( 'mdc-switch material-wizard-switch', {
+									'mdc-switch--checked': checked,
+								} ) }
+							>
 								<div className="mdc-switch__track"></div>
 								<div className="mdc-switch__thumb-underlay">
 									<div className="mdc-switch__thumb"></div>
@@ -61,7 +67,8 @@ const Updater = ( { title, disabled, lastUpdated, needsKey } ) => {
 										id={ id }
 										className="mdc-switch__native-control"
 										role="switch"
-										aria-checked="true"
+										aria-checked={ checked }
+										onChange={ onChange }
 									/>
 								</div>
 							</div>
