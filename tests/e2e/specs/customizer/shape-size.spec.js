@@ -145,7 +145,7 @@ describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 
 			let globalRadius = await moveRangeSlider( sliders[ 0 ], 0.25 );
 			const buttonRadius = await moveRangeSlider( sliders[ 1 ], 0.5 );
-			const dataTableRadius = await moveRangeSlider( sliders[ 4 ], 1 );
+			const dataTableRadius = await moveRangeSlider( sliders[ 4 ], 0.95 );
 
 			expect(
 				await page.evaluate( el => {
