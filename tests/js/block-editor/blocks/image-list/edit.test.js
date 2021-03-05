@@ -195,35 +195,4 @@ describe( 'blocks: material/image-list: Edit', () => {
 			props.setAttributes.mock.calls[ 0 ][ 0 ].images[ 1 ].link
 		).toStrictEqual( 'http://example.com' );
 	} );
-
-	it( 'updates correct device gutter on gutter change', () => {
-		const props = { ...galleryProps };
-		const { container, getAllByText } = setup( props );
-		let button = getAllByText( /tablet/i )[ 1 ];
-
-		fireEvent.click( button );
-		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 1 ],
-			{
-				target: { value: 12 },
-			}
-		);
-
-		expect(
-			props.setAttributes.mock.calls[ 0 ][ 0 ].gutter.tablet
-		).toStrictEqual( 12 );
-
-		button = getAllByText( /smartphone/i )[ 1 ];
-		fireEvent.click( button );
-		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 1 ],
-			{
-				target: { value: 18 },
-			}
-		);
-
-		expect(
-			props.setAttributes.mock.calls[ 1 ][ 0 ].gutter.mobile
-		).toStrictEqual( 18 );
-	} );
 } );

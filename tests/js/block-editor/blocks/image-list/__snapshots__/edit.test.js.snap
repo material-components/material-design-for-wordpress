@@ -414,18 +414,17 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control components-range-control"
+          class="components-base-control"
         >
           <div
             class="components-base-control__field"
           >
-            <label
-              class="components-base-control__label"
-              for="inspector-range-control-0"
+            <span
+              class="components-base-control__label components-base-control__layout-controls-label"
             >
-              Columns
+              Layout
               <div
-                class="components-base-control__label-actions components-base-control__attr-device-label"
+                class="components-base-control__label-actions components-base-control__layout-controls"
               >
                 <button
                   class="is-selected"
@@ -455,166 +454,149 @@ Object {
                   </i>
                 </button>
               </div>
-            </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
-            >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
-              >
-                <input
-                  aria-hidden="false"
-                  aria-label="[object Object]"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-0"
-                  max="6"
-                  min="1"
-                  step="1"
-                  tabindex="0"
-                  type="range"
-                  value="1"
-                />
-                <span
-                  aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
-                />
-                <span
-                  aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
-                  style="width: 0%;"
-                />
-                <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
-                  style="left: 0%;"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
-                  />
-                </span>
-                <span
-                  aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                  role="tooltip"
-                  style="left: 0%; z-index: 100;"
-                >
-                  1
-                </span>
-              </span>
-              <input
-                aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="6"
-                min="1"
-                step="1"
-                type="number"
-                value="1"
-              />
             </span>
-          </div>
-        </div>
-        <div
-          class="components-base-control components-range-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-range-control-1"
+            <div
+              class="components-base-control components-range-control"
             >
-              Gutter
               <div
-                class="components-base-control__label-actions components-base-control__attr-device-label"
+                class="components-base-control__field"
               >
-                <button
-                  class="is-selected"
+                <label
+                  class="components-base-control__label"
+                  for="inspector-range-control-0"
                 >
-                  <i
-                    class="material-icons"
-                  >
-                    computer
-                  </i>
-                </button>
-                <button
-                  class=""
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    tablet
-                  </i>
-                </button>
-                <button
-                  class=""
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    smartphone
-                  </i>
-                </button>
-              </div>
-            </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
-            >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
-              >
-                <input
-                  aria-hidden="false"
-                  aria-label="[object Object]"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-1"
-                  max="24"
-                  min="0"
-                  step="1"
-                  tabindex="0"
-                  type="range"
-                  value="24"
-                />
+                  Columns
+                </label>
                 <span
-                  aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
-                />
-                <span
-                  aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
-                  style="width: 100%;"
-                />
-                <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
-                  style="left: 100%;"
+                  class="components-range-control__root css-yaebbd-Root exqw8y20"
                 >
                   <span
-                    aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    color="#00669b"
+                  >
+                    <input
+                      aria-hidden="false"
+                      aria-label="Columns"
+                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                      id="inspector-range-control-0"
+                      max="6"
+                      min="1"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="1"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="css-1lwhlrq-Rail exqw8y24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="components-range-control__track css-ogrpie-Track exqw8y25"
+                      style="width: 0%;"
+                    />
+                    <span
+                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      style="left: 0%;"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="css-c88ajq-Thumb exqw8y210"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="false"
+                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      role="tooltip"
+                      style="left: 0%; z-index: 100;"
+                    >
+                      1
+                    </span>
+                  </span>
+                  <input
+                    aria-label="Columns"
+                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    inputmode="decimal"
+                    max="6"
+                    min="1"
+                    step="1"
+                    type="number"
+                    value="1"
                   />
                 </span>
-                <span
-                  aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                  role="tooltip"
-                  style="left: 100%; z-index: 100;"
+              </div>
+            </div>
+            <div
+              class="components-base-control components-range-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-range-control-1"
                 >
-                  24
+                  Gutter
+                </label>
+                <span
+                  class="components-range-control__root css-yaebbd-Root exqw8y20"
+                >
+                  <span
+                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    color="#00669b"
+                  >
+                    <input
+                      aria-hidden="false"
+                      aria-label="Gutter"
+                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                      id="inspector-range-control-1"
+                      max="24"
+                      min="0"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="css-1lwhlrq-Rail exqw8y24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="components-range-control__track css-ogrpie-Track exqw8y25"
+                      style="width: 100%;"
+                    />
+                    <span
+                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      style="left: 100%;"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="css-c88ajq-Thumb exqw8y210"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="false"
+                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      role="tooltip"
+                      style="left: 100%; z-index: 100;"
+                    >
+                      24
+                    </span>
+                  </span>
+                  <input
+                    aria-label="Gutter"
+                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    inputmode="decimal"
+                    max="24"
+                    min="0"
+                    step="1"
+                    type="number"
+                    value="24"
+                  />
                 </span>
-              </span>
-              <input
-                aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="24"
-                min="0"
-                step="1"
-                type="number"
-                value="24"
-              />
-            </span>
+              </div>
+            </div>
           </div>
         </div>
         <div
@@ -1267,18 +1249,17 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control components-range-control"
+        class="components-base-control"
       >
         <div
           class="components-base-control__field"
         >
-          <label
-            class="components-base-control__label"
-            for="inspector-range-control-0"
+          <span
+            class="components-base-control__label components-base-control__layout-controls-label"
           >
-            Columns
+            Layout
             <div
-              class="components-base-control__label-actions components-base-control__attr-device-label"
+              class="components-base-control__label-actions components-base-control__layout-controls"
             >
               <button
                 class="is-selected"
@@ -1308,166 +1289,149 @@ Object {
                 </i>
               </button>
             </div>
-          </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
-          >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="[object Object]"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-0"
-                max="6"
-                min="1"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="1"
-              />
-              <span
-                aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
-                style="width: 0%;"
-              />
-              <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
-                style="left: 0%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                role="tooltip"
-                style="left: 0%; z-index: 100;"
-              >
-                1
-              </span>
-            </span>
-            <input
-              aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="6"
-              min="1"
-              step="1"
-              type="number"
-              value="1"
-            />
           </span>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-range-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-range-control-1"
+          <div
+            class="components-base-control components-range-control"
           >
-            Gutter
             <div
-              class="components-base-control__label-actions components-base-control__attr-device-label"
+              class="components-base-control__field"
             >
-              <button
-                class="is-selected"
+              <label
+                class="components-base-control__label"
+                for="inspector-range-control-0"
               >
-                <i
-                  class="material-icons"
-                >
-                  computer
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  tablet
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  smartphone
-                </i>
-              </button>
-            </div>
-          </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
-          >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="[object Object]"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-1"
-                max="24"
-                min="0"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="24"
-              />
+                Columns
+              </label>
               <span
-                aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
-                style="width: 100%;"
-              />
-              <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
-                style="left: 100%;"
+                class="components-range-control__root css-yaebbd-Root exqw8y20"
               >
                 <span
-                  aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  color="#00669b"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Columns"
+                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                    id="inspector-range-control-0"
+                    max="6"
+                    min="1"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="1"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-1lwhlrq-Rail exqw8y24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-ogrpie-Track exqw8y25"
+                    style="width: 0%;"
+                  />
+                  <span
+                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    style="left: 0%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-c88ajq-Thumb exqw8y210"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    role="tooltip"
+                    style="left: 0%; z-index: 100;"
+                  >
+                    1
+                  </span>
+                </span>
+                <input
+                  aria-label="Columns"
+                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  inputmode="decimal"
+                  max="6"
+                  min="1"
+                  step="1"
+                  type="number"
+                  value="1"
                 />
               </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                role="tooltip"
-                style="left: 100%; z-index: 100;"
+            </div>
+          </div>
+          <div
+            class="components-base-control components-range-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-range-control-1"
               >
-                24
+                Gutter
+              </label>
+              <span
+                class="components-range-control__root css-yaebbd-Root exqw8y20"
+              >
+                <span
+                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  color="#00669b"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Gutter"
+                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                    id="inspector-range-control-1"
+                    max="24"
+                    min="0"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-1lwhlrq-Rail exqw8y24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-ogrpie-Track exqw8y25"
+                    style="width: 100%;"
+                  />
+                  <span
+                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    style="left: 100%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-c88ajq-Thumb exqw8y210"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    role="tooltip"
+                    style="left: 100%; z-index: 100;"
+                  >
+                    24
+                  </span>
+                </span>
+                <input
+                  aria-label="Gutter"
+                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  inputmode="decimal"
+                  max="24"
+                  min="0"
+                  step="1"
+                  type="number"
+                  value="24"
+                />
               </span>
-            </span>
-            <input
-              aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="24"
-              min="0"
-              step="1"
-              type="number"
-              value="24"
-            />
-          </span>
+            </div>
+          </div>
         </div>
       </div>
       <div

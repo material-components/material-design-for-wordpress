@@ -50,7 +50,7 @@ import Gallery from './components/gallery';
 import getConfig from '../../utils/get-config';
 import './style.css';
 import { name as ImageListBlockName } from './index';
-import AttributeWithDevices from '../../components/attribute-with-devices';
+import LayoutControls from '../../components/layout-controls';
 
 const STYLES = [
 	{
@@ -289,20 +289,16 @@ const ImageListEdit = ( {
 					title={ __( 'Settings', 'material-design' ) }
 					initialOpen={ true }
 				>
-					<AttributeWithDevices
-						label={ __( 'Columns', 'material-design' ) }
-						value={ columns }
-						onChange={ setter( 'columns' ) }
-						min={ 1 }
-						max={ 6 }
-					/>
-
-					<AttributeWithDevices
-						label={ __( 'Gutter', 'material-design' ) }
-						value={ gutter }
-						onChange={ setter( 'gutter' ) }
-						min={ 0 }
-						max={ 24 }
+					<LayoutControls
+						label={ __( 'Layout', 'material-design' ) }
+						columns={ columns }
+						gutter={ gutter }
+						columnsMin={ 1 }
+						columnsMax={ 6 }
+						gutterMin={ 0 }
+						gutterMax={ 24 }
+						onColumnsChange={ setter( 'columns' ) }
+						onGutterChange={ setter( 'gutter' ) }
 					/>
 
 					<div className="components-base-control">
