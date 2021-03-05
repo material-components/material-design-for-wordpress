@@ -83,10 +83,11 @@ class Image_List_Block {
 
 		$styles      = [];
 		$item_styles = [];
+		$columns     = is_array( $attributes['columns'] ) && array_key_exists( $device, $attributes['columns'] ) ? $attributes['columns'][ $device ] : $attributes['columns'];
 
 		if ( ! empty( $attributes['style'] ) && 'masonry' === $attributes['style'] ) {
 			$styles[] = sprintf( '#%s .mdc-image-list {', $id );
-			$styles[] = sprintf( 'column-count: %s;', $attributes['columns'] );
+			$styles[] = sprintf( 'column-count: %s;', $columns );
 			$styles[] = sprintf( 'column-gap: %spx;', $attributes['gutter'][ $device ] );
 			$styles[] = "}\n";
 
@@ -95,7 +96,7 @@ class Image_List_Block {
 			$styles[] = "}\n";
 		} else {
 			$item_styles[] = sprintf( '#%s .mdc-image-list__item {', $id );
-			$item_styles[] = sprintf( 'width: calc(100%% / %s - %spx);', $attributes['columns'], absint( $attributes['gutter'][ $device ] ) + 1 / $attributes['columns'] );
+			$item_styles[] = sprintf( 'width: calc(100%% / %s - %spx);', $columns, absint( $attributes['gutter'][ $device ] ) + 1 / $columns );
 			$item_styles[] = sprintf( 'margin: %spx;', absint( $attributes['gutter'][ $device ] ) / 2 );
 			$item_styles[] = "}\n";
 		}
