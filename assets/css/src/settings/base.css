@@ -30,4 +30,27 @@
 	--mdc-typography-button-font-family: "Roboto", sans-serif;
 	--mdc-typography-overline-font-family: "Roboto", sans-serif;
 	--material-design-settings-background-color: #fff;
+	--material-design-settings-primary-color: #212121;
+	--material-design-settings-primary-text: #fff;
+	--material-design-wizard-primary-color: #212121;
+
+	& .mdc-button {
+		--mdc-theme-primary: var(--material-design-settings-primary-color);
+		--mdc-theme-on-primary: var(--material-design-settings-primary-text);
+	}
+
+	& h1,
+	& h3,
+	& h4 {
+		margin-top: 0;
+	}
+
+	& p {
+		font-size: 16px;
+		margin: 0;
+	}
+
+	& .material-settings__updates {
+		margin-top: 24px;
+	}
 }

@@ -42,15 +42,18 @@ const Integrations = () => {
 				) }
 			</p>
 
-			<Updater
-				title={ __( 'Google Fonts', 'material-design' ) }
-				disabled={ true }
-			/>
+			<div className="material-settings__updates">
+				<Updater
+					title={ __( 'Google Fonts', 'material-design' ) }
+					disabled={ true }
+					needsKey={ true }
+				/>
 
-			<Updater
-				title={ __( 'Material Icons', 'material-design' ) }
-				lastUpdated={ Date.now() }
-			/>
+				<Updater
+					title={ __( 'Material Icons', 'material-design' ) }
+					lastUpdated={ Date.now() }
+				/>
+			</div>
 		</div>
 	);
 };
