@@ -15,9 +15,9 @@
  */
 
 .components-base-control__layout-controls-label {
-    display: block;
+	display: block;
 	font-size: 1.1em;
-    margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 .components-base-control__layout-controls {
@@ -33,7 +33,7 @@
 		display: inline-block;
 		cursor: pointer;
 		width: 32px;
-    	height: 32px;
+		height: 32px;
 
 		&.is-selected,
 		&:hover {
