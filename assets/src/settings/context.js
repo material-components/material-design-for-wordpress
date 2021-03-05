@@ -7,6 +7,7 @@ import { useReducer, createContext } from '@wordpress/element';
  * Internal dependencies
  */
 import { STATUS } from '../wizard/constants';
+import { UPDATERS } from './constants';
 import { reducer } from './reducer';
 
 /**
@@ -19,8 +20,12 @@ const { Provider } = SettingsContext;
 const initialState = {
 	status: STATUS.IDLE,
 	api: null,
+	updates: {},
 	error: {},
 };
+
+initialState.updates[ UPDATERS.FONT ] = false;
+initialState.updates[ UPDATERS.ICON ] = false;
 
 /**
  * Creates a wrapper in order to use our custom reducer
