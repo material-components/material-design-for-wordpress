@@ -180,7 +180,7 @@ class Block_Types {
 			[
 				'label' => esc_html__( 'Posts and Pages', 'material-design' ),
 				'value' => 'posts-pages',
-				'route' => $this->plugin->post_types_rest_controller->get_posts_route(),
+				'route' => $this->plugin->posts_rest_controller->get_posts_route(),
 			],
 		];
 

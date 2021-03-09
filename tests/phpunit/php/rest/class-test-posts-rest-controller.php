@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin\Api;
+namespace MaterialDesign\Plugin\Rest;
 
 use WP_Test_REST_Controller_Testcase;
 use WP_UnitTest_Factory;
@@ -31,9 +31,23 @@ use WP_UnitTest_Factory;
 /**
  * Class Test_Post_Types
  *
- * @package MaterialDesign\Plugin\Api
+ * @package MaterialDesign\Plugin\Rest
  */
-class Test_Post_Types extends WP_Test_REST_Controller_Testcase {
+class Test_Posts_REST_Controller extends WP_Test_REST_Controller_Testcase {
+	/**
+	 * Author user for test.
+	 *
+	 * @var int
+	 */
+	protected static $author_id;
+
+	/**
+	 * Subscriber user for test.
+	 *
+	 * @var int
+	 */
+	protected static $subscriber_id;
+
 	/**
 	 * List of registered routes.
 	 *
@@ -68,43 +82,27 @@ class Test_Post_Types extends WP_Test_REST_Controller_Testcase {
 	 * @param WP_UnitTest_Factory $factory Helper that lets us create fake data.
 	 */
 	public static function wpSetUpBeforeClass( $factory ) {
-
-		register_post_type(
-			'foo',
-			[
-				'show_in_rest' => true,
-			]
-		);
-
-		register_post_type(
-			'bar',
-			[
-				'show_in_rest' => false,
-			]
-		);
-
 		self::$foo_post = $factory->post->create(
 			[
-				'post_type' => 'foo',
-				'title'     => 'Foo Post',
+				'title' => 'Foo Post',
 			]
 		);
 
 		self::$bar_post = $factory->post->create(
 			[
-				'post_type' => 'bar',
-				'title'     => 'Bar Post',
-			]
-		);
-
-		self::$baz_post = $factory->post->create(
-			[
-				'title' => 'Baz Post',
+				'title' => 'Bar Post',
 			]
 		);
 
 
 		static::$routes = rest_get_server()->get_routes();
+
+		self::$author_id     = $factory->user->create(
+			[ 'role' => 'author' ]
+		);
+		self::$subscriber_id = $factory->user->create(
+			[ 'role' => 'subscriber' ]
+		);
 	}
 
 	/**
@@ -137,27 +135,23 @@ class Test_Post_Types extends WP_Test_REST_Controller_Testcase {
 	 * Tests to ensure we are getting expected responses and data.
 	 */
 	public function test_query_multiple_post_types() {
+		wp_set_current_user( self::$subscriber_id );
+
+		$request  = new \WP_REST_Request( 'POST', $this->get_route( '/post-types/get-posts' ) );
+		$response = rest_get_server()->dispatch( $request );
+		$data     = $response->get_data();
+
+		$this->assertEquals( 'rest_no_route', $data['code'] );
+		$this->assertEquals( 404, $data['data']['status'] );
+
+		wp_set_current_user( self::$author_id );
+
 		$request  = new \WP_REST_Request( 'GET', $this->get_route( 'post-types/get-posts' ) );
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
 		// There's only two posts.
 		$this->assertCount( 2, $data );
-
-		// They are only type 'foo' and 'post'.
-		foreach ( $data as $post ) {
-			$this->assertTrue( in_array( $post['type'], [ 'foo', 'post' ] ) );
-		}
-
-		// What about no posts found.
-		$callable = function() {
-			return 'page';
-		};
-
-		add_filter( 'material_design_query_post_types', $callable );
-		$response = rest_get_server()->dispatch( $request );
-		$this->assertEquals( 404, $response->get_status() );
-		remove_filter( 'material_design_query_post_types', $callable );
 	}
 
 	/**

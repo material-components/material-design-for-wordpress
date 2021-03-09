@@ -23,14 +23,14 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin\Api;
+namespace MaterialDesign\Plugin\Rest;
 
 use MaterialDesign\Plugin\Plugin;
 
 /**
  * Class API_Base
  *
- * @package MaterialDesign\Plugin\Api
+ * @package MaterialDesign\Plugin\Rest
  */
 abstract class API_Base extends \WP_REST_Controller {
 	/**

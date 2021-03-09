@@ -28,7 +28,6 @@ import apiFetch from '@wordpress/api-fetch';
 /**
  * Internal dependencies
  */
-import { ENDPOINTS } from '../constants';
 import getConfig from '../utils/get-config';
 
 /**

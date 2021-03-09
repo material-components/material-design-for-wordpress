@@ -17,17 +17,17 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin\Api;
+namespace MaterialDesign\Plugin\Rest;
 
 use MaterialDesign\Plugin\Plugin;
 use WP_REST_Posts_Controller;
 
 /**
- * Class Post_Types
+ * Class Posts_REST_Controller
  *
- * @package MaterialDesign\Plugin\Api
+ * @package MaterialDesign\Plugin\Rest
  */
-class Post_Types extends API_Base {
+class Posts_REST_Controller extends API_Base {
 
 	/**
 	 * Hold the rest post controller.
@@ -37,7 +37,7 @@ class Post_Types extends API_Base {
 	private $posts_controller;
 
 	/**
-	 * Post_Types constructor.
+	 * Posts_REST_Controller constructor.
 	 *
 	 * @param Plugin $plugin Main Plugin file.
 	 */
@@ -75,7 +75,7 @@ class Post_Types extends API_Base {
 					},
 					'args'                => [
 						'post_type' => [
-							'required'          => true,
+							'default'           => 'posts-pages',
 							'sanitize_callback' => 'sanitize_text_field',
 						],
 					],
@@ -94,7 +94,7 @@ class Post_Types extends API_Base {
 		$post_types = apply_filters( 'material_design_query_post_types', [ 'posts-pages' ] );
 		$post_type  = $request->get_param( 'post_type' );
 
-		if ( ! in_array( $post_type, $post_types, true ) ) {
+		if ( ! in_array( $post_type, (array) $post_types, true ) ) {
 			return new \WP_Error(
 				'material_design_invalid_post_type',
 				esc_html__( 'Invalid post type.', 'material-design' ),

@@ -25,12 +25,13 @@
 
 namespace MaterialDesign\Plugin;
 
-use MaterialDesign\Plugin\Api\Onboarding_REST_Controller;
-use MaterialDesign\Plugin\Api\Post_Types;
 use MaterialDesign\Plugin\Admin\Admin_Updates;
 use MaterialDesign\Plugin\Cli\Fonts;
 use MaterialDesign\Plugin\Cli\Icons;
 use MaterialDesign\Plugin\Customizer\Controls;
+use MaterialDesign\Plugin\Rest\Design_Assets_REST_Controller;
+use MaterialDesign\Plugin\Rest\Posts_REST_Controller;
+use MaterialDesign\Plugin\Rest\Onboarding_REST_Controller;
 
 /**
  * Main plugin bootstrap file.
@@ -73,16 +74,16 @@ class Plugin extends Plugin_Base {
 	public $onboarding_rest_controller;
 
 	/**
-	 * Post Types REST Controller Class.
+	 * Posts REST Controller Class.
 	 *
-	 * @var Post_Types
+	 * @var Posts_REST_Controller
 	 */
-	public $post_types_rest_controller;
+	public $posts_rest_controller;
 
 	/**
-	 * Design_Assets_Rest_Controller class
+	 * Design_Assets_REST_Controller class
 	 *
-	 * @var Design_Assets_Rest_Controller
+	 * @var Design_Assets_REST_Controller
 	 */
 	public $assets_rest_controller;
 
@@ -141,10 +142,10 @@ class Plugin extends Plugin_Base {
 		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
 		$this->onboarding_rest_controller->init();
 
-		$this->post_types_rest_controller = new Post_Types( $this );
-		$this->post_types_rest_controller->init();
+		$this->posts_rest_controller = new Posts_REST_Controller( $this );
+		$this->posts_rest_controller->init();
 
-		$this->assets_rest_controller = new Design_Assets_Rest_Controller( $this );
+		$this->assets_rest_controller = new Design_Assets_REST_Controller( $this );
 		$this->assets_rest_controller->init();
 
 		$this->importer = new Importer( $this );

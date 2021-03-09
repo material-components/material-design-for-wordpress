@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin\Api;
+namespace MaterialDesign\Plugin\Rest;
 
 use MaterialDesign\Plugin\Plugin;
 use WP_REST_Request;
