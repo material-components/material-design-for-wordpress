@@ -192,7 +192,7 @@ class Block_Types {
 			if ( $controller && ! in_array( $slug, [ 'attachment', 'wp_block', 'post', 'page' ] ) ) {
 				$route = '';
 
-				if ( in_array( get_class( $controller ), array( 'WP_REST_Attachments_Controller', 'WP_REST_Posts_Controller' ), true ) ) {
+				if ( in_array( get_class( $controller ), [ 'WP_REST_Posts_Controller' ], true ) ) {
 					$namespace = 'wp/v2';
 					$rest_base = ! empty( $post_type->rest_base ) ? $post_type->rest_base : $post_type->name;
 					$route     = sprintf( '/%s/%s', $namespace, $rest_base );
