@@ -120,11 +120,7 @@ class Post_Types extends API_Base {
 		$query = new \WP_Query( $query_args );
 
 		if ( ! $query->have_posts() ) {
-			return new \WP_Error(
-				'material_design_no_posts_found',
-				esc_html__( 'No posts found.', 'material-design' ),
-				[ 'status' => 404 ]
-			);
+			return new \WP_REST_Response( [] );
 		}
 
 		$posts = [];
