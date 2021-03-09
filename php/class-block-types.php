@@ -193,9 +193,12 @@ class Block_Types {
 		}
 
 		// Filter our list down to remove non-sensical post types and post and page, which is handled as combined.
-		$post_types = array_filter( $post_types_raw, function( $item ) {
-			return ! in_array( $item->value, [ 'attachment', 'wp_block' ] );
-		} );
+		$post_types = array_filter(
+			$post_types_raw,
+			function( $item ) {
+				return ! in_array( $item->value, [ 'attachment', 'wp_block' ] );
+			} 
+		);
 
 		$wp_localized_script_data = [
 			'ajax_url'                 => admin_url( 'admin-ajax.php' ),

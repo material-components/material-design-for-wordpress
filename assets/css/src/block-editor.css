@@ -58,9 +58,9 @@
 }
 
 .block-editor-block-list__block .material-design-block-handpicked-posts__types__list .components-radio-control__option {
-	display:inline-block;
+	display: inline-block;
 
-	label {
+	& label {
 		margin-right: 8px;
 	}
 }
