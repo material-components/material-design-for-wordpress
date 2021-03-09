@@ -17,10 +17,19 @@
 /**
  * External dependencies
  */
+import { flatten, uniqBy, isUndefined, pickBy, omit } from 'lodash';
+
+/**
+ * WordPress dependencies
+ */
 import { addQueryArgs } from '@wordpress/url';
 import apiFetch from '@wordpress/api-fetch';
-import { flatten, uniqBy, isUndefined, pickBy, defaultTo } from 'lodash';
+
+/**
+ * Internal dependencies
+ */
 import { ENDPOINTS } from '../constants';
+import getConfig from '../utils/get-config';
 
 /**
  * Get post query requests.
@@ -30,26 +39,39 @@ import { ENDPOINTS } from '../constants';
  * @param {string} request.search Search string.
  * @param {Array} request.queryArgs Query args to pass in.
  */
-const getPostsRequests = ( { selected = [], search = '', queryArgs = [] } ) => {
+const getPostsRequests = ( {
+	selected = [],
+	search = '',
+	postType = 'post',
+	queryArgs = {},
+} ) => {
 	const defaultArgs = {
 		per_page: 100,
 		status: 'publish',
 		search,
 		orderby: 'title',
 		order: 'asc',
+		post_type: postType,
 	};
 
-	const postType = defaultTo( queryArgs.type, 'post' );
+	const postTypes = getConfig( 'postTypes' );
+	const postTypeConfig = postTypes
+		.filter( type => type.value === postType )
+		.shift();
 
-	let endpoint = null;
-	if ( 'posts-pages' === postType ) {
-		endpoint = '/material-design/v1/post-types/get-posts';
-	} else {
-		endpoint = ENDPOINTS.root + '/' + postType + 's';
+	if ( ! postTypeConfig ) {
+		console.error( `Invalid post type: ${ postType }` );
+		return;
 	}
 
+	const endpoint = postTypeConfig.route;
+
+	const args = omit( { ...defaultArgs, ...queryArgs }, [ 'postType' ] );
 	const requests = [
-		addQueryArgs( endpoint, { ...defaultArgs, ...queryArgs } ),
+		addQueryArgs(
+			endpoint,
+			pickBy( args, value => ! isUndefined( value ) )
+		),
 	];
 
 	// If there are a lot of posts, we might not get all selected posts in the first page.
@@ -58,6 +80,7 @@ const getPostsRequests = ( { selected = [], search = '', queryArgs = [] } ) => {
 			addQueryArgs( endpoint, {
 				status: 'publish',
 				include: selected,
+				post_type: postType,
 			} )
 		);
 	}
@@ -73,8 +96,18 @@ const getPostsRequests = ( { selected = [], search = '', queryArgs = [] } ) => {
  * @param {string} request.search Search string.
  * @param {Array} request.queryArgs Query args to pass in.
  */
-export const getPosts = ( { selected = [], search = '', queryArgs = [] } ) => {
-	const requests = getPostsRequests( { selected, search, queryArgs } );
+export const getPosts = ( {
+	selected = [],
+	search = '',
+	postType,
+	queryArgs = {},
+} ) => {
+	const requests = getPostsRequests( {
+		selected,
+		search,
+		postType,
+		queryArgs,
+	} );
 
 	return Promise.all( requests.map( path => apiFetch( { path } ) ) )
 		.then( data => {

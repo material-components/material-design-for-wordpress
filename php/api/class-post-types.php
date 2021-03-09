@@ -48,6 +48,15 @@ class Post_Types extends API_Base {
 	}
 
 	/**
+	 * Get the rout to fetch posts.
+	 *
+	 * @return string
+	 */
+	public function get_posts_route() {
+		return '/' . $this->namespace . '/' . $this->rest_base . '/get-posts';
+	}
+
+	/**
 	 * Registers the REST routes.
 	 */
 	public function register_routes() {
@@ -61,7 +70,15 @@ class Post_Types extends API_Base {
 				[
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'query_multiple_post_types' ],
-					'permission_callback' => '__return_true',
+					'permission_callback' => function() {
+						return current_user_can( 'edit_posts' );
+					},
+					'args'                => [
+						'post_type' => [
+							'required'          => true,
+							'sanitize_callback' => 'sanitize_text_field',
+						],
+					],
 					'schema'              => $this->posts_controller->get_item_schema(),
 				],
 			]
@@ -74,18 +91,33 @@ class Post_Types extends API_Base {
 	 * @param \WP_REST_Request $request Request object.
 	 */
 	public function query_multiple_post_types( \WP_REST_Request $request ) {
-		$post_types = apply_filters( 'material_design_query_post_types', get_post_types( [ 'show_in_rest' => true ] ) );
+		$post_types = apply_filters( 'material_design_query_post_types', [ 'posts-pages' ] );
+		$post_type  = $request->get_param( 'post_type' );
 
-		$query = new \WP_Query(
-			[
-				'post_type'      => $post_types,
-				'categories'     => $request->get_param( 'category' ),
-				'posts_per_page' => $request->get_param( 'postsToShow' ),
-				'include'        => $request->get_param( 'posts' ),
-				'orderby'        => $request->get_param( 'orderby' ),
-				'order'          => $request->get_param( 'order' ),
-			]
-		);
+		if ( ! in_array( $post_type, $post_types, true ) ) {
+			return new \WP_Error(
+				'material_design_invalid_post_type',
+				esc_html__( 'Invalid post type.', 'material-design' ),
+				[ 'status' => 400 ]
+			);
+		}
+
+		$post_type = 'posts-pages' === $post_type ? [ 'page', 'post' ] : $post_type;
+
+		$query_args = [
+			'post_type'           => $post_type,
+			'categories'          => $request->get_param( 'category' ),
+			'posts_per_page'      => $request->get_param( 'per_page' ),
+			'orderby'             => $request->get_param( 'orderby' ),
+			'order'               => $request->get_param( 'order' ),
+			'ignore_sticky_posts' => true,
+		];
+
+		if ( ! empty( $request->get_param( 'include' ) ) ) {
+			$query_args['post__in'] = $request->get_param( 'include' );
+		}
+
+		$query = new \WP_Query( $query_args );
 
 		if ( ! $query->have_posts() ) {
 			return new \WP_Error(

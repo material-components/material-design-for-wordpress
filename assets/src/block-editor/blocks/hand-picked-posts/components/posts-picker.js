@@ -17,10 +17,9 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
 import { Placeholder, Button, RadioControl } from '@wordpress/components';
 import { useCallback } from '@wordpress/element';
-import { withState } from '@wordpress/compose';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -72,14 +71,15 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 				<p style={ boldText }>{ __( 'Content', 'material-design' ) }</p>
 				<RadioControl
 					selected={ attributes.postType }
-					options={ Object.values( getConfig( 'postTypes' ) ) }
-					onChange={ value => setter( 'postType', value ) }
+					options={ getConfig( 'postTypes' ) }
+					onChange={ setter( 'postType' ) }
 					className="material-design-block-handpicked-posts__types__list"
 				/>
 			</div>
 			<div className="material-design-block-handpicked-posts__selection">
 				<PostsControl
 					selected={ attributes.posts }
+					postType={ attributes.postType }
 					onChange={ setter( 'posts', ( value = [] ) => {
 						/* istanbul ignore next */
 						return value.map( ( { id } ) => id );

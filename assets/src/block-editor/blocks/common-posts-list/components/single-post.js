@@ -15,6 +15,11 @@
  */
 
 /**
+ * External dependencies
+ */
+import { get } from 'lodash';
+
+/**
  * WordPress dependencies
  */
 import { __experimentalGetSettings } from '@wordpress/date';
@@ -36,8 +41,8 @@ import HorizontalCardLayout from './horizontal-card-layout';
  * @return {Function} A functional component.
  */
 const SinglePost = ( { post, style, attributes } ) => {
-	const titleTrimmed = post.title.rendered.trim();
-	let excerpt = post.excerpt.rendered;
+	const titleTrimmed = get( post, [ 'title', 'rendered' ], '' ).trim();
+	let excerpt = get( post, [ 'excerpt', 'rendered' ], '' );
 
 	const excerptElement = document.createElement( 'div' );
 	excerptElement.innerHTML = excerpt;

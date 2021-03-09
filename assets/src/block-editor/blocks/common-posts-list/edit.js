@@ -22,11 +22,9 @@ import { get, isUndefined, pickBy } from 'lodash';
 /**
  * WordPress dependencies
  */
-import apiFetch from '@wordpress/api-fetch';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { withSelect } from '@wordpress/data';
 import { useEffect, useState } from '@wordpress/element';
-import { addQueryArgs } from '@wordpress/url';
 
 /**
  * Internal dependencies
@@ -34,6 +32,7 @@ import { addQueryArgs } from '@wordpress/url';
 import './style.css';
 import NoPosts from './components/no-posts';
 import PostsList from './components/posts-list';
+import { getPosts } from '../../utils/api';
 
 /**
  * Edit component.
@@ -129,9 +128,9 @@ const EditWithSelect = withSelect( ( select, props ) => {
 
 export default EditWithSelect;
 
-const withApiFetch = createHigherOrderComponent( WrappedComponent => {
+const withGetPosts = createHigherOrderComponent( WrappedComponent => {
 	return props => {
-		const { category, posts, orderby } = props.attributes;
+		const { category, posts, orderby, postType } = props.attributes;
 
 		const queryArgs = {
 			categories: category,
@@ -154,13 +153,7 @@ const withApiFetch = createHigherOrderComponent( WrappedComponent => {
 		const [ postsToDisplay, setPostsToDisplay ] = useState( [] );
 
 		useEffect( () => {
-			apiFetch( {
-				path: addQueryArgs(
-					'/material-design/v1/post-types/get-posts',
-					pickBy( queryArgs, value => ! isUndefined( value ) )
-				),
-				method: 'GET',
-			} )
+			getPosts( { selected: posts, postType, queryArgs } )
 				.then( data => {
 					setPostsToDisplay( data );
 				} )
@@ -171,6 +164,6 @@ const withApiFetch = createHigherOrderComponent( WrappedComponent => {
 
 		return <WrappedComponent { ...props } postsToDisplay={ postsToDisplay } />;
 	};
-}, 'EditWithApiFetch' );
+}, 'withGetPosts' );
 
-export const EditWithApiFetch = withApiFetch( Edit );
+export const EditWithGetPosts = withGetPosts( Edit );

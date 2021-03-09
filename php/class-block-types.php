@@ -176,29 +176,35 @@ class Block_Types {
 		$customizer_url = admin_url( 'customize.php?autofocus[panel]=' . $slug );
 
 		// Posts and Pages is not a post type. It's a combination. Set it manually.
-		$post_types_raw = [
-			(object) [
+		$post_types = [
+			[
 				'label' => esc_html__( 'Posts and Pages', 'material-design' ),
 				'value' => 'posts-pages',
+				'route' => $this->plugin->post_types_rest_controller->get_posts_route(),
 			],
 		];
 
 		// Only find post types that are available in_rest, and parse them into expected data structure.
 		$post_type_objects = get_post_types( [ 'show_in_rest' => true ], 'objects' );
-		foreach ( $post_type_objects as $slug => $post_type_object ) {
-			$post_types_raw[] = (object) [
-				'label' => esc_html( $post_type_object->label ),
-				'value' => esc_attr( $slug ),
-			];
-		}
+		foreach ( $post_type_objects as $slug => $post_type ) {
+			$controller = $post_type->get_rest_controller();
 
-		// Filter our list down to remove non-sensical post types and post and page, which is handled as combined.
-		$post_types = array_filter(
-			$post_types_raw,
-			function( $item ) {
-				return ! in_array( $item->value, [ 'attachment', 'wp_block' ] );
-			} 
-		);
+			if ( $controller && ! in_array( $slug, [ 'attachment', 'wp_block', 'post', 'page' ] ) ) {
+				$route = '';
+
+				if ( in_array( get_class( $controller ), array( 'WP_REST_Attachments_Controller', 'WP_REST_Posts_Controller' ), true ) ) {
+					$namespace = 'wp/v2';
+					$rest_base = ! empty( $post_type->rest_base ) ? $post_type->rest_base : $post_type->name;
+					$route     = sprintf( '/%s/%s', $namespace, $rest_base );
+				}
+
+				$post_types[] = [
+					'label' => esc_html( $post_type->label ),
+					'value' => esc_attr( $slug ),
+					'route' => apply_filters( 'material_design_post_type_rest_route', $route, $post_type ),
+				];
+			}
+		}
 
 		$wp_localized_script_data = [
 			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
