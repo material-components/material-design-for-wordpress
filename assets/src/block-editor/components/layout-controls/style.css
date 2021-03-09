@@ -14,23 +14,37 @@
  * limitations under the License.
  */
 
-const NAMESPACE = '/wp/v2';
-export const ENDPOINTS = {
-	root: NAMESPACE,
-	posts: `${ NAMESPACE }/posts`,
-};
+.components-base-control__layout-controls-label {
+	display: block;
+	font-size: 1.1em;
+	margin-bottom: 1rem;
+}
 
-export const DEVICES = [
-	{
-		name: 'desktop',
-		icon: 'computer',
-	},
-	{
-		name: 'tablet',
-		icon: 'tablet',
-	},
-	{
-		name: 'mobile',
-		icon: 'smartphone',
-	},
-];
+.components-base-control__layout-controls {
+	display: inline-block;
+	margin-left: 10px;
+
+	& button {
+		background-color: #eee;
+		border: none;
+		border-radius: 20px;
+		padding: 0;
+		margin-left: 6px;
+		display: inline-block;
+		cursor: pointer;
+		width: 32px;
+		height: 32px;
+
+		&.is-selected,
+		&:hover {
+			background-color: #888;
+			color: var(--var-text-color);
+		}
+
+		i {
+			font-size: 14px;
+			line-height: 24px;
+			text-align: center;
+		}
+	}
+}

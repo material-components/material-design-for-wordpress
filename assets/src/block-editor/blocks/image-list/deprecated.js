@@ -15,37 +15,45 @@
  */
 
 /**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
-
-/**
  * Internal dependencies
  */
-import edit from './edit';
 import save from './save';
-import deprecated from './deprecated';
 import metadata from './block.json';
-import transforms from './transforms';
-import { example } from './example';
 
-const { name } = metadata;
+const { attributes } = metadata;
 
-export { metadata, name };
+const deprecated = [
+	{
+		attributes: {
+			...attributes,
+			...{
+				columns: {
+					type: 'number',
+					default: 2,
+				},
+			},
+		},
+		save,
+		migrate( attr ) {
+			if ( 'number' === typeof attr.columns ) {
+				attr = {
+					...attr,
+					...{
+						columns: {
+							desktop: attr.columns,
+							tablet: 3,
+							mobile: 1,
+						},
+					},
+				};
+			}
 
-/**
- * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
- */
-export const settings = {
-	title: __( 'Gallery (Material)', 'material-design' ),
-	description: __(
-		'Image lists display a collection of images in an organized grid.',
-		'material-design'
-	),
-	icon: () => <i className="material-icons-outlined">filter</i>,
-	edit,
-	save,
-	example,
-	transforms,
-	deprecated,
-};
+			return attr;
+		},
+		isEligible( attr ) {
+			return 'number' === typeof attr.columns;
+		},
+	},
+];
+
+export default deprecated;
