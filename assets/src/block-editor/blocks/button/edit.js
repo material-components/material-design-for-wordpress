@@ -24,7 +24,7 @@ import classNames from 'classnames';
  */
 import { __ } from '@wordpress/i18n';
 import { useEffect } from '@wordpress/element';
-
+import { compose } from '@wordpress/compose';
 import { InspectorControls, RichText } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl, TextControl } from '@wordpress/components';
 import { withSelect } from '@wordpress/data';
@@ -33,12 +33,14 @@ import { withSelect } from '@wordpress/data';
  * Internal dependencies
  */
 import './style.css';
+import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
+import { name as ButtonBlockName } from './index';
 import hasBg from './utils/has-bg';
 import { getConfig, getIconName } from '../../utils';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
-import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
+import { withId } from '../../components/with-id';
 import GlobalShapeSize from '../../components/global-shape-size';
 import GlobalColor, {
 	GlobalColorContrastChecker,
@@ -46,7 +48,6 @@ import GlobalColor, {
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
-import { name as ButtonBlockName } from './index';
 
 /**
  * Small component which either renders an icon button or a text button.
@@ -124,6 +125,7 @@ const ButtonEdit = ( {
 		iconPosition,
 		backgroundColor,
 		isSubmit,
+		tooltip,
 	},
 	setAttributes,
 	isSelected,
@@ -224,6 +226,16 @@ const ButtonEdit = ( {
 								buttons={ BUTTON_STYLES }
 								current={ style }
 								onClick={ setter( 'style' ) }
+							/>
+						</>
+					) }
+
+					{ type === 'icon' && (
+						<>
+							<TextControl
+								label={ __( 'Tooltip Text', 'material-theme-builder' ) }
+								onChange={ setter( 'tooltip' ) }
+								value={ tooltip }
 							/>
 						</>
 					) }
@@ -352,31 +364,36 @@ const ButtonEdit = ( {
 	);
 };
 
-export default withSelect( ( select, { clientId } ) => {
-	const { getBlock, getBlockParentsByBlockName, getBlockRootClientId } = select(
-		'core/block-editor'
-	);
-	let isSubmitButton = false;
+export default compose( [
+	withSelect( ( select, { clientId } ) => {
+		const {
+			getBlock,
+			getBlockParentsByBlockName,
+			getBlockRootClientId,
+		} = select( 'core/block-editor' );
+		let isSubmitButton = false;
 
-	if ( 'undefined' === typeof getBlockParentsByBlockName ) {
-		let parentId = getBlockRootClientId( clientId );
+		if ( 'undefined' === typeof getBlockParentsByBlockName ) {
+			let parentId = getBlockRootClientId( clientId );
 
-		while ( parentId ) {
-			const parentBlock = getBlock( clientId );
+			while ( parentId ) {
+				const parentBlock = getBlock( clientId );
 
-			if ( parentBlock && parentBlock.name === ContactFormBlockName ) {
-				isSubmitButton = true;
-				break;
+				if ( parentBlock && parentBlock.name === ContactFormBlockName ) {
+					isSubmitButton = true;
+					break;
+				}
+
+				parentId = getBlockRootClientId( parentId );
 			}
-
-			parentId = getBlockRootClientId( parentId );
+		} else {
+			isSubmitButton =
+				getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0;
 		}
-	} else {
-		isSubmitButton =
-			getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0;
-	}
 
-	return {
-		isSubmitButton,
-	};
-} )( ButtonEdit );
+		return {
+			isSubmitButton,
+		};
+	} ),
+	withId,
+] )( ButtonEdit );

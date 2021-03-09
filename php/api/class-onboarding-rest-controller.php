@@ -130,24 +130,6 @@ class Onboarding_REST_Controller extends API_Base {
 		include_once ABSPATH . '/wp-admin/includes/class-wp-upgrader.php';
 		include_once ABSPATH . '/wp-admin/includes/class-theme-upgrader.php';
 
-		// @todo Remove after the theme is published to WP theme repo.
-		add_filter(
-			'themes_api',
-			function( $return, $action, $args ) {
-				if ( 'theme_information' === $action && isset( $args->slug ) && Plugin::THEME_SLUG === $args->slug ) {
-					return (object) [
-						'name'          => 'Material Design Google',
-						'download_link' => 'https://storage.googleapis.com/xwp-mdc/theme/material-design-google.zip',
-					];
-				}
-
-				return $return;
-			},
-			10,
-			3
-		);
-		// @codeCoverageIgnoreEnd
-
 		$api = themes_api(
 			'theme_information',
 			[
