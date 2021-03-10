@@ -54,7 +54,6 @@ const Integrations = () => {
 			<div className="material-settings__updates">
 				<Updater
 					title={ __( 'Google Fonts', 'material-design' ) }
-					disabled={ true }
 					needsKey={ true }
 					checked={ state.updates[ UPDATERS.FONT ] }
 					onChange={ () => {

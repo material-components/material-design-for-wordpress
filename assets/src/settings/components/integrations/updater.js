@@ -2,24 +2,23 @@
  * External dependencies
  */
 import _uniqueId from 'lodash/uniqueId';
-import classNames from 'classnames';
 
 /**
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import { useState } from '@wordpress/element';
+import { useState, useContext } from '@wordpress/element';
 
-const Updater = ( {
-	title,
-	disabled,
-	lastUpdated,
-	needsKey,
-	checked,
-	onChange,
-} ) => {
+/**
+ * Internal dependencies
+ */
+import SettingsContext from '../../context';
+import Switch from './switch';
+
+const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
-	const isDisabled = disabled || needsKey;
+	const { state } = useContext( SettingsContext );
+	const isDisabled = needsKey && ! state.apiKey;
 
 	return (
 		<div className="material-settings__updater">
@@ -51,39 +50,33 @@ const Updater = ( {
 						) }
 					</div>
 
-					{ console.log( checked ) }
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end">
-						<div className="material-settings__switch">
-							<div
-								className={ classNames( 'mdc-switch material-wizard-switch', {
-									'mdc-switch--checked': checked,
-								} ) }
-							>
-								<div className="mdc-switch__track"></div>
-								<div className="mdc-switch__thumb-underlay">
-									<div className="mdc-switch__thumb"></div>
-									<input
-										type="checkbox"
-										id={ id }
-										className="mdc-switch__native-control"
-										role="switch"
-										aria-checked={ checked }
-										onChange={ onChange }
-									/>
-								</div>
-							</div>
-							<label id={ `label-${ id }` } htmlFor={ id }>
-								{ __( 'Auto-updates enabled', 'material-design' ) }
-							</label>
-						</div>
+						{ ! isDisabled && (
+							<Switch checked={ checked } onChange={ onChange } id={ id } />
+						) }
 					</div>
 
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end">
-						{ isDisabled && __( 'Updates disabled', 'material-design' ) }
+						{ isDisabled && (
+							<div className="material-settings__message material-settings__message--error">
+								<i
+									className="material-icons mdc-button__icon leading-icon"
+									aria-hidden="true"
+								>
+									error
+								</i>
+								<span className="material-settings__message-text">
+									{ __( 'Updates disabled', 'material-design' ) }
+								</span>
+							</div>
+						) }
 
-						{ ! disabled && (
+						{ ! isDisabled && (
 							<button className="mdc-button mdc-button--raised">
-								<i className="material-icons mdc-button__icon leading-icon">
+								<i
+									className="material-icons mdc-button__icon leading-icon"
+									aria-hidden="true"
+								>
 									cached
 								</i>
 								<span className="mdc-button__label">
