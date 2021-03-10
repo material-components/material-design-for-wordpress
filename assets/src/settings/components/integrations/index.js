@@ -7,9 +7,10 @@ import { useContext } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import Updater from './updater';
 import SettingsContext from '../../context';
 import { UPDATERS, ACTIONS } from '../../constants';
+import Updater from './updater';
+import Api from './api';
 
 const Integrations = () => {
 	const { state, dispatch } = useContext( SettingsContext );
@@ -70,6 +71,28 @@ const Integrations = () => {
 					} }
 				/>
 			</div>
+
+			<h2 className="mdc-typography--headline6">
+				{ __( 'Google API Key', 'material-design' ) }
+			</h2>
+
+			<p
+				className="mdc-typography--body1"
+				dangerouslySetInnerHTML={ {
+					__html: sprintf(
+						__(
+							'To use Google Fonts in Material Theme, please activate your %s and enable updates',
+							'material-design'
+						),
+						`<a href="http://google.com">${ __(
+							'Google API Key',
+							'material-design'
+						) }</a>`
+					),
+				} }
+			></p>
+
+			<Api />
 		</div>
 	);
 };
