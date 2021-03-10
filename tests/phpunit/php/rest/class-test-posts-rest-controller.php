@@ -137,12 +137,12 @@ class Test_Posts_REST_Controller extends WP_Test_REST_Controller_Testcase {
 	public function test_query_multiple_post_types() {
 		wp_set_current_user( self::$subscriber_id );
 
-		$request  = new \WP_REST_Request( 'POST', $this->get_route( '/post-types/get-posts' ) );
+		$request  = new \WP_REST_Request( 'GET', $this->get_route( 'post-types/get-posts' ) );
 		$response = rest_get_server()->dispatch( $request );
 		$data     = $response->get_data();
 
-		$this->assertEquals( 'rest_no_route', $data['code'] );
-		$this->assertEquals( 404, $data['data']['status'] );
+		$this->assertEquals( 'rest_forbidden', $data['code'] );
+		$this->assertEquals( 403, $data['data']['status'] );
 
 		wp_set_current_user( self::$author_id );
 
