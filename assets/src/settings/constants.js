@@ -1,6 +1,7 @@
 export const ACTIONS = {
 	ERROR: 'ERROR',
 	TOGGLE_UPDATES: 'TOGGLE_UPDATES',
+	REMOVE_API_KEY: 'REMOVE_API_KEY',
 };
 
 export const UPDATERS = {
