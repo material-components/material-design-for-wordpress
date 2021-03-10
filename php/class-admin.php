@@ -40,6 +40,8 @@ class Admin extends Module_Base {
 		add_action( 'switch_theme', [ $this, 'switch_theme_material' ], 10, 2 );
 		add_action( 'admin_notices', [ $this, 'theme_not_installed_notice' ], 10, 2 );
 		add_action( 'admin_notices', [ $this, 'plugin_activated_notice' ], 9, 2 );
+		add_filter( 'auto_update_plugin', [ $this, 'enable_plugin_auto_update' ], 10, 2 );
+		add_filter( 'auto_update_theme', [ $this, 'enable_theme_auto_update' ], 10, 2 );
 	}
 
 	/**
@@ -68,6 +70,7 @@ class Admin extends Module_Base {
 	 * Create admin pages.
 	 * - Getting started page.
 	 * - Onboarding Wizard page.
+	 * - Options page
 	 *
 	 * @return void
 	 */
@@ -199,9 +202,10 @@ class Admin extends Module_Base {
 				'material-admin-js',
 				'materialDesignWizard',
 				[
-					'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-					'nonce'       => wp_create_nonce( 'wp_rest' ),
-					'themeStatus' => esc_html( $this->plugin->theme_status() ),
+					'restPath'       => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'nonce'          => wp_create_nonce( 'wp_rest' ),
+					'themeStatus'    => esc_html( $this->plugin->theme_status() ),
+					'assetsRestPath' => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
 				]
 			);
 		}
@@ -396,5 +400,37 @@ class Admin extends Module_Base {
 				$action_link
 			)
 		);
+	}
+
+	/**
+	 * Enable auto updates for the plugin.
+	 *
+	 * @param bool|null $update Whether to update.
+	 * @param object    $item   The update offer.
+	 *
+	 * @return bool
+	 */
+	public function enable_plugin_auto_update( $update, $item ) {
+		if ( 'material-design' === $item->slug ) {
+			return true;
+		}
+
+		return $update;
+	}
+
+	/**
+	 * Enable auto updates for the theme.
+	 *
+	 * @param bool|null $update Whether to update.
+	 * @param object    $item   The update offer.
+	 *
+	 * @return bool
+	 */
+	public function enable_theme_auto_update( $update, $item ) {
+		if ( Plugin::THEME_SLUG === $item->slug ) {
+			return true;
+		}
+
+		return $update;
 	}
 }
