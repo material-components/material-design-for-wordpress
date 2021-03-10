@@ -65,6 +65,7 @@ const EditWithSelect = withSelect( ( select, props ) => {
 		style,
 	} = props.attributes;
 	const { name } = props;
+	let { fetchedPosts } = props;
 
 	const featuredImageSizeSlug = style === 'list' ? 'medium' : 'large';
 
@@ -99,11 +100,9 @@ const EditWithSelect = withSelect( ( select, props ) => {
 		value => ! isUndefined( value )
 	);
 
-	const fetchedPosts = getEntityRecords(
-		'postType',
-		'post',
-		fetchedPostsQuery
-	);
+	fetchedPosts = Array.isArray( fetchedPosts )
+		? fetchedPosts
+		: getEntityRecords( 'postType', 'post', fetchedPostsQuery );
 
 	return {
 		postsToDisplay: ! Array.isArray( fetchedPosts )
@@ -162,8 +161,8 @@ const withGetPosts = createHigherOrderComponent( WrappedComponent => {
 				} );
 		}, [] ); // eslint-disable-line react-hooks/exhaustive-deps
 
-		return <WrappedComponent { ...props } postsToDisplay={ postsToDisplay } />;
+		return <WrappedComponent { ...props } fetchedPosts={ postsToDisplay } />;
 	};
 }, 'withGetPosts' );
 
-export const EditWithGetPosts = withGetPosts( Edit );
+export const EditWithGetPosts = withGetPosts( EditWithSelect );

@@ -150,6 +150,19 @@ describe( 'Edit', () => {
 
 		// eslint-disable-next-line jest/prefer-spy-on
 		global.fetch = jest.fn().mockImplementation( () => mockFetchPromise );
+
+		global.materialDesign = {
+			postTypes: [
+				{
+					label: 'Posts and Pages',
+					value: 'posts-pages',
+					route: '/material-design/v1/post-types/get-posts',
+				},
+				{ label: 'Portfolios', value: 'portfolio', route: '/wp/v2/portfolio' },
+				{ label: 'Recipes', value: 'recipe', route: '/wp/v2/recipe' },
+				{ label: 'Books', value: 'book', route: '/wp/v2/book' },
+			],
+		};
 	} );
 
 	afterAll( () => {

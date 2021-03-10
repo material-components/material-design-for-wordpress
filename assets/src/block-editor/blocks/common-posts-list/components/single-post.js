@@ -44,6 +44,10 @@ const SinglePost = ( { post, style, attributes } ) => {
 	const titleTrimmed = get( post, [ 'title', 'rendered' ], '' ).trim();
 	let excerpt = get( post, [ 'excerpt', 'rendered' ], '' );
 
+	if ( ! excerpt ) {
+		excerpt = get( post, [ 'content', 'rendered' ], '' );
+	}
+
 	const excerptElement = document.createElement( 'div' );
 	excerptElement.innerHTML = excerpt;
 	excerpt = excerptElement.textContent || excerptElement.innerText || '';

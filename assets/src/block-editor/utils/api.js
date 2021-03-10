@@ -41,7 +41,7 @@ import getConfig from '../utils/get-config';
 const getPostsRequests = ( {
 	selected = [],
 	search = '',
-	postType = 'post',
+	postType = 'posts-pages',
 	queryArgs = {},
 } ) => {
 	const defaultArgs = {
