@@ -33,6 +33,7 @@
 	--material-design-settings-primary-color: #212121;
 	--material-design-settings-primary-text: #fff;
 	--material-design-wizard-primary-color: #212121;
+	--material-design-settings-error-color: #dc3232;
 
 	& .mdc-button {
 		--mdc-theme-primary: var(--material-design-settings-primary-color);
