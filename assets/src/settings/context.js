@@ -19,7 +19,7 @@ const { Provider } = SettingsContext;
 
 const initialState = {
 	status: STATUS.IDLE,
-	api: null,
+	apiStatus: 'ok',
 	updates: {},
 	error: {},
 };
