@@ -143,6 +143,7 @@
     "build:js": "wp-scripts build",
     "build:run": "grunt build",
     "build:zip": "grunt create-build-zip",
+    "deploy": "npm run build && grunt deploy",
     "dev": "wp-scripts start",
     "docker": "docker-compose run --rm -u 1000 --workdir=/var/www/html/wp-content/plugins/material-design wordpress",
     "env:logs": "bin/logs.sh",
