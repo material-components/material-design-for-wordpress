@@ -64,8 +64,12 @@
 		   "default": "masonry"
 		},
 		"columns": {
-		   "type": "number",
-		   "default": 2
+		   "type": "object",
+		   "default": {
+				"desktop": 4,
+				"tablet": 3,
+				"mobile": 1
+		 	}
 		},
 		"gutter": {
 		   "type": "object",

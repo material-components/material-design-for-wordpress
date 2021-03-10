@@ -22,6 +22,7 @@
 import { MDCList } from '@material/list';
 import { MDCRipple } from '@material/ripple';
 import { MDCTabBar } from '@material/tab-bar';
+import { MDCTooltip } from '@material/tooltip';
 
 export const initButtons = () => {
 	const buttons = document.querySelectorAll( '.mdc-button' );
@@ -62,4 +63,10 @@ export const initTabBar = () => {
 			);
 		} );
 	} );
+};
+
+export const initToolTips = () => {
+	const tooltips = document.querySelectorAll( '.mdc-tooltip' );
+
+	tooltips.forEach( tooltip => new MDCTooltip( tooltip ) );
 };

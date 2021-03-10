@@ -65,6 +65,21 @@ Object {
               Build with Material Blocks
             </div>
           </button>
+          <button
+            class="material-gsm__tab"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              lens
+            </i>
+            <div
+              class="material-gsm__tab-title"
+            >
+              Updates
+            </div>
+          </button>
         </div>
       </div>
     </div>
@@ -128,6 +143,21 @@ Object {
             class="material-gsm__tab-title"
           >
             Build with Material Blocks
+          </div>
+        </button>
+        <button
+          class="material-gsm__tab"
+          type="button"
+        >
+          <i
+            class="material-icons"
+          >
+            lens
+          </i>
+          <div
+            class="material-gsm__tab-title"
+          >
+            Updates
           </div>
         </button>
       </div>

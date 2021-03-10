@@ -19,3 +19,18 @@ export const ENDPOINTS = {
 	root: NAMESPACE,
 	posts: `${ NAMESPACE }/posts`,
 };
+
+export const DEVICES = [
+	{
+		name: 'desktop',
+		icon: 'computer',
+	},
+	{
+		name: 'tablet',
+		icon: 'tablet',
+	},
+	{
+		name: 'mobile',
+		icon: 'smartphone',
+	},
+];
