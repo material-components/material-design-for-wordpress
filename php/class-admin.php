@@ -287,7 +287,7 @@ class Admin extends Module_Base {
 			wp_enqueue_script(
 				'material-settings',
 				$this->plugin->asset_url( 'assets/js/settings.js' ),
-				[ 'wp-element', 'wp-i18n', 'wp-api-fetch', 'wp-date' ],
+				[ 'wp-element', 'wp-i18n', 'wp-api-fetch', 'wp-date', 'wp-components' ],
 				$this->plugin->asset_version(),
 				true
 			);

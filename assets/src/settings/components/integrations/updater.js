@@ -50,7 +50,7 @@ const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 						{ ! isDisabled && (
 							<p className="mdc-typography--body1">
 								{ sprintf(
-									__( 'Last updated on %s', 'material-design' ),
+									__( 'Last update on %s', 'material-design' ),
 									updatedDate
 								) }
 							</p>
