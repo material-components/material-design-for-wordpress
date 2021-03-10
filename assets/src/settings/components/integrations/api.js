@@ -9,11 +9,16 @@ import { TextControl } from '@wordpress/components';
  * Internal dependencies
  */
 import SettingsContext from '../../context';
+import { ACTIONS } from '../../constants';
 
 const Api = () => {
-	const { state } = useContext( SettingsContext );
+	const { state, dispatch } = useContext( SettingsContext );
 	const [ api, setApi ] = useState( null );
 	const isApiOk = 'ok' === state.apiStatus;
+
+	const removeApiKey = () => {
+		dispatch( { type: ACTIONS.REMOVE_API_KEY } );
+	};
 
 	return (
 		<div className="material-settings__api mdc-layout-grid">
@@ -51,7 +56,7 @@ const Api = () => {
 					) }
 
 					{ isApiOk && (
-						<button className="mdc-button">
+						<button className="mdc-button" onClick={ removeApiKey }>
 							<i
 								className="material-icons mdc-button__icon leading-icon"
 								aria-hidden="true"

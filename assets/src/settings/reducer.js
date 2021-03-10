@@ -12,8 +12,6 @@ import { ACTIONS } from './constants';
 export const reducer = ( state, action ) => {
 	const { type, payload } = action;
 
-	console.log( action );
-
 	if ( ACTIONS.TOGGLE_UPDATES === type ) {
 		const updates = { ...state.updates };
 
@@ -22,6 +20,13 @@ export const reducer = ( state, action ) => {
 		return {
 			...state,
 			updates,
+		};
+	}
+
+	if ( ACTIONS.REMOVE_API_KEY === type ) {
+		return {
+			...state,
+			apiStatus: 'install',
 		};
 	}
 
