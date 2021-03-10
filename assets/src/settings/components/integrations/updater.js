@@ -19,7 +19,7 @@ import Switch from './switch';
 const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
 	const { state } = useContext( SettingsContext );
-	const isDisabled = needsKey && ! state.apiKey;
+	const isDisabled = needsKey && 'ok' !== state.apiStatus;
 	const updatedDate = date( 'M n, Y, h:i A', lastUpdated );
 
 	return (
