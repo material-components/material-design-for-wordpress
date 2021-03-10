@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,31 @@
  * limitations under the License.
  */
 
-/**
- * WordPress dependencies
- */
-import {
-	ToolbarGroup as MaybeToolbarGroup,
-	Toolbar,
-} from '@wordpress/components';
+.components-base-control__attr-device-label {
+	display: inline-block;
+	margin-left: 10px;
 
-export default MaybeToolbarGroup || Toolbar;
+	& button {
+		background-color: #eee;
+		border: none;
+		border-radius: 20px;
+		padding: 0;
+		margin-left: 6px;
+		display: inline-block;
+		cursor: pointer;
+		width: 32px;
+		height: 32px;
+
+		&.is-selected,
+		&:hover {
+			background-color: #888;
+			color: var(--var-text-color);
+		}
+
+		i {
+			font-size: 14px;
+			line-height: 24px;
+			text-align: center;
+		}
+	}
+}
