@@ -179,7 +179,7 @@ describe( 'blocks: material/tab-bar', () => {
 		).toHaveLength( 0 );
 	} );
 
-	it( 'should not offer tab-bar as a block option within another Tabss content', async () => {
+	it( 'should not offer tab-bar as a block option within another Tabs content', async () => {
 		await insertBlock( 'Tabs' );
 		await selectBlockByName( 'material/tab-bar' );
 
@@ -191,8 +191,17 @@ describe( 'blocks: material/tab-bar', () => {
 		const [ searchBlock ] = await page.$$( '.block-editor-inserter__search' );
 		await searchBlock.type( 'Tabs' );
 
-		expect(
-			await page.$$( '.block-editor-inserter__no-results' )
-		).toHaveLength( 1 );
+		try {
+			expect(
+				await page.$$( '.block-editor-inserter__no-results' )
+			).toHaveLength( 1 );
+		} catch ( ex ) {
+			// eslint-disable-next-line jest/no-try-expect
+			expect(
+				await page.$$(
+					'.block-editor-block-types-list__item editor-block-list-item-material-tab-bar'
+				)
+			).toHaveLength( 0 );
+		}
 	} );
 } );
