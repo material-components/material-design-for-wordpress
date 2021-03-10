@@ -8,6 +8,7 @@ import _uniqueId from 'lodash/uniqueId';
  */
 import { __, sprintf } from '@wordpress/i18n';
 import { useState, useContext } from '@wordpress/element';
+import { date } from '@wordpress/date';
 
 /**
  * Internal dependencies
@@ -19,6 +20,7 @@ const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
 	const { state } = useContext( SettingsContext );
 	const isDisabled = needsKey && ! state.apiKey;
+	const updatedDate = date( 'M n, Y, h:i A', lastUpdated );
 
 	return (
 		<div className="material-settings__updater">
@@ -46,7 +48,12 @@ const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 						) }
 
 						{ ! isDisabled && (
-							<p className="mdc-typography--body1">{ lastUpdated }</p>
+							<p className="mdc-typography--body1">
+								{ sprintf(
+									__( 'Last updated on %s', 'material-design' ),
+									updatedDate
+								) }
+							</p>
 						) }
 					</div>
 
