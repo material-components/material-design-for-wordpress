@@ -37,5 +37,16 @@ export const reducer = ( state, action ) => {
 		};
 	}
 
+	if ( ACTIONS.SET_UPDATED === type ) {
+		const availableUpdates = state.availableUpdates.filter(
+			item => item !== payload.type
+		);
+
+		return {
+			...state,
+			availableUpdates,
+		};
+	}
+
 	return state;
 };

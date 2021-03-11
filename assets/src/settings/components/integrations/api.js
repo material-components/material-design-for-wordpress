@@ -53,7 +53,6 @@ const Api = () => {
 						<Button
 							style="mdc-button--raised"
 							text={ __( 'Activate', 'material-design' ) }
-							leadingIcon="delete"
 							onClick={ activateApiKey }
 							disabled={ ! api }
 						/>
