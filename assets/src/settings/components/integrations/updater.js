@@ -16,8 +16,16 @@ import { date } from '@wordpress/date';
 import SettingsContext from '../../context';
 import Switch from './switch';
 import Button from '../../../wizard/components/navigation/button';
+import { update } from '../../utils';
 
-const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
+const Updater = ( {
+	title,
+	lastUpdated,
+	needsKey,
+	checked,
+	type,
+	onChange,
+} ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
 	const { state } = useContext( SettingsContext );
 	const isDisabled = needsKey && 'ok' !== state.apiStatus;
@@ -26,6 +34,7 @@ const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 
 	const handleUpdate = () => {
 		setIsUpdating( true );
+		update( type );
 	};
 
 	return (
