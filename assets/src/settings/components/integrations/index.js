@@ -58,15 +58,16 @@ const Integrations = () => {
 			</p>
 
 			<div className="material-settings__updates">
-				{ UPDATERS.map( updater => (
+				{ Object.keys( UPDATERS ).map( key => (
 					<Updater
 						key={ uniqueId( 'updater-' ) }
-						title={ updater.title }
-						needsKey={ updater.needsKey }
-						checked={ state.updates[ updater.type ] }
-						lastUpdated={ updater.lastUpdated }
+						title={ UPDATERS[ key ].title }
+						needsKey={ UPDATERS[ key ].needsKey }
+						checked={ state.updates[ UPDATERS[ key ].type ] }
+						lastUpdated={ UPDATERS[ key ].lastUpdated }
+						type={ UPDATERS[ key ].type }
 						onChange={ () => {
-							handleUpdateChange( updater.type );
+							handleUpdateChange( UPDATERS[ key ].type );
 						} }
 					/>
 				) ) }
