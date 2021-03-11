@@ -28,6 +28,7 @@ namespace MaterialDesign\Plugin;
 use MaterialDesign\Plugin\Api\Update_Fonts;
 use MaterialDesign\Plugin\Api\Update_Icons;
 use WP_REST_Request;
+use WP_REST_Response;
 
 /**
  * Class Design_Assets_Rest_Controller
@@ -102,6 +103,21 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 				'schema' => [ $this, 'get_item_schema' ],
 			]
 		);
+
+		register_rest_route(
+			$this->namespace,
+			'/' . $this->rest_base . '/register-api-key',
+			[
+				[
+					'methods'             => \WP_REST_Server::CREATABLE,
+					'callback'            => [ $this, 'register_api_key' ],
+					'permission_callback' => function( WP_REST_Request $request ) {
+						return current_user_can( 'manage_options' );
+					},
+				],
+				'schema' => [ $this, 'get_item_schema' ],
+			]
+			);
 	}
 
 	/**
@@ -161,7 +177,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	public function get_fonts( $request ) {
 		$force = $request->get_param( 'force' );
 
-		$fonts = new Update_Fonts( 'force' === $force );
+		$fonts = new Update_Fonts( 'force' === $force, false, true );
 		$data  = $fonts->get_fonts();
 		$count = count( $data->data );
 
@@ -202,5 +218,26 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 		];
 
 		return $parsed;
+	}
+
+	/**
+	 * Insert API Key in options table
+	 * Usage:
+	 *  /wp-json/material-design/v1/design-assets/register-api-key
+	 *
+	 * @param WP_REST_Request $request REST request object.
+	 *
+	 * @return mixed
+	 */
+	public function register_api_key( $request ) {
+		$api_key = $request->get_params( 'key' );
+
+		$response = update_option( 'google_fonts_api_key', $api_key );
+
+		if ( is_wp_error(( $response )) ) {
+			return $response;
+		}
+
+		return new WP_REST_Response( $response, 200 );
 	}
 }

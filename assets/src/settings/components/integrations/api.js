@@ -11,10 +11,12 @@ import { TextControl } from '@wordpress/components';
 import SettingsContext from '../../context';
 import { ACTIONS, KEY_PLACEHOLDER } from '../../constants';
 import Button from '../../../wizard/components/navigation/button';
+import { setApiKey } from '../../utils';
 
 const Api = () => {
 	const { state, dispatch } = useContext( SettingsContext );
 	const [ api, setApi ] = useState( null );
+	const [ isLoading, setIsLoading ] = useState( false );
 	const isApiOk = 'ok' === state.apiStatus;
 
 	const removeApiKey = () => {
@@ -22,8 +24,13 @@ const Api = () => {
 	};
 
 	const activateApiKey = () => {
-		dispatch( { type: ACTIONS.ADD_API_KEY, payload: { key: api } } );
-		setApi( '' );
+		setIsLoading( true );
+
+		setApiKey( api ).then( () => {
+			setIsLoading( false );
+			dispatch( { type: ACTIONS.ADD_API_KEY } );
+			setApi( '' );
+		} );
 	};
 
 	const handleSubmit = event => {
@@ -62,6 +69,7 @@ const Api = () => {
 							text={ __( 'Activate', 'material-design' ) }
 							onClick={ activateApiKey }
 							disabled={ ! api }
+							loading={ isLoading }
 						/>
 					) }
 
