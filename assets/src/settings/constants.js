@@ -1,3 +1,5 @@
+import { __ } from '@wordpress/i18n';
+
 export const ACTIONS = {
 	ERROR: 'ERROR',
 	TOGGLE_UPDATES: 'TOGGLE_UPDATES',
@@ -5,9 +7,19 @@ export const ACTIONS = {
 	ADD_API_KEY: 'ADD_API_KEY',
 };
 
-export const UPDATERS = {
-	FONT: 'FONT',
-	ICON: 'ICON',
-};
+export const UPDATERS = [
+	{
+		title: __( 'Google Fonts', 'material-design' ),
+		type: 'FONT',
+		lastUpdated: Date.now(),
+		needsKey: true,
+	},
+	{
+		title: __( 'Material Icons', 'material-design' ),
+		type: 'ICON',
+		lastUpdated: Date.now(),
+		needsKey: false,
+	},
+];
 
 export const KEY_PLACEHOLDER = '•••••••••••••••••••••••••••••';
