@@ -15,6 +15,7 @@ import { date } from '@wordpress/date';
  */
 import SettingsContext from '../../context';
 import Switch from './switch';
+import Button from '../../../wizard/components/navigation/button';
 
 const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
@@ -79,17 +80,11 @@ const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 						) }
 
 						{ ! isDisabled && (
-							<button className="mdc-button mdc-button--raised">
-								<i
-									className="material-icons mdc-button__icon leading-icon"
-									aria-hidden="true"
-								>
-									cached
-								</i>
-								<span className="mdc-button__label">
-									{ __( 'Update', 'material-design' ) }
-								</span>
-							</button>
+							<Button
+								style="mdc-button--raised"
+								text={ __( 'Update', 'material-design' ) }
+								leadingIcon="cached"
+							/>
 						) }
 					</div>
 				</div>
