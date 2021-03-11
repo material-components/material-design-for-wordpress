@@ -13,6 +13,7 @@ import { date } from '@wordpress/date';
 /**
  * Internal dependencies
  */
+import { ACTIONS } from '../../constants';
 import SettingsContext from '../../context';
 import Switch from './switch';
 import Button from '../../../wizard/components/navigation/button';
@@ -27,14 +28,22 @@ const Updater = ( {
 	onChange,
 } ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
-	const { state } = useContext( SettingsContext );
+	const { state, dispatch } = useContext( SettingsContext );
 	const isDisabled = needsKey && 'ok' !== state.apiStatus;
 	const updatedDate = date( 'M n, Y, h:i A', lastUpdated );
 	const [ isUpdating, setIsUpdating ] = useState( false );
+	const shouldUpdate = ! isDisabled && state.availableUpdates.includes( type );
+	const shouldNotUpdate =
+		! isDisabled && ! state.availableUpdates.includes( type );
 
 	const handleUpdate = () => {
 		setIsUpdating( true );
-		update( type );
+
+		update( type ).then( () => {
+			setIsUpdating( false );
+			dispatch( { type: ACTIONS.SET_UPDATED, payload: { type } } );
+		} );
+
 	};
 
 	return (
@@ -93,13 +102,22 @@ const Updater = ( {
 							</div>
 						) }
 
-						{ ! isDisabled && (
+						{ shouldUpdate && (
 							<Button
 								style="mdc-button--raised"
 								text={ __( 'Update', 'material-design' ) }
 								leadingIcon="cached"
 								onClick={ handleUpdate }
 								loading={ isUpdating }
+							/>
+						) }
+
+						{ shouldNotUpdate && (
+							<Button
+								style="mdc-button--raised"
+								leadingIcon="done"
+								disabled={ true }
+								text={ __( 'Updated', 'material-design' ) }
 							/>
 						) }
 					</div>
