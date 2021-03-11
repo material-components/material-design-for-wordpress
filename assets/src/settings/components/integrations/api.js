@@ -9,7 +9,7 @@ import { TextControl } from '@wordpress/components';
  * Internal dependencies
  */
 import SettingsContext from '../../context';
-import { ACTIONS } from '../../constants';
+import { ACTIONS, KEY_PLACEHOLDER } from '../../constants';
 
 const Api = () => {
 	const { state, dispatch } = useContext( SettingsContext );
@@ -18,6 +18,11 @@ const Api = () => {
 
 	const removeApiKey = () => {
 		dispatch( { type: ACTIONS.REMOVE_API_KEY } );
+	};
+
+	const activateApiKey = () => {
+		dispatch( { type: ACTIONS.ADD_API_KEY, payload: { key: api } } );
+		setApi( '' );
 	};
 
 	return (
@@ -29,7 +34,6 @@ const Api = () => {
 						value={ api }
 						placeholder={ __( 'Google API Key', 'material-design' ) }
 						onChange={ value => {
-							console.log( value );
 							setApi( value );
 						} }
 					/>
@@ -38,7 +42,7 @@ const Api = () => {
 				{ isApiOk && (
 					<TextControl
 						className="material-settings__api-input material-settings__api-input--disabled mdc-layout-grid__cell"
-						value="•••••••••••••••••••••••••••••"
+						value={ KEY_PLACEHOLDER }
 						disabled
 					/>
 				) }
@@ -48,6 +52,7 @@ const Api = () => {
 						<button
 							className="mdc-button mdc-button--raised"
 							disabled={ ! api }
+							onClick={ activateApiKey }
 						>
 							<span className="mdc-button__label">
 								{ __( 'Activate', 'material-design' ) }

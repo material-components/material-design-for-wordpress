@@ -30,5 +30,12 @@ export const reducer = ( state, action ) => {
 		};
 	}
 
+	if ( ACTIONS.ADD_API_KEY === type ) {
+		return {
+			...state,
+			apiStatus: 'ok',
+		};
+	}
+
 	return state;
 };
