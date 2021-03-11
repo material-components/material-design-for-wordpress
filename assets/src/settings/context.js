@@ -19,8 +19,9 @@ const { Provider } = SettingsContext;
 
 const initialState = {
 	status: STATUS.IDLE,
-	apiStatus: 'ok',
+	apiStatus: 'install',
 	updates: {},
+	availableUpdates: [ UPDATERS.FONTS.type, UPDATERS.ICONS.type ],
 	error: {},
 };
 
