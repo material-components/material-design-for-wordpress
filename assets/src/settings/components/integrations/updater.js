@@ -22,6 +22,11 @@ const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 	const { state } = useContext( SettingsContext );
 	const isDisabled = needsKey && 'ok' !== state.apiStatus;
 	const updatedDate = date( 'M n, Y, h:i A', lastUpdated );
+	const [ isUpdating, setIsUpdating ] = useState( false );
+
+	const handleUpdate = () => {
+		setIsUpdating( true );
+	};
 
 	return (
 		<div className="material-settings__updater">
@@ -84,6 +89,8 @@ const Updater = ( { title, lastUpdated, needsKey, checked, onChange } ) => {
 								style="mdc-button--raised"
 								text={ __( 'Update', 'material-design' ) }
 								leadingIcon="cached"
+								onClick={ handleUpdate }
+								loading={ isUpdating }
 							/>
 						) }
 					</div>
