@@ -9,6 +9,7 @@ import { useReducer, createContext } from '@wordpress/element';
 import { STATUS } from '../wizard/constants';
 import { UPDATERS } from './constants';
 import { reducer } from './reducer';
+import getConfig from '../admin/get-config';
 
 /**
  * Setups context to be used across the app
@@ -19,7 +20,7 @@ const { Provider } = SettingsContext;
 
 const initialState = {
 	status: STATUS.IDLE,
-	apiStatus: 'install',
+	apiStatus: getConfig( 'apiStatus' ),
 	updates: {},
 	availableUpdates: [ UPDATERS.FONTS.type, UPDATERS.ICONS.type ],
 	error: {},
