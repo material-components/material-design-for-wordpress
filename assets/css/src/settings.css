@@ -18,5 +18,6 @@
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/switch/dist/mdc.switch.css";
 @import "@material/button/dist/mdc.button.css";
+@import "@material/circular-progress/dist/mdc.circular-progress.css";
 @import "./wizard/switch.css";
 @import "./settings/index.css";
