@@ -26,6 +26,12 @@ const Api = () => {
 		setApi( '' );
 	};
 
+	const handleSubmit = event => {
+		if ( event.key && 'Enter' === event.key ) {
+			activateApiKey();
+		}
+	};
+
 	return (
 		<div className="material-settings__api mdc-layout-grid">
 			<div className="mdc-layout-grid__inner">
@@ -37,6 +43,7 @@ const Api = () => {
 						onChange={ value => {
 							setApi( value );
 						} }
+						onKeyPress={ handleSubmit }
 					/>
 				) }
 
