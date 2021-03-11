@@ -50,15 +50,13 @@ const Api = () => {
 
 				<div className="mdc-layout-grid__cell">
 					{ ! isApiOk && (
-						<button
-							className="mdc-button mdc-button--raised"
-							disabled={ ! api }
+						<Button
+							style="mdc-button--raised"
+							text={ __( 'Activate', 'material-design' ) }
+							leadingIcon="delete"
 							onClick={ activateApiKey }
-						>
-							<span className="mdc-button__label">
-								{ __( 'Activate', 'material-design' ) }
-							</span>
-						</button>
+							disabled={ ! api }
+						/>
 					) }
 
 					{ isApiOk && (
