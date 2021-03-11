@@ -10,6 +10,7 @@ import { TextControl } from '@wordpress/components';
  */
 import SettingsContext from '../../context';
 import { ACTIONS, KEY_PLACEHOLDER } from '../../constants';
+import Button from '../../../wizard/components/navigation/button';
 
 const Api = () => {
 	const { state, dispatch } = useContext( SettingsContext );
@@ -61,17 +62,11 @@ const Api = () => {
 					) }
 
 					{ isApiOk && (
-						<button className="mdc-button" onClick={ removeApiKey }>
-							<i
-								className="material-icons mdc-button__icon leading-icon"
-								aria-hidden="true"
-							>
-								delete
-							</i>
-							<span className="mdc-button__label">
-								{ __( 'Remove', 'material-design' ) }
-							</span>
-						</button>
+						<Button
+							text={ __( 'Remove', 'material-design' ) }
+							leadingIcon="delete"
+							onClick={ removeApiKey }
+						/>
 					) }
 				</div>
 			</div>
