@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import uniqueId from 'lodash/uniqueId';
+
+/**
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
@@ -53,23 +58,18 @@ const Integrations = () => {
 			</p>
 
 			<div className="material-settings__updates">
-				<Updater
-					title={ __( 'Google Fonts', 'material-design' ) }
-					needsKey={ true }
-					checked={ state.updates[ UPDATERS.FONT ] }
-					onChange={ () => {
-						handleUpdateChange( UPDATERS.FONT );
-					} }
-				/>
-
-				<Updater
-					title={ __( 'Material Icons', 'material-design' ) }
-					lastUpdated={ Date.now() }
-					checked={ state.updates[ UPDATERS.ICON ] }
-					onChange={ () => {
-						handleUpdateChange( UPDATERS.ICON );
-					} }
-				/>
+				{ UPDATERS.map( updater => (
+					<Updater
+						key={ uniqueId( 'updater-' ) }
+						title={ updater.title }
+						needsKey={ updater.needsKey }
+						checked={ state.updates[ updater.type ] }
+						lastUpdated={ updater.lastUpdated }
+						onChange={ () => {
+							handleUpdateChange( updater.type );
+						} }
+					/>
+				) ) }
 			</div>
 
 			<h2 className="mdc-typography--headline6">
