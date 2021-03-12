@@ -52,7 +52,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	public function setUp() {
 		parent::setUp();
 		$this->plugin   = get_plugin_instance();
-		$this->basename = basename( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) );
+		$this->basename = basename( dirname( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) ) );
 	}
 
 	/**
@@ -63,10 +63,9 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	public function test_locate_plugin() {
 		$location = $this->plugin->locate_plugin();
 
-
-		$this->assertEquals( $this->basename, $location['dir_basename'] );
-		$this->assertEquals( WP_CONTENT_DIR . '/plugins/' . $this->basename, $location['dir_path'] );
-		$this->assertEquals( content_url( '/plugins/' . $this->basename . '/' ), $location['dir_url'] );
+		$this->assertEquals( $this->basename, 'material-design' );
+		$this->assertEquals( WP_CONTENT_DIR . '/plugins/' . $this->basename . '/plugin', $location['dir_path'] );
+		$this->assertEquals( content_url( '/plugins/' . $this->basename . '/plugin/' ), $location['dir_url'] );
 	}
 
 	/**
@@ -85,7 +84,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	 * @see Plugin_Base::asset_url()
 	 */
 	public function test_asset_url() {
-		$this->assertContains( '/plugins/' . $this->basename . '/editor.js', $this->plugin->asset_url( 'editor.js' ) );
+		$this->assertContains( '/plugins/' . $this->basename . '/plugin/editor.js', $this->plugin->asset_url( 'editor.js' ) );
 	}
 
 	/**
