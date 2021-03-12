@@ -101,7 +101,7 @@ describe( 'api: getPosts', () => {
 		expect( apiFetch ).toHaveBeenCalledTimes( 2 );
 		expect( apiFetch ).toHaveBeenCalledWith( {
 			path:
-				'/material-design/v1/post-types/get-posts?per_page=100&status=publish&search=test&orderby=title&order=asc&post_type=posts-pages',
+				'/material-design/v1/post-types/get-posts?per_page=100&status=publish&search=test&orderby=title&order=asc&post_type=posts-pages&context=edit',
 		} );
 
 		expect( apiFetch ).toHaveBeenCalledWith( {
