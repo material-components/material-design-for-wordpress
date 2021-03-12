@@ -35,8 +35,17 @@
 }
 
 .mdc-image-list--with-text-protection .mdc-image-list__supporting {
+	align-items: start;
 	border-bottom-left-radius: var(--mdc-image-list-radius, 4px);
 	border-bottom-right-radius: var(--mdc-image-list-radius, 4px);
+	height: auto;
+	max-height: 100%;
+	min-height: 48px;
+	padding: 8px 16px;
+}
+
+.mdc-image-list__label {
+	white-space: normal;
 }
 
 .mdc-image-list__image-aspect-container .mdc-image-list__image {

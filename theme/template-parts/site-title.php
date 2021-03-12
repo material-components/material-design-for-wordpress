@@ -40,7 +40,7 @@ if ( is_front_page() && is_home() ) :
 			<button type="button" class="mdc-icon-button mdc-drawer__close">
 				<span class="mdc-button__ripple"></span>
 				<i class="material-icons mdc-button__icon" aria-hidden="true">close</i>
-				<span class="screen-reader-text"><?php esc_html__( 'Close drawer', 'material-design-google' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Close drawer', 'material-design-google' ); ?></span>
 			</button>
 		</div>
 		<div class="site-tagline mdc-typography--subtitle1"><?php bloginfo( 'description' ); ?></div>
@@ -57,7 +57,7 @@ else :
 			<button type="button" class="mdc-icon-button mdc-drawer__close">
 				<span class="mdc-button__ripple"></span>
 				<i class="material-icons mdc-button__icon" aria-hidden="true">close</i>
-				<span class="screen-reader-text"><?php esc_html__( 'Close drawer', 'material-design-google' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Close drawer', 'material-design-google' ); ?></span>
 			</button>
 		</div>
 		<div class="site-tagline mdc-typography--subtitle1"><?php bloginfo( 'description' ); ?></div>
