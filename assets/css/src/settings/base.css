@@ -55,7 +55,7 @@
 		margin-top: 24px;
 	}
 
-	& .mdc-circular-progress {
+	& .mdc-button--raised .mdc-circular-progress {
 		--mdc-theme-primary: #fff;
 	}
 

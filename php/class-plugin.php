@@ -280,4 +280,8 @@ class Plugin extends Plugin_Base {
 
 		return 'ok';
 	}
+
+	public function get_api_slug() {
+		return self::API_KEY_SLUG;
+	}
 }

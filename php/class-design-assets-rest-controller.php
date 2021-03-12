@@ -230,11 +230,16 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	 * @return mixed
 	 */
 	public function register_api_key( $request ) {
-		$api_key = $request->get_params( 'key' );
+		$api_key = $request->get_param( 'key' );
 
-		$response = update_option( 'google_fonts_api_key', $api_key );
+		if ( empty( $api_key ) ) {
+			$response = delete_option( $this->plugin->get_api_slug() );
+		} else {
+			$response = update_option( $this->plugin->get_api_slug(), $api_key );
+		}
 
-		if ( is_wp_error(( $response )) ) {
+
+		if ( is_wp_error( $response) ) {
 			return $response;
 		}
 
