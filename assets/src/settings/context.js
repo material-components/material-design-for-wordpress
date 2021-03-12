@@ -26,8 +26,8 @@ const initialState = {
 	error: {},
 };
 
-initialState.updates[ UPDATERS.FONT ] = false;
-initialState.updates[ UPDATERS.ICON ] = false;
+initialState.updates[ UPDATERS.FONTS.type ] = true;
+initialState.updates[ UPDATERS.ICONS.type ] = false;
 
 /**
  * Creates a wrapper in order to use our custom reducer

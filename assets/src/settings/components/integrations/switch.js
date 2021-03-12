@@ -2,13 +2,25 @@
  * External dependencies
  */
 import classNames from 'classnames';
+import { MDCSwitch } from '@material/switch';
 
 /**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { useEffect } from '@wordpress/element';
 
 const Switch = ( { checked, id, onChange } ) => {
+	useEffect( () => {
+		const mdcSwitches = document.querySelectorAll( '.mdc-switch' );
+
+		if ( ! mdcSwitches ) {
+			return;
+		}
+
+		mdcSwitches.forEach( item => new MDCSwitch( item ) );
+	}, [] );
+
 	return (
 		<div className="material-settings__switch">
 			<div
@@ -26,6 +38,7 @@ const Switch = ( { checked, id, onChange } ) => {
 						role="switch"
 						aria-checked={ checked }
 						onChange={ onChange }
+						checked={ checked }
 					/>
 				</div>
 			</div>
