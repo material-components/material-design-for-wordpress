@@ -51,6 +51,7 @@ const getPostsRequests = ( {
 		orderby: 'title',
 		order: 'asc',
 		post_type: postType,
+		context: 'edit',
 	};
 
 	const postTypes = getConfig( 'postTypes' );

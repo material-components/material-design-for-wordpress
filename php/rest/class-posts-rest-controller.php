@@ -20,6 +20,7 @@
 namespace MaterialDesign\Plugin\Rest;
 
 use MaterialDesign\Plugin\Plugin;
+use MaterialDesign\Plugin\Blocks\Posts_List_Block;
 use WP_REST_Posts_Controller;
 
 /**
@@ -91,10 +92,10 @@ class Posts_REST_Controller extends API_Base {
 	 * @param \WP_REST_Request $request Request object.
 	 */
 	public function query_multiple_post_types( \WP_REST_Request $request ) {
-		$post_types = apply_filters( 'material_design_query_post_types', [ 'posts-pages' ] );
+		$post_types = Posts_List_Block::get_supported_post_types();
 		$post_type  = $request->get_param( 'post_type' );
 
-		if ( ! in_array( $post_type, (array) $post_types, true ) ) {
+		if ( 'posts-pages' !== $post_type && ! in_array( $post_type, (array) $post_types, true ) ) {
 			return new \WP_Error(
 				'material_design_invalid_post_type',
 				esc_html__( 'Invalid post type.', 'material-design' ),

@@ -36,15 +36,15 @@
 
 .single-post-card__secondary {
 	padding: 0 16px 8px 16px;
+
+	& > p {
+		margin: 0;
+	}
 }
 
 .single-post-card__secondary-text-over-media,
 .single-post-card__secondary-text-above-media {
 	padding-top: 16px;
-
-	& > p {
-		margin: 0;
-	}
 }
 
 .single-post-card__media.mdc-card__media--square {
