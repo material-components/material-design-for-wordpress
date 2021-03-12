@@ -19,8 +19,14 @@
 	padding: 16px;
 }
 
-.single-post-card .mdc-button__label {
-	white-space: nowrap;
+.single-post-card {
+	& .mdc-card__action--button {
+		text-transform: none;
+	}
+
+	& .mdc-button__label {
+		white-space: nowrap;
+	}
 }
 
 /* @todo: Will need refactoring. */

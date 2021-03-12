@@ -93,7 +93,7 @@ class Posts_List_Block {
 
 		if ( 'edit' === $context && current_user_can( 'edit_posts' ) ) {
 			$response->data['authorDisplayName'] = get_the_author_meta( 'display_name', $post->post_author );
-			$response->data['authorUrl']         = get_author_posts_url( $post->post_author, $response->data['authorDisplayName'] );
+			$response->data['authorUrl']         = get_author_posts_url( $post->post_author );
 			$response->data['commentsCount']     = (int) get_comments_number( $post->id );
 		}
 
