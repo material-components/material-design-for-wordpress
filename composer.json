@@ -55,7 +55,7 @@
       "phpunit"
     ],
     "test-coverage": [
-      "phpunit --coverage-html tests/coverage/html"
+      "phpunit --coverage-html plugin/tests/coverage/html"
     ]
   },
   "extra": {

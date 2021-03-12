@@ -16,7 +16,7 @@ bin/local-dev/mysql/
 bin/local-dev/wordpress/html/
 build/
 node_modules/
-tests/coverage
 vendor/
+plugin/tests/coverage
 plugin/composer*
 theme/composer*
