@@ -27,6 +27,7 @@ namespace MaterialDesign\Plugin;
 
 use MaterialDesign\Plugin\Api\Update_Fonts;
 use MaterialDesign\Plugin\Api\Update_Icons;
+use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -178,8 +179,23 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 		$force = $request->get_param( 'force' );
 
 		$fonts = new Update_Fonts( 'force' === $force, false, true );
+
+		if ( ! $fonts->has_api_key() ) {
+			return new WP_Error(
+				'rest_fonts_no_api_key',
+				$fonts->material_design_no_apikey_textonly()
+			);
+		}
+
 		$data  = $fonts->get_fonts();
 		$count = count( $data->data );
+
+		if ( 0 === $count ) {
+			return new WP_Error(
+				'rest_fonts_unknown_error',
+				esc_html__( 'No fonts were returned, please verify your API Key is valid', 'material-design' )
+			);
+		}
 
 		$parsed = (object) [
 			'page'        => 1,

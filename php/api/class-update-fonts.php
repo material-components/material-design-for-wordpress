@@ -66,8 +66,8 @@ class Update_Fonts extends Updates_API_Base {
 
 		if ( ! empty( $api_key ) ) {
 			$this->api_key = $api_key;
-		} elseif ( defined( 'GOOGLE_FONTS_API_KEY' ) && false !== GOOGLE_FONTS_API_KEY ) {
-			$this->api_key = GOOGLE_FONTS_API_KEY;
+		} elseif ( ! empty( get_option( get_plugin_instance()->get_api_slug() ) ) ) {
+			$this->api_key = get_option( get_plugin_instance()->get_api_slug() );
 		} else {
 			$this->api_key = '';
 		}
@@ -206,5 +206,9 @@ class Update_Fonts extends Updates_API_Base {
 	 */
 	public function material_design_no_apikey_error() {
 		printf( '<div class="error"><p>%s</p></div>', wp_kses_post( $this->material_design_no_apikey() ) );
+	}
+
+	public function has_api_key() {
+		return ! empty( $this->api_key );
 	}
 }
