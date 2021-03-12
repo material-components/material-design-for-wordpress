@@ -37,7 +37,7 @@ if ( empty( $_tests_dir ) ) {
 
 // Composer tests directory.
 if ( ! is_dir( $_tests_dir . '/includes/' ) ) {
-	$_tests_dir = $_plugin_root . '/vendor/xwp/wordpress-tests/phpunit';
+	$_tests_dir = $_plugin_root . '/../vendor/xwp/wordpress-tests/phpunit';
 }
 
 if ( ! file_exists( $_tests_dir . '/includes/' ) ) {
