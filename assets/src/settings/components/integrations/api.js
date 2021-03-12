@@ -20,7 +20,13 @@ const Api = () => {
 	const isApiOk = 'ok' === state.apiStatus;
 
 	const removeApiKey = () => {
-		dispatch( { type: ACTIONS.REMOVE_API_KEY } );
+		setIsLoading( true );
+		setApi( '' );
+
+		setApiKey( api ).then( () => {
+			setIsLoading( false );
+			dispatch( { type: ACTIONS.REMOVE_API_KEY } );
+		} );
 	};
 
 	const activateApiKey = () => {
@@ -78,6 +84,7 @@ const Api = () => {
 							text={ __( 'Remove', 'material-design' ) }
 							leadingIcon="delete"
 							onClick={ removeApiKey }
+							loading={ isLoading }
 						/>
 					) }
 				</div>
