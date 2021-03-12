@@ -225,7 +225,7 @@ if ( ! function_exists( 'material_design_theme_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
+			<div class="post-thumbnail featured-image">
 				<?php the_post_thumbnail(); ?>
 			</div><!-- .post-thumbnail -->
 
