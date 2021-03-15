@@ -28,6 +28,10 @@ $_plugin_files = [];
 
 $_plugin_root = realpath( __DIR__ . '/..' );
 
+if ( ! file_exists( "$_plugin_root/material-design.php" ) ) {
+	$_plugin_root .= './plugin';
+}
+
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 
 // Travis CI & Vagrant SSH tests directory.
@@ -37,7 +41,7 @@ if ( empty( $_tests_dir ) ) {
 
 // Composer tests directory.
 if ( ! is_dir( $_tests_dir . '/includes/' ) ) {
-	$_tests_dir = $_plugin_root . '/../vendor/xwp/wordpress-tests/phpunit';
+	$_tests_dir = $_plugin_root . '/vendor/xwp/wordpress-tests/phpunit';
 }
 
 if ( ! file_exists( $_tests_dir . '/includes/' ) ) {
