@@ -52,7 +52,13 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	public function setUp() {
 		parent::setUp();
 		$this->plugin   = get_plugin_instance();
-		$this->basename = basename( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) );
+		$base_dir       = dirname( dirname( dirname( dirname( __FILE__ ) ) ) );
+		$this->basename = basename( $base_dir );
+
+		// If the tests are run from root, include the plugin folder.
+		if ( 'plugin' === $this->basename ) {
+			$this->basename = basename( dirname( $base_dir ) ) . '/' . $this->basename;
+		}
 	}
 
 	/**
