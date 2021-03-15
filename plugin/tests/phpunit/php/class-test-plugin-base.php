@@ -63,7 +63,6 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	public function test_locate_plugin() {
 		$location = $this->plugin->locate_plugin();
 
-		$this->assertEquals( $this->basename, 'material-design' );
 		$this->assertEquals( WP_CONTENT_DIR . '/plugins/' . $this->basename . '/plugin', $location['dir_path'] );
 		$this->assertEquals( content_url( '/plugins/' . $this->basename . '/plugin/' ), $location['dir_url'] );
 	}
