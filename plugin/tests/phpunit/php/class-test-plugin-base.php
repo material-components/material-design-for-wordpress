@@ -55,7 +55,7 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 		$base_dir       = dirname( dirname( dirname( dirname( __FILE__ ) ) ) );
 		$this->basename = basename( $base_dir );
 
-		// If the tests are run from root, include the plugin folder.
+		// If the tests are run from root, include the plugin folder in basename.
 		if ( 'plugin' === $this->basename ) {
 			$this->basename = basename( dirname( $base_dir ) ) . '/' . $this->basename;
 		}
