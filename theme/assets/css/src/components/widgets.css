@@ -1,0 +1,94 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.widget-area {
+	max-width: 960px;
+}
+
+.widget {
+
+	& a {
+		margin-left: 2px;
+		margin-right: 2px;
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+
+	& .widget-title {
+		margin-bottom: 0;
+	}
+
+	& .sub-menu {
+		margin-left: 0;
+		padding-left: 1rem;
+	}
+
+	& .page_item {
+		align-items: flex-start;
+		flex-direction: column;
+		height: auto;
+		min-height: 3rem;
+
+		& .children {
+			margin-left: 0;
+			margin-top: 1rem;
+			padding-left: 1rem;
+		}
+	}
+
+	&:not(.widget_recent_comments) .mdc-list-item:hover a {
+		text-decoration: none;
+	}
+
+	& .recentcomments {
+		display: block;
+		line-height: 3;
+
+		& a {
+			text-decoration: underline;
+		}
+
+		& a:hover {
+			text-decoration: none;
+		}
+	}
+
+	& .widget-rss {
+
+		& .mdc-list-item {
+			height: auto;
+			overflow: visible;
+		}
+
+		& .mdc-list-item__text {
+			overflow: visible;
+			width: 100%;
+			white-space: normal;
+		}
+
+		& .mdc-list-item__secondary-text {
+			overflow: visible;
+			white-space: normal;
+		}
+	}
+
+	& .mdc-list-item:hover::before {
+		content: none;
+	}
+}

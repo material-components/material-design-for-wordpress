@@ -29,11 +29,13 @@
       "composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts"
     ],
     "format": [
-      "phpcbf ."
+      "phpcbf ./plugin",
+      "phpcbf ./theme --standard=phpcs-theme.xml"
     ],
     "lint": [
       "@composer validate --strict",
-      "phpcs ."
+      "phpcs ./plugin",
+      "phpcs ./theme --standard=phpcs-theme.xml"
     ],
     "post-install-cmd": [
       "@setup"
@@ -53,13 +55,13 @@
       "phpunit"
     ],
     "test-coverage": [
-      "phpunit --coverage-html tests/coverage/html"
+      "phpunit --coverage-html plugin/tests/coverage/html"
     ]
   },
   "extra": {
     "installer-name": "material-design",
     "copy-file": {
-      "tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
+      "plugin/tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
     }
   }
 }
