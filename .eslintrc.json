@@ -8,7 +8,7 @@
         "**/__tests__/**/*.js",
         "**/test/*.js",
         "**/?(*.)test.js",
-        "tests/js/**/*.js"
+        "**/tests/js/**/*.js"
       ],
       "extends": [
         "plugin:jest/all"
