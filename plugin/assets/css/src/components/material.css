@@ -442,3 +442,11 @@
 		margin-right: 8px;
 	}
 }
+
+.mdc-layout-grid .material-design-card {
+	height: 100%;
+
+	& .mdc-card__actions {
+		margin-top: auto;
+	}
+}
