@@ -1,0 +1,109 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.material-drawer {
+
+	& .mdc-drawer__header {
+		color: var(--mdc-theme-on-surface, #000);
+		display: block;
+		margin-top: 10px;
+	}
+
+	& .mdc-drawer__title {
+		align-items: center;
+		display: flex;
+		min-height: 47px;
+		margin-bottom: 5px;
+
+		&::before {
+			content: none;
+		}
+
+		& a {
+			text-decoration: none;
+		}
+
+		& .site-title {
+			margin-bottom: 0;
+			margin-top: 7px;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	& .sub-menu {
+		margin-left: 0;
+		padding-left: 1rem;
+	}
+
+	& .mdc-drawer__content {
+		padding-top: 0.5rem;
+	}
+
+	& .mdc-text-field--outlined:not(.mdc-text-field--disabled).mdc-text-field--focused {
+
+		& .mdc-notched-outline__leading,
+		& .mdc-notched-outline__notch,
+		& .mdc-notched-outline__trailing {
+			border-color: var(--mdc-theme-header, var(--mdc-theme-primary, #6200ee));
+		}
+
+		&:not(.mdc-text-field--disabled) .mdc-floating-label {
+			color: var(--mdc-theme-header, var(--mdc-theme-primary, #6200ee));
+		}
+	}
+
+	ul {
+		margin-left: 0;
+	}
+
+	& .mdc-drawer__close {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		min-width: 48px;
+		padding: 0;
+
+		&:focus {
+			outline: 1px dotted;
+		}
+
+		& .mdc-button__icon {
+			margin-right: 0;
+		}
+	}
+
+	& .mdc-list-item:hover {
+		text-decoration: underline;
+	}
+
+	& .search-form {
+		margin-left: 0.5rem;
+		margin-right: 0.5rem;
+	}
+
+	& .site-title__row {
+		align-items: flex-start;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	& .site-title__wrapper {
+		width: 100%;
+	}
+}
