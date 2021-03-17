@@ -1,0 +1,178 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+	background: var(--mdc-theme-background, #fff);
+	color: var(--mdc-theme-on-background, #000);
+}
+
+.site-content {
+	padding-top: var(--admin-bar-offset, 3.5rem);
+}
+
+.-has-tab-bar + .site-content {
+	padding-top: 0;
+}
+
+.admin-bar {
+	--admin-bar-offset: 4rem;
+}
+
+.content-area {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 4rem;
+
+	@media (--medium-viewport) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.-has-tab-bar + .site-content & {
+		margin-top: 12rem;
+	}
+}
+
+.material-archive__wide .site-main {
+	margin-left: calc(25% - 25vw);
+	margin-right: calc(25% - 25vw);
+}
+
+.page-header {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.entry-title {
+	margin: 1rem auto;
+	max-width: var(--mdc-theme-max-content-width);
+	word-wrap: break-word;
+}
+
+.entry-content {
+	margin-top: 2rem;
+
+	> * {
+		margin-bottom: 1.25rem;
+	}
+
+	& h1,
+	& h2,
+	& h3 {
+
+		@media (--medium-viewport) {
+			margin: 3rem auto 2rem;
+		}
+	}
+}
+
+.entry-content > {
+
+	&.alignwide,
+	&.wp-block-separator.is-style-wide {
+		margin: auto;
+
+		@media (--medium-large-viewport) {
+			max-width: 60rem;
+			width: 60rem;
+		}
+
+		@media (--large-viewport) {
+			max-width: 84rem;
+			width: 84rem;
+		}
+	}
+
+	&.wp-block-separator.is-style-wide {
+		margin: 2rem auto;
+
+		@media (--medium-large-viewport) {
+			margin: 3rem auto;
+		}
+
+		@media (--large-viewport) {
+			margin: 4rem auto;
+		}
+	}
+
+	&.alignwide {
+		margin-bottom: 4rem;
+		margin-top: 4rem;
+
+		&.wp-block-image {
+			max-width: none;
+		}
+
+		&.wp-block-cover {
+
+			@media (--medium-viewport) {
+				width: auto;
+			}
+		}
+	}
+}
+
+.entry-content .alignfull {
+	margin-bottom: 4rem;
+	margin-top: 4rem;
+	width: 100%;
+
+	@media (--medium-viewport) {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 100vw;
+	}
+
+	&.wp-block-cover {
+
+		@media (--medium-viewport) {
+			width: auto;
+		}
+	}
+
+	& .wp-block-cover__inner-container {
+		max-width: var(--mdc-theme-max-content-width);
+	}
+
+	& .alignwide {
+		margin-left: calc(25% - 25vw);
+		margin-right: calc(25% - 25vw);
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+
+	&.wp-block-columns,
+	& > figcaption,
+	& > .wp-caption-text {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+.section-inner {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+	width: calc(100% - 4rem);
+
+	@media (--small-viewport-max) {
+		width: calc(100% - 2rem);
+	}
+}
+
+blockquote {
+	border-color: var(--mdc-theme-primary, #6200ee);
+}
