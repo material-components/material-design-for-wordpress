@@ -39,7 +39,6 @@ const SearchListItem = ( {
 	search = '',
 	...props
 } ) => {
-	console.log( item );
 	const showCount = ! isNil( countLabel ) || ! isNil( item.count );
 	const classes = [ className, 'woocommerce-search-list__item' ];
 	classes.push( `depth-${ depth }` );
