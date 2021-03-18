@@ -52,7 +52,13 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	public function setUp() {
 		parent::setUp();
 		$this->plugin   = get_plugin_instance();
-		$this->basename = basename( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) );
+		$base_dir       = dirname( dirname( dirname( dirname( __FILE__ ) ) ) );
+		$this->basename = basename( $base_dir );
+
+		// If the tests are run from root, include the plugin folder in basename.
+		if ( 'plugin' === $this->basename ) {
+			$this->basename = basename( dirname( $base_dir ) ) . '/' . $this->basename;
+		}
 	}
 
 	/**
@@ -63,8 +69,6 @@ class Test_Plugin_Base extends \WP_UnitTestCase {
 	public function test_locate_plugin() {
 		$location = $this->plugin->locate_plugin();
 
-
-		$this->assertEquals( $this->basename, $location['dir_basename'] );
 		$this->assertEquals( WP_CONTENT_DIR . '/plugins/' . $this->basename, $location['dir_path'] );
 		$this->assertEquals( content_url( '/plugins/' . $this->basename . '/' ), $location['dir_url'] );
 	}
