@@ -185,7 +185,8 @@ class Block_Types {
 		];
 
 		// Only find post types that are available in_rest, and parse them into expected data structure.
-		$post_type_objects = get_post_types( [ 'show_in_rest' => true ], 'objects' );
+		$post_type_objects = Posts_List_Block::get_supported_post_types();
+
 		foreach ( $post_type_objects as $slug => $post_type ) {
 			$controller = $this->get_rest_controller( $post_type );
 

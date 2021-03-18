@@ -92,7 +92,7 @@ class Posts_REST_Controller extends API_Base {
 	 * @param \WP_REST_Request $request Request object.
 	 */
 	public function query_multiple_post_types( \WP_REST_Request $request ) {
-		$post_types = Posts_List_Block::get_supported_post_types();
+		$post_types = array_keys( Posts_List_Block::get_supported_post_types() );
 		$post_type  = $request->get_param( 'post_type' );
 
 		if ( 'posts-pages' !== $post_type && ! in_array( $post_type, (array) $post_types, true ) ) {

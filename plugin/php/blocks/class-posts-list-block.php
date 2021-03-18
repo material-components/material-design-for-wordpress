@@ -72,7 +72,7 @@ class Posts_List_Block {
 	 * Register hooks.
 	 */
 	public function register_hooks() {
-		foreach ( self::get_supported_post_types() as $post_type ) {
+		foreach ( array_keys( self::get_supported_post_types() ) as $post_type ) {
 			add_filter( "rest_prepare_$post_type", [ $this, 'add_extra_post_meta' ], 10, 3 );
 		}
 	}
@@ -213,7 +213,20 @@ class Posts_List_Block {
 	public static function get_supported_post_types() {
 		return apply_filters(
 			'material_design_query_post_types',
-			get_post_types( [ 'show_in_rest' => true ] )
+			array_filter(
+				get_post_types( [ 'show_in_rest' => true ], 'objects' ),
+				function( $post_type ) {
+					// Ignore attachment and wp_block post types.
+					return ! array_key_exists(
+						$post_type,
+						[
+							'attachment' => 1,
+							'wp_block'   => 1,
+						]
+					);
+				},
+				ARRAY_FILTER_USE_KEY
+			)
 		);
 	}
 }
