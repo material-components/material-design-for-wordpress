@@ -187,7 +187,7 @@ class Block_Types {
 		// Only find post types that are available in_rest, and parse them into expected data structure.
 		$post_type_objects = get_post_types( [ 'show_in_rest' => true ], 'objects' );
 		foreach ( $post_type_objects as $slug => $post_type ) {
-			$controller = $post_type->get_rest_controller();
+			$controller = $this->get_rest_controller( $post_type );
 
 			if ( $controller && ! in_array( $slug, [ 'attachment', 'wp_block', 'post', 'page' ] ) ) {
 				$route = '';
@@ -305,5 +305,51 @@ class Block_Types {
 		};
 
 		return $defaults;
+	}
+
+	/**
+	 * Gets the REST API controller for a post type.
+	 *
+	 * Will only instantiate the controller class once per request.
+	 *
+	 * @param WP_Post_Type $post_type The post type object.
+	 *
+	 * @see https://core.trac.wordpress.org/browser/tags/5.7/src/wp-includes/class-wp-post-type.php#L748
+	 *
+	 * @return WP_REST_Controller|null The controller instance, or null if the post type
+	 *                                 is set not to show in rest.
+	 */
+	public function get_rest_controller( $post_type ) {
+		if ( ! $post_type || ! is_a( $post_type, '\WP_Post_Type' ) ) {
+			return null;
+		}
+
+		if ( method_exists( $post_type, 'get_rest_controller' ) ) {
+			return $post_type->get_rest_controller();
+		}
+
+		if ( ! $post_type->show_in_rest ) {
+			return null;
+		}
+
+		$class = $post_type->rest_controller_class ? $post_type->rest_controller_class : \WP_REST_Posts_Controller::class;
+
+		if ( ! class_exists( $class ) ) {
+				return null;
+		}
+
+		if ( ! is_subclass_of( $class, \WP_REST_Controller::class ) ) {
+				return null;
+		}
+
+		if ( ! $post_type->rest_controller ) {
+				$post_type->rest_controller = new $class( $post_type->name );
+		}
+
+		if ( ! ( $post_type->rest_controller instanceof $class ) ) {
+				return null;
+		}
+
+		return $post_type->rest_controller;
 	}
 }
