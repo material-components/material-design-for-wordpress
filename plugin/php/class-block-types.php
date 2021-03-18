@@ -336,21 +336,17 @@ class Block_Types {
 		$class = $post_type->rest_controller_class ? $post_type->rest_controller_class : \WP_REST_Posts_Controller::class;
 
 		if ( ! class_exists( $class ) ) {
-				return null;
+			return null;
 		}
 
 		if ( ! is_subclass_of( $class, \WP_REST_Controller::class ) ) {
-				return null;
+			return null;
 		}
 
-		if ( ! $post_type->rest_controller ) {
-				$post_type->rest_controller = new $class( $post_type->name );
+		if ( ! empty( $post_type->rest_controller ) ) {
+			return $post_type->rest_controller;
 		}
 
-		if ( ! ( $post_type->rest_controller instanceof $class ) ) {
-				return null;
-		}
-
-		return $post_type->rest_controller;
+		return new $class( $post_type->name );
 	}
 }
