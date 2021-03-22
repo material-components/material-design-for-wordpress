@@ -148,7 +148,7 @@
   "scripts": {
     "build": "npm-run-all build:*",
     "build:prepare": "grunt clean",
-    "build:js": "wp-scripts build",
+    "build:js": "wp-scripts build && NODE_ENV=dev wp-scripts build",
     "build:run": "grunt build",
     "build:zip": "grunt create-build-zip",
     "deploy": "npm run build && grunt deploy",

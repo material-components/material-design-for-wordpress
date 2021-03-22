@@ -204,10 +204,12 @@ const getSharedConfig = packageType => {
 				// Remove the CleanWebpackPlugin and FixStyleWebpackPlugin plugins from `@wordpress/scripts` due to version conflicts.
 				...defaultConfig.plugins.filter(
 					plugin =>
+						packageType === 'plugin' &&
 						! [ 'CleanWebpackPlugin', 'FixStyleWebpackPlugin' ].includes(
 							plugin.constructor.name
 						)
 				),
+				new FixStyleOnlyEntriesPlugin(),
 				new MiniCssExtractPlugin( {
 					filename: `../css/[name]-compiled${
 						packageType === 'theme' && PROD ? '.min' : ''
@@ -218,7 +220,6 @@ const getSharedConfig = packageType => {
 						packageType === 'theme' && PROD ? '.min' : ''
 					}-rtl.css`,
 				} ),
-				new FixStyleOnlyEntriesPlugin(),
 			],
 			resolve: {
 				alias: {
