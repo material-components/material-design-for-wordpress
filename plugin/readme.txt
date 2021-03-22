@@ -61,4 +61,4 @@ Material Design is a design system created by Google and backed by open-source c
 
 == Changelog ==
 
-For the plugin’s changelog, please see [the Releases page on GitHub](https://github.com/xwp/material-design-wp-plugin/releases).
+For the plugin’s changelog, please see [the Releases page on GitHub](https://github.com/material-components/material-design-for-wordpress/releases).
