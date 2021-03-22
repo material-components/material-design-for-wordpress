@@ -1,8 +1,8 @@
 {
-  "name": "xwp/material-design-wp-plugin",
+  "name": "material-components/material-design-for-wordpress",
   "type": "wordpress-plugin",
   "description": "Material Design plugin for WordPress.",
-  "homepage": "https://github.com/xwp/material-design-wp-plugin",
+  "homepage": "https://github.com/material-components/material-design-for-wordpress",
   "license": "Apache-2.0",
   "minimum-stability": "dev",
   "prefer-stable": true,
