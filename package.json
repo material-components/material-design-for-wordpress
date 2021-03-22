@@ -10,13 +10,13 @@
     "wordpress",
     "wordpress-plugin"
   ],
-  "homepage": "https://github.com/xwp/material-design-wp-plugin#readme",
+  "homepage": "https://github.com/material-components/material-design-for-wordpress#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xwp/material-design-wp-plugin.git"
+    "url": "git+https://github.com/material-components/material-design-for-wordpress.git"
   },
   "bugs": {
-    "url": "https://github.com/xwp/material-design-wp-plugin/issues"
+    "url": "https://github.com/material-components/material-design-for-wordpress/issues"
   },
   "engines": {
     "node": ">=10",
