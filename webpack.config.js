@@ -209,7 +209,6 @@ const getSharedConfig = packageType => {
 							plugin.constructor.name
 						)
 				),
-				new FixStyleOnlyEntriesPlugin(),
 				new MiniCssExtractPlugin( {
 					filename: `../css/[name]-compiled${
 						packageType === 'theme' && PROD ? '.min' : ''
@@ -220,6 +219,7 @@ const getSharedConfig = packageType => {
 						packageType === 'theme' && PROD ? '.min' : ''
 					}-rtl.css`,
 				} ),
+				new FixStyleOnlyEntriesPlugin(),
 			],
 			resolve: {
 				alias: {
