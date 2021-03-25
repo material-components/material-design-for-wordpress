@@ -47,12 +47,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install dependencies
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: "14"
-      - run: npm ci
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Debug
         uses: hmarr/debug-action@v2
@@ -88,12 +88,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install dependencies
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1
         with:
           node-version: "14"
-      - run: npm ci
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Run JS tests
         run: npm run test:js:coverage
