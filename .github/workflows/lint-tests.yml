@@ -12,23 +12,23 @@ env:
 
 jobs:
   lint:
-    name: 'Lint'
+    name: "Lint"
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14'
-    - run: npm ci
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: npm ci
 
-    - name: Run lint
-    - run: npm run lint
+      - name: Run lint
+        run: npm run lint
 
   test-e2e-coverage:
     needs: [lint]
-    name: 'E2E tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})'
+    name: "E2E tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
     runs-on: ubuntu-latest
 
     strategy:
@@ -45,87 +45,88 @@ jobs:
       WP_VERSION: ${{ matrix.wp_versions }}
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Install dependencies
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14'
-    - run: npm ci
+      - name: Install dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: npm ci
 
-    - name: Start docker local env
-    - run: npm run env:start
-    - run: npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
-    - run: npm run wp -- wp plugin activate foo-bar
-    - run: npm run build:js
+      - name: Start docker local env
+        run: |
+          npm run env:start
+          npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
+          npm run wp -- wp plugin activate foo-bar
+          npm run build:js
 
-    - name: Run E2E tests
-      if: ${{ matrix.wp_versions == '5.2' }}
-    - run: npm run test:e2e
+      - name: Run E2E tests
+        if: ${{ matrix.wp_versions == '5.2' }}
+        run: npm run test:e2e
 
-    - name: Run E2E tests with coverage
-      if: ${{ matrix.wp_versions != '5.2' }}
-    - run: npm run test:e2e:coverage
+      - name: Run E2E tests with coverage
+        if: ${{ matrix.wp_versions != '5.2' }}
+        run: npm run test:e2e:coverage
 
-    - name: Coveralls
-      if: ${{ matrix.wp_versions != '5.2' }}
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./plugin/tests/coverage/e2e/lcov.info
-        flag-name: 'E2E Tests'
-        parallel: true
+      - name: Coveralls
+        if: ${{ matrix.wp_versions != '5.2' }}
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./plugin/tests/coverage/e2e/lcov.info
+          flag-name: "E2E Tests"
+          parallel: true
 
   test-js-coverage:
     needs: [lint]
-    name: 'JS unit tests (with code coverage)'
+    name: "JS unit tests (with code coverage)"
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Install dependencies
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14'
-    - run: npm ci
+      - name: Install dependencies
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: npm ci
 
-    - name: Run JS tests
-    - run: npm run test:js:coverage
+      - name: Run JS tests
+        run: npm run test:js:coverage
 
-    - name: Coveralls
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ./plugin/tests/coverage/js/lcov.info
-        flag-name: 'JS Unit Tests'
-        parallel: true
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./plugin/tests/coverage/js/lcov.info
+          flag-name: "JS Unit Tests"
+          parallel: true
 
   test-php:
     needs: [lint]
-    name: 'PHP tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})'
+    name: "PHP tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         php_versions: [7.4, 7.3, 7.2, 7.1]
-        wp_versions: ['latest']
+        wp_versions: ["latest"]
         os: [ubuntu-latest]
         include:
           - php_versions: 7.4
-            wp_versions: 'trunk'
+            wp_versions: "trunk"
             os: ubuntu-latest
 
-          - php_versions: '7.0'
-            wp_versions: 'latest'
+          - php_versions: "7.0"
+            wp_versions: "latest"
             os: ubuntu-18.04 # Use ubuntu-18.4 which has MySQL 5.7 for back-compat < PHP7.0
 
           - php_versions: 5.6.20
-            wp_versions: 'latest'
+            wp_versions: "latest"
             os: ubuntu-18.04
 
           - php_versions: 5.6.20
-            wp_versions: '5.2'
+            wp_versions: "5.2"
             os: ubuntu-18.04
 
     env:
@@ -136,39 +137,39 @@ jobs:
       PROJECT_TYPE: plugin
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup PHP ${{ matrix.php_versions }}
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php_versions }}
-        tools: phpunit
+      - uses: actions/checkout@v2
+      - name: Setup PHP ${{ matrix.php_versions }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php_versions }}
+          tools: phpunit
 
-    - name: Start MySQL
-      run: |
-        sudo systemctl enable mysql.service
-        sudo systemctl start mysql.service
+      - name: Start MySQL
+        run: |
+          sudo systemctl enable mysql.service
+          sudo systemctl start mysql.service
 
-    - name: Install dependencies
-      run: composer install
+      - name: Install dependencies
+        run: composer install
 
-    - name: Install and Run tests
-      if: ${{ matrix.php_versions == '7.0' || matrix.php_versions == '5.6.20' }}
-      run: |
-        wget -O bin/phpunit https://phar.phpunit.de/phpunit-5.phar
-        chmod +x bin/phpunit
-        source bin/php-tests.sh wordpress_test root root localhost false bin/phpunit
+      - name: Install and Run tests
+        if: ${{ matrix.php_versions == '7.0' || matrix.php_versions == '5.6.20' }}
+        run: |
+          wget -O bin/phpunit https://phar.phpunit.de/phpunit-5.phar
+          chmod +x bin/phpunit
+          source bin/php-tests.sh wordpress_test root root localhost false bin/phpunit
 
-    - name: Install and Run tests
-      if: ${{ matrix.php_versions != '7.0' && matrix.php_versions != '5.6.20' }}
-      run: source bin/php-tests.sh wordpress_test root root localhost
+      - name: Install and Run tests
+        if: ${{ matrix.php_versions != '7.0' && matrix.php_versions != '5.6.20' }}
+        run: source bin/php-tests.sh wordpress_test root root localhost
 
   finish:
     needs: [test-e2e-coverage, test-js-coverage, test-php]
     name: Finish
     runs-on: ubuntu-latest
     steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.github_token }}
-        parallel-finished: true
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
