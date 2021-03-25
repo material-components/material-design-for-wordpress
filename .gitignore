@@ -2,7 +2,6 @@
 ._.DS_Store
 .env
 .idea
-composer.lock
 material-design.zip
 material-design-google.zip
 yarn.lock

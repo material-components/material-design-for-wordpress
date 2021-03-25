@@ -34,7 +34,7 @@ if ( ! file_exists( "$_plugin_root/material-design.php" ) ) {
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 
-// Travis CI & Vagrant SSH tests directory.
+// Github Actions, Travis CI & Vagrant SSH tests directory.
 if ( empty( $_tests_dir ) ) {
 	$_tests_dir = '/tmp/wordpress-tests';
 }
