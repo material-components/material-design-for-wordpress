@@ -62,9 +62,17 @@ jobs:
       - name: Start docker local env
         run: |
           npm run env:start
-          docker-compose ps && docker ps -a
           docker-compose exec -T wordpress bash -c "chown -R www-data:www-data /var/www/html/wp-content/" # ensure WP folders have correct permissions
           docker-compose exec -T mysql bash -c "chown -R mysql:mysql /var/lib/mysql"
+          
+      - name: Docker containers debug information
+        run: |
+          docker ps -a
+          docker-compose run --rm wordpress env
+          docker-compose run --rm mysql env
+          
+      - name: Install WordPress
+        run: |
           npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
           npm run wp -- wp plugin activate material-design
 
