@@ -90,7 +90,7 @@ jobs:
       - name: Run E2E tests with coverage
         if: ${{ matrix.wp_versions != '5.2' }}
         run: |
-          sudo chown -R travis:travis plugin/tests node_modules # ensure coverage folder can be created
+          sudo chown -R runner:runner plugin/tests node_modules # ensure coverage folder can be created
           npm run test:e2e:coverage
 
       - name: Coveralls
