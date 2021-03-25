@@ -68,6 +68,9 @@ jobs:
       - name: Docker containers debug information
         run: |
           docker ps -a
+          
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
       - name: Install WordPress
         run: |
