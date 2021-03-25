@@ -7,9 +7,6 @@ on:
       - develop
   pull_request:
 
-env:
-  DEV_LIB_PATH: vendor/xwp/wp-dev-lib/scripts
-
 jobs:
   lint:
     name: "Coding Standards"
