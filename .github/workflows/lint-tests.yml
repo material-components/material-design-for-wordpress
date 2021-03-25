@@ -63,9 +63,12 @@ jobs:
       if: ${{ matrix.wp_versions == '5.2' }}
     - run: npm run test:e2e
 
-    - name: Run E2E tests with coveralls
+    - name: Run E2E tests with coverage
       if: ${{ matrix.wp_versions != '5.2' }}
     - run: npm run test:e2e:coverage
+
+    - name: Coveralls
+      if: ${{ matrix.wp_versions != '5.2' }}
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
