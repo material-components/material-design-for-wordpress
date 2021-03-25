@@ -71,6 +71,10 @@ jobs:
           docker-compose run --rm wordpress env
           docker-compose run --rm mysql env
           
+      - name: Setup tmate session
+        if: ${{ matrix.wp_versions != '5.2' }}
+        uses: mxschmitt/action-tmate@v3
+          
       - name: Install WordPress
         run: |
           npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
