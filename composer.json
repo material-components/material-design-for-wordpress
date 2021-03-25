@@ -7,22 +7,26 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "platform": {
+      "php": "7.4.2",
+      "ext-filter": "7.1"
+    }
   },
   "require": {
     "php": ">=5.6.20"
   },
   "require-dev": {
-    "automattic/vipwpcs": "*",
-    "dealerdirect/phpcodesniffer-composer-installer": "*",
-    "php-coveralls/php-coveralls": "2.2.0",
-    "phpcompatibility/phpcompatibility-wp": "*",
-    "phpunit/phpcov": "^3.1 || ^6.0",
-    "phpunit/phpunit": "^5.7 || ^7",
-    "slowprog/composer-copy-file": "*",
-    "wp-coding-standards/wpcs": "*",
-    "xwp/wordpress-tests-installer": "*",
-    "xwp/wp-dev-lib": "*"
+    "automattic/vipwpcs": "@stable",
+    "dealerdirect/phpcodesniffer-composer-installer": "@stable",
+    "php-coveralls/php-coveralls": "^2.2.0",
+    "phpcompatibility/phpcompatibility-wp": "@stable",
+    "phpunit/phpcov": "^5.0",
+    "phpunit/phpunit": "^7",
+    "slowprog/composer-copy-file": "@stable",
+    "wp-coding-standards/wpcs": "@stable",
+    "xwp/wordpress-tests-installer": "@stable",
+    "xwp/wp-dev-lib": "@stable"
   },
   "scripts": {
     "build": [
