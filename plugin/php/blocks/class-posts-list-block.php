@@ -156,7 +156,7 @@ class Posts_List_Block {
 
 			$ids                    = array_map( 'absint', $attributes['posts'] );
 			$args['post__in']       = $ids;
-			$args['posts_per_page'] = count( $ids );
+			$args['posts_per_page'] = count( $ids ); // phpcs:ignore WordPress.WP.PostsPerPage.posts_per_page_posts_per_page
 		}
 
 		/**
