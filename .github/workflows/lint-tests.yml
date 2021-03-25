@@ -54,7 +54,8 @@ jobs:
           node-version: "14"
       - run: npm ci
 
-      - uses: hmarr/debug-action@v2
+      - name: Debug
+        uses: hmarr/debug-action@v2
 
       - name: Start docker local env
         run: |
