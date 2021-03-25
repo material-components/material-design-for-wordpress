@@ -1,4 +1,4 @@
-name: Lint and Tests
+name: Coding Standards and Tests
 
 on:
   push:
@@ -12,7 +12,7 @@ env:
 
 jobs:
   lint:
-    name: "Lint"
+    name: "Coding Standards"
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,7 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-  test-e2e-coverage:
+  test-e2e:
     needs: [lint]
     name: "E2E tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
     runs-on: ubuntu-latest
@@ -77,7 +77,7 @@ jobs:
           flag-name: "E2E Tests"
           parallel: true
 
-  test-js-coverage:
+  test-js:
     needs: [lint]
     name: "JS unit tests (with code coverage)"
     runs-on: ubuntu-latest
@@ -164,7 +164,7 @@ jobs:
         run: source bin/php-tests.sh wordpress_test root root localhost
 
   finish:
-    needs: [test-e2e-coverage, test-js-coverage, test-php]
+    needs: [test-e2e, test-js, test-php]
     name: Finish
     runs-on: ubuntu-latest
     steps:
