@@ -21,9 +21,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "14"
-      - run: npm ci
+        run: npm ci
 
-      - name: Run lint
+      - name: Run coding standards check
         run: npm run lint
 
   test-e2e:
@@ -43,6 +43,7 @@ jobs:
     env:
       NODE_ENV: e2e
       WP_VERSION: ${{ matrix.wp_versions }}
+      PHP_VERSION: php${{ matrix.php_versions }}-apache
 
     steps:
       - uses: actions/checkout@v2
@@ -52,6 +53,8 @@ jobs:
         with:
           node-version: "14"
       - run: npm ci
+
+      - uses: hmarr/debug-action@v2
 
       - name: Start docker local env
         run: |
@@ -151,6 +154,9 @@ jobs:
 
       - name: Install dependencies
         run: composer install
+
+      - name: Copy block.json files
+        run: for file in ./plugin/assets/src/block-editor/blocks/*/block.json; do dest="${file/.\/plugin\/assets\/src\/block-editor\//./plugin/assets/js/}"; mkdir -p `dirname $dest`; cp $file $dest; done
 
       - name: Install and Run tests
         if: ${{ matrix.php_versions == '7.0' || matrix.php_versions == '5.6.20' }}
