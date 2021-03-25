@@ -98,10 +98,6 @@ jobs:
           flag-name: "E2E Tests"
           parallel: true
 
-      - name: Setup tmate session
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
-
   test-js:
     needs: [lint]
     name: "JS unit tests (with code coverage)"
