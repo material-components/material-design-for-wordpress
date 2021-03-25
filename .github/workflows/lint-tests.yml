@@ -56,6 +56,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build assets
+        run: npm run build:js
+
       - name: Start docker local env
         run: |
           npm run env:start
@@ -64,7 +67,6 @@ jobs:
           docker-compose exec -T mysql bash -c "chown -R mysql:mysql /var/lib/mysql"
           npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
           npm run wp -- wp plugin activate material-design
-          npm run build:js
 
       - name: Run E2E tests
         if: ${{ matrix.wp_versions == '5.2' }}
