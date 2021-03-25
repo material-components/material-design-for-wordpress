@@ -42,7 +42,7 @@ jobs:
             wp_versions: 5.2
 
     env:
-      NODE_ENV: e2e
+      NODE_ENV: teste2e
       WP_VERSION: ${{ matrix.wp_versions }}
       PHP_VERSION: php${{ matrix.php_versions }}-apache
 

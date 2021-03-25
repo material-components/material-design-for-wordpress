@@ -175,7 +175,7 @@
     "test:e2e:watch": "npm run test:e2e -- --watch",
     "test:e2e:interactive": "npm run test:e2e -- --puppeteer-interactive",
     "test:e2e:ci": "npm run test:e2e -- --runInBand",
-    "test:e2e:coverage": "npm run test:e2e -- --coverage --coverageReporters=lcov --coverageDirectory=plugin/tests/coverage/e2e",
+    "test:e2e:coverage": "npm run test:e2e -- --coverage --coverageDirectory=plugin/tests/coverage/e2e",
     "test:e2e:coveralls": "npm run test:e2e:coverage -- --runInBand --coverageReporters=json && npm run test:js:coverage-merge -- --no-js --reporter=text-lcov",
     "test:js": "wp-scripts test-unit-js plugin/tests/js",
     "test:js:help": "wp-scripts test-unit-js --help",
