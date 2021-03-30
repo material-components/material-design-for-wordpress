@@ -85,3 +85,15 @@
 	justify-content: left !important;
 	min-width: 36px !important;
 }
+
+.mdc-card__media {
+
+	& img {
+		bottom: 0;
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
