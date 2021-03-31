@@ -137,8 +137,11 @@ const CardImageEdit = ( {
 									[ `material-design-card-with-${ contentLayout }` ]: contentLayout,
 								}
 							) }
-							style={ { backgroundImage: `url(${ imageSourceUrl })` } }
 						>
+							<img
+								src={ imageSourceUrl }
+								alt={ cardPrimaryProps.title || '' }
+							/>
 							{ contentLayout === 'text-over-media' && (
 								<div className="mdc-card__media-content">
 									<CardPrimary { ...cardPrimaryProps } />
