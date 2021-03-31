@@ -244,9 +244,12 @@ Object {
       >
         <div
           class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
-          style="background-image: url(http://test.loc/test.jpg);"
           tabindex="0"
         >
+          <img
+            alt=""
+            src="http://test.loc/test.jpg"
+          />
           <div
             class="mdc-card__media-content"
           >
@@ -288,9 +291,12 @@ Object {
     >
       <div
         class="mdc-card__media mdc-card__media--16-9 material-design-card__media material-design-card-with-text-over-media"
-        style="background-image: url(http://test.loc/test.jpg);"
         tabindex="0"
       >
+        <img
+          alt=""
+          src="http://test.loc/test.jpg"
+        />
         <div
           class="mdc-card__media-content"
         >
