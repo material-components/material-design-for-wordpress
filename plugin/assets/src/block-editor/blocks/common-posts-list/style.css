@@ -78,7 +78,6 @@
 		text-decoration: none !important;
 	}
 	text-decoration: none !important;
-
 }
 
 .mdc-button__comment-count {
@@ -91,6 +90,7 @@
 	& img {
 		bottom: 0;
 		height: 100%;
+		left: 0;
 		object-fit: cover;
 		position: absolute;
 		top: 0;
