@@ -11190,7 +11190,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         <ForwardRef
                           className="material-design-card__title mdc-typography mdc-typography--headline6"
                           onChange={[Function]}
-                          place={true}
                           placeholder="Title goes here"
                           tagName="h2"
                           value="Title #1 goes here"
@@ -11506,7 +11505,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         <ForwardRef
                           className="material-design-card__title mdc-typography mdc-typography--headline6"
                           onChange={[Function]}
-                          place={true}
                           placeholder="Title goes here"
                           tagName="h2"
                           value="Title #2 goes here"
