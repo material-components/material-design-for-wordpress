@@ -43,13 +43,6 @@ class Plugin extends Plugin_Base {
 	const THEME_SLUG = 'material-design-google';
 
 	/**
-	 * API option name
-	 *
-	 * @var string
-	 */
-	const API_KEY_SLUG = 'google_fonts_api_key';
-
-	/**
 	 * Controls class.
 	 *
 	 * @var Controls
@@ -264,24 +257,5 @@ class Plugin extends Plugin_Base {
 		}
 
 		return 'ok';
-	}
-
-	/**
-	 * Look for API in database.
-	 *
-	 * @return string
-	 */
-	public function api_status() {
-		$api = get_option( self::API_KEY_SLUG );
-
-		if ( empty( $api ) ) {
-			return 'install';
-		}
-
-		return 'ok';
-	}
-
-	public function get_api_slug() {
-		return self::API_KEY_SLUG;
 	}
 }
