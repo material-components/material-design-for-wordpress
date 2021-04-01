@@ -64,7 +64,7 @@ const Integrations = () => {
 						title={ UPDATERS[ key ].title }
 						needsKey={ UPDATERS[ key ].needsKey }
 						checked={ state.updates[ UPDATERS[ key ].type ] }
-						lastUpdated={ UPDATERS[ key ].lastUpdated }
+						lastUpdated={ state.updaters[ key ].lastUpdated }
 						type={ UPDATERS[ key ].type }
 						onChange={ () => {
 							handleUpdateChange( UPDATERS[ key ].type );
