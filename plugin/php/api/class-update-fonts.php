@@ -41,6 +41,8 @@ class Update_Fonts extends Updates_API_Base {
 
 	const LAST_UPDATED = 'google-fonts-last-updated';
 
+	const AUTO_UPDATE_SLUG = 'google-fonts-auto-update';
+
 	/**
 	 * API option name
 	 *
@@ -247,5 +249,15 @@ class Update_Fonts extends Updates_API_Base {
 	 */
 	public static function get_api_slug() {
 		return self::API_KEY_SLUG;
+	}
+
+	/**
+	 * Add auto update option in database
+	 * Allow or restrict auto updates
+	 *
+	 * @param bool $activate Wheter to auto update items. Defaults to false
+	 */
+	public function toggle_auto_updates( $activate = false ) {
+		return update_option( self::AUTO_UPDATE_SLUG, $activate );
 	}
 }

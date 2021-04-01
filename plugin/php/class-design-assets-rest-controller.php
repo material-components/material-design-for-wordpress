@@ -119,6 +119,21 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 				'schema' => [ $this, 'get_item_schema' ],
 			]
 		);
+
+		register_rest_route(
+			$this->namespace,
+			'/' . $this->rest_base . '/toggle-auto-updates',
+			[
+				[
+					'methods'             => \WP_REST_Server::CREATABLE,
+					'callback'            => [ $this, 'toggle_auto_updates' ],
+					'permission_callback' => function( WP_REST_Request $request ) {
+						return current_user_can( 'manage_options' );
+					},
+				],
+				'schema' => [ $this, 'get_item_schema' ],
+			]
+		);
 	}
 
 	/**
@@ -295,5 +310,38 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 		}
 
 		return 'ok';
+	}
+
+	/**
+	 * Toggle auto updates option in database
+	 * Usage:
+	 *  /wp-json/material-design/v1/design-assets/toggle-auto-updates
+	 *
+	 * @param WP_REST_Request $request REST request object.
+	 *
+	 * @return mixed
+	 */
+	public function toggle_auto_updates( $request ) {
+		$type = $request->get_param( 'type' );
+		$slug = '';
+
+		if ( 'FONTS' === $type ) {
+			$slug = Update_Fonts::AUTO_UPDATE_SLUG;
+		} elseif ( 'ICONS' === $type ) {
+			$slug = Update_Icons::AUTO_UPDATE_SLUG;
+		}
+
+		if ( empty( $slug ) ) {
+			$response = new WP_Error( 'material-auto-updates', __( 'No auto update to activate', 'material-design' ) );
+		} else {
+			$value    = intval( get_option( $slug ) );
+			$response = update_option( $slug, ! $value );
+		}
+
+		if ( is_wp_error( $response ) ) {
+			return $response;
+		}
+
+		return new WP_REST_Response( $response, 200 );
 	}
 }
