@@ -303,6 +303,8 @@ class Admin extends Module_Base {
 					'apiStatus'        => esc_html( $this->plugin->assets_rest_controller->get_api_status() ),
 					'fontsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_fonts_last_updated() ),
 					'iconsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_icons_last_updated() ),
+					'fontsAutoUpdate'  => esc_html( $this->plugin->assets_rest_controller->get_fonts_auto_update() ),
+					'iconsAutoUpdate'  => esc_html( $this->plugin->assets_rest_controller->get_icons_auto_update() ),
 				]
 			);
 		}

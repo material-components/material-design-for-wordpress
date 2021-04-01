@@ -25,9 +25,6 @@ const initialState = {
 	error: {},
 };
 
-initialState.updaters[ UPDATERS.FONTS.type ].autoUpdates = true;
-initialState.updaters[ UPDATERS.ICONS.type ].autoUpdates = false;
-
 /**
  * Creates a wrapper in order to use our custom reducer
  *

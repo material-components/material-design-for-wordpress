@@ -17,16 +17,9 @@ import { ACTIONS } from '../../constants';
 import SettingsContext from '../../context';
 import Switch from './switch';
 import Button from '../../../wizard/components/navigation/button';
-import { update } from '../../utils';
+import { update, toggleAutoUpdate } from '../../utils';
 
-const Updater = ( {
-	title,
-	lastUpdated,
-	needsKey,
-	checked,
-	type,
-	onChange,
-} ) => {
+const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
 	const { state, dispatch } = useContext( SettingsContext );
 	const isDisabled = needsKey && 'ok' !== state.apiStatus;
@@ -52,6 +45,11 @@ const Updater = ( {
 			} );
 		} );
 
+	};
+
+	const handleAutoUpdateToggle = () => {
+		dispatch( { type: ACTIONS.TOGGLE_UPDATES, payload: { type } } );
+		toggleAutoUpdate( type );
 	};
 
 	return (
@@ -91,7 +89,11 @@ const Updater = ( {
 
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end">
 						{ ! isDisabled && (
-							<Switch checked={ checked } onChange={ onChange } id={ id } />
+							<Switch
+								checked={ checked }
+								onChange={ handleAutoUpdateToggle }
+								id={ id }
+							/>
 						) }
 					</div>
 
