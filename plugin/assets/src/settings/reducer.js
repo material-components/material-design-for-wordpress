@@ -13,13 +13,14 @@ export const reducer = ( state, action ) => {
 	const { type, payload } = action;
 
 	if ( ACTIONS.TOGGLE_UPDATES === type ) {
-		const updates = { ...state.updates };
+		const { updaters } = state;
 
-		updates[ payload.update ] = ! updates[ payload.update ];
+		updaters[ payload.type ].autoUpdates = ! updaters[ payload.type ]
+			.autoUpdates;
 
 		return {
 			...state,
-			updates,
+			updaters,
 		};
 	}
 
