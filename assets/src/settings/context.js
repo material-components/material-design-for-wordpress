@@ -21,13 +21,12 @@ const { Provider } = SettingsContext;
 const initialState = {
 	status: STATUS.IDLE,
 	apiStatus: getConfig( 'apiStatus' ),
-	updates: {},
 	updaters: UPDATERS,
 	error: {},
 };
 
-initialState.updates[ UPDATERS.FONTS.type ] = true;
-initialState.updates[ UPDATERS.ICONS.type ] = false;
+initialState.updaters[ UPDATERS.FONTS.type ].autoUpdates = true;
+initialState.updaters[ UPDATERS.ICONS.type ].autoUpdates = false;
 
 /**
  * Creates a wrapper in order to use our custom reducer
