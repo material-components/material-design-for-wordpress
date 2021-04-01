@@ -38,11 +38,11 @@ const Integrations = () => {
 							'Integrate %s and %s to get the most out of the Material Theme.',
 							'material-design'
 						),
-						`<a href="http://google.com">${ __(
+						`<a href="https://fonts.google.com/">${ __(
 							'Google Fonts',
 							'material-design'
 						) }</a>`,
-						`<a href="http://material.io">${ __(
+						`<a href="https://material.io/resources/icons/?style=baseline">${ __(
 							'Material icons',
 							'material-design'
 						) }</a>`
@@ -85,7 +85,7 @@ const Integrations = () => {
 							'To use Google Fonts in Material Theme, please activate your %s and enable updates',
 							'material-design'
 						),
-						`<a href="http://google.com">${ __(
+						`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey">${ __(
 							'Google API Key',
 							'material-design'
 						) }</a>`

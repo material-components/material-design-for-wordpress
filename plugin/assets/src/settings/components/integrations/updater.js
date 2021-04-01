@@ -8,7 +8,7 @@ import _uniqueId from 'lodash/uniqueId';
  */
 import { __, sprintf } from '@wordpress/i18n';
 import { useState, useContext } from '@wordpress/element';
-import { date } from '@wordpress/date';
+import { dateI18n } from '@wordpress/date';
 
 /**
  * Internal dependencies
@@ -31,7 +31,7 @@ const Updater = ( {
 	const { state, dispatch } = useContext( SettingsContext );
 	const isDisabled = needsKey && 'ok' !== state.apiStatus;
 	const updatedDate = lastUpdated
-		? date( 'M n, Y, h:i A', lastUpdated )
+		? dateI18n( 'M j, Y, h:i A', lastUpdated )
 		: __( 'never', 'material-design' );
 	const [ isUpdating, setIsUpdating ] = useState( false );
 	const shouldUpdate = ! isDisabled && state.updaters[ type ].updateAvailable;
@@ -69,7 +69,7 @@ const Updater = ( {
 											'To enable Google Fonts updates please %s first',
 											'material-design'
 										),
-										`<a href="http://google.com">${ __(
+										`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey">${ __(
 											'activate Google API Key',
 											'material-design'
 										) }</a>`
