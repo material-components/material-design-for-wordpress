@@ -1,0 +1,1752 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blocks: material/image-list: Edit matches snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <ul
+        class="mdc-image-list mdc-image-list--masonry"
+        style="column-count: 4; column-gap: 24px;"
+      >
+        <li
+          class="mdc-image-list__item"
+        >
+          <div
+            class="mdc-image-list__item-wrap"
+            style="margin-bottom: 24px;"
+          >
+            <img
+              alt="Example Image 1 alt"
+              class="mdc-image-list__image"
+              data-id="1"
+              data-link="http://example.com/image-1"
+              src="https://i.picsum.photos/id/22/500/500.jpg"
+              style="border-radius: 4px;"
+            />
+            <div
+              class="mdc-image-list__supporting"
+              style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"
+            >
+              <span
+                class="mdc-image-list__label"
+              >
+                Example Image 1 caption
+              </span>
+            </div>
+            <div
+              class="move-image"
+            >
+              <button
+                title="Move left"
+              >
+                <i
+                  class="material-icons"
+                >
+                  arrow_left
+                </i>
+              </button>
+              <button
+                title="Move right"
+              >
+                <i
+                  class="material-icons"
+                >
+                  arrow_right
+                </i>
+              </button>
+            </div>
+            <div
+              class="remove-image"
+            >
+              <button
+                title="Remove image"
+              >
+                <i
+                  class="material-icons"
+                >
+                  close
+                </i>
+              </button>
+            </div>
+          </div>
+        </li>
+        <li
+          class="mdc-image-list__item"
+        >
+          <div
+            class="mdc-image-list__item-wrap"
+            style="margin-bottom: 24px;"
+          >
+            <img
+              alt="Example Image 2 alt"
+              class="mdc-image-list__image"
+              data-id="2"
+              data-link="http://example.com/image-2"
+              src="https://i.picsum.photos/id/22/500/500.jpg"
+              style="border-radius: 4px;"
+            />
+            <div
+              class="mdc-image-list__supporting"
+              style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"
+            >
+              <span
+                class="mdc-image-list__label"
+              >
+                Example Image 2 caption
+              </span>
+            </div>
+            <div
+              class="move-image"
+            >
+              <button
+                title="Move left"
+              >
+                <i
+                  class="material-icons"
+                >
+                  arrow_left
+                </i>
+              </button>
+              <button
+                title="Move right"
+              >
+                <i
+                  class="material-icons"
+                >
+                  arrow_right
+                </i>
+              </button>
+            </div>
+            <div
+              class="remove-image"
+            >
+              <button
+                title="Remove image"
+              >
+                <i
+                  class="material-icons"
+                >
+                  close
+                </i>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div
+        class="components-placeholder block-editor-media-placeholder is-small"
+      >
+        Placeholder
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Styles
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control components-image-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <div
+              class="components-radio-control__option active"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="image-radio-control-0-0"
+                name="image-radio-control-0"
+                type="radio"
+                value="masonry"
+              />
+              <label
+                for="image-radio-control-0-0"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="37"
+                    viewBox="0 0 37 37"
+                    width="37"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="16"
+                      width="16"
+                      x="0.133057"
+                      y="16.3413"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="2"
+                      width="10"
+                      x="0.133057"
+                      y="34.3413"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="16"
+                      width="16"
+                      x="20.3596"
+                      y="0.0395508"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="2"
+                      width="10"
+                      x="20.3596"
+                      y="18.0396"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="16"
+                      x="20.1624"
+                      y="24.3413"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="2"
+                      width="10"
+                      x="20.1624"
+                      y="34.3413"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="16"
+                      x="0.321533"
+                      y="0.0395508"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="2"
+                      width="10"
+                      x="0.321533"
+                      y="10.0396"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  Masonry
+                </span>
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="image-radio-control-0-1"
+                name="image-radio-control-0"
+                type="radio"
+                value="grid"
+              />
+              <label
+                for="image-radio-control-0-1"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="45"
+                    viewBox="0 0 37 45"
+                    width="37"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="16"
+                      width="16"
+                      x="0.24646"
+                      y="24.8232"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="2"
+                      width="10"
+                      x="0.24646"
+                      y="42.8232"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="16"
+                      width="16"
+                      x="20.2465"
+                      y="24.5835"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="2"
+                      width="10"
+                      x="20.2465"
+                      y="42.5835"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="16"
+                      width="16"
+                      x="0.24646"
+                      y="0.583496"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="2"
+                      width="10"
+                      x="0.24646"
+                      y="18.5835"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="16"
+                      width="16"
+                      x="20.2465"
+                      y="0.583496"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="2"
+                      width="10"
+                      x="20.2465"
+                      y="18.5835"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  Grid
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-base-control__label components-base-control__layout-controls-label"
+            >
+              Layout
+              <div
+                class="components-base-control__label-actions components-base-control__layout-controls"
+              >
+                <button
+                  class="is-selected"
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    computer
+                  </i>
+                </button>
+                <button
+                  class=""
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    tablet
+                  </i>
+                </button>
+                <button
+                  class=""
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    smartphone
+                  </i>
+                </button>
+              </div>
+            </span>
+            <div
+              class="components-base-control components-range-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-range-control-0"
+                >
+                  Columns
+                </label>
+                <span
+                  class="components-range-control__root css-yaebbd-Root exqw8y20"
+                >
+                  <span
+                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    color="#00669b"
+                  >
+                    <input
+                      aria-hidden="false"
+                      aria-label="Columns"
+                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                      id="inspector-range-control-0"
+                      max="6"
+                      min="1"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="1"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="css-1lwhlrq-Rail exqw8y24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="components-range-control__track css-ogrpie-Track exqw8y25"
+                      style="width: 0%;"
+                    />
+                    <span
+                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      style="left: 0%;"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="css-c88ajq-Thumb exqw8y210"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="false"
+                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      role="tooltip"
+                      style="left: 0%; z-index: 100;"
+                    >
+                      1
+                    </span>
+                  </span>
+                  <input
+                    aria-label="Columns"
+                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    inputmode="decimal"
+                    max="6"
+                    min="1"
+                    step="1"
+                    type="number"
+                    value="1"
+                  />
+                </span>
+              </div>
+            </div>
+            <div
+              class="components-base-control components-range-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-range-control-1"
+                >
+                  Gutter
+                </label>
+                <span
+                  class="components-range-control__root css-yaebbd-Root exqw8y20"
+                >
+                  <span
+                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    color="#00669b"
+                  >
+                    <input
+                      aria-hidden="false"
+                      aria-label="Gutter"
+                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                      id="inspector-range-control-1"
+                      max="24"
+                      min="0"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="css-1lwhlrq-Rail exqw8y24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="components-range-control__track css-ogrpie-Track exqw8y25"
+                      style="width: 100%;"
+                    />
+                    <span
+                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      style="left: 100%;"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="css-c88ajq-Thumb exqw8y210"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="false"
+                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      role="tooltip"
+                      style="left: 100%; z-index: 100;"
+                    >
+                      24
+                    </span>
+                  </span>
+                  <input
+                    aria-label="Gutter"
+                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    inputmode="decimal"
+                    max="24"
+                    min="0"
+                    step="1"
+                    type="number"
+                    value="24"
+                  />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-base-control"
+        >
+          <label
+            class="components-base-control__label"
+            for="shape-size"
+          >
+            Corner Styles
+          </label>
+          <div>
+            Overrides will only apply to these images. Change Image Lists corner styles in 
+            <a
+              href="http://example.com/shape"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Material Design Options
+            </a>
+             to update all Image Lists.
+          </div>
+          <div
+            class="components-base-control components-global-shape-size"
+          >
+            <div
+              class="components-base-control components-range-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-range-control-2"
+                >
+                  Corner Styles
+                </label>
+                <span
+                  class="components-range-control__root css-yaebbd-Root exqw8y20"
+                >
+                  <span
+                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    color="#00669b"
+                  >
+                    <input
+                      aria-hidden="false"
+                      aria-label="Corner Styles"
+                      class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                      id="inspector-range-control-2"
+                      max="16"
+                      min="0"
+                      step="1"
+                      tabindex="0"
+                      type="range"
+                      value="4"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="css-1lwhlrq-Rail exqw8y24"
+                    />
+                    <span
+                      aria-hidden="true"
+                      class="components-range-control__track css-ogrpie-Track exqw8y25"
+                      style="width: 25%;"
+                    />
+                    <span
+                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      style="left: 25%;"
+                    >
+                      <span
+                        aria-hidden="true"
+                        class="css-c88ajq-Thumb exqw8y210"
+                      />
+                    </span>
+                    <span
+                      aria-hidden="false"
+                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      role="tooltip"
+                      style="left: 25%; z-index: 100;"
+                    >
+                      4
+                    </span>
+                  </span>
+                  <input
+                    aria-label="Corner Styles"
+                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    inputmode="decimal"
+                    max="16"
+                    min="0"
+                    step="1"
+                    type="number"
+                    value="4"
+                  />
+                </span>
+              </div>
+            </div>
+            <button
+              class="components-button global-shape-size-reset is-small"
+              type="button"
+            >
+              Reset
+            </button>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-0"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-0"
+            >
+              Captions
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle"
+            >
+              <input
+                class="components-form-toggle__input"
+                id="inspector-toggle-control-1"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__off"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 6 6"
+                width="6"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-1"
+            >
+              Text Protection
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Link Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-select-control-0"
+            >
+              Link to
+            </label>
+            <select
+              class="components-select-control__input"
+              id="inspector-select-control-0"
+            >
+              <option
+                value="media"
+              >
+                Media File
+              </option>
+              <option
+                value="attachment"
+              >
+                Attachment Page
+              </option>
+              <option
+                value="custom"
+              >
+                Custom URL
+              </option>
+              <option
+                value="none"
+              >
+                None
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="mdc-image-list mdc-image-list--masonry"
+      style="column-count: 4; column-gap: 24px;"
+    >
+      <li
+        class="mdc-image-list__item"
+      >
+        <div
+          class="mdc-image-list__item-wrap"
+          style="margin-bottom: 24px;"
+        >
+          <img
+            alt="Example Image 1 alt"
+            class="mdc-image-list__image"
+            data-id="1"
+            data-link="http://example.com/image-1"
+            src="https://i.picsum.photos/id/22/500/500.jpg"
+            style="border-radius: 4px;"
+          />
+          <div
+            class="mdc-image-list__supporting"
+            style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"
+          >
+            <span
+              class="mdc-image-list__label"
+            >
+              Example Image 1 caption
+            </span>
+          </div>
+          <div
+            class="move-image"
+          >
+            <button
+              title="Move left"
+            >
+              <i
+                class="material-icons"
+              >
+                arrow_left
+              </i>
+            </button>
+            <button
+              title="Move right"
+            >
+              <i
+                class="material-icons"
+              >
+                arrow_right
+              </i>
+            </button>
+          </div>
+          <div
+            class="remove-image"
+          >
+            <button
+              title="Remove image"
+            >
+              <i
+                class="material-icons"
+              >
+                close
+              </i>
+            </button>
+          </div>
+        </div>
+      </li>
+      <li
+        class="mdc-image-list__item"
+      >
+        <div
+          class="mdc-image-list__item-wrap"
+          style="margin-bottom: 24px;"
+        >
+          <img
+            alt="Example Image 2 alt"
+            class="mdc-image-list__image"
+            data-id="2"
+            data-link="http://example.com/image-2"
+            src="https://i.picsum.photos/id/22/500/500.jpg"
+            style="border-radius: 4px;"
+          />
+          <div
+            class="mdc-image-list__supporting"
+            style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"
+          >
+            <span
+              class="mdc-image-list__label"
+            >
+              Example Image 2 caption
+            </span>
+          </div>
+          <div
+            class="move-image"
+          >
+            <button
+              title="Move left"
+            >
+              <i
+                class="material-icons"
+              >
+                arrow_left
+              </i>
+            </button>
+            <button
+              title="Move right"
+            >
+              <i
+                class="material-icons"
+              >
+                arrow_right
+              </i>
+            </button>
+          </div>
+          <div
+            class="remove-image"
+          >
+            <button
+              title="Remove image"
+            >
+              <i
+                class="material-icons"
+              >
+                close
+              </i>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div
+      class="components-placeholder block-editor-media-placeholder is-small"
+    >
+      Placeholder
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Styles
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control components-image-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <div
+            class="components-radio-control__option active"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="image-radio-control-0-0"
+              name="image-radio-control-0"
+              type="radio"
+              value="masonry"
+            />
+            <label
+              for="image-radio-control-0-0"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="37"
+                  viewBox="0 0 37 37"
+                  width="37"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="16"
+                    width="16"
+                    x="0.133057"
+                    y="16.3413"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="2"
+                    width="10"
+                    x="0.133057"
+                    y="34.3413"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="16"
+                    width="16"
+                    x="20.3596"
+                    y="0.0395508"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="2"
+                    width="10"
+                    x="20.3596"
+                    y="18.0396"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="16"
+                    x="20.1624"
+                    y="24.3413"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="2"
+                    width="10"
+                    x="20.1624"
+                    y="34.3413"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="16"
+                    x="0.321533"
+                    y="0.0395508"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="2"
+                    width="10"
+                    x="0.321533"
+                    y="10.0396"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                Masonry
+              </span>
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="image-radio-control-0-1"
+              name="image-radio-control-0"
+              type="radio"
+              value="grid"
+            />
+            <label
+              for="image-radio-control-0-1"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="45"
+                  viewBox="0 0 37 45"
+                  width="37"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="16"
+                    width="16"
+                    x="0.24646"
+                    y="24.8232"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="2"
+                    width="10"
+                    x="0.24646"
+                    y="42.8232"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="16"
+                    width="16"
+                    x="20.2465"
+                    y="24.5835"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="2"
+                    width="10"
+                    x="20.2465"
+                    y="42.5835"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="16"
+                    width="16"
+                    x="0.24646"
+                    y="0.583496"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="2"
+                    width="10"
+                    x="0.24646"
+                    y="18.5835"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="16"
+                    width="16"
+                    x="20.2465"
+                    y="0.583496"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="2"
+                    width="10"
+                    x="20.2465"
+                    y="18.5835"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                Grid
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-base-control__label components-base-control__layout-controls-label"
+          >
+            Layout
+            <div
+              class="components-base-control__label-actions components-base-control__layout-controls"
+            >
+              <button
+                class="is-selected"
+              >
+                <i
+                  class="material-icons"
+                >
+                  computer
+                </i>
+              </button>
+              <button
+                class=""
+              >
+                <i
+                  class="material-icons"
+                >
+                  tablet
+                </i>
+              </button>
+              <button
+                class=""
+              >
+                <i
+                  class="material-icons"
+                >
+                  smartphone
+                </i>
+              </button>
+            </div>
+          </span>
+          <div
+            class="components-base-control components-range-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-range-control-0"
+              >
+                Columns
+              </label>
+              <span
+                class="components-range-control__root css-yaebbd-Root exqw8y20"
+              >
+                <span
+                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  color="#00669b"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Columns"
+                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                    id="inspector-range-control-0"
+                    max="6"
+                    min="1"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="1"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-1lwhlrq-Rail exqw8y24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-ogrpie-Track exqw8y25"
+                    style="width: 0%;"
+                  />
+                  <span
+                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    style="left: 0%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-c88ajq-Thumb exqw8y210"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    role="tooltip"
+                    style="left: 0%; z-index: 100;"
+                  >
+                    1
+                  </span>
+                </span>
+                <input
+                  aria-label="Columns"
+                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  inputmode="decimal"
+                  max="6"
+                  min="1"
+                  step="1"
+                  type="number"
+                  value="1"
+                />
+              </span>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-range-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-range-control-1"
+              >
+                Gutter
+              </label>
+              <span
+                class="components-range-control__root css-yaebbd-Root exqw8y20"
+              >
+                <span
+                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  color="#00669b"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Gutter"
+                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                    id="inspector-range-control-1"
+                    max="24"
+                    min="0"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-1lwhlrq-Rail exqw8y24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-ogrpie-Track exqw8y25"
+                    style="width: 100%;"
+                  />
+                  <span
+                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    style="left: 100%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-c88ajq-Thumb exqw8y210"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    role="tooltip"
+                    style="left: 100%; z-index: 100;"
+                  >
+                    24
+                  </span>
+                </span>
+                <input
+                  aria-label="Gutter"
+                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  inputmode="decimal"
+                  max="24"
+                  min="0"
+                  step="1"
+                  type="number"
+                  value="24"
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-base-control"
+      >
+        <label
+          class="components-base-control__label"
+          for="shape-size"
+        >
+          Corner Styles
+        </label>
+        <div>
+          Overrides will only apply to these images. Change Image Lists corner styles in 
+          <a
+            href="http://example.com/shape"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            Material Design Options
+          </a>
+           to update all Image Lists.
+        </div>
+        <div
+          class="components-base-control components-global-shape-size"
+        >
+          <div
+            class="components-base-control components-range-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-range-control-2"
+              >
+                Corner Styles
+              </label>
+              <span
+                class="components-range-control__root css-yaebbd-Root exqw8y20"
+              >
+                <span
+                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  color="#00669b"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Corner Styles"
+                    class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                    id="inspector-range-control-2"
+                    max="16"
+                    min="0"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="4"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-1lwhlrq-Rail exqw8y24"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-ogrpie-Track exqw8y25"
+                    style="width: 25%;"
+                  />
+                  <span
+                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    style="left: 25%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-c88ajq-Thumb exqw8y210"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    role="tooltip"
+                    style="left: 25%; z-index: 100;"
+                  >
+                    4
+                  </span>
+                </span>
+                <input
+                  aria-label="Corner Styles"
+                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  inputmode="decimal"
+                  max="16"
+                  min="0"
+                  step="1"
+                  type="number"
+                  value="4"
+                />
+              </span>
+            </div>
+          </div>
+          <button
+            class="components-button global-shape-size-reset is-small"
+            type="button"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-0"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-0"
+          >
+            Captions
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle"
+          >
+            <input
+              class="components-form-toggle__input"
+              id="inspector-toggle-control-1"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__off"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 6 6"
+              width="6"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-1"
+          >
+            Text Protection
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Link Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-select-control-0"
+          >
+            Link to
+          </label>
+          <select
+            class="components-select-control__input"
+            id="inspector-select-control-0"
+          >
+            <option
+              value="media"
+            >
+              Media File
+            </option>
+            <option
+              value="attachment"
+            >
+              Attachment Page
+            </option>
+            <option
+              value="custom"
+            >
+              Custom URL
+            </option>
+            <option
+              value="none"
+            >
+              None
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
