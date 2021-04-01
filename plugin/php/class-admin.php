@@ -168,12 +168,9 @@ class Admin extends Module_Base {
 			'material-admin-js',
 			'materialDesignWizard',
 			[
-				'restPath'       => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-				'redirect'       => esc_url( admin_url( 'themes.php' ) ),
-				'nonce'          => wp_create_nonce( 'wp_rest' ),
-				'themeStatus'    => esc_html( $this->plugin->theme_status() ),
-				'assetsRestPath' => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
-				'apiStatus'      => esc_html( $this->plugin->api_status() ),
+				'restPath' => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+				'redirect' => esc_url( admin_url( 'themes.php' ) ),
+				'nonce'    => wp_create_nonce( 'wp_rest' ),
 			]
 		);
 
@@ -292,6 +289,21 @@ class Admin extends Module_Base {
 				[ 'wp-element', 'wp-i18n', 'wp-api-fetch', 'wp-date', 'wp-components' ],
 				$this->plugin->asset_version(),
 				true
+			);
+
+			wp_localize_script(
+				'material-settings',
+				'materialDesignWizard',
+				[
+					'restPath'         => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'redirect'         => esc_url( admin_url( 'themes.php' ) ),
+					'nonce'            => wp_create_nonce( 'wp_rest' ),
+					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
+					'assetsRestPath'   => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
+					'apiStatus'        => esc_html( $this->plugin->api_status() ),
+					'fontsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_fonts_last_updated() ),
+					'iconsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_icons_last_updated() ),
+				]
 			);
 		}
 	}
