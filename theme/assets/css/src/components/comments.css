@@ -1,0 +1,158 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.comments-title,
+.comment-reply-title {
+	margin-bottom: 0.5em;
+
+	& small {
+		font-size: 0.5em;
+		margin-left: 10px;
+	}
+}
+
+.comments-title-count {
+	border-bottom: 2px solid rgba(var(--mdc-theme-on-surface-rgb), .12);
+	padding-bottom: 2em;
+
+	& .material-icons {
+		margin-right: 0.3em;
+		vertical-align: middle;
+	}
+}
+
+.comment-list {
+	border-bottom: 2px solid rgba(var(--mdc-theme-on-surface-rgb), .12);
+	list-style: none;
+	margin: 3em 0;
+	padding: 0;
+
+	& .children {
+		list-style: none;
+		margin: 0;
+		padding-left: 2em;
+	}
+
+	& > *,
+	& .comment {
+		margin: 0;
+	}
+
+	& .comment-author {
+		font-size: 1.25rem;
+		margin: 0 0 4px 0;
+
+		& a {
+			text-decoration: none;
+		}
+
+		& .url:hover {
+			text-decoration: underline;
+		}
+	}
+
+	& .comment-body {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 2em;
+		padding: 0;
+
+		@media (--medium-viewport) {
+			flex-direction: row;
+		}
+	}
+
+	& .comment-author-avatar {
+		min-width: 60px;
+		margin-right: 24px;
+		width: 60px;
+
+		& img {
+			width: 100%;
+		}
+	}
+
+
+	& .comment-meta {
+		opacity: 0.75;
+	}
+
+	& .comment-edit-link:hover {
+		text-decoration: none;
+	}
+}
+
+.comments-area {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: var(--mdc-theme-max-content-width);
+
+	& .mdc-text-field--textarea {
+		margin-bottom: 1.5em;
+	}
+
+	& .mdc-text-field--outlined,
+	& .mdc-text-field {
+		width: 100%;
+	}
+
+	& .mdc-text-field--textarea.mdc-text-field--filled {
+
+		& textarea {
+			padding: 20px 16px 7px;
+			margin: 0;
+		}
+
+		& .mdc-floating-label {
+			left: 16px;
+
+			&--float-above {
+				top: 20px;
+			}
+		}
+	}
+
+	& .form-submit {
+		margin-top: 1.5em;
+
+		& .submit:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.comment-content {
+	max-width: 100%;
+
+	& a:hover {
+		text-decoration: none;
+	}
+
+	& .comment-reply-link:hover {
+		text-decoration: underline;
+	}
+}
+
+.comment-form {
+
+	& .mdc-button:focus {
+		outline: 1px dotted #000;
+	}
+
+	& a:hover {
+		text-decoration: none;
+	}
+}

@@ -39,7 +39,7 @@ Since you need a WordPress environment to run the plugin, the quickest way to ge
 Clone this project somewhere on your computer:
 
 ```bash
-git clone git@github.com:xwp/material-design-wp-plugin.git material-design
+git clone git@github.com:material-components/material-design-for-wordpress.git material-design
 cd material-design
 ```
 
@@ -51,7 +51,7 @@ Support for the following environments have been verified to work
 
 ```bash
 cd wp-content/plugins
-git clone git@github.com:xwp/material-design-wp-plugin.git material-design
+git clone git@github.com:material-components/material-design-for-wordpress.git material-design
 cd material-design
 ```
 
@@ -273,12 +273,12 @@ This will create an `material-design.zip` in the plugin directory which you can 
 
 ## Creating a pre-release
 
-1. Create changelog draft on [Wiki page](https://github.com/xwp/material-design-wp-plugin/wiki/Release-Changelog-Draft).
+1. Create changelog draft on [Wiki page](https://github.com/material-components/material-design-for-wordpress/wiki/Release-Changelog-Draft).
 1. Check out the branch intended for release (`develop` for major, `x.y` for minor) and pull latest commits.
 1. Bump plugin versions in `material-design.php`.
 1. Do `npm install`.
 1. Do `npm run build` and install the `material-design.zip` onto a normal WordPress install running a stable release build; do smoke test to ensure it works.
-1. [Draft new release](https://github.com/xwp/material-design-wp-plugin/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor).
+1. [Draft new release](https://github.com/material-components/material-design-for-wordpress/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor).
     1. Use the new plugin version as the tag (e.g. `1.2-beta3` or `1.2.1-RC1`)
     1. Use new version as the title, followed by some highlight tagline of the release.
     1. Attach the `material-design.zip` build to the release.
@@ -295,7 +295,7 @@ This will create an `material-design.zip` in the plugin directory which you can 
 
 Contributors who want to make a new release, follow these steps:
 
-1. Create changelog draft on [Wiki page](https://github.com/xwp/material-design-wp-plugin/wiki/Release-Changelog-Draft).
+1. Create changelog draft on [Wiki page](https://github.com/material-components/material-design-for-wordpress/wiki/Release-Changelog-Draft).
     1. Gather props list of the entire release, including contributors of code, design, testing, project management, etc.
 1. Update readme including the description, contributors, and screenshots (as needed).
 1. For major release, draft blog post about the new release.
@@ -306,7 +306,7 @@ Contributors who want to make a new release, follow these steps:
 1. Ensure "Tested Up To" is updated to current WordPress version.
 1. Do `npm run build` and install the `material-design.zip` onto a normal WordPress install running a stable release build; do smoke test to ensure it works.
 1. Optionally do sanity check by comparing the `build` directory with the previously-deployed plugin on WordPress.org for example: `svn export https://plugins.svn.wordpress.org/material-design/trunk /tmp/material-design-trunk; diff /tmp/material-design-trunk/ ./build/` (instead of straight `diff`, it's best to use a GUI like `idea diff`, `phpstorm diff`, or `opendiff`).
-1. [Draft new release](https://github.com/xwp/material-design-wp-plugin/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor):
+1. [Draft new release](https://github.com/material-components/material-design-for-wordpress/releases/new) on GitHub targeting the required branch (`develop` for major, `x.y` for minor):
     1. Use the new plugin version as the tag (e.g. `1.2.0` or `1.2.1`)
     1. Attach the `material-design.zip` build to the release.
     1. Add a changelog entry to the release, link to the compare view (comparing the previous release), and a link to the milestone.
