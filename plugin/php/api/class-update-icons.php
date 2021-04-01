@@ -39,6 +39,8 @@ class Update_Icons extends Updates_API_Base {
 
 	const LAST_UPDATED = 'google-icons-last-updated';
 
+	const AUTO_UPDATE_SLUG = 'google-icons-auto-update';
+
 	/**
 	 * URL for holding the codepoints data
 	 *
