@@ -21,7 +21,7 @@ const Integrations = () => {
 	const { state, dispatch } = useContext( SettingsContext );
 
 	const handleUpdateChange = type => {
-		dispatch( { type: ACTIONS.TOGGLE_UPDATES, payload: { update: type } } );
+		dispatch( { type: ACTIONS.TOGGLE_UPDATES, payload: { type } } );
 	};
 
 	return (
@@ -63,7 +63,7 @@ const Integrations = () => {
 						key={ uniqueId( 'updater-' ) }
 						title={ UPDATERS[ key ].title }
 						needsKey={ UPDATERS[ key ].needsKey }
-						checked={ state.updates[ UPDATERS[ key ].type ] }
+						checked={ state.updaters[ key ].autoUpdates }
 						lastUpdated={ state.updaters[ key ].lastUpdated }
 						type={ UPDATERS[ key ].type }
 						onChange={ () => {

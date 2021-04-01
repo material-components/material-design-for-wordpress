@@ -23,6 +23,7 @@ export const UPDATERS = {
 		lastUpdated: parseInt( getConfig( 'fontsLastUpdated' ), 10 ),
 		needsKey: true,
 		updateAvailable: false,
+		autoUpdates: false,
 	},
 	ICONS: {
 		title: __( 'Material Icons', 'material-design' ),
@@ -30,6 +31,7 @@ export const UPDATERS = {
 		lastUpdated: parseInt( getConfig( 'iconsLastUpdated' ), 10 ),
 		needsKey: false,
 		updateAvailable: true,
+		autoUpdates: false,
 	},
 };
 
