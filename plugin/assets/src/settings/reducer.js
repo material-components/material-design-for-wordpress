@@ -41,6 +41,7 @@ export const reducer = ( state, action ) => {
 		const newState = state;
 
 		newState.updaters[ payload.type ].updateAvailable = false;
+		newState.updaters[ payload.type ].lastUpdated = payload.lastUpdated;
 
 		return {
 			...newState,

@@ -231,6 +231,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 			'per_page'    => $count,
 			'count'       => $count,
 			'total_pages' => 1,
+			'lastUpdated' => $this->get_icons_last_updated(),
 			'data'        => $data->data,
 		];
 
