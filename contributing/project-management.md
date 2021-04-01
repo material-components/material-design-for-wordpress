@@ -104,7 +104,7 @@ The [GitHub issues][issues] view serves as the “Awaiting Triage” backlog.
 | 9. | The issue goes through a final review and moved to the “Done” once approved or moved back to the “To Do” column if changes are required, in which case the cycle from the “To Do” column onwards is repeated. | `Project Manager`
 | 10. | The issue is closed. | `Project Manager`
 
-[milestones]: https://github.com/xwp/material-design-wp-plugin/milestones
-[issues]: https://github.com/xwp/material-design-wp-plugin/issues
-[definition]: https://github.com/xwp/material-design-wp-plugin/projects/1
-[execution]: https://github.com/xwp/material-design-wp-plugin/projects/2
+[milestones]: https://github.com/material-components/material-design-for-wordpress/milestones
+[issues]: https://github.com/material-components/material-design-for-wordpress/issues
+[definition]: https://github.com/material-components/material-design-for-wordpress/projects/1
+[execution]: https://github.com/material-components/material-design-for-wordpress/projects/2
