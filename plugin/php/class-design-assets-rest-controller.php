@@ -298,6 +298,24 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	}
 
 	/**
+	 * Return auto update from database
+	 *
+	 * @return int Auto update option
+	 */
+	public function get_fonts_auto_update() {
+		return absint( get_option( Update_Fonts::AUTO_UPDATE_SLUG ) );
+	}
+
+	/**
+	 * Return auto update from database
+	 *
+	 * @return int Auto update option
+	 */
+	public function get_icons_auto_update() {
+		return absint( get_option( Update_Icons::AUTO_UPDATE_SLUG ) );
+	}
+
+	/**
 	 * Look for API in database.
 	 *
 	 * @return string

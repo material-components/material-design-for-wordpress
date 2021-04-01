@@ -58,12 +58,39 @@ const updateIcons = () => {
 	} );
 };
 
+/**
+ * Save API Key in database
+ *
+ * @param {string} key API
+ * @return {Promise} Request response
+ */
 export const setApiKey = key => {
 	return new Promise( ( resolve, reject ) => {
 		apiFetch( {
 			path: getConfig( 'assetsRestPath' ) + 'register-api-key',
 			method: 'POST',
 			data: { key },
+			headers: {
+				'X-WP-Nonce': getConfig( 'nonce' ),
+			},
+		} )
+			.then( resolve )
+			.catch( reject );
+	} );
+};
+
+/**
+ * Turn auto updates on/off
+ *
+ * @param {string} type Item to toggle updates
+ * @return {Promise} Request response
+ */
+export const toggleAutoUpdate = type => {
+	return new Promise( ( resolve, reject ) => {
+		apiFetch( {
+			path: getConfig( 'assetsRestPath' ) + 'toggle-auto-updates',
+			method: 'POST',
+			data: { type },
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),
 			},

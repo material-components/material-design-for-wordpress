@@ -13,16 +13,12 @@ import { useContext } from '@wordpress/element';
  * Internal dependencies
  */
 import SettingsContext from '../../context';
-import { UPDATERS, ACTIONS } from '../../constants';
+import { UPDATERS } from '../../constants';
 import Updater from './updater';
 import Api from './api';
 
 const Integrations = () => {
-	const { state, dispatch } = useContext( SettingsContext );
-
-	const handleUpdateChange = type => {
-		dispatch( { type: ACTIONS.TOGGLE_UPDATES, payload: { type } } );
-	};
+	const { state } = useContext( SettingsContext );
 
 	return (
 		<div className="material-settings__integrations">
@@ -66,9 +62,6 @@ const Integrations = () => {
 						checked={ state.updaters[ key ].autoUpdates }
 						lastUpdated={ state.updaters[ key ].lastUpdated }
 						type={ UPDATERS[ key ].type }
-						onChange={ () => {
-							handleUpdateChange( UPDATERS[ key ].type );
-						} }
 					/>
 				) ) }
 			</div>
