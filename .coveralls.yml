@@ -12,6 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-service_name: travis-ci
-coverage_clover: build/logs/clover.xml
-json_path: build/logs/coveralls-upload.json
+coverage_clover: plugin/tests/coverage/clover.xml
+json_path: plugin/tests/coverage/coveralls-upload.json

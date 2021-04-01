@@ -1,7 +1,8 @@
-/assets/css/*.css
+/theme/assets/css/*.css
+/plugin/assets/css/*.css
 /bin
 /build
 /node_modules
 /tests
 /vendor
-/assets/css/src/mixins.css
+/plugin/assets/css/src/mixins.css

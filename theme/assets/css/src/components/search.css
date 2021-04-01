@@ -1,0 +1,107 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.search-form {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+
+	@media (--medium-viewport) {
+		margin-right: 0;
+	}
+
+	@nest .error-404 .site-content &, .search-no-results .site-content & {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-left: 0;
+
+		@media (--medium-viewport) {
+			align-items: center;
+			flex-direction: row;
+			margin-bottom: 25vh;
+			margin-top: 3rem;
+		}
+	}
+
+	@nest .top-app-bar__search & {
+		align-items: center;
+		display: flex;
+		width: 100%;
+
+		& .mdc-text-field {
+
+			& .mdc-text-field__input {
+				border: 0;
+				caret-color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+				color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+				padding-left: 1rem;
+
+				&::placeholder {
+					color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+				}
+
+				/* clears the 'X' for `input[type=search]` */
+				&::-ms-clear,
+				&::-ms-reveal {
+					display: none;
+					height: 0;
+					width: 0;
+				}
+
+				&::-webkit-search-decoration,
+				&::-webkit-search-cancel-button,
+				&::-webkit-search-results-button,
+				&::-webkit-search-results-decoration {
+					display: none;
+				}
+
+			}
+		}
+
+		& .button__search {
+			margin-top: -9999em;
+		}
+
+		& .button__search:focus {
+			margin-top: 0;
+			outline: 1px dotted;
+		}
+
+		& .mdc-button__icon {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		& .button__back {
+			background-color: transparent;
+			color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+			margin-right: 0;
+
+			&:focus {
+				outline: 1px dotted;
+			}
+
+			&::before {
+				background-color: var(--mdc-theme-on-primary, #fff);
+			}
+
+			&:focus::before {
+				opacity: 0.24;
+			}
+		}
+	}
+}

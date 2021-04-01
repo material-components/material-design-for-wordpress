@@ -1,39 +1,45 @@
 {
-  "name": "xwp/material-design-wp-plugin",
+  "name": "material-components/material-design-for-wordpress",
   "type": "wordpress-plugin",
   "description": "Material Design plugin for WordPress.",
-  "homepage": "https://github.com/xwp/material-design-wp-plugin",
+  "homepage": "https://github.com/material-components/material-design-for-wordpress",
   "license": "Apache-2.0",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "platform": {
+      "php": "7.4.2",
+      "ext-filter": "7.1"
+    }
   },
   "require": {
     "php": ">=5.6.20"
   },
   "require-dev": {
-    "automattic/vipwpcs": "*",
-    "dealerdirect/phpcodesniffer-composer-installer": "*",
-    "php-coveralls/php-coveralls": "2.2.0",
-    "phpcompatibility/phpcompatibility-wp": "*",
-    "phpunit/phpcov": "^3.1 || ^6.0",
-    "phpunit/phpunit": "^5.7 || ^7",
-    "slowprog/composer-copy-file": "*",
-    "wp-coding-standards/wpcs": "*",
-    "xwp/wordpress-tests-installer": "*",
-    "xwp/wp-dev-lib": "*"
+    "automattic/vipwpcs": "@stable",
+    "dealerdirect/phpcodesniffer-composer-installer": "@stable",
+    "php-coveralls/php-coveralls": "^2.2.0",
+    "phpcompatibility/phpcompatibility-wp": "@stable",
+    "phpunit/phpcov": "^5.0",
+    "phpunit/phpunit": "^7",
+    "slowprog/composer-copy-file": "@stable",
+    "wp-coding-standards/wpcs": "@stable",
+    "xwp/wordpress-tests-installer": "@stable",
+    "xwp/wp-dev-lib": "@stable"
   },
   "scripts": {
     "build": [
       "composer install --no-dev --prefer-dist --optimize-autoloader --no-scripts"
     ],
     "format": [
-      "phpcbf ."
+      "phpcbf ./plugin",
+      "phpcbf ./theme --standard=phpcs-theme.xml"
     ],
     "lint": [
       "@composer validate --strict",
-      "phpcs ."
+      "phpcs ./plugin",
+      "phpcs ./theme --standard=phpcs-theme.xml"
     ],
     "post-install-cmd": [
       "@setup"
@@ -53,13 +59,17 @@
       "phpunit"
     ],
     "test-coverage": [
-      "phpunit --coverage-html tests/coverage/html"
+      "phpunit --coverage-html plugin/tests/coverage/html"
+    ],
+    "test-coveralls": [
+      "phpunit --coverage-clover plugin/tests/coverage/clover.xml",
+      "php-coveralls --coverage_clover=plugin/tests/coverage/clover.xml -v"
     ]
   },
   "extra": {
     "installer-name": "material-design",
     "copy-file": {
-      "tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
+      "plugin/tests/wp-tests-config.php": "vendor/xwp/wordpress-tests/phpunit/wp-tests-config.php"
     }
   }
 }

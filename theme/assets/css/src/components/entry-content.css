@@ -1,0 +1,75 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.entry-content {
+
+	& > * {
+		margin-left: auto;
+		margin-right: auto;
+		width: calc(100% - 4rem);
+
+		@media (--small-viewport-max) {
+			width: calc(100% - 2rem);
+		}
+	}
+
+	& > :not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+		max-width: var(--mdc-theme-max-content-width);
+
+		@media (--small-viewport-max) {
+			max-width: 100%;
+		}
+	}
+
+	.alignleft {
+		margin-left: 1rem;
+		margin-right: 1rem;
+		right: auto;
+		width: auto;
+
+		@media (--medium-large-viewport) {
+			margin-left: calc((100% - 58rem) / 2 - 2rem);
+			margin-right: 1.25rem;
+		}
+
+		@media (--small-viewport-max) {
+			max-width: 10rem;
+			width: 10rem;
+		}
+	}
+
+	.alignright {
+		left: auto;
+		margin-left: 1rem;
+		margin-right: 1rem;
+		width: auto;
+
+		@media (--medium-large-viewport) {
+			margin-left: 1.25rem;
+			margin-right: calc((100% - 58rem) / 2 - 2rem);
+		}
+
+		@media (--small-viewport-max) {
+			max-width: 10rem;
+			width: 10rem;
+		}
+	}
+
+	& a:hover,
+	& a:focus {
+		text-decoration: none;
+	}
+}
