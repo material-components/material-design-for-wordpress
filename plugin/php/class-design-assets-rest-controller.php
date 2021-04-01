@@ -202,6 +202,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 			'per_page'    => $count,
 			'count'       => $count,
 			'total_pages' => 1,
+			'lastUpdated' => $this->get_fonts_last_updated(),
 			'data'        => (array) $data->data,
 		];
 
@@ -260,5 +261,23 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 		}
 
 		return new WP_REST_Response( $response, 200 );
+	}
+
+	/**
+	 * Return last updated value in miliseconds
+	 *
+	 * @return int Unix timestamp * 1000
+	 */
+	public function get_fonts_last_updated() {
+		return absint( Update_Fonts::get_last_updated() ) * 1000;
+	}
+
+	/**
+	 * Return last updated value in miliseconds
+	 *
+	 * @return int Unix timestamp * 1000
+	 */
+	public function get_icons_last_updated() {
+		return absint( Update_Icons::get_last_updated() ) * 1000;
 	}
 }
