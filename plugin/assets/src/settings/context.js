@@ -22,7 +22,6 @@ const initialState = {
 	status: STATUS.IDLE,
 	apiStatus: getConfig( 'apiStatus' ),
 	updates: {},
-	availableUpdates: Object.keys( UPDATERS ),
 	updaters: UPDATERS,
 	error: {},
 };

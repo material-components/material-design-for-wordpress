@@ -34,9 +34,9 @@ const Updater = ( {
 		? date( 'M n, Y, h:i A', lastUpdated )
 		: __( 'never', 'material-design' );
 	const [ isUpdating, setIsUpdating ] = useState( false );
-	const shouldUpdate = ! isDisabled && state.availableUpdates.includes( type );
+	const shouldUpdate = ! isDisabled && state.updaters[ type ].updateAvailable;
 	const shouldNotUpdate =
-		! isDisabled && ! state.availableUpdates.includes( type );
+		! isDisabled && ! state.updaters[ type ].updateAvailable;
 
 	const handleUpdate = response => {
 		setIsUpdating( true );
