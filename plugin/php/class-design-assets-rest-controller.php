@@ -251,9 +251,9 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 		$api_key = $request->get_param( 'key' );
 
 		if ( empty( $api_key ) ) {
-			$response = delete_option( $this->plugin->get_api_slug() );
+			$response = delete_option( Update_Fonts::get_api_slug() );
 		} else {
-			$response = update_option( $this->plugin->get_api_slug(), $api_key );
+			$response = update_option( Update_Fonts::get_api_slug(), $api_key );
 		}
 
 
@@ -280,5 +280,20 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	 */
 	public function get_icons_last_updated() {
 		return absint( Update_Icons::get_last_updated() ) * 1000;
+	}
+
+	/**
+	 * Look for API in database.
+	 *
+	 * @return string
+	 */
+	public static function get_api_status() {
+		$api = get_option( Update_Fonts::get_api_slug() );
+
+		if ( empty( $api ) ) {
+			return 'install';
+		}
+
+		return 'ok';
 	}
 }

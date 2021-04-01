@@ -300,7 +300,7 @@ class Admin extends Module_Base {
 					'nonce'            => wp_create_nonce( 'wp_rest' ),
 					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
 					'assetsRestPath'   => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
-					'apiStatus'        => esc_html( $this->plugin->api_status() ),
+					'apiStatus'        => esc_html( $this->plugin->assets_rest_controller->get_api_status() ),
 					'fontsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_fonts_last_updated() ),
 					'iconsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_icons_last_updated() ),
 				]
