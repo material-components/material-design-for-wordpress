@@ -22,12 +22,14 @@ export const UPDATERS = {
 		type: 'FONTS',
 		lastUpdated: parseInt( getConfig( 'fontsLastUpdated' ), 10 ),
 		needsKey: true,
+		updateAvailable: false,
 	},
 	ICONS: {
 		title: __( 'Material Icons', 'material-design' ),
 		type: 'ICONS',
 		lastUpdated: parseInt( getConfig( 'iconsLastUpdated' ), 10 ),
 		needsKey: false,
+		updateAvailable: true,
 	},
 };
 

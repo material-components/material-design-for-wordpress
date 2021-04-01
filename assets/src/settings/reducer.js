@@ -40,18 +40,10 @@ export const reducer = ( state, action ) => {
 	if ( ACTIONS.SET_UPDATED === type ) {
 		const newState = state;
 
-		const availableUpdates = newState.availableUpdates.filter(
-			item => item !== payload.type
-		);
-
-		console.log( payload.type );
-		console.log( newState.updaters );
-
-		//newState.updaters[ payload.type ].lastUpdated = payload.lastUpdated;
+		newState.updaters[ payload.type ].updateAvailable = false;
 
 		return {
 			...newState,
-			availableUpdates,
 		};
 	}
 
