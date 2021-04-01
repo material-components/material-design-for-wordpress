@@ -42,6 +42,13 @@ class Update_Fonts extends Updates_API_Base {
 	const LAST_UPDATED = 'google-fonts-last-updated';
 
 	/**
+	 * API option name
+	 *
+	 * @var string
+	 */
+	const API_KEY_SLUG = 'google_fonts_api_key';
+
+	/**
 	 * Holds the Google Fonts API key.
 	 *
 	 * @var string|null
@@ -70,6 +77,8 @@ class Update_Fonts extends Updates_API_Base {
 			$this->api_key = $api_key;
 		} elseif ( ! empty( get_option( get_plugin_instance()->get_api_slug() ) ) ) {
 			$this->api_key = get_option( get_plugin_instance()->get_api_slug() );
+		} elseif ( ! empty( get_option( self::API_KEY_SLUG ) ) ) {
+			$this->api_key = get_option( self::API_KEY_SLUG );
 		} else {
 			$this->api_key = '';
 		}
@@ -224,5 +233,14 @@ class Update_Fonts extends Updates_API_Base {
 	 */
 	public static function get_last_updated() {
 		return get_transient( self::LAST_UPDATED );
+	}
+
+	/**
+	 * Get Google fonts API key option slug
+	 *
+	 * @return string
+	 */
+	public static function get_api_slug() {
+		return self::API_KEY_SLUG;
 	}
 }
