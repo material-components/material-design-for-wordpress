@@ -55,5 +55,5 @@ git push origin "$built_tag"
 rm -rf built
 
 echo "Pushed tag $built_tag."
-echo "See https://github.com/xwp/material-design-wp-plugin/releases/tag/$built_tag"
-echo "For https://github.com/xwp/material-design-wp-plugin/releases/tag/$tag"
+echo "See https://github.com/material-components/material-design-for-wordpress/releases/tag/$built_tag"
+echo "For https://github.com/material-components/material-design-for-wordpress/releases/tag/$tag"
