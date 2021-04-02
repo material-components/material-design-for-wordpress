@@ -321,7 +321,7 @@ class Test_Posts_List_Block extends WP_UnitTestCase {
 		$content                     = $this->clean_content( $content );
 
 		// Assert the article with featured image shows content inside the image container.
-		$this->assertEquals( 1, substr_count( $content, 'style="background-image: url(http://example.org/wp-content/uploads/image.jpg)"><div class="mdc-card__media-content">' ) );
+		$this->assertEquals( 1, substr_count( $content, '<img width="1" height="1" src="http://example.org/wp-content/uploads/image.jpg"' ) );
 
 		// Assert all 4 posts are rendered.
 		$this->assertEquals( 4, substr_count( $content, 'class="single-post-card__title' ) );
@@ -427,7 +427,7 @@ class Test_Posts_List_Block extends WP_UnitTestCase {
 		$content                     = $this->clean_content( $content );
 
 		// Assert the article with featured image shows content inside the image container.
-		$this->assertEquals( 1, substr_count( $content, 'style="background-image: url(http://example.org/wp-content/uploads/image.jpg)"><div class="mdc-card__media-content">' ) );
+		$this->assertEquals( 1, substr_count( $content, '<img width="1" height="1" src="http://example.org/wp-content/uploads/image.jpg"' ) );
 
 		// Assert all 5 posts are rendered.
 		$this->assertEquals( 5, substr_count( $content, 'class="single-post-card__title' ) );
