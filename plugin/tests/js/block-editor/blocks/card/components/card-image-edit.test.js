@@ -98,6 +98,13 @@ describe( 'CardImageEdit', () => {
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
+	it( 'matches snapshot when the card is focused', () => {
+		const props = { ...baseProps };
+		props.isFocused = true;
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
 	it( 'updates the image source url and the edit image mode props when an image is selected', () => {
 		const props = { ...baseProps };
 		props.isImageEditMode = true;
@@ -112,24 +119,12 @@ describe( 'CardImageEdit', () => {
 
 	it( 'updates the image source url and the edit image mode props when an image is removed', () => {
 		const props = { ...baseProps };
-		props.isImageEditMode = false;
+		props.isFocused = true;
 		const wrapper = setupShallow( props );
-		wrapper.find( 'ForwardRef(Button)' ).simulate( 'click' );
-		expect( props.setter ).toHaveBeenCalledTimes( 2 );
-	} );
-
-	it( 'updates the image container class when the the image container is focused', () => {
-		const props = { ...baseProps };
-		props.isImageEditMode = false;
-		const wrapper = setupMount( props );
 		wrapper
-			.find( '.material-design-card__media-container' )
-			.simulate( 'focus' );
-		expect(
-			wrapper
-				.find( '.material-design-card__media-container' )
-				.hasClass( 'material-design-card__media-container-focused' )
-		).toBe( true );
+			.find( '.material-design-card__media-close-button' )
+			.simulate( 'click' );
+		expect( props.setter ).toHaveBeenCalledTimes( 2 );
 	} );
 
 	it( 'updates the image container class when the the image container is blur', () => {
