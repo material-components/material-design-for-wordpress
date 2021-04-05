@@ -45,9 +45,14 @@ const Api = () => {
 		setIsLoading( true );
 
 		setApiKey( api )
-			.then( () => {
+			.then( response => {
 				setIsLoading( false );
-				dispatch( { type: ACTIONS.ADD_API_KEY } );
+				dispatch( {
+					type: ACTIONS.ADD_API_KEY,
+					payload: {
+						lastUpdated: response.lastUpdated,
+					},
+				} );
 				setApi( '' );
 			} )
 			.catch( error => {
