@@ -38,8 +38,13 @@ export const reducer = ( state, action ) => {
 	}
 
 	if ( ACTIONS.ADD_API_KEY === type ) {
+		const newState = state;
+
+		newState.updaters.FONTS.updateAvailable = false;
+		newState.updaters.FONTS.lastUpdated = payload.lastUpdated;
+
 		return {
-			...state,
+			...newState,
 			apiStatus: 'ok',
 			errors: {},
 		};

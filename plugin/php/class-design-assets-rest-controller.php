@@ -268,20 +268,29 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 		if ( empty( $api_key ) ) {
 			$response = delete_option( Update_Fonts::get_api_slug() );
 		} else {
+			$response = update_option( Update_Fonts::get_api_slug(), $api_key );
+
 			$fonts = new Update_Fonts( true, false, true );
-
-			$data = $fonts->get_fonts();
-
+			$data  = $fonts->get_fonts();
 			$count = count( $data->data );
 
 			if ( 0 === $count ) {
+				delete_option( Update_Fonts::get_api_slug() );
+
 				return new WP_Error(
 					'rest_fonts_invalid_api_key',
 					esc_html__( 'Invalid API Key, please verify your API Key is valid', 'material-design' )
 				);
 			}
 
-			$response = update_option( Update_Fonts::get_api_slug(), $api_key );
+			$response = (object) [
+				'page'        => 1,
+				'per_page'    => $count,
+				'count'       => $count,
+				'total_pages' => 1,
+				'lastUpdated' => $this->get_fonts_last_updated(),
+				'data'        => $data->data,
+			];
 		}
 
 		if ( is_wp_error( $response ) ) {
