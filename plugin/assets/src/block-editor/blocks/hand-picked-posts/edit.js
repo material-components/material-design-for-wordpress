@@ -27,7 +27,7 @@ import PostsPicker from './components/posts-picker';
 import HandpickedPostBlockControls from './components/block-controls';
 import InspectorControls from '../common-posts-list/components/inspector-controls';
 import './editor.css';
-import EditWithSelect from '../common-posts-list/edit-with-select';
+import { EditWithGetPosts } from '../common-posts-list/edit';
 import getConfig from '../../utils/get-config';
 
 /**
@@ -60,7 +60,7 @@ const Edit = props => {
 			{ editMode ? (
 				<PostsPicker { ...props } />
 			) : (
-				<EditWithSelect { ...props } />
+				<EditWithGetPosts { ...props } />
 			) }
 		</>
 	);

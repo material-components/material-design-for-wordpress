@@ -27,7 +27,7 @@ import { shallow } from 'enzyme';
 import HandPickedPostsBlockControls from '../../../../../../assets/src/block-editor/blocks/hand-picked-posts/components/block-controls';
 
 jest.mock( '@wordpress/block-editor', () => {
-	const original = require.requireActual( '@wordpress/block-editor' );
+	const original = jest.requireActual( '@wordpress/block-editor' );
 	return {
 		...original,
 		BlockControls: ( { children } ) => children,
