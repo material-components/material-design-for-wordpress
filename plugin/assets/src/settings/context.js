@@ -22,7 +22,7 @@ const initialState = {
 	status: STATUS.IDLE,
 	apiStatus: getConfig( 'apiStatus' ),
 	updaters: UPDATERS,
-	error: {},
+	errors: {},
 };
 
 /**

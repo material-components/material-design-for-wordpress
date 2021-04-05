@@ -19,6 +19,12 @@ const Api = () => {
 	const [ isLoading, setIsLoading ] = useState( false );
 	const isApiOk = 'ok' === state.apiStatus;
 
+	const dispatchError = error =>
+		dispatch( {
+			type: ACTIONS.ADD_ERROR,
+			payload: { id: 'api_error', error },
+		} );
+
 	const removeApiKey = () => {
 		setIsLoading( true );
 		setApi( '' );
@@ -29,6 +35,7 @@ const Api = () => {
 				dispatch( { type: ACTIONS.REMOVE_API_KEY } );
 			} )
 			.catch( error => {
+				dispatchError( error.message );
 				console.error( error );
 				setIsLoading( false );
 			} );
@@ -44,6 +51,7 @@ const Api = () => {
 				setApi( '' );
 			} )
 			.catch( error => {
+				dispatchError( error.message );
 				console.error( error );
 				setIsLoading( false );
 			} );

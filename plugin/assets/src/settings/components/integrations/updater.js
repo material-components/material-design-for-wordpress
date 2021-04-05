@@ -46,6 +46,13 @@ const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 				} );
 			} )
 			.catch( error => {
+				dispatch( {
+					type: ACTIONS.ADD_ERROR,
+					payload: {
+						id: 'api_error',
+						error: error.message,
+					},
+				} );
 				console.error( error );
 				setIsUpdating( false );
 			} );

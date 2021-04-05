@@ -9,7 +9,9 @@ import { __ } from '@wordpress/i18n';
 import getConfig from '../admin/get-config';
 
 export const ACTIONS = {
-	ERROR: 'ERROR',
+	ADD_ERROR: 'ADD_ERROR',
+	REMOVE_ERROR: 'REMOVE_ERROR',
+	CLEAR_ERRORS: 'CLEAR_ERRORS',
 	TOGGLE_UPDATES: 'TOGGLE_UPDATES',
 	REMOVE_API_KEY: 'REMOVE_API_KEY',
 	ADD_API_KEY: 'ADD_API_KEY',
