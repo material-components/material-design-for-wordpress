@@ -253,7 +253,7 @@ class Update_Fonts extends Updates_API_Base {
 	 * Add auto update option in database
 	 * Allow or restrict auto updates
 	 *
-	 * @param bool $activate Wheter to auto update items. Defaults to false
+	 * @param bool $activate Wheter to auto update items. Defaults to false.
 	 */
 	public function toggle_auto_updates( $activate = false ) {
 		return update_option( self::AUTO_UPDATE_SLUG, $activate );
