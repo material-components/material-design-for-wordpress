@@ -80,6 +80,10 @@
 		"preview": {
 			"type": "boolean",
 			"default": false
+		},
+		"postType": {
+			"type": "string",
+			"default": "posts-pages"
 		}
 	},
 	"supports": {

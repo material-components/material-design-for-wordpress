@@ -112,8 +112,8 @@ class Helpers {
 	 * @return WP_Post|array|null WP_Post (or array) on success, or null on failure.
 	 */
 	public static function get_page_by_title( $page_title, $output = OBJECT, $post_type = 'page' ) {
-		if ( get_plugin_instance()->is_wpcom_vip_prod() ) {
-			return wpcom_vip_get_page_by_title(
+		if ( get_plugin_instance()->is_wpcom_vip_prod() && function_exists( 'wpcom_vip_get_page_by_title' ) ) {
+			return \wpcom_vip_get_page_by_title(
 				sanitize_text_field( $page_title ),
 				$output,
 				sanitize_text_field( $post_type )

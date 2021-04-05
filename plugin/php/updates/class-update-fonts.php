@@ -18,12 +18,12 @@
  */
 
 /**
- * Class Google Fonts API .
+ * Class Update_Fonts.
  *
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin\Api;
+namespace MaterialDesign\Plugin\Updates;
 
 use Exception;
 use stdClass;
@@ -33,7 +33,7 @@ use function MaterialDesign\Plugin\get_plugin_instance;
 /**
  * Class Update_Fonts
  *
- * @package MaterialDesign\Plugin\Api
+ * @package MaterialDesign\Plugin\Updates
  */
 class Update_Fonts extends Updates_API_Base {
 
