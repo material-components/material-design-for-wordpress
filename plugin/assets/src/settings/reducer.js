@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+import { omit } from 'lodash';
+
+/**
  * Internal dependencies
  */
 import { ACTIONS } from './constants';
@@ -28,6 +33,7 @@ export const reducer = ( state, action ) => {
 		return {
 			...state,
 			apiStatus: 'install',
+			errors: {},
 		};
 	}
 
@@ -35,6 +41,7 @@ export const reducer = ( state, action ) => {
 		return {
 			...state,
 			apiStatus: 'ok',
+			errors: {},
 		};
 	}
 
@@ -46,6 +53,28 @@ export const reducer = ( state, action ) => {
 
 		return {
 			...newState,
+			errors: {},
+		};
+	}
+
+	if ( ACTIONS.ADD_ERROR === type ) {
+		return {
+			...state,
+			errors: { ...state.errors, ...{ [ payload.id ]: [ payload.error ] } },
+		};
+	}
+
+	if ( ACTIONS.REMOVE_ERROR === type ) {
+		return {
+			...state,
+			errors: omit( state.errors, payload.id ),
+		};
+	}
+
+	if ( ACTIONS.CLEAR_ERRORS === type ) {
+		return {
+			...state,
+			errors: {},
 		};
 	}
 
