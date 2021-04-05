@@ -77,10 +77,8 @@ class Update_Fonts extends Updates_API_Base {
 
 		if ( ! empty( $api_key ) ) {
 			$this->api_key = $api_key;
-		} elseif ( ! empty( get_option( get_plugin_instance()->get_api_slug() ) ) ) {
-			$this->api_key = get_option( get_plugin_instance()->get_api_slug() );
-		} elseif ( ! empty( get_option( self::API_KEY_SLUG ) ) ) {
-			$this->api_key = get_option( self::API_KEY_SLUG );
+		} elseif ( ! empty( get_option( self::get_api_slug() ) ) ) {
+			$this->api_key = get_option( self::get_api_slug() );
 		} else {
 			$this->api_key = '';
 		}

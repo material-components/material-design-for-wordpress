@@ -22,7 +22,7 @@ export const UPDATERS = {
 		type: 'FONTS',
 		lastUpdated: parseInt( getConfig( 'fontsLastUpdated' ), 10 ),
 		needsKey: true,
-		updateAvailable: false,
+		updateAvailable: true,
 		autoUpdates: parseInt( getConfig( 'fontsAutoUpdate' ), 10 ),
 	},
 	ICONS: {
