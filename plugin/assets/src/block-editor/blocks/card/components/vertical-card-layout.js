@@ -95,6 +95,7 @@ const VerticalCardLayout = ( {
 		cardIndex,
 		setter,
 		isEditMode,
+		isFocused,
 	};
 
 	const cardImageProps = {

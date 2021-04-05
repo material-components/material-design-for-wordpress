@@ -52,6 +52,7 @@ const CardImage = ( {
 	setter,
 	isEditMode,
 } ) => {
+	const { isFocused } = cardPrimaryProps;
 	const cardImageEditProps = {
 		imageSourceUrl,
 		isImageEditMode,
@@ -62,6 +63,7 @@ const CardImage = ( {
 		cardIndex,
 		setter,
 		isEditMode,
+		isFocused,
 	};
 
 	return (
