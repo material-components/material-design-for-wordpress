@@ -26,7 +26,7 @@ import withSearchedPosts from '../../../../assets/src/block-editor/hocs/with-sea
 import { getPosts } from '../../../../assets/src/block-editor/utils/api';
 
 jest.mock( 'lodash', () => {
-	const original = require.requireActual( 'lodash' );
+	const original = jest.requireActual( 'lodash' );
 	return {
 		...original,
 		debounce: fn => fn,
