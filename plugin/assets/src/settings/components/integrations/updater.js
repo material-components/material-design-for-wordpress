@@ -34,16 +34,21 @@ const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 	const handleUpdate = response => {
 		setIsUpdating( true );
 
-		update( type ).then( () => {
-			setIsUpdating( false );
-			dispatch( {
-				type: ACTIONS.SET_UPDATED,
-				payload: {
-					type,
-					lastUpdated: response.lastUpdated,
-				},
+		update( type )
+			.then( () => {
+				setIsUpdating( false );
+				dispatch( {
+					type: ACTIONS.SET_UPDATED,
+					payload: {
+						type,
+						lastUpdated: response.lastUpdated,
+					},
+				} );
+			} )
+			.catch( error => {
+				console.error( error );
+				setIsUpdating( false );
 			} );
-		} );
 	};
 
 	const handleAutoUpdateToggle = () => {

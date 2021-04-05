@@ -23,20 +23,30 @@ const Api = () => {
 		setIsLoading( true );
 		setApi( '' );
 
-		setApiKey( api ).then( () => {
-			setIsLoading( false );
-			dispatch( { type: ACTIONS.REMOVE_API_KEY } );
-		} );
+		setApiKey( api )
+			.then( () => {
+				setIsLoading( false );
+				dispatch( { type: ACTIONS.REMOVE_API_KEY } );
+			} )
+			.catch( error => {
+				console.error( error );
+				setIsLoading( false );
+			} );
 	};
 
 	const activateApiKey = () => {
 		setIsLoading( true );
 
-		setApiKey( api ).then( () => {
-			setIsLoading( false );
-			dispatch( { type: ACTIONS.ADD_API_KEY } );
-			setApi( '' );
-		} );
+		setApiKey( api )
+			.then( () => {
+				setIsLoading( false );
+				dispatch( { type: ACTIONS.ADD_API_KEY } );
+				setApi( '' );
+			} )
+			.catch( error => {
+				console.error( error );
+				setIsLoading( false );
+			} );
 	};
 
 	const handleSubmit = event => {
