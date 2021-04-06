@@ -56,6 +56,11 @@ jobs:
       - name: Build assets
         run: npm run build:js
 
+      - name: Sleep for 10 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '10s'
+
       - name: Start docker local env
         run: |
           npm run env:start
