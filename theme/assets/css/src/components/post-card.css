@@ -50,4 +50,16 @@
 	.post-card__subtitle {
 		color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .54);
 	}
+
+	.mdc-card__media {
+
+		& img {
+			bottom: 0;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
+	}
 }
