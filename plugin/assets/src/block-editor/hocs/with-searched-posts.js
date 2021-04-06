@@ -99,8 +99,8 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 
 		const debouncedOnSearch = debounce( onSearch, 400 );
 
-		const transformedList = list.map( ( { id, title } ) => {
-			return { id, name: title.rendered };
+		const transformedList = list.map( ( { id, title, link } ) => {
+			return { id, name: title.rendered, link };
 		} );
 
 		useEffect(
