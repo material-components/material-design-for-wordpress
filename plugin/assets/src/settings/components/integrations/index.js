@@ -94,7 +94,7 @@ const Integrations = () => {
 							'To use Google Fonts in Material Theme, please activate your %s and enable updates',
 							'material-design'
 						),
-						`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey">${ __(
+						`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey" target="_blank" rel="noopener noreferrer">${ __(
 							'Google API Key',
 							'material-design'
 						) }</a>`

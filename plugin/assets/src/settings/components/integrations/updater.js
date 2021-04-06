@@ -83,7 +83,7 @@ const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 		<div className="material-settings__updater">
 			<div className="mdc-layout-grid">
 				<div className="mdc-layout-grid__inner">
-					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle">
+					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle">
 						<h3 className="mdc-typography--headline6">{ title }</h3>
 
 						{ isDisabled && (
@@ -95,7 +95,7 @@ const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 											'To enable Google Fonts updates please %s first',
 											'material-design'
 										),
-										`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey">${ __(
+										`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey" target="_blank" rel="noopener noreferrer">${ __(
 											'activate Google API Key',
 											'material-design'
 										) }</a>`
@@ -114,7 +114,7 @@ const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 						) }
 					</div>
 
-					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end">
+					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end">
 						{ ! isDisabled && (
 							<Switch
 								checked={ checked }
