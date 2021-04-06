@@ -25,6 +25,7 @@
 
 namespace MaterialDesign\Plugin;
 
+use MaterialDesign\Plugin\Rest\Onboarding_REST_Controller;
 use MaterialDesign\Plugin\Plugin;
 use MaterialDesign\Plugin\Admin;
 use MaterialDesign\Plugin\Blocks_Frontend;

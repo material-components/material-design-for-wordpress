@@ -53,7 +53,18 @@ Object {
         <div
           class="components-placeholder__fieldset"
         >
-          Display a selection of hand-picked posts.
+          <div
+            class="material-design-block-handpicked-posts__types"
+          >
+            <p>
+              Display a selection of hand-picked posts.
+            </p>
+            <p
+              style="font-weight: bold; text-align: left;"
+            >
+              Content
+            </p>
+          </div>
           <div
             class="material-design-block-handpicked-posts__selection"
           >
@@ -94,7 +105,18 @@ Object {
       <div
         class="components-placeholder__fieldset"
       >
-        Display a selection of hand-picked posts.
+        <div
+          class="material-design-block-handpicked-posts__types"
+        >
+          <p>
+            Display a selection of hand-picked posts.
+          </p>
+          <p
+            style="font-weight: bold; text-align: left;"
+          >
+            Content
+          </p>
+        </div>
         <div
           class="material-design-block-handpicked-posts__selection"
         >
@@ -175,7 +197,27 @@ exports[`PostsPicker matches snapshot using shallow rendering 1`] = `
   }
   label="Curated Post Collection"
 >
-  Display a selection of hand-picked posts.
+  <div
+    className="material-design-block-handpicked-posts__types"
+  >
+    <p>
+      Display a selection of hand-picked posts.
+    </p>
+    <p
+      style={
+        Object {
+          "fontWeight": "bold",
+          "textAlign": "left",
+        }
+      }
+    >
+      Content
+    </p>
+    <RadioControl
+      className="material-design-block-handpicked-posts__types__list"
+      onChange={[Function]}
+    />
+  </div>
   <div
     className="material-design-block-handpicked-posts__selection"
   >
