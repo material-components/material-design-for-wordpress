@@ -22,7 +22,7 @@ import classNames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { BaseControl, RangeControl } from '@wordpress/components';
+import { BaseControl, RangeControl, Tooltip } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -59,15 +59,16 @@ export default ( {
 				{ label }
 				<div className="components-base-control__label-actions components-base-control__layout-controls">
 					{ DEVICES.map( device => (
-						<button
-							key={ device.name }
-							className={ classNames( '', {
-								'is-selected': device.name === selectedDevice,
-							} ) }
-							onClick={ () => setSelectedDevice( device.name ) }
-						>
-							<i className="material-icons">{ device.icon }</i>
-						</button>
+						<Tooltip text={ device.label } key={ device.name }>
+							<button
+								className={ classNames( '', {
+									'is-selected': device.name === selectedDevice,
+								} ) }
+								onClick={ () => setSelectedDevice( device.name ) }
+							>
+								<i className="material-icons">{ device.icon }</i>
+							</button>
+						</Tooltip>
 					) ) }
 				</div>
 			</BaseControl.VisualLabel>
