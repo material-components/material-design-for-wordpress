@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
 const NAMESPACE = '/wp/v2';
 export const ENDPOINTS = {
 	root: NAMESPACE,
@@ -24,13 +29,16 @@ export const DEVICES = [
 	{
 		name: 'desktop',
 		icon: 'computer',
+		label: __( 'Layout Settings for Desktop', 'material-design' ),
 	},
 	{
 		name: 'tablet',
 		icon: 'tablet',
+		label: __( 'Layout Settings for Tablet', 'material-design' ),
 	},
 	{
 		name: 'mobile',
 		icon: 'smartphone',
+		label: __( 'Layout Settings for Mobile', 'material-design' ),
 	},
 ];
