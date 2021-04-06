@@ -88,10 +88,22 @@
 		text-decoration: none !important;
 	}
 	text-decoration: none !important;
-
 }
 
 .mdc-button__comment-count {
 	justify-content: left !important;
 	min-width: 36px !important;
+}
+
+.mdc-card__media {
+
+	& img {
+		bottom: 0;
+		height: 100%;
+		left: 0;
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
 }
