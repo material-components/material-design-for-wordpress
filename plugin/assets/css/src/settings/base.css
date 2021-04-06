@@ -46,6 +46,10 @@
 		margin-top: 0;
 	}
 
+	& h2 {
+		margin-top: 32px;
+	}
+
 	& p {
 		font-size: 16px;
 		margin: 0;

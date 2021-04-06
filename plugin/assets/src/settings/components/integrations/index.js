@@ -50,11 +50,11 @@ const Integrations = () => {
 							'Integrate %s and %s to get the most out of the Material Theme.',
 							'material-design'
 						),
-						`<a href="https://fonts.google.com/">${ __(
+						`<a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">${ __(
 							'Google Fonts',
 							'material-design'
 						) }</a>`,
-						`<a href="https://material.io/resources/icons/?style=baseline">${ __(
+						`<a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="noopener noreferrer">${ __(
 							'Material icons',
 							'material-design'
 						) }</a>`
