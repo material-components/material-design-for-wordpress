@@ -29,6 +29,9 @@ use MaterialDesign\Plugin\Admin\Admin_Updates;
 use MaterialDesign\Plugin\Cli\Fonts;
 use MaterialDesign\Plugin\Cli\Icons;
 use MaterialDesign\Plugin\Customizer\Controls;
+use MaterialDesign\Plugin\Rest\Design_Assets_REST_Controller;
+use MaterialDesign\Plugin\Rest\Posts_REST_Controller;
+use MaterialDesign\Plugin\Rest\Onboarding_REST_Controller;
 
 /**
  * Main plugin bootstrap file.
@@ -71,9 +74,16 @@ class Plugin extends Plugin_Base {
 	public $onboarding_rest_controller;
 
 	/**
-	 * Design_Assets_Rest_Controller class
+	 * Posts REST Controller Class.
 	 *
-	 * @var Design_Assets_Rest_Controller
+	 * @var Posts_REST_Controller
+	 */
+	public $posts_rest_controller;
+
+	/**
+	 * Design_Assets_REST_Controller class
+	 *
+	 * @var Design_Assets_REST_Controller
 	 */
 	public $assets_rest_controller;
 
@@ -132,7 +142,10 @@ class Plugin extends Plugin_Base {
 		$this->onboarding_rest_controller = new Onboarding_REST_Controller( $this );
 		$this->onboarding_rest_controller->init();
 
-		$this->assets_rest_controller = new Design_Assets_Rest_Controller( $this );
+		$this->posts_rest_controller = new Posts_REST_Controller( $this );
+		$this->posts_rest_controller->init();
+
+		$this->assets_rest_controller = new Design_Assets_REST_Controller( $this );
 		$this->assets_rest_controller->init();
 
 		$this->importer = new Importer( $this );

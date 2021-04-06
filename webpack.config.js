@@ -250,7 +250,7 @@ Object.keys( assets ).forEach( packageType => {
 			...config.plugins,
 			new WebpackBar( {
 				name: `${ packageType }: ${ asset.name }`,
-				color: randomColor(),
+				color: randomColor( { luminosity: 'light' } ),
 			} ),
 		];
 

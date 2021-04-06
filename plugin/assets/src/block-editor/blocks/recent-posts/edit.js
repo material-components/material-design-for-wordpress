@@ -18,7 +18,7 @@
  * Internal dependencies
  */
 import InspectorControls from './components/inspector-controls';
-import EditWithSelect from '../common-posts-list/edit-with-select';
+import EditWithSelect from '../common-posts-list/edit';
 
 /**
  * Recent Posts Edit component.
