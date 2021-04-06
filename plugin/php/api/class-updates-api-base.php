@@ -62,6 +62,14 @@ abstract class Updates_API_Base {
 	abstract public function get_http_response();
 
 	/**
+	 * Child class must provide this method
+	 *
+	 * @param boolean $write_response Shoud write the reponse to file.
+	 * @return mixed
+	 */
+	abstract public function update( $write_response );
+
+	/**
 	 * Wrapper function to accommodate tests.
 	 *
 	 * @param string $filename         See native.
@@ -74,5 +82,30 @@ abstract class Updates_API_Base {
 	 */
 	public function file_get_contents( $filename, $use_include_path = false, $context = null, $offset = 0, $length = null ) {
 		return apply_filters( 'material_design_file_get_contents', file_get_contents( $filename, $use_include_path, $context, $offset, $length ) ); //phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+	}
+
+	/**
+	 * Determine if check for auto-updates should happen.
+	 *
+	 * @return boolean
+	 */
+	public function should_check_for_updates() {
+		$expired = get_transient( static::TRANSIENT );
+
+		if ( false !== $expired ) {
+			return false;
+		}
+
+		// Check if auto-update is enabled.
+		return static::is_auto_update_enabled();
+	}
+
+	/**
+	 * Determine if auto-update is enabled.
+	 *
+	 * @return boolean
+	 */
+	public function is_auto_update_enabled() {
+		return ! empty( get_option( static::AUTO_UPDATE_SLUG, false ) );
 	}
 }
