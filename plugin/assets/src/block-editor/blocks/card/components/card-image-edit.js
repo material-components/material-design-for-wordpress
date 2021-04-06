@@ -56,11 +56,11 @@ const CardImageEdit = ( {
 	cardPrimaryProps,
 	cardIndex,
 	setter,
+	isFocused,
 } ) => {
 	const [ hasImage, setHasImage ] = useState(
 		imageSourceUrl !== undefined && imageSourceUrl !== ''
 	);
-	const [ isFocused, setIsFocused ] = useState( false );
 
 	useEffect( () => {
 		if ( imageSourceUrl !== undefined && imageSourceUrl !== '' ) {
@@ -90,21 +90,6 @@ const CardImageEdit = ( {
 		setHasImage( false );
 	};
 
-	/**
-	 * Handle image container on blur event.
-	 *
-	 * @param {Object} event - Event.
-	 */
-	const onImageContainerBlur = event => {
-		const currentTarget = event.currentTarget;
-		/* istanbul ignore next */
-		setTimeout( () => {
-			if ( ! currentTarget.contains( document.activeElement ) ) {
-				setIsFocused( false );
-			}
-		}, 0 );
-	};
-
 	return (
 		<>
 			{ ( ! hasImage || isImageEditMode ) && displayImage && (
@@ -120,13 +105,7 @@ const CardImageEdit = ( {
 			) }
 			{ hasImage && ! isImageEditMode && imageSourceUrl && (
 				<>
-					<div
-						className={ classnames( 'material-design-card__media-container', {
-							'material-design-card__media-container-focused': isFocused,
-						} ) }
-						onFocus={ () => setIsFocused( true ) }
-						onBlur={ onImageContainerBlur }
-					>
+					<div className="material-design-card__media-container">
 						<div
 							tabIndex={ 0 }
 							className={ classnames(
@@ -137,27 +116,28 @@ const CardImageEdit = ( {
 									[ `material-design-card-with-${ contentLayout }` ]: contentLayout,
 								}
 							) }
-							style={ { backgroundImage: `url(${ imageSourceUrl })` } }
 						>
+							<img
+								src={ imageSourceUrl }
+								alt={ cardPrimaryProps.title || '' }
+							/>
 							{ contentLayout === 'text-over-media' && (
 								<div className="mdc-card__media-content">
 									<CardPrimary { ...cardPrimaryProps } />
 								</div>
 							) }
 						</div>
-						<div
-							className={ classnames( 'material-design-card__media-actions', {
-								'material-design-card__media-actions-shown': isFocused,
-							} ) }
-						>
-							<Button
-								className="material-design-card__media-close-button"
-								icon="no"
-								showTooltip={ true }
-								label={ __( 'Remove Card Image', 'material-design' ) }
-								onClick={ onRemoveImage }
-							/>
-						</div>
+						{ isFocused && (
+							<div className="material-design-card__media-actions">
+								<Button
+									className="material-design-card__media-close-button"
+									icon="no"
+									showTooltip={ true }
+									label={ __( 'Remove Card Image', 'material-design' ) }
+									onClick={ onRemoveImage }
+								/>
+							</div>
+						) }
 					</div>
 				</>
 			) }

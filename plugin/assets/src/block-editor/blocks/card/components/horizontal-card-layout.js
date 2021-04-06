@@ -104,6 +104,7 @@ const HorizontalCardLayout = ( {
 		cardIndex,
 		setter,
 		isEditMode,
+		isFocused,
 	};
 
 	const styles = {};

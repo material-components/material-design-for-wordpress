@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin\Api;
+namespace MaterialDesign\Plugin\Updates;
 
 use MaterialDesign\Plugin\Plugin;
 use function MaterialDesign\Plugin\get_plugin_instance;
@@ -31,7 +31,7 @@ use function MaterialDesign\Plugin\get_plugin_instance;
 /**
  * Class Test_Update_Fonts.
  *
- * @package MaterialDesign\Plugin\Api
+ * @package MaterialDesign\Plugin\Updates
  */
 class Test_Update_Fonts extends \WP_UnitTestCase {
 

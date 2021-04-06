@@ -18,12 +18,12 @@
  */
 
 /**
- * Class Google Fonts API .
+ * Class Update_Fonts.
  *
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin\Api;
+namespace MaterialDesign\Plugin\Updates;
 
 use Exception;
 use stdClass;
@@ -33,7 +33,7 @@ use function MaterialDesign\Plugin\get_plugin_instance;
 /**
  * Class Update_Fonts
  *
- * @package MaterialDesign\Plugin\Api
+ * @package MaterialDesign\Plugin\Updates
  */
 class Update_Fonts extends Updates_API_Base {
 
@@ -255,7 +255,7 @@ class Update_Fonts extends Updates_API_Base {
 	 * Add auto update option in database
 	 * Allow or restrict auto updates
 	 *
-	 * @param bool $activate Wheter to auto update items. Defaults to false
+	 * @param bool $activate Wheter to auto update items. Defaults to false.
 	 */
 	public function toggle_auto_updates( $activate = false ) {
 		return update_option( self::AUTO_UPDATE_SLUG, $activate );
