@@ -82,9 +82,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'get_fonts' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
+					'permission_callback' => [ $this, 'has_permissions' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
@@ -97,9 +95,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'get_icons' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
+					'permission_callback' => [ $this, 'has_permissions' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
@@ -112,9 +108,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::CREATABLE,
 					'callback'            => [ $this, 'register_api_key' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
+					'permission_callback' => [ $this, 'has_permissions' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
@@ -127,13 +121,20 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::CREATABLE,
 					'callback'            => [ $this, 'toggle_auto_updates' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
+					'permission_callback' => [ $this, 'has_permissions' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
 		);
+	}
+
+	/**
+	 * Determine if the user has permissions to make a request.
+	 *
+	 * @return boolean
+	 */
+	public function has_permissions() {
+		return current_user_can( 'manage_options' );
 	}
 
 	/**
