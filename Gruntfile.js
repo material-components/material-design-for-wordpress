@@ -31,7 +31,10 @@ module.exports = function( grunt ) {
 					'!plugin/**/._.DS_Store',
 					'!plugin/**/.DS_Store',
 					'!plugin/assets/css/src/**',
+					'!plugin/assets/css/*.map',
 					'!plugin/assets/js/.gitignore',
+					'!plugin/assets/js/*.css',
+					'!plugin/assets/js/*.map',
 					'!plugin/assets/src/**',
 					'!plugin/assets/images/png/**',
 					'!plugin/assets/images/jpg/**',
@@ -81,6 +84,7 @@ module.exports = function( grunt ) {
 					'!theme/assets/js/.gitignore',
 					'!theme/assets/js/*.php',
 					'!theme/assets/js/*.map',
+					'!theme/assets/js/editor*',
 					'!theme/assets/src/**',
 					'!theme/tests/**',
 					'!theme/wp-assets/**',
@@ -194,6 +198,7 @@ module.exports = function( grunt ) {
 				const iconArray = item.split( /\s/g );
 
 				icons.icons[ iconArray[ 1 ] ] = {
+					id: iconArray[ 1 ],
 					name: iconArray[ 0 ],
 				};
 			} );
@@ -208,7 +213,7 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'readme', [ 'shell:readme' ] );
 
-	grunt.registerTask( 'build', [ 'readme', 'copy', 'icon_mapping' ] );
+	grunt.registerTask( 'build', [ 'readme', 'icon_mapping', 'copy' ] );
 
 	grunt.registerTask( 'create-build-zip', [
 		'shell:create_plugin_zip',
