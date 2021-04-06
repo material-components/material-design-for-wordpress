@@ -85,10 +85,11 @@ module.exports = {
 			stage: 0,
 			preserve: false, // Omit pre-polyfilled CSS.
 			features: {
-				'nesting-rules': false, // Uses postcss-nesting which doesn't behave like Sass.
+				'nesting-rules': true, // Uses postcss-nesting which doesn't behave like Sass.
 				'custom-properties': {
 					preserve: true, // Do not remove :root selector.
 				},
+				'custom-media-queries': true,
 			},
 			autoprefixer: {
 				grid: true,
