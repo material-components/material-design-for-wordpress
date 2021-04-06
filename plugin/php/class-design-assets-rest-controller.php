@@ -195,7 +195,7 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 
 		$fonts = new Update_Fonts( 'force' === $force, false, true );
 
-		if ( ! $fonts->has_api_key() ) {
+		if ( 'force' === $force && ! $fonts->has_api_key() ) {
 			return new WP_Error(
 				'rest_fonts_no_api_key',
 				$fonts->material_design_no_apikey_textonly()
