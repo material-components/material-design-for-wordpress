@@ -64,8 +64,17 @@ class Posts_List_Block {
 	 * @return void
 	 */
 	public function init() {
-		add_filter( 'rest_prepare_post', [ $this, 'add_extra_post_meta' ], 10, 3 );
 		add_filter( 'rest_post_collection_params', [ $this, 'add_comment_count_to_rest_orderby_params' ] );
+		add_action( 'init', [ $this, 'register_hooks' ], 100 );
+	}
+
+	/**
+	 * Register hooks.
+	 */
+	public function register_hooks() {
+		foreach ( array_keys( self::get_supported_post_types() ) as $post_type ) {
+			add_filter( "rest_prepare_$post_type", [ $this, 'add_extra_post_meta' ], 10, 3 );
+		}
 	}
 
 	/**
@@ -82,9 +91,9 @@ class Posts_List_Block {
 	public function add_extra_post_meta( WP_REST_Response $response, WP_Post $post, WP_REST_Request $request ) {
 		$context = $request->get_param( 'context' );
 
-		if ( 'edit' === $context ) {
+		if ( 'edit' === $context && current_user_can( 'edit_posts' ) ) {
 			$response->data['authorDisplayName'] = get_the_author_meta( 'display_name', $post->post_author );
-			$response->data['authorUrl']         = get_author_posts_url( $post->post_author, $response->data['authorDisplayName'] );
+			$response->data['authorUrl']         = get_author_posts_url( $post->post_author );
 			$response->data['commentsCount']     = (int) get_comments_number( $post->id );
 		}
 
@@ -154,9 +163,11 @@ class Posts_List_Block {
 				}
 			}
 
+			$post_type              = isset( $attributes['postType'] ) ? $attributes['postType'] : 'posts-pages';
 			$ids                    = array_map( 'absint', $attributes['posts'] );
 			$args['post__in']       = $ids;
 			$args['posts_per_page'] = count( $ids ); // phpcs:ignore WordPress.WP.PostsPerPage.posts_per_page_posts_per_page
+			$args['post_type']      = 'posts-pages' === $post_type ? [ 'post', 'page' ] : $post_type;
 		}
 
 		/**
@@ -191,6 +202,31 @@ class Posts_List_Block {
 			'<div class="%s">%s</div>',
 			esc_attr( $class ),
 			$content
+		);
+	}
+
+	/**
+	 * Get supported post types.
+	 *
+	 * @return array
+	 */
+	public static function get_supported_post_types() {
+		return apply_filters(
+			'material_design_query_post_types',
+			array_filter(
+				get_post_types( [ 'show_in_rest' => true ], 'objects' ),
+				function( $post_type ) {
+					// Ignore attachment and wp_block post types.
+					return ! array_key_exists(
+						$post_type,
+						[
+							'attachment' => 1,
+							'wp_block'   => 1,
+						]
+					);
+				},
+				ARRAY_FILTER_USE_KEY
+			)
 		);
 	}
 }

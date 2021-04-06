@@ -31,7 +31,7 @@ $post_author    = isset( $attributes['displayPostAuthor'] ) ? $attributes['displ
 
 if ( ! empty( $post_author ) ) {
 	$author_name = get_the_author_meta( 'display_name' );
-	$author_url  = get_author_posts_url( get_the_author_meta( 'ID' ), $author_name );
+	$author_url  = get_author_posts_url( get_the_author_meta( 'ID' ) );
 }
 
 if ( ! empty( $comments_count ) || ! empty( $post_author ) ) : ?>
