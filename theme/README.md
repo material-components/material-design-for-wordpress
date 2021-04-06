@@ -6,12 +6,10 @@ The official Material Design Theme for WordPress.
 
 **Contributors:** [google](https://profiles.wordpress.org/google), [materialdesign](https://profiles.wordpress.org/materialdesign), [xwp](https://profiles.wordpress.org/xwp)  
 **Requires at least:** 5.0  
-**Tested up to:** 5.6  
+**Tested up to:** 5.7  
 **Stable tag:** 0.1.4  
 **License:** [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
 **Requires PHP:** 5.6  
-
-[![Build Status](https://travis-ci.com/xwp/material-design-wp-theme.svg?branch=develop)](https://travis-ci.com/xwp/material-design-wp-theme) [![Built with Grunt](https://gruntjs.com/cdn/builtwith.svg)](http://gruntjs.com) 
 
 ## Description ##
 
@@ -40,7 +38,7 @@ Material Design is a design system created by Google and backed by open-source c
 
 ## Changelog ##
 
-For the theme’s changelog, please see [the Releases page on GitHub](https://github.com/xwp/material-design-wp-theme/releases).
+For the theme’s changelog, please see [the Releases page on GitHub](https://github.com/material-components/material-design-for-wordpress/releases).
 
 ## Copyright ##
 
