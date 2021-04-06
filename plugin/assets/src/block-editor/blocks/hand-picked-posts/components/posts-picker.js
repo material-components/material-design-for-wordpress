@@ -17,15 +17,16 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
-import { Placeholder, Button } from '@wordpress/components';
+import { Placeholder, Button, RadioControl } from '@wordpress/components';
 import { useCallback } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
 import PostsControl from '../../../components/posts-control';
 import genericAttributesSetter from '../../../utils/generic-attributes-setter';
+import getConfig from '../../../utils/get-config';
 
 /**
  * Posts Picker component.
@@ -37,6 +38,7 @@ import genericAttributesSetter from '../../../utils/generic-attributes-setter';
  *
  * @return {Function} A functional component.
  */
+
 const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 	const setter = useCallback( genericAttributesSetter( setAttributes ) );
 
@@ -47,16 +49,37 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 		);
 	};
 
+	const boldText = {
+		fontWeight: 'bold',
+		textAlign: 'left',
+	};
+
 	return (
 		<Placeholder
 			icon={ <i className="material-icons-outlined">library_books</i> }
 			label={ __( 'Curated Post Collection', 'material-design' ) }
 			className="material-design-block-products-grid material-design-block-handpicked-posts"
 		>
-			{ __( 'Display a selection of hand-picked posts.', 'material-design' ) }
+			<div className="material-design-block-handpicked-posts__types">
+				<p>
+					{ __(
+						'Display a selection of hand-picked posts.',
+						'material-design'
+					) }
+				</p>
+
+				<p style={ boldText }>{ __( 'Content', 'material-design' ) }</p>
+				<RadioControl
+					selected={ attributes.postType }
+					options={ getConfig( 'postTypes' ) }
+					onChange={ setter( 'postType' ) }
+					className="material-design-block-handpicked-posts__types__list"
+				/>
+			</div>
 			<div className="material-design-block-handpicked-posts__selection">
 				<PostsControl
 					selected={ attributes.posts }
+					postType={ attributes.postType }
 					onChange={ setter( 'posts', ( value = [] ) => {
 						/* istanbul ignore next */
 						return value.map( ( { id } ) => id );

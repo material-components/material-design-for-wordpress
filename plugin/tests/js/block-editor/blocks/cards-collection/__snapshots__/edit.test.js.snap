@@ -11117,6 +11117,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           "displaySecondaryText": true,
                           "displayTitle": true,
                           "isEditMode": true,
+                          "isFocused": false,
                           "secondaryText": "Secondary text #1",
                           "setter": [Function],
                           "title": "Title #1 goes here",
@@ -11138,6 +11139,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             "displaySecondaryText": true,
                             "displayTitle": true,
                             "isEditMode": true,
+                            "isFocused": false,
                             "secondaryText": "Secondary text #1",
                             "setter": [Function],
                             "title": "Title #1 goes here",
@@ -11147,6 +11149,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         displayImage={true}
                         imageSourceUrl=""
                         isEditMode={true}
+                        isFocused={false}
                         isImageEditMode={false}
                         setter={[Function]}
                         type="16-9"
@@ -11180,6 +11183,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       displaySecondaryText={true}
                       displayTitle={true}
                       isEditMode={true}
+                      isFocused={false}
                       secondaryText="Secondary text #1"
                       setter={[Function]}
                       title="Title #1 goes here"
@@ -11190,7 +11194,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         <ForwardRef
                           className="material-design-card__title mdc-typography mdc-typography--headline6"
                           onChange={[Function]}
-                          place={true}
                           placeholder="Title goes here"
                           tagName="h2"
                           value="Title #1 goes here"
@@ -11433,6 +11436,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           "displaySecondaryText": true,
                           "displayTitle": true,
                           "isEditMode": true,
+                          "isFocused": false,
                           "secondaryText": "Secondary text #2",
                           "setter": [Function],
                           "title": "Title #2 goes here",
@@ -11454,6 +11458,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             "displaySecondaryText": true,
                             "displayTitle": true,
                             "isEditMode": true,
+                            "isFocused": false,
                             "secondaryText": "Secondary text #2",
                             "setter": [Function],
                             "title": "Title #2 goes here",
@@ -11463,6 +11468,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         displayImage={true}
                         imageSourceUrl=""
                         isEditMode={true}
+                        isFocused={false}
                         isImageEditMode={false}
                         setter={[Function]}
                         type="16-9"
@@ -11496,6 +11502,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       displaySecondaryText={true}
                       displayTitle={true}
                       isEditMode={true}
+                      isFocused={false}
                       secondaryText="Secondary text #2"
                       setter={[Function]}
                       title="Title #2 goes here"
@@ -11506,7 +11513,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         <ForwardRef
                           className="material-design-card__title mdc-typography mdc-typography--headline6"
                           onChange={[Function]}
-                          place={true}
                           placeholder="Title goes here"
                           tagName="h2"
                           value="Title #2 goes here"
