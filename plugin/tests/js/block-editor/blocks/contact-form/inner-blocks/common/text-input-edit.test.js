@@ -29,7 +29,7 @@ import TextInputEdit from '../../../../../../../assets/src/block-editor/blocks/c
 
 // Mock the <MDCTextField> component as it does not need to be tested here.
 jest.mock( '@material/textfield', () => {
-	const original = require.requireActual( '@material/textfield' );
+	const original = jest.requireActual( '@material/textfield' );
 	return {
 		...original,
 		MDCTextField: jest.fn(),

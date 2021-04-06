@@ -997,7 +997,90 @@ Object {
         <div
           class="components-placeholder__fieldset"
         >
-          Display a selection of hand-picked posts.
+          <div
+            class="material-design-block-handpicked-posts__types"
+          >
+            <p>
+              Display a selection of hand-picked posts.
+            </p>
+            <p
+              style="font-weight: bold; text-align: left;"
+            >
+              Content
+            </p>
+            <div
+              class="components-base-control material-design-block-handpicked-posts__types__list components-radio-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <div
+                  class="components-radio-control__option"
+                >
+                  <input
+                    class="components-radio-control__input"
+                    id="inspector-radio-control-2-0"
+                    name="inspector-radio-control-2"
+                    type="radio"
+                    value="posts-pages"
+                  />
+                  <label
+                    for="inspector-radio-control-2-0"
+                  >
+                    Posts and Pages
+                  </label>
+                </div>
+                <div
+                  class="components-radio-control__option"
+                >
+                  <input
+                    class="components-radio-control__input"
+                    id="inspector-radio-control-2-1"
+                    name="inspector-radio-control-2"
+                    type="radio"
+                    value="portfolio"
+                  />
+                  <label
+                    for="inspector-radio-control-2-1"
+                  >
+                    Portfolios
+                  </label>
+                </div>
+                <div
+                  class="components-radio-control__option"
+                >
+                  <input
+                    class="components-radio-control__input"
+                    id="inspector-radio-control-2-2"
+                    name="inspector-radio-control-2"
+                    type="radio"
+                    value="recipe"
+                  />
+                  <label
+                    for="inspector-radio-control-2-2"
+                  >
+                    Recipes
+                  </label>
+                </div>
+                <div
+                  class="components-radio-control__option"
+                >
+                  <input
+                    class="components-radio-control__input"
+                    id="inspector-radio-control-2-3"
+                    name="inspector-radio-control-2"
+                    type="radio"
+                    value="book"
+                  />
+                  <label
+                    for="inspector-radio-control-2-3"
+                  >
+                    Books
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
           <div
             class="material-design-block-handpicked-posts__selection"
           >
@@ -1982,7 +2065,90 @@ Object {
       <div
         class="components-placeholder__fieldset"
       >
-        Display a selection of hand-picked posts.
+        <div
+          class="material-design-block-handpicked-posts__types"
+        >
+          <p>
+            Display a selection of hand-picked posts.
+          </p>
+          <p
+            style="font-weight: bold; text-align: left;"
+          >
+            Content
+          </p>
+          <div
+            class="components-base-control material-design-block-handpicked-posts__types__list components-radio-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-2-0"
+                  name="inspector-radio-control-2"
+                  type="radio"
+                  value="posts-pages"
+                />
+                <label
+                  for="inspector-radio-control-2-0"
+                >
+                  Posts and Pages
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-2-1"
+                  name="inspector-radio-control-2"
+                  type="radio"
+                  value="portfolio"
+                />
+                <label
+                  for="inspector-radio-control-2-1"
+                >
+                  Portfolios
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-2-2"
+                  name="inspector-radio-control-2"
+                  type="radio"
+                  value="recipe"
+                />
+                <label
+                  for="inspector-radio-control-2-2"
+                >
+                  Recipes
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-2-3"
+                  name="inspector-radio-control-2"
+                  type="radio"
+                  value="book"
+                />
+                <label
+                  for="inspector-radio-control-2-3"
+                >
+                  Books
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           class="material-design-block-handpicked-posts__selection"
         >
