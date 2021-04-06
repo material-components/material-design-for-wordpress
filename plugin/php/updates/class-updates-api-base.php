@@ -23,12 +23,12 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin\Api;
+namespace MaterialDesign\Plugin\Updates;
 
 /**
- * Class API_Base
+ * Class Updates_API_Base
  *
- * @package MaterialDesign\Plugin\Api
+ * @package MaterialDesign\Plugin\Updates
  */
 abstract class Updates_API_Base {
 
@@ -47,7 +47,7 @@ abstract class Updates_API_Base {
 	protected $local_file_path;
 
 	/**
-	 * API_Base constructor.
+	 * Updates_API_Base constructor.
 	 */
 	public function __construct() {
 		$this->endpoint        = null;
