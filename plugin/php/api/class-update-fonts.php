@@ -198,6 +198,20 @@ class Update_Fonts extends Updates_API_Base {
 	}
 
 	/**
+	 * Update fonts from Google Font API.
+	 *
+	 * @param boolean $write_response Shoud write the reponse to file.
+	 * @return mixed
+	 */
+	public function update( $write_response = false ) {
+		if ( $this->should_check_for_updates() ) {
+			return $this->get_fonts( $write_response );
+		}
+
+		return false;
+	}
+
+	/**
 	 * Returns error message
 	 *
 	 * @return string|void
