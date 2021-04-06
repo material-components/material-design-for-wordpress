@@ -19,8 +19,15 @@
 	padding: 16px;
 }
 
-.single-post-card .mdc-button__label {
-	white-space: nowrap;
+.single-post-card {
+
+	& .mdc-card__action--button {
+		text-transform: none;
+	}
+
+	& .mdc-button__label {
+		white-space: nowrap;
+	}
 }
 
 /* @todo: Will need refactoring. */
@@ -36,12 +43,15 @@
 
 .single-post-card__secondary {
 	padding: 0 16px 8px 16px;
+
+	& > p {
+		margin: 0;
+	}
 }
 
-/* @todo: Will need refactoring. */
 .single-post-card__secondary-text-over-media,
 .single-post-card__secondary-text-above-media {
-	padding-top: 1em !important;
+	padding-top: 16px;
 }
 
 .single-post-card__media.mdc-card__media--square {

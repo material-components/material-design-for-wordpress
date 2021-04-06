@@ -91,7 +91,7 @@ class Test_Posts_List_Block extends WP_UnitTestCase {
 	 */
 	public static function generate_fixtures( $factory ) {
 		self::$old_current_user = get_current_user_id(); // phpcs:ignore
-		self::$author_id        = $factory->user->create( [ 'user_login' => 'test' ] ); // phpcs:ignore
+		self::$author_id        = $factory->user->create( [ 'user_login' => 'test', 'role' => 'author' ] ); // phpcs:ignore
 		wp_update_user(
 			[
 				'ID'           => self::$author_id, // phpcs:ignore
@@ -212,8 +212,22 @@ class Test_Posts_List_Block extends WP_UnitTestCase {
 	public function test_init() {
 		$block = new Posts_List_Block( new Plugin(), 'material/hand-picked-posts' );
 		$block->init();
-		$this->assertEquals( 10, has_filter( 'rest_prepare_post', [ $block, 'add_extra_post_meta' ] ) );
+
 		$this->assertEquals( 10, has_filter( 'rest_post_collection_params', [ $block, 'add_comment_count_to_rest_orderby_params' ] ) );
+		$this->assertEquals( 100, has_filter( 'init', [ $block, 'register_hooks' ] ) );
+	}
+
+	/**
+	 * Test register_hooks.
+	 *
+	 * @see Hand_Picked_Posts_Block::register_hooks()
+	 */
+	public function test_register_hooks() {
+		$block = new Posts_List_Block( new Plugin(), 'material/hand-picked-posts' );
+		$block->register_hooks();
+
+		$this->assertEquals( 10, has_filter( 'rest_prepare_post', [ $block, 'add_extra_post_meta' ] ) );
+		$this->assertEquals( 10, has_filter( 'rest_prepare_page', [ $block, 'add_extra_post_meta' ] ) );
 	}
 
 	/**
@@ -237,6 +251,8 @@ class Test_Posts_List_Block extends WP_UnitTestCase {
 
 		// Set context param.
 		$request->set_param( 'context', 'edit' );
+		wp_set_current_user( self::$author_id );
+
 		$response = $block->add_extra_post_meta( $response, $post, $request );
 
 		// Assert the fields are set.

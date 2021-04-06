@@ -52,7 +52,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		const [ list, setList ] = useState( [] );
 		const [ loading, setLoading ] = useState( true );
 		const [ error, setErrorState ] = useState();
-		const { selected } = props;
+		const { selected, postType } = props;
 
 		/**
 		 * Fetch Posts.
@@ -64,6 +64,8 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		const fetchPosts = useCallback(
 			async args => {
 				try {
+					setErrorState( false );
+					setLoading( true );
 					const fetchedList = await getPosts( args );
 					setList( fetchedList );
 					setLoading( false );
@@ -80,7 +82,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 		 * @param {string} search - Search
 		 */
 		const onSearch = search => {
-			fetchPosts( { selected, search } );
+			fetchPosts( { selected, postType, search } );
 		};
 
 		/**
@@ -103,7 +105,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 
 		useEffect(
 			() => {
-				fetchPosts( { selected } );
+				fetchPosts( { selected, postType } );
 
 				return () => {
 					debouncedOnSearch.cancel();
@@ -113,7 +115,7 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 			// create an endless loop fetching the post. Also no other dependencies should be added
 			// fetchPosts should be fired only after the component has mounted.
 			// eslint-disable-next-line react-hooks/exhaustive-deps
-			[]
+			[ postType ]
 		);
 
 		return (

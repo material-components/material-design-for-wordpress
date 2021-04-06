@@ -23,7 +23,7 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin\Api;
+namespace MaterialDesign\Plugin\Updates;
 
 use Exception;
 use function MaterialDesign\Plugin\get_plugin_instance;
@@ -31,7 +31,7 @@ use function MaterialDesign\Plugin\get_plugin_instance;
 /**
  * Class Update_Icons
  *
- * @package MaterialDesign\Plugin\Api
+ * @package MaterialDesign\Plugin\Updates
  */
 class Update_Icons extends Updates_API_Base {
 

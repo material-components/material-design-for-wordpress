@@ -67,6 +67,21 @@ const expectedPostsData = [
 
 jest.mock( '@wordpress/api-fetch', () => jest.fn() );
 describe( 'api: getPosts', () => {
+	beforeAll( () => {
+		global.materialDesign = {
+			postTypes: [
+				{
+					label: 'Posts and Pages',
+					value: 'posts-pages',
+					route: '/material-design/v1/post-types/get-posts',
+				},
+				{ label: 'Portfolios', value: 'portfolio', route: '/wp/v2/portfolio' },
+				{ label: 'Recipes', value: 'recipe', route: '/wp/v2/recipe' },
+				{ label: 'Books', value: 'book', route: '/wp/v2/book' },
+			],
+		};
+	} );
+
 	afterEach( () => {
 		jest.clearAllMocks();
 	} );
@@ -86,11 +101,12 @@ describe( 'api: getPosts', () => {
 		expect( apiFetch ).toHaveBeenCalledTimes( 2 );
 		expect( apiFetch ).toHaveBeenCalledWith( {
 			path:
-				'/wp/v2/posts?per_page=100&status=publish&search=test&orderby=title&order=asc',
+				'/material-design/v1/post-types/get-posts?per_page=100&status=publish&search=test&orderby=title&order=asc&post_type=posts-pages&context=edit',
 		} );
 
 		expect( apiFetch ).toHaveBeenCalledWith( {
-			path: '/wp/v2/posts?status=publish&include%5B0%5D=1&include%5B1%5D=2',
+			path:
+				'/material-design/v1/post-types/get-posts?status=publish&include%5B0%5D=1&include%5B1%5D=2&post_type=posts-pages',
 		} );
 	} );
 
