@@ -47,10 +47,8 @@ $class_names = [
 
 if ( ! empty( $featured_image ) ) :
 	?>
-	<div
-		class="<?php echo esc_attr( Template::classnames( $class_names ) ); ?>"
-		style="background-image: url(<?php echo esc_url( $featured_image ); ?>)"
-	>
+	<div class="<?php echo esc_attr( Template::classnames( $class_names ) ); ?>">
+		<?php echo get_the_post_thumbnail( get_the_ID(), 'list' === $style ? 'medium' : 'large' ); ?>
 		<?php
 		if ( 'text-over-media' === $layout ) {
 			?>
