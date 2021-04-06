@@ -66,7 +66,7 @@
 		"columns": {
 		   "type": "object",
 		   "default": {
-				"desktop": 4,
+				"desktop": 5,
 				"tablet": 3,
 				"mobile": 1
 		 	}
