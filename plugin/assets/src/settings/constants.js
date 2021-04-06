@@ -40,7 +40,7 @@ export const UPDATERS = {
 		type: 'FONTS',
 		lastUpdated: parseInt( getConfig( 'fontsLastUpdated' ), 10 ),
 		needsKey: true,
-		updateAvailable: true,
+		updateAvailable: 'update' === getConfig( 'fontsUpdateStatus' ),
 		autoUpdates: parseInt( getConfig( 'fontsAutoUpdate' ), 10 ),
 	},
 	ICONS: {
@@ -48,7 +48,7 @@ export const UPDATERS = {
 		type: 'ICONS',
 		lastUpdated: parseInt( getConfig( 'iconsLastUpdated' ), 10 ),
 		needsKey: false,
-		updateAvailable: true,
+		updateAvailable: 'update' === getConfig( 'iconsUpdateStatus' ),
 		autoUpdates: parseInt( getConfig( 'iconsAutoUpdate' ), 10 ),
 	},
 };

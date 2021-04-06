@@ -23,20 +23,19 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin;
+namespace MaterialDesign\Plugin\Rest;
 
-use MaterialDesign\Plugin\Api\Update_Fonts;
-use MaterialDesign\Plugin\Api\Update_Icons;
-use WP_Error;
+use MaterialDesign\Plugin\Updates\Update_Fonts;
+use MaterialDesign\Plugin\Updates\Update_Icons;
 use WP_REST_Request;
 use WP_REST_Response;
 
 /**
- * Class Design_Assets_Rest_Controller
+ * Class Design_Assets_REST_Controller
  *
  * @package MaterialDesign\Plugin
  */
-class Design_Assets_Rest_Controller extends \WP_REST_Controller {
+class Design_Assets_REST_Controller extends \WP_REST_Controller {
 	/**
 	 * Plugin class.
 	 *
@@ -335,6 +334,24 @@ class Design_Assets_Rest_Controller extends \WP_REST_Controller {
 	 */
 	public function get_icons_auto_update() {
 		return absint( get_option( Update_Icons::AUTO_UPDATE_SLUG ) );
+	}
+
+	/**
+	 * Return auto update from database
+	 *
+	 * @return int Auto update option
+	 */
+	public function get_fonts_update_status() {
+		return false === get_transient( Update_Fonts::TRANSIENT ) ? 'update' : 'ok';
+	}
+
+	/**
+	 * Return auto update from database
+	 *
+	 * @return int Auto update option
+	 */
+	public function get_icons_update_status() {
+		return false === get_transient( Update_Icons::TRANSIENT ) ? 'update' : 'ok';
 	}
 
 	/**
