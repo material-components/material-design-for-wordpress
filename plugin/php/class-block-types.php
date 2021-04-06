@@ -175,6 +175,37 @@ class Block_Types {
 		$slug           = $this->plugin->customizer_controls->slug;
 		$customizer_url = admin_url( 'customize.php?autofocus[panel]=' . $slug );
 
+		// Posts and Pages is not a post type. It's a combination. Set it manually.
+		$post_types = [
+			[
+				'label' => esc_html__( 'Posts and Pages', 'material-design' ),
+				'value' => 'posts-pages',
+				'route' => $this->plugin->posts_rest_controller->get_posts_route(),
+			],
+		];
+
+		// Only find post types that are available in_rest, and parse them into expected data structure.
+		$post_type_objects = Posts_List_Block::get_supported_post_types();
+
+		foreach ( $post_type_objects as $slug => $post_type ) {
+			$controller = $this->get_rest_controller( $post_type );
+
+			if ( $controller && ! in_array( $slug, [ 'attachment', 'wp_block', 'post', 'page' ] ) ) {
+				$route = '';
+
+				if ( in_array( get_class( $controller ), [ 'WP_REST_Posts_Controller' ], true ) ) {
+					$namespace = 'wp/v2';
+					$rest_base = ! empty( $post_type->rest_base ) ? $post_type->rest_base : $post_type->name;
+					$route     = sprintf( '/%s/%s', $namespace, $rest_base );
+				}
+
+				$post_types[] = [
+					'label' => esc_html( $post_type->label ),
+					'value' => esc_attr( $slug ),
+					'route' => apply_filters( 'material_design_post_type_rest_route', $route, $post_type ),
+				];
+			}
+		}
 
 		$wp_localized_script_data = [
 			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
@@ -189,6 +220,7 @@ class Block_Types {
 				'colors' => add_query_arg( 'autofocus[section]', $slug . '_colors', $customizer_url ),
 				'shape'  => add_query_arg( 'autofocus[section]', $slug . '_corner_styles', $customizer_url ),
 			],
+			'postTypes'                => $post_types,
 		];
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
@@ -274,5 +306,47 @@ class Block_Types {
 		};
 
 		return $defaults;
+	}
+
+	/**
+	 * Gets the REST API controller for a post type.
+	 *
+	 * Will only instantiate the controller class once per request.
+	 *
+	 * @param WP_Post_Type $post_type The post type object.
+	 *
+	 * @see https://core.trac.wordpress.org/browser/tags/5.7/src/wp-includes/class-wp-post-type.php#L748
+	 *
+	 * @return WP_REST_Controller|null The controller instance, or null if the post type
+	 *                                 is set not to show in rest.
+	 */
+	public function get_rest_controller( $post_type ) {
+		if ( ! $post_type || ! is_a( $post_type, '\WP_Post_Type' ) ) {
+			return null;
+		}
+
+		if ( method_exists( $post_type, 'get_rest_controller' ) ) {
+			return $post_type->get_rest_controller();
+		}
+
+		if ( ! $post_type->show_in_rest ) {
+			return null;
+		}
+
+		$class = $post_type->rest_controller_class ? $post_type->rest_controller_class : \WP_REST_Posts_Controller::class;
+
+		if ( ! class_exists( $class ) ) {
+			return null;
+		}
+
+		if ( ! is_subclass_of( $class, \WP_REST_Controller::class ) ) {
+			return null;
+		}
+
+		if ( ! empty( $post_type->rest_controller ) ) {
+			return $post_type->rest_controller;
+		}
+
+		return new $class( $post_type->name );
 	}
 }

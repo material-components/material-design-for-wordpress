@@ -23,14 +23,14 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin;
+namespace MaterialDesign\Plugin\Rest;
 
 use MaterialDesign\Plugin\Plugin;
 
 /**
  * Class Onboarding_REST_Controller.
  */
-class Onboarding_REST_Controller extends \WP_REST_Controller {
+class Onboarding_REST_Controller extends API_Base {
 	/**
 	 * Plugin class.
 	 *
@@ -44,25 +44,9 @@ class Onboarding_REST_Controller extends \WP_REST_Controller {
 	 * @param Plugin $plugin Instance of the plugin abstraction.
 	 */
 	public function __construct( $plugin ) {
-		$this->plugin    = $plugin;
-		$this->namespace = 'material-design/v1';
+		parent::__construct( $plugin );
+
 		$this->rest_base = 'onboarding';
-	}
-
-	/**
-	 * Initiate the class and hooks.
-	 */
-	public function init() {
-		add_action( 'rest_api_init', [ $this, 'register_routes' ] );
-	}
-
-	/**
-	 * Get the base URL for this controller.
-	 *
-	 * @return string
-	 */
-	public function get_base_path() {
-		return esc_url( "/{$this->namespace}/{$this->rest_base}/" );
 	}
 
 	/**
