@@ -25,8 +25,8 @@
 
 namespace MaterialDesign\Plugin\Admin;
 
-use MaterialDesign\Plugin\Api\Update_Fonts;
-use MaterialDesign\Plugin\Api\Update_Icons;
+use MaterialDesign\Plugin\Updates\Update_Fonts;
+use MaterialDesign\Plugin\Updates\Update_Icons;
 
 /**
  * Class Admin_Updates

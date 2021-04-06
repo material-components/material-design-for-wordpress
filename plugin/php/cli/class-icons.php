@@ -26,8 +26,7 @@
 namespace MaterialDesign\Plugin\Cli;
 
 use Exception;
-use MaterialDesign\Plugin\Api\Update_Fonts;
-use MaterialDesign\Plugin\Api\Update_Icons;
+use MaterialDesign\Plugin\Updates\Update_Icons;
 use stdClass;
 
 /**
