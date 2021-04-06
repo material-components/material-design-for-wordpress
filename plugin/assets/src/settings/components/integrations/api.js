@@ -28,11 +28,13 @@ import SettingsContext from '../../context';
 import { ACTIONS, KEY_PLACEHOLDER } from '../../constants';
 import Button from '../../../wizard/components/navigation/button';
 import { setApiKey } from '../../utils';
+import Dialog from '../../../common/components/dialog';
 
 const Api = () => {
 	const { state, dispatch } = useContext( SettingsContext );
 	const [ api, setApi ] = useState( null );
 	const [ isLoading, setIsLoading ] = useState( false );
+	const [ confirm, setConfirm ] = useState( false );
 	const isApiOk = 'ok' === state.apiStatus;
 
 	const dispatchError = error =>
@@ -44,16 +46,17 @@ const Api = () => {
 	const removeApiKey = () => {
 		setIsLoading( true );
 		setApi( '' );
-
 		setApiKey( api )
 			.then( () => {
 				setIsLoading( false );
 				dispatch( { type: ACTIONS.REMOVE_API_KEY } );
+				setConfirm( false );
 			} )
 			.catch( error => {
 				dispatchError( error.message );
 				console.error( error );
 				setIsLoading( false );
+				setConfirm( false );
 			} );
 	};
 
@@ -86,6 +89,39 @@ const Api = () => {
 
 	return (
 		<div className="material-settings__api mdc-layout-grid">
+			<Dialog
+				open={ confirm }
+				title={ __( 'Remove Google API Key?', 'material-design' ) }
+				content={ __(
+					'This action is permanent and cannot be undone',
+					'material-design'
+				) }
+				actions={
+					<>
+						<button
+							type="button"
+							className="mdc-button mdc-dialog__button"
+							onClick={ () => setConfirm( false ) }
+						>
+							<div className="mdc-button__ripple"></div>
+							<span className="mdc-button__label">
+								{ __( 'Cancel', 'material-design' ) }
+							</span>
+						</button>
+						<button
+							type="button"
+							className="mdc-button mdc-dialog__button"
+							onClick={ removeApiKey }
+						>
+							<div className="mdc-button__ripple"></div>
+							<span className="mdc-button__label">
+								{ __( 'Remove', 'material-design' ) }
+							</span>
+						</button>
+					</>
+				}
+			/>
+
 			<div className="mdc-layout-grid__inner">
 				{ ! isApiOk && (
 					<TextControl
@@ -122,7 +158,7 @@ const Api = () => {
 						<Button
 							text={ __( 'Remove', 'material-design' ) }
 							leadingIcon="delete"
-							onClick={ removeApiKey }
+							onClick={ () => setConfirm( true ) }
 							loading={ isLoading }
 						/>
 					) }

@@ -79,4 +79,8 @@
 		font-weight: 500;
 		margin-left: 10px;
 	}
+
+	.mdc-dialog .mdc-dialog__title {
+		margin-top: 0;
+	}
 }
