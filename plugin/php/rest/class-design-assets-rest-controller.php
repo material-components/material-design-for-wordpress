@@ -82,9 +82,7 @@ class Design_Assets_REST_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'get_fonts' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
+					'permission_callback' => [ $this, 'has_permissions' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
@@ -97,9 +95,7 @@ class Design_Assets_REST_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::READABLE,
 					'callback'            => [ $this, 'get_icons' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
+					'permission_callback' => [ $this, 'has_permissions' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
@@ -112,9 +108,7 @@ class Design_Assets_REST_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::CREATABLE,
 					'callback'            => [ $this, 'register_api_key' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
+					'permission_callback' => [ $this, 'has_permissions' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
@@ -127,13 +121,20 @@ class Design_Assets_REST_Controller extends \WP_REST_Controller {
 				[
 					'methods'             => \WP_REST_Server::CREATABLE,
 					'callback'            => [ $this, 'toggle_auto_updates' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
+					'permission_callback' => [ $this, 'has_permissions' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
 			]
 		);
+	}
+
+	/**
+	 * Determine if the user has permissions to make a request.
+	 *
+	 * @return boolean
+	 */
+	public function has_permissions() {
+		return current_user_can( 'manage_options' );
 	}
 
 	/**
@@ -195,7 +196,7 @@ class Design_Assets_REST_Controller extends \WP_REST_Controller {
 
 		$fonts = new Update_Fonts( 'force' === $force, false, true );
 
-		if ( ! $fonts->has_api_key() ) {
+		if ( 'force' === $force && ! $fonts->has_api_key() ) {
 			return new WP_Error(
 				'rest_fonts_no_api_key',
 				$fonts->material_design_no_apikey_textonly()
@@ -269,10 +270,31 @@ class Design_Assets_REST_Controller extends \WP_REST_Controller {
 			$response = delete_option( Update_Fonts::get_api_slug() );
 		} else {
 			$response = update_option( Update_Fonts::get_api_slug(), $api_key );
+
+			$fonts = new Update_Fonts( true, false, true );
+			$data  = $fonts->get_fonts();
+			$count = count( $data->data );
+
+			if ( 0 === $count ) {
+				delete_option( Update_Fonts::get_api_slug() );
+
+				return new WP_Error(
+					'rest_fonts_invalid_api_key',
+					esc_html__( 'Invalid API Key, please verify your API Key is valid', 'material-design' )
+				);
+			}
+
+			$response = (object) [
+				'page'        => 1,
+				'per_page'    => $count,
+				'count'       => $count,
+				'total_pages' => 1,
+				'lastUpdated' => $this->get_fonts_last_updated(),
+				'data'        => $data->data,
+			];
 		}
 
-
-		if ( is_wp_error( $response) ) {
+		if ( is_wp_error( $response ) ) {
 			return $response;
 		}
 
