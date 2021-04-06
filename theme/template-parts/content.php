@@ -36,7 +36,9 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 	<a class="mdc-card__link" href="<?php the_permalink(); ?>">
 		<div class="mdc-card__primary-action post-card__primary-action">
 			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="mdc-card__media mdc-card__media--16-9 post-card__media" style="background-image: url(&quot;<?php echo esc_attr( get_the_post_thumbnail_url() ); ?>&quot;);"></div>
+				<div class="mdc-card__media mdc-card__media--16-9 post-card__media">
+					<?php the_post_thumbnail(); ?>
+				</div>
 			<?php endif; ?>
 			<div class="post-card__primary">
 				<?php if ( is_sticky() ) : ?>

@@ -53,7 +53,6 @@ const CardPrimary = ( {
 						value={ title }
 						onChange={ value => setter( 'title', value, cardIndex ) }
 						placeholder={ __( 'Title goes here', 'material-design' ) }
-						place
 					/>
 				) }
 				{ displaySecondaryText && (

@@ -22,6 +22,12 @@
 	& .mdc-top-app-bar__action-item,
 	& .mdc-top-app-bar__navigation-icon {
 		color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+
+		&:hover,
+		&:focus,
+		&:visited {
+			color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+		}
 	}
 
 	& .mdc-top-app-bar__section--align-start {

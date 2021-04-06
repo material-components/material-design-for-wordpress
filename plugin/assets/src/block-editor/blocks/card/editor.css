@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 
-.material-design-card__media-container-focused {
-	border: 4px rgb(0, 113, 161) solid;
-
+.material-design-card__media-container {
+	position: relative;
 }
 
 .material-design-card__media-actions {
-	display: none;
 	position: absolute;
 	right: 10px;
 	top: 10px;
@@ -29,14 +27,11 @@
 	border-radius: 4px;
 	transition: box-shadow 0.2s ease-out;
 	height: 27px;
+	z-index: 10;
 
-	> button {
+	& > button {
 		height: 25px;
 	}
-}
-
-.material-design-card__media-actions-shown {
-	display: block !important;
 }
 
 .material-design-card__media-close-button {

@@ -23,20 +23,20 @@
  * @package MaterialDesign
  */
 
-namespace MaterialDesign\Plugin;
+namespace MaterialDesign\Plugin\Rest;
 
-use MaterialDesign\Plugin\Api\Update_Fonts;
-use MaterialDesign\Plugin\Api\Update_Icons;
+use MaterialDesign\Plugin\Updates\Update_Fonts;
+use MaterialDesign\Plugin\Updates\Update_Icons;
 use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
 
 /**
- * Class Design_Assets_Rest_Controller
+ * Class Design_Assets_REST_Controller
  *
  * @package MaterialDesign\Plugin
  */
-class Design_Assets_Rest_Controller extends \WP_REST_Controller {
+class Design_Assets_REST_Controller extends \WP_REST_Controller {
 	/**
 	 * Plugin class.
 	 *
