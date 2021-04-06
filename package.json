@@ -33,6 +33,7 @@
     "@material/checkbox": "5.1.0",
     "@material/circular-progress": "7.0.0",
     "@material/data-table": "5.1.0",
+    "@material/dialog": "10.0.0",
     "@material/drawer": "5.1.0",
     "@material/floating-label": "5.1.0",
     "@material/form-field": "5.1.0",
