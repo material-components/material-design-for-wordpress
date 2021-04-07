@@ -95,6 +95,15 @@ class Admin extends Module_Base {
 
 		add_submenu_page(
 			'material-settings',
+			esc_html__( 'Material Settings', 'material-design' ),
+			esc_html__( 'Settings', 'material-design' ),
+			'manage_options',
+			'material-settings-page',
+			[ $this, 'render_settings_page' ]
+		);
+
+		add_submenu_page(
+			'material-settings',
 			esc_html__( 'Onboarding Wizard', 'material-design' ),
 			esc_html__( 'Onboarding Wizard', 'material-design' ),
 			'manage_options',
@@ -120,6 +129,15 @@ class Admin extends Module_Base {
 		$this->plugin->customizer_controls->copy_saved_color_settings();
 		?>
 		<section id="material-onboarding-wizard" class="mdc-typography"></section>
+		<?php
+	}
+
+	/**
+	 * Render settings page.
+	 */
+	public function render_settings_page() {
+		?>
+		<div id="material-settings" class="material-settings mdc-layout-grid mdc-typography"></div>
 		<?php
 	}
 
@@ -150,10 +168,9 @@ class Admin extends Module_Base {
 			'material-admin-js',
 			'materialDesignWizard',
 			[
-				'restPath'    => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-				'redirect'    => esc_url( admin_url( 'themes.php' ) ),
-				'nonce'       => wp_create_nonce( 'wp_rest' ),
-				'themeStatus' => esc_html( $this->plugin->theme_status() ),
+				'restPath' => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+				'redirect' => esc_url( admin_url( 'themes.php' ) ),
+				'nonce'    => wp_create_nonce( 'wp_rest' ),
 			]
 		);
 
@@ -246,6 +263,48 @@ class Admin extends Module_Base {
 					'nonce'            => wp_create_nonce( 'wp_rest' ),
 					'restPath'         => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
+				]
+			);
+		}
+
+		if ( $screen && 'material_page_material-settings-page' === $screen->id ) {
+			// Get Roboto Mono and icons.
+			wp_enqueue_style(
+				'material-admin-google-fonts',
+				'//fonts.googleapis.com/css2?family=Roboto+Mono&family=Material+Icons',
+				[],
+				$this->plugin->asset_version()
+			);
+
+			wp_enqueue_style(
+				'material-settings',
+				$this->plugin->asset_url( 'assets/css/settings-compiled.css' ),
+				[ 'material-admin-google-fonts' ],
+				$this->plugin->asset_version()
+			);
+
+			wp_enqueue_script(
+				'material-settings',
+				$this->plugin->asset_url( 'assets/js/settings.js' ),
+				[ 'wp-element', 'wp-i18n', 'wp-api-fetch', 'wp-date', 'wp-components' ],
+				$this->plugin->asset_version(),
+				true
+			);
+
+			wp_localize_script(
+				'material-settings',
+				'materialDesignWizard',
+				[
+					'restPath'         => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'redirect'         => esc_url( admin_url( 'themes.php' ) ),
+					'nonce'            => wp_create_nonce( 'wp_rest' ),
+					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
+					'assetsRestPath'   => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
+					'apiStatus'        => esc_html( $this->plugin->assets_rest_controller->get_api_status() ),
+					'fontsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_fonts_last_updated() ),
+					'iconsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_icons_last_updated() ),
+					'fontsAutoUpdate'  => esc_html( $this->plugin->assets_rest_controller->get_fonts_auto_update() ),
+					'iconsAutoUpdate'  => esc_html( $this->plugin->assets_rest_controller->get_icons_auto_update() ),
 				]
 			);
 		}

@@ -39,6 +39,17 @@ class Update_Fonts extends Updates_API_Base {
 
 	const TRANSIENT = 'google-fonts-json';
 
+	const LAST_UPDATED = 'google-fonts-last-updated';
+
+	const AUTO_UPDATE_SLUG = 'google-fonts-auto-update';
+
+	/**
+	 * API option name
+	 *
+	 * @var string
+	 */
+	const API_KEY_SLUG = 'google_fonts_api_key';
+
 	/**
 	 * Holds the Google Fonts API key.
 	 *
@@ -66,8 +77,10 @@ class Update_Fonts extends Updates_API_Base {
 
 		if ( ! empty( $api_key ) ) {
 			$this->api_key = $api_key;
-		} elseif ( defined( 'GOOGLE_FONTS_API_KEY' ) && false !== GOOGLE_FONTS_API_KEY ) {
-			$this->api_key = GOOGLE_FONTS_API_KEY;
+		} elseif ( ! empty( get_option( get_plugin_instance()->get_api_slug() ) ) ) {
+			$this->api_key = get_option( get_plugin_instance()->get_api_slug() );
+		} elseif ( ! empty( get_option( self::API_KEY_SLUG ) ) ) {
+			$this->api_key = get_option( self::API_KEY_SLUG );
 		} else {
 			$this->api_key = '';
 		}
@@ -103,6 +116,9 @@ class Update_Fonts extends Updates_API_Base {
 			}
 
 			set_transient( self::TRANSIENT, time(), DAY_IN_SECONDS );
+
+			// Save last updated, never expire.
+			set_transient( self::LAST_UPDATED, time() );
 		}
 
 		// If we still don't have fonts, fetch from local.
@@ -206,5 +222,42 @@ class Update_Fonts extends Updates_API_Base {
 	 */
 	public function material_design_no_apikey_error() {
 		printf( '<div class="error"><p>%s</p></div>', wp_kses_post( $this->material_design_no_apikey() ) );
+	}
+
+	/**
+	 * Check for existance of api key
+	 *
+	 * @return bool Whether api key has been added
+	 */
+	public function has_api_key() {
+		return ! empty( $this->api_key );
+	}
+
+	/**
+	 * Get last updated timestamp
+	 *
+	 * @return int timestamp
+	 */
+	public static function get_last_updated() {
+		return get_transient( self::LAST_UPDATED );
+	}
+
+	/**
+	 * Get Google fonts API key option slug
+	 *
+	 * @return string
+	 */
+	public static function get_api_slug() {
+		return self::API_KEY_SLUG;
+	}
+
+	/**
+	 * Add auto update option in database
+	 * Allow or restrict auto updates
+	 *
+	 * @param bool $activate Wheter to auto update items. Defaults to false
+	 */
+	public function toggle_auto_updates( $activate = false ) {
+		return update_option( self::AUTO_UPDATE_SLUG, $activate );
 	}
 }
