@@ -27,4 +27,8 @@
 		height: 100%;
 		width: 100%;
 	}
+
+	& .mdc-action__remove {
+		color: #dd5d5f;
+	}
 }
