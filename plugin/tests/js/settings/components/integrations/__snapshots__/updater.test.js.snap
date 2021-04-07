@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings: Updater matches snapshot 1`] = `
+<div>
+  <div
+    class="material-settings__updater"
+  >
+    <div
+      class="mdc-layout-grid"
+    >
+      <div
+        class="mdc-layout-grid__inner"
+      >
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
+        >
+          <h3
+            class="mdc-typography--headline6"
+          >
+            Google Fonts
+          </h3>
+          <p
+            class="mdc-typography--body1"
+          >
+            To enable Google Fonts updates please 
+            <a
+              href="https://developers.google.com/fonts/docs/developer_api#APIKey"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              activate Google API Key
+            </a>
+             first
+          </p>
+        </div>
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end"
+        />
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end"
+        >
+          <div
+            class="material-settings__message material-settings__message--error"
+          >
+            <i
+              aria-hidden="true"
+              class="material-icons mdc-button__icon leading-icon"
+            >
+              error
+            </i>
+            <span
+              class="material-settings__message-text"
+            >
+              Updates disabled
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
