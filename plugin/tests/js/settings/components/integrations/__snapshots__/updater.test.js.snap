@@ -22,7 +22,7 @@ exports[`Settings: Updater matches snapshot 1`] = `
           <p
             class="mdc-typography--body1"
           >
-            Last update on Apr 6, 2021, 11:14 PM
+            Last update on Apr 6, 2021, 11:23 PM
           </p>
         </div>
         <div
@@ -109,7 +109,68 @@ exports[`Settings: Updater matches snapshot when disabled 1`] = `
           <p
             class="mdc-typography--body1"
           >
-            Last update on Apr 6, 2021, 11:14 PM
+            To enable Google Fonts updates please 
+            <a
+              href="https://developers.google.com/fonts/docs/developer_api#APIKey"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              activate Google API Key
+            </a>
+             first
+          </p>
+        </div>
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end"
+        />
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end"
+        >
+          <div
+            class="material-settings__message material-settings__message--error"
+          >
+            <i
+              aria-hidden="true"
+              class="material-icons mdc-button__icon leading-icon"
+            >
+              error
+            </i>
+            <span
+              class="material-settings__message-text"
+            >
+              Updates disabled
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Settings: Updater matches snapshot when never updated 1`] = `
+<div>
+  <div
+    class="material-settings__updater"
+  >
+    <div
+      class="mdc-layout-grid"
+    >
+      <div
+        class="mdc-layout-grid__inner"
+      >
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
+        >
+          <h3
+            class="mdc-typography--headline6"
+          >
+            Google Fonts
+          </h3>
+          <p
+            class="mdc-typography--body1"
+          >
+            Last update on never
           </p>
         </div>
         <div
@@ -134,15 +195,15 @@ exports[`Settings: Updater matches snapshot when disabled 1`] = `
                   aria-checked="true"
                   checked=""
                   class="mdc-switch__native-control"
-                  id="updater-2"
+                  id="updater-3"
                   role="switch"
                   type="checkbox"
                 />
               </div>
             </div>
             <label
-              for="updater-2"
-              id="label-updater-2"
+              for="updater-3"
+              id="label-updater-3"
             >
               Auto-updates enabled
             </label>

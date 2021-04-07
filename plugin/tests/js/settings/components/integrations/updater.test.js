@@ -58,4 +58,14 @@ describe( 'Settings: Updater', () => {
 		const { container } = setup( props );
 		expect( container ).toMatchSnapshot();
 	} );
+
+	it( 'matches snapshot when never updated', () => {
+		const props = {
+			...baseProps,
+			lastUpdated: null,
+		};
+
+		const { container } = setup( props );
+		expect( container ).toMatchSnapshot();
+	} );
 } );
