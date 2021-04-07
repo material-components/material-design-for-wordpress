@@ -58,7 +58,7 @@ export const UPDATERS = {
 		needsKey: false,
 		updateAvailable: '0' !== String( getConfig( 'pluginUpdateStatus' ) ),
 		versionAvailable: getConfig( 'pluginUpdateStatus' ),
-		autoUpdates: parseInt( getConfig( 'pluginAutoUpdate' ), 10 ),
+		autoUpdates: parseInt( getConfig( 'pluginAutoUpdate' ) || 0, 10 ),
 		displayUpdatedOn: false,
 	},
 	THEME: {
@@ -68,7 +68,7 @@ export const UPDATERS = {
 		needsKey: false,
 		updateAvailable: '0' !== String( getConfig( 'themeUpdateStatus' ) ),
 		versionAvailable: getConfig( 'themeUpdateStatus' ),
-		autoUpdates: parseInt( getConfig( 'themeAutoUpdate' ), 10 ),
+		autoUpdates: parseInt( getConfig( 'themeAutoUpdate' ) || 0, 10 ),
 		displayUpdatedOn: false,
 	},
 };
