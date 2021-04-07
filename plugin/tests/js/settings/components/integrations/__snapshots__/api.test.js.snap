@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings: Switch matches snapshot 1`] = `
+<div>
+  <div
+    class="material-settings__api mdc-layout-grid"
+  >
+    <div
+      class="mdc-dialog"
+    >
+      <div
+        class="mdc-dialog__container"
+      >
+        <div
+          aria-describedby="dialog-content-0"
+          aria-labelledby="dialog-title-0"
+          aria-modal="true"
+          class="mdc-dialog__surface"
+          role="alertdialog"
+        >
+          <h2
+            class="mdc-dialog__title"
+            id="dialog-title-0"
+          >
+            Remove Google API Key?
+          </h2>
+          <div
+            class="mdc-dialog__content"
+            id="dialog-content-0"
+          >
+            This action is permanent and cannot be undone
+          </div>
+          <div
+            class="mdc-dialog__actions"
+          >
+            <button
+              class="mdc-button mdc-dialog__button"
+              type="button"
+            >
+              <div
+                class="mdc-button__ripple"
+              />
+              <span
+                class="mdc-button__label"
+              >
+                Cancel
+              </span>
+            </button>
+            <button
+              class="mdc-button mdc-dialog__button"
+              type="button"
+            >
+              <div
+                class="mdc-button__ripple"
+              />
+              <span
+                class="mdc-button__label"
+              >
+                Remove
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mdc-dialog__scrim"
+      />
+    </div>
+    <div
+      class="mdc-layout-grid__inner"
+    >
+      <div
+        class="components-base-control material-settings__api-input mdc-layout-grid__cell"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <input
+            class="components-text-control__input"
+            id="inspector-text-control-0"
+            placeholder="Google API Key"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="mdc-layout-grid__cell"
+      >
+        <button
+          class="mdc-button mdc-button--raised"
+          disabled=""
+        >
+          <span
+            class="mdc-button__label"
+          >
+            Activate
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
