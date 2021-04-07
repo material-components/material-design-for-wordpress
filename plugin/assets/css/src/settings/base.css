@@ -1,0 +1,66 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.material-settings {
+	--mdc-typography-headline1-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline2-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline3-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline4-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline5-font-family: "Roboto", sans-serif;
+	--mdc-typography-headline6-font-family: "Roboto", sans-serif;
+	--mdc-typography-subtitle1-font-family: "Roboto", sans-serif;
+	--mdc-typography-subtitle2-font-family: "Roboto", sans-serif;
+	--mdc-typography-font-family: "Roboto", sans-serif;
+	--mdc-typography-body1-font-family: "Roboto", sans-serif;
+	--mdc-typography-body2-font-family: "Roboto", sans-serif;
+	--mdc-typography-caption-font-family: "Roboto", sans-serif;
+	--mdc-typography-button-font-family: "Roboto", sans-serif;
+	--mdc-typography-overline-font-family: "Roboto", sans-serif;
+	--material-design-settings-background-color: #fff;
+	--material-design-settings-primary-color: #212121;
+	--material-design-settings-primary-text: #fff;
+	--material-design-wizard-primary-color: #212121;
+	--material-design-settings-error-color: #dc3232;
+
+	& .mdc-button {
+		--mdc-theme-primary: var(--material-design-settings-primary-color);
+		--mdc-theme-on-primary: var(--material-design-settings-primary-text);
+	}
+
+	& h1,
+	& h3,
+	& h4 {
+		margin-top: 0;
+	}
+
+	& p {
+		font-size: 16px;
+		margin: 0;
+	}
+
+	& .material-settings__updates {
+		margin-top: 24px;
+	}
+
+	& .mdc-button--raised .mdc-circular-progress {
+		--mdc-theme-primary: #fff;
+	}
+
+	& .mdc-button.is-loading {
+		text-align: left;
+		width: 105px;
+	}
+}
