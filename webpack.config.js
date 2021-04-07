@@ -123,6 +123,14 @@ const assets = {
 				'@wordpress/rich-text',
 			],
 		},
+		{
+			name: 'Settings',
+			chunk: 'settings',
+			entry: [
+				'./plugin/assets/src/settings/index.js',
+				'./plugin/assets/css/src/settings.css',
+			],
+		},
 	],
 	theme: [
 		{

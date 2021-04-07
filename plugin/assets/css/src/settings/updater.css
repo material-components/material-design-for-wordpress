@@ -1,0 +1,18 @@
+.material-settings__updater {
+	background-color: var(--material-design-settings-background-color);
+	border-radius: 8px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+	margin-bottom: 15px;
+
+	& .material-settings__message {
+		align-items: center;
+		color: var(--material-design-settings-error-color);
+		display: flex;
+	}
+
+	& .material-settings__message-text {
+		font-size: 16px;
+		font-weight: 500;
+		margin-left: 10px;
+	}
+}
