@@ -85,7 +85,7 @@ const Updater = ( {
 
 	const handleAutoUpdateToggle = () => {
 		dispatch( { type: ACTIONS.TOGGLE_UPDATES, payload: { type } } );
-		toggleAutoUpdate( type );
+		toggleAutoUpdate( type, checked );
 	};
 
 	return (
