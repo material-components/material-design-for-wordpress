@@ -125,36 +125,6 @@ class Design_Assets_REST_Controller extends \WP_REST_Controller {
 				'schema' => [ $this, 'get_item_schema' ],
 			]
 		);
-
-		register_rest_route(
-			$this->namespace,
-			'/' . $this->rest_base . '/register-api-key',
-			[
-				[
-					'methods'             => \WP_REST_Server::CREATABLE,
-					'callback'            => [ $this, 'register_api_key' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
-				],
-				'schema' => [ $this, 'get_item_schema' ],
-			]
-		);
-
-		register_rest_route(
-			$this->namespace,
-			'/' . $this->rest_base . '/toggle-auto-updates',
-			[
-				[
-					'methods'             => \WP_REST_Server::CREATABLE,
-					'callback'            => [ $this, 'toggle_auto_updates' ],
-					'permission_callback' => function( WP_REST_Request $request ) {
-						return current_user_can( 'manage_options' );
-					},
-				],
-				'schema' => [ $this, 'get_item_schema' ],
-			]
-		);
 	}
 
 	/**
