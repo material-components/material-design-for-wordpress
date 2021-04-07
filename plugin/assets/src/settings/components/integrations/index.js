@@ -79,6 +79,9 @@ const Integrations = () => {
 						lastUpdated={ state.updaters[ key ].lastUpdated }
 						type={ UPDATERS[ key ].type }
 						apiStatus={ state.apiStatus }
+						updateAvailable={
+							state.updaters[ UPDATERS[ key ].type ].updateAvailable
+						}
 					/>
 				) ) }
 			</div>
