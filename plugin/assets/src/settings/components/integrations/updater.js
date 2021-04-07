@@ -44,10 +44,11 @@ const Updater = ( {
 	type,
 	displayUpdatedOn,
 	versionAvailable,
+	apiStatus,
 } ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
 	const { state, dispatch } = useContext( SettingsContext );
-	const isDisabled = needsKey && 'ok' !== state.apiStatus;
+	const isDisabled = needsKey && 'ok' !== apiStatus;
 	const updatedDate = lastUpdated
 		? dateI18n( 'M j, Y, h:i A', lastUpdated )
 		: __( 'never', 'material-design' );

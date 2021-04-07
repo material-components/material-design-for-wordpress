@@ -80,6 +80,7 @@ const Integrations = () => {
 						type={ UPDATERS[ key ].type }
 						displayUpdatedOn={ UPDATERS[ key ].displayUpdatedOn }
 						versionAvailable={ UPDATERS[ key ].versionAvailable }
+						apiStatus={ state.apiStatus }
 					/>
 				) ) }
 			</div>

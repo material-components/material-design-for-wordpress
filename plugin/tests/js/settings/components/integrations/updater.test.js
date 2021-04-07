@@ -32,6 +32,7 @@ const baseProps = {
 	lastUpdated: parseInt( Date.now(), 10 ),
 	needsKey: true,
 	checked: true,
+	apiStatus: 'ok',
 };
 
 const setup = props => {
@@ -45,6 +46,16 @@ const setup = props => {
 describe( 'Settings: Updater', () => {
 	it( 'matches snapshot', () => {
 		const { container } = setup( baseProps );
+		expect( container ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when disabled', () => {
+		const props = {
+			...baseProps,
+			apiStatus: 'install',
+		};
+
+		const { container } = setup( props );
 		expect( container ).toMatchSnapshot();
 	} );
 } );
