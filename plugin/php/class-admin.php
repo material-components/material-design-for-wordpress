@@ -309,10 +309,10 @@ class Admin extends Module_Base {
 					'iconsAutoUpdate'    => esc_html( $this->plugin->assets_rest_controller->get_icons_auto_update() ),
 					'fontsUpdateStatus'  => esc_html( $this->plugin->assets_rest_controller->get_fonts_update_status() ),
 					'iconsUpdateStatus'  => esc_html( $this->plugin->assets_rest_controller->get_icons_update_status() ),
-					'pluginAutoUpdate'   => in_array( 'material-design/material-design.php', get_site_option( 'auto_update_plugins', [] ), true ),
+					'pluginAutoUpdate'   => in_array( $plugin_file, get_site_option( 'auto_update_plugins', [] ), true ),
 					'themeAutoUpdate'    => in_array( Plugin::THEME_SLUG, get_site_option( 'auto_update_themes', [] ), true ),
 					'pluginUpdateStatus' => isset( $plugin_updates->response[ $plugin_file ] ) ? 1 : 0,
-					'pluginUpdateStatus' => isset( $theme_updates->response[ Plugin::THEME_SLUG ] ) ? 1 : 0,
+					'themeUpdateStatus'  => isset( $theme_updates->response[ Plugin::THEME_SLUG ] ) ? 1 : 0,
 				]
 			);
 		}
