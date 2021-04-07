@@ -79,6 +79,7 @@ const Integrations = () => {
 						lastUpdated={ state.updaters[ key ].lastUpdated }
 						type={ UPDATERS[ key ].type }
 						displayUpdatedOn={ UPDATERS[ key ].displayUpdatedOn }
+						versionAvailable={ UPDATERS[ key ].versionAvailable }
 					/>
 				) ) }
 			</div>
