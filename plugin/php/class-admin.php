@@ -295,16 +295,18 @@ class Admin extends Module_Base {
 				'material-settings',
 				'materialDesignWizard',
 				[
-					'restPath'         => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-					'redirect'         => esc_url( admin_url( 'themes.php' ) ),
-					'nonce'            => wp_create_nonce( 'wp_rest' ),
-					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
-					'assetsRestPath'   => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
-					'apiStatus'        => esc_html( $this->plugin->assets_rest_controller->get_api_status() ),
-					'fontsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_fonts_last_updated() ),
-					'iconsLastUpdated' => esc_html( $this->plugin->assets_rest_controller->get_icons_last_updated() ),
-					'fontsAutoUpdate'  => esc_html( $this->plugin->assets_rest_controller->get_fonts_auto_update() ),
-					'iconsAutoUpdate'  => esc_html( $this->plugin->assets_rest_controller->get_icons_auto_update() ),
+					'restPath'          => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'redirect'          => esc_url( admin_url( 'themes.php' ) ),
+					'nonce'             => wp_create_nonce( 'wp_rest' ),
+					'themeStatus'       => esc_html( $this->plugin->theme_status() ),
+					'assetsRestPath'    => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
+					'apiStatus'         => esc_html( $this->plugin->assets_rest_controller->get_api_status() ),
+					'fontsLastUpdated'  => esc_html( $this->plugin->assets_rest_controller->get_fonts_last_updated() ),
+					'iconsLastUpdated'  => esc_html( $this->plugin->assets_rest_controller->get_icons_last_updated() ),
+					'fontsAutoUpdate'   => esc_html( $this->plugin->assets_rest_controller->get_fonts_auto_update() ),
+					'iconsAutoUpdate'   => esc_html( $this->plugin->assets_rest_controller->get_icons_auto_update() ),
+					'fontsUpdateStatus' => esc_html( $this->plugin->assets_rest_controller->get_fonts_update_status() ),
+					'iconsUpdateStatus' => esc_html( $this->plugin->assets_rest_controller->get_icons_update_status() ),
 				]
 			);
 		}

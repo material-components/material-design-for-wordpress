@@ -1,4 +1,20 @@
 /**
+ * Copyright 2021 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * External dependencies
  */
 import uniqueId from 'lodash/uniqueId';
@@ -34,11 +50,11 @@ const Integrations = () => {
 							'Integrate %s and %s to get the most out of the Material Theme.',
 							'material-design'
 						),
-						`<a href="https://fonts.google.com/">${ __(
+						`<a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">${ __(
 							'Google Fonts',
 							'material-design'
 						) }</a>`,
-						`<a href="https://material.io/resources/icons/?style=baseline">${ __(
+						`<a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="noopener noreferrer">${ __(
 							'Material icons',
 							'material-design'
 						) }</a>`
@@ -78,7 +94,7 @@ const Integrations = () => {
 							'To use Google Fonts in Material Theme, please activate your %s and enable updates',
 							'material-design'
 						),
-						`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey">${ __(
+						`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey" target="_blank" rel="noopener noreferrer">${ __(
 							'Google API Key',
 							'material-design'
 						) }</a>`

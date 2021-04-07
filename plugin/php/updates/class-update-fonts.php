@@ -77,10 +77,8 @@ class Update_Fonts extends Updates_API_Base {
 
 		if ( ! empty( $api_key ) ) {
 			$this->api_key = $api_key;
-		} elseif ( ! empty( get_option( get_plugin_instance()->get_api_slug() ) ) ) {
-			$this->api_key = get_option( get_plugin_instance()->get_api_slug() );
-		} elseif ( ! empty( get_option( self::API_KEY_SLUG ) ) ) {
-			$this->api_key = get_option( self::API_KEY_SLUG );
+		} elseif ( ! empty( get_option( self::get_api_slug() ) ) ) {
+			$this->api_key = get_option( self::get_api_slug() );
 		} else {
 			$this->api_key = '';
 		}
@@ -200,6 +198,20 @@ class Update_Fonts extends Updates_API_Base {
 	}
 
 	/**
+	 * Update fonts from Google Font API.
+	 *
+	 * @param boolean $write_response Shoud write the reponse to file.
+	 * @return mixed
+	 */
+	public function update( $write_response = false ) {
+		if ( $this->should_check_for_updates() ) {
+			return $this->get_fonts( $write_response );
+		}
+
+		return false;
+	}
+
+	/**
 	 * Returns error message
 	 *
 	 * @return string|void
@@ -255,7 +267,7 @@ class Update_Fonts extends Updates_API_Base {
 	 * Add auto update option in database
 	 * Allow or restrict auto updates
 	 *
-	 * @param bool $activate Wheter to auto update items. Defaults to false
+	 * @param bool $activate Wheter to auto update items. Defaults to false.
 	 */
 	public function toggle_auto_updates( $activate = false ) {
 		return update_option( self::AUTO_UPDATE_SLUG, $activate );

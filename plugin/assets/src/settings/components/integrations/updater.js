@@ -1,4 +1,20 @@
 /**
+ * Copyright 2021 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * External dependencies
  */
 import _uniqueId from 'lodash/uniqueId';
@@ -34,16 +50,28 @@ const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 	const handleUpdate = response => {
 		setIsUpdating( true );
 
-		update( type ).then( () => {
-			setIsUpdating( false );
-			dispatch( {
-				type: ACTIONS.SET_UPDATED,
-				payload: {
-					type,
-					lastUpdated: response.lastUpdated,
-				},
+		update( type )
+			.then( () => {
+				setIsUpdating( false );
+				dispatch( {
+					type: ACTIONS.SET_UPDATED,
+					payload: {
+						type,
+						lastUpdated: response.lastUpdated,
+					},
+				} );
+			} )
+			.catch( error => {
+				dispatch( {
+					type: ACTIONS.ADD_ERROR,
+					payload: {
+						id: 'api_error',
+						error: error.message,
+					},
+				} );
+				console.error( error );
+				setIsUpdating( false );
 			} );
-		} );
 	};
 
 	const handleAutoUpdateToggle = () => {
@@ -55,7 +83,7 @@ const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 		<div className="material-settings__updater">
 			<div className="mdc-layout-grid">
 				<div className="mdc-layout-grid__inner">
-					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-8 mdc-layout-grid__cell--align-middle">
+					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle">
 						<h3 className="mdc-typography--headline6">{ title }</h3>
 
 						{ isDisabled && (
@@ -67,7 +95,7 @@ const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 											'To enable Google Fonts updates please %s first',
 											'material-design'
 										),
-										`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey">${ __(
+										`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey" target="_blank" rel="noopener noreferrer">${ __(
 											'activate Google API Key',
 											'material-design'
 										) }</a>`
@@ -86,7 +114,7 @@ const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
 						) }
 					</div>
 
-					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end">
+					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end">
 						{ ! isDisabled && (
 							<Switch
 								checked={ checked }

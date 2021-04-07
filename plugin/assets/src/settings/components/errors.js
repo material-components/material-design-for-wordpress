@@ -17,27 +17,32 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { useContext } from '@wordpress/element';
 
 /**
  * Internal dependencies
  */
-import { SettingsProvider } from '../context';
-import Errors from './errors';
-import Integrations from './integrations';
+import SettingsContext from '../context';
 
-const Settings = () => {
-	return (
-		<SettingsProvider>
-			<h1 className="mdc-typography--headline3">
-				{ __( 'Material Settings', 'material-design' ) }
-			</h1>
+const Errors = () => {
+	const { state } = useContext( SettingsContext );
 
-			<Errors />
-
-			<Integrations />
-		</SettingsProvider>
-	);
+	return Object.keys( state.errors ).map( key => (
+		<div
+			key={ key }
+			className="material-settings__message material-settings__message--error"
+		>
+			<i
+				className="material-icons mdc-button__icon leading-icon"
+				aria-hidden="true"
+			>
+				error
+			</i>
+			<span className="material-settings__message-text">
+				{ state.errors[ key ] }
+			</span>
+		</div>
+	) );
 };
 
-export default Settings;
+export default Errors;
