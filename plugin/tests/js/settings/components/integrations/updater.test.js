@@ -33,6 +33,7 @@ const baseProps = {
 	needsKey: true,
 	checked: true,
 	apiStatus: 'ok',
+	updateAvailable: true,
 };
 
 const setup = props => {
@@ -63,6 +64,16 @@ describe( 'Settings: Updater', () => {
 		const props = {
 			...baseProps,
 			lastUpdated: null,
+		};
+
+		const { container } = setup( props );
+		expect( container ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when should not update', () => {
+		const props = {
+			...baseProps,
+			updateAvailable: false,
 		};
 
 		const { container } = setup( props );
