@@ -43,6 +43,7 @@ const Updater = ( {
 	checked,
 	type,
 	displayUpdatedOn,
+	versionAvailable,
 } ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
 	const { state, dispatch } = useContext( SettingsContext );
@@ -90,7 +91,7 @@ const Updater = ( {
 	return (
 		<div
 			className={ classNames( 'material-settings__updater', {
-				'no__last-update': false === displayUpdatedOn,
+				'no__last-update': false === displayUpdatedOn && ! versionAvailable,
 			} ) }
 		>
 			<div className="mdc-layout-grid">
@@ -121,6 +122,15 @@ const Updater = ( {
 								{ sprintf(
 									__( 'Last update on %s', 'material-design' ),
 									updatedDate
+								) }
+							</p>
+						) }
+
+						{ versionAvailable && (
+							<p className="mdc-typography--body1">
+								{ sprintf(
+									__( 'New version %s is available.', 'material-design' ),
+									versionAvailable
 								) }
 							</p>
 						) }
