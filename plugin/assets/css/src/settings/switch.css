@@ -1,0 +1,8 @@
+.material-settings__switch {
+	align-items: center;
+	display: flex;
+
+	& .mdc-switch {
+		margin-right: 15px;
+	}
+}

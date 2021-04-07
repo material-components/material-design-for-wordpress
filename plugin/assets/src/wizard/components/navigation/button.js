@@ -15,6 +15,11 @@
  */
 
 /**
+ * External dependencies
+ */
+import classNames from 'classnames';
+
+/**
  * Internal dependencies
  */
 import { Loader } from './loader';
@@ -40,11 +45,12 @@ const Button = props => {
 	} = props;
 	const showLeadingIcon = ! loading && leadingIcon;
 	const showTrailingIcon = ! loading && trailingIcon;
-	const loadingClass = loading ? ' is-loading' : '';
 
 	return (
 		<button
-			className={ `mdc-button ${ style }${ loadingClass }` }
+			className={ classNames( 'mdc-button', style, {
+				'is-loading': loading,
+			} ) }
 			onClick={ onClick }
 			disabled={ disabled }
 		>

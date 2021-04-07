@@ -71,14 +71,8 @@ class Admin_Updates {
 	 * @throws \Exception Exception.
 	 */
 	public function update_fonts( $write_response = true ) {
-
-		$expired = get_transient( Update_Fonts::TRANSIENT );
-		if ( false !== $expired ) {
-			return false;
-		}
-
 		$fonts = new Update_Fonts( false );
-		$fonts->get_fonts( $write_response );
+		$fonts->update( $write_response );
 
 		return true;
 	}
@@ -91,14 +85,8 @@ class Admin_Updates {
 	 * @return bool
 	 */
 	public function update_icons( $write_response = true ) {
-
-		$expired = get_transient( Update_Icons::TRANSIENT );
-		if ( false !== $expired ) {
-			return false;
-		}
-
 		$icons = new Update_Icons( false );
-		$icons->get_icons( $write_response );
+		$icons->update( $write_response );
 
 		return true;
 	}

@@ -37,6 +37,10 @@ class Update_Icons extends Updates_API_Base {
 
 	const TRANSIENT = 'google-icons-json';
 
+	const LAST_UPDATED = 'google-icons-last-updated';
+
+	const AUTO_UPDATE_SLUG = 'google-icons-auto-update';
+
 	/**
 	 * URL for holding the codepoints data
 	 *
@@ -80,6 +84,9 @@ class Update_Icons extends Updates_API_Base {
 			$new        = $this->parse_codepoints( $codepoints, $write_output );
 
 			set_transient( self::TRANSIENT, time(), DAY_IN_SECONDS );
+
+			// Save last updated, never expire.
+			set_transient( self::LAST_UPDATED, time() );
 		} else {
 			$new = $this->file_get_contents( get_plugin_instance()->dir_path . '/assets/fonts/icons.json' );
 			$new = json_decode( $new );
@@ -161,5 +168,28 @@ class Update_Icons extends Updates_API_Base {
 		}
 
 		return $codepoints;
+	}
+
+	/**
+	 * Update icons from source.
+	 *
+	 * @param boolean $write_response Shoud write the reponse to file.
+	 * @return mixed
+	 */
+	public function update( $write_response = false ) {
+		if ( $this->should_check_for_updates() ) {
+			return $this->get_icons( $write_response );
+		}
+
+		return false;
+	}
+
+	/**
+	 * Get last updated timestamp
+	 *
+	 * @return int timestamp
+	 */
+	public static function get_last_updated() {
+		return get_transient( self::LAST_UPDATED );
 	}
 }
