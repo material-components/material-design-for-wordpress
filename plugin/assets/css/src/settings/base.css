@@ -46,6 +46,10 @@
 		margin-top: 0;
 	}
 
+	& h2 {
+		margin-top: 32px;
+	}
+
 	& p {
 		font-size: 16px;
 		margin: 0;
@@ -62,5 +66,21 @@
 	& .mdc-button.is-loading {
 		text-align: left;
 		width: 105px;
+	}
+
+	& .material-settings__message {
+		align-items: center;
+		color: var(--material-design-settings-error-color);
+		display: flex;
+	}
+
+	& .material-settings__message-text {
+		font-size: 16px;
+		font-weight: 500;
+		margin-left: 10px;
+	}
+
+	.mdc-dialog .mdc-dialog__title {
+		margin-top: 0;
 	}
 }
