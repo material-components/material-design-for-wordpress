@@ -293,8 +293,8 @@ class Admin extends Module_Base {
 			$plugin_updates = get_site_transient( 'update_plugins' );
 			$theme_updates  = get_site_transient( 'update_themes' );
 
-			$plugin_status = isset( $plugin_updates->response[ $plugin_file ] ) ? ( (array) $plugin_updates->response[ $plugin_file ] )['new_version'] : '';
-			$theme_status  = isset( $theme_updates->response[ Plugin::THEME_SLUG ] ) ? ( (array) $theme_updates->response[ Plugin::THEME_SLUG ] )['new_version'] : '';
+			$plugin_status = isset( $plugin_updates->response[ $plugin_file ] ) ? ( (object) $plugin_updates->response[ $plugin_file ] )->new_version : '';
+			$theme_status  = isset( $theme_updates->response[ Plugin::THEME_SLUG ] ) ? ( (object) $theme_updates->response[ Plugin::THEME_SLUG ] )->new_version : '';
 
 			wp_localize_script(
 				'material-settings',
