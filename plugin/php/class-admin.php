@@ -293,6 +293,9 @@ class Admin extends Module_Base {
 			$plugin_updates = get_site_transient( 'update_plugins' );
 			$theme_updates  = get_site_transient( 'update_themes' );
 
+			$plugin_status = isset( $plugin_updates->response[ $plugin_file ] ) ? ( (array) $plugin_updates->response[ $plugin_file ] )['new_version'] : 0;
+			$theme_status  = isset( $theme_updates->response[ Plugin::THEME_SLUG ] ) ? ( (array) $theme_updates->response[ Plugin::THEME_SLUG ] )['new_version'] : 0;
+
 			wp_localize_script(
 				'material-settings',
 				'materialDesignWizard',
@@ -311,8 +314,8 @@ class Admin extends Module_Base {
 					'iconsUpdateStatus'  => esc_html( $this->plugin->assets_rest_controller->get_icons_update_status() ),
 					'pluginAutoUpdate'   => in_array( $plugin_file, get_site_option( 'auto_update_plugins', [] ), true ),
 					'themeAutoUpdate'    => in_array( Plugin::THEME_SLUG, get_site_option( 'auto_update_themes', [] ), true ),
-					'pluginUpdateStatus' => isset( $plugin_updates->response[ $plugin_file ] ) ? 1 : 0,
-					'themeUpdateStatus'  => isset( $theme_updates->response[ Plugin::THEME_SLUG ] ) ? 1 : 0,
+					'pluginUpdateStatus' => $plugin_status,
+					'themeUpdateStatus'  => $theme_status,
 				]
 			);
 		}
