@@ -35,10 +35,17 @@ import Switch from './switch';
 import Button from '../../../wizard/components/navigation/button';
 import { update, toggleAutoUpdate } from '../../utils';
 
-const Updater = ( { title, lastUpdated, needsKey, checked, type } ) => {
+const Updater = ( {
+	title,
+	lastUpdated,
+	needsKey,
+	checked,
+	type,
+	apiStatus,
+} ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
 	const { state, dispatch } = useContext( SettingsContext );
-	const isDisabled = needsKey && 'ok' !== state.apiStatus;
+	const isDisabled = needsKey && 'ok' !== apiStatus;
 	const updatedDate = lastUpdated
 		? dateI18n( 'M j, Y, h:i A', lastUpdated )
 		: __( 'never', 'material-design' );

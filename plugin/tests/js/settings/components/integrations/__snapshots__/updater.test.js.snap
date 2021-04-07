@@ -22,38 +22,151 @@ exports[`Settings: Updater matches snapshot 1`] = `
           <p
             class="mdc-typography--body1"
           >
-            To enable Google Fonts updates please 
-            <a
-              href="https://developers.google.com/fonts/docs/developer_api#APIKey"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              activate Google API Key
-            </a>
-             first
+            Last update on Apr 6, 2021, 11:14 PM
           </p>
         </div>
         <div
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end"
-        />
+        >
+          <div
+            class="material-settings__switch"
+          >
+            <div
+              class="mdc-switch material-wizard-switch mdc-switch--checked"
+            >
+              <div
+                class="mdc-switch__track"
+              />
+              <div
+                class="mdc-switch__thumb-underlay"
+              >
+                <div
+                  class="mdc-switch__thumb"
+                />
+                <input
+                  aria-checked="true"
+                  checked=""
+                  class="mdc-switch__native-control"
+                  id="updater-1"
+                  role="switch"
+                  type="checkbox"
+                />
+              </div>
+            </div>
+            <label
+              for="updater-1"
+              id="label-updater-1"
+            >
+              Auto-updates enabled
+            </label>
+          </div>
+        </div>
         <div
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end"
         >
-          <div
-            class="material-settings__message material-settings__message--error"
+          <button
+            class="mdc-button mdc-button--raised"
+            disabled=""
           >
             <i
               aria-hidden="true"
               class="material-icons mdc-button__icon leading-icon"
             >
-              error
+              done
             </i>
             <span
-              class="material-settings__message-text"
+              class="mdc-button__label"
             >
-              Updates disabled
+              Updated
             </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Settings: Updater matches snapshot when disabled 1`] = `
+<div>
+  <div
+    class="material-settings__updater"
+  >
+    <div
+      class="mdc-layout-grid"
+    >
+      <div
+        class="mdc-layout-grid__inner"
+      >
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
+        >
+          <h3
+            class="mdc-typography--headline6"
+          >
+            Google Fonts
+          </h3>
+          <p
+            class="mdc-typography--body1"
+          >
+            Last update on Apr 6, 2021, 11:14 PM
+          </p>
+        </div>
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end"
+        >
+          <div
+            class="material-settings__switch"
+          >
+            <div
+              class="mdc-switch material-wizard-switch mdc-switch--checked"
+            >
+              <div
+                class="mdc-switch__track"
+              />
+              <div
+                class="mdc-switch__thumb-underlay"
+              >
+                <div
+                  class="mdc-switch__thumb"
+                />
+                <input
+                  aria-checked="true"
+                  checked=""
+                  class="mdc-switch__native-control"
+                  id="updater-2"
+                  role="switch"
+                  type="checkbox"
+                />
+              </div>
+            </div>
+            <label
+              for="updater-2"
+              id="label-updater-2"
+            >
+              Auto-updates enabled
+            </label>
           </div>
+        </div>
+        <div
+          class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2 mdc-layout-grid__cell--align-middle material-settings__cell--justify-end"
+        >
+          <button
+            class="mdc-button mdc-button--raised"
+            disabled=""
+          >
+            <i
+              aria-hidden="true"
+              class="material-icons mdc-button__icon leading-icon"
+            >
+              done
+            </i>
+            <span
+              class="mdc-button__label"
+            >
+              Updated
+            </span>
+          </button>
         </div>
       </div>
     </div>

@@ -78,6 +78,7 @@ const Integrations = () => {
 						checked={ state.updaters[ key ].autoUpdates }
 						lastUpdated={ state.updaters[ key ].lastUpdated }
 						type={ UPDATERS[ key ].type }
+						apiStatus={ state.apiStatus }
 					/>
 				) ) }
 			</div>
