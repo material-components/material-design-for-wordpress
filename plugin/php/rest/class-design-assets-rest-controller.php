@@ -27,6 +27,7 @@ namespace MaterialDesign\Plugin\Rest;
 
 use MaterialDesign\Plugin\Updates\Update_Fonts;
 use MaterialDesign\Plugin\Updates\Update_Icons;
+use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
 
