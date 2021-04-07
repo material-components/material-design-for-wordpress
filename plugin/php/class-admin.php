@@ -40,8 +40,6 @@ class Admin extends Module_Base {
 		add_action( 'switch_theme', [ $this, 'switch_theme_material' ], 10, 2 );
 		add_action( 'admin_notices', [ $this, 'theme_not_installed_notice' ], 10, 2 );
 		add_action( 'admin_notices', [ $this, 'plugin_activated_notice' ], 9, 2 );
-		add_filter( 'auto_update_plugin', [ $this, 'enable_plugin_auto_update' ], 10, 2 );
-		add_filter( 'auto_update_theme', [ $this, 'enable_theme_auto_update' ], 10, 2 );
 	}
 
 	/**
@@ -291,22 +289,30 @@ class Admin extends Module_Base {
 				true
 			);
 
+			$plugin_file    = 'material-design/material-design.php';
+			$plugin_updates = get_site_transient( 'update_plugins' );
+			$theme_updates  = get_site_transient( 'update_themes' );
+
 			wp_localize_script(
 				'material-settings',
 				'materialDesignWizard',
 				[
-					'restPath'          => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
-					'redirect'          => esc_url( admin_url( 'themes.php' ) ),
-					'nonce'             => wp_create_nonce( 'wp_rest' ),
-					'themeStatus'       => esc_html( $this->plugin->theme_status() ),
-					'assetsRestPath'    => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
-					'apiStatus'         => esc_html( $this->plugin->assets_rest_controller->get_api_status() ),
-					'fontsLastUpdated'  => esc_html( $this->plugin->assets_rest_controller->get_fonts_last_updated() ),
-					'iconsLastUpdated'  => esc_html( $this->plugin->assets_rest_controller->get_icons_last_updated() ),
-					'fontsAutoUpdate'   => esc_html( $this->plugin->assets_rest_controller->get_fonts_auto_update() ),
-					'iconsAutoUpdate'   => esc_html( $this->plugin->assets_rest_controller->get_icons_auto_update() ),
-					'fontsUpdateStatus' => esc_html( $this->plugin->assets_rest_controller->get_fonts_update_status() ),
-					'iconsUpdateStatus' => esc_html( $this->plugin->assets_rest_controller->get_icons_update_status() ),
+					'restPath'           => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'redirect'           => esc_url( admin_url( 'themes.php' ) ),
+					'nonce'              => wp_create_nonce( 'wp_rest' ),
+					'themeStatus'        => esc_html( $this->plugin->theme_status() ),
+					'assetsRestPath'     => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
+					'apiStatus'          => esc_html( $this->plugin->assets_rest_controller->get_api_status() ),
+					'fontsLastUpdated'   => esc_html( $this->plugin->assets_rest_controller->get_fonts_last_updated() ),
+					'iconsLastUpdated'   => esc_html( $this->plugin->assets_rest_controller->get_icons_last_updated() ),
+					'fontsAutoUpdate'    => esc_html( $this->plugin->assets_rest_controller->get_fonts_auto_update() ),
+					'iconsAutoUpdate'    => esc_html( $this->plugin->assets_rest_controller->get_icons_auto_update() ),
+					'fontsUpdateStatus'  => esc_html( $this->plugin->assets_rest_controller->get_fonts_update_status() ),
+					'iconsUpdateStatus'  => esc_html( $this->plugin->assets_rest_controller->get_icons_update_status() ),
+					'pluginAutoUpdate'   => in_array( 'material-design/material-design.php', get_site_option( 'auto_update_plugins', [] ), true ),
+					'themeAutoUpdate'    => in_array( Plugin::THEME_SLUG, get_site_option( 'auto_update_themes', [] ), true ),
+					'pluginUpdateStatus' => isset( $plugin_updates->response[ $plugin_file ] ) ? 1 : 0,
+					'pluginUpdateStatus' => isset( $theme_updates->response[ Plugin::THEME_SLUG ] ) ? 1 : 0,
 				]
 			);
 		}
@@ -461,37 +467,5 @@ class Admin extends Module_Base {
 				$action_link
 			)
 		);
-	}
-
-	/**
-	 * Enable auto updates for the plugin.
-	 *
-	 * @param bool|null $update Whether to update.
-	 * @param object    $item   The update offer.
-	 *
-	 * @return bool
-	 */
-	public function enable_plugin_auto_update( $update, $item ) {
-		if ( 'material-design' === $item->slug ) {
-			return true;
-		}
-
-		return $update;
-	}
-
-	/**
-	 * Enable auto updates for the theme.
-	 *
-	 * @param bool|null $update Whether to update.
-	 * @param object    $item   The update offer.
-	 *
-	 * @return bool
-	 */
-	public function enable_theme_auto_update( $update, $item ) {
-		if ( Plugin::THEME_SLUG === $item->slug ) {
-			return true;
-		}
-
-		return $update;
 	}
 }
