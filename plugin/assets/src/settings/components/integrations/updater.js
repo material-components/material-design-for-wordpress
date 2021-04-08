@@ -17,6 +17,7 @@
 /**
  * External dependencies
  */
+import classNames from 'classnames';
 import _uniqueId from 'lodash/uniqueId';
 
 /**
@@ -43,6 +44,8 @@ const Updater = ( {
 	type,
 	apiStatus,
 	updateAvailable,
+	displayUpdatedOn,
+	versionAvailable,
 } ) => {
 	const [ id ] = useState( _uniqueId( 'updater-' ) );
 	const { dispatch } = useContext( SettingsContext );
@@ -83,11 +86,15 @@ const Updater = ( {
 
 	const handleAutoUpdateToggle = () => {
 		dispatch( { type: ACTIONS.TOGGLE_UPDATES, payload: { type } } );
-		toggleAutoUpdate( type );
+		toggleAutoUpdate( type, checked );
 	};
 
 	return (
-		<div className="material-settings__updater">
+		<div
+			className={ classNames( 'material-settings__updater', {
+				'no__last-update': false === displayUpdatedOn && ! versionAvailable,
+			} ) }
+		>
 			<div className="mdc-layout-grid">
 				<div className="mdc-layout-grid__inner">
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle">
@@ -111,11 +118,20 @@ const Updater = ( {
 							></p>
 						) }
 
-						{ ! isDisabled && (
+						{ ! isDisabled && false !== displayUpdatedOn && (
 							<p className="mdc-typography--body1">
 								{ sprintf(
 									__( 'Last update on %s', 'material-design' ),
 									updatedDate
+								) }
+							</p>
+						) }
+
+						{ versionAvailable && (
+							<p className="mdc-typography--body1">
+								{ sprintf(
+									__( 'New version %s is available.', 'material-design' ),
+									versionAvailable
 								) }
 							</p>
 						) }

@@ -82,6 +82,8 @@ const Integrations = () => {
 						updateAvailable={
 							state.updaters[ UPDATERS[ key ].type ].updateAvailable
 						}
+						displayUpdatedOn={ UPDATERS[ key ].displayUpdatedOn }
+						versionAvailable={ UPDATERS[ key ].versionAvailable }
 					/>
 				) ) }
 			</div>
