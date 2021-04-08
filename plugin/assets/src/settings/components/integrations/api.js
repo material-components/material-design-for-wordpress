@@ -110,7 +110,7 @@ const Api = () => {
 						</button>
 						<button
 							type="button"
-							className="mdc-button mdc-dialog__button"
+							className="mdc-button mdc-dialog__button mdc-action__remove"
 							onClick={ removeApiKey }
 						>
 							<div className="mdc-button__ripple"></div>
