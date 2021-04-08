@@ -236,6 +236,11 @@ class Update_Fonts extends Updates_API_Base {
 		printf( '<div class="error"><p>%s</p></div>', wp_kses_post( $this->material_design_no_apikey() ) );
 	}
 
+	/**
+	 * Check for existance of api key
+	 *
+	 * @return bool Whether api key has been added
+	 */
 	public function has_api_key() {
 		return ! empty( $this->api_key );
 	}

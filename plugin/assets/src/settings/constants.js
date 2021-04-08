@@ -51,6 +51,26 @@ export const UPDATERS = {
 		updateAvailable: 'update' === getConfig( 'iconsUpdateStatus' ),
 		autoUpdates: parseInt( getConfig( 'iconsAutoUpdate' ), 10 ),
 	},
+	PLUGIN: {
+		title: __( 'Material Design Plugin', 'material-design' ),
+		type: 'PLUGIN',
+		lastUpdated: false,
+		needsKey: false,
+		updateAvailable: !! String( getConfig( 'pluginUpdateStatus' ) ),
+		versionAvailable: getConfig( 'pluginUpdateStatus' ),
+		autoUpdates: parseInt( getConfig( 'pluginAutoUpdate' ) || 0, 10 ),
+		displayUpdatedOn: false,
+	},
+	THEME: {
+		title: __( 'Material Design Theme', 'material-design' ),
+		type: 'THEME',
+		lastUpdated: false,
+		needsKey: false,
+		updateAvailable: !! String( getConfig( 'themeUpdateStatus' ) ),
+		versionAvailable: getConfig( 'themeUpdateStatus' ),
+		autoUpdates: parseInt( getConfig( 'themeAutoUpdate' ) || 0, 10 ),
+		displayUpdatedOn: false,
+	},
 };
 
 export const KEY_PLACEHOLDER = '•••••••••••••••••••••••••••••';

@@ -38,6 +38,12 @@ export const update = type => {
 	if ( type === UPDATERS.ICONS.type ) {
 		return updateIcons();
 	}
+
+	if ( isCoreUpdate( type ) ) {
+		return new Promise( () => {
+			window.location.href = getConfig( 'coreUpdateUrl' );
+		} );
+	}
 };
 
 /**
@@ -74,6 +80,9 @@ const updateIcons = () => {
 	} );
 };
 
+const isCoreUpdate = type =>
+	[ UPDATERS.PLUGIN.type, UPDATERS.THEME.type ].includes( type );
+
 /**
  * Save API Key in database
  *
@@ -99,10 +108,31 @@ export const setApiKey = key => {
  * Turn auto updates on/off
  *
  * @param {string} type Item to toggle updates
+ * @param {boolean} currentStatus Current status of the toggle.
  * @return {Promise} Request response
  */
-export const toggleAutoUpdate = type => {
+export const toggleAutoUpdate = ( type, currentStatus ) => {
 	return new Promise( ( resolve, reject ) => {
+		if ( isCoreUpdate( type ) ) {
+			// eslint-disable-next-line no-undef
+			const body = new FormData();
+			body.append( 'action', 'toggle-auto-updates' );
+			body.append( '_ajax_nonce', getConfig( 'autoUpdateNonce' ) );
+			body.append( 'state', currentStatus ? 'disable' : 'enable' );
+			body.append( 'type', type.toLowerCase() );
+			body.append( 'asset', getConfig( `${ type.toLowerCase() }AssetName` ) );
+
+			apiFetch( {
+				url: getConfig( 'autoUpdateUrl' ),
+				method: 'POST',
+				body,
+			} )
+				.then( resolve )
+				.catch( reject );
+
+			return;
+		}
+
 		apiFetch( {
 			path: getConfig( 'assetsRestPath' ) + 'toggle-auto-updates',
 			method: 'POST',
