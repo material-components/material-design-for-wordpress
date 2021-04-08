@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,25 +23,7 @@ import { render } from '@testing-library/react';
 /**
  * Internal dependencies
  */
-import PostsControl from '../../../../assets/src/block-editor/components/posts-control';
-
-jest.mock( '@woocommerce/components', () => {
-	return {
-		SearchListControl: props => {
-			return <div className={ props.className } />;
-		},
-	};
-} );
-
-jest.mock(
-	'../../../../assets/src/block-editor/hocs/with-searched-posts.js',
-	() => {
-		return {
-			__esModule: true,
-			default: Component => Component,
-		};
-	}
-);
+import SearchListItem from '../../../../../assets/src/block-editor/components/posts-control/item';
 
 /**
  * Render the component.
@@ -50,41 +32,31 @@ jest.mock(
  * @return {Function} A functional component.
  */
 const setup = props => {
-	return render( <PostsControl { ...props } /> );
+	return render( <SearchListItem { ...props } /> );
 };
 
-describe( 'PostsControl', () => {
+describe( 'SearchListControl', () => {
 	it( 'matches snapshot', () => {
 		const props = {
-			error: undefined,
-			onChange: jest.fn(),
-			onSearch: jest.fn(),
-			selected: [ 2 ],
-			posts: [
-				{
-					id: 1,
-				},
-				{
-					id: 2,
-				},
-				{
-					id: 3,
-				},
-			],
-			isLoading: false,
+			item: {
+				id: 2,
+				name: 'Example Post',
+				link: 'http://example.com',
+			},
+			onSelect: jest.fn(),
 		};
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );
 
-	it( 'matches snapshot when there is an error', () => {
+	it( 'matches snapshot when no link exists', () => {
 		const props = {
-			error: { type: 'general', message: 'Test error message' },
-			onChange: jest.fn(),
-			onSearch: jest.fn(),
-			selected: [],
-			posts: [],
-			isLoading: false,
+			item: {
+				id: 2,
+				name: 'Example Post',
+				link: '',
+			},
+			onSelect: jest.fn(),
 		};
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
