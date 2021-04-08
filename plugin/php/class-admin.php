@@ -319,6 +319,7 @@ class Admin extends Module_Base {
 					'themeAutoUpdate'    => in_array( Plugin::THEME_SLUG, get_site_option( 'auto_update_themes', [] ), true ),
 					'pluginUpdateStatus' => $plugin_status,
 					'themeUpdateStatus'  => $theme_status,
+					'coreUpdatesEnabled' => version_compare( get_bloginfo( 'version' ), '5.5', '>=' ),
 					'coreUpdateUrl'      => admin_url( 'update-core.php' ),
 					'autoUpdateNonce'    => wp_create_nonce( 'updates' ),
 					'autoUpdateUrl'      => admin_url( 'admin-ajax.php' ),
