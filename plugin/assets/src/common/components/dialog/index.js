@@ -19,7 +19,6 @@
  */
 import classNames from 'classnames';
 import { MDCDialog } from '@material/dialog';
-import '@material/dialog/dist/mdc.dialog.css';
 
 /**
  * WordPress dependencies
