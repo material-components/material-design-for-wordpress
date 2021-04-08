@@ -34,7 +34,7 @@ export const ACTIONS = {
 	SET_UPDATED: 'SET_UPDATED',
 };
 
-export const UPDATERS = {
+const ASSET_UPDATES = {
 	FONTS: {
 		title: __( 'Google Fonts', 'material-design' ),
 		type: 'FONTS',
@@ -51,6 +51,9 @@ export const UPDATERS = {
 		updateAvailable: 'update' === getConfig( 'iconsUpdateStatus' ),
 		autoUpdates: parseInt( getConfig( 'iconsAutoUpdate' ), 10 ),
 	},
+};
+
+const CORE_UPDATES = {
 	PLUGIN: {
 		title: __( 'Material Design Plugin', 'material-design' ),
 		type: 'PLUGIN',
@@ -71,6 +74,11 @@ export const UPDATERS = {
 		autoUpdates: parseInt( getConfig( 'themeAutoUpdate' ) || 0, 10 ),
 		displayUpdatedOn: false,
 	},
+};
+
+export const UPDATERS = {
+	...ASSET_UPDATES,
+	...( getConfig( 'coreUpdatesEnabled' ) ? CORE_UPDATES : {} ),
 };
 
 export const KEY_PLACEHOLDER = '•••••••••••••••••••••••••••••';
