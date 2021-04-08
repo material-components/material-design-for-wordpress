@@ -30,6 +30,7 @@ import { __, _n, sprintf } from '@wordpress/i18n';
  */
 import withSearchedPosts from '../../hocs/with-searched-posts';
 import ErrorMessage from '../error-message';
+import SearchListItem from './item';
 
 /**
  * The posts control exposes a custom selector for searching and selecting posts.
@@ -80,6 +81,7 @@ const PostsControl = ( {
 			onSearch={ onSearch }
 			onChange={ onChange }
 			messages={ messages }
+			renderItem={ args => <SearchListItem { ...args } /> }
 		/>
 	);
 };
