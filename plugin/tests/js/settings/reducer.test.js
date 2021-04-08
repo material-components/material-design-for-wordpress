@@ -135,7 +135,7 @@ describe( 'Reducer', () => {
 			errors: {
 				api_error: {
 					message: 'Test Error',
-				}
+				},
 			},
 		};
 
@@ -166,7 +166,7 @@ describe( 'Reducer', () => {
 			errors: {
 				api_error: {
 					message: 'Test Error',
-				}
+				},
 			},
 		};
 
