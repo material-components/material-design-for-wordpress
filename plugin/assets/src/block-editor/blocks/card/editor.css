@@ -36,6 +36,10 @@
 
 .material-design-card__media-close-button {
 	padding: 2px !important;
+
+	& .dashicon {
+		margin: 0 !important;
+	}
 }
 
 .material-design-card__supporting-text {
