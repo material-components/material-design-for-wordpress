@@ -85,7 +85,10 @@ const SearchListItem = ( {
 				<span
 					className="woocommerce-search-list__item-name"
 					dangerouslySetInnerHTML={ {
-						__html: getHighlightedName( item.name, search ),
+						__html: getHighlightedName(
+							item.name || __( '(no title)', 'material-design' ),
+							search
+						),
 					} }
 				/>
 				{ item.link ? (
