@@ -45,6 +45,7 @@ const Save = ( { attributes, className } ) => {
 		gutter,
 		cardsProps,
 		numberOfCards,
+		imageElement,
 	} = attributes;
 	const columnSpan = getColumnSpan( style, columns );
 	const items = [];
@@ -55,6 +56,7 @@ const Save = ( { attributes, className } ) => {
 			setAttributes: () => {},
 			setter: () => {},
 			isEditMode: false,
+			imageElement,
 			...{ ...cardsProps[ cardIndex ] },
 		};
 
