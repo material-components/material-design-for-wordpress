@@ -144,6 +144,10 @@ describe( 'blocks: material/cards-collection', () => {
 					type: 'boolean',
 					default: false,
 				},
+				imageElement: {
+					default: true,
+					type: 'boolean',
+				},
 			} );
 		} );
 	} );
