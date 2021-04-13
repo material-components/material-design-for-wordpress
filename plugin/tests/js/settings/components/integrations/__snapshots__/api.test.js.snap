@@ -47,7 +47,7 @@ exports[`Settings: Switch matches snapshot 1`] = `
               </span>
             </button>
             <button
-              class="mdc-button mdc-dialog__button"
+              class="mdc-button mdc-dialog__button mdc-action__remove"
               type="button"
             >
               <div

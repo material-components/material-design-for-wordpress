@@ -22,7 +22,7 @@ exports[`Settings: Updater matches snapshot 1`] = `
           <p
             class="mdc-typography--body1"
           >
-            Last update on Apr 7, 2021, 09:47 PM
+            Last update on Apr 13, 2021, 09:58 AM
           </p>
         </div>
         <div
@@ -255,7 +255,7 @@ exports[`Settings: Updater matches snapshot when should not update 1`] = `
           <p
             class="mdc-typography--body1"
           >
-            Last update on Apr 7, 2021, 09:47 PM
+            Last update on Apr 13, 2021, 09:58 AM
           </p>
         </div>
         <div
