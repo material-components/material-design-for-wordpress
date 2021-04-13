@@ -22,6 +22,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
+import deprecated from './deprecated';
 import edit from './edit';
 import save from './save';
 import metadata from './block.json';
@@ -45,4 +46,5 @@ export const settings = {
 	example,
 	edit,
 	save,
+	deprecated,
 };
