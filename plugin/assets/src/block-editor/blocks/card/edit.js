@@ -100,6 +100,7 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 		cornerRadius,
 		setter,
 		isEditMode: true,
+		isFocused: true,
 	};
 
 	const inspectorControlsStylePanelProps = {
