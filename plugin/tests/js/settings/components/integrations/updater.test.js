@@ -29,7 +29,7 @@ import { SettingsProvider } from '../../../../../assets/src/settings/context';
 const baseProps = {
 	title: 'Google Fonts',
 	type: 'FONTS',
-	lastUpdated: parseInt( Date.now(), 10 ),
+	lastUpdated: 1618325906728,
 	needsKey: true,
 	checked: true,
 	apiStatus: 'ok',
