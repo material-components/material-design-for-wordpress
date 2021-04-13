@@ -1,0 +1,9 @@
+.woocommerce-search-list__item-preview {
+	border: 1px solid #e2e4e7;
+	border-radius: 16px;
+	color: #555d66;
+	font-size: 0.8em;
+	margin-left: auto;
+	padding: 2px 12px;
+	text-decoration: none;
+}
