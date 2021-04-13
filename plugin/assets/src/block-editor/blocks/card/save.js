@@ -55,6 +55,7 @@ const Save = ( { attributes, className } ) => {
 		displaySecondaryActionButton,
 		outlined,
 		cornerRadius,
+		imageElement,
 	} = attributes;
 
 	const cardProps = {
@@ -81,6 +82,7 @@ const Save = ( { attributes, className } ) => {
 		displaySecondaryActionButton,
 		outlined,
 		cornerRadius,
+		imageElement,
 		setter: () => {},
 		isEditMode: false,
 	};
