@@ -31,6 +31,18 @@ const deprecated = [
 	{
 		attributes: { ...omit( attributes, [ 'imageElement' ] ) },
 		save,
+		migrate( attr ) {
+			if ( 'undefined' === typeof attr.imageElement ) {
+				attr = {
+					...attr,
+					...{
+						imageElement: true,
+					},
+				};
+			}
+
+			return attr;
+		},
 		isEligible( attr ) {
 			return 'undefined' === typeof attr.imageElement;
 		},
