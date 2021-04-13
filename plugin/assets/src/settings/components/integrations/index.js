@@ -108,7 +108,7 @@ const Integrations = () => {
 				} }
 			></p>
 
-			<Api />
+			<Api apiStatus={ state.apiStatus } />
 		</div>
 	);
 };

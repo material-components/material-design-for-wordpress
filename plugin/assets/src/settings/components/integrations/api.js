@@ -30,12 +30,12 @@ import Button from '../../../wizard/components/navigation/button';
 import { setApiKey } from '../../utils';
 import Dialog from '../../../common/components/dialog';
 
-const Api = () => {
-	const { state, dispatch } = useContext( SettingsContext );
+const Api = ( { apiStatus } ) => {
+	const { dispatch } = useContext( SettingsContext );
 	const [ api, setApi ] = useState( null );
 	const [ isLoading, setIsLoading ] = useState( false );
 	const [ confirm, setConfirm ] = useState( false );
-	const isApiOk = 'ok' === state.apiStatus;
+	const isApiOk = 'ok' === apiStatus;
 
 	const dispatchError = error =>
 		dispatch( {
