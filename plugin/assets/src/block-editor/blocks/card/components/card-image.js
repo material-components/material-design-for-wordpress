@@ -51,6 +51,7 @@ const CardImage = ( {
 	cardIndex,
 	setter,
 	isEditMode,
+	imageElement,
 } ) => {
 	const { isFocused } = cardPrimaryProps;
 	const cardImageEditProps = {
@@ -65,6 +66,10 @@ const CardImage = ( {
 		isEditMode,
 		isFocused,
 	};
+
+	const style = ! imageElement
+		? { backgroundImage: `url(${ imageSourceUrl })` }
+		: {};
 
 	return (
 		<>
@@ -82,8 +87,14 @@ const CardImage = ( {
 								[ `material-design-card-with-${ contentLayout }` ]: contentLayout,
 							}
 						) }
-						style={ { backgroundImage: `url(${ imageSourceUrl })` } }
+						style={ style }
 					>
+						{ imageElement && (
+							<img
+								src={ imageSourceUrl }
+								alt={ cardPrimaryProps.title || '' }
+							/>
+						) }
 						{ contentLayout === 'text-over-media' && (
 							<div className="mdc-card__media-content">
 								<CardPrimary { ...cardPrimaryProps } />

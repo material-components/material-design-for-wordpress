@@ -78,6 +78,7 @@ const HorizontalCardLayout = ( {
 	displayActions,
 	outlined,
 	cornerRadius,
+	imageElement,
 	setter,
 	isEditMode,
 	isFocused,
@@ -105,6 +106,7 @@ const HorizontalCardLayout = ( {
 		setter,
 		isEditMode,
 		isFocused,
+		imageElement,
 	};
 
 	const styles = {};

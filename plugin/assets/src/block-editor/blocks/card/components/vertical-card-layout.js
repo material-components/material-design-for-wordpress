@@ -83,6 +83,7 @@ const VerticalCardLayout = ( {
 	displayActions,
 	outlined,
 	cornerRadius,
+	imageElement,
 	setter,
 	isEditMode,
 	isFocused,
@@ -108,6 +109,7 @@ const VerticalCardLayout = ( {
 		cardIndex,
 		setter,
 		isEditMode,
+		imageElement,
 	};
 
 	const styles = {};

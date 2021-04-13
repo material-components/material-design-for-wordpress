@@ -34,8 +34,13 @@
 	}
 }
 
-.material-design-card__media-close-button {
+.edit-post-visual-editor .material-design-card__media-close-button {
+	min-width: 0;
 	padding: 2px !important;
+
+	& .dashicon {
+		margin: 0;
+	}
 }
 
 .material-design-card__supporting-text {

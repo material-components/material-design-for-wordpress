@@ -146,6 +146,10 @@ describe( 'blocks: material/card', () => {
 					type: 'boolean',
 					default: false,
 				},
+				imageElement: {
+					default: true,
+					type: 'boolean',
+				},
 			} );
 		} );
 	} );
