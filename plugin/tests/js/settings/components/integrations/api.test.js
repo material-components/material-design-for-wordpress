@@ -26,17 +26,41 @@ import { render } from '@testing-library/react';
 import Api from '../../../../../assets/src/settings/components/integrations/api';
 import { SettingsProvider } from '../../../../../assets/src/settings/context';
 
-const setup = () => {
+const setup = props => {
 	return render(
 		<SettingsProvider>
-			<Api />
+			<Api { ...props } />
 		</SettingsProvider>
 	);
+};
+
+const baseProps = {
+	apiStatus: 'ok',
 };
 
 describe( 'Settings: Switch', () => {
 	it( 'matches snapshot', () => {
 		const { container } = setup();
+		expect( container ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when API is not ok', () => {
+		const props = {
+			...baseProps,
+			apiStatus: 'install',
+		};
+
+		const { container } = setup( props );
+		expect( container ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when API is ok', () => {
+		const props = {
+			...baseProps,
+			apiStatus: 'ok',
+		};
+
+		const { container } = setup( props );
 		expect( container ).toMatchSnapshot();
 	} );
 } );
