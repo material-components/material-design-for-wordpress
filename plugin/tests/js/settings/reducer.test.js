@@ -37,7 +37,7 @@ const initialState = {
 	errors: {},
 };
 
-describe( 'Reducer', () => {
+describe( 'Settings: Reducer', () => {
 	it( 'should return default state', () => {
 		const action = {
 			type: null,

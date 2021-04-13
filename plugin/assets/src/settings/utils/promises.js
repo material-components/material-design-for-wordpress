@@ -22,34 +22,13 @@ import apiFetch from '@wordpress/api-fetch';
 /**
  * Internal dependencies
  */
-import { UPDATERS } from './constants';
-import getConfig from '../admin/get-config';
-
-/**
- * Handles each kind of update
- *
- * @param {*} type Item to update
- */
-export const update = type => {
-	if ( type === UPDATERS.FONTS.type ) {
-		return updateFonts();
-	}
-
-	if ( type === UPDATERS.ICONS.type ) {
-		return updateIcons();
-	}
-
-	if ( isCoreUpdate( type ) ) {
-		return new Promise( () => {
-			window.location.href = getConfig( 'coreUpdateUrl' );
-		} );
-	}
-};
+import { UPDATERS } from '../constants';
+import getConfig from '../../admin/get-config';
 
 /**
  * Update fonts.
  */
-const updateFonts = () => {
+export const updateFonts = () => {
 	return new Promise( ( resolve, reject ) => {
 		apiFetch( {
 			path: getConfig( 'assetsRestPath' ) + 'retrieve-fonts/force',
@@ -66,7 +45,7 @@ const updateFonts = () => {
 /**
  * Update icons.
  */
-const updateIcons = () => {
+export const updateIcons = () => {
 	return new Promise( ( resolve, reject ) => {
 		apiFetch( {
 			path: getConfig( 'assetsRestPath' ) + 'retrieve-icons/force',
@@ -80,7 +59,7 @@ const updateIcons = () => {
 	} );
 };
 
-const isCoreUpdate = type =>
+export const isCoreUpdate = type =>
 	[ UPDATERS.PLUGIN.type, UPDATERS.THEME.type ].includes( type );
 
 /**
