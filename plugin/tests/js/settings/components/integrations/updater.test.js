@@ -26,6 +26,15 @@ import { render } from '@testing-library/react';
 import Updater from '../../../../../assets/src/settings/components/integrations/updater';
 import { SettingsProvider } from '../../../../../assets/src/settings/context';
 
+// Mock the @wordpress/date component.
+jest.mock( '@wordpress/date', () => {
+	const original = jest.requireActual( '@wordpress/date' );
+	return {
+		...original,
+		dateI18n: ( format, value ) => new Date( value ).toGMTString(),
+	};
+} );
+
 const baseProps = {
 	title: 'Google Fonts',
 	type: 'FONTS',
