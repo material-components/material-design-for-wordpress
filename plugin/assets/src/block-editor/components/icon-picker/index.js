@@ -57,7 +57,7 @@ export default ( { currentIcon, onChange } ) => {
 						: '';
 
 				return (
-					<div key={ rawIcons[ icon ].name } className="icons-container__icon">
+					<div key={ rawIcons[ icon ].hex } className="icons-container__icon">
 						<Tooltip text={ rawIcons[ icon ].name }>
 							<button
 								type="button"
