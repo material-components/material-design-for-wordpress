@@ -22,7 +22,6 @@ import apiFetch from '@wordpress/api-fetch';
 /**
  * Internal dependencies
  */
-import { UPDATERS } from '../constants';
 import getConfig from '../../admin/get-config';
 
 /**
