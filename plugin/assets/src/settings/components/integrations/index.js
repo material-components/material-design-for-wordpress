@@ -80,6 +80,10 @@ const Integrations = () => {
 						type={ UPDATERS[ key ].type }
 						displayUpdatedOn={ UPDATERS[ key ].displayUpdatedOn }
 						versionAvailable={ UPDATERS[ key ].versionAvailable }
+						apiStatus={ state.apiStatus }
+						updateAvailable={
+							state.updaters[ UPDATERS[ key ].type ].updateAvailable
+						}
 					/>
 				) ) }
 			</div>
@@ -104,7 +108,7 @@ const Integrations = () => {
 				} }
 			></p>
 
-			<Api />
+			<Api apiStatus={ state.apiStatus } />
 		</div>
 	);
 };

@@ -168,4 +168,13 @@ class Test_Update_Fonts extends \WP_UnitTestCase {
 	public function mock_file_json() {
 		return json_encode( json_decode( '{"ABeeZee":{"variants":["regular","italic"],"category":"sans-serif"}}' ), JSON_PRETTY_PRINT ); /* phpcs:ignore */
 	}
+
+	/**
+	 * Test get_api_slug
+	 */
+	public function test_get_api_slug() {
+		$result = $this->api_force_http->get_api_slug();
+
+		$this->assertEquals( 'google_fonts_api_key', $result );
+	}
 }
