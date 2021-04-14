@@ -53,9 +53,11 @@ export default ( {
 		onColumnsChange( { ...columns, ...{ [ selectedDevice ]: newColumns } } );
 	};
 
+	const VisualLabel = BaseControl.VisualLabel || 'label';
+
 	return (
 		<BaseControl>
-			<BaseControl.VisualLabel className="components-base-control__layout-controls-label">
+			<VisualLabel className="components-base-control__layout-controls-label">
 				{ label }
 				<div className="components-base-control__label-actions components-base-control__layout-controls">
 					{ DEVICES.map( device => (
@@ -71,7 +73,7 @@ export default ( {
 						</Tooltip>
 					) ) }
 				</div>
-			</BaseControl.VisualLabel>
+			</VisualLabel>
 			<RangeControl
 				label={ __( 'Columns', 'material-design' ) }
 				value={
