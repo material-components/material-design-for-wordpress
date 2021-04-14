@@ -7,7 +7,7 @@ The official Material Design plugin for WordPress. Customize your site’s navig
 **Contributors:** [google](https://profiles.wordpress.org/google), [materialdesign](https://profiles.wordpress.org/materialdesign), [xwp](https://profiles.wordpress.org/xwp)  
 **Requires at least:** 5.2  
 **Tested up to:** 5.7  
-**Stable tag:** 0.1.2  
+**Stable tag:** 0.2.0  
 **License:** [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
 
 ## Description ##
