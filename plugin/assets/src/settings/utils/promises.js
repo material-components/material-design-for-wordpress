@@ -59,8 +59,7 @@ export const updateIcons = () => {
 	} );
 };
 
-export const isCoreUpdate = type =>
-	[ UPDATERS.PLUGIN.type, UPDATERS.THEME.type ].includes( type );
+export const isCoreUpdate = type => [ 'PLUGIN', 'THEME' ].includes( type );
 
 /**
  * Save API Key in database
