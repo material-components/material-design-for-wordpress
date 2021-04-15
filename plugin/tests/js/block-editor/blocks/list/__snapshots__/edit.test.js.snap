@@ -1,0 +1,5736 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Edit matches snapshot with basic style 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <ul
+        class="mdc-list"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            spa
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #1
+              </div>
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            book
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #2
+              </div>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <div
+        class="components-toolbar"
+      >
+        <div>
+          <button
+            aria-label="Link"
+            class="components-button components-toolbar__control has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <button
+            aria-label="Unlink"
+            aria-pressed="true"
+            class="components-button components-toolbar__control is-pressed has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Block Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control components-image-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <div
+              class="components-radio-control__option active"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="image-radio-control-0-0"
+                name="image-radio-control-0"
+                type="radio"
+                value="basic"
+              />
+              <label
+                for="image-radio-control-0-0"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 34 24"
+                    width="34"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="9.78687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="11.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="0.786865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="2.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="18.7869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="20.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  Basic List Item
+                </span>
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="image-radio-control-0-1"
+                name="image-radio-control-0"
+                type="radio"
+                value="two-line"
+              />
+              <label
+                for="image-radio-control-0-1"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="33"
+                    viewBox="0 0 36 33"
+                    width="36"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="0.286865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="1.28687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="5.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="12.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="13.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="17.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="24.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="25.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="29.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  List Item With Secondary Text
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="btn-group"
+        >
+          <div
+            class="btn-group__label"
+          >
+            <label>
+              Icon Position
+            </label>
+          </div>
+          <ul
+            class="btn-group__list"
+          >
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                None
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+                type="button"
+              >
+                Leading
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Trailing
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="btn-group"
+        >
+          <div
+            class="btn-group__label"
+          >
+            <label>
+              Icon Size
+            </label>
+          </div>
+          <ul
+            class="btn-group__list"
+          >
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+                type="button"
+              >
+                Small
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Large
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            List item Settings
+          </button>
+        </h2>
+        <section
+          class="icons-search"
+        >
+          <div
+            class="icons-search__search-input"
+          >
+            <div
+              class="components-base-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-text-control-0"
+                >
+                  Search icon
+                </label>
+                <input
+                  class="components-text-control__input"
+                  id="inspector-text-control-0"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="icons-search__selected-icon"
+          >
+            <i
+              class="material-icons"
+            >
+              spa
+            </i>
+          </div>
+        </section>
+        <section
+          class="icons-container"
+        >
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                airplanemode_active
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                airplanemode_inactive
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                bookmark_border
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                camera_enhance
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_giftcard
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_membership
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_travel
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                chat_bubble
+              </i>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="mdc-list"
+    >
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__graphic material-icons"
+        >
+          spa
+        </span>
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #1
+            </div>
+          </span>
+        </span>
+      </li>
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__graphic material-icons"
+        >
+          book
+        </span>
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #2
+            </div>
+          </span>
+        </span>
+      </li>
+    </ul>
+    <div
+      class="components-toolbar"
+    >
+      <div>
+        <button
+          aria-label="Link"
+          class="components-button components-toolbar__control has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div>
+        <button
+          aria-label="Unlink"
+          aria-pressed="true"
+          class="components-button components-toolbar__control is-pressed has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Block Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control components-image-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <div
+            class="components-radio-control__option active"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="image-radio-control-0-0"
+              name="image-radio-control-0"
+              type="radio"
+              value="basic"
+            />
+            <label
+              for="image-radio-control-0-0"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 34 24"
+                  width="34"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="9.78687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="11.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="0.786865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="2.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="18.7869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="20.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                Basic List Item
+              </span>
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="image-radio-control-0-1"
+              name="image-radio-control-0"
+              type="radio"
+              value="two-line"
+            />
+            <label
+              for="image-radio-control-0-1"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="33"
+                  viewBox="0 0 36 33"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="0.286865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="1.28687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="5.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="12.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="13.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="17.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="24.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="25.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="29.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                List Item With Secondary Text
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="btn-group"
+      >
+        <div
+          class="btn-group__label"
+        >
+          <label>
+            Icon Position
+          </label>
+        </div>
+        <ul
+          class="btn-group__list"
+        >
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              None
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+              type="button"
+            >
+              Leading
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Trailing
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="btn-group"
+      >
+        <div
+          class="btn-group__label"
+        >
+          <label>
+            Icon Size
+          </label>
+        </div>
+        <ul
+          class="btn-group__list"
+        >
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+              type="button"
+            >
+              Small
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Large
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          List item Settings
+        </button>
+      </h2>
+      <section
+        class="icons-search"
+      >
+        <div
+          class="icons-search__search-input"
+        >
+          <div
+            class="components-base-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-text-control-0"
+              >
+                Search icon
+              </label>
+              <input
+                class="components-text-control__input"
+                id="inspector-text-control-0"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="icons-search__selected-icon"
+        >
+          <i
+            class="material-icons"
+          >
+            spa
+          </i>
+        </div>
+      </section>
+      <section
+        class="icons-container"
+      >
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              airplanemode_active
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              airplanemode_inactive
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              bookmark_border
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              camera_enhance
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_giftcard
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_membership
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_travel
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              chat_bubble
+            </i>
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Edit matches snapshot with large icon size 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <ul
+        class="mdc-list mdc-list--avatar-list"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            spa
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #1
+              </div>
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            book
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #2
+              </div>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <div
+        class="components-toolbar"
+      >
+        <div>
+          <button
+            aria-label="Link"
+            class="components-button components-toolbar__control has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <button
+            aria-label="Unlink"
+            aria-pressed="true"
+            class="components-button components-toolbar__control is-pressed has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Block Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control components-image-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <div
+              class="components-radio-control__option active"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="image-radio-control-4-0"
+                name="image-radio-control-4"
+                type="radio"
+                value="basic"
+              />
+              <label
+                for="image-radio-control-4-0"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 34 24"
+                    width="34"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="9.78687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="11.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="0.786865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="2.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="18.7869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="20.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  Basic List Item
+                </span>
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="image-radio-control-4-1"
+                name="image-radio-control-4"
+                type="radio"
+                value="two-line"
+              />
+              <label
+                for="image-radio-control-4-1"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="33"
+                    viewBox="0 0 36 33"
+                    width="36"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="0.286865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="1.28687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="5.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="12.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="13.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="17.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="24.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="25.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="29.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  List Item With Secondary Text
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="btn-group"
+        >
+          <div
+            class="btn-group__label"
+          >
+            <label>
+              Icon Position
+            </label>
+          </div>
+          <ul
+            class="btn-group__list"
+          >
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                None
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+                type="button"
+              >
+                Leading
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Trailing
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="btn-group"
+        >
+          <div
+            class="btn-group__label"
+          >
+            <label>
+              Icon Size
+            </label>
+          </div>
+          <ul
+            class="btn-group__list"
+          >
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Small
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+                type="button"
+              >
+                Large
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            List item Settings
+          </button>
+        </h2>
+        <section
+          class="icons-search"
+        >
+          <div
+            class="icons-search__search-input"
+          >
+            <div
+              class="components-base-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-text-control-3"
+                >
+                  Search icon
+                </label>
+                <input
+                  class="components-text-control__input"
+                  id="inspector-text-control-3"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="icons-search__selected-icon"
+          >
+            <i
+              class="material-icons"
+            >
+              spa
+            </i>
+          </div>
+        </section>
+        <section
+          class="icons-container"
+        >
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                airplanemode_active
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                airplanemode_inactive
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                bookmark_border
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                camera_enhance
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_giftcard
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_membership
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_travel
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                chat_bubble
+              </i>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="mdc-list mdc-list--avatar-list"
+    >
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__graphic material-icons"
+        >
+          spa
+        </span>
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #1
+            </div>
+          </span>
+        </span>
+      </li>
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__graphic material-icons"
+        >
+          book
+        </span>
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #2
+            </div>
+          </span>
+        </span>
+      </li>
+    </ul>
+    <div
+      class="components-toolbar"
+    >
+      <div>
+        <button
+          aria-label="Link"
+          class="components-button components-toolbar__control has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div>
+        <button
+          aria-label="Unlink"
+          aria-pressed="true"
+          class="components-button components-toolbar__control is-pressed has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Block Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control components-image-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <div
+            class="components-radio-control__option active"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="image-radio-control-4-0"
+              name="image-radio-control-4"
+              type="radio"
+              value="basic"
+            />
+            <label
+              for="image-radio-control-4-0"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 34 24"
+                  width="34"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="9.78687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="11.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="0.786865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="2.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="18.7869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="20.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                Basic List Item
+              </span>
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="image-radio-control-4-1"
+              name="image-radio-control-4"
+              type="radio"
+              value="two-line"
+            />
+            <label
+              for="image-radio-control-4-1"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="33"
+                  viewBox="0 0 36 33"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="0.286865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="1.28687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="5.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="12.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="13.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="17.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="24.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="25.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="29.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                List Item With Secondary Text
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="btn-group"
+      >
+        <div
+          class="btn-group__label"
+        >
+          <label>
+            Icon Position
+          </label>
+        </div>
+        <ul
+          class="btn-group__list"
+        >
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              None
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+              type="button"
+            >
+              Leading
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Trailing
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="btn-group"
+      >
+        <div
+          class="btn-group__label"
+        >
+          <label>
+            Icon Size
+          </label>
+        </div>
+        <ul
+          class="btn-group__list"
+        >
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Small
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+              type="button"
+            >
+              Large
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          List item Settings
+        </button>
+      </h2>
+      <section
+        class="icons-search"
+      >
+        <div
+          class="icons-search__search-input"
+        >
+          <div
+            class="components-base-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-text-control-3"
+              >
+                Search icon
+              </label>
+              <input
+                class="components-text-control__input"
+                id="inspector-text-control-3"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="icons-search__selected-icon"
+        >
+          <i
+            class="material-icons"
+          >
+            spa
+          </i>
+        </div>
+      </section>
+      <section
+        class="icons-container"
+      >
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              airplanemode_active
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              airplanemode_inactive
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              bookmark_border
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              camera_enhance
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_giftcard
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_membership
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_travel
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              chat_bubble
+            </i>
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Edit matches snapshot with no icon position 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <ul
+        class="mdc-list"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #1
+              </div>
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #2
+              </div>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <div
+        class="components-toolbar"
+      >
+        <div>
+          <button
+            aria-label="Link"
+            class="components-button components-toolbar__control has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <button
+            aria-label="Unlink"
+            aria-pressed="true"
+            class="components-button components-toolbar__control is-pressed has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Block Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control components-image-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <div
+              class="components-radio-control__option active"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="image-radio-control-3-0"
+                name="image-radio-control-3"
+                type="radio"
+                value="basic"
+              />
+              <label
+                for="image-radio-control-3-0"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 34 24"
+                    width="34"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="9.78687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="11.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="0.786865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="2.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="18.7869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="20.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  Basic List Item
+                </span>
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="image-radio-control-3-1"
+                name="image-radio-control-3"
+                type="radio"
+                value="two-line"
+              />
+              <label
+                for="image-radio-control-3-1"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="33"
+                    viewBox="0 0 36 33"
+                    width="36"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="0.286865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="1.28687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="5.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="12.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="13.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="17.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="24.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="25.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="29.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  List Item With Secondary Text
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="btn-group"
+        >
+          <div
+            class="btn-group__label"
+          >
+            <label>
+              Icon Position
+            </label>
+          </div>
+          <ul
+            class="btn-group__list"
+          >
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+                type="button"
+              >
+                None
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Leading
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Trailing
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="mdc-list"
+    >
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #1
+            </div>
+          </span>
+        </span>
+      </li>
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #2
+            </div>
+          </span>
+        </span>
+      </li>
+    </ul>
+    <div
+      class="components-toolbar"
+    >
+      <div>
+        <button
+          aria-label="Link"
+          class="components-button components-toolbar__control has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div>
+        <button
+          aria-label="Unlink"
+          aria-pressed="true"
+          class="components-button components-toolbar__control is-pressed has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Block Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control components-image-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <div
+            class="components-radio-control__option active"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="image-radio-control-3-0"
+              name="image-radio-control-3"
+              type="radio"
+              value="basic"
+            />
+            <label
+              for="image-radio-control-3-0"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 34 24"
+                  width="34"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="9.78687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="11.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="0.786865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="2.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="18.7869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="20.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                Basic List Item
+              </span>
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="image-radio-control-3-1"
+              name="image-radio-control-3"
+              type="radio"
+              value="two-line"
+            />
+            <label
+              for="image-radio-control-3-1"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="33"
+                  viewBox="0 0 36 33"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="0.286865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="1.28687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="5.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="12.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="13.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="17.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="24.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="25.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="29.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                List Item With Secondary Text
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="btn-group"
+      >
+        <div
+          class="btn-group__label"
+        >
+          <label>
+            Icon Position
+          </label>
+        </div>
+        <ul
+          class="btn-group__list"
+        >
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+              type="button"
+            >
+              None
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Leading
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Trailing
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Edit matches snapshot with trailing icon position 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <ul
+        class="mdc-list"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #1
+              </div>
+            </span>
+          </span>
+          <span
+            class="mdc-list-item__meta material-icons"
+          >
+            spa
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #2
+              </div>
+            </span>
+          </span>
+          <span
+            class="mdc-list-item__meta material-icons"
+          >
+            book
+          </span>
+        </li>
+      </ul>
+      <div
+        class="components-toolbar"
+      >
+        <div>
+          <button
+            aria-label="Link"
+            class="components-button components-toolbar__control has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <button
+            aria-label="Unlink"
+            aria-pressed="true"
+            class="components-button components-toolbar__control is-pressed has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Block Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control components-image-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <div
+              class="components-radio-control__option active"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="image-radio-control-2-0"
+                name="image-radio-control-2"
+                type="radio"
+                value="basic"
+              />
+              <label
+                for="image-radio-control-2-0"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 34 24"
+                    width="34"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="9.78687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="11.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="0.786865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="2.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="18.7869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="20.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  Basic List Item
+                </span>
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="image-radio-control-2-1"
+                name="image-radio-control-2"
+                type="radio"
+                value="two-line"
+              />
+              <label
+                for="image-radio-control-2-1"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="33"
+                    viewBox="0 0 36 33"
+                    width="36"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="0.286865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="1.28687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="5.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="12.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="13.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="17.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="24.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="25.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="29.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  List Item With Secondary Text
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="btn-group"
+        >
+          <div
+            class="btn-group__label"
+          >
+            <label>
+              Icon Position
+            </label>
+          </div>
+          <ul
+            class="btn-group__list"
+          >
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                None
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Leading
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+                type="button"
+              >
+                Trailing
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            List item Settings
+          </button>
+        </h2>
+        <section
+          class="icons-search"
+        >
+          <div
+            class="icons-search__search-input"
+          >
+            <div
+              class="components-base-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-text-control-2"
+                >
+                  Search icon
+                </label>
+                <input
+                  class="components-text-control__input"
+                  id="inspector-text-control-2"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="icons-search__selected-icon"
+          >
+            <i
+              class="material-icons"
+            >
+              spa
+            </i>
+          </div>
+        </section>
+        <section
+          class="icons-container"
+        >
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                airplanemode_active
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                airplanemode_inactive
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                bookmark_border
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                camera_enhance
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_giftcard
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_membership
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_travel
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                chat_bubble
+              </i>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="mdc-list"
+    >
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #1
+            </div>
+          </span>
+        </span>
+        <span
+          class="mdc-list-item__meta material-icons"
+        >
+          spa
+        </span>
+      </li>
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #2
+            </div>
+          </span>
+        </span>
+        <span
+          class="mdc-list-item__meta material-icons"
+        >
+          book
+        </span>
+      </li>
+    </ul>
+    <div
+      class="components-toolbar"
+    >
+      <div>
+        <button
+          aria-label="Link"
+          class="components-button components-toolbar__control has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div>
+        <button
+          aria-label="Unlink"
+          aria-pressed="true"
+          class="components-button components-toolbar__control is-pressed has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Block Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control components-image-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <div
+            class="components-radio-control__option active"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="image-radio-control-2-0"
+              name="image-radio-control-2"
+              type="radio"
+              value="basic"
+            />
+            <label
+              for="image-radio-control-2-0"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 34 24"
+                  width="34"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="9.78687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="11.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="0.786865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="2.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="18.7869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="20.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                Basic List Item
+              </span>
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="image-radio-control-2-1"
+              name="image-radio-control-2"
+              type="radio"
+              value="two-line"
+            />
+            <label
+              for="image-radio-control-2-1"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="33"
+                  viewBox="0 0 36 33"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="0.286865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="1.28687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="5.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="12.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="13.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="17.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="24.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="25.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="29.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                List Item With Secondary Text
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="btn-group"
+      >
+        <div
+          class="btn-group__label"
+        >
+          <label>
+            Icon Position
+          </label>
+        </div>
+        <ul
+          class="btn-group__list"
+        >
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              None
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Leading
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+              type="button"
+            >
+              Trailing
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          List item Settings
+        </button>
+      </h2>
+      <section
+        class="icons-search"
+      >
+        <div
+          class="icons-search__search-input"
+        >
+          <div
+            class="components-base-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-text-control-2"
+              >
+                Search icon
+              </label>
+              <input
+                class="components-text-control__input"
+                id="inspector-text-control-2"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="icons-search__selected-icon"
+        >
+          <i
+            class="material-icons"
+          >
+            spa
+          </i>
+        </div>
+      </section>
+      <section
+        class="icons-container"
+      >
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              airplanemode_active
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              airplanemode_inactive
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              bookmark_border
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              camera_enhance
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_giftcard
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_membership
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_travel
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              chat_bubble
+            </i>
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`Edit matches snapshot with two-line style 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <ul
+        class="mdc-list mdc-list--two-line"
+      >
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            spa
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #1
+              </div>
+            </span>
+            <span
+              class="mdc-list-item__secondary-text"
+            >
+              <div
+                aria-label="Secondary text…"
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #1 secondary text
+              </div>
+            </span>
+          </span>
+        </li>
+        <li
+          class="mdc-list-item"
+        >
+          <span
+            class="mdc-list-item__graphic material-icons"
+          >
+            book
+          </span>
+          <span
+            class="mdc-list-item__text"
+          >
+            <span
+              class="mdc-list-item__primary-text"
+            >
+              <div
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #2
+              </div>
+            </span>
+            <span
+              class="mdc-list-item__secondary-text"
+            >
+              <div
+                aria-label="Secondary text…"
+                aria-multiline="true"
+                class="rich-text block-editor-rich-text__editable"
+                role="textbox"
+                style="white-space: pre-wrap;"
+              >
+                List Item #2 secondary text
+              </div>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <div
+        class="components-toolbar"
+      >
+        <div>
+          <button
+            aria-label="Link"
+            class="components-button components-toolbar__control has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div>
+          <button
+            aria-label="Unlink"
+            aria-pressed="true"
+            class="components-button components-toolbar__control is-pressed has-icon"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Block Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control components-image-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="image-radio-control-1-0"
+                name="image-radio-control-1"
+                type="radio"
+                value="basic"
+              />
+              <label
+                for="image-radio-control-1-0"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 34 24"
+                    width="34"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="9.78687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="11.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="0.786865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="2.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="5"
+                      width="5"
+                      x="0.181641"
+                      y="18.7869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="9.18164"
+                      y="20.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  Basic List Item
+                </span>
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option active"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="image-radio-control-1-1"
+                name="image-radio-control-1"
+                type="radio"
+                value="two-line"
+              />
+              <label
+                for="image-radio-control-1-1"
+              >
+                <div
+                  class="components-image-radio-control__image"
+                >
+                  <svg
+                    fill="none"
+                    height="33"
+                    viewBox="0 0 36 33"
+                    width="36"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="0.286865"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="1.28687"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="5.28687"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="12.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="13.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="17.2869"
+                    />
+                    <rect
+                      fill="#565D66"
+                      height="8"
+                      width="8"
+                      x="0.25"
+                      y="24.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="25.2869"
+                    />
+                    <rect
+                      fill="#545D67"
+                      height="2"
+                      width="24"
+                      x="11.75"
+                      y="29.2869"
+                    />
+                  </svg>
+                </div>
+                <span
+                  class="components-image-radio-control__label"
+                >
+                  List Item With Secondary Text
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="btn-group"
+        >
+          <div
+            class="btn-group__label"
+          >
+            <label>
+              Icon Position
+            </label>
+          </div>
+          <ul
+            class="btn-group__list"
+          >
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                None
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+                type="button"
+              >
+                Leading
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Trailing
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="btn-group"
+        >
+          <div
+            class="btn-group__label"
+          >
+            <label>
+              Icon Size
+            </label>
+          </div>
+          <ul
+            class="btn-group__list"
+          >
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+                type="button"
+              >
+                Small
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Large
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            List item Settings
+          </button>
+        </h2>
+        <section
+          class="icons-search"
+        >
+          <div
+            class="icons-search__search-input"
+          >
+            <div
+              class="components-base-control"
+            >
+              <div
+                class="components-base-control__field"
+              >
+                <label
+                  class="components-base-control__label"
+                  for="inspector-text-control-1"
+                >
+                  Search icon
+                </label>
+                <input
+                  class="components-text-control__input"
+                  id="inspector-text-control-1"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="icons-search__selected-icon"
+          >
+            <i
+              class="material-icons"
+            >
+              spa
+            </i>
+          </div>
+        </section>
+        <section
+          class="icons-container"
+        >
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                airplanemode_active
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                airplanemode_inactive
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                bookmark_border
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                camera_enhance
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_giftcard
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_membership
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                card_travel
+              </i>
+            </button>
+          </div>
+          <div
+            class="icons-container__icon"
+          >
+            <button
+              class="icons-container__icon__icon-btn"
+              type="button"
+            >
+              <i
+                class="material-icons"
+              >
+                chat_bubble
+              </i>
+            </button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <ul
+      class="mdc-list mdc-list--two-line"
+    >
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__graphic material-icons"
+        >
+          spa
+        </span>
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #1
+            </div>
+          </span>
+          <span
+            class="mdc-list-item__secondary-text"
+          >
+            <div
+              aria-label="Secondary text…"
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #1 secondary text
+            </div>
+          </span>
+        </span>
+      </li>
+      <li
+        class="mdc-list-item"
+      >
+        <span
+          class="mdc-list-item__graphic material-icons"
+        >
+          book
+        </span>
+        <span
+          class="mdc-list-item__text"
+        >
+          <span
+            class="mdc-list-item__primary-text"
+          >
+            <div
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #2
+            </div>
+          </span>
+          <span
+            class="mdc-list-item__secondary-text"
+          >
+            <div
+              aria-label="Secondary text…"
+              aria-multiline="true"
+              class="rich-text block-editor-rich-text__editable"
+              role="textbox"
+              style="white-space: pre-wrap;"
+            >
+              List Item #2 secondary text
+            </div>
+          </span>
+        </span>
+      </li>
+    </ul>
+    <div
+      class="components-toolbar"
+    >
+      <div>
+        <button
+          aria-label="Link"
+          class="components-button components-toolbar__control has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.2H14v1.5h1.6c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.8 0 5.2-2.3 5.2-5.2 0-2.9-2.3-5.2-5.2-5.2zM4.7 12.4c0-2 1.7-3.7 3.7-3.7H10V7.2H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H10v-1.5H8.4c-2 0-3.7-1.7-3.7-3.7zm4.6.9h5.3v-1.5H9.3v1.5z"
+            />
+          </svg>
+        </button>
+      </div>
+      <div>
+        <button
+          aria-label="Unlink"
+          aria-pressed="true"
+          class="components-button components-toolbar__control is-pressed has-icon"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6 7.3h-.7l1.6-3.5-.9-.4-3.9 8.5H9v1.5h2l-1.3 2.8H8.4c-2 0-3.7-1.7-3.7-3.7s1.7-3.7 3.7-3.7H10V7.3H8.4c-2.9 0-5.2 2.3-5.2 5.2 0 2.9 2.3 5.2 5.2 5.2H9l-1.4 3.2.9.4 5.7-12.5h1.4c2 0 3.7 1.7 3.7 3.7s-1.7 3.7-3.7 3.7H14v1.5h1.6c2.9 0 5.2-2.3 5.2-5.2 0-2.9-2.4-5.2-5.2-5.2z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Block Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control components-image-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="image-radio-control-1-0"
+              name="image-radio-control-1"
+              type="radio"
+              value="basic"
+            />
+            <label
+              for="image-radio-control-1-0"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="24"
+                  viewBox="0 0 34 24"
+                  width="34"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="9.78687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="11.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="0.786865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="2.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="5"
+                    width="5"
+                    x="0.181641"
+                    y="18.7869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="9.18164"
+                    y="20.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                Basic List Item
+              </span>
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option active"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="image-radio-control-1-1"
+              name="image-radio-control-1"
+              type="radio"
+              value="two-line"
+            />
+            <label
+              for="image-radio-control-1-1"
+            >
+              <div
+                class="components-image-radio-control__image"
+              >
+                <svg
+                  fill="none"
+                  height="33"
+                  viewBox="0 0 36 33"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="0.286865"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="1.28687"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="5.28687"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="12.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="13.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="17.2869"
+                  />
+                  <rect
+                    fill="#565D66"
+                    height="8"
+                    width="8"
+                    x="0.25"
+                    y="24.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="25.2869"
+                  />
+                  <rect
+                    fill="#545D67"
+                    height="2"
+                    width="24"
+                    x="11.75"
+                    y="29.2869"
+                  />
+                </svg>
+              </div>
+              <span
+                class="components-image-radio-control__label"
+              >
+                List Item With Secondary Text
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="btn-group"
+      >
+        <div
+          class="btn-group__label"
+        >
+          <label>
+            Icon Position
+          </label>
+        </div>
+        <ul
+          class="btn-group__list"
+        >
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              None
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+              type="button"
+            >
+              Leading
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Trailing
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="btn-group"
+      >
+        <div
+          class="btn-group__label"
+        >
+          <label>
+            Icon Size
+          </label>
+        </div>
+        <ul
+          class="btn-group__list"
+        >
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button btn-group__list__list-item__button--active"
+              type="button"
+            >
+              Small
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Large
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          List item Settings
+        </button>
+      </h2>
+      <section
+        class="icons-search"
+      >
+        <div
+          class="icons-search__search-input"
+        >
+          <div
+            class="components-base-control"
+          >
+            <div
+              class="components-base-control__field"
+            >
+              <label
+                class="components-base-control__label"
+                for="inspector-text-control-1"
+              >
+                Search icon
+              </label>
+              <input
+                class="components-text-control__input"
+                id="inspector-text-control-1"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="icons-search__selected-icon"
+        >
+          <i
+            class="material-icons"
+          >
+            spa
+          </i>
+        </div>
+      </section>
+      <section
+        class="icons-container"
+      >
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              airplanemode_active
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              airplanemode_inactive
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              bookmark_border
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              camera_enhance
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_giftcard
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_membership
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              card_travel
+            </i>
+          </button>
+        </div>
+        <div
+          class="icons-container__icon"
+        >
+          <button
+            class="icons-container__icon__icon-btn"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              chat_bubble
+            </i>
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

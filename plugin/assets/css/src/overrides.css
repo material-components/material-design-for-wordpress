@@ -1,0 +1,200 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/*
+ * Frontend CSS to override other theme styles
+ * which impact the material components.
+ */
+
+@import "./mixins.css";
+
+/*
+ * Set the typography vars by calculating with base font-size of 16px (browser default)
+ * to override any theme font rem declaration on html element.
+ * Material typography vars can be found at
+ * https://github.com/material-components/material-components-web/blob/master/packages/mdc-typography/_variables.scss#L60
+ */
+html {
+
+	@mixin fontvars headline1, 6, 6, 300, -1.5;
+	@mixin fontvars headline2, 3.75, 3.75, 300, -.5;
+	@mixin fontvars headline3, 3, 3.125, 400, 0;
+	@mixin fontvars headline4, 2.125, 2.5, 400, .25;
+	@mixin fontvars headline5, 1.5, 2, 400, 0;
+	@mixin fontvars headline6, 1.25, 2, 500, 0.15;
+	@mixin fontvars subtitle1, 1, 1.75, 400, .15;
+	@mixin fontvars subtitle2, 0.875, 1.375, 500, .1;
+	@mixin fontvars body1, 1, 1.5, 400, .5;
+	@mixin fontvars body2, 0.875, 1.25, 400, .25;
+	@mixin fontvars caption, 0.75, 1.25, 400, .4;
+	@mixin fontvars button, 0.875, 2.25, 500, 1.25;
+	@mixin fontvars overline, 0.75, 2, 500, 1.5;
+}
+
+@mixin typography headline1, 6, 6, 300;
+@mixin typography headline2, 3.75, 3.75, 300;
+@mixin typography headline3, 3, 3.125, 400;
+@mixin typography headline4, 2.125, 2.5, 400;
+@mixin typography headline5, 1.5, 2, 400;
+@mixin typography headline6, 1.25, 2, 500;
+@mixin typography subtitle1, 1, 1.75, 400;
+@mixin typography subtitle2, 0.875, 1.375, 500;
+@mixin typography body1, 1, 1.5, 400;
+@mixin typography body2, 0.875, 1.25, 400;
+@mixin typography caption, 0.75, 1.25, 400;
+@mixin typography button, 0.875, 2.25, 500;
+@mixin typography overline, 0.75, 2, 500;
+
+/* For `body` types typography should be applied to child elements as well */
+@mixin typography body1, 1, 1.5, 400, *;
+@mixin typography body2, 0.875, 1.25, 400, *;
+
+/* Additional selectors requiring typography styles */
+@mixin selector-typography .mdc-button, button, 0.875, 2.25, 500;
+@mixin selector-typography .mdc-button .mdc-button__label, button, 0.875, 2.25, 500;
+@mixin selector-typography .mdc-list-item__primary-text, body1, 1, 1.5, 400;
+@mixin selector-typography .mdc-list-item__secondary-text, body2, 0.875, 1.25, 400;
+
+/* Material Design Icons */
+.material-icons {
+	font-family: var(--mdc-icons-font-family) !important;
+	font-weight: normal;
+	font-size: 24px;
+	font-style: normal;
+	line-height: 1 !important;
+	letter-spacing: normal;
+}
+
+/* Button */
+.mdc-button {
+	box-shadow: none !important;
+	text-decoration: none !important;
+
+	&:hover,
+	&:focus {
+		background-color: transparent !important;
+		color: var(--mdc-theme-primary, #6200ee) !important;
+		text-decoration: none !important;
+	}
+
+	&--raised:not(:disabled),
+	&--unelevated:not(:disabled) {
+
+		&:hover,
+		&:focus {
+			background-color: var(--mdc-theme-primary, #6200ee) !important;
+			color: var(--mdc-theme-on-primary, #fff) !important;
+		}
+	}
+
+	&--raised {
+		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
+		transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	& .mdc-button__icon {
+		font-size: 18px !important;
+	}
+}
+
+.mdc-button--outlined:not(:disabled) {
+	border-color: rgba(0, 0, 0, 0.12) !important;
+	border-color: rgba(var(--mdc-theme-on-surface-rgb), .12) !important;
+}
+
+.mdc-icon-button {
+
+	&::before,
+	&::after {
+		background-color: var(--mdc-theme-on-surface, #000) !important;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: transparent !important;
+		text-decoration: none !important;
+	}
+}
+
+/* Data Table */
+.mdc-data-table {
+	background-color: var(--mdc-theme-surface, #fff) !important;
+	border-color: rgba(0, 0, 0, 0.12) !important;
+	border-color: rgba(var(--mdc-theme-on-surface-rgb), .12) !important;
+
+	& thead {
+		border: none !important;
+	}
+}
+
+
+.mdc-data-table__table {
+	margin: 0 !important;
+}
+
+.mdc-data-table__row {
+	border-top-color: rgba(0, 0, 0, 0.12) !important;
+	border-top-color: rgba(var(--mdc-theme-on-surface-rgb, #000), .12) !important;
+	border-top-width: 1px !important;
+	border-top-style: solid !important;
+}
+
+.mdc-data-table__header-cell {
+	border: none !important;
+	vertical-align: middle !important;
+}
+
+.mdc-data-table__header-cell,
+.mdc-data-table__cell {
+	border: none !important;
+	padding-left: 16px !important;
+	padding-right: 16px !important;
+}
+
+/* List */
+ul.mdc-list {
+	list-style-type: none !important;
+	margin: 0 !important;
+	padding: 8px 0 !important;
+}
+
+.mdc-list-item {
+	margin: 0 !important;
+	padding: 0 16px !important;
+}
+
+.list-item__link {
+	box-shadow: none !important;
+}
+
+/* Card */
+.single-post-card__title {
+
+	&::before {
+		display: none !important;
+	}
+}
+
+.mdc-card__link {
+	box-shadow: none !important;
+}
+
+/* Text fields */
+.mdc-text-field__input {
+	background-color: transparent !important;
+	color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .87) !important;
+	margin: 0 !important;
+}

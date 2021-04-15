@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsPicker matches snapshot using full rendering 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <p
+      class="a11y-speak-intro-text"
+      hidden="hidden"
+      id="a11y-speak-intro-text"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    >
+      Notifications
+    </p>
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-assertive"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div
+      aria-atomic="true"
+      aria-live="polite"
+      aria-relevant="additions text"
+      class="a11y-speak-region"
+      id="a11y-speak-polite"
+      style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
+    />
+    <div>
+      <div
+        class="components-placeholder material-design-block-products-grid material-design-block-handpicked-posts is-small"
+      >
+        <iframe
+          aria-hidden="true"
+          frameborder="0"
+          src="about:blank"
+          style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+          tabindex="-1"
+        />
+        <div
+          class="components-placeholder__label"
+        >
+          <i
+            class="material-icons-outlined"
+            size="24"
+          >
+            library_books
+          </i>
+          Curated Post Collection
+        </div>
+        <div
+          class="components-placeholder__fieldset"
+        >
+          <div
+            class="material-design-block-handpicked-posts__types"
+          >
+            <p>
+              Display a selection of hand-picked posts.
+            </p>
+            <p
+              style="font-weight: bold; text-align: left;"
+            >
+              Content
+            </p>
+          </div>
+          <div
+            class="material-design-block-handpicked-posts__selection"
+          >
+            <div />
+            <button
+              class="components-button is-primary"
+              type="button"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="components-placeholder material-design-block-products-grid material-design-block-handpicked-posts is-small"
+    >
+      <iframe
+        aria-hidden="true"
+        frameborder="0"
+        src="about:blank"
+        style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+        tabindex="-1"
+      />
+      <div
+        class="components-placeholder__label"
+      >
+        <i
+          class="material-icons-outlined"
+          size="24"
+        >
+          library_books
+        </i>
+        Curated Post Collection
+      </div>
+      <div
+        class="components-placeholder__fieldset"
+      >
+        <div
+          class="material-design-block-handpicked-posts__types"
+        >
+          <p>
+            Display a selection of hand-picked posts.
+          </p>
+          <p
+            style="font-weight: bold; text-align: left;"
+          >
+            Content
+          </p>
+        </div>
+        <div
+          class="material-design-block-handpicked-posts__selection"
+        >
+          <div />
+          <button
+            class="components-button is-primary"
+            type="button"
+          >
+            Done
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`PostsPicker matches snapshot using shallow rendering 1`] = `
+<Placeholder
+  className="material-design-block-products-grid material-design-block-handpicked-posts"
+  icon={
+    <i
+      className="material-icons-outlined"
+    >
+      library_books
+    </i>
+  }
+  label="Curated Post Collection"
+>
+  <div
+    className="material-design-block-handpicked-posts__types"
+  >
+    <p>
+      Display a selection of hand-picked posts.
+    </p>
+    <p
+      style={
+        Object {
+          "fontWeight": "bold",
+          "textAlign": "left",
+        }
+      }
+    >
+      Content
+    </p>
+    <RadioControl
+      className="material-design-block-handpicked-posts__types__list"
+      onChange={[Function]}
+    />
+  </div>
+  <div
+    className="material-design-block-handpicked-posts__selection"
+  >
+    <PostsControl
+      onChange={[Function]}
+      selected={
+        Array [
+          1,
+          2,
+          3,
+        ]
+      }
+    />
+    <ForwardRef(Button)
+      isPrimary={true}
+      onClick={[Function]}
+    >
+      Done
+    </ForwardRef(Button)>
+  </div>
+</Placeholder>
+`;

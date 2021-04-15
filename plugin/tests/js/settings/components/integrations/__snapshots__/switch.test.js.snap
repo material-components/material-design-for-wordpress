@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings: Switch matches snapshot 1`] = `
+<div>
+  <div
+    class="material-settings__switch"
+  >
+    <div
+      class="mdc-switch material-wizard-switch mdc-switch--checked"
+    >
+      <div
+        class="mdc-switch__track"
+      />
+      <div
+        class="mdc-switch__thumb-underlay"
+      >
+        <div
+          class="mdc-switch__thumb"
+        />
+        <input
+          aria-checked="true"
+          checked=""
+          class="mdc-switch__native-control"
+          id="material-settings__switch"
+          role="switch"
+          type="checkbox"
+        />
+      </div>
+    </div>
+    <label
+      for="material-settings__switch"
+      id="label-material-settings__switch"
+    >
+      Auto-updates enabled
+    </label>
+  </div>
+</div>
+`;

@@ -1,0 +1,101 @@
+{
+	"name": "material/image-list",
+	"category": "material",
+	"attributes": {
+		"id": {
+		   "type": "string",
+		   "source": "attribute",
+		   "attribute": "id",
+		   "selector": "*"
+		},
+		"ids": {
+			"type": "array",
+			"items": {
+				"type": "number"
+			},
+			"default": []
+		},
+		"images": {
+		   "type": "array",
+		   "default": [],
+		   "source": "query",
+		   "selector": ".mdc-image-list__item",
+		   "query": {
+			  "url": {
+				 "type": "string",
+				 "source": "attribute",
+				 "selector": "img",
+				 "attribute": "src"
+			  },
+			  "fullUrl": {
+				 "type": "string",
+				 "source": "attribute",
+				 "selector": "img",
+				 "attribute": "data-full-url"
+			  },
+			  "link": {
+				 "type": "string",
+				 "source": "attribute",
+				 "selector": "img",
+				 "attribute": "data-link"
+			  },
+			  "alt": {
+				 "type": "string",
+				 "source": "attribute",
+				 "selector": "img",
+				 "attribute": "alt",
+				 "default": ""
+			  },
+			  "id": {
+				 "type": "string",
+				 "source": "attribute",
+				 "selector": "img",
+				 "attribute": "data-id"
+			  },
+			  "caption": {
+				 "type": "string",
+				 "source": "html",
+				 "selector": ".mdc-image-list__label"
+			  }
+		   }
+		},
+		"style": {
+		   "type": "string",
+		   "default": "masonry"
+		},
+		"columns": {
+		   "type": "object",
+		   "default": {
+				"desktop": 5,
+				"tablet": 3,
+				"mobile": 1
+		 	}
+		},
+		"gutter": {
+		   "type": "object",
+		   "default": {
+			  "desktop": 24,
+			  "tablet": 16,
+			  "mobile": 16
+		   }
+		},
+		"cornerRadius": {
+		   "type": "number"
+		},
+		"displayCaptions": {
+		   "type": "boolean",
+		   "default": true
+		},
+		"textProtection": {
+		   "type": "boolean",
+		   "default": true
+		},
+		"linkTo": {
+		   "type": "string",
+		   "default": "media"
+		}
+	},
+	"supports": {
+		"align": true
+	}
+}

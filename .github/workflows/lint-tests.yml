@@ -1,0 +1,201 @@
+name: Coding Standards and Tests
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+
+jobs:
+  lint:
+    name: "Coding Standards"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run coding standards check
+        run: npm run lint
+
+  test-e2e:
+    needs: [lint]
+    name: "E2E tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php_versions: [7.4]
+        wp_versions: [5.7]
+        include:
+          - php_versions: 7.3
+            wp_versions: 5.2
+
+    env:
+      NODE_ENV: teste2e
+      WP_VERSION: ${{ matrix.wp_versions }}
+      PHP_VERSION: php${{ matrix.php_versions }}-apache
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hmarr/debug-action@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build:js
+
+      - name: Sleep for 10 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '10s'
+
+      - name: Start docker local env
+        run: |
+          npm run env:start
+          docker-compose exec -T wordpress bash -c "chown -R www-data:www-data /var/www/html/wp-content/" # ensure WP folders have correct permissions
+          docker-compose exec -T mysql bash -c "chown -R mysql:mysql /var/lib/mysql"
+
+      - name: Docker containers debug information
+        run: |
+          docker ps -a
+
+      - name: Sleep for 10 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '10s'
+
+      - name: Install WordPress
+        run: |
+          npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
+          npm run wp -- wp plugin activate material-design
+
+      - name: Run E2E tests
+        if: ${{ matrix.wp_versions == '5.2' }}
+        run: npm run test:e2e
+
+      - name: Run E2E tests with coverage
+        if: ${{ matrix.wp_versions != '5.2' }}
+        run: |
+          sudo chown -R runner:runner plugin/tests node_modules # ensure coverage folder can be created
+          npm run test:e2e:coverage
+
+      - name: Coveralls
+        if: ${{ matrix.wp_versions != '5.2' }}
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./plugin/tests/coverage/e2e/lcov.info
+          flag-name: "E2E Tests"
+          parallel: true
+
+  test-js:
+    needs: [lint]
+    name: "JS unit tests (with code coverage)"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run JS tests
+        run: npm run test:js:coverage
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: ./plugin/tests/coverage/js/lcov.info
+          flag-name: "JS Unit Tests"
+          parallel: true
+
+  test-php:
+    needs: [lint]
+    name: "PHP tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        php_versions: [7.4, 7.3, 7.2, 7.1]
+        wp_versions: ["latest"]
+        os: [ubuntu-latest]
+        include:
+          - php_versions: 7.4
+            wp_versions: "trunk"
+            os: ubuntu-latest
+
+          - php_versions: "7.0"
+            wp_versions: "latest"
+            os: ubuntu-18.04 # Use ubuntu-18.4 which has MySQL 5.7 for back-compat < PHP7.0
+
+          - php_versions: 5.6.20
+            wp_versions: "latest"
+            os: ubuntu-18.04
+
+          - php_versions: 5.6.20
+            wp_versions: "5.2"
+            os: ubuntu-18.04
+
+    env:
+      WP_VERSION: ${{ matrix.wp_versions }}
+      COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      COVERALLS_PARALLEL: true
+      COVERALLS: ${{ matrix.php_versions == 7.4 && matrix.wp_versions == 'latest' }}
+      PROJECT_TYPE: plugin
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP ${{ matrix.php_versions }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php_versions }}
+          tools: phpunit
+
+      - name: Start MySQL
+        run: |
+          sudo systemctl enable mysql.service
+          sudo systemctl start mysql.service
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Copy block.json files
+        run: for file in ./plugin/assets/src/block-editor/blocks/*/block.json; do dest="${file/.\/plugin\/assets\/src\/block-editor\//./plugin/assets/js/}"; mkdir -p `dirname $dest`; cp $file $dest; done
+
+      - name: Install and Run tests
+        if: ${{ matrix.php_versions == '7.0' || matrix.php_versions == '5.6.20' }}
+        run: |
+          wget -O bin/phpunit https://phar.phpunit.de/phpunit-5.phar
+          chmod +x bin/phpunit
+          source bin/php-tests.sh wordpress_test root root localhost false bin/phpunit
+
+      - name: Install and Run tests
+        if: ${{ matrix.php_versions != '7.0' && matrix.php_versions != '5.6.20' }}
+        run: source bin/php-tests.sh wordpress_test root root localhost
+
+  finish:
+    needs: [test-e2e, test-js, test-php]
+    name: Finish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
