@@ -25,6 +25,10 @@
 	outline: none;
 }
 
+.wp-block[data-align="center"] > .wp-block-material-buttons {
+	justify-content: center;
+}
+
 .wp-block-material-buttons .block-editor-block-list__layout > div:last-child {
 	display: inline-block;
 }
