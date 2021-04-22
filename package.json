@@ -35,6 +35,7 @@
     "@material/data-table": "5.1.0",
     "@material/dialog": "10.0.0",
     "@material/drawer": "5.1.0",
+    "@material/fab": "^11.0.0",
     "@material/floating-label": "5.1.0",
     "@material/form-field": "5.1.0",
     "@material/icon-button": "5.1.0",
