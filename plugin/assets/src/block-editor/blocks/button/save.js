@@ -23,6 +23,7 @@ import classNames from 'classnames';
  * Internal dependencies
  */
 import hasBg from './utils/has-bg';
+import getButtonClass, { isLarge } from './utils/get-button-class';
 
 /**
  * Button Children component.
@@ -31,21 +32,25 @@ import hasBg from './utils/has-bg';
  * @param {string} props.icon - Button icon name.
  * @param {string} props.iconPosition - Button icon position.
  * @param {string} props.label - Button label.
+ * @param {string} props.size - Button size.
  *
  * @return {Function} Function returning the HTML markup for the component.
  */
-const ButtonChildren = ( { icon, iconPosition, label } ) => (
-	<>
-		{ icon && iconPosition === 'leading' && (
-			<i className="material-icons mdc-button__icon">{ icon }</i>
-		) }
-		<div className="mdc-button__ripple"></div>
-		<span className="mdc-button__label">{ label }</span>
-		{ icon && iconPosition === 'trailing' && (
-			<i className="material-icons mdc-button__icon">{ icon }</i>
-		) }
-	</>
-);
+const ButtonChildren = ( { icon, iconPosition, label, size } ) => {
+	const buttonPrefix = getButtonClass( size );
+	return (
+		<>
+			{ icon && iconPosition === 'leading' && (
+				<i className={ `material-icons ${ buttonPrefix }__icon` }>{ icon }</i>
+			) }
+			<div className={ `${ buttonPrefix }__ripple` }></div>
+			<span className={ `${ buttonPrefix }__label` }>{ label }</span>
+			{ icon && iconPosition === 'trailing' && (
+				<i className={ `material-icons ${ buttonPrefix }__icon` }>{ icon }</i>
+			) }
+		</>
+	);
+};
 
 const ButtonSave = ( {
 	attributes: {
@@ -55,6 +60,7 @@ const ButtonSave = ( {
 		type,
 		label,
 		style,
+		size,
 		textColor,
 		linkTarget,
 		cornerRadius,
@@ -66,6 +72,7 @@ const ButtonSave = ( {
 	},
 	className,
 } ) => {
+	const prefixClass = getButtonClass( size );
 	if ( 'icon' === type ) {
 		const tooltipId = tooltip ? `${ id }-tooltip` : false;
 		const tooltipProps = tooltipId
@@ -94,7 +101,7 @@ const ButtonSave = ( {
 						type={ isSubmit ? 'submit' : undefined }
 						{ ...tooltipProps }
 					>
-						<div className="mdc-button__ripple"></div>
+						<div className={ `${ prefixClass }__ripple` }></div>
 						{ icon }
 					</button>
 				) }
@@ -127,20 +134,23 @@ const ButtonSave = ( {
 							? { borderRadius: `${ cornerRadius }px` }
 							: {} ),
 					} }
-					className={ classNames( 'mdc-button', {
-						[ `mdc-button--${ style }` ]: true,
+					className={ classNames( prefixClass, {
+						[ `${ prefixClass }--${ style }` ]: true,
+						[ `mdc-fab--extended` ]: size === 'large',
 					} ) }
 				>
 					<ButtonChildren
 						icon={ icon }
 						iconPosition={ iconPosition }
 						label={ label }
+						size={ size }
 					/>
 				</a>
 			) : (
 				<button
-					className={ classNames( 'mdc-button', {
-						[ `mdc-button--${ style }` ]: true,
+					className={ classNames( prefixClass, {
+						[ `${ prefixClass }--${ style }` ]: true,
+						[ `mdc-fab--extended` ]: isLarge( size ),
 					} ) }
 					style={ {
 						...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
@@ -155,6 +165,7 @@ const ButtonSave = ( {
 						icon={ icon }
 						iconPosition={ iconPosition }
 						label={ label }
+						size={ size }
 					/>
 				</button>
 			) }

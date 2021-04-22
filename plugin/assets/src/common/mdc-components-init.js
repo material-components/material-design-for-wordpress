@@ -25,7 +25,7 @@ import { MDCTabBar } from '@material/tab-bar';
 import { MDCTooltip } from '@material/tooltip';
 
 export const initButtons = () => {
-	const buttons = document.querySelectorAll( '.mdc-button' );
+	const buttons = document.querySelectorAll( '.mdc-button, .mdc-fab' );
 	const iconButtons = document.querySelectorAll( '.mdc-icon-button' );
 
 	buttons.forEach( button => new MDCRipple( button ) );

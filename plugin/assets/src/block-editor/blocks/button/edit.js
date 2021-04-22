@@ -33,9 +33,15 @@ import { withSelect } from '@wordpress/data';
  * Internal dependencies
  */
 import './style.css';
-import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
+import {
+	BUTTON_STYLES,
+	ICON_POSITIONS,
+	BUTTON_TYPES,
+	BUTTON_SIZE,
+} from './options';
 import { name as ButtonBlockName } from './index';
 import hasBg from './utils/has-bg';
+import getButtonClass, { isLarge } from './utils/get-button-class';
 import { getConfig, getIconName } from '../../utils';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
@@ -56,6 +62,7 @@ const MdcButton = ( {
 	type,
 	backgroundColor,
 	style,
+	size,
 	textColor,
 	cornerRadius,
 	icon,
@@ -76,6 +83,8 @@ const MdcButton = ( {
 		);
 	}
 
+	const buttonClass = getButtonClass( size );
+
 	return (
 		<div
 			style={ {
@@ -85,12 +94,13 @@ const MdcButton = ( {
 					? { borderRadius: `${ cornerRadius }px` }
 					: {} ),
 			} }
-			className={ classNames( 'mdc-button', {
-				[ `mdc-button--${ style }` ]: true,
+			className={ classNames( buttonClass, {
+				[ `${ buttonClass }--${ style }` ]: true,
+				[ `mdc-fab--extended` ]: size === 'large',
 			} ) }
 		>
 			{ icon && ( iconPosition === 'leading' || type === 'icon' ) && (
-				<i className="material-icons mdc-button__icon">{ icon }</i>
+				<i className={ `material-icons ${ buttonClass }__icon` }>{ icon }</i>
 			) }
 			<RichText
 				value={ label }
@@ -102,7 +112,7 @@ const MdcButton = ( {
 				identifier="text"
 			/>
 			{ icon && iconPosition === 'trailing' && (
-				<i className="material-icons mdc-button__icon">{ icon }</i>
+				<i className={ `material-icons ${ buttonClass }__icon` }>{ icon }</i>
 			) }
 		</div>
 	);
@@ -119,6 +129,7 @@ const ButtonEdit = ( {
 		type,
 		label,
 		style,
+		size,
 		textColor,
 		linkTarget,
 		cornerRadius,
@@ -188,6 +199,7 @@ const ButtonEdit = ( {
 						type,
 						backgroundColor,
 						style,
+						size,
 						textColor,
 						cornerRadius,
 						icon,
@@ -226,6 +238,17 @@ const ButtonEdit = ( {
 								buttons={ BUTTON_STYLES }
 								current={ style }
 								onClick={ setter( 'style' ) }
+							/>
+						</>
+					) }
+
+					{ type === 'text' && style !== 'text' && (
+						<>
+							<span>{ __( 'Size', 'material-design' ) }</span>
+							<ButtonGroup
+								buttons={ BUTTON_SIZE }
+								current={ size }
+								onClick={ setter( 'size' ) }
 							/>
 						</>
 					) }
@@ -281,7 +304,11 @@ const ButtonEdit = ( {
 							value={ backgroundColor }
 							onChange={ setter( 'backgroundColor' ) }
 							globalPropName={
-								hasBg( style ) ? 'primary_color' : 'on_primary_color'
+								hasBg( style )
+									? isLarge( size )
+										? 'secondary_color'
+										: 'primary_color'
+									: 'on_primary_color'
 							}
 						/>
 					) }
@@ -290,7 +317,11 @@ const ButtonEdit = ( {
 						value={ textColor }
 						onChange={ setter( 'textColor' ) }
 						globalPropName={
-							hasBg( style ) ? 'on_primary_color' : 'primary_color'
+							hasBg( style )
+								? isLarge( size )
+									? 'on_secondary_color'
+									: 'on_primary_color'
+								: 'primary_color'
 						}
 					/>
 

@@ -6,7 +6,7 @@
     "label": {
       "type": "string",
       "source": "html",
-      "selector": ".mdc-button__label",
+      "selector": ".mdc-button__label, .mdc-fab__label",
       "default": ""
     },
     "type": {
@@ -16,6 +16,10 @@
     "style": {
       "type": "string",
       "default": "raised"
+    },
+    "size": {
+      "type": "string",
+      "default": "regular"
     },
     "iconPosition": {
       "type": "string",

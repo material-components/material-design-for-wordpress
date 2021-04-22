@@ -56,6 +56,17 @@ export const BUTTON_STYLES = [
 	},
 ];
 
+export const BUTTON_SIZE = [
+	{
+		label: __( 'Regular', 'material-design' ),
+		value: 'regular',
+	},
+	{
+		label: __( 'Large', 'material-design' ),
+		value: 'large',
+	},
+];
+
 export const ICON_POSITIONS = [
 	{
 		label: __( 'None', 'material-design' ),
