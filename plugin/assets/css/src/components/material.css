@@ -168,6 +168,10 @@
 	& .mdc-fab__label {
 		color: inherit !important;
 	}
+
+	&.mdc-ripple-upgraded {
+		--mdc-ripple-fg-opacity: 0.24;
+	}
 }
 
 .mdc-card {
