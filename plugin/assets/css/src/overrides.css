@@ -63,8 +63,8 @@ html {
 @mixin typography body2, 0.875, 1.25, 400, *;
 
 /* Additional selectors requiring typography styles */
-@mixin selector-typography .mdc-button, button, 0.875, 2.25, 500;
-@mixin selector-typography .mdc-button .mdc-button__label, button, 0.875, 2.25, 500;
+@mixin selector-typography .mdc-button, .mdc-fab, button,  0.875, 2.25, 500;
+@mixin selector-typography .mdc-button .mdc-button__label, .mdc-fab .mdc-fab__label, button, 0.875, 2.25, 500;
 @mixin selector-typography .mdc-list-item__primary-text, body1, 1, 1.5, 400;
 @mixin selector-typography .mdc-list-item__secondary-text, body2, 0.875, 1.25, 400;
 
@@ -110,7 +110,43 @@ html {
 	}
 }
 
-.mdc-button--outlined:not(:disabled) {
+.mdc-fab {
+	box-shadow: none !important;
+	text-decoration: none !important;
+
+	&:hover,
+	&:focus {
+		background-color: transparent !important;
+		color: var(--mdc-theme-on-secondary, #000) !important;
+		text-decoration: none !important;
+	}
+
+	&--raised:not(:disabled),
+	&--unelevated:not(:disabled) {
+
+		&:hover,
+		&:focus {
+			background-color: var(--mdc-theme-secondary, #ef9a9a) !important;
+			color: var(--mdc-theme-on-secondary, #000);
+		}
+	}
+
+	& .mdc-fab__icon {
+		color: inherit !important;
+	}
+
+	&--raised {
+		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
+		transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	& .mdc-fab__icon {
+		font-size: 18px !important;
+	}
+}
+
+.mdc-button--outlined:not(:disabled),
+.mdc-fab--outlined:not(:disabled) {
 	border-color: rgba(0, 0, 0, 0.12) !important;
 	border-color: rgba(var(--mdc-theme-on-surface-rgb), .12) !important;
 }

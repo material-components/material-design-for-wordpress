@@ -30,7 +30,8 @@
 	white-space: nowrap;
 }
 
-.mdc-button--outlined:not(:disabled) {
+.mdc-button--outlined:not(:disabled),
+.mdc-fab--outlined:not(:disabled) {
 	border-color: inherit !important;
 }
 
@@ -45,7 +46,8 @@
 	overflow-wrap: break-word;
 	min-width: 10px;
 
-	& + .mdc-button__icon {
+	& + .mdc-button__icon,
+	& + .mdc-fab__icon {
 		margin-left: 8px !important;
 		margin-right: -4px !important;
 	}

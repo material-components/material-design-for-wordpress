@@ -48,6 +48,11 @@
 		--mdc-theme-on-primary: var(--material-design-gsm-primary-text);
 	}
 
+	& .mdc-fab {
+		--mdc-theme-secondary: var(--material-design-gsm-primary-color);
+		--mdc-theme-on-secondary: var(--material-design-gsm-primary-text);
+	}
+
 	& h1,
 	& h3,
 	& h4 {
