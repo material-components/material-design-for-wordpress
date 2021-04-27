@@ -41,6 +41,7 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 		'call-to-action-benefits',
 		'features-list',
 		'logos',
+		'single-feature',
 	];
 
 	/**
