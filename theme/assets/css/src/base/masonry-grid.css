@@ -16,14 +16,10 @@
 
 .masonry-grid {
 	display: flex;
-	flex-direction: column;
+	flex-flow: column wrap;
 	margin: 24px 0;
 	margin: var(--mdc-layout-grid-margin-desktop, 24px) 0;
 	width: auto;
-
-	@media (--medium-viewport) {
-		flex-direction: row;
-	}
 }
 
 .masonry-grid_column {
@@ -76,4 +72,19 @@
 .masonry-grid_column > div {
 	margin-bottom: 24px;
 	margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
+}
+
+.post-card {
+	margin-bottom: 24px;
+	margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
+
+	@media (--medium-viewport) {
+		margin-left: 24px;
+		margin-left: var(--mdc-layout-grid-margin-desktop, 24px);
+		max-width: calc(50% - var(--mdc-layout-grid-margin-desktop, 24px));
+	}
+
+	&:nth-of-type(odd) {
+		margin-left: 0;
+	}
 }
