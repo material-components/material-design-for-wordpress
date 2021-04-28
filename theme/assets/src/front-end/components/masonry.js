@@ -21,8 +21,17 @@ export const masonryInit = () => {
 		return;
 	}
 
-	resizeAllGridItems();
+	const mediaQuery = window.matchMedia( '(min-width: 840px)' );
+
+	mediaQuery.addEventListener( 'change', handleResize );
+	handleResize( mediaQuery );
 };
+
+const handleResize = mediaQuery => {
+	if ( mediaQuery.matches ) {
+		resizeAllGridItems();
+	}
+}
 
 const resizeAllGridItems = () => {
 	const cells = gridElement.querySelectorAll( '.post-card__container' );
