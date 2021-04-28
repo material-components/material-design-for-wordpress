@@ -459,3 +459,39 @@
 		margin-top: auto;
 	}
 }
+
+/* Icon */
+.wp-block-material-icon {
+
+	&.has-text-align-center {
+		text-align:center;
+	}
+
+	&.has-text-align-left {
+		text-align:left;
+	}
+
+	&.has-text-align-right {
+		text-align:right;
+	}
+
+	.material-icons {
+		color: var(--mdc-theme-primary, '#6200ee');
+
+		&.md-18 {
+			font-size: 18px;
+		}
+
+		&.md-24 {
+			font-size: 24px;
+		}
+
+		&.md-36 {
+			font-size: 36px;
+		}
+
+		&.md-48 {
+			font-size: 48px;
+		}
+	}
+}
