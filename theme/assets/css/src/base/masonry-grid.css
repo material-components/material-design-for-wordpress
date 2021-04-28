@@ -15,10 +15,16 @@
  */
 
 .masonry-grid-theme {
-	display: grid;
 	grid-gap: var(--mdc-layout-grid-margin-desktop, 24px);
 	grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
 	grid-auto-rows: 24px;
+	margin: 24px 0;
+	margin: var(--mdc-layout-grid-margin-desktop, 24px) 0;
+	padding: 0 var(--mdc-layout-grid-margin-desktop, 24px);
+
+	@media (--medium-viewport) {
+		display: grid;
+	}
 }
 
 .layout-masonry-4 {
