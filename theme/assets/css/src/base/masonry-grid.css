@@ -14,49 +14,11 @@
  * limitations under the License.
  */
 
-.masonry-grid {
-	display: flex;
-	flex-flow: column wrap;
-	margin: 24px 0;
-	margin: var(--mdc-layout-grid-margin-desktop, 24px) 0;
-	width: auto;
-}
-
-.masonry-grid_column {
-	background-clip: padding-box;
-	box-sizing: content-box;
-	padding-left: 0;
-
-	@media (--medium-viewport) {
-		padding-left: 24px;
-		padding-left: var(--mdc-layout-grid-margin-desktop, 24px);
-	}
-
-	&:first-child {
-		padding-left: 0;
-	}
-}
-
-/* @todo adjust width based on breakpoints */
-.layout-masonry-2 {
-
-	& .masonry-grid_column {
-		width: 100%;
-
-		@media (--medium-viewport) {
-			width: 50%;
-		}
-	}
-}
-
-.layout-masonry-3 {
-
-	& .masonry-grid_column {
-
-		@media (--medium-viewport) {
-			width: 33.33%;
-		}
-	}
+.masonry-grid-theme {
+	display: grid;
+	grid-gap: var(--mdc-layout-grid-margin-desktop, 24px);
+	grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+	grid-auto-rows: 24px;
 }
 
 .layout-masonry-4 {
@@ -69,22 +31,7 @@
 	}
 }
 
-.masonry-grid_column > div {
-	margin-bottom: 24px;
-	margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
-}
-
 .post-card {
-	margin-bottom: 24px;
-	margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
-
-	@media (--medium-viewport) {
-		margin-left: 24px;
-		margin-left: var(--mdc-layout-grid-margin-desktop, 24px);
-		max-width: calc(50% - var(--mdc-layout-grid-margin-desktop, 24px));
-	}
-
-	&:nth-of-type(odd) {
-		margin-left: 0;
-	}
+	margin: 0 0 1em;
+	width: 100%;
 }
