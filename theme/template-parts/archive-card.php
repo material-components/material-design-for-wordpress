@@ -27,7 +27,7 @@ $columns = get_theme_mod( 'archive_width', 'normal' ) === 'normal' ? 2 : 3;
 
 ?>
 
-<div class="archive-cards masonry-grid layout-masonry-<?php echo esc_attr( $columns ); ?>">
+<div class="archive-cards masonry-grid-theme layout-masonry-<?php echo esc_attr( $columns ); ?>">
 	<?php
 	/* Start the Loop */
 	while ( have_posts() ) :
