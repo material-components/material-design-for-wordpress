@@ -42,6 +42,7 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 		'contact-form',
 		'features-list',
 		'logos',
+		'media-grid',
 		'single-feature',
 		'single-feature-extended',
 	];
