@@ -77,6 +77,7 @@ class Block_Patterns {
 			'features-list',
 			'logos',
 			'single-feature',
+			'call-to-action-features',
 		];
 
 		foreach ( $patterns as $pattern ) {
