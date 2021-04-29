@@ -464,19 +464,19 @@
 .wp-block-material-icon {
 
 	&.has-text-align-center {
-		text-align:center;
+		text-align: center;
 	}
 
 	&.has-text-align-left {
-		text-align:left;
+		text-align: left;
 	}
 
 	&.has-text-align-right {
-		text-align:right;
+		text-align: right;
 	}
 
 	.material-icons {
-		color: var(--mdc-theme-primary, '#6200ee');
+		color: var(--mdc-theme-primary, "#6200ee");
 
 		&.md-18 {
 			font-size: 18px;

@@ -17,12 +17,12 @@
 /**
  * Internal dependencies
  */
-import { name } from "../../../../../assets/src/block-editor/blocks/icon";
+import { name } from '../../../../../assets/src/block-editor/blocks/icon';
 
-describe( "blocks: material/icon", () => {
-	describe( "name", () => {
-		it( "should equal material/icon", () => {
-			expect( name ).toStrictEqual( "material/icon" );
+describe( 'blocks: material/icon', () => {
+	describe( 'name', () => {
+		it( 'should equal material/icon', () => {
+			expect( name ).toStrictEqual( 'material/icon' );
 		} );
 	} );
 } );

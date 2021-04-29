@@ -35,22 +35,20 @@ const setup = props => {
 };
 
 describe( 'Icon', () => {
-		beforeAll( () => {
-			global.materialDesign = {
-				defaults: {
-					colors: {
-						primary_color: '#6200ee',
-						on_primary_color: '#ffffff',
-						secondary_color: '#018786',
-						on_secondary_color: '#ffffff',
-					},
+	beforeAll( () => {
+		global.materialDesign = {
+			defaults: {
+				colors: {
+					primary_color: '#6200ee',
+					secondary_color: '#018786',
 				},
-				customizerUrls: {
-					shape: 'http://example.com/shape',
-					colors: 'http://example.com/colors',
-				},
-			};
-		} );
+			},
+			customizerUrls: {
+				shape: 'http://example.com/shape',
+				colors: 'http://example.com/colors',
+			},
+		};
+	} );
 
 	it( 'displays all the panels', () => {
 		setup( baseProps );
@@ -114,7 +112,7 @@ describe( 'Icon', () => {
 		expect( screen.queryByText( 'Pick custom size(in px)' ) ).toBeNull();
 	} );
 
-	it( 'should have center classe if align is center', () => {
+	it( 'should have center class if align is center', () => {
 		setup( { attributes: { align: 'center' }, setAttributes: jest.fn() } );
 
 		const container = document.body;
