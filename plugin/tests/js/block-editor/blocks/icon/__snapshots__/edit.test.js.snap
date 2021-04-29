@@ -275,7 +275,7 @@ Object {
               <span
                 aria-label="Icon Color"
                 class="component-color-indicator"
-                style="background: rgb(255, 255, 255);"
+                style="background: rgb(98, 0, 238);"
               />
             </span>
             <div
@@ -289,10 +289,24 @@ Object {
                 >
                   <button
                     aria-label="Color: Primary"
-                    class="components-button components-circular-option-picker__option"
+                    class="components-button components-circular-option-picker__option is-pressed"
                     style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
                     type="button"
                   />
+                  <svg
+                    aria-hidden="true"
+                    class="dashicon dashicons-saved"
+                    focusable="false"
+                    height="20"
+                    role="img"
+                    viewBox="0 0 20 20"
+                    width="20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.3 5.3l-6.8 6.8-2.8-2.8-1.4 1.4 4.2 4.2 8.2-8.2"
+                    />
+                  </svg>
                 </div>
                 <div
                   class="components-circular-option-picker__option-wrapper"
@@ -683,7 +697,7 @@ Object {
             <span
               aria-label="Icon Color"
               class="component-color-indicator"
-              style="background: rgb(255, 255, 255);"
+              style="background: rgb(98, 0, 238);"
             />
           </span>
           <div
@@ -697,10 +711,24 @@ Object {
               >
                 <button
                   aria-label="Color: Primary"
-                  class="components-button components-circular-option-picker__option"
+                  class="components-button components-circular-option-picker__option is-pressed"
                   style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
                   type="button"
                 />
+                <svg
+                  aria-hidden="true"
+                  class="dashicon dashicons-saved"
+                  focusable="false"
+                  height="20"
+                  role="img"
+                  viewBox="0 0 20 20"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.3 5.3l-6.8 6.8-2.8-2.8-1.4 1.4 4.2 4.2 8.2-8.2"
+                  />
+                </svg>
               </div>
               <div
                 class="components-circular-option-picker__option-wrapper"
