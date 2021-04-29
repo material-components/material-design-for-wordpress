@@ -106,7 +106,7 @@ const IconEdit = ( {
 						label={ __( 'Icon Color', 'material-design' ) }
 						value={ textColor }
 						onChange={ setter( 'textColor' ) }
-						globalPropName={ 'on_primary_color' }
+						globalPropName={ 'primary_color' }
 					/>
 				</PanelBody>
 				<PanelBody
