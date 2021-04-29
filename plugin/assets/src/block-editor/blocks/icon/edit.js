@@ -63,14 +63,14 @@ const IconEdit = ( {
 					[ `has-text-align-${ align }` ]: align,
 				} ) }
 			>
-				<div
+				<i
 					className={ classNames( 'material-icons', {
 						[ `md-${ iconSize }` ]: ! isCustom,
 					} ) }
 					style={ style }
 				>
 					{ icon }
-				</div>
+				</i>
 			</div>
 
 			<BlockControls group="block">
