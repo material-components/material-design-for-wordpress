@@ -26,7 +26,7 @@ const IconSave = ( {
 	const style = { ...( textColor ? { color: textColor } : {} ) };
 	const isCustom = 'custom' === iconSize;
 	if ( isCustom ) {
-		style[ 'font-size' ] = `${ customSize }px`;
+		style.fontSize = `${ customSize }px`;
 	}
 	return (
 		<div
@@ -34,14 +34,14 @@ const IconSave = ( {
 				[ `has-text-align-${ align }` ]: align,
 			} ) }
 		>
-			<div
+			<i
 				className={ classNames( 'material-icons', {
 					[ `md-${ iconSize }` ]: ! isCustom,
 				} ) }
 				style={ style }
 			>
 				{ icon }
-			</div>
+			</i>
 		</div>
 	);
 };
