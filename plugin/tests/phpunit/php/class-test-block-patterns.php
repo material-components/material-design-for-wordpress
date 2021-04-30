@@ -40,11 +40,14 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 		'call-to-action',
 		'call-to-action-benefits',
 		'call-to-action-features',
+		'contact-form',
 		'features-list',
 		'highlights',
 		'logos',
 		'numbers',
+		'media-grid',
 		'single-feature',
+		'single-feature-extended',
 	];
 
 	/**

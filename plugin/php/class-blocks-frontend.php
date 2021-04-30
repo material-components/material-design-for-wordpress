@@ -117,6 +117,11 @@ class Blocks_Frontend extends Module_Base {
 				break;
 
 			default:
+				if ( ! empty( $block['innerBlocks'] ) && is_array( $block['innerBlocks'] ) ) {
+					foreach ( $block['innerBlocks'] as $inner_block ) {
+						$styles .= self::get_block_css( $inner_block );
+					}
+				}
 				break;
 		}
 
