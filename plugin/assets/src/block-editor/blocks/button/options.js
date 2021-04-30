@@ -70,3 +70,14 @@ export const ICON_POSITIONS = [
 		value: 'trailing',
 	},
 ];
+
+export const BUTTON_SIZE = [
+	{
+		label: __( 'Normal', 'material-design' ),
+		value: 'normal',
+	},
+	{
+		label: __( 'Large', 'material-design' ),
+		value: 'large',
+	},
+];
