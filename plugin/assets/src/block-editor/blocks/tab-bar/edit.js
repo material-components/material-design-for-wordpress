@@ -47,13 +47,17 @@ import getConfig from '../../utils/get-config';
 
 /**
  * Material button edit component.
+ *
+ * @param args
  */
-const TabBarEdit = ( {
-	attributes: { tabs, iconPosition, forceUpdate, preview },
-	setAttributes,
-	clientId,
-	tabContent,
-} ) => {
+const TabBarEdit = args => {
+	const {
+		attributes: { tabs, iconPosition, forceUpdate, preview },
+		setAttributes,
+		clientId,
+		tabContent,
+	} = args;
+	console.log( JSON.stringify( tabs ) );
 	// Set the default tabs when a new block instance is added.
 	if ( 0 === tabs.length ) {
 		tabs = [
@@ -99,6 +103,7 @@ const TabBarEdit = ( {
 
 	useEffect( () => {
 		const activeTab = tabs[ activeTabIndex ] || {};
+		console.log( clientId, activeTabIndex, activeTab.content );
 		// If there's content, put it in the editor.
 		if ( activeTab && activeTab.content && activeTab.content.length ) {
 			dispatch( 'core/block-editor' ).replaceInnerBlocks(
