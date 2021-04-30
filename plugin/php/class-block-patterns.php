@@ -74,12 +74,15 @@ class Block_Patterns {
 			'button',
 			'call-to-action',
 			'call-to-action-benefits',
+			'contact-form',
 			'features-list',
 			'logos',
+			'media-grid',
 			'single-feature',
 			'call-to-action-features',
 			'numbers',
 			'highlights',
+			'single-feature-extended',
 		];
 
 		foreach ( $patterns as $pattern ) {

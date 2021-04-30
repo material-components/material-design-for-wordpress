@@ -18,7 +18,7 @@
  */
 
 /**
- * Logos pattern.
+ * Single feature pattern.
  *
  * @package MaterialDesign
  */
