@@ -79,6 +79,9 @@ class Block_Patterns {
 			'logos',
 			'media-grid',
 			'single-feature',
+			'call-to-action-features',
+			'numbers',
+			'highlights',
 			'single-feature-extended',
 		];
 
