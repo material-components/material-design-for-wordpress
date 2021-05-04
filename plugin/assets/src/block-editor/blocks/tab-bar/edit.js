@@ -233,6 +233,11 @@ const TabBarEdit = args => {
 		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
 	};
 
+	/**
+	 * Check if there's available tabs on init.
+	 *
+	 * @return {boolean} Whether there are available tabs with no index
+	 */
 	const hasDefaultTabs = () =>
 		tabs.length && 'undefined' === typeof activeTabIndex;
 
