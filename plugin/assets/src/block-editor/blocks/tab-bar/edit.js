@@ -101,7 +101,13 @@ const TabBarEdit = args => {
 	}, [ tabBar, mdcTabs, tabs.length ] );
 
 	useEffect( () => {
-		const activeTab = tabs[ activeTabIndex ] || {};
+		let activeTab = tabs[ activeTabIndex ] || {};
+
+		// Set default tab visible when tabs exist but index hasn't been set.
+		if ( hasDefaultTabs() ) {
+			activeTab = tabs[ 0 ];
+		}
+
 		// If there's content, put it in the editor.
 		if ( activeTab && activeTab.content && activeTab.content.length ) {
 			dispatch( 'core/block-editor' ).replaceInnerBlocks(
@@ -227,6 +233,9 @@ const TabBarEdit = args => {
 		setAttributes( { tabs: newTabs, forceUpdate: ! forceUpdate } );
 	};
 
+	const hasDefaultTabs = () =>
+		tabs.length && 'undefined' === typeof activeTabIndex;
+
 	/**
 	 * Create a list of all blocks to be allowed in the Tabs, except Tabs itself.
 	 */
@@ -255,18 +264,25 @@ const TabBarEdit = args => {
 					<div className="mdc-tab-scroller">
 						<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
 							<div className="mdc-tab-scroller__scroll-content">
-								{ tabs.map( ( props, index ) => (
-									<Tab
-										{ ...props }
-										key={ `${ clientId }-${ index }` }
-										iconPosition={ iconPosition }
-										onChange={ changeTab.bind( this, index ) }
-										onDelete={ deleteTab.bind( this, index ) }
-										onInput={ setTabLabel }
-										active={ activeTabIndex === index }
-										index={ index }
-									/>
-								) ) }
+								{ tabs.map( ( props, index ) => {
+									const isActiveTab =
+										hasDefaultTabs() && 0 === index
+											? true
+											: activeTabIndex === index;
+
+									return (
+										<Tab
+											{ ...props }
+											key={ `${ clientId }-${ index }` }
+											iconPosition={ iconPosition }
+											onChange={ changeTab.bind( this, index ) }
+											onDelete={ deleteTab.bind( this, index ) }
+											onInput={ setTabLabel }
+											active={ isActiveTab }
+											index={ index }
+										/>
+									);
+								} ) }
 							</div>
 						</div>
 					</div>
