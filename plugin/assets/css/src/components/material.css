@@ -209,11 +209,13 @@
 	& .alignleft {
 		margin-left: 0;
 		margin-right: 1em;
+		width: auto;
 	}
 
 	& .alignright {
 		margin-left: 1em;
 		margin-right: 0;
+		width: auto;
 	}
 }
 
