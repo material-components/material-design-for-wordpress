@@ -57,10 +57,9 @@ const TabBarEdit = args => {
 		clientId,
 		tabContent,
 	} = args;
-	console.log( JSON.stringify( tabs ) );
 	// Set the default tabs when a new block instance is added.
 	if ( 0 === tabs.length ) {
-		tabs = [
+		const defaultTabs = [
 			...[
 				new TabSchema( {
 					label: '',
@@ -70,11 +69,11 @@ const TabBarEdit = args => {
 				} ),
 			],
 		];
-		setAttributes( { tabs } );
+		setAttributes( { tabs: defaultTabs } );
 	}
 
-	const [ activeTabIndex, setActiveTabIndex ] = useState( 0 );
-
+	const [ activeTabIndex, setActiveTabIndex ] = useState();
+	const [ hasMount, setHasMount ] = useState( false );
 	const tabBar = useRef( null );
 	const mdcTabs = useRef( null );
 	useEffect( () => {
@@ -103,7 +102,6 @@ const TabBarEdit = args => {
 
 	useEffect( () => {
 		const activeTab = tabs[ activeTabIndex ] || {};
-		console.log( clientId, activeTabIndex, activeTab.content );
 		// If there's content, put it in the editor.
 		if ( activeTab && activeTab.content && activeTab.content.length ) {
 			dispatch( 'core/block-editor' ).replaceInnerBlocks(
@@ -123,12 +121,13 @@ const TabBarEdit = args => {
 	useEffect( () => {
 		const newTabs = [ ...tabs ];
 		const activeTab = newTabs[ activeTabIndex ] || false;
-
-		if ( activeTab && ! isEqual( activeTab.content, tabContent ) ) {
+		if ( hasMount && activeTab && ! isEqual( activeTab.content, tabContent ) ) {
 			activeTab.content = tabContent;
 			setAttributes( { tabs: newTabs } );
 		}
 	} );
+
+	useEffect( () => setHasMount( true ), [] );
 
 	/**
 	 * Initialize and create a new tab. Save it to the Tabs.
@@ -152,7 +151,8 @@ const TabBarEdit = args => {
 	 * @param {number} index The index of the tab to make active.
 	 */
 	const changeTab = index => {
-		if ( index !== activeTabIndex ) {
+		// Make sure that tabBar component completed loading before triggering change event. Fixes issue with pasting block.
+		if ( hasMount && index !== activeTabIndex ) {
 			setActiveTabIndex( index );
 		}
 	};
