@@ -48,7 +48,7 @@ import getConfig from '../../utils/get-config';
 /**
  * Material button edit component.
  *
- * @param args
+ * @param {Object} args
  */
 const TabBarEdit = args => {
 	const {
