@@ -425,6 +425,10 @@ class Contact_Form_Block extends Module_Base {
 			'data-label'      => true,
 		];
 
+		if ( isset( $tags['textarea'] ) ) {
+			$tags['textarea']['required'] = true;
+		}
+
 		return $tags;
 	}
 }
