@@ -452,6 +452,15 @@
 	}
 }
 
+.wp-block-material-buttons,
+.wp-block-material-button {
+
+	& .mdc-button.is-large {
+		height: 50px;
+		padding: 16px 32px;
+	}
+}
+
 .mdc-layout-grid .material-design-card {
 	height: 100%;
 
