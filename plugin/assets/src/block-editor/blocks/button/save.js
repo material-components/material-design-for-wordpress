@@ -63,6 +63,7 @@ const ButtonSave = ( {
 		isSubmit,
 		tooltip,
 		id,
+		size,
 	},
 	className,
 } ) => {
@@ -129,6 +130,7 @@ const ButtonSave = ( {
 					} }
 					className={ classNames( 'mdc-button', {
 						[ `mdc-button--${ style }` ]: true,
+						[ `is-large` ]: size === 'large',
 					} ) }
 				>
 					<ButtonChildren
@@ -141,6 +143,7 @@ const ButtonSave = ( {
 				<button
 					className={ classNames( 'mdc-button', {
 						[ `mdc-button--${ style }` ]: true,
+						[ `is-large` ]: size === 'large',
 					} ) }
 					style={ {
 						...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),

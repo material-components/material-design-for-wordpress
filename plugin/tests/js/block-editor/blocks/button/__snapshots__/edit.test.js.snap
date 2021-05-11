@@ -156,6 +156,37 @@ Object {
           </div>
         </div>
         <span>
+          Size
+        </span>
+        <div
+          class="btn-group"
+        >
+          <ul
+            class="btn-group__list"
+          >
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Normal
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Large
+              </button>
+            </li>
+          </ul>
+        </div>
+        <span>
           Variations
         </span>
         <div
@@ -826,6 +857,37 @@ Object {
             </label>
           </div>
         </div>
+      </div>
+      <span>
+        Size
+      </span>
+      <div
+        class="btn-group"
+      >
+        <ul
+          class="btn-group__list"
+        >
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Normal
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Large
+            </button>
+          </li>
+        </ul>
       </div>
       <span>
         Variations
