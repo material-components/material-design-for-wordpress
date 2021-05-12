@@ -220,6 +220,7 @@ require get_template_directory() . '/inc/customizer/colors.php';
 require get_template_directory() . '/inc/customizer/header-footer.php';
 require get_template_directory() . '/inc/customizer/layout.php';
 require get_template_directory() . '/inc/customizer/menu.php';
+require get_template_directory() . '/inc/customizer/global-style.php';
 
 /**
  * Custom menu walker
@@ -259,4 +260,5 @@ MaterialDesign\Theme\Customizer\Colors\setup();
 MaterialDesign\Theme\Customizer\Header_Footer\setup();
 MaterialDesign\Theme\Customizer\Layout\setup();
 MaterialDesign\Theme\Customizer\Menu\setup();
+MaterialDesign\Theme\Customizer\Global_Style\setup();
 MaterialDesign\Theme\Widgets\setup();
