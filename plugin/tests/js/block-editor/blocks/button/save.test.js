@@ -94,4 +94,15 @@ describe( 'Button Save', () => {
 		} );
 		expect( wrapper ).toMatchSnapshot();
 	} );
+
+	it( 'matches snapshot for large button', () => {
+		const wrapper = setup( {
+			attributes: {
+				...baseProps.attributes,
+				iconPosition: 'leading',
+				size: 'large',
+			},
+		} );
+		expect( wrapper ).toMatchSnapshot();
+	} );
 } );

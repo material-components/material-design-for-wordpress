@@ -25,7 +25,7 @@
 
 return [
 	'title'         => __( 'Button', 'material-design' ),
-	'content'       => "<!-- wp:material/buttons -->\n<div class=\"wp-block-material-buttons\">\n<!-- wp:material/button -->\n<div class=\"wp-block-material-button\" id=\"block-material-button-5\"><button class=\"mdc-button mdc-button--raised\"><i class=\"material-icons mdc-button__icon\">drafts</i><div class=\"mdc-button__ripple\"></div><span class=\"mdc-button__label\">Call to Action</span></button></div>\n<!-- /wp:material/button -->\n</div><!-- /wp:material/buttons -->",
+	'content'       => "<!-- wp:material/buttons -->\n<div class=\"wp-block-material-buttons\"><!-- wp:material/button {\"size\":\"large\"} -->\n<div class=\"wp-block-material-button\" id=\"block-material-button-5\"><button class=\"mdc-button mdc-button--raised is-large\"><i class=\"material-icons mdc-button__icon\">drafts</i><div class=\"mdc-button__ripple\"></div><span class=\"mdc-button__label\">Call to Action</span></button></div>\n<!-- /wp:material/button --></div>\n<!-- /wp:material/buttons -->",
 	'viewportWidth' => 800,
 	'categories'    => [ 'material', 'text' ],
 	'description'   => __( 'An example button block.', 'material-design' ),

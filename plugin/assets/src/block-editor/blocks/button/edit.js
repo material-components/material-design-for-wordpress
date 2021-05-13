@@ -33,7 +33,12 @@ import { withSelect } from '@wordpress/data';
  * Internal dependencies
  */
 import './style.css';
-import { BUTTON_STYLES, ICON_POSITIONS, BUTTON_TYPES } from './options';
+import {
+	BUTTON_STYLES,
+	ICON_POSITIONS,
+	BUTTON_TYPES,
+	BUTTON_SIZE,
+} from './options';
 import { name as ButtonBlockName } from './index';
 import hasBg from './utils/has-bg';
 import { getConfig, getIconName } from '../../utils';
@@ -62,6 +67,7 @@ const MdcButton = ( {
 	iconPosition,
 	label,
 	setter,
+	size,
 } ) => {
 	icon = getIconName( icon );
 
@@ -87,6 +93,7 @@ const MdcButton = ( {
 			} }
 			className={ classNames( 'mdc-button', {
 				[ `mdc-button--${ style }` ]: true,
+				[ `is-large` ]: size === 'large',
 			} ) }
 		>
 			{ icon && ( iconPosition === 'leading' || type === 'icon' ) && (
@@ -126,6 +133,7 @@ const ButtonEdit = ( {
 		backgroundColor,
 		isSubmit,
 		tooltip,
+		size,
 	},
 	setAttributes,
 	isSelected,
@@ -194,6 +202,7 @@ const ButtonEdit = ( {
 						iconPosition,
 						label,
 						setter,
+						size,
 					} }
 				/>
 
@@ -218,6 +227,17 @@ const ButtonEdit = ( {
 						options={ BUTTON_TYPES }
 						onChange={ switchType }
 					/>
+
+					{ type === 'text' && (
+						<>
+							<span>{ __( 'Size', 'material-design' ) }</span>
+							<ButtonGroup
+								buttons={ BUTTON_SIZE }
+								current={ size }
+								onClick={ setter( 'size' ) }
+							/>
+						</>
+					) }
 
 					{ type === 'text' && (
 						<>
