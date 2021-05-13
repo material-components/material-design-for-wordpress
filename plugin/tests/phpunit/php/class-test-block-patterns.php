@@ -48,6 +48,7 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 		'media-grid',
 		'single-feature',
 		'single-feature-extended',
+		'hero-section',
 		'pricing',
 	];
 

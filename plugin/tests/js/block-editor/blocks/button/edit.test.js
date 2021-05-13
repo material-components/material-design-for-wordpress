@@ -258,4 +258,15 @@ describe( 'ButtonEdit', () => {
 			icon: 'spa',
 		} );
 	} );
+
+	it( 'should set style when large is selected', () => {
+		const props = {
+			attributes: { type: 'text', size: 'large' },
+			isSelected: true,
+			setAttributes: jest.fn(),
+		};
+		const { container } = setup( props );
+		const button = container.querySelectorAll( '.mdc-button' );
+		expect( button[ 0 ] ).toHaveClass( 'is-large' );
+	} );
 } );
