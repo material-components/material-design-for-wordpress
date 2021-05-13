@@ -48,6 +48,7 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 		'numbers',
 		'single-feature',
 		'single-feature-extended',
+		'hero-section',
 		'pricing',
 	];
 
