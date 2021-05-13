@@ -86,19 +86,27 @@ class Block_Types {
 
 		$blocks_dir    = $this->plugin->dir_path . '/assets/js/blocks/';
 		$block_folders = [
-			'button',
-			'card',
-			'cards-collection',
-			'contact-form',
-			'data-table',
-			'hand-picked-posts',
-			'image-list',
-			'list',
-			'recent-posts',
-			'tab-bar',
+			'button'            => [],
+			'card'              => [
+				'outlined' => [ $this, 'is_default_card_style_outlined' ],
+			],
+			'cards-collection'  => [
+				'outlined' => [ $this, 'is_default_card_style_outlined' ],
+			],
+			'contact-form'      => [
+				'outlined' => [ $this, 'is_default_text_field_style_outlined' ],
+			],
+			'data-table'        => [],
+			'hand-picked-posts' => [],
+			'image-list'        => [],
+			'list'              => [],
+			'recent-posts'      => [
+				'outlined' => [ $this, 'is_default_card_style_outlined' ],
+			],
+			'tab-bar'           => [],
 		];
 
-		foreach ( $block_folders as $block_name ) {
+		foreach ( $block_folders as $block_name => $override_attributes ) {
 			$block_json_file = $blocks_dir . $block_name . '/block.json';
 			if ( ! file_exists( $block_json_file ) ) {
 				continue;
@@ -107,6 +115,10 @@ class Block_Types {
 			$metadata = json_decode( file_get_contents( $block_json_file ), true ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
 			if ( ! is_array( $metadata ) || ! $metadata['name'] ) {
 				continue;
+			}
+
+			foreach ( $override_attributes as $attr_key => $attr ) {
+				$metadata['attributes'][ $attr_key ]['default'] = call_user_func( $attr );
 			}
 
 			$metadata['editor_script'] = 'material-block-editor-js';
@@ -213,8 +225,9 @@ class Block_Types {
 			'tab_bar_preview'          => $this->plugin->asset_url( 'assets/images/preview/tab-bar.jpg' ),
 			'contact_form_preview'     => $this->plugin->asset_url( 'assets/images/preview/contact-form.jpg' ),
 			'defaults'                 => [
-				'blocks' => $this->get_block_defaults(),
-				'colors' => $this->get_color_defaults(),
+				'blocks'      => $this->get_block_defaults(),
+				'colors'      => $this->get_color_defaults(),
+				'globalStyle' => $this->get_global_styles(),
 			],
 			'customizerUrls'           => [
 				'colors' => add_query_arg( 'autofocus[section]', $slug . '_colors', $customizer_url ),
@@ -306,6 +319,41 @@ class Block_Types {
 		};
 
 		return $defaults;
+	}
+
+	/**
+	 * Get global style configs.
+	 */
+	public function get_global_styles() {
+		$text_field_style = get_theme_mod( 'text_style' );
+		$card_style       = get_theme_mod( 'card_style' );
+
+		return [
+			'card'      => ! empty( $card_style ) ? $card_style : 'elevated',
+			'textField' => ! empty( $text_field_style ) ? $text_field_style : 'elevated',
+		];
+	}
+
+	/**
+	 * Whether default card style is outlined.
+	 *
+	 * @return bool
+	 */
+	public function is_default_card_style_outlined() {
+		$style = $this->get_global_styles();
+
+		return 'outlined' === $style['card'];
+	}
+
+	/**
+	 * Whether default text field style is outlined.
+	 *
+	 * @return bool
+	 */
+	public function is_default_text_field_style_outlined() {
+		$style = $this->get_global_styles();
+
+		return 'outlined' === $style['textField'];
 	}
 
 	/**
