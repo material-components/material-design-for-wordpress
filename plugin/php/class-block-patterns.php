@@ -71,7 +71,6 @@ class Block_Patterns {
 		 * Register the patterns.
 		 */
 		$patterns = [
-			'button',
 			'call-to-action',
 			'call-to-action-benefits',
 			'contact-form',
