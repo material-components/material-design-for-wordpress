@@ -14,7 +14,16 @@
  * limitations under the License.
  */
 
+/**
+ * WordPress dependencies
+ */
 import { useEffect, useRef, useState } from '@wordpress/element';
+import { addFilter } from '@wordpress/hooks';
+
+/**
+ * External dependencies
+ */
+import { assign } from 'lodash';
 
 export const useStateCallback = initialState => {
 	const [ state, setState ] = useState( initialState );
@@ -35,3 +44,17 @@ export const useStateCallback = initialState => {
 
 	return [ state, setStateCallback ];
 };
+
+const addWideSupport = ( settings, name ) => {
+	if ( 'core/paragraph' !== name ) {
+		return settings;
+	}
+
+	settings.supports = assign( settings.supports, {
+		align: [ 'wide' ],
+	} );
+
+	return settings;
+};
+
+addFilter( 'blocks.registerBlockType', 'material/extends', addWideSupport );
