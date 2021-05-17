@@ -85,6 +85,7 @@ class Block_Patterns {
 			'single-feature-extended',
 			'hero-section',
 			'pricing',
+			'products',
 		];
 
 		foreach ( $patterns as $pattern ) {
