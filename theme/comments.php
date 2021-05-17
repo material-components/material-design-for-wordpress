@@ -39,7 +39,7 @@ if ( post_password_required() ) {
 
 $commenter    = wp_get_current_commenter();
 $style        = get_theme_mod( 'comment_fields_style', 'outlined' );
-$global_style = get_theme_mod( 'text_style' );
+$global_style = get_material_global_style( 'text_field_style' );
 
 $classes = in_array( 'outlined', [ $style, $global_style ], true ) ? 'mdc-text-field--outlined mdc-text-field--no-label' : 'mdc-text-field--filled';
 

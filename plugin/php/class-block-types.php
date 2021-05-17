@@ -323,15 +323,23 @@ class Block_Types {
 
 	/**
 	 * Get global style configs.
+	 *
+	 * @param string $key get single value.
+	 *
+	 * @return array|string
 	 */
-	public function get_global_styles() {
-		$text_field_style = get_theme_mod( 'text_style' );
-		$card_style       = get_theme_mod( 'card_style' );
+	public function get_global_styles( $key = null ) {
+		$defaults = [];
+		$controls = $this->plugin->customizer_controls;
 
-		return [
-			'card'      => ! empty( $card_style ) ? $card_style : 'elevated',
-			'textField' => ! empty( $text_field_style ) ? $text_field_style : 'elevated',
-		];
+		foreach ( $controls->get_global_style_controls() as $control ) {
+			$value = $controls->get_option( $control['id'] );
+			if ( ! empty( $value ) ) {
+				$defaults[ $control['id'] ] = $value;
+			}
+		}
+
+		return ( $key ? ( isset( $defaults[ $key ] ) ? $defaults[ $key ] : '' ) : $defaults );
 	}
 
 	/**
@@ -341,8 +349,9 @@ class Block_Types {
 	 */
 	public function is_default_card_style_outlined() {
 		$style = $this->get_global_styles();
+		$style = isset( $style['card_style'] ) ? $style['card_style'] : '';
 
-		return 'outlined' === $style['card'];
+		return 'outlined' === $style;
 	}
 
 	/**
@@ -352,8 +361,9 @@ class Block_Types {
 	 */
 	public function is_default_text_field_style_outlined() {
 		$style = $this->get_global_styles();
+		$style = isset( $style['text_field_style'] ) ? $style['text_field_style'] : '';
 
-		return 'outlined' === $style['textField'];
+		return 'outlined' === $style;
 	}
 
 	/**

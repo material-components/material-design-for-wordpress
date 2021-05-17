@@ -21,4 +21,6 @@ import { getConfig } from './index';
  *
  * @return {boolean} Is outlined.
  */
-export default () => getConfig( 'defaults' )?.globalStyle?.card === 'outlined';
+export default () =>
+	// eslint-disable-next-line camelcase
+	getConfig( 'defaults' )?.globalStyle?.card_style === 'outlined';

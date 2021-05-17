@@ -22,4 +22,5 @@ import { getConfig } from './index';
  * @return {boolean} Is outlined.
  */
 export default () =>
-	getConfig( 'defaults' )?.globalStyle?.textField === 'outlined';
+	// eslint-disable-next-line camelcase
+	getConfig( 'defaults' )?.globalStyle?.text_field_style === 'outlined';
