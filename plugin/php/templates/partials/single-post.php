@@ -30,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 $attributes     = isset( $attributes ) ? $attributes : [];
 $style          = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
 $columns        = absint( isset( $attributes['columns'] ) ? $attributes['columns'] : 3 );
-$outlined       = ! empty( $attributes['outlined'] ) ? $attributes['outlined'] : \MaterialDesign\Plugin\get_plugin_instance()->block_types->get_global_styles( 'card_style' );
+$outlined       = ! empty( $attributes['outlined'] ) ? $attributes['outlined'] : \MaterialDesign\Plugin\get_plugin_instance()->block_types->get_global_styles( 'card_style' ) === 'outlined';
 $layout         = isset( $attributes['contentLayout'] ) ? $attributes['contentLayout'] : 'text-above-media';
 $featured_image = isset( $attributes['displayFeaturedImage'] ) ? $attributes['displayFeaturedImage'] : true;
 
