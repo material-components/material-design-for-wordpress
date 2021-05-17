@@ -84,8 +84,13 @@ class Test_Block_Types extends \WP_UnitTestCase {
 			}
 		);
 
-		set_theme_mod( 'text_style', 'elevated' );
-		set_theme_mod( 'card_style', 'outlined' );
+		update_option(
+			'material_design',
+			[
+				'text_field_style' => 'elevated',
+				'card_style'       => 'outlined',
+			]
+		);
 
 		$block_types->register_blocks();
 

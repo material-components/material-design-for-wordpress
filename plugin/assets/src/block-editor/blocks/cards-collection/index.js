@@ -27,12 +27,11 @@ import edit from './edit';
 import save from './save';
 import { example } from './example';
 import metadata from './block.json';
-import { getConfig } from '../../utils';
+import { isDefaultCardStyleOutlined } from '../../utils';
 
 const { name } = metadata;
 
-metadata.attributes.outlined.default =
-	getConfig( 'defaults' )?.globalStyle?.card === 'outlined';
+metadata.attributes.outlined.default = isDefaultCardStyleOutlined();
 export { metadata, name };
 
 /**

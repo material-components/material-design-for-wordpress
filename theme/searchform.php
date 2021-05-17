@@ -25,7 +25,7 @@
 
 $search_id       = uniqid( 'search-' );
 $search_label_id = uniqid( 'search-label-' );
-$global_style    = get_theme_mod( 'text_style' );
+$global_style    = get_material_global_style( 'text_field_style' );
 ?>
 
 <form class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" role="search" id="<?php echo esc_attr( $search_id ); ?>">

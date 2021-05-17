@@ -33,7 +33,7 @@ use MaterialDesign\Theme\Customizer;
  * @return void
  */
 function setup() {
-	if ( material_is_plugin_active() ) {
+	if ( ! material_is_plugin_active() ) {
 		add_action( 'customize_register', __NAMESPACE__ . '\register' );
 	}
 }

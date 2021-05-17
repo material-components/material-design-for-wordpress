@@ -22,9 +22,9 @@
  *
  * @package MaterialDesign
  */
-
+global $material_design_plugin;
 $search_id    = uniqid( 'search-' );
-$global_style = get_theme_mod( 'text_style' );
+$global_style = get_material_global_style( 'text_field_style' );
 ?>
 
 <form class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" id="<?php echo esc_attr( $search_id ); ?>">
