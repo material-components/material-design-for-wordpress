@@ -36,7 +36,6 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 	 * @var array
 	 */
 	private static $patterns = [
-		'button',
 		'call-to-action',
 		'call-to-action-benefits',
 		'contact-form',
