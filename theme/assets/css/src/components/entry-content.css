@@ -34,7 +34,7 @@
 		}
 	}
 
-	.alignleft {
+	> .alignleft {
 		margin-left: 1rem;
 		margin-right: 1rem;
 		right: auto;
@@ -51,7 +51,7 @@
 		}
 	}
 
-	.alignright {
+	> .alignright {
 		left: auto;
 		margin-left: 1rem;
 		margin-right: 1rem;

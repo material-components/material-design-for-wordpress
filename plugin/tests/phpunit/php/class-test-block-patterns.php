@@ -51,6 +51,7 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 		'hero-section',
 		'pricing',
 		'hero-section-image',
+		'latest-posts',
 	];
 
 	/**
