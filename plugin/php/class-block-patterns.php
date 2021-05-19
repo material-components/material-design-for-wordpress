@@ -85,6 +85,7 @@ class Block_Patterns {
 			'single-feature-extended',
 			'hero-section',
 			'pricing',
+			'hero-section-image',
 			'latest-posts',
 		];
 
