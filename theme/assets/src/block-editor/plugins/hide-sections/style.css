@@ -15,6 +15,7 @@
  */
 
 .has-hide-title {
+
 	.entry-title {
 		display: none;
 	}
@@ -24,6 +25,7 @@
 	}
 
 	.-has-tab-bar + .site-content .content-area {
+
 		@media (max-width: 599px) {
 			margin-top: 6rem;
 		}
