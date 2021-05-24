@@ -203,7 +203,10 @@ function material_is_plugin_active() {
  */
 function get_material_global_style( $key ) {
 	if ( material_is_plugin_active() ) {
-		return \MaterialDesign\Plugin\get_plugin_instance()->block_types->get_global_styles( $key );
+		$instance = \MaterialDesign\Plugin\get_plugin_instance();
+		if ( property_exists( $instance, 'block_types' ) && method_exists( $instance->block_types, 'get_global_styles' ) ) {
+			return $instance->block_types->get_global_styles( $key );
+		}
 	}
 	return '';
 }
