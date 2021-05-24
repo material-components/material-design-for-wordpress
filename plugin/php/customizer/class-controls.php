@@ -139,7 +139,7 @@ class Controls extends Module_Base {
 			'global-setting' => [
 				'label'       => __( 'Global Styles', 'material-design' ),
 				'priority'    => 300,
-				'description' => esc_html__( 'Global style change will affect all the blocks used in your pages. This may override styles applied to blocks locally.', 'material-design' ),
+				'description' => esc_html__( 'Global styles will be applied to any new and existing static block using the default style. This will not affect any local style overrides for supported blocks.', 'material-design' ),
 			],
 		];
 
