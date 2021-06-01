@@ -37,10 +37,12 @@ if ( post_password_required() ) {
 	return;
 }
 
-$commenter = wp_get_current_commenter();
-$style     = get_theme_mod( 'comment_fields_style', 'outlined' );
+$commenter    = wp_get_current_commenter();
+$style        = get_theme_mod( 'comment_fields_style', 'outlined' );
+$global_style = get_material_global_style( 'text_field_style' );
 
-$classes  = 'outlined' === $style ? 'mdc-text-field--outlined mdc-text-field--no-label' : 'mdc-text-field--filled';
+$classes = in_array( 'outlined', [ $style, $global_style ], true ) ? 'mdc-text-field--outlined mdc-text-field--no-label' : 'mdc-text-field--filled';
+
 $req      = get_option( 'require_name_email' );
 $html_req = ( $req ? " required='required'" : '' );
 
