@@ -148,6 +148,11 @@ const assets = {
 			},
 		},
 		{
+			name: 'Block Editor',
+			chunk: 'block-editor',
+			entry: [ './theme/assets/src/block-editor/index.js' ],
+		},
+		{
 			name: 'Front End',
 			chunk: 'front-end',
 			entry: [
@@ -163,7 +168,7 @@ const assets = {
 	],
 };
 
-const getSharedConfig = packageType => {
+const getSharedConfig = ( packageType, isBlockEditor ) => {
 	const config = {
 		...defaultConfig,
 		...{
@@ -212,7 +217,7 @@ const getSharedConfig = packageType => {
 				// Remove the CleanWebpackPlugin and FixStyleWebpackPlugin plugins from `@wordpress/scripts` due to version conflicts.
 				...defaultConfig.plugins.filter(
 					plugin =>
-						packageType === 'plugin' &&
+						( isBlockEditor || packageType === 'plugin' ) &&
 						! [ 'CleanWebpackPlugin', 'FixStyleWebpackPlugin' ].includes(
 							plugin.constructor.name
 						)
@@ -247,7 +252,8 @@ const getSharedConfig = packageType => {
 const webpackConfigs = [];
 Object.keys( assets ).forEach( packageType => {
 	assets[ packageType ].forEach( asset => {
-		const config = getSharedConfig( packageType );
+		const isBlockEditor = asset.chunk === 'block-editor';
+		const config = getSharedConfig( packageType, isBlockEditor );
 		config.entry = Array.isArray( asset.entry )
 			? {
 					[ asset.chunk ]: asset.entry,
@@ -291,13 +297,13 @@ Object.keys( assets ).forEach( packageType => {
 			];
 		}
 
-		if ( asset.chunk === 'block-editor' ) {
+		if ( isBlockEditor && packageType === 'plugin' ) {
 			config.plugins = [
 				...config.plugins,
 				new CopyWebpackPlugin( {
 					patterns: [
 						{
-							from: './plugin/assets/src/block-editor/blocks/*/block.json',
+							from: `./${ packageType }/assets/src/block-editor/blocks/*/block.json`,
 							to: './blocks/[1]/block.json',
 							transformPath( targetPath, absolutePath ) {
 								const matches = absolutePath.match(

@@ -268,6 +268,11 @@ require get_template_directory() . '/inc/widgets/class-wp-widget-recent-posts.ph
 require get_template_directory() . '/inc/widgets/class-wp-widget-rss.php';
 require get_template_directory() . '/inc/widgets.php';
 
+/**
+ * Block editor.
+ */
+require get_template_directory() . '/inc/block-editor.php';
+
 MaterialDesign\Theme\Admin\setup();
 MaterialDesign\Theme\Customizer\setup();
 MaterialDesign\Theme\Customizer\Colors\setup();
@@ -275,3 +280,4 @@ MaterialDesign\Theme\Customizer\Header_Footer\setup();
 MaterialDesign\Theme\Customizer\Layout\setup();
 MaterialDesign\Theme\Customizer\Menu\setup();
 MaterialDesign\Theme\Widgets\setup();
+MaterialDesign\Theme\BlockEditor\setup();
