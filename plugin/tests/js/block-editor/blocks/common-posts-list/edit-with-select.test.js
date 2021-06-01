@@ -164,7 +164,7 @@ describe( 'EditWithSelect', () => {
 	} );
 
 	it( 'set the correct arguments when the block is the "Hand-picked posts"', () => {
-		const lodash = require.requireActual( 'lodash' );
+		const lodash = jest.requireActual( 'lodash' );
 		jest.spyOn( lodash, 'pickBy' ).mockImplementation( () => 1 );
 
 		const props = {
@@ -186,7 +186,7 @@ describe( 'EditWithSelect', () => {
 	} );
 
 	it( 'set the correct arguments when the block is the "Hand-picked posts" and title ordering', () => {
-		const lodash = require.requireActual( 'lodash' );
+		const lodash = jest.requireActual( 'lodash' );
 		jest.spyOn( lodash, 'pickBy' ).mockImplementation( () => 1 );
 
 		const props = {
@@ -212,7 +212,7 @@ describe( 'EditWithSelect', () => {
 	} );
 
 	it( 'set the correct arguments when the block is the "Hand-picked posts" and popularity ordering', () => {
-		const lodash = require.requireActual( 'lodash' );
+		const lodash = jest.requireActual( 'lodash' );
 		jest.spyOn( lodash, 'pickBy' ).mockImplementation( () => 1 );
 
 		const props = {
