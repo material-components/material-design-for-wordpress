@@ -27,6 +27,8 @@ import metadata from './block.json';
 
 const { name } = metadata;
 
+import { isDefaultCardStyleOutlined } from '../../utils';
+metadata.attributes.outlined.default = isDefaultCardStyleOutlined();
 export { metadata, name };
 
 /**

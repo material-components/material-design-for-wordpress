@@ -197,6 +197,21 @@ function material_is_plugin_active() {
 }
 
 /**
+ * Get material global style.
+ *
+ * @param string $key setting to get.
+ */
+function get_material_global_style( $key ) {
+	if ( material_is_plugin_active() ) {
+		$instance = \MaterialDesign\Plugin\get_plugin_instance();
+		if ( property_exists( $instance, 'block_types' ) && method_exists( $instance->block_types, 'get_global_styles' ) ) {
+			return $instance->block_types->get_global_styles( $key );
+		}
+	}
+	return '';
+}
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
@@ -253,6 +268,11 @@ require get_template_directory() . '/inc/widgets/class-wp-widget-recent-posts.ph
 require get_template_directory() . '/inc/widgets/class-wp-widget-rss.php';
 require get_template_directory() . '/inc/widgets.php';
 
+/**
+ * Block editor.
+ */
+require get_template_directory() . '/inc/block-editor.php';
+
 MaterialDesign\Theme\Admin\setup();
 MaterialDesign\Theme\Customizer\setup();
 MaterialDesign\Theme\Customizer\Colors\setup();
@@ -260,3 +280,4 @@ MaterialDesign\Theme\Customizer\Header_Footer\setup();
 MaterialDesign\Theme\Customizer\Layout\setup();
 MaterialDesign\Theme\Customizer\Menu\setup();
 MaterialDesign\Theme\Widgets\setup();
+MaterialDesign\Theme\BlockEditor\setup();
