@@ -1,0 +1,44 @@
+<!--
+ Copyright 2020 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<phpunit
+		bootstrap="tests/bootstrap.php"
+		backupGlobals="false"
+		colors="true"
+		convertErrorsToExceptions="true"
+		convertNoticesToExceptions="true"
+		convertWarningsToExceptions="true"
+>
+
+	<testsuites>
+		<testsuite name="Material Design theme for WordPress">
+			<directory suffix=".php">./tests/phpunit/</directory>
+		</testsuite>
+	</testsuites>
+
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="false">
+			<directory suffix=".php">./</directory>
+			<exclude>
+				<directory suffix=".php">./assets</directory>
+				<directory suffix=".php">./bin</directory>
+				<directory suffix=".php">./node_modules</directory>
+				<directory suffix=".php">./tests</directory>
+				<directory suffix=".php">./vendor</directory>
+			</exclude>
+		</whitelist>
+	</filter>
+</phpunit>
