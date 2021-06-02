@@ -139,7 +139,7 @@ class Controls extends Module_Base {
 			'global-setting' => [
 				'label'       => __( 'Global Styles', 'material-design' ),
 				'priority'    => 300,
-				'description' => esc_html__( 'Global styles will be applied to any new and existing static block using the default style. This will not affect any local style overrides for supported blocks.', 'material-design' ),
+				'description' => esc_html__( 'Global styles will be applied in all pages including custom templates.', 'material-design' ),
 			],
 		];
 
@@ -552,8 +552,9 @@ class Controls extends Module_Base {
 				'id'      => 'card_style',
 				'label'   => esc_html__( 'Cards', 'material-design' ),
 				'type'    => 'radio',
-				'default' => 'elevated',
+				'default' => 'inherit',
 				'choices' => [
+					'inherit'  => esc_html__( 'Inherit', 'material-design' ),
 					'elevated' => esc_html__( 'Elevated', 'material-design' ),
 					'outlined' => esc_html__( 'Outlined', 'material-design' ),
 				],
@@ -562,8 +563,9 @@ class Controls extends Module_Base {
 				'id'      => 'text_field_style',
 				'label'   => esc_html__( 'Text field', 'material-design' ),
 				'type'    => 'radio',
-				'default' => 'elevated',
+				'default' => 'inherit',
 				'choices' => [
+					'inherit'  => esc_html__( 'Inherit', 'material-design' ),
 					'elevated' => esc_html__( 'Elevated', 'material-design' ),
 					'outlined' => esc_html__( 'Outlined', 'material-design' ),
 				],
