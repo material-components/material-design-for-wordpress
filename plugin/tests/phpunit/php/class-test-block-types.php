@@ -84,13 +84,27 @@ class Test_Block_Types extends \WP_UnitTestCase {
 			}
 		);
 
+		update_option(
+			'material_design',
+			[
+				'text_field_style' => 'elevated',
+				'card_style'       => 'outlined',
+			]
+		);
+
 		$block_types->register_blocks();
 
 		$blocks = \WP_Block_Type_Registry::get_instance()->get_all_registered();
 
+		$card_blocks = [
+			'card',
+			'cards-collection',
+			'recent-posts',
+		];
+
 		array_walk(
 			self::$blocks,
-			function( $block_name ) use ( $blocks ) {
+			function( $block_name ) use ( $blocks, $card_blocks ) {
 				// Assert the block is registered.
 				$this->assertTrue( array_key_exists( 'material/' . $block_name, $blocks ) );
 
@@ -103,6 +117,10 @@ class Test_Block_Types extends \WP_UnitTestCase {
 				$block_json   = $block_folder . '/block.json';
 				$metadata     = json_decode( file_get_contents( $block_json ), true ); // phpcs:ignore
 
+				// We have set outlined to true for card blocks.
+				if ( in_array( $block_name, $card_blocks, true ) ) {
+					$metadata['attributes']['outlined']['default'] = true;
+				}
 				$this->assertEquals( $metadata['category'], $block->category );
 				$this->assertEquals( $metadata['attributes'], $block->attributes );
 
@@ -137,6 +155,7 @@ class Test_Block_Types extends \WP_UnitTestCase {
 
 		// Assert inline js vars contains ajax url data.
 		$this->assertRegexp( '/ajax_url/', $inline_js );
+		$this->assertRegexp( '/globalStyle/', $inline_js );
 	}
 
 	/**
