@@ -83,7 +83,6 @@ module.exports = function( grunt ) {
 					'!theme/assets/css/*.map',
 					'!theme/assets/js/.gitignore',
 					'!theme/assets/js/*.css',
-					'!theme/assets/js/*.php',
 					'!theme/assets/js/*.map',
 					'!theme/assets/js/editor*',
 					'!theme/assets/src/**',
