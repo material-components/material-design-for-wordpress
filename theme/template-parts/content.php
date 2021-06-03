@@ -29,7 +29,7 @@ $show_comments = get_theme_mod( 'archive_comments', true );
 $show_author   = get_theme_mod( 'archive_author', true );
 $show_excerpt  = get_theme_mod( 'archive_excerpt', true );
 $show_date     = get_theme_mod( 'archive_date', true );
-$classes       = get_theme_mod( 'archive_outlined' ) || ( get_material_global_style( 'card_style' ) === 'outlined' ) ? 'mdc-card--outlined' : '';
+$classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outlined' : '';
 ?>
 
 <div id="<?php the_ID(); ?>" <?php post_class( "mdc-card post-card $classes" ); ?>>
