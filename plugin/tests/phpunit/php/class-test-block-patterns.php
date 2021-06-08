@@ -56,6 +56,11 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 	 * @see Block_Type::register()
 	 */
 	public function test_register() {
+		if ( ! class_exists( '\WP_Block_Patterns_Registry' ) ) {
+			$this->markTestSkipped( 'Skipping test as `WP_Block_Patterns_Registry` class does not exist.' );
+			return;
+		}
+
 		$block_patterns = new Block_Patterns( get_plugin_instance() );
 
 		// Unregister all the block patterns if they are registered already.
@@ -95,6 +100,11 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 	 * @see Plugin::register_category()
 	 */
 	public function test_register_category() {
+		if ( ! class_exists( '\WP_Block_Pattern_Categories_Registry' ) ) {
+			$this->markTestSkipped( 'Skipping test as `WP_Block_Pattern_Categories_Registry` class does not exist.' );
+			return;
+		}
+
 		$block_patterns = new Block_Patterns( get_plugin_instance() );
 		$block_patterns->register();
 
