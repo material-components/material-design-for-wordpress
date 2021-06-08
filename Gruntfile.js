@@ -83,7 +83,6 @@ module.exports = function( grunt ) {
 					'!theme/assets/css/*.map',
 					'!theme/assets/js/.gitignore',
 					'!theme/assets/js/*.css',
-					'!theme/assets/js/*.php',
 					'!theme/assets/js/*.map',
 					'!theme/assets/js/editor*',
 					'!theme/assets/src/**',
@@ -173,7 +172,7 @@ module.exports = function( grunt ) {
 				options: {
 					plugin_slug: 'material-design',
 					build_dir: 'build/plugin',
-				  	assets_dir: 'wp-assets',
+				  	assets_dir: 'plugin/wp-assets',
 				},
 			},
 		},

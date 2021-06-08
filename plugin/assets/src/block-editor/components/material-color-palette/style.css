@@ -21,6 +21,10 @@
 
 .components-material-color-palette__picker {
 
+	.components-popover__content > div:first-child {
+		width: 250px;
+	}
+
 	& .components-circular-option-picker__option-wrapper__row {
 		display: flex;
 	}
