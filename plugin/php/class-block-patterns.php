@@ -74,6 +74,7 @@ class Block_Patterns {
 			'button',
 			'call-to-action',
 			'call-to-action-benefits',
+			'contact-form',
 			'features-list',
 			'logos',
 			'single-feature',
