@@ -50,19 +50,21 @@ class Block_Patterns {
 	 * Initiate the class.
 	 */
 	public function init() {
-		if ( function_exists( 'register_block_pattern' ) ) {
-			if ( function_exists( 'register_block_pattern_category' ) ) {
-				$this->register_category();
-			}
-
-			$this->register();
-		}
+		add_action( 'init', [ $this, 'register' ] );
 	}
 
 	/**
 	 * Register material design custom block patterns.
 	 */
 	public function register() {
+		if ( ! function_exists( 'register_block_pattern' ) ) {
+			return;
+		}
+
+		if ( function_exists( 'register_block_pattern_category' ) ) {
+			$this->register_category();
+		}
+
 		$path = $this->plugin->dir_path . '/php/block-patterns/';
 
 		/**
