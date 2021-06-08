@@ -103,6 +103,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertArrayHasKey( 'foo', $plugin->config );
 		$this->assertInstanceOf( Controls::class, $plugin->customizer_controls );
 		$this->assertInstanceOf( Block_Types::class, $plugin->block_types );
+		$this->assertInstanceOf( Block_Patterns::class, $plugin->block_patterns );
 		$this->assertInstanceOf( Blocks_Frontend::class, $plugin->blocks_frontend );
 		$this->assertInstanceOf( Onboarding_REST_Controller::class, $plugin->onboarding_rest_controller );
 		$this->assertInstanceOf( Importer::class, $plugin->importer );
