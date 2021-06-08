@@ -77,6 +77,7 @@ class Block_Patterns {
 			'contact-form',
 			'features-list',
 			'logos',
+			'media-grid',
 			'single-feature',
 			'single-feature-extended',
 		];
