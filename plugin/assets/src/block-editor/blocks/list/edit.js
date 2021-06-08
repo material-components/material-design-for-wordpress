@@ -62,7 +62,7 @@ const ListEdit = ( {
 	}, [ items, setAttributes ] );
 
 	const [ selected, setSelected ] = useState( {
-		index: 0,
+		index: 0 === items.length ? 0 : -1, // Set first item selected only on block insert.
 		isSecondary: false,
 		start: 0,
 	} );
