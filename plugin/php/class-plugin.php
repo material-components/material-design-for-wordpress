@@ -53,11 +53,18 @@ class Plugin extends Plugin_Base {
 	public $customizer_controls;
 
 	/**
-	 * Block_Type class.
+	 * Block_Types class.
 	 *
 	 * @var Block_Types
 	 */
 	public $block_types;
+
+	/**
+	 * Block_Patterns class.
+	 *
+	 * @var Block_Patterns
+	 */
+	public $block_patterns;
 
 	/**
 	 * Blocks_Frontend class.
@@ -135,6 +142,9 @@ class Plugin extends Plugin_Base {
 
 		$this->block_types = new Block_Types( $this );
 		$this->block_types->init();
+
+		$this->block_patterns = new Block_Patterns( $this );
+		$this->block_patterns->init();
 
 		$this->blocks_frontend = new Blocks_Frontend( $this );
 		$this->blocks_frontend->init();
