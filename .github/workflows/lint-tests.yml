@@ -61,6 +61,12 @@ jobs:
         with:
           time: '10s'
 
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        # Ignore the failure of a step and avoid terminating the job.
+        continue-on-error: true
+        with:
+          key: image-${{ matrix.php_versions }}-${{ matrix.wp_versions }}-{hash}
+
       - name: Start docker local env
         run: |
           npm run env:start
