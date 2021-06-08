@@ -72,6 +72,7 @@ class Block_Patterns {
 		 */
 		$patterns = [
 			'button',
+			'call-to-action',
 		];
 
 		foreach ( $patterns as $pattern ) {

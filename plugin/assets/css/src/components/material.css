@@ -439,6 +439,10 @@
 	align-items: center;
 	display: flex;
 
+	&.aligncenter {
+		justify-content: center;
+	}
+
 	& .mdc-button {
 		margin-right: 8px;
 	}
