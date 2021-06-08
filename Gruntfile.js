@@ -173,7 +173,7 @@ module.exports = function( grunt ) {
 				options: {
 					plugin_slug: 'material-design',
 					build_dir: 'build/plugin',
-				  	assets_dir: 'wp-assets',
+				  	assets_dir: 'plugin/wp-assets',
 				},
 			},
 		},
