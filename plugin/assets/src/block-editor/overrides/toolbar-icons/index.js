@@ -19,7 +19,11 @@
  */
 import { __ } from '@wordpress/i18n';
 import { useCallback, useState } from '@wordpress/element';
-import { useAnchorRef, registerFormatType } from '@wordpress/rich-text';
+import {
+	insertObject,
+	useAnchorRef,
+	registerFormatType,
+} from '@wordpress/rich-text';
 import { RichTextToolbarButton } from '@wordpress/block-editor';
 import { Popover } from '@wordpress/components';
 
@@ -27,9 +31,11 @@ import { Popover } from '@wordpress/components';
  * Internal dependencies
  */
 import barIcon from './components/block-icon';
-import { getConfig, getIconName } from '../../utils';
+import { getIconName } from '../../utils';
 import IconPicker from '../../components/icon-picker';
-import genericAttributesSetter from '../../utils/generic-attributes-setter';
+
+const name = 'material/inline-icon';
+const title = __( 'Inline icon', 'material-design' );
 
 const inlineIcon = ( {
 	value,
@@ -37,16 +43,22 @@ const inlineIcon = ( {
 	isActive,
 	setAttributes,
 	contentRef,
+	isObjectActive,
 } ) => {
-	// console.log( 'useAnchorRef', useAnchorRef );
-
-	const setter = genericAttributesSetter( setAttributes );
 	const [ isAddingIcon, setIsAddingIcon ] = useState( false );
 	const enableIsAddingIcon = useCallback( () => setIsAddingIcon( true ), [
 		setIsAddingIcon,
 	] );
-	const setIcon = icon => {
-		console.log( icon );
+	const setIcon = iconVal => {
+		console.log( { value, iconVal } );
+		onChange(
+			insertObject( value, {
+				type: name,
+				attributes: {
+					className: 'material-icons',
+				},
+			} )
+		);
 	};
 
 	// const settings = {};
@@ -69,7 +81,7 @@ const inlineIcon = ( {
 					anchorRef={ anchorRef }
 				>
 					<IconPicker
-						currentIcon={ icon }
+						currentIcon={ null }
 						onChange={ setIcon }
 						contentRef={ contentRef }
 					/>
@@ -80,8 +92,13 @@ const inlineIcon = ( {
 };
 
 registerFormatType( 'material/inline-icon', {
-	title: 'inline icon',
-	tagName: 'icons',
+	title,
+	keywords: [ __( 'icon', 'material-design' ) ],
+	object: true,
+	tagName: 'i',
 	className: null,
+	attributes: {
+		className: 'class',
+	},
 	edit: inlineIcon,
 } );
