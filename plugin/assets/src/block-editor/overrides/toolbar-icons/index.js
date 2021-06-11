@@ -37,15 +37,21 @@ import IconPicker from '../../components/icon-picker';
 const name = 'material/inline-icon';
 const title = __( 'Inline icon', 'material-design' );
 
-const inlineIcon = ( {
+function inlineIcon( {
 	value,
 	onChange,
-	isActive,
-	setAttributes,
+	// isActive,
+	// setAttributes,
 	contentRef,
-	isObjectActive,
-} ) => {
+	// isObjectActive,
+} ) {
 	const [ isAddingIcon, setIsAddingIcon ] = useState( false );
+	//
+	// contentRef = contentRef ? contentRef : [];
+	//
+	// console.log( 'contentRef ' + contentRef );
+	// console.log( value );
+	const anchorRef = useAnchorRef( { ref: contentRef, value } );
 	const enableIsAddingIcon = useCallback( () => setIsAddingIcon( true ), [
 		setIsAddingIcon,
 	] );
@@ -61,11 +67,6 @@ const inlineIcon = ( {
 		);
 	};
 
-	// const settings = {};
-	const anchorRef = useAnchorRef( { ref: contentRef, value } );
-	let icon = 'spa';
-	icon = getIconName( icon );
-	// console.log(icon);
 	return (
 		<>
 			<RichTextToolbarButton
@@ -89,7 +90,7 @@ const inlineIcon = ( {
 			) }
 		</>
 	);
-};
+}
 
 registerFormatType( 'material/inline-icon', {
 	title,
