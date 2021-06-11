@@ -14,17 +14,24 @@
  * limitations under the License.
  */
 
-/* Variables */
-@import "./conf/variables.css";
+.has-hide-title {
 
-/* Vendor */
-@import "./material-components.css";
+	.entry-title {
+		display: none;
+	}
 
-/* Custom */
-@import "./conf/index.css";
-@import "./base/index.css";
-@import "./templates/index.css";
-@import "./components/index.css";
+	.-has-tab-bar + .site-content .content-area {
+		margin-top: 7rem;
+	}
 
-/* Block editor */
-@import "./../../src/block-editor/plugins/hide-sections/style.css";
+	.-has-tab-bar + .site-content .content-area {
+
+		@media (max-width: 599px) {
+			margin-top: 6rem;
+		}
+	}
+
+	.entry-content .wp-block-cover:first-child {
+		margin-top: 0;
+	}
+}
