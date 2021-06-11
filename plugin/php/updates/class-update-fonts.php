@@ -226,7 +226,7 @@ class Update_Fonts extends Updates_API_Base {
 	 * @return string
 	 */
 	public function material_design_no_apikey_textonly() {
-		return esc_html( wp_strip_all_tags( $this->material_design_no_apikey() ) );
+		return wp_strip_all_tags( $this->material_design_no_apikey() );
 	}
 
 	/**
