@@ -217,7 +217,19 @@ class Update_Fonts extends Updates_API_Base {
 	 * @return string|void
 	 */
 	public function material_design_no_apikey() {
-		return __( 'No Google API Key defined. Please define as add <pre>define( "GOOGLE_FONTS_API_KEY", "your-key" );</pre> to <pre>wp-config.php</pre>', 'material-design' );
+		/*
+		 * translators: %s is material admin page url.
+		 */
+		$error = sprintf( __( 'No Google API Key defined. Please add it in <a href="%s">Material Settings</a>.', 'material-design' ), esc_url( admin_url( 'admin.php?page=material-settings-page' ) ) );
+
+		return wp_kses(
+			$error,
+			[
+				'a' => [
+					'href' => [],
+				],
+			]
+		);
 	}
 
 	/**

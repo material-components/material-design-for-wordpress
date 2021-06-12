@@ -43,14 +43,6 @@ export const handleThemeActivation = () => {
 
 	return new Promise( ( resolve, reject ) => {
 		apiFetch( {
-			path: `${ getConfig( 'assetsRestPath' ) }retrieve-fonts/force`,
-			method: 'GET',
-			headers: {
-				'X-WP-Nonce': getConfig( 'nonce' ),
-			},
-		} ).catch( error => reject( error ) );
-
-		apiFetch( {
 			path: `${ getConfig( 'assetsRestPath' ) }retrieve-icons/force`,
 			method: 'GET',
 			headers: {
