@@ -35,6 +35,7 @@ import { Popover } from '@wordpress/components';
 import barIcon from './components/block-icon';
 import { getIconName } from '../../utils';
 import IconPicker from '../../components/icon-picker';
+import './style.css';
 
 const name = 'material/inline-icon';
 const title = __( 'Inline icon', 'material-design' );
@@ -106,7 +107,7 @@ const InlineIconUI = ( { contentRef, onChange, value } ) => {
 		<Popover
 			// value={ value }
 			// onClose={ onClose }
-			className="components-inline-color-popover"
+			className="components-inline-icon-popover"
 			anchorRef={ anchorRef }
 		>
 			<IconPicker
