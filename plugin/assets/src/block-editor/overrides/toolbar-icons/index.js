@@ -20,7 +20,9 @@
 import { __ } from '@wordpress/i18n';
 import { useCallback, useState } from '@wordpress/element';
 import {
-	insertObject,
+	insert,
+	create,
+	applyFormat,
 	registerFormatType,
 	useAnchorRef,
 } from '@wordpress/rich-text';
@@ -64,17 +66,19 @@ function InlineIcon( {
 	] );
 
 	const setIcon = iconVal => {
-		console.log( { value, iconVal } );
-		onChange(
-			insertObject( value, {
+		const toInsert = applyFormat(
+			create( { text: iconVal } ),
+			{
 				type: name,
 				attributes: {
 					className: 'material-icons',
-					text: iconVal,
 				},
-				text: iconVal,
-			} )
+			},
+			0,
+			iconVal.length
 		);
+
+		onChange( insert( value, toInsert ) );
 	};
 
 	return (
