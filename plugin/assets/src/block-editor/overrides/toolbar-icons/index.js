@@ -21,8 +21,8 @@ import { __ } from '@wordpress/i18n';
 import { useCallback, useState } from '@wordpress/element';
 import {
 	insertObject,
-	useAnchorRef,
 	registerFormatType,
+	useAnchorRef,
 } from '@wordpress/rich-text';
 import { RichTextToolbarButton } from '@wordpress/block-editor';
 import { Popover } from '@wordpress/components';
@@ -37,7 +37,19 @@ import IconPicker from '../../components/icon-picker';
 const name = 'material/inline-icon';
 const title = __( 'Inline icon', 'material-design' );
 
-function inlineIcon( {
+const icon = {
+	title,
+	keywords: [ __( 'icon', 'material-design' ) ],
+	object: true,
+	tagName: 'span',
+	className: 'material-icons',
+	attributes: {
+		className: 'class',
+	},
+	edit: InlineIcon,
+};
+
+function InlineIcon( {
 	value,
 	onChange,
 	// isActive,
@@ -46,15 +58,11 @@ function inlineIcon( {
 	// isObjectActive,
 } ) {
 	const [ isAddingIcon, setIsAddingIcon ] = useState( false );
-	//
-	// contentRef = contentRef ? contentRef : [];
-	//
-	// console.log( 'contentRef ' + contentRef );
-	// console.log( value );
-	const anchorRef = useAnchorRef( { ref: contentRef, value } );
+
 	const enableIsAddingIcon = useCallback( () => setIsAddingIcon( true ), [
 		setIsAddingIcon,
 	] );
+
 	const setIcon = iconVal => {
 		console.log( { value, iconVal } );
 		onChange(
@@ -62,7 +70,9 @@ function inlineIcon( {
 				type: name,
 				attributes: {
 					className: 'material-icons',
+					text: iconVal,
 				},
+				text: iconVal,
 			} )
 		);
 	};
@@ -75,31 +85,33 @@ function inlineIcon( {
 				onClick={ enableIsAddingIcon }
 			/>
 			{ isAddingIcon && (
-				<Popover
-					// value={ value }
-					// onClose={ onClose }
-					className="components-inline-color-popover"
-					anchorRef={ anchorRef }
-				>
-					<IconPicker
-						currentIcon={ null }
-						onChange={ setIcon }
-						contentRef={ contentRef }
-					/>
-				</Popover>
+				<InlineIconUI
+					contentRef={ contentRef }
+					onChange={ setIcon }
+					value={ value }
+				/>
 			) }
 		</>
 	);
 }
 
-registerFormatType( 'material/inline-icon', {
-	title,
-	keywords: [ __( 'icon', 'material-design' ) ],
-	object: true,
-	tagName: 'i',
-	className: null,
-	attributes: {
-		className: 'class',
-	},
-	edit: inlineIcon,
-} );
+const InlineIconUI = ( { contentRef, onChange, value } ) => {
+	const anchorRef = useAnchorRef( { ref: contentRef, value, settings: icon } );
+
+	return (
+		<Popover
+			// value={ value }
+			// onClose={ onClose }
+			className="components-inline-color-popover"
+			anchorRef={ anchorRef }
+		>
+			<IconPicker
+				currentIcon={ null }
+				onChange={ onChange }
+				contentRef={ contentRef }
+			/>
+		</Popover>
+	)
+}
+
+registerFormatType( name, icon );
