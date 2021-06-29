@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
-const gridElement = document.querySelector( '.masonry-grid-theme' );
+let gridElement = null;
 
 export const masonryInit = () => {
+	gridElement = document.querySelector( '.masonry-grid-theme' );
+
 	if ( ! gridElement ) {
 		return;
 	}
