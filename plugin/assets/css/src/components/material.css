@@ -208,6 +208,10 @@
 }
 
 /* List */
+.mdc-list-item {
+	margin: 0;
+}
+
 .mdc-list--avatar-list .mdc-list-item__graphic.material-icons {
 	font-size: 40px;
 }
@@ -448,10 +452,55 @@
 	}
 }
 
+.wp-block-material-buttons,
+.wp-block-material-button {
+
+	& .mdc-button.is-large {
+		height: 50px;
+		padding: 16px 32px;
+	}
+}
+
 .mdc-layout-grid .material-design-card {
 	height: 100%;
 
 	& .mdc-card__actions {
 		margin-top: auto;
+	}
+}
+
+/* Icon */
+.wp-block-material-icon {
+
+	&.has-text-align-center {
+		text-align: center;
+	}
+
+	&.has-text-align-left {
+		text-align: left;
+	}
+
+	&.has-text-align-right {
+		text-align: right;
+	}
+
+	.material-icons {
+		color: var(--mdc-theme-primary, "#6200ee");
+
+		&.md-18 {
+			font-size: 18px;
+		}
+
+		&.md-24 {
+			font-size: 24px;
+		}
+
+		&.md-36 {
+			font-size: 36px;
+		}
+
+		&.md-48 {
+			font-size: 48px;
+		}
 	}
 }

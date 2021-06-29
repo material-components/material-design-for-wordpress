@@ -260,6 +260,7 @@ class Admin extends Module_Base {
 					'placeholderSmall' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder-small.png' ) ),
 					'nonce'            => wp_create_nonce( 'wp_rest' ),
 					'restPath'         => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+					'assetsRestPath'   => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
 					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
 				]
 			);

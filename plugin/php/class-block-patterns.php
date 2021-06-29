@@ -71,8 +71,21 @@ class Block_Patterns {
 		 * Register the patterns.
 		 */
 		$patterns = [
-			'button',
 			'call-to-action',
+			'call-to-action-benefits',
+			'contact-form',
+			'features-list',
+			'logos',
+			'media-grid',
+			'single-feature',
+			'call-to-action-features',
+			'numbers',
+			'highlights',
+			'single-feature-extended',
+			'hero-section',
+			'pricing',
+			'hero-section-image',
+			'latest-posts',
 		];
 
 		foreach ( $patterns as $pattern ) {

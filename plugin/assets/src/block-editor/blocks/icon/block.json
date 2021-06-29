@@ -1,0 +1,26 @@
+{
+  "name": "material/icon",
+  "category": "material",
+  "attributes": {
+    "iconSize": {
+      "type": "string",
+      "default": "24"
+    },
+    "icon": {
+      "type": "string",
+      "default": "spa",
+      "source": "text",
+      "selector": ".material-icons"
+    },
+    "textColor": {
+      "type": "string"
+    },
+    "customSize": {
+      "type": "number",
+      "default": "24"
+    },
+    "align": {
+      "type": "string"
+    }
+  }
+}
