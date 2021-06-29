@@ -33,7 +33,7 @@ const handleResize = mediaQuery => {
 	if ( mediaQuery.matches ) {
 		resizeAllGridItems();
 	}
-}
+};
 
 const resizeAllGridItems = () => {
 	const cells = gridElement.querySelectorAll( '.post-card__container' );
