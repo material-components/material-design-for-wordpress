@@ -24,6 +24,8 @@
 
 /* global jQuery, materialDesignThemeColorControls */
 
+import { masonryInit } from '../front-end/components/masonry';
+
 ( function( $ ) {
 	const api = wp.customize;
 	const parentApi = window.parent.wp.customize;
@@ -146,4 +148,12 @@
 					.substring( 1 )
 					.match( /.{2}/g )
 					.map( x => parseInt( x, 16 ) );
+
+	api.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
+		if ( 'archive_layout' !== placement.partial.id ) {
+			return;
+		}
+
+		masonryInit();
+	} );
 } )( jQuery );
