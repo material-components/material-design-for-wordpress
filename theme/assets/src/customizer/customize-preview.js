@@ -67,7 +67,7 @@ import { masonryInit } from '../front-end/components/masonry';
 	} );
 
 	// Archive width
-	api( 'material_archive_width', function( value ) {
+	api( 'archive_width', function( value ) {
 		value.bind( function( to ) {
 			if ( 'wide' === to ) {
 				$( '.content-area' ).removeClass( 'material-archive__normal' );
