@@ -15,6 +15,11 @@
  */
 
 /**
+ * External dependencies
+ */
+import sanitizeHtml from 'sanitize-html';
+
+/**
  * Prepare for notices
  *
  * @param {*} props Component props
@@ -22,7 +27,16 @@
 const Notice = props => {
 	return (
 		<div className={ `notice material-wizard__notice ${ props.type }` }>
-			<p dangerouslySetInnerHTML={ { __html: props.message } }></p>
+			<p
+				dangerouslySetInnerHTML={ {
+					__html: sanitizeHtml( props.message, {
+						allowedTags: [ 'a' ],
+						allowedAttributes: {
+							a: [ 'href' ],
+						},
+					} ),
+				} }
+			></p>
 		</div>
 	);
 };
