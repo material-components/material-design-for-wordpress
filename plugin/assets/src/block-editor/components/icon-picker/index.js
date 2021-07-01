@@ -15,6 +15,11 @@
  */
 
 /**
+ * External dependencies
+ */
+import uniqueId from 'lodash/uniqueId';
+
+/**
  * WordPress dependencies
  */
 import { useState, useCallback, useMemo } from '@wordpress/element';
@@ -57,7 +62,7 @@ export default ( { currentIcon, onChange } ) => {
 						: '';
 
 				return (
-					<div key={ rawIcons[ icon ].hex } className="icons-container__icon">
+					<div key={ uniqueId( 'icon-' ) } className="icons-container__icon">
 						<Tooltip text={ rawIcons[ icon ].name }>
 							<button
 								type="button"
