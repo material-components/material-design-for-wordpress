@@ -199,7 +199,7 @@ class Design_Assets_REST_Controller extends \WP_REST_Controller {
 		if ( 'force' === $force && ! $fonts->has_api_key() ) {
 			return new WP_Error(
 				'rest_fonts_no_api_key',
-				$fonts->material_design_no_apikey_textonly()
+				$fonts->material_design_no_apikey()
 			);
 		}
 

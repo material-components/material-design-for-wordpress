@@ -14,17 +14,4 @@
  * limitations under the License.
  */
 
-/* Variables */
-@import "./conf/variables.css";
-
-/* Vendor */
-@import "./material-components.css";
-
-/* Custom */
-@import "./conf/index.css";
-@import "./base/index.css";
-@import "./templates/index.css";
-@import "./components/index.css";
-
-/* Block editor */
-@import "./../../src/block-editor/plugins/hide-sections/style.css";
+import './plugins/hide-sections';

@@ -110,5 +110,9 @@ export const reducer = ( state, action ) => {
 		return { ...state, contentStatus: 'ok' };
 	}
 
+	if ( ACTIONS.ERROR === type ) {
+		return { ...state, status: STATUS.ERROR, error: payload };
+	}
+
 	return state;
 };
