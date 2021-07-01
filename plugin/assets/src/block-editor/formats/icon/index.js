@@ -18,39 +18,21 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { useCallback, useState } from '@wordpress/element';
-import {
-	insert,
-	create,
-	applyFormat,
-	registerFormatType,
-} from '@wordpress/rich-text';
+import { useState, useCallback } from '@wordpress/element';
+import { applyFormat, create, insert } from '@wordpress/rich-text';
 import { RichTextToolbarButton } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
  */
-import barIcon from './components/block-icon';
-import { getIconName } from '../../utils';
-import InlineIconUI from './components/inline';
+import InlineIconUI from './inline';
+import { icon as barIcon } from './icon';
 import './style.css';
 
 const name = 'material/inline-icon';
 const title = __( 'Inline icon', 'material-design' );
 
-export const icon = {
-	title,
-	keywords: [ __( 'icon', 'material-design' ) ],
-	object: true,
-	tagName: 'span',
-	className: 'material-icons',
-	attributes: {
-		className: 'class',
-	},
-	edit: InlineIcon,
-};
-
-function InlineIcon( props ) {
+function Edit( props ) {
 	const {
 		value,
 		onChange,
@@ -114,4 +96,15 @@ function InlineIcon( props ) {
 	);
 }
 
-registerFormatType( name, icon );
+export const icon = {
+	name,
+	title,
+	keywords: [ __( 'icon', 'material-design' ) ],
+	object: true,
+	tagName: 'span',
+	className: 'material-icons',
+	attributes: {
+		className: 'class',
+	},
+	edit: Edit,
+};

@@ -23,9 +23,8 @@ import { Popover } from '@wordpress/components';
 /**
  * Internal dependencies
  */
-import { icon as settings } from '../index';
-import IconPicker from '../../../components/icon-picker';
-
+import { icon as settings } from './index';
+import IconPicker from '../../components/icon-picker';
 
 function InlineIconUI( { contentRef, onChange, value } ) {
 	const anchorRef = useAnchorRef( { ref: contentRef, value, settings } );
@@ -45,7 +44,7 @@ function InlineIconUI( { contentRef, onChange, value } ) {
 				contentRef={ contentRef }
 			/>
 		</Popover>
-	)
+	);
 }
 
 export default InlineIconUI;
