@@ -24,23 +24,21 @@ import {
 	create,
 	applyFormat,
 	registerFormatType,
-	useAnchorRef,
 } from '@wordpress/rich-text';
 import { RichTextToolbarButton } from '@wordpress/block-editor';
-import { Popover } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
 import barIcon from './components/block-icon';
 import { getIconName } from '../../utils';
-import IconPicker from '../../components/icon-picker';
+import InlineIconUI from './components/inline';
 import './style.css';
 
 const name = 'material/inline-icon';
 const title = __( 'Inline icon', 'material-design' );
 
-const icon = {
+export const icon = {
 	title,
 	keywords: [ __( 'icon', 'material-design' ) ],
 	object: true,
@@ -52,19 +50,29 @@ const icon = {
 	edit: InlineIcon,
 };
 
-function InlineIcon( {
-	value,
-	onChange,
-	// isActive,
-	// setAttributes,
-	contentRef,
-	// isObjectActive,
-} ) {
+function InlineIcon( props ) {
+	const {
+		value,
+		onChange,
+		// isActive,
+		// setAttributes,
+		contentRef,
+		isActive,
+		activeAttributes,
+		onFocus,
+	} = props;
 	const [ isAddingIcon, setIsAddingIcon ] = useState( false );
+
+	//console.log( props );
 
 	const enableIsAddingIcon = useCallback( () => setIsAddingIcon( true ), [
 		setIsAddingIcon,
 	] );
+
+	const stopAddingIcon = () => {
+		setIsAddingIcon( false );
+		onFocus();
+	};
 
 	const setIcon = iconVal => {
 		const toInsert = applyFormat(
@@ -91,36 +99,19 @@ function InlineIcon( {
 				title="inline icon"
 				onClick={ enableIsAddingIcon }
 			/>
-			{ isAddingIcon && (
+			{ ( isAddingIcon || isActive ) && (
 				<InlineIconUI
-					contentRef={ contentRef }
-					onChange={ setIcon }
+					isAddingIcon={ isAddingIcon }
+					stopAddingIcon={ stopAddingIcon }
+					isActive={ isActive }
+					activeAttributes={ activeAttributes }
 					value={ value }
+					onChange={ setIcon }
+					contentRef={ contentRef }
 				/>
 			) }
 		</>
 	);
-}
-
-const InlineIconUI = ( { contentRef, onChange, value } ) => {
-	const anchorRef = useAnchorRef( { ref: contentRef, value, settings: icon } );
-
-	return (
-		<Popover
-			// value={ value }
-			// onClose={ onClose }
-			className="components-inline-icon-popover"
-			anchorRef={ anchorRef }
-			focusOnMount={ false }
-			position="bottom center"
-		>
-			<IconPicker
-				currentIcon={ null }
-				onChange={ onChange }
-				contentRef={ contentRef }
-			/>
-		</Popover>
-	)
 }
 
 registerFormatType( name, icon );
