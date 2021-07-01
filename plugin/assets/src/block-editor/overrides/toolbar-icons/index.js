@@ -80,6 +80,8 @@ function InlineIcon( {
 		);
 
 		onChange( insert( value, toInsert ) );
+
+		setIsAddingIcon( false );
 	};
 
 	return (
@@ -109,6 +111,8 @@ const InlineIconUI = ( { contentRef, onChange, value } ) => {
 			// onClose={ onClose }
 			className="components-inline-icon-popover"
 			anchorRef={ anchorRef }
+			focusOnMount={ false }
+			position="bottom center"
 		>
 			<IconPicker
 				currentIcon={ null }
