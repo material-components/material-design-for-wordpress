@@ -17,7 +17,12 @@
 /**
  * WordPress dependencies
  */
-import { useAnchorRef } from '@wordpress/rich-text';
+import {
+	useAnchorRef,
+	applyFormat,
+	create,
+	insert,
+} from '@wordpress/rich-text';
 import { Popover } from '@wordpress/components';
 
 /**
@@ -26,21 +31,39 @@ import { Popover } from '@wordpress/components';
 import { icon as settings } from './index';
 import IconPicker from '../../components/icon-picker';
 
-function InlineIconUI( { contentRef, onChange, value } ) {
+function InlineIconUI( { value, onChange, stopAddingIcon, contentRef } ) {
+	const onIconChange = iconVal => {
+		const newLocal = 0;
+		const toInsert = applyFormat(
+			create( { text: iconVal } ),
+			{
+				type: settings.name,
+				attributes: {
+					className: 'material-icons',
+				},
+			},
+			newLocal,
+			iconVal.length
+		);
+
+		onChange( insert( value, toInsert ) );
+
+		stopAddingIcon();
+	};
+
 	const anchorRef = useAnchorRef( { ref: contentRef, value, settings } );
 
 	return (
 		<Popover
-			// value={ value }
-			// onClose={ onClose }
-			className="components-inline-icon-popover"
 			anchorRef={ anchorRef }
 			focusOnMount={ false }
+			onClose={ stopAddingIcon }
 			position="bottom center"
+			className="components-inline-icon-popover"
 		>
 			<IconPicker
 				currentIcon={ null }
-				onChange={ onChange }
+				onChange={ onIconChange }
 				contentRef={ contentRef }
 			/>
 		</Popover>
