@@ -19,7 +19,6 @@
  */
 import { __ } from '@wordpress/i18n';
 import { useState, useCallback } from '@wordpress/element';
-import { applyFormat, create, insert } from '@wordpress/rich-text';
 import { RichTextToolbarButton } from '@wordpress/block-editor';
 
 /**
@@ -32,20 +31,15 @@ import './style.css';
 const name = 'material/inline-icon';
 const title = __( 'Inline icon', 'material-design' );
 
-function Edit( props ) {
-	const {
-		value,
-		onChange,
-		// isActive,
-		// setAttributes,
-		contentRef,
-		isActive,
-		activeAttributes,
-		onFocus,
-	} = props;
+function Edit( {
+	value,
+	onChange,
+	contentRef,
+	isActive,
+	activeAttributes,
+	onFocus,
+} ) {
 	const [ isAddingIcon, setIsAddingIcon ] = useState( false );
-
-	//console.log( props );
 
 	const enableIsAddingIcon = useCallback( () => setIsAddingIcon( true ), [
 		setIsAddingIcon,
@@ -54,24 +48,6 @@ function Edit( props ) {
 	const stopAddingIcon = () => {
 		setIsAddingIcon( false );
 		onFocus();
-	};
-
-	const setIcon = iconVal => {
-		const toInsert = applyFormat(
-			create( { text: iconVal } ),
-			{
-				type: name,
-				attributes: {
-					className: 'material-icons',
-				},
-			},
-			0,
-			iconVal.length
-		);
-
-		onChange( insert( value, toInsert ) );
-
-		setIsAddingIcon( false );
 	};
 
 	return (
@@ -88,7 +64,7 @@ function Edit( props ) {
 					isActive={ isActive }
 					activeAttributes={ activeAttributes }
 					value={ value }
-					onChange={ setIcon }
+					onChange={ onChange }
 					contentRef={ contentRef }
 				/>
 			) }
