@@ -76,11 +76,7 @@ export const icon = {
 	name,
 	title,
 	keywords: [ __( 'icon', 'material-design' ) ],
-	object: true,
 	tagName: 'span',
 	className: 'material-icons',
-	attributes: {
-		className: 'class',
-	},
 	edit: Edit,
 };
