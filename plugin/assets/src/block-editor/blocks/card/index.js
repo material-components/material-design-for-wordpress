@@ -27,7 +27,8 @@ import edit from './edit';
 import save from './save';
 import metadata from './block.json';
 import { example } from './example';
-
+import { isDefaultCardStyleOutlined } from '../../utils';
+metadata.attributes.outlined.default = isDefaultCardStyleOutlined();
 const { name } = metadata;
 
 export { metadata, name };

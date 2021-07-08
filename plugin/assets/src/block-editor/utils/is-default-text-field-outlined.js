@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,13 @@
  * limitations under the License.
  */
 
-export { default as findIcon } from './find-icon';
-export { default as getConfig } from './get-config';
-export { default as getIconName } from './get-icon-name';
-export { default as isDefaultCardStyleOutlined } from './is-default-card-style-outlined';
-export { default as isDefaultTextFieldStyleOutlined } from './is-default-text-field-outlined';
+import { getConfig } from './index';
+
+/**
+ * Whether global text input style outlined.
+ *
+ * @return {boolean} Is outlined.
+ */
+export default () =>
+	// eslint-disable-next-line camelcase
+	getConfig( 'defaults' )?.globalStyle?.text_field_style === 'outlined';
