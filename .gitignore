@@ -2,6 +2,8 @@
 ._.DS_Store
 .env
 .idea
+.vscode
+logs
 material-design.zip
 material-design-google.zip
 yarn.lock

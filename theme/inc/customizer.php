@@ -121,7 +121,7 @@ function preview_scripts() {
 	wp_enqueue_script(
 		'material-design-google-customizer-preview',
 		get_template_directory_uri() . "/assets/js/customize-preview{$suffix}.js",
-		[ 'customize-preview' ],
+		[ 'customize-selective-refresh' ],
 		$theme_version,
 		true
 	);
