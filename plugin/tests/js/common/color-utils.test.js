@@ -456,9 +456,251 @@ describe( 'Color Utiles', () => {
 		).toStrictEqual( 0.12743768043564743 );
 	} );
 	it( 'test generateColorFromHex', () => {
-		expect( colorUtils.generateColorFromHex( '#a1a1a1' ) ).toStrictEqual(
-			{"accessibility": {"criterias": {"black": {"large": {"criteria": {"large": true, "ratio": 3, "textColor": "#000000", "titlePriority": 3}, "minAlpha": 0.4921875, "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)", "recAlpha": 0.87}, "normal": {"criteria": {"large": false, "ratio": 4.5, "textColor": "#000000", "titlePriority": 1}, "minAlpha": 0.65625, "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)", "recAlpha": 0.87}}}, "defaults": [{"criteria": {"large": false, "ratio": 4.5, "textColor": "#000000", "titlePriority": 1}, "minAlpha": 0.65625, "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)", "recAlpha": 0.87}, {"criteria": {"large": true, "ratio": 3, "textColor": "#000000", "titlePriority": 3}, "minAlpha": 0.4921875, "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)", "recAlpha": 0.87}], "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)"}, "hex": "#a1a1a1", "range": {"dark": {"accessibility": {"criterias": {"black": {"large": {"criteria": {"large": true, "ratio": 3, "textColor": "#000000", "titlePriority": 3}, "minAlpha": 0.6328125, "preferredNormalColor": "#ffffff", "preferredTitleColor": "#ffffff", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(255, 255, 255, 0.87)", "recAlpha": 0.87}}, "white": {"large": {"criteria": {"large": true, "ratio": 3, "textColor": "#ffffff", "titlePriority": 4}, "minAlpha": 0.6484375, "preferredNormalColor": "#ffffff", "preferredTitleColor": "#ffffff", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(255, 255, 255, 0.87)", "recAlpha": 0.87}, "normal": {"criteria": {"large": false, "ratio": 4.5, "textColor": "#ffffff", "titlePriority": 2}, "minAlpha": 0.9609375, "preferredNormalColor": "#ffffff", "preferredTitleColor": "#ffffff", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(255, 255, 255, 0.87)", "recAlpha": 0.9609375}}}, "defaults": [{"criteria": {"large": false, "ratio": 4.5, "textColor": "#ffffff", "titlePriority": 2}, "minAlpha": 0.9609375, "preferredNormalColor": "#ffffff", "preferredTitleColor": "#ffffff", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(255, 255, 255, 0.87)", "recAlpha": 0.9609375}, {"criteria": {"large": true, "ratio": 3, "textColor": "#ffffff", "titlePriority": 4}, "minAlpha": 0.6484375, "preferredNormalColor": "#ffffff", "preferredTitleColor": "#ffffff", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(255, 255, 255, 0.87)", "recAlpha": 0.87}, {"criteria": {"large": true, "ratio": 3, "textColor": "#000000", "titlePriority": 3}, "minAlpha": 0.6328125, "preferredNormalColor": "#ffffff", "preferredTitleColor": "#ffffff", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(255, 255, 255, 0.87)", "recAlpha": 0.87}], "preferredNormalColor": "#ffffff", "preferredTitleColor": "#ffffff", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(255, 255, 255, 0.87)"}, "hex": "#737373"}, "light": {"accessibility": {"criterias": {"black": {"large": {"criteria": {"large": true, "ratio": 3, "textColor": "#000000", "titlePriority": 3}, "minAlpha": 0.4453125, "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)", "recAlpha": 0.87}, "normal": {"criteria": {"large": false, "ratio": 4.5, "textColor": "#000000", "titlePriority": 1}, "minAlpha": 0.5703125, "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)", "recAlpha": 0.87}}}, "defaults": [{"criteria": {"large": false, "ratio": 4.5, "textColor": "#000000", "titlePriority": 1}, "minAlpha": 0.5703125, "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)", "recAlpha": 0.87}, {"criteria": {"large": true, "ratio": 3, "textColor": "#000000", "titlePriority": 3}, "minAlpha": 0.4453125, "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)", "recAlpha": 0.87}], "preferredNormalColor": "#000000", "preferredTitleColor": "#000000", "preferredTitleRecAlpha": 0.87, "preferredTitleRgba": "rgba(0, 0, 0, 0.87)"}, "hex": "#d2d2d2"}}}
-		);
+		expect( colorUtils.generateColorFromHex( '#a1a1a1' ) ).toStrictEqual( {
+			accessibility: {
+				criterias: {
+					black: {
+						large: {
+							criteria: {
+								large: true,
+								ratio: 3,
+								textColor: '#000000',
+								titlePriority: 3,
+							},
+							minAlpha: 0.4921875,
+							preferredNormalColor: '#000000',
+							preferredTitleColor: '#000000',
+							preferredTitleRecAlpha: 0.87,
+							preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+							recAlpha: 0.87,
+						},
+						normal: {
+							criteria: {
+								large: false,
+								ratio: 4.5,
+								textColor: '#000000',
+								titlePriority: 1,
+							},
+							minAlpha: 0.65625,
+							preferredNormalColor: '#000000',
+							preferredTitleColor: '#000000',
+							preferredTitleRecAlpha: 0.87,
+							preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+							recAlpha: 0.87,
+						},
+					},
+				},
+				defaults: [
+					{
+						criteria: {
+							large: false,
+							ratio: 4.5,
+							textColor: '#000000',
+							titlePriority: 1,
+						},
+						minAlpha: 0.65625,
+						preferredNormalColor: '#000000',
+						preferredTitleColor: '#000000',
+						preferredTitleRecAlpha: 0.87,
+						preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+						recAlpha: 0.87,
+					},
+					{
+						criteria: {
+							large: true,
+							ratio: 3,
+							textColor: '#000000',
+							titlePriority: 3,
+						},
+						minAlpha: 0.4921875,
+						preferredNormalColor: '#000000',
+						preferredTitleColor: '#000000',
+						preferredTitleRecAlpha: 0.87,
+						preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+						recAlpha: 0.87,
+					},
+				],
+				preferredNormalColor: '#000000',
+				preferredTitleColor: '#000000',
+				preferredTitleRecAlpha: 0.87,
+				preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+			},
+			hex: '#a1a1a1',
+			range: {
+				dark: {
+					accessibility: {
+						criterias: {
+							black: {
+								large: {
+									criteria: {
+										large: true,
+										ratio: 3,
+										textColor: '#000000',
+										titlePriority: 3,
+									},
+									minAlpha: 0.6328125,
+									preferredNormalColor: '#ffffff',
+									preferredTitleColor: '#ffffff',
+									preferredTitleRecAlpha: 0.87,
+									preferredTitleRgba: 'rgba(255, 255, 255, 0.87)',
+									recAlpha: 0.87,
+								},
+							},
+							white: {
+								large: {
+									criteria: {
+										large: true,
+										ratio: 3,
+										textColor: '#ffffff',
+										titlePriority: 4,
+									},
+									minAlpha: 0.6484375,
+									preferredNormalColor: '#ffffff',
+									preferredTitleColor: '#ffffff',
+									preferredTitleRecAlpha: 0.87,
+									preferredTitleRgba: 'rgba(255, 255, 255, 0.87)',
+									recAlpha: 0.87,
+								},
+								normal: {
+									criteria: {
+										large: false,
+										ratio: 4.5,
+										textColor: '#ffffff',
+										titlePriority: 2,
+									},
+									minAlpha: 0.9609375,
+									preferredNormalColor: '#ffffff',
+									preferredTitleColor: '#ffffff',
+									preferredTitleRecAlpha: 0.87,
+									preferredTitleRgba: 'rgba(255, 255, 255, 0.87)',
+									recAlpha: 0.9609375,
+								},
+							},
+						},
+						defaults: [
+							{
+								criteria: {
+									large: false,
+									ratio: 4.5,
+									textColor: '#ffffff',
+									titlePriority: 2,
+								},
+								minAlpha: 0.9609375,
+								preferredNormalColor: '#ffffff',
+								preferredTitleColor: '#ffffff',
+								preferredTitleRecAlpha: 0.87,
+								preferredTitleRgba: 'rgba(255, 255, 255, 0.87)',
+								recAlpha: 0.9609375,
+							},
+							{
+								criteria: {
+									large: true,
+									ratio: 3,
+									textColor: '#ffffff',
+									titlePriority: 4,
+								},
+								minAlpha: 0.6484375,
+								preferredNormalColor: '#ffffff',
+								preferredTitleColor: '#ffffff',
+								preferredTitleRecAlpha: 0.87,
+								preferredTitleRgba: 'rgba(255, 255, 255, 0.87)',
+								recAlpha: 0.87,
+							},
+							{
+								criteria: {
+									large: true,
+									ratio: 3,
+									textColor: '#000000',
+									titlePriority: 3,
+								},
+								minAlpha: 0.6328125,
+								preferredNormalColor: '#ffffff',
+								preferredTitleColor: '#ffffff',
+								preferredTitleRecAlpha: 0.87,
+								preferredTitleRgba: 'rgba(255, 255, 255, 0.87)',
+								recAlpha: 0.87,
+							},
+						],
+						preferredNormalColor: '#ffffff',
+						preferredTitleColor: '#ffffff',
+						preferredTitleRecAlpha: 0.87,
+						preferredTitleRgba: 'rgba(255, 255, 255, 0.87)',
+					},
+					hex: '#737373',
+				},
+				light: {
+					accessibility: {
+						criterias: {
+							black: {
+								large: {
+									criteria: {
+										large: true,
+										ratio: 3,
+										textColor: '#000000',
+										titlePriority: 3,
+									},
+									minAlpha: 0.4453125,
+									preferredNormalColor: '#000000',
+									preferredTitleColor: '#000000',
+									preferredTitleRecAlpha: 0.87,
+									preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+									recAlpha: 0.87,
+								},
+								normal: {
+									criteria: {
+										large: false,
+										ratio: 4.5,
+										textColor: '#000000',
+										titlePriority: 1,
+									},
+									minAlpha: 0.5703125,
+									preferredNormalColor: '#000000',
+									preferredTitleColor: '#000000',
+									preferredTitleRecAlpha: 0.87,
+									preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+									recAlpha: 0.87,
+								},
+							},
+						},
+						defaults: [
+							{
+								criteria: {
+									large: false,
+									ratio: 4.5,
+									textColor: '#000000',
+									titlePriority: 1,
+								},
+								minAlpha: 0.5703125,
+								preferredNormalColor: '#000000',
+								preferredTitleColor: '#000000',
+								preferredTitleRecAlpha: 0.87,
+								preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+								recAlpha: 0.87,
+							},
+							{
+								criteria: {
+									large: true,
+									ratio: 3,
+									textColor: '#000000',
+									titlePriority: 3,
+								},
+								minAlpha: 0.4453125,
+								preferredNormalColor: '#000000',
+								preferredTitleColor: '#000000',
+								preferredTitleRecAlpha: 0.87,
+								preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+								recAlpha: 0.87,
+							},
+						],
+						preferredNormalColor: '#000000',
+						preferredTitleColor: '#000000',
+						preferredTitleRecAlpha: 0.87,
+						preferredTitleRgba: 'rgba(0, 0, 0, 0.87)',
+					},
+					hex: '#d2d2d2',
+				},
+			},
+		} );
 	} );
 
 	it( 'test getLuminance_black', () => {
