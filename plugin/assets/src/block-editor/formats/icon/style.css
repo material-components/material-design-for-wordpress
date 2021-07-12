@@ -2,6 +2,10 @@
 	width: 250px;
 }
 
+.components-inline-icon-popover .block-editor-url-popover__row {
+	flex-direction: column;
+}
+
 [data-type="core/paragraph"] .material-icons {
 	font-size: 16px;
 	line-height: 1.4 !important;
