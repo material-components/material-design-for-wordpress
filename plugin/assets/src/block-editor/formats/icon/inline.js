@@ -24,6 +24,9 @@ import {
 	insert,
 } from '@wordpress/rich-text';
 import { Popover } from '@wordpress/components';
+import { getRectangleFromRange } from '@wordpress/dom';
+import { useMemo } from '@wordpress/element';
+import { URLPopover } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
@@ -31,7 +34,15 @@ import { Popover } from '@wordpress/components';
 import { icon as settings } from './index';
 import IconPicker from '../../components/icon-picker';
 
-function InlineIconUI( { value, onChange, stopAddingIcon, contentRef } ) {
+function InlineIconUI( {
+	value,
+	onChange,
+	stopAddingIcon,
+	contentRef,
+	isAddingIcon,
+	isActive,
+	...props
+} ) {
 	const onIconChange = iconVal => {
 		const newLocal = 0;
 		const toInsert = applyFormat(
@@ -51,23 +62,71 @@ function InlineIconUI( { value, onChange, stopAddingIcon, contentRef } ) {
 		stopAddingIcon();
 	};
 
-	const anchorRef = useAnchorRef( { ref: contentRef, value, settings } );
+	if ( 'undefined' !== typeof useAnchorRef ) {
+		const anchorRef = useAnchorRef( { ref: contentRef, value, settings } );
 
-	return (
-		<Popover
-			anchorRef={ anchorRef }
-			focusOnMount={ false }
-			onClose={ stopAddingIcon }
-			position="bottom center"
-			className="components-inline-icon-popover"
-		>
-			<IconPicker
-				currentIcon={ null }
-				onChange={ onIconChange }
-				contentRef={ contentRef }
-			/>
-		</Popover>
-	);
+		return (
+			<Popover
+				anchorRef={ anchorRef }
+				focusOnMount={ false }
+				onClose={ stopAddingIcon }
+				position="bottom center"
+				className="components-inline-icon-popover"
+			>
+				<IconPicker
+					currentIcon={ null }
+					onChange={ onIconChange }
+					contentRef={ contentRef }
+				/>
+			</Popover>
+		);
+	} else {
+		const anchorRect = useMemo( () => {
+			const selection = window.getSelection();
+			const range = selection.rangeCount > 0 ? selection.getRangeAt( 0 ) : null;
+
+			if ( ! range ) {
+				return;
+			}
+
+			if ( isAddingIcon ) {
+				return getRectangleFromRange( range );
+			}
+
+			let element = range.startContainer;
+
+			element = element.nextElementSibling || element;
+
+			while ( element.nodeType !== window.Node.ELEMENT_NODE ) {
+				element.element.parentNode;
+			}
+
+			const closest = element.closest( 'span' );
+
+			if ( closest ) {
+				return closest.getBoundingClientRect();
+			}
+		}, [ isAddingIcon, isActive, value.start, value.end ] );
+
+		if ( ! anchorRect ) {
+			return null;
+		}
+
+		return (
+			<URLPopover
+				anchorRect={ anchorRect } { ...props }
+				className="components-inline-icon-popover"
+			>
+				<IconPicker
+					currentIcon={ null }
+					onChange={ onIconChange }
+					contentRef={ contentRef }
+				/>
+			</URLPopover>
+		);
+	}
+
+
 }
 
 export default InlineIconUI;
