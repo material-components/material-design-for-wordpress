@@ -54,7 +54,7 @@ function Edit( {
 		<>
 			<RichTextToolbarButton
 				icon={ barIcon }
-				title="inline icon"
+				title="Inline icon"
 				onClick={ enableIsAddingIcon }
 			/>
 			{ ( isAddingIcon || isActive ) && (
