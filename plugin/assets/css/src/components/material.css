@@ -29,6 +29,11 @@
 	direction: ltr;
 	font-feature-settings: "liga";
 	-webkit-font-smoothing: antialiased;
+
+	@nest p & {
+		font-size: 16px;
+		line-height: 1.4 !important;
+	}
 }
 
 /* Typography */

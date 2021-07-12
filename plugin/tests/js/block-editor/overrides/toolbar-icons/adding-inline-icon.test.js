@@ -47,9 +47,7 @@ describe( 'adding inline icon', () => {
 		await inputElement.uploadFile( tmpFileName );
 
 		// Wait for upload.
-		await page.waitForSelector(
-			`.media-modal li[aria-label="${ filename }"]`
-		);
+		await page.waitForSelector( `.media-modal li[aria-label="${ filename }"]` );
 
 		// Insert the uploaded image.
 		await page.click( '.media-modal button.media-button-select' );
