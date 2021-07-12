@@ -62,7 +62,6 @@ function Edit( {
 					isAddingIcon={ isAddingIcon }
 					stopAddingIcon={ stopAddingIcon }
 					isActive={ isActive }
-					activeAttributes={ activeAttributes }
 					value={ value }
 					onChange={ onChange }
 					contentRef={ contentRef }
