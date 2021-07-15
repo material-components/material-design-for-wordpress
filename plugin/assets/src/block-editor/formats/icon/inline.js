@@ -23,16 +23,13 @@ import {
 	create,
 	insert,
 } from '@wordpress/rich-text';
-import { Popover } from '@wordpress/components';
-import { getRectangleFromRange } from '@wordpress/dom';
-import { useMemo } from '@wordpress/element';
-import { URLPopover } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
  */
 import { icon as settings } from './index';
-import IconPicker from '../../components/icon-picker';
+import AnchorRefPopover from './anchor-ref-popover';
+import NotAnchorRefPopover from './not-anchor-ref-popover';
 
 function InlineIconUI( {
 	value,
@@ -61,7 +58,7 @@ function InlineIconUI( {
 	};
 
 	return 'undefined' !== typeof useAnchorRef ? (
-		<AnchorRectPopover
+		<AnchorRefPopover
 			contentRef={ contentRef }
 			value={ value }
 			settings={ settings }
@@ -75,83 +72,7 @@ function InlineIconUI( {
 			onIconChange={ onIconChange }
 			contentRef={ contentRef }
 		/>
-	)
+	);
 }
-
-const AnchorRectPopover = ( {
-	contentRef,
-	value,
-	stopAddingIcon,
-	onIconChange,
-} ) => {
-	const anchorRef = useAnchorRef( { ref: contentRef, value, settings } );
-
-	return (
-		<Popover
-			anchorRef={ anchorRef }
-			focusOnMount={ false }
-			onClose={ stopAddingIcon }
-			position="bottom center"
-			className="components-inline-icon-popover"
-		>
-			<IconPicker
-				currentIcon={ null }
-				onChange={ onIconChange }
-				contentRef={ contentRef }
-			/>
-		</Popover>
-	);
-};
-
-const NotAnchorRefPopover = ( {
-	isAddingIcon,
-	onIconChange,
-	contentRef,
-	...props
-} ) => {
-	const anchorRect = useMemo( () => {
-		const selection = window.getSelection();
-		const range = selection.rangeCount > 0 ? selection.getRangeAt( 0 ) : null;
-
-		if ( ! range ) {
-			return;
-		}
-
-		if ( isAddingIcon ) {
-			return getRectangleFromRange( range );
-		}
-
-		let element = range.startContainer;
-
-		element = element.nextElementSibling || element;
-
-		while ( element.nodeType !== window.Node.ELEMENT_NODE ) {
-			element = element.parentNode;
-		}
-
-		const closest = element.closest( 'span' );
-
-		if ( closest ) {
-			return closest.getBoundingClientRect();
-		}
-	}, [ isAddingIcon ] );
-
-	if ( ! anchorRect ) {
-		return null;
-	}
-
-	return (
-		<URLPopover
-			anchorRect={ anchorRect } { ...props }
-			className="components-inline-icon-popover"
-		>
-			<IconPicker
-				currentIcon={ null }
-				onChange={ onIconChange }
-				contentRef={ contentRef }
-			/>
-		</URLPopover>
-	);
-};
 
 export default InlineIconUI;

@@ -31,14 +31,7 @@ import './style.css';
 const name = 'material/inline-icon';
 const title = __( 'Inline icon', 'material-design' );
 
-function Edit( {
-	value,
-	onChange,
-	contentRef,
-	isActive,
-	activeAttributes,
-	onFocus,
-} ) {
+function Edit( { value, onChange, contentRef, isActive, onFocus } ) {
 	const [ isAddingIcon, setIsAddingIcon ] = useState( false );
 
 	const enableIsAddingIcon = useCallback( () => setIsAddingIcon( true ), [
