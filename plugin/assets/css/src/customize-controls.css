@@ -50,7 +50,7 @@
 		content: "\f460" !important;
 	}
 
-	& .customize-section-description-container {
+	& .customize-section-description-container .customize-section-title {
 		display: none;
 	}
 }

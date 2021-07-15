@@ -25,7 +25,7 @@
 
 namespace MaterialDesign\Plugin;
 
-use MaterialDesign\Plugin\Plugin;
+use WP_Error;
 
 /**
  * Plugin Importer class.
