@@ -40,8 +40,6 @@ function InlineIconUI( {
 	stopAddingIcon,
 	contentRef,
 	isAddingIcon,
-	isActive,
-	...props
 } ) {
 	const onIconChange = iconVal => {
 		const newLocal = 0;
@@ -62,71 +60,98 @@ function InlineIconUI( {
 		stopAddingIcon();
 	};
 
-	if ( 'undefined' !== typeof useAnchorRef ) {
-		const anchorRef = useAnchorRef( { ref: contentRef, value, settings } );
+	return 'undefined' !== typeof useAnchorRef ? (
+		<AnchorRectPopover
+			contentRef={ contentRef }
+			value={ value }
+			settings={ settings }
+			stopAddingIcon={ stopAddingIcon }
+			onIconChange={ onIconChange }
+		/>
+	) : (
+		<NotAnchorRefPopover
+			isAddingIcon={ isAddingIcon }
+			value={ value }
+			onIconChange={ onIconChange }
+			contentRef={ contentRef }
+		/>
+	)
+}
 
-		return (
-			<Popover
-				anchorRef={ anchorRef }
-				focusOnMount={ false }
-				onClose={ stopAddingIcon }
-				position="bottom center"
-				className="components-inline-icon-popover"
-			>
-				<IconPicker
-					currentIcon={ null }
-					onChange={ onIconChange }
-					contentRef={ contentRef }
-				/>
-			</Popover>
-		);
-	} else {
-		const anchorRect = useMemo( () => {
-			const selection = window.getSelection();
-			const range = selection.rangeCount > 0 ? selection.getRangeAt( 0 ) : null;
+const AnchorRectPopover = ( {
+	contentRef,
+	value,
+	stopAddingIcon,
+	onIconChange,
+} ) => {
+	const anchorRef = useAnchorRef( { ref: contentRef, value, settings } );
 
-			if ( ! range ) {
-				return;
-			}
+	return (
+		<Popover
+			anchorRef={ anchorRef }
+			focusOnMount={ false }
+			onClose={ stopAddingIcon }
+			position="bottom center"
+			className="components-inline-icon-popover"
+		>
+			<IconPicker
+				currentIcon={ null }
+				onChange={ onIconChange }
+				contentRef={ contentRef }
+			/>
+		</Popover>
+	);
+};
 
-			if ( isAddingIcon ) {
-				return getRectangleFromRange( range );
-			}
+const NotAnchorRefPopover = ( {
+	isAddingIcon,
+	onIconChange,
+	contentRef,
+	...props
+} ) => {
+	const anchorRect = useMemo( () => {
+		const selection = window.getSelection();
+		const range = selection.rangeCount > 0 ? selection.getRangeAt( 0 ) : null;
 
-			let element = range.startContainer;
-
-			element = element.nextElementSibling || element;
-
-			while ( element.nodeType !== window.Node.ELEMENT_NODE ) {
-				element.element.parentNode;
-			}
-
-			const closest = element.closest( 'span' );
-
-			if ( closest ) {
-				return closest.getBoundingClientRect();
-			}
-		}, [ isAddingIcon, isActive, value.start, value.end ] );
-
-		if ( ! anchorRect ) {
-			return null;
+		if ( ! range ) {
+			return;
 		}
 
-		return (
-			<URLPopover
-				anchorRect={ anchorRect } { ...props }
-				className="components-inline-icon-popover"
-			>
-				<IconPicker
-					currentIcon={ null }
-					onChange={ onIconChange }
-					contentRef={ contentRef }
-				/>
-			</URLPopover>
-		);
+		if ( isAddingIcon ) {
+			return getRectangleFromRange( range );
+		}
+
+		let element = range.startContainer;
+
+		element = element.nextElementSibling || element;
+
+		while ( element.nodeType !== window.Node.ELEMENT_NODE ) {
+			element = element.parentNode;
+		}
+
+		const closest = element.closest( 'span' );
+
+		if ( closest ) {
+			return closest.getBoundingClientRect();
+		}
+	}, [ isAddingIcon ] );
+
+	if ( ! anchorRect ) {
+		return null;
 	}
 
-
-}
+	return (
+		<URLPopover
+			anchorRect={ anchorRect } { ...props }
+			className="components-inline-icon-popover"
+		>
+			<IconPicker
+				currentIcon={ null }
+				onChange={ onIconChange }
+				contentRef={ contentRef }
+			/>
+		</URLPopover>
+	);
+};
 
 export default InlineIconUI;
