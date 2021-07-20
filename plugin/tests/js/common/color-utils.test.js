@@ -1,0 +1,103 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Internal dependencies
+ * plugin/assets/src/common/color-utils.js
+ */
+import colorUtils from '../../../assets/src/common/color-utils';
+
+describe( 'Color Utiles', () => {
+	// keep
+	it( 'test getColorAccessibility', () => {
+		expect(
+			colorUtils.getColorAccessibility( '#ffffff', 'name', '#000000', 'Black' )
+		).toStrictEqual( {
+			hex: '#ffffff',
+			type: 'name',
+			variations: [
+				{
+					colorHex: '#ffffff',
+					result: 'min 42% opacity',
+					size: 'Large',
+					textColor: 'Black',
+					textColorHex: '#000000',
+				},
+				{
+					colorHex: '#ffffff',
+					result: 'min 42% opacity',
+					size: 'Normal',
+					textColor: 'Black',
+					textColorHex: '#000000',
+				},
+			],
+		} );
+	} );
+
+	it( 'test getColorAccessibility_b_on_b', () => {
+		expect(
+			colorUtils.getColorAccessibility( '#000000', 'Black', '#000000', 'Black' )
+		).toStrictEqual( {
+			hex: '#000000',
+			type: 'Black',
+			variations: [
+				{
+					colorHex: '#000000',
+					result: null,
+					size: 'Large',
+					textColor: 'Black',
+					textColorHex: '#000000',
+				},
+				{
+					colorHex: '#000000',
+					result: null,
+					size: 'Normal',
+					textColor: 'Black',
+					textColorHex: '#000000',
+				},
+			],
+		} );
+	} );
+
+	it( 'hexToRgb', () => {
+		expect( colorUtils.hexToRgb( '#ffffff' ) ).toStrictEqual( [
+			255,
+			255,
+			255,
+		] );
+	} );
+
+
+	it( 'hex2Rgb', () => {
+		expect( colorUtils.hex2Rgb( '#ffffff' ) ).toStrictEqual( {
+			b: 255,
+			g: 255,
+			r: 255,
+		} );
+	} );
+	it( 'hexToRgbString', () => {
+		expect( colorUtils.hexToRGB( '#ffffff' ) ).toStrictEqual(
+			'rgb(255, 255, 255)'
+		);
+	} );
+
+	it( 'getLFromRgbColor', () => {
+		expect( colorUtils.getLFromRgbColor( {r:130, g:130, b:130} ) ).toStrictEqual(
+			0.22322795731680853
+		);
+	} );
+
+} );
