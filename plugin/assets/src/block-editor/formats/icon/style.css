@@ -7,6 +7,6 @@
 }
 
 [data-type="core/paragraph"] .material-icons {
-	font-size: 16px;
-	line-height: 1.4 !important;
+	font-size: inherit;
+	line-height: inherit !important;
 }
