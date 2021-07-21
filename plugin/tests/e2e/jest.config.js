@@ -37,6 +37,7 @@ module.exports = {
 		'<rootDir>/plugin/tests/coverage',
 		'<rootDir>/plugin/tests/js',
 		'<rootDir>/vendor',
+		'<rootDir>/plugin/tests/e2e/legacy',
 	],
 	collectCoverageFrom: [ '<rootDir>/plugin/assets/src/**/*.js' ],
 	reporters: [ 'default', 'jest-puppeteer-istanbul/lib/reporter' ],

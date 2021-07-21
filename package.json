@@ -176,6 +176,7 @@
     "test": "npm-run-all --parallel test:js test:php",
     "test-with-coverage": "npm-run-all --parallel test:js:coverage test:php:coverage",
     "test:e2e": "WP_BASE_URL=http://localhost:8088 wp-scripts test-e2e --config=plugin/tests/e2e/jest.config.js",
+    "test:e2e:legacy": "WP_BASE_URL=http://localhost:8088 wp-scripts test-e2e --config=plugin/tests/e2e/jest.legacy.config.js",
     "test:e2e:help": "npm run test:e2e -- --help",
     "test:e2e:watch": "npm run test:e2e -- --watch",
     "test:e2e:interactive": "npm run test:e2e -- --puppeteer-interactive",
