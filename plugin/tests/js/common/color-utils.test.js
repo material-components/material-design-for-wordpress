@@ -80,7 +80,6 @@ describe( 'Color Utiles', () => {
 		] );
 	} );
 
-
 	it( 'hex2Rgb', () => {
 		expect( colorUtils.hex2Rgb( '#ffffff' ) ).toStrictEqual( {
 			b: 255,
@@ -105,5 +104,4 @@ describe( 'Color Utiles', () => {
 			'#808080'
 		);
 	} );
-
 } );
