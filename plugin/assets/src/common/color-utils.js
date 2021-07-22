@@ -79,8 +79,7 @@ const colorUtils = {
 		return this.getMinAndRecAlphasFromBgAndTextColors(color, textColor, size);
 	},
 	getMinAndRecAlphasFromBgAndTextColors: function ( color, textColor ) {
-		var r =
-				arguments.length <= 2 || void 0 === arguments[2]
+		var r =	arguments.length <= 2 || void 0 === arguments[2]
 					? 'large'
 					: arguments[2],
 			o = 'large' === r ? 3 : 4.5,
@@ -106,7 +105,6 @@ const colorUtils = {
 		}
 		return s > m ? null : c;
 	},
-
 	blendForegroundContrast: function (foregroundColor, backgroundColor, ratio) {
 		if (1 > ratio) {
 			var rgba = this.overlayOn(foregroundColor, backgroundColor, ratio);
