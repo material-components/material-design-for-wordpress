@@ -33,6 +33,11 @@ const AnchorRefPopover = ( {
 	onIconChange,
 } ) => {
 	const anchorRef = useAnchorRef( { ref: contentRef, value, settings } );
+	let currentIcon = null;
+
+	if ( anchorRef.textContent ) {
+		currentIcon = anchorRef.textContent;
+	}
 
 	return (
 		<Popover
@@ -43,7 +48,7 @@ const AnchorRefPopover = ( {
 			className="components-inline-icon-popover"
 		>
 			<IconPicker
-				currentIcon={ null }
+				currentIcon={ currentIcon }
 				onChange={ onIconChange }
 				contentRef={ contentRef }
 			/>
