@@ -15,12 +15,6 @@
  */
 
 /**
- * External dependencies
- */
-
-import colorUtils from '../../common/color-utils';
-
-/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
@@ -44,6 +38,8 @@ import { materialIconClass, materialIconFontName } from './utils';
 import { Overrides } from './styles';
 import '../../../../css/src/base/variables.css';
 import '../../../../css/src/components/material.css';
+
+import colorUtils from '../../../common/color-utils';
 
 /**
  * Adds link tag with appropriate google fonts to head.
