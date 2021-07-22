@@ -80,8 +80,7 @@ const colorUtils = {
 	},
 	getMinAndRecAlphasFromBgAndTextColors: function ( color, textColor ) {
 		var r =	arguments.length <= 2 || void 0 === arguments[2]
-					? 'large'
-					: arguments[2],
+					? 'large' : arguments[2],
 			o = 'large' === r ? 3 : 4.5,
 			i = this.minAcceptableAlpha(color, textColor, o);
 		return {
