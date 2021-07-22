@@ -80,7 +80,6 @@ describe( 'Color Utiles', () => {
 		] );
 	} );
 
-
 	it( 'hex2Rgb', () => {
 		expect( colorUtils.hex2Rgb( '#ffffff' ) ).toStrictEqual( {
 			b: 255,
@@ -95,9 +94,8 @@ describe( 'Color Utiles', () => {
 	} );
 
 	it( 'getLFromRgbColor', () => {
-		expect( colorUtils.getLFromRgbColor( {r:130, g:130, b:130} ) ).toStrictEqual(
-			0.22322795731680853
-		);
+		expect(
+			colorUtils.getLFromRgbColor( { r: 130, g: 130, b: 130 } )
+		).toStrictEqual( 0.22322795731680853 );
 	} );
-
 } );
