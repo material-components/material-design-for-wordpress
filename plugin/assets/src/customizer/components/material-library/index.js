@@ -17,7 +17,8 @@
 /**
  * External dependencies
  */
-import chroma from 'chroma-js';
+
+import colorUtils from '../../common/color-utils';
 
 /**
  * WordPress dependencies
@@ -102,8 +103,8 @@ const MaterialLibrary = ( {
 				onSecondaryColor={ onSecondaryColor }
 				surfaceColor={ surfaceColor }
 				onSurfaceColor={ onSurfaceColor }
-				surfaceColorMix4={ chroma.mix( surfaceColor, onSurfaceColor, 0.04 ) }
-				surfaceColorMix12={ chroma.mix( surfaceColor, onSurfaceColor, 0.12 ) }
+				surfaceColorMix4={ colorUtils.mix( surfaceColor, onSurfaceColor, 0.04 ) }
+				surfaceColorMix12={ colorUtils.mix( surfaceColor, onSurfaceColor, 0.12 ) }
 				backgroundColor={ backgroundColor }
 				onBackgroundColor={ onBackgroundColor }
 				iconCollection={ materialIconFontName( iconCollection ) }

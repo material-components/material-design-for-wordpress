@@ -20,7 +20,8 @@
 /**
  * Utils for color and accessibility.
  *
- * Most of the code in this file is copied over from https://material.io/resources/color
+ * Some of the code in this file is copied over from https://material.io/resources/color
+ * The rest are wrappers around https://github.com/bgrins/TinyColor
  */
 
 /**
@@ -154,7 +155,11 @@ const colorUtils = {
 
 	hexToRgbString: function (hex) {
 		return tinycolor(hex).toRgbString()
-	}
+	},
+
+	mix: function ( color1, color2, amount = 50 ) {
+		return tinycolor.mix(color1, color2, amount = 50).toHexString()
+	},
 };
 
 export default colorUtils;

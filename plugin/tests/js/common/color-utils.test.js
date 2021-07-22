@@ -100,4 +100,10 @@ describe( 'Color Utiles', () => {
 		);
 	} );
 
+	it( 'mix', () => {
+		expect( colorUtils.mix( '#ffffff', '#000000', 50 ) ).toStrictEqual(
+			'#808080'
+		);
+	} );
+
 } );
