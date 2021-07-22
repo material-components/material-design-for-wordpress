@@ -103,8 +103,16 @@ const MaterialLibrary = ( {
 				onSecondaryColor={ onSecondaryColor }
 				surfaceColor={ surfaceColor }
 				onSurfaceColor={ onSurfaceColor }
-				surfaceColorMix4={ colorUtils.mix( surfaceColor, onSurfaceColor, 0.04 ) }
-				surfaceColorMix12={ colorUtils.mix( surfaceColor, onSurfaceColor, 0.12 ) }
+				surfaceColorMix4={ colorUtils.mix(
+					surfaceColor,
+					onSurfaceColor,
+					0.04
+				) }
+				surfaceColorMix12={ colorUtils.mix(
+					surfaceColor,
+					onSurfaceColor,
+					0.12
+				) }
 				backgroundColor={ backgroundColor }
 				onBackgroundColor={ onBackgroundColor }
 				iconCollection={ materialIconFontName( iconCollection ) }
