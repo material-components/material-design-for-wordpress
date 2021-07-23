@@ -93,7 +93,7 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Finish', 'material-design' ) }
 								trailingIcon="navigate_next"
-								link={ getConfig( 'settingsUrl' ) }
+								link={ getConfig( 'finishedUrl' ) }
 							/>
 						) }
 					</div>

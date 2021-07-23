@@ -213,7 +213,8 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'readme', [ 'shell:readme' ] );
 
-	grunt.registerTask( 'build', [ 'readme', 'icon_mapping', 'copy' ] );
+	grunt.registerTask( 'build', [ 'icon_mapping', 'copy' ] );
+	// grunt.registerTask( 'build', [ 'readme', 'icon_mapping', 'copy' ] );
 
 	grunt.registerTask( 'create-build-zip', [
 		'shell:create_plugin_zip',

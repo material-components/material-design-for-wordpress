@@ -25,4 +25,9 @@
 		text-align: left;
 		width: 105px;
 	}
+
+	& .mdc-button--offsite .mdc-button__icon {
+		transform: rotate(-140deg);
+		transform-origin: initial;
+	}
 }

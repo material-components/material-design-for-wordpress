@@ -210,6 +210,8 @@ class Admin extends Module_Base {
 					'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
 					'contentStatus' => esc_html( $has_demo_content ? 'ok' : 'install' ),
+					'newsLetterUrl' => esc_html( 'https://docs.google.com/forms/d/e/1FAIpQLSeOeFZRio9Mm2Rfw5NaJyvLfkVDDUO2XF2320iK1eB0P0rv3w/viewform?usp=sf_link' ),
+					'materialUrl' => esc_html( 'https://material.io/design/material-theming/overview.html#material-theming' ),
 				]
 			);
 
@@ -255,6 +257,7 @@ class Admin extends Module_Base {
 				[
 					'pagesUrl'         => esc_url( admin_url( 'edit.php?post_type=page' ) ),
 					'settingsUrl'      => esc_url( admin_url( 'admin.php?page=material-settings' ) ),
+					'finishedUrl'      => esc_url( admin_url( 'admin.php?page=material-settings#learn' ) ),
 					'assetsPath'       => esc_url( $this->plugin->asset_url( 'assets/images/wizard/' ) ),
 					'placeholderImage' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder.png' ) ),
 					'placeholderSmall' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder-small.png' ) ),

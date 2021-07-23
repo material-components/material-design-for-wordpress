@@ -19,6 +19,10 @@
  */
 import { useReducer, createContext } from '@wordpress/element';
 
+import {
+	useParams
+} from "@wordpress/dom";
+
 /**
  * Internal dependencies
  */
