@@ -35,7 +35,17 @@ const AnchorRefPopover = ( {
 	const anchorRef = useAnchorRef( { ref: contentRef, value, settings } );
 	let currentIcon = null;
 
-	if ( anchorRef.textContent ) {
+	if ( anchorRef && anchorRef.textContent ) {
+		const { ownerDocument } = anchorRef;
+		const { defaultView } = ownerDocument;
+		const range = ownerDocument.createRange();
+		const selection = defaultView.getSelection();
+
+		range.selectNode( anchorRef );
+
+		selection.removeAllRanges();
+		selection.addRange( range );
+
 		currentIcon = anchorRef.textContent;
 	}
 
