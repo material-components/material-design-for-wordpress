@@ -133,6 +133,18 @@ class Controls extends Module_Base {
 	 * @return void
 	 */
 	public function add_sections() {
+
+		$learn_description  = '<p>';
+		$learn_description .= __( 'Learn about the concepts behind material Design.', 'material-design' );
+		$learn_description .= sprintf(
+			' <a href="%1$s" class="external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
+			esc_url( __( 'https://material.io/design/material-theming/overview.html#material-theming', 'material-design' ) ),
+			__( 'Vist material.io', 'material-design' ),
+			/* translators: Accessibility text. */
+			__( '(opens in a new tab)', 'material-design' )
+		);
+		$learn_description .= '</p>';
+
 		$sections = [
 			'style'          => __( 'Starter Styles', 'material-design' ),
 			'colors'         => __( 'Color Palette ', 'material-design' ),
@@ -147,7 +159,7 @@ class Controls extends Module_Base {
 			'learn'          => [
 				'label'       => __( 'Learn More', 'material-design' ),
 				'priority'    => 400,
-				'description' => esc_html__( 'Learn about the concepts behind material Design.', 'material-design' ),
+				'description' => $learn_description,
 			],
 		];
 
@@ -615,22 +627,21 @@ class Controls extends Module_Base {
 	public function get_learn_controls() {
 		return [
 			[
-				'id'      => 'material_link',
-				'label'   => esc_html__( 'Cards', 'material-design' ),
-				'type'    => 'button',
-				'default' => 'inherit',
-			],
-			[
 				'id'      => 'Newsletter',
-				'label'   => esc_html__( 'Text field', 'material-design' ),
-				'type'    => 'radio',
+				'label'   => esc_html__( 'Newsleter', 'material-design' ),
+				'type'    => 'hidden',
 				'default' => 'inherit',
-				'choices' => [
-					'inherit'  => esc_html__( 'Inherit', 'material-design' ),
-					'elevated' => esc_html__( 'Elevated', 'material-design' ),
-					'outlined' => esc_html__( 'Outlined', 'material-design' ),
+				'description' =>
+					'<p>'. __( 'Sign up to get update and news about material design via email.' ) . '<p>'.
+					sprintf(
+					' <a href="%1$s" class="button external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
+					esc_url( __( 'https://docs.google.com/forms/d/e/1FAIpQLSeOeFZRio9Mm2Rfw5NaJyvLfkVDDUO2XF2320iK1eB0P0rv3w/formrestricted?resourcekey=0-fc7anyXD_x_RIQ1JPwQ31Q', 'material-design' ) ),
+					__( 'Subscribe to Newsletter', 'material-design' ),
+					/* translators: Accessibility text. */
+					__( '(opens in a new tab)', 'material-design' )
+				)
 				],
-			],
+
 		];
 	}
 
