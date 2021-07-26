@@ -31,7 +31,7 @@ export const Learn = () => {
 				</h2>
 				<p>
 					{ __(
-						'Leran about the concepts behind material Desgin','material-design'
+						'Learn about the concepts behind material Design','material-design'
 					) }
 				</p>
 

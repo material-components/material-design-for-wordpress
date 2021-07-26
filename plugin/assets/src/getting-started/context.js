@@ -19,9 +19,7 @@
  */
 import { useReducer, createContext } from '@wordpress/element';
 
-import {
-	useParams
-} from "@wordpress/dom";
+import { useParams } from '@wordpress/dom';
 
 /**
  * Internal dependencies
@@ -43,6 +41,7 @@ const tabs = Object.keys( TABS );
  * Default state of the world
  *
  */
+
 const initialState = {
 	activeTab: 'CUSTOMIZE',
 	completed: [ 'WIZARD' ],
@@ -60,6 +59,7 @@ const initialState = {
  * @param {*} param Children to render
  */
 export const TabProvider = ( { children } ) => {
+
 	const [ state, dispatch ] = useReducer( reducer, initialState );
 
 	return <Provider value={ { state, dispatch } }>{ children }</Provider>;

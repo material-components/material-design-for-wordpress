@@ -102,6 +102,9 @@ class Controls extends Module_Base {
 
 		// Add global style control.
 		$this->add_global_style_control();
+
+		// Add global style control.
+		$this->add_learn_control();
 	}
 
 	/**
@@ -140,6 +143,11 @@ class Controls extends Module_Base {
 				'label'       => __( 'Global Styles', 'material-design' ),
 				'priority'    => 300,
 				'description' => esc_html__( 'Global styles will be applied in all pages including custom templates.', 'material-design' ),
+			],
+			'learn'          => [
+				'label'       => __( 'Learn More', 'material-design' ),
+				'priority'    => 400,
+				'description' => esc_html__( 'Learn about the concepts behind material Design.', 'material-design' ),
 			],
 		];
 
@@ -598,6 +606,60 @@ class Controls extends Module_Base {
 		$this->add_settings( $settings );
 		$this->add_controls( $controls );
 	}
+
+	/**
+	 * Get global style controls.
+	 *
+	 * @return array[]
+	 */
+	public function get_learn_controls() {
+		return [
+			[
+				'id'      => 'material_link',
+				'label'   => esc_html__( 'Cards', 'material-design' ),
+				'type'    => 'button',
+				'default' => 'inherit',
+			],
+			[
+				'id'      => 'Newsletter',
+				'label'   => esc_html__( 'Text field', 'material-design' ),
+				'type'    => 'radio',
+				'default' => 'inherit',
+				'choices' => [
+					'inherit'  => esc_html__( 'Inherit', 'material-design' ),
+					'elevated' => esc_html__( 'Elevated', 'material-design' ),
+					'outlined' => esc_html__( 'Outlined', 'material-design' ),
+				],
+			],
+		];
+	}
+
+	/**
+	 * Add global style control.
+	 */
+	public function add_learn_control() {
+		$settings = [];
+		$controls = [];
+
+		foreach ( $this->get_learn_controls() as $control ) {
+			$settings[ $control['id'] ] = [
+				'transport'         => 'refresh',
+				'sanitize_callback' => [ $this, 'sanitize_select' ],
+				'default'           => $control['default'],
+			];
+
+			$controls[ $control['id'] ] = array_merge(
+				[
+					'section' => 'learn',
+				],
+				$control
+			);
+		}
+
+		$this->add_settings( $settings );
+		$this->add_controls( $controls );
+	}
+
 
 	/**
 	 * Enqueue Customizer scripts.
