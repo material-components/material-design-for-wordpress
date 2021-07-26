@@ -79,6 +79,9 @@ describe( 'Color Utiles', () => {
 			255,
 		] );
 	} );
+	it( 'hexToRgbJoin', () => {
+		expect( colorUtils.hexToRgbValues( '#ffffff' ).join( ',' ) ).toStrictEqual('255,255,255' );
+	} );
 
 	it( 'hex2Rgb', () => {
 		expect( colorUtils.hex2Rgb( '#ffffff' ) ).toStrictEqual( {

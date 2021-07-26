@@ -150,6 +150,7 @@ const colorUtils = {
 		return [rgb.r, rgb.r, rgb.b]
 	},
 
+
 	hexToRgbString: function (hex) {
 		return tinycolor(hex).toRgbString()
 	},
