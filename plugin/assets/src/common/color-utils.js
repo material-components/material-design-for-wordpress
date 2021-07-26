@@ -145,8 +145,9 @@ const colorUtils = {
 	},
 
 
-	hexToRgb: function (hex) {
-		return tinycolor(hex).toRgb()
+	hexToRgbValues: function (hex) {
+		let rgb = tinycolor(hex).toRgb()
+		return [rgb.r, rgb.r, rgb.b]
 	},
 
 	hexToRgbString: function (hex) {

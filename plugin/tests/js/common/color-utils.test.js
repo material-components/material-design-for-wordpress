@@ -73,7 +73,7 @@ describe( 'Color Utiles', () => {
 	} );
 
 	it( 'hexToRgb', () => {
-		expect( colorUtils.hexToRgb( '#ffffff' ) ).toStrictEqual( [
+		expect( colorUtils.hexToRgbValues( '#ffffff' ) ).toStrictEqual( [
 			255,
 			255,
 			255,
@@ -86,17 +86,6 @@ describe( 'Color Utiles', () => {
 			g: 255,
 			r: 255,
 		} );
-	} );
-	it( 'hexToRgbString', () => {
-		expect( colorUtils.hexToRGB( '#ffffff' ) ).toStrictEqual(
-			'rgb(255, 255, 255)'
-		);
-	} );
-
-	it( 'getLFromRgbColor', () => {
-		expect(
-			colorUtils.getLFromRgbColor( { r: 130, g: 130, b: 130 } )
-		).toStrictEqual( 0.22322795731680853 );
 	} );
 
 	it( 'mix', () => {
