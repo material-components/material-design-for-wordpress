@@ -80,7 +80,9 @@ describe( 'Color Utiles', () => {
 		] );
 	} );
 	it( 'hexToRgbJoin', () => {
-		expect( colorUtils.hexToRgbValues( '#ffffff' ).join( ',' ) ).toStrictEqual('255,255,255' );
+		expect( colorUtils.hexToRgbValues( '#ffffff' ).join( ',' ) ).toStrictEqual(
+			'255,255,255'
+		);
 	} );
 
 	it( 'hex2Rgb', () => {
