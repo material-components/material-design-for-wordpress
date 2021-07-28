@@ -21,18 +21,42 @@ import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
 import getConfig from '../../get-config';
-import {LearnContent} from './learn-content';
 
-export const Learn = () => {
+export const LearnContent = () => {
 	return (
 		<Fragment>
-			<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
-				<h2 className="material-gsm__content-title mdc-typography--headline2">
-					{ __( 'Learn More about Material Design', 'material-design' ) }
-				</h2>
-				<LearnContent/>
+			<p>
+				{ __(
+					'Learn about the concepts behind material Design',
+					'material-design'
+				) }
+			</p>
 
-				<div style={ { height: '20px' } }></div>
+			<div className="material-gsm__content-actions">
+				<Button
+					style="mdc-button--raised mdc-button--offsite"
+					text={ __( 'Vist material.io', 'material-design' ) }
+					trailingIcon="arrow_downward"
+					link={ getConfig( 'materialUrl' ) }
+					target="blank"
+				/>
+			</div>
+
+			<p>
+				{ __(
+					'Sign up to get update and news about material design via email',
+					'material-design'
+				) }
+			</p>
+
+			<div className="material-gsm__content-actions">
+				<Button
+					style="mdc-button--raised mdc-button--offsite"
+					text={ __( 'Subscribe to Newsletter', 'material-design' ) }
+					trailingIcon="arrow_downward"
+					link={ getConfig( 'newsLetterUrl' ) }
+					target="blank"
+				/>
 			</div>
 		</Fragment>
 	);

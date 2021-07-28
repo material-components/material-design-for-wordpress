@@ -24,6 +24,7 @@ import { __ } from '@wordpress/i18n';
  */
 import Card from './card';
 import getConfig from '../../../admin/get-config';
+import { LearnContent } from '../../../getting-started/components/content/learn-content';
 
 /**
  * Congrats and how we work screen
@@ -45,6 +46,7 @@ const Work = () => {
 						'material-design'
 					) }
 				</p>
+				<LearnContent />
 			</Card>
 		</div>
 	);

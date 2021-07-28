@@ -257,7 +257,6 @@ class Admin extends Module_Base {
 				[
 					'pagesUrl'         => esc_url( admin_url( 'edit.php?post_type=page' ) ),
 					'settingsUrl'      => esc_url( admin_url( 'admin.php?page=material-settings' ) ),
-					'finishedUrl'      => esc_url( admin_url( 'admin.php?page=material-settings#learn' ) ),
 					'assetsPath'       => esc_url( $this->plugin->asset_url( 'assets/images/wizard/' ) ),
 					'placeholderImage' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder.png' ) ),
 					'placeholderSmall' => esc_url( $this->plugin->asset_url( 'assets/images/wizard/placeholder-small.png' ) ),
