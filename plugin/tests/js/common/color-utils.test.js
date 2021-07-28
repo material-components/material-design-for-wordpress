@@ -98,4 +98,18 @@ describe( 'Color Utiles', () => {
 			'#808080'
 		);
 	} );
+
+	it( 'getColorRangeFromHex', () => {
+		expect( colorUtils.getColorRangeFromHex( '#808080' ) ).toStrictEqual( {
+			dark: { hex: '#666666' },
+			light: { hex: '#999999' },
+		} );
+	} );
+
+	it( 'getColorRangeFromHex_red', () => {
+		expect( colorUtils.getColorRangeFromHex( '#ff0000' ) ).toStrictEqual( {
+			dark: { hex: '#cc0000' },
+			light: { hex: '#ff1919' },
+		} );
+	} );
 } );

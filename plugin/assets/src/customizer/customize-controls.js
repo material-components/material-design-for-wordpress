@@ -360,7 +360,7 @@ import getConfig from '../block-editor/utils/get-config';
 			) {
 				color = selectedColor;
 				textColor = api( control.params.relatedTextSetting ).get();
-				colorRange = colorUtils.generateColorFromHex( selectedColor );
+				colorRange = colorUtils.getColorRangeFromHex( selectedColor );
 				isText = false;
 			} else if (
 				control.params.relatedSetting &&
@@ -368,7 +368,7 @@ import getConfig from '../block-editor/utils/get-config';
 			) {
 				textColor = selectedColor;
 				color = api( control.params.relatedSetting ).get();
-				colorRange = colorUtils.generateColorFromHex( color );
+				colorRange = colorUtils.getColorRangeFromHex( color );
 			}
 
 			if ( ! color || ! colorRange.range ) {

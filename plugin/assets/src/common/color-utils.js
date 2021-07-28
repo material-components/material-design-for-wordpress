@@ -158,6 +158,26 @@ const colorUtils = {
 	mix: function ( color1, color2, amount = 50 ) {
 		return tinycolor.mix(color1, color2, amount = 50).toHexString()
 	},
+	getColorRangeFromHex: function( hex ) {
+		const range = {},
+			dark = tinycolor( hex )
+				.darken(10)
+				.toHexString(),
+			light = tinycolor( hex )
+				.brighten(10)
+				.toHexString();
+
+		range.dark = {
+			hex: dark,
+		};
+
+		range.light = {
+			hex: light,
+		};
+
+		return range;
+	},
+
 };
 
 export default colorUtils;
