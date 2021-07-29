@@ -80,6 +80,8 @@ class Controls extends Module_Base {
 	public function register( $wp_customize ) {
 		$this->wp_customize = $wp_customize;
 
+		$this->wp_customize->register_section_type( Material_Styles_Section::class );
+
 		// Register custom control types.
 		$this->wp_customize->register_control_type( Material_Color_Palette_Control::class );
 
@@ -1611,7 +1613,7 @@ class Controls extends Module_Base {
 	 */
 	public function filter_style_section( $args, $id ) {
 		if ( 'material_design_style' === $id ) {
-			$args['type'] = '';
+			$args['type'] = 'styles';
 
 			return new Material_Styles_Section(
 				$this->wp_customize,

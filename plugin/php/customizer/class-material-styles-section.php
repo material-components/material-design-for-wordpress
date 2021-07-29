@@ -33,7 +33,7 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	 * @since 4.2.0
 	 * @var string
 	 */
-	public $type = 'material_styles';
+	public $type = 'styles';
 
 	/**
 	 * An Underscore (JS) template for rendering this panel's container.
@@ -44,7 +44,7 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	 *
 	 * @since 4.9.0
 	 */
-	public function render_template() {
+	protected function render_template() {
 		?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-panel-themes">
 			<h3 class="accordion-section-title">
