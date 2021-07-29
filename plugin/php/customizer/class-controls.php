@@ -29,6 +29,8 @@ use MaterialDesign\Plugin\Module_Base;
 use MaterialDesign\Plugin\Google_Fonts;
 use MaterialDesign\Plugin\Blocks_Frontend;
 use MaterialDesign\Plugin\Helpers;
+use MaterialDesign\Plugin\Customizer\Material_Styles_Section;
+
 
 /**
  * Class Controls.
@@ -66,6 +68,8 @@ class Controls extends Module_Base {
 		add_action( 'customize_controls_print_footer_scripts', [ $this, 'templates' ] );
 		add_action( 'customize_sanitize_js_material_design_notify', [ $this, 'show_material_components_notification' ] );
 		add_action( 'wp_ajax_material_design_notification_dismiss', [ $this, 'notification_dismiss' ] );
+
+		add_filter( 'material_design_customizer_section_args', [ $this, 'filter_style_section' ], 10, 2 );
 	}
 
 	/**
@@ -1595,5 +1599,27 @@ class Controls extends Module_Base {
 		}
 
 		return $controls;
+	}
+
+	/**
+	 * Use custom section for style
+	 *
+	 * @param $args Section arguments.
+	 * @param $id.
+	 *
+	 * @return WP_Customize_Section|array Filtered value
+	 */
+	public function filter_style_section( $args, $id ) {
+		if ( 'material_design_style' === $id ) {
+			$args['type'] = '';
+
+			return new Material_Styles_Section(
+				$this->wp_customize,
+				$id,
+				$args
+			);
+		}
+
+		return $args;
 	}
 }
