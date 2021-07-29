@@ -17,14 +17,13 @@
  * @package MaterialDesign
  */
 
+namespace MaterialDesign\Plugin\Customizer;
+
 /**
- * Class Material_Styles_Panel.
+ * Class Material_Styles_Section.
  *
  * @package MaterialDesign
  */
-
-namespace MaterialDesign\Plugin\Customizer;
-
 class Material_Styles_Section extends \WP_Customize_Section {
 
 	/**
@@ -47,12 +46,13 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	protected function render_template() {
 		?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-panel-themes">
+			<div class="accordion-section-preview"></div>
 			<h3 class="accordion-section-title">
 				<?php
-					echo '<span class="customize-action">' . __( 'Active style' ) . '</span> {{ data.title }}';
+					echo '<span class="customize-action">' . __( 'Active style', 'material-design' ) . '</span> {{ data.title }}';
 				?>
 
-				<button type="button" class="button change-theme" aria-label="<?php esc_attr_e( 'Change theme' ); ?>"><?php _ex( 'Change', 'theme' ); ?></button>
+				<button type="button" class="button change-theme" aria-label="<?php esc_attr_e( 'Change theme' ); ?>"><?php _e( 'Change', 'material-design' ); ?></button>
 			</h3>
 			<ul class="accordion-sub-container control-panel-content"></ul>
 		</li>
