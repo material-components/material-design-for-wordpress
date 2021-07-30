@@ -24,13 +24,10 @@
  */
 
 namespace MaterialDesign\Plugin\Customizer;
-
 use MaterialDesign\Plugin\Module_Base;
 use MaterialDesign\Plugin\Google_Fonts;
 use MaterialDesign\Plugin\Blocks_Frontend;
 use MaterialDesign\Plugin\Helpers;
-use MaterialDesign\Plugin\Customizer\Material_Styles_Section;
-
 
 /**
  * Class Controls.
@@ -1606,10 +1603,10 @@ class Controls extends Module_Base {
 	/**
 	 * Use custom section for style
 	 *
-	 * @param $args Section arguments.
-	 * @param $id.
+	 * @param $args array Section arguments.
+	 * @param $id string Section ID.
 	 *
-	 * @return WP_Customize_Section|array Filtered value
+	 * @return Material_Styles_Section|array Filtered value
 	 */
 	public function filter_style_section( $args, $id ) {
 		if ( 'material_design_style' === $id ) {
