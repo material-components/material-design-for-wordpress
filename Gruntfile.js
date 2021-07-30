@@ -156,7 +156,12 @@ module.exports = function( grunt ) {
 				stderr: true,
 			},
 			readme: {
-				command: './vendor/xwp/wp-dev-lib/scripts/generate-markdown-readme', // Generate the readme.md.
+				command: 'php generate-markdown-readme', // Generate the readme.md.
+				options: {
+					execOptions: {
+						cwd: './vendor/xwp/wp-dev-lib/scripts/'
+					}
+				}
 			},
 			create_plugin_zip: {
 				command: 'if [ ! -e build ]; then echo "Run grunt build first."; exit 1; fi; if [ -e material-design.zip ]; then rm material-design.zip; fi; mv build/plugin ./material-design; zip -r ./material-design.zip ./material-design; mv ./material-design build/plugin; echo; echo "ZIP of build: $(pwd)/material-design.zip"',
