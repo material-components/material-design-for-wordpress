@@ -59,16 +59,44 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	 */
 	protected function render_template() {
 		?>
-		<li id="accordion-section-{{ data.id }}" class="accordion-section control-panel-themes">
+		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} control-panel-themes">
 			<div class="accordion-section-preview"></div>
-			<h3 class="accordion-section-title">
-				<?php
-					echo '<span class="customize-action">' . __( 'Active style', 'material-design' ) . '</span> {{ data.style }}';
-				?>
-
-				<button type="button" class="button change-theme" aria-label="<?php esc_attr_e( 'Change theme' ); ?>"><?php _e( 'Change', 'material-design' ); ?></button>
+			<h3 class="accordion-section-title" tabindex="0">
+				<span class="customize-action"><?php __( 'Active style', 'material-design' ); ?></span>
+				{{ data.title }}
+				<span class="screen-reader-text"><?php _e( 'Press return or enter to open this section' ); ?></span>
+				<button type="button" class="button change-style" aria-label="<?php esc_attr_e( 'Change style' ); ?>"><?php _e( 'Change', 'material-design' ); ?></button>
 			</h3>
-			<ul class="accordion-sub-container control-panel-content"></ul>
+
+			<ul class="accordion-section-content">
+				<li class="customize-section-description-container section-meta <# if ( data.description_hidden ) { #>customize-info<# } #>">
+					<div class="customize-section-title">
+						<button class="customize-section-back" tabindex="-1">
+							<span class="screen-reader-text"><?php _e( 'Back' ); ?></span>
+						</button>
+						<h3>
+							<span class="customize-action">
+								{{{ data.customizeAction }}}
+							</span>
+							{{ data.title }}
+						</h3>
+						<# if ( data.description && data.description_hidden ) { #>
+						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+						<div class="description customize-section-description">
+							{{{ data.description }}}
+						</div>
+						<# } #>
+
+						<div class="customize-control-notifications-container"></div>
+					</div>
+
+					<# if ( data.description && ! data.description_hidden ) { #>
+					<div class="description customize-section-description">
+						{{{ data.description }}}
+					</div>
+					<# } #>
+				</li>
+			</ul>
 		</li>
 		<?php
 	}
