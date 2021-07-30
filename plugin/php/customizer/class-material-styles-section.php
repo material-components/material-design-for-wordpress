@@ -62,10 +62,10 @@ class Material_Styles_Section extends \WP_Customize_Section {
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} control-panel-themes">
 			<div class="accordion-section-preview"></div>
 			<h3 class="accordion-section-title" tabindex="0">
-				<span class="customize-action"><?php __( 'Active style', 'material-design' ); ?></span>
-				{{ data.title }}
+				<span class="customize-action"><?php _e( 'Active style', 'material-design' ); ?></span>
+				{{ data.style }}
 				<span class="screen-reader-text"><?php _e( 'Press return or enter to open this section' ); ?></span>
-				<button type="button" class="button change-style" aria-label="<?php esc_attr_e( 'Change style' ); ?>"><?php _e( 'Change', 'material-design' ); ?></button>
+				<button type="button" class="button change-theme" aria-label="<?php esc_attr_e( 'Change style' ); ?>"><?php _e( 'Change', 'material-design' ); ?></button>
 			</h3>
 
 			<ul class="accordion-section-content">
