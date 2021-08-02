@@ -347,3 +347,17 @@
 		}
 	}
 }
+
+.control-section-styles {
+
+	& .accordion-section-title {
+		padding-left: 65px;
+	}
+
+	& .control-section-styles-preview {
+		border-radius: 5px;
+		left: 15px;
+		position: absolute;
+		width: 40px;
+	}
+}

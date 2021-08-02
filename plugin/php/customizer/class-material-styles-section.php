@@ -106,7 +106,7 @@ class Material_Styles_Section extends \WP_Customize_Section {
 		?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} control-panel-themes">
 			<h3 class="accordion-section-title" tabindex="0">
-				<img src="{{ data.preview }}" />
+				<img class="control-section-{{ data.type }}-preview" src="{{ data.preview }}" alt />
 
 				<span class="customize-action"><?php _e( 'Active style', 'material-design' ); ?></span>
 				{{ data.style }}
