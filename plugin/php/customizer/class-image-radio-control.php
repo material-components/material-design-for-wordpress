@@ -74,12 +74,14 @@ class Image_Radio_Control extends \WP_Customize_Control {
 					<input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( "_customize-radio-{$id}" ); ?>" id="<?php echo esc_attr( "{$id}-{$value}" ); ?>" <?php $this->link(); ?> <?php checked( $this->value(), $value ); ?> />
 
 					<label for="<?php echo esc_attr( "{$id}-{$value}" ); ?>">
-						<span class="label"><?php echo esc_html( $label ); ?></span>
-
 						<?php if ( ! empty( $args['url'] ) ) : ?>
-							<img src="<?php echo esc_url( $args['url'] ); ?>" alt="<?php echo esc_attr( $label ); ?>" />
+							<img class="customize-control-image-radio-control-preview" src="<?php echo esc_url( $args['url'] ); ?>" alt="<?php echo esc_attr( $label ); ?>" />
 						<?php endif; ?>
+
+						<span class="label"><?php echo esc_html( $label ); ?></span>
 					</label>
+
+					<span class="customize-control-image-radio-control-actions"></span>
 				</div>
 
 			<?php endforeach; ?>
