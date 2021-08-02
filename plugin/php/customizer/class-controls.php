@@ -1615,7 +1615,8 @@ class Controls extends Module_Base {
 			return new Material_Styles_Section(
 				$this->wp_customize,
 				$id,
-				$args
+				$args,
+				$this->plugin
 			);
 		}
 

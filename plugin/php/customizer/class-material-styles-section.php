@@ -19,6 +19,8 @@
 
 namespace MaterialDesign\Plugin\Customizer;
 
+use MaterialDesign\Plugin\Plugin;
+
 /**
  * Class Material_Styles_Section.
  *
@@ -35,15 +37,58 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	public $type = 'styles';
 
 	/**
+	 * Plugin reference
+	 *
+	 * @var Plugin
+	 */
+	public $plugin;
+
+	/**
+	 * Constructor.
+	 *
+	 * Any supplied $args override class property defaults.
+	 *
+	 * @since 3.4.0
+	 *
+	 * @param WP_Customize_Manager $manager Customizer bootstrap instance.
+	 * @param string               $id      A specific ID of the section.
+	 * @param array                $args    {
+	 *     Optional. Array of properties for the new Section object. Default empty array.
+	 *
+	 *     @type int             $priority           Priority of the section, defining the display order
+	 *                                               of panels and sections. Default 160.
+	 *     @type string          $panel              The panel this section belongs to (if any).
+	 *                                               Default empty.
+	 *     @type string          $capability         Capability required for the section.
+	 *                                               Default 'edit_theme_options'
+	 *     @type string|string[] $theme_supports     Theme features required to support the section.
+	 *     @type string          $title              Title of the section to show in UI.
+	 *     @type string          $description        Description to show in the UI.
+	 *     @type string          $type               Type of the section.
+	 *     @type callable        $active_callback    Active callback.
+	 *     @type bool            $description_hidden Hide the description behind a help icon,
+	 *                                               instead of inline above the first control.
+	 *                                               Default false.
+	 * }
+	 * @param Plugin Reference to parent plugin.
+	 */
+	public function __construct( $manager, $id, $args = array(), $plugin = null ) {
+		parent::__construct( $manager, $id, $args );
+
+		$this->plugin = $plugin;
+	}
+
+	/**
 	 * Get section parameters for JS.
 	 *
 	 * @since 4.9.0
 	 * @return array Exported parameters.
 	 */
 	public function json() {
-		$options           = get_option( 'material_design' );
-		$exported          = parent::json();
-		$exported['style'] = ucfirst( $options['style'] );
+		$options             = get_option( 'material_design' );
+		$exported            = parent::json();
+		$exported['style']   = ucfirst( $options['style'] );
+		$exported['preview'] = $this->plugin->asset_url( 'assets/images/' . $options['style'] . '.svg' );
 
 		return $exported;
 	}
@@ -60,8 +105,9 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	protected function render_template() {
 		?>
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} control-panel-themes">
-			<div class="accordion-section-preview"></div>
 			<h3 class="accordion-section-title" tabindex="0">
+				<img src="{{ data.preview }}" />
+
 				<span class="customize-action"><?php _e( 'Active style', 'material-design' ); ?></span>
 				{{ data.style }}
 				<span class="screen-reader-text"><?php _e( 'Press return or enter to open this section' ); ?></span>
