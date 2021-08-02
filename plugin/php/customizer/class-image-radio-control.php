@@ -46,13 +46,22 @@ class Image_Radio_Control extends \WP_Customize_Control {
 	 * @return void
 	 */
 	public function render_content() {
-
 		/* If no choices are provided, bail. */
 		if ( empty( $this->choices ) ) {
 			return;
 		}
 
-		$id = Helpers::sanitize_control_id( $this->id );
+		$id      = Helpers::sanitize_control_id( $this->id );
+		$default = [];
+		$custom  = [];
+
+		foreach ( $this->choices as $value => $args ) {
+			if ( 0 !== strpos( $value, 'custom' ) ) {
+				$default[ $value ] = $args;
+			} else {
+				$custom[ $value ] = $args;
+			}
+		}
 		?>
 
 		<?php if ( ! empty( $this->label ) ) : ?>
@@ -66,27 +75,54 @@ class Image_Radio_Control extends \WP_Customize_Control {
 		<div class="customize-control-image-radio-wrap" id="<?php echo esc_attr( "input_{$id}" ); ?>">
 
 			<?php
-			foreach ( $this->choices as $value => $args ) :
-				$label = isset( $args['label'] ) ? $args['label'] : '';
-				?>
+			if ( ! empty( $default ) ) {
+			?>
 
-				<div class="customize-control-image-radio-control">
-					<input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( "_customize-radio-{$id}" ); ?>" id="<?php echo esc_attr( "{$id}-{$value}" ); ?>" <?php $this->link(); ?> <?php checked( $this->value(), $value ); ?> />
+				<h3><?php printf( __( 'Starter Styles (%s)', 'material-design' ), count( $default ) ); ?></h3>
 
-					<label for="<?php echo esc_attr( "{$id}-{$value}" ); ?>">
-						<?php if ( ! empty( $args['url'] ) ) : ?>
-							<img class="customize-control-image-radio-control-preview" src="<?php echo esc_url( $args['url'] ); ?>" alt="<?php echo esc_attr( $label ); ?>" />
-						<?php endif; ?>
+			<?php
+			}
 
-						<span class="label"><?php echo esc_html( $label ); ?></span>
-					</label>
+			$this->create_options( $default );
 
-					<span class="customize-control-image-radio-control-actions"></span>
-				</div>
+			if ( ! empty( $custom ) ) {
+			?>
+				<h3><?php _e( 'Custom Styles', 'material-design' ); ?></h3>
+			<?php
+			}
 
-			<?php endforeach; ?>
+			$this->create_options( $custom );
+
+			?>
 
 		</div><!-- .image -->
 		<?php
+	}
+
+	public function create_options( $options ) {
+		if ( empty( $options ) ) {
+			return;
+		}
+
+		foreach ( $options as $value => $args ) {
+			$label = isset( $args['label'] ) ? $args['label'] : '';
+			?>
+
+			<div class="customize-control-image-radio-control">
+				<input type="radio" value="<?php echo esc_attr( $value ); ?>" name="<?php echo esc_attr( "_customize-radio-{$id}" ); ?>" id="<?php echo esc_attr( "{$id}-{$value}" ); ?>" <?php $this->link(); ?> <?php checked( $this->value(), $value ); ?> />
+
+				<label for="<?php echo esc_attr( "{$id}-{$value}" ); ?>">
+					<?php if ( ! empty( $args['url'] ) ) : ?>
+						<img class="customize-control-image-radio-control-preview" src="<?php echo esc_url( $args['url'] ); ?>" alt="<?php echo esc_attr( $label ); ?>" />
+					<?php endif; ?>
+
+					<span class="label"><?php echo esc_html( $label ); ?></span>
+				</label>
+
+				<span class="customize-control-image-radio-control-actions"></span>
+			</div>
+
+		<?php
+		}
 	}
 }
