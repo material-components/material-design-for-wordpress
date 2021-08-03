@@ -63,7 +63,7 @@ setDefaultOptions( { timeout: EXPECT_PUPPETEER_TIMEOUT || 500 } );
 
 /**
  * Adds an event listener to the page to handle additions of page event
- * handlers, to assure that they are removed at test teardown.
+ * handlers, to assure that they are removed at test teard10000own.
  */
 function capturePageEventsForTearDown() {
 	page.on( 'newListener', ( eventName, listener ) => {
@@ -205,8 +205,8 @@ beforeAll( async () => {
 		width: 1680,
 		height: 948,
 	} );
-	await page.setDefaultNavigationTimeout( 10000 );
-	await page.setDefaultTimeout( 10000 );
+	await page.setDefaultNavigationTimeout( 100000 );
+	await page.setDefaultTimeout( 100000 );
 	global.page = page;
 } );
 
