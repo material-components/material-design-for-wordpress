@@ -1,7 +1,8 @@
-<svg width="132" height="66" viewBox="0 0 132 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-   <rect x="1.39185" y="1.20703" width="130" height="64" fill="white" stroke="#7E8993"/>
-   <circle cx="66.3918" cy="33.207" r="24" fill="#212121"/>
-   <path d="M77.9926 33.3884L54.7913 45.0625L54.7913 21.3472L77.9926 33.3884Z" fill="#BB89FC"/>
-   <path d="M54.7913 33.0217L77.9926 21.3477V45.0629L54.7913 33.0217Z" fill="white"/>
-   <path fill-rule="evenodd" clip-rule="evenodd" d="M66.2123 27.3398L54.7913 33.0865L66.5715 39.2003L77.9925 33.4537L66.2123 27.3398Z" fill="#5F21EE"/>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="32" height="16" fill="#0336FF"/>
+<rect y="16" width="16" height="16" fill="#FFDE03"/>
+<rect opacity="0.25" x="16" y="16" width="16" height="16" fill="#FFDE03"/>
+<rect x="24" y="24" width="8" height="8" fill="#FF0266"/>
+<rect x="24" y="16" width="8" height="8" fill="white"/>
+<path d="M4 1H28V-1H4V1ZM31 4V28H33V4H31ZM28 31H4V33H28V31ZM1 28V4H-1V28H1ZM4 31C2.34315 31 1 29.6569 1 28H-1C-1 30.7614 1.23858 33 4 33V31ZM31 28C31 29.6569 29.6569 31 28 31V33C30.7614 33 33 30.7614 33 28H31ZM28 1C29.6569 1 31 2.34315 31 4H33C33 1.23858 30.7614 -1 28 -1V1ZM4 -1C1.23858 -1 -1 1.23858 -1 4H1C1 2.34315 2.34315 1 4 1V-1Z" fill="black" fill-opacity="0.12"/>
 </svg>
