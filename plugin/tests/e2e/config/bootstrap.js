@@ -63,7 +63,7 @@ setDefaultOptions( { timeout: EXPECT_PUPPETEER_TIMEOUT || 500 } );
 
 /**
  * Adds an event listener to the page to handle additions of page event
- * handlers, to assure that they are removed at test teard10000own.
+ * handlers, to assure that they are removed at test teardown.
  */
 function capturePageEventsForTearDown() {
 	page.on( 'newListener', ( eventName, listener ) => {
