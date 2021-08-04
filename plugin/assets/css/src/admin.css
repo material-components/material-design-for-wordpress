@@ -88,10 +88,11 @@
 .material_design_update_message {
 	background-color: #f5f5f5;
 	padding: 1rem;
-	font-weight:bold;
+	font-weight: bold;
 	display: block;
 	margin-top: 1rem;
 	border: 1px solid #ccd0d4;
+
 	&:before{
 		 display: inline-block;
 		 font: normal 20px/1 'dashicons';
