@@ -372,6 +372,10 @@
 		padding-left: 65px;
 	}
 
+	& .customize-section-title {
+		margin-left: 0;
+	}
+
 	& .control-section-styles-preview {
 		border-radius: 5px;
 		left: 15px;

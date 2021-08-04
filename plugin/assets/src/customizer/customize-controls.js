@@ -185,11 +185,63 @@ import getConfig from '../block-editor/utils/get-config';
 		},
 	} );
 
+	api.StylesSection = api.Section.extend( {
+		defaultExpandedArguments: $.extend(
+			{},
+			api.Section.defaultExpandedArguments,
+			{ allowMultiple: false }
+		),
+
+		/**
+		 * Attach events.
+		 *
+		 * @return {void}
+		 */
+		attachEvents() {
+			const section = this;
+			api.Section.prototype.attachEvents.call( section );
+
+			if ( section.panel() && api.panel( section.panel() ) ) {
+				api
+					.panel( section.panel() )
+					.container.find( '.material-style-change-settings' )
+					.on( 'click keydown', event => {
+						section.collapse( { showSettings: true } );
+						event.stopPropagation();
+					} );
+			}
+		},
+
+		/**
+		 * Update UI to reflect expanded state
+		 *
+		 * @param {boolean}  expanded - Expanded state.
+		 * @param {Object}   args - Args.
+		 * @return {void}
+		 */
+		onChangeExpanded( expanded, args ) {
+			const section = this;
+
+			// Immediately call the complete callback if there were no changes.
+			if ( args.showSettings ) {
+				if ( args.completeCallback ) {
+					args.completeCallback();
+					console.log( 'Open settings' );
+				}
+				return;
+			}
+
+			// Expand section normally
+			api.Section.prototype.onChangeExpanded.call( section, expanded, args );
+		},
+	} );
+
 	/**
 	 * Extends wp.customize.sectionConstructor with section constructor for collapsible section.
 	 */
 	$.extend( api.sectionConstructor, {
 		collapse: api.CollapsibleSection,
+		styles: api.StylesSection,
 	} );
 
 	api.MaterialColorControl = api.ColorControl.extend( {
