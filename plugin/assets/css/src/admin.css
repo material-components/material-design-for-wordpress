@@ -94,13 +94,13 @@
 	border: 1px solid #ccd0d4;
 
 	&::before {
-		 display: inline-block;
-		 font: normal 20px/1 'dashicons';
-		 -webkit-font-smoothing: antialiased;
-		 -moz-osx-font-smoothing: grayscale;
-		 vertical-align: top;
-		 color: #f56e28;
-		 content: "\f534";
-		 padding-right: 10px;
-	  }
+		display: inline-block;
+		font: normal 20px/1 "dashicons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		vertical-align: top;
+		color: #f56e28;
+		content: "\f534";
+		padding-right: 10px;
+	}
 }
