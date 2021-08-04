@@ -95,7 +95,7 @@
 
 	&::before {
 		display: inline-block;
-		font: normal 20px/1 "dashicons";
+		font: normal 20px/1 dashicons;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		vertical-align: top;
