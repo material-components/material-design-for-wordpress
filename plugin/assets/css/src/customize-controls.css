@@ -378,4 +378,19 @@
 		position: absolute;
 		width: 40px;
 	}
+
+	& .change-theme {
+		right: 37px !important;
+	}
+
+	& .material-style-change-settings {
+		background: none;
+		border: none;
+		color: #a0a5aa;
+		cursor: pointer;
+		margin-top: -12px;
+		right: 0;
+		position: absolute;
+		top: 50%;
+	}
 }

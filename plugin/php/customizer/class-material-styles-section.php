@@ -112,6 +112,9 @@ class Material_Styles_Section extends \WP_Customize_Section {
 				{{ data.style }}
 				<span class="screen-reader-text"><?php _e( 'Press return or enter to open this section' ); ?></span>
 				<button type="button" class="button change-theme" aria-label="<?php esc_attr_e( 'Change style' ); ?>"><?php _e( 'Change', 'material-design' ); ?></button>
+				<button type="button" class="material-style-change-settings">
+					<span class="material-icons">settings</span>
+				</button>
 			</h3>
 
 			<ul class="accordion-section-content">
