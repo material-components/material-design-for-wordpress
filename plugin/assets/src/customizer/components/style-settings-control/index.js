@@ -21,11 +21,22 @@ import { __ } from '@wordpress/i18n';
 import { ToggleControl } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 
+/**
+ * Internal dependencies
+ */
+import SettingsGroup from './SettingsGroup';
+
 const StyleSettingsControl = () => {
 	const [ displaySwitcher, setDisplaySwitcher ] = useState( false );
 
 	return (
 		<>
+			<SettingsGroup
+				title={ __( 'Dark mode', 'material-design' ) }
+				icon="brightness_4"
+				choices={ [ 'Auto', 'Active', 'Inactive' ] }
+			/>
+
 			<ToggleControl
 				label={ __( 'Display Switcher', 'material-design' ) }
 				help={ __( 'Shows mode switcher in the header', 'material-design' ) }
