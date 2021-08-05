@@ -43,6 +43,7 @@ import colorUtils from '../common/color-utils';
 import GlobalRangeSliderControl from './components/range-slider-control/global';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
 import GoogleFontsControl from './components/google-fonts-control';
+import StyleSettingsControl from './components/style-settings-control';
 import {
 	loadMaterialLibrary,
 	reRenderMaterialLibrary,
@@ -509,6 +510,12 @@ import getConfig from '../block-editor/utils/get-config';
 		},
 	} );
 
+	api.StyleSettingsControl = api.Control.extend( {
+		ready() {
+			renderStyleSettingsControl( this );
+		},
+	} );
+
 	/**
 	 * Extends wp.customize.controlConstructor with custom controls.
 	 */
@@ -517,6 +524,7 @@ import getConfig from '../block-editor/utils/get-config';
 		range_slider: api.RangeSliderControl,
 		icon_radio: api.IconRadioControl,
 		google_fonts: api.GoogleFontsControl,
+		style_settings: api.StyleSettingsControl,
 	} );
 
 	/**
@@ -650,6 +658,10 @@ import getConfig from '../block-editor/utils/get-config';
 		}
 
 		render( <GoogleFontsControl { ...props } />, control.container.get( 0 ) );
+	};
+
+	const renderStyleSettingsControl = control => {
+		render( <StyleSettingsControl />, control.container.get( 0 ) );
 	};
 
 	/**
