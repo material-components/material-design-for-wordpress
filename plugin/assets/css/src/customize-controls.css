@@ -398,3 +398,7 @@
 		top: 50%;
 	}
 }
+
+.control-section-hidden .accordion-section-title {
+	display: none;
+}

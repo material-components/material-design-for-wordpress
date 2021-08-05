@@ -1637,7 +1637,7 @@ class Controls extends Module_Base {
 		}
 
 		if ( 'material_design_style_settings' === $id ) {
-			$args['type'] = '';
+			$args['type'] = 'hidden';
 		}
 
 		return $args;
