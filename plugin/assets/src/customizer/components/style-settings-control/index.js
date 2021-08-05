@@ -37,6 +37,12 @@ const StyleSettingsControl = () => {
 				choices={ [ 'Auto', 'Active', 'Inactive' ] }
 			/>
 
+			<SettingsGroup
+				title={ __( 'High Contrast', 'material-design' ) }
+				icon="brightness_high"
+				choices={ [ 'Auto', 'Active', 'Inactive' ] }
+			/>
+
 			<ToggleControl
 				label={ __( 'Display Switcher', 'material-design' ) }
 				help={ __( 'Shows mode switcher in the header', 'material-design' ) }
