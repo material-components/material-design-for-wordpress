@@ -24,6 +24,7 @@ import { useState } from '@wordpress/element';
 /**
  * Internal dependencies
  */
+import './style.css';
 import SettingsGroup from './SettingsGroup';
 
 const StyleSettingsControl = () => {
