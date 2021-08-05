@@ -64,6 +64,8 @@ import getConfig from '../block-editor/utils/get-config';
 	// Allow backbone templates access to the `sanitizeControlId` function.
 	window.materialDesignSanitizeControlId = sanitizeControlId;
 
+	const getNamespace = id => `material_design_${ id }`;
+
 	/**
 	 * Extend wp.customize.Section as a collapsible section
 	 */
@@ -221,12 +223,15 @@ import getConfig from '../block-editor/utils/get-config';
 		 */
 		onChangeExpanded( expanded, args ) {
 			const section = this;
+			const settingsSection = api.section( getNamespace( 'style_settings' ) );
 
 			// Immediately call the complete callback if there were no changes.
 			if ( args.showSettings ) {
 				if ( args.completeCallback ) {
 					args.completeCallback();
-					console.log( 'Open settings' );
+					if ( settingsSection ) {
+						settingsSection.expand();
+					}
 				}
 				return;
 			}
