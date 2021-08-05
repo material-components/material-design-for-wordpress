@@ -79,6 +79,8 @@ class Controls extends Module_Base {
 
 		$this->wp_customize->register_section_type( Material_Styles_Section::class );
 
+		$this->wp_customize->register_section_type( Material_Style_Settings_Section::class );
+
 		// Register custom control types.
 		$this->wp_customize->register_control_type( Material_Color_Palette_Control::class );
 
@@ -135,7 +137,7 @@ class Controls extends Module_Base {
 	public function add_sections() {
 		$sections = [
 			'style'          => __( 'Starter Styles', 'material-design' ),
-			'style_settings' => __( '{style} Style', 'material-design' ),
+			'style_settings' => __( 'Style', 'material-design' ),
 			'colors'         => __( 'Color Palette ', 'material-design' ),
 			'typography'     => __( 'Typography (Font Styles)', 'material-design' ),
 			'corner_styles'  => __( 'Shape Size', 'material-design' ),
@@ -1622,7 +1624,7 @@ class Controls extends Module_Base {
 	 * @param $args array Section arguments.
 	 * @param $id string Section ID.
 	 *
-	 * @return Material_Styles_Section|array Filtered value
+	 * @return Material_Styles_Section|Material_Style_Settings_Section|array Filtered value
 	 */
 	public function filter_style_section( $args, $id ) {
 		if ( 'material_design_style' === $id ) {
@@ -1637,7 +1639,14 @@ class Controls extends Module_Base {
 		}
 
 		if ( 'material_design_style_settings' === $id ) {
-			$args['type'] = 'hidden';
+			$args['type'] = 'style_settings';
+
+			return new Material_Style_Settings_Section(
+				$this->wp_customize,
+				$id,
+				$args,
+				$this->plugin
+			);
 		}
 
 		return $args;

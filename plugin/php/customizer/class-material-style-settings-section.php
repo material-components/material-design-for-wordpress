@@ -22,11 +22,11 @@ namespace MaterialDesign\Plugin\Customizer;
 use MaterialDesign\Plugin\Plugin;
 
 /**
- * Class Material_Styles_Section.
+ * Class Material_Style_Settings_Section.
  *
  * @package MaterialDesign
  */
-class Material_Styles_Section extends \WP_Customize_Section {
+class Material_Style_Settings_Section extends \WP_Customize_Section {
 
 	/**
 	 * Section type.
@@ -34,7 +34,7 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	 * @since 4.2.0
 	 * @var string
 	 */
-	public $type = 'styles';
+	public $type = 'style_settings';
 
 	/**
 	 * Plugin reference
@@ -88,7 +88,6 @@ class Material_Styles_Section extends \WP_Customize_Section {
 		$options             = get_option( 'material_design' );
 		$exported            = parent::json();
 		$exported['style']   = ucfirst( $options['style'] );
-		$exported['preview'] = $this->plugin->asset_url( 'assets/images/' . $options['style'] . '.svg' );
 
 		return $exported;
 	}
@@ -104,19 +103,11 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	 */
 	protected function render_template() {
 		?>
-		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} control-panel-themes">
+		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
 			<h3 class="accordion-section-title" tabindex="0">
-				<img class="control-section-{{ data.type }}-preview" src="{{ data.preview }}" alt />
-
-				<span class="customize-action"><?php _e( 'Active style', 'material-design' ); ?></span>
-				{{ data.style }}
+				{{ data.title }}
 				<span class="screen-reader-text"><?php _e( 'Press return or enter to open this section' ); ?></span>
-				<button type="button" class="button change-theme" aria-label="<?php esc_attr_e( 'Change style' ); ?>"><?php _e( 'Change', 'material-design' ); ?></button>
-				<button type="button" class="material-style-change-settings">
-					<span class="material-icons">settings</span>
-				</button>
 			</h3>
-
 			<ul class="accordion-section-content">
 				<li class="customize-section-description-container section-meta <# if ( data.description_hidden ) { #>customize-info<# } #>">
 					<div class="customize-section-title">
@@ -125,8 +116,12 @@ class Material_Styles_Section extends \WP_Customize_Section {
 						</button>
 						<h3>
 							<span class="customize-action">
-								{{{ data.customizeAction }}}
+								<?php esc_html_e( 'Theme Preferences', 'material-design' ); ?>
 							</span>
+							<span id="js-customize-section-style">
+								{{ data.style }}
+							</span>
+
 							{{ data.title }}
 						</h3>
 						<# if ( data.description && data.description_hidden ) { #>

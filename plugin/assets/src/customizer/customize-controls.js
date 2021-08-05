@@ -230,6 +230,7 @@ import getConfig from '../block-editor/utils/get-config';
 				if ( args.completeCallback ) {
 					args.completeCallback();
 					if ( settingsSection ) {
+						console.log( settingsSection.container );
 						settingsSection.expand();
 					}
 				}
