@@ -660,7 +660,15 @@ import getConfig from '../block-editor/utils/get-config';
 	};
 
 	const renderStyleSettingsControl = control => {
-		render( <StyleSettingsControl />, control.container.get( 0 ) );
+		const { setting } = control;
+		const currentValue = setting.get();
+		const selectedStyle = api( getConfig( 'styleControl' ) ).get();
+		const props = {
+			currentValue,
+			selectedStyle,
+		};
+
+		render( <StyleSettingsControl { ...props } />, control.container.get( 0 ) );
 	};
 
 	/**
