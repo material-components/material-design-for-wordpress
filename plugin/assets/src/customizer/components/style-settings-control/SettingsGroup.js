@@ -21,13 +21,27 @@ import {
 	__experimentalRadio as Radio,
 	__experimentalRadioGroup as RadioGroup,
 } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 
 /**
  * External dependencies
  */
 import uniqueId from 'lodash/uniqueId';
 
-const SettingsGroup = ( { title, icon, choices, defaultChecked } ) => {
+const SettingsGroup = ( {
+	title,
+	icon,
+	choices,
+	defaultChecked,
+	onChange,
+} ) => {
+	const [ selected, setSelected ] = useState( defaultChecked );
+
+	const handleChange = value => {
+		setSelected( value );
+		onChange( value );
+	};
+
 	return (
 		<div className="style-settings-group">
 			<div className="style-settings-group__title">
@@ -36,7 +50,12 @@ const SettingsGroup = ( { title, icon, choices, defaultChecked } ) => {
 			</div>
 
 			{ choices && (
-				<RadioGroup label="test" defaultChecked={ defaultChecked }>
+				<RadioGroup
+					label="test"
+					defaultChecked={ defaultChecked }
+					checked={ selected }
+					onChange={ handleChange }
+				>
 					{ choices.map( choice => (
 						<Radio key={ uniqueId( 'option' ) } value={ choice }>
 							{ choice }

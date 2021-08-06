@@ -37,6 +37,16 @@ const StyleSettingsControl = ( { currentValue, selectedStyle } ) => {
 	const { dark, contrast, switcher } = currentValue[ selectedStyle ];
 	const [ displaySwitcher, setDisplaySwitcher ] = useState( switcher );
 
+	const onChange = ( value, setting ) => {
+		const newValue = {};
+		newValue[ setting ] = value;
+
+		console.log( 'New value', {
+			...currentValue[ selectedStyle ],
+			...newValue,
+		} );
+	};
+
 	return (
 		<>
 			<SettingsGroup
@@ -44,6 +54,7 @@ const StyleSettingsControl = ( { currentValue, selectedStyle } ) => {
 				icon="brightness_4"
 				choices={ Object.values( CHOICES ) }
 				defaultChecked={ dark }
+				onChange={ value => onChange( value, 'dark' ) }
 			/>
 
 			<SettingsGroup
@@ -51,6 +62,7 @@ const StyleSettingsControl = ( { currentValue, selectedStyle } ) => {
 				icon="brightness_high"
 				choices={ Object.values( CHOICES ) }
 				defaultChecked={ contrast }
+				onChange={ value => onChange( value, 'contrast' ) }
 			/>
 
 			<ToggleControl
