@@ -19,7 +19,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { ToggleControl } from '@wordpress/components';
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -47,6 +47,10 @@ const StyleSettingsControl = ( { currentValue, selectedStyle } ) => {
 		} );
 	};
 
+	useEffect( () => {
+		onChange( displaySwitcher, 'switcher' );
+	}, [ displaySwitcher ] );
+
 	return (
 		<>
 			<SettingsGroup
@@ -69,9 +73,7 @@ const StyleSettingsControl = ( { currentValue, selectedStyle } ) => {
 				label={ __( 'Display Switcher', 'material-design' ) }
 				help={ __( 'Shows mode switcher in the header', 'material-design' ) }
 				checked={ displaySwitcher }
-				onChange={ () => {
-					setDisplaySwitcher( state => ! state );
-				} }
+				onChange={ () => setDisplaySwitcher( state => ! state ) }
 			/>
 		</>
 	);
