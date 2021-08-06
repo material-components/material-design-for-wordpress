@@ -33,7 +33,6 @@ use MaterialDesign\Plugin\Helpers;
  * Class Controls.
  */
 class Controls extends Module_Base {
-
 	/**
 	 * The slug used as a prefix for all settings and controls.
 	 *
@@ -250,10 +249,28 @@ class Controls extends Module_Base {
 			),
 		];
 
+		$default_settings = [];
+
+		foreach ( $choices as $key => $value ) {
+			$default_settings[ $key ] = [
+				'dark'     => 'auto',
+				'contrast' => 'auto',
+				'switcher' => false,
+			];
+		}
+
+		$style_settings = [
+			'style_settings' => [
+				'default' => $default_settings,
+			],
+		];
+
+		$this->add_settings( $style_settings );
+
 		$controls_settings = [
 			'style_settings' => new Style_Settings_Control(
 				$this->wp_customize,
-				$this->prepare_option_name( 'style' ),
+				$this->prepare_option_name( 'style_settings' ),
 				[
 					'section'  => 'style_settings',
 					'priority' => 200,
@@ -666,6 +683,7 @@ class Controls extends Module_Base {
 				'designStyles'           => $this->get_design_styles(),
 				'controls'               => $this->added_controls,
 				'styleControl'           => $this->prepare_option_name( 'style' ),
+				'styleSettings'          => $this->prepare_option_name( 'style_settings' ),
 				'prevStyleControl'       => $this->prepare_option_name( 'previous_style' ),
 				'iconCollectionsControl' => $this->prepare_option_name( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
