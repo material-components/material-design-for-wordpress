@@ -209,15 +209,14 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Set up the expectation for the add_section() method
 		// to be called 5 times, once for each section.
-		$this->wp_customize->expects( $this->exactly( 6 ) )
+		$this->wp_customize->expects( $this->exactly( 5 ) )
 			->method( 'add_section' )
 			->withConsecutive(
 				[ $this->equalTo( "{$controls->slug}_style" ) ],
 				[ $this->equalTo( "{$controls->slug}_colors" ) ],
 				[ $this->equalTo( "{$controls->slug}_typography" ) ],
 				[ $this->equalTo( "{$controls->slug}_corner_styles" ) ],
-				[ $this->equalTo( $icons_section ) ],
-				[ $this->equalTo( "{$controls->slug}_global-setting" ) ]
+				[ $this->equalTo( $icons_section ) ]
 			);
 
 		$controls->add_sections();
