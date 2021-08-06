@@ -27,21 +27,30 @@ import { useState } from '@wordpress/element';
 import './style.css';
 import SettingsGroup from './SettingsGroup';
 
-const StyleSettingsControl = () => {
-	const [ displaySwitcher, setDisplaySwitcher ] = useState( false );
+const CHOICES = {
+	AUTO: 'auto',
+	ACTIVE: 'active',
+	INACTIVE: 'inactive',
+};
+
+const StyleSettingsControl = ( { currentValue, selectedStyle } ) => {
+	const { dark, contrast, switcher } = currentValue[ selectedStyle ];
+	const [ displaySwitcher, setDisplaySwitcher ] = useState( switcher );
 
 	return (
 		<>
 			<SettingsGroup
 				title={ __( 'Dark mode', 'material-design' ) }
 				icon="brightness_4"
-				choices={ [ 'Auto', 'Active', 'Inactive' ] }
+				choices={ Object.values( CHOICES ) }
+				defaultChecked={ dark }
 			/>
 
 			<SettingsGroup
 				title={ __( 'High Contrast', 'material-design' ) }
 				icon="brightness_high"
-				choices={ [ 'Auto', 'Active', 'Inactive' ] }
+				choices={ Object.values( CHOICES ) }
+				defaultChecked={ contrast }
 			/>
 
 			<ToggleControl

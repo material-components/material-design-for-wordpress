@@ -27,7 +27,7 @@ import {
  */
 import uniqueId from 'lodash/uniqueId';
 
-const SettingsGroup = ( { title, icon, choices } ) => {
+const SettingsGroup = ( { title, icon, choices, defaultChecked } ) => {
 	return (
 		<div className="style-settings-group">
 			<div className="style-settings-group__title">
@@ -36,7 +36,7 @@ const SettingsGroup = ( { title, icon, choices } ) => {
 			</div>
 
 			{ choices && (
-				<RadioGroup label="test">
+				<RadioGroup label="test" defaultChecked={ defaultChecked }>
 					{ choices.map( choice => (
 						<Radio key={ uniqueId( 'option' ) } value={ choice }>
 							{ choice }

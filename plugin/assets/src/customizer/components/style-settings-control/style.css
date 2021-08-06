@@ -34,9 +34,10 @@
 		width: 100%;
 	}
 
-	& .components-button-group button {
+	& .components-button {
 		flex-basis: 100%;
 		justify-content: center;
+		text-transform: capitalize;
 	}
 
 	& .components-toggle-control__label {
