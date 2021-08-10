@@ -73,7 +73,7 @@ class Block_Types {
 
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
-		add_filter( 'block_categories', [ $this, 'block_category' ] );
+		add_filter( 'block_categories_all', [ $this, 'block_category' ] );
 	}
 
 	/**
