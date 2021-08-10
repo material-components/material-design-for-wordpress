@@ -25,9 +25,10 @@ import { __ } from '@wordpress/i18n';
 import edit from './edit';
 import metadata from './block.json';
 import { example } from './example';
+import { isDefaultCardStyleOutlined } from '../../utils';
 
 const { name } = metadata;
-
+metadata.attributes.outlined.default = isDefaultCardStyleOutlined();
 export { metadata, name };
 
 /**

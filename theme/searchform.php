@@ -25,11 +25,11 @@
 
 $search_id       = uniqid( 'search-' );
 $search_label_id = uniqid( 'search-label-' );
-
+$global_style    = get_material_global_style( 'text_field_style' );
 ?>
 
 <form class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" role="search" id="<?php echo esc_attr( $search_id ); ?>">
-	<label class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
+	<label class="mdc-text-field <?php echo 'outlined' === $global_style ? 'mdc-text-field--outlined ' : ''; ?> mdc-text-field--with-trailing-icon">
 		<input class="mdc-text-field__input" type="text" aria-labelledby="<?php echo esc_attr( $search_label_id ); ?>" name="s" value="<?php echo get_search_query(); ?>">
 		<i class="material-icons mdc-text-field__icon mdc-text-field__icon--trailing" tabindex="0" role="button">search</i>
 		<div class="mdc-notched-outline">

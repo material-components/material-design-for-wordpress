@@ -197,6 +197,21 @@ function material_is_plugin_active() {
 }
 
 /**
+ * Get material global style.
+ *
+ * @param string $key setting to get.
+ */
+function get_material_global_style( $key ) {
+	if ( material_is_plugin_active() ) {
+		$instance = \MaterialDesign\Plugin\get_plugin_instance();
+		if ( property_exists( $instance, 'block_types' ) && method_exists( $instance->block_types, 'get_global_styles' ) ) {
+			return $instance->block_types->get_global_styles( $key );
+		}
+	}
+	return '';
+}
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
