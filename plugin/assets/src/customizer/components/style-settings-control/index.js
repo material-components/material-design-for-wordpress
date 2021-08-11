@@ -33,16 +33,20 @@ const CHOICES = {
 	INACTIVE: 'inactive',
 };
 
-const StyleSettingsControl = ( { currentValue, selectedStyle } ) => {
-	const { dark, contrast, switcher } = currentValue[ selectedStyle ];
+const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
+	//console.log( defaultValue );
+	const [ currentValue, setCurrentValue ] = useState(
+		defaultValue[ selectedStyle ]
+	);
+	const { dark, contrast, switcher } = currentValue;
 	const [ displaySwitcher, setDisplaySwitcher ] = useState( switcher );
 
 	const onChange = ( value, setting ) => {
 		const newValue = {};
 		newValue[ setting ] = value;
 
-		console.log( 'New value', {
-			...currentValue[ selectedStyle ],
+		setCurrentValue( {
+			...currentValue,
 			...newValue,
 		} );
 	};
@@ -50,6 +54,10 @@ const StyleSettingsControl = ( { currentValue, selectedStyle } ) => {
 	useEffect( () => {
 		onChange( displaySwitcher, 'switcher' );
 	}, [ displaySwitcher ] );
+
+	useEffect( () => {
+		setValue( currentValue );
+	}, [ currentValue ] );
 
 	return (
 		<>

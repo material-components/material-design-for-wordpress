@@ -661,11 +661,26 @@ import getConfig from '../block-editor/utils/get-config';
 
 	const renderStyleSettingsControl = control => {
 		const { setting } = control;
-		const currentValue = setting.get();
+		let defaultValue = setting.get();
 		const selectedStyle = api( getConfig( 'styleControl' ) ).get();
+
+		if ( 'string' === typeof defaultValue ) {
+			defaultValue = JSON.parse( defaultValue );
+		}
+
 		const props = {
-			currentValue,
+			defaultValue,
 			selectedStyle,
+			setValue: value => {
+				setting.set(
+					JSON.stringify( {
+						...defaultValue,
+						[ selectedStyle ]: {
+							...value,
+						},
+					} )
+				);
+			}
 		};
 
 		render( <StyleSettingsControl { ...props } />, control.container.get( 0 ) );
