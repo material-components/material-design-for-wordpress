@@ -275,8 +275,9 @@ class Controls extends Module_Base {
 					'section'  => 'style_settings',
 					'priority' => 200,
 					'style'    => get_option( $this->prepare_option_name( 'style' ) ),
+					'css_var'  => '--mdc-theme-setting',
 				]
-			)
+			),
 		];
 
 		$this->add_controls( $controls_theme );

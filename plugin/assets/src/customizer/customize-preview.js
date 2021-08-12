@@ -61,6 +61,7 @@ const getIconFontName = iconStyle => {
 	const typographyControls = {};
 	const cornerStyleControls = {};
 	const iconControls = {};
+	const settingsControls = {};
 
 	$( function() {
 		api.preview.bind( 'active', function() {
@@ -113,6 +114,10 @@ const getIconFontName = iconStyle => {
 
 			if ( args && !! args.cssVar && args.type === 'icon_radio' ) {
 				iconControls[ control ] = args.cssVar;
+			}
+
+			if ( args && !! args.cssVar && args.type === 'style_settings' ) {
+				settingsControls[ control ] = args.cssVar;
 			}
 		} );
 	};
@@ -261,11 +266,16 @@ const getIconFontName = iconStyle => {
 		.concat( Object.keys( cornerStyleControls ) )
 		.concat( Object.keys( typographyControls ) )
 		.concat( Object.keys( iconControls ) )
+		.concat( Object.keys( settingsControls ) )
 		.forEach( control => {
 			parentApi( control, value => {
 				value.bind( () => {
 					if ( typographyControls.hasOwnProperty( control ) ) {
 						updateGoogleFontsURL();
+					}
+
+					if ( settingsControls.hasOwnProperty( control ) ) {
+						console.log( 'update dark mode' );
 					}
 
 					generatePreviewStyles();
