@@ -750,6 +750,7 @@ import getConfig from '../block-editor/utils/get-config';
 		} );
 
 		reRenderMaterialLibrary();
+		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
 	};
 
@@ -792,6 +793,20 @@ import getConfig from '../block-editor/utils/get-config';
 			// Rebind the custom value change event.
 			setting.bind( onCustomValueChange );
 		}
+	};
+
+	const updateActiveStyleName = () => {
+		const currentStyle = api( getConfig( 'styleControl' ) ).get();
+		const sectionTitleElement = document.querySelector( '#accordion-section-material_design_style .customize-title' );
+		const controlsSectionElement = document.querySelector( '#js-customize-section-style' );
+
+		if ( ! sectionTitleElement ) {
+			return;
+		}
+
+		sectionTitleElement.textContent = currentStyle;
+
+		//renderStyleSettingsControl();
 	};
 
 	api.bind( 'ready', () => {
