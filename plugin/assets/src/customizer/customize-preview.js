@@ -260,6 +260,29 @@ const getIconFontName = iconStyle => {
 	}, 300 );
 
 	/**
+	 * Toggle dark mode button based on user choice.
+	 *
+	 * @return {void}
+	 */
+	const toggleDarkModeSwitch = debounce( value => {
+		const darkModeData =
+			'string' === typeof value ? JSON.parse( value ) : value;
+		const currentStyle = parentApi(
+			window.parent.materialDesign.styleControl
+		).get();
+
+		if ( ! currentStyle ) {
+			return;
+		}
+
+		if ( darkModeData[ currentStyle ].switcher ) {
+			console.log( 'display button' );
+		} else {
+			console.log( 'hide button' );
+		}
+	}, 300 );
+
+	/**
 	 * Generate preview styles for any control value change.
 	 */
 	Object.keys( colorControls )
@@ -275,7 +298,7 @@ const getIconFontName = iconStyle => {
 					}
 
 					if ( settingsControls.hasOwnProperty( control ) ) {
-						console.log( 'update dark mode' );
+						toggleDarkModeSwitch( value.get() );
 					}
 
 					generatePreviewStyles();
