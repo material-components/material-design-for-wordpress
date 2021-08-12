@@ -797,6 +797,7 @@ import getConfig from '../block-editor/utils/get-config';
 	api.bind( 'ready', () => {
 		const controls = getConfig( 'controls' );
 		const styleControl = getConfig( 'styleControl' );
+		const styleSettings = getConfig( 'styleSettings' );
 
 		// Iterate through our controls and bind events for value change.
 		if ( controls && Array.isArray( controls ) ) {
@@ -805,6 +806,11 @@ import getConfig from '../block-editor/utils/get-config';
 					// Design style control has it's own change handler.
 					if ( styleControl === name ) {
 						return setting.bind( onStyleChange );
+					}
+
+					// Style settings don't trigger custom style handler.
+					if ( styleSettings === name ) {
+						return;
 					}
 
 					setting.bind( onCustomValueChange );
