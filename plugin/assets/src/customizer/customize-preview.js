@@ -270,6 +270,8 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 	/**
 	 * Toggle dark mode button based on user choice.
 	 *
+	 * @param {string} value Current settings value
+	 *
 	 * @return {void}
 	 */
 	const toggleDarkModeSwitch = debounce( value => {

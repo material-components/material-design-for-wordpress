@@ -51,8 +51,8 @@ class Material_Style_Settings_Section extends \WP_Customize_Section {
 	 * @since 3.4.0
 	 *
 	 * @param \WP_Customize_Manager $manager Customizer bootstrap instance.
-	 * @param string               $id      A specific ID of the section.
-	 * @param array                $args    {
+	 * @param string                $id      A specific ID of the section.
+	 * @param array                 $args    {
 	 *     Optional. Array of properties for the new Section object. Default empty array.
 	 *
 	 *     @type int             $priority           Priority of the section, defining the display order
@@ -70,9 +70,9 @@ class Material_Style_Settings_Section extends \WP_Customize_Section {
 	 *                                               instead of inline above the first control.
 	 *                                               Default false.
 	 * }
-	 * @param Plugin Reference to parent plugin.
+	 * @param Plugin                $plugin Reference to parent plugin.
 	 */
-	public function __construct( $manager, $id, $args = array(), $plugin = null ) {
+	public function __construct( $manager, $id, $args = [], $plugin = null ) {
 		parent::__construct( $manager, $id, $args );
 
 		$this->plugin = $plugin;
@@ -85,9 +85,9 @@ class Material_Style_Settings_Section extends \WP_Customize_Section {
 	 * @return array Exported parameters.
 	 */
 	public function json() {
-		$options             = get_option( 'material_design' );
-		$exported            = parent::json();
-		$exported['style']   = ucfirst( $options['style'] );
+		$options           = get_option( 'material_design' );
+		$exported          = parent::json();
+		$exported['style'] = ucfirst( $options['style'] );
 
 		return $exported;
 	}
@@ -106,13 +106,13 @@ class Material_Style_Settings_Section extends \WP_Customize_Section {
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }}">
 			<h3 class="accordion-section-title" tabindex="0">
 				{{ data.title }}
-				<span class="screen-reader-text"><?php _e( 'Press return or enter to open this section' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Press return or enter to open this section', 'material-design' ); ?></span>
 			</h3>
 			<ul class="accordion-section-content">
 				<li class="customize-section-description-container section-meta <# if ( data.description_hidden ) { #>customize-info<# } #>">
 					<div class="customize-section-title">
 						<button class="customize-section-back" tabindex="-1">
-							<span class="screen-reader-text"><?php _e( 'Back' ); ?></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Back', 'material-design' ); ?></span>
 						</button>
 						<h3>
 							<span class="customize-action">
@@ -125,8 +125,9 @@ class Material_Style_Settings_Section extends \WP_Customize_Section {
 							{{ data.title }}
 						</h3>
 						<# if ( data.description && data.description_hidden ) { #>
-						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Help', 'material-design' ); ?></span></button>
 						<div class="description customize-section-description">
+							<?php // phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 							{{{ data.description }}}
 						</div>
 						<# } #>
@@ -136,6 +137,7 @@ class Material_Style_Settings_Section extends \WP_Customize_Section {
 
 					<# if ( data.description && ! data.description_hidden ) { #>
 					<div class="description customize-section-description">
+						<?php // phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 						{{{ data.description }}}
 					</div>
 					<# } #>

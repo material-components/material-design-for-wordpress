@@ -54,7 +54,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -357,7 +357,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -382,17 +382,17 @@ Object {
                   style="width: 100%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 100%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 100%; z-index: 100;"
                 >
@@ -401,7 +401,7 @@ Object {
               </span>
               <input
                 aria-label="Columns"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="4"
                 min="2"
@@ -496,20 +496,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -566,7 +552,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -591,17 +577,17 @@ Object {
                   style="width: 0%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 0%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 0%; z-index: 100;"
                 >
@@ -610,7 +596,7 @@ Object {
               </span>
               <input
                 aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="24"
                 min="1"
@@ -650,7 +636,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -953,7 +939,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -978,17 +964,17 @@ Object {
                 style="width: 100%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 100%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 100%; z-index: 100;"
               >
@@ -997,7 +983,7 @@ Object {
             </span>
             <input
               aria-label="Columns"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="4"
               min="2"
@@ -1092,20 +1078,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -1162,7 +1134,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -1187,17 +1159,17 @@ Object {
                 style="width: 0%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 0%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 0%; z-index: 100;"
               >
@@ -1206,7 +1178,7 @@ Object {
             </span>
             <input
               aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="24"
               min="1"
@@ -1327,7 +1299,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -1630,7 +1602,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -1655,17 +1627,17 @@ Object {
                   style="width: 100%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 100%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 100%; z-index: 100;"
                 >
@@ -1674,7 +1646,7 @@ Object {
               </span>
               <input
                 aria-label="Columns"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="4"
                 min="2"
@@ -1769,20 +1741,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1839,7 +1797,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -1864,17 +1822,17 @@ Object {
                   style="width: 0%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 0%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 0%; z-index: 100;"
                 >
@@ -1883,7 +1841,7 @@ Object {
               </span>
               <input
                 aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="24"
                 min="1"
@@ -1923,7 +1881,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -2226,7 +2184,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -2251,17 +2209,17 @@ Object {
                 style="width: 100%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 100%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 100%; z-index: 100;"
               >
@@ -2270,7 +2228,7 @@ Object {
             </span>
             <input
               aria-label="Columns"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="4"
               min="2"
@@ -2365,20 +2323,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2435,7 +2379,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -2460,17 +2404,17 @@ Object {
                 style="width: 0%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 0%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 0%; z-index: 100;"
               >
@@ -2479,7 +2423,7 @@ Object {
             </span>
             <input
               aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="24"
               min="1"

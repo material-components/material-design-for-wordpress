@@ -75,7 +75,7 @@ Object {
                   class="components-range-control__root css-yaebbd-Root exqw8y20"
                 >
                   <span
-                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                     color="#00669b"
                   >
                     <input
@@ -99,17 +99,17 @@ Object {
                       style="width: 27.77777777777778%;"
                     />
                     <span
-                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      class="css-bjz29f-ThumbWrapper exqw8y29"
                       style="left: 27.77777777777778%;"
                     >
                       <span
                         aria-hidden="true"
-                        class="css-c88ajq-Thumb exqw8y210"
+                        class="css-4axalp-Thumb exqw8y210"
                       />
                     </span>
                     <span
                       aria-hidden="false"
-                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                       role="tooltip"
                       style="left: 27.77777777777778%; z-index: 100;"
                     >
@@ -117,7 +117,7 @@ Object {
                     </span>
                   </span>
                   <input
-                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                     inputmode="decimal"
                     max="36"
                     min="0"
@@ -180,7 +180,7 @@ Object {
                 class="components-range-control__root css-yaebbd-Root exqw8y20"
               >
                 <span
-                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                   color="#00669b"
                 >
                   <input
@@ -204,17 +204,17 @@ Object {
                     style="width: 27.77777777777778%;"
                   />
                   <span
-                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    class="css-bjz29f-ThumbWrapper exqw8y29"
                     style="left: 27.77777777777778%;"
                   >
                     <span
                       aria-hidden="true"
-                      class="css-c88ajq-Thumb exqw8y210"
+                      class="css-4axalp-Thumb exqw8y210"
                     />
                   </span>
                   <span
                     aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                     role="tooltip"
                     style="left: 27.77777777777778%; z-index: 100;"
                   >
@@ -222,7 +222,7 @@ Object {
                   </span>
                 </span>
                 <input
-                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                   inputmode="decimal"
                   max="36"
                   min="0"
@@ -366,7 +366,7 @@ Object {
                   class="components-range-control__root css-yaebbd-Root exqw8y20"
                 >
                   <span
-                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                     color="#00669b"
                   >
                     <input
@@ -390,17 +390,17 @@ Object {
                       style="width: 27.77777777777778%;"
                     />
                     <span
-                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      class="css-bjz29f-ThumbWrapper exqw8y29"
                       style="left: 27.77777777777778%;"
                     >
                       <span
                         aria-hidden="true"
-                        class="css-c88ajq-Thumb exqw8y210"
+                        class="css-4axalp-Thumb exqw8y210"
                       />
                     </span>
                     <span
                       aria-hidden="false"
-                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                       role="tooltip"
                       style="left: 27.77777777777778%; z-index: 100;"
                     >
@@ -408,7 +408,7 @@ Object {
                     </span>
                   </span>
                   <input
-                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                     inputmode="decimal"
                     max="36"
                     min="0"
@@ -485,7 +485,7 @@ Object {
                 class="components-range-control__root css-yaebbd-Root exqw8y20"
               >
                 <span
-                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                   color="#00669b"
                 >
                   <input
@@ -509,17 +509,17 @@ Object {
                     style="width: 27.77777777777778%;"
                   />
                   <span
-                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    class="css-bjz29f-ThumbWrapper exqw8y29"
                     style="left: 27.77777777777778%;"
                   >
                     <span
                       aria-hidden="true"
-                      class="css-c88ajq-Thumb exqw8y210"
+                      class="css-4axalp-Thumb exqw8y210"
                     />
                   </span>
                   <span
                     aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                     role="tooltip"
                     style="left: 27.77777777777778%; z-index: 100;"
                   >
@@ -527,7 +527,7 @@ Object {
                   </span>
                 </span>
                 <input
-                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                   inputmode="decimal"
                   max="36"
                   min="0"
@@ -674,7 +674,7 @@ Object {
                   class="components-range-control__root css-yaebbd-Root exqw8y20"
                 >
                   <span
-                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                     color="#00669b"
                   >
                     <input
@@ -698,17 +698,17 @@ Object {
                       style="width: 27.77777777777778%;"
                     />
                     <span
-                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      class="css-bjz29f-ThumbWrapper exqw8y29"
                       style="left: 27.77777777777778%;"
                     >
                       <span
                         aria-hidden="true"
-                        class="css-c88ajq-Thumb exqw8y210"
+                        class="css-4axalp-Thumb exqw8y210"
                       />
                     </span>
                     <span
                       aria-hidden="false"
-                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                       role="tooltip"
                       style="left: 27.77777777777778%; z-index: 100;"
                     >
@@ -716,7 +716,7 @@ Object {
                     </span>
                   </span>
                   <input
-                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                     inputmode="decimal"
                     max="36"
                     min="0"
@@ -768,7 +768,7 @@ Object {
                 class="components-range-control__root css-yaebbd-Root exqw8y20"
               >
                 <span
-                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                   color="#00669b"
                 >
                   <input
@@ -792,17 +792,17 @@ Object {
                     style="width: 27.77777777777778%;"
                   />
                   <span
-                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    class="css-bjz29f-ThumbWrapper exqw8y29"
                     style="left: 27.77777777777778%;"
                   >
                     <span
                       aria-hidden="true"
-                      class="css-c88ajq-Thumb exqw8y210"
+                      class="css-4axalp-Thumb exqw8y210"
                     />
                   </span>
                   <span
                     aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                     role="tooltip"
                     style="left: 27.77777777777778%; z-index: 100;"
                   >
@@ -810,7 +810,7 @@ Object {
                   </span>
                 </span>
                 <input
-                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                   inputmode="decimal"
                   max="36"
                   min="0"

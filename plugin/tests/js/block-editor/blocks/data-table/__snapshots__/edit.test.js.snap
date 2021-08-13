@@ -84,7 +84,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -112,20 +112,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -156,20 +142,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -490,7 +462,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -518,20 +490,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -562,20 +520,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -977,7 +921,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -1005,20 +949,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1049,20 +979,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1381,7 +1297,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -1409,20 +1325,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -1453,20 +1355,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2119,7 +2007,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -2146,20 +2034,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -2189,20 +2063,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -2427,7 +2287,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -2454,20 +2314,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2497,20 +2343,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"

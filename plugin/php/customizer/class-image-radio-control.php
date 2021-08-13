@@ -74,31 +74,43 @@ class Image_Radio_Control extends \WP_Customize_Control {
 
 		<div class="customize-control-image-radio-wrap" id="<?php echo esc_attr( "input_{$id}" ); ?>">
 
-			<?php
-			if ( ! empty( $default ) ) {
+		<?php
+		if ( ! empty( $default ) ) {
 			?>
 
-				<h3><?php printf( __( 'Starter Styles (%s)', 'material-design' ), count( $default ) ); ?></h3>
+			<h3>
+				<?php
+				/* translators: %d: available styles */
+				printf( esc_html__( 'Starter Styles (%d)', 'material-design' ), count( $default ) );
+				?>
+			</h3>
 
 			<?php
-			}
+		}
 
-			$this->create_options( $default );
+		$this->create_options( $default );
 
-			if ( ! empty( $custom ) ) {
+		if ( ! empty( $custom ) ) {
 			?>
-				<h3><?php _e( 'Custom Styles', 'material-design' ); ?></h3>
+			<h3><?php _e( 'Custom Styles', 'material-design' ); ?></h3>
 			<?php
-			}
+		}
 
-			$this->create_options( $custom );
+		$this->create_options( $custom );
 
-			?>
+		?>
 
 		</div><!-- .image -->
 		<?php
 	}
 
+	/**
+	 * Print markup for options.
+	 *
+	 * @param array $options Available options.
+	 *
+	 * @return void
+	 */
 	public function create_options( $options ) {
 		if ( empty( $options ) ) {
 			return;
@@ -122,7 +134,7 @@ class Image_Radio_Control extends \WP_Customize_Control {
 				<span class="customize-control-image-radio-control-actions"></span>
 			</div>
 
-		<?php
+			<?php
 		}
 	}
 }

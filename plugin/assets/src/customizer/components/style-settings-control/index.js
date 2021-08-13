@@ -19,7 +19,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import { ToggleControl } from '@wordpress/components';
-import { useState, useEffect } from '@wordpress/element';
+import { useState, useEffect, useCallback } from '@wordpress/element';
 
 /**
  * Internal dependencies
@@ -43,7 +43,7 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 	const [ displaySwitcher, setDisplaySwitcher ] = useState( switcher );
 	const isThemeActive = 'ok' === getConfig( 'themeStatus' );
 
-	const onChange = ( value, setting ) => {
+	const onChange = useCallback( ( value, setting ) => {
 		const newValue = {};
 		newValue[ setting ] = value;
 
@@ -51,15 +51,15 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 			...currentValue,
 			...newValue,
 		} );
-	};
+	}, [] );
 
 	useEffect( () => {
 		onChange( displaySwitcher, 'switcher' );
-	}, [ displaySwitcher ] );
+	}, [ displaySwitcher, onChange ] );
 
 	useEffect( () => {
 		setValue( currentValue );
-	}, [ currentValue ] );
+	}, [ currentValue, setValue ] );
 
 	return (
 		<>

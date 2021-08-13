@@ -23,7 +23,7 @@ exports[`FormInspectorControls matches snapshot 1`] = `
     initialOpen={true}
     title="Style"
   >
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Outlined"
     />

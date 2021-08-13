@@ -680,7 +680,7 @@ import getConfig from '../block-editor/utils/get-config';
 						},
 					} )
 				);
-			}
+			},
 		};
 
 		render( <StyleSettingsControl { ...props } />, control.container.get( 0 ) );
@@ -797,7 +797,9 @@ import getConfig from '../block-editor/utils/get-config';
 	};
 
 	const updateActiveStyleName = () => {
-		const sectionTitleElement = document.querySelector( '#accordion-section-material_design_style .customize-title' );
+		const sectionTitleElement = document.querySelector(
+			'#accordion-section-material_design_style .customize-title'
+		);
 
 		if ( ! sectionTitleElement ) {
 			return;
@@ -805,8 +807,12 @@ import getConfig from '../block-editor/utils/get-config';
 
 		const currentStyle = api( getConfig( 'styleControl' ) ).get();
 		const control = api.control( getConfig( 'styleSettings' ) );
-		const controlsSectionElement = document.querySelector( '#js-customize-section-style' );
-		const sectionPreview = document.querySelector( '#accordion-section-material_design_style .control-section-styles-preview' );
+		const controlsSectionElement = document.querySelector(
+			'#js-customize-section-style'
+		);
+		const sectionPreview = document.querySelector(
+			'#accordion-section-material_design_style .control-section-styles-preview'
+		);
 
 		sectionTitleElement.textContent = currentStyle;
 		controlsSectionElement.textContent = currentStyle;

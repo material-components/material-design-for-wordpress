@@ -54,7 +54,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -357,7 +357,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -382,17 +382,17 @@ Object {
                   style="width: 100%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 100%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 100%; z-index: 100;"
                 >
@@ -401,7 +401,7 @@ Object {
               </span>
               <input
                 aria-label="Columns"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="4"
                 min="2"
@@ -432,20 +432,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -551,7 +537,7 @@ Object {
                   class="components-range-control__root css-yaebbd-Root exqw8y20"
                 >
                   <span
-                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                     color="#00669b"
                   >
                     <input
@@ -575,17 +561,17 @@ Object {
                       style="width: 16.666666666666664%;"
                     />
                     <span
-                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      class="css-bjz29f-ThumbWrapper exqw8y29"
                       style="left: 16.666666666666664%;"
                     >
                       <span
                         aria-hidden="true"
-                        class="css-c88ajq-Thumb exqw8y210"
+                        class="css-4axalp-Thumb exqw8y210"
                       />
                     </span>
                     <span
                       aria-hidden="false"
-                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                       role="tooltip"
                       style="left: 16.666666666666664%; z-index: 100;"
                     >
@@ -593,7 +579,7 @@ Object {
                     </span>
                   </span>
                   <input
-                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                     inputmode="decimal"
                     max="24"
                     min="0"
@@ -633,20 +619,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -703,7 +675,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -728,17 +700,17 @@ Object {
                   style="width: 0%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 0%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 0%; z-index: 100;"
                 >
@@ -747,7 +719,7 @@ Object {
               </span>
               <input
                 aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="24"
                 min="1"
@@ -784,7 +756,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -807,7 +779,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -832,17 +804,17 @@ Object {
                   style="width: 10.526315789473683%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 10.526315789473683%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 10.526315789473683%; z-index: 100;"
                 >
@@ -851,7 +823,7 @@ Object {
               </span>
               <input
                 aria-label="Number of cards"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="20"
                 min="1"
@@ -882,20 +854,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -926,20 +884,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -970,20 +914,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1014,20 +944,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1058,20 +974,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1102,20 +1004,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1146,20 +1034,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1452,7 +1326,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -1755,7 +1629,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -1780,17 +1654,17 @@ Object {
                 style="width: 100%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 100%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 100%; z-index: 100;"
               >
@@ -1799,7 +1673,7 @@ Object {
             </span>
             <input
               aria-label="Columns"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="4"
               min="2"
@@ -1830,20 +1704,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -1949,7 +1809,7 @@ Object {
                 class="components-range-control__root css-yaebbd-Root exqw8y20"
               >
                 <span
-                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                   color="#00669b"
                 >
                   <input
@@ -1973,17 +1833,17 @@ Object {
                     style="width: 16.666666666666664%;"
                   />
                   <span
-                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    class="css-bjz29f-ThumbWrapper exqw8y29"
                     style="left: 16.666666666666664%;"
                   >
                     <span
                       aria-hidden="true"
-                      class="css-c88ajq-Thumb exqw8y210"
+                      class="css-4axalp-Thumb exqw8y210"
                     />
                   </span>
                   <span
                     aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                     role="tooltip"
                     style="left: 16.666666666666664%; z-index: 100;"
                   >
@@ -1991,7 +1851,7 @@ Object {
                   </span>
                 </span>
                 <input
-                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                   inputmode="decimal"
                   max="24"
                   min="0"
@@ -2031,20 +1891,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2101,7 +1947,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -2126,17 +1972,17 @@ Object {
                 style="width: 0%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 0%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 0%; z-index: 100;"
               >
@@ -2145,7 +1991,7 @@ Object {
             </span>
             <input
               aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="24"
               min="1"
@@ -2182,7 +2028,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -2205,7 +2051,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -2230,17 +2076,17 @@ Object {
                 style="width: 10.526315789473683%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 10.526315789473683%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 10.526315789473683%; z-index: 100;"
               >
@@ -2249,7 +2095,7 @@ Object {
             </span>
             <input
               aria-label="Number of cards"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="20"
               min="1"
@@ -2280,20 +2126,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2324,20 +2156,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2368,20 +2186,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2412,20 +2216,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2456,20 +2246,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2500,20 +2276,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2544,20 +2306,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2931,7 +2679,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -3234,7 +2982,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -3259,17 +3007,17 @@ Object {
                   style="width: 100%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 100%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 100%; z-index: 100;"
                 >
@@ -3278,7 +3026,7 @@ Object {
               </span>
               <input
                 aria-label="Columns"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="4"
                 min="2"
@@ -3309,20 +3057,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -3428,7 +3162,7 @@ Object {
                   class="components-range-control__root css-yaebbd-Root exqw8y20"
                 >
                   <span
-                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                     color="#00669b"
                   >
                     <input
@@ -3452,17 +3186,17 @@ Object {
                       style="width: 16.666666666666664%;"
                     />
                     <span
-                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      class="css-bjz29f-ThumbWrapper exqw8y29"
                       style="left: 16.666666666666664%;"
                     >
                       <span
                         aria-hidden="true"
-                        class="css-c88ajq-Thumb exqw8y210"
+                        class="css-4axalp-Thumb exqw8y210"
                       />
                     </span>
                     <span
                       aria-hidden="false"
-                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                       role="tooltip"
                       style="left: 16.666666666666664%; z-index: 100;"
                     >
@@ -3470,7 +3204,7 @@ Object {
                     </span>
                   </span>
                   <input
-                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                     inputmode="decimal"
                     max="24"
                     min="0"
@@ -3510,20 +3244,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -3580,7 +3300,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -3605,17 +3325,17 @@ Object {
                   style="width: 0%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 0%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 0%; z-index: 100;"
                 >
@@ -3624,7 +3344,7 @@ Object {
               </span>
               <input
                 aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="24"
                 min="1"
@@ -3661,7 +3381,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -3684,7 +3404,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -3709,17 +3429,17 @@ Object {
                   style="width: 10.526315789473683%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 10.526315789473683%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 10.526315789473683%; z-index: 100;"
                 >
@@ -3728,7 +3448,7 @@ Object {
               </span>
               <input
                 aria-label="Number of cards"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="20"
                 min="1"
@@ -3759,20 +3479,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -3803,20 +3509,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -3847,20 +3539,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -3891,20 +3569,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -3935,20 +3599,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -3979,20 +3629,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -4023,20 +3659,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -4315,7 +3937,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -4618,7 +4240,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -4643,17 +4265,17 @@ Object {
                 style="width: 100%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 100%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 100%; z-index: 100;"
               >
@@ -4662,7 +4284,7 @@ Object {
             </span>
             <input
               aria-label="Columns"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="4"
               min="2"
@@ -4693,20 +4315,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -4812,7 +4420,7 @@ Object {
                 class="components-range-control__root css-yaebbd-Root exqw8y20"
               >
                 <span
-                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                   color="#00669b"
                 >
                   <input
@@ -4836,17 +4444,17 @@ Object {
                     style="width: 16.666666666666664%;"
                   />
                   <span
-                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    class="css-bjz29f-ThumbWrapper exqw8y29"
                     style="left: 16.666666666666664%;"
                   >
                     <span
                       aria-hidden="true"
-                      class="css-c88ajq-Thumb exqw8y210"
+                      class="css-4axalp-Thumb exqw8y210"
                     />
                   </span>
                   <span
                     aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                     role="tooltip"
                     style="left: 16.666666666666664%; z-index: 100;"
                   >
@@ -4854,7 +4462,7 @@ Object {
                   </span>
                 </span>
                 <input
-                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                   inputmode="decimal"
                   max="24"
                   min="0"
@@ -4894,20 +4502,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -4964,7 +4558,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -4989,17 +4583,17 @@ Object {
                 style="width: 0%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 0%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 0%; z-index: 100;"
               >
@@ -5008,7 +4602,7 @@ Object {
             </span>
             <input
               aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="24"
               min="1"
@@ -5045,7 +4639,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -5068,7 +4662,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -5093,17 +4687,17 @@ Object {
                 style="width: 10.526315789473683%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 10.526315789473683%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 10.526315789473683%; z-index: 100;"
               >
@@ -5112,7 +4706,7 @@ Object {
             </span>
             <input
               aria-label="Number of cards"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="20"
               min="1"
@@ -5143,20 +4737,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -5187,20 +4767,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -5231,20 +4797,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -5275,20 +4827,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -5319,20 +4857,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -5363,20 +4887,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -5407,20 +4917,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -5780,7 +5276,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -6100,7 +5596,7 @@ Object {
                   class="components-range-control__root css-yaebbd-Root exqw8y20"
                 >
                   <span
-                    class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                    class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                     color="#00669b"
                   >
                     <input
@@ -6124,17 +5620,17 @@ Object {
                       style="width: 16.666666666666664%;"
                     />
                     <span
-                      class="css-kjao9s-ThumbWrapper exqw8y29"
+                      class="css-bjz29f-ThumbWrapper exqw8y29"
                       style="left: 16.666666666666664%;"
                     >
                       <span
                         aria-hidden="true"
-                        class="css-c88ajq-Thumb exqw8y210"
+                        class="css-4axalp-Thumb exqw8y210"
                       />
                     </span>
                     <span
                       aria-hidden="false"
-                      class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                      class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                       role="tooltip"
                       style="left: 16.666666666666664%; z-index: 100;"
                     >
@@ -6142,7 +5638,7 @@ Object {
                     </span>
                   </span>
                   <input
-                    class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                    class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                     inputmode="decimal"
                     max="24"
                     min="0"
@@ -6182,20 +5678,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -6252,7 +5734,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -6277,17 +5759,17 @@ Object {
                   style="width: 0%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 0%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 0%; z-index: 100;"
                 >
@@ -6296,7 +5778,7 @@ Object {
               </span>
               <input
                 aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="24"
                 min="1"
@@ -6333,7 +5815,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -6356,7 +5838,7 @@ Object {
               class="components-range-control__root css-yaebbd-Root exqw8y20"
             >
               <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                 color="#00669b"
               >
                 <input
@@ -6381,17 +5863,17 @@ Object {
                   style="width: 10.526315789473683%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-bjz29f-ThumbWrapper exqw8y29"
                   style="left: 10.526315789473683%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-4axalp-Thumb exqw8y210"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                   role="tooltip"
                   style="left: 10.526315789473683%; z-index: 100;"
                 >
@@ -6400,7 +5882,7 @@ Object {
               </span>
               <input
                 aria-label="Number of cards"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                 inputmode="decimal"
                 max="20"
                 min="1"
@@ -6431,20 +5913,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -6475,20 +5943,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -6519,20 +5973,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -6563,20 +6003,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -6607,20 +6033,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -6651,20 +6063,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -6916,7 +6314,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -7236,7 +6634,7 @@ Object {
                 class="components-range-control__root css-yaebbd-Root exqw8y20"
               >
                 <span
-                  class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                  class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                   color="#00669b"
                 >
                   <input
@@ -7260,17 +6658,17 @@ Object {
                     style="width: 16.666666666666664%;"
                   />
                   <span
-                    class="css-kjao9s-ThumbWrapper exqw8y29"
+                    class="css-bjz29f-ThumbWrapper exqw8y29"
                     style="left: 16.666666666666664%;"
                   >
                     <span
                       aria-hidden="true"
-                      class="css-c88ajq-Thumb exqw8y210"
+                      class="css-4axalp-Thumb exqw8y210"
                     />
                   </span>
                   <span
                     aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                    class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                     role="tooltip"
                     style="left: 16.666666666666664%; z-index: 100;"
                   >
@@ -7278,7 +6676,7 @@ Object {
                   </span>
                 </span>
                 <input
-                  class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                  class="components-range-control__number css-136icpl-InputNumber exqw8y213"
                   inputmode="decimal"
                   max="24"
                   min="0"
@@ -7318,20 +6716,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -7388,7 +6772,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -7413,17 +6797,17 @@ Object {
                 style="width: 0%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 0%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 0%; z-index: 100;"
               >
@@ -7432,7 +6816,7 @@ Object {
             </span>
             <input
               aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="24"
               min="1"
@@ -7469,7 +6853,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -7492,7 +6876,7 @@ Object {
             class="components-range-control__root css-yaebbd-Root exqw8y20"
           >
             <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              class="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
               color="#00669b"
             >
               <input
@@ -7517,17 +6901,17 @@ Object {
                 style="width: 10.526315789473683%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-bjz29f-ThumbWrapper exqw8y29"
                 style="left: 10.526315789473683%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-4axalp-Thumb exqw8y210"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                 role="tooltip"
                 style="left: 10.526315789473683%; z-index: 100;"
               >
@@ -7536,7 +6920,7 @@ Object {
             </span>
             <input
               aria-label="Number of cards"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              class="components-range-control__number css-136icpl-InputNumber exqw8y213"
               inputmode="decimal"
               max="20"
               min="1"
@@ -7567,20 +6951,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -7611,20 +6981,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -7655,20 +7011,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -7699,20 +7041,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -7743,20 +7071,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -7787,20 +7101,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -8327,7 +7627,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <Path
-                              d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                              d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                             />
                           </SVG>
                         }
@@ -8350,10 +7650,10 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             xmlns="http://www.w3.org/2000/svg"
                           >
                             <Path
-                              d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                              d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                             >
                               <path
-                                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                               />
                             </Path>
                           </svg>
@@ -8757,7 +8057,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               marks={false}
                             >
                               <span
-                                className="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                                className="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                                 color="#00669b"
                               >
                                 <InputRange
@@ -8846,7 +8146,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   }
                                 >
                                   <span
-                                    className="css-kjao9s-ThumbWrapper exqw8y29"
+                                    className="css-bjz29f-ThumbWrapper exqw8y29"
                                     style={
                                       Object {
                                         "left": "100%",
@@ -8859,7 +8159,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     >
                                       <span
                                         aria-hidden={true}
-                                        className="css-c88ajq-Thumb exqw8y210"
+                                        className="css-4axalp-Thumb exqw8y210"
                                       />
                                     </Thumb>
                                   </span>
@@ -8905,7 +8205,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   >
                                     <span
                                       aria-hidden={false}
-                                      className="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                                      className="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                                       role="tooltip"
                                       style={
                                         Object {
@@ -8920,31 +8220,46 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 </SimpleTooltip>
                               </span>
                             </Wrapper>
-                            <InputNumber
-                              aria-label="Columns"
-                              className="components-range-control__number"
+                            <InputField
                               disabled={false}
-                              inputMode="decimal"
+                              label="Columns"
                               max={4}
                               min={2}
                               onChange={[Function]}
+                              onReset={[Function]}
                               step={1}
-                              type="number"
                               value={4}
                             >
-                              <input
+                              <InputNumber
                                 aria-label="Columns"
-                                className="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                                className="components-range-control__number"
                                 disabled={false}
                                 inputMode="decimal"
                                 max={4}
                                 min={2}
+                                onBlur={[Function]}
                                 onChange={[Function]}
+                                onKeyDown={[Function]}
                                 step={1}
                                 type="number"
                                 value={4}
-                              />
-                            </InputNumber>
+                              >
+                                <input
+                                  aria-label="Columns"
+                                  className="components-range-control__number css-136icpl-InputNumber exqw8y213"
+                                  disabled={false}
+                                  inputMode="decimal"
+                                  max={4}
+                                  min={2}
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onKeyDown={[Function]}
+                                  step={1}
+                                  type="number"
+                                  value={4}
+                                />
+                              </InputNumber>
+                            </InputField>
                           </span>
                         </Root>
                       </div>
@@ -8952,90 +8267,54 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                   </BaseControl>
                 </ForwardRef>
               </WithInstanceId(Component)>
-              <WithInstanceId(ToggleControl)
+              <ToggleControl
                 checked={false}
                 label="Allow individual card override"
                 onChange={[Function]}
               >
-                <ToggleControl
-                  checked={false}
-                  instanceId={70}
-                  label="Allow individual card override"
-                  onChange={[Function]}
+                <BaseControl
+                  className="components-toggle-control"
+                  id="inspector-toggle-control-70"
                 >
-                  <BaseControl
-                    className="components-toggle-control"
-                    id="inspector-toggle-control-70"
+                  <div
+                    className="components-base-control components-toggle-control"
                   >
                     <div
-                      className="components-base-control components-toggle-control"
+                      className="components-base-control__field"
                     >
-                      <div
-                        className="components-base-control__field"
+                      <FormToggle
+                        checked={false}
+                        id="inspector-toggle-control-70"
+                        onChange={[Function]}
                       >
-                        <FormToggle
-                          checked={false}
-                          id="inspector-toggle-control-70"
-                          onChange={[Function]}
+                        <span
+                          className="components-form-toggle"
                         >
+                          <input
+                            checked={false}
+                            className="components-form-toggle__input"
+                            id="inspector-toggle-control-70"
+                            onChange={[Function]}
+                            type="checkbox"
+                          />
                           <span
-                            className="components-form-toggle"
-                          >
-                            <input
-                              checked={false}
-                              className="components-form-toggle__input"
-                              id="inspector-toggle-control-70"
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="components-form-toggle__track"
-                            />
-                            <span
-                              className="components-form-toggle__thumb"
-                            />
-                            <SVG
-                              aria-hidden="true"
-                              className="components-form-toggle__off"
-                              focusable="false"
-                              height="6"
-                              role="img"
-                              viewBox="0 0 6 6"
-                              width="6"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <svg
-                                aria-hidden={true}
-                                className="components-form-toggle__off"
-                                focusable={false}
-                                height="6"
-                                role="img"
-                                viewBox="0 0 6 6"
-                                width="6"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <Path
-                                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                                >
-                                  <path
-                                    d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                                  />
-                                </Path>
-                              </svg>
-                            </SVG>
-                          </span>
-                        </FormToggle>
-                        <label
-                          className="components-toggle-control__label"
-                          htmlFor="inspector-toggle-control-70"
-                        >
-                          Allow individual card override
-                        </label>
-                      </div>
+                            className="components-form-toggle__track"
+                          />
+                          <span
+                            className="components-form-toggle__thumb"
+                          />
+                        </span>
+                      </FormToggle>
+                      <label
+                        className="components-toggle-control__label"
+                        htmlFor="inspector-toggle-control-70"
+                      >
+                        Allow individual card override
+                      </label>
                     </div>
-                  </BaseControl>
-                </ToggleControl>
-              </WithInstanceId(ToggleControl)>
+                  </div>
+                </BaseControl>
+              </ToggleControl>
               <RadioControl
                 label="Content layout"
                 onChange={[Function]}
@@ -9215,7 +8494,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                         marks={false}
                                       >
                                         <span
-                                          className="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                                          className="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                                           color="#00669b"
                                         >
                                           <InputRange
@@ -9302,7 +8581,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             }
                                           >
                                             <span
-                                              className="css-kjao9s-ThumbWrapper exqw8y29"
+                                              className="css-bjz29f-ThumbWrapper exqw8y29"
                                               style={
                                                 Object {
                                                   "left": "16.666666666666664%",
@@ -9315,7 +8594,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                               >
                                                 <span
                                                   aria-hidden={true}
-                                                  className="css-c88ajq-Thumb exqw8y210"
+                                                  className="css-4axalp-Thumb exqw8y210"
                                                 />
                                               </Thumb>
                                             </span>
@@ -9360,7 +8639,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             >
                                               <span
                                                 aria-hidden={false}
-                                                className="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                                                className="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                                                 role="tooltip"
                                                 style={
                                                   Object {
@@ -9375,29 +8654,43 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                           </SimpleTooltip>
                                         </span>
                                       </Wrapper>
-                                      <InputNumber
-                                        className="components-range-control__number"
+                                      <InputField
                                         disabled={false}
-                                        inputMode="decimal"
                                         max={24}
                                         min={0}
                                         onChange={[Function]}
+                                        onReset={[Function]}
                                         step={1}
-                                        type="number"
                                         value={4}
                                       >
-                                        <input
-                                          className="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                                        <InputNumber
+                                          className="components-range-control__number"
                                           disabled={false}
                                           inputMode="decimal"
                                           max={24}
                                           min={0}
+                                          onBlur={[Function]}
                                           onChange={[Function]}
+                                          onKeyDown={[Function]}
                                           step={1}
                                           type="number"
                                           value={4}
-                                        />
-                                      </InputNumber>
+                                        >
+                                          <input
+                                            className="components-range-control__number css-136icpl-InputNumber exqw8y213"
+                                            disabled={false}
+                                            inputMode="decimal"
+                                            max={24}
+                                            min={0}
+                                            onBlur={[Function]}
+                                            onChange={[Function]}
+                                            onKeyDown={[Function]}
+                                            step={1}
+                                            type="number"
+                                            value={4}
+                                          />
+                                        </InputNumber>
+                                      </InputField>
                                     </span>
                                   </Root>
                                 </div>
@@ -9417,87 +8710,54 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                   </WithGlobalBlockDefault(GlobalShapeSize)>
                 </Component>
               </div>
-              <WithInstanceId(ToggleControl)
+              <ToggleControl
                 checked={true}
                 label="Outlined"
                 onChange={[Function]}
               >
-                <ToggleControl
-                  checked={true}
-                  instanceId={71}
-                  label="Outlined"
-                  onChange={[Function]}
+                <BaseControl
+                  className="components-toggle-control"
+                  id="inspector-toggle-control-71"
                 >
-                  <BaseControl
-                    className="components-toggle-control"
-                    id="inspector-toggle-control-71"
+                  <div
+                    className="components-base-control components-toggle-control"
                   >
                     <div
-                      className="components-base-control components-toggle-control"
+                      className="components-base-control__field"
                     >
-                      <div
-                        className="components-base-control__field"
+                      <FormToggle
+                        checked={true}
+                        id="inspector-toggle-control-71"
+                        onChange={[Function]}
                       >
-                        <FormToggle
-                          checked={true}
-                          id="inspector-toggle-control-71"
-                          onChange={[Function]}
+                        <span
+                          className="components-form-toggle is-checked"
                         >
+                          <input
+                            checked={true}
+                            className="components-form-toggle__input"
+                            id="inspector-toggle-control-71"
+                            onChange={[Function]}
+                            type="checkbox"
+                          />
                           <span
-                            className="components-form-toggle is-checked"
-                          >
-                            <input
-                              checked={true}
-                              className="components-form-toggle__input"
-                              id="inspector-toggle-control-71"
-                              onChange={[Function]}
-                              type="checkbox"
-                            />
-                            <span
-                              className="components-form-toggle__track"
-                            />
-                            <span
-                              className="components-form-toggle__thumb"
-                            />
-                            <SVG
-                              className="components-form-toggle__on"
-                              height="6"
-                              viewBox="0 0 2 6"
-                              width="2"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <svg
-                                aria-hidden={true}
-                                className="components-form-toggle__on"
-                                focusable={false}
-                                height="6"
-                                role="img"
-                                viewBox="0 0 2 6"
-                                width="2"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <Path
-                                  d="M0 0h2v6H0z"
-                                >
-                                  <path
-                                    d="M0 0h2v6H0z"
-                                  />
-                                </Path>
-                              </svg>
-                            </SVG>
-                          </span>
-                        </FormToggle>
-                        <label
-                          className="components-toggle-control__label"
-                          htmlFor="inspector-toggle-control-71"
-                        >
-                          Outlined
-                        </label>
-                      </div>
+                            className="components-form-toggle__track"
+                          />
+                          <span
+                            className="components-form-toggle__thumb"
+                          />
+                        </span>
+                      </FormToggle>
+                      <label
+                        className="components-toggle-control__label"
+                        htmlFor="inspector-toggle-control-71"
+                      >
+                        Outlined
+                      </label>
                     </div>
-                  </BaseControl>
-                </ToggleControl>
-              </WithInstanceId(ToggleControl)>
+                  </div>
+                </BaseControl>
+              </ToggleControl>
               <_default
                 label="Gutter"
                 max={24}
@@ -9701,7 +8961,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 marks={false}
                               >
                                 <span
-                                  className="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                                  className="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                                   color="#00669b"
                                 >
                                   <InputRange
@@ -9866,7 +9126,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     }
                                   >
                                     <span
-                                      className="css-kjao9s-ThumbWrapper exqw8y29"
+                                      className="css-bjz29f-ThumbWrapper exqw8y29"
                                       style={
                                         Object {
                                           "left": "0%",
@@ -9879,7 +9139,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       >
                                         <span
                                           aria-hidden={true}
-                                          className="css-c88ajq-Thumb exqw8y210"
+                                          className="css-4axalp-Thumb exqw8y210"
                                         />
                                       </Thumb>
                                     </span>
@@ -9925,7 +9185,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     >
                                       <span
                                         aria-hidden={false}
-                                        className="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                                        className="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                                         role="tooltip"
                                         style={
                                           Object {
@@ -9940,8 +9200,9 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   </SimpleTooltip>
                                 </span>
                               </Wrapper>
-                              <InputNumber
-                                aria-label={
+                              <InputField
+                                disabled={false}
+                                label={
                                   <React.Fragment>
                                     Gutter
                                     <div
@@ -9980,17 +9241,14 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                     </div>
                                   </React.Fragment>
                                 }
-                                className="components-range-control__number"
-                                disabled={false}
-                                inputMode="decimal"
                                 max={24}
                                 min={1}
                                 onChange={[Function]}
+                                onReset={[Function]}
                                 step={1}
-                                type="number"
                                 value={1}
                               >
-                                <input
+                                <InputNumber
                                   aria-label={
                                     <React.Fragment>
                                       Gutter
@@ -10030,17 +9288,72 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       </div>
                                     </React.Fragment>
                                   }
-                                  className="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                                  className="components-range-control__number"
                                   disabled={false}
                                   inputMode="decimal"
                                   max={24}
                                   min={1}
+                                  onBlur={[Function]}
                                   onChange={[Function]}
+                                  onKeyDown={[Function]}
                                   step={1}
                                   type="number"
                                   value={1}
-                                />
-                              </InputNumber>
+                                >
+                                  <input
+                                    aria-label={
+                                      <React.Fragment>
+                                        Gutter
+                                        <div
+                                          className="components-base-control__label-actions components-base-control__attr-device-label"
+                                        >
+                                          <button
+                                            className="is-selected"
+                                            onClick={[Function]}
+                                          >
+                                            <i
+                                              className="material-icons"
+                                            >
+                                              computer
+                                            </i>
+                                          </button>
+                                          <button
+                                            className=""
+                                            onClick={[Function]}
+                                          >
+                                            <i
+                                              className="material-icons"
+                                            >
+                                              tablet
+                                            </i>
+                                          </button>
+                                          <button
+                                            className=""
+                                            onClick={[Function]}
+                                          >
+                                            <i
+                                              className="material-icons"
+                                            >
+                                              smartphone
+                                            </i>
+                                          </button>
+                                        </div>
+                                      </React.Fragment>
+                                    }
+                                    className="components-range-control__number css-136icpl-InputNumber exqw8y213"
+                                    disabled={false}
+                                    inputMode="decimal"
+                                    max={24}
+                                    min={1}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onKeyDown={[Function]}
+                                    step={1}
+                                    type="number"
+                                    value={1}
+                                  />
+                                </InputNumber>
+                              </InputField>
                             </span>
                           </Root>
                         </div>
@@ -10090,7 +9403,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <Path
-                            d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                            d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                           />
                         </SVG>
                       }
@@ -10113,10 +9426,10 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <Path
-                            d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                            d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                           >
                             <path
-                              d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                              d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                             />
                           </Path>
                         </svg>
@@ -10172,7 +9485,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                             marks={false}
                           >
                             <span
-                              className="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                              className="components-range-control__wrapper css-1kpav0j-Wrapper exqw8y21"
                               color="#00669b"
                             >
                               <InputRange
@@ -10261,7 +9574,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 }
                               >
                                 <span
-                                  className="css-kjao9s-ThumbWrapper exqw8y29"
+                                  className="css-bjz29f-ThumbWrapper exqw8y29"
                                   style={
                                     Object {
                                       "left": "5.263157894736842%",
@@ -10274,7 +9587,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   >
                                     <span
                                       aria-hidden={true}
-                                      className="css-c88ajq-Thumb exqw8y210"
+                                      className="css-4axalp-Thumb exqw8y210"
                                     />
                                   </Thumb>
                                 </span>
@@ -10320,7 +9633,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 >
                                   <span
                                     aria-hidden={false}
-                                    className="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                                    className="components-simple-tooltip components-range-control__tooltip css-1b1hz3a-Tooltip exqw8y212"
                                     role="tooltip"
                                     style={
                                       Object {
@@ -10335,31 +9648,46 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                               </SimpleTooltip>
                             </span>
                           </Wrapper>
-                          <InputNumber
-                            aria-label="Number of cards"
-                            className="components-range-control__number"
+                          <InputField
                             disabled={false}
-                            inputMode="decimal"
+                            label="Number of cards"
                             max={20}
                             min={1}
                             onChange={[Function]}
+                            onReset={[Function]}
                             step={1}
-                            type="number"
                             value={2}
                           >
-                            <input
+                            <InputNumber
                               aria-label="Number of cards"
-                              className="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                              className="components-range-control__number"
                               disabled={false}
                               inputMode="decimal"
                               max={20}
                               min={1}
+                              onBlur={[Function]}
                               onChange={[Function]}
+                              onKeyDown={[Function]}
                               step={1}
                               type="number"
                               value={2}
-                            />
-                          </InputNumber>
+                            >
+                              <input
+                                aria-label="Number of cards"
+                                className="components-range-control__number css-136icpl-InputNumber exqw8y213"
+                                disabled={false}
+                                inputMode="decimal"
+                                max={20}
+                                min={1}
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onKeyDown={[Function]}
+                                step={1}
+                                type="number"
+                                value={2}
+                              />
+                            </InputNumber>
+                          </InputField>
                         </span>
                       </Root>
                     </div>
@@ -10367,572 +9695,339 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                 </BaseControl>
               </ForwardRef>
             </WithInstanceId(Component)>
-            <WithInstanceId(ToggleControl)
+            <ToggleControl
               label="Allow individual card override"
               onChange={[Function]}
             >
-              <ToggleControl
-                instanceId={72}
-                label="Allow individual card override"
-                onChange={[Function]}
+              <BaseControl
+                className="components-toggle-control"
+                id="inspector-toggle-control-72"
               >
-                <BaseControl
-                  className="components-toggle-control"
-                  id="inspector-toggle-control-72"
+                <div
+                  className="components-base-control components-toggle-control"
                 >
                   <div
-                    className="components-base-control components-toggle-control"
+                    className="components-base-control__field"
                   >
-                    <div
-                      className="components-base-control__field"
+                    <FormToggle
+                      id="inspector-toggle-control-72"
+                      onChange={[Function]}
                     >
-                      <FormToggle
-                        id="inspector-toggle-control-72"
-                        onChange={[Function]}
+                      <span
+                        className="components-form-toggle"
                       >
+                        <input
+                          className="components-form-toggle__input"
+                          id="inspector-toggle-control-72"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
                         <span
-                          className="components-form-toggle"
-                        >
-                          <input
-                            className="components-form-toggle__input"
-                            id="inspector-toggle-control-72"
-                            onChange={[Function]}
-                            type="checkbox"
-                          />
-                          <span
-                            className="components-form-toggle__track"
-                          />
-                          <span
-                            className="components-form-toggle__thumb"
-                          />
-                          <SVG
-                            aria-hidden="true"
-                            className="components-form-toggle__off"
-                            focusable="false"
-                            height="6"
-                            role="img"
-                            viewBox="0 0 6 6"
-                            width="6"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <svg
-                              aria-hidden={true}
-                              className="components-form-toggle__off"
-                              focusable={false}
-                              height="6"
-                              role="img"
-                              viewBox="0 0 6 6"
-                              width="6"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <Path
-                                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                              >
-                                <path
-                                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                                />
-                              </Path>
-                            </svg>
-                          </SVG>
-                        </span>
-                      </FormToggle>
-                      <label
-                        className="components-toggle-control__label"
-                        htmlFor="inspector-toggle-control-72"
-                      >
-                        Allow individual card override
-                      </label>
-                    </div>
+                          className="components-form-toggle__track"
+                        />
+                        <span
+                          className="components-form-toggle__thumb"
+                        />
+                      </span>
+                    </FormToggle>
+                    <label
+                      className="components-toggle-control__label"
+                      htmlFor="inspector-toggle-control-72"
+                    >
+                      Allow individual card override
+                    </label>
                   </div>
-                </BaseControl>
-              </ToggleControl>
-            </WithInstanceId(ToggleControl)>
-            <WithInstanceId(ToggleControl)
+                </div>
+              </BaseControl>
+            </ToggleControl>
+            <ToggleControl
               checked={true}
               label="Show title"
               onChange={[Function]}
             >
-              <ToggleControl
-                checked={true}
-                instanceId={73}
-                label="Show title"
-                onChange={[Function]}
+              <BaseControl
+                className="components-toggle-control"
+                id="inspector-toggle-control-73"
               >
-                <BaseControl
-                  className="components-toggle-control"
-                  id="inspector-toggle-control-73"
+                <div
+                  className="components-base-control components-toggle-control"
                 >
                   <div
-                    className="components-base-control components-toggle-control"
+                    className="components-base-control__field"
                   >
-                    <div
-                      className="components-base-control__field"
+                    <FormToggle
+                      checked={true}
+                      id="inspector-toggle-control-73"
+                      onChange={[Function]}
                     >
-                      <FormToggle
-                        checked={true}
-                        id="inspector-toggle-control-73"
-                        onChange={[Function]}
+                      <span
+                        className="components-form-toggle is-checked"
                       >
+                        <input
+                          checked={true}
+                          className="components-form-toggle__input"
+                          id="inspector-toggle-control-73"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
                         <span
-                          className="components-form-toggle is-checked"
-                        >
-                          <input
-                            checked={true}
-                            className="components-form-toggle__input"
-                            id="inspector-toggle-control-73"
-                            onChange={[Function]}
-                            type="checkbox"
-                          />
-                          <span
-                            className="components-form-toggle__track"
-                          />
-                          <span
-                            className="components-form-toggle__thumb"
-                          />
-                          <SVG
-                            className="components-form-toggle__on"
-                            height="6"
-                            viewBox="0 0 2 6"
-                            width="2"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <svg
-                              aria-hidden={true}
-                              className="components-form-toggle__on"
-                              focusable={false}
-                              height="6"
-                              role="img"
-                              viewBox="0 0 2 6"
-                              width="2"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <Path
-                                d="M0 0h2v6H0z"
-                              >
-                                <path
-                                  d="M0 0h2v6H0z"
-                                />
-                              </Path>
-                            </svg>
-                          </SVG>
-                        </span>
-                      </FormToggle>
-                      <label
-                        className="components-toggle-control__label"
-                        htmlFor="inspector-toggle-control-73"
-                      >
-                        Show title
-                      </label>
-                    </div>
+                          className="components-form-toggle__track"
+                        />
+                        <span
+                          className="components-form-toggle__thumb"
+                        />
+                      </span>
+                    </FormToggle>
+                    <label
+                      className="components-toggle-control__label"
+                      htmlFor="inspector-toggle-control-73"
+                    >
+                      Show title
+                    </label>
                   </div>
-                </BaseControl>
-              </ToggleControl>
-            </WithInstanceId(ToggleControl)>
-            <WithInstanceId(ToggleControl)
+                </div>
+              </BaseControl>
+            </ToggleControl>
+            <ToggleControl
               checked={true}
               label="Show secondary text"
               onChange={[Function]}
             >
-              <ToggleControl
-                checked={true}
-                instanceId={74}
-                label="Show secondary text"
-                onChange={[Function]}
+              <BaseControl
+                className="components-toggle-control"
+                id="inspector-toggle-control-74"
               >
-                <BaseControl
-                  className="components-toggle-control"
-                  id="inspector-toggle-control-74"
+                <div
+                  className="components-base-control components-toggle-control"
                 >
                   <div
-                    className="components-base-control components-toggle-control"
+                    className="components-base-control__field"
                   >
-                    <div
-                      className="components-base-control__field"
+                    <FormToggle
+                      checked={true}
+                      id="inspector-toggle-control-74"
+                      onChange={[Function]}
                     >
-                      <FormToggle
-                        checked={true}
-                        id="inspector-toggle-control-74"
-                        onChange={[Function]}
+                      <span
+                        className="components-form-toggle is-checked"
                       >
+                        <input
+                          checked={true}
+                          className="components-form-toggle__input"
+                          id="inspector-toggle-control-74"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
                         <span
-                          className="components-form-toggle is-checked"
-                        >
-                          <input
-                            checked={true}
-                            className="components-form-toggle__input"
-                            id="inspector-toggle-control-74"
-                            onChange={[Function]}
-                            type="checkbox"
-                          />
-                          <span
-                            className="components-form-toggle__track"
-                          />
-                          <span
-                            className="components-form-toggle__thumb"
-                          />
-                          <SVG
-                            className="components-form-toggle__on"
-                            height="6"
-                            viewBox="0 0 2 6"
-                            width="2"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <svg
-                              aria-hidden={true}
-                              className="components-form-toggle__on"
-                              focusable={false}
-                              height="6"
-                              role="img"
-                              viewBox="0 0 2 6"
-                              width="2"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <Path
-                                d="M0 0h2v6H0z"
-                              >
-                                <path
-                                  d="M0 0h2v6H0z"
-                                />
-                              </Path>
-                            </svg>
-                          </SVG>
-                        </span>
-                      </FormToggle>
-                      <label
-                        className="components-toggle-control__label"
-                        htmlFor="inspector-toggle-control-74"
-                      >
-                        Show secondary text
-                      </label>
-                    </div>
+                          className="components-form-toggle__track"
+                        />
+                        <span
+                          className="components-form-toggle__thumb"
+                        />
+                      </span>
+                    </FormToggle>
+                    <label
+                      className="components-toggle-control__label"
+                      htmlFor="inspector-toggle-control-74"
+                    >
+                      Show secondary text
+                    </label>
                   </div>
-                </BaseControl>
-              </ToggleControl>
-            </WithInstanceId(ToggleControl)>
-            <WithInstanceId(ToggleControl)
+                </div>
+              </BaseControl>
+            </ToggleControl>
+            <ToggleControl
               checked={true}
               label="Show image"
               onChange={[Function]}
             >
-              <ToggleControl
-                checked={true}
-                instanceId={75}
-                label="Show image"
-                onChange={[Function]}
+              <BaseControl
+                className="components-toggle-control"
+                id="inspector-toggle-control-75"
               >
-                <BaseControl
-                  className="components-toggle-control"
-                  id="inspector-toggle-control-75"
+                <div
+                  className="components-base-control components-toggle-control"
                 >
                   <div
-                    className="components-base-control components-toggle-control"
+                    className="components-base-control__field"
                   >
-                    <div
-                      className="components-base-control__field"
+                    <FormToggle
+                      checked={true}
+                      id="inspector-toggle-control-75"
+                      onChange={[Function]}
                     >
-                      <FormToggle
-                        checked={true}
-                        id="inspector-toggle-control-75"
-                        onChange={[Function]}
+                      <span
+                        className="components-form-toggle is-checked"
                       >
+                        <input
+                          checked={true}
+                          className="components-form-toggle__input"
+                          id="inspector-toggle-control-75"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
                         <span
-                          className="components-form-toggle is-checked"
-                        >
-                          <input
-                            checked={true}
-                            className="components-form-toggle__input"
-                            id="inspector-toggle-control-75"
-                            onChange={[Function]}
-                            type="checkbox"
-                          />
-                          <span
-                            className="components-form-toggle__track"
-                          />
-                          <span
-                            className="components-form-toggle__thumb"
-                          />
-                          <SVG
-                            className="components-form-toggle__on"
-                            height="6"
-                            viewBox="0 0 2 6"
-                            width="2"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <svg
-                              aria-hidden={true}
-                              className="components-form-toggle__on"
-                              focusable={false}
-                              height="6"
-                              role="img"
-                              viewBox="0 0 2 6"
-                              width="2"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <Path
-                                d="M0 0h2v6H0z"
-                              >
-                                <path
-                                  d="M0 0h2v6H0z"
-                                />
-                              </Path>
-                            </svg>
-                          </SVG>
-                        </span>
-                      </FormToggle>
-                      <label
-                        className="components-toggle-control__label"
-                        htmlFor="inspector-toggle-control-75"
-                      >
-                        Show image
-                      </label>
-                    </div>
+                          className="components-form-toggle__track"
+                        />
+                        <span
+                          className="components-form-toggle__thumb"
+                        />
+                      </span>
+                    </FormToggle>
+                    <label
+                      className="components-toggle-control__label"
+                      htmlFor="inspector-toggle-control-75"
+                    >
+                      Show image
+                    </label>
                   </div>
-                </BaseControl>
-              </ToggleControl>
-            </WithInstanceId(ToggleControl)>
-            <WithInstanceId(ToggleControl)
+                </div>
+              </BaseControl>
+            </ToggleControl>
+            <ToggleControl
               checked={true}
               label="Show supporting text"
               onChange={[Function]}
             >
-              <ToggleControl
-                checked={true}
-                instanceId={76}
-                label="Show supporting text"
-                onChange={[Function]}
+              <BaseControl
+                className="components-toggle-control"
+                id="inspector-toggle-control-76"
               >
-                <BaseControl
-                  className="components-toggle-control"
-                  id="inspector-toggle-control-76"
+                <div
+                  className="components-base-control components-toggle-control"
                 >
                   <div
-                    className="components-base-control components-toggle-control"
+                    className="components-base-control__field"
                   >
-                    <div
-                      className="components-base-control__field"
+                    <FormToggle
+                      checked={true}
+                      id="inspector-toggle-control-76"
+                      onChange={[Function]}
                     >
-                      <FormToggle
-                        checked={true}
-                        id="inspector-toggle-control-76"
-                        onChange={[Function]}
+                      <span
+                        className="components-form-toggle is-checked"
                       >
+                        <input
+                          checked={true}
+                          className="components-form-toggle__input"
+                          id="inspector-toggle-control-76"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
                         <span
-                          className="components-form-toggle is-checked"
-                        >
-                          <input
-                            checked={true}
-                            className="components-form-toggle__input"
-                            id="inspector-toggle-control-76"
-                            onChange={[Function]}
-                            type="checkbox"
-                          />
-                          <span
-                            className="components-form-toggle__track"
-                          />
-                          <span
-                            className="components-form-toggle__thumb"
-                          />
-                          <SVG
-                            className="components-form-toggle__on"
-                            height="6"
-                            viewBox="0 0 2 6"
-                            width="2"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <svg
-                              aria-hidden={true}
-                              className="components-form-toggle__on"
-                              focusable={false}
-                              height="6"
-                              role="img"
-                              viewBox="0 0 2 6"
-                              width="2"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <Path
-                                d="M0 0h2v6H0z"
-                              >
-                                <path
-                                  d="M0 0h2v6H0z"
-                                />
-                              </Path>
-                            </svg>
-                          </SVG>
-                        </span>
-                      </FormToggle>
-                      <label
-                        className="components-toggle-control__label"
-                        htmlFor="inspector-toggle-control-76"
-                      >
-                        Show supporting text
-                      </label>
-                    </div>
+                          className="components-form-toggle__track"
+                        />
+                        <span
+                          className="components-form-toggle__thumb"
+                        />
+                      </span>
+                    </FormToggle>
+                    <label
+                      className="components-toggle-control__label"
+                      htmlFor="inspector-toggle-control-76"
+                    >
+                      Show supporting text
+                    </label>
                   </div>
-                </BaseControl>
-              </ToggleControl>
-            </WithInstanceId(ToggleControl)>
-            <WithInstanceId(ToggleControl)
+                </div>
+              </BaseControl>
+            </ToggleControl>
+            <ToggleControl
               checked={true}
               label="Show actions"
               onChange={[Function]}
             >
-              <ToggleControl
-                checked={true}
-                instanceId={77}
-                label="Show actions"
-                onChange={[Function]}
+              <BaseControl
+                className="components-toggle-control"
+                id="inspector-toggle-control-77"
               >
-                <BaseControl
-                  className="components-toggle-control"
-                  id="inspector-toggle-control-77"
+                <div
+                  className="components-base-control components-toggle-control"
                 >
                   <div
-                    className="components-base-control components-toggle-control"
+                    className="components-base-control__field"
                   >
-                    <div
-                      className="components-base-control__field"
+                    <FormToggle
+                      checked={true}
+                      id="inspector-toggle-control-77"
+                      onChange={[Function]}
                     >
-                      <FormToggle
-                        checked={true}
-                        id="inspector-toggle-control-77"
-                        onChange={[Function]}
+                      <span
+                        className="components-form-toggle is-checked"
                       >
+                        <input
+                          checked={true}
+                          className="components-form-toggle__input"
+                          id="inspector-toggle-control-77"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
                         <span
-                          className="components-form-toggle is-checked"
-                        >
-                          <input
-                            checked={true}
-                            className="components-form-toggle__input"
-                            id="inspector-toggle-control-77"
-                            onChange={[Function]}
-                            type="checkbox"
-                          />
-                          <span
-                            className="components-form-toggle__track"
-                          />
-                          <span
-                            className="components-form-toggle__thumb"
-                          />
-                          <SVG
-                            className="components-form-toggle__on"
-                            height="6"
-                            viewBox="0 0 2 6"
-                            width="2"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <svg
-                              aria-hidden={true}
-                              className="components-form-toggle__on"
-                              focusable={false}
-                              height="6"
-                              role="img"
-                              viewBox="0 0 2 6"
-                              width="2"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <Path
-                                d="M0 0h2v6H0z"
-                              >
-                                <path
-                                  d="M0 0h2v6H0z"
-                                />
-                              </Path>
-                            </svg>
-                          </SVG>
-                        </span>
-                      </FormToggle>
-                      <label
-                        className="components-toggle-control__label"
-                        htmlFor="inspector-toggle-control-77"
-                      >
-                        Show actions
-                      </label>
-                    </div>
+                          className="components-form-toggle__track"
+                        />
+                        <span
+                          className="components-form-toggle__thumb"
+                        />
+                      </span>
+                    </FormToggle>
+                    <label
+                      className="components-toggle-control__label"
+                      htmlFor="inspector-toggle-control-77"
+                    >
+                      Show actions
+                    </label>
                   </div>
-                </BaseControl>
-              </ToggleControl>
-            </WithInstanceId(ToggleControl)>
-            <WithInstanceId(ToggleControl)
+                </div>
+              </BaseControl>
+            </ToggleControl>
+            <ToggleControl
               checked={true}
               label="Show secondary action button"
               onChange={[Function]}
             >
-              <ToggleControl
-                checked={true}
-                instanceId={78}
-                label="Show secondary action button"
-                onChange={[Function]}
+              <BaseControl
+                className="components-toggle-control"
+                id="inspector-toggle-control-78"
               >
-                <BaseControl
-                  className="components-toggle-control"
-                  id="inspector-toggle-control-78"
+                <div
+                  className="components-base-control components-toggle-control"
                 >
                   <div
-                    className="components-base-control components-toggle-control"
+                    className="components-base-control__field"
                   >
-                    <div
-                      className="components-base-control__field"
+                    <FormToggle
+                      checked={true}
+                      id="inspector-toggle-control-78"
+                      onChange={[Function]}
                     >
-                      <FormToggle
-                        checked={true}
-                        id="inspector-toggle-control-78"
-                        onChange={[Function]}
+                      <span
+                        className="components-form-toggle is-checked"
                       >
+                        <input
+                          checked={true}
+                          className="components-form-toggle__input"
+                          id="inspector-toggle-control-78"
+                          onChange={[Function]}
+                          type="checkbox"
+                        />
                         <span
-                          className="components-form-toggle is-checked"
-                        >
-                          <input
-                            checked={true}
-                            className="components-form-toggle__input"
-                            id="inspector-toggle-control-78"
-                            onChange={[Function]}
-                            type="checkbox"
-                          />
-                          <span
-                            className="components-form-toggle__track"
-                          />
-                          <span
-                            className="components-form-toggle__thumb"
-                          />
-                          <SVG
-                            className="components-form-toggle__on"
-                            height="6"
-                            viewBox="0 0 2 6"
-                            width="2"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <svg
-                              aria-hidden={true}
-                              className="components-form-toggle__on"
-                              focusable={false}
-                              height="6"
-                              role="img"
-                              viewBox="0 0 2 6"
-                              width="2"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <Path
-                                d="M0 0h2v6H0z"
-                              >
-                                <path
-                                  d="M0 0h2v6H0z"
-                                />
-                              </Path>
-                            </svg>
-                          </SVG>
-                        </span>
-                      </FormToggle>
-                      <label
-                        className="components-toggle-control__label"
-                        htmlFor="inspector-toggle-control-78"
-                      >
-                        Show secondary action button
-                      </label>
-                    </div>
+                          className="components-form-toggle__track"
+                        />
+                        <span
+                          className="components-form-toggle__thumb"
+                        />
+                      </span>
+                    </FormToggle>
+                    <label
+                      className="components-toggle-control__label"
+                      htmlFor="inspector-toggle-control-78"
+                    >
+                      Show secondary action button
+                    </label>
                   </div>
-                </BaseControl>
-              </ToggleControl>
-            </WithInstanceId(ToggleControl)>
+                </div>
+              </BaseControl>
+            </ToggleControl>
           </div>
         </PanelBody>
       </ForwardRef(PanelBody)>

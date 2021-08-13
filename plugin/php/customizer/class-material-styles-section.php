@@ -51,8 +51,8 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	 * @since 3.4.0
 	 *
 	 * @param \WP_Customize_Manager $manager Customizer bootstrap instance.
-	 * @param string               $id      A specific ID of the section.
-	 * @param array                $args    {
+	 * @param string                $id      A specific ID of the section.
+	 * @param array                 $args    {
 	 *     Optional. Array of properties for the new Section object. Default empty array.
 	 *
 	 *     @type int             $priority           Priority of the section, defining the display order
@@ -70,9 +70,9 @@ class Material_Styles_Section extends \WP_Customize_Section {
 	 *                                               instead of inline above the first control.
 	 *                                               Default false.
 	 * }
-	 * @param Plugin Reference to parent plugin.
+	 * @param Plugin                $plugin Reference to parent plugin.
 	 */
-	public function __construct( $manager, $id, $args = array(), $plugin = null ) {
+	public function __construct( $manager, $id, $args = [], $plugin = null ) {
 		parent::__construct( $manager, $id, $args );
 
 		$this->plugin = $plugin;
@@ -108,12 +108,12 @@ class Material_Styles_Section extends \WP_Customize_Section {
 			<h3 class="accordion-section-title" tabindex="0">
 				<img class="control-section-{{ data.type }}-preview" src="{{ data.preview }}" alt />
 
-				<span class="customize-action"><?php _e( 'Active style', 'material-design' ); ?></span>
+				<span class="customize-action"><?php esc_html_e( 'Active style', 'material-design' ); ?></span>
 				<span class="customize-title">
 					{{ data.style }}
 				</span>
-				<span class="screen-reader-text"><?php _e( 'Press return or enter to open this section' ); ?></span>
-				<button type="button" class="button change-theme" aria-label="<?php esc_attr_e( 'Change style' ); ?>"><?php _e( 'Change', 'material-design' ); ?></button>
+				<span class="screen-reader-text"><?php esc_html_e( 'Press return or enter to open this section', 'material-design' ); ?></span>
+				<button type="button" class="button change-theme" aria-label="<?php esc_attr_e( 'Change style', 'material-design' ); ?>"><?php esc_html_e( 'Change', 'material-design' ); ?></button>
 				<button type="button" class="material-style-change-settings">
 					<span class="material-icons">settings</span>
 				</button>
@@ -123,17 +123,18 @@ class Material_Styles_Section extends \WP_Customize_Section {
 				<li class="customize-section-description-container section-meta <# if ( data.description_hidden ) { #>customize-info<# } #>">
 					<div class="customize-section-title">
 						<button class="customize-section-back" tabindex="-1">
-							<span class="screen-reader-text"><?php _e( 'Back' ); ?></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Back', 'material-design' ); ?></span>
 						</button>
 						<h3>
 							<span class="customize-action">
-								{{{ data.customizeAction }}}
+								{{ data.customizeAction }}
 							</span>
 							{{ data.title }}
 						</h3>
 						<# if ( data.description && data.description_hidden ) { #>
-						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php _e( 'Help' ); ?></span></button>
+						<button type="button" class="customize-help-toggle dashicons dashicons-editor-help" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Help', 'material-design' ); ?></span></button>
 						<div class="description customize-section-description">
+							<?php // phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 							{{{ data.description }}}
 						</div>
 						<# } #>
@@ -143,6 +144,7 @@ class Material_Styles_Section extends \WP_Customize_Section {
 
 					<# if ( data.description && ! data.description_hidden ) { #>
 					<div class="description customize-section-description">
+						<?php // phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 						{{{ data.description }}}
 					</div>
 					<# } #>

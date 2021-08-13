@@ -24,6 +24,7 @@
  */
 
 namespace MaterialDesign\Plugin\Customizer;
+
 use MaterialDesign\Plugin\Module_Base;
 use MaterialDesign\Plugin\Google_Fonts;
 use MaterialDesign\Plugin\Blocks_Frontend;
@@ -1525,8 +1526,8 @@ class Controls extends Module_Base {
 	/**
 	 * Use custom section for style
 	 *
-	 * @param $args array Section arguments.
-	 * @param $id string Section ID.
+	 * @param array $args array Section arguments.
+	 * @param int   $id string Section ID.
 	 *
 	 * @return Material_Styles_Section|Material_Style_Settings_Section|array Filtered value
 	 */
@@ -1559,7 +1560,7 @@ class Controls extends Module_Base {
 	/**
 	 * Get array of existing default choices.
 	 *
-	 * return array Existing choices
+	 * @return array Existing choices.
 	 */
 	public function get_style_choices() {
 		return [
