@@ -767,6 +767,7 @@ import getConfig from '../block-editor/utils/get-config';
 		}
 
 		reRenderMaterialLibrary();
+		updateActiveStyleName();
 	};
 
 	/**
