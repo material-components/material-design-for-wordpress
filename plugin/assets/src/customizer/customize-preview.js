@@ -44,6 +44,8 @@ const getIconFontName = iconStyle => {
 				.replace( /(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase() ) }`;
 };
 
+const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
+
 ( $ => {
 	// Bail out if this isn't loaded in an iframe.
 	if (
@@ -275,10 +277,16 @@ const getIconFontName = iconStyle => {
 			return;
 		}
 
+		const topAppBar = document.querySelector( '.mdc-top-app-bar' );
+
+		if ( ! topAppBar ) {
+			return;
+		}
+
 		if ( darkModeData[ currentStyle ].switcher ) {
-			console.log( 'display button' );
+			topAppBar.classList.add( HAS_DARK_MODE_CLASS );
 		} else {
-			console.log( 'hide button' );
+			topAppBar.classList.remove( HAS_DARK_MODE_CLASS );
 		}
 	}, 300 );
 
