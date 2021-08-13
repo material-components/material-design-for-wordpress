@@ -211,28 +211,7 @@ class Controls extends Module_Base {
 
 		$this->add_settings( $settings );
 
-		$choices = [
-			'baseline'    => [
-				'label' => __( 'Baseline', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
-			],
-			'crane'       => [
-				'label' => __( 'Crane', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
-			],
-			'fortnightly' => [
-				'label' => __( 'Fortnightly', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
-			],
-			'blossom'     => [
-				'label' => __( 'Blossom', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/blossom.svg' ),
-			],
-			'custom'      => [
-				'label' => __( 'Custom', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
-			],
-		];
+		$choices = $this->get_style_choices();
 
 		/**
 		 * List of all the controls in the Theme section.
@@ -699,6 +678,7 @@ class Controls extends Module_Base {
 				'nonce'                  => wp_create_nonce( 'wp_rest' ),
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
+				'styleChoices'           => $this->get_style_choices(),
 			]
 		);
 
@@ -1669,5 +1649,35 @@ class Controls extends Module_Base {
 		}
 
 		return $args;
+	}
+
+	/**
+	 * Get array of existing default choices.
+	 *
+	 * return array Existing choices
+	 */
+	public function get_style_choices() {
+		return [
+			'baseline'    => [
+				'label' => __( 'Baseline', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
+			],
+			'crane'       => [
+				'label' => __( 'Crane', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
+			],
+			'fortnightly' => [
+				'label' => __( 'Fortnightly', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
+			],
+			'blossom'     => [
+				'label' => __( 'Blossom', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/blossom.svg' ),
+			],
+			'custom'      => [
+				'label' => __( 'Custom', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
+			],
+		];
 	}
 }

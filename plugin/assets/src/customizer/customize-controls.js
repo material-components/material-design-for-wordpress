@@ -805,9 +805,12 @@ import getConfig from '../block-editor/utils/get-config';
 		const currentStyle = api( getConfig( 'styleControl' ) ).get();
 		const control = api.control( getConfig( 'styleSettings' ) );
 		const controlsSectionElement = document.querySelector( '#js-customize-section-style' );
+		const sectionPreview = document.querySelector( '#accordion-section-material_design_style .control-section-styles-preview' );
 
 		sectionTitleElement.textContent = currentStyle;
 		controlsSectionElement.textContent = currentStyle;
+
+		sectionPreview.src = getConfig( 'styleChoices' )[ currentStyle ].url;
 
 		unmountComponentAtNode( control.container.get( 0 ) );
 
