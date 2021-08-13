@@ -26,6 +26,7 @@ import { useState, useEffect } from '@wordpress/element';
  */
 import './style.css';
 import SettingsGroup from './SettingsGroup';
+import getConfig from '../../../block-editor/utils/get-config';
 
 const CHOICES = {
 	AUTO: 'auto',
@@ -40,6 +41,7 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 	);
 	const { dark, contrast, switcher } = currentValue;
 	const [ displaySwitcher, setDisplaySwitcher ] = useState( switcher );
+	const isThemeActive = 'ok' === getConfig( 'themeStatus' );
 
 	const onChange = ( value, setting ) => {
 		const newValue = {};
@@ -77,12 +79,14 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 				onChange={ value => onChange( value, 'contrast' ) }
 			/>
 
-			<ToggleControl
-				label={ __( 'Display Switcher', 'material-design' ) }
-				help={ __( 'Shows mode switcher in the header', 'material-design' ) }
-				checked={ displaySwitcher }
-				onChange={ () => setDisplaySwitcher( state => ! state ) }
-			/>
+			{ isThemeActive && (
+				<ToggleControl
+					label={ __( 'Display Switcher', 'material-design' ) }
+					help={ __( 'Shows mode switcher in the header', 'material-design' ) }
+					checked={ displaySwitcher }
+					onChange={ () => setDisplaySwitcher( state => ! state ) }
+				/>
+			) }
 		</>
 	);
 };
