@@ -187,7 +187,7 @@ const getIconFontName = iconStyle => {
 		// Generate the styles.
 		Object.keys( colorControls ).forEach( control => {
 			const color = parentApi( control ).get(),
-				colorRgb = colorUtils.hexToRgb( color ).join( ',' );
+				colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
 
 			styles += `${ colorControls[ control ] }: ${ color };
 				${ colorControls[ control ] }-rgb: ${ colorRgb };

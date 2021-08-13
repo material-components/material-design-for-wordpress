@@ -418,7 +418,7 @@ import getConfig from '../block-editor/utils/get-config';
 			) {
 				color = selectedColor;
 				textColor = api( control.params.relatedTextSetting ).get();
-				colorRange = colorUtils.generateColorFromHex( selectedColor );
+				colorRange = colorUtils.getColorRangeFromHex( selectedColor );
 				isText = false;
 			} else if (
 				control.params.relatedSetting &&
@@ -426,10 +426,10 @@ import getConfig from '../block-editor/utils/get-config';
 			) {
 				textColor = selectedColor;
 				color = api( control.params.relatedSetting ).get();
-				colorRange = colorUtils.generateColorFromHex( color );
+				colorRange = colorUtils.getColorRangeFromHex( color );
 			}
 
-			if ( ! color || ! colorRange.range ) {
+			if ( ! color || ! colorRange ) {
 				return;
 			}
 
@@ -439,11 +439,11 @@ import getConfig from '../block-editor/utils/get-config';
 					name: control.params.label,
 				},
 				{
-					color: colorRange.range.light.hex,
+					color: colorRange.light.hex,
 					name: __( 'Light variation', 'material-design' ),
 				},
 				{
-					color: colorRange.range.dark.hex,
+					color: colorRange.dark.hex,
 					name: __( 'Dark variation', 'material-design' ),
 				},
 			];

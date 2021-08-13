@@ -185,7 +185,9 @@ class Test_Admin extends \WP_UnitTestCase {
 		$this->assertRegexp( '/restPath/', $inline_js );
 		$this->assertRegexp( '/nonce/', $inline_js );
 
-		set_current_screen( $screen );
+		if ( null !== $screen ) {
+			set_current_screen( $screen );
+		}
 	}
 
 	/**

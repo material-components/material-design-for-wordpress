@@ -17,5 +17,3 @@
 export { default as findIcon } from './find-icon';
 export { default as getConfig } from './get-config';
 export { default as getIconName } from './get-icon-name';
-export { default as isDefaultCardStyleOutlined } from './is-default-card-style-outlined';
-export { default as isDefaultTextFieldStyleOutlined } from './is-default-text-field-outlined';
