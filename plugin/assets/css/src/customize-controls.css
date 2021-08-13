@@ -404,6 +404,13 @@
 	}
 }
 
-.control-section-style_settings .accordion-section-title {
-	display: none;
+.control-section-style_settings {
+
+	& .accordion-section-title {
+		display: none;
+	}
+
+	& .customize-section-style {
+		text-transform: capitalize;
+	}
 }

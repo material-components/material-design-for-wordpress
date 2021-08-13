@@ -118,7 +118,7 @@ class Material_Style_Settings_Section extends \WP_Customize_Section {
 							<span class="customize-action">
 								<?php esc_html_e( 'Theme Preferences', 'material-design' ); ?>
 							</span>
-							<span id="js-customize-section-style">
+							<span id="js-customize-section-style" class="customize-section-style">
 								{{ data.style }}
 							</span>
 

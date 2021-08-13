@@ -804,8 +804,10 @@ import getConfig from '../block-editor/utils/get-config';
 
 		const currentStyle = api( getConfig( 'styleControl' ) ).get();
 		const control = api.control( getConfig( 'styleSettings' ) );
+		const controlsSectionElement = document.querySelector( '#js-customize-section-style' );
 
 		sectionTitleElement.textContent = currentStyle;
+		controlsSectionElement.textContent = currentStyle;
 
 		unmountComponentAtNode( control.container.get( 0 ) );
 
