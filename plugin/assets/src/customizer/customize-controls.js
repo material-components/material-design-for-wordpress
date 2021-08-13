@@ -796,17 +796,20 @@ import getConfig from '../block-editor/utils/get-config';
 	};
 
 	const updateActiveStyleName = () => {
-		const currentStyle = api( getConfig( 'styleControl' ) ).get();
 		const sectionTitleElement = document.querySelector( '#accordion-section-material_design_style .customize-title' );
-		const controlsSectionElement = document.querySelector( '#js-customize-section-style' );
 
 		if ( ! sectionTitleElement ) {
 			return;
 		}
 
+		const currentStyle = api( getConfig( 'styleControl' ) ).get();
+		const control = api.control( getConfig( 'styleSettings' ) );
+
 		sectionTitleElement.textContent = currentStyle;
 
-		//renderStyleSettingsControl();
+		unmountComponentAtNode( control.container.get( 0 ) );
+
+		renderStyleSettingsControl( control );
 	};
 
 	api.bind( 'ready', () => {
