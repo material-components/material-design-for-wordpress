@@ -217,6 +217,12 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 			) }';`;
 		} );
 
+		Object.keys( settingsControls ).forEach( control => {
+			const settings = parentApi( control ).get();
+
+			toggleDarkModeSwitch( settings );
+		} );
+
 		styles = `:root {
 			${ styles }
 		}`;
