@@ -31,9 +31,9 @@ $has_search       = get_theme_mod( 'header_search_display', true );
 $layout           = get_theme_mod( 'header_bar_layout', 'standard' );
 $material_options = get_option( 'material_design' );
 $style_settings   = json_decode( $material_options['style_settings'], true );
-$has_dark_mode    = 'inactive' !== $style_settings[ $material_options['style'] ]['dark'];
+$has_dark_mode    = $style_settings[ $material_options['style'] ]['switcher'];
 $class            = ( 'fixed' === $layout ) ? 'mdc-top-app-bar--fixed' : '';
-$class           .= ( $has_dark_mode ) ? ' mdc-top-app-bar--has-dark-mode' : '';
+$class           .= ( $has_dark_mode ) ? ' top-app-bar--has-dark-mode' : '';
 
 ?>
 
@@ -59,12 +59,10 @@ $class           .= ( $has_dark_mode ) ? ' mdc-top-app-bar--has-dark-mode' : '';
 				</button>
 			<?php endif; ?>
 
-			<?php if ( $has_dark_mode ) : ?>
-				<button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button dark-mode__button" aria-label="<?php esc_attr_e( 'Toggle Dark Mode', 'material-design-google' ); ?>">
-					<span class="mdc-button__ripple"></span>
-					brightness_4
-				</button>
-			<?php endif; ?>
+			<button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button dark-mode__button" aria-label="<?php esc_attr_e( 'Toggle Dark Mode', 'material-design-google' ); ?>">
+				<span class="mdc-button__ripple"></span>
+				brightness_4
+			</button>
 		</section>
 	</div>
 
