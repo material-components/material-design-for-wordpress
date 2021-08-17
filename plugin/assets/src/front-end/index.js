@@ -27,10 +27,8 @@ import {
 	initToolTips,
 } from '../common/mdc-components-init';
 import { initContactForm } from './contact-form';
-import { initGlobalStyle } from './global-style';
 
 addEventListener( 'DOMContentLoaded', () => {
-	initGlobalStyle();
 	initButtons();
 	initLists();
 	initTabBar();
