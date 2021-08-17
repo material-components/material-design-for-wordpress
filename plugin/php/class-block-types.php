@@ -73,7 +73,12 @@ class Block_Types {
 
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
-		add_filter( 'block_categories', [ $this, 'block_category' ] );
+		// For 5.8 WP use block_categories_all filter.
+		if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
+			add_filter( 'block_categories_all', [ $this, 'block_category' ] );
+		} else {
+			add_filter( 'block_categories', [ $this, 'block_category' ] );
+		}
 	}
 
 	/**

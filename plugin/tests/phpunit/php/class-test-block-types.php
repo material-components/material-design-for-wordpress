@@ -65,7 +65,6 @@ class Test_Block_Types extends \WP_UnitTestCase {
 
 		$this->assertEquals( 10, has_action( 'init', [ $block_types, 'register_blocks' ] ) );
 		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', [ $block_types, 'enqueue_block_editor_assets' ] ) );
-		$this->assertEquals( 10, has_filter( 'block_categories', [ $block_types, 'block_category' ] ) );
 	}
 
 	/**
