@@ -44,9 +44,6 @@ function InlineIconUI( {
 			create( { text: iconVal } ),
 			{
 				type: settings.name,
-				attributes: {
-					className: 'material-icons',
-				},
 			},
 			newLocal,
 			iconVal.length
