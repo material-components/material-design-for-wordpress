@@ -116,6 +116,8 @@ class Image_Radio_Control extends \WP_Customize_Control {
 			return;
 		}
 
+		$id = Helpers::sanitize_control_id( $this->id );
+
 		foreach ( $options as $value => $args ) {
 			$label = isset( $args['label'] ) ? $args['label'] : '';
 			?>
