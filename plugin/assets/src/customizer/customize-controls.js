@@ -242,12 +242,52 @@ import getConfig from '../block-editor/utils/get-config';
 		},
 	} );
 
+	api.ColorsSection = api.CollapsibleSection.extend( {
+		defaultExpandedArguments: $.extend(
+			{},
+			api.Section.defaultExpandedArguments,
+			{ allowMultiple: true }
+		),
+
+		/**
+		 * wp.customize.ColorsSection
+		 *
+		 * Custom section which would act as a collapsible (accordion).
+		 *
+		 * @constructs wp.customize.ColorsSection
+		 * @augments   wp.customize.Section
+		 *
+		 * @param {string} id - ID.
+		 * @param {Object} options - Options.
+		 * @return {void}
+		 */
+		initialize( id, options ) {
+			const section = this;
+			api.Section.prototype.initialize.call( section, id, options );
+
+			// Add classes
+			section.container.addClass( 'control-section-collapse' );
+
+			// Move the section to it's parent panel.
+			section.headContainer.append( $( '#sub-accordion-section-' + id ) );
+
+			if ( section.panel && section.panel() ) {
+				const panel = api.panel( section.panel() );
+
+				if ( panel ) {
+					panel.container.last().addClass( 'control-section-collapse-parent' );
+				}
+			}
+		},
+	} );
+
 	/**
 	 * Extends wp.customize.sectionConstructor with section constructor for collapsible section.
 	 */
 	$.extend( api.sectionConstructor, {
 		collapse: api.CollapsibleSection,
 		styles: api.StylesSection,
+		colors: api.ColorsSection,
 	} );
 
 	api.MaterialColorControl = api.ColorControl.extend( {

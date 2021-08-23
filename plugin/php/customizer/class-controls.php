@@ -81,6 +81,8 @@ class Controls extends Module_Base {
 
 		$this->wp_customize->register_section_type( Material_Style_Settings_Section::class );
 
+		$this->wp_customize->register_section_type( Material_Color_palette_Section::class );
+
 		// Register custom control types.
 		$this->wp_customize->register_control_type( Material_Color_Palette_Control::class );
 
@@ -135,7 +137,7 @@ class Controls extends Module_Base {
 		$sections = [
 			'style'          => __( 'Starter Styles', 'material-design' ),
 			'style_settings' => __( 'Style', 'material-design' ),
-			'colors'         => __( 'Color Palette ', 'material-design' ),
+			'colors'         => __( 'Color Palette', 'material-design' ),
 			'typography'     => __( 'Typography (Font Styles)', 'material-design' ),
 			'corner_styles'  => __( 'Shape Size', 'material-design' ),
 			'icons'          => __( 'Icon Styles', 'material-design' ),
@@ -709,6 +711,7 @@ class Controls extends Module_Base {
 	 * Render custom templates.
 	 */
 	public function templates() {
+		Material_Color_Palette_Section::tabs_template();
 		Material_Color_Palette_Control::tabs_template();
 	}
 
@@ -1547,6 +1550,17 @@ class Controls extends Module_Base {
 			$args['type'] = 'style_settings';
 
 			return new Material_Style_Settings_Section(
+				$this->wp_customize,
+				$id,
+				$args,
+				$this->plugin
+			);
+		}
+
+		if ( 'material_design_colors' === $id ) {
+			$args['type'] = 'colors';
+
+			return new Material_Color_Palette_Section(
 				$this->wp_customize,
 				$id,
 				$args,
