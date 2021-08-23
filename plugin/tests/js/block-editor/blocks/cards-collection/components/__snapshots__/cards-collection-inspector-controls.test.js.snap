@@ -27,37 +27,37 @@ exports[`CardsCollectionInspectorControls matches snapshot 1`] = `
       onChange={[Function]}
       value={1}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={false}
       label="Allow individual card override"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show title"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show secondary text"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show image"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show supporting text"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show actions"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show secondary action button"
       onChange={[Function]}
@@ -96,7 +96,7 @@ exports[`CardsCollectionInspectorControls matches snapshot when individual overr
       onChange={[Function]}
       value={1}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Allow individual card override"
       onChange={[Function]}
@@ -158,32 +158,32 @@ exports[`CardsCollectionInspectorControls matches snapshot when the style attrib
       onChange={[Function]}
       value={1}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={false}
       label="Allow individual card override"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show title"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show secondary text"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show image"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show actions"
       onChange={[Function]}
     />
-    <ToggleControl
+    <WithInstanceId(ToggleControl)
       checked={true}
       label="Show secondary action button"
       onChange={[Function]}

@@ -2,7 +2,7 @@
 
 exports[`HandPickedPostsBlockControls matches snapshot when the edit mode is false 1`] = `
 <BlockControls>
-  <ForwardRef(Toolbar)
+  <Toolbar
     controls={
       Array [
         Object {
@@ -19,7 +19,7 @@ exports[`HandPickedPostsBlockControls matches snapshot when the edit mode is fal
 
 exports[`HandPickedPostsBlockControls matches snapshot when the edit mode is true 1`] = `
 <BlockControls>
-  <ForwardRef(Toolbar)
+  <Toolbar
     controls={
       Array [
         Object {

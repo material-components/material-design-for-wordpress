@@ -54,7 +54,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
                 />
               </svg>
             </span>
@@ -147,7 +147,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
                 />
               </svg>
             </span>
@@ -175,6 +175,20 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -210,7 +224,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
                 />
               </svg>
             </span>
@@ -398,7 +412,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
               />
             </svg>
           </span>
@@ -491,7 +505,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
               />
             </svg>
           </span>
@@ -519,6 +533,20 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -554,7 +582,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
               />
             </svg>
           </span>

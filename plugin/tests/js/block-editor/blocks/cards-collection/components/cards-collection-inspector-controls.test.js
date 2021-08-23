@@ -114,7 +114,7 @@ describe( 'CardsCollectionInspectorControls', () => {
 
 		const mockEvent = { target: { value: false } };
 		wrapper
-			.find( 'ToggleControl' )
+			.find( 'WithInstanceId(ToggleControl)' )
 			.at( 1 )
 			.simulate( 'change', mockEvent );
 		expect( baseProps.setAttributes ).toHaveBeenCalledWith( {

@@ -154,8 +154,6 @@ Object {
           <button
             aria-label="Move left"
             class="components-button components-toolbar__control has-icon"
-            data-experimental-toolbar-item="true"
-            direction="left"
             type="button"
           >
             <i
@@ -169,8 +167,6 @@ Object {
           <button
             aria-label="Move right"
             class="components-button components-toolbar__control has-icon"
-            data-experimental-toolbar-item="true"
-            direction="right"
             type="button"
           >
             <i
@@ -206,7 +202,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
                 />
               </svg>
             </span>
@@ -380,8 +376,6 @@ Object {
         <button
           aria-label="Move left"
           class="components-button components-toolbar__control has-icon"
-          data-experimental-toolbar-item="true"
-          direction="left"
           type="button"
         >
           <i
@@ -395,8 +389,6 @@ Object {
         <button
           aria-label="Move right"
           class="components-button components-toolbar__control has-icon"
-          data-experimental-toolbar-item="true"
-          direction="right"
           type="button"
         >
           <i
@@ -432,7 +424,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
               />
             </svg>
           </span>

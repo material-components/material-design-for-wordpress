@@ -37,8 +37,6 @@ Object {
           <button
             aria-label="Move left"
             class="components-button components-toolbar__control has-icon"
-            data-experimental-toolbar-item="true"
-            direction="left"
             type="button"
           >
             <i
@@ -52,8 +50,6 @@ Object {
           <button
             aria-label="Move right"
             class="components-button components-toolbar__control has-icon"
-            data-experimental-toolbar-item="true"
-            direction="right"
             type="button"
           >
             <i
@@ -75,8 +71,6 @@ Object {
         <button
           aria-label="Move left"
           class="components-button components-toolbar__control has-icon"
-          data-experimental-toolbar-item="true"
-          direction="left"
           type="button"
         >
           <i
@@ -90,8 +84,6 @@ Object {
         <button
           aria-label="Move right"
           class="components-button components-toolbar__control has-icon"
-          data-experimental-toolbar-item="true"
-          direction="right"
           type="button"
         >
           <i
@@ -194,8 +186,6 @@ Object {
           <button
             aria-label="Move left"
             class="components-button components-toolbar__control has-icon"
-            data-experimental-toolbar-item="true"
-            direction="left"
             type="button"
           >
             <i
@@ -209,8 +199,6 @@ Object {
           <button
             aria-label="Move right"
             class="components-button components-toolbar__control has-icon"
-            data-experimental-toolbar-item="true"
-            direction="right"
             type="button"
           >
             <i
@@ -232,8 +220,6 @@ Object {
         <button
           aria-label="Move left"
           class="components-button components-toolbar__control has-icon"
-          data-experimental-toolbar-item="true"
-          direction="left"
           type="button"
         >
           <i
@@ -247,8 +233,6 @@ Object {
         <button
           aria-label="Move right"
           class="components-button components-toolbar__control has-icon"
-          data-experimental-toolbar-item="true"
-          direction="right"
           type="button"
         >
           <i
