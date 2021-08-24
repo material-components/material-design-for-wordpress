@@ -339,6 +339,7 @@ import getConfig from '../block-editor/utils/get-config';
 		 */
 		ready() {
 			const control = this;
+			const styleControl = api.control( getConfig( 'styleSettings' ) );
 
 			api.ColorControl.prototype.ready.call( control );
 
@@ -367,11 +368,6 @@ import getConfig from '../block-editor/utils/get-config';
 
 				container.find( `#${ targetId }` ).addClass( 'active' );
 				link.addClass( 'active' );
-			} );
-
-			control.setting.bind( value => {
-				// Re-render the material palette component and accessibility warnings if the color is updated.
-				control.renderPaletteWithAccessibilityWarnings( value );
 			} );
 
 			const colorToggler = container.find( '.wp-color-result' ),
@@ -771,6 +767,9 @@ import getConfig from '../block-editor/utils/get-config';
 
 		const props = {
 			defaultValue: setting.get(),
+			onColorChange: value => {
+				control.setting.set( value );
+			},
 			params,
 			api,
 		};
@@ -842,6 +841,7 @@ import getConfig from '../block-editor/utils/get-config';
 		} );
 
 		reRenderMaterialLibrary();
+		reRenderColorControls();
 		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
 	};
@@ -914,6 +914,24 @@ import getConfig from '../block-editor/utils/get-config';
 		unmountComponentAtNode( control.container.get( 0 ) );
 
 		renderStyleSettingsControl( control );
+	};
+
+	const reRenderColorControls = () => {
+		const controlObjects = getConfig( 'colorControls' );
+
+		controlObjects.forEach( controlObject => {
+			const setting =
+				controlObject.related_text_setting || controlObject.related_setting;
+			const control = api.control( setting );
+
+			if ( ! control ) {
+				return;
+			}
+
+			unmountComponentAtNode( control.container.get( 0 ) );
+
+			renderColorControl( control );
+		} );
 	};
 
 	api.bind( 'ready', () => {

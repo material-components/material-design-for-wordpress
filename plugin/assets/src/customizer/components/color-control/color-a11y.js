@@ -60,8 +60,6 @@ const ColorA11y = ( { selectedColor, api, params } ) => {
 		);
 	} );
 
-	console.log( colors );
-
 	return (
 		<div className="material-design-accessibility">
 			<div className="material-color-accessibility">
@@ -74,7 +72,7 @@ const ColorA11y = ( { selectedColor, api, params } ) => {
 			</div>
 		</div>
 	)
-}
+};
 
 const ColorItem = ( { type, hex, variations } ) => {
 	return (
@@ -89,16 +87,22 @@ const ColorItem = ( { type, hex, variations } ) => {
 			) ) }
 		</div>
 	)
-}
+};
 
-const ColorVariation = ( { size, result, textColor, colorHex, textColorHex } ) => {
+const ColorVariation = ( {
+	size,
+	result,
+	textColor,
+	colorHex,
+	textColorHex,
+} ) => {
 	if ( null !== result ) {
 		return null;
 	}
 
 	return (
 		<>
-			{ sprintf( __( '%s text ', 'material-design' ), size ) }
+			{ sprintf( __( '%s text: ', 'material-design' ), size ) }
 			{ textColor }
 			{ __( ' text not legible ', 'material-design' ) }
 			<span style={ { backgroundColor: colorHex, color: textColorHex } }>
@@ -107,6 +111,6 @@ const ColorVariation = ( { size, result, textColor, colorHex, textColorHex } ) =
 			<span className="dashicons dashicons-warning"></span><br/>
 		</>
 	)
-}
+};
 
 export default ColorA11y;

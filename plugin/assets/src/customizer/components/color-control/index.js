@@ -27,10 +27,15 @@ import './style.css';
 import ColorA11y from './color-a11y';
 import MaterialColorPalette from '../../../block-editor/components/material-color-palette';
 
-const ColorControl = ( { defaultValue, params, api } ) => {
+const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
 	const [ color, setColor ] = useState( defaultValue );
 	const [ displayColorPalette, setDisplayColorPalette ] = useState( false );
 	const { label } = params;
+
+	const onChange = value => {
+		setColor( value );
+		onColorChange( value );
+	};
 
 	return (
 		<>
@@ -46,7 +51,7 @@ const ColorControl = ( { defaultValue, params, api } ) => {
 				></button>
 				<TextControl
 					value={ color }
-					onChange={ value => setColor( value ) }
+					onChange={ onChange }
 					className="material-design-color__input"
 				/>
 			</div>
@@ -55,7 +60,7 @@ const ColorControl = ( { defaultValue, params, api } ) => {
 				<>
 					<MaterialColorPalette
 						value={ color }
-						onChange={ value => setColor( value ) }
+						onChange={ onChange }
 						materialColorsOnly={ true }
 					/>
 
