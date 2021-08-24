@@ -88,7 +88,7 @@ export const showHideNotification = ( loadMaterialLibrary = null ) => {
  */
 export const init = () => {
 	// Bind for previewer events.
-	api.previewer.bind( 'materialDesign', settings => {
+	/* api.previewer.bind( 'materialDesign', settings => {
 		notificationCount = settings.notificationCount;
 		showHideNotification();
 	} );
@@ -98,5 +98,5 @@ export const init = () => {
 			const code = 'material_design_components';
 			api.notifications.remove( code );
 		}
-	} );
+	} ); */
 };

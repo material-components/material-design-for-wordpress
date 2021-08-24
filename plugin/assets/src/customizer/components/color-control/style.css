@@ -1,0 +1,21 @@
+.material-design-color__picker {
+	align-items: center;
+	display: flex;
+
+	& .components-base-control .components-base-control__field {
+		margin-bottom: 0;
+	}
+}
+
+.material-design-color__label {
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+
+.material-design-color__color {
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	height: 40px;
+	margin-right: 15px;
+	width: 40px;
+}

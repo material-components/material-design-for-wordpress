@@ -217,14 +217,14 @@ $( '#customize-save-button-wrapper' ).ready( function() {
 			.text( BUTTON_OPEN_TEXT )
 	);
 
-	api.panel( getConfig( 'slug' ) ).expanded.bind( function( expanded ) {
+	/* api.panel( getConfig( 'slug' ) ).expanded.bind( function( expanded ) {
 		const showOrHide = expanded ? 'block' : 'none';
 		$( '.toggle-material-library' ).css( 'display', showOrHide );
 
 		if ( ! expanded && $( '#mcb-material-library-preview' ).is( ':visible' ) ) {
 			toggleMaterialLibrary();
 		}
-	} );
+	} ); */
 } );
 
 /**

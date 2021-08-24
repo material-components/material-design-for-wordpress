@@ -88,38 +88,19 @@ class Material_Color_Palette_Section extends \WP_Customize_Section {
 		<script type="text/html" id="tmpl-customize-section-material_color-tabs">
 			<# var id = materialDesignSanitizeControlId( data.id ) #>
 			<div class="material-design-section-tabs">
-				<a class="material-design-tab-link material-design-tab-link--active" href="#material-design-default-{{id}}"><?php esc_html_e( 'Default', 'material-design' ); ?></a>
-				<a class="material-design-tab-link" href="#material-design-dark-{{id}}"><?php esc_html_e( 'Dark Mode', 'material-design' ); ?></a>
-				<a class="material-design-tab-link" href="#material-design-contrast-{{id}}"><?php esc_html_e( 'High Contrast', 'material-design' ); ?></a>
+				<a class="material-design-tab-link material-design-tab-link--active" href="#material-design-default-{{id}}" data-palette="default"><?php esc_html_e( 'Default', 'material-design' ); ?></a>
+				<a class="material-design-tab-link" href="#material-design-dark-{{id}}" data-palette="dark"><?php esc_html_e( 'Dark Mode', 'material-design' ); ?></a>
+				<a class="material-design-tab-link" href="#material-design-contrast-{{id}}" data-palette="contrast"><?php esc_html_e( 'High Contrast', 'material-design' ); ?></a>
 			</div>
-			<div class="material-design-tab-content tab-palette" id="material-design-default-{{id}}"></div>
-			<div class="material-design-tab-content tab-custom" id="material-design-dark-{{id}}"></div>
-			<div class="material-design-tab-content tab-custom" id="material-design-contrast-{{id}}"></div>
+			<ul class="material-design-tab-content tab-palette" id="material-design-default-{{id}}">
+				{{{ data.content }}}
+			</ul>
+			<ul class="material-design-tab-content tab-custom" id="material-design-dark-{{id}}"></ul>
+			<ul class="material-design-tab-content tab-custom" id="material-design-contrast-{{id}}"></ul>
 		</script>
 
-		<script type="text/html" id="tmpl-customize-section-material_color-accessibility">
-			<div class="material-color-accessibility">
-				<label><?php esc_html_e( 'Current Scheme', 'material-design' ); ?></label>
-				<div class="material-color-accessibility-inner">
-					<# _.each( data.colors, function( color ) { #>
-						<div class="material-color-accessibility-row">
-							<div class="material-color-accessibility-color">
-								<span style="background-color: {{ color.hex }}"></span> <strong>{{ color.type }}</strong>
-							</div>
-
-							<# _.each( color.variations, function( variation ) { #>
-								<# if ( null === variation.result ) { #>
-									{{ variation.size }} <?php esc_html_e( 'text', 'material-design' ); ?>:
-									{{ variation.textColor }}
-									<?php esc_html_e( ' text not legible', 'material-design' ); ?>
-									<span style="background-color: {{ variation.colorHex }}; color: {{ variation.textColorHex }}"><?php esc_html_e( 'Aa', 'material-design' ); ?></span>
-									<span class="dashicons dashicons-warning"></span><br/>
-								<# } #>
-							<# } ); #>
-						</div>
-					<# } ); #>
-				</div>
-			</div>
+		<script type="text/html" id="tmpl-customize-section-material_color-palette-template">
+			<div id="material-design-color-palette-template"></div>
 		</script>
 		<?php
 	}

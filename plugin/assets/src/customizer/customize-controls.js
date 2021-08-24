@@ -44,6 +44,7 @@ import GlobalRangeSliderControl from './components/range-slider-control/global';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
 import GoogleFontsControl from './components/google-fonts-control';
 import StyleSettingsControl from './components/style-settings-control';
+import ColorControl from './components/color-control';
 import {
 	loadMaterialLibrary,
 	reRenderMaterialLibrary,
@@ -287,10 +288,35 @@ import getConfig from '../block-editor/utils/get-config';
 
 			api.Section.prototype.ready.call( section );
 
-			section.contentContainer.prepend(
-				section.template( { id: section.id } )
+			const content = section.contentContainer.html();
+
+			section.contentContainer.html(
+				section.template( { id: section.id, content } )
 			);
-		}
+
+
+			section.contentContainer
+				.find( '.material-design-section-tabs .material-design-tab-link' )
+				.on( 'click', event => {
+					const { target } = event;
+
+					if ( ! target ) {
+						return;
+					}
+
+					const { palette } = target.dataset;
+
+					if ( ! palette ) {
+						return;
+					}
+
+					section.contentContainer
+						.find( '.material-design-tab-link--active' )
+						.removeClass( 'material-design-tab-link--active' );
+
+					target.classList.add( 'material-design-tab-link--active' );
+				} );
+		},
 	} );
 
 	/**
@@ -316,7 +342,7 @@ import getConfig from '../block-editor/utils/get-config';
 
 			api.ColorControl.prototype.ready.call( control );
 
-			control.colorContainer = control.container.find( '.wp-picker-container' );
+			/* control.colorContainer = control.container.find( '.wp-picker-container' );
 
 			const picker = control.container.find( '.wp-picker-holder' );
 			const container = control.container.find( '.wp-picker-container' );
@@ -424,7 +450,9 @@ import getConfig from '../block-editor/utils/get-config';
 							designStyles[ style ][ removeOptionPrefix( controlName ) ]
 						);
 					}
-				} );
+				} ); */
+
+			renderColorControl( this );
 		},
 
 		/**
@@ -737,6 +765,19 @@ import getConfig from '../block-editor/utils/get-config';
 
 		render( <StyleSettingsControl { ...props } />, control.container.get( 0 ) );
 	};
+
+	const renderColorControl = control => {
+		const { setting, params } = control;
+
+		console.log( control );
+
+		const props = {
+			defaultValue: setting.get(),
+			label: params.label,
+		};
+
+		render( <ColorControl { ...props } />, control.container.get( 0 ) );
+	}
 
 	/**
 	 * Callback when a "Design Style" is changed.

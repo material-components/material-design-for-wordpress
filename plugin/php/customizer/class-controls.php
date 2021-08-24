@@ -587,6 +587,7 @@ class Controls extends Module_Base {
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
 				'styleChoices'           => $this->get_style_choices(),
+				'colorControls'          => $this->get_color_controls(),
 			]
 		);
 
