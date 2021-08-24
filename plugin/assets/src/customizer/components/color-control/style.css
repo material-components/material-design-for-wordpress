@@ -19,3 +19,7 @@
 	margin-right: 15px;
 	width: 40px;
 }
+
+.material-design-color__input input {
+	width: 50% !important; /* Override core */
+}

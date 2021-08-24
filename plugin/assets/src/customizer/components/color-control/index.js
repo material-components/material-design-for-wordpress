@@ -14,7 +14,11 @@ const ColorControl = ( { defaultValue, label } ) => {
 					className="material-design-color__color"
 					style={ { backgroundColor: color } }
 				></div>
-				<TextControl value={ color } onChange={ value => setColor( value ) } />
+				<TextControl
+					value={ color }
+					onChange={ value => setColor( value ) }
+					className="material-design-color__input"
+				/>
 			</div>
 		</>
 	);
