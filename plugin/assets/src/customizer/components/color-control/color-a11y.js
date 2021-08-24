@@ -63,12 +63,14 @@ const ColorA11y = ( { selectedColor, api, params } ) => {
 	console.log( colors );
 
 	return (
-		<div className="material-color-accessibility">
-			<label>{ __( 'Current Scheme', 'material-design' ) }</label>
-			<div className="material-color-accessibility-inner">
-				{ colors.map( color => (
-					<ColorItem key={ uniqueId( 'color-' ) } { ...color } />
-				) ) }
+		<div className="material-design-accessibility">
+			<div className="material-color-accessibility">
+				<label>{ __( 'Current Scheme', 'material-design' ) }</label>
+				<div className="material-color-accessibility-inner">
+					{ colors.map( color => (
+						<ColorItem key={ uniqueId( 'color-' ) } { ...color } />
+					) ) }
+				</div>
 			</div>
 		</div>
 	)
@@ -90,9 +92,13 @@ const ColorItem = ( { type, hex, variations } ) => {
 }
 
 const ColorVariation = ( { size, result, textColor, colorHex, textColorHex } ) => {
+	if ( null !== result ) {
+		return null;
+	}
+
 	return (
 		<>
-			{ sprintf( __( `%s text`, 'material-design' ), size ) }
+			{ sprintf( __( `%s text `, 'material-design' ), size ) }
 			{ textColor }
 			{ __(' text not legible', 'material-design' ) }
 			<span style={ { backgroundColor: colorHex, color: textColorHex } }>

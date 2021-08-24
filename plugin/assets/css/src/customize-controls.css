@@ -181,7 +181,6 @@
 }
 
 .material-design-accessibility {
-	display: none;
 	margin: 10px 0;
 
 	& label {
