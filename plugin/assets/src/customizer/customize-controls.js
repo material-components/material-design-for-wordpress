@@ -769,11 +769,10 @@ import getConfig from '../block-editor/utils/get-config';
 	const renderColorControl = control => {
 		const { setting, params } = control;
 
-		console.log( control );
-
 		const props = {
 			defaultValue: setting.get(),
-			label: params.label,
+			params,
+			api,
 		};
 
 		render( <ColorControl { ...props } />, control.container.get( 0 ) );
