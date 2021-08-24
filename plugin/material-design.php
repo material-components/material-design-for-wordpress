@@ -3,7 +3,7 @@
  * Plugin Name: Material Design
  * Plugin URI: https://github.com/material-components/material-design-for-wordpress
  * Description: The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
- * Version: 0.2.1
+ * Version: 0.3.1
  * Requires at least: 5.6
  * Requires PHP:      5.6.20+
  * Author:  Material Design
@@ -63,39 +63,36 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) ) {
 	_material_design_error( '_material_design_php_version_text', '_material_design_php_version_error' );
 }
 
+add_action( 'admin_menu', '_material_design_maybe_add_plugin_message', 11 );
 
-add_action('admin_menu', '_material_design_maybe_add_plugin_message', 11);
-
-
-function _material_design_maybe_add_plugin_message()
-{
+/**
+ * Add plugin notice for update.
+ */
+function _material_design_maybe_add_plugin_message() {
 	global $pagenow;
 
-	if( $pagenow == 'plugins.php' )
-	{
+	if ( $pagenow === 'plugins.php' ) {
 		$file   = basename( __FILE__ );
 		$folder = basename( dirname( __FILE__ ) );
-		$hook = "in_plugin_update_message-{$folder}/{$file}";
+		$hook   = "in_plugin_update_message-{$folder}/{$file}";
 		add_action( $hook, '_material_design_in_plugin_update_message', 10, 2 );
 	}
 }
 
-function _material_design_in_plugin_update_message( $plugin_data, $responce )
-{
-	$wp_version = 0;
-	// Include an unmodified $wp_version.
-	require ABSPATH . WPINC . '/version.php';
-
-	// add case for each version you wish to have an message shown for
-	switch ( $responce->new_version ){
-		case '0.3.1':
-			// only show this message if the WP version is older than 5.6
-			if( version_compare( $wp_version, 5.6, '<' ) ){
-				printf('<span class="material_design_update_message">%s</span>', esc_html__('This update deprecates support for your version of WordPress please update', 'material-design' ) );
-			}
+/**
+ * Show update message notice.
+ *
+ * @param array    $plugin_data plugin update information.
+ * @param stdClass $responce    plugin update information.
+ */
+function _material_design_in_plugin_update_message( $plugin_data, $responce ) {
+	// Add case for each version you wish to have a message shown for.
+	if ( version_compare( $responce->new_version, '0.4.0', '>' ) && version_compare( get_bloginfo( 'version' ), 5.6, '<' ) ) {
+		// Only show this message if new plugin update is > 0.4.0 as we will drop support after 0.4.0.
+		// Only show this message if the WP version is older than 5.6.
+		printf( '<span class="material_design_update_message">%s</span>', esc_html__( 'Please note that the upcoming Material Theme and Plugin release will include updated support and will only support WordPress version 5.6 and up.', 'material-design' ) );
 	}
 }
-
 
 /**
  * Display errors.
