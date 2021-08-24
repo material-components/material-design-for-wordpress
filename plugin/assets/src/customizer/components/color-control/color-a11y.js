@@ -98,9 +98,9 @@ const ColorVariation = ( { size, result, textColor, colorHex, textColorHex } ) =
 
 	return (
 		<>
-			{ sprintf( __( `%s text `, 'material-design' ), size ) }
+			{ sprintf( __( '%s text ', 'material-design' ), size ) }
 			{ textColor }
-			{ __(' text not legible', 'material-design' ) }
+			{ __( ' text not legible ', 'material-design' ) }
 			<span style={ { backgroundColor: colorHex, color: textColorHex } }>
 				{ __( 'Aa', 'material-design' ) }
 			</span>
