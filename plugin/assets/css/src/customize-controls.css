@@ -132,6 +132,28 @@
 	margin: 15px 0;
 }
 
+.material-design-section-tabs {
+	align-items: center;
+	background: none;
+	display: flex;
+	margin: 12px -12px;
+
+	& .material-design-tab-link {
+		background: none;
+		border-right: 0;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		margin: auto;
+		padding: 8px 7px;
+	}
+
+	& .material-design-tab-link--active {
+		border-bottom: 3px solid #0073aa;
+		color: #0073aa;
+	}
+}
+
 .material-design-tab-link {
 	display: inline-block;
 	width: 50%;

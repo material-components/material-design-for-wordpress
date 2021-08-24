@@ -249,6 +249,8 @@ import getConfig from '../block-editor/utils/get-config';
 			{ allowMultiple: true }
 		),
 
+		template: wp.template( 'customize-section-material_color-tabs' ),
+
 		/**
 		 * wp.customize.ColorsSection
 		 *
@@ -279,6 +281,16 @@ import getConfig from '../block-editor/utils/get-config';
 				}
 			}
 		},
+
+		ready() {
+			const section = this;
+
+			api.Section.prototype.ready.call( section );
+
+			section.contentContainer.prepend(
+				section.template( { id: section.id } )
+			);
+		}
 	} );
 
 	/**
