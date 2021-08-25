@@ -17,8 +17,14 @@
 /**
  * WordPress dependencies
  */
-import { TextControl } from '@wordpress/components';
+import { TextControl, ColorPicker } from '@wordpress/components';
 import { useState } from '@wordpress/element';
+import { __ } from '@wordpress/i18n';
+
+/**
+ * External dependencies
+ */
+import classNames from 'classnames';
 
 /**
  * Internal dependencies
@@ -30,6 +36,7 @@ import MaterialColorPalette from '../../../block-editor/components/material-colo
 const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
 	const [ color, setColor ] = useState( defaultValue );
 	const [ displayColorPalette, setDisplayColorPalette ] = useState( false );
+	const [ materialPickerSelected, setMaterialPickerSelected ] = useState( true );
 	const { label } = params;
 
 	const onChange = value => {
@@ -58,11 +65,49 @@ const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
 
 			{ displayColorPalette && (
 				<>
-					<MaterialColorPalette
-						value={ color }
-						onChange={ onChange }
-						materialColorsOnly={ true }
-					/>
+					<div className="material-design-color__picker-container">
+						<div className="material-design-color__picker-tabs material-design-tabs">
+							{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
+							<button
+								role="button"
+								className={ classNames( 'material-design-tab-link', {
+									active: materialPickerSelected,
+								} ) }
+								onClick={ () => setMaterialPickerSelected( true ) }
+							>
+								{ __( 'Palette', 'material-design' ) }
+							</button>
+
+							{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
+							<button
+								role="button"
+								className={ classNames( 'material-design-tab-link', {
+									active: ! materialPickerSelected,
+								} ) }
+								onClick={ () => setMaterialPickerSelected( false ) }
+							>
+								{ __( 'Custom', 'material-design' ) }
+							</button>
+						</div>
+
+						<div className="material-design-color__picker-options">
+							{ materialPickerSelected && (
+								<MaterialColorPalette
+									value={ color }
+									onChange={ onChange }
+									materialColorsOnly={ true }
+								/>
+							) }
+
+							{ ! materialPickerSelected && (
+								<ColorPicker
+									color={ color }
+									onChangeComplete={ onChange }
+									disableAlpha
+								/>
+							) }
+						</div>
+					</div>
 
 					<ColorA11y api={ api } params={ params } selectedColor={ color } />
 				</>
