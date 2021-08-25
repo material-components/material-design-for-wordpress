@@ -56,8 +56,12 @@ const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
 					role="button"
 					className="material-design-color__color"
 					style={ { backgroundColor: color } }
-					onClick={ () => setDisplayColorPalette( ! displayColorPalette ) }
+					onClick={ event => {
+						event.preventDefault();
+						setDisplayColorPalette( ! displayColorPalette );
+					} }
 				></button>
+
 				<TextControl
 					value={ color }
 					onChange={ onChange }
@@ -75,7 +79,10 @@ const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
 								className={ classNames( 'material-design-tab-link', {
 									active: materialPickerSelected,
 								} ) }
-								onClick={ () => setMaterialPickerSelected( true ) }
+								onClick={ event => {
+									event.preventDefault();
+									setMaterialPickerSelected( true );
+								} }
 							>
 								{ __( 'Palette', 'material-design' ) }
 							</button>
@@ -86,7 +93,10 @@ const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
 								className={ classNames( 'material-design-tab-link', {
 									active: ! materialPickerSelected,
 								} ) }
-								onClick={ () => setMaterialPickerSelected( false ) }
+								onClick={ event => {
+									event.preventDefault();
+									setMaterialPickerSelected( false );
+								} }
 							>
 								{ __( 'Custom', 'material-design' ) }
 							</button>
