@@ -155,6 +155,7 @@
 
 .material-design-tab-link {
 	display: inline-block;
+	cursor: pointer;
 	width: 50%;
 	text-align: center;
 	padding: 8px;
