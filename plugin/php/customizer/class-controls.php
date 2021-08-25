@@ -81,7 +81,7 @@ class Controls extends Module_Base {
 
 		$this->wp_customize->register_section_type( Material_Style_Settings_Section::class );
 
-		$this->wp_customize->register_section_type( Material_Color_palette_Section::class );
+		$this->wp_customize->register_section_type( Material_Color_Palette_Section::class );
 
 		// Register custom control types.
 		$this->wp_customize->register_control_type( Material_Color_Palette_Control::class );

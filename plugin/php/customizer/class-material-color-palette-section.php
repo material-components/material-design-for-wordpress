@@ -93,6 +93,7 @@ class Material_Color_Palette_Section extends \WP_Customize_Section {
 				<a class="material-design-tab-link" href="#material-design-contrast-{{id}}" data-palette="contrast"><?php esc_html_e( 'High Contrast', 'material-design' ); ?></a>
 			</div>
 			<ul class="material-design-tab-content tab-palette" id="material-design-default-{{id}}">
+				<?php // phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				{{{ data.content }}}
 			</ul>
 			<ul class="material-design-tab-content tab-custom" id="material-design-dark-{{id}}"></ul>

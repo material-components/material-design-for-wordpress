@@ -29,6 +29,7 @@ use MaterialDesign\Plugin\Plugin;
 use MaterialDesign\Plugin\Customizer\Icon_Radio_Control;
 use MaterialDesign\Plugin\Customizer\Material_Styles_Section;
 use MaterialDesign\Plugin\Customizer\Material_Style_Settings_Section;
+use MaterialDesign\Plugin\Customizer\Material_Color_Palette_Section;
 use MaterialDesign\Plugin\Customizer\Material_Color_Palette_Control;
 use function MaterialDesign\Plugin\get_plugin_instance;
 
@@ -127,11 +128,12 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::register()
 	 */
 	public function test_register() {
-		$this->wp_customize->expects( $this->exactly( 2 ) )
+		$this->wp_customize->expects( $this->exactly( 3 ) )
 		->method( 'register_section_type' )
 		->withConsecutive(
 			[ $this->equalTo( Material_Styles_Section::class ) ],
-			[ $this->equalTo( Material_Style_Settings_Section::class ) ]
+			[ $this->equalTo( Material_Style_Settings_Section::class ) ],
+			[ $this->equalTo( Material_Color_Palette_Section::class ) ]
 		);
 
 		// Set up the expectation for the register_control_type() method
@@ -205,9 +207,11 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$icons_section    = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_icons" );
 		$styles_section   = new Material_Styles_Section( $this->wp_customize, "{$controls->slug}_style" );
 		$settings_section = new Material_Style_Settings_Section( $this->wp_customize, "{$controls->slug}_style_settings" );
+		$colors_section   = new Material_Color_Palette_Section( $this->wp_customize, "{$controls->slug}_colors" );
+
 		add_filter(
 			$controls->slug . '_customizer_section_args',
-			function ( $args, $id ) use ( $controls, $icons_section, $styles_section, $settings_section ) {
+			function ( $args, $id ) use ( $controls, $icons_section, $styles_section, $settings_section, $colors_section ) {
 				if ( "{$controls->slug}_icons" === $id ) {
 					return $icons_section;
 				}
@@ -218,6 +222,10 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 				if ( "{$controls->slug}_style_settings" === $id ) {
 					return $settings_section;
+				}
+
+				if ( "{$controls->slug}_colors" === $id ) {
+					return $colors_section;
 				}
 
 				return $args;
@@ -233,7 +241,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 			->withConsecutive(
 				[ $this->equalTo( $styles_section ) ],
 				[ $this->equalTo( $settings_section ) ],
-				[ $this->equalTo( "{$controls->slug}_colors" ) ],
+				[ $this->equalTo( $colors_section ) ],
 				[ $this->equalTo( "{$controls->slug}_typography" ) ],
 				[ $this->equalTo( "{$controls->slug}_corner_styles" ) ],
 				[ $this->equalTo( $icons_section ) ]
