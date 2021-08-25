@@ -36,7 +36,9 @@ import MaterialColorPalette from '../../../block-editor/components/material-colo
 const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
 	const [ color, setColor ] = useState( defaultValue );
 	const [ displayColorPalette, setDisplayColorPalette ] = useState( false );
-	const [ materialPickerSelected, setMaterialPickerSelected ] = useState( true );
+	const [ materialPickerSelected, setMaterialPickerSelected ] = useState(
+		true
+	);
 	const { label } = params;
 
 	const onChange = value => {
@@ -102,7 +104,9 @@ const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
 							{ ! materialPickerSelected && (
 								<ColorPicker
 									color={ color }
-									onChangeComplete={ onChange }
+									onChangeComplete={ selectedColor =>
+										onChange( selectedColor.hex )
+									}
 									disableAlpha
 								/>
 							) }

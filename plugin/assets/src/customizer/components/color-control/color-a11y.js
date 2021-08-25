@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import { useState, useEffect } from '@wordpress/element';
 import { uniqueId } from 'lodash';
 
 /**
@@ -63,15 +62,16 @@ const ColorA11y = ( { selectedColor, api, params } ) => {
 	return (
 		<div className="material-design-accessibility">
 			<div className="material-color-accessibility">
+				{ /* eslint-disable-next-line jsx-a11y/label-has-for */ }
 				<label>{ __( 'Current Scheme', 'material-design' ) }</label>
 				<div className="material-color-accessibility-inner">
-					{ colors.map( color => (
-						<ColorItem key={ uniqueId( 'color-' ) } { ...color } />
+					{ colors.map( colorObject => (
+						<ColorItem key={ uniqueId( 'color-' ) } { ...colorObject } />
 					) ) }
 				</div>
 			</div>
 		</div>
-	)
+	);
 };
 
 const ColorItem = ( { type, hex, variations } ) => {
@@ -86,7 +86,7 @@ const ColorItem = ( { type, hex, variations } ) => {
 				<ColorVariation key={ uniqueId( 'variation-' ) } { ...variation } />
 			) ) }
 		</div>
-	)
+	);
 };
 
 const ColorVariation = ( {
@@ -108,9 +108,10 @@ const ColorVariation = ( {
 			<span style={ { backgroundColor: colorHex, color: textColorHex } }>
 				{ __( 'Aa', 'material-design' ) }
 			</span>
-			<span className="dashicons dashicons-warning"></span><br/>
+			<span className="dashicons dashicons-warning"></span>
+			<br />
 		</>
-	)
+	);
 };
 
 export default ColorA11y;

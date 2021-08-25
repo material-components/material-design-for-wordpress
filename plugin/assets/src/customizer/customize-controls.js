@@ -294,7 +294,6 @@ import getConfig from '../block-editor/utils/get-config';
 				section.template( { id: section.id, content } )
 			);
 
-
 			section.contentContainer
 				.find( '.material-design-section-tabs .material-design-tab-link' )
 				.on( 'click', event => {
@@ -339,7 +338,6 @@ import getConfig from '../block-editor/utils/get-config';
 		 */
 		ready() {
 			const control = this;
-			const styleControl = api.control( getConfig( 'styleSettings' ) );
 
 			api.ColorControl.prototype.ready.call( control );
 
@@ -775,7 +773,7 @@ import getConfig from '../block-editor/utils/get-config';
 		};
 
 		render( <ColorControl { ...props } />, control.container.get( 0 ) );
-	}
+	};
 
 	/**
 	 * Callback when a "Design Style" is changed.
