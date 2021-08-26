@@ -96,9 +96,9 @@ class Material_Color_Palette_Section extends \WP_Customize_Section {
 				<?php // phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
 				{{{ data.content }}}
 			</ul>
-			<ul class="material-design-tab-content tab-default active" id="material-design-default"></ul>
-			<ul class="material-design-tab-content tab-dark-mode" id="material-design-dark"></ul>
-			<ul class="material-design-tab-content tab-high-contrast" id="material-design-contrast"></ul>
+			<ul class="material-design-tab-content tab-default tab-default active" id="material-design-default"></ul>
+			<ul class="material-design-tab-content tab-dark tab-dark-mode" id="material-design-dark"></ul>
+			<ul class="material-design-tab-content tab-contrast tab-high-contrast" id="material-design-contrast"></ul>
 		</script>
 
 		<script type="text/html" id="tmpl-customize-section-material_color-palette-template">

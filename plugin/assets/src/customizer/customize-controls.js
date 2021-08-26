@@ -314,6 +314,25 @@ import getConfig from '../block-editor/utils/get-config';
 						.removeClass( 'material-design-tab-link--active' );
 
 					target.classList.add( 'material-design-tab-link--active' );
+
+					// Display content.
+					const activeTab = section.contentContainer.find(
+						`.material-design-tab-content.tab-${ palette }`
+					);
+
+					if ( 0 === activeTab.length ) {
+						return;
+					}
+
+					section.contentContainer
+						.find( `.material-design-tab-content` )
+						.removeClass( 'active' );
+
+					section.contentContainer
+						.find( `.material-design-tab-content.tab-${ palette }` )
+						.addClass( 'active' );
+
+					console.log( activeTab );
 				} );
 		},
 	} );
