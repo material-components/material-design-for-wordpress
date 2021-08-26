@@ -302,7 +302,9 @@ class Controls extends Module_Base {
 		/**
 		 * Generate list of all the controls in the colors section.
 		 */
-		$controls = [];
+		$controls           = [];
+		$dark_mode_controls = [];
+		$contrast_controls  = [];
 
 		foreach ( $this->get_color_controls() as $control ) {
 			$args = [
@@ -323,14 +325,16 @@ class Controls extends Module_Base {
 				$args
 			);
 
-			// Dark mode overrides
-			$controls[ $control['id'] . $this->dark_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'dark_colors' );
+			// Dark mode overrides.
+			$dark_mode_controls[ $control['id'] . $this->dark_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'dark_colors' );
 
 			// High contrast overrides.
-			$controls[ $control['id'] . $this->contrast_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'contrast_colors' );
+			$contrast_controls[ $control['id'] . $this->contrast_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'contrast_colors' );
 		}
 
 		$this->add_controls( $controls );
+		$this->add_controls( $dark_mode_controls );
+		$this->add_controls( $contrast_controls );
 	}
 
 	/**

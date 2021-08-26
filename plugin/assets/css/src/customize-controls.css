@@ -184,6 +184,10 @@
 
 .material-design-tab-content {
 	display: none;
+
+	&.active {
+		display: block;
+	}
 }
 
 .material-design-accessibility {

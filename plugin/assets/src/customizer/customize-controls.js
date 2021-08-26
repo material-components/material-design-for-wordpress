@@ -974,7 +974,36 @@ import getConfig from '../block-editor/utils/get-config';
 				} );
 			} );
 		}
+
+		setTimeout( arrangeDarkMode, 1800 );
 	} );
+
+	const arrangeDarkMode = () => {
+		const colorSection = api.section( getNamespace( 'colors' ) );
+
+		if ( ! colorSection ) {
+			return;
+		}
+
+		const controls = getConfig( 'colorControls' );
+
+		const defaultModeTab = colorSection.container.find( '.tab-default-mode' );
+		const darkModeTab = colorSection.container.find( '.tab-dark-mode' );
+
+		controls.forEach( controlObject => {
+			const control = api.control( `material_design[${ controlObject.id }]` );
+
+			defaultModeTab.append( control.container.get( 0 ) );
+		} );
+
+		controls.forEach( controlObject => {
+			const control = api.control(
+				`material_design[${ controlObject.id }_dark]`
+			);
+
+			darkModeTab.append( control.container.get( 0 ) );
+		} );
+	};
 
 	// Trigger notification init on ready.
 	$( notificationsInit );
