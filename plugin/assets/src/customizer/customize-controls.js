@@ -782,6 +782,8 @@ import getConfig from '../block-editor/utils/get-config';
 	const renderColorControl = control => {
 		const { setting, params } = control;
 
+		console.log(params);
+
 		const props = {
 			defaultValue: setting.get(),
 			onColorChange: value => {
@@ -994,7 +996,7 @@ import getConfig from '../block-editor/utils/get-config';
 			} );
 		}
 
-		setTimeout( arrangeDarkMode, 1800 );
+		setTimeout( arrangeDarkMode, 3000 );
 	} );
 
 	const arrangeDarkMode = () => {

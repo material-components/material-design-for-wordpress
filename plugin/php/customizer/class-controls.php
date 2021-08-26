@@ -1656,10 +1656,13 @@ class Controls extends Module_Base {
 
 		// Dark mode overrides.
 		$args['section']              = $variant;
-		$args['related_setting']      = ! empty( $control['related_setting'] ) ? $control['related_setting'] . $variant_suffix :
-			false;
-		$args['related_text_setting'] = ! empty( $control['related_text_setting'] ) ?
-			$control['related_text_setting'] . $variant_suffix : false;
+		$args['related_setting']      = ! empty( $control['related_setting'] )
+			? str_replace( ']', $variant_suffix . ']', $control['related_setting'] )
+			: false;
+		$args['related_text_setting'] = ! empty( $control['related_text_setting'] )
+			? str_replace( ']', $variant_suffix . ']', $control['related_text_setting'] )
+			: false;
+		$args['default_mode_setting'] = $control['id'];
 
 		return new Material_Color_Palette_Control(
 			$this->wp_customize,

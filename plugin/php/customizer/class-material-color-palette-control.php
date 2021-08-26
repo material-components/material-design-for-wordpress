@@ -68,6 +68,13 @@ class Material_Color_Palette_Control extends \WP_Customize_Control {
 	public $a11y_label = '';
 
 	/**
+	 * Default setting name
+	 *
+	 * @var string
+	 */
+	public $default_mode_setting = '';
+
+	/**
 	 * Render a JS template for the Material color palette tabs.
 	 *
 	 * @return void
@@ -136,5 +143,6 @@ class Material_Color_Palette_Control extends \WP_Customize_Control {
 		$this->json['cssVar']             = ! empty( $this->css_var ) ? $this->css_var : false;
 		$this->json['a11yLabel']          = ! empty( $this->a11y_label ) ? $this->a11y_label : '';
 		$this->json['id']                 = ! empty( $this->id ) ? $this->id : '';
+		$this->json['defaultModeSetting'] = ! empty( $this->default_mode_setting ) ? $this->default_mode_setting : '';
 	}
 }
