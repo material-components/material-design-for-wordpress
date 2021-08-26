@@ -987,8 +987,9 @@ import getConfig from '../block-editor/utils/get-config';
 
 		const controls = getConfig( 'colorControls' );
 
-		const defaultModeTab = colorSection.container.find( '.tab-default-mode' );
+		const defaultModeTab = colorSection.container.find( '.tab-default' );
 		const darkModeTab = colorSection.container.find( '.tab-dark-mode' );
+		const contrastModeTab = colorSection.container.find( '.tab-high-contrast' );
 
 		controls.forEach( controlObject => {
 			const control = api.control( `material_design[${ controlObject.id }]` );
@@ -1002,6 +1003,14 @@ import getConfig from '../block-editor/utils/get-config';
 			);
 
 			darkModeTab.append( control.container.get( 0 ) );
+		} );
+
+		controls.forEach( controlObject => {
+			const control = api.control(
+				`material_design[${ controlObject.id }_contrast]`
+			);
+
+			contrastModeTab.append( control.container.get( 0 ) );
 		} );
 	};
 
