@@ -271,6 +271,23 @@ class Controls extends Module_Base {
 
 		$this->add_controls( $controls_theme );
 		$this->add_controls( $controls_settings );
+
+		$active_mode_settings = [
+			'active_mode' => [
+				'default' => 'default',
+			],
+		];
+
+		$this->add_settings( $active_mode_settings );
+
+		$this->add_controls(
+			[
+				'active_mode' => [
+					'section' => 'dark_colors',
+					'type'    => 'text',
+				],
+			]
+		);
 	}
 
 	/**
@@ -611,6 +628,7 @@ class Controls extends Module_Base {
 				'styleSettings'          => $this->prepare_option_name( 'style_settings' ),
 				'prevStyleControl'       => $this->prepare_option_name( 'previous_style' ),
 				'iconCollectionsControl' => $this->prepare_option_name( 'icon_collection' ),
+				'activeModeControl'      => $this->prepare_option_name( 'active_mode' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
 					'confirmChange'    => esc_html__( 'You will lose any custom theme changes. Would you like to continue ?', 'material-design' ),
