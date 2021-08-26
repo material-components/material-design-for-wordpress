@@ -291,6 +291,10 @@ class Controls extends Module_Base {
 			$settings[ $control['id'] . $this->dark_mode_suffix ] = [
 				'sanitize_callback' => 'sanitize_hex_color',
 			];
+
+			$settings[ $control['id'] . $this->contrast_mode_suffix ] = [
+				'sanitize_callback' => 'sanitize_hex_color',
+			];
 		}
 
 		$this->add_settings( $settings );
@@ -329,6 +333,19 @@ class Controls extends Module_Base {
 			$controls[ $control['id'] . $this->dark_mode_suffix ] = new Material_Color_Palette_Control(
 				$this->wp_customize,
 				$this->prepare_option_name( $control['id'] . $this->dark_mode_suffix ),
+				$args
+			);
+
+			// Dark mode overrides.
+			$args['section']              = 'contrast_colors';
+			$args['related_setting']      = ! empty( $control['related_setting'] ) ? $control['related_setting'] . $this->contrast_mode_suffix :
+				false;
+			$args['related_text_setting'] = ! empty( $control['related_text_setting'] ) ?
+				$control['related_text_setting'] . $this->contrast_mode_suffix : false;
+
+			$controls[ $control['id'] . $this->contrast_mode_suffix ] = new Material_Color_Palette_Control(
+				$this->wp_customize,
+				$this->prepare_option_name( $control['id'] . $this->contrast_mode_suffix ),
 				$args
 			);
 		}
