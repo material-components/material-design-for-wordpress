@@ -1602,7 +1602,7 @@ class Controls extends Module_Base {
 		}
 
 		if ( 'material_design_dark_colors' === $id || 'material_design_contrast_colors' === $id ) {
-			$args['type'] = '';
+			$args['type'] = 'dark_mode';
 		}
 
 		return $args;
