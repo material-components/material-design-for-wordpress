@@ -35,6 +35,20 @@ use MaterialDesign\Plugin\Helpers;
  */
 class Controls extends Module_Base {
 	/**
+	 * Constant for dark mode settings.
+	 *
+	 * @var string
+	 */
+	public $dark_mode_suffix = '_dark';
+
+	/**
+	 * Constant for high contrast mode settings.
+	 *
+	 * @var string
+	 */
+	public $contrast_mode_suffix = '_contrast';
+
+	/**
 	 * The slug used as a prefix for all settings and controls.
 	 *
 	 * @var string
@@ -135,12 +149,14 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			'style'          => __( 'Starter Styles', 'material-design' ),
-			'style_settings' => __( 'Style', 'material-design' ),
-			'colors'         => __( 'Color Palette', 'material-design' ),
-			'typography'     => __( 'Typography (Font Styles)', 'material-design' ),
-			'corner_styles'  => __( 'Shape Size', 'material-design' ),
-			'icons'          => __( 'Icon Styles', 'material-design' ),
+			'style'           => __( 'Starter Styles', 'material-design' ),
+			'style_settings'  => __( 'Style', 'material-design' ),
+			'colors'          => __( 'Color Palette', 'material-design' ),
+			'typography'      => __( 'Typography (Font Styles)', 'material-design' ),
+			'corner_styles'   => __( 'Shape Size', 'material-design' ),
+			'icons'           => __( 'Icon Styles', 'material-design' ),
+			'dark_colors'     => __( 'Dark Color Palette', 'material-design' ),
+			'contrast_colors' => __( 'High Contrast Color Palette', 'material-design' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
@@ -271,6 +287,10 @@ class Controls extends Module_Base {
 			$settings[ $control['id'] ] = [
 				'sanitize_callback' => 'sanitize_hex_color',
 			];
+
+			$settings[ $control['id'] . $this->dark_mode_suffix ] = [
+				'sanitize_callback' => 'sanitize_hex_color',
+			];
 		}
 
 		$this->add_settings( $settings );
@@ -281,20 +301,35 @@ class Controls extends Module_Base {
 		$controls = [];
 
 		foreach ( $this->get_color_controls() as $control ) {
+			$args = [
+				'label'                => $control['label'],
+				'section'              => 'colors',
+				'priority'             => 10,
+				'related_text_setting' => ! empty( $control['related_text_setting'] ) ?
+					$control['related_text_setting'] : false,
+				'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] :
+					false,
+				'css_var'              => $control['css_var'],
+				'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
+			];
+
 			$controls[ $control['id'] ] = new Material_Color_Palette_Control(
 				$this->wp_customize,
 				$this->prepare_option_name( $control['id'] ),
-				[
-					'label'                => $control['label'],
-					'section'              => 'colors',
-					'priority'             => 10,
-					'related_text_setting' => ! empty( $control['related_text_setting'] ) ?
-						$control['related_text_setting'] : false,
-					'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] :
-						false,
-					'css_var'              => $control['css_var'],
-					'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
-				]
+				$args
+			);
+
+			// Dark mode overrides.
+			$args['section']              = 'dark_colors';
+			$args['related_setting']      = ! empty( $control['related_setting'] ) ? $control['related_setting'] . $this->dark_mode_suffix :
+				false;
+			$args['related_text_setting'] = ! empty( $control['related_text_setting'] ) ?
+				$control['related_text_setting'] . $this->dark_mode_suffix : false;
+
+			$controls[ $control['id'] . $this->dark_mode_suffix ] = new Material_Color_Palette_Control(
+				$this->wp_customize,
+				$this->prepare_option_name( $control['id'] . $this->dark_mode_suffix ),
+				$args
 			);
 		}
 
@@ -1567,6 +1602,10 @@ class Controls extends Module_Base {
 				$args,
 				$this->plugin
 			);
+		}
+
+		if ( 'material_design_dark_colors' === $id || 'material_design_contrast_colors' === $id ) {
+			$args['type'] = '';
 		}
 
 		return $args;
