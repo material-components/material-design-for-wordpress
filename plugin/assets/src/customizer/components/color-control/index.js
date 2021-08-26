@@ -18,7 +18,7 @@
  * WordPress dependencies
  */
 import { TextControl, ColorPicker } from '@wordpress/components';
-import { useState } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -33,7 +33,14 @@ import './style.css';
 import ColorA11y from './color-a11y';
 import MaterialColorPalette from '../../../block-editor/components/material-color-palette';
 
-const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
+const ColorControl = ( {
+	defaultValue,
+	params,
+	api,
+	onColorChange,
+	range,
+	mode,
+} ) => {
 	const [ color, setColor ] = useState( defaultValue );
 	const [ displayColorPalette, setDisplayColorPalette ] = useState( false );
 	const [ materialPickerSelected, setMaterialPickerSelected ] = useState(
@@ -45,6 +52,18 @@ const ColorControl = ( { defaultValue, params, api, onColorChange } ) => {
 		setColor( value );
 		onColorChange( value );
 	};
+
+	useEffect( () => {
+		if ( 'dark' === mode ) {
+			setColor( range.dark.hex );
+		} else if ( 'contrast' === mode ) {
+			setColor( range.light.hex );
+		}
+	}, [ mode ] );
+
+	if ( range ) {
+		console.log(range);
+	}
 
 	return (
 		<>

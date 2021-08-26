@@ -61,6 +61,7 @@ import {
 	showHideNotification,
 } from './notifications';
 import getConfig from '../block-editor/utils/get-config';
+import { indexOf } from 'lodash';
 
 ( ( $, api ) => {
 	// Allow backbone templates access to the `sanitizeControlId` function.
@@ -781,8 +782,17 @@ import getConfig from '../block-editor/utils/get-config';
 
 	const renderColorControl = control => {
 		const { setting, params } = control;
+		let mode = 'default';
+		let range = null;
 
-		console.log(params);
+		if ( ! setting.get() && params.defaultModeSetting ) {
+			const parentDefaultColor = api.control( params.defaultModeSetting );
+
+			mode = params.id?.includes( '_dark' ) ? 'dark' : 'contrast';
+			range = colorUtils.getColorRangeFromHex(
+				parentDefaultColor.setting.get()
+			);
+		}
 
 		const props = {
 			defaultValue: setting.get(),
@@ -791,6 +801,8 @@ import getConfig from '../block-editor/utils/get-config';
 			},
 			params,
 			api,
+			range,
+			mode,
 		};
 
 		render( <ColorControl { ...props } />, control.container.get( 0 ) );

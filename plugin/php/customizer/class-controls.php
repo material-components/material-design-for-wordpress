@@ -244,6 +244,7 @@ class Controls extends Module_Base {
 				'dark'     => 'auto',
 				'contrast' => 'auto',
 				'switcher' => false,
+				'active'   => 'default',
 			];
 		}
 
@@ -1662,7 +1663,7 @@ class Controls extends Module_Base {
 		$args['related_text_setting'] = ! empty( $control['related_text_setting'] )
 			? str_replace( ']', $variant_suffix . ']', $control['related_text_setting'] )
 			: false;
-		$args['default_mode_setting'] = $control['id'];
+		$args['default_mode_setting'] = $this->prepare_option_name( $control['id'] );
 
 		return new Material_Color_Palette_Control(
 			$this->wp_customize,
