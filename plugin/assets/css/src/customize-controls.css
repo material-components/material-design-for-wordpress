@@ -454,3 +454,13 @@
 .control-section-dark_mode {
 	display: none !important; /* !important overrides core */
 }
+
+.material-design-color__link {
+	border: 0;
+	color: #555d66;
+	cursor: pointer;
+
+	&:hover {
+		color: #0073aa;
+	}
+}

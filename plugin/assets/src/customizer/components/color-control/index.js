@@ -46,6 +46,7 @@ const ColorControl = ( {
 	const [ materialPickerSelected, setMaterialPickerSelected ] = useState(
 		true
 	);
+	const [ isLinked, setIsLinked ] = useState( true );
 	const { label } = params;
 
 	const onChange = value => {
@@ -86,6 +87,15 @@ const ColorControl = ( {
 					onChange={ onChange }
 					className="material-design-color__input"
 				/>
+
+				{ 'default' !== mode && (
+					<button className="material-design-color__link">
+						<span className="material-icons">
+							{ isLinked && 'link_off' }
+							{ ! isLinked && 'link' }
+						</span>
+					</button>
+				) }
 			</div>
 
 			{ displayColorPalette && (
