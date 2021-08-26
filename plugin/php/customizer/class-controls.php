@@ -323,31 +323,11 @@ class Controls extends Module_Base {
 				$args
 			);
 
-			// Dark mode overrides.
-			$args['section']              = 'dark_colors';
-			$args['related_setting']      = ! empty( $control['related_setting'] ) ? $control['related_setting'] . $this->dark_mode_suffix :
-				false;
-			$args['related_text_setting'] = ! empty( $control['related_text_setting'] ) ?
-				$control['related_text_setting'] . $this->dark_mode_suffix : false;
+			// Dark mode overrides
+			$controls[ $control['id'] . $this->dark_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'dark_colors' );
 
-			$controls[ $control['id'] . $this->dark_mode_suffix ] = new Material_Color_Palette_Control(
-				$this->wp_customize,
-				$this->prepare_option_name( $control['id'] . $this->dark_mode_suffix ),
-				$args
-			);
-
-			// Dark mode overrides.
-			$args['section']              = 'contrast_colors';
-			$args['related_setting']      = ! empty( $control['related_setting'] ) ? $control['related_setting'] . $this->contrast_mode_suffix :
-				false;
-			$args['related_text_setting'] = ! empty( $control['related_text_setting'] ) ?
-				$control['related_text_setting'] . $this->contrast_mode_suffix : false;
-
-			$controls[ $control['id'] . $this->contrast_mode_suffix ] = new Material_Color_Palette_Control(
-				$this->wp_customize,
-				$this->prepare_option_name( $control['id'] . $this->contrast_mode_suffix ),
-				$args
-			);
+			// High contrast overrides.
+			$controls[ $control['id'] . $this->contrast_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'contrast_colors' );
 		}
 
 		$this->add_controls( $controls );
@@ -1656,5 +1636,31 @@ class Controls extends Module_Base {
 				'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
 			],
 		];
+	}
+
+	/**
+	 * Override control arguments for dark mode variants.
+	 *
+	 * @param array  $control Control to override.
+	 * @param array  $args    Arguments to override.
+	 * @param string $variant Dark mode variant.
+	 *
+	 * @return Material_Color_Palette_Control New control variant
+	 */
+	public function get_dark_mode_controls_override( $control, $args, $variant ) {
+		$variant_suffix = ( 'dark_colors' === $variant ) ? $this->dark_mode_suffix : $this->contrast_mode_suffix;
+
+		// Dark mode overrides.
+		$args['section']              = $variant;
+		$args['related_setting']      = ! empty( $control['related_setting'] ) ? $control['related_setting'] . $variant_suffix :
+			false;
+		$args['related_text_setting'] = ! empty( $control['related_text_setting'] ) ?
+			$control['related_text_setting'] . $variant_suffix : false;
+
+		return new Material_Color_Palette_Control(
+			$this->wp_customize,
+			$this->prepare_option_name( $control['id'] . $variant_suffix ),
+			$args
+		);
 	}
 }
