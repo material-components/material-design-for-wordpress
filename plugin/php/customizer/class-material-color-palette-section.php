@@ -97,8 +97,18 @@ class Material_Color_Palette_Section extends \WP_Customize_Section {
 				{{{ data.content }}}
 			</ul>
 			<ul class="material-design-tab-content tab-default tab-default active" id="material-design-default"></ul>
-			<ul class="material-design-tab-content tab-dark tab-dark-mode" id="material-design-dark"></ul>
-			<ul class="material-design-tab-content tab-contrast tab-high-contrast" id="material-design-contrast"></ul>
+			<ul class="material-design-tab-content tab-dark tab-dark-mode" id="material-design-dark">
+				<h3><?php esc_html_e( 'Dark Mode', 'material-design' ); ?></h3>
+				<div class="description">
+					<?php esc_html_e( 'We have picked optimal colors based on your default palette', 'material-design' ); ?>
+				</div>
+			</ul>
+			<ul class="material-design-tab-content tab-contrast tab-high-contrast" id="material-design-contrast">
+				<h3><?php esc_html_e( 'High Contrast', 'material-design' ); ?></h3>
+				<div class="description">
+					<?php esc_html_e( 'We have picked optimal colors based on your default palette', 'material-design' ); ?>
+				</div>
+			</ul>
 		</script>
 
 		<script type="text/html" id="tmpl-customize-section-material_color-palette-template">
