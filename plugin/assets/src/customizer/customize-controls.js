@@ -61,7 +61,6 @@ import {
 	showHideNotification,
 } from './notifications';
 import getConfig from '../block-editor/utils/get-config';
-import { indexOf } from 'lodash';
 
 ( ( $, api ) => {
 	// Allow backbone templates access to the `sanitizeControlId` function.

@@ -1672,6 +1672,7 @@ class Controls extends Module_Base {
 	 */
 	public function get_dark_mode_controls_override( $control, $args, $variant ) {
 		$variant_suffix = ( 'dark_colors' === $variant ) ? $this->dark_mode_suffix : $this->contrast_mode_suffix;
+		$variant_type   = ( 'dark_colors' === $variant ) ? 'dark' : 'contrast';
 
 		// Dark mode overrides.
 		$args['section']              = $variant;
@@ -1682,6 +1683,7 @@ class Controls extends Module_Base {
 			? str_replace( ']', $variant_suffix . ']', $control['related_text_setting'] )
 			: false;
 		$args['default_mode_setting'] = $this->prepare_option_name( $control['id'] );
+		$args['color_mode_type']      = $variant_type;
 
 		return new Material_Color_Palette_Control(
 			$this->wp_customize,

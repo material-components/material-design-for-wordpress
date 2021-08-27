@@ -45,6 +45,11 @@ const getIconFontName = iconStyle => {
 };
 
 const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
+const COLOR_MODES = {
+	default: 'default',
+	dark: 'dark',
+	contrast: 'contrast',
+};
 
 ( $ => {
 	// Bail out if this isn't loaded in an iframe.
@@ -64,6 +69,9 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 	const cornerStyleControls = {};
 	const iconControls = {};
 	const settingsControls = {};
+	const darkModeControls = {};
+	const contrastModes = {};
+	let currentMode = COLOR_MODES.default;
 
 	$( function() {
 		api.preview.bind( 'active', function() {
@@ -72,7 +80,7 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 			} );
 
 			api.preview.bind( 'materialDesignPaletteUpdate', message => {
-				console.log( message );
+				updateColorMode( message );
 			} )
 		} );
 	} );
@@ -91,6 +99,14 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 				( !! args.relatedTextSetting || !! args.relatedSetting )
 			) {
 				colorControls[ control ] = args.cssVar;
+
+				if ( COLOR_MODES.dark === args.colorModeType ) {
+					darkModeControls[ control ] = args.cssVar;
+				}
+
+				if ( COLOR_MODES.contrast === args.colorModeType ) {
+					contrastModes[ control ] = args.cssVar;
+				}
 			}
 
 			if ( args && args.cssVars && args.type === 'google_fonts' ) {
@@ -300,6 +316,12 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 		} else {
 			topAppBar.classList.remove( HAS_DARK_MODE_CLASS );
 		}
+	}, 300 );
+
+	const updateColorMode = debounce( mode => {
+		console.log( mode );
+		console.log( colorControls );
+		generatePreviewStyles();
 	}, 300 );
 
 	/**
