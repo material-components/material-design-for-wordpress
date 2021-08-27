@@ -64,7 +64,7 @@ const COLOR_MODES = {
 	const api = wp.customize;
 	const parentApi = window.parent.wp.customize;
 	const parentControls = window.parent._wpCustomizeSettings.controls;
-	const colorControls = {};
+	let colorControls = {};
 	const typographyControls = {};
 	const cornerStyleControls = {};
 	const iconControls = {};
@@ -98,14 +98,13 @@ const COLOR_MODES = {
 				!! args.cssVar &&
 				( !! args.relatedTextSetting || !! args.relatedSetting )
 			) {
-				colorControls[ control ] = args.cssVar;
 
 				if ( COLOR_MODES.dark === args.colorModeType ) {
 					darkModeControls[ control ] = args.cssVar;
-				}
-
-				if ( COLOR_MODES.contrast === args.colorModeType ) {
+				} else if ( COLOR_MODES.contrast === args.colorModeType ) {
 					contrastModes[ control ] = args.cssVar;
+				} else {
+					colorControls[ control ] = args.cssVar;
 				}
 			}
 
@@ -319,8 +318,12 @@ const COLOR_MODES = {
 	}, 300 );
 
 	const updateColorMode = debounce( mode => {
-		console.log( mode );
-		console.log( colorControls );
+		if ( COLOR_MODES.dark === mode ) {
+			colorControls = darkModeControls;
+		} else if ( COLOR_MODES.contrast === mode ) {
+			colorControls = contrastModes;
+		}
+
 		generatePreviewStyles();
 	}, 300 );
 
