@@ -332,6 +332,9 @@ import { indexOf } from 'lodash';
 					section.contentContainer
 						.find( `.material-design-tab-content.tab-${ palette }` )
 						.addClass( 'active' );
+
+					// Setup new colors.
+					api.previewer.send( 'materialDesignPaletteUpdate', palette );
 				} );
 		},
 	} );

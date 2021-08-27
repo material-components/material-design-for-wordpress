@@ -63,7 +63,7 @@ const ColorControl = ( {
 	}, [ mode ] );
 
 	if ( range ) {
-		console.log(range);
+//		console.log(range);
 	}
 
 	return (

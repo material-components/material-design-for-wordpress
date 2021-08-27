@@ -70,6 +70,10 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 			api.preview.send( 'materialDesign', {
 				notificationCount: _wpCustomizeSettings.values.material_design_notify,
 			} );
+
+			api.preview.bind( 'materialDesignPaletteUpdate', message => {
+				console.log( message );
+			} )
 		} );
 	} );
 
