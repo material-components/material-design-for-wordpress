@@ -785,7 +785,7 @@ import getConfig from '../block-editor/utils/get-config';
 		let mode = 'default';
 		let range = null;
 
-		if ( ! setting.get() && params.defaultModeSetting ) {
+		if ( params.defaultModeSetting ) {
 			const parentDefaultColor = api.control( params.defaultModeSetting );
 
 			mode = params.id?.includes( '_dark' ) ? 'dark' : 'contrast';

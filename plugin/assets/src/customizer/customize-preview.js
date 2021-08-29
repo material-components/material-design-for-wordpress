@@ -72,7 +72,6 @@ const COLOR_MODES = {
 	const defaultModeControls = {};
 	const darkModeControls = {};
 	const contrastModes = {};
-	let currentMode = COLOR_MODES.default;
 
 	$( function() {
 		api.preview.bind( 'active', function() {
@@ -342,6 +341,8 @@ const COLOR_MODES = {
 		.forEach( control => {
 			parentApi( control, value => {
 				value.bind( () => {
+					console.log(control);
+					console.log(value);
 					if ( typographyControls.hasOwnProperty( control ) ) {
 						updateGoogleFontsURL();
 					}
