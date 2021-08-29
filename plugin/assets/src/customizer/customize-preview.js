@@ -69,6 +69,7 @@ const COLOR_MODES = {
 	const cornerStyleControls = {};
 	const iconControls = {};
 	const settingsControls = {};
+	const defaultModeControls = {};
 	const darkModeControls = {};
 	const contrastModes = {};
 	let currentMode = COLOR_MODES.default;
@@ -98,12 +99,13 @@ const COLOR_MODES = {
 				!! args.cssVar &&
 				( !! args.relatedTextSetting || !! args.relatedSetting )
 			) {
-
 				if ( COLOR_MODES.dark === args.colorModeType ) {
 					darkModeControls[ control ] = args.cssVar;
 				} else if ( COLOR_MODES.contrast === args.colorModeType ) {
 					contrastModes[ control ] = args.cssVar;
 				} else {
+					// Save a refertence to default colors.
+					defaultModeControls[ control ] = args.cssVar;
 					colorControls[ control ] = args.cssVar;
 				}
 			}
@@ -322,6 +324,8 @@ const COLOR_MODES = {
 			colorControls = darkModeControls;
 		} else if ( COLOR_MODES.contrast === mode ) {
 			colorControls = contrastModes;
+		} else {
+			colorControls = defaultModeControls;
 		}
 
 		generatePreviewStyles();
