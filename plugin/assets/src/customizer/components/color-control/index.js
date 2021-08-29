@@ -89,7 +89,14 @@ const ColorControl = ( {
 				/>
 
 				{ 'default' !== mode && (
-					<button className="material-design-color__link">
+					<button
+						className="material-design-color__link"
+						role="button"
+						onClick={ event => {
+							event.preventDefault();
+							setIsLinked( ! isLinked );
+						} }
+					>
 						<span className="material-icons">
 							{ isLinked && 'link_off' }
 							{ ! isLinked && 'link' }
