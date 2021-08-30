@@ -950,7 +950,15 @@ import getConfig from '../block-editor/utils/get-config';
 	};
 
 	const reRenderColorControls = () => {
-		const controlObjects = getConfig( 'colorControls' );
+		const controlObjectsDefault = getConfig( 'colorControls' );
+		const controlObjectsDark = getConfig( 'colorControlsDark' );
+		const controlObjectsContrast = getConfig( 'colorControlsContrast' );
+
+		const controlObjects = [
+			...controlObjectsDefault,
+			...controlObjectsDark,
+			...controlObjectsContrast,
+		];
 
 		controlObjects.forEach( controlObject => {
 			const setting =

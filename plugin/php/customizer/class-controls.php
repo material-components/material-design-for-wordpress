@@ -643,6 +643,8 @@ class Controls extends Module_Base {
 				'images'                 => $demo_images,
 				'styleChoices'           => $this->get_style_choices(),
 				'colorControls'          => $this->get_color_controls(),
+				'colorControlsDark'      => $this->get_color_controls_variant( 'dark' ),
+				'colorControlsContrast'  => $this->get_color_controls_variant( 'contrast' ),
 			]
 		);
 
@@ -1148,6 +1150,36 @@ class Controls extends Module_Base {
 				'css_var'         => '--mdc-theme-on-surface',
 			],
 		];
+	}
+
+	/**
+	 * Get a list of dark / contrast control settings.
+	 *
+	 * @param string $variant Color prefix to return.
+	 *
+	 * @return array New color controls.
+	 */
+	public function get_color_controls_variant( $variant ) {
+		$controls      = $this->get_color_controls();
+		$dark_controls = [];
+
+		foreach ( $controls as $control ) {
+			$dark_control = $control;
+
+			$dark_control[ 'id' ] .= sprintf( '_%s', $variant );
+
+			if ( isset( $dark_control['related_text_setting'] ) ) {
+				$dark_control['related_text_setting'] = $this->prepare_option_name( $dark_control['id'] );
+			}
+
+			if ( isset( $dark_control['related_setting'] ) ) {
+				$dark_control['related_setting'] =  $this->prepare_option_name( $dark_control['id'] );
+			}
+
+			$dark_controls[] = $dark_control;
+		}
+
+		return $dark_controls;
 	}
 
 	/**
