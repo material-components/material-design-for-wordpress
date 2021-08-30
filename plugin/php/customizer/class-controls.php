@@ -101,9 +101,6 @@ class Controls extends Module_Base {
 		$this->add_icon_collection_controls();
 
 		// Add global style control.
-		$this->add_global_style_control();
-
-		// Add global style control.
 		$this->add_learn_control();
 	}
 
@@ -146,17 +143,12 @@ class Controls extends Module_Base {
 		$learn_description .= '</p>';
 
 		$sections = [
-			'style'          => __( 'Starter Styles', 'material-design' ),
-			'colors'         => __( 'Color Palette ', 'material-design' ),
-			'typography'     => __( 'Typography (Font Styles)', 'material-design' ),
-			'corner_styles'  => __( 'Shape Size', 'material-design' ),
-			'icons'          => __( 'Icon Styles', 'material-design' ),
-			'global-setting' => [
-				'label'       => __( 'Global Styles', 'material-design' ),
-				'priority'    => 300,
-				'description' => esc_html__( 'Global styles will be applied in all pages including custom templates.', 'material-design' ),
-			],
-			'learn'          => [
+			'style'         => __( 'Starter Styles', 'material-design' ),
+			'colors'        => __( 'Color Palette ', 'material-design' ),
+			'typography'    => __( 'Typography (Font Styles)', 'material-design' ),
+			'corner_styles' => __( 'Shape Size', 'material-design' ),
+			'icons'         => __( 'Icon Styles', 'material-design' ),
+			'learn'         => [
 				'label'       => __( 'Learn More', 'material-design' ),
 				'priority'    => 400,
 				'description' => $learn_description,
@@ -181,8 +173,8 @@ class Controls extends Module_Base {
 			 *
 			 * This allows other plugins/themes to change the customizer section args.
 			 *
-			 * @param array  $args Array of section args.
-			 * @param string $id   ID of the section.
+			 * @param array $args Array of section args.
+			 * @param string $id ID of the section.
 			 */
 			$section = apply_filters( $this->slug . '_customizer_section_args', $args, $id );
 
@@ -534,90 +526,6 @@ class Controls extends Module_Base {
 		}
 	}
 
-	/**
-	 * Select sanitization callback.
-	 *
-	 * - Sanitization: select
-	 * - Control: select, radio
-	 *
-	 * Sanitization callback for 'select' and 'radio' type controls. This callback sanitizes `$input`
-	 * as a slug, and then validates `$input` against the choices defined for the control.
-	 *
-	 * @see sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
-	 * @see $wp_customize->get_control() https://developer.wordpress.org/reference/classes/wp_customize_manager/get_control/
-	 *
-	 * @param string               $input   Slug to sanitize.
-	 * @param WP_Customize_Setting $setting Setting instance.
-	 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
-	 */
-	public function sanitize_select( $input, $setting ) {
-		// Ensure input is a slug.
-		$input = sanitize_key( $input );
-
-		// Get list of choices from the control associated with the setting.
-		$choices = $setting->manager->get_control( $setting->id )->choices;
-
-		// If the input is a valid key, return it; otherwise, return the default.
-		return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
-	}
-
-	/**
-	 * Get global style controls.
-	 *
-	 * @return array[]
-	 */
-	public function get_global_style_controls() {
-		return [
-			[
-				'id'      => 'card_style',
-				'label'   => esc_html__( 'Cards', 'material-design' ),
-				'type'    => 'radio',
-				'default' => 'inherit',
-				'choices' => [
-					'inherit'  => esc_html__( 'Inherit', 'material-design' ),
-					'elevated' => esc_html__( 'Elevated', 'material-design' ),
-					'outlined' => esc_html__( 'Outlined', 'material-design' ),
-				],
-			],
-			[
-				'id'      => 'text_field_style',
-				'label'   => esc_html__( 'Text field', 'material-design' ),
-				'type'    => 'radio',
-				'default' => 'inherit',
-				'choices' => [
-					'inherit'  => esc_html__( 'Inherit', 'material-design' ),
-					'elevated' => esc_html__( 'Elevated', 'material-design' ),
-					'outlined' => esc_html__( 'Outlined', 'material-design' ),
-				],
-			],
-		];
-	}
-
-	/**
-	 * Add global style control.
-	 */
-	public function add_global_style_control() {
-		$settings = [];
-		$controls = [];
-
-		foreach ( $this->get_global_style_controls() as $control ) {
-			$settings[ $control['id'] ] = [
-				'transport'         => 'refresh',
-				'sanitize_callback' => [ $this, 'sanitize_select' ],
-				'default'           => $control['default'],
-			];
-
-			$controls[ $control['id'] ] = array_merge(
-				[
-					'section' => 'global-setting',
-				],
-				$control
-			);
-		}
-
-		$this->add_settings( $settings );
-		$this->add_controls( $controls );
-	}
 
 	/**
 	 * Get global style controls.
@@ -627,20 +535,20 @@ class Controls extends Module_Base {
 	public function get_learn_controls() {
 		return [
 			[
-				'id'      => 'Newsletter',
-				'label'   => esc_html__( 'Newsleter', 'material-design' ),
-				'type'    => 'hidden',
-				'default' => 'inherit',
+				'id'          => 'Newsletter',
+				'label'       => esc_html__( 'Newsleter', 'material-design' ),
+				'type'        => 'hidden',
+				'default'     => 'inherit',
 				'description' =>
-					'<p>'. __( 'Sign up to get update and news about material design via email.' ) . '<p>'.
+					'<p>' . __( 'Sign up to get update and news about material design via email.', 'material-design' ) . '<p>' .
 					sprintf(
-					' <a href="%1$s" class="button external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
-					esc_url( __( 'https://docs.google.com/forms/d/e/1FAIpQLSeOeFZRio9Mm2Rfw5NaJyvLfkVDDUO2XF2320iK1eB0P0rv3w/formrestricted?resourcekey=0-fc7anyXD_x_RIQ1JPwQ31Q', 'material-design' ) ),
-					__( 'Subscribe to Newsletter', 'material-design' ),
-					/* translators: Accessibility text. */
-					__( '(opens in a new tab)', 'material-design' )
-				)
-				],
+						' <a href="%1$s" class="button external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
+						esc_url( __( 'https://docs.google.com/forms/d/e/1FAIpQLSeOeFZRio9Mm2Rfw5NaJyvLfkVDDUO2XF2320iK1eB0P0rv3w/formrestricted?resourcekey=0-fc7anyXD_x_RIQ1JPwQ31Q', 'material-design' ) ),
+						__( 'Subscribe to Newsletter', 'material-design' ),
+						/* translators: Accessibility text. */
+						__( '(opens in a new tab)', 'material-design' )
+					),
+			],
 
 		];
 	}

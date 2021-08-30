@@ -28,15 +28,15 @@ jobs:
     needs: [lint]
     name: "E2E tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
     runs-on: ubuntu-latest
-
+    continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       fail-fast: false
       matrix:
         php_versions: [7.4]
-        wp_versions: [5.7]
+        wp_versions: [5.7, 5.8]
         include:
           - php_versions: 7.3
-            wp_versions: 5.2
+            wp_versions: 5.6
 
     env:
       NODE_ENV: teste2e
@@ -87,18 +87,12 @@ jobs:
           npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
           npm run wp -- wp plugin activate material-design
 
-      - name: Run E2E tests
-        if: ${{ matrix.wp_versions == '5.2' }}
-        run: npm run test:e2e
-
       - name: Run E2E tests with coverage
-        if: ${{ matrix.wp_versions != '5.2' }}
         run: |
           sudo chown -R runner:runner plugin/tests node_modules # ensure coverage folder can be created
           npm run test:e2e:coverage
 
       - name: Coveralls
-        if: ${{ matrix.wp_versions != '5.2' }}
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -135,6 +129,7 @@ jobs:
     needs: [lint]
     name: "PHP tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
     runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       fail-fast: false
       matrix:
@@ -145,6 +140,7 @@ jobs:
           - php_versions: 7.4
             wp_versions: "trunk"
             os: ubuntu-latest
+            experimental: true
 
           - php_versions: "7.0"
             wp_versions: "latest"
@@ -152,10 +148,6 @@ jobs:
 
           - php_versions: 5.6.20
             wp_versions: "latest"
-            os: ubuntu-18.04
-
-          - php_versions: 5.6.20
-            wp_versions: "5.2"
             os: ubuntu-18.04
 
     env:
