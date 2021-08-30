@@ -1034,16 +1034,18 @@ import getConfig from '../block-editor/utils/get-config';
 			const control = api.control(
 				`material_design[${ controlObject.id }_dark]`
 			);
+			const newControl = control.container.get( 0 ).cloneNode( true );
 
-			darkModeTab.append( control.container.get( 0 ) );
+			darkModeTab.append( newControl );
 		} );
 
 		controls.forEach( controlObject => {
 			const control = api.control(
 				`material_design[${ controlObject.id }_contrast]`
 			);
+			const newControl = control.container.get( 0 ).cloneNode( true );
 
-			contrastModeTab.append( control.container.get( 0 ) );
+			contrastModeTab.append( newControl );
 		} );
 	};
 
