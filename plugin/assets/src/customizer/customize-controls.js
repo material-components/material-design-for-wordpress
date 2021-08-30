@@ -969,9 +969,9 @@ import getConfig from '../block-editor/utils/get-config';
 				return;
 			}
 
-			unmountComponentAtNode( control.container.get( 0 ) );
-
-			renderColorControl( control );
+			if ( unmountComponentAtNode( control.container.get( 0 ) ) ) {
+				renderColorControl( control );
+			}
 		} );
 	};
 
