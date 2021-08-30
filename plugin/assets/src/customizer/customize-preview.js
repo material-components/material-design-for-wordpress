@@ -45,7 +45,7 @@ const getIconFontName = iconStyle => {
 };
 
 const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
-const COLOR_MODES = {
+export const COLOR_MODES = {
 	default: 'default',
 	dark: 'dark',
 	contrast: 'contrast',

@@ -32,6 +32,7 @@ import classNames from 'classnames';
 import './style.css';
 import ColorA11y from './color-a11y';
 import MaterialColorPalette from '../../../block-editor/components/material-color-palette';
+import { COLOR_MODES } from '../../customize-preview';
 
 const api = window.customize;
 
@@ -68,6 +69,19 @@ const ColorControl = ( {
 			onColorChange( color );
 		}
 	}, [ isLinked, color ] );
+
+	useEffect( () => {
+		if ( ! range ) {
+			return;
+		}
+
+		if (
+			( COLOR_MODES.dark === mode && color === range.dark.hex ) ||
+			( COLOR_MODES.contrast === mode && color === range.light.hex )
+		) {
+			setIsLinked( true );
+		}
+	}, [] );
 
 	return (
 		<>
