@@ -19,8 +19,6 @@
  */
 import { useReducer, createContext } from '@wordpress/element';
 
-import { useParams } from '@wordpress/dom';
-
 /**
  * Internal dependencies
  */
@@ -59,7 +57,6 @@ const initialState = {
  * @param {*} param Children to render
  */
 export const TabProvider = ( { children } ) => {
-
 	const [ state, dispatch ] = useReducer( reducer, initialState );
 
 	return <Provider value={ { state, dispatch } }>{ children }</Provider>;
