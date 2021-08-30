@@ -536,10 +536,12 @@ class Controls extends Module_Base {
 		return [
 			[
 				'id'          => 'Newsletter',
-				'label'       => esc_html__( 'Newsleter', 'material-design' ),
+				'label'       => '',
 				'type'        => 'hidden',
 				'default'     => 'inherit',
 				'description' =>
+					/* translators: %s is material io link. */
+					sprintf( '<p>' . __( 'Learn more about material design at %s.', 'material-design' ) . '</p>', '<a href="https://material.io/">material.io</a>' ) .
 					'<p>' . __( 'Sign up to get update and news about material design via email.', 'material-design' ) . '<p>' .
 					sprintf(
 						' <a href="%1$s" class="button external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
