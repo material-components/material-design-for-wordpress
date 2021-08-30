@@ -71,7 +71,7 @@ const COLOR_MODES = {
 	const settingsControls = {};
 	const defaultModeControls = {};
 	const darkModeControls = {};
-	const contrastModes = {};
+	const constastModeControls = {};
 
 	$( function() {
 		api.preview.bind( 'active', function() {
@@ -101,7 +101,7 @@ const COLOR_MODES = {
 				if ( COLOR_MODES.dark === args.colorModeType ) {
 					darkModeControls[ control ] = args.cssVar;
 				} else if ( COLOR_MODES.contrast === args.colorModeType ) {
-					contrastModes[ control ] = args.cssVar;
+					constastModeControls[ control ] = args.cssVar;
 				} else {
 					// Save a refertence to default colors.
 					defaultModeControls[ control ] = args.cssVar;
@@ -322,7 +322,7 @@ const COLOR_MODES = {
 		if ( COLOR_MODES.dark === mode ) {
 			colorControls = darkModeControls;
 		} else if ( COLOR_MODES.contrast === mode ) {
-			colorControls = contrastModes;
+			colorControls = constastModeControls;
 		} else {
 			colorControls = defaultModeControls;
 		}
@@ -338,11 +338,11 @@ const COLOR_MODES = {
 		.concat( Object.keys( typographyControls ) )
 		.concat( Object.keys( iconControls ) )
 		.concat( Object.keys( settingsControls ) )
+		.concat( Object.keys( darkModeControls ) )
+		.concat( Object.keys( constastModeControls ) )
 		.forEach( control => {
 			parentApi( control, value => {
 				value.bind( () => {
-					console.log(control);
-					console.log(value);
 					if ( typographyControls.hasOwnProperty( control ) ) {
 						updateGoogleFontsURL();
 					}

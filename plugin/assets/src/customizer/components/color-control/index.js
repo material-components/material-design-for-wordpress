@@ -65,13 +65,9 @@ const ColorControl = ( {
 
 	useEffect( () => {
 		if ( isLinked ) {
-			onColorChange( isLinked );
+			onColorChange( color );
 		}
-	}, [ isLinked ] );
-
-	if ( range ) {
-//		console.log(range);
-	}
+	}, [ isLinked, color ] );
 
 	return (
 		<>
