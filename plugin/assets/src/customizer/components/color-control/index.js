@@ -69,9 +69,9 @@ const ColorControl = ( {
 	};
 
 	useEffect( () => {
-		if ( 'dark' === mode ) {
+		if ( 'dark' === mode && ! defaultValue ) {
 			setColor( range.dark.hex );
-		} else if ( 'contrast' === mode ) {
+		} else if ( 'contrast' === mode && ! defaultValue ) {
 			setColor( range.light.hex );
 		}
 	}, [ mode ] );

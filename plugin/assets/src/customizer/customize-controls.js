@@ -798,7 +798,7 @@ import getConfig from '../block-editor/utils/get-config';
 			defaultValue: setting.get(),
 			onColorChange: value => {
 				control.setting.set( value );
-				setTimeout( arrangeDarkMode, 100 );
+				setTimeout( arrangeDarkMode, 200 );
 			},
 			params,
 			api,
@@ -876,6 +876,7 @@ import getConfig from '../block-editor/utils/get-config';
 		reRenderColorControls();
 		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
+		setTimeout( arrangeDarkMode, 300 );
 	};
 
 	/**
