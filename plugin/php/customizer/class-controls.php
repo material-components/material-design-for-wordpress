@@ -25,6 +25,7 @@
 
 namespace MaterialDesign\Plugin\Customizer;
 
+use MaterialDesign\Plugin\Admin;
 use MaterialDesign\Plugin\Module_Base;
 use MaterialDesign\Plugin\Google_Fonts;
 use MaterialDesign\Plugin\Blocks_Frontend;
@@ -135,7 +136,7 @@ class Controls extends Module_Base {
 		$learn_description .= __( 'Learn about the concepts behind material Design.', 'material-design' );
 		$learn_description .= sprintf(
 			' <a href="%1$s" class="external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
-			esc_url( __( 'https://material.io/design/material-theming/overview.html#material-theming', 'material-design' ) ),
+			Admin::MATERIAL_URL,
 			__( 'Vist material.io', 'material-design' ),
 			/* translators: Accessibility text. */
 			__( '(opens in a new tab)', 'material-design' )
@@ -541,11 +542,11 @@ class Controls extends Module_Base {
 				'default'     => 'inherit',
 				'description' =>
 					/* translators: %s is material io link. */
-					sprintf( '<p>' . __( 'Learn more about material design at %s.', 'material-design' ) . '</p>', '<a href="https://material.io/">material.io</a>' ) .
+					sprintf( '<p>' . __( 'Learn more about material design at %s.', 'material-design' ) . '</p>', '<a href="https://material.io/" target="_blank">material.io</a>' ) .
 					'<p>' . __( 'Sign up to get update and news about material design via email.', 'material-design' ) . '<p>' .
 					sprintf(
 						' <a href="%1$s" class="button external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
-						esc_url( __( 'https://docs.google.com/forms/d/e/1FAIpQLSeOeFZRio9Mm2Rfw5NaJyvLfkVDDUO2XF2320iK1eB0P0rv3w/formrestricted?resourcekey=0-fc7anyXD_x_RIQ1JPwQ31Q', 'material-design' ) ),
+						Admin::NEWSLETTER_URL,
 						__( 'Subscribe to Newsletter', 'material-design' ),
 						/* translators: Accessibility text. */
 						__( '(opens in a new tab)', 'material-design' )

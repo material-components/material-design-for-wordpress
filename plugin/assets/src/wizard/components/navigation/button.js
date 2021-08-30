@@ -85,10 +85,10 @@ const Button = props => {
  * @param {*} props Inherited props
  */
 export const Link = props => {
-	const { style, text, leadingIcon, trailingIcon, link } = props;
+	const { style, text, leadingIcon, trailingIcon, link, target } = props;
 
 	return (
-		<a href={ link } className={ `mdc-button ${ style }` }>
+		<a href={ link } className={ `mdc-button ${ style }` } target={ target }>
 			{ leadingIcon && (
 				<i
 					className="material-icons mdc-button__icon leading-icon"

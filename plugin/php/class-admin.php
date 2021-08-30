@@ -30,6 +30,10 @@ namespace MaterialDesign\Plugin;
  */
 class Admin extends Module_Base {
 
+	const NEWSLETTER_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeOeFZRio9Mm2Rfw5NaJyvLfkVDDUO2XF2320iK1eB0P0rv3w/viewform?usp=sf_link';
+
+	const MATERIAL_URL = 'https://material.io/design/material-theming/overview.html#material-theming';
+
 	/**
 	 * Initiate the class and hooks.
 	 */
@@ -210,8 +214,8 @@ class Admin extends Module_Base {
 					'redirect'      => esc_url( admin_url( 'themes.php' ) ),
 					'themeStatus'   => esc_html( $this->plugin->theme_status() ),
 					'contentStatus' => esc_html( $has_demo_content ? 'ok' : 'install' ),
-					'newsLetterUrl' => esc_html( 'https://docs.google.com/forms/d/e/1FAIpQLSeOeFZRio9Mm2Rfw5NaJyvLfkVDDUO2XF2320iK1eB0P0rv3w/viewform?usp=sf_link' ),
-					'materialUrl' => esc_html( 'https://material.io/design/material-theming/overview.html#material-theming' ),
+					'newsLetterUrl' => self::NEWSLETTER_URL,
+					'materialUrl'   => self::MATERIAL_URL,
 				]
 			);
 
@@ -223,6 +227,8 @@ class Admin extends Module_Base {
 					'nonce'          => wp_create_nonce( 'wp_rest' ),
 					'themeStatus'    => esc_html( $this->plugin->theme_status() ),
 					'assetsRestPath' => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
+					'newsLetterUrl'  => self::NEWSLETTER_URL,
+					'materialUrl'    => self::MATERIAL_URL,
 				]
 			);
 		}
@@ -264,6 +270,8 @@ class Admin extends Module_Base {
 					'restPath'         => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 					'assetsRestPath'   => esc_url( $this->plugin->assets_rest_controller->get_base_path() ),
 					'themeStatus'      => esc_html( $this->plugin->theme_status() ),
+					'newsLetterUrl'    => self::NEWSLETTER_URL,
+					'materialUrl'      => self::MATERIAL_URL,
 				]
 			);
 		}

@@ -46,7 +46,10 @@ const Work = () => {
 						'material-design'
 					) }
 				</p>
-				<LearnContent />
+				<LearnContent
+					materialUrl={ getConfig( 'materialUrl' ) }
+					newsLetterUrl={ getConfig( 'newsLetterUrl' ) }
+				/>
 			</Card>
 		</div>
 	);

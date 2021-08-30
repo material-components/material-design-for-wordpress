@@ -19,9 +19,8 @@
  */
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
-import Button from '../../../wizard/components/navigation/button';
 import getConfig from '../../get-config';
-import {LearnContent} from './learn-content';
+import { LearnContent } from './learn-content';
 
 export const Learn = () => {
 	return (
@@ -30,7 +29,10 @@ export const Learn = () => {
 				<h2 className="material-gsm__content-title mdc-typography--headline2">
 					{ __( 'Learn More about Material Design', 'material-design' ) }
 				</h2>
-				<LearnContent/>
+				<LearnContent
+					materialUrl={ getConfig( 'materialUrl' ) }
+					newsLetterUrl={ getConfig( 'newsLetterUrl' ) }
+				/>
 
 				<div style={ { height: '20px' } }></div>
 			</div>

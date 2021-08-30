@@ -20,9 +20,8 @@
 import { Fragment } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import Button from '../../../wizard/components/navigation/button';
-import getConfig from '../../get-config';
 
-export const LearnContent = () => {
+export const LearnContent = ( { materialUrl, newsLetterUrl } ) => {
 	return (
 		<Fragment>
 			<p>
@@ -35,10 +34,10 @@ export const LearnContent = () => {
 			<div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised mdc-button--offsite"
-					text={ __( 'Vist material.io', 'material-design' ) }
+					text={ __( 'Visit material.io', 'material-design' ) }
 					trailingIcon="arrow_downward"
-					link={ getConfig( 'materialUrl' ) }
-					target="blank"
+					link={ materialUrl }
+					target="_blank"
 				/>
 			</div>
 
@@ -54,8 +53,8 @@ export const LearnContent = () => {
 					style="mdc-button--raised mdc-button--offsite"
 					text={ __( 'Subscribe to Newsletter', 'material-design' ) }
 					trailingIcon="arrow_downward"
-					link={ getConfig( 'newsLetterUrl' ) }
-					target="blank"
+					link={ newsLetterUrl }
+					target="_blank"
 				/>
 			</div>
 		</Fragment>
