@@ -798,6 +798,7 @@ import getConfig from '../block-editor/utils/get-config';
 			defaultValue: setting.get(),
 			onColorChange: value => {
 				control.setting.set( value );
+				arrangeDarkMode();
 			},
 			params,
 			api,
@@ -1026,26 +1027,16 @@ import getConfig from '../block-editor/utils/get-config';
 
 		controls.forEach( controlObject => {
 			const control = api.control( `material_design[${ controlObject.id }]` );
-
-			defaultModeTab.append( control.container.get( 0 ) );
-		} );
-
-		controls.forEach( controlObject => {
-			const control = api.control(
+			const darkControl = api.control(
 				`material_design[${ controlObject.id }_dark]`
 			);
-			const newControl = control.container.get( 0 ).cloneNode( true );
-
-			darkModeTab.append( newControl );
-		} );
-
-		controls.forEach( controlObject => {
-			const control = api.control(
+			const contrastControl = api.control(
 				`material_design[${ controlObject.id }_contrast]`
 			);
-			const newControl = control.container.get( 0 ).cloneNode( true );
 
-			contrastModeTab.append( newControl );
+			defaultModeTab.append( control.container.get( 0 ) );
+			darkModeTab.append( darkControl.container.get( 0 ) );
+			contrastModeTab.append( contrastControl.container.get( 0 ) );
 		} );
 	};
 

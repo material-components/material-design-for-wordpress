@@ -4,12 +4,14 @@
 import { __, sprintf } from '@wordpress/i18n';
 import { uniqueId } from 'lodash';
 
+const api = wp.customize;
+
 /**
  * Internal dependencies
  */
 import colorUtils from '../../../common/color-utils';
 
-const ColorA11y = ( { selectedColor, api, params } ) => {
+const ColorA11y = ( { selectedColor, params } ) => {
 	const colors = [];
 	const textColorLabel = params.a11yLabel || '';
 	const { relatedSetting, relatedTextSetting } = params;
