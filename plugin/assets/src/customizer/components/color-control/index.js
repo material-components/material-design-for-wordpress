@@ -33,10 +33,11 @@ import './style.css';
 import ColorA11y from './color-a11y';
 import MaterialColorPalette from '../../../block-editor/components/material-color-palette';
 
+const api = window.customize;
+
 const ColorControl = ( {
 	defaultValue,
 	params,
-	api,
 	onColorChange,
 	range,
 	mode,
@@ -52,6 +53,19 @@ const ColorControl = ( {
 	const onChange = value => {
 		setColor( value );
 		onColorChange( value );
+	};
+
+	const onLinkButtonToggle = mode => {
+		setIsLinked( ! isLinked );
+		let newColor;
+
+		if ( 'contrast' === mode ) {
+			newColor = range.light;
+		} else {
+			newColor = range[ mode ];
+		}
+
+		console.log( newColor );
 	};
 
 	useEffect( () => {
@@ -94,7 +108,7 @@ const ColorControl = ( {
 						role="button"
 						onClick={ event => {
 							event.preventDefault();
-							setIsLinked( ! isLinked );
+							onLinkButtonToggle( mode );
 						} }
 					>
 						<span className="material-icons">
