@@ -47,7 +47,7 @@ const ColorControl = ( {
 	const [ materialPickerSelected, setMaterialPickerSelected ] = useState(
 		true
 	);
-	const [ isLinked, setIsLinked ] = useState( true );
+	const [ isLinked, setIsLinked ] = useState( false );
 	const { label } = params;
 
 	const onChange = value => {
@@ -55,26 +55,19 @@ const ColorControl = ( {
 		onColorChange( value );
 	};
 
-	const onLinkButtonToggle = mode => {
-		setIsLinked( ! isLinked );
-		let newColor;
-
-		if ( 'contrast' === mode ) {
-			newColor = range.light;
-		} else {
-			newColor = range[ mode ];
-		}
-
-		console.log( newColor );
-	};
-
 	useEffect( () => {
-		if ( 'dark' === mode && ! defaultValue ) {
+		if ( 'dark' === mode && isLinked ) {
 			setColor( range.dark.hex );
-		} else if ( 'contrast' === mode && ! defaultValue ) {
+		} else if ( 'contrast' === mode && isLinked ) {
 			setColor( range.light.hex );
 		}
-	}, [ mode ] );
+	}, [ mode, isLinked ] );
+
+	useEffect( () => {
+		if ( isLinked ) {
+			onColorChange( isLinked );
+		}
+	}, [ isLinked ] );
 
 	if ( range ) {
 //		console.log(range);
@@ -103,12 +96,13 @@ const ColorControl = ( {
 				/>
 
 				{ 'default' !== mode && (
+					/* eslint-disable-next-line jsx-a11y/no-redundant-roles */
 					<button
 						className="material-design-color__link"
 						role="button"
 						onClick={ event => {
 							event.preventDefault();
-							onLinkButtonToggle( mode );
+							setIsLinked( ! isLinked );
 						} }
 					>
 						<span className="material-icons">
