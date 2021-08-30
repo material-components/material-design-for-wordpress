@@ -1723,7 +1723,7 @@ class Controls extends Module_Base {
 		$variant_type   = ( 'dark_colors' === $variant ) ? 'dark' : 'contrast';
 
 		// Dark mode overrides.
-		$args['section']              = $variant;
+		$args['section']              = 'colors';
 		$args['related_setting']      = ! empty( $control['related_setting'] )
 			? str_replace( ']', $variant_suffix . ']', $control['related_setting'] )
 			: false;
