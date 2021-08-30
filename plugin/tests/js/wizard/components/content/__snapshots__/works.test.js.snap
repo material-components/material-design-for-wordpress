@@ -30,6 +30,54 @@ Object {
             <p>
               You've installed Material. Click "Finish" and check out the rest of the Getting Started guide to customize your theme, build with Material Blocks, and apply the theme to your site.
             </p>
+            <p>
+              Learn about the concepts behind material Design
+            </p>
+            <div
+              class="material-gsm__content-actions"
+            >
+              <a
+                class="mdc-button mdc-button--raised mdc-button--offsite"
+                href="https://material.io"
+                target="_blank"
+              >
+                <span
+                  class="mdc-button__label"
+                >
+                  Visit material.io
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="material-icons mdc-button__icon trailing-icon"
+                >
+                  arrow_downward
+                </i>
+              </a>
+            </div>
+            <p>
+              Sign up to get update and news about material design via email
+            </p>
+            <div
+              class="material-gsm__content-actions"
+            >
+              <a
+                class="mdc-button mdc-button--raised mdc-button--offsite"
+                href="https://material.io/newsletter"
+                target="_blank"
+              >
+                <span
+                  class="mdc-button__label"
+                >
+                  Subscribe to Newsletter
+                </span>
+                <i
+                  aria-hidden="true"
+                  class="material-icons mdc-button__icon trailing-icon"
+                >
+                  arrow_downward
+                </i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -61,6 +109,54 @@ Object {
           <p>
             You've installed Material. Click "Finish" and check out the rest of the Getting Started guide to customize your theme, build with Material Blocks, and apply the theme to your site.
           </p>
+          <p>
+            Learn about the concepts behind material Design
+          </p>
+          <div
+            class="material-gsm__content-actions"
+          >
+            <a
+              class="mdc-button mdc-button--raised mdc-button--offsite"
+              href="https://material.io"
+              target="_blank"
+            >
+              <span
+                class="mdc-button__label"
+              >
+                Visit material.io
+              </span>
+              <i
+                aria-hidden="true"
+                class="material-icons mdc-button__icon trailing-icon"
+              >
+                arrow_downward
+              </i>
+            </a>
+          </div>
+          <p>
+            Sign up to get update and news about material design via email
+          </p>
+          <div
+            class="material-gsm__content-actions"
+          >
+            <a
+              class="mdc-button mdc-button--raised mdc-button--offsite"
+              href="https://material.io/newsletter"
+              target="_blank"
+            >
+              <span
+                class="mdc-button__label"
+              >
+                Subscribe to Newsletter
+              </span>
+              <i
+                aria-hidden="true"
+                class="material-icons mdc-button__icon trailing-icon"
+              >
+                arrow_downward
+              </i>
+            </a>
+          </div>
         </div>
       </div>
     </div>

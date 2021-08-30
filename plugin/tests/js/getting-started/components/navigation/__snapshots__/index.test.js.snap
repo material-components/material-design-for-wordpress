@@ -80,6 +80,21 @@ Object {
               Updates
             </div>
           </button>
+          <button
+            class="material-gsm__tab"
+            type="button"
+          >
+            <i
+              class="material-icons"
+            >
+              lens
+            </i>
+            <div
+              class="material-gsm__tab-title"
+            >
+              Learn More
+            </div>
+          </button>
         </div>
       </div>
     </div>
@@ -158,6 +173,21 @@ Object {
             class="material-gsm__tab-title"
           >
             Updates
+          </div>
+        </button>
+        <button
+          class="material-gsm__tab"
+          type="button"
+        >
+          <i
+            class="material-icons"
+          >
+            lens
+          </i>
+          <div
+            class="material-gsm__tab-title"
+          >
+            Learn More
           </div>
         </button>
       </div>
