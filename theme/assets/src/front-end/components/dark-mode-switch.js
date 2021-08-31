@@ -16,10 +16,15 @@ const maybeToggleDarkMode = event => {
 	if ( darkModeEnabled ) {
 		body.setAttribute( 'data-color-scheme', 'dark' );
 	} else {
-		body.removeAttribute( 'data-color-scheme' );
+		body.setAttribute( 'data-color-scheme', 'light' );
 	}
 };
 
+const testMediaQuery = event => {
+	if ( event.matches ) {
+		darkModeEnabled = true;
+	}
+};
 
 export const initDarkModeSwitch = () => {
 	if ( ! body ) {
@@ -31,6 +36,12 @@ export const initDarkModeSwitch = () => {
 	if ( ! switcher ) {
 		return;
 	}
+
+	const mediaQuery = window.matchMedia( '(prefers-color-scheme: dark)' );
+
+	mediaQuery.addEventListener( 'change', testMediaQuery );
+
+	testMediaQuery( mediaQuery );
 
 	switcher.addEventListener( 'click', maybeToggleDarkMode );
 };

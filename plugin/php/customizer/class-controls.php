@@ -934,6 +934,11 @@ class Controls extends Module_Base {
 			body[data-color-scheme='dark'] {
 				{$dark_mode_vars}
 			}
+
+			/* Forced light mode */
+			body[data-color-scheme='light'] {
+				{$color_vars}
+			}
 		";
 
 		if ( $this->is_dark_mode_activated() ) {
