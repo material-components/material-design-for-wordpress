@@ -37,6 +37,7 @@ import ImageRadioControl from '../../components/image-radio-control';
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import ListItem from './components/list-item';
+import { default as ListItemCompat } from './components/list-item-compat';
 
 /**
  * Material list edit component.
@@ -232,6 +233,10 @@ const ListEdit = ( {
 		return items[ selected.index ] || {};
 	};
 
+	const Item = window?.materialDesign?.doesRequireBackCompatList
+		? ListItemCompat
+		: ListItem;
+
 	return (
 		<>
 			<ul
@@ -245,7 +250,7 @@ const ListEdit = ( {
 				) }
 			>
 				{ items.map( ( item, i ) => (
-					<ListItem
+					<Item
 						key={ i }
 						index={ i }
 						{ ...item }
