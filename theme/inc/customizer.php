@@ -126,16 +126,27 @@ function preview_scripts() {
 		true
 	);
 
-	$css_vars = [];
+	$css_vars      = [];
+	$css_vars_dark = [];
 
 	foreach ( Colors\get_controls() as $control ) {
 		$css_vars[ $control['id'] ] = $control['css_var'];
+	}
+
+	foreach ( Colors\get_dark_controls() as $control ) {
+		$css_vars_dark[ $control['id'] ] = $control['css_var'];
 	}
 
 	wp_localize_script(
 		'material-design-google-customizer-preview',
 		'materialDesignThemeColorControls',
 		$css_vars
+	);
+
+	wp_localize_script(
+		'material-design-google-customizer-preview',
+		'materialDesignThemeColorControlsDark',
+		$css_vars_dark
 	);
 }
 
@@ -298,31 +309,33 @@ function get_default( $setting ) {
  */
 function get_default_values() {
 	$defaults = [
-		'primary_color'           => '#6200ee',
-		'on_primary_color'        => '#ffffff',
-		'secondary_color'         => '#018786',
-		'on_secondary_color'      => '#000000',
-		'surface_color'           => '#ffffff',
-		'on_surface_color'        => '#000000',
-		'custom_background_color' => '#ffffff',
-		'on_background_color'     => '#000000',
-		'header_color'            => '',
-		'on_header_color'         => '',
-		'footer_color'            => '#ffffff',
-		'on_footer_color'         => '#000000',
-		'archive_layout'          => 'card',
-		'archive_width'           => 'normal',
-		'archive_comments'        => true,
-		'archive_author'          => true,
-		'archive_excerpt'         => true,
-		'archive_date'            => true,
-		'archive_outlined'        => false,
-		'comment_fields_style'    => 'outlined',
-		'header_search_display'   => true,
-		'header_title_display'    => false,
-		'header_bar_layout'       => 'standard',
-		'footer_text'             => '',
-		'hide_back_to_top'        => false,
+		'primary_color'                => '#6200ee',
+		'on_primary_color'             => '#ffffff',
+		'secondary_color'              => '#018786',
+		'on_secondary_color'           => '#000000',
+		'surface_color'                => '#ffffff',
+		'on_surface_color'             => '#000000',
+		'custom_background_color'      => '#ffffff',
+		'custom_background_color_dark' => '#121212',
+		'on_background_color'          => '#000000',
+		'on_background_color_dark'     => '#ffffff',
+		'header_color'                 => '',
+		'on_header_color'              => '',
+		'footer_color'                 => '#ffffff',
+		'on_footer_color'              => '#000000',
+		'archive_layout'               => 'card',
+		'archive_width'                => 'normal',
+		'archive_comments'             => true,
+		'archive_author'               => true,
+		'archive_excerpt'              => true,
+		'archive_date'                 => true,
+		'archive_outlined'             => false,
+		'comment_fields_style'         => 'outlined',
+		'header_search_display'        => true,
+		'header_title_display'         => false,
+		'header_bar_layout'            => 'standard',
+		'footer_text'                  => '',
+		'hide_back_to_top'             => false,
 
 	];
 
