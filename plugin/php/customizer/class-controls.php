@@ -352,7 +352,6 @@ class Controls extends Module_Base {
 
 		$this->add_controls( $controls );
 		$this->add_controls( $dark_mode_controls );
-		$this->add_controls( $contrast_controls );
 	}
 
 	/**
@@ -644,7 +643,6 @@ class Controls extends Module_Base {
 				'styleChoices'           => $this->get_style_choices(),
 				'colorControls'          => $this->get_color_controls(),
 				'colorControlsDark'      => $this->get_color_controls_variant( 'dark' ),
-				'colorControlsContrast'  => $this->get_color_controls_variant( 'contrast' ),
 			]
 		);
 
@@ -905,8 +903,6 @@ class Controls extends Module_Base {
 			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
 			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
 		}
-
-
 
 		$glue               = "\n\t\t\t\t";
 		$icon_collection    = $this->get_icon_collection_css();
@@ -1817,5 +1813,17 @@ class Controls extends Module_Base {
 		$style_settings = json_decode( $this->get_option( 'style_settings' ), true );
 
 		return $style_settings[ $selected_style ][ 'dark' ];
+	}
+
+	/**
+	 * Check whether or not dark mode is forced.
+	 *
+	 * @return bool Status of dark mode.
+	 */
+	public function high_contrast_status() {
+		$selected_style = $this->get_option( 'style' );
+		$style_settings = json_decode( $this->get_option( 'style_settings' ), true );
+
+		return $style_settings[ $selected_style ][ 'contrast' ];
 	}
 }

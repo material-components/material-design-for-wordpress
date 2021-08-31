@@ -35,11 +35,10 @@ const CHOICES = {
 };
 
 const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
-	//console.log( defaultValue );
 	const [ currentValue, setCurrentValue ] = useState(
 		defaultValue[ selectedStyle ]
 	);
-	const { dark, contrast, switcher } = currentValue;
+	const { dark, switcher } = currentValue;
 	const [ displaySwitcher, setDisplaySwitcher ] = useState( switcher );
 	const isThemeActive = 'ok' === getConfig( 'themeStatus' );
 
@@ -69,14 +68,6 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 				choices={ Object.values( CHOICES ) }
 				defaultChecked={ dark }
 				onChange={ value => onChange( value, 'dark' ) }
-			/>
-
-			<SettingsGroup
-				title={ __( 'High Contrast', 'material-design' ) }
-				icon="brightness_high"
-				choices={ Object.values( CHOICES ) }
-				defaultChecked={ contrast }
-				onChange={ value => onChange( value, 'contrast' ) }
 			/>
 
 			{ isThemeActive && (

@@ -952,13 +952,8 @@ import getConfig from '../block-editor/utils/get-config';
 	const reRenderColorControls = () => {
 		const controlObjectsDefault = getConfig( 'colorControls' );
 		const controlObjectsDark = getConfig( 'colorControlsDark' );
-		const controlObjectsContrast = getConfig( 'colorControlsContrast' );
 
-		const controlObjects = [
-			...controlObjectsDefault,
-			...controlObjectsDark,
-			...controlObjectsContrast,
-		];
+		const controlObjects = [ ...controlObjectsDefault, ...controlObjectsDark ];
 
 		controlObjects.forEach( controlObject => {
 			const setting =
@@ -1032,20 +1027,15 @@ import getConfig from '../block-editor/utils/get-config';
 
 		const defaultModeTab = colorSection.container.find( '.tab-default' );
 		const darkModeTab = colorSection.container.find( '.tab-dark-mode' );
-		const contrastModeTab = colorSection.container.find( '.tab-high-contrast' );
 
 		controls.forEach( controlObject => {
 			const control = api.control( `material_design[${ controlObject.id }]` );
 			const darkControl = api.control(
 				`material_design[${ controlObject.id }_dark]`
 			);
-			const contrastControl = api.control(
-				`material_design[${ controlObject.id }_contrast]`
-			);
 
 			defaultModeTab.append( control.container.get( 0 ) );
 			darkModeTab.append( darkControl.container.get( 0 ) );
-			contrastModeTab.append( contrastControl.container.get( 0 ) );
 		} );
 	};
 
