@@ -928,6 +928,11 @@ class Controls extends Module_Base {
 				{$corner_styles_vars}
 			}
 
+			/* Forced dark mode */
+			body[data-color-scheme='dark'] {
+				{$dark_mode_vars}
+			}
+
 			@media (prefers-color-scheme: dark) {
 				:root {
 					{$dark_mode_vars}
