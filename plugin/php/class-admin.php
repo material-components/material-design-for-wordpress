@@ -30,7 +30,7 @@ namespace MaterialDesign\Plugin;
  */
 class Admin extends Module_Base {
 
-	const NEWSLETTER_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeOeFZRio9Mm2Rfw5NaJyvLfkVDDUO2XF2320iK1eB0P0rv3w/viewform?usp=sf_link';
+	const NEWSLETTER_URL = 'https://docs.google.com/forms/d/1CGtsGMP4rElIWwAHqqdWyf6-pA_g0pOc67f1jX8SRoY/edit?ts=60f6f4b4&resourcekey=0-fc7anyXD_x_RIQ1JPwQ31Q';
 
 	const MATERIAL_URL = 'https://material.io/design/material-theming/overview.html#material-theming';
 
