@@ -24,7 +24,21 @@
 
 /* global jQuery, materialDesignThemeColorControls, materialDesignThemeColorControlsDark */
 
+/**
+ * External dependencies
+ */
+import { debounce } from 'lodash';
+
+/**
+ * Internal dependencies
+ */
 import { masonryInit } from '../front-end/components/masonry';
+
+export const COLOR_MODES = {
+	default: 'default',
+	dark: 'dark',
+	contrast: 'contrast',
+};
 
 const api = wp.customize;
 
@@ -61,7 +75,7 @@ const api = wp.customize;
 	$( function() {
 		api.preview.bind( 'active', function() {
 			api.preview.bind( 'materialDesignThemePaletteUpdate', message => {
-				console.log( message );
+				updateColorMode( message );
 			} );
 		} );
 	} );
@@ -168,6 +182,18 @@ const api = wp.customize;
 		// Add styles.
 		stylesheet.html( styles );
 	};
+
+	const updateColorMode = debounce( mode => {
+		let colorControls;
+
+		if ( COLOR_MODES.dark === mode ) {
+			colorControls = materialDesignThemeColorControlsDark;
+		} else {
+			colorControls = materialDesignThemeColorControls;
+		}
+
+		generatePreviewStyles( colorControls );
+	}, 300 );
 
 	const hexToRgb = hex =>
 		! hex
