@@ -81,7 +81,7 @@ export const COLOR_MODES = {
 
 			api.preview.bind( 'materialDesignPaletteUpdate', message => {
 				updateColorMode( message );
-			} )
+			} );
 		} );
 	} );
 

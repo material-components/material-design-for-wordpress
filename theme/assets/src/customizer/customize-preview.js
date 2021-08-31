@@ -22,16 +22,48 @@
  * @since 1.0.0
  */
 
-/* global jQuery, materialDesignThemeColorControls */
+/* global jQuery, materialDesignThemeColorControls, materialDesignThemeColorControlsDark */
 
 import { masonryInit } from '../front-end/components/masonry';
 
+const api = wp.customize;
+
 ( function( $ ) {
-	const api = wp.customize;
+	// Bail out if this isn't loaded in an iframe.
+	if (
+		! window.parent ||
+		! window.parent.wp ||
+		! window.parent._wpCustomizeSettings
+	) {
+		return;
+	}
+
 	const parentApi = window.parent.wp.customize;
 
 	Object.keys( materialDesignThemeColorControls ).forEach( control => {
-		api( control, value => value.bind( generatePreviewStyles ) );
+		api( control, value =>
+			value.bind( () =>
+				generatePreviewStyles( materialDesignThemeColorControls )
+			)
+		);
+	} );
+
+	if ( materialDesignThemeColorControlsDark ) {
+		Object.keys( materialDesignThemeColorControlsDark ).forEach( control => {
+			api( control, value =>
+				value.bind( () =>
+					generatePreviewStyles( materialDesignThemeColorControlsDark )
+				)
+			);
+		} );
+	}
+
+	$( function() {
+		api.preview.bind( 'active', function() {
+			api.preview.bind( 'materialDesignThemePaletteUpdate', message => {
+				console.log( message );
+			} );
+		} );
 	} );
 
 	// Site title and description.
@@ -86,7 +118,7 @@ import { masonryInit } from '../front-end/components/masonry';
 	 *
 	 * @return {void}
 	 */
-	const generatePreviewStyles = () => {
+	const generatePreviewStyles = selectedControls => {
 		const stylesheetID = 'material-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
 			styles = '';
@@ -98,8 +130,8 @@ import { masonryInit } from '../front-end/components/masonry';
 		}
 
 		// Generate the styles.
-		Object.keys( materialDesignThemeColorControls ).forEach( control => {
-			const cssVar = materialDesignThemeColorControls[ control ];
+		Object.keys( selectedControls ).forEach( control => {
+			const cssVar = selectedControls[ control ];
 			const color = parentApi( control ).get();
 			if ( ! color ) {
 				return;
