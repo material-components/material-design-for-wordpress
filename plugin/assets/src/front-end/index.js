@@ -27,7 +27,6 @@ import {
 	initToolTips,
 } from '../common/mdc-components-init';
 import { initContactForm } from './contact-form';
-import { initDarkMode } from './dark-mode';
 
 addEventListener( 'DOMContentLoaded', () => {
 	initButtons();
@@ -35,5 +34,4 @@ addEventListener( 'DOMContentLoaded', () => {
 	initTabBar();
 	initContactForm();
 	initToolTips();
-	initDarkMode();
 } );

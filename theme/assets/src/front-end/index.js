@@ -25,6 +25,7 @@ import { tabBarInit } from './components/tab-bar';
 import { embedsInit } from './components/embeds';
 import { widgetsInit } from './components/widgets';
 import { masonryInit } from './components/masonry';
+import { initDarkMode } from './dark-mode';
 import './components/navigation';
 import './components/skip-link-focus-fix';
 
@@ -45,4 +46,5 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	embedsInit();
 	widgetsInit();
 	masonryInit();
+	initDarkMode();
 } );
