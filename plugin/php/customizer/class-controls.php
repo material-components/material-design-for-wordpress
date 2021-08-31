@@ -906,6 +906,8 @@ class Controls extends Module_Base {
 			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
 		}
 
+
+
 		$glue               = "\n\t\t\t\t";
 		$icon_collection    = $this->get_icon_collection_css();
 		$color_vars         = implode( $glue, $color_vars );
@@ -932,13 +934,17 @@ class Controls extends Module_Base {
 			body[data-color-scheme='dark'] {
 				{$dark_mode_vars}
 			}
-
-			@media (prefers-color-scheme: dark) {
-				:root {
-					{$dark_mode_vars}
-				}
-			}
 		";
+
+		if ( $this->is_dark_mode_activated() ) {
+			$css .= "
+				@media (prefers-color-scheme: dark) {
+					:root {
+						{$dark_mode_vars}
+					}
+				}
+			";
+		}
 
 		/**
 		 * Filter frontend custom CSS & CSS vars.
@@ -1794,5 +1800,17 @@ class Controls extends Module_Base {
 			$this->prepare_option_name( $control['id'] . $variant_suffix ),
 			$args
 		);
+	}
+
+	/**
+	 * Check whether or not dark mode is forced.
+	 *
+	 * @return bool Status of dark mode.
+	 */
+	public function is_dark_mode_activated() {
+		$selected_style = $this->get_option( 'style' );
+		$style_settings = json_decode( $this->get_option( 'style_settings' ), true );
+
+		return ( ! empty( $style_settings[ $selected_style ] ) && 'inactive' !== $style_settings[ $selected_style ][ 'dark' ] );
 	}
 }
