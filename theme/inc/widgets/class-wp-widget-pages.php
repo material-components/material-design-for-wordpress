@@ -54,8 +54,7 @@ class WP_Widget_Pages extends \WP_Widget_Pages {
 		 */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
-		$sortby  = empty( $instance['sortby'] ) ? 'menu_order' : $instance['sortby'];
-		$exclude = empty( $instance['exclude'] ) ? '' : $instance['exclude'];
+		$sortby = empty( $instance['sortby'] ) ? 'menu_order' : $instance['sortby'];
 
 		if ( 'menu_order' === $sortby ) {
 			$sortby = 'menu_order, post_title';
@@ -79,7 +78,6 @@ class WP_Widget_Pages extends \WP_Widget_Pages {
 					'title_li'    => '',
 					'echo'        => 0,
 					'sort_column' => $sortby,
-					'exclude'     => $exclude,
 				),
 				$instance
 			)
