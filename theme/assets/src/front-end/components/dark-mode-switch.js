@@ -44,4 +44,11 @@ export const initDarkModeSwitch = () => {
 	testMediaQuery( mediaQuery );
 
 	switcher.addEventListener( 'click', maybeToggleDarkMode );
+
+	if (
+		window.materialDesign.darkModeStatus &&
+		'active' === window.materialDesign.darkModeStatus
+	) {
+		maybeToggleDarkMode( { preventDefault: () => {}, target: true } );
+	}
 };
