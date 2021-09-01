@@ -309,6 +309,17 @@ import getConfig from '../block-editor/utils/get-config';
 						return;
 					}
 
+					section.contentContainer.removeClass(
+						'material-design-colors--default'
+					);
+					section.contentContainer.removeClass(
+						'material-design-colors--dark'
+					);
+
+					section.contentContainer.addClass(
+						`material-design-colors--${ palette }`
+					);
+
 					section.contentContainer
 						.find( '.material-design-tab-link--active' )
 						.removeClass( 'material-design-tab-link--active' );

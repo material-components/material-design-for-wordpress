@@ -56,8 +56,16 @@
 	}
 }
 
+.material-design-colors--dark #customize-control-colors_more_options {
+	display: none;
+}
+
 #customize-control-colors_more_options_dark {
 	display: none;
+
+	@nest .material-design-colors--dark & {
+		display: block;
+	}
 }
 
 .show-options {
