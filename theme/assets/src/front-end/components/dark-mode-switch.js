@@ -4,6 +4,7 @@ const ICONS = {
 	LIGHT_MODE: 'light_mode',
 };
 let switcher;
+let switcherIcon;
 let darkModeEnabled = false;
 
 const maybeToggleDarkMode = event => {
@@ -15,7 +16,6 @@ const maybeToggleDarkMode = event => {
 		return;
 	}
 
-	const switcherIcon = switcher.querySelector( '.dark-mode__icon' );
 	darkModeEnabled = ! darkModeEnabled;
 
 	if ( darkModeEnabled ) {
@@ -30,6 +30,10 @@ const maybeToggleDarkMode = event => {
 const testMediaQuery = event => {
 	if ( event.matches ) {
 		darkModeEnabled = true;
+		switcherIcon.textContent = ICONS.LIGHT_MODE;
+	} else {
+		darkModeEnabled = false;
+		switcherIcon.textContent = ICONS.DARK_MODE;
 	}
 };
 
@@ -43,6 +47,8 @@ export const initDarkModeSwitch = () => {
 	if ( ! switcher ) {
 		return;
 	}
+
+	switcherIcon = switcher.querySelector( '.dark-mode__icon' );
 
 	const mediaQuery = window.matchMedia( '(prefers-color-scheme: dark)' );
 
