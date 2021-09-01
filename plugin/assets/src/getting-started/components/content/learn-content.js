@@ -43,7 +43,7 @@ export const LearnContent = ( { materialUrl, newsLetterUrl } ) => {
 
 			<p>
 				{ __(
-					'Sign up to get update and news about material design via email',
+					'Sign up to get updates and news about material design via email',
 					'material-design'
 				) }
 			</p>

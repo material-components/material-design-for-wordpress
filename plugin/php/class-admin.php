@@ -30,7 +30,7 @@ namespace MaterialDesign\Plugin;
  */
 class Admin extends Module_Base {
 
-	const NEWSLETTER_URL = 'https://docs.google.com/forms/d/1CGtsGMP4rElIWwAHqqdWyf6-pA_g0pOc67f1jX8SRoY/edit?ts=60f6f4b4&resourcekey=0-fc7anyXD_x_RIQ1JPwQ31Q';
+	const NEWSLETTER_URL = 'https://services.google.com/fb/forms/materialdesignnewsletter?utm_source=WordPress';
 
 	const MATERIAL_URL = 'https://material.io/design/material-theming/overview.html#material-theming';
 
