@@ -404,7 +404,10 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 	/**
 	 * Controls to nest in the more options section.
 	 */
-	$more_controls = [];
+	$more_controls = [
+		'default' => [],
+		'dark'    => [],
+	];
 
 	$section = prepend_slug( $section );
 
@@ -433,8 +436,24 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 		}
 
 		// Group header and footer colors into more options.
-		if ( false !== strpos( $control['id'], 'header_color' ) || false !== strpos( $control['id'], 'footer_color' ) ) {
-			$more_controls[] = $control['id'];
+		if (
+			(
+				false !== strpos( $control['id'], 'header_color' ) ||
+				false !== strpos( $control['id'], 'footer_color' )
+			) &&
+			! strpos( $control['id'], '_dark' )
+		) {
+			$more_controls['default'][] = $control['id'];
+		}
+
+		if (
+			(
+				false !== strpos( $control['id'], 'header_color' ) ||
+				false !== strpos( $control['id'], 'footer_color' )
+			) &&
+			strpos( $control['id'], '_dark' )
+		) {
+			$more_controls['dark'][] = $control['id'];
 		}
 	}
 
@@ -444,13 +463,31 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 			'sanitize_callback' => 'wp_kses_post',
 		]
 	);
+
+	$wp_customize->add_setting(
+		'colors_more_options_dark',
+		[
+			'sanitize_callback' => 'wp_kses_post',
+		]
+	);
+
 	$controls['colors_more_options'] = new More_Options(
 		$wp_customize,
 		'colors_more_options',
 		[
 			'section'  => $section,
 			'priority' => 300,
-			'controls' => $more_controls,
+			'controls' => $more_controls['default'],
+		]
+	);
+
+	$controls['colors_more_options_dark'] = new More_Options(
+		$wp_customize,
+		'colors_more_options_dark',
+		[
+			'section'  => $section,
+			'priority' => 300,
+			'controls' => $more_controls['dark'],
 		]
 	);
 
