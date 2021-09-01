@@ -180,6 +180,7 @@ class Plugin extends Plugin_Base {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_front_end_assets' ], 100 );
 		add_action( 'wp_head', [ $this, 'frontend_inline_css' ], 1 );
 		add_action( 'admin_head', [ $this, 'frontend_inline_css' ], 1 );
+		add_action( 'plugin_row_meta', [ $this, 'get_plugin_row_meta' ], 10, 2 );
 	}
 
 	/**
@@ -280,5 +281,33 @@ class Plugin extends Plugin_Base {
 		}
 
 		return 'ok';
+	}
+
+	/**
+	 * Updates the plugin row meta with links to review plugin and get support.
+	 *
+	 * @param string[]|mixed $meta        An array of the plugin's metadata, including the version, author, author URI,
+	 *                                    and plugin URI.
+	 * @param string         $plugin_file Path to the plugin file relative to the plugins directory.
+	 *
+	 * @return string[]|mixed Plugin row meta.
+	 */
+	public function get_plugin_row_meta( $meta, $plugin_file ) {
+		if ( plugin_basename( realpath( __DIR__ . '/../material-design.php' ) ) !== $plugin_file ) {
+			return $meta;
+		}
+		if ( ! is_array( $meta ) ) {
+			return $meta;
+		}
+		$redirect_to = 'admin.php?page=material-settings#learn';
+
+
+		$additional_meta = [
+			'<a href="' . esc_url( admin_url( $redirect_to ) ) . '" target="_blank" rel="noreferrer noopener">' . esc_html__( 'Learn more', 'material-design' ) . '</a>',
+			'<a href="https://wordpress.org/support/plugin/material-design/" target="_blank" rel="noreferrer noopener">' . esc_html__( 'Contact support', 'material-design' ) . '</a>',
+			'<a href="https://wordpress.org/support/plugin/material-design/reviews/#new-post" target="_blank" rel="noreferrer noopener">' . esc_html__( 'Leave review', 'material-design' ) . '</a>',
+		];
+
+		return array_merge( $meta, $additional_meta );
 	}
 }
