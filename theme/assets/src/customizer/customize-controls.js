@@ -115,7 +115,9 @@ import { __ } from '@wordpress/i18n';
 			'.description'
 		);
 
-		const colorModeTabs = document.querySelectorAll( '.material-design-section-tabs .material-design-tab-link' );
+		const colorModeTabs = document.querySelectorAll(
+			'.material-design-section-tabs .material-design-tab-link'
+		);
 
 		if ( colorModeTabs ) {
 			colorModeTabs.forEach( tab =>

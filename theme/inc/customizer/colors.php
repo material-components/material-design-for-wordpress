@@ -79,10 +79,18 @@ function add_settings( $wp_customize ) {
 	}
 
 	Customizer\add_settings( $wp_customize, $settings );
-	Customizer\add_color_controls( $wp_customize, get_controls(), 'colors' );
 
 	if ( material_is_plugin_active() ) {
-		Customizer\add_color_controls( $wp_customize, get_dark_controls(), 'colors' );
+		Customizer\add_color_controls(
+			$wp_customize,
+			array_merge(
+				get_controls(),
+				get_dark_controls()
+			),
+			'colors'
+		);
+	} else {
+		Customizer\add_color_controls( $wp_customize, get_controls(), 'colors' );
 	}
 }
 
