@@ -1,4 +1,8 @@
 const body = document.body;
+const ICONS = {
+	DARK_MODE: 'dark_mode',
+	LIGHT_MODE: 'light_mode',
+};
 let switcher;
 let darkModeEnabled = false;
 
@@ -11,12 +15,15 @@ const maybeToggleDarkMode = event => {
 		return;
 	}
 
+	const switcherIcon = switcher.querySelector( '.dark-mode__icon' );
 	darkModeEnabled = ! darkModeEnabled;
 
 	if ( darkModeEnabled ) {
 		body.setAttribute( 'data-color-scheme', 'dark' );
+		switcherIcon.textContent = ICONS.LIGHT_MODE;
 	} else {
 		body.setAttribute( 'data-color-scheme', 'light' );
+		switcherIcon.textContent = ICONS.DARK_MODE;
 	}
 };
 

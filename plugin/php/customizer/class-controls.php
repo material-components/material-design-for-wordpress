@@ -1814,6 +1814,10 @@ class Controls extends Module_Base {
 		$selected_style = $this->get_option( 'style' );
 		$style_settings = json_decode( $this->get_option( 'style_settings' ), true );
 
+		if ( empty( $style_settings[ $selected_style ] ) ) {
+			return;
+		}
+
 		return $style_settings[ $selected_style ][ 'dark' ];
 	}
 
