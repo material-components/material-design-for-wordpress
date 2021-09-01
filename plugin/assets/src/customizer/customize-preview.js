@@ -48,7 +48,6 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 export const COLOR_MODES = {
 	default: 'default',
 	dark: 'dark',
-	contrast: 'contrast',
 };
 
 ( $ => {
@@ -71,7 +70,6 @@ export const COLOR_MODES = {
 	const settingsControls = {};
 	const defaultModeControls = {};
 	const darkModeControls = {};
-	const constastModeControls = {};
 
 	$( function() {
 		api.preview.bind( 'active', function() {
@@ -100,8 +98,6 @@ export const COLOR_MODES = {
 			) {
 				if ( COLOR_MODES.dark === args.colorModeType ) {
 					darkModeControls[ control ] = args.cssVar;
-				} else if ( COLOR_MODES.contrast === args.colorModeType ) {
-					constastModeControls[ control ] = args.cssVar;
 				} else {
 					// Save a refertence to default colors.
 					defaultModeControls[ control ] = args.cssVar;
@@ -210,6 +206,10 @@ export const COLOR_MODES = {
 		Object.keys( colorControls ).forEach( control => {
 			const color = parentApi( control ).get(),
 				colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
+
+			if ( ! color ) {
+				return;
+			}
 
 			styles += `${ colorControls[ control ] }: ${ color };
 				${ colorControls[ control ] }-rgb: ${ colorRgb };
@@ -321,8 +321,6 @@ export const COLOR_MODES = {
 	const updateColorMode = debounce( mode => {
 		if ( COLOR_MODES.dark === mode ) {
 			colorControls = darkModeControls;
-		} else if ( COLOR_MODES.contrast === mode ) {
-			colorControls = constastModeControls;
 		} else {
 			colorControls = defaultModeControls;
 		}
@@ -339,7 +337,6 @@ export const COLOR_MODES = {
 		.concat( Object.keys( iconControls ) )
 		.concat( Object.keys( settingsControls ) )
 		.concat( Object.keys( darkModeControls ) )
-		.concat( Object.keys( constastModeControls ) )
 		.forEach( control => {
 			parentApi( control, value => {
 				value.bind( () => {

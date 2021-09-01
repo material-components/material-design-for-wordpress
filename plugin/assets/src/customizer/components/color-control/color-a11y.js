@@ -51,6 +51,10 @@ const ColorA11y = ( { selectedColor, params } ) => {
 			return;
 		}
 
+		if ( ! colorHex || ! textColor ) {
+			return;
+		}
+
 		colors.push(
 			colorUtils.getColorAccessibility(
 				colorHex,

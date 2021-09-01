@@ -421,6 +421,7 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 					'css_var'              => $control['css_var'],
 					'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
 					'priority'             => 200,
+					'color_mode_type'      => ! empty( $control['color_mode_type'] ) ? $control['color_mode_type'] : 'default',
 				]
 			);
 		} else {

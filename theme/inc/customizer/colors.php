@@ -215,6 +215,7 @@ function get_dark_controls() {
 			'css_var'              => '--mdc-theme-background',
 			'a11y_label'           => __( 'Background', 'material-design-google' ),
 			'related_text_setting' => 'on_background_color_dark',
+			'color_mode_type'      => 'dark',
 		],
 		[
 			'id'              => 'on_background_color_dark',
@@ -222,6 +223,7 @@ function get_dark_controls() {
 			'css_var'         => '--mdc-theme-on-background',
 			'a11y_label'      => __( 'On Background', 'material-design-google' ),
 			'related_setting' => 'custom_background_color_dark',
+			'color_mode_type' => 'dark',
 		],
 		[
 			'id'                   => 'header_color_dark',
@@ -229,6 +231,7 @@ function get_dark_controls() {
 			'css_var'              => '--mdc-theme-header',
 			'a11y_label'           => __( 'On Top app bar', 'material-design-google' ),
 			'related_text_setting' => 'on_header_color_dark',
+			'color_mode_type'      => 'dark',
 		],
 		[
 			'id'              => 'on_header_color_dark',
@@ -236,6 +239,7 @@ function get_dark_controls() {
 			'css_var'         => '--mdc-theme-on-header',
 			'a11y_label'      => __( 'Top app bar', 'material-design-google' ),
 			'related_setting' => 'header_color_dark',
+			'color_mode_type' => 'dark',
 		],
 		[
 			'id'                   => 'footer_color_dark',
@@ -243,6 +247,7 @@ function get_dark_controls() {
 			'css_var'              => '--mdc-theme-footer',
 			'a11y_label'           => __( 'On Footer', 'material-design-google' ),
 			'related_text_setting' => 'on_footer_color_dark',
+			'color_mode_type'      => 'dark',
 		],
 		[
 			'id'              => 'on_footer_color_dark',
@@ -250,6 +255,7 @@ function get_dark_controls() {
 			'css_var'         => '--mdc-theme-on-footer',
 			'a11y_label'      => __( 'Footer', 'material-design-google' ),
 			'related_setting' => 'footer_color_dark',
+			'color_mode_type' => 'dark',
 		],
 	];
 
