@@ -1,5 +1,5 @@
 const body = document.body;
-const ICONS = {
+export const ICONS = {
 	DARK_MODE: 'dark_mode',
 	LIGHT_MODE: 'light_mode',
 };

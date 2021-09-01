@@ -460,9 +460,12 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
  * Get custom frontend CSS vars based on the customizer theme settings.
  */
 function get_css_vars() {
-	$color_vars = [];
-	$defaults   = get_default_values();
-	$controls   = Colors\get_controls();
+	$css             = '';
+	$color_vars      = [];
+	$color_vars_dark = [];
+	$defaults        = get_default_values();
+	$controls        = Colors\get_controls();
+	$controls_dark   = Colors\get_dark_controls();
 
 	foreach ( $controls as $control ) {
 		$default = isset( $defaults[ $control['id'] ] ) ? $defaults[ $control['id'] ] : '';
@@ -481,6 +484,23 @@ function get_css_vars() {
 		}
 	}
 
+	foreach ( $controls_dark as $control ) {
+		$default = isset( $defaults[ $control['id'] ] ) ? $defaults[ $control['id'] ] : '';
+		$value   = get_theme_mod( $control['id'], $default );
+
+		if ( empty( $value ) ) {
+			continue;
+		}
+
+		$color_vars_dark[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
+		$rgb               = hex_to_rgb( $value );
+
+		if ( ! empty( $rgb ) ) {
+			$rgb               = implode( ',', $rgb );
+			$color_vars_dark[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
+		}
+	}
+
 	// Generate additional surface variant vars required by some components.
 	$surface    = get_theme_mod( 'surface_color' );
 	$on_surface = get_theme_mod( 'on_surface_color' );
@@ -493,13 +513,37 @@ function get_css_vars() {
 		$color_vars[] = esc_html( "--mdc-theme-surface-mix-12: $mix_12;" );
 	}
 
-	$color_vars = implode( "\n\t\t\t", $color_vars );
+	$glue            = "\n\t\t\t";
+	$color_vars      = implode( $glue, $color_vars );
+	$color_vars_dark = implode( $glue, $color_vars_dark );
 
-	return "
+	$css = "
 		:root {
 			{$color_vars}
 		}
+
+		/* Forced dark mode */
+		body[data-color-scheme='dark'] {
+			{$color_vars_dark}
+		}
+
+		/* Forced light mode */
+		body[data-color-scheme='light'] {
+			{$color_vars}
+		}
 	";
+
+	if ( material_is_plugin_active() ) {
+		$css .= "
+			@media (prefers-color-scheme: dark) {
+				:root {
+					{$color_vars_dark}
+				}
+			}
+		";
+	}
+
+	return $css;
 }
 
 /**

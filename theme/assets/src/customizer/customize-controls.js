@@ -93,8 +93,6 @@ import { __ } from '@wordpress/i18n';
 	const arrangeDarkMode = () => {
 		const colorSection = api.section( 'material_design_colors' );
 
-		debugger;
-
 		if ( ! colorSection ) {
 			return;
 		}
@@ -149,7 +147,7 @@ import { __ } from '@wordpress/i18n';
 				tab.addEventListener( 'click', displayColorMode )
 			);
 
-			setTimeout( arrangeDarkMode, 3000 );
+			//setTimeout( arrangeDarkMode, 3000 );
 		}
 
 		if ( hideHeaderDescription.querySelector( 'input:checked' ) ) {
