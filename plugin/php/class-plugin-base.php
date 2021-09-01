@@ -83,6 +83,13 @@ abstract class Plugin_Base {
 	protected $_called_doc_hooks = [];
 
 	/**
+	 * Plugin version.
+	 *
+	 * @var string
+	 */
+	protected $version;
+
+	/**
 	 * Plugin_Base constructor.
 	 */
 	public function __construct() {
@@ -276,12 +283,17 @@ abstract class Plugin_Base {
 	 * @return mixed
 	 */
 	public function version() {
+		if ( $this->version ) {
+			return $this->version;
+		}
 		$args = [
 			'Version' => 'Version',
 		];
 		$meta = get_file_data( $this->dir_path . '/material-design.php', $args );
 
-		return isset( $meta['Version'] ) ? $meta['Version'] : time();
+		$this->version = isset( $meta['Version'] ) ? $meta['Version'] : time();
+
+		return $this->version;
 	}
 
 	/**

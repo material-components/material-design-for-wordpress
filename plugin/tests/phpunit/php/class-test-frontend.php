@@ -54,6 +54,6 @@ class Test_Frontend extends \WP_UnitTestCase {
 		ob_start();
 		$frontend->plugin_version_meta_tag();
 		$output = ob_get_clean();
-		$this->assertContains( sprintf( '<meta name="generator" content="Material plugin v%s" />', get_plugin_instance()->version() ), $output );
+		$this->assertContains( sprintf( '<meta name="generator" content="Material Design Plugin v%s" />', get_plugin_instance()->version() ), $output );
 	}
 }

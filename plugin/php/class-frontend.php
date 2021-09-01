@@ -45,7 +45,7 @@ class Frontend extends Module_Base {
 	 * @return void
 	 */
 	public function plugin_version_meta_tag() {
-		printf( '<meta name="generator" content="Material plugin v%s" />', esc_attr( $this->plugin->version() ) );
+		printf( '<meta name="generator" content="Material Design Plugin v%s" />', esc_attr( $this->plugin->version() ) );
 	}
 
 }
