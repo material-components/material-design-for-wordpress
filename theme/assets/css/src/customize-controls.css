@@ -56,6 +56,10 @@
 	}
 }
 
+#customize-control-colors_more_options_dark {
+	display: none;
+}
+
 .show-options {
 
 	& .material-show-more-options {

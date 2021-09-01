@@ -478,6 +478,7 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 			'section'  => $section,
 			'priority' => 300,
 			'controls' => $more_controls['default'],
+			'controls_type' => 'default',
 		]
 	);
 
@@ -488,6 +489,7 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 			'section'  => $section,
 			'priority' => 300,
 			'controls' => $more_controls['dark'],
+			'controls_type' => 'dark',
 		]
 	);
 
