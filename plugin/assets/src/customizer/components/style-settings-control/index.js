@@ -34,12 +34,15 @@ const CHOICES = {
 	INACTIVE: 'inactive',
 };
 
+const api = wp.customize;
+
 const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 	const [ currentValue, setCurrentValue ] = useState(
 		defaultValue[ selectedStyle ]
 	);
 	const { dark, switcher } = currentValue;
 	const [ displaySwitcher, setDisplaySwitcher ] = useState( switcher );
+	const [ isSwitcherDisabled, setIsSwitcherDisabled ] = useState( false );
 	const isThemeActive = 'ok' === getConfig( 'themeStatus' );
 
 	const onChange = useCallback( ( value, setting ) => {
@@ -58,6 +61,17 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 
 	useEffect( () => {
 		setValue( currentValue );
+		setIsSwitcherDisabled( false );
+
+		if ( CHOICES.INACTIVE === currentValue.dark ) {
+			api.previewer.send( 'materialDesignPaletteUpdate', 'light' );
+			setDisplaySwitcher( false );
+			setTimeout( () => setIsSwitcherDisabled( true ), 50 );
+		}
+
+		if ( CHOICES.ACTIVE === currentValue.dark ) {
+			api.previewer.send( 'materialDesignPaletteUpdate', 'dark' );
+		}
 	}, [ currentValue, setValue ] );
 
 	return (
@@ -76,6 +90,7 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 					help={ __( 'Shows mode switcher in the header', 'material-design' ) }
 					checked={ displaySwitcher }
 					onChange={ () => setDisplaySwitcher( state => ! state ) }
+					disabled={ isSwitcherDisabled }
 				/>
 			) }
 		</>
