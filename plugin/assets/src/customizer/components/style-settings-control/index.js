@@ -44,7 +44,6 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 		defaultValue[ selectedStyle ]
 	);
 	const { dark, switcher } = currentValue;
-	const [ displaySwitcher, setDisplaySwitcher ] = useState( switcher );
 	const [ isSwitcherDisabled, setIsSwitcherDisabled ] = useState( false );
 	const isThemeActive = 'ok' === getConfig( 'themeStatus' );
 
@@ -52,9 +51,13 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 		const newValue = {};
 		newValue[ setting ] = value;
 
+		if ( localStorageDarkMode ) {
+			window.localStorage.removeItem( 'materialDesignDarkMode' );
+		}
+
 		if ( CHOICES.INACTIVE === newValue.dark ) {
 			api.previewer.send( 'materialDesignPaletteUpdate', 'light' );
-			setDisplaySwitcher( false );
+			newValue.switcher = false;
 			setTimeout( () => {
 				setIsSwitcherDisabled( true );
 			}, 50 );
@@ -62,12 +65,14 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 
 		if ( CHOICES.ACTIVE === newValue.dark ) {
 			api.previewer.send( 'materialDesignPaletteUpdate', 'dark' );
-			setDisplaySwitcher( true );
+			newValue.switcher = true;
 		}
 
 		if ( CHOICES.AUTO === newValue.dark ) {
-			setDisplaySwitcher( true );
+			newValue.switcher = true;
 		}
+
+		setIsSwitcherDisabled( false );
 
 		setCurrentValue( {
 			...currentValue,
@@ -76,16 +81,7 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 	}, [] );
 
 	useEffect( () => {
-		onChange( displaySwitcher, 'switcher' );
-	}, [ displaySwitcher ] );
-
-	useEffect( () => {
 		setValue( currentValue );
-		setIsSwitcherDisabled( false );
-
-		if ( localStorageDarkMode ) {
-			window.localStorage.removeItem( 'materialDesignDarkMode' );
-		}
 	}, [ currentValue ] );
 
 	return (
@@ -102,9 +98,11 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 				<ToggleControl
 					label={ __( 'Display Switcher', 'material-design' ) }
 					help={ __( 'Shows mode switcher in the header', 'material-design' ) }
-					checked={ displaySwitcher }
-					onChange={ () => setDisplaySwitcher( state => ! state ) }
+					checked={ switcher }
 					disabled={ isSwitcherDisabled }
+					onChange={ value => {
+						onChange( value, 'switcher' );
+					} }
 				/>
 			) }
 		</>
