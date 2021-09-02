@@ -922,6 +922,10 @@ import getConfig from '../block-editor/utils/get-config';
 		setTimeout( arrangeDarkMode, 3000 );
 	} );
 
+	api.bind( 'saved', () => {
+		setTimeout( arrangeDarkMode, 500 );
+	} );
+
 	const arrangeDarkMode = () => {
 		const colorSection = api.section( getNamespace( 'colors' ) );
 
