@@ -1199,14 +1199,14 @@ class Controls extends Module_Base {
 		foreach ( $controls as $control ) {
 			$dark_control = $control;
 
-			$dark_control[ 'id' ] .= sprintf( '_%s', $variant );
+			$dark_control['id'] .= sprintf( '_%s', $variant );
 
 			if ( isset( $dark_control['related_text_setting'] ) ) {
 				$dark_control['related_text_setting'] = $this->prepare_option_name( $dark_control['id'] );
 			}
 
 			if ( isset( $dark_control['related_setting'] ) ) {
-				$dark_control['related_setting'] =  $this->prepare_option_name( $dark_control['id'] );
+				$dark_control['related_setting'] = $this->prepare_option_name( $dark_control['id'] );
 			}
 
 			$dark_controls[] = $dark_control;
@@ -1818,18 +1818,6 @@ class Controls extends Module_Base {
 			return;
 		}
 
-		return $style_settings[ $selected_style ][ 'dark' ];
-	}
-
-	/**
-	 * Check whether or not dark mode is forced.
-	 *
-	 * @return bool Status of dark mode.
-	 */
-	public function high_contrast_status() {
-		$selected_style = $this->get_option( 'style' );
-		$style_settings = json_decode( $this->get_option( 'style_settings' ), true );
-
-		return $style_settings[ $selected_style ][ 'contrast' ];
+		return $style_settings[ $selected_style ]['dark'];
 	}
 }

@@ -152,7 +152,8 @@ export const COLOR_MODES = {
 	const generatePreviewStyles = debounce( () => {
 		const stylesheetID = 'material-design-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
-			styles = '';
+			styles = '',
+			colorRgb;
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
 		if ( ! stylesheet.length ) {
@@ -204,8 +205,9 @@ export const COLOR_MODES = {
 
 		// Generate the styles.
 		Object.keys( colorControls ).forEach( control => {
-			const color = parentApi( control ).get(),
-				colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
+			const color = parentApi( control ).get();
+
+			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
 
 			if ( ! color ) {
 				return;

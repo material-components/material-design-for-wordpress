@@ -131,6 +131,8 @@ const api = wp.customize;
 	 *
 	 * @since 1.0.0
 	 *
+	 * @param {Array} selectedControls Variables to generate.
+	 *
 	 * @return {void}
 	 */
 	const generatePreviewStyles = selectedControls => {

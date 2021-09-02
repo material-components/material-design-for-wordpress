@@ -88,7 +88,7 @@ import { __ } from '@wordpress/i18n';
 
 		// Setup new colors.
 		api.previewer.send( 'materialDesignThemePaletteUpdate', palette );
-	}
+	};
 
 	api.bind( 'ready', () => {
 		api( 'archive_layout' ).bind( value => {

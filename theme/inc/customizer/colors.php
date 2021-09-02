@@ -107,10 +107,10 @@ function get_controls() {
 	if ( ! material_is_plugin_active() ) {
 		$controls = [
 			[
-				'id'              => 'primary_color',
-				'label'           => esc_html__( 'Primary Color', 'material-design-google' ),
-				'css_var'         => '--mdc-theme-primary',
-				'a11y_label'      => __( 'Primary', 'material-design-google' ),
+				'id'         => 'primary_color',
+				'label'      => esc_html__( 'Primary Color', 'material-design-google' ),
+				'css_var'    => '--mdc-theme-primary',
+				'a11y_label' => __( 'Primary', 'material-design-google' ),
 			],
 			[
 				'id'         => 'secondary_color',
