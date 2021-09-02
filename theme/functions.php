@@ -202,7 +202,7 @@ function material_is_plugin_active() {
  * @return void
  */
 function material_theme_version_head_tag() {
-	printf( '<meta name="generator" content="Material Design Google Theme v%s" />', esc_attr( wp_get_theme()->get( 'Version' ) ) );
+	printf( '<meta name="material-design-google-theme" content="v%s" />', esc_attr( wp_get_theme()->get( 'Version' ) ) );
 }
 
 add_action( 'wp_head', 'material_theme_version_head_tag' );
