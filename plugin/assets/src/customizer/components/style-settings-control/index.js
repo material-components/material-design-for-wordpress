@@ -35,6 +35,9 @@ const CHOICES = {
 };
 
 const api = wp.customize;
+const localStorageDarkMode = window.localStorage.getItem(
+	'materialDesignDarkMode'
+);
 
 const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 	const [ currentValue, setCurrentValue ] = useState(
@@ -49,6 +52,23 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 		const newValue = {};
 		newValue[ setting ] = value;
 
+		if ( CHOICES.INACTIVE === newValue.dark ) {
+			api.previewer.send( 'materialDesignPaletteUpdate', 'light' );
+			setDisplaySwitcher( false );
+			setTimeout( () => {
+				setIsSwitcherDisabled( true );
+			}, 50 );
+		}
+
+		if ( CHOICES.ACTIVE === newValue.dark ) {
+			api.previewer.send( 'materialDesignPaletteUpdate', 'dark' );
+			setDisplaySwitcher( true );
+		}
+
+		if ( CHOICES.AUTO === newValue.dark ) {
+			setDisplaySwitcher( true );
+		}
+
 		setCurrentValue( {
 			...currentValue,
 			...newValue,
@@ -57,22 +77,16 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 
 	useEffect( () => {
 		onChange( displaySwitcher, 'switcher' );
-	}, [ displaySwitcher, onChange ] );
+	}, [ displaySwitcher ] );
 
 	useEffect( () => {
 		setValue( currentValue );
 		setIsSwitcherDisabled( false );
 
-		if ( CHOICES.INACTIVE === currentValue.dark ) {
-			api.previewer.send( 'materialDesignPaletteUpdate', 'light' );
-			setDisplaySwitcher( false );
-			setTimeout( () => setIsSwitcherDisabled( true ), 50 );
+		if ( localStorageDarkMode ) {
+			window.localStorage.removeItem( 'materialDesignDarkMode' );
 		}
-
-		if ( CHOICES.ACTIVE === currentValue.dark ) {
-			api.previewer.send( 'materialDesignPaletteUpdate', 'dark' );
-		}
-	}, [ currentValue, setValue ] );
+	}, [ currentValue ] );
 
 	return (
 		<>

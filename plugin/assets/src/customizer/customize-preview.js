@@ -327,6 +327,8 @@ export const COLOR_MODES = {
 			colorControls = defaultModeControls;
 		}
 
+		document.body.removeAttribute( 'data-color-scheme' );
+
 		generatePreviewStyles();
 	}, 300 );
 
