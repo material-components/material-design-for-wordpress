@@ -75,13 +75,10 @@ const ColorControl = ( {
 			return;
 		}
 
-		if (
-			( COLOR_MODES.dark === mode && color === range.dark.hex ) ||
-			( COLOR_MODES.contrast === mode && color === range.light.hex )
-		) {
-			setIsLinked( true );
+		if ( COLOR_MODES.dark === mode ) {
+			setIsLinked( color === range.dark.hex );
 		}
-	}, [] );
+	}, [ color ] );
 
 	return (
 		<>
