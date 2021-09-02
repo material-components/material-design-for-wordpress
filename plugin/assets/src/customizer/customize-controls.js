@@ -943,6 +943,18 @@ import getConfig from '../block-editor/utils/get-config';
 			defaultModeTab.append( control.container.get( 0 ) );
 			darkModeTab.append( darkControl.container.get( 0 ) );
 		} );
+
+		if ( window.materialDesignThemeColorControls ) {
+			const themeControls = window.materialDesignThemeColorControls;
+
+			themeControls.forEach( controlId => {
+				const control = api.control( controlId );
+				const darkControl = api.control( `${ controlId }_dark` );
+
+				defaultModeTab.append( control.container.get( 0 ) );
+				darkModeTab.append( darkControl.container.get( 0 ) );
+			} );
+		}
 	};
 
 	// Trigger notification init on ready.

@@ -90,27 +90,6 @@ import { __ } from '@wordpress/i18n';
 		api.previewer.send( 'materialDesignThemePaletteUpdate', palette );
 	}
 
-	const arrangeDarkMode = () => {
-		const colorSection = api.section( 'material_design_colors' );
-
-		if ( ! colorSection ) {
-			return;
-		}
-
-		const controls = materialDesignThemeColorControls;
-
-		const defaultModeTab = colorSection.container.find( '.tab-default' );
-		const darkModeTab = colorSection.container.find( '.tab-dark-mode' );
-
-		controls.forEach( controlId => {
-			const control = api.control( controlId );
-			const darkControl = api.control( `${ controlId }_dark` );
-
-			defaultModeTab.append( control.container.get( 0 ) );
-			darkModeTab.append( darkControl.container.get( 0 ) );
-		} );
-	};
-
 	api.bind( 'ready', () => {
 		api( 'archive_layout' ).bind( value => {
 			const isCardLayout = 'card' === value;
@@ -144,8 +123,6 @@ import { __ } from '@wordpress/i18n';
 			colorModeTabs.forEach( tab =>
 				tab.addEventListener( 'click', displayColorMode )
 			);
-
-			setTimeout( arrangeDarkMode, 3000 );
 		}
 
 		if ( hideHeaderDescription.querySelector( 'input:checked' ) ) {
