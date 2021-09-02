@@ -5,7 +5,7 @@
 The official Material Design Theme for WordPress.
 
 **Contributors:** [google](https://profiles.wordpress.org/google), [materialdesign](https://profiles.wordpress.org/materialdesign), [xwp](https://profiles.wordpress.org/xwp)
-**Requires at least:** 5.0
+**Requires at least:** 5.2
 **Tested up to:** 5.7.2
 **Stable tag:** 0.3.1
 **License:** [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
