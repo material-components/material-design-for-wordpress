@@ -103,10 +103,8 @@ import { __ } from '@wordpress/i18n';
 		const darkModeTab = colorSection.container.find( '.tab-dark-mode' );
 
 		controls.forEach( controlId => {
-			const control = api.control( `material_design_${ controlId }` );
-			const darkControl = api.control(
-				`material_design_${ controlId }_dark`
-			);
+			const control = api.control( controlId );
+			const darkControl = api.control( `${ controlId }_dark` );
 
 			defaultModeTab.append( control.container.get( 0 ) );
 			darkModeTab.append( darkControl.container.get( 0 ) );
@@ -147,7 +145,7 @@ import { __ } from '@wordpress/i18n';
 				tab.addEventListener( 'click', displayColorMode )
 			);
 
-			//setTimeout( arrangeDarkMode, 3000 );
+			setTimeout( arrangeDarkMode, 3000 );
 		}
 
 		if ( hideHeaderDescription.querySelector( 'input:checked' ) ) {
