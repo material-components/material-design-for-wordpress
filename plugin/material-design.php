@@ -83,14 +83,14 @@ function _material_design_maybe_add_plugin_message() {
  * Show update message notice.
  *
  * @param array    $plugin_data plugin update information.
- * @param stdClass $responce    plugin update information.
+ * @param stdClass $response    plugin update information.
  */
-function _material_design_in_plugin_update_message( $plugin_data, $responce ) {
+function _material_design_in_plugin_update_message( $plugin_data, $response ) {
 	// Add case for each version you wish to have a message shown for.
-	if ( version_compare( $responce->new_version, '0.4.0', '>' ) && version_compare( get_bloginfo( 'version' ), 5.6, '<' ) ) {
+	if ( version_compare( $response->new_version, '0.4.0', '>' ) && version_compare( get_bloginfo( 'version' ), 5.6, '<' ) ) {
 		// Only show this message if new plugin update is > 0.4.0 as we will drop support after 0.4.0.
 		// Only show this message if the WP version is older than 5.6.
-		printf( '<span class="material_design_update_message">%s</span>', esc_html__( 'Please note that the upcoming Material Theme and Plugin release will include updated support and will only support WordPress version 5.6 and up.', 'material-design' ) );
+		printf( '<br/><span class="material_design_update_message">%s</span>', esc_html__( 'Please note that the upcoming Material Theme and Plugin release will include updated support and will only support WordPress version 5.6 and up.', 'material-design' ) );
 	}
 }
 
