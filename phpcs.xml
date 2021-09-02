@@ -26,6 +26,7 @@
 		<exclude name="PSR2.Classes.PropertyDeclaration.Underscore" />
 		<exclude name="Squiz.PHP.CommentedOutCode.Found" />
 		<exclude name="WordPress.WP.TimezoneChange" />
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda" />
 	</rule>
 
 	<rule ref="WordPress-Extra"/>
