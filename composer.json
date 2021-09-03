@@ -26,7 +26,8 @@
     "slowprog/composer-copy-file": "@stable",
     "wp-coding-standards/wpcs": "@stable",
     "xwp/wordpress-tests-installer": "@stable",
-    "xwp/wp-dev-lib": "@stable"
+    "xwp/wp-dev-lib": "@stable",
+    "yoast/phpunit-polyfills": "^1.0"
   },
   "scripts": {
     "build": [

@@ -14,28 +14,15 @@
  * limitations under the License.
  */
 
-/* istanbul ignore file */
+.components-inline-icon-popover .components-popover__content {
+	width: 250px;
+}
 
-/**
- * WordPress dependencies
- */
-import { updateCategory } from '@wordpress/blocks';
+.components-inline-icon-popover .block-editor-url-popover__row {
+	flex-direction: column;
+}
 
-/**
- * Internal dependencies
- */
-import { registerBlocks, MaterialLogo } from './helpers';
-import './blocks/data-table/hooks';
-import './formats';
-
-/**
- * Register the blocks.
- */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
-
-/**
- * Update the material category icon to the material logo.
- */
-updateCategory( 'material', {
-	icon: () => <MaterialLogo />,
-} );
+[data-type="core/paragraph"] .material-icons {
+	font-size: inherit;
+	line-height: inherit !important;
+}
