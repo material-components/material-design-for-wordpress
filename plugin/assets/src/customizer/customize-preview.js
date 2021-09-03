@@ -153,6 +153,8 @@ export const COLOR_MODES = {
 		const stylesheetID = 'material-design-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
 			styles = '',
+			darkStyles = '',
+			lightStyles = '',
 			colorRgb;
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
@@ -218,6 +220,36 @@ export const COLOR_MODES = {
 			`;
 		} );
 
+		// Generate the styles of forced dark mode.
+		Object.keys( darkModeControls ).forEach( control => {
+			const color = parentApi( control ).get();
+
+			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
+
+			if ( ! color ) {
+				return;
+			}
+
+			darkStyles += `${ darkModeControls[ control ] }: ${ color };
+				${ darkModeControls[ control ] }-rgb: ${ colorRgb };
+			`;
+		} );
+
+		// Generate the styles of forced light mode.
+		Object.keys( defaultModeControls ).forEach( control => {
+			const color = parentApi( control ).get();
+
+			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
+
+			if ( ! color ) {
+				return;
+			}
+
+			lightStyles += `${ defaultModeControls[ control ] }: ${ color };
+				${ defaultModeControls[ control ] }-rgb: ${ colorRgb };
+			`;
+		} );
+
 		Object.keys( cornerStyleControls ).forEach( control => {
 			let settingValue = parentApi( control ).get();
 			const args = cornerStyleControls[ control ];
@@ -247,7 +279,16 @@ export const COLOR_MODES = {
 
 		styles = `:root {
 			${ styles }
-		}`;
+		}
+
+		body[data-color-scheme="dark"] {
+			${ darkStyles }
+		}
+
+		body[data-color-scheme="light"] {
+			${ lightStyles }
+		}
+		`;
 
 		// Add styles.
 		stylesheet.html( styles );

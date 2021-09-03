@@ -680,6 +680,9 @@ import getConfig from '../block-editor/utils/get-config';
 						},
 					} )
 				);
+
+				// Rearrange controls.
+				setTimeout( arrangeDarkMode, 1000 );
 			},
 		};
 

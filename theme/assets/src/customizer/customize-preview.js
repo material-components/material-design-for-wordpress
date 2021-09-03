@@ -138,7 +138,9 @@ const api = wp.customize;
 	const generatePreviewStyles = selectedControls => {
 		const stylesheetID = 'material-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
-			styles = '';
+			styles = '',
+			darkStyles = '',
+			lightStyles = '';
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
 		if ( ! stylesheet.length ) {
@@ -167,19 +169,58 @@ const api = wp.customize;
 			}
 		} );
 
-		// Header colors should fallback to primary colors.
-		if ( ! styles.includes( '--mdc-theme-header' ) ) {
-			styles += `--mdc-theme-header: var(--mdc-theme-primary);`;
-			styles += `--mdc-theme-header-rgb: var(--mdc-theme-primary-rgb);`;
-		}
+		// Generate the styles.
+		Object.keys( materialDesignThemeColorControlsDark ).forEach( control => {
+			const cssVar = materialDesignThemeColorControlsDark[ control ];
+			const color = parentApi( control ).get();
+			if ( ! color ) {
+				return;
+			}
 
-		if ( ! styles.includes( '--mdc-theme-on-header' ) ) {
-			styles += `--mdc-theme-on-header: var(--mdc-theme-on-primary);`;
-			styles += `--mdc-theme-on-header-rgb: var(--mdc-theme-on-primary-rgb);`;
-		}
+			darkStyles += `${ cssVar }: ${ color };`;
+			darkStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join( ',' ) };`;
+
+			if ( '--mdc-theme-background' === cssVar ) {
+				darkStyles += `
+					--mdc-theme-text-primary-on-background: rgba(--mdc-theme-on-background-rgb, 0.87);
+					--mdc-theme-text-secondary-on-background: rgba(--mdc-theme-on-background-rgb, 0.54);
+					--mdc-theme-text-hint-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
+					--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
+					--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);`;
+			}
+		} );
+
+		// Generate the styles.
+		Object.keys( materialDesignThemeColorControls ).forEach( control => {
+			const cssVar = materialDesignThemeColorControls[ control ];
+			const color = parentApi( control ).get();
+			if ( ! color ) {
+				return;
+			}
+
+			lightStyles += `${ cssVar }: ${ color };`;
+			lightStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join( ',' ) };`;
+
+			if ( '--mdc-theme-background' === cssVar ) {
+				lightStyles += `
+					--mdc-theme-text-primary-on-background: rgba(--mdc-theme-on-background-rgb, 0.87);
+					--mdc-theme-text-secondary-on-background: rgba(--mdc-theme-on-background-rgb, 0.54);
+					--mdc-theme-text-hint-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
+					--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
+					--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);`;
+			}
+		} );
 
 		styles = `:root {
 			${ styles }
+
+			body[data-color-scheme="dark"] {
+				${ darkStyles }
+			}
+
+			body[data-color-scheme="light"] {
+				${ lightStyles }
+			}
 		}`;
 
 		// Add styles.
