@@ -5,6 +5,7 @@ Tested up to: 5.8
 Stable tag: 0.3.1
 License: Apache License, Version 2.0
 License URI: https://www.apache.org/licenses/LICENSE-2.0
+Tags: material-design, material-theming, google, blocks, gutenberg, theme-builder, accessibility, dark-mode
 
 The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
 
