@@ -155,7 +155,7 @@ class Controls extends Module_Base {
 			'typography'     => __( 'Typography (Font Styles)', 'material-design' ),
 			'corner_styles'  => __( 'Shape Size', 'material-design' ),
 			'icons'          => __( 'Icon Styles', 'material-design' ),
-			'learn'         => [
+			'learn'          => [
 				'label'       => __( 'Learn More', 'material-design' ),
 				'priority'    => 400,
 				'description' => $learn_description,
