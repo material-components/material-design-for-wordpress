@@ -34,7 +34,6 @@ use MaterialDesign\Plugin\Helpers;
  * Class Controls.
  */
 class Controls extends Module_Base {
-
 	/**
 	 * The slug used as a prefix for all settings and controls.
 	 *
@@ -66,6 +65,8 @@ class Controls extends Module_Base {
 		add_action( 'customize_controls_print_footer_scripts', [ $this, 'templates' ] );
 		add_action( 'customize_sanitize_js_material_design_notify', [ $this, 'show_material_components_notification' ] );
 		add_action( 'wp_ajax_material_design_notification_dismiss', [ $this, 'notification_dismiss' ] );
+
+		add_filter( 'material_design_customizer_section_args', [ $this, 'filter_style_section' ], 10, 2 );
 	}
 
 	/**
@@ -75,6 +76,10 @@ class Controls extends Module_Base {
 	 */
 	public function register( $wp_customize ) {
 		$this->wp_customize = $wp_customize;
+
+		$this->wp_customize->register_section_type( Material_Styles_Section::class );
+
+		$this->wp_customize->register_section_type( Material_Style_Settings_Section::class );
 
 		// Register custom control types.
 		$this->wp_customize->register_control_type( Material_Color_Palette_Control::class );
@@ -128,11 +133,12 @@ class Controls extends Module_Base {
 	 */
 	public function add_sections() {
 		$sections = [
-			'style'         => __( 'Starter Styles', 'material-design' ),
-			'colors'        => __( 'Color Palette ', 'material-design' ),
-			'typography'    => __( 'Typography (Font Styles)', 'material-design' ),
-			'corner_styles' => __( 'Shape Size', 'material-design' ),
-			'icons'         => __( 'Icon Styles', 'material-design' ),
+			'style'          => __( 'Starter Styles', 'material-design' ),
+			'style_settings' => __( 'Style', 'material-design' ),
+			'colors'         => __( 'Color Palette ', 'material-design' ),
+			'typography'     => __( 'Typography (Font Styles)', 'material-design' ),
+			'corner_styles'  => __( 'Shape Size', 'material-design' ),
+			'icons'          => __( 'Icon Styles', 'material-design' ),
 		];
 
 		foreach ( $sections as $id => $label ) {
@@ -196,43 +202,56 @@ class Controls extends Module_Base {
 
 		$this->add_settings( $settings );
 
+		$choices = $this->get_style_choices();
+
 		/**
 		 * List of all the controls in the Theme section.
 		 */
-		$controls = [
+		$controls_theme = [
 			'style' => new Image_Radio_Control(
 				$this->wp_customize,
 				$this->prepare_option_name( 'style' ),
 				[
 					'section'  => 'style',
 					'priority' => 10,
-					'choices'  => [
-						'baseline'    => [
-							'label' => __( 'Baseline', 'material-design' ),
-							'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
-						],
-						'crane'       => [
-							'label' => __( 'Crane', 'material-design' ),
-							'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
-						],
-						'fortnightly' => [
-							'label' => __( 'Fortnightly', 'material-design' ),
-							'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
-						],
-						'blossom'     => [
-							'label' => __( 'Blossom', 'material-design' ),
-							'url'   => $this->plugin->asset_url( 'assets/images/blossom.svg' ),
-						],
-						'custom'      => [
-							'label' => __( 'Custom', 'material-design' ),
-							'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
-						],
-					],
+					'choices'  => $choices,
 				]
 			),
 		];
 
-		$this->add_controls( $controls );
+		$default_settings = [];
+
+		foreach ( $choices as $key => $value ) {
+			$default_settings[ $key ] = [
+				'dark'     => 'auto',
+				'contrast' => 'auto',
+				'switcher' => false,
+			];
+		}
+
+		$style_settings = [
+			'style_settings' => [
+				'default' => $default_settings,
+			],
+		];
+
+		$this->add_settings( $style_settings );
+
+		$controls_settings = [
+			'style_settings' => new Style_Settings_Control(
+				$this->wp_customize,
+				$this->prepare_option_name( 'style_settings' ),
+				[
+					'section'  => 'style_settings',
+					'priority' => 200,
+					'style'    => get_option( $this->prepare_option_name( 'style' ) ),
+					'css_var'  => '--mdc-theme-setting',
+				]
+			),
+		];
+
+		$this->add_controls( $controls_theme );
+		$this->add_controls( $controls_settings );
 	}
 
 	/**
@@ -550,6 +569,7 @@ class Controls extends Module_Base {
 				'designStyles'           => $this->get_design_styles(),
 				'controls'               => $this->added_controls,
 				'styleControl'           => $this->prepare_option_name( 'style' ),
+				'styleSettings'          => $this->prepare_option_name( 'style_settings' ),
 				'prevStyleControl'       => $this->prepare_option_name( 'previous_style' ),
 				'iconCollectionsControl' => $this->prepare_option_name( 'icon_collection' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
@@ -564,6 +584,7 @@ class Controls extends Module_Base {
 				'nonce'                  => wp_create_nonce( 'wp_rest' ),
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
+				'styleChoices'           => $this->get_style_choices(),
 			]
 		);
 
@@ -1500,5 +1521,69 @@ class Controls extends Module_Base {
 		}
 
 		return $controls;
+	}
+
+	/**
+	 * Use custom section for style
+	 *
+	 * @param array $args array Section arguments.
+	 * @param int   $id string Section ID.
+	 *
+	 * @return Material_Styles_Section|Material_Style_Settings_Section|array Filtered value
+	 */
+	public function filter_style_section( $args, $id ) {
+		if ( 'material_design_style' === $id ) {
+			$args['type'] = 'styles';
+
+			return new Material_Styles_Section(
+				$this->wp_customize,
+				$id,
+				$args,
+				$this->plugin
+			);
+		}
+
+		if ( 'material_design_style_settings' === $id ) {
+			$args['type'] = 'style_settings';
+
+			return new Material_Style_Settings_Section(
+				$this->wp_customize,
+				$id,
+				$args,
+				$this->plugin
+			);
+		}
+
+		return $args;
+	}
+
+	/**
+	 * Get array of existing default choices.
+	 *
+	 * @return array Existing choices.
+	 */
+	public function get_style_choices() {
+		return [
+			'baseline'    => [
+				'label' => __( 'Baseline', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
+			],
+			'crane'       => [
+				'label' => __( 'Crane', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
+			],
+			'fortnightly' => [
+				'label' => __( 'Fortnightly', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
+			],
+			'blossom'     => [
+				'label' => __( 'Blossom', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/blossom.svg' ),
+			],
+			'custom'      => [
+				'label' => __( 'Custom', 'material-design' ),
+				'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
+			],
+		];
 	}
 }
