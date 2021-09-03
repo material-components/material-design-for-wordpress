@@ -39,6 +39,7 @@ const tabs = Object.keys( TABS );
  * Default state of the world
  *
  */
+
 const initialState = {
 	activeTab: 'CUSTOMIZE',
 	completed: [ 'WIZARD' ],

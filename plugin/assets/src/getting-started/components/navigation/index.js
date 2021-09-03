@@ -31,11 +31,19 @@ import Tab from './tab';
 const Navigation = () => {
 	const { dispatch } = useContext( TabContext );
 
+	let activeTab = 'CUSTOMIZE';
+	const hash = document.location.hash
+		? document.location.hash.split( '#' )[ 1 ]
+		: 'false';
+	if ( TABS[ hash.toUpperCase() ] ) {
+		activeTab = hash.toUpperCase();
+	}
+
 	useEffect( () => {
 		// Change initial tab if content and theme are already installed.
 		if ( 'ok' === getConfig( 'themeStatus' ) ) {
 			dispatch( { type: ACTIONS.SET_THEME_OK } );
-			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'CUSTOMIZE' } } );
+			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: activeTab } } );
 			dispatch( {
 				type: ACTIONS.MARK_COMPLETE,
 				payload: { value: [ 'WIZARD' ] },
@@ -45,7 +53,7 @@ const Navigation = () => {
 
 		if ( 'ok' === getConfig( 'contentStatus' ) ) {
 			dispatch( { type: ACTIONS.SET_DEMO_OK } );
-			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: 'CUSTOMIZE' } } );
+			dispatch( { type: ACTIONS.GOTO_STEP, payload: { value: activeTab } } );
 			dispatch( {
 				type: ACTIONS.MARK_COMPLETE,
 				payload: {

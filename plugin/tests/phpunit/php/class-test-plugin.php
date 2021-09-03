@@ -108,6 +108,7 @@ class Test_Plugin extends \WP_UnitTestCase {
 		$this->assertInstanceOf( Onboarding_REST_Controller::class, $plugin->onboarding_rest_controller );
 		$this->assertInstanceOf( Importer::class, $plugin->importer );
 		$this->assertInstanceOf( Admin::class, $plugin->admin );
+		$this->assertSame( 10, has_filter( 'plugin_row_meta', [ $plugin, 'get_plugin_row_meta' ] ) );
 	}
 
 	/**
@@ -224,5 +225,33 @@ class Test_Plugin extends \WP_UnitTestCase {
 	 */
 	public function template() {
 		return 'material-design-google';
+	}
+
+	/**
+	 * Test ::get_plugin_row_meta().
+	 *
+	 * @covers ::get_plugin_row_meta()
+	 */
+	public function test_get_plugin_row_meta() {
+
+		$initial_meta = [
+			'Link 1',
+			'Link 2',
+		];
+
+		$plugin = get_plugin_instance();
+		$this->assertEquals( $initial_meta, $plugin->get_plugin_row_meta( $initial_meta, 'foo.php' ) );
+
+		$expected_meta = array_merge(
+			$initial_meta,
+			[
+				'<a href="' . esc_url( admin_url( 'admin.php?page=material-settings#learn' ) ) . '" target="_blank" rel="noreferrer noopener">' . esc_html__( 'Learn more', 'material-design' ) . '</a>',
+				'<a href="https://wordpress.org/support/plugin/material-design/" target="_blank" rel="noreferrer noopener">' . esc_html__( 'Contact support', 'material-design' ) . '</a>',
+				'<a href="https://wordpress.org/support/plugin/material-design/reviews/#new-post" target="_blank" rel="noreferrer noopener">' . esc_html__( 'Leave review', 'material-design' ) . '</a>',
+			]
+		);
+
+		$plugin_file = plugin_basename( realpath( __DIR__ . '/../../../material-design.php' ) );
+		$this->assertEquals( $expected_meta, $plugin->get_plugin_row_meta( $initial_meta, $plugin_file ) );
 	}
 }

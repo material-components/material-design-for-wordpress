@@ -40,6 +40,8 @@ describe( 'Wizard: Work', () => {
 			assetsPath: 'http://example.com/',
 			placeholderSmall: 'http://example.com/image-small.png',
 			placeholderImage: 'http://example.com/image.png',
+			materialUrl: 'https://material.io',
+			newsLetterUrl: 'https://material.io/newsletter',
 		};
 	} );
 
