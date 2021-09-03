@@ -44,7 +44,9 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 		defaultValue[ selectedStyle ]
 	);
 	const { dark, switcher } = currentValue;
-	const [ isSwitcherDisabled, setIsSwitcherDisabled ] = useState( false );
+	const [ isSwitcherDisabled, setIsSwitcherDisabled ] = useState(
+		'inactive' === defaultValue[ selectedStyle ].dark
+	);
 	const isThemeActive = 'ok' === getConfig( 'themeStatus' );
 
 	const onChange = useCallback( ( value, setting ) => {
