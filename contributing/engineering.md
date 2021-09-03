@@ -6,12 +6,12 @@
 
 To contribute to this plugin, you need the following tools installed on your computer:
 
-* PHP 5.6.20+ is required and WordPress 5.0+ or the [Gutenberg Plugin](https://wordpress.org/plugins/gutenberg/)
+* PHP 5.6.20+ is required and WordPress 5.6+ or the [Gutenberg Plugin](https://wordpress.org/plugins/gutenberg/)
 * [Composer](https://getcomposer.org/) - to install PHP dependencies.
 * [Node.js](https://nodejs.org/en/) - to install JavaScript dependencies.
 * [WordPress](https://wordpress.org/download/) - to run the actual plugin.
 * [Docker](https://docs.docker.com/install/) - for a local development environment.
-	
+
 We use `npm` as the canonical task runner for the project. Some of the PHP related scripts are defined in `composer.json` but are not meant to be executed directly. You should be running a Node version matching the [current active LTS release](https://github.com/nodejs/Release#release-schedule) or newer for this plugin to work correctly. You can check your Node.js version by typing `node -v` in the Terminal prompt.
 
 If you have an incompatible version of Node in your development environment, you can use [nvm](https://github.com/creationix/nvm) to change node versions on the command line:

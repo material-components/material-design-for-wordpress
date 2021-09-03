@@ -85,7 +85,9 @@ class Test_Update_Fonts extends \WP_UnitTestCase {
 	 */
 	public function test_get_fonts() {
 		try {
-			$this->api_force_http->get_fonts( false );
+			$data = $this->api_force_http->get_fonts( false );
+
+			$this->assertNotEmpty( $data );
 		} catch ( \Exception $e ) {
 			$actual   = json_decode( $e->getMessage() );
 			$expected = (object) [
