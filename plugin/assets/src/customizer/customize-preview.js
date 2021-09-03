@@ -44,6 +44,8 @@ const getIconFontName = iconStyle => {
 				.replace( /(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase() ) }`;
 };
 
+const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
+
 ( $ => {
 	// Bail out if this isn't loaded in an iframe.
 	if (
@@ -61,6 +63,7 @@ const getIconFontName = iconStyle => {
 	const typographyControls = {};
 	const cornerStyleControls = {};
 	const iconControls = {};
+	const settingsControls = {};
 
 	$( function() {
 		api.preview.bind( 'active', function() {
@@ -113,6 +116,10 @@ const getIconFontName = iconStyle => {
 
 			if ( args && !! args.cssVar && args.type === 'icon_radio' ) {
 				iconControls[ control ] = args.cssVar;
+			}
+
+			if ( args && !! args.cssVar && args.type === 'style_settings' ) {
+				settingsControls[ control ] = args.cssVar;
 			}
 		} );
 	};
@@ -210,6 +217,12 @@ const getIconFontName = iconStyle => {
 			) }';`;
 		} );
 
+		Object.keys( settingsControls ).forEach( control => {
+			const settings = parentApi( control ).get();
+
+			toggleDarkModeSwitch( settings );
+		} );
+
 		styles = `:root {
 			${ styles }
 		}`;
@@ -255,17 +268,53 @@ const getIconFontName = iconStyle => {
 	}, 300 );
 
 	/**
+	 * Toggle dark mode button based on user choice.
+	 *
+	 * @param {string} value Current settings value
+	 *
+	 * @return {void}
+	 */
+	const toggleDarkModeSwitch = debounce( value => {
+		const darkModeData =
+			'string' === typeof value ? JSON.parse( value ) : value;
+		const currentStyle = parentApi(
+			window.parent.materialDesign.styleControl
+		).get();
+
+		if ( ! currentStyle ) {
+			return;
+		}
+
+		const topAppBar = document.querySelector( '.mdc-top-app-bar' );
+
+		if ( ! topAppBar ) {
+			return;
+		}
+
+		if ( darkModeData[ currentStyle ].switcher ) {
+			topAppBar.classList.add( HAS_DARK_MODE_CLASS );
+		} else {
+			topAppBar.classList.remove( HAS_DARK_MODE_CLASS );
+		}
+	}, 300 );
+
+	/**
 	 * Generate preview styles for any control value change.
 	 */
 	Object.keys( colorControls )
 		.concat( Object.keys( cornerStyleControls ) )
 		.concat( Object.keys( typographyControls ) )
 		.concat( Object.keys( iconControls ) )
+		.concat( Object.keys( settingsControls ) )
 		.forEach( control => {
 			parentApi( control, value => {
 				value.bind( () => {
 					if ( typographyControls.hasOwnProperty( control ) ) {
 						updateGoogleFontsURL();
+					}
+
+					if ( settingsControls.hasOwnProperty( control ) ) {
+						toggleDarkModeSwitch( value.get() );
 					}
 
 					generatePreviewStyles();
