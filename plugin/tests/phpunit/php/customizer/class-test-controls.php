@@ -277,18 +277,19 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 4 ) )
+		$this->wp_customize->expects( $this->exactly( 5 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
 				[ $this->equalTo( "{$controls->slug}[style]" ) ],
 				[ $this->equalTo( "{$controls->slug}[previous_style]" ) ],
 				[ $this->equalTo( "{$controls->slug}[notify]" ) ],
-				[ $this->equalTo( "{$controls->slug}[style_settings]" ) ]
+				[ $this->equalTo( "{$controls->slug}[style_settings]" ) ],
+				[ $this->equalTo( "{$controls->slug}[active_mode]" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 2 ) )
+		$this->wp_customize->expects( $this->exactly( 3 ) )
 			->method( 'add_control' )
 			->withConsecutive(
 				[
