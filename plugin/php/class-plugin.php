@@ -130,6 +130,13 @@ class Plugin extends Plugin_Base {
 	public $icons;
 
 	/**
+	 * Hold plugin frontend class.
+	 *
+	 * @var Frontend
+	 */
+	public $frontend;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * @throws \Exception Generic Exception.
@@ -166,6 +173,9 @@ class Plugin extends Plugin_Base {
 
 		$this->admin_updates = new Admin_Updates();
 		$this->admin_updates->init();
+
+		$this->frontend = new Frontend( $this );
+		$this->frontend->init();
 
 		// Init CLI.
 		if ( defined( 'WP_CLI' ) && false !== WP_CLI ) {
