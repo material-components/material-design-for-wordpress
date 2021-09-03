@@ -43,6 +43,7 @@ import colorUtils from '../common/color-utils';
 import GlobalRangeSliderControl from './components/range-slider-control/global';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
 import GoogleFontsControl from './components/google-fonts-control';
+import StyleSettingsControl from './components/style-settings-control';
 import {
 	loadMaterialLibrary,
 	reRenderMaterialLibrary,
@@ -63,6 +64,8 @@ import getConfig from '../block-editor/utils/get-config';
 ( ( $, api ) => {
 	// Allow backbone templates access to the `sanitizeControlId` function.
 	window.materialDesignSanitizeControlId = sanitizeControlId;
+
+	const getNamespace = id => `material_design_${ id }`;
 
 	/**
 	 * Extend wp.customize.Section as a collapsible section
@@ -185,11 +188,66 @@ import getConfig from '../block-editor/utils/get-config';
 		},
 	} );
 
+	api.StylesSection = api.Section.extend( {
+		defaultExpandedArguments: $.extend(
+			{},
+			api.Section.defaultExpandedArguments,
+			{ allowMultiple: false }
+		),
+
+		/**
+		 * Attach events.
+		 *
+		 * @return {void}
+		 */
+		attachEvents() {
+			const section = this;
+			api.Section.prototype.attachEvents.call( section );
+
+			if ( section.panel() && api.panel( section.panel() ) ) {
+				api
+					.panel( section.panel() )
+					.container.find( '.material-style-change-settings' )
+					.on( 'click keydown', event => {
+						section.collapse( { showSettings: true } );
+						event.stopPropagation();
+					} );
+			}
+		},
+
+		/**
+		 * Update UI to reflect expanded state
+		 *
+		 * @param {boolean}  expanded - Expanded state.
+		 * @param {Object}   args - Args.
+		 * @return {void}
+		 */
+		onChangeExpanded( expanded, args ) {
+			const section = this;
+			const settingsSection = api.section( getNamespace( 'style_settings' ) );
+
+			// Immediately call the complete callback if there were no changes.
+			if ( args.showSettings ) {
+				if ( args.completeCallback ) {
+					args.completeCallback();
+					if ( settingsSection ) {
+						settingsSection.expand();
+					}
+				}
+				return;
+			}
+
+			// Expand section normally
+			api.Section.prototype.onChangeExpanded.call( section, expanded, args );
+		},
+	} );
+
 	/**
 	 * Extends wp.customize.sectionConstructor with section constructor for collapsible section.
 	 */
 	$.extend( api.sectionConstructor, {
 		collapse: api.CollapsibleSection,
+		styles: api.StylesSection,
 	} );
 
 	api.MaterialColorControl = api.ColorControl.extend( {
@@ -451,6 +509,12 @@ import getConfig from '../block-editor/utils/get-config';
 		},
 	} );
 
+	api.StyleSettingsControl = api.Control.extend( {
+		ready() {
+			renderStyleSettingsControl( this );
+		},
+	} );
+
 	/**
 	 * Extends wp.customize.controlConstructor with custom controls.
 	 */
@@ -459,6 +523,7 @@ import getConfig from '../block-editor/utils/get-config';
 		range_slider: api.RangeSliderControl,
 		icon_radio: api.IconRadioControl,
 		google_fonts: api.GoogleFontsControl,
+		style_settings: api.StyleSettingsControl,
 	} );
 
 	/**
@@ -594,6 +659,33 @@ import getConfig from '../block-editor/utils/get-config';
 		render( <GoogleFontsControl { ...props } />, control.container.get( 0 ) );
 	};
 
+	const renderStyleSettingsControl = control => {
+		const { setting } = control;
+		let defaultValue = setting.get();
+		const selectedStyle = api( getConfig( 'styleControl' ) ).get();
+
+		if ( 'string' === typeof defaultValue ) {
+			defaultValue = JSON.parse( defaultValue );
+		}
+
+		const props = {
+			defaultValue,
+			selectedStyle,
+			setValue: value => {
+				setting.set(
+					JSON.stringify( {
+						...defaultValue,
+						[ selectedStyle ]: {
+							...value,
+						},
+					} )
+				);
+			},
+		};
+
+		render( <StyleSettingsControl { ...props } />, control.container.get( 0 ) );
+	};
+
 	/**
 	 * Callback when a "Design Style" is changed.
 	 *
@@ -658,6 +750,7 @@ import getConfig from '../block-editor/utils/get-config';
 		} );
 
 		reRenderMaterialLibrary();
+		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
 	};
 
@@ -674,6 +767,7 @@ import getConfig from '../block-editor/utils/get-config';
 		}
 
 		reRenderMaterialLibrary();
+		updateActiveStyleName();
 	};
 
 	/**
@@ -702,9 +796,38 @@ import getConfig from '../block-editor/utils/get-config';
 		}
 	};
 
+	const updateActiveStyleName = () => {
+		const sectionTitleElement = document.querySelector(
+			'#accordion-section-material_design_style .customize-title'
+		);
+
+		if ( ! sectionTitleElement ) {
+			return;
+		}
+
+		const currentStyle = api( getConfig( 'styleControl' ) ).get();
+		const control = api.control( getConfig( 'styleSettings' ) );
+		const controlsSectionElement = document.querySelector(
+			'#js-customize-section-style'
+		);
+		const sectionPreview = document.querySelector(
+			'#accordion-section-material_design_style .control-section-styles-preview'
+		);
+
+		sectionTitleElement.textContent = currentStyle;
+		controlsSectionElement.textContent = currentStyle;
+
+		sectionPreview.src = getConfig( 'styleChoices' )[ currentStyle ].url;
+
+		unmountComponentAtNode( control.container.get( 0 ) );
+
+		renderStyleSettingsControl( control );
+	};
+
 	api.bind( 'ready', () => {
 		const controls = getConfig( 'controls' );
 		const styleControl = getConfig( 'styleControl' );
+		const styleSettings = getConfig( 'styleSettings' );
 
 		// Iterate through our controls and bind events for value change.
 		if ( controls && Array.isArray( controls ) ) {
@@ -713,6 +836,11 @@ import getConfig from '../block-editor/utils/get-config';
 					// Design style control has it's own change handler.
 					if ( styleControl === name ) {
 						return setting.bind( onStyleChange );
+					}
+
+					// Style settings don't trigger custom style handler.
+					if ( styleSettings === name ) {
+						return;
 					}
 
 					setting.bind( onCustomValueChange );

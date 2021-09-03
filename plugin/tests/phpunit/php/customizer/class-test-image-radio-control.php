@@ -84,7 +84,7 @@ class Test_Image_Radio_Control extends \WP_UnitTestCase {
 		$this->assertContains( sprintf( '<input type="radio" value="%s"', 'baseline' ), $output );
 		$this->assertContains( sprintf( '<input type="radio" value="%s"', 'crane' ), $output );
 
-		$this->assertContains( sprintf( '<img src="%s"', 'http://example.com/baseline.svg' ), $output );
-		$this->assertContains( sprintf( '<img src="%s"', 'http://example.com/crane.svg' ), $output );
+		$this->assertContains( sprintf( '<img class="customize-control-image-radio-control-preview" src="%s"', 'http://example.com/baseline.svg' ), $output );
+		$this->assertContains( sprintf( '<img class="customize-control-image-radio-control-preview" src="%s"', 'http://example.com/crane.svg' ), $output );
 	}
 }

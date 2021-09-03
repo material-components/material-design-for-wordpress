@@ -27,6 +27,8 @@ namespace MaterialDesign\Plugin\Customizer;
 
 use MaterialDesign\Plugin\Plugin;
 use MaterialDesign\Plugin\Customizer\Icon_Radio_Control;
+use MaterialDesign\Plugin\Customizer\Material_Styles_Section;
+use MaterialDesign\Plugin\Customizer\Material_Style_Settings_Section;
 use MaterialDesign\Plugin\Customizer\Material_Color_Palette_Control;
 use function MaterialDesign\Plugin\get_plugin_instance;
 
@@ -62,7 +64,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		require_once ABSPATH . WPINC . '/class-wp-customize-section.php';
 
 		$this->wp_customize = $this->getMockBuilder( 'DummyClass' )
-			->setMethods( [ 'register_control_type', 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
+			->setMethods( [ 'register_control_type', 'register_section_type', 'add_panel', 'add_section', 'add_setting', 'add_control', 'get_setting' ] )
 			->getMock();
 	}
 
@@ -125,6 +127,13 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::register()
 	 */
 	public function test_register() {
+		$this->wp_customize->expects( $this->exactly( 2 ) )
+		->method( 'register_section_type' )
+		->withConsecutive(
+			[ $this->equalTo( Material_Styles_Section::class ) ],
+			[ $this->equalTo( Material_Style_Settings_Section::class ) ]
+		);
+
 		// Set up the expectation for the register_control_type() method
 		// to be called only once and with the class `Material_Color_Palette_Control`.
 		$this->wp_customize->expects( $this->once() )
@@ -193,12 +202,22 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$controls->wp_customize = $this->wp_customize;
 
 		// Replace the icons section with an instance to assert it's registered correctly.
-		$icons_section = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_icons" );
+		$icons_section    = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_icons" );
+		$styles_section   = new Material_Styles_Section( $this->wp_customize, "{$controls->slug}_style" );
+		$settings_section = new Material_Style_Settings_Section( $this->wp_customize, "{$controls->slug}_style_settings" );
 		add_filter(
 			$controls->slug . '_customizer_section_args',
-			function ( $args, $id ) use ( $controls, $icons_section ) {
+			function ( $args, $id ) use ( $controls, $icons_section, $styles_section, $settings_section ) {
 				if ( "{$controls->slug}_icons" === $id ) {
 					return $icons_section;
+				}
+
+				if ( "{$controls->slug}_style" === $id ) {
+					return $styles_section;
+				}
+
+				if ( "{$controls->slug}_style_settings" === $id ) {
+					return $settings_section;
 				}
 
 				return $args;
@@ -208,11 +227,12 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		);
 
 		// Set up the expectation for the add_section() method
-		// to be called 5 times, once for each section.
-		$this->wp_customize->expects( $this->exactly( 6 ) )
+		// to be called 7 times, once for each section.
+		$this->wp_customize->expects( $this->exactly( 7 ) )
 			->method( 'add_section' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}_style" ) ],
+				[ $this->equalTo( $styles_section ) ],
+				[ $this->equalTo( $settings_section ) ],
 				[ $this->equalTo( "{$controls->slug}_colors" ) ],
 				[ $this->equalTo( "{$controls->slug}_typography" ) ],
 				[ $this->equalTo( "{$controls->slug}_corner_styles" ) ],
@@ -235,17 +255,18 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 3 ) )
+		$this->wp_customize->expects( $this->exactly( 4 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
 				[ $this->equalTo( "{$controls->slug}[style]" ) ],
 				[ $this->equalTo( "{$controls->slug}[previous_style]" ) ],
-				[ $this->equalTo( "{$controls->slug}[notify]" ) ]
+				[ $this->equalTo( "{$controls->slug}[notify]" ) ],
+				[ $this->equalTo( "{$controls->slug}[style_settings]" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->once() )
+		$this->wp_customize->expects( $this->exactly( 2 ) )
 			->method( 'add_control' )
 			->withConsecutive(
 				[
