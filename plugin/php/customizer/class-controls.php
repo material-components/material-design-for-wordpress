@@ -173,7 +173,7 @@ class Controls extends Module_Base {
 			'icons'           => __( 'Icon Styles', 'material-design' ),
 			'dark_colors'     => __( 'Dark Color Palette', 'material-design' ),
 			'contrast_colors' => __( 'High Contrast Color Palette', 'material-design' ),
-			'learn'          => [
+			'learn'           => [
 				'label'       => __( 'Learn More', 'material-design' ),
 				'priority'    => 400,
 				'description' => $learn_description,
