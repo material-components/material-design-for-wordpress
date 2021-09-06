@@ -1891,8 +1891,9 @@ class Controls extends Module_Base {
 	 */
 	public function dark_mode_status() {
 		$selected_style = $this->get_option( 'style' );
-		$style_settings = json_decode( $this->get_option( 'style_settings' ), true );
-
+		$style_settings = $this->get_option( 'style_settings' );
+		$style_settings = is_string( $style_settings ) ? json_decode( $style_settings, true ) : [];
+		$selected_style = $selected_style ? $selected_style : 'baseline';
 		if ( empty( $style_settings[ $selected_style ] ) ) {
 			return;
 		}
