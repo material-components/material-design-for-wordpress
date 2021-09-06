@@ -25,6 +25,7 @@
 
 namespace MaterialDesign\Plugin\Customizer;
 
+use MaterialDesign\Plugin\Admin;
 use MaterialDesign\Plugin\Module_Base;
 use MaterialDesign\Plugin\Google_Fonts;
 use MaterialDesign\Plugin\Blocks_Frontend;
@@ -120,6 +121,9 @@ class Controls extends Module_Base {
 
 		// Add all controls in the "Icon Styles" section.
 		$this->add_icon_collection_controls();
+
+		// Add global style control.
+		$this->add_learn_control();
 	}
 
 	/**
@@ -148,6 +152,18 @@ class Controls extends Module_Base {
 	 * @return void
 	 */
 	public function add_sections() {
+
+		$learn_description  = '<p>';
+		$learn_description .= __( 'Learn about the concepts behind material Design.', 'material-design' );
+		$learn_description .= sprintf(
+			' <a href="%1$s" class="external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
+			Admin::MATERIAL_URL,
+			__( 'Vist material.io', 'material-design' ),
+			/* translators: Accessibility text. */
+			__( '(opens in a new tab)', 'material-design' )
+		);
+		$learn_description .= '</p>';
+
 		$sections = [
 			'style'           => __( 'Starter Styles', 'material-design' ),
 			'style_settings'  => __( 'Style', 'material-design' ),
@@ -157,18 +173,25 @@ class Controls extends Module_Base {
 			'icons'           => __( 'Icon Styles', 'material-design' ),
 			'dark_colors'     => __( 'Dark Color Palette', 'material-design' ),
 			'contrast_colors' => __( 'High Contrast Color Palette', 'material-design' ),
+			'learn'          => [
+				'label'       => __( 'Learn More', 'material-design' ),
+				'priority'    => 400,
+				'description' => $learn_description,
+			],
 		];
 
-		foreach ( $sections as $id => $label ) {
+		foreach ( $sections as $id => $maybe_label ) {
 			$id = $this->prepend_slug( $id );
 
-			$args = [
+			$label = is_array( $maybe_label ) ? $maybe_label['label'] : $maybe_label;
+			$args  = [
 				'priority'   => 10,
 				'capability' => 'edit_theme_options',
 				'title'      => esc_html( $label ),
 				'panel'      => $this->slug,
 				'type'       => 'collapse',
 			];
+			$args  = is_array( $maybe_label ) ? array_merge( $args, $maybe_label ) : $args;
 
 			/**
 			 * Filters the customizer section args.
@@ -577,6 +600,62 @@ class Controls extends Module_Base {
 			}
 		}
 	}
+
+
+	/**
+	 * Get global style controls.
+	 *
+	 * @return array[]
+	 */
+	public function get_learn_controls() {
+		return [
+			[
+				'id'          => 'Newsletter',
+				'label'       => '',
+				'type'        => 'hidden',
+				'default'     => 'inherit',
+				'description' =>
+					/* translators: %s is material io link. */
+					sprintf( '<p>' . __( 'Learn more about material design at %s.', 'material-design' ) . '</p>', '<a href="https://material.io/" target="_blank">material.io</a>' ) .
+					'<p>' . __( 'Sign up to get updates and news about material design via email.', 'material-design' ) . '<p>' .
+					sprintf(
+						' <a href="%1$s" class="button external-link" target="_blank">%2$s<span class="screen-reader-text"> %3$s</span></a>',
+						Admin::NEWSLETTER_URL,
+						__( 'Subscribe to Newsletter', 'material-design' ),
+						/* translators: Accessibility text. */
+						__( '(opens in a new tab)', 'material-design' )
+					),
+			],
+
+		];
+	}
+
+	/**
+	 * Add global style control.
+	 */
+	public function add_learn_control() {
+		$settings = [];
+		$controls = [];
+
+		foreach ( $this->get_learn_controls() as $control ) {
+			$settings[ $control['id'] ] = [
+				'transport'         => 'refresh',
+				'sanitize_callback' => [ $this, 'sanitize_select' ],
+				'default'           => $control['default'],
+			];
+
+			$controls[ $control['id'] ] = array_merge(
+				[
+					'section' => 'learn',
+				],
+				$control
+			);
+		}
+
+		$this->add_settings( $settings );
+		$this->add_controls( $controls );
+	}
+
 
 	/**
 	 * Enqueue Customizer scripts.
