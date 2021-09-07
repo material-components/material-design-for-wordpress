@@ -25,10 +25,12 @@
 
 namespace MaterialDesign\Plugin\Customizer;
 
+use MaterialDesign\Plugin\Helpers;
+
 /**
  * Material color palette control.
  */
-class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
+class Material_Color_Palette_Control extends \WP_Customize_Control {
 
 	/**
 	 * The type of customize control being rendered.
@@ -64,6 +66,20 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	 * @var string
 	 */
 	public $a11y_label = '';
+
+	/**
+	 * Default setting name
+	 *
+	 * @var string
+	 */
+	public $default_mode_setting = '';
+
+	/**
+	 * Default color mode
+	 *
+	 * @var string
+	 */
+	public $color_mode_type = 'default';
 
 	/**
 	 * Render a JS template for the Material color palette tabs.
@@ -110,6 +126,21 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 	}
 
 	/**
+	 * Displays the control wrapper.
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function render() {
+		$id    = 'customize-control-' . str_replace( [ '[', ']' ], [ '-', '' ], $this->id );
+		$class = 'customize-control customize-control-' . $this->type;
+
+		printf( '<li id="%s" class="%s">', esc_attr( $id ), esc_attr( $class ) );
+		$this->render_content();
+		echo '</li>';
+	}
+
+	/**
 	 * Add our custom args for JSON output as params.
 	 */
 	public function to_json() {
@@ -118,5 +149,8 @@ class Material_Color_Palette_Control extends \WP_Customize_Color_Control {
 		$this->json['relatedSetting']     = ! empty( $this->related_setting ) ? $this->related_setting : false;
 		$this->json['cssVar']             = ! empty( $this->css_var ) ? $this->css_var : false;
 		$this->json['a11yLabel']          = ! empty( $this->a11y_label ) ? $this->a11y_label : '';
+		$this->json['id']                 = ! empty( $this->id ) ? $this->id : '';
+		$this->json['defaultModeSetting'] = ! empty( $this->default_mode_setting ) ? $this->default_mode_setting : '';
+		$this->json['colorModeType']      = ! empty( $this->color_mode_type ) ? $this->color_mode_type : '';
 	}
 }

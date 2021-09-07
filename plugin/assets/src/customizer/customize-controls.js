@@ -44,6 +44,7 @@ import GlobalRangeSliderControl from './components/range-slider-control/global';
 import MaterialColorPalette from '../block-editor/components/material-color-palette';
 import GoogleFontsControl from './components/google-fonts-control';
 import StyleSettingsControl from './components/style-settings-control';
+import ColorControl from './components/color-control';
 import {
 	loadMaterialLibrary,
 	reRenderMaterialLibrary,
@@ -242,12 +243,119 @@ import getConfig from '../block-editor/utils/get-config';
 		},
 	} );
 
+	api.ColorsSection = api.CollapsibleSection.extend( {
+		defaultExpandedArguments: $.extend(
+			{},
+			api.Section.defaultExpandedArguments,
+			{ allowMultiple: true }
+		),
+
+		template: wp.template( 'customize-section-material_color-tabs' ),
+
+		/**
+		 * wp.customize.ColorsSection
+		 *
+		 * Custom section which would act as a collapsible (accordion).
+		 *
+		 * @constructs wp.customize.ColorsSection
+		 * @augments   wp.customize.Section
+		 *
+		 * @param {string} id - ID.
+		 * @param {Object} options - Options.
+		 * @return {void}
+		 */
+		initialize( id, options ) {
+			const section = this;
+			api.Section.prototype.initialize.call( section, id, options );
+
+			// Add classes
+			section.container.addClass( 'control-section-collapse' );
+
+			// Move the section to it's parent panel.
+			section.headContainer.append( $( '#sub-accordion-section-' + id ) );
+
+			if ( section.panel && section.panel() ) {
+				const panel = api.panel( section.panel() );
+
+				if ( panel ) {
+					panel.container.last().addClass( 'control-section-collapse-parent' );
+				}
+			}
+		},
+
+		ready() {
+			const section = this;
+
+			api.Section.prototype.ready.call( section );
+
+			const content = section.contentContainer.html();
+
+			section.contentContainer.html(
+				section.template( { id: section.id, content } )
+			);
+
+			section.contentContainer
+				.find( '.material-design-section-tabs .material-design-tab-link' )
+				.on( 'click', event => {
+					const { target } = event;
+
+					if ( ! target ) {
+						return;
+					}
+
+					const { palette } = target.dataset;
+
+					if ( ! palette ) {
+						return;
+					}
+
+					section.contentContainer.removeClass(
+						'material-design-colors--default'
+					);
+					section.contentContainer.removeClass(
+						'material-design-colors--dark'
+					);
+
+					section.contentContainer.addClass(
+						`material-design-colors--${ palette }`
+					);
+
+					section.contentContainer
+						.find( '.material-design-tab-link--active' )
+						.removeClass( 'material-design-tab-link--active' );
+
+					target.classList.add( 'material-design-tab-link--active' );
+
+					// Display content.
+					const activeTab = section.contentContainer.find(
+						`.material-design-tab-content.tab-${ palette }`
+					);
+
+					if ( 0 === activeTab.length ) {
+						return;
+					}
+
+					section.contentContainer
+						.find( `.material-design-tab-content` )
+						.removeClass( 'active' );
+
+					section.contentContainer
+						.find( `.material-design-tab-content.tab-${ palette }` )
+						.addClass( 'active' );
+
+					// Setup new colors.
+					api.previewer.send( 'materialDesignPaletteUpdate', palette );
+				} );
+		},
+	} );
+
 	/**
 	 * Extends wp.customize.sectionConstructor with section constructor for collapsible section.
 	 */
 	$.extend( api.sectionConstructor, {
 		collapse: api.CollapsibleSection,
 		styles: api.StylesSection,
+		colors: api.ColorsSection,
 	} );
 
 	api.MaterialColorControl = api.ColorControl.extend( {
@@ -264,115 +372,7 @@ import getConfig from '../block-editor/utils/get-config';
 
 			api.ColorControl.prototype.ready.call( control );
 
-			control.colorContainer = control.container.find( '.wp-picker-container' );
-
-			const picker = control.container.find( '.wp-picker-holder' );
-			const container = control.container.find( '.wp-picker-container' );
-
-			// Append the tabs markup to container.
-			container.append( control.template( { id: control.id } ) );
-
-			// Move picker to the custom tab.
-			container.find( '.tab-custom' ).append( picker );
-
-			// Add the tab links click event to show/hide tab content.
-			container.find( '.material-design-tab-link' ).on( 'click', event => {
-				event.preventDefault();
-
-				const link = $( event.target );
-				const targetId = link
-					.attr( 'href' )
-					.split( '#' )
-					.pop();
-
-				container.find( '.active' ).removeClass( 'active' );
-
-				container.find( `#${ targetId }` ).addClass( 'active' );
-				link.addClass( 'active' );
-			} );
-
-			control.setting.bind( value => {
-				// Re-render the material palette component and accessibility warnings if the color is updated.
-				control.renderPaletteWithAccessibilityWarnings( value );
-			} );
-
-			const colorToggler = container.find( '.wp-color-result' ),
-				colorInput = container.find( '.wp-color-picker' );
-
-			// Add our own custom color picker open/close events.
-			colorToggler.off( 'click' ).on( 'click', () => {
-				if ( colorToggler.hasClass( 'wp-picker-open' ) ) {
-					colorInput.data( 'wpWpColorPicker' ).close();
-				} else {
-					colorInput.data( 'wpWpColorPicker' ).open();
-
-					// Render the material palette component with accessibility warnings.
-					control.renderPaletteWithAccessibilityWarnings();
-				}
-			} );
-
-			// Remove the `click.wpcolorpicker` event and add our own.
-			container
-				.off( 'click.wpcolorpicker' )
-				.on( 'click.wpcolorpicker', event => {
-					// Stop propagation only if the click is not from a material color select
-					// react will handle the event propagation.
-					if (
-						event.originalEvent &&
-						event.originalEvent.target &&
-						event.originalEvent.target.classList.contains( 'components-button' )
-					) {
-						// Remove the body click event and add it back after a second.
-						$( 'body' ).off( 'click.wpcolorpicker' );
-						setTimeout(
-							() =>
-								$( 'body' ).on(
-									'click.wpcolorpicker',
-									colorInput.data( 'wpWpColorPicker' ).close
-								),
-							500
-						);
-						return true;
-					}
-
-					event.stopPropagation();
-				} );
-
-			// Activate the first tab.
-			container
-				.find( '.material-design-tab-link' )
-				.first()
-				.trigger( 'click' );
-
-			container
-				.find( '.wp-picker-default' )
-				.val( __( 'Reset', 'material-design' ) )
-				.attr( 'aria-label', __( 'Reset to default color', 'material-design' ) )
-				.off( 'click' )
-				.on( 'click', event => {
-					if ( 'custom' !== api( getConfig( 'styleControl' ) ).get() ) {
-						return;
-					}
-
-					const style = api( getConfig( 'prevStyleControl' ) ).get();
-					const designStyles = getConfig( 'designStyles' );
-
-					if ( designStyles && designStyles.hasOwnProperty( style ) ) {
-						const $control = $( event.target ).closest(
-								'.customize-control-material_color'
-							),
-							name = $control
-								.attr( 'id' )
-								.replace( 'customize-control-', '' )
-								.replace( `${ getConfig( 'slug' ) }-`, '' ),
-							controlName = getControlName( name );
-
-						setSettingDefault(
-							controlName,
-							designStyles[ style ][ removeOptionPrefix( controlName ) ]
-						);
-					}
-				} );
+			renderColorControl( this );
 		},
 
 		/**
@@ -680,10 +680,42 @@ import getConfig from '../block-editor/utils/get-config';
 						},
 					} )
 				);
+
+				// Rearrange controls.
+				setTimeout( arrangeDarkMode, 1000 );
 			},
 		};
 
 		render( <StyleSettingsControl { ...props } />, control.container.get( 0 ) );
+	};
+
+	const renderColorControl = control => {
+		const { setting, params } = control;
+		let mode = 'default';
+		let range = null;
+
+		if ( params.defaultModeSetting ) {
+			const parentDefaultColor = api.control( params.defaultModeSetting );
+
+			mode = params.id?.includes( '_dark' ) ? 'dark' : 'contrast';
+			range = colorUtils.getColorRangeFromHex(
+				parentDefaultColor.setting.get()
+			);
+		}
+
+		const props = {
+			defaultValue: setting.get(),
+			onColorChange: value => {
+				control.setting.set( value );
+				setTimeout( arrangeDarkMode, 200 );
+			},
+			params,
+			api,
+			range,
+			mode,
+		};
+
+		render( <ColorControl { ...props } />, control.container.get( 0 ) );
 	};
 
 	/**
@@ -750,8 +782,10 @@ import getConfig from '../block-editor/utils/get-config';
 		} );
 
 		reRenderMaterialLibrary();
+		reRenderColorControls();
 		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
+		setTimeout( arrangeDarkMode, 300 );
 	};
 
 	/**
@@ -824,6 +858,27 @@ import getConfig from '../block-editor/utils/get-config';
 		renderStyleSettingsControl( control );
 	};
 
+	const reRenderColorControls = () => {
+		const controlObjectsDefault = getConfig( 'colorControls' );
+		const controlObjectsDark = getConfig( 'colorControlsDark' );
+
+		const controlObjects = [ ...controlObjectsDefault, ...controlObjectsDark ];
+
+		controlObjects.forEach( controlObject => {
+			const setting =
+				controlObject.related_text_setting || controlObject.related_setting;
+			const control = api.control( setting );
+
+			if ( ! control ) {
+				return;
+			}
+
+			if ( unmountComponentAtNode( control.container.get( 0 ) ) ) {
+				renderColorControl( control );
+			}
+		} );
+	};
+
 	api.bind( 'ready', () => {
 		const controls = getConfig( 'controls' );
 		const styleControl = getConfig( 'styleControl' );
@@ -866,7 +921,48 @@ import getConfig from '../block-editor/utils/get-config';
 				} );
 			} );
 		}
+
+		setTimeout( arrangeDarkMode, 3000 );
 	} );
+
+	api.bind( 'saved', () => {
+		setTimeout( arrangeDarkMode, 500 );
+	} );
+
+	const arrangeDarkMode = () => {
+		const colorSection = api.section( getNamespace( 'colors' ) );
+
+		if ( ! colorSection ) {
+			return;
+		}
+
+		const controls = getConfig( 'colorControls' );
+
+		const defaultModeTab = colorSection.container.find( '.tab-default' );
+		const darkModeTab = colorSection.container.find( '.tab-dark-mode' );
+
+		controls.forEach( controlObject => {
+			const control = api.control( `material_design[${ controlObject.id }]` );
+			const darkControl = api.control(
+				`material_design[${ controlObject.id }_dark]`
+			);
+
+			defaultModeTab.append( control.container.get( 0 ) );
+			darkModeTab.append( darkControl.container.get( 0 ) );
+		} );
+
+		if ( window.materialDesignThemeColorControls ) {
+			const themeControls = window.materialDesignThemeColorControls;
+
+			themeControls.forEach( controlId => {
+				const control = api.control( controlId );
+				const darkControl = api.control( `${ controlId }_dark` );
+
+				defaultModeTab.append( control.container.get( 0 ) );
+				darkModeTab.append( darkControl.container.get( 0 ) );
+			} );
+		}
+	};
 
 	// Trigger notification init on ready.
 	$( notificationsInit );

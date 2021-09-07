@@ -71,8 +71,27 @@ function add_settings( $wp_customize ) {
 		];
 	}
 
+	foreach ( get_dark_controls() as $control ) {
+		$settings[ $control['id'] ] = [
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		];
+	}
+
 	Customizer\add_settings( $wp_customize, $settings );
-	Customizer\add_color_controls( $wp_customize, get_controls(), 'colors' );
+
+	if ( material_is_plugin_active() ) {
+		Customizer\add_color_controls(
+			$wp_customize,
+			array_merge(
+				get_controls(),
+				get_dark_controls()
+			),
+			'colors'
+		);
+	} else {
+		Customizer\add_color_controls( $wp_customize, get_controls(), 'colors' );
+	}
 }
 
 /**
@@ -82,6 +101,8 @@ function add_settings( $wp_customize ) {
  */
 function get_controls() {
 	$controls = [];
+
+
 
 	if ( ! material_is_plugin_active() ) {
 		$controls = [
@@ -131,41 +152,112 @@ function get_controls() {
 			[
 				// Using the `custom_` prefix to prevent conflicts with the default WordPress
 				// `background_color` setting.
-				'id'         => 'custom_background_color',
-				'label'      => esc_html__( 'Background Color', 'material-design-google' ),
-				'css_var'    => '--mdc-theme-background',
-				'a11y_label' => __( 'Background', 'material-design-google' ),
+				'id'                   => 'custom_background_color',
+				'label'                => esc_html__( 'Background Color', 'material-design-google' ),
+				'css_var'              => '--mdc-theme-background',
+				'a11y_label'           => __( 'Background', 'material-design-google' ),
+				'related_text_setting' => 'on_background_color',
+
 			],
 			[
-				'id'         => 'on_background_color',
-				'label'      => esc_html__( 'On Background Color (text and icons)', 'material-design-google' ),
-				'css_var'    => '--mdc-theme-on-background',
-				'a11y_label' => __( 'On Background', 'material-design-google' ),
+				'id'              => 'on_background_color',
+				'label'           => esc_html__( 'On Background Color (text and icons)', 'material-design-google' ),
+				'css_var'         => '--mdc-theme-on-background',
+				'a11y_label'      => __( 'On Background', 'material-design-google' ),
+				'related_setting' => 'custom_background_color',
 			],
 			[
-				'id'         => 'header_color',
-				'label'      => esc_html__( 'Top app bar Color', 'material-design-google' ),
-				'css_var'    => '--mdc-theme-header',
-				'a11y_label' => __( 'On Top app bar', 'material-design-google' ),
+				'id'                   => 'header_color',
+				'label'                => esc_html__( 'Top app bar Color', 'material-design-google' ),
+				'css_var'              => '--mdc-theme-header',
+				'a11y_label'           => __( 'On Top app bar', 'material-design-google' ),
+				'related_text_setting' => 'on_header_color',
 			],
 			[
-				'id'         => 'on_header_color',
-				'label'      => esc_html__( 'On Top app bar Color (text and icons)', 'material-design-google' ),
-				'css_var'    => '--mdc-theme-on-header',
-				'a11y_label' => __( 'Top app bar', 'material-design-google' ),
+				'id'              => 'on_header_color',
+				'label'           => esc_html__( 'On Top app bar Color (text and icons)', 'material-design-google' ),
+				'css_var'         => '--mdc-theme-on-header',
+				'a11y_label'      => __( 'Top app bar', 'material-design-google' ),
+				'related_setting' => 'header_color',
 			],
 			[
-				'id'         => 'footer_color',
-				'label'      => esc_html__( 'Footer Color', 'material-design-google' ),
-				'css_var'    => '--mdc-theme-footer',
-				'a11y_label' => __( 'On Footer', 'material-design-google' ),
+				'id'                   => 'footer_color',
+				'label'                => esc_html__( 'Footer Color', 'material-design-google' ),
+				'css_var'              => '--mdc-theme-footer',
+				'a11y_label'           => __( 'On Footer', 'material-design-google' ),
+				'related_text_setting' => 'on_footer_color',
 			],
 			[
-				'id'         => 'on_footer_color',
-				'label'      => esc_html__( 'On Footer Color (text and icons)', 'material-design-google' ),
-				'css_var'    => '--mdc-theme-on-footer',
-				'a11y_label' => __( 'Footer', 'material-design-google' ),
+				'id'              => 'on_footer_color',
+				'label'           => esc_html__( 'On Footer Color (text and icons)', 'material-design-google' ),
+				'css_var'         => '--mdc-theme-on-footer',
+				'a11y_label'      => __( 'Footer', 'material-design-google' ),
+				'related_setting' => 'footer_color',
 			],
 		]
 	);
+}
+
+/**
+ * Dark mode controls
+ *
+ * @return array
+ */
+function get_dark_controls() {
+	$controls = [];
+
+	$controls = [
+		[
+			// Using the `custom_` prefix to prevent conflicts with the default WordPress
+			// `background_color` setting.
+			'id'                   => 'custom_background_color_dark',
+			'label'                => esc_html__( 'Background Color', 'material-design-google' ),
+			'css_var'              => '--mdc-theme-background',
+			'a11y_label'           => __( 'Background', 'material-design-google' ),
+			'related_text_setting' => 'on_background_color_dark',
+			'color_mode_type'      => 'dark',
+		],
+		[
+			'id'              => 'on_background_color_dark',
+			'label'           => esc_html__( 'On Background Color (text and icons)', 'material-design-google' ),
+			'css_var'         => '--mdc-theme-on-background',
+			'a11y_label'      => __( 'On Background', 'material-design-google' ),
+			'related_setting' => 'custom_background_color_dark',
+			'color_mode_type' => 'dark',
+		],
+		[
+			'id'                   => 'header_color_dark',
+			'label'                => esc_html__( 'Top app bar Color', 'material-design-google' ),
+			'css_var'              => '--mdc-theme-header',
+			'a11y_label'           => __( 'On Top app bar', 'material-design-google' ),
+			'related_text_setting' => 'on_header_color_dark',
+			'color_mode_type'      => 'dark',
+		],
+		[
+			'id'              => 'on_header_color_dark',
+			'label'           => esc_html__( 'On Top app bar Color (text and icons)', 'material-design-google' ),
+			'css_var'         => '--mdc-theme-on-header',
+			'a11y_label'      => __( 'Top app bar', 'material-design-google' ),
+			'related_setting' => 'header_color_dark',
+			'color_mode_type' => 'dark',
+		],
+		[
+			'id'                   => 'footer_color_dark',
+			'label'                => esc_html__( 'Footer Color', 'material-design-google' ),
+			'css_var'              => '--mdc-theme-footer',
+			'a11y_label'           => __( 'On Footer', 'material-design-google' ),
+			'related_text_setting' => 'on_footer_color_dark',
+			'color_mode_type'      => 'dark',
+		],
+		[
+			'id'              => 'on_footer_color_dark',
+			'label'           => esc_html__( 'On Footer Color (text and icons)', 'material-design-google' ),
+			'css_var'         => '--mdc-theme-on-footer',
+			'a11y_label'      => __( 'Footer', 'material-design-google' ),
+			'related_setting' => 'footer_color_dark',
+			'color_mode_type' => 'dark',
+		],
+	];
+
+	return $controls;
 }

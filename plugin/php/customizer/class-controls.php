@@ -36,6 +36,20 @@ use MaterialDesign\Plugin\Helpers;
  */
 class Controls extends Module_Base {
 	/**
+	 * Constant for dark mode settings.
+	 *
+	 * @var string
+	 */
+	public $dark_mode_suffix = '_dark';
+
+	/**
+	 * Constant for high contrast mode settings.
+	 *
+	 * @var string
+	 */
+	public $contrast_mode_suffix = '_contrast';
+
+	/**
 	 * The slug used as a prefix for all settings and controls.
 	 *
 	 * @var string
@@ -81,6 +95,8 @@ class Controls extends Module_Base {
 		$this->wp_customize->register_section_type( Material_Styles_Section::class );
 
 		$this->wp_customize->register_section_type( Material_Style_Settings_Section::class );
+
+		$this->wp_customize->register_section_type( Material_Color_Palette_Section::class );
 
 		// Register custom control types.
 		$this->wp_customize->register_control_type( Material_Color_Palette_Control::class );
@@ -149,13 +165,15 @@ class Controls extends Module_Base {
 		$learn_description .= '</p>';
 
 		$sections = [
-			'style'          => __( 'Starter Styles', 'material-design' ),
-			'style_settings' => __( 'Style', 'material-design' ),
-			'colors'         => __( 'Color Palette ', 'material-design' ),
-			'typography'     => __( 'Typography (Font Styles)', 'material-design' ),
-			'corner_styles'  => __( 'Shape Size', 'material-design' ),
-			'icons'          => __( 'Icon Styles', 'material-design' ),
-			'learn'          => [
+			'style'           => __( 'Starter Styles', 'material-design' ),
+			'style_settings'  => __( 'Style', 'material-design' ),
+			'colors'          => __( 'Color Palette', 'material-design' ),
+			'typography'      => __( 'Typography (Font Styles)', 'material-design' ),
+			'corner_styles'   => __( 'Shape Size', 'material-design' ),
+			'icons'           => __( 'Icon Styles', 'material-design' ),
+			'dark_colors'     => __( 'Dark Color Palette', 'material-design' ),
+			'contrast_colors' => __( 'High Contrast Color Palette', 'material-design' ),
+			'learn'           => [
 				'label'       => __( 'Learn More', 'material-design' ),
 				'priority'    => 400,
 				'description' => $learn_description,
@@ -249,6 +267,7 @@ class Controls extends Module_Base {
 				'dark'     => 'auto',
 				'contrast' => 'auto',
 				'switcher' => false,
+				'active'   => 'default',
 			];
 		}
 
@@ -275,6 +294,23 @@ class Controls extends Module_Base {
 
 		$this->add_controls( $controls_theme );
 		$this->add_controls( $controls_settings );
+
+		$active_mode_settings = [
+			'active_mode' => [
+				'default' => 'default',
+			],
+		];
+
+		$this->add_settings( $active_mode_settings );
+
+		$this->add_controls(
+			[
+				'active_mode' => [
+					'section' => 'dark_colors',
+					'type'    => 'text',
+				],
+			]
+		);
 	}
 
 	/**
@@ -292,6 +328,14 @@ class Controls extends Module_Base {
 			$settings[ $control['id'] ] = [
 				'sanitize_callback' => 'sanitize_hex_color',
 			];
+
+			$settings[ $control['id'] . $this->dark_mode_suffix ] = [
+				'sanitize_callback' => 'sanitize_hex_color',
+			];
+
+			$settings[ $control['id'] . $this->contrast_mode_suffix ] = [
+				'sanitize_callback' => 'sanitize_hex_color',
+			];
 		}
 
 		$this->add_settings( $settings );
@@ -299,27 +343,38 @@ class Controls extends Module_Base {
 		/**
 		 * Generate list of all the controls in the colors section.
 		 */
-		$controls = [];
+		$controls           = [];
+		$dark_mode_controls = [];
+		$contrast_controls  = [];
 
 		foreach ( $this->get_color_controls() as $control ) {
+			$args = [
+				'label'                => $control['label'],
+				'section'              => 'colors',
+				'priority'             => 10,
+				'related_text_setting' => ! empty( $control['related_text_setting'] ) ?
+					$control['related_text_setting'] : false,
+				'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] :
+					false,
+				'css_var'              => $control['css_var'],
+				'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
+			];
+
 			$controls[ $control['id'] ] = new Material_Color_Palette_Control(
 				$this->wp_customize,
 				$this->prepare_option_name( $control['id'] ),
-				[
-					'label'                => $control['label'],
-					'section'              => 'colors',
-					'priority'             => 10,
-					'related_text_setting' => ! empty( $control['related_text_setting'] ) ?
-						$control['related_text_setting'] : false,
-					'related_setting'      => ! empty( $control['related_setting'] ) ? $control['related_setting'] :
-						false,
-					'css_var'              => $control['css_var'],
-					'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
-				]
+				$args
 			);
+
+			// Dark mode overrides.
+			$dark_mode_controls[ $control['id'] . $this->dark_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'dark_colors' );
+
+			// High contrast overrides.
+			$contrast_controls[ $control['id'] . $this->contrast_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'contrast_colors' );
 		}
 
 		$this->add_controls( $controls );
+		$this->add_controls( $dark_mode_controls );
 	}
 
 	/**
@@ -651,6 +706,7 @@ class Controls extends Module_Base {
 				'styleSettings'          => $this->prepare_option_name( 'style_settings' ),
 				'prevStyleControl'       => $this->prepare_option_name( 'previous_style' ),
 				'iconCollectionsControl' => $this->prepare_option_name( 'icon_collection' ),
+				'activeModeControl'      => $this->prepare_option_name( 'active_mode' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
 				'l10n'                   => [
 					'confirmChange'    => esc_html__( 'You will lose any custom theme changes. Would you like to continue ?', 'material-design' ),
@@ -664,6 +720,8 @@ class Controls extends Module_Base {
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
 				'styleChoices'           => $this->get_style_choices(),
+				'colorControls'          => $this->get_color_controls(),
+				'colorControlsDark'      => $this->get_color_controls_variant( 'dark' ),
 			]
 		);
 
@@ -788,6 +846,7 @@ class Controls extends Module_Base {
 	 * Render custom templates.
 	 */
 	public function templates() {
+		Material_Color_Palette_Section::tabs_template();
 		Material_Color_Palette_Control::tabs_template();
 	}
 
@@ -799,6 +858,7 @@ class Controls extends Module_Base {
 		$corner_styles_vars = [];
 		$font_vars          = [];
 		$google_fonts       = Google_Fonts::get_fonts();
+		$dark_mode_vars     = [];
 
 		foreach ( $this->get_color_controls() as $control ) {
 			$value = $this->get_option( $control['id'] );
@@ -912,11 +972,23 @@ class Controls extends Module_Base {
 			);
 		}
 
+		foreach ( $this->get_color_controls_variant( 'dark' ) as $control ) {
+			$value = $this->get_option( $control['id'] );
+			$rgb   = Helpers::hex_to_rgb( $value );
+			if ( ! empty( $rgb ) ) {
+				$rgb = implode( ',', $rgb );
+			}
+
+			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
+			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
+		}
+
 		$glue               = "\n\t\t\t\t";
 		$icon_collection    = $this->get_icon_collection_css();
 		$color_vars         = implode( $glue, $color_vars );
 		$corner_styles_vars = implode( $glue, $corner_styles_vars );
 		$font_vars          = implode( $glue, $font_vars );
+		$dark_mode_vars     = implode( $glue, $dark_mode_vars );
 
 		$css = "
 			:root {
@@ -932,7 +1004,27 @@ class Controls extends Module_Base {
 				/* Corner Styles vars */
 				{$corner_styles_vars}
 			}
+
+			/* Forced dark mode */
+			body[data-color-scheme='dark'] {
+				{$dark_mode_vars}
+			}
+
+			/* Forced light mode */
+			body[data-color-scheme='light'] {
+				{$color_vars}
+			}
 		";
+
+		if ( 'inactive' !== $this->dark_mode_status() ) {
+			$css .= "
+				@media (prefers-color-scheme: dark) {
+					:root {
+						{$dark_mode_vars}
+					}
+				}
+			";
+		}
 
 		/**
 		 * Filter frontend custom CSS & CSS vars.
@@ -971,96 +1063,146 @@ class Controls extends Module_Base {
 	public function get_design_styles() {
 		$design_styles = [
 			'baseline'    => [
-				'primary_color'           => '#6200ee',
-				'on_primary_color'        => '#ffffff',
-				'secondary_color'         => '#018786',
-				'on_secondary_color'      => '#000000',
-				'surface_color'           => '#ffffff',
-				'on_surface_color'        => '#000000',
-				'custom_background_color' => '#ffffff',
-				'on_background_color'     => '#000000',
-				'footer_color'            => '#ffffff',
-				'on_footer_color'         => '#000000',
-				'head_font_family'        => 'Roboto',
-				'body_font_family'        => 'Roboto',
-				'global_radius'           => '4',
-				'button_radius'           => '4',
-				'card_radius'             => '4',
-				'chip_radius'             => '4',
-				'data_table_radius'       => '4',
-				'image_list_radius'       => '4',
-				'nav_drawer_radius'       => '4',
-				'text_field_radius'       => '4',
-				'icon_collection'         => 'filled',
+				'primary_color'                => '#6200ee',
+				'primary_color_dark'           => '#bb86fc',
+				'primary_color_contrast'       => '#6200ee',
+				'on_primary_color'             => '#ffffff',
+				'on_primary_color_dark'        => '#000000',
+				'on_primary_color_contrast'    => '#ffffff',
+				'secondary_color'              => '#018786',
+				'secondary_color_dark'         => '#03dac5',
+				'secondary_color_contrast'     => '#018786',
+				'on_secondary_color'           => '#000000',
+				'on_secondary_color_dark'      => '#000000',
+				'on_secondary_color_contrast'  => '#000000',
+				'surface_color'                => '#ffffff',
+				'surface_color_dark'           => '#121212',
+				'surface_color_contrast'       => '#ffffff',
+				'on_surface_color'             => '#000000',
+				'on_surface_color_dark'        => '#ffffff',
+				'on_surface_color_contrast'    => '#000000',
+				'custom_background_color'      => '#ffffff',
+				'custom_background_color_dark' => '#121212',
+				'on_background_color'          => '#000000',
+				'on_background_color_dark'     => '#ffffff',
+				'footer_color'                 => '#ffffff',
+				'on_footer_color'              => '#000000',
+				'head_font_family'             => 'Roboto',
+				'body_font_family'             => 'Roboto',
+				'global_radius'                => '4',
+				'button_radius'                => '4',
+				'card_radius'                  => '4',
+				'chip_radius'                  => '4',
+				'data_table_radius'            => '4',
+				'image_list_radius'            => '4',
+				'nav_drawer_radius'            => '4',
+				'text_field_radius'            => '4',
+				'icon_collection'              => 'filled',
 			],
 			'crane'       => [
-				'primary_color'           => '#5d1049',
-				'secondary_color'         => '#e30425',
-				'on_primary_color'        => '#ffffff',
-				'on_secondary_color'      => '#ffffff',
-				'surface_color'           => '#ffffff',
-				'on_surface_color'        => '#000000',
-				'custom_background_color' => '#f4e2ed',
-				'on_background_color'     => '#000000',
-				'footer_color'            => '#ffffff',
-				'on_footer_color'         => '#000000',
-				'head_font_family'        => 'Raleway',
-				'body_font_family'        => 'Raleway',
-				'global_radius'           => '16',
-				'button_radius'           => '16',
-				'card_radius'             => '16',
-				'chip_radius'             => '16',
-				'data_table_radius'       => '16',
-				'image_list_radius'       => '16',
-				'nav_drawer_radius'       => '16',
-				'text_field_radius'       => '16',
-				'icon_collection'         => 'outlined',
+				'primary_color'               => '#5d1049',
+				'primary_color_dark'          => '#5d1049',
+				'primary_color_contrast'      => '#5d1049',
+				'secondary_color'             => '#e30425',
+				'secondary_color_dark'        => '#e30425',
+				'secondary_color_contrast'    => '#e30425',
+				'on_primary_color'            => '#ffffff',
+				'on_primary_color_dark'       => '#ffffff',
+				'on_primary_color_contrast'   => '#ffffff',
+				'on_secondary_color'          => '#ffffff',
+				'on_secondary_color_dark'     => '#ffffff',
+				'on_secondary_color_contrast' => '#ffffff',
+				'surface_color'               => '#ffffff',
+				'surface_color_dark'          => '#ffffff',
+				'surface_color_contrast'      => '#ffffff',
+				'on_surface_color'            => '#000000',
+				'on_surface_color_dark'       => '#000000',
+				'on_surface_color_contrast'   => '#000000',
+				'custom_background_color'     => '#f4e2ed',
+				'on_background_color'         => '#000000',
+				'footer_color'                => '#ffffff',
+				'on_footer_color'             => '#000000',
+				'head_font_family'            => 'Raleway',
+				'body_font_family'            => 'Raleway',
+				'global_radius'               => '16',
+				'button_radius'               => '16',
+				'card_radius'                 => '16',
+				'chip_radius'                 => '16',
+				'data_table_radius'           => '16',
+				'image_list_radius'           => '16',
+				'nav_drawer_radius'           => '16',
+				'text_field_radius'           => '16',
+				'icon_collection'             => 'outlined',
 			],
 			'fortnightly' => [
-				'primary_color'           => '#121212',
-				'secondary_color'         => '#6b38fb',
-				'on_primary_color'        => '#ffffff',
-				'on_secondary_color'      => '#ffffff',
-				'surface_color'           => '#ffffff',
-				'on_surface_color'        => '#000000',
-				'custom_background_color' => '#ffffff',
-				'on_background_color'     => '#000000',
-				'footer_color'            => '#ffffff',
-				'on_footer_color'         => '#000000',
-				'head_font_family'        => 'Merriweather',
-				'body_font_family'        => 'Merriweather',
-				'global_radius'           => '0',
-				'button_radius'           => '0',
-				'card_radius'             => '0',
-				'chip_radius'             => '0',
-				'data_table_radius'       => '0',
-				'image_list_radius'       => '0',
-				'nav_drawer_radius'       => '0',
-				'text_field_radius'       => '0',
-				'icon_collection'         => 'sharp',
+				'primary_color'               => '#121212',
+				'primary_color_dark'          => '#121212',
+				'primary_color_contrast'      => '#121212',
+				'secondary_color'             => '#6b38fb',
+				'secondary_color_dark'        => '#6b38fb',
+				'secondary_color_contrast'    => '#6b38fb',
+				'on_primary_color'            => '#ffffff',
+				'on_primary_color_dark'       => '#ffffff',
+				'on_primary_color_contrast'   => '#ffffff',
+				'on_secondary_color'          => '#ffffff',
+				'on_secondary_color_dark'     => '#ffffff',
+				'on_secondary_color_contrast' => '#ffffff',
+				'surface_color'               => '#ffffff',
+				'surface_color_dark'          => '#ffffff',
+				'surface_color_contrast'      => '#ffffff',
+				'on_surface_color'            => '#000000',
+				'on_surface_color_dark'       => '#000000',
+				'on_surface_color_contrast'   => '#000000',
+				'custom_background_color'     => '#ffffff',
+				'on_background_color'         => '#000000',
+				'footer_color'                => '#ffffff',
+				'on_footer_color'             => '#000000',
+				'head_font_family'            => 'Merriweather',
+				'body_font_family'            => 'Merriweather',
+				'global_radius'               => '0',
+				'button_radius'               => '0',
+				'card_radius'                 => '0',
+				'chip_radius'                 => '0',
+				'data_table_radius'           => '0',
+				'image_list_radius'           => '0',
+				'nav_drawer_radius'           => '0',
+				'text_field_radius'           => '0',
+				'icon_collection'             => 'sharp',
 			],
 			'blossom'     => [
-				'primary_color'           => '#e56969',
-				'secondary_color'         => '#ef9a9a',
-				'on_primary_color'        => '#ffffff',
-				'on_secondary_color'      => '#442c2e',
-				'surface_color'           => '#fff1ee',
-				'on_surface_color'        => '#442c2e',
-				'custom_background_color' => '#fff1ee',
-				'on_background_color'     => '#442c2e',
-				'footer_color'            => '#fff1ee',
-				'on_footer_color'         => '#442c2e',
-				'head_font_family'        => 'Rubik',
-				'body_font_family'        => 'Rubik',
-				'global_radius'           => '8',
-				'button_radius'           => '8',
-				'card_radius'             => '8',
-				'chip_radius'             => '8',
-				'data_table_radius'       => '8',
-				'image_list_radius'       => '8',
-				'nav_drawer_radius'       => '8',
-				'text_field_radius'       => '8',
-				'icon_collection'         => 'round',
+				'primary_color'               => '#e56969',
+				'primary_color_dark'          => '#e56969',
+				'primary_color_contrast'      => '#e56969',
+				'secondary_color'             => '#ef9a9a',
+				'secondary_color_dark'        => '#ef9a9a',
+				'secondary_color_contrast'    => '#ef9a9a',
+				'on_primary_color'            => '#ffffff',
+				'on_primary_color_dark'       => '#ffffff',
+				'on_primary_color_contrast'   => '#ffffff',
+				'on_secondary_color'          => '#442c2e',
+				'on_secondary_color_dark'     => '#442c2e',
+				'on_secondary_color_contrast' => '#442c2e',
+				'surface_color'               => '#fff1ee',
+				'surface_color_dark'          => '#fff1ee',
+				'surface_color_contrast'      => '#fff1ee',
+				'on_surface_color'            => '#442c2e',
+				'on_surface_color_dark'       => '#442c2e',
+				'on_surface_color_contrast'   => '#442c2e',
+				'custom_background_color'     => '#fff1ee',
+				'on_background_color'         => '#442c2e',
+				'footer_color'                => '#fff1ee',
+				'on_footer_color'             => '#442c2e',
+				'head_font_family'            => 'Rubik',
+				'body_font_family'            => 'Rubik',
+				'global_radius'               => '8',
+				'button_radius'               => '8',
+				'card_radius'                 => '8',
+				'chip_radius'                 => '8',
+				'data_table_radius'           => '8',
+				'image_list_radius'           => '8',
+				'nav_drawer_radius'           => '8',
+				'text_field_radius'           => '8',
+				'icon_collection'             => 'round',
 			],
 		];
 
@@ -1120,6 +1262,36 @@ class Controls extends Module_Base {
 				'css_var'         => '--mdc-theme-on-surface',
 			],
 		];
+	}
+
+	/**
+	 * Get a list of dark / contrast control settings.
+	 *
+	 * @param string $variant Color prefix to return.
+	 *
+	 * @return array New color controls.
+	 */
+	public function get_color_controls_variant( $variant ) {
+		$controls      = $this->get_color_controls();
+		$dark_controls = [];
+
+		foreach ( $controls as $control ) {
+			$dark_control = $control;
+
+			$dark_control['id'] .= sprintf( '_%s', $variant );
+
+			if ( isset( $dark_control['related_text_setting'] ) ) {
+				$dark_control['related_text_setting'] = $this->prepare_option_name( $dark_control['id'] );
+			}
+
+			if ( isset( $dark_control['related_setting'] ) ) {
+				$dark_control['related_setting'] = $this->prepare_option_name( $dark_control['id'] );
+			}
+
+			$dark_controls[] = $dark_control;
+		}
+
+		return $dark_controls;
 	}
 
 	/**
@@ -1633,6 +1805,21 @@ class Controls extends Module_Base {
 			);
 		}
 
+		if ( 'material_design_colors' === $id ) {
+			$args['type'] = 'colors';
+
+			return new Material_Color_Palette_Section(
+				$this->wp_customize,
+				$id,
+				$args,
+				$this->plugin
+			);
+		}
+
+		if ( 'material_design_dark_colors' === $id || 'material_design_contrast_colors' === $id ) {
+			$args['type'] = 'dark_mode';
+		}
+
 		return $args;
 	}
 
@@ -1664,5 +1851,53 @@ class Controls extends Module_Base {
 				'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
 			],
 		];
+	}
+
+	/**
+	 * Override control arguments for dark mode variants.
+	 *
+	 * @param array  $control Control to override.
+	 * @param array  $args    Arguments to override.
+	 * @param string $variant Dark mode variant.
+	 *
+	 * @return Material_Color_Palette_Control New control variant
+	 */
+	public function get_dark_mode_controls_override( $control, $args, $variant ) {
+		$variant_suffix = ( 'dark_colors' === $variant ) ? $this->dark_mode_suffix : $this->contrast_mode_suffix;
+		$variant_type   = ( 'dark_colors' === $variant ) ? 'dark' : 'contrast';
+
+		// Dark mode overrides.
+		$args['section']              = 'colors';
+		$args['related_setting']      = ! empty( $control['related_setting'] )
+			? str_replace( ']', $variant_suffix . ']', $control['related_setting'] )
+			: false;
+		$args['related_text_setting'] = ! empty( $control['related_text_setting'] )
+			? str_replace( ']', $variant_suffix . ']', $control['related_text_setting'] )
+			: false;
+		$args['default_mode_setting'] = $this->prepare_option_name( $control['id'] );
+		$args['color_mode_type']      = $variant_type;
+
+		return new Material_Color_Palette_Control(
+			$this->wp_customize,
+			$this->prepare_option_name( $control['id'] . $variant_suffix ),
+			$args
+		);
+	}
+
+	/**
+	 * Check whether or not dark mode is forced.
+	 *
+	 * @return bool Status of dark mode.
+	 */
+	public function dark_mode_status() {
+		$selected_style = $this->get_option( 'style' );
+		$style_settings = $this->get_option( 'style_settings' );
+		$style_settings = is_string( $style_settings ) ? json_decode( $style_settings, true ) : [];
+		$selected_style = $selected_style ? $selected_style : 'baseline';
+		if ( empty( $style_settings[ $selected_style ] ) ) {
+			return;
+		}
+
+		return $style_settings[ $selected_style ]['dark'];
 	}
 }

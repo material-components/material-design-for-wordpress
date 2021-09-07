@@ -45,6 +45,10 @@ const getIconFontName = iconStyle => {
 };
 
 const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
+export const COLOR_MODES = {
+	default: 'default',
+	dark: 'dark',
+};
 
 ( $ => {
 	// Bail out if this isn't loaded in an iframe.
@@ -59,16 +63,22 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 	const api = wp.customize;
 	const parentApi = window.parent.wp.customize;
 	const parentControls = window.parent._wpCustomizeSettings.controls;
-	const colorControls = {};
+	let colorControls = {};
 	const typographyControls = {};
 	const cornerStyleControls = {};
 	const iconControls = {};
 	const settingsControls = {};
+	const defaultModeControls = {};
+	const darkModeControls = {};
 
 	$( function() {
 		api.preview.bind( 'active', function() {
 			api.preview.send( 'materialDesign', {
 				notificationCount: _wpCustomizeSettings.values.material_design_notify,
+			} );
+
+			api.preview.bind( 'materialDesignPaletteUpdate', message => {
+				updateColorMode( message );
 			} );
 		} );
 	} );
@@ -86,7 +96,13 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 				!! args.cssVar &&
 				( !! args.relatedTextSetting || !! args.relatedSetting )
 			) {
-				colorControls[ control ] = args.cssVar;
+				if ( COLOR_MODES.dark === args.colorModeType ) {
+					darkModeControls[ control ] = args.cssVar;
+				} else {
+					// Save a refertence to default colors.
+					defaultModeControls[ control ] = args.cssVar;
+					colorControls[ control ] = args.cssVar;
+				}
 			}
 
 			if ( args && args.cssVars && args.type === 'google_fonts' ) {
@@ -136,7 +152,10 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 	const generatePreviewStyles = debounce( () => {
 		const stylesheetID = 'material-design-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
-			styles = '';
+			styles = '',
+			darkStyles = '',
+			lightStyles = '',
+			colorRgb;
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
 		if ( ! stylesheet.length ) {
@@ -188,11 +207,46 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 
 		// Generate the styles.
 		Object.keys( colorControls ).forEach( control => {
-			const color = parentApi( control ).get(),
-				colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
+			const color = parentApi( control ).get();
+
+			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
+
+			if ( ! color ) {
+				return;
+			}
 
 			styles += `${ colorControls[ control ] }: ${ color };
 				${ colorControls[ control ] }-rgb: ${ colorRgb };
+			`;
+		} );
+
+		// Generate the styles of forced dark mode.
+		Object.keys( darkModeControls ).forEach( control => {
+			const color = parentApi( control ).get();
+
+			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
+
+			if ( ! color ) {
+				return;
+			}
+
+			darkStyles += `${ darkModeControls[ control ] }: ${ color };
+				${ darkModeControls[ control ] }-rgb: ${ colorRgb };
+			`;
+		} );
+
+		// Generate the styles of forced light mode.
+		Object.keys( defaultModeControls ).forEach( control => {
+			const color = parentApi( control ).get();
+
+			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
+
+			if ( ! color ) {
+				return;
+			}
+
+			lightStyles += `${ defaultModeControls[ control ] }: ${ color };
+				${ defaultModeControls[ control ] }-rgb: ${ colorRgb };
 			`;
 		} );
 
@@ -225,7 +279,16 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 
 		styles = `:root {
 			${ styles }
-		}`;
+		}
+
+		body[data-color-scheme="dark"] {
+			${ darkStyles }
+		}
+
+		body[data-color-scheme="light"] {
+			${ lightStyles }
+		}
+		`;
 
 		// Add styles.
 		stylesheet.html( styles );
@@ -298,6 +361,18 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 		}
 	}, 300 );
 
+	const updateColorMode = debounce( mode => {
+		if ( COLOR_MODES.dark === mode ) {
+			colorControls = darkModeControls;
+		} else {
+			colorControls = defaultModeControls;
+		}
+
+		document.body.removeAttribute( 'data-color-scheme' );
+
+		generatePreviewStyles();
+	}, 300 );
+
 	/**
 	 * Generate preview styles for any control value change.
 	 */
@@ -306,6 +381,7 @@ const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
 		.concat( Object.keys( typographyControls ) )
 		.concat( Object.keys( iconControls ) )
 		.concat( Object.keys( settingsControls ) )
+		.concat( Object.keys( darkModeControls ) )
 		.forEach( control => {
 			parentApi( control, value => {
 				value.bind( () => {

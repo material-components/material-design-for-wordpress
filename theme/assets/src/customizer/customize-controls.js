@@ -73,6 +73,23 @@ import { __ } from '@wordpress/i18n';
 		} );
 	};
 
+	const displayColorMode = event => {
+		const { target } = event;
+
+		if ( ! target ) {
+			return;
+		}
+
+		const { palette } = target.dataset;
+
+		if ( ! palette ) {
+			return;
+		}
+
+		// Setup new colors.
+		api.previewer.send( 'materialDesignThemePaletteUpdate', palette );
+	};
+
 	api.bind( 'ready', () => {
 		api( 'archive_layout' ).bind( value => {
 			const isCardLayout = 'card' === value;
@@ -97,6 +114,16 @@ import { __ } from '@wordpress/i18n';
 		const hideHeaderDescriptionEl = hideHeaderDescription.querySelector(
 			'.description'
 		);
+
+		const colorModeTabs = document.querySelectorAll(
+			'.material-design-section-tabs .material-design-tab-link'
+		);
+
+		if ( colorModeTabs ) {
+			colorModeTabs.forEach( tab =>
+				tab.addEventListener( 'click', displayColorMode )
+			);
+		}
 
 		if ( hideHeaderDescription.querySelector( 'input:checked' ) ) {
 			hideHeaderDescriptionEl.classList.add( '-display' );

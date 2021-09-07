@@ -29,6 +29,7 @@ use MaterialDesign\Plugin\Plugin;
 use MaterialDesign\Plugin\Customizer\Icon_Radio_Control;
 use MaterialDesign\Plugin\Customizer\Material_Styles_Section;
 use MaterialDesign\Plugin\Customizer\Material_Style_Settings_Section;
+use MaterialDesign\Plugin\Customizer\Material_Color_Palette_Section;
 use MaterialDesign\Plugin\Customizer\Material_Color_Palette_Control;
 use function MaterialDesign\Plugin\get_plugin_instance;
 
@@ -127,11 +128,12 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	 * @see Controls::register()
 	 */
 	public function test_register() {
-		$this->wp_customize->expects( $this->exactly( 2 ) )
+		$this->wp_customize->expects( $this->exactly( 3 ) )
 		->method( 'register_section_type' )
 		->withConsecutive(
 			[ $this->equalTo( Material_Styles_Section::class ) ],
-			[ $this->equalTo( Material_Style_Settings_Section::class ) ]
+			[ $this->equalTo( Material_Style_Settings_Section::class ) ],
+			[ $this->equalTo( Material_Color_Palette_Section::class ) ]
 		);
 
 		// Set up the expectation for the register_control_type() method
@@ -202,12 +204,19 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$controls->wp_customize = $this->wp_customize;
 
 		// Replace the icons section with an instance to assert it's registered correctly.
-		$icons_section    = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_icons" );
-		$styles_section   = new Material_Styles_Section( $this->wp_customize, "{$controls->slug}_style" );
-		$settings_section = new Material_Style_Settings_Section( $this->wp_customize, "{$controls->slug}_style_settings" );
+		$icons_section           = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_icons" );
+		$styles_section          = new Material_Styles_Section( $this->wp_customize, "{$controls->slug}_style" );
+		$settings_section        = new Material_Style_Settings_Section( $this->wp_customize, "{$controls->slug}_style_settings" );
+		$colors_section          = new Material_Color_Palette_Section( $this->wp_customize, "{$controls->slug}_colors" );
+		$learn_section           = new \WP_Customize_Section( $this->wp_customize, "{$controls->slug}_learn" );
+		$dark_colors_section     = new Material_Color_Palette_Section( $this->wp_customize, "{$controls->slug}_dark_colors" );
+		$contrast_colors_section = new Material_Color_Palette_Section( $this->wp_customize, "{$controls->slug}_contrast_colors" );
+
 		add_filter(
 			$controls->slug . '_customizer_section_args',
-			function ( $args, $id ) use ( $controls, $icons_section, $styles_section, $settings_section ) {
+			function ( $args, $id ) use (
+				$controls, $icons_section, $styles_section, $settings_section, $colors_section, $learn_section, $dark_colors_section, $contrast_colors_section
+			) {
 				if ( "{$controls->slug}_icons" === $id ) {
 					return $icons_section;
 				}
@@ -220,6 +229,22 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 					return $settings_section;
 				}
 
+				if ( "{$controls->slug}_colors" === $id ) {
+					return $colors_section;
+				}
+
+				if ( "{$controls->slug}_learn" === $id ) {
+					return $learn_section;
+				}
+
+				if ( "{$controls->slug}_dark_colors" === $id ) {
+					return $dark_colors_section;
+				}
+
+				if ( "{$controls->slug}_contrast_colors" === $id ) {
+					return $contrast_colors_section;
+				}
+
 				return $args;
 			},
 			10,
@@ -227,16 +252,19 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		);
 
 		// Set up the expectation for the add_section() method
-		// to be called 7 times, once for each section.
-		$this->wp_customize->expects( $this->exactly( 7 ) )
+		// to be called 9 times, once for each section.
+		$this->wp_customize->expects( $this->exactly( 9 ) )
 			->method( 'add_section' )
 			->withConsecutive(
 				[ $this->equalTo( $styles_section ) ],
 				[ $this->equalTo( $settings_section ) ],
-				[ $this->equalTo( "{$controls->slug}_colors" ) ],
+				[ $this->equalTo( $colors_section ) ],
 				[ $this->equalTo( "{$controls->slug}_typography" ) ],
 				[ $this->equalTo( "{$controls->slug}_corner_styles" ) ],
-				[ $this->equalTo( $icons_section ) ]
+				[ $this->equalTo( $icons_section ) ],
+				[ $this->equalTo( $dark_colors_section ) ],
+				[ $this->equalTo( $contrast_colors_section ) ],
+				[ $this->equalTo( $learn_section ) ]
 			);
 
 		$controls->add_sections();
@@ -255,18 +283,19 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 4 ) )
+		$this->wp_customize->expects( $this->exactly( 5 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
 				[ $this->equalTo( "{$controls->slug}[style]" ) ],
 				[ $this->equalTo( "{$controls->slug}[previous_style]" ) ],
 				[ $this->equalTo( "{$controls->slug}[notify]" ) ],
-				[ $this->equalTo( "{$controls->slug}[style_settings]" ) ]
+				[ $this->equalTo( "{$controls->slug}[style_settings]" ) ],
+				[ $this->equalTo( "{$controls->slug}[active_mode]" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 2 ) )
+		$this->wp_customize->expects( $this->exactly( 3 ) )
 			->method( 'add_control' )
 			->withConsecutive(
 				[

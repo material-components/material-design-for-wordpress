@@ -34,18 +34,47 @@ const CHOICES = {
 	INACTIVE: 'inactive',
 };
 
+const api = wp.customize;
+const localStorageDarkMode = window.localStorage.getItem(
+	'materialDesignDarkMode'
+);
+
 const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
-	//console.log( defaultValue );
 	const [ currentValue, setCurrentValue ] = useState(
 		defaultValue[ selectedStyle ]
 	);
-	const { dark, contrast, switcher } = currentValue;
-	const [ displaySwitcher, setDisplaySwitcher ] = useState( switcher );
+	const { dark, switcher } = currentValue;
+	const [ isSwitcherDisabled, setIsSwitcherDisabled ] = useState(
+		'inactive' === defaultValue[ selectedStyle ].dark
+	);
 	const isThemeActive = 'ok' === getConfig( 'themeStatus' );
 
 	const onChange = useCallback( ( value, setting ) => {
 		const newValue = {};
 		newValue[ setting ] = value;
+
+		if ( localStorageDarkMode ) {
+			window.localStorage.removeItem( 'materialDesignDarkMode' );
+		}
+
+		if ( CHOICES.INACTIVE === newValue.dark ) {
+			api.previewer.send( 'materialDesignPaletteUpdate', 'light' );
+			newValue.switcher = false;
+			setTimeout( () => {
+				setIsSwitcherDisabled( true );
+			}, 50 );
+		}
+
+		if ( CHOICES.ACTIVE === newValue.dark ) {
+			api.previewer.send( 'materialDesignPaletteUpdate', 'dark' );
+			newValue.switcher = true;
+		}
+
+		if ( CHOICES.AUTO === newValue.dark ) {
+			newValue.switcher = true;
+		}
+
+		setIsSwitcherDisabled( false );
 
 		setCurrentValue( {
 			...currentValue,
@@ -54,12 +83,8 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 	}, [] );
 
 	useEffect( () => {
-		onChange( displaySwitcher, 'switcher' );
-	}, [ displaySwitcher, onChange ] );
-
-	useEffect( () => {
 		setValue( currentValue );
-	}, [ currentValue, setValue ] );
+	}, [ currentValue ] );
 
 	return (
 		<>
@@ -71,20 +96,15 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 				onChange={ value => onChange( value, 'dark' ) }
 			/>
 
-			<SettingsGroup
-				title={ __( 'High Contrast', 'material-design' ) }
-				icon="brightness_high"
-				choices={ Object.values( CHOICES ) }
-				defaultChecked={ contrast }
-				onChange={ value => onChange( value, 'contrast' ) }
-			/>
-
 			{ isThemeActive && (
 				<ToggleControl
 					label={ __( 'Display Switcher', 'material-design' ) }
 					help={ __( 'Shows mode switcher in the header', 'material-design' ) }
-					checked={ displaySwitcher }
-					onChange={ () => setDisplaySwitcher( state => ! state ) }
+					checked={ switcher }
+					disabled={ isSwitcherDisabled }
+					onChange={ value => {
+						onChange( value, 'switcher' );
+					} }
 				/>
 			) }
 		</>
