@@ -167,7 +167,10 @@ const ColorControl = ( {
 							{ materialPickerSelected && (
 								<MaterialColorPalette
 									value={ color }
-									onChange={ onChange }
+									onChange={ value => {
+										onChange( value );
+										onColorChange( value );
+									} }
 									materialColorsOnly={ true }
 								/>
 							) }
@@ -175,9 +178,10 @@ const ColorControl = ( {
 							{ ! materialPickerSelected && (
 								<ColorPicker
 									color={ color }
-									onChangeComplete={ selectedColor =>
-										onChange( selectedColor.hex )
-									}
+									onChangeComplete={ selectedColor => {
+										onChange( selectedColor.hex );
+										onColorChange( selectedColor.hex );
+									} }
 									disableAlpha
 								/>
 							) }
