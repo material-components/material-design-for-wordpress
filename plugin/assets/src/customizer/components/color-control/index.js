@@ -63,7 +63,7 @@ const ColorControl = ( {
 		}
 
 		onColorChange( target.value );
-	}
+	};
 
 	useEffect( () => {
 		if ( 'dark' === mode && isLinked ) {
