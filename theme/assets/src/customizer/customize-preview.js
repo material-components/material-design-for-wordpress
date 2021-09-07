@@ -194,6 +194,7 @@ const api = wp.customize;
 		Object.keys( materialDesignThemeColorControls ).forEach( control => {
 			const cssVar = materialDesignThemeColorControls[ control ];
 			const color = parentApi( control ).get();
+
 			if ( ! color ) {
 				return;
 			}
