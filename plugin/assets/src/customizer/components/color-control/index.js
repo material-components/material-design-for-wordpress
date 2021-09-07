@@ -53,8 +53,17 @@ const ColorControl = ( {
 
 	const onChange = value => {
 		setColor( value );
-		onColorChange( value );
 	};
+
+	const onBlur = event => {
+		const { target } = event;
+
+		if ( ! target ) {
+			return;
+		}
+
+		onColorChange( target.value );
+	}
 
 	useEffect( () => {
 		if ( 'dark' === mode && isLinked ) {
@@ -99,6 +108,7 @@ const ColorControl = ( {
 				<TextControl
 					value={ color }
 					onChange={ onChange }
+					onBlur={ onBlur }
 					className="material-design-color__input"
 				/>
 
