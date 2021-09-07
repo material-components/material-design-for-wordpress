@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-/* global jQuery, materialDesignThemeColorControls */
-
-/**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
+/* global jQuery */
 
 /**
  * Customizer enhancements for a better user experience.
