@@ -198,6 +198,32 @@ describe( 'Customize controls', () => {
 		} );
 	} );
 
+	describe( 'Dark mode', () => {
+		it( 'should show two tabs for default and dark mode', async () => {
+			const tabs = await page.$$( '.material-design-section-tabs a' );
+			expect( tabs.length ).toEqual( 2 );
+		} );
+
+		it( 'should disable display switcher for inactive', async () => {
+			const darkModeSetting = await page.$( '.material-style-change-settings' );
+			await page.evaluate( btn => {
+				btn.click();
+			}, darkModeSetting );
+
+			const inactive = await page.$(
+				'.components-button-group button:last-child'
+			);
+			await page.evaluate( btn => {
+				btn.click();
+			}, inactive );
+
+			const switcher = await page.$$(
+				'.components-form-toggle__input:disabled'
+			);
+			expect( switcher.length ).toEqual( 1 );
+		} );
+	} );
+
 	describe( 'Material Blocks', () => {
 		it( 'should show the material library button', async () => {
 			expect( await page.$$( '.toggle-material-library' ) ).not.toBeNull();
