@@ -96,11 +96,10 @@ const ColorControl = ( {
 			<div className="material-design-color__picker">
 				{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
 				<button
-					role="button"
+					type="button"
 					className="material-design-color__color"
 					style={ { backgroundColor: color } }
-					onClick={ event => {
-						event.preventDefault();
+					onClick={ () => {
 						setDisplayColorPalette( ! displayColorPalette );
 					} }
 				></button>
@@ -116,9 +115,8 @@ const ColorControl = ( {
 					/* eslint-disable-next-line jsx-a11y/no-redundant-roles */
 					<button
 						className="material-design-color__link"
-						role="button"
-						onClick={ event => {
-							event.preventDefault();
+						type="button"
+						onClick={ () => {
 							setIsLinked( ! isLinked );
 						} }
 					>
@@ -134,28 +132,24 @@ const ColorControl = ( {
 				<>
 					<div className="material-design-color__picker-container">
 						<div className="material-design-color__picker-tabs material-design-tabs">
-							{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
 							<button
-								role="button"
+								type="button"
 								className={ classNames( 'material-design-tab-link', {
 									active: materialPickerSelected,
 								} ) }
-								onClick={ event => {
-									event.preventDefault();
+								onClick={ () => {
 									setMaterialPickerSelected( true );
 								} }
 							>
 								{ __( 'Palette', 'material-design' ) }
 							</button>
 
-							{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
 							<button
-								role="button"
+								type="button"
 								className={ classNames( 'material-design-tab-link', {
 									active: ! materialPickerSelected,
 								} ) }
-								onClick={ event => {
-									event.preventDefault();
+								onClick={ () => {
 									setMaterialPickerSelected( false );
 								} }
 							>
