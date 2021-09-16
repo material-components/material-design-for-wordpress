@@ -858,11 +858,11 @@ import getConfig from '../block-editor/utils/get-config';
 		renderStyleSettingsControl( control );
 	};
 
-	const reRenderColorControls = ( { limit = false } ) => {
+	const reRenderColorControls = ( { limitToDark = false } ) => {
 		let controlObjectsDefault = [];
 		let controlObjectsDark = [];
 
-		if ( 'dark' === limit ) {
+		if ( limitToDark ) {
 			controlObjectsDark = getConfig( 'colorControlsDark' );
 		} else {
 			controlObjectsDefault = getConfig( 'colorControls' );
@@ -927,7 +927,7 @@ import getConfig from '../block-editor/utils/get-config';
 
 									if ( range && range.dark ) {
 										setting.set( range.dark.hex );
-										reRenderColorControls( { limit: 'dark' } );
+										reRenderColorControls( { limitToDark: true } );
 									}
 								} );
 							} );
