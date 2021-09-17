@@ -49,42 +49,45 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 	);
 	const isThemeActive = 'ok' === getConfig( 'themeStatus' );
 
-	const onChange = useCallback( ( value, setting ) => {
-		const newValue = {};
-		newValue[ setting ] = value;
+	const onChange = useCallback(
+		( value, setting ) => {
+			const newValue = {};
+			newValue[ setting ] = value;
 
-		if ( localStorageDarkMode ) {
-			window.localStorage.removeItem( 'materialDesignDarkMode' );
-		}
+			if ( localStorageDarkMode ) {
+				window.localStorage.removeItem( 'materialDesignDarkMode' );
+			}
 
-		if ( CHOICES.INACTIVE === newValue.dark ) {
-			api.previewer.send( 'materialDesignPaletteUpdate', 'light' );
-			newValue.switcher = false;
-			setTimeout( () => {
-				setIsSwitcherDisabled( true );
-			}, 50 );
-		}
+			if ( CHOICES.INACTIVE === newValue.dark ) {
+				api.previewer.send( 'materialDesignPaletteUpdate', 'light' );
+				newValue.switcher = false;
+				setTimeout( () => {
+					setIsSwitcherDisabled( true );
+				}, 50 );
+			}
 
-		if ( CHOICES.ACTIVE === newValue.dark ) {
-			api.previewer.send( 'materialDesignPaletteUpdate', 'dark' );
-			newValue.switcher = true;
-		}
+			if ( CHOICES.ACTIVE === newValue.dark ) {
+				api.previewer.send( 'materialDesignPaletteUpdate', 'dark' );
+				newValue.switcher = true;
+			}
 
-		if ( CHOICES.AUTO === newValue.dark ) {
-			newValue.switcher = true;
-		}
+			if ( CHOICES.AUTO === newValue.dark ) {
+				newValue.switcher = true;
+			}
 
-		setIsSwitcherDisabled( false );
+			setIsSwitcherDisabled( false );
 
-		setCurrentValue( {
-			...currentValue,
-			...newValue,
-		} );
-	}, [] );
+			setCurrentValue( {
+				...currentValue,
+				...newValue,
+			} );
+		},
+		[ currentValue ]
+	);
 
 	useEffect( () => {
 		setValue( currentValue );
-	}, [ currentValue ] );
+	}, [ currentValue, setValue ] );
 
 	return (
 		<>
