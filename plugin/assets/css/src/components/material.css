@@ -32,7 +32,7 @@
 
 	@nest p & {
 		font-size: inherit;
-		line-height: inheri !important;
+		line-height: inherit !important;
 	}
 }
 
