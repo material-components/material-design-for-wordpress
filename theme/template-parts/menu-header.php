@@ -27,9 +27,14 @@
 
 use MaterialDesign\Theme\Menu_Walker;
 
-$has_search = get_theme_mod( 'header_search_display', true );
-$layout     = get_theme_mod( 'header_bar_layout', 'standard' );
-$class      = ( 'fixed' === $layout ) ? 'mdc-top-app-bar--fixed' : '';
+$has_search       = get_theme_mod( 'header_search_display', true );
+$layout           = get_theme_mod( 'header_bar_layout', 'standard' );
+$material_options = get_option( 'material_design' );
+$style_settings   = isset( $material_options['style_settings'] ) ? json_decode( $material_options['style_settings'], true ) : [];
+$current_style    = ! empty( $material_options['style'] ) ? $material_options['style'] : 'baseline';
+$has_dark_mode    = ! empty( $style_settings[ $current_style ] ) && ! empty( $style_settings[ $current_style ]['switcher'] ) ? $style_settings[ $current_style ]['switcher'] : false;
+$class            = ( 'fixed' === $layout ) ? 'mdc-top-app-bar--fixed' : '';
+$class           .= ( $has_dark_mode ) ? ' top-app-bar--has-dark-mode' : '';
 ?>
 
 <div class="mdc-top-app-bar top-app-bar <?php echo $class; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>">
@@ -47,12 +52,17 @@ $class      = ( 'fixed' === $layout ) ? 'mdc-top-app-bar--fixed' : '';
 			</span>
 		</section>
 		<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end top-app-bar__menu" role="toolbar">
-				<?php if ( ! empty( $has_search ) ) : ?>
+			<?php if ( ! empty( $has_search ) ) : ?>
 				<button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button search__button" aria-label="<?php esc_attr_e( 'Search', 'material-design-google' ); ?>">
 					<span class="mdc-button__ripple"></span>
 					search
 				</button>
 			<?php endif; ?>
+
+			<button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button dark-mode__button" aria-label="<?php esc_attr_e( 'Toggle Dark Mode', 'material-design-google' ); ?>">
+				<span class="mdc-button__ripple"></span>
+				<span class="dark-mode__icon">dark_mode</span>
+			</button>
 		</section>
 	</div>
 

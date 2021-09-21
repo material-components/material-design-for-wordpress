@@ -1,7 +1,1 @@
-<svg width="132" height="66" viewBox="0 0 132 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-   <rect x="1.39185" y="1.20703" width="130" height="64" fill="white" stroke="#7E8993"/>
-   <circle cx="66.3918" cy="33.207" r="24" fill="#212121"/>
-   <path d="M77.9926 33.3884L54.7913 45.0625L54.7913 21.3472L77.9926 33.3884Z" fill="#BB89FC"/>
-   <path d="M54.7913 33.0217L77.9926 21.3477V45.0629L54.7913 33.0217Z" fill="white"/>
-   <path fill-rule="evenodd" clip-rule="evenodd" d="M66.2123 27.3398L54.7913 33.0865L66.5715 39.2003L77.9925 33.4537L66.2123 27.3398Z" fill="#5F21EE"/>
-</svg>
+<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="#0336FF" d="M0 0h32v16H0z"/><path fill="#FFDE03" d="M0 16h16v16H0z"/><path opacity=".25" fill="#FFDE03" d="M16 16h16v16H16z"/><path fill="#FF0266" d="M24 24h8v8h-8z"/><path fill="#fff" d="M24 16h8v8h-8z"/><path d="M4 1h24v-2H4v2zm27 3v24h2V4h-2zm-3 27H4v2h24v-2zM1 28V4h-2v24h2zm3 3a3 3 0 01-3-3h-2a5 5 0 005 5v-2zm27-3a3 3 0 01-3 3v2a5 5 0 005-5h-2zM28 1a3 3 0 013 3h2a5 5 0 00-5-5v2zM4-1a5 5 0 00-5 5h2a3 3 0 013-3v-2z" fill="#000" fill-opacity=".12"/></svg>

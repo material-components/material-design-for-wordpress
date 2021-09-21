@@ -18,12 +18,8 @@
  * WordPress dependencies
  */
 import { findDOMNode, useEffect, useRef } from '@wordpress/element';
-import {
-	create,
-	insert,
-	__experimentalRichText as RichText,
-} from '@wordpress/rich-text';
 import { __ } from '@wordpress/i18n';
+import { RichText } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
@@ -118,83 +114,64 @@ const ListItem = ( {
 	};
 
 	/**
-	 * Get the split before and after values from a Break/Enter event.
-	 *
-	 * @param {Event} event
-	 */
-	const getSplitValues = event => {
-		let before = '',
-			after = '';
-
-		if ( event.value ) {
-			before = event.value.text.slice( 0, event.value.end );
-			after = event.value.text.slice( event.value.end );
-		}
-
-		return { before, after };
-	};
-
-	/**
 	 * Handle Enter keypress event on primary text.
 	 *
-	 * @param {Event} event Enter keypress event.
+	 * @param {string} value
+	 * @param {boolean} isBefore
+	 * @param {boolean} isSecondaryCall
 	 */
-	const onPrimaryEnter = event => {
+	const onSplitCallback = ( value, isBefore, isSecondaryCall = false ) => {
 		rangeStartRef.current = 0;
-		const splitValues = getSplitValues( event );
-
 		if ( isSecondaryEnabled ) {
-			const secondText = `${ splitValues.after }${ secondaryText }`;
+			if ( isBefore ) {
+				// When split is called from primary text with secondary enabled,
+				setItem( index, {
+					[ isSecondaryCall ? 'secondaryText' : 'primaryText' ]: value,
+				} );
+				onFocus( index, isSecondaryEnabled, 0 );
+				return;
+			}
+			// After value handle.
+			if ( isSecondaryCall ) {
+				// When split is called from secondary text we insert new item.
+				onSplit( index, value );
+				return;
+			}
+			// When split is called from the primary text and secondary is enabled.
+			const secondText = `${ value }${ secondaryText }`;
 			setItem( index, {
-				primaryText: splitValues.before,
 				secondaryText: secondText,
 			} );
 			setEditedText( secondText );
 			onFocus( index, isSecondaryEnabled, 0 );
 			return;
 		}
-
-		setItem( index, {
-			primaryText: splitValues.before,
-		} );
-		onSplit( index, splitValues.after );
-	};
-
-	/**
-	 * Handle Enter keypress event on secondary text.
-	 *
-	 * @param {Event} event Enter keypress event.
-	 */
-	const onSecondaryEnter = event => {
-		const splitValues = getSplitValues( event );
-		setItem( index, {
-			secondaryText: splitValues.before,
-		} );
-		onSplit( index, splitValues.after );
-	};
-
-	/**
-	 * Handle delete keypress event on primary text.
-	 *
-	 * @param {Event} event Delete keypress event.
-	 */
-	const onPrimaryDelete = event => {
-		deleteItem( index, event.value.text, secondaryText );
-	};
-
-	/**
-	 * Handle delete keypress event on secondary text.
-	 *
-	 * @param {Event} event Delete keypress event.
-	 */
-	const onSecondaryDelete = event => {
-		if ( event.value && 0 === event.value.start ) {
+		// When secondary is disabled.
+		if ( isBefore ) {
 			setItem( index, {
-				primaryText: `${ primaryText }${ event.value.text }`,
-				secondaryText: '',
+				primaryText: value,
 			} );
-			onFocus( index, false, primaryText.length );
+		} else {
+			onSplit( index, value );
 		}
+	};
+
+	/**
+	 * On Primary Delete.
+	 */
+	const onPrimaryDelete = () => {
+		deleteItem( index, '', '' );
+	};
+
+	/**
+	 * On Secondary Delete.
+	 */
+	const onSecondaryDelete = () => {
+		setItem( index, {
+			primaryText: `${ primaryText }`,
+			secondaryText: '',
+		} );
+		onFocus( index, false, primaryText.length );
 	};
 
 	/**
@@ -217,34 +194,29 @@ const ListItem = ( {
 		secondaryTextChange( index, text );
 	};
 
-	/**
-	 * Handle paste event.
-	 *
-	 * @param {Object} pasted Object with pasted value props.
-	 */
-	const onPaste = ( { value, plainText } ) => {
-		const valueToInsert = create( { html: plainText } );
-		const toInsert = insert( value, valueToInsert );
-
-		rangeStartRef.current = toInsert.start;
-
-		if ( isSecondarySelected ) {
-			return onSecondaryTextChange( toInsert.text );
-		}
-
-		onPrimaryTextChange( toInsert.text );
-	};
-
 	const isPrimarySelected = isSelected && ! isSecondarySelected;
 
-	const onSelectionChange = start => {
-		if ( 'undefined' !== typeof start ) {
-			rangeStartRef.current = start;
+	/**
+	 * Handle merge.
+	 *
+	 * @param {boolean} isMergeWithBottom
+	 * @param {boolean} isSecondaryCall
+	 */
+	const onMerge = ( isMergeWithBottom, isSecondaryCall = false ) => {
+		if ( ! isMergeWithBottom ) {
+			if ( isSecondaryEnabled && isSecondaryCall ) {
+				const mergedText = `${ primaryText }${ editedText }`;
+				setItem( index, {
+					primaryText: mergedText,
+					secondaryText: '',
+				} );
+				setEditedText( mergedText );
+				onFocus( index, false, primaryText.length );
+			} else {
+				deleteItem( index, editedText, secondaryText );
+			}
 		}
 	};
-
-	// Noop function.
-	const noop = () => {};
 
 	return (
 		<li className="mdc-list-item">
@@ -255,17 +227,18 @@ const ListItem = ( {
 			<span className="mdc-list-item__text">
 				<span className="mdc-list-item__primary-text">
 					<RichText
+						identifier="values"
 						ref={ primaryRef }
 						value={ isPrimarySelected && ! preview ? editedText : primaryText }
 						onChange={ onPrimaryTextChange }
-						__unstableOnCreateUndoLevel={ noop }
-						onDelete={ onPrimaryDelete }
-						onEnter={ onPrimaryEnter }
-						onPaste={ onPaste }
+						onRemove={ onPrimaryDelete }
+						onMerge={ onMerge }
+						onSplit={ onSplitCallback }
+						onReplace={ () => {} }
 						unstableOnFocus={ () => onFocus( index ) }
 						className="rich-text block-editor-rich-text__editable"
-						__unstableIsSelected={ isPrimarySelected }
-						onSelectionChange={ onSelectionChange }
+						isSelected={ isPrimarySelected }
+						disableLineBreaks={ true }
 					/>
 				</span>
 
@@ -277,15 +250,15 @@ const ListItem = ( {
 								isSecondarySelected && ! preview ? editedText : secondaryText
 							}
 							onChange={ onSecondaryTextChange }
-							__unstableOnCreateUndoLevel={ noop }
-							onDelete={ onSecondaryDelete }
-							onEnter={ onSecondaryEnter }
-							onPaste={ onPaste }
+							onRemove={ onSecondaryDelete }
+							onSplit={ ( v, b ) => onSplitCallback( v, b, true ) }
+							onReplace={ () => {} }
+							onMerge={ m => onMerge( m, true ) }
 							unstableOnFocus={ () => onFocus( index, isSecondaryEnabled ) }
 							className="rich-text block-editor-rich-text__editable"
 							placeholder={ __( 'Secondary text…', 'material-design' ) }
-							__unstableIsSelected={ isSecondarySelected }
-							onSelectionChange={ onSelectionChange }
+							isSelected={ isSecondarySelected }
+							disableLineBreaks={ true }
 						/>
 					</span>
 				) }

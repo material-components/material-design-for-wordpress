@@ -22,14 +22,63 @@
  * @since 1.0.0
  */
 
-/* global jQuery, materialDesignThemeColorControls */
+/* global jQuery, materialDesignThemeColorControls, materialDesignThemeColorControlsDark */
+
+/**
+ * External dependencies
+ */
+import { debounce } from 'lodash';
+
+/**
+ * Internal dependencies
+ */
+import { masonryInit } from '../front-end/components/masonry';
+import { ICONS as SWITCHER_ICONS } from '../front-end/components/dark-mode-switch';
+
+export const COLOR_MODES = {
+	default: 'default',
+	dark: 'dark',
+	contrast: 'contrast',
+};
+
+const api = wp.customize;
 
 ( function( $ ) {
-	const api = wp.customize;
+	// Bail out if this isn't loaded in an iframe.
+	if (
+		! window.parent ||
+		! window.parent.wp ||
+		! window.parent._wpCustomizeSettings
+	) {
+		return;
+	}
+
 	const parentApi = window.parent.wp.customize;
 
 	Object.keys( materialDesignThemeColorControls ).forEach( control => {
-		api( control, value => value.bind( generatePreviewStyles ) );
+		api( control, value =>
+			value.bind( () =>
+				generatePreviewStyles( materialDesignThemeColorControls )
+			)
+		);
+	} );
+
+	if ( materialDesignThemeColorControlsDark ) {
+		Object.keys( materialDesignThemeColorControlsDark ).forEach( control => {
+			api( control, value =>
+				value.bind( () =>
+					generatePreviewStyles( materialDesignThemeColorControlsDark )
+				)
+			);
+		} );
+	}
+
+	$( function() {
+		api.preview.bind( 'active', function() {
+			api.preview.bind( 'materialDesignThemePaletteUpdate', message => {
+				updateColorMode( message );
+			} );
+		} );
 	} );
 
 	// Site title and description.
@@ -65,7 +114,7 @@
 	} );
 
 	// Archive width
-	api( 'material_archive_width', function( value ) {
+	api( 'archive_width', function( value ) {
 		value.bind( function( to ) {
 			if ( 'wide' === to ) {
 				$( '.content-area' ).removeClass( 'material-archive__normal' );
@@ -82,12 +131,16 @@
 	 *
 	 * @since 1.0.0
 	 *
+	 * @param {Array} selectedControls Variables to generate.
+	 *
 	 * @return {void}
 	 */
-	const generatePreviewStyles = () => {
+	const generatePreviewStyles = selectedControls => {
 		const stylesheetID = 'material-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
-			styles = '';
+			styles = '',
+			darkStyles = '',
+			lightStyles = '';
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
 		if ( ! stylesheet.length ) {
@@ -96,8 +149,8 @@
 		}
 
 		// Generate the styles.
-		Object.keys( materialDesignThemeColorControls ).forEach( control => {
-			const cssVar = materialDesignThemeColorControls[ control ];
+		Object.keys( selectedControls ).forEach( control => {
+			const cssVar = selectedControls[ control ];
 			const color = parentApi( control ).get();
 			if ( ! color ) {
 				return;
@@ -116,24 +169,88 @@
 			}
 		} );
 
-		// Header colors should fallback to primary colors.
-		if ( ! styles.includes( '--mdc-theme-header' ) ) {
-			styles += `--mdc-theme-header: var(--mdc-theme-primary);`;
-			styles += `--mdc-theme-header-rgb: var(--mdc-theme-primary-rgb);`;
-		}
+		// Generate the styles.
+		Object.keys( materialDesignThemeColorControlsDark ).forEach( control => {
+			const cssVar = materialDesignThemeColorControlsDark[ control ];
+			const color = parentApi( control ).get();
+			if ( ! color ) {
+				return;
+			}
 
-		if ( ! styles.includes( '--mdc-theme-on-header' ) ) {
-			styles += `--mdc-theme-on-header: var(--mdc-theme-on-primary);`;
-			styles += `--mdc-theme-on-header-rgb: var(--mdc-theme-on-primary-rgb);`;
-		}
+			darkStyles += `${ cssVar }: ${ color };`;
+			darkStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join( ',' ) };`;
+
+			if ( '--mdc-theme-background' === cssVar ) {
+				darkStyles += `
+					--mdc-theme-text-primary-on-background: rgba(--mdc-theme-on-background-rgb, 0.87);
+					--mdc-theme-text-secondary-on-background: rgba(--mdc-theme-on-background-rgb, 0.54);
+					--mdc-theme-text-hint-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
+					--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
+					--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);`;
+			}
+		} );
+
+		// Generate the styles.
+		Object.keys( materialDesignThemeColorControls ).forEach( control => {
+			const cssVar = materialDesignThemeColorControls[ control ];
+			const color = parentApi( control ).get();
+
+			if ( ! color ) {
+				return;
+			}
+
+			lightStyles += `${ cssVar }: ${ color };`;
+			lightStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join( ',' ) };`;
+
+			if ( '--mdc-theme-background' === cssVar ) {
+				lightStyles += `
+					--mdc-theme-text-primary-on-background: rgba(--mdc-theme-on-background-rgb, 0.87);
+					--mdc-theme-text-secondary-on-background: rgba(--mdc-theme-on-background-rgb, 0.54);
+					--mdc-theme-text-hint-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
+					--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
+					--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);`;
+			}
+		} );
 
 		styles = `:root {
 			${ styles }
+
+			body[data-color-scheme="dark"] {
+				${ darkStyles }
+			}
+
+			body[data-color-scheme="light"] {
+				${ lightStyles }
+			}
 		}`;
 
 		// Add styles.
 		stylesheet.html( styles );
 	};
+
+	const updateColorMode = debounce( mode => {
+		let colorControls;
+
+		if ( COLOR_MODES.dark === mode ) {
+			colorControls = materialDesignThemeColorControlsDark;
+		} else {
+			colorControls = materialDesignThemeColorControls;
+		}
+
+		generatePreviewStyles( colorControls );
+
+		const switcherIcon = document.querySelector( '.dark-mode__button' );
+
+		if ( ! switcherIcon ) {
+			return;
+		}
+
+		if ( 'dark' === mode ) {
+			switcherIcon.innerText = SWITCHER_ICONS.LIGHT_MODE;
+		} else {
+			switcherIcon.innerText = SWITCHER_ICONS.DARK_MODE;
+		}
+	}, 300 );
 
 	const hexToRgb = hex =>
 		! hex
@@ -146,4 +263,12 @@
 					.substring( 1 )
 					.match( /.{2}/g )
 					.map( x => parseInt( x, 16 ) );
+
+	api.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
+		if ( 'archive_layout' !== placement.partial.id ) {
+			return;
+		}
+
+		masonryInit();
+	} );
 } )( jQuery );

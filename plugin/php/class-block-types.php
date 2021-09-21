@@ -73,7 +73,12 @@ class Block_Types {
 
 		add_action( 'init', [ $this, 'register_blocks' ] );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ] );
-		add_filter( 'block_categories', [ $this, 'block_category' ] );
+		// For 5.8 WP use block_categories_all filter.
+		if ( version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
+			add_filter( 'block_categories_all', [ $this, 'block_category' ] );
+		} else {
+			add_filter( 'block_categories', [ $this, 'block_category' ] );
+		}
 	}
 
 	/**
@@ -208,19 +213,20 @@ class Block_Types {
 		}
 
 		$wp_localized_script_data = [
-			'ajax_url'                 => admin_url( 'admin-ajax.php' ),
-			'handpicked_posts_preview' => $this->plugin->asset_url( 'assets/images/preview/handpicked-posts.jpg' ),
-			'tab_bar_preview'          => $this->plugin->asset_url( 'assets/images/preview/tab-bar.jpg' ),
-			'contact_form_preview'     => $this->plugin->asset_url( 'assets/images/preview/contact-form.jpg' ),
-			'defaults'                 => [
+			'ajax_url'                  => admin_url( 'admin-ajax.php' ),
+			'handpicked_posts_preview'  => $this->plugin->asset_url( 'assets/images/preview/handpicked-posts.jpg' ),
+			'tab_bar_preview'           => $this->plugin->asset_url( 'assets/images/preview/tab-bar.jpg' ),
+			'contact_form_preview'      => $this->plugin->asset_url( 'assets/images/preview/contact-form.jpg' ),
+			'defaults'                  => [
 				'blocks' => $this->get_block_defaults(),
 				'colors' => $this->get_color_defaults(),
 			],
-			'customizerUrls'           => [
+			'customizerUrls'            => [
 				'colors' => add_query_arg( 'autofocus[section]', $slug . '_colors', $customizer_url ),
 				'shape'  => add_query_arg( 'autofocus[section]', $slug . '_corner_styles', $customizer_url ),
 			],
-			'postTypes'                => $post_types,
+			'postTypes'                 => $post_types,
+			'doesRequireBackCompatList' => version_compare( get_bloginfo( 'version' ), '5.8', '<' ),
 		];
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {

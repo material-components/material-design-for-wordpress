@@ -56,6 +56,20 @@
 	}
 }
 
+/* stylelint-disable-next-line selector-id-pattern */
+.material-design-colors--dark #customize-control-colors_more_options {
+	display: none;
+}
+
+/* stylelint-disable-next-line selector-id-pattern */
+#customize-control-colors_more_options_dark {
+	display: none;
+
+	@nest .material-design-colors--dark & {
+		display: block;
+	}
+}
+
 .show-options {
 
 	& .material-show-more-options {

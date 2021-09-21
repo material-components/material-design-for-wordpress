@@ -62,10 +62,10 @@ if ( ! function_exists( 'material_design_theme_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in two location.
 		register_nav_menus(
-			array(
+			[
 				'menu-1' => esc_html__( 'Tabs', 'material-design-google' ),
 				'menu-2' => esc_html__( 'Drawer', 'material-design-google' ),
-			)
+			]
 		);
 
 		/*
@@ -74,13 +74,13 @@ if ( ! function_exists( 'material_design_theme_setup' ) ) :
 		 */
 		add_theme_support(
 			'html5',
-			array(
+			[
 				'search-form',
 				'comment-form',
 				'comment-list',
 				'gallery',
 				'caption',
-			)
+			]
 		);
 
 		// Add theme support for selective refresh for widgets.
@@ -93,12 +93,12 @@ if ( ! function_exists( 'material_design_theme_setup' ) ) :
 		 */
 		add_theme_support(
 			'custom-logo',
-			array(
+			[
 				'height'      => 250,
 				'width'       => 250,
 				'flex-width'  => true,
 				'flex-height' => true,
-			)
+			]
 		);
 
 		add_theme_support( 'align-wide' );
@@ -131,7 +131,7 @@ add_action( 'after_setup_theme', 'material_design_theme_content_width', 0 );
  */
 function material_design_theme_widgets_init() {
 	register_sidebar(
-		array(
+		[
 			'name'          => esc_html__( 'Footer Left', 'material-design-google' ),
 			'id'            => 'footer',
 			'description'   => esc_html__( 'Footer left area.', 'material-design-google' ),
@@ -139,11 +139,11 @@ function material_design_theme_widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title mdc-typography--headline5">',
 			'after_title'   => '</h2>',
-		)
+		]
 	);
 
 	register_sidebar(
-		array(
+		[
 			'name'          => esc_html__( 'Footer Right', 'material-design-google' ),
 			'id'            => 'footer-right',
 			'description'   => esc_html__( 'Footer right area.', 'material-design-google' ),
@@ -151,7 +151,7 @@ function material_design_theme_widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title mdc-typography--headline5">',
 			'after_title'   => '</h2>',
-		)
+		]
 	);
 }
 add_action( 'widgets_init', 'material_design_theme_widgets_init' );
@@ -163,9 +163,9 @@ function material_design_theme_scripts() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 	$suffix        = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-	wp_enqueue_style( 'material-design-google-style', get_stylesheet_uri(), array(), $theme_version );
+	wp_enqueue_style( 'material-design-google-style', get_stylesheet_uri(), [], $theme_version );
 
-	wp_enqueue_style( 'material-design-google-front-end-css', get_template_directory_uri() . "/assets/css/front-end-compiled{$suffix}.css", array( 'material-design-google-style' ), $theme_version );
+	wp_enqueue_style( 'material-design-google-front-end-css', get_template_directory_uri() . "/assets/css/front-end-compiled{$suffix}.css", [ 'material-design-google-style' ], $theme_version );
 	wp_style_add_data( 'material-design-google-front-end-css', 'rtl', 'replace' );
 
 	wp_add_inline_style( 'material-design-google-style', \MaterialDesign\Theme\Customizer\get_css_vars() );
@@ -179,7 +179,7 @@ function material_design_theme_scripts() {
 		);
 	}
 
-	wp_enqueue_script( 'material-design-google-js', get_template_directory_uri() . "/assets/js/front-end{$suffix}.js", array(), $theme_version, true );
+	wp_enqueue_script( 'material-design-google-js', get_template_directory_uri() . "/assets/js/front-end{$suffix}.js", [], $theme_version, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -195,6 +195,18 @@ add_action( 'wp_enqueue_scripts', 'material_design_theme_scripts' );
 function material_is_plugin_active() {
 	return class_exists( '\MaterialDesign\Plugin\Plugin' );
 }
+
+/**
+ * Add material theme meta version tag.
+ *
+ * @return void
+ */
+function material_theme_version_head_tag() {
+	printf( '<meta name="material-design-google-theme" content="v%s" />', esc_attr( wp_get_theme()->get( 'Version' ) ) );
+}
+
+add_action( 'wp_head', 'material_theme_version_head_tag' );
+
 
 /**
  * Custom template tags for this theme.

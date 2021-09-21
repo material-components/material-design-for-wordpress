@@ -3,7 +3,9 @@
  * Plugin Name: Material Design
  * Plugin URI: https://github.com/material-components/material-design-for-wordpress
  * Description: The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
- * Version: 0.3.1
+ * Version: 0.4.0
+ * Requires at least: 5.2
+ * Requires PHP:      5.6.20+
  * Author:  Material Design
  * Author URI: http://material.io
  * License: Apache License, Version 2.0
@@ -59,6 +61,37 @@ if ( version_compare( phpversion(), '5.6.20', '>=' ) ) {
 	}
 } else {
 	_material_design_error( '_material_design_php_version_text', '_material_design_php_version_error' );
+}
+
+add_action( 'admin_menu', '_material_design_maybe_add_plugin_message', 11 );
+
+/**
+ * Add plugin notice for update.
+ */
+function _material_design_maybe_add_plugin_message() {
+	global $pagenow;
+
+	if ( $pagenow === 'plugins.php' ) {
+		$file   = basename( __FILE__ );
+		$folder = basename( dirname( __FILE__ ) );
+		$hook   = "in_plugin_update_message-{$folder}/{$file}";
+		add_action( $hook, '_material_design_in_plugin_update_message', 10, 2 );
+	}
+}
+
+/**
+ * Show update message notice.
+ *
+ * @param array    $plugin_data plugin update information.
+ * @param stdClass $response    plugin update information.
+ */
+function _material_design_in_plugin_update_message( $plugin_data, $response ) {
+	// Add case for each version you wish to have a message shown for.
+	if ( version_compare( $response->new_version, '0.4.0', '>' ) && version_compare( get_bloginfo( 'version' ), 5.6, '<' ) ) {
+		// Only show this message if new plugin update is > 0.4.0 as we will drop support after 0.4.0.
+		// Only show this message if the WP version is older than 5.6.
+		printf( '<br/><span class="material_design_update_message">%s</span>', esc_html__( 'Please note that the upcoming Material Theme and Plugin release will include updated support and will only support WordPress version 5.6 and up.', 'material-design' ) );
+	}
 }
 
 /**

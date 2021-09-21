@@ -24,6 +24,8 @@ import { floatingLabelInit } from './components/floating-label';
 import { tabBarInit } from './components/tab-bar';
 import { embedsInit } from './components/embeds';
 import { widgetsInit } from './components/widgets';
+import { masonryInit } from './components/masonry';
+import { initDarkModeSwitch } from './components/dark-mode-switch';
 import './components/navigation';
 import './components/skip-link-focus-fix';
 
@@ -43,4 +45,6 @@ document.addEventListener( 'DOMContentLoaded', () => {
 	commentsInit();
 	embedsInit();
 	widgetsInit();
+	masonryInit();
+	initDarkModeSwitch();
 } );

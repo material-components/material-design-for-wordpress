@@ -121,21 +121,32 @@ function preview_scripts() {
 	wp_enqueue_script(
 		'material-design-google-customizer-preview',
 		get_template_directory_uri() . "/assets/js/customize-preview{$suffix}.js",
-		[ 'customize-preview' ],
+		[ 'customize-selective-refresh' ],
 		$theme_version,
 		true
 	);
 
-	$css_vars = [];
+	$css_vars      = [];
+	$css_vars_dark = [];
 
 	foreach ( Colors\get_controls() as $control ) {
 		$css_vars[ $control['id'] ] = $control['css_var'];
+	}
+
+	foreach ( Colors\get_dark_controls() as $control ) {
+		$css_vars_dark[ $control['id'] ] = $control['css_var'];
 	}
 
 	wp_localize_script(
 		'material-design-google-customizer-preview',
 		'materialDesignThemeColorControls',
 		$css_vars
+	);
+
+	wp_localize_script(
+		'material-design-google-customizer-preview',
+		'materialDesignThemeColorControlsDark',
+		$css_vars_dark
 	);
 }
 
@@ -298,31 +309,33 @@ function get_default( $setting ) {
  */
 function get_default_values() {
 	$defaults = [
-		'primary_color'           => '#6200ee',
-		'on_primary_color'        => '#ffffff',
-		'secondary_color'         => '#018786',
-		'on_secondary_color'      => '#000000',
-		'surface_color'           => '#ffffff',
-		'on_surface_color'        => '#000000',
-		'custom_background_color' => '#ffffff',
-		'on_background_color'     => '#000000',
-		'header_color'            => '',
-		'on_header_color'         => '',
-		'footer_color'            => '#ffffff',
-		'on_footer_color'         => '#000000',
-		'archive_layout'          => 'card',
-		'archive_width'           => 'normal',
-		'archive_comments'        => true,
-		'archive_author'          => true,
-		'archive_excerpt'         => true,
-		'archive_date'            => true,
-		'archive_outlined'        => false,
-		'comment_fields_style'    => 'outlined',
-		'header_search_display'   => true,
-		'header_title_display'    => false,
-		'header_bar_layout'       => 'standard',
-		'footer_text'             => '',
-		'hide_back_to_top'        => false,
+		'primary_color'                => '#6200ee',
+		'on_primary_color'             => '#ffffff',
+		'secondary_color'              => '#018786',
+		'on_secondary_color'           => '#000000',
+		'surface_color'                => '#ffffff',
+		'on_surface_color'             => '#000000',
+		'custom_background_color'      => '#ffffff',
+		'custom_background_color_dark' => '#121212',
+		'on_background_color'          => '#000000',
+		'on_background_color_dark'     => '#ffffff',
+		'header_color'                 => '',
+		'on_header_color'              => '',
+		'footer_color'                 => '#ffffff',
+		'on_footer_color'              => '#000000',
+		'archive_layout'               => 'card',
+		'archive_width'                => 'normal',
+		'archive_comments'             => true,
+		'archive_author'               => true,
+		'archive_excerpt'              => true,
+		'archive_date'                 => true,
+		'archive_outlined'             => false,
+		'comment_fields_style'         => 'outlined',
+		'header_search_display'        => true,
+		'header_title_display'         => false,
+		'header_bar_layout'            => 'standard',
+		'footer_text'                  => '',
+		'hide_back_to_top'             => false,
 
 	];
 
@@ -391,7 +404,10 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 	/**
 	 * Controls to nest in the more options section.
 	 */
-	$more_controls = [];
+	$more_controls = [
+		'default' => [],
+		'dark'    => [],
+	];
 
 	$section = prepend_slug( $section );
 
@@ -408,6 +424,7 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 					'css_var'              => $control['css_var'],
 					'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
 					'priority'             => 200,
+					'color_mode_type'      => ! empty( $control['color_mode_type'] ) ? $control['color_mode_type'] : 'default',
 				]
 			);
 		} else {
@@ -419,8 +436,24 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 		}
 
 		// Group header and footer colors into more options.
-		if ( false !== strpos( $control['id'], 'header_color' ) || false !== strpos( $control['id'], 'footer_color' ) ) {
-			$more_controls[] = $control['id'];
+		if (
+			(
+				false !== strpos( $control['id'], 'header_color' ) ||
+				false !== strpos( $control['id'], 'footer_color' )
+			) &&
+			! strpos( $control['id'], '_dark' )
+		) {
+			$more_controls['default'][] = $control['id'];
+		}
+
+		if (
+			(
+				false !== strpos( $control['id'], 'header_color' ) ||
+				false !== strpos( $control['id'], 'footer_color' )
+			) &&
+			strpos( $control['id'], '_dark' )
+		) {
+			$more_controls['dark'][] = $control['id'];
 		}
 	}
 
@@ -430,13 +463,33 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 			'sanitize_callback' => 'wp_kses_post',
 		]
 	);
+
+	$wp_customize->add_setting(
+		'colors_more_options_dark',
+		[
+			'sanitize_callback' => 'wp_kses_post',
+		]
+	);
+
 	$controls['colors_more_options'] = new More_Options(
 		$wp_customize,
 		'colors_more_options',
 		[
-			'section'  => $section,
-			'priority' => 300,
-			'controls' => $more_controls,
+			'section'       => $section,
+			'priority'      => 300,
+			'controls'      => $more_controls['default'],
+			'controls_type' => 'default',
+		]
+	);
+
+	$controls['colors_more_options_dark'] = new More_Options(
+		$wp_customize,
+		'colors_more_options_dark',
+		[
+			'section'       => $section,
+			'priority'      => 300,
+			'controls'      => $more_controls['dark'],
+			'controls_type' => 'dark',
 		]
 	);
 
@@ -447,9 +500,12 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
  * Get custom frontend CSS vars based on the customizer theme settings.
  */
 function get_css_vars() {
-	$color_vars = [];
-	$defaults   = get_default_values();
-	$controls   = Colors\get_controls();
+	$css             = '';
+	$color_vars      = [];
+	$color_vars_dark = [];
+	$defaults        = get_default_values();
+	$controls        = Colors\get_controls();
+	$controls_dark   = Colors\get_dark_controls();
 
 	foreach ( $controls as $control ) {
 		$default = isset( $defaults[ $control['id'] ] ) ? $defaults[ $control['id'] ] : '';
@@ -468,6 +524,23 @@ function get_css_vars() {
 		}
 	}
 
+	foreach ( $controls_dark as $control ) {
+		$default = isset( $defaults[ $control['id'] ] ) ? $defaults[ $control['id'] ] : '';
+		$value   = get_theme_mod( $control['id'], $default );
+
+		if ( empty( $value ) ) {
+			continue;
+		}
+
+		$color_vars_dark[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
+		$rgb               = hex_to_rgb( $value );
+
+		if ( ! empty( $rgb ) ) {
+			$rgb               = implode( ',', $rgb );
+			$color_vars_dark[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
+		}
+	}
+
 	// Generate additional surface variant vars required by some components.
 	$surface    = get_theme_mod( 'surface_color' );
 	$on_surface = get_theme_mod( 'on_surface_color' );
@@ -480,13 +553,37 @@ function get_css_vars() {
 		$color_vars[] = esc_html( "--mdc-theme-surface-mix-12: $mix_12;" );
 	}
 
-	$color_vars = implode( "\n\t\t\t", $color_vars );
+	$glue            = "\n\t\t\t";
+	$color_vars      = implode( $glue, $color_vars );
+	$color_vars_dark = implode( $glue, $color_vars_dark );
 
-	return "
+	$css = "
 		:root {
 			{$color_vars}
 		}
+
+		/* Forced dark mode */
+		body[data-color-scheme='dark'] {
+			{$color_vars_dark}
+		}
+
+		/* Forced light mode */
+		body[data-color-scheme='light'] {
+			{$color_vars}
+		}
 	";
+
+	if ( material_is_plugin_active() ) {
+		$css .= "
+			@media (prefers-color-scheme: dark) {
+				:root {
+					{$color_vars_dark}
+				}
+			}
+		";
+	}
+
+	return $css;
 }
 
 /**

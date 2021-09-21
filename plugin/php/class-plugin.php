@@ -130,6 +130,13 @@ class Plugin extends Plugin_Base {
 	public $icons;
 
 	/**
+	 * Hold plugin frontend class.
+	 *
+	 * @var Frontend
+	 */
+	public $frontend;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * @throws \Exception Generic Exception.
@@ -167,6 +174,9 @@ class Plugin extends Plugin_Base {
 		$this->admin_updates = new Admin_Updates();
 		$this->admin_updates->init();
 
+		$this->frontend = new Frontend( $this );
+		$this->frontend->init();
+
 		// Init CLI.
 		if ( defined( 'WP_CLI' ) && false !== WP_CLI ) {
 			$this->fonts = new Fonts();
@@ -180,6 +190,7 @@ class Plugin extends Plugin_Base {
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_front_end_assets' ], 100 );
 		add_action( 'wp_head', [ $this, 'frontend_inline_css' ], 1 );
 		add_action( 'admin_head', [ $this, 'frontend_inline_css' ], 1 );
+		add_action( 'plugin_row_meta', [ $this, 'get_plugin_row_meta' ], 10, 2 );
 	}
 
 	/**
@@ -209,7 +220,10 @@ class Plugin extends Plugin_Base {
 		);
 
 		$material_design_recaptcha_site_key = get_option( 'material_design_recaptcha_site_key', '' );
-		$wp_localized_script_data           = [ 'ajax_url' => admin_url( 'admin-ajax.php' ) ];
+		$wp_localized_script_data           = [
+			'ajax_url'       => admin_url( 'admin-ajax.php' ),
+			'darkModeStatus' => $this->customizer_controls->dark_mode_status(),
+		];
 
 		if ( function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $material_design_recaptcha_site_key ) ) {
 			wp_enqueue_script(
@@ -280,5 +294,33 @@ class Plugin extends Plugin_Base {
 		}
 
 		return 'ok';
+	}
+
+	/**
+	 * Updates the plugin row meta with links to review plugin and get support.
+	 *
+	 * @param string[]|mixed $meta        An array of the plugin's metadata, including the version, author, author URI,
+	 *                                    and plugin URI.
+	 * @param string         $plugin_file Path to the plugin file relative to the plugins directory.
+	 *
+	 * @return string[]|mixed Plugin row meta.
+	 */
+	public function get_plugin_row_meta( $meta, $plugin_file ) {
+		if ( plugin_basename( realpath( __DIR__ . '/../material-design.php' ) ) !== $plugin_file ) {
+			return $meta;
+		}
+		if ( ! is_array( $meta ) ) {
+			return $meta;
+		}
+		$redirect_to = 'admin.php?page=material-settings#learn';
+
+
+		$additional_meta = [
+			'<a href="' . esc_url( admin_url( $redirect_to ) ) . '" target="_blank" rel="noreferrer noopener">' . esc_html__( 'Learn more', 'material-design' ) . '</a>',
+			'<a href="https://wordpress.org/support/plugin/material-design/" target="_blank" rel="noreferrer noopener">' . esc_html__( 'Contact support', 'material-design' ) . '</a>',
+			'<a href="https://wordpress.org/support/plugin/material-design/reviews/#new-post" target="_blank" rel="noreferrer noopener">' . esc_html__( 'Leave review', 'material-design' ) . '</a>',
+		];
+
+		return array_merge( $meta, $additional_meta );
 	}
 }
