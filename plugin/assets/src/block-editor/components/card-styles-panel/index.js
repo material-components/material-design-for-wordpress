@@ -95,6 +95,14 @@ const CardStylesPanel = ( {
 			onChange={ setter( 'style' ) }
 		/>
 
+		{ ! allowIndividualStyleOverride && showOutlined && (
+			<ToggleControl
+				label={ __( 'Outlined', 'material-design' ) }
+				checked={ outlined }
+				onChange={ setter( 'outlined' ) }
+			/>
+		) }
+
 		{ ( style === 'masonry' || style === 'grid' ) && showColumns && (
 			<>
 				<RangeControl
@@ -152,13 +160,6 @@ const CardStylesPanel = ( {
 			</div>
 		) }
 
-		{ ! allowIndividualStyleOverride && showOutlined && (
-			<ToggleControl
-				label={ __( 'Outlined', 'material-design' ) }
-				checked={ outlined }
-				onChange={ setter( 'outlined' ) }
-			/>
-		) }
 		{ showGutter && (
 			<AttributeWithDevices
 				label={ __( 'Gutter', 'material-design' ) }
