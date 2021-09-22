@@ -137,6 +137,22 @@ const CardStylesPanel = ( {
 			/>
 		) }
 
+		{ ! allowIndividualStyleOverride && showCornerRadius && (
+			<div className="components-base-control">
+				<label className="components-base-control__label" htmlFor="shape-size">
+					{ __( 'Corner Radius', 'material-design' ) }
+				</label>
+
+				<GlobalShapeSize
+					value={ cornerRadius }
+					onChange={ setter( 'cornerRadius' ) }
+					min={ minRoundedCornersRadius }
+					max={ maxRoundedCornersRadius }
+					blockName={ CardCollectionBlockName }
+				/>
+			</div>
+		) }
+
 		{ ( style === 'masonry' || style === 'grid' ) && showColumns && (
 			<>
 				<RangeControl
@@ -162,22 +178,6 @@ const CardStylesPanel = ( {
 					/>
 				) }
 			</>
-		) }
-
-		{ ! allowIndividualStyleOverride && showCornerRadius && (
-			<div className="components-base-control">
-				<label className="components-base-control__label" htmlFor="shape-size">
-					{ __( 'Corner Styles', 'material-design' ) }
-				</label>
-
-				<GlobalShapeSize
-					value={ cornerRadius }
-					onChange={ setter( 'cornerRadius' ) }
-					min={ minRoundedCornersRadius }
-					max={ maxRoundedCornersRadius }
-					blockName={ CardCollectionBlockName }
-				/>
-			</div>
 		) }
 
 		{ showGutter && (
