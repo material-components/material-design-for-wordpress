@@ -19,6 +19,7 @@
  */
 import { __ } from '@wordpress/i18n';
 import {
+	Notice,
 	PanelBody,
 	RangeControl,
 	RadioControl,
@@ -34,6 +35,7 @@ import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
 import { name as CardCollectionBlockName } from '../../blocks/cards-collection/index';
 import getConfig from '../../utils/get-config';
 import AttributeWithDevices from '../attribute-with-devices';
+import './style.css';
 
 const CARD_STYLES = [
 	{
@@ -106,6 +108,26 @@ const CardStylesPanel = ( {
 			onChange={ setter( 'style' ) }
 		/>
 
+		<Notice status="warning" isDismissible={ false }>
+			<p>
+				{ __(
+					'Overrides applies to this Card Block. Change ',
+					'material-design'
+				) }
+				<a
+					href={ getConfig( 'customizerUrls' ).shape }
+					target="_blank"
+					rel="noreferrer noopener"
+				>
+					{ __( 'Global Styles', 'material-design' ) }
+				</a>
+				{ __(
+					' in Material Design Options to update all cards.',
+					'material-design'
+				) }
+			</p>
+		</Notice>
+
 		{ ! allowIndividualStyleOverride && showOutlined && (
 			<RadioControl
 				label={ __( 'Card Style', 'material-design' ) }
@@ -148,20 +170,6 @@ const CardStylesPanel = ( {
 					{ __( 'Corner Styles', 'material-design' ) }
 				</label>
 
-				<div>
-					{ __(
-						'Overrides will only apply to these cards. Change Cards corner styles in ',
-						'material-design'
-					) }
-					<a
-						href={ getConfig( 'customizerUrls' ).shape }
-						target="_blank"
-						rel="noreferrer noopener"
-					>
-						{ __( 'Material Design Options', 'material-design' ) }
-					</a>
-					{ __( ' to update all cards.', 'material-design' ) }
-				</div>
 				<GlobalShapeSize
 					value={ cornerRadius }
 					onChange={ setter( 'cornerRadius' ) }
