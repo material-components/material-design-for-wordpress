@@ -42,6 +42,17 @@ const CONTENT_LAYOUTS = [
 	},
 ];
 
+const CARD_ELEVATION_STYLES = [
+	{
+		label: __( 'Outlined', 'material-design' ),
+		value: 'outlined',
+	},
+	{
+		label: __( 'Filled', 'material-design' ),
+		value: 'filled',
+	},
+];
+
 const MIN_CARD_ROUND_CORNERS = 0;
 const MAX_CARD_ROUND_CORNERS = 20;
 
@@ -63,7 +74,7 @@ const InspectorControlsStylePanel = ( {
 	cardLayoutStyle = 'vertical',
 	contentLayout,
 	cornerRadius,
-	outlined,
+	cardStyle,
 	isSingleCard,
 	setter,
 	cardIndex,
@@ -115,10 +126,11 @@ const InspectorControlsStylePanel = ( {
 			/>
 		</div>
 
-		<ToggleControl
-			label={ __( 'Outlined', 'material-design' ) }
-			checked={ outlined }
-			onChange={ value => setter( 'outlined', value, cardIndex ) }
+		<RadioControl
+			label={ __( 'Card Style', 'material-design' ) }
+			selected={ cardStyle }
+			options={ CARD_ELEVATION_STYLES }
+			onChange={ value => setter( 'cardStyle', value, cardIndex ) }
 		/>
 	</PanelBody>
 );
