@@ -68,6 +68,17 @@ const CONTENT_LAYOUTS = [
 	},
 ];
 
+const CARD_ELEVATION_STYLES = [
+	{
+		label: __( 'Outlined', 'material-design' ),
+		value: 'outlined',
+	},
+	{
+		label: __( 'Filled', 'material-design' ),
+		value: 'filled',
+	},
+];
+
 const CardStylesPanel = ( {
 	style,
 	columns,
@@ -84,7 +95,7 @@ const CardStylesPanel = ( {
 	showCornerRadius = false,
 	minRoundedCornersRadius = 0,
 	maxRoundedCornersRadius = 24,
-	outlined,
+	cardStyle,
 	showOutlined = true,
 	setter,
 } ) => (
@@ -96,10 +107,11 @@ const CardStylesPanel = ( {
 		/>
 
 		{ ! allowIndividualStyleOverride && showOutlined && (
-			<ToggleControl
-				label={ __( 'Outlined', 'material-design' ) }
-				checked={ outlined }
-				onChange={ setter( 'outlined' ) }
+			<RadioControl
+				label={ __( 'Card Style', 'material-design' ) }
+				selected={ cardStyle }
+				options={ CARD_ELEVATION_STYLES }
+				onChange={ setter( 'cardStyle' ) }
 			/>
 		) }
 

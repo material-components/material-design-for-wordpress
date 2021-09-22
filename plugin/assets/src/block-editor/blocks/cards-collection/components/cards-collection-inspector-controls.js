@@ -51,7 +51,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 		cardsProps,
 		gutter,
 		cornerRadius,
-		outlined,
+		cardStyle,
 		allowIndividualStyleOverride,
 		allowIndividualContentOverride,
 		displayTitle,
@@ -68,7 +68,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 			cardLayoutStyle: style === 'list' ? 'horizontal' : 'vertical',
 			contentLayout: cardProps.contentLayout,
 			cornerRadius: cardProps.cornerRadius,
-			outlined: cardProps.outlined,
+			cardStyle: cardProps.cardStyle,
 			isSingleCard: false,
 			setter,
 			cardIndex,
@@ -128,7 +128,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 				showGutter={ true }
 				cornerRadius={ cornerRadius }
 				showCornerRadius={ true }
-				outlined={ outlined }
+				cardStyle={ cardStyle }
 				setter={ standardSetter }
 			/>
 			<PanelBody
