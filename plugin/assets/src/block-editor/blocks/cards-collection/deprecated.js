@@ -22,14 +22,14 @@ import { omit } from 'lodash';
 /**
  * Internal dependencies
  */
-import save from './save';
 import metadata from './block.json';
+import save from './save';
 
 const { attributes } = metadata;
 
 const deprecated = [
 	{
-		attributes: { ...omit( attributes, [ 'imageElement' ] ) },
+		attributes: { ...omit( attributes, [ 'imageElement', 'outlined' ] ) },
 		save,
 		migrate( attr ) {
 			if ( 'undefined' === typeof attr.imageElement ) {
@@ -41,10 +41,21 @@ const deprecated = [
 				};
 			}
 
+			if ( 'undefined' === typeof attr.outlined ) {
+				attr = {
+					...attr,
+					...{
+						cardStyle: 'filled',
+					},
+				};
+			}
 			return attr;
 		},
 		isEligible( attr ) {
-			return 'undefined' === typeof attr.imageElement;
+			return (
+				'undefined' === typeof attr.imageElement ||
+				'undefined' === typeof attr.outlined
+			);
 		},
 	},
 ];
