@@ -47,10 +47,6 @@
       "type": "boolean",
       "default": false
     },
-    "outlined": {
-      "type": "boolean",
-      "default": false
-    },
     "allowIndividualStyleOverride": {
       "type": "boolean",
       "default": false
@@ -86,6 +82,10 @@
     "imageElement": {
       "type": "boolean",
       "default": true
+    },
+    "cardStyle": {
+      "type": "string",
+      "default": "filled"
     }
   },
 
