@@ -18,7 +18,7 @@
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import { PanelBody, RadioControl, ToggleControl } from '@wordpress/components';
+import { PanelBody, RadioControl } from '@wordpress/components';
 
 /**
  * Internal dependencies

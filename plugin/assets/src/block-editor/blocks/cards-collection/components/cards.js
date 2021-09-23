@@ -38,7 +38,7 @@ const Cards = ( { style, gutter, columns, cards, saveContext = false } ) => {
 		? {}
 		: {
 				gridGap: `${ desktopGutter }px`,
-		};
+		  };
 
 	const columnAttrs = saveContext
 		? {}
@@ -46,7 +46,7 @@ const Cards = ( { style, gutter, columns, cards, saveContext = false } ) => {
 				style: {
 					paddingLeft: `${ desktopGutter }px`,
 				},
-		};
+		  };
 
 	return (
 		<>

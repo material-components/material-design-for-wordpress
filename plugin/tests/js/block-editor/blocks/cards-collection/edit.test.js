@@ -306,7 +306,7 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 					displayTitle: true,
 					imageSourceUrl: '',
 					isImageEditMode: false,
-					outlined: false,
+					cardStyle: 'filled',
 					primaryActionButtonLabel: '',
 					primaryActionButtonNewTab: false,
 					primaryActionButtonNoFollow: false,
