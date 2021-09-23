@@ -25,8 +25,6 @@ import { render } from '@testing-library/react';
  */
 import CardStylesPanel from '../../../../../assets/src/block-editor/components/card-styles-panel';
 
-let windowSpy;
-
 /**
  * Render the component.
  *
@@ -59,19 +57,12 @@ const baseProps = {
 };
 
 describe( 'CardStylesPanel', () => {
-	beforeEach( () => {
-		windowSpy = jest.spyOn( window, "window", "get" );
-	} )
 	afterEach( () => {
 		jest.clearAllMocks();
 		windowSpy.mockRestore();
 	} );
 
 	it( 'matches snapshot', () => {
-		windowSpy.mockImplementation( () => ( {
-			getConfig: () => ( { shape: 'https://example.com' } ),
-		} ) );
-
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();
 	} );
