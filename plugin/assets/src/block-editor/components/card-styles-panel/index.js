@@ -116,7 +116,7 @@ const CardStylesPanel = ( {
 						'material-design'
 					) }
 					<a
-						href={ getConfig( 'customizerUrls' ).shape }
+						href={ getConfig( 'customizerUrls' )?.shape }
 						target="_blank"
 						rel="noreferrer noopener"
 					>

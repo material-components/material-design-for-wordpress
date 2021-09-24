@@ -59,7 +59,6 @@ const baseProps = {
 describe( 'CardStylesPanel', () => {
 	afterEach( () => {
 		jest.clearAllMocks();
-		windowSpy.mockRestore();
 	} );
 
 	it( 'matches snapshot', () => {
