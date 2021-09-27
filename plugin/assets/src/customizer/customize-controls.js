@@ -782,7 +782,7 @@ import getConfig from '../block-editor/utils/get-config';
 		} );
 
 		reRenderMaterialLibrary();
-		reRenderColorControls();
+		reRenderColorControls( { limitToDark: false } );
 		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
 		setTimeout( arrangeDarkMode, 300 );
