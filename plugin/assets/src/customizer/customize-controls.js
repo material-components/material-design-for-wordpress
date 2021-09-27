@@ -858,9 +858,16 @@ import getConfig from '../block-editor/utils/get-config';
 		renderStyleSettingsControl( control );
 	};
 
-	const reRenderColorControls = () => {
-		const controlObjectsDefault = getConfig( 'colorControls' );
-		const controlObjectsDark = getConfig( 'colorControlsDark' );
+	const reRenderColorControls = ( { limitToDark = false } ) => {
+		let controlObjectsDefault = [];
+		let controlObjectsDark = [];
+
+		if ( limitToDark ) {
+			controlObjectsDark = getConfig( 'colorControlsDark' );
+		} else {
+			controlObjectsDefault = getConfig( 'colorControls' );
+			controlObjectsDark = getConfig( 'colorControlsDark' );
+		}
 
 		const controlObjects = [ ...controlObjectsDefault, ...controlObjectsDark ];
 
@@ -899,6 +906,33 @@ import getConfig from '../block-editor/utils/get-config';
 					}
 
 					setting.bind( onCustomValueChange );
+
+					// Maybe trigger linked color.
+					if ( name.includes( '_color_dark' ) ) {
+						const parentSettingName = name.replace( '_dark', '' );
+						const control = api.control( name );
+
+						if ( parentSettingName ) {
+							api( parentSettingName, parentSetting => {
+								parentSetting.bind( value => {
+									const link = document.querySelector(
+										`${ control.selector } .material-design-color__link`
+									)?.innerText;
+
+									if ( link && 'link_off' !== link ) {
+										return;
+									}
+
+									const range = colorUtils.getColorRangeFromHex( value );
+
+									if ( range && range.dark ) {
+										setting.set( range.dark.hex );
+										reRenderColorControls( { limitToDark: true } );
+									}
+								} );
+							} );
+						}
+					}
 				} );
 			} );
 		}

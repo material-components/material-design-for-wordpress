@@ -71,13 +71,13 @@ const ColorControl = ( {
 		} else if ( 'contrast' === mode && isLinked ) {
 			setColor( range.light.hex );
 		}
-	}, [ mode, isLinked ] );
+	}, [ mode, isLinked, range ] );
 
 	useEffect( () => {
 		if ( isLinked ) {
 			onColorChange( color );
 		}
-	}, [ isLinked, color ] );
+	}, [ isLinked, color, onColorChange ] );
 
 	useEffect( () => {
 		if ( ! range ) {
@@ -87,7 +87,7 @@ const ColorControl = ( {
 		if ( COLOR_MODES.dark === mode ) {
 			setIsLinked( color === range.dark.hex );
 		}
-	}, [ color ] );
+	}, [ color, mode, range ] );
 
 	return (
 		<>
