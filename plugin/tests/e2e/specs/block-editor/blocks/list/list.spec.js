@@ -163,7 +163,7 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( el => el.innerText.trim(), primary )
 		).toStrictEqual( 'List Item 1List Item 2' );
 
-		await page.keyboard.press( 'Enter', { delay: 250 } );
+		await page.keyboard.press( 'Enter', { delay: 50 } );
 
 		items = await page.$$( '.mdc-list-item__primary-text' );
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 3 );
@@ -194,7 +194,7 @@ describe( 'blocks: material/list', () => {
 
 		await primary.click();
 		await page.keyboard.type( 'List Item 1', { delay: 250 } );
-		await primary.press( 'Enter', { delay: 250 } );
+		await primary.press( 'Enter', { delay: 50 } );
 		await page.keyboard.type( 'Secondary Text 1', { delay: 250 } );
 
 		const [ secondary ] = await page.$$( '.mdc-list-item__secondary-text' );
@@ -213,7 +213,7 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( el => el.innerText.trim(), primary )
 		).toStrictEqual( 'List Item 1Secondary Text 1' );
 
-		await primary.press( 'Enter', { delay: 250 } );
+		await primary.press( 'Enter', { delay: 50 } );
 
 		expect(
 			await page.evaluate( el => el.innerText.trim(), primary )
