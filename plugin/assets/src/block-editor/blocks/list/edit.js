@@ -149,9 +149,12 @@ const ListEdit = ( {
 		if ( ! items[ index ] ) {
 			return;
 		}
-
-		items[ index ].primaryText = text;
-		setAttributes( { items } );
+		const newItems = [ ...items ];
+		newItems[ index ] = Object.assign( {}, items[ index ], {
+			primaryText: text,
+		} );
+		setAttributes( { items: newItems } );
+		items = newItems;
 	};
 
 	/**
@@ -164,9 +167,12 @@ const ListEdit = ( {
 		if ( ! items[ index ] ) {
 			return;
 		}
-
-		items[ index ].secondaryText = text;
-		setAttributes( { items } );
+		const newItems = [ ...items ];
+		newItems[ index ] = Object.assign( {}, items[ index ], {
+			secondaryText: text,
+		} );
+		setAttributes( { items: newItems } );
+		items = newItems;
 	};
 
 	/**
