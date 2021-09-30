@@ -61,8 +61,8 @@ export const settings = {
 			default: true,
 		},
 		outlined: {
-			type: 'boolean',
-			default: false,
+			type: 'string',
+			default: 'global',
 		},
 		fullWidth: {
 			type: 'boolean',

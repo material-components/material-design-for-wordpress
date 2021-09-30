@@ -119,7 +119,7 @@ const HorizontalCardLayout = ( {
 		<div
 			className={ classnames(
 				'mdc-card',
-				{ 'mdc-card--outlined': outlined },
+				{ 'mdc-card--outlined': outlined === 'outlined' },
 				'material-design-card',
 				'material-design-card__list',
 				'material-design-basic'

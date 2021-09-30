@@ -53,7 +53,7 @@ const HorizontalCardLayout = props => {
 		<div
 			className={ classnames(
 				'mdc-card',
-				{ 'mdc-card--outlined': outlined },
+				{ 'mdc-card--outlined': outlined === 'outlined' },
 				'single-post-card',
 				'single-post-card__list',
 				'single-post-basic'

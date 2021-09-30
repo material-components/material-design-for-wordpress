@@ -66,7 +66,7 @@ const VerticalCardLayout = props => {
 		<div
 			className={ classnames(
 				'mdc-card',
-				{ 'mdc-card--outlined': outlined },
+				{ 'mdc-card--outlined': outlined === 'outlined' },
 				'single-post-card',
 				'single-post-basic'
 			) }

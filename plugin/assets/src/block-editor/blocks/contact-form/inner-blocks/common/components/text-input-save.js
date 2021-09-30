@@ -69,7 +69,7 @@ const TextInputSave = props => {
 					'mdc-text-field-container--not-required': ! isRequired,
 				} ) }
 			>
-				{ outlined ? (
+				{ outlined === 'outlined' ? (
 					<div
 						className={ classnames(
 							className,

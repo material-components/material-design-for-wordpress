@@ -26,8 +26,8 @@
 			"default": 12
 		},
 		"outlined": {
-			"type": "boolean",
-			"default": false
+			"type": "string",
+			"default": "global"
 		},
 		"displayPostDate": {
 			"type": "boolean",

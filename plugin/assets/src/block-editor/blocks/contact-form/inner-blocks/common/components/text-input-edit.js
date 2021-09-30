@@ -131,7 +131,7 @@ const TextInputEdit = props => {
 						</div>
 					)
 				) }
-				{ outlined ? (
+				{ outlined === 'outlined' ? (
 					<div
 						className={ classnames(
 							className,

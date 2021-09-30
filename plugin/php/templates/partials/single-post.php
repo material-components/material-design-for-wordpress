@@ -30,7 +30,7 @@ defined( 'ABSPATH' ) || exit;
 $attributes     = isset( $attributes ) ? $attributes : [];
 $style          = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
 $columns        = absint( isset( $attributes['columns'] ) ? $attributes['columns'] : 3 );
-$outlined       = isset( $attributes['outlined'] ) ? $attributes['outlined'] : false;
+$outlined       = isset( $attributes['outlined'] ) && in_array( $attributes['outlined'], [ 'global', 'outline', 'elevated' ], true ) ? $attributes['outlined'] : '';
 $layout         = isset( $attributes['contentLayout'] ) ? $attributes['contentLayout'] : 'text-above-media';
 $featured_image = isset( $attributes['displayFeaturedImage'] ) ? $attributes['displayFeaturedImage'] : true;
 
@@ -43,7 +43,7 @@ $column_span = 'grid' === $style ? floor( 12 / $columns ) : 12;
 $class_names = Template::classnames(
 	[
 		"single-post-card__$style",
-		'mdc-card--outlined' => $outlined,
+		'mdc-card--outlined' => $outlined === 'outlined',
 		'has-post-thumbnail' => $featured_image && has_post_thumbnail(),
 	]
 );
