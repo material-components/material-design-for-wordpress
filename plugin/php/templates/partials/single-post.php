@@ -44,6 +44,7 @@ $class_names = Template::classnames(
 	[
 		"single-post-card__$style",
 		'mdc-card--outlined' => $outlined === 'outlined',
+		'mdc-card--global-override' => $outlined === 'global',
 		'has-post-thumbnail' => $featured_image && has_post_thumbnail(),
 	]
 );

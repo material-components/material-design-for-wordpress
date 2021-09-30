@@ -120,6 +120,7 @@ const HorizontalCardLayout = ( {
 			className={ classnames(
 				'mdc-card',
 				{ 'mdc-card--outlined': outlined === 'outlined' },
+				{ 'mdc-card--global-override': outlined === 'global' },
 				'material-design-card',
 				'material-design-card__list',
 				'material-design-basic'

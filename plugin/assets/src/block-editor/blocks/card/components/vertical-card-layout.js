@@ -120,9 +120,12 @@ const VerticalCardLayout = ( {
 
 	return (
 		<div
-			className={ classnames( 'mdc-card', 'material-design-card', {
-				'mdc-card--outlined': outlined === 'outlined',
-			} ) }
+			className={ classnames(
+				'mdc-card',
+				'material-design-card',
+				{ 'mdc-card--outlined': outlined === 'outlined' },
+				{ 'mdc-card--global-override': outlined === 'global' }
+			) }
 			style={ styles }
 		>
 			<div

@@ -67,6 +67,7 @@ const VerticalCardLayout = props => {
 			className={ classnames(
 				'mdc-card',
 				{ 'mdc-card--outlined': outlined === 'outlined' },
+				{ 'mdc-card--global-override': outlined === 'global' },
 				'single-post-card',
 				'single-post-basic'
 			) }
