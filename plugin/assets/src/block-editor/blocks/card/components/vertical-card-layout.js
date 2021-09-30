@@ -18,6 +18,7 @@
  * External dependencies
  */
 import classnames from 'classnames';
+import { isBoolean } from 'lodash';
 
 /**
  * Internal dependencies
@@ -123,7 +124,10 @@ const VerticalCardLayout = ( {
 			className={ classnames(
 				'mdc-card',
 				'material-design-card',
-				{ 'mdc-card--outlined': outlined === 'outlined' },
+				{
+					'mdc-card--outlined':
+						outlined === 'outlined' || ( isBoolean( outlined ) && outlined ),
+				},
 				{ 'mdc-card--global-override': outlined === 'global' }
 			) }
 			style={ styles }

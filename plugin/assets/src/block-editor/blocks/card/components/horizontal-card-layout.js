@@ -18,6 +18,7 @@
  * External dependencies
  */
 import classnames from 'classnames';
+import { isBoolean } from 'lodash';
 
 /**
  * Internal dependencies
@@ -119,7 +120,10 @@ const HorizontalCardLayout = ( {
 		<div
 			className={ classnames(
 				'mdc-card',
-				{ 'mdc-card--outlined': outlined === 'outlined' },
+				{
+					'mdc-card--outlined':
+						outlined === 'outlined' || ( isBoolean( outlined ) && outlined ),
+				},
 				{ 'mdc-card--global-override': outlined === 'global' },
 				'material-design-card',
 				'material-design-card__list',

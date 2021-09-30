@@ -17,27 +17,22 @@
 /**
  * External dependencies
  */
-import { omit } from 'lodash';
+import { isBoolean } from 'lodash';
 
-/**
- * Internal dependencies
- */
-import save from './save';
-import metadata from './block.json';
-import getElevationStyleMigration from '../../helpers/get-outline-migration';
-
-const { attributes } = metadata;
-
-const deprecated = [
-	{
-		attributes: { ...omit( attributes, [ 'imageElement' ] ) },
+const getElevationStyleMigration = ( { attributes, save } ) => {
+	return {
+		attributes: {
+			...attributes,
+			...{ outlined: { type: 'bool', default: false } },
+		},
 		save,
 		migrate( attr ) {
-			if ( 'undefined' === typeof attr.imageElement ) {
+			// Convert boolean to outlined string.
+			if ( isBoolean( attr.outlined ) ) {
 				attr = {
 					...attr,
 					...{
-						imageElement: true,
+						outlined: attr.outlined ? 'outlined' : 'elevated',
 					},
 				};
 			}
@@ -45,13 +40,9 @@ const deprecated = [
 			return attr;
 		},
 		isEligible( attr ) {
-			return 'undefined' === typeof attr.imageElement;
+			return isBoolean( attr.outlined );
 		},
-	},
-	getElevationStyleMigration( {
-		attributes,
-		save,
-	} ),
-];
+	};
+};
 
-export default deprecated;
+export default getElevationStyleMigration;
