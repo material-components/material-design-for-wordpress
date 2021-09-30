@@ -19,12 +19,13 @@
  */
 import { __ } from '@wordpress/i18n';
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
+import { PanelBody, TextControl } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
 import RecaptchaInspectorControlsPanel from './recaptcha-inspector-controls-panel';
+import ElevationStyleControl from '../../../components/elevation-style-control';
 
 const FormInspectorControls = props => {
 	const {
@@ -58,10 +59,9 @@ const FormInspectorControls = props => {
 				title={ __( 'Style', 'material-design' ) }
 				initialOpen={ true }
 			>
-				<ToggleControl
-					label={ __( 'Outlined', 'material-design' ) }
-					checked={ outlined }
+				<ElevationStyleControl
 					onChange={ setter( 'outlined' ) }
+					selected={ outlined }
 				/>
 			</PanelBody>
 			<RecaptchaInspectorControlsPanel />

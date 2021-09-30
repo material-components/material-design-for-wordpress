@@ -34,6 +34,7 @@ import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
 import { name as CardCollectionBlockName } from '../../blocks/cards-collection/index';
 import getConfig from '../../utils/get-config';
 import AttributeWithDevices from '../attribute-with-devices';
+import ElevationStyleControl from '../elevation-style-control';
 
 const CARD_STYLES = [
 	{
@@ -153,10 +154,9 @@ const CardStylesPanel = ( {
 		) }
 
 		{ ! allowIndividualStyleOverride && showOutlined && (
-			<ToggleControl
-				label={ __( 'Outlined', 'material-design' ) }
-				checked={ outlined }
+			<ElevationStyleControl
 				onChange={ setter( 'outlined' ) }
+				selected={ outlined }
 			/>
 		) }
 		{ showGutter && (

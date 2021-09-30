@@ -82,8 +82,8 @@
       "type": "number"
     },
     "outlined": {
-      "type": "boolean",
-      "default": false
+      "type": "string",
+      "default": "global"
     },
     "imageElement": {
       "type": "boolean",

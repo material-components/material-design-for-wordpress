@@ -15,8 +15,8 @@
 		   "default": "Your message has been successfully sent"
 		},
 		"outlined": {
-		   "type": "boolean",
-		   "default": false
+		   "type": "string",
+		   "default": "global"
 		},
 		"fullWidth": {
 		   "type": "boolean",
