@@ -15,9 +15,9 @@
 		   "default": "Your message has been successfully sent"
 		},
 		"outlined": {
-		   "type": "string",
-		   "default": "global"
-		},
+			"enum": [ "global", "elevated", "outlined"],
+			"default": "global"
+		  },
 		"fullWidth": {
 		   "type": "boolean",
 		   "default": true

@@ -48,7 +48,7 @@
       "default": false
     },
     "outlined": {
-      "type": "string",
+      "enum": [ "global", "elevated", "outlined"],
       "default": "global"
     },
     "allowIndividualStyleOverride": {
