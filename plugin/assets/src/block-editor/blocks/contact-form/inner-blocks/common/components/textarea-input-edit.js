@@ -127,7 +127,7 @@ const TextAreaInputEdit = props => {
 						</div>
 					)
 				) }
-				{ outlined === 'outlined' ? (
+				{ outlined ? (
 					<div
 						className={ classnames(
 							className,

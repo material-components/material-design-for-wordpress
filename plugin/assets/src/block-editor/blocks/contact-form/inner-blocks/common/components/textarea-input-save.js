@@ -63,7 +63,7 @@ const TextAreaInputEdit = props => {
 	return (
 		<>
 			<div className="mdc-text-field-container">
-				{ outlined === 'outlined' ? (
+				{ outlined ? (
 					<div
 						className={ classnames(
 							className,
