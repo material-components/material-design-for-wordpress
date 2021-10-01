@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,15 @@
  * limitations under the License.
  */
 
-export { default as findIcon } from './find-icon';
-export { default as getConfig } from './get-config';
-export { default as getIconName } from './get-icon-name';
-export { default as isGlobalCardStyleOutlined } from './is-global-card-style-outlined.js';
+import { getConfig } from './index';
+
+/**
+ * Whether global card style outlined.
+ *
+ * @return {boolean} Is outlined.
+ */
+const isGlobalCardStyleOutlined = () =>
+	// eslint-disable-next-line camelcase
+	getConfig( 'defaults' )?.globalStyle?.card_style === 'outlined';
+
+export default isGlobalCardStyleOutlined;

@@ -27,6 +27,7 @@ import CardImage from './card-image';
 import CardPrimary from './card-primary';
 import CardSupportingText from './card-supporting-text';
 import CardActions from './card-actions';
+import { isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
  * Vertical Card Layout component.
@@ -126,7 +127,9 @@ const VerticalCardLayout = ( {
 				'material-design-card',
 				{
 					'mdc-card--outlined':
-						outlined === 'outlined' || ( isBoolean( outlined ) && outlined ),
+						outlined === 'outlined' ||
+						( isBoolean( outlined ) && outlined ) ||
+						( outlined === 'global' && isGlobalCardStyleOutlined() ),
 				},
 				{ 'mdc-card--global-override': outlined === 'global' }
 			) }

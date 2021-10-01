@@ -26,6 +26,7 @@ import { isBoolean } from 'lodash';
 import CardImage from './card-image';
 import CardPrimary from './card-primary';
 import CardActions from './card-actions';
+import { isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
@@ -122,7 +123,9 @@ const HorizontalCardLayout = ( {
 				'mdc-card',
 				{
 					'mdc-card--outlined':
-						outlined === 'outlined' || ( isBoolean( outlined ) && outlined ),
+						outlined === 'outlined' ||
+						( isBoolean( outlined ) && outlined ) ||
+						( outlined === 'global' && isGlobalCardStyleOutlined() ),
 				},
 				{ 'mdc-card--global-override': outlined === 'global' },
 				'material-design-card',

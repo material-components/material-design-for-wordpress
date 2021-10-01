@@ -25,6 +25,8 @@ import classnames from 'classnames';
 import CardImage from './card-image';
 import CardHeader from './card-header';
 import CardActions from './card-actions';
+import { isBoolean } from 'lodash';
+import { isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
@@ -55,7 +57,9 @@ const HorizontalCardLayout = props => {
 				'mdc-card',
 				{
 					'mdc-card--outlined':
-						outlined === 'outlined' || ( isBoolean( outlined ) && outlined ),
+						outlined === 'outlined' ||
+						( isBoolean( outlined ) && outlined ) ||
+						( outlined === 'global' && isGlobalCardStyleOutlined() ),
 				},
 				{ 'mdc-card--global-override': outlined === 'global' },
 				'single-post-card',
