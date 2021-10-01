@@ -23,7 +23,7 @@ const getElevationStyleMigration = ( { attributes, save } ) => {
 	return {
 		attributes: {
 			...attributes,
-			...{ outlined: { type: 'bool', default: false } },
+			...{ outlined: { type: 'boolean', default: false } },
 		},
 		save,
 		migrate( attr ) {
