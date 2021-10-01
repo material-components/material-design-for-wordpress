@@ -15,11 +15,6 @@
  */
 
 /**
- * External dependencies
- */
-import { isBoolean, omit } from 'lodash';
-
-/**
  * Internal dependencies
  */
 import metadata from './block.json';

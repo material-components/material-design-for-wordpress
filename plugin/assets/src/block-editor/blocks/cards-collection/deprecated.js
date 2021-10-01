@@ -17,7 +17,7 @@
 /**
  * External dependencies
  */
-import { isBoolean, omit } from 'lodash';
+import { omit } from 'lodash';
 
 /**
  * Internal dependencies
