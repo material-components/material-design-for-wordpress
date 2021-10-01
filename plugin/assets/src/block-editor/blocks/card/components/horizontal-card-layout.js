@@ -125,7 +125,9 @@ const HorizontalCardLayout = ( {
 					'mdc-card--outlined':
 						outlined === 'outlined' ||
 						( isBoolean( outlined ) && outlined ) ||
-						( outlined === 'global' && isGlobalCardStyleOutlined() ),
+						( outlined === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
 				},
 				{ 'mdc-card--global-override': outlined === 'global' },
 				'material-design-card',

@@ -60,6 +60,7 @@ const VerticalCardLayout = props => {
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
+		isEditMode,
 	} = props;
 
 	const cardImageProps = { type: '16-9', ...props };
@@ -72,7 +73,9 @@ const VerticalCardLayout = props => {
 					'mdc-card--outlined':
 						outlined === 'outlined' ||
 						( isBoolean( outlined ) && outlined ) ||
-						( outlined === 'global' && isGlobalCardStyleOutlined() ),
+						( outlined === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
 				},
 				{ 'mdc-card--global-override': outlined === 'global' },
 				'single-post-card',

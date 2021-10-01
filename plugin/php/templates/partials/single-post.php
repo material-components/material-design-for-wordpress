@@ -24,6 +24,7 @@
  */
 
 use MaterialDesign\Plugin\Template;
+use function MaterialDesign\Plugin\get_plugin_instance;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -40,12 +41,16 @@ if ( empty( $featured_image ) ) {
 
 // Determine column span.
 $column_span = 'grid' === $style ? floor( 12 / $columns ) : 12;
+$card_style  = get_plugin_instance()->block_types->get_global_styles( 'card_style' );
 $class_names = Template::classnames(
 	[
 		"single-post-card__$style",
-		'mdc-card--outlined'        => $outlined === 'outlined' || ( is_bool( $outlined ) && $outlined ),
-		'mdc-card--global-override' => $outlined === 'global',
-		'has-post-thumbnail'        => $featured_image && has_post_thumbnail(),
+		'mdc-card--outlined' => $outlined === 'outlined'
+														||
+														( is_bool( $outlined ) && $outlined )
+														||
+														( $outlined === 'global' && $card_style === 'outlined' ),
+		'has-post-thumbnail' => $featured_image && has_post_thumbnail(),
 	]
 );
 ?>

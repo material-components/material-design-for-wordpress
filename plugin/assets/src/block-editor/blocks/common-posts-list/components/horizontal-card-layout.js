@@ -49,6 +49,7 @@ const HorizontalCardLayout = props => {
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
+		isEditMode,
 	} = props;
 
 	return (
@@ -59,7 +60,9 @@ const HorizontalCardLayout = props => {
 					'mdc-card--outlined':
 						outlined === 'outlined' ||
 						( isBoolean( outlined ) && outlined ) ||
-						( outlined === 'global' && isGlobalCardStyleOutlined() ),
+						( outlined === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
 				},
 				{ 'mdc-card--global-override': outlined === 'global' },
 				'single-post-card',

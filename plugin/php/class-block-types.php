@@ -25,6 +25,7 @@
 
 namespace MaterialDesign\Plugin;
 
+use MaterialDesign\Plugin\Blocks\Card_Block;
 use MaterialDesign\Plugin\Blocks\Posts_List_Block;
 use MaterialDesign\Plugin\Blocks\Contact_Form_Block;
 
@@ -78,6 +79,17 @@ class Block_Types {
 			add_filter( 'block_categories_all', [ $this, 'block_category' ] );
 		} else {
 			add_filter( 'block_categories', [ $this, 'block_category' ] );
+		}
+
+		// Override global style class.
+		$static_card_blocks = [
+			'material/cards-collection',
+			'material/card',
+		];
+
+		foreach ( $static_card_blocks as $static_card_block ) {
+			$static_block = new Card_Block( $this->plugin, $static_card_block );
+			$static_block->init();
 		}
 	}
 
