@@ -725,6 +725,7 @@ class Controls extends Module_Base {
 				'themeStatus'            => $this->plugin->theme_status(),
 				'nonce'                  => wp_create_nonce( 'wp_rest' ),
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+				'resetCardStyleRest'     => esc_url( $this->plugin->reset_card_style_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
 				'styleChoices'           => $this->get_style_choices(),
 				'colorControls'          => $this->get_color_controls(),
@@ -1977,6 +1978,23 @@ class Controls extends Module_Base {
 				$control
 			);
 		}
+
+		$settings['card_reset'] = [
+			'transport'         => '',
+			'sanitize_callback' => '',
+			'default'           => '',
+		];
+
+		$controls['card_reset'] = [
+			'type'        => 'button',
+			'section'     => 'global_style',
+			'description' => __( 'On click of reset, all card posts with card blocks will be updated to use inherit from global card style.', 'material-design' ),
+			'settings'    => [],
+			'input_attrs' => [
+				'value' => __( 'Reset', 'material-design' ),
+				'class' => 'button button-primary material-global-style-reset',
+			],
+		];
 
 		$this->add_settings( $settings );
 		$this->add_controls( $controls );

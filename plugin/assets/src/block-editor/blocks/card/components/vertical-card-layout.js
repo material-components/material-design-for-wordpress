@@ -124,7 +124,6 @@ const VerticalCardLayout = ( {
 		<div
 			className={ classnames(
 				'mdc-card',
-				'material-design-card',
 				{
 					'mdc-card--outlined':
 						outlined === 'outlined' ||
@@ -133,7 +132,8 @@ const VerticalCardLayout = ( {
 							isGlobalCardStyleOutlined() &&
 							isEditMode ),
 				},
-				{ 'mdc-card--global-override': outlined === 'global' }
+				{ 'mdc-card--global-override': outlined === 'global' },
+				'material-design-card' // Class order is important for resetting state to global.
 			) }
 			style={ styles }
 		>

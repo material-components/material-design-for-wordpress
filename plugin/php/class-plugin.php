@@ -32,6 +32,8 @@ use MaterialDesign\Plugin\Customizer\Controls;
 use MaterialDesign\Plugin\Rest\Design_Assets_REST_Controller;
 use MaterialDesign\Plugin\Rest\Posts_REST_Controller;
 use MaterialDesign\Plugin\Rest\Onboarding_REST_Controller;
+use MaterialDesign\Plugin\Rest\Reset_Card_Style_Controller;
+use MaterialDesign\Plugin\Rest\Reset_Card_Style_Rest_Controller;
 
 /**
  * Main plugin bootstrap file.
@@ -93,6 +95,13 @@ class Plugin extends Plugin_Base {
 	 * @var Design_Assets_REST_Controller
 	 */
 	public $assets_rest_controller;
+
+	/**
+	 * Rest api migration for card style.
+	 *
+	 * @var Reset_Card_Style_Rest_Controller
+	 */
+	public $reset_card_style_rest_controller;
 
 	/**
 	 * Importer class.
@@ -164,6 +173,9 @@ class Plugin extends Plugin_Base {
 
 		$this->assets_rest_controller = new Design_Assets_REST_Controller( $this );
 		$this->assets_rest_controller->init();
+
+		$this->reset_card_style_rest_controller = new Reset_Card_Style_Rest_Controller( $this );
+		$this->reset_card_style_rest_controller->init();
 
 		$this->importer = new Importer( $this );
 		$this->importer->init();
