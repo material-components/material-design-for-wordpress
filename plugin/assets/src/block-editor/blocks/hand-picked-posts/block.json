@@ -27,7 +27,8 @@
 		},
 		"outlined": {
 			"enum": [ "global", "elevated", "outlined"],
-			"default": "global"
+			"default": "global",
+			"type": "string"
 		},
 		"displayPostDate": {
 			"type": "boolean",

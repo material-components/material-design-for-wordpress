@@ -83,7 +83,8 @@
     },
     "outlined": {
       "enum": [ "global", "elevated", "outlined"],
-      "default": "global"
+      "default": "global",
+      "type": "string"
     },
     "imageElement": {
       "type": "boolean",
