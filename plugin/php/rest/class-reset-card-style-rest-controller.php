@@ -128,6 +128,9 @@ class Reset_Card_Style_Rest_Controller extends API_Base {
 	 * @return array
 	 */
 	public function stop_modified_date_update( $new, $old ) {
+		if ( empty( $old['post_modified'] ) || empty( $old['post_modified_gmt'] ) || ( ! empty( $new['post_type'] ) && $new['post_type'] === 'revision' ) ) {
+			return $new;
+		}
 		$new['post_modified']     = $old['post_modified'];
 		$new['post_modified_gmt'] = $old['post_modified_gmt'];
 
