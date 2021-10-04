@@ -20,8 +20,6 @@
 import apiFetch from '@wordpress/api-fetch';
 import getConfig from '../../../block-editor/utils/get-config';
 
-let loader = null;
-
 /**
  * Handle click event.
  *
@@ -30,23 +28,32 @@ let loader = null;
 const handleClick = event => {
 	const source = event.target;
 	source.disabled = true;
-	loader = document.createElement( 'span' );
+	const loader = document.createElement( 'span' );
 	loader.classList.add( 'spinner', 'is-active' );
 	source.parentNode.appendChild( loader );
-	apiRequest();
-};
 
-/**
- * Set loading.
- *
- * @param {boolean} flag
- */
-const setLoading = flag => {
-	if ( flag ) {
-		loader.classList.add( 'is-active' );
-	} else {
-		loader.classList.remove( 'is-active' );
-	}
+	const onFail = error => {
+		console.error( error );
+		setLoading( false );
+	};
+
+	const setLoading = flag => {
+		if ( flag ) {
+			loader.classList.add( 'is-active' );
+		} else {
+			loader.classList.remove( 'is-active' );
+		}
+	};
+
+	const onSuccess = () => {
+		loader.remove();
+		const materialSuccessIcon = document.createElement( 'span' );
+		materialSuccessIcon.classList.add( 'material-icons-outlined' );
+		materialSuccessIcon.textContent = 'check_circle';
+		source.parentNode.appendChild( materialSuccessIcon );
+	};
+
+	apiRequest( { onSuccess, onFail, setLoading } );
 };
 
 /**
@@ -66,7 +73,7 @@ const handleGlobalStyleResetButtonClick = () => {
 /**
  * API request to reset global style attributes.
  */
-const apiRequest = () => {
+const apiRequest = ( { setLoading, onFail, onSuccess } ) => {
 	const requestArgs = {
 		path: `${ getConfig( 'resetCardStyleRest' ) }`,
 		method: 'POST',
@@ -74,18 +81,15 @@ const apiRequest = () => {
 			'X-WP-Nonce': getConfig( 'nonce' ),
 		},
 	};
-	const onFail = error => {
-		console.error( error );
-		setLoading( false );
-	};
 
 	apiFetch( requestArgs )
 		.then( data => {
 			if ( ! data?.pending ) {
 				setLoading( false );
+				onSuccess();
 			} else {
 				// Recursive call to check if the request is still pending.
-				apiRequest();
+				apiRequest( { setLoading, onFail, onSuccess } );
 			}
 		} )
 		.catch( onFail );
