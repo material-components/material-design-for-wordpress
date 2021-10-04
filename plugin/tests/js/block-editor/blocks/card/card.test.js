@@ -143,8 +143,9 @@ describe( 'blocks: material/card', () => {
 					type: 'number',
 				},
 				outlined: {
-					type: 'boolean',
-					default: false,
+					enum: [ 'global', 'elevated', 'outlined' ],
+					default: 'global',
+					type: 'string',
 				},
 				imageElement: {
 					default: true,

@@ -25,7 +25,7 @@ const ElevationStyleControl = ( { onChange, selected } ) => {
 		<RadioControl
 			label={ __( 'Elevation style', 'material-design' ) }
 			help={ __(
-				'Elevation style whether elevated or outlined',
+				'Elevation style whether elevated or outlined.',
 				'material-design'
 			) }
 			selected={ selected }

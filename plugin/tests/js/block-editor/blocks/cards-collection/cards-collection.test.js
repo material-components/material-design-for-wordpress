@@ -109,8 +109,9 @@ describe( 'blocks: material/cards-collection', () => {
 					default: false,
 				},
 				outlined: {
-					type: 'boolean',
-					default: false,
+					enum: [ 'global', 'elevated', 'outlined' ],
+					default: 'global',
+					type: 'string',
 				},
 				allowIndividualStyleOverride: {
 					type: 'boolean',
