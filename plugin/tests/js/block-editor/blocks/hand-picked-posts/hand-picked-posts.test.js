@@ -35,6 +35,13 @@ jest.mock(
 	}
 );
 
+jest.mock( '../../../../../assets/src/block-editor/utils/get-config', () => ( {
+	__esModule: true,
+	default: jest.fn( () => ( {
+		shape: 'http://google.com',
+	} ) ),
+} ) );
+
 describe( 'blocks: material/hand-picked-posts', () => {
 	afterEach( () => {
 		jest.clearAllMocks();

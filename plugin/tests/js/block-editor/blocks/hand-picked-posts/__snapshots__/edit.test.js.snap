@@ -6,7 +6,6 @@ Object {
   "baseElement": <body>
     <p
       class="a11y-speak-intro-text"
-      hidden="hidden"
       id="a11y-speak-intro-text"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     >
@@ -27,7 +26,9 @@ Object {
       class="a11y-speak-region"
       id="a11y-speak-polite"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
+    >
+       Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards.  
+    </div>
     <div>
       <div
         class="components-panel__body is-opened"
@@ -342,6 +343,166 @@ Object {
           </div>
         </div>
         <div
+          class="components-notice is-warning"
+        >
+          <div
+            class="components-notice__content"
+          >
+            <p>
+              Overrides applies to this Card Block. Change 
+              <a
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Global Styles
+              </a>
+               in Material Design Options to update all cards.
+            </p>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-radio-control-2"
+            >
+              Card Style
+            </label>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-2-0"
+                name="inspector-radio-control-2"
+                type="radio"
+                value="outlined"
+              />
+              <label
+                for="inspector-radio-control-2-0"
+              >
+                Outlined
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-2-1"
+                name="inspector-radio-control-2"
+                type="radio"
+                value="elevated"
+              />
+              <label
+                for="inspector-radio-control-2-1"
+              >
+                Elevated
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Card Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-radio-control-3"
+            >
+              Content layout
+            </label>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="inspector-radio-control-3-0"
+                name="inspector-radio-control-3"
+                type="radio"
+                value="text-above-media"
+              />
+              <label
+                for="inspector-radio-control-3-0"
+              >
+                Text above media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-3-1"
+                name="inspector-radio-control-3"
+                type="radio"
+                value="text-over-media"
+              />
+              <label
+                for="inspector-radio-control-3-1"
+              >
+                Text over media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-3-2"
+                name="inspector-radio-control-3"
+                type="radio"
+                value="text-under-media"
+              />
+              <label
+                for="inspector-radio-control-3-2"
+              >
+                Text under media
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
           class="components-base-control components-range-control"
         >
           <div
@@ -410,112 +571,6 @@ Object {
                 value="3"
               />
             </span>
-          </div>
-        </div>
-        <div
-          class="components-base-control components-radio-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-radio-control-1"
-            >
-              Content layout
-            </label>
-            <div
-              class="components-radio-control__option"
-            >
-              <input
-                checked=""
-                class="components-radio-control__input"
-                id="inspector-radio-control-1-0"
-                name="inspector-radio-control-1"
-                type="radio"
-                value="text-above-media"
-              />
-              <label
-                for="inspector-radio-control-1-0"
-              >
-                Text above media
-              </label>
-            </div>
-            <div
-              class="components-radio-control__option"
-            >
-              <input
-                class="components-radio-control__input"
-                id="inspector-radio-control-1-1"
-                name="inspector-radio-control-1"
-                type="radio"
-                value="text-over-media"
-              />
-              <label
-                for="inspector-radio-control-1-1"
-              >
-                Text over media
-              </label>
-            </div>
-            <div
-              class="components-radio-control__option"
-            >
-              <input
-                class="components-radio-control__input"
-                id="inspector-radio-control-1-2"
-                name="inspector-radio-control-1"
-                type="radio"
-                value="text-under-media"
-              />
-              <label
-                for="inspector-radio-control-1-2"
-              >
-                Text under media
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="components-base-control components-toggle-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <span
-              class="components-form-toggle"
-            >
-              <input
-                class="components-form-toggle__input"
-                id="inspector-toggle-control-6"
-                type="checkbox"
-              />
-              <span
-                class="components-form-toggle__track"
-              />
-              <span
-                class="components-form-toggle__thumb"
-              />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
-            </span>
-            <label
-              class="components-toggle-control__label"
-              for="inspector-toggle-control-6"
-            >
-              Outlined
-            </label>
           </div>
         </div>
       </div>
@@ -667,7 +722,7 @@ Object {
               <input
                 checked=""
                 class="components-form-toggle__input"
-                id="inspector-toggle-control-7"
+                id="inspector-toggle-control-5"
                 type="checkbox"
               />
               <span
@@ -693,7 +748,7 @@ Object {
             </span>
             <label
               class="components-toggle-control__label"
-              for="inspector-toggle-control-7"
+              for="inspector-toggle-control-5"
             >
               Post date
             </label>
@@ -711,7 +766,7 @@ Object {
               <input
                 checked=""
                 class="components-form-toggle__input"
-                id="inspector-toggle-control-8"
+                id="inspector-toggle-control-6"
                 type="checkbox"
               />
               <span
@@ -737,7 +792,7 @@ Object {
             </span>
             <label
               class="components-toggle-control__label"
-              for="inspector-toggle-control-8"
+              for="inspector-toggle-control-6"
             >
               Post excerpt
             </label>
@@ -826,7 +881,7 @@ Object {
               <input
                 checked=""
                 class="components-form-toggle__input"
-                id="inspector-toggle-control-9"
+                id="inspector-toggle-control-7"
                 type="checkbox"
               />
               <span
@@ -852,7 +907,7 @@ Object {
             </span>
             <label
               class="components-toggle-control__label"
-              for="inspector-toggle-control-9"
+              for="inspector-toggle-control-7"
             >
               Featured image
             </label>
@@ -870,7 +925,7 @@ Object {
               <input
                 checked=""
                 class="components-form-toggle__input"
-                id="inspector-toggle-control-10"
+                id="inspector-toggle-control-8"
                 type="checkbox"
               />
               <span
@@ -896,7 +951,7 @@ Object {
             </span>
             <label
               class="components-toggle-control__label"
-              for="inspector-toggle-control-10"
+              for="inspector-toggle-control-8"
             >
               Comments count
             </label>
@@ -913,7 +968,7 @@ Object {
             >
               <input
                 class="components-form-toggle__input"
-                id="inspector-toggle-control-11"
+                id="inspector-toggle-control-9"
                 type="checkbox"
               />
               <span
@@ -939,7 +994,7 @@ Object {
             </span>
             <label
               class="components-toggle-control__label"
-              for="inspector-toggle-control-11"
+              for="inspector-toggle-control-9"
             >
               Post author
             </label>
@@ -1019,13 +1074,13 @@ Object {
                 >
                   <input
                     class="components-radio-control__input"
-                    id="inspector-radio-control-2-0"
-                    name="inspector-radio-control-2"
+                    id="inspector-radio-control-4-0"
+                    name="inspector-radio-control-4"
                     type="radio"
                     value="posts-pages"
                   />
                   <label
-                    for="inspector-radio-control-2-0"
+                    for="inspector-radio-control-4-0"
                   >
                     Posts and Pages
                   </label>
@@ -1035,13 +1090,13 @@ Object {
                 >
                   <input
                     class="components-radio-control__input"
-                    id="inspector-radio-control-2-1"
-                    name="inspector-radio-control-2"
+                    id="inspector-radio-control-4-1"
+                    name="inspector-radio-control-4"
                     type="radio"
                     value="portfolio"
                   />
                   <label
-                    for="inspector-radio-control-2-1"
+                    for="inspector-radio-control-4-1"
                   >
                     Portfolios
                   </label>
@@ -1051,13 +1106,13 @@ Object {
                 >
                   <input
                     class="components-radio-control__input"
-                    id="inspector-radio-control-2-2"
-                    name="inspector-radio-control-2"
+                    id="inspector-radio-control-4-2"
+                    name="inspector-radio-control-4"
                     type="radio"
                     value="recipe"
                   />
                   <label
-                    for="inspector-radio-control-2-2"
+                    for="inspector-radio-control-4-2"
                   >
                     Recipes
                   </label>
@@ -1067,13 +1122,13 @@ Object {
                 >
                   <input
                     class="components-radio-control__input"
-                    id="inspector-radio-control-2-3"
-                    name="inspector-radio-control-2"
+                    id="inspector-radio-control-4-3"
+                    name="inspector-radio-control-4"
                     type="radio"
                     value="book"
                   />
                   <label
-                    for="inspector-radio-control-2-3"
+                    for="inspector-radio-control-4-3"
                   >
                     Books
                   </label>
@@ -1410,6 +1465,166 @@ Object {
         </div>
       </div>
       <div
+        class="components-notice is-warning"
+      >
+        <div
+          class="components-notice__content"
+        >
+          <p>
+            Overrides applies to this Card Block. Change 
+            <a
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Global Styles
+            </a>
+             in Material Design Options to update all cards.
+          </p>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-radio-control-2"
+          >
+            Card Style
+          </label>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-2-0"
+              name="inspector-radio-control-2"
+              type="radio"
+              value="outlined"
+            />
+            <label
+              for="inspector-radio-control-2-0"
+            >
+              Outlined
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-2-1"
+              name="inspector-radio-control-2"
+              type="radio"
+              value="elevated"
+            />
+            <label
+              for="inspector-radio-control-2-1"
+            >
+              Elevated
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Card Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-radio-control-3"
+          >
+            Content layout
+          </label>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="inspector-radio-control-3-0"
+              name="inspector-radio-control-3"
+              type="radio"
+              value="text-above-media"
+            />
+            <label
+              for="inspector-radio-control-3-0"
+            >
+              Text above media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-3-1"
+              name="inspector-radio-control-3"
+              type="radio"
+              value="text-over-media"
+            />
+            <label
+              for="inspector-radio-control-3-1"
+            >
+              Text over media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-3-2"
+              name="inspector-radio-control-3"
+              type="radio"
+              value="text-under-media"
+            />
+            <label
+              for="inspector-radio-control-3-2"
+            >
+              Text under media
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
         class="components-base-control components-range-control"
       >
         <div
@@ -1478,112 +1693,6 @@ Object {
               value="3"
             />
           </span>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-radio-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-radio-control-1"
-          >
-            Content layout
-          </label>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              checked=""
-              class="components-radio-control__input"
-              id="inspector-radio-control-1-0"
-              name="inspector-radio-control-1"
-              type="radio"
-              value="text-above-media"
-            />
-            <label
-              for="inspector-radio-control-1-0"
-            >
-              Text above media
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="inspector-radio-control-1-1"
-              name="inspector-radio-control-1"
-              type="radio"
-              value="text-over-media"
-            />
-            <label
-              for="inspector-radio-control-1-1"
-            >
-              Text over media
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="inspector-radio-control-1-2"
-              name="inspector-radio-control-1"
-              type="radio"
-              value="text-under-media"
-            />
-            <label
-              for="inspector-radio-control-1-2"
-            >
-              Text under media
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <span
-            class="components-form-toggle"
-          >
-            <input
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-6"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-6"
-          >
-            Outlined
-          </label>
         </div>
       </div>
     </div>
@@ -1735,7 +1844,7 @@ Object {
             <input
               checked=""
               class="components-form-toggle__input"
-              id="inspector-toggle-control-7"
+              id="inspector-toggle-control-5"
               type="checkbox"
             />
             <span
@@ -1761,7 +1870,7 @@ Object {
           </span>
           <label
             class="components-toggle-control__label"
-            for="inspector-toggle-control-7"
+            for="inspector-toggle-control-5"
           >
             Post date
           </label>
@@ -1779,7 +1888,7 @@ Object {
             <input
               checked=""
               class="components-form-toggle__input"
-              id="inspector-toggle-control-8"
+              id="inspector-toggle-control-6"
               type="checkbox"
             />
             <span
@@ -1805,7 +1914,7 @@ Object {
           </span>
           <label
             class="components-toggle-control__label"
-            for="inspector-toggle-control-8"
+            for="inspector-toggle-control-6"
           >
             Post excerpt
           </label>
@@ -1894,7 +2003,7 @@ Object {
             <input
               checked=""
               class="components-form-toggle__input"
-              id="inspector-toggle-control-9"
+              id="inspector-toggle-control-7"
               type="checkbox"
             />
             <span
@@ -1920,7 +2029,7 @@ Object {
           </span>
           <label
             class="components-toggle-control__label"
-            for="inspector-toggle-control-9"
+            for="inspector-toggle-control-7"
           >
             Featured image
           </label>
@@ -1938,7 +2047,7 @@ Object {
             <input
               checked=""
               class="components-form-toggle__input"
-              id="inspector-toggle-control-10"
+              id="inspector-toggle-control-8"
               type="checkbox"
             />
             <span
@@ -1964,7 +2073,7 @@ Object {
           </span>
           <label
             class="components-toggle-control__label"
-            for="inspector-toggle-control-10"
+            for="inspector-toggle-control-8"
           >
             Comments count
           </label>
@@ -1981,7 +2090,7 @@ Object {
           >
             <input
               class="components-form-toggle__input"
-              id="inspector-toggle-control-11"
+              id="inspector-toggle-control-9"
               type="checkbox"
             />
             <span
@@ -2007,7 +2116,7 @@ Object {
           </span>
           <label
             class="components-toggle-control__label"
-            for="inspector-toggle-control-11"
+            for="inspector-toggle-control-9"
           >
             Post author
           </label>
@@ -2087,13 +2196,13 @@ Object {
               >
                 <input
                   class="components-radio-control__input"
-                  id="inspector-radio-control-2-0"
-                  name="inspector-radio-control-2"
+                  id="inspector-radio-control-4-0"
+                  name="inspector-radio-control-4"
                   type="radio"
                   value="posts-pages"
                 />
                 <label
-                  for="inspector-radio-control-2-0"
+                  for="inspector-radio-control-4-0"
                 >
                   Posts and Pages
                 </label>
@@ -2103,13 +2212,13 @@ Object {
               >
                 <input
                   class="components-radio-control__input"
-                  id="inspector-radio-control-2-1"
-                  name="inspector-radio-control-2"
+                  id="inspector-radio-control-4-1"
+                  name="inspector-radio-control-4"
                   type="radio"
                   value="portfolio"
                 />
                 <label
-                  for="inspector-radio-control-2-1"
+                  for="inspector-radio-control-4-1"
                 >
                   Portfolios
                 </label>
@@ -2119,13 +2228,13 @@ Object {
               >
                 <input
                   class="components-radio-control__input"
-                  id="inspector-radio-control-2-2"
-                  name="inspector-radio-control-2"
+                  id="inspector-radio-control-4-2"
+                  name="inspector-radio-control-4"
                   type="radio"
                   value="recipe"
                 />
                 <label
-                  for="inspector-radio-control-2-2"
+                  for="inspector-radio-control-4-2"
                 >
                   Recipes
                 </label>
@@ -2135,13 +2244,13 @@ Object {
               >
                 <input
                   class="components-radio-control__input"
-                  id="inspector-radio-control-2-3"
-                  name="inspector-radio-control-2"
+                  id="inspector-radio-control-4-3"
+                  name="inspector-radio-control-4"
                   type="radio"
                   value="book"
                 />
                 <label
-                  for="inspector-radio-control-2-3"
+                  for="inspector-radio-control-4-3"
                 >
                   Books
                 </label>
@@ -2223,7 +2332,6 @@ Object {
   "baseElement": <body>
     <p
       class="a11y-speak-intro-text"
-      hidden="hidden"
       id="a11y-speak-intro-text"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     >
@@ -2244,7 +2352,9 @@ Object {
       class="a11y-speak-region"
       id="a11y-speak-polite"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
-    />
+    >
+       Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards. 
+    </div>
     <div>
       <div
         class="components-panel__body is-opened"
@@ -2559,6 +2669,166 @@ Object {
           </div>
         </div>
         <div
+          class="components-notice is-warning"
+        >
+          <div
+            class="components-notice__content"
+          >
+            <p>
+              Overrides applies to this Card Block. Change 
+              <a
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Global Styles
+              </a>
+               in Material Design Options to update all cards.
+            </p>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-radio-control-0"
+            >
+              Card Style
+            </label>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-0"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="outlined"
+              />
+              <label
+                for="inspector-radio-control-0-0"
+              >
+                Outlined
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-1"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="elevated"
+              />
+              <label
+                for="inspector-radio-control-0-1"
+              >
+                Elevated
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="components-panel__body is-opened"
+      >
+        <h2
+          class="components-panel__body-title"
+        >
+          <button
+            aria-expanded="true"
+            class="components-button components-panel__body-toggle"
+            type="button"
+          >
+            <span
+              aria-hidden="true"
+            >
+              <svg
+                aria-hidden="true"
+                class="components-panel__arrow"
+                focusable="false"
+                height="24"
+                role="img"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                />
+              </svg>
+            </span>
+            Card Settings
+          </button>
+        </h2>
+        <div
+          class="components-base-control components-radio-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-radio-control-1"
+            >
+              Content layout
+            </label>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                checked=""
+                class="components-radio-control__input"
+                id="inspector-radio-control-1-0"
+                name="inspector-radio-control-1"
+                type="radio"
+                value="text-above-media"
+              />
+              <label
+                for="inspector-radio-control-1-0"
+              >
+                Text above media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-1-1"
+                name="inspector-radio-control-1"
+                type="radio"
+                value="text-over-media"
+              />
+              <label
+                for="inspector-radio-control-1-1"
+              >
+                Text over media
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                class="components-radio-control__input"
+                id="inspector-radio-control-1-2"
+                name="inspector-radio-control-1"
+                type="radio"
+                value="text-under-media"
+              />
+              <label
+                for="inspector-radio-control-1-2"
+              >
+                Text under media
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
           class="components-base-control components-range-control"
         >
           <div
@@ -2627,112 +2897,6 @@ Object {
                 value="3"
               />
             </span>
-          </div>
-        </div>
-        <div
-          class="components-base-control components-radio-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-radio-control-0"
-            >
-              Content layout
-            </label>
-            <div
-              class="components-radio-control__option"
-            >
-              <input
-                checked=""
-                class="components-radio-control__input"
-                id="inspector-radio-control-0-0"
-                name="inspector-radio-control-0"
-                type="radio"
-                value="text-above-media"
-              />
-              <label
-                for="inspector-radio-control-0-0"
-              >
-                Text above media
-              </label>
-            </div>
-            <div
-              class="components-radio-control__option"
-            >
-              <input
-                class="components-radio-control__input"
-                id="inspector-radio-control-0-1"
-                name="inspector-radio-control-0"
-                type="radio"
-                value="text-over-media"
-              />
-              <label
-                for="inspector-radio-control-0-1"
-              >
-                Text over media
-              </label>
-            </div>
-            <div
-              class="components-radio-control__option"
-            >
-              <input
-                class="components-radio-control__input"
-                id="inspector-radio-control-0-2"
-                name="inspector-radio-control-0"
-                type="radio"
-                value="text-under-media"
-              />
-              <label
-                for="inspector-radio-control-0-2"
-              >
-                Text under media
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          class="components-base-control components-toggle-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <span
-              class="components-form-toggle"
-            >
-              <input
-                class="components-form-toggle__input"
-                id="inspector-toggle-control-0"
-                type="checkbox"
-              />
-              <span
-                class="components-form-toggle__track"
-              />
-              <span
-                class="components-form-toggle__thumb"
-              />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
-            </span>
-            <label
-              class="components-toggle-control__label"
-              for="inspector-toggle-control-0"
-            >
-              Outlined
-            </label>
           </div>
         </div>
       </div>
@@ -2884,6 +3048,50 @@ Object {
               <input
                 checked=""
                 class="components-form-toggle__input"
+                id="inspector-toggle-control-0"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-0"
+            >
+              Post date
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
                 id="inspector-toggle-control-1"
                 type="checkbox"
               />
@@ -2911,50 +3119,6 @@ Object {
             <label
               class="components-toggle-control__label"
               for="inspector-toggle-control-1"
-            >
-              Post date
-            </label>
-          </div>
-        </div>
-        <div
-          class="components-base-control components-toggle-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <span
-              class="components-form-toggle is-checked"
-            >
-              <input
-                checked=""
-                class="components-form-toggle__input"
-                id="inspector-toggle-control-2"
-                type="checkbox"
-              />
-              <span
-                class="components-form-toggle__track"
-              />
-              <span
-                class="components-form-toggle__thumb"
-              />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
-            </span>
-            <label
-              class="components-toggle-control__label"
-              for="inspector-toggle-control-2"
             >
               Post excerpt
             </label>
@@ -3043,6 +3207,50 @@ Object {
               <input
                 checked=""
                 class="components-form-toggle__input"
+                id="inspector-toggle-control-2"
+                type="checkbox"
+              />
+              <span
+                class="components-form-toggle__track"
+              />
+              <span
+                class="components-form-toggle__thumb"
+              />
+              <svg
+                aria-hidden="true"
+                class="components-form-toggle__on"
+                focusable="false"
+                height="6"
+                role="img"
+                viewBox="0 0 2 6"
+                width="2"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h2v6H0z"
+                />
+              </svg>
+            </span>
+            <label
+              class="components-toggle-control__label"
+              for="inspector-toggle-control-2"
+            >
+              Featured image
+            </label>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-toggle-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <span
+              class="components-form-toggle is-checked"
+            >
+              <input
+                checked=""
+                class="components-form-toggle__input"
                 id="inspector-toggle-control-3"
                 type="checkbox"
               />
@@ -3071,50 +3279,6 @@ Object {
               class="components-toggle-control__label"
               for="inspector-toggle-control-3"
             >
-              Featured image
-            </label>
-          </div>
-        </div>
-        <div
-          class="components-base-control components-toggle-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <span
-              class="components-form-toggle is-checked"
-            >
-              <input
-                checked=""
-                class="components-form-toggle__input"
-                id="inspector-toggle-control-4"
-                type="checkbox"
-              />
-              <span
-                class="components-form-toggle__track"
-              />
-              <span
-                class="components-form-toggle__thumb"
-              />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
-            </span>
-            <label
-              class="components-toggle-control__label"
-              for="inspector-toggle-control-4"
-            >
               Comments count
             </label>
           </div>
@@ -3130,7 +3294,7 @@ Object {
             >
               <input
                 class="components-form-toggle__input"
-                id="inspector-toggle-control-5"
+                id="inspector-toggle-control-4"
                 type="checkbox"
               />
               <span
@@ -3156,7 +3320,7 @@ Object {
             </span>
             <label
               class="components-toggle-control__label"
-              for="inspector-toggle-control-5"
+              for="inspector-toggle-control-4"
             >
               Post author
             </label>
@@ -3644,6 +3808,166 @@ Object {
         </div>
       </div>
       <div
+        class="components-notice is-warning"
+      >
+        <div
+          class="components-notice__content"
+        >
+          <p>
+            Overrides applies to this Card Block. Change 
+            <a
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Global Styles
+            </a>
+             in Material Design Options to update all cards.
+          </p>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-radio-control-0"
+          >
+            Card Style
+          </label>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-0-0"
+              name="inspector-radio-control-0"
+              type="radio"
+              value="outlined"
+            />
+            <label
+              for="inspector-radio-control-0-0"
+            >
+              Outlined
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-0-1"
+              name="inspector-radio-control-0"
+              type="radio"
+              value="elevated"
+            />
+            <label
+              for="inspector-radio-control-0-1"
+            >
+              Elevated
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="components-panel__body is-opened"
+    >
+      <h2
+        class="components-panel__body-title"
+      >
+        <button
+          aria-expanded="true"
+          class="components-button components-panel__body-toggle"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            <svg
+              aria-hidden="true"
+              class="components-panel__arrow"
+              focusable="false"
+              height="24"
+              role="img"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+              />
+            </svg>
+          </span>
+          Card Settings
+        </button>
+      </h2>
+      <div
+        class="components-base-control components-radio-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-radio-control-1"
+          >
+            Content layout
+          </label>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              checked=""
+              class="components-radio-control__input"
+              id="inspector-radio-control-1-0"
+              name="inspector-radio-control-1"
+              type="radio"
+              value="text-above-media"
+            />
+            <label
+              for="inspector-radio-control-1-0"
+            >
+              Text above media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-1-1"
+              name="inspector-radio-control-1"
+              type="radio"
+              value="text-over-media"
+            />
+            <label
+              for="inspector-radio-control-1-1"
+            >
+              Text over media
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              class="components-radio-control__input"
+              id="inspector-radio-control-1-2"
+              name="inspector-radio-control-1"
+              type="radio"
+              value="text-under-media"
+            />
+            <label
+              for="inspector-radio-control-1-2"
+            >
+              Text under media
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
         class="components-base-control components-range-control"
       >
         <div
@@ -3712,112 +4036,6 @@ Object {
               value="3"
             />
           </span>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-radio-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-radio-control-0"
-          >
-            Content layout
-          </label>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              checked=""
-              class="components-radio-control__input"
-              id="inspector-radio-control-0-0"
-              name="inspector-radio-control-0"
-              type="radio"
-              value="text-above-media"
-            />
-            <label
-              for="inspector-radio-control-0-0"
-            >
-              Text above media
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="inspector-radio-control-0-1"
-              name="inspector-radio-control-0"
-              type="radio"
-              value="text-over-media"
-            />
-            <label
-              for="inspector-radio-control-0-1"
-            >
-              Text over media
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="inspector-radio-control-0-2"
-              name="inspector-radio-control-0"
-              type="radio"
-              value="text-under-media"
-            />
-            <label
-              for="inspector-radio-control-0-2"
-            >
-              Text under media
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <span
-            class="components-form-toggle"
-          >
-            <input
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-0"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-0"
-          >
-            Outlined
-          </label>
         </div>
       </div>
     </div>
@@ -3969,6 +4187,50 @@ Object {
             <input
               checked=""
               class="components-form-toggle__input"
+              id="inspector-toggle-control-0"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-0"
+          >
+            Post date
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
               id="inspector-toggle-control-1"
               type="checkbox"
             />
@@ -3996,50 +4258,6 @@ Object {
           <label
             class="components-toggle-control__label"
             for="inspector-toggle-control-1"
-          >
-            Post date
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-2"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-2"
           >
             Post excerpt
           </label>
@@ -4128,6 +4346,50 @@ Object {
             <input
               checked=""
               class="components-form-toggle__input"
+              id="inspector-toggle-control-2"
+              type="checkbox"
+            />
+            <span
+              class="components-form-toggle__track"
+            />
+            <span
+              class="components-form-toggle__thumb"
+            />
+            <svg
+              aria-hidden="true"
+              class="components-form-toggle__on"
+              focusable="false"
+              height="6"
+              role="img"
+              viewBox="0 0 2 6"
+              width="2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h2v6H0z"
+              />
+            </svg>
+          </span>
+          <label
+            class="components-toggle-control__label"
+            for="inspector-toggle-control-2"
+          >
+            Featured image
+          </label>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-toggle-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <span
+            class="components-form-toggle is-checked"
+          >
+            <input
+              checked=""
+              class="components-form-toggle__input"
               id="inspector-toggle-control-3"
               type="checkbox"
             />
@@ -4156,50 +4418,6 @@ Object {
             class="components-toggle-control__label"
             for="inspector-toggle-control-3"
           >
-            Featured image
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-4"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-4"
-          >
             Comments count
           </label>
         </div>
@@ -4215,7 +4433,7 @@ Object {
           >
             <input
               class="components-form-toggle__input"
-              id="inspector-toggle-control-5"
+              id="inspector-toggle-control-4"
               type="checkbox"
             />
             <span
@@ -4241,7 +4459,7 @@ Object {
           </span>
           <label
             class="components-toggle-control__label"
-            for="inspector-toggle-control-5"
+            for="inspector-toggle-control-4"
           >
             Post author
           </label>

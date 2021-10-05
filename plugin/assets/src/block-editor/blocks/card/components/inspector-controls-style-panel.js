@@ -18,7 +18,7 @@
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import { PanelBody, RadioControl, ToggleControl } from '@wordpress/components';
+import { PanelBody, RadioControl } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -39,6 +39,17 @@ const CONTENT_LAYOUTS = [
 	{
 		label: __( 'Text under media', 'material-design' ),
 		value: 'text-under-media',
+	},
+];
+
+export const CARD_ELEVATION_STYLES = [
+	{
+		label: __( 'Outlined', 'material-design' ),
+		value: 'outlined',
+	},
+	{
+		label: __( 'Elevated', 'material-design' ),
+		value: 'elevated',
 	},
 ];
 
@@ -63,7 +74,7 @@ const InspectorControlsStylePanel = ( {
 	cardLayoutStyle = 'vertical',
 	contentLayout,
 	cornerRadius,
-	outlined,
+	cardStyle,
 	isSingleCard,
 	setter,
 	cardIndex,
@@ -115,10 +126,11 @@ const InspectorControlsStylePanel = ( {
 			/>
 		</div>
 
-		<ToggleControl
-			label={ __( 'Outlined', 'material-design' ) }
-			checked={ outlined }
-			onChange={ value => setter( 'outlined', value, cardIndex ) }
+		<RadioControl
+			label={ __( 'Card Style', 'material-design' ) }
+			selected={ cardStyle }
+			options={ CARD_ELEVATION_STYLES }
+			onChange={ value => setter( 'cardStyle', value, cardIndex ) }
 		/>
 	</PanelBody>
 );
