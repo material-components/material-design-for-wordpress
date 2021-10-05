@@ -14,10 +14,7 @@
  * limitations under the License.
  */
 
-/**
- * External dependencies
- */
-import classnames from 'classnames';
+import './editor.css';
 
 /**
  * WordPress dependencies
@@ -29,18 +26,21 @@ import {
 	useState,
 } from '@wordpress/element';
 
+import { CARD_ATTRIBUTES_VALUE } from './constants';
+import Cards from './components/cards';
+import CardsCollectionInspectorControls from './components/cards-collection-inspector-controls';
+import FocusedCardControls from './components/focused-card-controls';
+import HorizontalCardLayout from '../card/components/horizontal-card-layout';
+import VerticalCardLayout from '../card/components/vertical-card-layout';
+/**
+ * External dependencies
+ */
+import classnames from 'classnames';
+import getColumnSpan from './utils/get-column-span';
 /**
  * Internal dependencies
  */
 import { withId } from '../../components/with-id';
-import CardsCollectionInspectorControls from './components/cards-collection-inspector-controls';
-import './editor.css';
-import { CARD_ATTRIBUTES_VALUE } from './constants';
-import VerticalCardLayout from '../card/components/vertical-card-layout';
-import HorizontalCardLayout from '../card/components/horizontal-card-layout';
-import FocusedCardControls from './components/focused-card-controls';
-import getColumnSpan from './utils/get-column-span';
-import Cards from './components/cards';
 
 /**
  * Card Collections Edit component.
@@ -59,7 +59,7 @@ const Edit = props => {
 		numberOfCards,
 		contentLayout,
 		cornerRadius,
-		outlined,
+		cardStyle,
 		displayTitle,
 		displaySecondaryText,
 		displayImage,
@@ -124,7 +124,7 @@ const Edit = props => {
 					if ( allowIndividualStyleOverride === false ) {
 						newCardsProps[ index ].contentLayout = contentLayout;
 						newCardsProps[ index ].cornerRadius = cornerRadius;
-						newCardsProps[ index ].outlined = outlined;
+						newCardsProps[ index ].cardStyle = cardStyle;
 					}
 				}
 				setAttributes( {
@@ -136,7 +136,7 @@ const Edit = props => {
 		[
 			contentLayout,
 			cornerRadius,
-			outlined,
+			cardStyle,
 			displayTitle,
 			displaySecondaryText,
 			displayImage,
@@ -192,7 +192,7 @@ const Edit = props => {
 					if ( allowIndividualStyleOverride === false ) {
 						cardAttributes.contentLayout = contentLayout;
 						cardAttributes.cornerRadius = cornerRadius;
-						cardAttributes.outlined = outlined;
+						cardAttributes.cardStyle = cardStyle;
 					}
 					cardsProps.push( cardAttributes );
 					cardsPropsHasIncreased = true;

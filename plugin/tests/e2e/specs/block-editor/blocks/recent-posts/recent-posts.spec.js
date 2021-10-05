@@ -108,13 +108,13 @@ describe( 'blocks: material/recent-posts', () => {
 		).not.toBeNull();
 	} );
 
-	it( 'should have an "Outlined" toggle selection attribute with default being off', async () => {
+	it( 'should have an "Outlined" radio selection attribute not selected by default', async () => {
 		await insertBlock( 'Recent Posts (Material)' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
 			await page.$x(
-				"//label[contains(text(), 'Outlined')]/preceding-sibling::span/input[@type = 'checkbox' and not(@checked)]"
+				"//label[contains(text(), 'Outlined')]/preceding-sibling::input[@type = 'radio' and not(@checked)]"
 			)
 		).toHaveLength( 1 );
 	} );

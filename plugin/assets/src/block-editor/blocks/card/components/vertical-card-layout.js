@@ -52,7 +52,7 @@ import CardActions from './card-actions';
  * @param {boolean} props.secondaryActionButtonNoFollow - Whether or not the secondary action button url rel property should be noFollow.
  * @param {boolean} props.displaySecondaryActionButton - Whether or not to show the secondary action button.
  * @param {boolean} props.displayActions - Whether or not to show the card actions row.
- * @param {boolean} props.outlined - Whether or not the card has an outlined style.
+ * @param {boolean} props.cardStyle - Either elevated style or outlined.
  * @param {number} props.cornerRadius - Card corner radius.
  * @param {Function} props.setter - Function to set block attributes value.
  * @param {boolean} props.isEditMode - Whether or not the block is in edit mode (inside Gutenberg editor or not).
@@ -81,12 +81,12 @@ const VerticalCardLayout = ( {
 	secondaryActionButtonNoFollow,
 	displaySecondaryActionButton,
 	displayActions,
-	outlined,
 	cornerRadius,
 	imageElement,
 	setter,
 	isEditMode,
 	isFocused,
+	cardStyle,
 } ) => {
 	const cardPrimaryProps = {
 		title,
@@ -121,7 +121,7 @@ const VerticalCardLayout = ( {
 	return (
 		<div
 			className={ classnames( 'mdc-card', 'material-design-card', {
-				'mdc-card--outlined': outlined,
+				'mdc-card--outlined': 'outlined' === cardStyle,
 			} ) }
 			style={ styles }
 		>
