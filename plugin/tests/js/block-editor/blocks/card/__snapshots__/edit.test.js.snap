@@ -254,12 +254,12 @@ Object {
                 id="inspector-radio-control-1-1"
                 name="inspector-radio-control-1"
                 type="radio"
-                value="filled"
+                value="elevated"
               />
               <label
                 for="inspector-radio-control-1-1"
               >
-                Filled
+                Elevated
               </label>
             </div>
           </div>
@@ -912,12 +912,12 @@ Object {
               id="inspector-radio-control-1-1"
               name="inspector-radio-control-1"
               type="radio"
-              value="filled"
+              value="elevated"
             />
             <label
               for="inspector-radio-control-1-1"
             >
-              Filled
+              Elevated
             </label>
           </div>
         </div>
@@ -1651,12 +1651,12 @@ Object {
                 id="inspector-radio-control-5-1"
                 name="inspector-radio-control-5"
                 type="radio"
-                value="filled"
+                value="elevated"
               />
               <label
                 for="inspector-radio-control-5-1"
               >
-                Filled
+                Elevated
               </label>
             </div>
           </div>
@@ -2309,12 +2309,12 @@ Object {
               id="inspector-radio-control-5-1"
               name="inspector-radio-control-5"
               type="radio"
-              value="filled"
+              value="elevated"
             />
             <label
               for="inspector-radio-control-5-1"
             >
-              Filled
+              Elevated
             </label>
           </div>
         </div>
@@ -3048,12 +3048,12 @@ Object {
                 id="inspector-radio-control-3-1"
                 name="inspector-radio-control-3"
                 type="radio"
-                value="filled"
+                value="elevated"
               />
               <label
                 for="inspector-radio-control-3-1"
               >
-                Filled
+                Elevated
               </label>
             </div>
           </div>
@@ -3673,12 +3673,12 @@ Object {
               id="inspector-radio-control-3-1"
               name="inspector-radio-control-3"
               type="radio"
-              value="filled"
+              value="elevated"
             />
             <label
               for="inspector-radio-control-3-1"
             >
-              Filled
+              Elevated
             </label>
           </div>
         </div>

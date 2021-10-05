@@ -45,7 +45,7 @@ const deprecated = [
 				attr = {
 					...attr,
 					...{
-						cardStyle: 'filled',
+						cardStyle: 'elevated',
 					},
 				};
 			}

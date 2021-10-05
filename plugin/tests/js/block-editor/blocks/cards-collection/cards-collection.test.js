@@ -110,7 +110,7 @@ describe( 'blocks: material/cards-collection', () => {
 				},
 				cardStyle: {
 					type: 'string',
-					default: 'filled',
+					default: 'elevated',
 				},
 				allowIndividualStyleOverride: {
 					type: 'boolean',

@@ -35,6 +35,7 @@ import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
 import { name as CardCollectionBlockName } from '../../blocks/cards-collection/index';
 import getConfig from '../../utils/get-config';
 import AttributeWithDevices from '../attribute-with-devices';
+import { CARD_ELEVATION_STYLES } from '../../blocks/card/components/inspector-controls-style-panel';
 import './style.css';
 
 const CARD_STYLES = [
@@ -67,17 +68,6 @@ const CONTENT_LAYOUTS = [
 	{
 		label: __( 'Text under media', 'material-design' ),
 		value: 'text-under-media',
-	},
-];
-
-const CARD_ELEVATION_STYLES = [
-	{
-		label: __( 'Outlined', 'material-design' ),
-		value: 'outlined',
-	},
-	{
-		label: __( 'Filled', 'material-design' ),
-		value: 'filled',
 	},
 ];
 

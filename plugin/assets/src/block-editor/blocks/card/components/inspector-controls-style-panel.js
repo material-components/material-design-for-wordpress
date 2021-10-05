@@ -42,14 +42,14 @@ const CONTENT_LAYOUTS = [
 	},
 ];
 
-const CARD_ELEVATION_STYLES = [
+export const CARD_ELEVATION_STYLES = [
 	{
 		label: __( 'Outlined', 'material-design' ),
 		value: 'outlined',
 	},
 	{
-		label: __( 'Filled', 'material-design' ),
-		value: 'filled',
+		label: __( 'Elevated', 'material-design' ),
+		value: 'elevated',
 	},
 ];
 

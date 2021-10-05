@@ -36,7 +36,7 @@ export const CARD_ATTRIBUTES_VALUE = {
 	secondaryActionButtonNoFollow: false,
 	displayActions: true,
 	displaySecondaryActionButton: false,
-	cardStyle: 'filled',
+	cardStyle: 'elevated',
 	cornerRadius: undefined,
 };
 

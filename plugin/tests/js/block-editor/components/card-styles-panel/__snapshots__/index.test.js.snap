@@ -396,12 +396,12 @@ Object {
                 id="inspector-radio-control-0-1"
                 name="inspector-radio-control-0"
                 type="radio"
-                value="filled"
+                value="elevated"
               />
               <label
                 for="inspector-radio-control-0-1"
               >
-                Filled
+                Elevated
               </label>
             </div>
           </div>
@@ -1045,12 +1045,12 @@ Object {
               id="inspector-radio-control-0-1"
               name="inspector-radio-control-0"
               type="radio"
-              value="filled"
+              value="elevated"
             />
             <label
               for="inspector-radio-control-0-1"
             >
-              Filled
+              Elevated
             </label>
           </div>
         </div>
@@ -1776,12 +1776,12 @@ Object {
                 id="inspector-radio-control-2-1"
                 name="inspector-radio-control-2"
                 type="radio"
-                value="filled"
+                value="elevated"
               />
               <label
                 for="inspector-radio-control-2-1"
               >
-                Filled
+                Elevated
               </label>
             </div>
           </div>
@@ -2425,12 +2425,12 @@ Object {
               id="inspector-radio-control-2-1"
               name="inspector-radio-control-2"
               type="radio"
-              value="filled"
+              value="elevated"
             />
             <label
               for="inspector-radio-control-2-1"
             >
-              Filled
+              Elevated
             </label>
           </div>
         </div>

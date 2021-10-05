@@ -397,12 +397,12 @@ Object {
                 id="inspector-radio-control-0-1"
                 name="inspector-radio-control-0"
                 type="radio"
-                value="filled"
+                value="elevated"
               />
               <label
                 for="inspector-radio-control-0-1"
               >
-                Filled
+                Elevated
               </label>
             </div>
           </div>
@@ -1838,12 +1838,12 @@ Object {
               id="inspector-radio-control-0-1"
               name="inspector-radio-control-0"
               type="radio"
-              value="filled"
+              value="elevated"
             />
             <label
               for="inspector-radio-control-0-1"
             >
-              Filled
+              Elevated
             </label>
           </div>
         </div>
@@ -3361,12 +3361,12 @@ Object {
                 id="inspector-radio-control-2-1"
                 name="inspector-radio-control-2"
                 type="radio"
-                value="filled"
+                value="elevated"
               />
               <label
                 for="inspector-radio-control-2-1"
               >
-                Filled
+                Elevated
               </label>
             </div>
           </div>
@@ -4788,12 +4788,12 @@ Object {
               id="inspector-radio-control-2-1"
               name="inspector-radio-control-2"
               type="radio"
-              value="filled"
+              value="elevated"
             />
             <label
               for="inspector-radio-control-2-1"
             >
-              Filled
+              Elevated
             </label>
           </div>
         </div>
@@ -6297,12 +6297,12 @@ Object {
                 id="inspector-radio-control-4-1"
                 name="inspector-radio-control-4"
                 type="radio"
-                value="filled"
+                value="elevated"
               />
               <label
                 for="inspector-radio-control-4-1"
               >
-                Filled
+                Elevated
               </label>
             </div>
           </div>
@@ -7476,12 +7476,12 @@ Object {
               id="inspector-radio-control-4-1"
               name="inspector-radio-control-4"
               type="radio"
-              value="filled"
+              value="elevated"
             />
             <label
               for="inspector-radio-control-4-1"
             >
-              Filled
+              Elevated
             </label>
           </div>
         </div>
@@ -9006,8 +9006,8 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       "value": "outlined",
                     },
                     Object {
-                      "label": "Filled",
-                      "value": "filled",
+                      "label": "Elevated",
+                      "value": "elevated",
                     },
                   ]
                 }
@@ -9059,12 +9059,12 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           name="inspector-radio-control-15"
                           onChange={[Function]}
                           type="radio"
-                          value="filled"
+                          value="elevated"
                         />
                         <label
                           htmlFor="inspector-radio-control-15-1"
                         >
-                          Filled
+                          Elevated
                         </label>
                       </div>
                     </div>
