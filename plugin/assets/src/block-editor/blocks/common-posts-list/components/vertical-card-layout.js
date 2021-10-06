@@ -18,7 +18,6 @@
  * External dependencies
  */
 import classnames from 'classnames';
-import { isBoolean } from 'lodash';
 
 /**
  * WordPress dependencies

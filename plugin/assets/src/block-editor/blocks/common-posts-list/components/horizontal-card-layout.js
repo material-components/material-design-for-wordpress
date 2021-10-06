@@ -25,7 +25,6 @@ import classnames from 'classnames';
 import CardImage from './card-image';
 import CardHeader from './card-header';
 import CardActions from './card-actions';
-import { isBoolean } from 'lodash';
 import { isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
