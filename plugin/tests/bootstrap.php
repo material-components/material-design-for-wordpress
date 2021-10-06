@@ -51,8 +51,14 @@ if ( ! file_exists( $_tests_dir . '/includes/' ) ) {
 // Load polyfill which is required by latest WP and some material tests which uses latest phpunit functions.
 $_yoast_polyfill_path_material = __DIR__ . '/../vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
 
-if ( file_exists( $_yoast_polyfill_path_material ) && ! class_exists( 'Yoast\PHPUnitPolyfills\Autoload' ) ) {
-	require_once $_yoast_polyfill_path_material;
+if ( ! class_exists( 'Yoast\PHPUnitPolyfills\Autoload' ) ) {
+	// Load file based on docker where vendor is mapped inside plugin folder.
+	if ( ! file_exists( $_yoast_polyfill_path_material ) ) {
+		$_yoast_polyfill_path_material = __DIR__ . '/../../vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
+	}
+	if ( file_exists( $_yoast_polyfill_path_material ) ) {
+		require_once $_yoast_polyfill_path_material;
+	}
 }
 
 require_once $_tests_dir . '/includes/functions.php';
