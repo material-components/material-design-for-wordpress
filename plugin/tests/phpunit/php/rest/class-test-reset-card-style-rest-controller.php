@@ -29,24 +29,21 @@ use MaterialDesign\Plugin\Plugin;
 use WP_REST_Request;
 use WP_Test_REST_Controller_Testcase;
 use WP_UnitTest_Factory;
+use Yoast\PHPUnitPolyfills\Polyfills\AssertStringContains;
 
 /**
  * Tests for the Test_Reset_Card_Style_Rest_Controller class.
  */
 class Test_Reset_Card_Style_Rest_Controller extends WP_Test_REST_Controller_Testcase {
+
+	use AssertStringContains;
+
 	/**
 	 * Admin user for test.
 	 *
 	 * @var int
 	 */
 	protected static $admin_id;
-
-	/**
-	 * Subscriber user for test.
-	 *
-	 * @var int
-	 */
-	protected static $subscriber_id;
 
 	/**
 	 * List of registered routes.
@@ -64,9 +61,6 @@ class Test_Reset_Card_Style_Rest_Controller extends WP_Test_REST_Controller_Test
 		self::$admin_id      = $factory->user->create(
 			[ 'role' => 'administrator' ]
 		);
-		self::$subscriber_id = $factory->user->create(
-			[ 'role' => 'subscriber' ]
-		);
 
 		static::$routes = rest_get_server()->get_routes();
 	}
@@ -76,7 +70,6 @@ class Test_Reset_Card_Style_Rest_Controller extends WP_Test_REST_Controller_Test
 	 */
 	public static function wpTearDownAfterClass() {
 		self::delete_user( self::$admin_id );
-		self::delete_user( self::$subscriber_id );
 	}
 
 	/**
