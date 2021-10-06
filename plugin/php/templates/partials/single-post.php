@@ -31,7 +31,9 @@ defined( 'ABSPATH' ) || exit;
 $attributes     = isset( $attributes ) ? $attributes : [];
 $style          = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
 $columns        = absint( isset( $attributes['columns'] ) ? $attributes['columns'] : 3 );
-$outlined       = isset( $attributes['outlined'] ) && in_array( $attributes['outlined'], [ 'global', 'outline', 'elevated' ], true ) ? $attributes['outlined'] : '';
+$card_elevation = isset( $attributes['cardStyle'] ) && in_array( $attributes['cardStyle'], [ 'global', 'outline', 'elevated' ], true ) ? $attributes['cardStyle'] : '';
+// Handle fallback for outlined.
+$card_elevation = isset( $attributes['outlined'] ) && ! $card_elevation ? $attributes['outlined'] : $card_elevation;
 $layout         = isset( $attributes['contentLayout'] ) ? $attributes['contentLayout'] : 'text-above-media';
 $featured_image = isset( $attributes['displayFeaturedImage'] ) ? $attributes['displayFeaturedImage'] : true;
 
@@ -45,11 +47,11 @@ $card_style  = get_plugin_instance()->block_types->get_global_styles( 'card_styl
 $class_names = Template::classnames(
 	[
 		"single-post-card__$style",
-		'mdc-card--outlined' => $outlined === 'outlined'
+		'mdc-card--outlined' => $card_elevation === 'outlined'
 														||
-														( is_bool( $outlined ) && $outlined )
+														( is_bool( $card_elevation ) && $card_elevation )
 														||
-														( $outlined === 'global' && $card_style === 'outlined' ),
+														( $card_elevation === 'global' && $card_style === 'outlined' ),
 		'has-post-thumbnail' => $featured_image && has_post_thumbnail(),
 	]
 );
