@@ -58,7 +58,7 @@ class Test_Reset_Card_Style_Rest_Controller extends WP_Test_REST_Controller_Test
 	 * @param WP_UnitTest_Factory $factory Helper that lets us create fake data.
 	 */
 	public static function wpSetUpBeforeClass( $factory ) {
-		self::$admin_id      = $factory->user->create(
+		self::$admin_id = $factory->user->create(
 			[ 'role' => 'administrator' ]
 		);
 
