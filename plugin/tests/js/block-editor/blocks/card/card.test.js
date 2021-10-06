@@ -142,7 +142,7 @@ describe( 'blocks: material/card', () => {
 				cornerRadius: {
 					type: 'number',
 				},
-				outlined: {
+				cardStyle: {
 					enum: [ 'global', 'elevated', 'outlined' ],
 					default: 'global',
 					type: 'string',
