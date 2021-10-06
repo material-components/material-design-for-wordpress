@@ -127,7 +127,6 @@ const VerticalCardLayout = ( {
 				{
 					'mdc-card--outlined':
 						cardStyle === 'outlined' ||
-						( isBoolean( cardStyle ) && cardStyle ) ||
 						( cardStyle === 'global' &&
 							isGlobalCardStyleOutlined() &&
 							isEditMode ),

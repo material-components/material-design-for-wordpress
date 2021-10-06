@@ -72,7 +72,6 @@ const VerticalCardLayout = props => {
 				{
 					'mdc-card--outlined':
 						cardStyle === 'outlined' ||
-						( isBoolean( cardStyle ) && cardStyle ) ||
 						( cardStyle === 'global' &&
 							isGlobalCardStyleOutlined() &&
 							isEditMode ),

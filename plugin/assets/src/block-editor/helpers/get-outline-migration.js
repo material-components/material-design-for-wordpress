@@ -25,11 +25,29 @@ const getElevationStyleMigration = ( { attributes, save } ) => {
 			...omit( attributes, [ 'cardStyle' ] ),
 			...{ outlined: { type: 'boolean', default: false } },
 		},
-		save,
+		save: params => {
+			params.attributes = {
+				...omit( params.attributes, [ 'outlined' ] ),
+				cardStyle: params.attributes.outlined ? 'outlined' : 'elevated',
+			};
+			// Handle cards collection.
+			if ( params.attributes?.cardsProps ) {
+				params.attributes.cardsProps = params.attributes.cardsProps.map(
+					cardProp => {
+						return {
+							...omit( cardProp, [ 'outlined' ] ),
+							cardStyle: cardProp.outlined ? 'outlined' : 'elevated',
+						};
+					}
+				);
+			}
+
+			return save( params );
+		},
 		migrate( attr ) {
 			// Convert outlined boolean to cardStyle string.
 			if ( isBoolean( attr.outlined ) ) {
-				attr = {
+				return {
 					...omit( attr, [ 'outlined' ] ),
 					...{
 						cardStyle: attr.outlined ? 'outlined' : 'elevated',

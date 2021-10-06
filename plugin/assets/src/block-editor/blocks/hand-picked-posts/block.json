@@ -25,7 +25,7 @@
 			"type": "number",
 			"default": 12
 		},
-		"outlined": {
+		"cardStyle": {
 			"enum": [ "global", "elevated", "outlined"],
 			"default": "global",
 			"type": "string"
