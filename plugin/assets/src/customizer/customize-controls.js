@@ -783,7 +783,7 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 		} );
 
 		reRenderMaterialLibrary();
-		reRenderColorControls();
+		reRenderColorControls( { limitToDark: false } );
 		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
 		setTimeout( arrangeDarkMode, 300 );

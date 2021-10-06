@@ -120,6 +120,8 @@ describe( 'InspectorControlsStylePanel', () => {
 		const { getByLabelText } = setup( props );
 		fireEvent.click( getByLabelText( 'Outlined' ) );
 
-		expect( props.setter ).toHaveBeenCalledWith( 'outlined', 'outlined', 0 );
+		expect( props.setter ).toHaveBeenCalledWith( 'cardStyle', 'outlined', 0 );
+		fireEvent.click( getByLabelText( 'Elevated' ) );
+		expect( props.setter ).toHaveBeenCalledWith( 'cardStyle', 'elevated', 0 );
 	} );
 } );

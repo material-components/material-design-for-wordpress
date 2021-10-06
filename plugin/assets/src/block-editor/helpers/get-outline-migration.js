@@ -17,22 +17,22 @@
 /**
  * External dependencies
  */
-import { isBoolean } from 'lodash';
+import { isBoolean, omit } from 'lodash';
 
 const getElevationStyleMigration = ( { attributes, save } ) => {
 	return {
 		attributes: {
-			...attributes,
+			...omit( attributes, [ 'cardStyle' ] ),
 			...{ outlined: { type: 'boolean', default: false } },
 		},
 		save,
 		migrate( attr ) {
-			// Convert boolean to outlined string.
+			// Convert outlined boolean to cardStyle string.
 			if ( isBoolean( attr.outlined ) ) {
 				attr = {
-					...attr,
+					...omit( attr, [ 'outlined' ] ),
 					...{
-						outlined: attr.outlined ? 'outlined' : 'elevated',
+						cardStyle: attr.outlined ? 'outlined' : 'elevated',
 					},
 				};
 			}

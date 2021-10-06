@@ -88,17 +88,17 @@ class Reset_Card_Style_Rest_Controller extends API_Base {
 		$post_types                = array_intersect( $editor_support_post_types, $public_post_type );
 		$post_types                = implode( "','", $post_types );
 
-		$result = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE post_type IN ('" . $post_types . "') AND ( post_content LIKE %s OR post_content like %s ) limit 100", '%"outlined":"outlined"%', '%"outlined":"elevated"%' ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
+		$result = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM {$wpdb->posts} WHERE post_type IN ('" . $post_types . "') AND ( post_content LIKE %s OR post_content like %s ) limit 100", '%"cardStyle":"outlined"%', '%"cardStyle":"elevated"%' ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
 		// Hook to ignore modified date.
 		add_filter( 'wp_insert_post_data', [ $this, 'stop_modified_date_update' ], 10, 2 );
 		foreach ( $result as $post_id ) {
 			$post               = get_post( $post_id );
 			$post->post_content = str_replace(
 				[
-					'"outlined":"outlined"',
-					'"outlined":"elevated"',
+					'"cardStyle":"outlined"',
+					'"cardStyle":"elevated"',
 				],
-				'"outlined":"global"',
+				'"cardStyle":"global"',
 				$post->post_content
 			);
 			$post->post_content = str_replace(

@@ -235,6 +235,7 @@ Object {
             >
               <input
                 aria-describedby="inspector-radio-control-1__help"
+                checked=""
                 class="components-radio-control__input"
                 id="inspector-radio-control-1-0"
                 name="inspector-radio-control-1"
@@ -589,7 +590,7 @@ Object {
       </div>
       <div>
         <div
-          class="mdc-card mdc-card--outlined material-design-card"
+          class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card"
           style="border-radius: 4px;"
         >
           <div
@@ -918,6 +919,7 @@ Object {
           >
             <input
               aria-describedby="inspector-radio-control-1__help"
+              checked=""
               class="components-radio-control__input"
               id="inspector-radio-control-1-0"
               name="inspector-radio-control-1"
@@ -1272,7 +1274,7 @@ Object {
     </div>
     <div>
       <div
-        class="mdc-card mdc-card--outlined material-design-card"
+        class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card"
         style="border-radius: 4px;"
       >
         <div
@@ -1682,6 +1684,7 @@ Object {
             >
               <input
                 aria-describedby="inspector-radio-control-5__help"
+                checked=""
                 class="components-radio-control__input"
                 id="inspector-radio-control-5-0"
                 name="inspector-radio-control-5"
@@ -2036,7 +2039,7 @@ Object {
       </div>
       <div>
         <div
-          class="mdc-card mdc-card--outlined material-design-card"
+          class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card"
           style="border-radius: 4px;"
         >
           <div
@@ -2365,6 +2368,7 @@ Object {
           >
             <input
               aria-describedby="inspector-radio-control-5__help"
+              checked=""
               class="components-radio-control__input"
               id="inspector-radio-control-5-0"
               name="inspector-radio-control-5"
@@ -2719,7 +2723,7 @@ Object {
     </div>
     <div>
       <div
-        class="mdc-card mdc-card--outlined material-design-card"
+        class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card"
         style="border-radius: 4px;"
       >
         <div
@@ -3129,6 +3133,7 @@ Object {
             >
               <input
                 aria-describedby="inspector-radio-control-3__help"
+                checked=""
                 class="components-radio-control__input"
                 id="inspector-radio-control-3-0"
                 name="inspector-radio-control-3"
@@ -3483,7 +3488,7 @@ Object {
       </div>
       <div>
         <div
-          class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
+          class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card material-design-card__list material-design-basic"
           style="border-radius: 4px;"
         >
           <div
@@ -3779,6 +3784,7 @@ Object {
           >
             <input
               aria-describedby="inspector-radio-control-3__help"
+              checked=""
               class="components-radio-control__input"
               id="inspector-radio-control-3-0"
               name="inspector-radio-control-3"
@@ -4133,7 +4139,7 @@ Object {
     </div>
     <div>
       <div
-        class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
+        class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card material-design-card__list material-design-basic"
         style="border-radius: 4px;"
       >
         <div

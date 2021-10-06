@@ -54,7 +54,7 @@ const VerticalCardLayout = props => {
 		excerpt,
 		imageSourceUrl,
 		contentLayout,
-		outlined,
+		cardStyle,
 		displayPostContent,
 		postContentLength,
 		displayFeaturedImage,
@@ -71,13 +71,13 @@ const VerticalCardLayout = props => {
 				'mdc-card',
 				{
 					'mdc-card--outlined':
-						outlined === 'outlined' ||
-						( isBoolean( outlined ) && outlined ) ||
-						( outlined === 'global' &&
+						cardStyle === 'outlined' ||
+						( isBoolean( cardStyle ) && cardStyle ) ||
+						( cardStyle === 'global' &&
 							isGlobalCardStyleOutlined() &&
 							isEditMode ),
 				},
-				{ 'mdc-card--global-override': outlined === 'global' },
+				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'single-post-card',
 				'single-post-basic'
 			) }

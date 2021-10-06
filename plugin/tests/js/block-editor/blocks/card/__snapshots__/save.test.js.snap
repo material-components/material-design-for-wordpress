@@ -31,7 +31,7 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-card mdc-card--outlined material-design-card"
+          class="mdc-card mdc-card--global-override material-design-card"
           style="border-radius: 4px;"
         >
           <div
@@ -108,7 +108,7 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-card mdc-card--outlined material-design-card"
+        class="mdc-card mdc-card--global-override material-design-card"
         style="border-radius: 4px;"
       >
         <div
@@ -266,7 +266,7 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-card mdc-card--outlined material-design-card"
+          class="mdc-card mdc-card--global-override material-design-card"
           style="border-radius: 4px;"
         >
           <div
@@ -343,7 +343,7 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-card mdc-card--outlined material-design-card"
+        class="mdc-card mdc-card--global-override material-design-card"
         style="border-radius: 4px;"
       >
         <div
@@ -501,7 +501,7 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
+          class="mdc-card mdc-card--global-override material-design-card material-design-card__list material-design-basic"
           style="border-radius: 4px;"
         >
           <div
@@ -573,7 +573,7 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
+        class="mdc-card mdc-card--global-override material-design-card material-design-card__list material-design-basic"
         style="border-radius: 4px;"
       >
         <div

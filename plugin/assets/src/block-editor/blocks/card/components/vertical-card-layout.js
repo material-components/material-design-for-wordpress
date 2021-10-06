@@ -83,7 +83,7 @@ const VerticalCardLayout = ( {
 	secondaryActionButtonNoFollow,
 	displaySecondaryActionButton,
 	displayActions,
-	outlined,
+	cardStyle,
 	cornerRadius,
 	imageElement,
 	setter,
@@ -126,13 +126,13 @@ const VerticalCardLayout = ( {
 				'mdc-card',
 				{
 					'mdc-card--outlined':
-						outlined === 'outlined' ||
-						( isBoolean( outlined ) && outlined ) ||
-						( outlined === 'global' &&
+						cardStyle === 'outlined' ||
+						( isBoolean( cardStyle ) && cardStyle ) ||
+						( cardStyle === 'global' &&
 							isGlobalCardStyleOutlined() &&
 							isEditMode ),
 				},
-				{ 'mdc-card--global-override': outlined === 'global' },
+				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'material-design-card' // Class order is important for resetting state to global.
 			) }
 			style={ styles }

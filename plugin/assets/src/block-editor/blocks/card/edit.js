@@ -62,7 +62,7 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 		secondaryActionButtonNoFollow,
 		displayActions,
 		displaySecondaryActionButton,
-		outlined,
+		cardStyle,
 		cornerRadius,
 	} = attributes;
 	const cardIndex = 0;
@@ -96,7 +96,7 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 		secondaryActionButtonNoFollow,
 		displayActions,
 		displaySecondaryActionButton,
-		outlined,
+		cardStyle,
 		cornerRadius,
 		setter,
 		isEditMode: true,
@@ -106,7 +106,7 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 	const inspectorControlsStylePanelProps = {
 		contentLayout,
 		cornerRadius,
-		outlined,
+		cardStyle,
 		isSingleCard: true,
 		setter,
 		cardIndex,

@@ -53,7 +53,7 @@ const Save = ( { attributes, className } ) => {
 		secondaryActionButtonNoFollow,
 		displayActions,
 		displaySecondaryActionButton,
-		outlined,
+		cardStyle,
 		cornerRadius,
 		imageElement,
 	} = attributes;
@@ -80,7 +80,7 @@ const Save = ( { attributes, className } ) => {
 		secondaryActionButtonNoFollow,
 		displayActions,
 		displaySecondaryActionButton,
-		outlined,
+		cardStyle,
 		cornerRadius,
 		imageElement,
 		setter: () => {},

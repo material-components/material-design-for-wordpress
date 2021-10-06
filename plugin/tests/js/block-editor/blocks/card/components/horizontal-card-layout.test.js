@@ -55,7 +55,7 @@ const baseProps = {
 	secondaryActionButtonNoFollow: true,
 	displaySecondaryActionButton: true,
 	displayActions: true,
-	outlined: true,
+	cardStyle: 'global',
 	cornerRadius: 4,
 	setter: jest.fn(),
 	isEditMode: false,

@@ -64,7 +64,7 @@ const InspectorControlsStylePanel = ( {
 	cardLayoutStyle = 'vertical',
 	contentLayout,
 	cornerRadius,
-	outlined,
+	cardStyle,
 	isSingleCard,
 	setter,
 	cardIndex,
@@ -117,8 +117,8 @@ const InspectorControlsStylePanel = ( {
 		</div>
 
 		<ElevationStyleControl
-			onChange={ value => setter( 'outlined', value, cardIndex ) }
-			selected={ outlined }
+			onChange={ value => setter( 'cardStyle', value, cardIndex ) }
+			selected={ cardStyle }
 		/>
 	</PanelBody>
 );
