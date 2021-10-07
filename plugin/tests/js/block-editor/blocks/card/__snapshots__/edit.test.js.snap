@@ -228,28 +228,31 @@ Object {
               class="components-base-control__label"
               for="inspector-radio-control-1"
             >
-              Card Style
+              Elevation style
             </label>
             <div
               class="components-radio-control__option"
             >
               <input
+                aria-describedby="inspector-radio-control-1__help"
+                checked=""
                 class="components-radio-control__input"
                 id="inspector-radio-control-1-0"
                 name="inspector-radio-control-1"
                 type="radio"
-                value="outlined"
+                value="global"
               />
               <label
                 for="inspector-radio-control-1-0"
               >
-                Outlined
+                Inherit from Global Settings
               </label>
             </div>
             <div
               class="components-radio-control__option"
             >
               <input
+                aria-describedby="inspector-radio-control-1__help"
                 class="components-radio-control__input"
                 id="inspector-radio-control-1-1"
                 name="inspector-radio-control-1"
@@ -262,7 +265,30 @@ Object {
                 Elevated
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-1__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-1-2"
+                name="inspector-radio-control-1"
+                type="radio"
+                value="outlined"
+              />
+              <label
+                for="inspector-radio-control-1-2"
+              >
+                Outlined
+              </label>
+            </div>
           </div>
+          <p
+            class="components-base-control__help"
+            id="inspector-radio-control-1__help"
+          >
+            Elevation style whether elevated or outlined.
+          </p>
         </div>
       </div>
       <div
@@ -564,7 +590,7 @@ Object {
       </div>
       <div>
         <div
-          class="mdc-card material-design-card"
+          class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card"
           style="border-radius: 4px;"
         >
           <div
@@ -886,28 +912,31 @@ Object {
             class="components-base-control__label"
             for="inspector-radio-control-1"
           >
-            Card Style
+            Elevation style
           </label>
           <div
             class="components-radio-control__option"
           >
             <input
+              aria-describedby="inspector-radio-control-1__help"
+              checked=""
               class="components-radio-control__input"
               id="inspector-radio-control-1-0"
               name="inspector-radio-control-1"
               type="radio"
-              value="outlined"
+              value="global"
             />
             <label
               for="inspector-radio-control-1-0"
             >
-              Outlined
+              Inherit from Global Settings
             </label>
           </div>
           <div
             class="components-radio-control__option"
           >
             <input
+              aria-describedby="inspector-radio-control-1__help"
               class="components-radio-control__input"
               id="inspector-radio-control-1-1"
               name="inspector-radio-control-1"
@@ -920,7 +949,30 @@ Object {
               Elevated
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-1__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-1-2"
+              name="inspector-radio-control-1"
+              type="radio"
+              value="outlined"
+            />
+            <label
+              for="inspector-radio-control-1-2"
+            >
+              Outlined
+            </label>
+          </div>
         </div>
+        <p
+          class="components-base-control__help"
+          id="inspector-radio-control-1__help"
+        >
+          Elevation style whether elevated or outlined.
+        </p>
       </div>
     </div>
     <div
@@ -1222,7 +1274,7 @@ Object {
     </div>
     <div>
       <div
-        class="mdc-card material-design-card"
+        class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card"
         style="border-radius: 4px;"
       >
         <div
@@ -1625,28 +1677,31 @@ Object {
               class="components-base-control__label"
               for="inspector-radio-control-5"
             >
-              Card Style
+              Elevation style
             </label>
             <div
               class="components-radio-control__option"
             >
               <input
+                aria-describedby="inspector-radio-control-5__help"
+                checked=""
                 class="components-radio-control__input"
                 id="inspector-radio-control-5-0"
                 name="inspector-radio-control-5"
                 type="radio"
-                value="outlined"
+                value="global"
               />
               <label
                 for="inspector-radio-control-5-0"
               >
-                Outlined
+                Inherit from Global Settings
               </label>
             </div>
             <div
               class="components-radio-control__option"
             >
               <input
+                aria-describedby="inspector-radio-control-5__help"
                 class="components-radio-control__input"
                 id="inspector-radio-control-5-1"
                 name="inspector-radio-control-5"
@@ -1659,7 +1714,30 @@ Object {
                 Elevated
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-5__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-5-2"
+                name="inspector-radio-control-5"
+                type="radio"
+                value="outlined"
+              />
+              <label
+                for="inspector-radio-control-5-2"
+              >
+                Outlined
+              </label>
+            </div>
           </div>
+          <p
+            class="components-base-control__help"
+            id="inspector-radio-control-5__help"
+          >
+            Elevation style whether elevated or outlined.
+          </p>
         </div>
       </div>
       <div
@@ -1961,7 +2039,7 @@ Object {
       </div>
       <div>
         <div
-          class="mdc-card material-design-card"
+          class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card"
           style="border-radius: 4px;"
         >
           <div
@@ -2283,28 +2361,31 @@ Object {
             class="components-base-control__label"
             for="inspector-radio-control-5"
           >
-            Card Style
+            Elevation style
           </label>
           <div
             class="components-radio-control__option"
           >
             <input
+              aria-describedby="inspector-radio-control-5__help"
+              checked=""
               class="components-radio-control__input"
               id="inspector-radio-control-5-0"
               name="inspector-radio-control-5"
               type="radio"
-              value="outlined"
+              value="global"
             />
             <label
               for="inspector-radio-control-5-0"
             >
-              Outlined
+              Inherit from Global Settings
             </label>
           </div>
           <div
             class="components-radio-control__option"
           >
             <input
+              aria-describedby="inspector-radio-control-5__help"
               class="components-radio-control__input"
               id="inspector-radio-control-5-1"
               name="inspector-radio-control-5"
@@ -2317,7 +2398,30 @@ Object {
               Elevated
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-5__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-5-2"
+              name="inspector-radio-control-5"
+              type="radio"
+              value="outlined"
+            />
+            <label
+              for="inspector-radio-control-5-2"
+            >
+              Outlined
+            </label>
+          </div>
         </div>
+        <p
+          class="components-base-control__help"
+          id="inspector-radio-control-5__help"
+        >
+          Elevation style whether elevated or outlined.
+        </p>
       </div>
     </div>
     <div
@@ -2619,7 +2723,7 @@ Object {
     </div>
     <div>
       <div
-        class="mdc-card material-design-card"
+        class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card"
         style="border-radius: 4px;"
       >
         <div
@@ -3022,28 +3126,31 @@ Object {
               class="components-base-control__label"
               for="inspector-radio-control-3"
             >
-              Card Style
+              Elevation style
             </label>
             <div
               class="components-radio-control__option"
             >
               <input
+                aria-describedby="inspector-radio-control-3__help"
+                checked=""
                 class="components-radio-control__input"
                 id="inspector-radio-control-3-0"
                 name="inspector-radio-control-3"
                 type="radio"
-                value="outlined"
+                value="global"
               />
               <label
                 for="inspector-radio-control-3-0"
               >
-                Outlined
+                Inherit from Global Settings
               </label>
             </div>
             <div
               class="components-radio-control__option"
             >
               <input
+                aria-describedby="inspector-radio-control-3__help"
                 class="components-radio-control__input"
                 id="inspector-radio-control-3-1"
                 name="inspector-radio-control-3"
@@ -3056,7 +3163,30 @@ Object {
                 Elevated
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-3__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-3-2"
+                name="inspector-radio-control-3"
+                type="radio"
+                value="outlined"
+              />
+              <label
+                for="inspector-radio-control-3-2"
+              >
+                Outlined
+              </label>
+            </div>
           </div>
+          <p
+            class="components-base-control__help"
+            id="inspector-radio-control-3__help"
+          >
+            Elevation style whether elevated or outlined.
+          </p>
         </div>
       </div>
       <div
@@ -3358,7 +3488,7 @@ Object {
       </div>
       <div>
         <div
-          class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
+          class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card material-design-card__list material-design-basic"
           style="border-radius: 4px;"
         >
           <div
@@ -3647,28 +3777,31 @@ Object {
             class="components-base-control__label"
             for="inspector-radio-control-3"
           >
-            Card Style
+            Elevation style
           </label>
           <div
             class="components-radio-control__option"
           >
             <input
+              aria-describedby="inspector-radio-control-3__help"
+              checked=""
               class="components-radio-control__input"
               id="inspector-radio-control-3-0"
               name="inspector-radio-control-3"
               type="radio"
-              value="outlined"
+              value="global"
             />
             <label
               for="inspector-radio-control-3-0"
             >
-              Outlined
+              Inherit from Global Settings
             </label>
           </div>
           <div
             class="components-radio-control__option"
           >
             <input
+              aria-describedby="inspector-radio-control-3__help"
               class="components-radio-control__input"
               id="inspector-radio-control-3-1"
               name="inspector-radio-control-3"
@@ -3681,7 +3814,30 @@ Object {
               Elevated
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-3__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-3-2"
+              name="inspector-radio-control-3"
+              type="radio"
+              value="outlined"
+            />
+            <label
+              for="inspector-radio-control-3-2"
+            >
+              Outlined
+            </label>
+          </div>
         </div>
+        <p
+          class="components-base-control__help"
+          id="inspector-radio-control-3__help"
+        >
+          Elevation style whether elevated or outlined.
+        </p>
       </div>
     </div>
     <div
@@ -3983,7 +4139,7 @@ Object {
     </div>
     <div>
       <div
-        class="mdc-card mdc-card--outlined material-design-card material-design-card__list material-design-basic"
+        class="mdc-card mdc-card--outlined mdc-card--global-override material-design-card material-design-card__list material-design-basic"
         style="border-radius: 4px;"
       >
         <div

@@ -47,6 +47,11 @@
       "type": "boolean",
       "default": false
     },
+    "cardStyle": {
+      "enum": [ "global", "elevated", "outlined"],
+      "default": "global",
+      "type": "string"
+    },
     "allowIndividualStyleOverride": {
       "type": "boolean",
       "default": false
@@ -82,10 +87,6 @@
     "imageElement": {
       "type": "boolean",
       "default": true
-    },
-    "cardStyle": {
-      "type": "string",
-      "default": "elevated"
     }
   },
 

@@ -62,7 +62,7 @@ const CommonPostsListInspectorControls = ( {
 		contentLayout,
 		columns,
 		postsToShow,
-		outlined,
+		cardStyle,
 		displayPostDate,
 		displayPostContent,
 		postContentLength,
@@ -81,7 +81,7 @@ const CommonPostsListInspectorControls = ( {
 				style={ style }
 				columns={ columns }
 				contentLayout={ contentLayout }
-				outlined={ outlined }
+				cardStyle={ cardStyle }
 				setter={ setter }
 			/>
 			{ name !== 'material/hand-picked-posts' && (

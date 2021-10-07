@@ -86,7 +86,7 @@ const firstCardProps = {
 	secondaryActionButtonNoFollow: false,
 	displayActions: true,
 	displaySecondaryActionButton: false,
-	outlined: false,
+	cardStyle: 'global',
 	cornerRadius: undefined,
 };
 
@@ -306,7 +306,7 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 					displayTitle: true,
 					imageSourceUrl: '',
 					isImageEditMode: false,
-					cardStyle: 'elevated',
+					cardStyle: 'global',
 					primaryActionButtonLabel: '',
 					primaryActionButtonNewTab: false,
 					primaryActionButtonNoFollow: false,

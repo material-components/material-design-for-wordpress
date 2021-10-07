@@ -123,6 +123,9 @@ class Controls extends Module_Base {
 		$this->add_icon_collection_controls();
 
 		// Add global style control.
+		$this->add_global_style_control();
+
+		// Add learn control.
 		$this->add_learn_control();
 	}
 
@@ -173,6 +176,10 @@ class Controls extends Module_Base {
 			'icons'           => __( 'Icon Styles', 'material-design' ),
 			'dark_colors'     => __( 'Dark Color Palette', 'material-design' ),
 			'contrast_colors' => __( 'High Contrast Color Palette', 'material-design' ),
+			'global_style'    => [
+				'label'    => __( 'Global Styles', 'material-design' ),
+				'priority' => 300,
+			],
 			'learn'           => [
 				'label'       => __( 'Learn More', 'material-design' ),
 				'priority'    => 400,
@@ -585,7 +592,7 @@ class Controls extends Module_Base {
 
 			/**
 			 * If the control is Range Slider and has childen, add them to the `added_controls` list
-			 * so the JS events are atatched.
+			 * so the JS events are attached.
 			 */
 			if ( ! empty( $control->children ) && is_array( $control->children ) && ( $control instanceof Range_Slider_Control ) ) {
 				$this->added_controls = array_merge(
@@ -718,6 +725,7 @@ class Controls extends Module_Base {
 				'themeStatus'            => $this->plugin->theme_status(),
 				'nonce'                  => wp_create_nonce( 'wp_rest' ),
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
+				'resetCardStyleRest'     => esc_url( $this->plugin->reset_card_style_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
 				'styleChoices'           => $this->get_style_choices(),
 				'colorControls'          => $this->get_color_controls(),
@@ -1899,5 +1907,96 @@ class Controls extends Module_Base {
 		}
 
 		return $style_settings[ $selected_style ]['dark'];
+	}
+
+	/**
+	 * Select sanitization callback.
+	 *
+	 * - Sanitization: select
+	 * - Control: select, radio
+	 *
+	 * Sanitization callback for 'select' and 'radio' type controls. This callback sanitizes `$input`
+	 * as a slug, and then validates `$input` against the choices defined for the control.
+	 *
+	 * @see sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
+	 * @see $wp_customize->get_control() https://developer.wordpress.org/reference/classes/wp_customize_manager/get_control/
+	 *
+	 * @param string                $input   Slug to sanitize.
+	 * @param \WP_Customize_Setting $setting Setting instance.
+	 *
+	 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
+	 */
+	public function sanitize_select( $input, $setting ) {
+		// Ensure input is a slug.
+		$input = sanitize_key( $input );
+
+		// Get list of choices from the control associated with the setting.
+		$choices = $setting->manager->get_control( $setting->id )->choices;
+
+		// If the input is a valid key, return it; otherwise, return the default.
+		return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+	}
+
+	/**
+	 * Get global style controls.
+	 *
+	 * @return array[]
+	 */
+	public function get_global_style_controls() {
+		return [
+			[
+				'id'      => 'card_style',
+				'label'   => esc_html__( 'Cards', 'material-design' ),
+				'type'    => 'radio',
+				'default' => 'elevated',
+				'choices' => [
+					'elevated' => esc_html__( 'Elevated', 'material-design' ),
+					'outlined' => esc_html__( 'Outlined', 'material-design' ),
+				],
+			],
+		];
+	}
+
+	/**
+	 * Add global style control.
+	 */
+	public function add_global_style_control() {
+		$settings = [];
+		$controls = [];
+
+		foreach ( $this->get_global_style_controls() as $control ) {
+			$settings[ $control['id'] ] = [
+				'transport'         => 'refresh',
+				'sanitize_callback' => [ $this, 'sanitize_select' ],
+				'default'           => $control['default'],
+			];
+
+			$controls[ $control['id'] ] = array_merge(
+				[
+					'section' => 'global_style',
+				],
+				$control
+			);
+		}
+
+		$settings['card_reset'] = [
+			'transport'         => '',
+			'sanitize_callback' => '',
+			'default'           => '',
+		];
+
+		$controls['card_reset'] = [
+			'type'        => 'button',
+			'section'     => 'global_style',
+			'description' => __( 'On click of reset, all card posts with card blocks will be updated to use inherit from global card style.', 'material-design' ),
+			'settings'    => [],
+			'input_attrs' => [
+				'value' => __( 'Reset', 'material-design' ),
+				'class' => 'button button-primary material-global-style-reset',
+			],
+		];
+
+		$this->add_settings( $settings );
+		$this->add_controls( $controls );
 	}
 }

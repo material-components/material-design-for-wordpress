@@ -61,6 +61,7 @@ import {
 	showHideNotification,
 } from './notifications';
 import getConfig from '../block-editor/utils/get-config';
+import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 
 ( ( $, api ) => {
 	// Allow backbone templates access to the `sanitizeControlId` function.
@@ -957,6 +958,8 @@ import getConfig from '../block-editor/utils/get-config';
 		}
 
 		setTimeout( arrangeDarkMode, 3000 );
+
+		handleGlobalStyleResetButtonClick();
 	} );
 
 	api.bind( 'saved', () => {

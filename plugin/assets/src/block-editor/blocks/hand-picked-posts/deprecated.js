@@ -15,42 +15,17 @@
  */
 
 /**
- * External dependencies
- */
-import { omit } from 'lodash';
-
-/**
  * Internal dependencies
  */
-import save from './save';
 import metadata from './block.json';
 import getElevationStyleMigration from '../../helpers/get-outline-migration';
 
 const { attributes } = metadata;
 
 const deprecated = [
-	{
-		attributes: { ...omit( attributes, [ 'imageElement' ] ) },
-		save,
-		migrate( attr ) {
-			if ( 'undefined' === typeof attr.imageElement ) {
-				attr = {
-					...attr,
-					...{
-						imageElement: true,
-					},
-				};
-			}
-
-			return attr;
-		},
-		isEligible( attr ) {
-			return 'undefined' === typeof attr.imageElement;
-		},
-	},
 	getElevationStyleMigration( {
 		attributes,
-		save,
+		save: () => '',
 	} ),
 ];
 

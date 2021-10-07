@@ -26,6 +26,7 @@ import { PanelBody, RadioControl } from '@wordpress/components';
 import GlobalShapeSize from '../../../components/global-shape-size';
 import { name as CardBlockName } from '../index';
 import getConfig from '../../../utils/get-config';
+import ElevationStyleControl from '../../../components/elevation-style-control';
 
 const CONTENT_LAYOUTS = [
 	{
@@ -39,17 +40,6 @@ const CONTENT_LAYOUTS = [
 	{
 		label: __( 'Text under media', 'material-design' ),
 		value: 'text-under-media',
-	},
-];
-
-export const CARD_ELEVATION_STYLES = [
-	{
-		label: __( 'Outlined', 'material-design' ),
-		value: 'outlined',
-	},
-	{
-		label: __( 'Elevated', 'material-design' ),
-		value: 'elevated',
 	},
 ];
 
@@ -126,11 +116,9 @@ const InspectorControlsStylePanel = ( {
 			/>
 		</div>
 
-		<RadioControl
-			label={ __( 'Card Style', 'material-design' ) }
-			selected={ cardStyle }
-			options={ CARD_ELEVATION_STYLES }
+		<ElevationStyleControl
 			onChange={ value => setter( 'cardStyle', value, cardIndex ) }
+			selected={ cardStyle }
 		/>
 	</PanelBody>
 );

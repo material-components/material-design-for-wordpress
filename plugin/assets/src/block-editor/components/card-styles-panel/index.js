@@ -35,7 +35,7 @@ import { GridIcon, ListIcon, MasonryIcon } from './style-icons/index';
 import { name as CardCollectionBlockName } from '../../blocks/cards-collection/index';
 import getConfig from '../../utils/get-config';
 import AttributeWithDevices from '../attribute-with-devices';
-import { CARD_ELEVATION_STYLES } from '../../blocks/card/components/inspector-controls-style-panel';
+import ElevationStyleControl from '../elevation-style-control';
 import './style.css';
 
 const CARD_STYLES = [
@@ -120,11 +120,9 @@ const CardStylesPanel = ( {
 			</Notice>
 
 			{ ! allowIndividualStyleOverride && showOutlined && (
-				<RadioControl
-					label={ __( 'Card Style', 'material-design' ) }
-					selected={ cardStyle }
-					options={ CARD_ELEVATION_STYLES }
+				<ElevationStyleControl
 					onChange={ setter( 'cardStyle' ) }
+					selected={ cardStyle }
 				/>
 			) }
 

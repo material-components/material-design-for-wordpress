@@ -370,28 +370,30 @@ Object {
               class="components-base-control__label"
               for="inspector-radio-control-0"
             >
-              Card Style
+              Elevation style
             </label>
             <div
               class="components-radio-control__option"
             >
               <input
+                aria-describedby="inspector-radio-control-0__help"
                 class="components-radio-control__input"
                 id="inspector-radio-control-0-0"
                 name="inspector-radio-control-0"
                 type="radio"
-                value="outlined"
+                value="global"
               />
               <label
                 for="inspector-radio-control-0-0"
               >
-                Outlined
+                Inherit from Global Settings
               </label>
             </div>
             <div
               class="components-radio-control__option"
             >
               <input
+                aria-describedby="inspector-radio-control-0__help"
                 class="components-radio-control__input"
                 id="inspector-radio-control-0-1"
                 name="inspector-radio-control-0"
@@ -404,7 +406,30 @@ Object {
                 Elevated
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-0__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-2"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="outlined"
+              />
+              <label
+                for="inspector-radio-control-0-2"
+              >
+                Outlined
+              </label>
+            </div>
           </div>
+          <p
+            class="components-base-control__help"
+            id="inspector-radio-control-0__help"
+          >
+            Elevation style whether elevated or outlined.
+          </p>
         </div>
       </div>
       <div
@@ -1482,28 +1507,30 @@ Object {
             class="components-base-control__label"
             for="inspector-radio-control-0"
           >
-            Card Style
+            Elevation style
           </label>
           <div
             class="components-radio-control__option"
           >
             <input
+              aria-describedby="inspector-radio-control-0__help"
               class="components-radio-control__input"
               id="inspector-radio-control-0-0"
               name="inspector-radio-control-0"
               type="radio"
-              value="outlined"
+              value="global"
             />
             <label
               for="inspector-radio-control-0-0"
             >
-              Outlined
+              Inherit from Global Settings
             </label>
           </div>
           <div
             class="components-radio-control__option"
           >
             <input
+              aria-describedby="inspector-radio-control-0__help"
               class="components-radio-control__input"
               id="inspector-radio-control-0-1"
               name="inspector-radio-control-0"
@@ -1516,7 +1543,30 @@ Object {
               Elevated
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-0__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-0-2"
+              name="inspector-radio-control-0"
+              type="radio"
+              value="outlined"
+            />
+            <label
+              for="inspector-radio-control-0-2"
+            >
+              Outlined
+            </label>
+          </div>
         </div>
+        <p
+          class="components-base-control__help"
+          id="inspector-radio-control-0__help"
+        >
+          Elevation style whether elevated or outlined.
+        </p>
       </div>
     </div>
     <div

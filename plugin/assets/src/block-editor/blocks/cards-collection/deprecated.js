@@ -22,14 +22,15 @@ import { omit } from 'lodash';
 /**
  * Internal dependencies
  */
-import metadata from './block.json';
 import save from './save';
+import metadata from './block.json';
+import getElevationStyleMigration from '../../helpers/get-outline-migration';
 
 const { attributes } = metadata;
 
 const deprecated = [
 	{
-		attributes: { ...omit( attributes, [ 'imageElement', 'outlined' ] ) },
+		attributes: { ...omit( attributes, [ 'imageElement' ] ) },
 		save,
 		migrate( attr ) {
 			if ( 'undefined' === typeof attr.imageElement ) {
@@ -41,23 +42,16 @@ const deprecated = [
 				};
 			}
 
-			if ( 'undefined' === typeof attr.outlined ) {
-				attr = {
-					...attr,
-					...{
-						cardStyle: 'elevated',
-					},
-				};
-			}
 			return attr;
 		},
 		isEligible( attr ) {
-			return (
-				'undefined' === typeof attr.imageElement ||
-				'undefined' === typeof attr.outlined
-			);
+			return 'undefined' === typeof attr.imageElement;
 		},
 	},
+	getElevationStyleMigration( {
+		attributes,
+		save,
+	} ),
 ];
 
 export default deprecated;

@@ -25,7 +25,6 @@
 
 namespace MaterialDesign\Plugin\Blocks;
 
-use MaterialDesign\Plugin\Plugin;
 use MaterialDesign\Plugin\Module_Base;
 use MaterialDesign\Plugin\Template;
 use MaterialDesign\Plugin\Helpers;

@@ -25,7 +25,6 @@
 
 namespace MaterialDesign\Plugin\Blocks;
 
-use MaterialDesign\Plugin\Module_Base;
 use MaterialDesign\Plugin\Blocks_Frontend;
 
 /**

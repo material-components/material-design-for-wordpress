@@ -39,7 +39,7 @@ const baseProps = {
 	excerpt: 'This is a test excerpt',
 	displayPostContent: true,
 	postContentLength: 20,
-	outlined: false,
+	cardStyle: 'global',
 	displayFeaturedImage: true,
 	displayPostAuthor: true,
 	displayCommentsCount: true,
