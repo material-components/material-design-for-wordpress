@@ -26,6 +26,7 @@ import CardImage from './card-image';
 import CardPrimary from './card-primary';
 import CardSupportingText from './card-supporting-text';
 import CardActions from './card-actions';
+import { isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
  * Vertical Card Layout component.
@@ -52,7 +53,7 @@ import CardActions from './card-actions';
  * @param {boolean} props.secondaryActionButtonNoFollow - Whether or not the secondary action button url rel property should be noFollow.
  * @param {boolean} props.displaySecondaryActionButton - Whether or not to show the secondary action button.
  * @param {boolean} props.displayActions - Whether or not to show the card actions row.
- * @param {boolean} props.outlined - Whether or not the card has an outlined style.
+ * @param {boolean} props.cardStyle - Whether card has an outlined, elevated or global style.
  * @param {number} props.cornerRadius - Card corner radius.
  * @param {Function} props.setter - Function to set block attributes value.
  * @param {boolean} props.isEditMode - Whether or not the block is in edit mode (inside Gutenberg editor or not).
@@ -81,7 +82,7 @@ const VerticalCardLayout = ( {
 	secondaryActionButtonNoFollow,
 	displaySecondaryActionButton,
 	displayActions,
-	outlined,
+	cardStyle,
 	cornerRadius,
 	imageElement,
 	setter,
@@ -120,9 +121,18 @@ const VerticalCardLayout = ( {
 
 	return (
 		<div
-			className={ classnames( 'mdc-card', 'material-design-card', {
-				'mdc-card--outlined': outlined,
-			} ) }
+			className={ classnames(
+				'mdc-card',
+				{
+					'mdc-card--outlined':
+						cardStyle === 'outlined' ||
+						( cardStyle === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
+				},
+				{ 'mdc-card--global-override': cardStyle === 'global' },
+				'material-design-card' // Class order is important for resetting state to global.
+			) }
 			style={ styles }
 		>
 			<div

@@ -41,15 +41,24 @@ if ( empty( $_tests_dir ) ) {
 
 // Composer tests directory.
 if ( ! is_dir( $_tests_dir . '/includes/' ) ) {
-	$_tests_dir = $_plugin_root . '/../vendor/xwp/wordpress-tests/phpunit';
+	$_tests_dir = $_plugin_root . '/vendor/xwp/wordpress-tests/phpunit';
 }
 
 if ( ! file_exists( $_tests_dir . '/includes/' ) ) {
 	trigger_error( 'Unable to locate wordpress-tests', E_USER_ERROR ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_trigger_error
 }
 
-if ( ! defined( 'WP_TESTS_PHPUNIT_POLYFILLS_PATH' ) ) {
-	define( 'WP_TESTS_PHPUNIT_POLYFILLS_PATH', __DIR__ . '/../vendor/yoast/phpunit-polyfills' );
+// Load polyfill which is required by latest WP and some material tests which uses latest phpunit functions.
+$_yoast_polyfill_path_material = __DIR__ . '/../vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
+
+if ( ! class_exists( 'Yoast\PHPUnitPolyfills\Autoload' ) ) {
+	// Load file based on docker where vendor is mapped inside plugin folder.
+	if ( ! file_exists( $_yoast_polyfill_path_material ) ) {
+		$_yoast_polyfill_path_material = __DIR__ . '/../../vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
+	}
+	if ( file_exists( $_yoast_polyfill_path_material ) ) {
+		require_once $_yoast_polyfill_path_material;
+	}
 }
 
 require_once $_tests_dir . '/includes/functions.php';

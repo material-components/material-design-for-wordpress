@@ -24,6 +24,7 @@ import { omit } from 'lodash';
  */
 import save from './save';
 import metadata from './block.json';
+import getElevationStyleMigration from '../../helpers/get-outline-migration';
 
 const { attributes } = metadata;
 
@@ -47,6 +48,10 @@ const deprecated = [
 			return 'undefined' === typeof attr.imageElement;
 		},
 	},
+	getElevationStyleMigration( {
+		attributes,
+		save,
+	} ),
 ];
 
 export default deprecated;

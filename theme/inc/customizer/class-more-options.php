@@ -49,6 +49,13 @@ class More_Options extends \WP_Customize_Control {
 	public $controls = [];
 
 	/**
+	 * Color mode.
+	 *
+	 * @var array
+	 */
+	public $controls_type = 'default';
+
+	/**
 	 * Displays the control content.
 	 *
 	 * @access public
@@ -56,7 +63,7 @@ class More_Options extends \WP_Customize_Control {
 	 */
 	public function render_content() {
 		?>
-		<div class="material-more_options" id="<?php echo esc_attr( $this->id ); ?>">
+		<div class="material-more_options material-more_options__<?php echo esc_attr( $this->controls_type ); ?>" id="<?php echo esc_attr( $this->id ); ?>">
 			<a href="#" class="material-show-more-options"><?php esc_html_e( 'More Options', 'material-design-google' ); ?></a>
 			<a href="#" class="material-show-more-options less-options"><?php esc_html_e( 'Less Options', 'material-design-google' ); ?></a>
 		</div>
@@ -68,6 +75,7 @@ class More_Options extends \WP_Customize_Control {
 	 */
 	public function to_json() {
 		parent::to_json();
-		$this->json['controls'] = ! empty( $this->controls ) ? $this->controls : [];
+		$this->json['controls']      = ! empty( $this->controls ) ? $this->controls : [];
+		$this->json['controls_type'] = ! empty( $this->controls_type ) ? $this->controls_type : [];
 	}
 }

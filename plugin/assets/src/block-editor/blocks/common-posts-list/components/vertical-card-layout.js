@@ -30,6 +30,7 @@ import { RawHTML } from '@wordpress/element';
 import CardImage from './card-image';
 import CardHeader from './card-header';
 import CardActions from './card-actions';
+import { isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
@@ -52,12 +53,13 @@ const VerticalCardLayout = props => {
 		excerpt,
 		imageSourceUrl,
 		contentLayout,
-		outlined,
+		cardStyle,
 		displayPostContent,
 		postContentLength,
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
+		isEditMode,
 	} = props;
 
 	const cardImageProps = { type: '16-9', ...props };
@@ -66,7 +68,14 @@ const VerticalCardLayout = props => {
 		<div
 			className={ classnames(
 				'mdc-card',
-				{ 'mdc-card--outlined': outlined },
+				{
+					'mdc-card--outlined':
+						cardStyle === 'outlined' ||
+						( cardStyle === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
+				},
+				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'single-post-card',
 				'single-post-basic'
 			) }

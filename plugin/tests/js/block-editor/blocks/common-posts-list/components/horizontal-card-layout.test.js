@@ -36,7 +36,7 @@ const setup = props => {
 };
 
 const baseProps = {
-	outlined: false,
+	cardStyle: 'global',
 	displayFeaturedImage: true,
 	displayPostAuthor: true,
 	displayCommentsCount: true,

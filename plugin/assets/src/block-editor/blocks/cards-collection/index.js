@@ -24,9 +24,9 @@ import { __ } from '@wordpress/i18n';
  */
 import deprecated from './deprecated';
 import edit from './edit';
-import save from './save';
 import { example } from './example';
 import metadata from './block.json';
+import save from './save';
 
 const { name } = metadata;
 

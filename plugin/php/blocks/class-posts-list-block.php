@@ -26,7 +26,6 @@
 
 namespace MaterialDesign\Plugin\Blocks;
 
-use MaterialDesign\Plugin\Module_Base;
 use MaterialDesign\Plugin\Plugin;
 use MaterialDesign\Plugin\Template;
 use WP_Post;

@@ -18,7 +18,7 @@
  * WordPress dependencies
  */
 import { __, sprintf } from '@wordpress/i18n';
-import { PanelBody, RadioControl, ToggleControl } from '@wordpress/components';
+import { PanelBody, RadioControl } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -26,6 +26,7 @@ import { PanelBody, RadioControl, ToggleControl } from '@wordpress/components';
 import GlobalShapeSize from '../../../components/global-shape-size';
 import { name as CardBlockName } from '../index';
 import getConfig from '../../../utils/get-config';
+import ElevationStyleControl from '../../../components/elevation-style-control';
 
 const CONTENT_LAYOUTS = [
 	{
@@ -63,7 +64,7 @@ const InspectorControlsStylePanel = ( {
 	cardLayoutStyle = 'vertical',
 	contentLayout,
 	cornerRadius,
-	outlined,
+	cardStyle,
 	isSingleCard,
 	setter,
 	cardIndex,
@@ -115,10 +116,9 @@ const InspectorControlsStylePanel = ( {
 			/>
 		</div>
 
-		<ToggleControl
-			label={ __( 'Outlined', 'material-design' ) }
-			checked={ outlined }
-			onChange={ value => setter( 'outlined', value, cardIndex ) }
+		<ElevationStyleControl
+			onChange={ value => setter( 'cardStyle', value, cardIndex ) }
+			selected={ cardStyle }
 		/>
 	</PanelBody>
 );

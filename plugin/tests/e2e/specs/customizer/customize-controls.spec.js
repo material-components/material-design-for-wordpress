@@ -28,6 +28,12 @@ const isVisible = async selector => {
 	} );
 };
 
+const getPrimaryColorSelector = async () => {
+	return await page.$(
+		'#customize-control-material_design-primary_color .components-text-control__input'
+	);
+};
+
 describe( 'Customize controls', () => {
 	beforeAll( async () => {
 		await visitAdminPage( 'customize.php' );
@@ -93,13 +99,12 @@ describe( 'Customize controls', () => {
 			const crane = await page.$( '#material_design-style-crane' );
 			await page.evaluate( radio => radio.click(), crane );
 
-			const primaryColor = await page.$(
-				'#customize-control-material_design-primary_color .color-picker-hex'
-			);
-
 			// Assert primary color is updated.
 			expect(
-				await page.evaluate( input => input.value, primaryColor )
+				await page.evaluate(
+					input => input.value,
+					await getPrimaryColorSelector()
+				)
 			).toEqual( '#5d1049' );
 
 			const fortnightly = await page.$( '#material_design-style-fortnightly' );
@@ -107,21 +112,23 @@ describe( 'Customize controls', () => {
 
 			// Assert primary color is updated.
 			expect(
-				await page.evaluate( input => input.value, primaryColor )
+				await page.evaluate(
+					input => input.value,
+					await getPrimaryColorSelector()
+				)
 			).toEqual( '#121212' );
 		} );
 
 		it( 'should update design style to custom if any value is updated', async () => {
-			const primaryColor = await page.$(
-				'#customize-control-material_design-primary_color .color-picker-hex'
-			);
 			await page.evaluate( input => {
 				input.value = '#000000';
-				input.dispatchEvent( new Event( 'change' ) );
-			}, primaryColor );
+				console.log( 'input', input );
+				input.dispatchEvent( new Event( 'change' ), input );
+				input.dispatchEvent( new Event( 'blur' ), input );
+			}, await getPrimaryColorSelector() );
 
 			const selectedOption = await page.$(
-				'[name="_customize-radio-material_design-style"]:checked'
+				'#material_design-style-custom:checked'
 			);
 
 			// Assert style is updated to custom.
@@ -146,33 +153,28 @@ describe( 'Customize controls', () => {
 		it( 'should always display color input field', async () => {
 			expect(
 				await isVisible(
-					'#customize-control-material_design-primary_color .color-picker-hex'
+					'#customize-control-material_design-primary_color .components-text-control__input'
 				)
 			).toBeTruthy();
 		} );
 
 		it( 'should show two tabs on "Select Color" button click', async () => {
 			const picker = await page.$(
-				'#customize-control-material_design-primary_color .wp-color-result'
+				'#customize-control-material_design-primary_color .material-design-color__color'
 			);
 			await page.evaluate( btn => {
 				btn.click();
 			}, picker );
 
-			const tabOne = await page.$(
-				'#material-design-palette-material_design-primary_color'
+			const tabs = await page.$$(
+				'.material-design-color__picker-tabs button'
 			);
-			const tabTwo = await page.$(
-				'#material-design-custom-material_design-primary_color'
-			);
-
-			expect( tabOne ).not.toBeNull();
-			expect( tabTwo ).not.toBeNull();
+			expect( tabs.length ).toEqual( 2 );
 		} );
 
 		it( 'should render all material colors', async () => {
 			const colors = await page.$$(
-				'#material-design-palette-material_design-primary_color .components-circular-option-picker__option-wrapper'
+				'#customize-control-material_design-primary_color .components-circular-option-picker__option-wrapper'
 			);
 
 			expect( colors.length ).toEqual( 254 );
@@ -180,20 +182,26 @@ describe( 'Customize controls', () => {
 
 		it( 'should select a color on click', async () => {
 			const firstColor = await page.$(
-				'#material-design-palette-material_design-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
+				'#customize-control-material_design-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
 			);
 			await page.evaluate( btn => {
 				btn.click();
 			}, firstColor );
 
-			const primaryColor = await page.$(
-				'#customize-control-material_design-primary_color .color-picker-hex'
-			);
-
 			// Assert primary color is updated.
 			expect(
-				await page.evaluate( input => input.value, primaryColor )
+				await page.evaluate(
+					input => input.value,
+					await getPrimaryColorSelector()
+				)
 			).toEqual( '#ffebee' );
+		} );
+	} );
+
+	describe( 'Dark mode', () => {
+		it( 'should show two tabs for default and dark mode', async () => {
+			const tabs = await page.$$( '.material-design-section-tabs a' );
+			expect( tabs.length ).toEqual( 2 );
 		} );
 	} );
 

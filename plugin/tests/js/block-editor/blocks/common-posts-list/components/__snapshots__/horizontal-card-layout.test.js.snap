@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="mdc-card single-post-card single-post-card__list single-post-basic"
+        class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
       >
         <div
           class="mdc-card__primary-action single-post-card__primary-action"
@@ -86,7 +86,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card single-post-card single-post-card__list single-post-basic"
+      class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
     >
       <div
         class="mdc-card__primary-action single-post-card__primary-action"
@@ -223,7 +223,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="mdc-card mdc-card--outlined single-post-card single-post-card__list single-post-basic"
+        class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
       >
         <div
           class="mdc-card__primary-action single-post-card__primary-action"
@@ -303,7 +303,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card mdc-card--outlined single-post-card single-post-card__list single-post-basic"
+      class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
     >
       <div
         class="mdc-card__primary-action single-post-card__primary-action"
@@ -440,7 +440,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="mdc-card single-post-card single-post-card__list single-post-basic"
+        class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
       >
         <div
           class="mdc-card__primary-action single-post-card__primary-action"
@@ -516,7 +516,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card single-post-card single-post-card__list single-post-basic"
+      class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
     >
       <div
         class="mdc-card__primary-action single-post-card__primary-action"
@@ -649,7 +649,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="mdc-card single-post-card single-post-card__list single-post-basic"
+        class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
       >
         <div
           class="mdc-card__primary-action single-post-card__primary-action"
@@ -681,7 +681,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card single-post-card single-post-card__list single-post-basic"
+      class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
     >
       <div
         class="mdc-card__primary-action single-post-card__primary-action"
@@ -770,7 +770,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="mdc-card single-post-card single-post-card__list single-post-basic"
+        class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
       >
         <div
           class="mdc-card__primary-action single-post-card__primary-action"
@@ -806,7 +806,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card single-post-card single-post-card__list single-post-basic"
+      class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
     >
       <div
         class="mdc-card__primary-action single-post-card__primary-action"
@@ -899,7 +899,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="mdc-card single-post-card single-post-card__list single-post-basic"
+        class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
       >
         <div
           class="mdc-card__primary-action single-post-card__primary-action"
@@ -975,7 +975,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-card single-post-card single-post-card__list single-post-basic"
+      class="mdc-card mdc-card--global-override single-post-card single-post-card__list single-post-basic"
     >
       <div
         class="mdc-card__primary-action single-post-card__primary-action"

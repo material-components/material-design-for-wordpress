@@ -25,6 +25,7 @@ import classnames from 'classnames';
 import CardImage from './card-image';
 import CardHeader from './card-header';
 import CardActions from './card-actions';
+import { isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
@@ -43,17 +44,25 @@ import CardActions from './card-actions';
 const HorizontalCardLayout = props => {
 	const {
 		imageSourceUrl,
-		outlined,
+		cardStyle,
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
+		isEditMode,
 	} = props;
 
 	return (
 		<div
 			className={ classnames(
 				'mdc-card',
-				{ 'mdc-card--outlined': outlined },
+				{
+					'mdc-card--outlined':
+						cardStyle === 'outlined' ||
+						( cardStyle === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
+				},
+				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'single-post-card',
 				'single-post-card__list',
 				'single-post-basic'

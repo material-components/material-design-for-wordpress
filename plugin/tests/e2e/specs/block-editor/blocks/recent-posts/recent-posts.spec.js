@@ -108,13 +108,17 @@ describe( 'blocks: material/recent-posts', () => {
 		).not.toBeNull();
 	} );
 
-	it( 'should have an "Outlined" toggle selection attribute with default being off', async () => {
+	it( 'should have an "Elevation style" radio selection attribute with default being global', async () => {
 		await insertBlock( 'Recent Posts (Material)' );
 		await selectBlockByName( 'material/recent-posts' );
 
 		expect(
+			await page.$x( "//label[contains(text(), 'Elevation style')]" )
+		).toHaveLength( 1 );
+
+		expect(
 			await page.$x(
-				"//label[contains(text(), 'Outlined')]/preceding-sibling::span/input[@type = 'checkbox' and not(@checked)]"
+				"//label[contains(text(), 'Inherit from Global Settings')]/preceding-sibling::input[@type = 'radio' and @checked]"
 			)
 		).toHaveLength( 1 );
 	} );
