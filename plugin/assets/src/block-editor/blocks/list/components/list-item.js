@@ -15,19 +15,9 @@
  */
 
 /**
- * External dependencies
- */
-import { debounce } from 'lodash';
-
-/**
  * WordPress dependencies
  */
-import {
-	findDOMNode,
-	useEffect,
-	useRef,
-	useCallback,
-} from '@wordpress/element';
+import { findDOMNode, useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
