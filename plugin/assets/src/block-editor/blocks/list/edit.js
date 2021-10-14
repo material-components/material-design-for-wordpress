@@ -187,7 +187,7 @@ const ListEdit = ( {
 	 * Handle focus of a list item.
 	 *
 	 * @param {number}  index Index of the item.
-	 * @param {boolean} isSecondary Detemine if the secondary text beng focused.
+	 * @param {boolean} isSecondary Determine if the secondary text being focused.
 	 * @param {number}  start Start range of the cursor.
 	 */
 	const onFocus = ( index, isSecondary = false, start = false ) => {
