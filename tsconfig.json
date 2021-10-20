@@ -20,9 +20,15 @@
       "checkJs": true,
       "noUnusedLocals": true,
       "noUnusedParameters": true,
-      "typeRoots": [ "./node_modules/@types" ],
+      "typeRoots": [
+        "./node_modules/@types",
+        "./plugin/assets/src/types"
+       ],
       // Custom
       "noEmit": true,
+      "allowSyntheticDefaultImports":true,
+      // Once we have WP types available we can remove following.
+      "noImplicitAny": false,
     },
     "include": [
         "theme/assets/src/**/*",
