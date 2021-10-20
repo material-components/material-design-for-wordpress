@@ -1,0 +1,34 @@
+{
+    "compilerOptions": {
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "declaration": true,
+      "forceConsistentCasingInFileNames": true,
+      "lib": ["dom", "ESNext"],
+      "module": "esnext",
+      "noEmitOnError": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitReturns": true,
+      "pretty": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "esnext",
+      // From gutenberg.
+      "jsx": "preserve",
+      "moduleResolution": "node",
+      "allowJs": true,
+      "checkJs": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "typeRoots": [ "./node_modules/@types" ],
+      // Custom
+      "noEmit": true,
+    },
+    "include": [
+        "theme/assets/src/**/*",
+        "plugin/assets/src/**/*"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+}
