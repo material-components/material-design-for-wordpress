@@ -18,13 +18,14 @@
 /* istanbul ignore file */
 
 /**
- * External dependencies
+ * Internal dependencies
  */
 import {
 	initButtons,
 	initLists,
 	initTabBar,
 	initToolTips,
+	initTextFields,
 } from '../common/mdc-components-init';
 import { initContactForm } from './contact-form';
 
@@ -34,4 +35,12 @@ addEventListener( 'DOMContentLoaded', () => {
 	initTabBar();
 	initContactForm();
 	initToolTips();
+
+	// If material theme is not active then init text fields.
+	if (
+		window?.materialDesign &&
+		! window.materialDesign.isMaterialThemeActive
+	) {
+		initTextFields();
+	}
 } );
