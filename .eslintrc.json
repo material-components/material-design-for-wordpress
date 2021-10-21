@@ -38,7 +38,8 @@
     "import/no-extraneous-dependencies": "off"
   },
   "env": {
-    "jest/globals": true
+    "jest/globals": true,
+    "browser": true
   },
   "globals": {
     "page": true
