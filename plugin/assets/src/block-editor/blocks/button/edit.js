@@ -55,19 +55,24 @@ import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
 
 /**
+ * @typedef MdcButtonProps
+ *
+ * @property {string}   type            - The type of button.
+ * @property {string}   backgroundColor - The background color of the button.
+ * @property {string}   style           - The style of the button.
+ * @property {string}   textColor       - The text color of the button.
+ * @property {string}   cornerRadius    - The corner radius of the button.
+ * @property {string}   icon            - The icon of the button.
+ * @property {string}   iconPosition    - The position of the icon in button.
+ * @property {string}   label           - The label of the button.
+ * @property {Function} setter          - The setter function.
+ * @property {string}   size            - The size of the button.
+ */
+
+/**
  * Small component which either renders an icon button or a text button.
  *
- * @param {Object}   props
- * @param {string}   props.type
- * @param {string}   props.backgroundColor
- * @param {string}   props.style
- * @param {string}   props.textColor
- * @param {string}   props.cornerRadius
- * @param {string}   props.icon
- * @param {string}   props.iconPosition
- * @param {string}   props.label
- * @param {Function} props.setter
- * @param {string}   props.size
+ * @param {MdcButtonProps} props
  *
  * @return {JSX.Element} JSX.
  */
@@ -132,29 +137,33 @@ const MdcButton = ( {
 };
 
 /**
+ * @typedef MdcButtonEditProps
+ *
+ * @property {string}  url             - The url of the button.
+ * @property {string}  rel             - Anchor rel.
+ * @property {string}  icon            - The icon of the button.
+ * @property {string}  type            - Type of button.
+ * @property {string}  label           - Label of button.
+ * @property {string}  style           - Style of button.
+ * @property {string}  textColor       - Text color of button.
+ * @property {string}  linkTarget      - Link target of button.
+ * @property {string}  cornerRadius    - Corner radius of button.
+ * @property {string}  iconPosition    - Icon position within button.
+ * @property {string}  backgroundColor - Background color of button.
+ * @property {boolean} isSubmit        - Whether the button is a submit button.
+ * @property {string}  tooltip         - Tooltip of button.
+ * @property {string}  size            - Size of button.
+ */
+
+/**
  * Material button edit component.
  *
- * @param {Object}   props
- * @param {Object}   props.attributes
- * @param {string}   props.attributes.url
- * @param {string}   props.attributes.rel
- * @param {string}   props.attributes.icon
- * @param {string}   props.attributes.type
- * @param {string}   props.attributes.label
- * @param {string}   props.attributes.style
- * @param {string}   props.attributes.textColor
- * @param {string}   props.attributes.linkTarget
- * @param {string}   props.attributes.cornerRadius
- * @param {string}   props.attributes.iconPosition
- * @param {string}   props.attributes.backgroundColor
- * @param {boolean}  props.attributes.isSubmit
- * @param {string}   props.attributes.tooltip
- * @param {string}   props.attributes.size
- * @param {Function} props.setAttributes
- * @param {boolean}  props.isSelected
- * @param {string}   props.className
- * @param {boolean}  props.isSubmitButton
- *
+ * @param {Object}             props
+ * @param {MdcButtonEditProps} props.attributes
+ * @param {Function}           props.setAttributes
+ * @param {boolean}            props.isSelected
+ * @param {string}             props.className
+ * @param {boolean}            props.isSubmitButton
  * @return {JSX.Element} JSX.
  */
 const ButtonEdit = ( {
