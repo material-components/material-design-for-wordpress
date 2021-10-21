@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-/* global jest, page, expect, afterEach, afterAll, beforeAll */
+/* global page*/
 
 /**
  * External dependencies.
