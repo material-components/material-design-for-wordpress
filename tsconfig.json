@@ -4,7 +4,7 @@
       "allowUnusedLabels": false,
       "declaration": true,
       "forceConsistentCasingInFileNames": true,
-      "lib": ["dom", "ESNext"],
+      "lib": ["dom", "ESNext", "dom.iterable"],
       "module": "esnext",
       "noEmitOnError": true,
       "noFallthroughCasesInSwitch": true,
@@ -29,6 +29,7 @@
       "allowSyntheticDefaultImports":true,
       // Once we have WP types available we can remove following.
       "noImplicitAny": false,
+      "resolveJsonModule": true,
     },
     "include": [
         "theme/assets/src/**/*",
