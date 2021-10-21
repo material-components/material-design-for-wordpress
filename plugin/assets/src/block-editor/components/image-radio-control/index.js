@@ -61,9 +61,12 @@ const ImageRadioControl = withInstanceId(
 						return (
 							<div
 								key={ `${ id }-${ index }` }
-								className={ classnames( 'components-radio-control__option', {
-									active: option.value === selected,
-								} ) }
+								className={ classnames(
+									'components-radio-control__option',
+									{
+										active: option.value === selected,
+									}
+								) }
 							>
 								<input
 									id={ `${ id }-${ index }` }
@@ -73,13 +76,18 @@ const ImageRadioControl = withInstanceId(
 									value={ option.value }
 									onChange={ onChangeValue }
 									checked={ option.value === selected }
-									aria-describedby={ !! help ? `${ id }__help` : undefined }
+									aria-describedby={
+										!! help ? `${ id }__help` : undefined
+									}
 								/>
 								<label htmlFor={ `${ id }-${ index }` }>
 									<div className="components-image-radio-control__image">
 										{ Image &&
 											( 'string' === typeof Image ? (
-												<img src={ Image } alt={ option.label } />
+												<img
+													src={ Image }
+													alt={ option.label }
+												/>
 											) : (
 												<Image />
 											) ) }

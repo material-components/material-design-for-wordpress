@@ -24,6 +24,16 @@ import classNames from 'classnames';
  */
 import './style.css';
 
+/**
+ *
+ * @param {Object}   props
+ * @param {?string}  props.label
+ * @param {Array}    props.buttons
+ * @param {string}   props.current
+ * @param {Function} props.onClick
+ *
+ * @return {JSX.Element} The button group.
+ */
 const ButtonGroup = ( { label, buttons, current, onClick } ) => (
 	<div className="btn-group">
 		{ label && (
@@ -38,16 +48,21 @@ const ButtonGroup = ( { label, buttons, current, onClick } ) => (
 					key={ button.value }
 					className="btn-group__list__list-item"
 					style={
-						buttons.length > 3 && i > 1 ? { borderLeft: 'none' } : undefined
+						buttons.length > 3 && i > 1
+							? { borderLeft: 'none' }
+							: undefined
 					}
 				>
 					<button
 						type="button"
 						onClick={ onClick.bind( this, button.value ) }
-						className={ classNames( 'btn-group__list__list-item__button', {
-							'btn-group__list__list-item__button--active':
-								current === button.value,
-						} ) }
+						className={ classNames(
+							'btn-group__list__list-item__button',
+							{
+								'btn-group__list__list-item__button--active':
+									current === button.value,
+							}
+						) }
 					>
 						{ button.label }
 					</button>

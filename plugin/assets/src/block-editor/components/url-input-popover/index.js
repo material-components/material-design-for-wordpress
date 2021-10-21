@@ -91,16 +91,22 @@ const UrlInputPopover = ( {
 								value={ value }
 								onChange={ onChange }
 								autoFocus={ false } // eslint-disable-line
-								placeholder={ __( 'Paste or type URL', 'material-design' ) }
+								placeholder={ __(
+									'Paste or type URL',
+									'material-design'
+								) }
 							/>
 						) }
 					{ onChangeNewTab && (
 						<Tooltip text={ expanded ? ariaOpen : ariaClosed }>
 							<Button
 								className={ classnames(
-									[ 'material-design-url-input-control__more-button' ],
+									[
+										'material-design-url-input-control__more-button',
+									],
 									{
-										'material-design--active': newTab || noFollow,
+										'material-design--active':
+											newTab || noFollow,
 									}
 								) }
 								onClick={ () => setExpanded( ! expanded ) }
@@ -115,9 +121,12 @@ const UrlInputPopover = ( {
 						<Tooltip text={ __( 'Close', 'material-design' ) }>
 							<Button
 								className={ classnames(
-									[ 'material-design-url-input-control__close-button' ],
+									[
+										'material-design-url-input-control__close-button',
+									],
 									{
-										'material-design--active': newTab || noFollow,
+										'material-design--active':
+											newTab || noFollow,
 									}
 								) }
 								onClick={ onPopupClose }
@@ -130,7 +139,10 @@ const UrlInputPopover = ( {
 				</div>
 				{ onChangeNewTab && expanded && (
 					<ToggleControl
-						label={ __( 'Open link in new tab', 'material-design' ) }
+						label={ __(
+							'Open link in new tab',
+							'material-design'
+						) }
 						checked={ newTab }
 						onChange={ onChangeNewTab }
 					/>

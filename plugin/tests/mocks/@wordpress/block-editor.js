@@ -18,6 +18,7 @@
 
 const original = jest.requireActual( '@wordpress/block-editor' );
 
+// eslint-disable-next-line import/named
 import { __experimentalRichText as RichText } from './rich-text';
 
 module.exports = {

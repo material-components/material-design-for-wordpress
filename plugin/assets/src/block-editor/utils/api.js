@@ -33,10 +33,11 @@ import getConfig from '../utils/get-config';
 /**
  * Get post query requests.
  *
- * @param {Object} request A query object with the list of selected posts and search term.
- * @param {Array} request.selected Currently selected posts.
- * @param {string} request.search Search string.
- * @param {Array} request.queryArgs Query args to pass in.
+ * @param {Object} request           A query object with the list of selected posts and search term.
+ * @param {Array}  request.selected  Currently selected posts.
+ * @param {string} request.search    Search string.
+ * @param {Object} request.queryArgs Query args to pass in.
+ * @param {string} request.postType  Post type.
  */
 const getPostsRequests = ( {
 	selected = [],
@@ -91,10 +92,13 @@ const getPostsRequests = ( {
 /**
  * Get a promise that resolves to a list of posts from the API.
  *
- * @param {Object} request A query object with the list of selected posts and search term.
- * @param {Array} request.selected Currently selected posts.
- * @param {string} request.search Search string.
- * @param {Array} request.queryArgs Query args to pass in.
+ * @param {Object} request           A query object with the list of selected posts and search term.
+ * @param {Array}  request.selected  Currently selected posts.
+ * @param {string} request.search    Search string.
+ * @param {Object} request.queryArgs Query args to pass in.
+ * @param {string} request.postType  Post type.
+ *
+ * @return {Promise} A promise that resolves to a list of posts.
  */
 export const getPosts = ( {
 	selected = [],

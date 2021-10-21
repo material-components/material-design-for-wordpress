@@ -31,5 +31,7 @@ export default iconName => {
 		icon => rawIcons[ icon ].name.toLowerCase() === iconName.toLowerCase()
 	);
 
-	return foundIcon ? { name: iconName, hex: parseInt( foundIcon, 16 ) } : null;
+	return foundIcon
+		? { name: iconName, hex: parseInt( foundIcon, 16 ) }
+		: null;
 };

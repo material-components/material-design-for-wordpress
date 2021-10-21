@@ -28,6 +28,7 @@ import {
 	TabSchema,
 } from '../../../../../../assets/src/block-editor/blocks/tab-bar/components/tab.js';
 
+/* eslint-disable @typescript-eslint/no-empty-function */
 jest.mock( '@wordpress/block-editor', () => {
 	const original = jest.requireActual( '@wordpress/block-editor' );
 	return {

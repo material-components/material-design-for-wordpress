@@ -61,7 +61,9 @@ describe( 'Buttons', () => {
 
 		const { container } = setup( props );
 
-		expect( container.querySelectorAll( '.leading-icon' ) ).toHaveLength( 1 );
+		expect( container.querySelectorAll( '.leading-icon' ) ).toHaveLength(
+			1
+		);
 	} );
 
 	it( 'should render trailing icon', () => {
@@ -72,7 +74,9 @@ describe( 'Buttons', () => {
 
 		const { container } = setup( props );
 
-		expect( container.querySelectorAll( '.trailing-icon' ) ).toHaveLength( 1 );
+		expect( container.querySelectorAll( '.trailing-icon' ) ).toHaveLength(
+			1
+		);
 	} );
 
 	it( 'should render as a link', () => {

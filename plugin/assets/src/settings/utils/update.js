@@ -8,7 +8,9 @@ import { updateFonts, updateIcons, isCoreUpdate } from './promises';
 /**
  * Handles each kind of update
  *
- * @param {*} type Item to update
+ * @param {string} type Item to update
+ *
+ * @return {Promise|undefined} Promise.
  */
 export const update = type => {
 	if ( type === UPDATERS.FONTS.type ) {

@@ -24,6 +24,13 @@ import { __ } from '@wordpress/i18n';
  */
 import IconButtonLink from '../common/icon-button-link';
 
+/**
+ *
+ * @param {Object}        props
+ * @param {string|number} props.radius
+ *
+ * @return {JSX.Element} JSX.
+ */
 const Chips = ( { radius } ) => (
 	<div>
 		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
@@ -44,7 +51,11 @@ const Chips = ( { radius } ) => (
 			>
 				<div className="mdc-chip__ripple"></div>
 				<span role="gridcell">
-					<span role="button" tabIndex="0" className="mdc-chip__primary-action">
+					<span
+						role="button"
+						tabIndex="0"
+						className="mdc-chip__primary-action"
+					>
 						<span className="mdc-chip__text">
 							{ __( 'Chip One', 'material-design' ) }
 						</span>

@@ -41,7 +41,9 @@ const getIconFontName = iconStyle => {
 		? 'Material Icons'
 		: `Material Icons ${ iconStyle
 				.replace( '-', ' ' )
-				.replace( /(^\w{1})|(\s{1}\w{1})/g, match => match.toUpperCase() ) }`;
+				.replace( /(^\w{1})|(\s{1}\w{1})/g, match =>
+					match.toUpperCase()
+				) }`;
 };
 
 const HAS_DARK_MODE_CLASS = 'top-app-bar--has-dark-mode';
@@ -74,7 +76,8 @@ export const COLOR_MODES = {
 	$( function() {
 		api.preview.bind( 'active', function() {
 			api.preview.send( 'materialDesign', {
-				notificationCount: _wpCustomizeSettings.values.material_design_notify,
+				notificationCount:
+					_wpCustomizeSettings.values.material_design_notify,
 			} );
 
 			api.preview.bind( 'materialDesignPaletteUpdate', message => {
@@ -184,7 +187,10 @@ export const COLOR_MODES = {
 				}
 
 				for ( const rule in rules ) {
-					if ( 'style' === rule || 'undefined' === typeof rules[ rule ] ) {
+					if (
+						'style' === rule ||
+						'undefined' === typeof rules[ rule ]
+					) {
 						return;
 					}
 
@@ -194,7 +200,9 @@ export const COLOR_MODES = {
 						const fontStyle = /italic$/.test( rules[ rule ] )
 							? 'italic'
 							: 'normal';
-						const weight = [ 'regular', 'italic' ].includes( rules[ rule ] )
+						const weight = [ 'regular', 'italic' ].includes(
+							rules[ rule ]
+						)
 							? 400
 							: parseInt( rules[ rule ], 10 );
 

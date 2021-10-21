@@ -21,6 +21,14 @@ import classNames from 'classnames';
 
 /**
  * Material list save component.
+ *
+ * @param {Object} props
+ * @param {Object} props.attributes
+ * @param {string} props.attributes.style
+ * @param {string} props.attributes.iconPosition
+ * @param {string} props.attributes.iconSize
+ * @param {Array}  props.attributes.items
+ * @param {string} props.className
  */
 const ListSave = ( {
 	attributes: { style, iconPosition, iconSize, items },
@@ -33,7 +41,9 @@ const ListSave = ( {
 			<ul
 				className={ classNames(
 					'mdc-list',
-					className ? className.replace( 'mdc-list--two-line', '' ) : '',
+					className
+						? className.replace( 'mdc-list--two-line', '' )
+						: '',
 					{
 						'mdc-list--two-line': isSecondaryEnabled,
 						'mdc-list--avatar-list': 'large' === iconSize,
@@ -41,14 +51,21 @@ const ListSave = ( {
 				) }
 			>
 				{ items.map(
-					( { primaryText, secondaryText, icon, url, target }, i ) => (
+					(
+						{ primaryText, secondaryText, icon, url, target },
+						i
+					) => (
 						<li key={ i } className="mdc-list-item">
 							{ url && (
 								<a
 									href={ url || '#' }
 									target={ target }
 									className="list-item__link"
-									rel={ target ? 'noopener noreferrer' : undefined }
+									rel={
+										target
+											? 'noopener noreferrer'
+											: undefined
+									}
 								>
 									&nbsp;
 								</a>

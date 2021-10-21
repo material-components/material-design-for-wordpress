@@ -109,14 +109,19 @@ const RangeSliderControl = props => {
 					) }
 				</div>
 				{ enableDescriptionToggling && (
-					<span className="customize-control-description">{ description }</span>
+					<span className="customize-control-description">
+						{ description }
+					</span>
 				) }
 			</div>
 			<div className="range-slider-control-body">
 				<span
-					className={ classNames( 'range-slider-control-body__item slider', {
-						'has-link': renderLink,
-					} ) }
+					className={ classNames(
+						'range-slider-control-body__item slider',
+						{
+							'has-link': renderLink,
+						}
+					) }
 				>
 					<RangeControl
 						value={ Number( value ) }
@@ -146,7 +151,10 @@ const RangeSliderControl = props => {
 							showTooltip={ true }
 							isPressed={ expandedSettings }
 							onClick={ handleExpandedSettings }
-							label={ __( 'View individual components', 'material-design' ) }
+							label={ __(
+								'View individual components',
+								'material-design'
+							) }
 							className={ `components-button is-link control-settings-expanded range-slider-control-settings-expanded ${
 								expandedSettings ? 'is-pressed' : ''
 							}` }

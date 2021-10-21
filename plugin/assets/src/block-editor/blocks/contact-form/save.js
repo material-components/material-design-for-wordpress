@@ -22,10 +22,10 @@ import { InnerBlocks } from '@wordpress/block-editor';
 /**
  * Contact Form Save component.
  *
- * @param {Object} props - Component props.
+ * @param {Object} props           - Component props.
  * @param {string} props.className - Component classes.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const Save = props => {
 	const { className } = props;

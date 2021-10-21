@@ -43,12 +43,12 @@ const MAX_POST_CONTENT_LENGTH = 30;
 /**
  * Common Posts List Inspector Controls component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.attributes - Block attributes.
+ * @param {Object}   props               - Component props.
+ * @param {Object}   props.attributes    - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
- * @param {string} props.name - Block name.
+ * @param {string}   props.name          - Block name.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const CommonPostsListInspectorControls = ( {
 	attributes,

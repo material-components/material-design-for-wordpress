@@ -48,7 +48,9 @@ describe( 'blocks: material/email-input-field', () => {
 
 	describe( 'parent settings', () => {
 		it( 'should have a list of allowed parent blocks', () => {
-			expect( settings.parent ).toStrictEqual( [ 'material/contact-form' ] );
+			expect( settings.parent ).toStrictEqual( [
+				'material/contact-form',
+			] );
 		} );
 	} );
 

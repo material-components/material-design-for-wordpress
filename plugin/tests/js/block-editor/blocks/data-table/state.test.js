@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* eslint-disable @typescript-eslint/no-empty-function */
 
 import {
 	createTable,
@@ -48,7 +49,9 @@ describe( 'Data Table State', () => {
 		};
 
 		expect( getFirstRow( table ) ).toStrictEqual( table.body[ 0 ] );
-		expect( getFirstRow( table ).cells[ 0 ].content ).toStrictEqual( 'Row 1' );
+		expect( getFirstRow( table ).cells[ 0 ].content ).toStrictEqual(
+			'Row 1'
+		);
 
 		table = {
 			head: [ { cells: [ { content: 'Heading 1', tag: 'td' } ] } ],
@@ -107,9 +110,15 @@ describe( 'Data Table State', () => {
 
 		expect( updateCell ).toHaveBeenCalledTimes( 5 );
 
-		expect( updateCell.mock.calls[ 0 ][ 0 ].content ).toStrictEqual( 'Row 2' );
-		expect( updateCell.mock.calls[ 1 ][ 0 ].content ).toStrictEqual( 'Row 1' );
-		expect( updateCell.mock.calls[ 2 ][ 0 ].content ).toStrictEqual( 'Row 2' );
+		expect( updateCell.mock.calls[ 0 ][ 0 ].content ).toStrictEqual(
+			'Row 2'
+		);
+		expect( updateCell.mock.calls[ 1 ][ 0 ].content ).toStrictEqual(
+			'Row 1'
+		);
+		expect( updateCell.mock.calls[ 2 ][ 0 ].content ).toStrictEqual(
+			'Row 2'
+		);
 		expect( updateCell.mock.calls[ 3 ][ 0 ].content ).toStrictEqual(
 			'Heading 1'
 		);
@@ -133,11 +142,15 @@ describe( 'Data Table State', () => {
 
 		expect( isCellSelected( null, selection ) ).toStrictEqual( false );
 		expect( isCellSelected( cellLocation, null ) ).toStrictEqual( false );
-		expect( isCellSelected( cellLocation, selection ) ).toStrictEqual( true );
+		expect( isCellSelected( cellLocation, selection ) ).toStrictEqual(
+			true
+		);
 
 		selection.type = 'column';
 		selection.rowIndex = 1;
-		expect( isCellSelected( cellLocation, selection ) ).toStrictEqual( true );
+		expect( isCellSelected( cellLocation, selection ) ).toStrictEqual(
+			true
+		);
 	} );
 
 	it( '`insertRow` should insert a row', () => {

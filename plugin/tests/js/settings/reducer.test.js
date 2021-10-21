@@ -82,7 +82,9 @@ describe( 'Settings: Reducer', () => {
 
 		expect( result.apiStatus ).toStrictEqual( 'ok' );
 		expect( result.updaters.FONTS.updateAvailable ).toStrictEqual( false );
-		expect( result.updaters.FONTS.lastUpdated ).toStrictEqual( lastUpdated );
+		expect( result.updaters.FONTS.lastUpdated ).toStrictEqual(
+			lastUpdated
+		);
 	} );
 
 	it( 'should set last updated', () => {
@@ -99,7 +101,9 @@ describe( 'Settings: Reducer', () => {
 		const result = reducer( initialState, action );
 
 		expect( result.updaters.FONTS.updateAvailable ).toStrictEqual( false );
-		expect( result.updaters.FONTS.lastUpdated ).toStrictEqual( lastUpdated );
+		expect( result.updaters.FONTS.lastUpdated ).toStrictEqual(
+			lastUpdated
+		);
 	} );
 
 	it( 'should add error', () => {

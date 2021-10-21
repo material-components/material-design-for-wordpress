@@ -24,7 +24,12 @@ describe( 'Color Utiles', () => {
 	// keep
 	it( 'test getColorAccessibility', () => {
 		expect(
-			colorUtils.getColorAccessibility( '#ffffff', 'name', '#000000', 'Black' )
+			colorUtils.getColorAccessibility(
+				'#ffffff',
+				'name',
+				'#000000',
+				'Black'
+			)
 		).toStrictEqual( {
 			hex: '#ffffff',
 			type: 'name',
@@ -49,7 +54,12 @@ describe( 'Color Utiles', () => {
 
 	it( 'test getColorAccessibility_b_on_b', () => {
 		expect(
-			colorUtils.getColorAccessibility( '#000000', 'Black', '#000000', 'Black' )
+			colorUtils.getColorAccessibility(
+				'#000000',
+				'Black',
+				'#000000',
+				'Black'
+			)
 		).toStrictEqual( {
 			hex: '#000000',
 			type: 'Black',
@@ -80,9 +90,9 @@ describe( 'Color Utiles', () => {
 		] );
 	} );
 	it( 'hexToRgbJoin', () => {
-		expect( colorUtils.hexToRgbValues( '#ffffff' ).join( ',' ) ).toStrictEqual(
-			'255,255,255'
-		);
+		expect(
+			colorUtils.hexToRgbValues( '#ffffff' ).join( ',' )
+		).toStrictEqual( '255,255,255' );
 	} );
 
 	it( 'hex2Rgb', () => {

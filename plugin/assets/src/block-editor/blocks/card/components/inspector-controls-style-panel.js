@@ -49,16 +49,16 @@ const MAX_CARD_ROUND_CORNERS = 20;
 /**
  * Inspector Controls Content Panel component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.cardLayoutStyle - Card style layout.
- * @param {number} props.cornerRadius - Card corner radius.
- * @param {boolean} props.outlined - Whether or not the card has an outlined style.
- * @param {boolean} props.isSingleCard - Whether or not it is a single card or the card is part of a collection
- * @param {Function} props.setter - Function to set the block attributes value.
- * @param {number} props.cardIndex - Card index.
- * @param {boolean} props.isPanelInitialOpened - Whether or not the control panel is initially opened.
- *
- * @return {Function} Function returning the HTML markup for the component.
+ * @param {Object}   props                      - Component props.
+ * @param {string}   props.cardLayoutStyle      - Card style layout.
+ * @param {number}   props.cornerRadius         - Card corner radius.
+ * @param {boolean}  props.isSingleCard         - Whether or not it is a single card or the card is part of a collection
+ * @param {Function} props.setter               - Function to set the block attributes value.
+ * @param {number}   props.cardIndex            - Card index.
+ * @param {boolean}  props.isPanelInitialOpened - Whether or not the control panel is initially opened.
+ * @param {string}   props.contentLayout        - Content layout
+ * @param {string}   props.cardStyle            - Card style
+ * @return {JSX.Element} Function returning the JSX of the component
  */
 const InspectorControlsStylePanel = ( {
 	cardLayoutStyle = 'vertical',
@@ -74,7 +74,8 @@ const InspectorControlsStylePanel = ( {
 		title={
 			isSingleCard
 				? __( 'Style Settings', 'material-design' )
-				: sprintf( __( 'Card #%d Style Settings' ), cardIndex + 1 )
+				: // translators: %s: Card index.
+				  sprintf( __( 'Card #%d Style Settings' ), cardIndex + 1 )
 		}
 		initialOpen={ isPanelInitialOpened }
 	>
@@ -83,12 +84,17 @@ const InspectorControlsStylePanel = ( {
 				label={ __( 'Content layout', 'material-design' ) }
 				selected={ contentLayout }
 				options={ CONTENT_LAYOUTS }
-				onChange={ value => setter( 'contentLayout', value, cardIndex ) }
+				onChange={ value =>
+					setter( 'contentLayout', value, cardIndex )
+				}
 			/>
 		) }
 
 		<div className="components-base-control">
-			<label className="components-base-control__label" htmlFor="shape-size">
+			<label
+				className="components-base-control__label"
+				htmlFor="shape-size"
+			>
 				{ __( 'Corner Styles', 'material-design' ) }
 			</label>
 

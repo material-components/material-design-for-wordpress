@@ -29,15 +29,21 @@ export const initButtons = () => {
 	const iconButtons = document.querySelectorAll( '.mdc-icon-button' );
 
 	buttons.forEach( button => new MDCRipple( button ) );
-	iconButtons.forEach( button => ( new MDCRipple( button ).unbounded = true ) );
+	iconButtons.forEach(
+		button => ( new MDCRipple( button ).unbounded = true )
+	);
 };
 
 export const initLists = () => {
-	const lists = document.querySelectorAll( '.mdc-list:not(.mdc-drawer__list)' );
+	const lists = document.querySelectorAll(
+		'.mdc-list:not(.mdc-drawer__list)'
+	);
 
 	lists.forEach( list => {
 		const mdcList = new MDCList( list );
-		mdcList.listElements.forEach( listItemEl => new MDCRipple( listItemEl ) );
+		mdcList.listElements.forEach(
+			listItemEl => new MDCRipple( listItemEl )
+		);
 	} );
 };
 

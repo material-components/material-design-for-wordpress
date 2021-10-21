@@ -90,7 +90,11 @@ const Item = props => {
 					label={ weight.label }
 					options={ choices }
 					onChange={ value =>
-						onChange( { id, sizeValue: size.value, weightValue: value } )
+						onChange( {
+							id,
+							sizeValue: size.value,
+							weightValue: value,
+						} )
 					}
 				/>
 			</div>

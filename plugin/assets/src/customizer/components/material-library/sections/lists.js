@@ -50,7 +50,12 @@ const Lists = ( { iconStyle } ) => (
 					className="wp-block-material-list-item mdc-list-item list-item"
 					tabIndex="0"
 				>
-					<i className={ classNames( iconStyle, 'mdc-list-item__graphic' ) }>
+					<i
+						className={ classNames(
+							iconStyle,
+							'mdc-list-item__graphic'
+						) }
+					>
 						wifi
 					</i>
 					<span className="mdc-list-item__text list-item__text">
@@ -61,7 +66,12 @@ const Lists = ( { iconStyle } ) => (
 					className="wp-block-material-list-item mdc-list-item list-item"
 					tabIndex="0"
 				>
-					<i className={ classNames( 'mdc-list-item__graphic', iconStyle ) }>
+					<i
+						className={ classNames(
+							'mdc-list-item__graphic',
+							iconStyle
+						) }
+					>
 						bluetooth
 					</i>
 					<span className="mdc-list-item__text list-item__text">
@@ -72,7 +82,12 @@ const Lists = ( { iconStyle } ) => (
 					className="wp-block-material-list-item mdc-list-item list-item"
 					tabIndex="0"
 				>
-					<i className={ classNames( iconStyle, 'mdc-list-item__graphic' ) }>
+					<i
+						className={ classNames(
+							iconStyle,
+							'mdc-list-item__graphic'
+						) }
+					>
 						http
 					</i>
 					<span className="mdc-list-item__text list-item__text">
@@ -87,7 +102,10 @@ const Lists = ( { iconStyle } ) => (
 			>
 				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="0">
 					<i
-						className={ classNames( iconStyle, 'mdc-list-item__graphic' ) }
+						className={ classNames(
+							iconStyle,
+							'mdc-list-item__graphic'
+						) }
 						aria-hidden="true"
 					>
 						spa
@@ -98,13 +116,16 @@ const Lists = ( { iconStyle } ) => (
 							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-design' ) }
+							{ __( 'Secondary Text…', 'material-design' ) }
 						</span>
 					</span>
 				</li>
 				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="-1">
 					<i
-						className={ classNames( 'mdc-list-item__graphic', iconStyle ) }
+						className={ classNames(
+							'mdc-list-item__graphic',
+							iconStyle
+						) }
 						aria-hidden="true"
 					>
 						grade
@@ -115,13 +136,16 @@ const Lists = ( { iconStyle } ) => (
 							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-design' ) }
+							{ __( 'Secondary Text…', 'material-design' ) }
 						</span>
 					</span>
 				</li>
 				<li className="mdc-list-item mdc-ripple-upgraded" tabIndex="-1">
 					<i
-						className={ classNames( iconStyle, 'mdc-list-item__graphic' ) }
+						className={ classNames(
+							iconStyle,
+							'mdc-list-item__graphic'
+						) }
 						aria-hidden="true"
 					>
 						search
@@ -132,7 +156,7 @@ const Lists = ( { iconStyle } ) => (
 							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-design' ) }
+							{ __( 'Secondary Text…', 'material-design' ) }
 						</span>
 					</span>
 				</li>
@@ -148,7 +172,7 @@ const Lists = ( { iconStyle } ) => (
 							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-design' ) }
+							{ __( 'Secondary Text…', 'material-design' ) }
 						</span>
 					</span>
 
@@ -171,7 +195,7 @@ const Lists = ( { iconStyle } ) => (
 							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-design' ) }
+							{ __( 'Secondary Text…', 'material-design' ) }
 						</span>
 					</span>
 
@@ -194,7 +218,7 @@ const Lists = ( { iconStyle } ) => (
 							{ __( 'List item', 'material-design' ) }
 						</span>
 						<span className="mdc-list-item__secondary-text">
-							{ __( 'Secondary Text...', 'material-design' ) }
+							{ __( 'Secondary Text…', 'material-design' ) }
 						</span>
 					</span>
 

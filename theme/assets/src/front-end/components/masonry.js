@@ -51,12 +51,16 @@ const resizeGridItem = cell => {
 	}
 
 	const rowHeight = parseInt(
-		window.getComputedStyle( gridElement ).getPropertyValue( 'grid-auto-rows' ),
+		window
+			.getComputedStyle( gridElement )
+			.getPropertyValue( 'grid-auto-rows' ),
 		10
 	);
 
 	const rowGap = parseInt(
-		window.getComputedStyle( gridElement ).getPropertyValue( 'grid-row-gap' ),
+		window
+			.getComputedStyle( gridElement )
+			.getPropertyValue( 'grid-row-gap' ),
 		10
 	);
 

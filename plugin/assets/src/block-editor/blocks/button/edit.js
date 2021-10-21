@@ -56,6 +56,20 @@ import { name as ContactFormBlockName } from '../contact-form';
 
 /**
  * Small component which either renders an icon button or a text button.
+ *
+ * @param {Object}   props
+ * @param {string}   props.type
+ * @param {string}   props.backgroundColor
+ * @param {string}   props.style
+ * @param {string}   props.textColor
+ * @param {string}   props.cornerRadius
+ * @param {string}   props.icon
+ * @param {string}   props.iconPosition
+ * @param {string}   props.label
+ * @param {Function} props.setter
+ * @param {string}   props.size
+ *
+ * @return {JSX.Element} JSX.
  */
 const MdcButton = ( {
 	type,
@@ -85,7 +99,9 @@ const MdcButton = ( {
 	return (
 		<div
 			style={ {
-				...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
+				...( backgroundColor && hasBg( style )
+					? { backgroundColor }
+					: {} ),
 				...( textColor ? { color: textColor } : {} ),
 				...( cornerRadius !== undefined
 					? { borderRadius: `${ cornerRadius }px` }
@@ -101,7 +117,7 @@ const MdcButton = ( {
 			) }
 			<RichText
 				value={ label }
-				placeholder={ __( 'Add text...', 'material-design' ) }
+				placeholder={ __( 'Add text…', 'material-design' ) }
 				withoutInteractiveFormatting
 				allowedFormats={ [] }
 				onChange={ setter( 'label' ) }
@@ -117,6 +133,29 @@ const MdcButton = ( {
 
 /**
  * Material button edit component.
+ *
+ * @param {Object}   props
+ * @param {Object}   props.attributes
+ * @param {string}   props.attributes.url
+ * @param {string}   props.attributes.rel
+ * @param {string}   props.attributes.icon
+ * @param {string}   props.attributes.type
+ * @param {string}   props.attributes.label
+ * @param {string}   props.attributes.style
+ * @param {string}   props.attributes.textColor
+ * @param {string}   props.attributes.linkTarget
+ * @param {string}   props.attributes.cornerRadius
+ * @param {string}   props.attributes.iconPosition
+ * @param {string}   props.attributes.backgroundColor
+ * @param {boolean}  props.attributes.isSubmit
+ * @param {string}   props.attributes.tooltip
+ * @param {string}   props.attributes.size
+ * @param {Function} props.setAttributes
+ * @param {boolean}  props.isSelected
+ * @param {string}   props.className
+ * @param {boolean}  props.isSubmitButton
+ *
+ * @return {JSX.Element} JSX.
  */
 const ButtonEdit = ( {
 	attributes: {
@@ -241,7 +280,9 @@ const ButtonEdit = ( {
 
 					{ type === 'text' && (
 						<>
-							<span>{ __( 'Variations', 'material-design' ) }</span>
+							<span>
+								{ __( 'Variations', 'material-design' ) }
+							</span>
 							<ButtonGroup
 								buttons={ BUTTON_STYLES }
 								current={ style }
@@ -253,7 +294,10 @@ const ButtonEdit = ( {
 					{ type === 'icon' && (
 						<>
 							<TextControl
-								label={ __( 'Tooltip Text', 'material-theme-builder' ) }
+								label={ __(
+									'Tooltip Text',
+									'material-theme-builder'
+								) }
 								onChange={ setter( 'tooltip' ) }
 								value={ tooltip }
 							/>
@@ -273,7 +317,10 @@ const ButtonEdit = ( {
 					) }
 
 					{ ( iconPosition !== 'none' || type === 'icon' ) && (
-						<IconPicker currentIcon={ icon } onChange={ setter( 'icon' ) } />
+						<IconPicker
+							currentIcon={ icon }
+							onChange={ setter( 'icon' ) }
+						/>
 					) }
 				</PanelBody>
 				<PanelBody
@@ -290,7 +337,10 @@ const ButtonEdit = ( {
 							target="_blank"
 							rel="noreferrer noopener"
 						>
-							{ __( 'Material Design Options', 'material-design' ) }
+							{ __(
+								'Material Design Options',
+								'material-design'
+							) }
 						</a>
 						{ __( ' to update all buttons.', 'material-design' ) }
 					</div>
@@ -301,16 +351,23 @@ const ButtonEdit = ( {
 							value={ backgroundColor }
 							onChange={ setter( 'backgroundColor' ) }
 							globalPropName={
-								hasBg( style ) ? 'primary_color' : 'on_primary_color'
+								hasBg( style )
+									? 'primary_color'
+									: 'on_primary_color'
 							}
 						/>
 					) }
 					<GlobalColor
-						label={ __( 'Text and icons Color', 'material-design' ) }
+						label={ __(
+							'Text and icons Color',
+							'material-design'
+						) }
 						value={ textColor }
 						onChange={ setter( 'textColor' ) }
 						globalPropName={
-							hasBg( style ) ? 'on_primary_color' : 'primary_color'
+							hasBg( style )
+								? 'on_primary_color'
+								: 'primary_color'
 						}
 					/>
 
@@ -336,13 +393,21 @@ const ButtonEdit = ( {
 										'material-design'
 									) }
 									<a
-										href={ getConfig( 'customizerUrls' ).shape }
+										href={
+											getConfig( 'customizerUrls' ).shape
+										}
 										target="_blank"
 										rel="noreferrer noopener"
 									>
-										{ __( 'Material Design Options', 'material-design' ) }
+										{ __(
+											'Material Design Options',
+											'material-design'
+										) }
 									</a>
-									{ __( ' to update all buttons.', 'material-design' ) }
+									{ __(
+										' to update all buttons.',
+										'material-design'
+									) }
 								</div>
 								<GlobalShapeSize
 									value={ cornerRadius }
@@ -399,7 +464,10 @@ export default compose( [
 			while ( parentId ) {
 				const parentBlock = getBlock( clientId );
 
-				if ( parentBlock && parentBlock.name === ContactFormBlockName ) {
+				if (
+					parentBlock &&
+					parentBlock.name === ContactFormBlockName
+				) {
 					isSubmitButton = true;
 					break;
 				}
@@ -408,7 +476,8 @@ export default compose( [
 			}
 		} else {
 			isSubmitButton =
-				getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0;
+				getBlockParentsByBlockName( clientId, ContactFormBlockName )
+					.length > 0;
 		}
 
 		return {

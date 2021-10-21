@@ -24,11 +24,15 @@
 export async function switchEditorModeTo( mode ) {
 	if ( mode === 'Code' ) {
 		await page.evaluate( () => {
-			window.wp.data.dispatch( 'core/edit-post' ).switchEditorMode( 'text' );
+			window.wp.data
+				.dispatch( 'core/edit-post' )
+				.switchEditorMode( 'text' );
 		} );
 	} else {
 		await page.evaluate( () => {
-			window.wp.data.dispatch( 'core/edit-post' ).switchEditorMode( 'visual' );
+			window.wp.data
+				.dispatch( 'core/edit-post' )
+				.switchEditorMode( 'visual' );
 		} );
 	}
 }

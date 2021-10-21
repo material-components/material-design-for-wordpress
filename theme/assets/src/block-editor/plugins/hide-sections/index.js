@@ -66,7 +66,9 @@ function HideSection( { settings, updateSectionsSettings } ) {
 							newSettings[ settingOption.key ] = state;
 							const newSettingsOptions = settingsOptions;
 							newSettingsOptions.forEach( newSettingOption => {
-								if ( newSettingOption.key === settingOption.key ) {
+								if (
+									newSettingOption.key === settingOption.key
+								) {
 									newSettingOption.value = state;
 								}
 							} );
@@ -96,7 +98,9 @@ const WrappedSectionControl = compose( [
 	withSelect( select => {
 		const { getEditedPostAttribute } = select( 'core/editor' );
 		return {
-			settings: getEditedPostAttribute( 'meta' )[ 'material-hide-sections' ],
+			settings: getEditedPostAttribute( 'meta' )[
+				'material-hide-sections'
+			],
 		};
 	} ),
 	withDispatch( dispatch => {

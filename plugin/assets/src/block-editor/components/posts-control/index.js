@@ -37,14 +37,15 @@ import SearchListItem from './item';
  *
  * Most of the code has been lifted from https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/master/assets/js/components/products-control/index.js
  *
- * @param {Object} props - Component props.
- * @param {Function} props.onChange - Callback fired when the selected item changes.
- * @param {Function} props.onSearch - Callback fired when a search is triggered.
- * @param {Array}    props.selected - An array of selected posts.
- * @param {Array}    props.posts - An array of posts to select from.
+ * @param {Object}   props           - Component props.
+ * @param {Function} props.onChange  - Callback fired when the selected item changes.
+ * @param {Function} props.onSearch  - Callback fired when a search is triggered.
+ * @param {Array}    props.selected  - An array of selected posts.
+ * @param {Array}    props.posts     - An array of posts to select from.
  * @param {boolean}  props.isLoading - Whether or not the posts are being loaded.
+ * @param {Object}   props.error
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const PostsControl = ( {
 	error,
@@ -62,7 +63,13 @@ const PostsControl = ( {
 		search: __( 'Search for posts to display', 'material-design' ),
 		selected: n =>
 			sprintf(
-				_n( '%d post selected', '%d posts selected', n, 'material-design' ),
+				// translators: %s: Number of selected posts.
+				_n(
+					'%d post selected',
+					'%d posts selected',
+					n,
+					'material-design'
+				),
 				n
 			),
 		updated: __( 'Posts search results updated.', 'material-design' ),

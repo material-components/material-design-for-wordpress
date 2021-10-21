@@ -4,6 +4,7 @@ declare global {
     interface Window {
         materialDesignWizard: materialDesignWizard;
         wp: any;
+        _wpCustomizeSettings: any;
     }
 }
 
