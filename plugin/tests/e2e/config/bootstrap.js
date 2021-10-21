@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-/* global page*/
-
 /**
  * External dependencies.
  */

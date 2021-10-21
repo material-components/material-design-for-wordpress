@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-/* global page */
-
 /**
  * Remove all blocks from editor.
  */
