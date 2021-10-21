@@ -23,6 +23,7 @@ import { MDCList } from '@material/list';
 import { MDCRipple } from '@material/ripple';
 import { MDCTabBar } from '@material/tab-bar';
 import { MDCTooltip } from '@material/tooltip';
+import { MDCTextField } from '@material/textfield';
 
 export const initButtons = () => {
 	const buttons = document.querySelectorAll( '.mdc-button' );
@@ -75,4 +76,10 @@ export const initToolTips = () => {
 	const tooltips = document.querySelectorAll( '.mdc-tooltip' );
 
 	tooltips.forEach( tooltip => new MDCTooltip( tooltip ) );
+};
+
+export const initTextFields = () => {
+	const textFields = document.querySelectorAll( '.mdc-text-field' );
+
+	textFields.forEach( textField => new MDCTextField( textField ) );
 };
