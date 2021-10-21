@@ -22,8 +22,6 @@
  * Learn more: https://git.io/vWdr2
  */
 
-/* global navigator, location */
-
 ( function() {
 	const isIe = /(trident|msie)/i.test( navigator.userAgent );
 

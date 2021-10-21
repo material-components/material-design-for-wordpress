@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-/* global MutationObserver */
-
 import { MDCTopAppBar } from '@material/top-app-bar';
 import search from './search';
 
