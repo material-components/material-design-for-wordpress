@@ -53,6 +53,7 @@ const ColorControl = ( {
 
 	const onChange = value => {
 		setColor( value );
+		onColorChange( value );
 	};
 
 	const onBlur = event => {
@@ -163,7 +164,6 @@ const ColorControl = ( {
 									value={ color }
 									onChange={ value => {
 										onChange( value );
-										onColorChange( value );
 									} }
 									materialColorsOnly={ true }
 								/>
