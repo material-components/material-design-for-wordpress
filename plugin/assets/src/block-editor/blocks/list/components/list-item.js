@@ -15,19 +15,9 @@
  */
 
 /**
- * External dependencies
- */
-import { debounce } from 'lodash';
-
-/**
  * WordPress dependencies
  */
-import {
-	findDOMNode,
-	useEffect,
-	useRef,
-	useCallback,
-} from '@wordpress/element';
+import { findDOMNode, useEffect, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { RichText } from '@wordpress/block-editor';
 
@@ -228,16 +218,6 @@ const ListItem = ( {
 		}
 	};
 
-	const debouncedOnPrimaryTextChange = useCallback(
-		debounce( onPrimaryTextChange, 200 ),
-		[]
-	);
-
-	const debouncedOnSecondaryTextChange = useCallback(
-		debounce( onSecondaryTextChange, 200 ),
-		[]
-	);
-
 	return (
 		<li className="mdc-list-item">
 			{ 'leading' === iconPosition && (
@@ -250,7 +230,7 @@ const ListItem = ( {
 						identifier="values"
 						ref={ primaryRef }
 						value={ isPrimarySelected && ! preview ? editedText : primaryText }
-						onChange={ debouncedOnPrimaryTextChange }
+						onChange={ onPrimaryTextChange }
 						onRemove={ onPrimaryDelete }
 						onMerge={ onMerge }
 						onSplit={ onSplitCallback }
@@ -269,7 +249,7 @@ const ListItem = ( {
 							value={
 								isSecondarySelected && ! preview ? editedText : secondaryText
 							}
-							onChange={ debouncedOnSecondaryTextChange }
+							onChange={ onSecondaryTextChange }
 							onRemove={ onSecondaryDelete }
 							onSplit={ ( v, b ) => onSplitCallback( v, b, true ) }
 							onReplace={ () => {} }
