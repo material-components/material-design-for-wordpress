@@ -233,9 +233,10 @@ class Plugin extends Plugin_Base {
 
 		$material_design_recaptcha_site_key = get_option( 'material_design_recaptcha_site_key', '' );
 		$wp_localized_script_data           = [
-			'ajax_url'       => admin_url( 'admin-ajax.php' ),
-			'darkModeStatus' => $this->customizer_controls->dark_mode_status(),
-			'globalStyle'    => $this->block_types->get_global_styles(),
+			'ajax_url'              => admin_url( 'admin-ajax.php' ),
+			'darkModeStatus'        => $this->customizer_controls->get_dark_mode_status(),
+			'globalStyle'           => $this->block_types->get_global_styles(),
+			'isMaterialThemeActive' => $this->theme_status() === 'ok',
 		];
 
 		if ( function_exists( 'has_block' ) && has_block( 'material/contact-form' ) && ! empty( $material_design_recaptcha_site_key ) ) {

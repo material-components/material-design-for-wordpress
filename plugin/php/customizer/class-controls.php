@@ -1024,7 +1024,7 @@ class Controls extends Module_Base {
 			}
 		";
 
-		if ( 'inactive' !== $this->dark_mode_status() ) {
+		if ( 'inactive' !== $this->get_dark_mode_status() ) {
 			$css .= "
 				@media (prefers-color-scheme: dark) {
 					:root {
@@ -1895,17 +1895,18 @@ class Controls extends Module_Base {
 	/**
 	 * Check whether or not dark mode is forced.
 	 *
-	 * @return bool Status of dark mode.
+	 * @return string status of dark mode.
 	 */
-	public function dark_mode_status() {
+	public function get_dark_mode_status() {
 		$selected_style = $this->get_option( 'style' );
 		$style_settings = $this->get_option( 'style_settings' );
 		$style_settings = is_string( $style_settings ) ? json_decode( $style_settings, true ) : [];
 		$selected_style = $selected_style ? $selected_style : 'baseline';
 		if ( empty( $style_settings[ $selected_style ] ) ) {
-			return;
+			return 'inactive';
 		}
 
+		// Auto and active is dark mode active.
 		return $style_settings[ $selected_style ]['dark'];
 	}
 

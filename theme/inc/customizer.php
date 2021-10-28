@@ -27,6 +27,7 @@ namespace MaterialDesign\Theme\Customizer;
 
 use MaterialDesign\Theme\Customizer\Colors;
 use MaterialDesign\Theme\Customizer\More_Options;
+use function MaterialDesign\Plugin\get_plugin_instance;
 
 /**
  * Attach hooks.
@@ -573,7 +574,7 @@ function get_css_vars() {
 		}
 	";
 
-	if ( material_is_plugin_active() ) {
+	if ( material_is_plugin_active() && get_dark_mode_status() !== 'inactive' ) {
 		$css .= "
 			@media (prefers-color-scheme: dark) {
 				:root {
@@ -584,6 +585,20 @@ function get_css_vars() {
 	}
 
 	return $css;
+}
+
+/**
+ * Get dark mode status.
+ *
+ * @return string
+ */
+function get_dark_mode_status() {
+	$plugin = get_plugin_instance();
+	if ( property_exists( $plugin, 'customizer_controls' ) && method_exists( $plugin->customizer_controls, 'get_dark_mode_status' ) ) {
+		return $plugin->customizer_controls->get_dark_mode_status();
+	}
+
+	return 'inactive';
 }
 
 /**
