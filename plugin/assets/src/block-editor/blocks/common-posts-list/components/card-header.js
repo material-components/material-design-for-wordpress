@@ -24,13 +24,13 @@ import { RawHTML } from '@wordpress/element';
 /**
  * Card Header component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.titleTrimmed - Post title trimmed.
+ * @param {Object}  props                 - Component props.
+ * @param {string}  props.titleTrimmed    - Post title trimmed.
  * @param {boolean} props.displayPostDate - Whether or not to display the post date field.
- * @param {Object} props.post - Post data.
- * @param {string} props.dateFormat - Date format.
+ * @param {Object}  props.post            - Post data.
+ * @param {string}  props.dateFormat      - Date format.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const CardHeader = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
 	<div className="single-post-card__primary">

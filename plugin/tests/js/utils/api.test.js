@@ -75,7 +75,11 @@ describe( 'api: getPosts', () => {
 					value: 'posts-pages',
 					route: '/material-design/v1/post-types/get-posts',
 				},
-				{ label: 'Portfolios', value: 'portfolio', route: '/wp/v2/portfolio' },
+				{
+					label: 'Portfolios',
+					value: 'portfolio',
+					route: '/wp/v2/portfolio',
+				},
 				{ label: 'Recipes', value: 'recipe', route: '/wp/v2/recipe' },
 				{ label: 'Books', value: 'book', route: '/wp/v2/book' },
 			],

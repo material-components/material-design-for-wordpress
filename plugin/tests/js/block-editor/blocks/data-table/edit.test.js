@@ -198,7 +198,9 @@ describe( 'Data Table Edit', () => {
 			container.querySelector( '.blocks-table__placeholder-form' )
 		).toBeDefined();
 		expect(
-			container.querySelectorAll( '.blocks-table__placeholder-form input' )
+			container.querySelectorAll(
+				'.blocks-table__placeholder-form input'
+			)
 		).toHaveLength( 2 );
 
 		const createBtn = container.querySelector(

@@ -4,5 +4,6 @@
 **/vendor/**
 **/plugin/assets/js/*.js
 **/theme/assets/js/*.js
+**/plugin/assets/src/types/*
 build/*
 built/*

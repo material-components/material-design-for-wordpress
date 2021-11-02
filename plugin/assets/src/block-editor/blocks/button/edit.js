@@ -55,7 +55,26 @@ import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
 
 /**
+ * @typedef MdcButtonProps
+ *
+ * @property {string}   type            - The type of button.
+ * @property {string}   backgroundColor - The background color of the button.
+ * @property {string}   style           - The style of the button.
+ * @property {string}   textColor       - The text color of the button.
+ * @property {string}   cornerRadius    - The corner radius of the button.
+ * @property {string}   icon            - The icon of the button.
+ * @property {string}   iconPosition    - The position of the icon in button.
+ * @property {string}   label           - The label of the button.
+ * @property {Function} setter          - The setter function.
+ * @property {string}   size            - The size of the button.
+ */
+
+/**
  * Small component which either renders an icon button or a text button.
+ *
+ * @param {MdcButtonProps} props
+ *
+ * @return {JSX.Element} JSX.
  */
 const MdcButton = ( {
 	type,
@@ -85,7 +104,9 @@ const MdcButton = ( {
 	return (
 		<div
 			style={ {
-				...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
+				...( backgroundColor && hasBg( style )
+					? { backgroundColor }
+					: {} ),
 				...( textColor ? { color: textColor } : {} ),
 				...( cornerRadius !== undefined
 					? { borderRadius: `${ cornerRadius }px` }
@@ -101,7 +122,7 @@ const MdcButton = ( {
 			) }
 			<RichText
 				value={ label }
-				placeholder={ __( 'Add text...', 'material-design' ) }
+				placeholder={ __( 'Add text…', 'material-design' ) }
 				withoutInteractiveFormatting
 				allowedFormats={ [] }
 				onChange={ setter( 'label' ) }
@@ -116,7 +137,34 @@ const MdcButton = ( {
 };
 
 /**
+ * @typedef MdcButtonEditProps
+ *
+ * @property {string}  url             - The url of the button.
+ * @property {string}  rel             - Anchor rel.
+ * @property {string}  icon            - The icon of the button.
+ * @property {string}  type            - Type of button.
+ * @property {string}  label           - Label of button.
+ * @property {string}  style           - Style of button.
+ * @property {string}  textColor       - Text color of button.
+ * @property {string}  linkTarget      - Link target of button.
+ * @property {string}  cornerRadius    - Corner radius of button.
+ * @property {string}  iconPosition    - Icon position within button.
+ * @property {string}  backgroundColor - Background color of button.
+ * @property {boolean} isSubmit        - Whether the button is a submit button.
+ * @property {string}  tooltip         - Tooltip of button.
+ * @property {string}  size            - Size of button.
+ */
+
+/**
  * Material button edit component.
+ *
+ * @param {Object}             props
+ * @param {MdcButtonEditProps} props.attributes
+ * @param {Function}           props.setAttributes
+ * @param {boolean}            props.isSelected
+ * @param {string}             props.className
+ * @param {boolean}            props.isSubmitButton
+ * @return {JSX.Element} JSX.
  */
 const ButtonEdit = ( {
 	attributes: {
@@ -241,7 +289,9 @@ const ButtonEdit = ( {
 
 					{ type === 'text' && (
 						<>
-							<span>{ __( 'Variations', 'material-design' ) }</span>
+							<span>
+								{ __( 'Variations', 'material-design' ) }
+							</span>
 							<ButtonGroup
 								buttons={ BUTTON_STYLES }
 								current={ style }
@@ -253,7 +303,10 @@ const ButtonEdit = ( {
 					{ type === 'icon' && (
 						<>
 							<TextControl
-								label={ __( 'Tooltip Text', 'material-theme-builder' ) }
+								label={ __(
+									'Tooltip Text',
+									'material-theme-builder'
+								) }
 								onChange={ setter( 'tooltip' ) }
 								value={ tooltip }
 							/>
@@ -273,7 +326,10 @@ const ButtonEdit = ( {
 					) }
 
 					{ ( iconPosition !== 'none' || type === 'icon' ) && (
-						<IconPicker currentIcon={ icon } onChange={ setter( 'icon' ) } />
+						<IconPicker
+							currentIcon={ icon }
+							onChange={ setter( 'icon' ) }
+						/>
 					) }
 				</PanelBody>
 				<PanelBody
@@ -290,7 +346,10 @@ const ButtonEdit = ( {
 							target="_blank"
 							rel="noreferrer noopener"
 						>
-							{ __( 'Material Design Options', 'material-design' ) }
+							{ __(
+								'Material Design Options',
+								'material-design'
+							) }
 						</a>
 						{ __( ' to update all buttons.', 'material-design' ) }
 					</div>
@@ -301,16 +360,23 @@ const ButtonEdit = ( {
 							value={ backgroundColor }
 							onChange={ setter( 'backgroundColor' ) }
 							globalPropName={
-								hasBg( style ) ? 'primary_color' : 'on_primary_color'
+								hasBg( style )
+									? 'primary_color'
+									: 'on_primary_color'
 							}
 						/>
 					) }
 					<GlobalColor
-						label={ __( 'Text and icons Color', 'material-design' ) }
+						label={ __(
+							'Text and icons Color',
+							'material-design'
+						) }
 						value={ textColor }
 						onChange={ setter( 'textColor' ) }
 						globalPropName={
-							hasBg( style ) ? 'on_primary_color' : 'primary_color'
+							hasBg( style )
+								? 'on_primary_color'
+								: 'primary_color'
 						}
 					/>
 
@@ -336,13 +402,21 @@ const ButtonEdit = ( {
 										'material-design'
 									) }
 									<a
-										href={ getConfig( 'customizerUrls' ).shape }
+										href={
+											getConfig( 'customizerUrls' ).shape
+										}
 										target="_blank"
 										rel="noreferrer noopener"
 									>
-										{ __( 'Material Design Options', 'material-design' ) }
+										{ __(
+											'Material Design Options',
+											'material-design'
+										) }
 									</a>
-									{ __( ' to update all buttons.', 'material-design' ) }
+									{ __(
+										' to update all buttons.',
+										'material-design'
+									) }
 								</div>
 								<GlobalShapeSize
 									value={ cornerRadius }
@@ -399,7 +473,10 @@ export default compose( [
 			while ( parentId ) {
 				const parentBlock = getBlock( clientId );
 
-				if ( parentBlock && parentBlock.name === ContactFormBlockName ) {
+				if (
+					parentBlock &&
+					parentBlock.name === ContactFormBlockName
+				) {
 					isSubmitButton = true;
 					break;
 				}
@@ -408,7 +485,8 @@ export default compose( [
 			}
 		} else {
 			isSubmitButton =
-				getBlockParentsByBlockName( clientId, ContactFormBlockName ).length > 0;
+				getBlockParentsByBlockName( clientId, ContactFormBlockName )
+					.length > 0;
 		}
 
 		return {

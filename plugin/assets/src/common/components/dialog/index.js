@@ -45,7 +45,9 @@ const Dialog = withInstanceId(
 		return (
 			// eslint-disable-next-line jsx-a11y/no-static-element-interactions
 			<div
-				className={ classNames( 'mdc-dialog', { 'mdc-dialog--open': open } ) }
+				className={ classNames( 'mdc-dialog', {
+					'mdc-dialog--open': open,
+				} ) }
 				ref={ ref }
 			>
 				<div className="mdc-dialog__container">
@@ -75,7 +77,9 @@ const Dialog = withInstanceId(
 						) }
 
 						{ actions && (
-							<div className="mdc-dialog__actions">{ actions }</div>
+							<div className="mdc-dialog__actions">
+								{ actions }
+							</div>
 						) }
 					</div>
 				</div>

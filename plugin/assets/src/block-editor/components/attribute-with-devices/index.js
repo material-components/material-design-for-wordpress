@@ -48,11 +48,16 @@ export default ( { label, value, min = 0, max = 24, onChange } ) => {
 							<button
 								key={ device.name }
 								className={ classNames( '', {
-									'is-selected': device.name === selectedDevice,
+									'is-selected':
+										device.name === selectedDevice,
 								} ) }
-								onClick={ () => setSelectedDevice( device.name ) }
+								onClick={ () =>
+									setSelectedDevice( device.name )
+								}
 							>
-								<i className="material-icons">{ device.icon }</i>
+								<i className="material-icons">
+									{ device.icon }
+								</i>
 							</button>
 						) ) }
 					</div>

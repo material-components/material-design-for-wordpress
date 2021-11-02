@@ -69,6 +69,7 @@
 	 * Sets or removes .focus class on an element.
 	 */
 	function toggleFocus() {
+		/** @type {HTMLElement} */
 		let self = this;
 
 		// Move up through the ancestors of the current link until we hit .nav-menu.
@@ -97,15 +98,25 @@
 
 		if ( 'ontouchstart' in window ) {
 			const touchStartFn = function( e ) {
+				/** @type {HTMLElement} */
 				const menuItem = this.parentNode;
 
-				if ( ! menuItem.classList.contains( 'focus' ) ) {
+				if (
+					! menuItem.classList.contains( 'focus' ) &&
+					menuItem.parentNode
+				) {
 					e.preventDefault();
-					for ( i = 0; i < menuItem.parentNode.children.length; ++i ) {
+					for (
+						i = 0;
+						i < menuItem.parentNode.children.length;
+						++i
+					) {
 						if ( menuItem === menuItem.parentNode.children[ i ] ) {
 							continue;
 						}
-						menuItem.parentNode.children[ i ].classList.remove( 'focus' );
+						menuItem.parentNode.children[ i ].classList.remove(
+							'focus'
+						);
 					}
 					menuItem.classList.add( 'focus' );
 				} else {
@@ -114,7 +125,11 @@
 			};
 
 			for ( i = 0; i < parentLink.length; ++i ) {
-				parentLink[ i ].addEventListener( 'touchstart', touchStartFn, false );
+				parentLink[ i ].addEventListener(
+					'touchstart',
+					touchStartFn,
+					false
+				);
 			}
 		}
 	} )( container );

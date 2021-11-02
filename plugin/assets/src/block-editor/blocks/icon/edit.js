@@ -43,6 +43,16 @@ import ButtonGroup from '../../components/button-group';
 
 /**
  * Material icon edit component.
+ *
+ * @param {Object}        props
+ * @param {Object}        props.attributes
+ * @param {string|object} props.attributes.icon
+ * @param {string}        props.attributes.textColor
+ * @param {string}        props.attributes.iconSize
+ * @param {string}        props.attributes.customSize
+ * @param {string}        props.attributes.align
+ * @param {Function}      props.setAttributes
+ * @param {string}        props.className
  */
 const IconEdit = ( {
 	attributes: { icon, textColor, iconSize, customSize, align },
@@ -74,14 +84,22 @@ const IconEdit = ( {
 			</div>
 
 			<BlockControls group="block">
-				<AlignmentToolbar value={ align } onChange={ setter( 'align' ) } />
+				<AlignmentToolbar
+					value={ align }
+					onChange={ setter( 'align' ) }
+				/>
 			</BlockControls>
 			<InspectorControls>
 				<PanelBody
 					title={ __( 'Icon', 'material-design' ) }
 					initialOpen={ true }
 				>
-					{ <IconPicker currentIcon={ icon } onChange={ setter( 'icon' ) } /> }
+					{
+						<IconPicker
+							currentIcon={ icon }
+							onChange={ setter( 'icon' ) }
+						/>
+					}
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Colors', 'material-design' ) }
@@ -97,7 +115,10 @@ const IconEdit = ( {
 							target="_blank"
 							rel="noreferrer noopener"
 						>
-							{ __( 'Material Design Options', 'material-design' ) }
+							{ __(
+								'Material Design Options',
+								'material-design'
+							) }
 						</a>
 						{ __( ' to update all Icons.', 'material-design' ) }
 					</div>
@@ -121,7 +142,10 @@ const IconEdit = ( {
 
 					{ isCustom && (
 						<RangeControl
-							label={ __( 'Pick custom size(in px)', 'material-design' ) }
+							label={ __(
+								'Pick custom size(in px)',
+								'material-design'
+							) }
 							value={ customSize }
 							onChange={ setter( 'customSize' ) }
 							min={ 10 }

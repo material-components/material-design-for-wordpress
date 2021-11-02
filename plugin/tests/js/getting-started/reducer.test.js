@@ -129,7 +129,9 @@ describe( 'Reducer', () => {
 		const result = reducer( initialState, action );
 
 		expect( result.status ).toStrictEqual( 'PENDING' );
-		expect( result.actionToInstall ).toStrictEqual( 'INSTALL_DEMO_CONTENT' );
+		expect( result.actionToInstall ).toStrictEqual(
+			'INSTALL_DEMO_CONTENT'
+		);
 	} );
 
 	it( 'should update theme status', () => {

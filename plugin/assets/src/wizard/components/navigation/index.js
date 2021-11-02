@@ -71,9 +71,14 @@ const Navigation = () => {
 						{ state.active !== STEPS.WELCOME && (
 							<Button
 								style="material-wizard__next"
-								text={ __( 'Previous Step', 'material-design' ) }
+								text={ __(
+									'Previous Step',
+									'material-design'
+								) }
 								leadingIcon="navigate_before"
-								onClick={ () => handleClick( ACTIONS.PREVIOUS_STEP ) }
+								onClick={ () =>
+									handleClick( ACTIONS.PREVIOUS_STEP )
+								}
 							/>
 						) }
 					</div>
@@ -84,7 +89,9 @@ const Navigation = () => {
 								style="material-wizard__next mdc-button--raised"
 								text={ __( 'Next Step', 'material-design' ) }
 								trailingIcon="navigate_next"
-								onClick={ () => handleClick( ACTIONS.NEXT_STEP ) }
+								onClick={ () =>
+									handleClick( ACTIONS.NEXT_STEP )
+								}
 								loading={ isLoading }
 							/>
 						) }

@@ -45,8 +45,9 @@ const withSearchedPosts = createHigherOrderComponent( OriginalComponent => {
 	 * A Component wrapping the passed in component.
 	 *
 	 * @class WrappedComponent
-	 * @param {Object} props - Component props.
-	 * @param {Array} props.selected - Selected Posts Ids
+	 * @param {Object} props          - Component props.
+	 * @param {Array}  props.selected - Selected Posts Ids
+	 * @param {string} props.postType - post type.
 	 */
 	const WrappedComponent = props => {
 		const [ list, setList ] = useState( [] );

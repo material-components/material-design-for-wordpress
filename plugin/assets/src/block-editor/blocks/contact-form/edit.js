@@ -59,7 +59,7 @@ const TEMPLATES = [
 /**
  * Contact Form Edit component.
  *
- * @param {Object} props - Component props.
+ * @param {Object} props           - Component props.
  * @param {string} props.className - Component classes.
  *
  * @return {Function} Function returning the HTML markup for the component.
@@ -100,7 +100,10 @@ const Edit = props => {
 
 	if ( displayNotice ) {
 		createWarningNotice(
-			__( 'Only one contact form is supported per page', 'material-design' )
+			__(
+				'Only one contact form is supported per page',
+				'material-design'
+			)
 		);
 	}
 
@@ -114,7 +117,10 @@ const Edit = props => {
 		>
 			<FormInspectorControls setter={ setter } { ...props } />
 			<div className={ className }>
-				<InnerBlocks template={ TEMPLATES } allowedBlocks={ ALLOWED_BLOCKS } />
+				<InnerBlocks
+					template={ TEMPLATES }
+					allowedBlocks={ ALLOWED_BLOCKS }
+				/>
 			</div>
 		</ContactFormContext.Provider>
 	);
@@ -123,7 +129,9 @@ const Edit = props => {
 export default compose( [
 	withSelect( select => {
 		const insertedBlocks = select( 'core/block-editor' ).getBlocks();
-		const insertedForms = insertedBlocks.filter( block => block.name === name );
+		const insertedForms = insertedBlocks.filter(
+			block => block.name === name
+		);
 		const pageNotices = select( 'core/notices' ).getNotices();
 
 		return {
@@ -131,7 +139,10 @@ export default compose( [
 			formNotices: pageNotices.filter(
 				notice =>
 					notice.content ===
-					__( 'Only one contact form is supported per page', 'material-design' )
+					__(
+						'Only one contact form is supported per page',
+						'material-design'
+					)
 			),
 		};
 	} ),

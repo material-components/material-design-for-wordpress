@@ -55,24 +55,29 @@ const Save = ( { attributes, hasCaption } ) => {
 			<Tag className={ tagClass }>
 				{ rows.map( ( { cells }, rowIndex ) => (
 					<tr key={ rowIndex } className={ trClass }>
-						{ cells.map( ( { content, tag, scope, align }, cellIndex ) => {
-							const cellClasses = classnames( {
-								[ `has-text-align-${ align }` ]: align,
-								'mdc-data-table__cell': 'head' !== type,
-								'mdc-data-table__header-cell': 'head' === type,
-							} );
+						{ cells.map(
+							( { content, tag, scope, align }, cellIndex ) => {
+								const cellClasses = classnames( {
+									[ `has-text-align-${ align }` ]: align,
+									'mdc-data-table__cell': 'head' !== type,
+									'mdc-data-table__header-cell':
+										'head' === type,
+								} );
 
-							return (
-								<RichText.Content
-									className={ cellClasses }
-									data-align={ align }
-									tagName={ tag }
-									value={ content }
-									key={ cellIndex }
-									scope={ tag === 'th' ? scope : undefined }
-								/>
-							);
-						} ) }
+								return (
+									<RichText.Content
+										className={ cellClasses }
+										data-align={ align }
+										tagName={ tag }
+										value={ content }
+										key={ cellIndex }
+										scope={
+											tag === 'th' ? scope : undefined
+										}
+									/>
+								);
+							}
+						) }
 					</tr>
 				) ) }
 			</Tag>

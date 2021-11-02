@@ -46,8 +46,9 @@ const Integrations = () => {
 				className="mdc-typography--body1"
 				dangerouslySetInnerHTML={ {
 					__html: sprintf(
+						// translators: %1$s: google font anchor tag, %2$s material icon resources link.
 						__(
-							'Integrate %s and %s to get the most out of the Material Theme.',
+							'Integrate %1$s and %1$s to get the most out of the Material Theme.',
 							'material-design'
 						),
 						`<a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">${ __(
@@ -82,7 +83,8 @@ const Integrations = () => {
 						versionAvailable={ UPDATERS[ key ].versionAvailable }
 						apiStatus={ state.apiStatus }
 						updateAvailable={
-							state.updaters[ UPDATERS[ key ].type ].updateAvailable
+							state.updaters[ UPDATERS[ key ].type ]
+								.updateAvailable
 						}
 					/>
 				) ) }
@@ -96,6 +98,7 @@ const Integrations = () => {
 				className="mdc-typography--body1"
 				dangerouslySetInnerHTML={ {
 					__html: sprintf(
+						// translators: %s google api key anchor tag.
 						__(
 							'To use Google Fonts in Material Theme, please activate your %s and enable updates',
 							'material-design'

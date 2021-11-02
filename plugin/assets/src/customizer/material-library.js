@@ -42,7 +42,7 @@ import { THEME_COLOR_CONTROLS, removeOptionPrefix } from './utils';
 import getConfig from '../block-editor/utils/get-config';
 
 const $ = jQuery;
-const api = wp.customize;
+const api = window.wp.customize;
 
 // Material Blocks button
 const BUTTON_OPEN_TEXT = __( 'Material Blocks', 'material-design' );
@@ -139,10 +139,12 @@ const initMaterialComponents = function() {
 			{ state: 'disabled', value: true },
 		];
 
-		document.querySelectorAll( '.mdc-checkbox' ).forEach( ( chkbox, index ) => {
-			const checkbox = new mdc.checkbox.MDCCheckbox( chkbox );
-			checkbox[ states[ index ].state ] = states[ index ].value;
-		} );
+		document
+			.querySelectorAll( '.mdc-checkbox' )
+			.forEach( ( chkbox, index ) => {
+				const checkbox = new mdc.checkbox.MDCCheckbox( chkbox );
+				checkbox[ states[ index ].state ] = states[ index ].value;
+			} );
 
 		document
 			.querySelectorAll( '.mdc-radio' )
@@ -155,7 +157,9 @@ const initMaterialComponents = function() {
 		const chipSetEl = document.querySelector( '.mdc-chip-set' );
 		new mdc.chips.MDCChipSet( chipSetEl );
 
-		new mdc.switchControl.MDCSwitch( document.querySelector( '.mdc-switch' ) );
+		new mdc.switchControl.MDCSwitch(
+			document.querySelector( '.mdc-switch' )
+		);
 	} catch ( err ) {}
 };
 

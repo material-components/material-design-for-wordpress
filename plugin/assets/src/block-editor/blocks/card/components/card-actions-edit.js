@@ -27,20 +27,21 @@ import CardActionButton from './card-action-button';
 /**
  * Card Actions Edit component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.primaryActionButtonLabel - Primary action button label.
- * @param {string} props.primaryActionButtonUrl - Primary action button URL.
- * @param {boolean} props.primaryActionButtonNewTab - Whether or not the primary action button url should open in a new tab.
- * @param {boolean} props.primaryActionButtonNoFollow - Whether or not the primary action button url rel property should be noFollow.
- * @param {string} props.secondaryActionButtonLabel - Secondary action button label.
- * @param {string} props.secondaryActionButtonUrl - Secondary action button URL.
- * @param {boolean} props.secondaryActionButtonNewTab - Whether or not the secondary action button url should open in a new tab.
- * @param {boolean} props.secondaryActionButtonNoFollow - Whether or not the secondary action button url rel property should be noFollow.
- * @param {boolean} props.displaySecondaryActionButton - Whether or not to show the secondary action button.
- * @param {number} props.cardIndex - Card index
- * @param {Function} props.setter - Block attribute setter.
+ * @param {Object}   props                               - Component props.
+ * @param {string}   props.primaryActionButtonLabel      - Primary action button label.
+ * @param {string}   props.primaryActionButtonUrl        - Primary action button URL.
+ * @param {boolean}  props.primaryActionButtonNewTab     - Whether or not the primary action button url should open in a new tab.
+ * @param {boolean}  props.primaryActionButtonNoFollow   - Whether or not the primary action button url rel property should be noFollow.
+ * @param {string}   props.secondaryActionButtonLabel    - Secondary action button label.
+ * @param {string}   props.secondaryActionButtonUrl      - Secondary action button URL.
+ * @param {boolean}  props.secondaryActionButtonNewTab   - Whether or not the secondary action button url should open in a new tab.
+ * @param {boolean}  props.secondaryActionButtonNoFollow - Whether or not the secondary action button url rel property should be noFollow.
+ * @param {boolean}  props.displaySecondaryActionButton  - Whether or not to show the secondary action button.
+ * @param {number}   props.cardIndex                     - Card index
+ * @param {Function} props.setter                        - Block attribute setter.
+ * @param {boolean}  props.isFocused
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const CardActionsEdit = ( {
 	primaryActionButtonLabel,
@@ -64,15 +65,21 @@ const CardActionsEdit = ( {
 	/**
 	 * Handle the button container focus.
 	 *
-	 * @param {string} buttonType - Button type.
-	 * @param {boolean} state - Button focus state.
+	 * @param {string}  buttonType - Button type.
+	 * @param {boolean} state      - Button focus state.
 	 */
 	const onButtonContainerFocus = ( buttonType, state = true ) => {
 		if ( buttonType === 'primary' ) {
-			setButtonsUrlInputFocusState( { primary: state, secondary: false } );
+			setButtonsUrlInputFocusState( {
+				primary: state,
+				secondary: false,
+			} );
 		}
 		if ( buttonType === 'secondary' ) {
-			setButtonsUrlInputFocusState( { primary: false, secondary: state } );
+			setButtonsUrlInputFocusState( {
+				primary: false,
+				secondary: state,
+			} );
 		}
 	};
 
@@ -93,7 +100,11 @@ const CardActionsEdit = ( {
 					<CardActionButton
 						label={ primaryActionButtonLabel }
 						onChangeLabel={ value =>
-							setter( 'primaryActionButtonLabel', value, cardIndex )
+							setter(
+								'primaryActionButtonLabel',
+								value,
+								cardIndex
+							)
 						}
 						url={ primaryActionButtonUrl }
 						onChangeUrl={ value =>
@@ -101,14 +112,24 @@ const CardActionsEdit = ( {
 						}
 						newTab={ primaryActionButtonNewTab }
 						onChangeNewTab={ value =>
-							setter( 'primaryActionButtonNewTab', value, cardIndex )
+							setter(
+								'primaryActionButtonNewTab',
+								value,
+								cardIndex
+							)
 						}
 						noFollow={ primaryActionButtonNoFollow }
 						onChangeNoFollow={ value =>
-							setter( 'primaryActionButtonNoFollow', value, cardIndex )
+							setter(
+								'primaryActionButtonNoFollow',
+								value,
+								cardIndex
+							)
 						}
 						isFocused={ buttonsUrlInputFocusState.primary }
-						onPopupClose={ () => onButtonContainerFocus( 'primary', false ) }
+						onPopupClose={ () =>
+							onButtonContainerFocus( 'primary', false )
+						}
 						onPopupFocusOutside={ () =>
 							onButtonContainerFocus( 'primary', false )
 						}
@@ -125,19 +146,35 @@ const CardActionsEdit = ( {
 						<CardActionButton
 							label={ secondaryActionButtonLabel }
 							onChangeLabel={ value =>
-								setter( 'secondaryActionButtonLabel', value, cardIndex )
+								setter(
+									'secondaryActionButtonLabel',
+									value,
+									cardIndex
+								)
 							}
 							url={ secondaryActionButtonUrl }
 							onChangeUrl={ value =>
-								setter( 'secondaryActionButtonUrl', value, cardIndex )
+								setter(
+									'secondaryActionButtonUrl',
+									value,
+									cardIndex
+								)
 							}
 							newTab={ secondaryActionButtonNewTab }
 							onChangeNewTab={ value =>
-								setter( 'secondaryActionButtonNewTab', value, cardIndex )
+								setter(
+									'secondaryActionButtonNewTab',
+									value,
+									cardIndex
+								)
 							}
 							noFollow={ secondaryActionButtonNoFollow }
 							onChangeNoFollow={ value =>
-								setter( 'secondaryActionButtonNoFollow', value, cardIndex )
+								setter(
+									'secondaryActionButtonNoFollow',
+									value,
+									cardIndex
+								)
 							}
 							isFocused={ buttonsUrlInputFocusState.secondary }
 							onPopupClose={ () =>

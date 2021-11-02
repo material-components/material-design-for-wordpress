@@ -137,7 +137,9 @@ describe( 'blocks: material/image-list: Edit', () => {
 		const images = container.querySelectorAll( '.mdc-image-list__label' );
 		expect( images ).toHaveLength( 2 );
 
-		expect( images[ 1 ].innerHTML ).toStrictEqual( 'Example Image 2 caption' );
+		expect( images[ 1 ].innerHTML ).toStrictEqual(
+			'Example Image 2 caption'
+		);
 	} );
 
 	it( "selects an image if it's clicked", () => {
@@ -158,7 +160,9 @@ describe( 'blocks: material/image-list: Edit', () => {
 		const closebtns = getAllByText( /close/i );
 
 		fireEvent.click( closebtns[ 1 ] );
-		expect( props.setAttributes.mock.calls[ 0 ][ 0 ].images ).toHaveLength( 1 );
+		expect( props.setAttributes.mock.calls[ 0 ][ 0 ].images ).toHaveLength(
+			1
+		);
 	} );
 
 	it( 'moves an image if move buttons are clicked', () => {

@@ -23,20 +23,20 @@ import { PanelBody, ToggleControl } from '@wordpress/components';
 /**
  * Inspector Controls Content Panel component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.cardLayoutStyle - Card style layout.
- * @param {boolean} props.displayTitle - Whether or not to display the card title.
- * @param {boolean} props.displaySecondaryText - Whether or not to display the card secondary text.
- * @param {boolean} props.displayImage - Whether or not to display the card image.
- * @param {boolean} props.displaySupportingText - Whether or not to display the card supporting text.
- * @param {boolean} props.displayActions - Whether or not to display the card actions row.
- * @param {boolean} props.displaySecondaryActionButton - Whether or not to display the card secondary button.
- * @param {boolean} props.isSingleCard - Whether or not it is a single card or the card is part of a collection
- * @param {Function} props.setter - Function to set the block attributes value.
- * @param {number} props.cardIndex - Card index.
- * @param {boolean} props.isPanelInitialOpened - Whether or not the control panel is initially opened.
+ * @param {Object}   props                              - Component props.
+ * @param {string}   props.cardLayoutStyle              - Card style layout.
+ * @param {boolean}  props.displayTitle                 - Whether or not to display the card title.
+ * @param {boolean}  props.displaySecondaryText         - Whether or not to display the card secondary text.
+ * @param {boolean}  props.displayImage                 - Whether or not to display the card image.
+ * @param {boolean}  props.displaySupportingText        - Whether or not to display the card supporting text.
+ * @param {boolean}  props.displayActions               - Whether or not to display the card actions row.
+ * @param {boolean}  props.displaySecondaryActionButton - Whether or not to display the card secondary button.
+ * @param {boolean}  props.isSingleCard                 - Whether or not it is a single card or the card is part of a collection
+ * @param {Function} props.setter                       - Function to set the block attributes value.
+ * @param {number}   props.cardIndex                    - Card index.
+ * @param {boolean}  props.isPanelInitialOpened         - Whether or not the control panel is initially opened.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const InspectorControlsStylePanel = ( {
 	cardLayoutStyle = 'vertical',
@@ -55,7 +55,8 @@ const InspectorControlsStylePanel = ( {
 		title={
 			isSingleCard
 				? __( 'Content Settings', 'material-design' )
-				: sprintf( __( 'Card #%d Content Settings' ), cardIndex + 1 )
+				: // translators: %s: Card index.
+				  sprintf( __( 'Card #%d Content Settings' ), cardIndex + 1 )
 		}
 		initialOpen={ isPanelInitialOpened }
 	>
@@ -71,7 +72,9 @@ const InspectorControlsStylePanel = ( {
 			<ToggleControl
 				label={ __( 'Show secondary text', 'material-design' ) }
 				checked={ displaySecondaryText }
-				onChange={ value => setter( 'displaySecondaryText', value, cardIndex ) }
+				onChange={ value =>
+					setter( 'displaySecondaryText', value, cardIndex )
+				}
 			/>
 		) }
 		<ToggleControl
@@ -95,7 +98,10 @@ const InspectorControlsStylePanel = ( {
 		/>
 		{ displayActions && (
 			<ToggleControl
-				label={ __( 'Show secondary action button', 'material-design' ) }
+				label={ __(
+					'Show secondary action button',
+					'material-design'
+				) }
 				checked={ displaySecondaryActionButton }
 				onChange={ value =>
 					setter( 'displaySecondaryActionButton', value, cardIndex )

@@ -36,6 +36,20 @@ import Switch from './switch';
 import Button from '../../../wizard/components/navigation/button';
 import { update, toggleAutoUpdate } from '../../utils';
 
+/**
+ * @param {Object}  props
+ * @param {string}  props.title
+ * @param {string}  props.lastUpdated
+ * @param {string}  props.needsKey
+ * @param {boolean} props.checked
+ * @param {string}  props.type
+ * @param {boolean} props.displayUpdatedOn
+ * @param {string}  props.versionAvailable
+ * @param {string}  props.apiStatus
+ * @param {boolean} props.updateAvailable
+ *
+ * @return {JSX.Element} JSX.
+ */
 const Updater = ( {
 	title,
 	lastUpdated,
@@ -59,6 +73,9 @@ const Updater = ( {
 
 	const handleUpdate = response => {
 		setIsUpdating( true );
+		if ( ! type ) {
+			return;
+		}
 
 		update( type )
 			.then( () => {
@@ -92,7 +109,8 @@ const Updater = ( {
 	return (
 		<div
 			className={ classNames( 'material-settings__updater', {
-				'no__last-update': false === displayUpdatedOn && ! versionAvailable,
+				'no__last-update':
+					false === displayUpdatedOn && ! versionAvailable,
 			} ) }
 		>
 			<div className="mdc-layout-grid">
@@ -105,6 +123,7 @@ const Updater = ( {
 								className="mdc-typography--body1"
 								dangerouslySetInnerHTML={ {
 									__html: sprintf(
+										// translators: %s: google api link with message.
 										__(
 											'To enable Google Fonts updates please %s first',
 											'material-design'
@@ -121,7 +140,11 @@ const Updater = ( {
 						{ ! isDisabled && false !== displayUpdatedOn && (
 							<p className="mdc-typography--body1">
 								{ sprintf(
-									__( 'Last update on %s', 'material-design' ),
+									// translators: %s: last updated date.
+									__(
+										'Last update on %s',
+										'material-design'
+									),
 									updatedDate
 								) }
 							</p>
@@ -130,7 +153,11 @@ const Updater = ( {
 						{ versionAvailable && (
 							<p className="mdc-typography--body1">
 								{ sprintf(
-									__( 'New version %s is available.', 'material-design' ),
+									// translators: %s: version number.
+									__(
+										'New version %s is available.',
+										'material-design'
+									),
 									versionAvailable
 								) }
 							</p>
@@ -157,7 +184,10 @@ const Updater = ( {
 									error
 								</i>
 								<span className="material-settings__message-text">
-									{ __( 'Updates disabled', 'material-design' ) }
+									{ __(
+										'Updates disabled',
+										'material-design'
+									) }
 								</span>
 							</div>
 						) }

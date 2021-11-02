@@ -26,6 +26,7 @@ import { useState } from '@wordpress/element';
 import { rawShortcut, displayShortcut } from '@wordpress/keycodes';
 import {
 	BlockControls,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';

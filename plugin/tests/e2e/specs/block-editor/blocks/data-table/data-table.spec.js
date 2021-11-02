@@ -51,7 +51,9 @@ describe( 'blocks: material/data-table core/table style', () => {
 			await panels[ 0 ].click();
 		}
 
-		const styles = await page.$$( '.block-editor-block-styles__item-label' );
+		const styles = await page.$$(
+			'.block-editor-block-styles__item-label'
+		);
 		expect( styles ).toHaveLength( 3 );
 	} );
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/* eslint-disable @typescript-eslint/no-empty-function */
 /**
  * External dependencies
  */
@@ -110,7 +110,9 @@ describe( 'ButtonEdit', () => {
 		setup( baseProps );
 
 		const container = document.body;
-		const matches = container.querySelector( '.mdc-button.mdc-button--text' );
+		const matches = container.querySelector(
+			'.mdc-button.mdc-button--text'
+		);
 
 		expect( matches ).toBeInTheDocument();
 		expect( screen.queryByText( 'Container Color' ) ).toBeNull();
@@ -138,7 +140,9 @@ describe( 'ButtonEdit', () => {
 		} );
 
 		const container = document.body;
-		const matches = container.querySelector( '.mdc-button.mdc-button--raised' );
+		const matches = container.querySelector(
+			'.mdc-button.mdc-button--raised'
+		);
 
 		expect( matches ).toBeInTheDocument();
 		expect( screen.getByText( 'Container Color' ) ).toBeInTheDocument();

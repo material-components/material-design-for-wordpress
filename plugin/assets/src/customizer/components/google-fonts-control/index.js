@@ -73,7 +73,7 @@ const GoogleFontsControl = props => {
 	}, [ selectedFont ] ); // eslint-disable-line
 
 	const setChildValues = child => {
-		const childControl = wp.customize.control(
+		const childControl = window.wp.customize.control(
 			`material_design[${ child.id }]`
 		);
 
@@ -138,7 +138,11 @@ const GoogleFontsControl = props => {
 			ref={ elementRef }
 		>
 			<div className="google-fonts-control-header">
-				<div tabIndex={ 0 } role="link" className="google-fonts-control-title">
+				<div
+					tabIndex={ 0 }
+					role="link"
+					className="google-fonts-control-title"
+				>
 					<span className="customize-control-title google-fonts-control-title__item">
 						{ label }
 					</span>
@@ -169,7 +173,11 @@ const GoogleFontsControl = props => {
 				<>
 					<div className="google-fonts-control-children">
 						{ items.map( child => (
-							<Item key={ child.id } onChange={ onChildChange } { ...child } />
+							<Item
+								key={ child.id }
+								onChange={ onChildChange }
+								{ ...child }
+							/>
 						) ) }
 					</div>
 

@@ -41,7 +41,7 @@ export const COLOR_MODES = {
 	contrast: 'contrast',
 };
 
-const api = wp.customize;
+const api = window.wp.customize;
 
 ( function( $ ) {
 	// Bail out if this isn't loaded in an iframe.
@@ -64,13 +64,17 @@ const api = wp.customize;
 	} );
 
 	if ( materialDesignThemeColorControlsDark ) {
-		Object.keys( materialDesignThemeColorControlsDark ).forEach( control => {
-			api( control, value =>
-				value.bind( () =>
-					generatePreviewStyles( materialDesignThemeColorControlsDark )
-				)
-			);
-		} );
+		Object.keys( materialDesignThemeColorControlsDark ).forEach(
+			control => {
+				api( control, value =>
+					value.bind( () =>
+						generatePreviewStyles(
+							materialDesignThemeColorControlsDark
+						)
+					)
+				);
+			}
+		);
 	}
 
 	$( function() {
@@ -170,25 +174,29 @@ const api = wp.customize;
 		} );
 
 		// Generate the styles.
-		Object.keys( materialDesignThemeColorControlsDark ).forEach( control => {
-			const cssVar = materialDesignThemeColorControlsDark[ control ];
-			const color = parentApi( control ).get();
-			if ( ! color ) {
-				return;
-			}
+		Object.keys( materialDesignThemeColorControlsDark ).forEach(
+			control => {
+				const cssVar = materialDesignThemeColorControlsDark[ control ];
+				const color = parentApi( control ).get();
+				if ( ! color ) {
+					return;
+				}
 
-			darkStyles += `${ cssVar }: ${ color };`;
-			darkStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join( ',' ) };`;
+				darkStyles += `${ cssVar }: ${ color };`;
+				darkStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join(
+					','
+				) };`;
 
-			if ( '--mdc-theme-background' === cssVar ) {
-				darkStyles += `
+				if ( '--mdc-theme-background' === cssVar ) {
+					darkStyles += `
 					--mdc-theme-text-primary-on-background: rgba(--mdc-theme-on-background-rgb, 0.87);
 					--mdc-theme-text-secondary-on-background: rgba(--mdc-theme-on-background-rgb, 0.54);
 					--mdc-theme-text-hint-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
 					--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
 					--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);`;
+				}
 			}
-		} );
+		);
 
 		// Generate the styles.
 		Object.keys( materialDesignThemeColorControls ).forEach( control => {
@@ -200,7 +208,9 @@ const api = wp.customize;
 			}
 
 			lightStyles += `${ cssVar }: ${ color };`;
-			lightStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join( ',' ) };`;
+			lightStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join(
+				','
+			) };`;
 
 			if ( '--mdc-theme-background' === cssVar ) {
 				lightStyles += `
@@ -264,7 +274,9 @@ const api = wp.customize;
 					.match( /.{2}/g )
 					.map( x => parseInt( x, 16 ) );
 
-	api.selectiveRefresh.bind( 'partial-content-rendered', function( placement ) {
+	api.selectiveRefresh.bind( 'partial-content-rendered', function(
+		placement
+	) {
 		if ( 'archive_layout' !== placement.partial.id ) {
 			return;
 		}

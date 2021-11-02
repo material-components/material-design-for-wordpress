@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-/* global page */
-
 /**
  * Clicks a button based on the text on the button.
  *

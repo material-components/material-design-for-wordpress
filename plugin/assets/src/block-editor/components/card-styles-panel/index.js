@@ -92,7 +92,10 @@ const CardStylesPanel = ( {
 	setter,
 } ) => (
 	<>
-		<PanelBody title={ __( 'Styles', 'material-design' ) } initialOpen={ true }>
+		<PanelBody
+			title={ __( 'Styles', 'material-design' ) }
+			initialOpen={ true }
+		>
 			<ImageRadioControl
 				selected={ style }
 				options={ CARD_STYLES }
@@ -183,7 +186,9 @@ const CardStylesPanel = ( {
 								'material-design'
 							) }
 							checked={ allowIndividualStyleOverride }
-							onChange={ setter( 'allowIndividualStyleOverride' ) }
+							onChange={ setter(
+								'allowIndividualStyleOverride'
+							) }
 						/>
 					) }
 				</>

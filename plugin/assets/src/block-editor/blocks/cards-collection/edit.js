@@ -47,7 +47,7 @@ import { withId } from '../../components/with-id';
  *
  * @param {Object} props - Component props.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const Edit = props => {
 	const { attributes, setAttributes, className } = props;
@@ -77,9 +77,9 @@ const Edit = props => {
 	const columnSpan = getColumnSpan( style, columns );
 
 	/**
-	 * @param {string} attributeName - Attribute name.
+	 * @param {string} attributeName  - Attribute name.
 	 * @param {string} attributeValue - Attribute value.
-	 * @param {number} cardIndex - Card index
+	 * @param {number} cardIndex      - Card index
 	 */
 	/* istanbul ignore next */
 	const setter = ( attributeName, attributeValue, cardIndex ) => {
@@ -110,7 +110,9 @@ const Edit = props => {
 				for ( let index = 0; index < newCardsProps.length; index++ ) {
 					if ( allowIndividualContentOverride === false ) {
 						newCardsProps[ index ].displayTitle = displayTitle;
-						newCardsProps[ index ].displaySecondaryText = displaySecondaryText;
+						newCardsProps[
+							index
+						].displaySecondaryText = displaySecondaryText;
 						newCardsProps[ index ].displayImage = displayImage;
 						newCardsProps[
 							index
@@ -156,7 +158,11 @@ const Edit = props => {
 		);
 
 		if ( editorWrapper.length === 1 ) {
-			editorWrapper[ 0 ].addEventListener( 'click', onClickOutsideCard, true );
+			editorWrapper[ 0 ].addEventListener(
+				'click',
+				onClickOutsideCard,
+				true
+			);
 		}
 
 		return () => {
@@ -228,26 +234,39 @@ const Edit = props => {
 						className={ classnames(
 							'card-container',
 							{
-								'card-container-focused': cardIndex === selected,
+								'card-container-focused':
+									cardIndex === selected,
 							},
 							{
 								[ `mdc-layout-grid__cell--span-${ columnSpan }` ]:
 									style === 'grid' || style === 'list',
 							}
 						) }
-						style={ style === 'masonry' ? cardStyleProp : undefined }
+						style={
+							style === 'masonry' ? cardStyleProp : undefined
+						}
 						onFocus={ () => onCardFocus( cardIndex ) }
 					>
-						{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
-						{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
-						{ style === 'masonry' && <VerticalCardLayout { ...cardProps } /> }
+						{ style === 'grid' && (
+							<VerticalCardLayout { ...cardProps } />
+						) }
+						{ style === 'list' && (
+							<HorizontalCardLayout { ...cardProps } />
+						) }
+						{ style === 'masonry' && (
+							<VerticalCardLayout { ...cardProps } />
+						) }
 						{ cardIndex === selected && (
 							<FocusedCardControls
 								cardIndex={ cardIndex }
 								style={ style }
 								numberOfCards={ numberOfCards }
-								onMoveLeftOrUp={ () => onCardMoveLeftOrUp( cardIndex ) }
-								onMoveRightOrDown={ () => onCardMoveRightOrDown( cardIndex ) }
+								onMoveLeftOrUp={ () =>
+									onCardMoveLeftOrUp( cardIndex )
+								}
+								onMoveRightOrDown={ () =>
+									onCardMoveRightOrDown( cardIndex )
+								}
 								onRemove={ () => onCardRemove( cardIndex ) }
 							/>
 						) }

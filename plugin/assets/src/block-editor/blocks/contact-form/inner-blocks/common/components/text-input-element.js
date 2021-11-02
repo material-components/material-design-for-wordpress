@@ -17,16 +17,18 @@
 /**
  * Text Input Element component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.inputValue - Input value.
- * @param {string} props.id - Input ID.
- * @param {string} props.inputType - Input Type.
- * @param {string} props.inputRole - Input Role.
- * @param {boolean} props.displayLabel - Whether or not to display the label.
- * @param {string} props.label - Input label.
- * @param {Function} props.onChange - Input on change handler.
+ * @param {Object}   props              - Component props.
+ * @param {string}   props.inputValue   - Input value.
+ * @param {string}   props.id           - Input ID.
+ * @param {string}   props.inputType    - Input Type.
+ * @param {string}   props.inputRole    - Input Role.
+ * @param {boolean}  props.displayLabel - Whether or not to display the label.
+ * @param {string}   props.label        - Input label.
+ * @param {Function} props.onChange     - Input on change handler.
+ * @param {boolean}  props.isRequired
+ * @param {boolean}  props.editMode
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const TextInputElement = ( {
 	editMode = true,

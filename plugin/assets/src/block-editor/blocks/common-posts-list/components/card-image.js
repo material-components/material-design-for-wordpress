@@ -27,12 +27,12 @@ import CardHeader from './card-header';
 /**
  * Card Image component.
  *
- * @param {Object} props - Component props.
+ * @param {Object} props                - Component props.
  * @param {string} props.imageSourceUrl - Image source URL.
- * @param {string} props.type - Media type ('16-9' or 'square').
- * @param {string} props.contentLayout - Content layout ('text-above-media', 'text-over-media' or text-under-media).
+ * @param {string} props.type           - Media type ('16-9' or 'square').
+ * @param {string} props.contentLayout  - Content layout ('text-above-media', 'text-over-media' or text-under-media).
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const CardImage = props => {
 	const { imageSourceUrl, type, contentLayout } = props;
@@ -43,7 +43,9 @@ const CardImage = props => {
 				'mdc-card__media',
 				`mdc-card__media--${ type }`,
 				'single-post-card__media',
-				{ [ `single-post-card-with-${ contentLayout }` ]: contentLayout }
+				{
+					[ `single-post-card-with-${ contentLayout }` ]: contentLayout,
+				}
 			) }
 			style={ { backgroundImage: `url(${ imageSourceUrl })` } }
 		>
