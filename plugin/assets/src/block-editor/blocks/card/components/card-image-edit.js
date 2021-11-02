@@ -35,17 +35,18 @@ import CardPrimary from './card-primary';
 /**
  * Card Image Edit component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.imageSourceUrl - Image Source URL.
- * @param {boolean} props.isImageEditMode - Image Edit mode.
- * @param {string} props.contentLayout - Content layout.
- * @param {boolean} props.displayImage - Whether or not to display the image.
- * @param {string} props.type - Media type ('16-9' or 'square').
- * @param {Object} props.cardPrimaryProps - Card Primary Props.
- * @param {boolean} props.cardIndex - Card Index.
- * @param {Function} props.setter - Block attributes setter.
+ * @param {Object}   props                  - Component props.
+ * @param {string}   props.imageSourceUrl   - Image Source URL.
+ * @param {boolean}  props.isImageEditMode  - Image Edit mode.
+ * @param {string}   props.contentLayout    - Content layout.
+ * @param {boolean}  props.displayImage     - Whether or not to display the image.
+ * @param {string}   props.type             - Media type ('16-9' or 'square').
+ * @param {Object}   props.cardPrimaryProps - Card Primary Props.
+ * @param {boolean}  props.cardIndex        - Card Index.
+ * @param {Function} props.setter           - Block attributes setter.
+ * @param {boolean}  props.isFocused
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const CardImageEdit = ( {
 	imageSourceUrl,
@@ -133,7 +134,10 @@ const CardImageEdit = ( {
 									className="material-design-card__media-close-button"
 									icon="no"
 									showTooltip={ true }
-									label={ __( 'Remove Card Image', 'material-design' ) }
+									label={ __(
+										'Remove Card Image',
+										'material-design'
+									) }
 									onClick={ onRemoveImage }
 								/>
 							</div>

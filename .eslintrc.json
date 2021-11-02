@@ -11,7 +11,9 @@
         "**/tests/js/**/*.js"
       ],
       "extends": [
-        "plugin:jest/all"
+        "plugin:jest/all",
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended"
       ],
       "rules": {
         "jest/lowercase-name": [
@@ -32,6 +34,14 @@
     "no-nested-ternary": "off",
     "jsx-a11y/click-events-have-key-events": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-extraneous-dependencies": "off"
+  },
+  "env": {
+    "jest/globals": true,
+    "browser": true
+  },
+  "globals": {
+    "page": true
   }
 }

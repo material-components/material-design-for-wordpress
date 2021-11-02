@@ -22,6 +22,7 @@ import { get } from 'lodash';
 /**
  * WordPress dependencies
  */
+// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 import { __experimentalGetSettings } from '@wordpress/date';
 
 /**
@@ -33,12 +34,12 @@ import HorizontalCardLayout from './horizontal-card-layout';
 /**
  * Single Post component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.post - Post data.
- * @param {string} props.style - Card layout style.
+ * @param {Object} props            - Component props.
+ * @param {Object} props.post       - Post data.
+ * @param {string} props.style      - Card layout style.
  * @param {Object} props.attributes - Block attributes.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const SinglePost = ( { post, style, attributes } ) => {
 	const titleTrimmed = get( post, [ 'title', 'rendered' ], '' ).trim();

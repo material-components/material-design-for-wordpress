@@ -56,7 +56,10 @@ const Switch = ( { id, text, checked, disabled } ) => {
 						role="switch"
 						aria-checked={ checked }
 						onChange={ () =>
-							dispatch( { type: ACTIONS.TOGGLE_ADDON, payload: id } )
+							dispatch( {
+								type: ACTIONS.TOGGLE_ADDON,
+								payload: id,
+							} )
 						}
 						disabled={ disabled }
 					/>

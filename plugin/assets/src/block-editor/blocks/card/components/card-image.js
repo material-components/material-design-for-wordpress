@@ -28,18 +28,19 @@ import CardPrimary from './card-primary';
 /**
  * Card Image component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.imageSourceUrl - Image Source URL.
- * @param {boolean} props.isImageEditMode - Whether or not the image edit mode is enabled.
- * @param {string} props.contentLayout - Content layout.
- * @param {boolean} props.displayImage - Whether or not to display the image.
- * @param {string} props.type - Media type ('16-9' or 'square').
- * @param {Object} props.cardPrimaryProps - Card Primary Props.
- * @param {boolean} props.cardIndex - Card Index.
- * @param {Function} props.setter - Block attributes setter.
- * @param {boolean} props.isEditMode - Whether or not the edit mode is enabled.
+ * @param {Object}   props                  - Component props.
+ * @param {string}   props.imageSourceUrl   - Image Source URL.
+ * @param {boolean}  props.isImageEditMode  - Whether or not the image edit mode is enabled.
+ * @param {string}   props.contentLayout    - Content layout.
+ * @param {boolean}  props.displayImage     - Whether or not to display the image.
+ * @param {string}   props.type             - Media type ('16-9' or 'square').
+ * @param {Object}   props.cardPrimaryProps - Card Primary Props.
+ * @param {boolean}  props.cardIndex        - Card Index.
+ * @param {Function} props.setter           - Block attributes setter.
+ * @param {boolean}  props.isEditMode       - Whether or not the edit mode is enabled.
+ * @param {any}      props.imageElement
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const CardImage = ( {
 	imageSourceUrl,

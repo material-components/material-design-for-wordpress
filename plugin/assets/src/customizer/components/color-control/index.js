@@ -134,9 +134,12 @@ const ColorControl = ( {
 						<div className="material-design-color__picker-tabs material-design-tabs">
 							<button
 								type="button"
-								className={ classNames( 'material-design-tab-link', {
-									active: materialPickerSelected,
-								} ) }
+								className={ classNames(
+									'material-design-tab-link',
+									{
+										active: materialPickerSelected,
+									}
+								) }
 								onClick={ () => {
 									setMaterialPickerSelected( true );
 								} }
@@ -146,9 +149,12 @@ const ColorControl = ( {
 
 							<button
 								type="button"
-								className={ classNames( 'material-design-tab-link', {
-									active: ! materialPickerSelected,
-								} ) }
+								className={ classNames(
+									'material-design-tab-link',
+									{
+										active: ! materialPickerSelected,
+									}
+								) }
 								onClick={ () => {
 									setMaterialPickerSelected( false );
 								} }
@@ -182,7 +188,11 @@ const ColorControl = ( {
 						</div>
 					</div>
 
-					<ColorA11y api={ api } params={ params } selectedColor={ color } />
+					<ColorA11y
+						api={ api }
+						params={ params }
+						selectedColor={ color }
+					/>
 				</>
 			) }
 		</>

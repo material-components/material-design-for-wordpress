@@ -41,6 +41,18 @@ import { default as ListItemCompat } from './components/list-item-compat';
 
 /**
  * Material list edit component.
+ *
+ * @param {Object}   props
+ * @param {Object}   props.attributes
+ * @param {string}   props.attributes.style
+ * @param {string}   props.attributes.iconPosition
+ * @param {string}   props.attributes.iconSize
+ * @param {Array}    props.attributes.items
+ * @param {boolean}  props.attributes.preview
+ * @param {string}   props.className
+ * @param {Function} props.setAttributes
+ *
+ * @return {JSX.Element} JSX.
  */
 const ListEdit = ( {
 	attributes: { style, iconPosition, iconSize, items, preview },
@@ -75,7 +87,7 @@ const ListEdit = ( {
 	 * Add an item to the list.
 	 *
 	 * @param {number} index Index the item should be inserted at.
-	 * @param {string} text Primary text for the item.
+	 * @param {string} text  Primary text for the item.
 	 */
 	const addItem = ( index, text = '' ) => {
 		const newItems = [ ...items ];
@@ -98,8 +110,8 @@ const ListEdit = ( {
 	/**
 	 * Delete an item from list.
 	 *
-	 * @param {number} index Index the item should be deleted from.
-	 * @param {string} primaryText Primary text of the item being deleted
+	 * @param {number} index         Index the item should be deleted from.
+	 * @param {string} primaryText   Primary text of the item being deleted
 	 * @param {string} secondaryText Secondary text of the item being deleted.
 	 */
 	const deleteItem = ( index, primaryText, secondaryText = '' ) => {
@@ -121,13 +133,17 @@ const ListEdit = ( {
 		}
 
 		setAttributes( { items: newItems } );
-		setSelected( { index: index - 1, start, isSecondary: isSecondaryEnabled } );
+		setSelected( {
+			index: index - 1,
+			start,
+			isSecondary: isSecondaryEnabled,
+		} );
 	};
 
 	/**
 	 * Set an item in the list.
 	 *
-	 * @param {number} index Index of the item being set.
+	 * @param {number} index   Index of the item being set.
 	 * @param {Object} newItem Item object.
 	 */
 	const setItem = ( index, newItem ) => {
@@ -143,7 +159,7 @@ const ListEdit = ( {
 	 * Handle primary text change.
 	 *
 	 * @param {number} index Index of the list item.
-	 * @param {string} text Primary text.
+	 * @param {string} text  Primary text.
 	 */
 	const onPrimaryTextChange = ( index, text ) => {
 		if ( ! items[ index ] ) {
@@ -161,7 +177,7 @@ const ListEdit = ( {
 	 * Handle secondary text change.
 	 *
 	 * @param {number} index Index of the list item.
-	 * @param {string} text Secondary text.
+	 * @param {string} text  Secondary text.
 	 */
 	const onSecondaryTextChange = ( index, text ) => {
 		if ( ! items[ index ] ) {
@@ -179,16 +195,16 @@ const ListEdit = ( {
 	 * Handle splitting of a list item
 	 *
 	 * @param {number} index Index of the item being split.
-	 * @param {string} text Text split.
+	 * @param {string} text  Text split.
 	 */
 	const onSplit = ( index, text ) => addItem( index + 1, text );
 
 	/**
 	 * Handle focus of a list item.
 	 *
-	 * @param {number}  index Index of the item.
+	 * @param {number}  index       Index of the item.
 	 * @param {boolean} isSecondary Determine if the secondary text being focused.
-	 * @param {number}  start Start range of the cursor.
+	 * @param {number}  start       Start range of the cursor.
 	 */
 	const onFocus = ( index, isSecondary = false, start = false ) => {
 		const newProps = { ...selected, index, isSecondary };
@@ -248,7 +264,9 @@ const ListEdit = ( {
 			<ul
 				className={ classNames(
 					'mdc-list',
-					className ? className.replace( 'mdc-list--two-line', '' ) : '',
+					className
+						? className.replace( 'mdc-list--two-line', '' )
+						: '',
 					{
 						'mdc-list--two-line': isSecondaryEnabled,
 						'mdc-list--avatar-list': 'large' === iconSize,
@@ -268,7 +286,9 @@ const ListEdit = ( {
 						onSplit={ onSplit }
 						onFocus={ onFocus }
 						isSelected={ i === selected.index }
-						isSecondarySelected={ i === selected.index && selected.isSecondary }
+						isSecondarySelected={
+							i === selected.index && selected.isSecondary
+						}
 						selectionStart={ selected.start }
 						setItem={ setItem }
 						deleteItem={ deleteItem }

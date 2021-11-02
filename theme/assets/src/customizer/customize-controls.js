@@ -34,7 +34,10 @@
 				.on( 'click', event => {
 					event.preventDefault();
 
-					if ( control.params && Array.isArray( control.params.controls ) ) {
+					if (
+						control.params &&
+						Array.isArray( control.params.controls )
+					) {
 						const display = $( event.target ).is( '.less-options' )
 							? 'none'
 							: 'list-item';

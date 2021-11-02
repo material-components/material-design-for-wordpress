@@ -60,7 +60,9 @@ describe( 'GutterWithDevices', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 0 ],
+			container.querySelectorAll(
+				'.components-range-control__number'
+			)[ 0 ],
 			{
 				target: { value: 10 },
 			}
@@ -70,7 +72,9 @@ describe( 'GutterWithDevices', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 0 ],
+			container.querySelectorAll(
+				'.components-range-control__number'
+			)[ 0 ],
 			{
 				target: { value: 8 },
 			}
@@ -80,7 +84,9 @@ describe( 'GutterWithDevices', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 0 ],
+			container.querySelectorAll(
+				'.components-range-control__number'
+			)[ 0 ],
 			{
 				target: { value: 4 },
 			}

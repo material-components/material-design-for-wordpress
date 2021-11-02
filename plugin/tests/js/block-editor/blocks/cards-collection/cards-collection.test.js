@@ -34,7 +34,9 @@ describe( 'blocks: material/cards-collection', () => {
 
 	describe( 'title settings', () => {
 		it( 'should equal `Cards Collection (Material)`', () => {
-			expect( settings.title ).toStrictEqual( 'Cards Collection (Material)' );
+			expect( settings.title ).toStrictEqual(
+				'Cards Collection (Material)'
+			);
 		} );
 	} );
 

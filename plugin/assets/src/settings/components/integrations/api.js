@@ -127,7 +127,10 @@ const Api = ( { apiStatus } ) => {
 					<TextControl
 						className="material-settings__api-input mdc-layout-grid__cell"
 						value={ api || '' }
-						placeholder={ __( 'Google API Key', 'material-design' ) }
+						placeholder={ __(
+							'Google API Key',
+							'material-design'
+						) }
 						onChange={ value => {
 							setApi( value );
 						} }

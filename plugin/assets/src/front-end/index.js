@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-/* global addEventListener */
 /* istanbul ignore file */
 
 /**

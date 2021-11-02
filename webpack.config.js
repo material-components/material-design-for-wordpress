@@ -173,8 +173,15 @@ const getSharedConfig = ( packageType, isBlockEditor ) => {
 		...defaultConfig,
 		...{
 			output: {
-				path: path.resolve( process.cwd(), packageType, 'assets', 'js' ),
-				filename: `[name]${ packageType === 'theme' && PROD ? '.min' : '' }.js`,
+				path: path.resolve(
+					process.cwd(),
+					packageType,
+					'assets',
+					'js'
+				),
+				filename: `[name]${
+					packageType === 'theme' && PROD ? '.min' : ''
+				}.js`,
 				chunkFilename: `[name]${
 					packageType === 'theme' && PROD ? '.min' : ''
 				}.js`,
@@ -218,9 +225,10 @@ const getSharedConfig = ( packageType, isBlockEditor ) => {
 				...defaultConfig.plugins.filter(
 					plugin =>
 						( isBlockEditor || packageType === 'plugin' ) &&
-						! [ 'CleanWebpackPlugin', 'FixStyleWebpackPlugin' ].includes(
-							plugin.constructor.name
-						)
+						! [
+							'CleanWebpackPlugin',
+							'FixStyleWebpackPlugin',
+						].includes( plugin.constructor.name )
 				),
 				new MiniCssExtractPlugin( {
 					filename: `../css/[name]-compiled${
@@ -275,7 +283,10 @@ Object.keys( assets ).forEach( packageType => {
 			config.plugins = [
 				...config.plugins.filter(
 					// Remove the `DependencyExtractionWebpackPlugin` if it already exists.
-					plugin => ! ( plugin instanceof DependencyExtractionWebpackPlugin )
+					plugin =>
+						! (
+							plugin instanceof DependencyExtractionWebpackPlugin
+						)
 				),
 				new DependencyExtractionWebpackPlugin( {
 					useDefaults: false,
@@ -308,12 +319,17 @@ Object.keys( assets ).forEach( packageType => {
 							transformPath( targetPath, absolutePath ) {
 								const matches = absolutePath.match(
 									new RegExp(
-										`([\\w-]+)${ escapeRegExp( path.sep ) }block\\.json$`
+										`([\\w-]+)${ escapeRegExp(
+											path.sep
+										) }block\\.json$`
 									)
 								);
 
 								if ( matches ) {
-									return targetPath.replace( '[1]', matches[ 1 ] );
+									return targetPath.replace(
+										'[1]',
+										matches[ 1 ]
+									);
 								}
 
 								return targetPath;

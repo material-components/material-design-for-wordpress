@@ -30,7 +30,10 @@ const ElevationStyleControl = ( { onChange, selected } ) => {
 			) }
 			selected={ selected }
 			options={ [
-				{ label: __( 'Inherit from Global Settings' ), value: 'global' },
+				{
+					label: __( 'Inherit from Global Settings' ),
+					value: 'global',
+				},
 				{ label: __( 'Elevated' ), value: 'elevated' },
 				{ label: __( 'Outlined' ), value: 'outlined' },
 			] }

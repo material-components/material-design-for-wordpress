@@ -110,7 +110,10 @@ export const ButtonAction = ( { className, children, ...additionalProps } ) => {
 const CircularOptionPicker = ( { actions, className, options, children } ) => {
 	return (
 		<div
-			className={ classnames( 'components-circular-option-picker', className ) }
+			className={ classnames(
+				'components-circular-option-picker',
+				className
+			) }
 		>
 			{ options }
 			{ children }

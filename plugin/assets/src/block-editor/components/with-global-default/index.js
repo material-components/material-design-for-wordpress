@@ -35,9 +35,9 @@ import getConfig from '../../utils/get-config';
  * A Higher Order Component used to set the default attribute of a block
  * from global customizer settings.
  *
- * @param {WPComponent} WrappedComponent The wrapped component.
+ * @param {JSX.Element} WrappedComponent The wrapped component.
  *
- * @return {WPComponent} Component with an attribute.id prop.
+ * @return {JSX.Element} Component with an attribute.id prop.
  */
 export const withGlobalBlockDefault = createHigherOrderComponent(
 	WrappedComponent => {
@@ -55,12 +55,16 @@ export const withGlobalBlockDefault = createHigherOrderComponent(
 					'object' === typeof materialDesignDefaults.blocks &&
 					materialDesignDefaults.blocks.hasOwnProperty( blockName ) &&
 					'undefined' !==
-						materialDesignDefaults.blocks[ blockName ][ attributeName ]
+						materialDesignDefaults.blocks[ blockName ][
+							attributeName
+						]
 				) {
 					/**
 					 * If the value is undefined, set it to customizer value.
 					 */
-					return materialDesignDefaults.blocks[ blockName ][ attributeName ];
+					return materialDesignDefaults.blocks[ blockName ][
+						attributeName
+					];
 				}
 
 				return value;
@@ -81,9 +85,9 @@ export const withGlobalBlockDefault = createHigherOrderComponent(
  * A Higher Order Component used to set the default attribute of a
  * color control from global customizer settings.
  *
- * @param {WPComponent} WrappedComponent The wrapped component.
+ * @param {JSX.Element} WrappedComponent The wrapped component.
  *
- * @return {WPComponent} Component with an attribute.id prop.
+ * @return {JSX.Element} Component with an attribute.id prop.
  */
 export const withGlobalColorDefault = createHigherOrderComponent(
 	WrappedComponent => {
@@ -143,7 +147,7 @@ export const withGlobalColorDefault = createHigherOrderComponent(
  * if not set, get it from global defaults.
  *
  * @param {string} globalPropName Global color prop name.
- * @param {string} value Value set for the color.
+ * @param {string} value          Value set for the color.
  *
  * @return {string} Color value.
  */

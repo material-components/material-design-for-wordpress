@@ -52,7 +52,9 @@ const Cards = ( { radius, buttonRadius } ) => (
 					<div
 						className="mdc-card__media mdc-card__media--16-9 demo-card__media"
 						style={ {
-							backgroundImage: `url("${ getConfig( 'images' )[ 0 ] }")`,
+							backgroundImage: `url("${
+								getConfig( 'images' )[ 0 ]
+							}")`,
 						} }
 					></div>
 					<div style={ { padding: '16px' } }>
@@ -92,7 +94,9 @@ const Cards = ( { radius, buttonRadius } ) => (
 						>
 							<span
 								className="mdc-button__ripple"
-								style={ { borderRadius: `${ buttonRadius }px` } }
+								style={ {
+									borderRadius: `${ buttonRadius }px`,
+								} }
 							></span>
 							{ __( 'Read', 'material-design' ) }
 						</button>
@@ -102,7 +106,9 @@ const Cards = ( { radius, buttonRadius } ) => (
 						>
 							<span
 								className="mdc-button__ripple"
-								style={ { borderRadius: `${ buttonRadius }px` } }
+								style={ {
+									borderRadius: `${ buttonRadius }px`,
+								} }
 							></span>
 							{ __( 'Bookmark', 'material-design' ) }
 						</button>

@@ -129,7 +129,8 @@ describe( 'Front-end: Contact Form', () => {
 
 		it( 'calls successfully the ajax request and shows the success message when the form submission is successful', async () => {
 			setup();
-			document.getElementById( 'material-design-name-1' ).value = 'Test Name';
+			document.getElementById( 'material-design-name-1' ).value =
+				'Test Name';
 			document.getElementById( 'material-design-email-1' ).value =
 				'email@example.com';
 			document.getElementById( 'material-design-website-1' ).value =
@@ -143,9 +144,10 @@ describe( 'Front-end: Contact Form', () => {
 			document.querySelector( '.mdc-button' ).click();
 
 			expect( xhr.send.mock.calls[ 0 ][ 0 ] ).not.toBeUndefined();
-			const [ formDataInstance, formDataAsObject ] = retrieveFormDataFromMock(
-				xhr.send.mock
-			);
+			const [
+				formDataInstance,
+				formDataAsObject,
+			] = retrieveFormDataFromMock( xhr.send.mock );
 
 			expect( xhr.open ).toHaveBeenCalledWith(
 				'POST',
@@ -181,7 +183,8 @@ describe( 'Front-end: Contact Form', () => {
 
 		it( 'calls successfully the ajax request and shows the error message when the form submission is not successful', async () => {
 			setup();
-			document.getElementById( 'material-design-name-1' ).value = 'Test Name';
+			document.getElementById( 'material-design-name-1' ).value =
+				'Test Name';
 			document.getElementById( 'material-design-email-1' ).value =
 				'email@example.com';
 			document.getElementById( 'material-design-website-1' ).value =
@@ -195,9 +198,10 @@ describe( 'Front-end: Contact Form', () => {
 			document.querySelector( '.mdc-button' ).click();
 
 			expect( xhr.send.mock.calls[ 0 ][ 0 ] ).not.toBeUndefined();
-			const [ formDataInstance, formDataAsObject ] = retrieveFormDataFromMock(
-				xhr.send.mock
-			);
+			const [
+				formDataInstance,
+				formDataAsObject,
+			] = retrieveFormDataFromMock( xhr.send.mock );
 
 			expect( xhr.open ).toHaveBeenCalledWith(
 				'POST',
@@ -235,7 +239,8 @@ describe( 'Front-end: Contact Form', () => {
 
 		it( 'calls the ajax request with failure and shows the error message when the form submission is not successful', async () => {
 			setup();
-			document.getElementById( 'material-design-name-1' ).value = 'Test Name';
+			document.getElementById( 'material-design-name-1' ).value =
+				'Test Name';
 			document.getElementById( 'material-design-email-1' ).value =
 				'email@example.com';
 			document.getElementById( 'material-design-website-1' ).value =
@@ -249,9 +254,10 @@ describe( 'Front-end: Contact Form', () => {
 
 			document.querySelector( '.mdc-button' ).click();
 			expect( xhr.send.mock.calls[ 0 ][ 0 ] ).not.toBeUndefined();
-			const [ formDataInstance, formDataAsObject ] = retrieveFormDataFromMock(
-				xhr.send.mock
-			);
+			const [
+				formDataInstance,
+				formDataAsObject,
+			] = retrieveFormDataFromMock( xhr.send.mock );
 
 			expect( xhr.open ).toHaveBeenCalledWith(
 				'POST',
@@ -289,11 +295,14 @@ describe( 'Front-end: Contact Form', () => {
 
 		it( 'errors', () => {
 			setup();
-			document.getElementById( 'material-design-email-1' ).value = 'bad email';
+			document.getElementById( 'material-design-email-1' ).value =
+				'bad email';
 
 			initContactForm();
 
-			document.getElementById( 'materialDesignContactForm' ).checkValidity();
+			document
+				.getElementById( 'materialDesignContactForm' )
+				.checkValidity();
 
 			expect(
 				document
@@ -345,7 +354,8 @@ describe( 'Front-end: Contact Form', () => {
 
 			await waitFor( () =>
 				expect(
-					document.querySelector( '[name=material_design_token]' ).value
+					document.querySelector( '[name=material_design_token]' )
+						.value
 				).toStrictEqual( tokenValue )
 			);
 		} );

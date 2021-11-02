@@ -42,14 +42,15 @@ import FormInspectorControls from '../../../components/inspector-controls';
 /**
  * Text Input Field Block Edit component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.attributes - Component attributes.
+ * @param {Object}   props               - Component props.
+ * @param {Object}   props.attributes    - Component attributes.
  * @param {Function} props.setAttributes - Function to save component attributes.
- * @param {string} props.className - Component classes.
- * @param {number} props.instanceId - Component instance id.
- * @param {boolean} props.isSelected - Whether or not the component is selected.
+ * @param {string}   props.className     - Component classes.
+ * @param {number}   props.instanceId    - Component instance id.
+ * @param {boolean}  props.isSelected    - Whether or not the component is selected.
+ * @param {Object}   props.parentBlock   - Parent block.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const TextInputEdit = props => {
 	const {
@@ -92,7 +93,9 @@ const TextInputEdit = props => {
 
 	useEffect( () => {
 		if ( ! id || id.length === 0 ) {
-			setAttributes( { id: `material-design-${ inputRole }-${ instanceId }` } );
+			setAttributes( {
+				id: `material-design-${ inputRole }-${ instanceId }`,
+			} );
 		} // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [ id ] );
 

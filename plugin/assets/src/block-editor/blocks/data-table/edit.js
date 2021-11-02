@@ -93,7 +93,10 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 			{ rows.map( ( { cells }, rowIndex ) => (
 				<tr key={ rowIndex } className={ trClass }>
 					{ cells.map(
-						( { content, tag: CellTag, scope, align }, columnIndex ) => {
+						(
+							{ content, tag: CellTag, scope, align },
+							columnIndex
+						) => {
 							const cellLocation = {
 								sectionName: name,
 								rowIndex,
@@ -112,16 +115,25 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 								'mdc-data-table__header-cell': 'head' === name,
 								'is-selected':
 									selectedCell &&
-									selectedCell.sectionName === cellLocation.sectionName &&
-									selectedCell.rowIndex === cellLocation.rowIndex &&
-									selectedCell.columnIndex === cellLocation.columnIndex,
+									selectedCell.sectionName ===
+										cellLocation.sectionName &&
+									selectedCell.rowIndex ===
+										cellLocation.rowIndex &&
+									selectedCell.columnIndex ===
+										cellLocation.columnIndex,
 							} );
 
 							let placeholder = '';
 							if ( name === 'head' ) {
-								placeholder = __( 'Header label', 'material-design' );
+								placeholder = __(
+									'Header label',
+									'material-design'
+								);
 							} else if ( name === 'foot' ) {
-								placeholder = __( 'Footer label', 'material-design' );
+								placeholder = __(
+									'Footer label',
+									'material-design'
+								);
 							}
 
 							return (
@@ -132,10 +144,14 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 								>
 									<RichText
 										className={ cellClasses }
-										scope={ CellTag === 'th' ? scope : undefined }
+										scope={
+											CellTag === 'th' ? scope : undefined
+										}
 										value={ content }
 										onChange={ onChange }
-										unstableOnFocus={ createOnFocus( cellLocation ) }
+										unstableOnFocus={ createOnFocus(
+											cellLocation
+										) }
 										placeholder={ placeholder }
 									/>
 								</CellTag>
@@ -352,7 +368,9 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 		const { sectionName, columnIndex } = selectedCell;
 
 		setSelectedCell( null );
-		setAttributes( deleteColumn( attributes, { sectionName, columnIndex } ) );
+		setAttributes(
+			deleteColumn( attributes, { sectionName, columnIndex } )
+		);
 	};
 
 	const tableClasses = classnames( {
@@ -462,7 +480,9 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 					label={ __( 'Change column alignment', 'material-design' ) }
 					alignmentControls={ ALIGNMENT_CONTROLS }
 					value={ getCellAlignment() }
-					onChange={ nextAlign => onChangeColumnAlignment( nextAlign ) }
+					onChange={ nextAlign =>
+						onChangeColumnAlignment( nextAlign )
+					}
 				/>
 			</BlockControls>
 			<InspectorControls>
@@ -521,7 +541,10 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 					<div className="mdc-data-table__caption">
 						<RichText
 							tagName="figcaption"
-							placeholder={ __( 'Write caption…', 'material-design' ) }
+							placeholder={ __(
+								'Write caption…',
+								'material-design'
+							) }
 							value={ caption }
 							onChange={
 								/* istanbul ignore next */

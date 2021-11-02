@@ -63,7 +63,7 @@ export function getFirstRow( state ) {
 /**
  * Gets an attribute for a cell.
  *
- * @param {Object} state 		 Current table state.
+ * @param {Object} state         Current table state.
  * @param {Object} cellLocation  The location of the cell
  * @param {string} attributeName The name of the attribute to get the value of.
  *
@@ -165,6 +165,7 @@ export function isCellSelected( cellLocation, selection ) {
  * @param {Object} options
  * @param {string} options.sectionName Section in which to insert the row.
  * @param {number} options.rowIndex    Row index at which to insert the row.
+ * @param {number} options.columnCount
  *
  * @return {Object} New table state.
  */
@@ -185,7 +186,11 @@ export function insertRow( state, { sectionName, rowIndex, columnCount } ) {
 			...state[ sectionName ].slice( 0, rowIndex ),
 			{
 				cells: times( cellCount, index => {
-					const firstCellInColumn = get( firstRow, [ 'cells', index ], {} );
+					const firstCellInColumn = get(
+						firstRow,
+						[ 'cells', index ],
+						{}
+					);
 					const inheritedAttributes = pick(
 						firstCellInColumn,
 						INHERITED_COLUMN_ATTRIBUTES
@@ -282,7 +287,9 @@ export function deleteColumn( state, { columnIndex } ) {
 			.map( row => ( {
 				cells:
 					row.cells.length >= columnIndex
-						? row.cells.filter( ( cell, index ) => index !== columnIndex )
+						? row.cells.filter(
+								( cell, index ) => index !== columnIndex
+						  )
 						: row.cells,
 			} ) )
 			.filter( row => row.cells.length );

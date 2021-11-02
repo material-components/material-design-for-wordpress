@@ -30,11 +30,11 @@ import Cards from './components/cards';
 /**
  * Card Collections Save component.
  *
- * @param {Object} props - Component props.
+ * @param {Object} props            - Component props.
  * @param {Object} props.attributes - Block attributes.
- * @param {string} props.className - Block classes.
+ * @param {string} props.className  - Block classes.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const Save = ( { attributes, className } ) => {
 	const {
@@ -69,15 +69,21 @@ const Save = ( { attributes, className } ) => {
 				} ) }
 			>
 				{ style === 'grid' && <VerticalCardLayout { ...cardProps } /> }
-				{ style === 'list' && <HorizontalCardLayout { ...cardProps } /> }
-				{ style === 'masonry' && <VerticalCardLayout { ...cardProps } /> }
+				{ style === 'list' && (
+					<HorizontalCardLayout { ...cardProps } />
+				) }
+				{ style === 'masonry' && (
+					<VerticalCardLayout { ...cardProps } />
+				) }
 			</div>
 		);
 	}
 
 	return (
 		<div
-			className={ classnames( className, { [ `align${ align }` ]: align } ) }
+			className={ classnames( className, {
+				[ `align${ align }` ]: align,
+			} ) }
 			id={ id }
 		>
 			<Cards

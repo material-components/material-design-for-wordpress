@@ -60,7 +60,9 @@ describe( 'blocks: material/list', () => {
 		); // wait until all the list items are updated.
 
 		expect(
-			await page.$x( "//span[contains(@class, 'mdc-list-item__graphic')]" )
+			await page.$x(
+				"//span[contains(@class, 'mdc-list-item__graphic')]"
+			)
 		).toHaveLength( 1 );
 	} );
 
@@ -131,7 +133,10 @@ describe( 'blocks: material/list', () => {
 		await primary.press( 'Enter' );
 
 		expect(
-			await page.evaluate( () => document.activeElement.parentNode.className )
+			await page.evaluate(
+				// eslint-disable-next-line @wordpress/no-global-active-element
+				() => document.activeElement.parentNode.className
+			)
 		).toContain( 'mdc-list-item__secondary-text' );
 	} );
 
@@ -261,7 +266,10 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( el => el.innerText.trim(), items[ 0 ] )
 		).toStrictEqual( 'List Item 1' );
 		expect(
-			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 0 ] )
+			await page.evaluate(
+				el => el.innerText.trim(),
+				secondaryItems[ 0 ]
+			)
 		).toStrictEqual( 'Secondary Text 1List Item 2 Secondary Text 2' );
 
 		await primary.press( 'Enter', { delay: 50 } );
@@ -275,14 +283,20 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( el => el.innerText.trim(), items[ 0 ] )
 		).toStrictEqual( 'List Item 1' );
 		expect(
-			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 0 ] )
+			await page.evaluate(
+				el => el.innerText.trim(),
+				secondaryItems[ 0 ]
+			)
 		).toStrictEqual( 'Secondary Text 1' );
 
 		expect(
 			await page.evaluate( el => el.innerText.trim(), items[ 1 ] )
 		).toStrictEqual( 'List Item 2 Secondary Text 2' );
 		expect(
-			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 1 ] )
+			await page.evaluate(
+				el => el.innerText.trim(),
+				secondaryItems[ 1 ]
+			)
 		).toStrictEqual( '' );
 	} );
 } );
