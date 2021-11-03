@@ -147,16 +147,6 @@ const CardStylesPanel = ( {
 					/>
 				</div>
 			) }
-
-			{ showGutter && (
-				<AttributeWithDevices
-					label={ __( 'Gutter', 'material-design' ) }
-					value={ gutter }
-					onChange={ setter( 'gutter' ) }
-					min={ 1 }
-					max={ 24 }
-				/>
-			) }
 		</PanelBody>
 
 		<PanelBody title={ __( 'Card Settings', 'material-design' ) }>
@@ -178,6 +168,17 @@ const CardStylesPanel = ( {
 						min={ minColumns }
 						max={ maxColumns }
 					/>
+
+					{ showGutter && (
+						<AttributeWithDevices
+							label={ __( 'Gutter', 'material-design' ) }
+							value={ gutter }
+							onChange={ setter( 'gutter' ) }
+							min={ 1 }
+							max={ 24 }
+						/>
+					) }
+
 					{ showAllowIndividualStyleOverride && (
 						<ToggleControl
 							label={ __(

@@ -515,108 +515,6 @@ Object {
             </button>
           </div>
         </div>
-        <div
-          class="components-base-control components-range-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-range-control-1"
-            >
-              Gutter
-              <div
-                class="components-base-control__label-actions components-base-control__attr-device-label"
-              >
-                <button
-                  class="is-selected"
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    computer
-                  </i>
-                </button>
-                <button
-                  class=""
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    tablet
-                  </i>
-                </button>
-                <button
-                  class=""
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    smartphone
-                  </i>
-                </button>
-              </div>
-            </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
-            >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
-              >
-                <input
-                  aria-hidden="false"
-                  aria-label="[object Object]"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-1"
-                  max="24"
-                  min="1"
-                  step="1"
-                  tabindex="0"
-                  type="range"
-                  value="1"
-                />
-                <span
-                  aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
-                />
-                <span
-                  aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
-                  style="width: 0%;"
-                />
-                <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
-                  style="left: 0%;"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
-                  />
-                </span>
-                <span
-                  aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                  role="tooltip"
-                  style="left: 0%; z-index: 100;"
-                >
-                  1
-                </span>
-              </span>
-              <input
-                aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="24"
-                min="1"
-                step="1"
-                type="number"
-                value="1"
-              />
-            </span>
-          </div>
-        </div>
       </div>
       <div
         class="components-panel__body is-opened"
@@ -721,7 +619,7 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-range-control-2"
+              for="inspector-range-control-1"
             >
               Columns
             </label>
@@ -736,7 +634,7 @@ Object {
                   aria-hidden="false"
                   aria-label="Columns"
                   class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-2"
+                  id="inspector-range-control-1"
                   max="4"
                   min="2"
                   step="1"
@@ -780,6 +678,108 @@ Object {
                 step="1"
                 type="number"
                 value="4"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-range-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-range-control-2"
+            >
+              Gutter
+              <div
+                class="components-base-control__label-actions components-base-control__attr-device-label"
+              >
+                <button
+                  class="is-selected"
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    computer
+                  </i>
+                </button>
+                <button
+                  class=""
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    tablet
+                  </i>
+                </button>
+                <button
+                  class=""
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    smartphone
+                  </i>
+                </button>
+              </div>
+            </label>
+            <span
+              class="components-range-control__root css-yaebbd-Root exqw8y20"
+            >
+              <span
+                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                color="#00669b"
+              >
+                <input
+                  aria-hidden="false"
+                  aria-label="[object Object]"
+                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                  id="inspector-range-control-2"
+                  max="24"
+                  min="1"
+                  step="1"
+                  tabindex="0"
+                  type="range"
+                  value="1"
+                />
+                <span
+                  aria-hidden="true"
+                  class="css-1lwhlrq-Rail exqw8y24"
+                />
+                <span
+                  aria-hidden="true"
+                  class="components-range-control__track css-ogrpie-Track exqw8y25"
+                  style="width: 0%;"
+                />
+                <span
+                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  style="left: 0%;"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="css-c88ajq-Thumb exqw8y210"
+                  />
+                </span>
+                <span
+                  aria-hidden="false"
+                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  role="tooltip"
+                  style="left: 0%; z-index: 100;"
+                >
+                  1
+                </span>
+              </span>
+              <input
+                aria-label="[object Object]"
+                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                inputmode="decimal"
+                max="24"
+                min="1"
+                step="1"
+                type="number"
+                value="1"
               />
             </span>
           </div>
@@ -1981,108 +1981,6 @@ Object {
           </button>
         </div>
       </div>
-      <div
-        class="components-base-control components-range-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-range-control-1"
-          >
-            Gutter
-            <div
-              class="components-base-control__label-actions components-base-control__attr-device-label"
-            >
-              <button
-                class="is-selected"
-              >
-                <i
-                  class="material-icons"
-                >
-                  computer
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  tablet
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  smartphone
-                </i>
-              </button>
-            </div>
-          </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
-          >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="[object Object]"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-1"
-                max="24"
-                min="1"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="1"
-              />
-              <span
-                aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
-                style="width: 0%;"
-              />
-              <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
-                style="left: 0%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                role="tooltip"
-                style="left: 0%; z-index: 100;"
-              >
-                1
-              </span>
-            </span>
-            <input
-              aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="24"
-              min="1"
-              step="1"
-              type="number"
-              value="1"
-            />
-          </span>
-        </div>
-      </div>
     </div>
     <div
       class="components-panel__body is-opened"
@@ -2187,7 +2085,7 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-range-control-2"
+            for="inspector-range-control-1"
           >
             Columns
           </label>
@@ -2202,7 +2100,7 @@ Object {
                 aria-hidden="false"
                 aria-label="Columns"
                 class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-2"
+                id="inspector-range-control-1"
                 max="4"
                 min="2"
                 step="1"
@@ -2246,6 +2144,108 @@ Object {
               step="1"
               type="number"
               value="4"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-range-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-range-control-2"
+          >
+            Gutter
+            <div
+              class="components-base-control__label-actions components-base-control__attr-device-label"
+            >
+              <button
+                class="is-selected"
+              >
+                <i
+                  class="material-icons"
+                >
+                  computer
+                </i>
+              </button>
+              <button
+                class=""
+              >
+                <i
+                  class="material-icons"
+                >
+                  tablet
+                </i>
+              </button>
+              <button
+                class=""
+              >
+                <i
+                  class="material-icons"
+                >
+                  smartphone
+                </i>
+              </button>
+            </div>
+          </label>
+          <span
+            class="components-range-control__root css-yaebbd-Root exqw8y20"
+          >
+            <span
+              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              color="#00669b"
+            >
+              <input
+                aria-hidden="false"
+                aria-label="[object Object]"
+                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                id="inspector-range-control-2"
+                max="24"
+                min="1"
+                step="1"
+                tabindex="0"
+                type="range"
+                value="1"
+              />
+              <span
+                aria-hidden="true"
+                class="css-1lwhlrq-Rail exqw8y24"
+              />
+              <span
+                aria-hidden="true"
+                class="components-range-control__track css-ogrpie-Track exqw8y25"
+                style="width: 0%;"
+              />
+              <span
+                class="css-kjao9s-ThumbWrapper exqw8y29"
+                style="left: 0%;"
+              >
+                <span
+                  aria-hidden="true"
+                  class="css-c88ajq-Thumb exqw8y210"
+                />
+              </span>
+              <span
+                aria-hidden="false"
+                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                role="tooltip"
+                style="left: 0%; z-index: 100;"
+              >
+                1
+              </span>
+            </span>
+            <input
+              aria-label="[object Object]"
+              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              inputmode="decimal"
+              max="24"
+              min="1"
+              step="1"
+              type="number"
+              value="1"
             />
           </span>
         </div>
@@ -3529,108 +3529,6 @@ Object {
             </button>
           </div>
         </div>
-        <div
-          class="components-base-control components-range-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-range-control-5"
-            >
-              Gutter
-              <div
-                class="components-base-control__label-actions components-base-control__attr-device-label"
-              >
-                <button
-                  class="is-selected"
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    computer
-                  </i>
-                </button>
-                <button
-                  class=""
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    tablet
-                  </i>
-                </button>
-                <button
-                  class=""
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    smartphone
-                  </i>
-                </button>
-              </div>
-            </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
-            >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
-              >
-                <input
-                  aria-hidden="false"
-                  aria-label="[object Object]"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-5"
-                  max="24"
-                  min="1"
-                  step="1"
-                  tabindex="0"
-                  type="range"
-                  value="1"
-                />
-                <span
-                  aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
-                />
-                <span
-                  aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
-                  style="width: 0%;"
-                />
-                <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
-                  style="left: 0%;"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
-                  />
-                </span>
-                <span
-                  aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                  role="tooltip"
-                  style="left: 0%; z-index: 100;"
-                >
-                  1
-                </span>
-              </span>
-              <input
-                aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="24"
-                min="1"
-                step="1"
-                type="number"
-                value="1"
-              />
-            </span>
-          </div>
-        </div>
       </div>
       <div
         class="components-panel__body is-opened"
@@ -3735,7 +3633,7 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-range-control-6"
+              for="inspector-range-control-5"
             >
               Columns
             </label>
@@ -3750,7 +3648,7 @@ Object {
                   aria-hidden="false"
                   aria-label="Columns"
                   class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-6"
+                  id="inspector-range-control-5"
                   max="4"
                   min="2"
                   step="1"
@@ -3794,6 +3692,108 @@ Object {
                 step="1"
                 type="number"
                 value="4"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          class="components-base-control components-range-control"
+        >
+          <div
+            class="components-base-control__field"
+          >
+            <label
+              class="components-base-control__label"
+              for="inspector-range-control-6"
+            >
+              Gutter
+              <div
+                class="components-base-control__label-actions components-base-control__attr-device-label"
+              >
+                <button
+                  class="is-selected"
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    computer
+                  </i>
+                </button>
+                <button
+                  class=""
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    tablet
+                  </i>
+                </button>
+                <button
+                  class=""
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    smartphone
+                  </i>
+                </button>
+              </div>
+            </label>
+            <span
+              class="components-range-control__root css-yaebbd-Root exqw8y20"
+            >
+              <span
+                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                color="#00669b"
+              >
+                <input
+                  aria-hidden="false"
+                  aria-label="[object Object]"
+                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                  id="inspector-range-control-6"
+                  max="24"
+                  min="1"
+                  step="1"
+                  tabindex="0"
+                  type="range"
+                  value="1"
+                />
+                <span
+                  aria-hidden="true"
+                  class="css-1lwhlrq-Rail exqw8y24"
+                />
+                <span
+                  aria-hidden="true"
+                  class="components-range-control__track css-ogrpie-Track exqw8y25"
+                  style="width: 0%;"
+                />
+                <span
+                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  style="left: 0%;"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="css-c88ajq-Thumb exqw8y210"
+                  />
+                </span>
+                <span
+                  aria-hidden="false"
+                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  role="tooltip"
+                  style="left: 0%; z-index: 100;"
+                >
+                  1
+                </span>
+              </span>
+              <input
+                aria-label="[object Object]"
+                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                inputmode="decimal"
+                max="24"
+                min="1"
+                step="1"
+                type="number"
+                value="1"
               />
             </span>
           </div>
@@ -4981,108 +4981,6 @@ Object {
           </button>
         </div>
       </div>
-      <div
-        class="components-base-control components-range-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-range-control-5"
-          >
-            Gutter
-            <div
-              class="components-base-control__label-actions components-base-control__attr-device-label"
-            >
-              <button
-                class="is-selected"
-              >
-                <i
-                  class="material-icons"
-                >
-                  computer
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  tablet
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  smartphone
-                </i>
-              </button>
-            </div>
-          </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
-          >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="[object Object]"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-5"
-                max="24"
-                min="1"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="1"
-              />
-              <span
-                aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
-                style="width: 0%;"
-              />
-              <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
-                style="left: 0%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                role="tooltip"
-                style="left: 0%; z-index: 100;"
-              >
-                1
-              </span>
-            </span>
-            <input
-              aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="24"
-              min="1"
-              step="1"
-              type="number"
-              value="1"
-            />
-          </span>
-        </div>
-      </div>
     </div>
     <div
       class="components-panel__body is-opened"
@@ -5187,7 +5085,7 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-range-control-6"
+            for="inspector-range-control-5"
           >
             Columns
           </label>
@@ -5202,7 +5100,7 @@ Object {
                 aria-hidden="false"
                 aria-label="Columns"
                 class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-6"
+                id="inspector-range-control-5"
                 max="4"
                 min="2"
                 step="1"
@@ -5246,6 +5144,108 @@ Object {
               step="1"
               type="number"
               value="4"
+            />
+          </span>
+        </div>
+      </div>
+      <div
+        class="components-base-control components-range-control"
+      >
+        <div
+          class="components-base-control__field"
+        >
+          <label
+            class="components-base-control__label"
+            for="inspector-range-control-6"
+          >
+            Gutter
+            <div
+              class="components-base-control__label-actions components-base-control__attr-device-label"
+            >
+              <button
+                class="is-selected"
+              >
+                <i
+                  class="material-icons"
+                >
+                  computer
+                </i>
+              </button>
+              <button
+                class=""
+              >
+                <i
+                  class="material-icons"
+                >
+                  tablet
+                </i>
+              </button>
+              <button
+                class=""
+              >
+                <i
+                  class="material-icons"
+                >
+                  smartphone
+                </i>
+              </button>
+            </div>
+          </label>
+          <span
+            class="components-range-control__root css-yaebbd-Root exqw8y20"
+          >
+            <span
+              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+              color="#00669b"
+            >
+              <input
+                aria-hidden="false"
+                aria-label="[object Object]"
+                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                id="inspector-range-control-6"
+                max="24"
+                min="1"
+                step="1"
+                tabindex="0"
+                type="range"
+                value="1"
+              />
+              <span
+                aria-hidden="true"
+                class="css-1lwhlrq-Rail exqw8y24"
+              />
+              <span
+                aria-hidden="true"
+                class="components-range-control__track css-ogrpie-Track exqw8y25"
+                style="width: 0%;"
+              />
+              <span
+                class="css-kjao9s-ThumbWrapper exqw8y29"
+                style="left: 0%;"
+              >
+                <span
+                  aria-hidden="true"
+                  class="css-c88ajq-Thumb exqw8y210"
+                />
+              </span>
+              <span
+                aria-hidden="false"
+                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                role="tooltip"
+                style="left: 0%; z-index: 100;"
+              >
+                1
+              </span>
+            </span>
+            <input
+              aria-label="[object Object]"
+              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+              inputmode="decimal"
+              max="24"
+              min="1"
+              step="1"
+              type="number"
+              value="1"
             />
           </span>
         </div>
@@ -6515,108 +6515,6 @@ Object {
             </button>
           </div>
         </div>
-        <div
-          class="components-base-control components-range-control"
-        >
-          <div
-            class="components-base-control__field"
-          >
-            <label
-              class="components-base-control__label"
-              for="inspector-range-control-9"
-            >
-              Gutter
-              <div
-                class="components-base-control__label-actions components-base-control__attr-device-label"
-              >
-                <button
-                  class="is-selected"
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    computer
-                  </i>
-                </button>
-                <button
-                  class=""
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    tablet
-                  </i>
-                </button>
-                <button
-                  class=""
-                >
-                  <i
-                    class="material-icons"
-                  >
-                    smartphone
-                  </i>
-                </button>
-              </div>
-            </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
-            >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
-              >
-                <input
-                  aria-hidden="false"
-                  aria-label="[object Object]"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-9"
-                  max="24"
-                  min="1"
-                  step="1"
-                  tabindex="0"
-                  type="range"
-                  value="1"
-                />
-                <span
-                  aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
-                />
-                <span
-                  aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
-                  style="width: 0%;"
-                />
-                <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
-                  style="left: 0%;"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
-                  />
-                </span>
-                <span
-                  aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                  role="tooltip"
-                  style="left: 0%; z-index: 100;"
-                >
-                  1
-                </span>
-              </span>
-              <input
-                aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="24"
-                min="1"
-                step="1"
-                type="number"
-                value="1"
-              />
-            </span>
-          </div>
-        </div>
       </div>
       <div
         class="components-panel__body is-opened"
@@ -6691,7 +6589,7 @@ Object {
           >
             <label
               class="components-base-control__label"
-              for="inspector-range-control-10"
+              for="inspector-range-control-9"
             >
               Number of cards
             </label>
@@ -6706,7 +6604,7 @@ Object {
                   aria-hidden="false"
                   aria-label="Number of cards"
                   class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                  id="inspector-range-control-10"
+                  id="inspector-range-control-9"
                   max="20"
                   min="1"
                   step="1"
@@ -7719,108 +7617,6 @@ Object {
           </button>
         </div>
       </div>
-      <div
-        class="components-base-control components-range-control"
-      >
-        <div
-          class="components-base-control__field"
-        >
-          <label
-            class="components-base-control__label"
-            for="inspector-range-control-9"
-          >
-            Gutter
-            <div
-              class="components-base-control__label-actions components-base-control__attr-device-label"
-            >
-              <button
-                class="is-selected"
-              >
-                <i
-                  class="material-icons"
-                >
-                  computer
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  tablet
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  smartphone
-                </i>
-              </button>
-            </div>
-          </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
-          >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="[object Object]"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-9"
-                max="24"
-                min="1"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="1"
-              />
-              <span
-                aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
-                style="width: 0%;"
-              />
-              <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
-                style="left: 0%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                role="tooltip"
-                style="left: 0%; z-index: 100;"
-              >
-                1
-              </span>
-            </span>
-            <input
-              aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="24"
-              min="1"
-              step="1"
-              type="number"
-              value="1"
-            />
-          </span>
-        </div>
-      </div>
     </div>
     <div
       class="components-panel__body is-opened"
@@ -7895,7 +7691,7 @@ Object {
         >
           <label
             class="components-base-control__label"
-            for="inspector-range-control-10"
+            for="inspector-range-control-9"
           >
             Number of cards
           </label>
@@ -7910,7 +7706,7 @@ Object {
                 aria-hidden="false"
                 aria-label="Number of cards"
                 class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                id="inspector-range-control-10"
+                id="inspector-range-control-9"
                 max="20"
                 min="1"
                 step="1"
@@ -9299,7 +9095,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           value={4}
                         >
                           <ForwardRef
-                            instanceId={31}
+                            instanceId={30}
                             max={24}
                             min={0}
                             onChange={[Function]}
@@ -9307,7 +9103,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           >
                             <BaseControl
                               className="components-range-control"
-                              id="inspector-range-control-31"
+                              id="inspector-range-control-30"
                             >
                               <div
                                 className="components-base-control components-range-control"
@@ -9335,7 +9131,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                             aria-hidden={false}
                                             className="components-range-control__slider"
                                             disabled={false}
-                                            id="inspector-range-control-31"
+                                            id="inspector-range-control-30"
                                             max={24}
                                             min={0}
                                             onBlur={[Function]}
@@ -9352,7 +9148,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                               aria-hidden={false}
                                               className="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
                                               disabled={false}
-                                              id="inspector-range-control-31"
+                                              id="inspector-range-control-30"
                                               max={24}
                                               min={0}
                                               onBlur={[Function]}
@@ -9440,7 +9236,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                                 "current": <input
                                                   aria-hidden="false"
                                                   class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                                                  id="inspector-range-control-31"
+                                                  id="inspector-range-control-30"
                                                   max="24"
                                                   min="0"
                                                   step="1"
@@ -9530,6 +9326,420 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                   </WithGlobalBlockDefault(GlobalShapeSize)>
                 </Component>
               </div>
+            </div>
+          </PanelBody>
+        </ForwardRef(PanelBody)>
+        <ForwardRef(PanelBody)
+          title="Card Settings"
+        >
+          <PanelBody
+            forwardedRef={null}
+            title="Card Settings"
+          >
+            <div
+              className="components-panel__body is-opened"
+            >
+              <h2
+                className="components-panel__body-title"
+              >
+                <ForwardRef(Button)
+                  aria-expanded={true}
+                  className="components-panel__body-toggle"
+                  onClick={[Function]}
+                >
+                  <button
+                    aria-expanded={true}
+                    className="components-button components-panel__body-toggle"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      aria-hidden="true"
+                    >
+                      <Icon
+                        className="components-panel__arrow"
+                        icon={
+                          <SVG
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <Path
+                              d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                            />
+                          </SVG>
+                        }
+                      >
+                        <SVG
+                          className="components-panel__arrow"
+                          height={24}
+                          viewBox="0 0 24 24"
+                          width={24}
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <svg
+                            aria-hidden={true}
+                            className="components-panel__arrow"
+                            focusable={false}
+                            height={24}
+                            role="img"
+                            viewBox="0 0 24 24"
+                            width={24}
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <Path
+                              d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                            >
+                              <path
+                                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                              />
+                            </Path>
+                          </svg>
+                        </SVG>
+                      </Icon>
+                    </span>
+                    Card Settings
+                  </button>
+                </ForwardRef(Button)>
+              </h2>
+              <RadioControl
+                label="Content layout"
+                onChange={[Function]}
+                options={
+                  Array [
+                    Object {
+                      "label": "Text above media",
+                      "value": "text-above-media",
+                    },
+                    Object {
+                      "label": "Text over media",
+                      "value": "text-over-media",
+                    },
+                    Object {
+                      "label": "Text under media",
+                      "value": "text-under-media",
+                    },
+                  ]
+                }
+                selected="text-under-media"
+              >
+                <BaseControl
+                  className="components-radio-control"
+                  id="inspector-radio-control-16"
+                  label="Content layout"
+                >
+                  <div
+                    className="components-base-control components-radio-control"
+                  >
+                    <div
+                      className="components-base-control__field"
+                    >
+                      <label
+                        className="components-base-control__label"
+                        htmlFor="inspector-radio-control-16"
+                      >
+                        Content layout
+                      </label>
+                      <div
+                        className="components-radio-control__option"
+                        key="inspector-radio-control-16-0"
+                      >
+                        <input
+                          checked={false}
+                          className="components-radio-control__input"
+                          id="inspector-radio-control-16-0"
+                          name="inspector-radio-control-16"
+                          onChange={[Function]}
+                          type="radio"
+                          value="text-above-media"
+                        />
+                        <label
+                          htmlFor="inspector-radio-control-16-0"
+                        >
+                          Text above media
+                        </label>
+                      </div>
+                      <div
+                        className="components-radio-control__option"
+                        key="inspector-radio-control-16-1"
+                      >
+                        <input
+                          checked={false}
+                          className="components-radio-control__input"
+                          id="inspector-radio-control-16-1"
+                          name="inspector-radio-control-16"
+                          onChange={[Function]}
+                          type="radio"
+                          value="text-over-media"
+                        />
+                        <label
+                          htmlFor="inspector-radio-control-16-1"
+                        >
+                          Text over media
+                        </label>
+                      </div>
+                      <div
+                        className="components-radio-control__option"
+                        key="inspector-radio-control-16-2"
+                      >
+                        <input
+                          checked={true}
+                          className="components-radio-control__input"
+                          id="inspector-radio-control-16-2"
+                          name="inspector-radio-control-16"
+                          onChange={[Function]}
+                          type="radio"
+                          value="text-under-media"
+                        />
+                        <label
+                          htmlFor="inspector-radio-control-16-2"
+                        >
+                          Text under media
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </BaseControl>
+              </RadioControl>
+              <WithInstanceId(Component)
+                label="Columns"
+                max={4}
+                min={2}
+                onChange={[Function]}
+                value={4}
+              >
+                <ForwardRef
+                  instanceId={31}
+                  label="Columns"
+                  max={4}
+                  min={2}
+                  onChange={[Function]}
+                  value={4}
+                >
+                  <BaseControl
+                    className="components-range-control"
+                    id="inspector-range-control-31"
+                    label="Columns"
+                  >
+                    <div
+                      className="components-base-control components-range-control"
+                    >
+                      <div
+                        className="components-base-control__field"
+                      >
+                        <label
+                          className="components-base-control__label"
+                          htmlFor="inspector-range-control-31"
+                        >
+                          Columns
+                        </label>
+                        <Root
+                          className="components-range-control__root"
+                          isRTL={false}
+                        >
+                          <span
+                            className="components-range-control__root css-yaebbd-Root exqw8y20"
+                          >
+                            <Wrapper
+                              className="components-range-control__wrapper"
+                              color="#00669b"
+                              marks={false}
+                            >
+                              <span
+                                className="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
+                                color="#00669b"
+                              >
+                                <InputRange
+                                  aria-hidden={false}
+                                  aria-label="Columns"
+                                  className="components-range-control__slider"
+                                  disabled={false}
+                                  id="inspector-range-control-31"
+                                  max={4}
+                                  min={2}
+                                  onBlur={[Function]}
+                                  onChange={[Function]}
+                                  onFocus={[Function]}
+                                  onMouseLeave={[Function]}
+                                  onMouseMove={[Function]}
+                                  step={1}
+                                  tabIndex={0}
+                                  type="range"
+                                  value={4}
+                                >
+                                  <input
+                                    aria-hidden={false}
+                                    aria-label="Columns"
+                                    className="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                                    disabled={false}
+                                    id="inspector-range-control-31"
+                                    max={4}
+                                    min={2}
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onFocus={[Function]}
+                                    onMouseLeave={[Function]}
+                                    onMouseMove={[Function]}
+                                    step={1}
+                                    tabIndex={0}
+                                    type="range"
+                                    value={4}
+                                  />
+                                </InputRange>
+                                <RangeRail
+                                  aria-hidden={true}
+                                  disabled={false}
+                                  marks={false}
+                                  max={4}
+                                  min={2}
+                                  step={1}
+                                  value={4}
+                                >
+                                  <Rail
+                                    aria-hidden={true}
+                                    disabled={false}
+                                  >
+                                    <span
+                                      aria-hidden={true}
+                                      className="css-1lwhlrq-Rail exqw8y24"
+                                      disabled={false}
+                                    />
+                                  </Rail>
+                                </RangeRail>
+                                <Track
+                                  aria-hidden={true}
+                                  className="components-range-control__track"
+                                  disabled={false}
+                                  style={
+                                    Object {
+                                      "width": "100%",
+                                    }
+                                  }
+                                >
+                                  <span
+                                    aria-hidden={true}
+                                    className="components-range-control__track css-ogrpie-Track exqw8y25"
+                                    disabled={false}
+                                    style={
+                                      Object {
+                                        "width": "100%",
+                                      }
+                                    }
+                                  />
+                                </Track>
+                                <ThumbWrapper
+                                  style={
+                                    Object {
+                                      "left": "100%",
+                                    }
+                                  }
+                                >
+                                  <span
+                                    className="css-kjao9s-ThumbWrapper exqw8y29"
+                                    style={
+                                      Object {
+                                        "left": "100%",
+                                      }
+                                    }
+                                  >
+                                    <Thumb
+                                      aria-hidden={true}
+                                      isFocused={false}
+                                    >
+                                      <span
+                                        aria-hidden={true}
+                                        className="css-c88ajq-Thumb exqw8y210"
+                                      />
+                                    </Thumb>
+                                  </span>
+                                </ThumbWrapper>
+                                <SimpleTooltip
+                                  className="components-range-control__tooltip"
+                                  inputRef={
+                                    Object {
+                                      "current": <input
+                                        aria-hidden="false"
+                                        aria-label="Columns"
+                                        class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                                        id="inspector-range-control-31"
+                                        max="4"
+                                        min="2"
+                                        step="1"
+                                        tabindex="0"
+                                        type="range"
+                                        value="4"
+                                      />,
+                                    }
+                                  }
+                                  renderTooltipContent={[Function]}
+                                  style={
+                                    Object {
+                                      "left": "100%",
+                                    }
+                                  }
+                                  value={4}
+                                >
+                                  <Tooltip
+                                    aria-hidden={false}
+                                    className="components-simple-tooltip components-range-control__tooltip"
+                                    position="bottom"
+                                    role="tooltip"
+                                    show={false}
+                                    style={
+                                      Object {
+                                        "left": "100%",
+                                        "zIndex": 100,
+                                      }
+                                    }
+                                  >
+                                    <span
+                                      aria-hidden={false}
+                                      className="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                                      role="tooltip"
+                                      style={
+                                        Object {
+                                          "left": "100%",
+                                          "zIndex": 100,
+                                        }
+                                      }
+                                    >
+                                      4
+                                    </span>
+                                  </Tooltip>
+                                </SimpleTooltip>
+                              </span>
+                            </Wrapper>
+                            <InputNumber
+                              aria-label="Columns"
+                              className="components-range-control__number"
+                              disabled={false}
+                              inputMode="decimal"
+                              max={4}
+                              min={2}
+                              onChange={[Function]}
+                              step={1}
+                              type="number"
+                              value={4}
+                            >
+                              <input
+                                aria-label="Columns"
+                                className="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
+                                disabled={false}
+                                inputMode="decimal"
+                                max={4}
+                                min={2}
+                                onChange={[Function]}
+                                step={1}
+                                type="number"
+                                value={4}
+                              />
+                            </InputNumber>
+                          </span>
+                        </Root>
+                      </div>
+                    </div>
+                  </BaseControl>
+                </ForwardRef>
+              </WithInstanceId(Component)>
               <_default
                 label="Gutter"
                 max={24}
@@ -10081,420 +10291,6 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                   </ForwardRef>
                 </WithInstanceId(Component)>
               </_default>
-            </div>
-          </PanelBody>
-        </ForwardRef(PanelBody)>
-        <ForwardRef(PanelBody)
-          title="Card Settings"
-        >
-          <PanelBody
-            forwardedRef={null}
-            title="Card Settings"
-          >
-            <div
-              className="components-panel__body is-opened"
-            >
-              <h2
-                className="components-panel__body-title"
-              >
-                <ForwardRef(Button)
-                  aria-expanded={true}
-                  className="components-panel__body-toggle"
-                  onClick={[Function]}
-                >
-                  <button
-                    aria-expanded={true}
-                    className="components-button components-panel__body-toggle"
-                    onClick={[Function]}
-                    type="button"
-                  >
-                    <span
-                      aria-hidden="true"
-                    >
-                      <Icon
-                        className="components-panel__arrow"
-                        icon={
-                          <SVG
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <Path
-                              d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                            />
-                          </SVG>
-                        }
-                      >
-                        <SVG
-                          className="components-panel__arrow"
-                          height={24}
-                          viewBox="0 0 24 24"
-                          width={24}
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <svg
-                            aria-hidden={true}
-                            className="components-panel__arrow"
-                            focusable={false}
-                            height={24}
-                            role="img"
-                            viewBox="0 0 24 24"
-                            width={24}
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <Path
-                              d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                            >
-                              <path
-                                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
-                              />
-                            </Path>
-                          </svg>
-                        </SVG>
-                      </Icon>
-                    </span>
-                    Card Settings
-                  </button>
-                </ForwardRef(Button)>
-              </h2>
-              <RadioControl
-                label="Content layout"
-                onChange={[Function]}
-                options={
-                  Array [
-                    Object {
-                      "label": "Text above media",
-                      "value": "text-above-media",
-                    },
-                    Object {
-                      "label": "Text over media",
-                      "value": "text-over-media",
-                    },
-                    Object {
-                      "label": "Text under media",
-                      "value": "text-under-media",
-                    },
-                  ]
-                }
-                selected="text-under-media"
-              >
-                <BaseControl
-                  className="components-radio-control"
-                  id="inspector-radio-control-16"
-                  label="Content layout"
-                >
-                  <div
-                    className="components-base-control components-radio-control"
-                  >
-                    <div
-                      className="components-base-control__field"
-                    >
-                      <label
-                        className="components-base-control__label"
-                        htmlFor="inspector-radio-control-16"
-                      >
-                        Content layout
-                      </label>
-                      <div
-                        className="components-radio-control__option"
-                        key="inspector-radio-control-16-0"
-                      >
-                        <input
-                          checked={false}
-                          className="components-radio-control__input"
-                          id="inspector-radio-control-16-0"
-                          name="inspector-radio-control-16"
-                          onChange={[Function]}
-                          type="radio"
-                          value="text-above-media"
-                        />
-                        <label
-                          htmlFor="inspector-radio-control-16-0"
-                        >
-                          Text above media
-                        </label>
-                      </div>
-                      <div
-                        className="components-radio-control__option"
-                        key="inspector-radio-control-16-1"
-                      >
-                        <input
-                          checked={false}
-                          className="components-radio-control__input"
-                          id="inspector-radio-control-16-1"
-                          name="inspector-radio-control-16"
-                          onChange={[Function]}
-                          type="radio"
-                          value="text-over-media"
-                        />
-                        <label
-                          htmlFor="inspector-radio-control-16-1"
-                        >
-                          Text over media
-                        </label>
-                      </div>
-                      <div
-                        className="components-radio-control__option"
-                        key="inspector-radio-control-16-2"
-                      >
-                        <input
-                          checked={true}
-                          className="components-radio-control__input"
-                          id="inspector-radio-control-16-2"
-                          name="inspector-radio-control-16"
-                          onChange={[Function]}
-                          type="radio"
-                          value="text-under-media"
-                        />
-                        <label
-                          htmlFor="inspector-radio-control-16-2"
-                        >
-                          Text under media
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </BaseControl>
-              </RadioControl>
-              <WithInstanceId(Component)
-                label="Columns"
-                max={4}
-                min={2}
-                onChange={[Function]}
-                value={4}
-              >
-                <ForwardRef
-                  instanceId={33}
-                  label="Columns"
-                  max={4}
-                  min={2}
-                  onChange={[Function]}
-                  value={4}
-                >
-                  <BaseControl
-                    className="components-range-control"
-                    id="inspector-range-control-33"
-                    label="Columns"
-                  >
-                    <div
-                      className="components-base-control components-range-control"
-                    >
-                      <div
-                        className="components-base-control__field"
-                      >
-                        <label
-                          className="components-base-control__label"
-                          htmlFor="inspector-range-control-33"
-                        >
-                          Columns
-                        </label>
-                        <Root
-                          className="components-range-control__root"
-                          isRTL={false}
-                        >
-                          <span
-                            className="components-range-control__root css-yaebbd-Root exqw8y20"
-                          >
-                            <Wrapper
-                              className="components-range-control__wrapper"
-                              color="#00669b"
-                              marks={false}
-                            >
-                              <span
-                                className="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                                color="#00669b"
-                              >
-                                <InputRange
-                                  aria-hidden={false}
-                                  aria-label="Columns"
-                                  className="components-range-control__slider"
-                                  disabled={false}
-                                  id="inspector-range-control-33"
-                                  max={4}
-                                  min={2}
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  onMouseLeave={[Function]}
-                                  onMouseMove={[Function]}
-                                  step={1}
-                                  tabIndex={0}
-                                  type="range"
-                                  value={4}
-                                >
-                                  <input
-                                    aria-hidden={false}
-                                    aria-label="Columns"
-                                    className="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                                    disabled={false}
-                                    id="inspector-range-control-33"
-                                    max={4}
-                                    min={2}
-                                    onBlur={[Function]}
-                                    onChange={[Function]}
-                                    onFocus={[Function]}
-                                    onMouseLeave={[Function]}
-                                    onMouseMove={[Function]}
-                                    step={1}
-                                    tabIndex={0}
-                                    type="range"
-                                    value={4}
-                                  />
-                                </InputRange>
-                                <RangeRail
-                                  aria-hidden={true}
-                                  disabled={false}
-                                  marks={false}
-                                  max={4}
-                                  min={2}
-                                  step={1}
-                                  value={4}
-                                >
-                                  <Rail
-                                    aria-hidden={true}
-                                    disabled={false}
-                                  >
-                                    <span
-                                      aria-hidden={true}
-                                      className="css-1lwhlrq-Rail exqw8y24"
-                                      disabled={false}
-                                    />
-                                  </Rail>
-                                </RangeRail>
-                                <Track
-                                  aria-hidden={true}
-                                  className="components-range-control__track"
-                                  disabled={false}
-                                  style={
-                                    Object {
-                                      "width": "100%",
-                                    }
-                                  }
-                                >
-                                  <span
-                                    aria-hidden={true}
-                                    className="components-range-control__track css-ogrpie-Track exqw8y25"
-                                    disabled={false}
-                                    style={
-                                      Object {
-                                        "width": "100%",
-                                      }
-                                    }
-                                  />
-                                </Track>
-                                <ThumbWrapper
-                                  style={
-                                    Object {
-                                      "left": "100%",
-                                    }
-                                  }
-                                >
-                                  <span
-                                    className="css-kjao9s-ThumbWrapper exqw8y29"
-                                    style={
-                                      Object {
-                                        "left": "100%",
-                                      }
-                                    }
-                                  >
-                                    <Thumb
-                                      aria-hidden={true}
-                                      isFocused={false}
-                                    >
-                                      <span
-                                        aria-hidden={true}
-                                        className="css-c88ajq-Thumb exqw8y210"
-                                      />
-                                    </Thumb>
-                                  </span>
-                                </ThumbWrapper>
-                                <SimpleTooltip
-                                  className="components-range-control__tooltip"
-                                  inputRef={
-                                    Object {
-                                      "current": <input
-                                        aria-hidden="false"
-                                        aria-label="Columns"
-                                        class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                                        id="inspector-range-control-33"
-                                        max="4"
-                                        min="2"
-                                        step="1"
-                                        tabindex="0"
-                                        type="range"
-                                        value="4"
-                                      />,
-                                    }
-                                  }
-                                  renderTooltipContent={[Function]}
-                                  style={
-                                    Object {
-                                      "left": "100%",
-                                    }
-                                  }
-                                  value={4}
-                                >
-                                  <Tooltip
-                                    aria-hidden={false}
-                                    className="components-simple-tooltip components-range-control__tooltip"
-                                    position="bottom"
-                                    role="tooltip"
-                                    show={false}
-                                    style={
-                                      Object {
-                                        "left": "100%",
-                                        "zIndex": 100,
-                                      }
-                                    }
-                                  >
-                                    <span
-                                      aria-hidden={false}
-                                      className="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
-                                      role="tooltip"
-                                      style={
-                                        Object {
-                                          "left": "100%",
-                                          "zIndex": 100,
-                                        }
-                                      }
-                                    >
-                                      4
-                                    </span>
-                                  </Tooltip>
-                                </SimpleTooltip>
-                              </span>
-                            </Wrapper>
-                            <InputNumber
-                              aria-label="Columns"
-                              className="components-range-control__number"
-                              disabled={false}
-                              inputMode="decimal"
-                              max={4}
-                              min={2}
-                              onChange={[Function]}
-                              step={1}
-                              type="number"
-                              value={4}
-                            >
-                              <input
-                                aria-label="Columns"
-                                className="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                                disabled={false}
-                                inputMode="decimal"
-                                max={4}
-                                min={2}
-                                onChange={[Function]}
-                                step={1}
-                                type="number"
-                                value={4}
-                              />
-                            </InputNumber>
-                          </span>
-                        </Root>
-                      </div>
-                    </div>
-                  </BaseControl>
-                </ForwardRef>
-              </WithInstanceId(Component)>
               <WithInstanceId(ToggleControl)
                 checked={false}
                 label="Allow individual card override"
@@ -10665,7 +10461,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
               value={2}
             >
               <ForwardRef
-                instanceId={34}
+                instanceId={33}
                 label="Number of cards"
                 max={20}
                 min={1}
@@ -10674,7 +10470,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
               >
                 <BaseControl
                   className="components-range-control"
-                  id="inspector-range-control-34"
+                  id="inspector-range-control-33"
                   label="Number of cards"
                 >
                   <div
@@ -10685,7 +10481,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                     >
                       <label
                         className="components-base-control__label"
-                        htmlFor="inspector-range-control-34"
+                        htmlFor="inspector-range-control-33"
                       >
                         Number of cards
                       </label>
@@ -10710,7 +10506,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                 aria-label="Number of cards"
                                 className="components-range-control__slider"
                                 disabled={false}
-                                id="inspector-range-control-34"
+                                id="inspector-range-control-33"
                                 max={20}
                                 min={1}
                                 onBlur={[Function]}
@@ -10728,7 +10524,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                   aria-label="Number of cards"
                                   className="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
                                   disabled={false}
-                                  id="inspector-range-control-34"
+                                  id="inspector-range-control-33"
                                   max={20}
                                   min={1}
                                   onBlur={[Function]}
@@ -10817,7 +10613,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                                       aria-hidden="false"
                                       aria-label="Number of cards"
                                       class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
-                                      id="inspector-range-control-34"
+                                      id="inspector-range-control-33"
                                       max="20"
                                       min="1"
                                       step="1"
