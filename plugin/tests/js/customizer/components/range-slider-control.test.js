@@ -113,7 +113,9 @@ describe( 'RangeSliderControl', () => {
 		} );
 
 		expect(
-			wrapper.find( 'input.components-range-control__number' ).prop( 'value' )
+			wrapper
+				.find( 'input.components-range-control__number' )
+				.prop( 'value' )
 		).toBe( 5 );
 
 		expect( mockOnChangeFn ).toHaveBeenCalledTimes( 1 );
@@ -132,7 +134,9 @@ describe( 'RangeSliderControl', () => {
 		} );
 
 		expect(
-			wrapper.find( 'input.components-range-control__slider' ).prop( 'value' )
+			wrapper
+				.find( 'input.components-range-control__slider' )
+				.prop( 'value' )
 		).toBe( 4 );
 
 		expect( mockOnChangeFn ).toHaveBeenCalledTimes( 1 );

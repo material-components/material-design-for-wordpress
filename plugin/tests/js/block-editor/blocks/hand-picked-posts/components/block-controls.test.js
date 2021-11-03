@@ -81,8 +81,8 @@ describe( 'HandPickedPostsBlockControls', () => {
 		const { getByLabelText } = fullRender( props );
 
 		fireEvent.click( getByLabelText( 'Edit' ) );
-		expect( props.setAttributes.mock.calls[ 0 ][ 0 ].editMode ).toStrictEqual(
-			true
-		);
+		expect(
+			props.setAttributes.mock.calls[ 0 ][ 0 ].editMode
+		).toStrictEqual( true );
 	} );
 } );

@@ -35,18 +35,18 @@ import { isGlobalCardStyleOutlined } from '../../../utils';
 /**
  * Horizontal Card Layout component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.excerpt - Post excerpt.
- * @param {string} props.imageSourceUrl - Image source URL.
- * @param {string} props.contentLayout - Content layout ('text-above-media', 'text-over-media' or text-under-media).
- * @param {boolean} props.outlined - Whether or not the card has an outlined style.
- * @param {boolean} props.displayPostContent - Whether or not to display the post content.
- * @param {number} props.postContentLength - Post content length.
+ * @param {Object}  props                      - Component props.
+ * @param {string}  props.excerpt              - Post excerpt.
+ * @param {string}  props.imageSourceUrl       - Image source URL.
+ * @param {string}  props.contentLayout        - Content layout ('text-above-media', 'text-over-media' or text-under-media).
+ * @param {boolean} props.outlined             - Whether or not the card has an outlined style.
+ * @param {boolean} props.displayPostContent   - Whether or not to display the post content.
+ * @param {number}  props.postContentLength    - Post content length.
  * @param {boolean} props.displayFeaturedImage - Whether or not to display the featured image.
  * @param {boolean} props.displayCommentsCount - Whether or not to display the comments count field.
- * @param {boolean} props.displayPostAuthor - Whether or not to display the post author field.
+ * @param {boolean} props.displayPostAuthor    - Whether or not to display the post author field.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const VerticalCardLayout = props => {
 	const {
@@ -84,20 +84,23 @@ const VerticalCardLayout = props => {
 				className="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
 				tabIndex={ 0 }
 			>
-				{ contentLayout === 'text-above-media' && <CardHeader { ...props } /> }
+				{ contentLayout === 'text-above-media' && (
+					<CardHeader { ...props } />
+				) }
 
 				{ contentLayout === 'text-over-media' &&
 					displayFeaturedImage &&
 					! imageSourceUrl && <CardHeader { ...props } /> }
 
-				{ contentLayout === 'text-over-media' && ! displayFeaturedImage && (
-					<CardHeader { ...props } />
-				) }
+				{ contentLayout === 'text-over-media' &&
+					! displayFeaturedImage && <CardHeader { ...props } /> }
 
 				{ displayFeaturedImage && imageSourceUrl && (
 					<CardImage { ...cardImageProps } />
 				) }
-				{ contentLayout === 'text-under-media' && <CardHeader { ...props } /> }
+				{ contentLayout === 'text-under-media' && (
+					<CardHeader { ...props } />
+				) }
 				{ displayPostContent && (
 					<div
 						className={ classnames(
@@ -108,7 +111,8 @@ const VerticalCardLayout = props => {
 						) }
 					>
 						<RawHTML key="html">
-							{ postContentLength < excerpt.trim().split( ' ' ).length
+							{ postContentLength <
+							excerpt.trim().split( ' ' ).length
 								? excerpt
 										.trim()
 										.split( ' ', postContentLength )

@@ -131,7 +131,9 @@ describe( 'CardImageEdit', () => {
 		const props = { ...baseProps };
 		props.isImageEditMode = false;
 		const wrapper = setupMount( props );
-		wrapper.find( '.material-design-card__media-container' ).simulate( 'blur' );
+		wrapper
+			.find( '.material-design-card__media-container' )
+			.simulate( 'blur' );
 		expect(
 			wrapper
 				.find( '.material-design-card__media-container' )

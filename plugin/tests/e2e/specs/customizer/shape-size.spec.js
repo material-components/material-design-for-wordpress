@@ -68,13 +68,17 @@ describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 
 		it( 'should always display the `Global corner styles` setting control', async () => {
 			expect(
-				await isVisible( '#range-slider-control-material_design-global_radius' )
+				await isVisible(
+					'#range-slider-control-material_design-global_radius'
+				)
 			).toBeTruthy();
 		} );
 
 		it( 'should hide all individual component controls', async () => {
 			expect(
-				await page.$( '#range-slider-control-material_design-button_radius' )
+				await page.$(
+					'#range-slider-control-material_design-button_radius'
+				)
 			).toBeNull();
 
 			expect(
@@ -90,7 +94,9 @@ describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 			}, await page.$( '.range-slider-control-settings-expanded' ) );
 
 			expect(
-				await isVisible( '#range-slider-control-material_design-button_radius' )
+				await isVisible(
+					'#range-slider-control-material_design-button_radius'
+				)
 			).toBeTruthy();
 
 			expect(
@@ -109,7 +115,9 @@ describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 
 	describe( 'Global corner styles Control', () => {
 		it( 'should update all component sliders on global slider change', async () => {
-			const sliders = await page.$$( '.components-range-control__slider' );
+			const sliders = await page.$$(
+				'.components-range-control__slider'
+			);
 
 			let radius = await moveRangeSlider( sliders[ 0 ], 0 );
 
@@ -141,7 +149,9 @@ describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 		} );
 
 		it( 'should update an individual slider on change', async () => {
-			const sliders = await page.$$( '.components-range-control__slider' );
+			const sliders = await page.$$(
+				'.components-range-control__slider'
+			);
 
 			let globalRadius = await moveRangeSlider( sliders[ 0 ], 0.25 );
 			const buttonRadius = await moveRangeSlider( sliders[ 1 ], 0.5 );
@@ -179,7 +189,9 @@ describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 		} );
 
 		it( 'should reset an individual slider', async () => {
-			const sliders = await page.$$( '.components-range-control__slider' );
+			const sliders = await page.$$(
+				'.components-range-control__slider'
+			);
 			const linkToGlobalBtns = await page.$$(
 				'.range-slider-control-body__item .components-button:not(.is-pressed)'
 			);
@@ -219,7 +231,9 @@ describe( 'Customize controls: Shape Size (Corner Styles)', () => {
 				el.click();
 			}, await page.$( '.range-slider-control-settings-expanded' ) );
 
-			const sliders = await page.$$( '.components-range-control__slider' );
+			const sliders = await page.$$(
+				'.components-range-control__slider'
+			);
 			const globalRadius = await moveRangeSlider( sliders[ 0 ], 0.25 );
 
 			expect(

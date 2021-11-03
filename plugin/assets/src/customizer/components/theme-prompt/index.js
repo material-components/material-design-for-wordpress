@@ -32,6 +32,10 @@ const ThemePrompt = ( { status } ) => {
 	const [ dismissed, setDismissed ] = useState( status === 'ok' );
 	const [ requesting, setRequesting ] = useState( false );
 
+	if ( dismissed || status === 'ok' ) {
+		return null;
+	}
+
 	const title = __( 'Material Design Theme', 'material-design' );
 
 	const message =
@@ -55,10 +59,6 @@ const ThemePrompt = ( { status } ) => {
 		window.localStorage.setItem( 'themeInstallerDismissed', '1' );
 	};
 
-	if ( dismissed || status === 'ok' ) {
-		return null;
-	}
-
 	const apiRequest = event => {
 		event.preventDefault();
 
@@ -78,7 +78,9 @@ const ThemePrompt = ( { status } ) => {
 		apiFetch( requestArgs )
 			.then( () => {
 				if ( 'install' === status ) {
-					requestArgs.path = `${ getConfig( 'restPath' ) }activate-theme`;
+					requestArgs.path = `${ getConfig(
+						'restPath'
+					) }activate-theme`;
 
 					apiFetch( requestArgs )
 						.then( () => window.location.reload() )
@@ -111,7 +113,9 @@ const ThemePrompt = ( { status } ) => {
 					disabled={ requesting }
 				>
 					{ cta }
-					{ requesting && <span className="spinner is-active"></span> }
+					{ requesting && (
+						<span className="spinner is-active"></span>
+					) }
 				</button>
 			</div>
 			<ul className="accordion-sub-container control-panel-content"></ul>

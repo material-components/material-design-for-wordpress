@@ -50,7 +50,8 @@ describe( 'RecaptchaInspectorControlsPanel', () => {
 		if ( 'get' === data.action && getData < 2 ) {
 			getData++;
 			response.data = {
-				material_design_recaptcha_client_secret: 'CLIENT_SECRET_FROM_AJAX',
+				material_design_recaptcha_client_secret:
+					'CLIENT_SECRET_FROM_AJAX',
 				material_design_recaptcha_site_key: 'SITE_KEY_FROM_AJAX',
 			};
 		}
@@ -84,7 +85,9 @@ describe( 'RecaptchaInspectorControlsPanel', () => {
 		await act( async () => {
 			const props = { ...baseProps };
 			const { container } = setup( props );
-			inputs = container.querySelectorAll( '.components-text-control__input' );
+			inputs = container.querySelectorAll(
+				'.components-text-control__input'
+			);
 		} );
 
 		expect( ajax ).toHaveBeenCalledTimes( 1 );
@@ -121,7 +124,9 @@ describe( 'RecaptchaInspectorControlsPanel', () => {
 		} );
 
 		expect( setValue.mock.calls[ 0 ][ 0 ] ).toStrictEqual( 'SITE_KEY' );
-		expect( setValue.mock.calls[ 1 ][ 0 ] ).toStrictEqual( 'CLIENT_SECRET' );
+		expect( setValue.mock.calls[ 1 ][ 0 ] ).toStrictEqual(
+			'CLIENT_SECRET'
+		);
 	} );
 
 	it( 'saves credentials by invoking ajax request', async () => {

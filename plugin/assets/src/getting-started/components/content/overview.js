@@ -53,7 +53,10 @@ export const Overview = () => {
 			<div className="material-gsm__content-actions">
 				<Button
 					style="mdc-button--raised"
-					text={ __( 'Customize Material Blocks', 'material-design' ) }
+					text={ __(
+						'Customize Material Blocks',
+						'material-design'
+					) }
 					trailingIcon="navigate_next"
 					link={ getConfig( 'blocks' ) }
 				/>

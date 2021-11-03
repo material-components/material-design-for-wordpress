@@ -50,7 +50,10 @@ export default ( {
 	};
 
 	const setColumns = newColumns => {
-		onColumnsChange( { ...columns, ...{ [ selectedDevice ]: newColumns } } );
+		onColumnsChange( {
+			...columns,
+			...{ [ selectedDevice ]: newColumns },
+		} );
 	};
 
 	const VisualLabel = BaseControl.VisualLabel || 'label';
@@ -64,11 +67,16 @@ export default ( {
 						<Tooltip text={ device.label } key={ device.name }>
 							<button
 								className={ classNames( '', {
-									'is-selected': device.name === selectedDevice,
+									'is-selected':
+										device.name === selectedDevice,
 								} ) }
-								onClick={ () => setSelectedDevice( device.name ) }
+								onClick={ () =>
+									setSelectedDevice( device.name )
+								}
 							>
-								<i className="material-icons">{ device.icon }</i>
+								<i className="material-icons">
+									{ device.icon }
+								</i>
 							</button>
 						</Tooltip>
 					) ) }

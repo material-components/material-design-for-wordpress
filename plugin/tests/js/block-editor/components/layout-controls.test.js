@@ -64,7 +64,9 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 0 ],
+			container.querySelectorAll(
+				'.components-range-control__number'
+			)[ 0 ],
 			{
 				target: { value: 4 },
 			}
@@ -74,7 +76,9 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 0 ],
+			container.querySelectorAll(
+				'.components-range-control__number'
+			)[ 0 ],
 			{
 				target: { value: 2 },
 			}
@@ -84,7 +88,9 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 0 ],
+			container.querySelectorAll(
+				'.components-range-control__number'
+			)[ 0 ],
 			{
 				target: { value: 1 },
 			}
@@ -120,7 +126,9 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 1 ],
+			container.querySelectorAll(
+				'.components-range-control__number'
+			)[ 1 ],
 			{
 				target: { value: 10 },
 			}
@@ -130,7 +138,9 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 1 ],
+			container.querySelectorAll(
+				'.components-range-control__number'
+			)[ 1 ],
 			{
 				target: { value: 8 },
 			}
@@ -140,7 +150,9 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll( '.components-range-control__number' )[ 1 ],
+			container.querySelectorAll(
+				'.components-range-control__number'
+			)[ 1 ],
 			{
 				target: { value: 4 },
 			}

@@ -23,16 +23,16 @@ import { RichText } from '@wordpress/block-editor';
 /**
  * Card Primary component.
  *
- * @param {Object} props - Component props.
- * @param {boolean} props.displayTitle - Whether or not to display the title.
- * @param {string} props.title - Title.
- * @param {boolean} props.displaySecondaryText - Whether or not to display the secondary text.
- * @param {string} props.secondaryText - Secondary text.
- * @param {boolean} props.cardIndex - Card Index.
- * @param {Function} props.setter - Block attribute setter.
- * @param {boolean} props.isEditMode - Whether or not the edit mode is enabled.
+ * @param {Object}   props                      - Component props.
+ * @param {boolean}  props.displayTitle         - Whether or not to display the title.
+ * @param {string}   props.title                - Title.
+ * @param {boolean}  props.displaySecondaryText - Whether or not to display the secondary text.
+ * @param {string}   props.secondaryText        - Secondary text.
+ * @param {boolean}  props.cardIndex            - Card Index.
+ * @param {Function} props.setter               - Block attribute setter.
+ * @param {boolean}  props.isEditMode           - Whether or not the edit mode is enabled.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const CardPrimary = ( {
 	displayTitle,
@@ -51,8 +51,13 @@ const CardPrimary = ( {
 						tagName="h2"
 						className="material-design-card__title mdc-typography mdc-typography--headline6"
 						value={ title }
-						onChange={ value => setter( 'title', value, cardIndex ) }
-						placeholder={ __( 'Title goes here', 'material-design' ) }
+						onChange={ value =>
+							setter( 'title', value, cardIndex )
+						}
+						placeholder={ __(
+							'Title goes here',
+							'material-design'
+						) }
 					/>
 				) }
 				{ displaySecondaryText && (
@@ -60,8 +65,13 @@ const CardPrimary = ( {
 						tagName="h3"
 						className="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
 						value={ secondaryText }
-						onChange={ value => setter( 'secondaryText', value, cardIndex ) }
-						placeholder={ __( 'Secondary text', 'material-design' ) }
+						onChange={ value =>
+							setter( 'secondaryText', value, cardIndex )
+						}
+						placeholder={ __(
+							'Secondary text',
+							'material-design'
+						) }
 					/>
 				) }
 			</>

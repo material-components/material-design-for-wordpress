@@ -185,14 +185,21 @@ export default function MaterialColorPalette( {
 												'components-material-color-palette__picker',
 										} }
 										buttonProps={ {
-											'aria-label': __( 'Color palette', 'material-design' ),
+											'aria-label': __(
+												'Color palette',
+												'material-design'
+											),
 										} }
-										linkText={ __( 'Color palette', 'material-design' ) }
+										linkText={ __(
+											'Color palette',
+											'material-design'
+										) }
 									/>
 									<DropdownLinkAction
 										dropdownProps={ {
 											renderContent: renderCustomColorPicker,
-											contentClassName: 'components-color-palette__picker',
+											contentClassName:
+												'components-color-palette__picker',
 										} }
 										buttonProps={ {
 											'aria-label': __(
@@ -200,7 +207,10 @@ export default function MaterialColorPalette( {
 												'material-design'
 											),
 										} }
-										linkText={ __( 'Custom Color', 'material-design' ) }
+										linkText={ __(
+											'Custom Color',
+											'material-design'
+										) }
 									/>
 								</>
 							) }

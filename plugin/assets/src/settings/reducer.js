@@ -81,7 +81,10 @@ export const reducer = ( state, action ) => {
 	if ( ACTIONS.ADD_ERROR === type ) {
 		return {
 			...state,
-			errors: { ...state.errors, ...{ [ payload.id ]: [ payload.error ] } },
+			errors: {
+				...state.errors,
+				...{ [ payload.id ]: [ payload.error ] },
+			},
 		};
 	}
 

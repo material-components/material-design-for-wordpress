@@ -92,7 +92,10 @@ const CardStylesPanel = ( {
 	setter,
 } ) => (
 	<>
-		<PanelBody title={ __( 'Styles', 'material-design' ) } initialOpen={ true }>
+		<PanelBody
+			title={ __( 'Styles', 'material-design' ) }
+			initialOpen={ true }
+		>
 			<ImageRadioControl
 				selected={ style }
 				options={ CARD_STYLES }
@@ -144,16 +147,6 @@ const CardStylesPanel = ( {
 					/>
 				</div>
 			) }
-
-			{ showGutter && (
-				<AttributeWithDevices
-					label={ __( 'Gutter', 'material-design' ) }
-					value={ gutter }
-					onChange={ setter( 'gutter' ) }
-					min={ 1 }
-					max={ 24 }
-				/>
-			) }
 		</PanelBody>
 
 		<PanelBody title={ __( 'Card Settings', 'material-design' ) }>
@@ -175,6 +168,17 @@ const CardStylesPanel = ( {
 						min={ minColumns }
 						max={ maxColumns }
 					/>
+
+					{ showGutter && (
+						<AttributeWithDevices
+							label={ __( 'Gutter', 'material-design' ) }
+							value={ gutter }
+							onChange={ setter( 'gutter' ) }
+							min={ 1 }
+							max={ 24 }
+						/>
+					) }
+
 					{ showAllowIndividualStyleOverride && (
 						<ToggleControl
 							label={ __(
@@ -182,7 +186,9 @@ const CardStylesPanel = ( {
 								'material-design'
 							) }
 							checked={ allowIndividualStyleOverride }
-							onChange={ setter( 'allowIndividualStyleOverride' ) }
+							onChange={ setter(
+								'allowIndividualStyleOverride'
+							) }
 						/>
 					) }
 				</>

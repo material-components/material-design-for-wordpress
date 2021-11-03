@@ -63,9 +63,9 @@ describe( 'blocks: all', () => {
 		await page.waitForSelector( '.edit-post-visual-editor' );
 
 		// Check if buttons block is rendered.
-		expect( await page.$$( '[data-type="material/buttons"]' ) ).toHaveLength(
-			1
-		);
+		expect(
+			await page.$$( '[data-type="material/buttons"]' )
+		).toHaveLength( 1 );
 
 		// Check if button blocks are rendered.
 		expect( await page.$$( '[data-type="material/button"]' ) ).toHaveLength(
@@ -73,7 +73,9 @@ describe( 'blocks: all', () => {
 		);
 
 		// Check if card block is rendered.
-		expect( await page.$$( '[data-type="material/card"]' ) ).toHaveLength( 1 );
+		expect( await page.$$( '[data-type="material/card"]' ) ).toHaveLength(
+			1
+		);
 
 		// Check if cards-collections block is rendered.
 		expect(
@@ -81,17 +83,19 @@ describe( 'blocks: all', () => {
 		).toHaveLength( 1 );
 
 		// Check if list block is rendered.
-		expect( await page.$$( '[data-type="material/list"]' ) ).toHaveLength( 1 );
+		expect( await page.$$( '[data-type="material/list"]' ) ).toHaveLength(
+			1
+		);
 
 		// Check if material/data-table block is rendered.
-		expect( await page.$$( '[data-type="material/data-table"]' ) ).toHaveLength(
-			1
-		);
+		expect(
+			await page.$$( '[data-type="material/data-table"]' )
+		).toHaveLength( 1 );
 
 		// Check if image-list block is rendered.
-		expect( await page.$$( '[data-type="material/image-list"]' ) ).toHaveLength(
-			1
-		);
+		expect(
+			await page.$$( '[data-type="material/image-list"]' )
+		).toHaveLength( 1 );
 
 		// Check if recent posts block is rendered.
 		expect(

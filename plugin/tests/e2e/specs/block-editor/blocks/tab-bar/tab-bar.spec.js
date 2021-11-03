@@ -31,7 +31,9 @@ describe( 'blocks: material/tab-bar', () => {
 
 	it( 'should be inserted', async () => {
 		await insertBlock( 'Tabs' );
-		expect( await page.$( '[data-type="material/tab-bar"]' ) ).not.toBeNull();
+		expect(
+			await page.$( '[data-type="material/tab-bar"]' )
+		).not.toBeNull();
 	} );
 
 	it( 'should have "None" selected as the icon position initially', async () => {
@@ -62,7 +64,9 @@ describe( 'blocks: material/tab-bar', () => {
 			)
 		).toHaveLength( 1 );
 
-		expect( await page.$$( '.icons-search__search-input' ) ).toHaveLength( 1 );
+		expect( await page.$$( '.icons-search__search-input' ) ).toHaveLength(
+			1
+		);
 
 		const [ icon ] = await page.$$( '.icons-container__icon__icon-btn' );
 
@@ -93,7 +97,9 @@ describe( 'blocks: material/tab-bar', () => {
 			)
 		).toHaveLength( 1 );
 
-		expect( await page.$$( '.icons-search__search-input' ) ).toHaveLength( 1 );
+		expect( await page.$$( '.icons-search__search-input' ) ).toHaveLength(
+			1
+		);
 
 		const [ icon ] = await page.$$( '.icons-container__icon__icon-btn' );
 
@@ -157,10 +163,14 @@ describe( 'blocks: material/tab-bar', () => {
 		);
 		await addBlock.click();
 
-		const [ searchBlock ] = await page.$$( '.block-editor-inserter__search' );
+		const [ searchBlock ] = await page.$$(
+			'.block-editor-inserter__search'
+		);
 		await searchBlock.type( 'Heading' );
 
-		const [ headingBlock ] = await page.$$( '.editor-block-list-item-heading' );
+		const [ headingBlock ] = await page.$$(
+			'.editor-block-list-item-heading'
+		);
 		await headingBlock.click();
 
 		expect(
@@ -188,7 +198,9 @@ describe( 'blocks: material/tab-bar', () => {
 		);
 		await addBlock.click();
 
-		const [ searchBlock ] = await page.$$( '.block-editor-inserter__search' );
+		const [ searchBlock ] = await page.$$(
+			'.block-editor-inserter__search'
+		);
 		await searchBlock.type( 'Tabs' );
 
 		try {

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-/* global grecaptcha, XMLHttpRequest, FormData */
+/* global grecaptcha */
 
 /**
  * External dependencies
@@ -142,7 +142,9 @@ export const initReCaptchaToken = () => {
 	) {
 		grecaptcha.ready( function() {
 			grecaptcha
-				.execute( getConfig( 'recaptcha_site_key' ), { action: 'contact' } )
+				.execute( getConfig( 'recaptcha_site_key' ), {
+					action: 'contact',
+				} )
 				.then( function( token ) {
 					tokenField.setAttribute( 'value', token );
 				} );

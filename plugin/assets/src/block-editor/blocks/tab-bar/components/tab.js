@@ -87,7 +87,10 @@ const Tab = ( {
 			</span>
 			<span className="mdc-tab__ripple"></span>
 			{ ! frontend && (
-				<button className="material-icons tab__delete" onClick={ onDelete }>
+				<button
+					className="material-icons tab__delete"
+					onClick={ onDelete }
+				>
 					cancel
 				</button>
 			) }

@@ -29,11 +29,12 @@ import genericAttributesSetter from '../../../../../utils/generic-attributes-set
 /**
  * Common Posts List Inspector Controls component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.attributes - Block attributes.
- * @param {Function} props.setAttributes - Function to set block attributes value.
- *
- * @return {Function} A functional component.
+ * @param {Object}   props                  - Component props.
+ * @param {Object}   props.attributes       - Block attributes.
+ * @param {Function} props.setAttributes    - Function to set block attributes value.
+ * @param {string}   props.attributes.id
+ * @param {string}   props.attributes.label
+ * @return {JSX.Element} A functional component.
  */
 const InputInspectorControls = ( {
 	attributes: { id, label },

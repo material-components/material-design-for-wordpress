@@ -45,7 +45,9 @@ import colorUtils from '../../../common/color-utils';
  * Adds link tag with appropriate google fonts to head.
  *
  * @param {string} headings Import headings font
- * @param {string} body Import body font
+ * @param {string} body     Import body font
+ *
+ * @return {HTMLLinkElement} Link to google fonts.
  */
 const googleFontsUrl = ( headings, body ) => {
 	const join = str => str.replace( ' ', '+' );
@@ -79,7 +81,9 @@ const MaterialLibrary = ( {
 	textFieldRadius,
 	theme,
 } ) => {
-	const [ link ] = useState( googleFontsUrl( headFontFamily, bodyFontFamily ) );
+	const [ link ] = useState(
+		googleFontsUrl( headFontFamily, bodyFontFamily )
+	);
 
 	const iconStyle = materialIconClass( iconCollection );
 
@@ -136,7 +140,10 @@ const MaterialLibrary = ( {
 						radius={ buttonRadius }
 					/>
 					<hr />
-					<Cards radius={ cardRadius } buttonRadius={ buttonRadius } />
+					<Cards
+						radius={ cardRadius }
+						buttonRadius={ buttonRadius }
+					/>
 					<hr />
 					<Table radius={ dataTableRadius } />
 					<hr />

@@ -187,7 +187,9 @@ module.exports = function( grunt ) {
 	// Register custom tasks.
 	grunt.registerTask( 'icon_mapping', 'Turn codepoints into JSON', () => {
 		const filePath = 'plugin/assets/fonts/icons.json';
-		const iconFile = grunt.file.read( 'plugin/assets/fonts/icons.codepoints' );
+		const iconFile = grunt.file.read(
+			'plugin/assets/fonts/icons.codepoints'
+		);
 		const iconItems = iconFile.split( /\r?\n/g );
 		const icons = {
 			icons: {},

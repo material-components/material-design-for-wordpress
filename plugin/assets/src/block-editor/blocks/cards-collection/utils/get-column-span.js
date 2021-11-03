@@ -17,7 +17,7 @@
 /**
  * Get column span for grid.
  *
- * @param {string} style - Grid style.
+ * @param {string} style   - Grid style.
  * @param {number} columns - Number of columns.
  *
  * @return {number} Column span.

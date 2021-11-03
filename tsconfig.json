@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+      "allowUnreachableCode": false,
+      "allowUnusedLabels": false,
+      "declaration": true,
+      "forceConsistentCasingInFileNames": true,
+      "lib": ["dom", "ESNext", "dom.iterable"],
+      "module": "esnext",
+      "noEmitOnError": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitReturns": true,
+      "pretty": true,
+      "sourceMap": true,
+      "strict": true,
+      "target": "esnext",
+      "jsx": "preserve",
+      "moduleResolution": "node",
+      "allowJs": true,
+      "checkJs": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "typeRoots": [
+        "./node_modules/@types",
+        "./plugin/assets/src/types"
+       ],
+      "noEmit": true,
+      "allowSyntheticDefaultImports":true,
+      // Once we have WP types available we can remove following.
+      "noImplicitAny": false,
+      "resolveJsonModule": true,
+    },
+    "include": [
+        "theme/assets/src/**/*",
+        "plugin/assets/src/**/*"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+}

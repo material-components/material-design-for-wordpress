@@ -25,11 +25,11 @@ import { escapeHTML } from '@wordpress/escape-html';
  *
  * The code has been lifted from https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/master/assets/js/components/error-placeholder/error-message.js
  *
- * @param {Object} props - Component props.
+ * @param {Object} props         - Component props.
  * @param {string} props.message - Error message.
- * @param {string} props.type - Error type.
+ * @param {string} props.type    - Error type.
  *
- * @return {Function} A functional component.
+ * @return {string|JSX.Element} A functional component.
  */
 const getErrorMessage = ( { message, type } ) => {
 	if ( ! message ) {
@@ -70,9 +70,9 @@ const getErrorMessage = ( { message, type } ) => {
  *
  * The code has been lifted from https://github.com/woocommerce/woocommerce-gutenberg-products-block/blob/master/assets/js/components/error-placeholder/error-message.js
  *
- * @param {Object} error - The error object.
+ * @param {Object|string} error - The error object.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const ErrorMessage = ( { error } ) => (
 	<div className="wc-block-error-message">{ getErrorMessage( error ) }</div>

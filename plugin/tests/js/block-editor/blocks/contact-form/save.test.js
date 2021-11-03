@@ -64,7 +64,10 @@ jest.mock( '@wordpress/block-editor', () => {
 				return (
 					<>
 						{ innerBlocks.map( block => (
-							<div key={ block.id }> { JSON.stringify( block ) } </div>
+							<div key={ block.id }>
+								{ ' ' }
+								{ JSON.stringify( block ) }{ ' ' }
+							</div>
 						) ) }
 					</>
 				);

@@ -31,7 +31,10 @@ const Fields = ( { radius } ) => (
 		</h4>
 		<IconButtonLink href="https://material.io/components/text-fields"></IconButtonLink>
 		<p>
-			{ __( 'Text fields let users enter and edit text.', 'material-design' ) }
+			{ __(
+				'Text fields let users enter and edit text.',
+				'material-design'
+			) }
 		</p>
 		<div style={ { display: 'flex' } }>
 			<div
@@ -44,9 +47,15 @@ const Fields = ( { radius } ) => (
 				<i className="material-icons mdc-text-field__icon mdc-text-field__icon--leading">
 					account_circle
 				</i>
-				<input className="mdc-text-field__input" id="text-field-hero-input" />
+				<input
+					className="mdc-text-field__input"
+					id="text-field-hero-input"
+				/>
 				<div className="mdc-line-ripple"></div>
-				<label htmlFor="text-field-hero-input" className="mdc-floating-label">
+				<label
+					htmlFor="text-field-hero-input"
+					className="mdc-floating-label"
+				>
 					{ __( 'First name', 'material-design' ) }
 				</label>
 			</div>
@@ -71,7 +80,10 @@ const Fields = ( { radius } ) => (
 						} }
 					></div>
 					<div className="mdc-notched-outline__notch">
-						<label htmlFor="outlined-textfield" className="mdc-floating-label">
+						<label
+							htmlFor="outlined-textfield"
+							className="mdc-floating-label"
+						>
 							{ __( 'Last name', 'material-design' ) }
 						</label>
 					</div>

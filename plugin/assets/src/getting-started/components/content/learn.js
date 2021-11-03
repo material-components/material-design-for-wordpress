@@ -27,7 +27,10 @@ export const Learn = () => {
 		<Fragment>
 			<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
 				<h2 className="material-gsm__content-title mdc-typography--headline2">
-					{ __( 'Learn More about Material Design', 'material-design' ) }
+					{ __(
+						'Learn More about Material Design',
+						'material-design'
+					) }
 				</h2>
 				<LearnContent
 					materialUrl={ getConfig( 'materialUrl' ) }

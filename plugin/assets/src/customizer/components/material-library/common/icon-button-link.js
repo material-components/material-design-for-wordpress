@@ -17,10 +17,10 @@
 /**
  * Icon Buton with a clickable link
  *
- * @param {Object} props - Component props.
+ * @param {Object} props      - Component props.
  * @param {string} props.href - Link for button.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const IconButtonLink = ( { href } ) => (
 	<form target="_blank">

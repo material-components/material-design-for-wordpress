@@ -34,23 +34,23 @@ import Image from './image';
 /**
  * Gallery component.
  *
- * @param {Object} props - Component props.
- * @param {Array} props.images - List of images in the gallery.
- * @param {string} props.style - Layout style of the gallery.
- * @param {number} props.columns - Columns in the gallery.
- * @param {Object} props.gutter - Column gutter for various devices.
- * @param {number} props.cornerRadius - Corner radius.
- * @param {boolean} props.displayCaptions - Display/hide captions.
- * @param {boolean} props.textProtection - Display/hide captions with text protection.
- * @param {number} props.selectedImage - Current selected image.
- * @param {string} props.linkTo - Image should link to.
- * @param {Function} props.onRemove - Callback when an image is removed.
- * @param {Function} props.onMove - Callback when an image is moved.
- * @param {Function} props.onSelect - Callback when an image is selected.
- * @param {Function} props.onLinkChange - Callback when linkTo is changed.
- * @param {boolean} props.isSaveContext - Is this `Save` context.
+ * @param {Object}   props                 - Component props.
+ * @param {Array}    props.images          - List of images in the gallery.
+ * @param {string}   props.style           - Layout style of the gallery.
+ * @param {number}   props.columns         - Columns in the gallery.
+ * @param {Object}   props.gutter          - Column gutter for various devices.
+ * @param {number}   props.cornerRadius    - Corner radius.
+ * @param {boolean}  props.displayCaptions - Display/hide captions.
+ * @param {boolean}  props.textProtection  - Display/hide captions with text protection.
+ * @param {number}   props.selectedImage   - Current selected image.
+ * @param {string}   props.linkTo          - Image should link to.
+ * @param {Function} props.onRemove        - Callback when an image is removed.
+ * @param {Function} props.onMove          - Callback when an image is moved.
+ * @param {Function} props.onSelect        - Callback when an image is selected.
+ * @param {Function} props.onLinkChange    - Callback when linkTo is changed.
+ * @param {boolean}  props.isSaveContext   - Is this `Save` context.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const Gallery = ( {
 	images,
@@ -106,8 +106,8 @@ const Gallery = ( {
 	/**
 	 * Interprets keydown event intent to remove or move an image.
 	 *
-	 * @param {KeyboardEvent} event keydown event.
-	 * @param {number} imageId Id of the Image.
+	 * @param {KeyboardEvent} event   keydown event.
+	 * @param {number}        imageId Id of the Image.
 	 */
 	const onKeyDown = ( event, imageId ) => {
 		const { keyCode } = event;
@@ -162,9 +162,14 @@ const Gallery = ( {
 						onKeyDown={ event => onKeyDown( event, image.id ) }
 					>
 						<Tag
-							className={ classNames( 'mdc-image-list__item-wrap', {
-								'is-selected': ! isSaveContext && selectedImage === image.id,
-							} ) }
+							className={ classNames(
+								'mdc-image-list__item-wrap',
+								{
+									'is-selected':
+										! isSaveContext &&
+										selectedImage === image.id,
+								}
+							) }
 							style={ anchorStyles }
 							{ ...tagProps }
 						>
@@ -199,36 +204,66 @@ const Gallery = ( {
 								<>
 									<div className="move-image">
 										<button
-											title={ __( 'Move left', 'material-design' ) }
-											onClick={ () => onMove( image.id, 'left' ) }
+											title={ __(
+												'Move left',
+												'material-design'
+											) }
+											onClick={ () =>
+												onMove( image.id, 'left' )
+											}
 										>
-											<i className="material-icons">arrow_left</i>
+											<i className="material-icons">
+												arrow_left
+											</i>
 										</button>
 										<button
-											title={ __( 'Move right', 'material-design' ) }
-											onClick={ () => onMove( image.id, 'right' ) }
+											title={ __(
+												'Move right',
+												'material-design'
+											) }
+											onClick={ () =>
+												onMove( image.id, 'right' )
+											}
 										>
-											<i className="material-icons">arrow_right</i>
+											<i className="material-icons">
+												arrow_right
+											</i>
 										</button>
 									</div>
 
 									<div className="remove-image">
 										<button
-											title={ __( 'Remove image', 'material-design' ) }
-											onClick={ () => onRemove( image.id ) }
+											title={ __(
+												'Remove image',
+												'material-design'
+											) }
+											onClick={ () =>
+												onRemove( image.id )
+											}
 										>
-											<i className="material-icons">close</i>
+											<i className="material-icons">
+												close
+											</i>
 										</button>
 									</div>
 
 									{ 'custom' === linkTo && (
 										<div className="custom-url">
-											<i className="material-icons">link</i>
+											<i className="material-icons">
+												link
+											</i>
 											<URLInput
 												value={ image.link }
-												onChange={ link => onLinkChange( image.id, link ) }
+												onChange={ link =>
+													onLinkChange(
+														image.id,
+														link
+													)
+												}
 											/>
-											<i className="material-icons">keyboard_return</i>
+											<i className="material-icons">
+												keyboard_return
+											</i>
 										</div>
 									) }
 								</>
