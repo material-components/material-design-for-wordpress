@@ -73,7 +73,9 @@ describe( 'Customize controls', () => {
 
 			// Assert style section is displayed.
 			expect(
-				await isVisible( '#sub-accordion-section-material_design_style' )
+				await isVisible(
+					'#sub-accordion-section-material_design_style'
+				)
 			).toBeTruthy();
 		} );
 
@@ -89,7 +91,9 @@ describe( 'Customize controls', () => {
 
 			// Assert style section is displayed.
 			expect(
-				await isVisible( '#sub-accordion-section-material_design_style' )
+				await isVisible(
+					'#sub-accordion-section-material_design_style'
+				)
 			).toBeFalsy();
 		} );
 	} );
@@ -107,7 +111,9 @@ describe( 'Customize controls', () => {
 				)
 			).toEqual( '#5d1049' );
 
-			const fortnightly = await page.$( '#material_design-style-fortnightly' );
+			const fortnightly = await page.$(
+				'#material_design-style-fortnightly'
+			);
 			await page.evaluate( radio => radio.click(), fortnightly );
 
 			// Assert primary color is updated.
@@ -207,7 +213,9 @@ describe( 'Customize controls', () => {
 
 	describe( 'Material Blocks', () => {
 		it( 'should show the material library button', async () => {
-			expect( await page.$$( '.toggle-material-library' ) ).not.toBeNull();
+			expect(
+				await page.$$( '.toggle-material-library' )
+			).not.toBeNull();
 		} );
 
 		it( 'should show the material library components and hide preview pane', async () => {
@@ -216,7 +224,9 @@ describe( 'Customize controls', () => {
 				await page.$( '.toggle-material-library' )
 			);
 
-			expect( await isVisible( '#mcb-material-library-preview' ) ).toBeTruthy();
+			expect(
+				await isVisible( '#mcb-material-library-preview' )
+			).toBeTruthy();
 
 			const previewDisplay = await page.evaluate(
 				node => node.style.display,

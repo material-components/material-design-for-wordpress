@@ -17,10 +17,17 @@
 /* istanbul ignore file */
 /**
  * _Completed_ SVG icon
+ *
+ * @return {JSX.Element} JSX.
  */
 export const Check = () => {
 	return (
-		<svg width="21" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<svg
+			width="21"
+			height="21"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
 			<mask
 				id="a"
 				maskUnits="userSpaceOnUse"

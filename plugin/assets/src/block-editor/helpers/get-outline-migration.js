@@ -36,7 +36,9 @@ const getElevationStyleMigration = ( { attributes, save } ) => {
 					cardProp => {
 						return {
 							...omit( cardProp, [ 'outlined' ] ),
-							cardStyle: cardProp.outlined ? 'outlined' : 'elevated',
+							cardStyle: cardProp.outlined
+								? 'outlined'
+								: 'elevated',
 						};
 					}
 				);

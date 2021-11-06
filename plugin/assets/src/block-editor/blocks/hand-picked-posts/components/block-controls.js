@@ -24,11 +24,11 @@ import { BlockControls } from '@wordpress/block-editor';
 /**
  * Block Controls component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.attributes - Block attributes.
+ * @param {Object}   props               - Component props.
+ * @param {Object}   props.attributes    - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const HandPickedPostsBlockControls = ( { attributes, setAttributes } ) => {
 	const { editMode } = attributes;
@@ -40,7 +40,8 @@ const HandPickedPostsBlockControls = ( { attributes, setAttributes } ) => {
 					{
 						icon: 'edit',
 						title: __( 'Edit', 'material-design' ),
-						onClick: () => setAttributes( { editMode: ! editMode } ),
+						onClick: () =>
+							setAttributes( { editMode: ! editMode } ),
 						isActive: editMode,
 					},
 				] }

@@ -47,6 +47,18 @@ import getConfig from '../../utils/get-config';
 
 /**
  * Material button edit component.
+ *
+ * @param {Object}   props
+ * @param {Object}   props.attributes
+ * @param {Array}    props.attributes.tabs
+ * @param {string}   props.attributes.iconPosition
+ * @param {boolean}  props.attributes.forceUpdate
+ * @param {boolean}  props.attributes.preview
+ * @param {Function} props.setAttributes
+ * @param {string}   props.clientId
+ * @param {string}   props.tabContent
+ *
+ * @return {JSX.Element} JSX.
  */
 const TabBarEdit = ( {
 	attributes: { tabs, iconPosition, forceUpdate, preview },
@@ -80,7 +92,10 @@ const TabBarEdit = ( {
 				mdcTabs.current.destroy();
 			}
 			mdcTabs.current = new MDCTabBar( tabBar.current );
-			mdcTabs.current.unlisten( 'keydown', mdcTabs.current.handleKeyDown_ );
+			mdcTabs.current.unlisten(
+				'keydown',
+				mdcTabs.current.handleKeyDown_
+			);
 
 			// Remove tab click event and add our own to scroll the tab into view.
 			mdcTabs.current.unlisten(
@@ -209,7 +224,7 @@ const TabBarEdit = ( {
 	/**
 	 * Set the tab's label.
 	 *
-	 * @param {string} label The new tab label.
+	 * @param {string} label    The new tab label.
 	 * @param {number} tabIndex Index of the tab.
 	 */
 	const setTabLabel = ( label, tabIndex ) => {
@@ -255,8 +270,14 @@ const TabBarEdit = ( {
 										{ ...props }
 										key={ `${ clientId }-${ index }` }
 										iconPosition={ iconPosition }
-										onChange={ changeTab.bind( this, index ) }
-										onDelete={ deleteTab.bind( this, index ) }
+										onChange={ changeTab.bind(
+											this,
+											index
+										) }
+										onDelete={ deleteTab.bind(
+											this,
+											index
+										) }
 										onInput={ setTabLabel }
 										active={ activeTabIndex === index }
 										index={ index }
@@ -292,7 +313,9 @@ const TabBarEdit = ( {
 
 					{ iconPosition !== 'none' && (
 						<IconPicker
-							currentIcon={ ( tabs[ activeTabIndex ] || {} ).icon }
+							currentIcon={
+								( tabs[ activeTabIndex ] || {} ).icon
+							}
 							onChange={ setTabIcon }
 						/>
 					) }

@@ -110,7 +110,9 @@ describe( 'MaterialColorPalette', () => {
 
 		// Assert all 256 colors are rendered.
 		expect(
-			container.querySelectorAll( '.components-circular-option-picker__option' )
+			container.querySelectorAll(
+				'.components-circular-option-picker__option'
+			)
 		).toHaveLength( 256 );
 	} );
 

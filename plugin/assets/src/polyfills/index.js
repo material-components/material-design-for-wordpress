@@ -16,6 +16,7 @@
 
 import { useSelect } from '@wordpress/data';
 import '@wordpress/escape-html';
+// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 import { __experimentalRichText } from '@wordpress/rich-text';
 
 if (

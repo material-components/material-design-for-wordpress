@@ -17,15 +17,16 @@
 /**
  * Textarea Input Element component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.inputValue - Input value.
- * @param {string} props.id - Input ID.
- * @param {string} props.inputRole - Input Role.
- * @param {boolean} props.displayLabel - Whether or not to display the label.
- * @param {string} props.label - Input label.
- * @param {Function} props.onChange - Input on change handler.
- *
- * @return {Function} Function returning the HTML markup for the component.
+ * @param {Object}   props              - Component props.
+ * @param {string}   props.inputValue   - Input value.
+ * @param {string}   props.id           - Input ID.
+ * @param {string}   props.inputRole    - Input Role.
+ * @param {boolean}  props.displayLabel - Whether or not to display the label.
+ * @param {string}   props.label        - Input label.
+ * @param {Function} props.onChange     - Input on change handler.
+ * @param {boolean}  props.editMode
+ * @param {boolean}  props.isRequired
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const TextareaInputElement = ( {
 	editMode = true,

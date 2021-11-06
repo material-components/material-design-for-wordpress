@@ -27,12 +27,12 @@ import hasBg from './utils/has-bg';
 /**
  * Button Children component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.icon - Button icon name.
+ * @param {Object} props              - Component props.
+ * @param {string} props.icon         - Button icon name.
  * @param {string} props.iconPosition - Button icon position.
- * @param {string} props.label - Button label.
+ * @param {string} props.label        - Button label.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const ButtonChildren = ( { icon, iconPosition, label } ) => (
 	<>
@@ -81,17 +81,29 @@ const ButtonSave = ( {
 					<a
 						href={ url }
 						rel={ rel && ! isSubmit ? rel : undefined }
-						target={ linkTarget && ! isSubmit ? linkTarget : undefined }
-						className={ classNames( 'material-icons', 'mdc-icon-button' ) }
-						style={ { ...( textColor ? { color: textColor } : {} ) } }
+						target={
+							linkTarget && ! isSubmit ? linkTarget : undefined
+						}
+						className={ classNames(
+							'material-icons',
+							'mdc-icon-button'
+						) }
+						style={ {
+							...( textColor ? { color: textColor } : {} ),
+						} }
 						{ ...tooltipProps }
 					>
 						{ icon }
 					</a>
 				) : (
 					<button
-						className={ classNames( 'material-icons', 'mdc-icon-button' ) }
-						style={ { ...( textColor ? { color: textColor } : {} ) } }
+						className={ classNames(
+							'material-icons',
+							'mdc-icon-button'
+						) }
+						style={ {
+							...( textColor ? { color: textColor } : {} ),
+						} }
 						type={ isSubmit ? 'submit' : undefined }
 						{ ...tooltipProps }
 					>
@@ -122,7 +134,9 @@ const ButtonSave = ( {
 					rel={ rel && ! isSubmit ? rel : undefined }
 					target={ linkTarget && ! isSubmit ? linkTarget : undefined }
 					style={ {
-						...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
+						...( backgroundColor && hasBg( style )
+							? { backgroundColor }
+							: {} ),
 						...( textColor ? { color: textColor } : {} ),
 						...( cornerRadius !== undefined
 							? { borderRadius: `${ cornerRadius }px` }
@@ -146,7 +160,9 @@ const ButtonSave = ( {
 						[ `is-large` ]: size === 'large',
 					} ) }
 					style={ {
-						...( backgroundColor && hasBg( style ) ? { backgroundColor } : {} ),
+						...( backgroundColor && hasBg( style )
+							? { backgroundColor }
+							: {} ),
 						...( textColor ? { color: textColor } : {} ),
 						...( cornerRadius !== undefined
 							? { borderRadius: `${ cornerRadius }px` }

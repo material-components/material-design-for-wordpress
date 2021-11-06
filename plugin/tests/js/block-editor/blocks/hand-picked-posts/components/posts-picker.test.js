@@ -81,9 +81,9 @@ describe( 'PostsPicker', () => {
 
 		fireEvent.click( getByText( 'Done' ) );
 
-		expect( props.setAttributes.mock.calls[ 0 ][ 0 ].editMode ).toStrictEqual(
-			false
-		);
+		expect(
+			props.setAttributes.mock.calls[ 0 ][ 0 ].editMode
+		).toStrictEqual( false );
 		expect( props.debouncedSpeak.mock.calls[ 0 ][ 0 ] ).toContain(
 			'Showing Curated Post Collection block preview.'
 		);

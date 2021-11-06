@@ -27,12 +27,12 @@ import TextareaInputElement from './textarea-input-element';
 /**
  * Text Input Field Block Save component.
  *
- * @param {Object} props - Component props.
+ * @param {Object} props            - Component props.
  * @param {Object} props.attributes - Component attributes.
- * @param {string} props.className - Component classes.
+ * @param {string} props.className  - Component classes.
  * @param {number} props.instanceId - Component instance id.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const TextAreaInputEdit = props => {
 	const {

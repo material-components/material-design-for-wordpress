@@ -240,11 +240,15 @@ describe( 'Data Table Filters', () => {
 
 	it( 'isMaterialTableBlock should return correct value', () => {
 		expect(
-			isMaterialTableBlock( 'core/table', { className: 'is-style-material' } )
+			isMaterialTableBlock( 'core/table', {
+				className: 'is-style-material',
+			} )
 		).toStrictEqual( true );
 
 		expect(
-			isMaterialTableBlock( 'core/table', { className: 'is-style-regular' } )
+			isMaterialTableBlock( 'core/table', {
+				className: 'is-style-regular',
+			} )
 		).toStrictEqual( false );
 
 		expect(

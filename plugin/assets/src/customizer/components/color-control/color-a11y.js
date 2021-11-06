@@ -4,7 +4,7 @@
 import { __, sprintf } from '@wordpress/i18n';
 import { uniqueId } from 'lodash';
 
-const api = wp.customize;
+const api = window.wp.customize;
 
 /**
  * Internal dependencies
@@ -72,7 +72,10 @@ const ColorA11y = ( { selectedColor, params } ) => {
 				<label>{ __( 'Current Scheme', 'material-design' ) }</label>
 				<div className="material-color-accessibility-inner">
 					{ colors.map( colorObject => (
-						<ColorItem key={ uniqueId( 'color-' ) } { ...colorObject } />
+						<ColorItem
+							key={ uniqueId( 'color-' ) }
+							{ ...colorObject }
+						/>
 					) ) }
 				</div>
 			</div>
@@ -89,7 +92,10 @@ const ColorItem = ( { type, hex, variations } ) => {
 			</div>
 
 			{ variations.map( variation => (
-				<ColorVariation key={ uniqueId( 'variation-' ) } { ...variation } />
+				<ColorVariation
+					key={ uniqueId( 'variation-' ) }
+					{ ...variation }
+				/>
 			) ) }
 		</div>
 	);
@@ -108,7 +114,8 @@ const ColorVariation = ( {
 
 	return (
 		<>
-			{ sprintf( __( '%s text: ', 'material-design' ), size ) }
+			{ // translators: %s is size of the color variation.
+			sprintf( __( '%s text: ', 'material-design' ), size ) }
 			{ textColor }
 			{ __( ' text not legible ', 'material-design' ) }
 			<span style={ { backgroundColor: colorHex, color: textColorHex } }>

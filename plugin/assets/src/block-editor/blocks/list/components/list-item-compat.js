@@ -21,6 +21,7 @@ import { findDOMNode, useEffect, useRef } from '@wordpress/element';
 import {
 	create,
 	insert,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalRichText as RichText,
 } from '@wordpress/rich-text';
 import { __ } from '@wordpress/i18n';
@@ -34,6 +35,26 @@ import { useStateCallback } from '../../../helpers/hooks';
  * Material list item edit component.
  *
  * Remove this after deprecating the WP 5.7 support.
+ *
+ * @param {Object}   props
+ * @param {string}   props.primaryText
+ * @param {string}   props.secondaryText
+ * @param {string}   props.icon
+ * @param {string}   props.iconPosition
+ * @param {boolean}  props.isSecondaryEnabled
+ * @param {Function} props.onSplit
+ * @param {Function} props.onFocus
+ * @param {boolean}  props.isSelected
+ * @param {boolean}  props.isSecondarySelected
+ * @param {string}   props.index
+ * @param {number}   props.selectionStart
+ * @param {Function} props.setItem
+ * @param {Function} props.deleteItem
+ * @param {Function} props.onPrimaryTextChange
+ * @param {Function} props.onSecondaryTextChange
+ * @param {string}   props.preview
+ *
+ * @return {JSX.Element} JSX.
  */
 const ListItem = ( {
 	primaryText,
@@ -76,9 +97,11 @@ const ListItem = ( {
 		} else if ( isSelected ) {
 			focusElement( primaryRef.current );
 
-			setEditedText( primaryText, () => focusElement( primaryRef.current ) );
+			setEditedText( primaryText, () =>
+				focusElement( primaryRef.current )
+			);
 		}
-     }, [ isSecondaryEnabled, isSelected, isSecondarySelected, selectionStart ] ); // eslint-disable-line
+	}, [isSecondaryEnabled, isSelected, isSecondarySelected, selectionStart]); // eslint-disable-line
 
 	/**
 	 * Focus an element.
@@ -102,6 +125,7 @@ const ListItem = ( {
 			return;
 		}
 
+		// eslint-disable-next-line @wordpress/no-global-get-selection
 		const selection = window.getSelection(),
 			range = document.createRange(),
 			target = element.childNodes ? element.childNodes[ 0 ] : element;
@@ -222,7 +246,9 @@ const ListItem = ( {
 	/**
 	 * Handle paste event.
 	 *
-	 * @param {Object} pasted Object with pasted value props.
+	 * @param {Object} pasted           Object with pasted value props.
+	 * @param {string} pasted.value
+	 * @param {string} pasted.plainText
 	 */
 	const onPaste = ( { value, plainText } ) => {
 		const valueToInsert = create( { html: plainText } );
@@ -251,14 +277,20 @@ const ListItem = ( {
 	return (
 		<li className="mdc-list-item">
 			{ 'leading' === iconPosition && (
-				<span className="mdc-list-item__graphic material-icons">{ icon }</span>
+				<span className="mdc-list-item__graphic material-icons">
+					{ icon }
+				</span>
 			) }
 
 			<span className="mdc-list-item__text">
 				<span className="mdc-list-item__primary-text">
 					<RichText
 						ref={ primaryRef }
-						value={ isPrimarySelected && ! preview ? editedText : primaryText }
+						value={
+							isPrimarySelected && ! preview
+								? editedText
+								: primaryText
+						}
 						onChange={ onPrimaryTextChange }
 						__unstableOnCreateUndoLevel={ noop }
 						onDelete={ onPrimaryDelete }
@@ -276,16 +308,23 @@ const ListItem = ( {
 						<RichText
 							ref={ secondaryRef }
 							value={
-								isSecondarySelected && ! preview ? editedText : secondaryText
+								isSecondarySelected && ! preview
+									? editedText
+									: secondaryText
 							}
 							onChange={ onSecondaryTextChange }
 							__unstableOnCreateUndoLevel={ noop }
 							onDelete={ onSecondaryDelete }
 							onEnter={ onSecondaryEnter }
 							onPaste={ onPaste }
-							unstableOnFocus={ () => onFocus( index, isSecondaryEnabled ) }
+							unstableOnFocus={ () =>
+								onFocus( index, isSecondaryEnabled )
+							}
 							className="rich-text block-editor-rich-text__editable"
-							placeholder={ __( 'Secondary text…', 'material-design' ) }
+							placeholder={ __(
+								'Secondary text…',
+								'material-design'
+							) }
 							__unstableIsSelected={ isSecondarySelected }
 							onSelectionChange={ onSelectionChange }
 						/>
@@ -294,7 +333,9 @@ const ListItem = ( {
 			</span>
 
 			{ 'trailing' === iconPosition && (
-				<span className="mdc-list-item__meta material-icons">{ icon }</span>
+				<span className="mdc-list-item__meta material-icons">
+					{ icon }
+				</span>
 			) }
 		</li>
 	);

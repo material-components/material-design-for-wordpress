@@ -23,11 +23,11 @@ import { __ } from '@wordpress/i18n';
 /**
  * No Posts component. This component also serves to show a spinner while fetching the recent posts data.
  *
- * @param {Object} props - Component props.
- * @param {string} props.name - Component name.
- * @param {Array} props.postsToDisplay - Posts.
+ * @param {Object} props                - Component props.
+ * @param {string} props.name           - Component name.
+ * @param {Array}  props.postsToDisplay - Posts.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const NoPosts = ( { name, postsToDisplay } ) => {
 	let placeholderLabel = __( 'Recent Posts', 'material-design' );

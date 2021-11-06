@@ -61,7 +61,10 @@ export const Customize = () => {
 			</h2>
 
 			<p>
-				{ __( 'Start from our existing styles and use ', 'material-design' ) }
+				{ __(
+					'Start from our existing styles and use ',
+					'material-design'
+				) }
 				<a
 					href="https://material.io/design/material-theming/overview.html"
 					target="_blank"
@@ -69,7 +72,10 @@ export const Customize = () => {
 				>
 					{ __( 'Material Theming', 'material-design' ) }
 				</a>
-				{ __( ' to create a custom look and feel.', 'material-design' ) }
+				{ __(
+					' to create a custom look and feel.',
+					'material-design'
+				) }
 			</p>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline5">
@@ -98,7 +104,10 @@ export const Customize = () => {
 			</h2>
 
 			<p>
-				{ __( 'Choose from more than 1,000 typefaces in ', 'material-design' ) }
+				{ __(
+					'Choose from more than 1,000 typefaces in ',
+					'material-design'
+				) }
 				<a
 					href="https://fonts.google.com/"
 					target="_blank"
@@ -117,7 +126,10 @@ export const Customize = () => {
 				>
 					{ __( 'typography guidelines', 'material-design' ) }
 				</a>
-				{ __( ' for inspiration and best practices.', 'material-design' ) }
+				{ __(
+					' for inspiration and best practices.',
+					'material-design'
+				) }
 			</p>
 
 			<h2 className="material-gsm__content-title mdc-typography--headline5">

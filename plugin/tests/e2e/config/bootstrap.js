@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-/* global jest, page, expect, afterEach, afterAll, beforeAll */
-
 /**
  * External dependencies.
  */
@@ -134,7 +132,10 @@ async function removeBeforeunloadEvents() {
 			fetch( request.url() )
 				.then( response => response.text() )
 				.then( response => {
-					const body = response.replace( 'beforeunload', 'nobeforeunload' );
+					const body = response.replace(
+						'beforeunload',
+						'nobeforeunload'
+					);
 
 					// Send response
 					request.respond( {

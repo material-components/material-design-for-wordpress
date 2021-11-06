@@ -26,18 +26,24 @@ import getConfig from '../../../block-editor/utils/get-config';
  * @param {Event} event
  */
 const handleClick = event => {
-	const source = event.target;
+	const source = /** @type {HTMLInputElement} */ ( event.target );
+	if ( ! source ) {
+		return;
+	}
 	source.disabled = true;
 	const loader = document.createElement( 'span' );
 	loader.classList.add( 'spinner', 'is-active' );
+	if ( ! source?.parentNode ) {
+		return;
+	}
 	source.parentNode.appendChild( loader );
 
-	const onFail = error => {
+	const onFail = ( /** @type {any} */ error ) => {
 		console.error( error );
 		setLoading( false );
 	};
 
-	const setLoading = flag => {
+	const setLoading = ( /** @type {boolean} */ flag ) => {
 		if ( flag ) {
 			loader.classList.add( 'is-active' );
 		} else {
@@ -50,6 +56,9 @@ const handleClick = event => {
 		const materialSuccessIcon = document.createElement( 'span' );
 		materialSuccessIcon.classList.add( 'material-icons-outlined' );
 		materialSuccessIcon.textContent = 'check_circle';
+		if ( ! source?.parentNode ) {
+			return;
+		}
 		source.parentNode.appendChild( materialSuccessIcon );
 	};
 
@@ -64,7 +73,7 @@ const handleGlobalStyleResetButtonClick = () => {
 	api.control( 'material_design[card_reset]', function( control ) {
 		control.container
 			.find( '.material-global-style-reset' )
-			.on( 'click', function( event ) {
+			.on( 'click', function( /** @type {Event} */ event ) {
 				handleClick( event );
 			} );
 	} );
@@ -72,6 +81,11 @@ const handleGlobalStyleResetButtonClick = () => {
 
 /**
  * API request to reset global style attributes.
+ *
+ * @param {Object}   options
+ * @param {Function} options.setLoading
+ * @param {Function} options.onFail
+ * @param {Function} options.onSuccess
  */
 const apiRequest = ( { setLoading, onFail, onSuccess } ) => {
 	const requestArgs = {
@@ -83,7 +97,7 @@ const apiRequest = ( { setLoading, onFail, onSuccess } ) => {
 	};
 
 	apiFetch( requestArgs )
-		.then( data => {
+		.then( ( /** @type {{ pending: boolean }} */ data ) => {
 			if ( ! data?.pending ) {
 				setLoading( false );
 				onSuccess();

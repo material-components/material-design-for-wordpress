@@ -27,11 +27,11 @@ import SinglePost from './single-post';
 /**
  * Posts List component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.attributes - Block attributes.
- * @param {Array} props.postsToDisplay - Posts.
+ * @param {Object} props                - Component props.
+ * @param {Object} props.attributes     - Block attributes.
+ * @param {Array}  props.postsToDisplay - Posts.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const PostsList = ( { attributes, postsToDisplay } ) => {
 	const { style, columns } = attributes;

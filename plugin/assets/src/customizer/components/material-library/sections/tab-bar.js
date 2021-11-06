@@ -60,7 +60,12 @@ const TabBar = ( { iconStyle } ) => (
 								aria-selected="true"
 							>
 								<span className="mdc-tab__content">
-									<i className={ classNames( iconStyle, 'mdc-tab__icon' ) }>
+									<i
+										className={ classNames(
+											iconStyle,
+											'mdc-tab__icon'
+										) }
+									>
 										wifi
 									</i>
 									<span className="mdc-tab__text-label tab__label-field">
@@ -82,7 +87,12 @@ const TabBar = ( { iconStyle } ) => (
 								aria-selected="false"
 							>
 								<span className="mdc-tab__content">
-									<i className={ classNames( iconStyle, 'mdc-tab__icon' ) }>
+									<i
+										className={ classNames(
+											iconStyle,
+											'mdc-tab__icon'
+										) }
+									>
 										bluetooth
 									</i>
 									<span className="mdc-tab__text-label tab__label-field">
@@ -103,29 +113,32 @@ const TabBar = ( { iconStyle } ) => (
 			<div>
 				<div className="mdc-tab-content mdc-tab-content--active">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-						congue massa velit, venenatis egestas sapien finibus vitae. Praesent
-						eu arcu eleifend, rutrum dui at, sodales dui. Vestibulum ante ipsum
-						primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-						Maecenas sed arcu vel lectus accumsan rutrum volutpat et risus. Sed
-						tristique sit amet nisl vitae congue. Praesent vestibulum quam et
-						luctus convallis. Fusce a enim ut purus venenatis pulvinar eu
-						ullamcorper arcu. Sed laoreet augue nisi, at convallis sem placerat
-						sit amet. Praesent varius congue nibh, sit amet aliquam libero
-						tincidunt eget. Nulla et magna lobortis, pellentesque arcu
-						sollicitudin, pellentesque justo. Mauris rutrum nunc felis, sed
-						cursus dui feugiat vitae.
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Phasellus congue massa velit, venenatis egestas sapien
+						finibus vitae. Praesent eu arcu eleifend, rutrum dui at,
+						sodales dui. Vestibulum ante ipsum primis in faucibus
+						orci luctus et ultrices posuere cubilia Curae; Maecenas
+						sed arcu vel lectus accumsan rutrum volutpat et risus.
+						Sed tristique sit amet nisl vitae congue. Praesent
+						vestibulum quam et luctus convallis. Fusce a enim ut
+						purus venenatis pulvinar eu ullamcorper arcu. Sed
+						laoreet augue nisi, at convallis sem placerat sit amet.
+						Praesent varius congue nibh, sit amet aliquam libero
+						tincidunt eget. Nulla et magna lobortis, pellentesque
+						arcu sollicitudin, pellentesque justo. Mauris rutrum
+						nunc felis, sed cursus dui feugiat vitae.
 					</p>
 				</div>
 				<div className="mdc-tab-content">
 					<p>
-						Proin quis ornare leo. In pellentesque libero a consequat ultricies.
-						Aliquam ornare neque non justo dignissim, vel gravida purus posuere.
-						Cras a neque eu nisi facilisis aliquet. Integer faucibus, lorem et
-						tempor pellentesque, est tellus molestie libero, a ullamcorper
-						ligula est et sapien. Nunc placerat sollicitudin nisl et viverra.
-						Sed pellentesque nunc sed tellus dignissim, et rhoncus velit
-						porttitor.
+						Proin quis ornare leo. In pellentesque libero a
+						consequat ultricies. Aliquam ornare neque non justo
+						dignissim, vel gravida purus posuere. Cras a neque eu
+						nisi facilisis aliquet. Integer faucibus, lorem et
+						tempor pellentesque, est tellus molestie libero, a
+						ullamcorper ligula est et sapien. Nunc placerat
+						sollicitudin nisl et viverra. Sed pellentesque nunc sed
+						tellus dignissim, et rhoncus velit porttitor.
 					</p>
 				</div>
 			</div>

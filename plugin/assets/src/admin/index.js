@@ -39,7 +39,7 @@ const initNotificationActions = () => {
 	}
 
 	actionButton.addEventListener( 'click', event => {
-		const className = event.target.className,
+		const className = event?.target?.className,
 			matches = ( className || '' ).match(
 				/material-design-(install|activate)/
 			);
@@ -77,10 +77,17 @@ const initNotificationActions = () => {
 		apiFetch( requestArgs )
 			.then( () => {
 				if ( 'install' === action ) {
-					requestArgs.path = `${ getConfig( 'restPath' ) }activate-theme`;
+					requestArgs.path = `${ getConfig(
+						'restPath'
+					) }activate-theme`;
 
 					apiFetch( requestArgs )
-						.then( () => ( window.location.href = getConfig( 'redirect' ) ) )
+						.then(
+							() =>
+								( window.location.href = getConfig(
+									'redirect'
+								) )
+						)
 						.catch( error => console.error( error ) );
 				} else {
 					window.location.href = getConfig( 'redirect' );
