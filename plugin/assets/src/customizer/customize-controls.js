@@ -701,9 +701,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 						},
 					} )
 				);
-
-				// Rearrange controls.
-				setTimeout( arrangeDarkMode, 1000 );
 			},
 		};
 
@@ -731,7 +728,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 			defaultValue: setting.get(),
 			onColorChange: value => {
 				control.setting.set( value );
-				setTimeout( arrangeDarkMode, 200 );
 			},
 			params,
 			api,
@@ -811,7 +807,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 		reRenderColorControls( { limitToDark: false } );
 		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
-		setTimeout( arrangeDarkMode, 300 );
 	};
 
 	/**
@@ -993,51 +988,8 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 			} );
 		}
 
-		setTimeout( arrangeDarkMode, 3000 );
-
 		handleGlobalStyleResetButtonClick();
 	} );
-
-	api.bind( 'saved', () => {
-		setTimeout( arrangeDarkMode, 500 );
-	} );
-
-	const arrangeDarkMode = () => {
-		const colorSection = api.section( getNamespace( 'colors' ) );
-
-		if ( ! colorSection ) {
-			return;
-		}
-
-		const controls = getConfig( 'colorControls' );
-
-		const defaultModeTab = colorSection.container.find( '.tab-default' );
-		const darkModeTab = colorSection.container.find( '.tab-dark-mode' );
-
-		controls.forEach( controlObject => {
-			const control = api.control(
-				`material_design[${ controlObject.id }]`
-			);
-			const darkControl = api.control(
-				`material_design[${ controlObject.id }_dark]`
-			);
-
-			defaultModeTab.append( control.container.get( 0 ) );
-			darkModeTab.append( darkControl.container.get( 0 ) );
-		} );
-
-		if ( window.materialDesignThemeColorControls ) {
-			const themeControls = window.materialDesignThemeColorControls;
-
-			themeControls.forEach( controlId => {
-				const control = api.control( controlId );
-				const darkControl = api.control( `${ controlId }_dark` );
-
-				defaultModeTab.append( control.container.get( 0 ) );
-				darkModeTab.append( darkControl.container.get( 0 ) );
-			} );
-		}
-	};
 
 	// Trigger notification init on ready.
 	$( notificationsInit );
