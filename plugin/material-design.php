@@ -31,9 +31,9 @@
 
 if ( version_compare( phpversion(), '5.6.20', '>=' ) ) {
 
-	// Gutenberg v5.4 was bundled with WP 5.2, which is the earliest required.
-	$gb_supported = defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '5.4.0', '>=' );
-	$wp_supported = ! $gb_supported && version_compare( get_bloginfo( 'version' ), '5.2', '>=' );
+	// Gutenberg v8.6.0 was bundled with WP 5.6, which is the earliest required.
+	$gb_supported = defined( 'GUTENBERG_VERSION' ) && version_compare( GUTENBERG_VERSION, '8.6.0', '>=' );
+	$wp_supported = version_compare( get_bloginfo( 'version' ), '5.6', '>=' );
 
 	if ( ! $gb_supported && ! $wp_supported ) {
 		_material_design_error( '_material_design_gutenberg_text_only', '_material_design_gutenberg_error' );
