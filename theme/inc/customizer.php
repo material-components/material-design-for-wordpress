@@ -35,6 +35,8 @@ use function MaterialDesign\Plugin\get_plugin_instance;
  * @return void
  */
 function setup() {
+
+	add_action( 'init', __NAMESPACE__ . '\restore_customizer' );
 	add_action( 'customize_register', __NAMESPACE__ . '\register' );
 	add_action( 'customize_preview_init', __NAMESPACE__ . '\preview_scripts' );
 
@@ -764,4 +766,13 @@ function get_sanitize_callback( $setting_type ) {
 		default:
 			return 'sanitize_text_field';
 	}
+}
+
+/**
+ * Restore customizer which is removed by gutenberg.
+ * // Todo update this when WP 5.9 is out.
+ */
+function restore_customizer() {
+	// Remove action has safe check.
+	remove_action( 'admin_menu', 'gutenberg_remove_legacy_pages' );
 }
