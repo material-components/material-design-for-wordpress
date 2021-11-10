@@ -53,6 +53,7 @@ const handleClick = event => {
 
 	const onSuccess = () => {
 		loader.remove();
+		window.wp.customize.previewer.refresh();
 		const materialSuccessIcon = document.createElement( 'span' );
 		materialSuccessIcon.classList.add( 'material-icons-outlined' );
 		materialSuccessIcon.textContent = 'check_circle';
