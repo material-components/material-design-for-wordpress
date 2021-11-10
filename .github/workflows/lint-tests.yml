@@ -11,6 +11,7 @@ jobs:
   lint:
     name: "Coding Standards"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v2
@@ -28,6 +29,7 @@ jobs:
     needs: [lint]
     name: "E2E tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     continue-on-error: ${{ matrix.experimental == true }}
     strategy:
       fail-fast: false
@@ -104,6 +106,7 @@ jobs:
     needs: [lint]
     name: "JS unit tests (with code coverage)"
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - uses: actions/checkout@v2
@@ -128,6 +131,7 @@ jobs:
   test-php:
     needs: [lint]
     name: "PHP tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
+    timeout-minutes: 20
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental == true }}
     strategy:
