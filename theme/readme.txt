@@ -1,7 +1,7 @@
 === Material Design Theme for WordPress ===
 Contributors: google, materialdesign, xwp
 Requires at least: 5.6
-Tested up to: 5.8.1
+Tested up to: 5.8.2
 Requires PHP: 5.6
 Stable tag: 0.5.0
 License: Apache License, Version 2.0
