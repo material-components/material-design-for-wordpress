@@ -33,9 +33,11 @@ import getConfig from '../../utils/get-config';
 /**
  * Curated Post Collection Edit component.
  *
- * @param {Object} props            - Component props.
- * @param {Object} props.attributes - Component attributes.
- * @param {string} props.name       - Component name.
+ * @param {Object}   props                - Component props.
+ * @param {Object}   props.attributes     - Component attributes.
+ * @param {Function} props.setAttributes  - Set attribute.
+ * @param {Function} props.debouncedSpeak - Debounced speak for accessibility.
+ * @param {string}   props.name           - Component name.
  *
  * @return {JSX.Element} Function returning the HTML markup for the component.
  */
