@@ -35,7 +35,7 @@ jobs:
       fail-fast: false
       matrix:
         php_versions: [7.4]
-        wp_versions: [5.7, 5.8]
+        wp_versions: [5.7, 5.8.2]
         include:
           - php_versions: 7.3
             wp_versions: 5.6
