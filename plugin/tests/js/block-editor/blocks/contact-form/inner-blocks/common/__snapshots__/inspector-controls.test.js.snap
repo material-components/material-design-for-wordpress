@@ -2,20 +2,20 @@
 
 exports[`InspectorControls matches snapshot 1`] = `
 <InspectorControls>
-  <ForwardRef(PanelBody)
+  <PanelBody
     initialOpen={true}
     title="Field Settings"
   >
-    <TextControl
+    <ForwardRef(TextControl)
       label="ID"
       onChange={[Function]}
       value="test-id"
     />
-    <TextControl
+    <ForwardRef(TextControl)
       label="Label"
       onChange={[Function]}
       value="Test Label"
     />
-  </ForwardRef(PanelBody)>
+  </PanelBody>
 </InspectorControls>
 `;

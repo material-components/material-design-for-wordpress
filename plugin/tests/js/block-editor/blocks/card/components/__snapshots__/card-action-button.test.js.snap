@@ -392,6 +392,8 @@ Object {
           <button
             aria-label="Link"
             class="components-button components-toolbar__control has-icon"
+            data-toolbar-item="true"
+            name="link"
             type="button"
           >
             <svg
@@ -414,6 +416,8 @@ Object {
             aria-label="Unlink"
             aria-pressed="true"
             class="components-button components-toolbar__control is-pressed has-icon"
+            data-toolbar-item="true"
+            name="link"
             type="button"
           >
             <svg
@@ -455,6 +459,8 @@ Object {
         <button
           aria-label="Link"
           class="components-button components-toolbar__control has-icon"
+          data-toolbar-item="true"
+          name="link"
           type="button"
         >
           <svg
@@ -477,6 +483,8 @@ Object {
           aria-label="Unlink"
           aria-pressed="true"
           class="components-button components-toolbar__control is-pressed has-icon"
+          data-toolbar-item="true"
+          name="link"
           type="button"
         >
           <svg
