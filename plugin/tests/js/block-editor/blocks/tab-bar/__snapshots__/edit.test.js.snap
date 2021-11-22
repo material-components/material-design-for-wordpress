@@ -151,9 +151,38 @@ Object {
         aria-orientation="horizontal"
         class="components-accessible-toolbar"
         controls=""
-        id="id-j3ojqv"
+        id="mdp-tab-bar-order-toolbar"
         role="toolbar"
-      />
+      >
+        <button
+          aria-label="Move left"
+          class="components-button components-toolbar-button"
+          data-toolbar-item="true"
+          id="mdp-tab-bar-order-toolbar-1"
+          tabindex="0"
+          type="button"
+        >
+          <i
+            class="material-icons"
+          >
+            keyboard_arrow_left
+          </i>
+        </button>
+        <button
+          aria-label="Move right"
+          class="components-button components-toolbar-button"
+          data-toolbar-item="true"
+          id="mdp-tab-bar-order-toolbar-2"
+          tabindex="-1"
+          type="button"
+        >
+          <i
+            class="material-icons"
+          >
+            keyboard_arrow_right
+          </i>
+        </button>
+      </div>
       <div
         class="components-panel__body is-opened"
       >
@@ -350,9 +379,38 @@ Object {
       aria-orientation="horizontal"
       class="components-accessible-toolbar"
       controls=""
-      id="id-j3ojqv"
+      id="mdp-tab-bar-order-toolbar"
       role="toolbar"
-    />
+    >
+      <button
+        aria-label="Move left"
+        class="components-button components-toolbar-button"
+        data-toolbar-item="true"
+        id="mdp-tab-bar-order-toolbar-1"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          class="material-icons"
+        >
+          keyboard_arrow_left
+        </i>
+      </button>
+      <button
+        aria-label="Move right"
+        class="components-button components-toolbar-button"
+        data-toolbar-item="true"
+        id="mdp-tab-bar-order-toolbar-2"
+        tabindex="-1"
+        type="button"
+      >
+        <i
+          class="material-icons"
+        >
+          keyboard_arrow_right
+        </i>
+      </button>
+    </div>
     <div
       class="components-panel__body is-opened"
     >

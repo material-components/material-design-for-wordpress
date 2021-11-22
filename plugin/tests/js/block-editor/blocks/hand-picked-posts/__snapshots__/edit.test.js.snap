@@ -1026,7 +1026,7 @@ Object {
         aria-label="Hand picked posts"
         aria-orientation="horizontal"
         class="components-accessible-toolbar"
-        id="id-jg5b73"
+        id="hand-picked-posts-toolbar"
         role="toolbar"
       >
         <button
@@ -1034,7 +1034,7 @@ Object {
           aria-pressed="true"
           class="components-button components-toolbar-button is-pressed has-icon"
           data-toolbar-item="true"
-          id="id-jg5b73-1"
+          id="hand-picked-posts-toolbar-1"
           tabindex="0"
           type="button"
         >
@@ -2163,7 +2163,7 @@ Object {
       aria-label="Hand picked posts"
       aria-orientation="horizontal"
       class="components-accessible-toolbar"
-      id="id-jg5b73"
+      id="hand-picked-posts-toolbar"
       role="toolbar"
     >
       <button
@@ -2171,7 +2171,7 @@ Object {
         aria-pressed="true"
         class="components-button components-toolbar-button is-pressed has-icon"
         data-toolbar-item="true"
-        id="id-jg5b73-1"
+        id="hand-picked-posts-toolbar-1"
         tabindex="0"
         type="button"
       >
@@ -3382,7 +3382,7 @@ Object {
         aria-label="Hand picked posts"
         aria-orientation="horizontal"
         class="components-accessible-toolbar"
-        id="id-43n3dr"
+        id="hand-picked-posts-toolbar"
         role="toolbar"
       >
         <button
@@ -3390,7 +3390,7 @@ Object {
           aria-pressed="false"
           class="components-button components-toolbar-button has-icon"
           data-toolbar-item="true"
-          id="id-43n3dr-1"
+          id="hand-picked-posts-toolbar-1"
           tabindex="0"
           type="button"
         >
@@ -4536,7 +4536,7 @@ Object {
       aria-label="Hand picked posts"
       aria-orientation="horizontal"
       class="components-accessible-toolbar"
-      id="id-43n3dr"
+      id="hand-picked-posts-toolbar"
       role="toolbar"
     >
       <button
@@ -4544,7 +4544,7 @@ Object {
         aria-pressed="false"
         class="components-button components-toolbar-button has-icon"
         data-toolbar-item="true"
-        id="id-43n3dr-1"
+        id="hand-picked-posts-toolbar-1"
         tabindex="0"
         type="button"
       >
