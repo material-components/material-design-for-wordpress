@@ -35,7 +35,10 @@ const HandPickedPostsBlockControls = ( { attributes, setAttributes } ) => {
 
 	return (
 		<BlockControls>
-			<Toolbar label={ __( 'Hand picked posts', 'material-design' ) }>
+			<Toolbar
+				label={ __( 'Hand picked posts', 'material-design' ) }
+				id={ 'hand-picked-posts-toolbar' }
+			>
 				<ToolbarButton
 					icon={ 'edit' }
 					label="Edit"
