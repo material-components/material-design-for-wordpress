@@ -180,6 +180,7 @@ async function runAxeTestsForBlockEditor() {
 			'listitem',
 			'page-has-heading-one',
 			'region',
+			'nested-interactive',
 		],
 		exclude: [
 			// Ignores elements created by metaboxes.
