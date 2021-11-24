@@ -40,7 +40,9 @@ import getConfig from '../../../utils/get-config';
  */
 
 const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
-	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const setter = useCallback( genericAttributesSetter( setAttributes ), [
+		setAttributes,
+	] );
 
 	const onDone = () => {
 		setAttributes( { editMode: false } );
