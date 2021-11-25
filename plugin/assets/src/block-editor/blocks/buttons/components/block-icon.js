@@ -17,7 +17,7 @@
 /**
  * Block Icon component.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const BlockIcon = () => (
 	<span className="material-icons__button">
