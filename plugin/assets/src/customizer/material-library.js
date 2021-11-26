@@ -126,7 +126,7 @@ const limitRadiusValue = ( id, value ) => {
 	return value;
 };
 
-const initMaterialComponents = function() {
+const initMaterialComponents = function () {
 	initButtons();
 	initTabBar();
 	initLists();
@@ -194,7 +194,7 @@ const toggleMaterialLibrary = () => {
 	}
 };
 
-$( '.customize-pane-parent' ).ready( function() {
+$( '.customize-pane-parent' ).ready( function () {
 	if ( window.localStorage.getItem( 'themeInstallerDismissed' ) !== null ) {
 		return;
 	}
@@ -212,7 +212,7 @@ $( '.customize-pane-parent' ).ready( function() {
 /**
  * Show/hide material library button near the "Publish" button.
  */
-$( '#customize-save-button-wrapper' ).ready( function() {
+$( '#customize-save-button-wrapper' ).ready( function () {
 	$( '#customize-save-button-wrapper' ).prepend(
 		$( '<button></button>' )
 			.attr( { type: 'button' } )

@@ -513,7 +513,7 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 	api.IconRadioControl = api.Control.extend( {
 		ready() {
 			const control = this;
-			$( 'input:radio', control.container ).on( 'change', function() {
+			$( 'input:radio', control.container ).on( 'change', function () {
 				control.setting.set( $( this ).val() );
 			} );
 		},

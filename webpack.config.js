@@ -42,7 +42,7 @@ const {
 
 // Exclude `node_modules` folder from `source-map-loader` to prevent webpack warnings.
 if ( defaultConfig.module && Array.isArray( defaultConfig.module.rules ) ) {
-	defaultConfig.module.rules.some( function( rule ) {
+	defaultConfig.module.rules.some( function ( rule ) {
 		if ( rule.use && rule.use.includes( 'source-map-loader' ) ) {
 			rule.exclude = /node_modules/;
 			return true;
