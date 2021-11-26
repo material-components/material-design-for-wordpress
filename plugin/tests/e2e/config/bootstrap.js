@@ -158,7 +158,8 @@ async function removeBeforeunloadEvents() {
  * @return {?Promise} Promise resolving once Axe texts are finished.
  */
 async function runAxeTestsForBlockEditor() {
-	if ( ! ( await page.$( '.block-editor' ) ) ) {
+	// Make sure page exists and if page has .block-editor.
+	if ( ! page || ! ( await page.$( '.block-editor' ) ) ) {
 		return;
 	}
 
