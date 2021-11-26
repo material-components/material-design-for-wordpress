@@ -137,7 +137,7 @@
     "postcss-nested": "4.2.3",
     "postcss-preset-env": "6.7.0",
     "postcss-simple-vars": "5.0.2",
-    "prettier": "npm:wp-prettier@1.19.1",
+    "prettier": "npm:wp-prettier@2.2.1-beta-1",
     "puppeteer": "npm:puppeteer-core@^5.5.0",
     "randomcolor": "0.6.2",
     "react": "17.0.2",
