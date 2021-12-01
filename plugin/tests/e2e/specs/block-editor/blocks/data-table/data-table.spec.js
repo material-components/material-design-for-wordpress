@@ -65,7 +65,8 @@ describe( 'blocks: material/data-table core/table style', () => {
 		expect( styles ).toHaveLength( 3 );
 	} );
 
-	it( 'should update table cell content', async () => {
+	// eslint-disable-next-line jest/no-disabled-tests
+	it.skip( 'should update table cell content', async () => {
 		await page.waitForSelector( 'td' );
 		await page.click( 'td' );
 		await page.keyboard.type( 'Column 1' );
