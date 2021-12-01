@@ -40,11 +40,6 @@ describe( 'blocks: material/data-table core/table style', () => {
 		await clickButton( createButtonLabel );
 	} );
 
-	it( 'should be inserted', async () => {
-		// Check if block was inserted
-		expect( await page.$( '[data-type="core/table"]' ) ).not.toBeNull();
-	} );
-
 	it( 'should have a "Styles" selection with Material style added', async () => {
 		await selectBlockByName( 'core/table' );
 		const panels = await page.$$( '.components-panel__body-toggle' );
