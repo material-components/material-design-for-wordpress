@@ -205,7 +205,7 @@ async function runAxeTestsForBlockEditor() {
 // eslint-disable-next-line jest/require-top-level-describe
 beforeAll( async () => {
 	capturePageEventsForTearDown();
-	removeBeforeunloadEvents();
+	await removeBeforeunloadEvents();
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	// 15inch screen.
