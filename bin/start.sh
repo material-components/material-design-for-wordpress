@@ -18,7 +18,7 @@ source ./bin/includes.sh
 printf "Starting up containers ..."
 
 # Start the containers.
-docker-compose up -d 2>/dev/null
+docker-compose up -d "$@"
 
 if ! command_exists "curl"; then
 	printf " $(action_format "unknown")"
