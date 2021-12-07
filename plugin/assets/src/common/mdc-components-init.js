@@ -23,21 +23,28 @@ import { MDCList } from '@material/list';
 import { MDCRipple } from '@material/ripple';
 import { MDCTabBar } from '@material/tab-bar';
 import { MDCTooltip } from '@material/tooltip';
+import { MDCTextField } from '@material/textfield';
 
 export const initButtons = () => {
 	const buttons = document.querySelectorAll( '.mdc-button' );
 	const iconButtons = document.querySelectorAll( '.mdc-icon-button' );
 
 	buttons.forEach( button => new MDCRipple( button ) );
-	iconButtons.forEach( button => ( new MDCRipple( button ).unbounded = true ) );
+	iconButtons.forEach(
+		button => ( new MDCRipple( button ).unbounded = true )
+	);
 };
 
 export const initLists = () => {
-	const lists = document.querySelectorAll( '.mdc-list:not(.mdc-drawer__list)' );
+	const lists = document.querySelectorAll(
+		'.mdc-list:not(.mdc-drawer__list)'
+	);
 
 	lists.forEach( list => {
 		const mdcList = new MDCList( list );
-		mdcList.listElements.forEach( listItemEl => new MDCRipple( listItemEl ) );
+		mdcList.listElements.forEach(
+			listItemEl => new MDCRipple( listItemEl )
+		);
 	} );
 };
 
@@ -69,4 +76,10 @@ export const initToolTips = () => {
 	const tooltips = document.querySelectorAll( '.mdc-tooltip' );
 
 	tooltips.forEach( tooltip => new MDCTooltip( tooltip ) );
+};
+
+export const initTextFields = () => {
+	const textFields = document.querySelectorAll( '.mdc-text-field' );
+
+	textFields.forEach( textField => new MDCTextField( textField ) );
 };

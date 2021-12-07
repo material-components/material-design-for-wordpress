@@ -60,7 +60,9 @@ describe( 'blocks: material/list', () => {
 		); // wait until all the list items are updated.
 
 		expect(
-			await page.$x( "//span[contains(@class, 'mdc-list-item__graphic')]" )
+			await page.$x(
+				"//span[contains(@class, 'mdc-list-item__graphic')]"
+			)
 		).toHaveLength( 1 );
 	} );
 
@@ -131,7 +133,10 @@ describe( 'blocks: material/list', () => {
 		await primary.press( 'Enter' );
 
 		expect(
-			await page.evaluate( () => document.activeElement.parentNode.className )
+			await page.evaluate(
+				// eslint-disable-next-line @wordpress/no-global-active-element
+				() => document.activeElement.parentNode.className
+			)
 		).toContain( 'mdc-list-item__secondary-text' );
 	} );
 
@@ -144,11 +149,11 @@ describe( 'blocks: material/list', () => {
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
 
 		await primary.click();
-		await page.keyboard.type( 'List Item 1', { delay: 50 } );
+		await page.keyboard.type( 'List Item 1', { delay: 250 } );
 		await primary.press( 'Enter', { delay: 50 } );
-		await page.keyboard.type( 'List Item 2', { delay: 50 } );
+		await page.keyboard.type( 'List Item 2', { delay: 250 } );
 		await primary.press( 'Enter', { delay: 50 } );
-		await page.keyboard.type( 'List Item 3', { delay: 50 } );
+		await page.keyboard.type( 'List Item 3', { delay: 250 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 3 );
 
@@ -156,7 +161,7 @@ describe( 'blocks: material/list', () => {
 
 		await items[ 1 ].click();
 		await primary.press( 'Home', { delay: 50 } );
-		await primary.press( 'Backspace', { delay: 50 } );
+		await primary.press( 'Backspace', { delay: 250 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
 		expect(
@@ -193,9 +198,9 @@ describe( 'blocks: material/list', () => {
 		); // wait until all the list items are updated.
 
 		await primary.click();
-		await page.keyboard.type( 'List Item 1', { delay: 50 } );
+		await page.keyboard.type( 'List Item 1', { delay: 250 } );
 		await primary.press( 'Enter', { delay: 50 } );
-		await page.keyboard.type( 'Secondary Text 1', { delay: 50 } );
+		await page.keyboard.type( 'Secondary Text 1', { delay: 250 } );
 
 		const [ secondary ] = await page.$$( '.mdc-list-item__secondary-text' );
 
@@ -238,14 +243,14 @@ describe( 'blocks: material/list', () => {
 		); // wait until all the list items are updated.
 
 		await primary.click();
-		await page.keyboard.type( 'List Item 1', { delay: 50 } );
+		await page.keyboard.type( 'List Item 1', { delay: 250 } );
 		await primary.press( 'Enter', { delay: 50 } );
-		await page.keyboard.type( 'Secondary Text 1', { delay: 50 } );
+		await page.keyboard.type( 'Secondary Text 1', { delay: 250 } );
 		await primary.press( 'Enter', { delay: 50 } );
 
-		await page.keyboard.type( 'List Item 2', { delay: 50 } );
+		await page.keyboard.type( 'List Item 2', { delay: 250 } );
 		await primary.press( 'Enter', { delay: 50 } );
-		await page.keyboard.type( 'Secondary Text 2', { delay: 50 } );
+		await page.keyboard.type( 'Secondary Text 2', { delay: 250 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 2 );
 
@@ -254,14 +259,17 @@ describe( 'blocks: material/list', () => {
 
 		await items[ 1 ].click();
 		await primary.press( 'Home', { delay: 50 } );
-		await primary.press( 'Backspace', { delay: 50 } );
+		await primary.press( 'Backspace', { delay: 250 } );
 
 		expect( await page.$$( '.mdc-list-item' ) ).toHaveLength( 1 );
 		expect(
 			await page.evaluate( el => el.innerText.trim(), items[ 0 ] )
 		).toStrictEqual( 'List Item 1' );
 		expect(
-			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 0 ] )
+			await page.evaluate(
+				el => el.innerText.trim(),
+				secondaryItems[ 0 ]
+			)
 		).toStrictEqual( 'Secondary Text 1List Item 2 Secondary Text 2' );
 
 		await primary.press( 'Enter', { delay: 50 } );
@@ -275,14 +283,20 @@ describe( 'blocks: material/list', () => {
 			await page.evaluate( el => el.innerText.trim(), items[ 0 ] )
 		).toStrictEqual( 'List Item 1' );
 		expect(
-			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 0 ] )
+			await page.evaluate(
+				el => el.innerText.trim(),
+				secondaryItems[ 0 ]
+			)
 		).toStrictEqual( 'Secondary Text 1' );
 
 		expect(
 			await page.evaluate( el => el.innerText.trim(), items[ 1 ] )
 		).toStrictEqual( 'List Item 2 Secondary Text 2' );
 		expect(
-			await page.evaluate( el => el.innerText.trim(), secondaryItems[ 1 ] )
+			await page.evaluate(
+				el => el.innerText.trim(),
+				secondaryItems[ 1 ]
+			)
 		).toStrictEqual( '' );
 	} );
 } );

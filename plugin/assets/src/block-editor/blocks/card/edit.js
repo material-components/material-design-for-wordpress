@@ -32,15 +32,38 @@ import HorizontalCardLayout from './components/horizontal-card-layout';
 /**
  * Card Edit component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.attributes - Block attributes.
- * @param {Function} props.setAttributes - Function to set block attributes values.
- * @param {string} props.className - Block classes.
+ * @param {Object}   props                                          - Component props.
+ * @param {Function} props.setAttributes                            - Function to set block attributes values.
+ * @param {string}   props.className                                - Block classes.
+ * @param {Object}   props.attributes                               - Block attributes.
+ * @param {string}   props.attributes.cardLayout
+ * @param {string}   props.attributes.contentLayout
+ * @param {string}   props.attributes.title
+ * @param {string}   props.attributes.displayTitle
+ * @param {string}   props.attributes.secondaryText
+ * @param {string}   props.attributes.displaySecondaryText
+ * @param {string}   props.attributes.imageSourceUrl
+ * @param {boolean}  props.attributes.isImageEditMode
+ * @param {string}   props.attributes.displayImage
+ * @param {string}   props.attributes.supportingText
+ * @param {string}   props.attributes.displaySupportingText
+ * @param {string}   props.attributes.primaryActionButtonLabel
+ * @param {string}   props.attributes.primaryActionButtonUrl
+ * @param {string}   props.attributes.primaryActionButtonNewTab
+ * @param {string}   props.attributes.primaryActionButtonNoFollow
+ * @param {string}   props.attributes.secondaryActionButtonLabel
+ * @param {string}   props.attributes.secondaryActionButtonUrl
+ * @param {string}   props.attributes.secondaryActionButtonNewTab
+ * @param {string}   props.attributes.secondaryActionButtonNoFollow
+ * @param {string}   props.attributes.displayActions
+ * @param {string}   props.attributes.displaySecondaryActionButton
+ * @param {string}   props.attributes.cardStyle
+ * @param {string}   props.attributes.cornerRadius
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
-const Edit = ( { attributes, setAttributes, className } ) => {
-	const {
+const Edit = ( {
+	attributes: {
 		cardLayout = 'vertical',
 		contentLayout,
 		title,
@@ -62,9 +85,12 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 		secondaryActionButtonNoFollow,
 		displayActions,
 		displaySecondaryActionButton,
-		outlined,
+		cardStyle,
 		cornerRadius,
-	} = attributes;
+	},
+	setAttributes,
+	className,
+} ) => {
 	const cardIndex = 0;
 
 	/* istanbul ignore next */
@@ -96,7 +122,7 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 		secondaryActionButtonNoFollow,
 		displayActions,
 		displaySecondaryActionButton,
-		outlined,
+		cardStyle,
 		cornerRadius,
 		setter,
 		isEditMode: true,
@@ -106,7 +132,7 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 	const inspectorControlsStylePanelProps = {
 		contentLayout,
 		cornerRadius,
-		outlined,
+		cardStyle,
 		isSingleCard: true,
 		setter,
 		cardIndex,
@@ -127,13 +153,17 @@ const Edit = ( { attributes, setAttributes, className } ) => {
 	return (
 		<>
 			<InspectorControls>
-				<InspectorControlsStylePanel { ...inspectorControlsStylePanelProps } />
+				<InspectorControlsStylePanel
+					{ ...inspectorControlsStylePanelProps }
+				/>
 				<InspectorControlsContentPanel
 					{ ...inspectorControlsContentPanelProps }
 				/>
 			</InspectorControls>
 			<div className={ className }>
-				{ cardLayout === 'vertical' && <VerticalCardLayout { ...cardProps } /> }
+				{ cardLayout === 'vertical' && (
+					<VerticalCardLayout { ...cardProps } />
+				) }
 				{ cardLayout === 'horizontal' && (
 					<HorizontalCardLayout { ...cardProps } />
 				) }

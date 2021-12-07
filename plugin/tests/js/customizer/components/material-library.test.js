@@ -132,6 +132,8 @@ describe( 'Material Blocks', () => {
 		expect( button3 ).toHaveStyle(
 			`border-radius: ${ baseProps.buttonRadius }px`
 		);
-		expect( card ).toHaveStyle( `border-radius: ${ baseProps.cardRadius }px` );
+		expect( card ).toHaveStyle(
+			`border-radius: ${ baseProps.cardRadius }px`
+		);
 	} );
 } );

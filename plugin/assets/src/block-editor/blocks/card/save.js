@@ -24,11 +24,11 @@ import HorizontalCardLayout from './components/horizontal-card-layout';
 /**
  * Card Save component.
  *
- * @param {Object} props - Component props.
+ * @param {Object} props            - Component props.
  * @param {Object} props.attributes - Block attributes.
- * @param {string} props.className - Block classes.
+ * @param {string} props.className  - Block classes.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const Save = ( { attributes, className } ) => {
 	const {
@@ -53,7 +53,7 @@ const Save = ( { attributes, className } ) => {
 		secondaryActionButtonNoFollow,
 		displayActions,
 		displaySecondaryActionButton,
-		outlined,
+		cardStyle,
 		cornerRadius,
 		imageElement,
 	} = attributes;
@@ -80,7 +80,7 @@ const Save = ( { attributes, className } ) => {
 		secondaryActionButtonNoFollow,
 		displayActions,
 		displaySecondaryActionButton,
-		outlined,
+		cardStyle,
 		cornerRadius,
 		imageElement,
 		setter: () => {},
@@ -89,7 +89,9 @@ const Save = ( { attributes, className } ) => {
 
 	return (
 		<div className={ className }>
-			{ cardLayout === 'vertical' && <VerticalCardLayout { ...cardProps } /> }
+			{ cardLayout === 'vertical' && (
+				<VerticalCardLayout { ...cardProps } />
+			) }
 			{ cardLayout === 'horizontal' && (
 				<HorizontalCardLayout { ...cardProps } />
 			) }

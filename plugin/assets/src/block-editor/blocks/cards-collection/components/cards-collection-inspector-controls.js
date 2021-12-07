@@ -34,11 +34,11 @@ import { MIN_NUMBER_OF_CARDS, MAX_NUMBER_OF_CARDS } from '../constants';
 /**
  * Card Collections Inspector Controls component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.attributes - Block attributes.
+ * @param {Object}   props               - Component props.
+ * @param {Object}   props.attributes    - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 	const standardSetter = genericAttributesSetter( setAttributes );
@@ -51,7 +51,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 		cardsProps,
 		gutter,
 		cornerRadius,
-		outlined,
+		cardStyle,
 		allowIndividualStyleOverride,
 		allowIndividualContentOverride,
 		displayTitle,
@@ -68,7 +68,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 			cardLayoutStyle: style === 'list' ? 'horizontal' : 'vertical',
 			contentLayout: cardProps.contentLayout,
 			cornerRadius: cardProps.cornerRadius,
-			outlined: cardProps.outlined,
+			cardStyle: cardProps.cardStyle,
 			isSingleCard: false,
 			setter,
 			cardIndex,
@@ -81,7 +81,8 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 			displayImage: cardProps.displayImage,
 			displaySupportingText: cardProps.displaySupportingText,
 			displayActions: cardProps.displayActions,
-			displaySecondaryActionButton: cardProps.displaySecondaryActionButton,
+			displaySecondaryActionButton:
+				cardProps.displaySecondaryActionButton,
 			isSingleCard: false,
 			setter,
 			cardIndex,
@@ -128,7 +129,7 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 				showGutter={ true }
 				cornerRadius={ cornerRadius }
 				showCornerRadius={ true }
-				outlined={ outlined }
+				cardStyle={ cardStyle }
 				setter={ standardSetter }
 			/>
 			<PanelBody
@@ -144,9 +145,14 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 				/>
 
 				<ToggleControl
-					label={ __( 'Allow individual card override', 'material-design' ) }
+					label={ __(
+						'Allow individual card override',
+						'material-design'
+					) }
 					checked={ allowIndividualContentOverride }
-					onChange={ standardSetter( 'allowIndividualContentOverride' ) }
+					onChange={ standardSetter(
+						'allowIndividualContentOverride'
+					) }
 				/>
 
 				{ ! allowIndividualContentOverride && (
@@ -158,9 +164,14 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 						/>
 						{ displayTitle && (
 							<ToggleControl
-								label={ __( 'Show secondary text', 'material-design' ) }
+								label={ __(
+									'Show secondary text',
+									'material-design'
+								) }
 								checked={ displaySecondaryText }
-								onChange={ standardSetter( 'displaySecondaryText' ) }
+								onChange={ standardSetter(
+									'displaySecondaryText'
+								) }
 							/>
 						) }
 						<ToggleControl
@@ -170,9 +181,14 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 						/>
 						{ style !== 'list' && (
 							<ToggleControl
-								label={ __( 'Show supporting text', 'material-design' ) }
+								label={ __(
+									'Show supporting text',
+									'material-design'
+								) }
 								checked={ displaySupportingText }
-								onChange={ standardSetter( 'displaySupportingText' ) }
+								onChange={ standardSetter(
+									'displaySupportingText'
+								) }
 							/>
 						) }
 						<ToggleControl
@@ -187,7 +203,9 @@ const CardsCollectionInspectorControls = ( { attributes, setAttributes } ) => {
 									'material-design'
 								) }
 								checked={ displaySecondaryActionButton }
-								onChange={ standardSetter( 'displaySecondaryActionButton' ) }
+								onChange={ standardSetter(
+									'displaySecondaryActionButton'
+								) }
 							/>
 						) }
 					</>

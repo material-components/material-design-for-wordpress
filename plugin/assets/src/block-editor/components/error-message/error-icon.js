@@ -17,7 +17,7 @@
 /**
  * Error Icon component.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const ErrorIcon = () => (
 	<svg

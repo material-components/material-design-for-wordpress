@@ -464,3 +464,15 @@
 		color: #0073aa;
 	}
 }
+
+.customize-pane-child li[id*="customize-control-"][id$="_dark"] {
+	display: none;
+}
+
+.customize-pane-child.material-design-colors--dark li {
+	display: none;
+
+	&[id*="customize-control-"][id$="_dark"] {
+		display: block;
+	}
+}

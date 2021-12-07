@@ -34,7 +34,9 @@ describe( 'blocks: material/cards-collection', () => {
 
 	describe( 'title settings', () => {
 		it( 'should equal `Cards Collection (Material)`', () => {
-			expect( settings.title ).toStrictEqual( 'Cards Collection (Material)' );
+			expect( settings.title ).toStrictEqual(
+				'Cards Collection (Material)'
+			);
 		} );
 	} );
 
@@ -108,9 +110,10 @@ describe( 'blocks: material/cards-collection', () => {
 					type: 'boolean',
 					default: false,
 				},
-				outlined: {
-					type: 'boolean',
-					default: false,
+				cardStyle: {
+					enum: [ 'global', 'elevated', 'outlined' ],
+					default: 'global',
+					type: 'string',
 				},
 				allowIndividualStyleOverride: {
 					type: 'boolean',

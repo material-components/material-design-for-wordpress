@@ -23,8 +23,8 @@ import { SelectControl } from '@wordpress/components';
 /**
  * A pre-configured SelectControl for post orderby settings.
  *
- * @param {Object} props - Component props.
- * @param {string} props.value - Ordering value.
+ * @param {Object}   props          - Component props.
+ * @param {string}   props.value    - Ordering value.
  * @param {Function} props.onChange - Callback fired when the selected item changes.
  */
 const PostsOrderbyControl = ( { value, onChange } ) => (

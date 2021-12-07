@@ -59,7 +59,7 @@ const baseProps = {
 		secondaryActionButtonNoFollow: true,
 		displayActions: true,
 		displaySecondaryActionButton: true,
-		outlined: true,
+		cardStyle: 'global',
 		cornerRadius: 4,
 	},
 };

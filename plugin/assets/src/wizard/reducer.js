@@ -67,7 +67,10 @@ export const reducer = ( state, action ) => {
 			return { ...state, addons: [ payload, ...addons ] };
 		}
 
-		return { ...state, addons: addons.filter( item => item !== payload ) };
+		return {
+			...state,
+			addons: addons.filter( item => item !== payload ),
+		};
 	}
 
 	if ( ACTIONS.SUBMIT_WIZARD === type ) {

@@ -34,7 +34,7 @@ const CHOICES = {
 	INACTIVE: 'inactive',
 };
 
-const api = wp.customize;
+const api = window.wp.customize;
 const localStorageDarkMode = window.localStorage.getItem(
 	'materialDesignDarkMode'
 );
@@ -102,7 +102,10 @@ const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
 			{ isThemeActive && (
 				<ToggleControl
 					label={ __( 'Display Switcher', 'material-design' ) }
-					help={ __( 'Shows mode switcher in the header', 'material-design' ) }
+					help={ __(
+						'Shows mode switcher in the header',
+						'material-design'
+					) }
 					checked={ switcher }
 					disabled={ isSwitcherDisabled }
 					onChange={ value => {

@@ -25,6 +25,7 @@
 
 namespace MaterialDesign\Plugin;
 
+use MaterialDesign\Plugin\Blocks\Card_Block;
 use MaterialDesign\Plugin\Blocks\Posts_List_Block;
 use MaterialDesign\Plugin\Blocks\Contact_Form_Block;
 
@@ -78,6 +79,17 @@ class Block_Types {
 			add_filter( 'block_categories_all', [ $this, 'block_category' ] );
 		} else {
 			add_filter( 'block_categories', [ $this, 'block_category' ] );
+		}
+
+		// Override global style class.
+		$static_card_blocks = [
+			'material/cards-collection',
+			'material/card',
+		];
+
+		foreach ( $static_card_blocks as $static_card_block ) {
+			$static_block = new Card_Block( $this->plugin, $static_card_block );
+			$static_block->init();
 		}
 	}
 
@@ -218,8 +230,9 @@ class Block_Types {
 			'tab_bar_preview'           => $this->plugin->asset_url( 'assets/images/preview/tab-bar.jpg' ),
 			'contact_form_preview'      => $this->plugin->asset_url( 'assets/images/preview/contact-form.jpg' ),
 			'defaults'                  => [
-				'blocks' => $this->get_block_defaults(),
-				'colors' => $this->get_color_defaults(),
+				'blocks'      => $this->get_block_defaults(),
+				'colors'      => $this->get_color_defaults(),
+				'globalStyle' => $this->get_global_styles(),
 			],
 			'customizerUrls'            => [
 				'colors' => add_query_arg( 'autofocus[section]', $slug . '_colors', $customizer_url ),
@@ -354,5 +367,26 @@ class Block_Types {
 		}
 
 		return new $class( $post_type->name );
+	}
+
+	/**
+	 * Get global style configs.
+	 *
+	 * @param string $key get single value.
+	 *
+	 * @return array|string
+	 */
+	public function get_global_styles( $key = null ) {
+		$defaults = [];
+		$controls = $this->plugin->customizer_controls;
+
+		foreach ( $controls->get_global_style_controls() as $control ) {
+			$value = $controls->get_option( $control['id'] );
+			if ( ! empty( $value ) ) {
+				$defaults[ $control['id'] ] = $value;
+			}
+		}
+
+		return ( $key ? ( isset( $defaults[ $key ] ) ? $defaults[ $key ] : '' ) : $defaults );
 	}
 }

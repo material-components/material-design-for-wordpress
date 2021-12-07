@@ -43,12 +43,12 @@ const MAX_POST_CONTENT_LENGTH = 30;
 /**
  * Common Posts List Inspector Controls component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.attributes - Block attributes.
+ * @param {Object}   props               - Component props.
+ * @param {Object}   props.attributes    - Block attributes.
  * @param {Function} props.setAttributes - Function to set block attributes value.
- * @param {string} props.name - Block name.
+ * @param {string}   props.name          - Block name.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const CommonPostsListInspectorControls = ( {
 	attributes,
@@ -62,7 +62,7 @@ const CommonPostsListInspectorControls = ( {
 		contentLayout,
 		columns,
 		postsToShow,
-		outlined,
+		cardStyle,
 		displayPostDate,
 		displayPostContent,
 		postContentLength,
@@ -81,7 +81,7 @@ const CommonPostsListInspectorControls = ( {
 				style={ style }
 				columns={ columns }
 				contentLayout={ contentLayout }
-				outlined={ outlined }
+				cardStyle={ cardStyle }
 				setter={ setter }
 			/>
 			{ name !== 'material/hand-picked-posts' && (

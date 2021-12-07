@@ -28,14 +28,14 @@ import { RichText } from '@wordpress/block-editor';
 /**
  * Card Supporting Text component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.supportingText - Supporting text.
- * @param {string} props.contentLayout - Content layout.
- * @param {number} props.cardIndex - Card index.
- * @param {Function} props.setter - Block attribute setter.
- * @param {boolean} props.isEditMode - Whether or not the edit mode is enabled.
+ * @param {Object}   props                - Component props.
+ * @param {string}   props.supportingText - Supporting text.
+ * @param {string}   props.contentLayout  - Content layout.
+ * @param {number}   props.cardIndex      - Card index.
+ * @param {Function} props.setter         - Block attribute setter.
+ * @param {boolean}  props.isEditMode     - Whether or not the edit mode is enabled.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const CardSupportingText = ( {
 	supportingText,
@@ -55,7 +55,9 @@ const CardSupportingText = ( {
 					'mdc-typography--body2'
 				) }
 				value={ supportingText }
-				onChange={ value => setter( 'supportingText', value, cardIndex ) }
+				onChange={ value =>
+					setter( 'supportingText', value, cardIndex )
+				}
 				placeholder={ __( 'Supporting text', 'material-design' ) }
 			/>
 		) : (

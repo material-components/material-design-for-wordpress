@@ -82,23 +82,25 @@ export const pickRelevantMediaFiles = ( image, sizeSlug = 'large' ) => {
 /**
  * Image List Edit component.
  *
- * @param {Object} props - Component props.
- * @param {Array} props.attributes.images - List of images in the gallery.
- * @param {string} props.attributes.style - Layout style of the gallery.
- * @param {number} props.attributes.columns - Columns in the gallery.
- * @param {Object} props.attributes.gutter - Column gutter for various devices.
- * @param {number} props.attributes.cornerRadius - Corner radius.
- * @param {boolean} props.attributes.displayCaptions - Display/hide captions.
- * @param {boolean} props.attributes.textProtection - Display/hide captions with text protection.
- * @param {string} props.attributes.linkTo - Image should link to.
- * @param {string} props.className - Class name for the block.
- * @param {boolean} props.isSelected - Determine if the block is selected.
- * @param {*} props.noticeUI - Null or NoticeUI component.
- * @param {Object} props.noticeOperations - Object with methods to show/remove notices.
- * @param {Function} props.onFocus - Callback when focused.
- * @param {Function} props.setAttributes - Callback to update block attributes.
+ * @param {Object}   props                            - Component props.
+ * @param {Object}   props.attributes
+ * @param {Array}    props.attributes.images          - List of images in the gallery.
+ * @param {string}   props.attributes.style           - Layout style of the gallery.
+ * @param {number}   props.attributes.columns         - Columns in the gallery.
+ * @param {Object}   props.attributes.gutter          - Column gutter for various devices.
+ * @param {number}   props.attributes.cornerRadius    - Corner radius.
+ * @param {boolean}  props.attributes.displayCaptions - Display/hide captions.
+ * @param {boolean}  props.attributes.textProtection  - Display/hide captions with text protection.
+ * @param {string}   props.attributes.linkTo          - Image should link to.
+ * @param {string}   props.className                  - Class name for the block.
+ * @param {boolean}  props.isSelected                 - Determine if the block is selected.
+ * @param {*}        props.noticeUI                   - Null or NoticeUI component.
+ * @param {Object}   props.noticeOperations           - Object with methods to show/remove notices.
+ * @param {Function} props.onFocus                    - Callback when focused.
+ * @param {Function} props.setAttributes              - Callback to update block attributes.
+ * @param {Function} props.useCaptions
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const ImageListEdit = ( {
 	attributes: {
@@ -129,7 +131,9 @@ const ImageListEdit = ( {
 					...attributes,
 					// Unlike images[ n ].id which is a string, always ensure the
 					// ids array contains numbers as per its attribute type.
-					ids: map( attributes.images, ( { id } ) => parseInt( id, 10 ) ),
+					ids: map( attributes.images, ( { id } ) =>
+						parseInt( id, 10 )
+					),
 				};
 			}
 
@@ -148,7 +152,9 @@ const ImageListEdit = ( {
 	const hasImages = !! images.length;
 	const hasImagesWithId = hasImages && some( images, ( { id } ) => id );
 
-	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const setter = useCallback( genericAttributesSetter( setAttributes ), [
+		setAttributes,
+	] );
 
 	// Get the caption for an image.
 	const getCaption = id => {
@@ -175,7 +181,9 @@ const ImageListEdit = ( {
 	// Remove an image from the gallery.
 	const removeImage = useCallback(
 		id => {
-			setAttributes( { images: images.filter( image => id !== image.id ) } );
+			setAttributes( {
+				images: images.filter( image => id !== image.id ),
+			} );
 		},
 		[ images, setAttributes ]
 	);
@@ -200,7 +208,7 @@ const ImageListEdit = ( {
 	/**
 	 * Update image link.
 	 *
-	 * @param {number} id Image attachment ID.
+	 * @param {number} id   Image attachment ID.
 	 * @param {string} link Link the image should point to.
 	 */
 	const updateImageLink = ( id, link ) => {
@@ -254,10 +262,14 @@ const ImageListEdit = ( {
 				className={ className }
 				disableMediaButtons={ hasImages && ! isSelected }
 				icon={
-					! hasImages && <i className="material-icons-outlined">filter</i>
+					! hasImages && (
+						<i className="material-icons-outlined">filter</i>
+					)
 				}
 				labels={ {
-					title: ! hasImages && __( 'Gallery (Material)', 'material-design' ),
+					title:
+						! hasImages &&
+						__( 'Gallery (Material)', 'material-design' ),
 					instructions: __(
 						'Drag images, upload new ones or select files from your library.',
 						'material-design'
@@ -318,9 +330,15 @@ const ImageListEdit = ( {
 								target="_blank"
 								rel="noreferrer noopener"
 							>
-								{ __( 'Material Design Options', 'material-design' ) }
+								{ __(
+									'Material Design Options',
+									'material-design'
+								) }
 							</a>
-							{ __( ' to update all Image Lists.', 'material-design' ) }
+							{ __(
+								' to update all Image Lists.',
+								'material-design'
+							) }
 						</div>
 
 						<GlobalShapeSize
@@ -358,7 +376,10 @@ const ImageListEdit = ( {
 								value: 'media',
 							},
 							{
-								label: __( 'Attachment Page', 'material-design' ),
+								label: __(
+									'Attachment Page',
+									'material-design'
+								),
 								value: 'attachment',
 							},
 							{

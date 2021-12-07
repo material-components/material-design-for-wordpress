@@ -37,7 +37,9 @@ const Addons = () => {
 			</h3>
 
 			<Card
-				image={ `${ getConfig( 'assetsPath' ) }addon-material-theme.png` }
+				image={ `${ getConfig(
+					'assetsPath'
+				) }addon-material-theme.png` }
 				switch={ ADDONS.THEME }
 				disabled={ 'ok' === getConfig( 'themeStatus' ) }
 			>
@@ -56,7 +58,9 @@ const Addons = () => {
 			<hr />
 
 			<Card
-				image={ `${ getConfig( 'assetsPath' ) }addon-quick-start-examples.png` }
+				image={ `${ getConfig(
+					'assetsPath'
+				) }addon-quick-start-examples.png` }
 				switch={ ADDONS.DEMO }
 			>
 				<h4 className="mdc-typography--headline4">

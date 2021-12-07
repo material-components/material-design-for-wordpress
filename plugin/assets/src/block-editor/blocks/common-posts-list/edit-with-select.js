@@ -36,7 +36,7 @@ import PostsList from './components/posts-list';
  *
  * @param {Object} props - Component props.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const Edit = props => {
 	const { postsToDisplay } = props;
@@ -110,7 +110,12 @@ const EditWithSelect = withSelect( ( select, props ) => {
 						const image = getMedia( post.featured_media );
 						let url = get(
 							image,
-							[ 'media_details', 'sizes', featuredImageSizeSlug, 'source_url' ],
+							[
+								'media_details',
+								'sizes',
+								featuredImageSizeSlug,
+								'source_url',
+							],
 							null
 						);
 						if ( ! url ) {

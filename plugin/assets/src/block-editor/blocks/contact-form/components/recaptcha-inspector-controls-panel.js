@@ -42,7 +42,7 @@ const genericErrorMessage = __(
 /**
  * Recaptcha Inspector Controls Panel component.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const RecaptchaInspectorControlsPanel = () => {
 	const defaultNotice = {
@@ -88,14 +88,17 @@ const RecaptchaInspectorControlsPanel = () => {
 								'material_design_recaptcha_site_key'
 							)
 						) {
-							setSiteKey( response.data.material_design_recaptcha_site_key );
+							setSiteKey(
+								response.data.material_design_recaptcha_site_key
+							);
 							if (
 								response.data.hasOwnProperty(
 									'material_design_recaptcha_client_secret'
 								)
 							) {
 								setClientSecret(
-									response.data.material_design_recaptcha_client_secret
+									response.data
+										.material_design_recaptcha_client_secret
 								);
 							}
 						}
@@ -168,7 +171,10 @@ const RecaptchaInspectorControlsPanel = () => {
 		sendAjaxRequest( ajaxData )
 			.then( response => {
 				newNotice.show = true;
-				if ( ! response.hasOwnProperty( 'success' ) || ! response.success ) {
+				if (
+					! response.hasOwnProperty( 'success' ) ||
+					! response.success
+				) {
 					newNotice.type = 'error';
 					newNotice.message =
 						response.hasOwnProperty( 'data' ) &&
@@ -178,7 +184,10 @@ const RecaptchaInspectorControlsPanel = () => {
 				}
 
 				newNotice.type = 'success';
-				newNotice.message = __( 'Saved successfully', 'material-design' );
+				newNotice.message = __(
+					'Saved successfully',
+					'material-design'
+				);
 			} )
 			.catch( () => {
 				newNotice.show = true;

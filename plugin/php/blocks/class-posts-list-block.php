@@ -26,7 +26,6 @@
 
 namespace MaterialDesign\Plugin\Blocks;
 
-use MaterialDesign\Plugin\Module_Base;
 use MaterialDesign\Plugin\Plugin;
 use MaterialDesign\Plugin\Template;
 use WP_Post;
@@ -214,8 +213,14 @@ class Posts_List_Block {
 		return apply_filters(
 			'material_design_query_post_types',
 			array_filter(
-				get_post_types( [ 'show_in_rest' => true ], 'objects' ),
-				function( $post_type ) {
+				get_post_types(
+					[
+						'show_in_rest' => true,
+						'public'       => true,
+					],
+					'objects'
+				),
+				function ( $post_type ) {
 					// Ignore attachment and wp_block post types.
 					return ! array_key_exists(
 						$post_type,

@@ -59,7 +59,7 @@ const baseProps = {
 		secondaryActionButtonNoFollow: true,
 		displayActions: true,
 		displaySecondaryActionButton: true,
-		outlined: true,
+		cardStyle: 'global',
 		cornerRadius: 4,
 	},
 };
@@ -73,6 +73,9 @@ describe( 'blocks: material/card: Edit', () => {
 					on_primary_color: '#ffffff',
 					secondary_color: '#018786',
 					on_secondary_color: '#ffffff',
+				},
+				globalStyle: {
+					card_style: 'outlined',
 				},
 			},
 			customizerUrls: {

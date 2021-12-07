@@ -24,13 +24,14 @@ import { __ } from '@wordpress/i18n';
  */
 import edit from './edit';
 import metadata from './block.json';
+import deprecated from './deprecated';
 
 const { name } = metadata;
 
 export { metadata, name };
 
 /**
- * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, supports: Object}}
+ * @type {{edit: *, icon: (function(): *), description: string, title: string, keywords: Array, example: Object, save: Function, deprecated: Array}}
  */
 export const settings = {
 	title: __( 'Curated Card Collection (Material)', 'material-design' ),
@@ -47,4 +48,5 @@ export const settings = {
 	},
 	edit,
 	save: () => '',
+	deprecated,
 };

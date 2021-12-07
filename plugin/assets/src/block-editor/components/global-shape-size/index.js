@@ -58,7 +58,7 @@ const GlobalShapeSize = props => {
  * Helper HOC to add a `attributeName` prop to a component.
  *
  * @param {Function} WrappedComponent Component to be wrapped.
- * @param {string} attributeName Attribute name.
+ * @param {string}   attributeName    Attribute name.
  */
 const withAttributeName = ( WrappedComponent, attributeName ) => props => (
 	<WrappedComponent { ...props } attributeName={ attributeName } />

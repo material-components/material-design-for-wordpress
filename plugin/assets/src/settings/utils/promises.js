@@ -84,7 +84,7 @@ export const setApiKey = key => {
 /**
  * Turn auto updates on/off
  *
- * @param {string} type Item to toggle updates
+ * @param {string}  type          Item to toggle updates
  * @param {boolean} currentStatus Current status of the toggle.
  * @return {Promise} Request response
  */
@@ -97,7 +97,10 @@ export const toggleAutoUpdate = ( type, currentStatus ) => {
 			body.append( '_ajax_nonce', getConfig( 'autoUpdateNonce' ) );
 			body.append( 'state', currentStatus ? 'disable' : 'enable' );
 			body.append( 'type', type.toLowerCase() );
-			body.append( 'asset', getConfig( `${ type.toLowerCase() }AssetName` ) );
+			body.append(
+				'asset',
+				getConfig( `${ type.toLowerCase() }AssetName` )
+			);
 
 			apiFetch( {
 				url: getConfig( 'autoUpdateUrl' ),

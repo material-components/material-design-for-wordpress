@@ -61,6 +61,7 @@ import {
 	showHideNotification,
 } from './notifications';
 import getConfig from '../block-editor/utils/get-config';
+import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 
 ( ( $, api ) => {
 	// Allow backbone templates access to the `sanitizeControlId` function.
@@ -86,7 +87,7 @@ import getConfig from '../block-editor/utils/get-config';
 		 * @constructs wp.customize.CollapsibleSection
 		 * @augments   wp.customize.Section
 		 *
-		 * @param {string} id - ID.
+		 * @param {string} id      - ID.
 		 * @param {Object} options - Options.
 		 * @return {void}
 		 */
@@ -101,7 +102,9 @@ import getConfig from '../block-editor/utils/get-config';
 				const panel = api.panel( section.panel() );
 
 				if ( panel ) {
-					panel.container.last().addClass( 'control-section-collapse-parent' );
+					panel.container
+						.last()
+						.addClass( 'control-section-collapse-parent' );
 				}
 			}
 		},
@@ -116,8 +119,7 @@ import getConfig from '../block-editor/utils/get-config';
 			api.Section.prototype.attachEvents.call( section );
 
 			if ( section.panel() && api.panel( section.panel() ) ) {
-				api
-					.panel( section.panel() )
+				api.panel( section.panel() )
 					.container.find( '.customize-panel-back' )
 					.on( 'click keydown', event => {
 						if ( api.utils.isKeydownButNotEnterEvent( event ) ) {
@@ -135,8 +137,8 @@ import getConfig from '../block-editor/utils/get-config';
 		/**
 		 * Update UI to reflect expanded state
 		 *
-		 * @param {boolean}  expanded - Expanded state.
-		 * @param {Object}   args - Args.
+		 * @param {boolean} expanded - Expanded state.
+		 * @param {Object}  args     - Args.
 		 * @return {void}
 		 */
 		onChangeExpanded( expanded, args ) {
@@ -156,7 +158,9 @@ import getConfig from '../block-editor/utils/get-config';
 				if ( ! args.allowMultiple ) {
 					api.section.each( otherSection => {
 						if ( otherSection !== section ) {
-							otherSection.collapse( { duration: args.duration } );
+							otherSection.collapse( {
+								duration: args.duration,
+							} );
 						}
 					} );
 				}
@@ -206,8 +210,7 @@ import getConfig from '../block-editor/utils/get-config';
 			api.Section.prototype.attachEvents.call( section );
 
 			if ( section.panel() && api.panel( section.panel() ) ) {
-				api
-					.panel( section.panel() )
+				api.panel( section.panel() )
 					.container.find( '.material-style-change-settings' )
 					.on( 'click keydown', event => {
 						section.collapse( { showSettings: true } );
@@ -219,13 +222,15 @@ import getConfig from '../block-editor/utils/get-config';
 		/**
 		 * Update UI to reflect expanded state
 		 *
-		 * @param {boolean}  expanded - Expanded state.
-		 * @param {Object}   args - Args.
+		 * @param {boolean} expanded - Expanded state.
+		 * @param {Object}  args     - Args.
 		 * @return {void}
 		 */
 		onChangeExpanded( expanded, args ) {
 			const section = this;
-			const settingsSection = api.section( getNamespace( 'style_settings' ) );
+			const settingsSection = api.section(
+				getNamespace( 'style_settings' )
+			);
 
 			// Immediately call the complete callback if there were no changes.
 			if ( args.showSettings ) {
@@ -239,7 +244,11 @@ import getConfig from '../block-editor/utils/get-config';
 			}
 
 			// Expand section normally
-			api.Section.prototype.onChangeExpanded.call( section, expanded, args );
+			api.Section.prototype.onChangeExpanded.call(
+				section,
+				expanded,
+				args
+			);
 		},
 	} );
 
@@ -250,7 +259,7 @@ import getConfig from '../block-editor/utils/get-config';
 			{ allowMultiple: true }
 		),
 
-		template: wp.template( 'customize-section-material_color-tabs' ),
+		template: window.wp.template( 'customize-section-material_color-tabs' ),
 
 		/**
 		 * wp.customize.ColorsSection
@@ -260,7 +269,7 @@ import getConfig from '../block-editor/utils/get-config';
 		 * @constructs wp.customize.ColorsSection
 		 * @augments   wp.customize.Section
 		 *
-		 * @param {string} id - ID.
+		 * @param {string} id      - ID.
 		 * @param {Object} options - Options.
 		 * @return {void}
 		 */
@@ -278,7 +287,9 @@ import getConfig from '../block-editor/utils/get-config';
 				const panel = api.panel( section.panel() );
 
 				if ( panel ) {
-					panel.container.last().addClass( 'control-section-collapse-parent' );
+					panel.container
+						.last()
+						.addClass( 'control-section-collapse-parent' );
 				}
 			}
 		},
@@ -295,7 +306,9 @@ import getConfig from '../block-editor/utils/get-config';
 			);
 
 			section.contentContainer
-				.find( '.material-design-section-tabs .material-design-tab-link' )
+				.find(
+					'.material-design-section-tabs .material-design-tab-link'
+				)
 				.on( 'click', event => {
 					const { target } = event;
 
@@ -344,7 +357,10 @@ import getConfig from '../block-editor/utils/get-config';
 						.addClass( 'active' );
 
 					// Setup new colors.
-					api.previewer.send( 'materialDesignPaletteUpdate', palette );
+					api.previewer.send(
+						'materialDesignPaletteUpdate',
+						palette
+					);
 				} );
 		},
 	} );
@@ -398,7 +414,7 @@ import getConfig from '../block-editor/utils/get-config';
 		/**
 		 * Render accessibility warnings for a color.
 		 *
-		 * @param {string} selectedColor Hex code of the selected color.
+		 * @param {string|false} selectedColor Hex code of the selected color.
 		 */
 		renderAccessibilityWarnings( selectedColor = false ) {
 			const control = this,
@@ -529,7 +545,7 @@ import getConfig from '../block-editor/utils/get-config';
 	/**
 	 * Handle reset for global range slider control.
 	 *
-	 * @param {Object} control Control
+	 * @param {Object}  control    Control
 	 * @param {boolean} setDefault Should the default value be set for the global control ?
 	 */
 	const onResetGlobalRangeSliderControl = ( control, setDefault = false ) => {
@@ -554,7 +570,9 @@ import getConfig from '../block-editor/utils/get-config';
 			}
 
 			unmountComponentAtNode(
-				control.container.find( '.material-design-range_slider' ).get( 0 )
+				control.container
+					.find( '.material-design-range_slider' )
+					.get( 0 )
 			);
 			renderRangeSliderControl( control );
 			reRenderMaterialLibrary();
@@ -656,7 +674,10 @@ import getConfig from '../block-editor/utils/get-config';
 			return;
 		}
 
-		render( <GoogleFontsControl { ...props } />, control.container.get( 0 ) );
+		render(
+			<GoogleFontsControl { ...props } />,
+			control.container.get( 0 )
+		);
 	};
 
 	const renderStyleSettingsControl = control => {
@@ -680,13 +701,13 @@ import getConfig from '../block-editor/utils/get-config';
 						},
 					} )
 				);
-
-				// Rearrange controls.
-				setTimeout( arrangeDarkMode, 1000 );
 			},
 		};
 
-		render( <StyleSettingsControl { ...props } />, control.container.get( 0 ) );
+		render(
+			<StyleSettingsControl { ...props } />,
+			control.container.get( 0 )
+		);
 	};
 
 	const renderColorControl = control => {
@@ -707,7 +728,6 @@ import getConfig from '../block-editor/utils/get-config';
 			defaultValue: setting.get(),
 			onColorChange: value => {
 				control.setting.set( value );
-				setTimeout( arrangeDarkMode, 200 );
 			},
 			params,
 			api,
@@ -751,7 +771,10 @@ import getConfig from '../block-editor/utils/get-config';
 		// Iterate through all the default values for the selected style
 		// and update the corresponding control value.
 		Object.keys( defaults ).forEach( name => {
-			if ( ! name.includes( 'global_radius' ) && name.includes( '_radius' ) ) {
+			if (
+				! name.includes( 'global_radius' ) &&
+				name.includes( '_radius' )
+			) {
 				return;
 			}
 
@@ -772,8 +795,7 @@ import getConfig from '../block-editor/utils/get-config';
 				}
 
 				if ( settingName.includes( 'font_family' ) ) {
-					api
-						.control( settingName )
+					api.control( settingName )
 						.container.find( '.google-fonts-control-selection' )
 						.val( value )
 						.trigger( 'change' );
@@ -782,10 +804,9 @@ import getConfig from '../block-editor/utils/get-config';
 		} );
 
 		reRenderMaterialLibrary();
-		reRenderColorControls();
+		reRenderColorControls( { limitToDark: false } );
 		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
-		setTimeout( arrangeDarkMode, 300 );
 	};
 
 	/**
@@ -809,9 +830,9 @@ import getConfig from '../block-editor/utils/get-config';
 	 *
 	 * @param {string}        settingId ID of the setting.
 	 * @param {string|number} value     Value of the setting.
-	 * @param {Function}      onSet     Callback after the value is set.
+	 * @param {Function|null} onSet     Callback after the value is set.
 	 */
-	const setSettingDefault = ( settingId, value, onSet ) => {
+	const setSettingDefault = ( settingId, value, onSet = null ) => {
 		const setting = api( settingId );
 
 		if ( setting ) {
@@ -869,11 +890,15 @@ import getConfig from '../block-editor/utils/get-config';
 			controlObjectsDark = getConfig( 'colorControlsDark' );
 		}
 
-		const controlObjects = [ ...controlObjectsDefault, ...controlObjectsDark ];
+		const controlObjects = [
+			...controlObjectsDefault,
+			...controlObjectsDark,
+		];
 
 		controlObjects.forEach( controlObject => {
 			const setting =
-				controlObject.related_text_setting || controlObject.related_setting;
+				controlObject.related_text_setting ||
+				controlObject.related_setting;
 			const control = api.control( setting );
 
 			if ( ! control ) {
@@ -923,11 +948,15 @@ import getConfig from '../block-editor/utils/get-config';
 										return;
 									}
 
-									const range = colorUtils.getColorRangeFromHex( value );
+									const range = colorUtils.getColorRangeFromHex(
+										value
+									);
 
 									if ( range && range.dark ) {
 										setting.set( range.dark.hex );
-										reRenderColorControls( { limitToDark: true } );
+										reRenderColorControls( {
+											limitToDark: true,
+										} );
 									}
 								} );
 							} );
@@ -946,9 +975,12 @@ import getConfig from '../block-editor/utils/get-config';
 				instance.deferred.embedded.done( () => {
 					api.previewer.deferred.active.done( () => {
 						setTimeout( () => {
-							api
-								.control( `${ getConfig( 'slug' ) }[global_radius]` )
-								.container.find( '.range-slider-control-settings-expanded' )
+							api.control(
+								`${ getConfig( 'slug' ) }[global_radius]`
+							)
+								.container.find(
+									'.range-slider-control-settings-expanded'
+								)
 								.trigger( 'click' );
 						}, 500 );
 					} );
@@ -956,56 +988,24 @@ import getConfig from '../block-editor/utils/get-config';
 			} );
 		}
 
-		setTimeout( arrangeDarkMode, 3000 );
+		handleGlobalStyleResetButtonClick();
 	} );
-
-	api.bind( 'saved', () => {
-		setTimeout( arrangeDarkMode, 500 );
-	} );
-
-	const arrangeDarkMode = () => {
-		const colorSection = api.section( getNamespace( 'colors' ) );
-
-		if ( ! colorSection ) {
-			return;
-		}
-
-		const controls = getConfig( 'colorControls' );
-
-		const defaultModeTab = colorSection.container.find( '.tab-default' );
-		const darkModeTab = colorSection.container.find( '.tab-dark-mode' );
-
-		controls.forEach( controlObject => {
-			const control = api.control( `material_design[${ controlObject.id }]` );
-			const darkControl = api.control(
-				`material_design[${ controlObject.id }_dark]`
-			);
-
-			defaultModeTab.append( control.container.get( 0 ) );
-			darkModeTab.append( darkControl.container.get( 0 ) );
-		} );
-
-		if ( window.materialDesignThemeColorControls ) {
-			const themeControls = window.materialDesignThemeColorControls;
-
-			themeControls.forEach( controlId => {
-				const control = api.control( controlId );
-				const darkControl = api.control( `${ controlId }_dark` );
-
-				defaultModeTab.append( control.container.get( 0 ) );
-				darkModeTab.append( darkControl.container.get( 0 ) );
-			} );
-		}
-	};
 
 	// Trigger notification init on ready.
 	$( notificationsInit );
 
 	// Material Blocks.
-	$( document ).on( 'click', '.toggle-material-library', loadMaterialLibrary );
+	$( document ).on(
+		'click',
+		'.toggle-material-library',
+		loadMaterialLibrary
+	);
 
 	// Show material library if the material-library hash exists.
-	if ( window.location.hash && window.location.hash === '#material-library' ) {
+	if (
+		window.location.hash &&
+		window.location.hash === '#material-library'
+	) {
 		$( '#customize-save-button-wrapper' ).ready( loadMaterialLibrary );
 	}
-} )( jQuery, wp.customize );
+} )( jQuery, window.wp.customize );

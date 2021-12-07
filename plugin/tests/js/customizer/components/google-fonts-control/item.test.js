@@ -63,10 +63,14 @@ describe( 'GoogleFontsControl/Item', () => {
 	it( 'should call onChange size prop', () => {
 		const onChangeMock = jest.fn();
 		const event = {
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
 			preventDefault() {},
 			target: { value: 12 },
 		};
-		const wrapper = setupShallow( { ...baseProps, onChange: onChangeMock } );
+		const wrapper = setupShallow( {
+			...baseProps,
+			onChange: onChangeMock,
+		} );
 		wrapper.find( 'input' ).simulate( 'change', event );
 
 		expect( onChangeMock ).toHaveBeenCalledWith( {
@@ -79,7 +83,10 @@ describe( 'GoogleFontsControl/Item', () => {
 	it( 'should call onChange weight prop', () => {
 		const onChangeMock = jest.fn();
 		const value = 100;
-		const wrapper = setupShallow( { ...baseProps, onChange: onChangeMock } );
+		const wrapper = setupShallow( {
+			...baseProps,
+			onChange: onChangeMock,
+		} );
 		wrapper
 			.find( '.components-google-fonts-control__select' )
 			.simulate( 'change', value );
@@ -114,7 +121,8 @@ describe( 'GoogleFontsControl/Item', () => {
 		const wrapper = setupShallow( props );
 		expect( wrapper.find( 'input' ).props().value ).toStrictEqual( 96 );
 		expect(
-			wrapper.find( '.components-google-fonts-control__select' ).props().value
+			wrapper.find( '.components-google-fonts-control__select' ).props()
+				.value
 		).toStrictEqual( 400 );
 	} );
 } );

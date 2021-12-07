@@ -148,7 +148,11 @@ describe( 'InspectorControlsContentPanel', () => {
 
 		fireEvent.click( getByLabelText( 'Show actions' ) );
 
-		expect( props.setter ).toHaveBeenCalledWith( 'displayActions', false, 0 );
+		expect( props.setter ).toHaveBeenCalledWith(
+			'displayActions',
+			false,
+			0
+		);
 	} );
 
 	it( "updates the display secondary action button prop when it's changed", () => {

@@ -31,7 +31,10 @@ import getConfig from '../../../admin/get-config';
 const Welcome = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">
-			<Card image={ `${ getConfig( 'assetsPath' ) }welcome.png` } imageSpan="5">
+			<Card
+				image={ `${ getConfig( 'assetsPath' ) }welcome.png` }
+				imageSpan="5"
+			>
 				<h3 className="mdc-typography--headline3">
 					{ __( 'Start building', 'material-design' ) }
 				</h3>

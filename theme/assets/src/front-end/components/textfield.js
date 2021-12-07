@@ -28,9 +28,16 @@ export const textFieldInit = () => {
 	for ( const textFieldElement of textFieldElements ) {
 		const input = new MDCTextField( textFieldElement );
 
+		// @ts-ignore
 		if ( input.trailingIcon_ ) {
+			// @ts-ignore
 			input.trailingIcon_.root_.addEventListener( 'click', handleClick );
-			input.trailingIcon_.root_.addEventListener( 'keydown', handleKeydown );
+			// @ts-ignore
+			input.trailingIcon_.root_.addEventListener(
+				'keydown',
+				handleKeydown
+			);
+			// @ts-ignore
 			input.trailingIcon_.root_.addEventListener( 'keyup', handleKeyup );
 		}
 	}

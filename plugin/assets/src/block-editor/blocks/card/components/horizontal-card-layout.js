@@ -25,36 +25,39 @@ import classnames from 'classnames';
 import CardImage from './card-image';
 import CardPrimary from './card-primary';
 import CardActions from './card-actions';
+import { isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
  *
- * @param {Object} props - Component props.
- * @param {number} props.cardIndex - Card index.
- * @param {string} props.contentLayout - Content layout.
- * @param {string} props.title - Card title.
- * @param {boolean} props.displayTitle - Whether or not to display the title.
- * @param {string} props.secondaryText - Card secondary text.
- * @param {boolean} props.displaySecondaryText - Whether or not to display the secondary text.
- * @param {string} props.imageSourceUrl - Image Source URL.
- * @param {boolean} props.isImageEditMode - Image Edit mode.
- * @param {boolean} props.displayImage - Whether or not to display the image.
- * @param {string} props.primaryActionButtonLabel - Primary action button label.
- * @param {string} props.primaryActionButtonUrl - Primary action button URL.
- * @param {boolean} props.primaryActionButtonNewTab - Whether or not the primary action button url should open in a new tab.
- * @param {boolean} props.primaryActionButtonNoFollow - Whether or not the primary action button url rel property should be noFollow.
- * @param {string} props.secondaryActionButtonLabel - Secondary action button label.
- * @param {string} props.secondaryActionButtonUrl - Secondary action button URL.
- * @param {boolean} props.secondaryActionButtonNewTab - Whether or not the secondary action button url should open in a new tab.
- * @param {boolean} props.secondaryActionButtonNoFollow - Whether or not the secondary action button url rel property should be noFollow.
- * @param {boolean} props.displaySecondaryActionButton - Whether or not to show the secondary action button.
- * @param {boolean} props.displayActions - Whether or not to show the card actions row.
- * @param {boolean} props.outlined - Whether or not the card has an outlined style.
- * @param {number} props.cornerRadius - Card corner radius.
- * @param {Function} props.setter - Function to set block attributes value.
- * @param {boolean} props.isEditMode - Whether or not the block is in edit mode (inside Gutenberg editor or not).
+ * @param {Object}   props                               - Component props.
+ * @param {number}   props.cardIndex                     - Card index.
+ * @param {string}   props.contentLayout                 - Content layout.
+ * @param {string}   props.title                         - Card title.
+ * @param {boolean}  props.displayTitle                  - Whether or not to display the title.
+ * @param {string}   props.secondaryText                 - Card secondary text.
+ * @param {boolean}  props.displaySecondaryText          - Whether or not to display the secondary text.
+ * @param {string}   props.imageSourceUrl                - Image Source URL.
+ * @param {boolean}  props.isImageEditMode               - Image Edit mode.
+ * @param {boolean}  props.displayImage                  - Whether or not to display the image.
+ * @param {string}   props.primaryActionButtonLabel      - Primary action button label.
+ * @param {string}   props.primaryActionButtonUrl        - Primary action button URL.
+ * @param {boolean}  props.primaryActionButtonNewTab     - Whether or not the primary action button url should open in a new tab.
+ * @param {boolean}  props.primaryActionButtonNoFollow   - Whether or not the primary action button url rel property should be noFollow.
+ * @param {string}   props.secondaryActionButtonLabel    - Secondary action button label.
+ * @param {string}   props.secondaryActionButtonUrl      - Secondary action button URL.
+ * @param {boolean}  props.secondaryActionButtonNewTab   - Whether or not the secondary action button url should open in a new tab.
+ * @param {boolean}  props.secondaryActionButtonNoFollow - Whether or not the secondary action button url rel property should be noFollow.
+ * @param {boolean}  props.displaySecondaryActionButton  - Whether or not to show the secondary action button.
+ * @param {boolean}  props.displayActions                - Whether or not to show the card actions row.
+ * @param {string}   props.cardStyle                     - Whether card has an outlined, elevated or global style.
+ * @param {number}   props.cornerRadius                  - Card corner radius.
+ * @param {Function} props.setter                        - Function to set block attributes value.
+ * @param {boolean}  props.isEditMode                    - Whether or not the block is in edit mode (inside Gutenberg editor or not).
+ * @param {any}      props.imageElement
+ * @param {boolean}  props.isFocused
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const HorizontalCardLayout = ( {
 	cardIndex,
@@ -76,7 +79,7 @@ const HorizontalCardLayout = ( {
 	secondaryActionButtonNoFollow,
 	displaySecondaryActionButton,
 	displayActions,
-	outlined,
+	cardStyle,
 	cornerRadius,
 	imageElement,
 	setter,
@@ -119,7 +122,14 @@ const HorizontalCardLayout = ( {
 		<div
 			className={ classnames(
 				'mdc-card',
-				{ 'mdc-card--outlined': outlined },
+				{
+					'mdc-card--outlined':
+						cardStyle === 'outlined' ||
+						( cardStyle === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
+				},
+				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'material-design-card',
 				'material-design-card__list',
 				'material-design-basic'
@@ -142,8 +152,12 @@ const HorizontalCardLayout = ( {
 					secondaryActionButtonLabel={ secondaryActionButtonLabel }
 					secondaryActionButtonUrl={ secondaryActionButtonUrl }
 					secondaryActionButtonNewTab={ secondaryActionButtonNewTab }
-					secondaryActionButtonNoFollow={ secondaryActionButtonNoFollow }
-					displaySecondaryActionButton={ displaySecondaryActionButton }
+					secondaryActionButtonNoFollow={
+						secondaryActionButtonNoFollow
+					}
+					displaySecondaryActionButton={
+						displaySecondaryActionButton
+					}
 					cardIndex={ cardIndex }
 					setter={ setter }
 					isEditMode={ isEditMode }

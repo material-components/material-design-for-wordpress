@@ -28,6 +28,12 @@ const isVisible = async selector => {
 	} );
 };
 
+const getPrimaryColorSelector = async () => {
+	return await page.$(
+		'#customize-control-material_design-primary_color .components-text-control__input'
+	);
+};
+
 describe( 'Customize controls', () => {
 	beforeAll( async () => {
 		await visitAdminPage( 'customize.php' );
@@ -67,7 +73,9 @@ describe( 'Customize controls', () => {
 
 			// Assert style section is displayed.
 			expect(
-				await isVisible( '#sub-accordion-section-material_design_style' )
+				await isVisible(
+					'#sub-accordion-section-material_design_style'
+				)
 			).toBeTruthy();
 		} );
 
@@ -83,14 +91,131 @@ describe( 'Customize controls', () => {
 
 			// Assert style section is displayed.
 			expect(
-				await isVisible( '#sub-accordion-section-material_design_style' )
+				await isVisible(
+					'#sub-accordion-section-material_design_style'
+				)
 			).toBeFalsy();
+		} );
+	} );
+
+	describe( 'Design Style section', () => {
+		it( 'should update primary color if a style is selected', async () => {
+			const crane = await page.$( '#material_design-style-crane' );
+			await page.evaluate( radio => radio.click(), crane );
+
+			// Assert primary color is updated.
+			expect(
+				await page.evaluate(
+					input => input.value,
+					await getPrimaryColorSelector()
+				)
+			).toEqual( '#5d1049' );
+
+			const fortnightly = await page.$(
+				'#material_design-style-fortnightly'
+			);
+			await page.evaluate( radio => radio.click(), fortnightly );
+
+			// Assert primary color is updated.
+			expect(
+				await page.evaluate(
+					input => input.value,
+					await getPrimaryColorSelector()
+				)
+			).toEqual( '#121212' );
+		} );
+
+		it( 'should update design style to custom if any value is updated', async () => {
+			await page.evaluate( input => {
+				input.value = '#000000';
+				console.log( 'input', input );
+				input.dispatchEvent( new Event( 'change' ), input );
+				input.dispatchEvent( new Event( 'blur' ), input );
+			}, await getPrimaryColorSelector() );
+
+			const selectedOption = await page.$(
+				'#material_design-style-custom:checked'
+			);
+
+			// Assert style is updated to custom.
+			expect(
+				await page.evaluate( input => input.value, selectedOption )
+			).toEqual( 'custom' );
+		} );
+	} );
+
+	describe( 'Color Palettes section', () => {
+		beforeAll( async () => {
+			const title = await page.$(
+				'#accordion-section-material_design_colors h3'
+			);
+			await page.evaluate( btn => {
+				btn.click();
+			}, title );
+
+			await page.waitFor( 500 );
+		} );
+
+		it( 'should always display color input field', async () => {
+			expect(
+				await isVisible(
+					'#customize-control-material_design-primary_color .components-text-control__input'
+				)
+			).toBeTruthy();
+		} );
+
+		it( 'should show two tabs on "Select Color" button click', async () => {
+			const picker = await page.$(
+				'#customize-control-material_design-primary_color .material-design-color__color'
+			);
+			await page.evaluate( btn => {
+				btn.click();
+			}, picker );
+
+			const tabs = await page.$$(
+				'.material-design-color__picker-tabs button'
+			);
+			expect( tabs.length ).toEqual( 2 );
+		} );
+
+		it( 'should render all material colors', async () => {
+			const colors = await page.$$(
+				'#customize-control-material_design-primary_color .components-circular-option-picker__option-wrapper'
+			);
+
+			expect( colors.length ).toEqual( 254 );
+		} );
+
+		it( 'should select a color on click', async () => {
+			const firstColor = await page.$(
+				'#customize-control-material_design-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
+			);
+			await page.evaluate( btn => {
+				btn.click();
+			}, firstColor );
+
+			// Assert primary color is updated.
+			expect(
+				await page.evaluate(
+					input => input.value,
+					await getPrimaryColorSelector()
+				)
+			).toEqual( '#ffebee' );
+		} );
+	} );
+
+	describe( 'Dark mode', () => {
+		it( 'should show two tabs for default and dark mode', async () => {
+			const tabs = await page.$$( '.material-design-section-tabs a' );
+			expect( tabs.length ).toEqual( 2 );
 		} );
 	} );
 
 	describe( 'Material Blocks', () => {
 		it( 'should show the material library button', async () => {
-			expect( await page.$$( '.toggle-material-library' ) ).not.toBeNull();
+			expect(
+				await page.$$( '.toggle-material-library' )
+			).not.toBeNull();
 		} );
 
 		it( 'should show the material library components and hide preview pane', async () => {
@@ -99,7 +224,9 @@ describe( 'Customize controls', () => {
 				await page.$( '.toggle-material-library' )
 			);
 
-			expect( await isVisible( '#mcb-material-library-preview' ) ).toBeTruthy();
+			expect(
+				await isVisible( '#mcb-material-library-preview' )
+			).toBeTruthy();
 
 			const previewDisplay = await page.evaluate(
 				node => node.style.display,

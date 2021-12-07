@@ -33,7 +33,9 @@ const Work = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">
 			<Card
-				image={ `${ getConfig( 'assetsPath' ) }complete-build-with-blocks.png` }
+				image={ `${ getConfig(
+					'assetsPath'
+				) }complete-build-with-blocks.png` }
 				imageSpan="5"
 			>
 				<h3 className="mdc-typography--headline3">

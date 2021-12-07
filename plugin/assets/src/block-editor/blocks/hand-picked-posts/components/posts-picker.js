@@ -31,21 +31,26 @@ import getConfig from '../../../utils/get-config';
 /**
  * Posts Picker component.
  *
- * @param {Object} props - Component props.
- * @param {Object} props.attributes - Block attributes.
+ * @param {Object}   props                - Component props.
+ * @param {Object}   props.attributes     - Block attributes.
  * @param {Function} props.debouncedSpeak - Function to debounce the call to the Speak method for accessibility purpose.
- * @param {Function} props.setAttributes - Function to set block attributes value.
+ * @param {Function} props.setAttributes  - Function to set block attributes value.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 
 const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
-	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const setter = useCallback( genericAttributesSetter( setAttributes ), [
+		setAttributes,
+	] );
 
 	const onDone = () => {
 		setAttributes( { editMode: false } );
 		debouncedSpeak(
-			__( 'Showing Curated Post Collection block preview.', 'material-design' )
+			__(
+				'Showing Curated Post Collection block preview.',
+				'material-design'
+			)
 		);
 	};
 

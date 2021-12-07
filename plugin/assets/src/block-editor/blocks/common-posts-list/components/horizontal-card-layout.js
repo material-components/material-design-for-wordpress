@@ -25,35 +25,44 @@ import classnames from 'classnames';
 import CardImage from './card-image';
 import CardHeader from './card-header';
 import CardActions from './card-actions';
+import { isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
  *
- * @param {Object} props - Component props.
- * @param {string} props.imageSourceUrl - Image source URL.
- * @param {boolean} props.outlined - Whether or not the card has an outlined style.
+ * @param {Object}  props                      - Component props.
+ * @param {string}  props.imageSourceUrl       - Image source URL.
+ * @param {boolean} props.outlined             - Whether or not the card has an outlined style.
  * @param {boolean} props.displayFeaturedImage - Whether or not to display the featured image.
  * @param {boolean} props.displayCommentsCount - Whether or not to display the comments count field.
- * @param {boolean} props.displayPostAuthor - Whether or not to display the post author field.
- * @param {Object} props.post - Post data.
- * @param {string} props.dateFormat - Date format.
+ * @param {boolean} props.displayPostAuthor    - Whether or not to display the post author field.
+ * @param {Object}  props.post                 - Post data.
+ * @param {string}  props.dateFormat           - Date format.
  *
- * @return {Function} A functional component.
+ * @return {JSX.Element} A functional component.
  */
 const HorizontalCardLayout = props => {
 	const {
 		imageSourceUrl,
-		outlined,
+		cardStyle,
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
+		isEditMode,
 	} = props;
 
 	return (
 		<div
 			className={ classnames(
 				'mdc-card',
-				{ 'mdc-card--outlined': outlined },
+				{
+					'mdc-card--outlined':
+						cardStyle === 'outlined' ||
+						( cardStyle === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
+				},
+				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'single-post-card',
 				'single-post-card__list',
 				'single-post-basic'
@@ -64,7 +73,10 @@ const HorizontalCardLayout = props => {
 				tabIndex={ 0 }
 			>
 				{ displayFeaturedImage && imageSourceUrl && (
-					<CardImage imageSourceUrl={ imageSourceUrl } type="square" />
+					<CardImage
+						imageSourceUrl={ imageSourceUrl }
+						type="square"
+					/>
 				) }
 				<CardHeader { ...props } />
 			</div>

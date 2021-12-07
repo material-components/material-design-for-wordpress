@@ -25,7 +25,9 @@ const transforms = {
 			type: 'block',
 			blocks: [ 'core/list' ],
 			transform: ( { values } ) => {
-				const itemValues = values.match( /(?<=\<li\>).*?(?=\<\/li\>)/gm );
+				const itemValues = values.match(
+					/(?<=\<li\>).*?(?=\<\/li\>)/gm
+				);
 				const items = [];
 
 				itemValues.forEach( value => {

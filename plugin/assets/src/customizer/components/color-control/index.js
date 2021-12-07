@@ -53,6 +53,7 @@ const ColorControl = ( {
 
 	const onChange = value => {
 		setColor( value );
+		onColorChange( value );
 	};
 
 	const onBlur = event => {
@@ -134,9 +135,12 @@ const ColorControl = ( {
 						<div className="material-design-color__picker-tabs material-design-tabs">
 							<button
 								type="button"
-								className={ classNames( 'material-design-tab-link', {
-									active: materialPickerSelected,
-								} ) }
+								className={ classNames(
+									'material-design-tab-link',
+									{
+										active: materialPickerSelected,
+									}
+								) }
 								onClick={ () => {
 									setMaterialPickerSelected( true );
 								} }
@@ -146,9 +150,12 @@ const ColorControl = ( {
 
 							<button
 								type="button"
-								className={ classNames( 'material-design-tab-link', {
-									active: ! materialPickerSelected,
-								} ) }
+								className={ classNames(
+									'material-design-tab-link',
+									{
+										active: ! materialPickerSelected,
+									}
+								) }
 								onClick={ () => {
 									setMaterialPickerSelected( false );
 								} }
@@ -163,7 +170,6 @@ const ColorControl = ( {
 									value={ color }
 									onChange={ value => {
 										onChange( value );
-										onColorChange( value );
 									} }
 									materialColorsOnly={ true }
 								/>
@@ -182,7 +188,11 @@ const ColorControl = ( {
 						</div>
 					</div>
 
-					<ColorA11y api={ api } params={ params } selectedColor={ color } />
+					<ColorA11y
+						api={ api }
+						params={ params }
+						selectedColor={ color }
+					/>
 				</>
 			) }
 		</>

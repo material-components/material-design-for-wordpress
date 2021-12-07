@@ -34,7 +34,7 @@ Object {
           class="mdc-button mdc-button--text"
         >
           <div
-            aria-label="Add text..."
+            aria-label="Add text…"
             aria-multiline="true"
             class="rich-text block-editor-rich-text__editable material-block-button__link"
             role="textbox"
@@ -737,7 +737,7 @@ Object {
         class="mdc-button mdc-button--text"
       >
         <div
-          aria-label="Add text..."
+          aria-label="Add text…"
           aria-multiline="true"
           class="rich-text block-editor-rich-text__editable material-block-button__link"
           role="textbox"

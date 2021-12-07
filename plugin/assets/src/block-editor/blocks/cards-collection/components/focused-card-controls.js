@@ -22,15 +22,15 @@ import { __, sprintf } from '@wordpress/i18n';
 /**
  * Focused Card Controls component.
  *
- * @param {Object} props - Component props.
- * @param {number} props.cardIndex - Card index.
- * @param {string} props.style - Grid style.
- * @param {number} props.numberOfCards - Total number of cards.
- * @param {Function} props.onMoveLeftOrUp - Move card left or up  handler.
+ * @param {Object}   props                   - Component props.
+ * @param {number}   props.cardIndex         - Card index.
+ * @param {string}   props.style             - Grid style.
+ * @param {number}   props.numberOfCards     - Total number of cards.
+ * @param {Function} props.onMoveLeftOrUp    - Move card left or up  handler.
  * @param {Function} props.onMoveRightOrDown - Move card right or down handler.
- * @param {Function} props.onRemove - Remove card  handler.
+ * @param {Function} props.onRemove          - Remove card  handler.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const FocusedCardControls = ( {
 	cardIndex,
@@ -69,7 +69,8 @@ const FocusedCardControls = ( {
 		</div>
 
 		<span className="card-number-title">
-			{ sprintf( __( 'Card #%d', 'material-design' ), cardIndex + 1 ) }
+			{ // translators: %s: Card number.
+			sprintf( __( 'Card #%d', 'material-design' ), cardIndex + 1 ) }
 		</span>
 
 		<div className="remove-card">

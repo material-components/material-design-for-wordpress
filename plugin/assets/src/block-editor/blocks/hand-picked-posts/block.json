@@ -25,9 +25,10 @@
 			"type": "number",
 			"default": 12
 		},
-		"outlined": {
-			"type": "boolean",
-			"default": false
+		"cardStyle": {
+			"enum": [ "global", "elevated", "outlined"],
+			"default": "global",
+			"type": "string"
 		},
 		"displayPostDate": {
 			"type": "boolean",
