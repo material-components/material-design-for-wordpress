@@ -19,6 +19,8 @@
 
 namespace MaterialDesign\Theme\BlockEditor;
 
+use MaterialDesign\Theme\Block\Blocks;
+
 /**
  * Add hooks and filters.
  */
@@ -26,6 +28,9 @@ function setup() {
 	add_action( 'init', __NAMESPACE__ . '\\register_disable_section_meta' );
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets' );
 	add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
+
+	$blocks = new Blocks();
+	$blocks->init();
 }
 
 /**
@@ -65,15 +70,31 @@ function register_disable_section_meta() {
  * Enqueue block editor assets.
  */
 function enqueue_block_editor_assets() {
-	$asset_file   = get_stylesheet_directory() . '/assets/js/block-editor.asset.php';
-	$asset        = is_readable( $asset_file ) ? require $asset_file : [];
-	$version      = isset( $asset['version'] ) ? $asset['version'] : wp_get_theme()->get( 'Version' );
-	$dependencies = isset( $asset['dependencies'] ) ? $asset['dependencies'] : [];
+	$asset_file    = get_stylesheet_directory() . '/assets/js/block-editor.asset.php';
+	$asset         = is_readable( $asset_file ) ? require $asset_file : [];
+	$version       = isset( $asset['version'] ) ? $asset['version'] : wp_get_theme()->get( 'Version' );
+	$dependencies  = isset( $asset['dependencies'] ) ? $asset['dependencies'] : [];
+	$theme_version = wp_get_theme()->get( 'Version' );
 
 	wp_enqueue_script(
 		'material-block-editor-js-theme',
 		get_stylesheet_directory_uri() . '/assets/js/block-editor.js',
 		$dependencies,
+		$version,
+		false
+	);
+	if ( ! wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) ) {
+		wp_enqueue_style(
+			'material-google-fonts-cdn',
+			esc_url( '//fonts.googleapis.com/css?family=Roboto|Material+Icons' ),
+			[],
+			$theme_version
+		);
+	}
+	wp_enqueue_style(
+		'material-block-editor-css-theme',
+		get_stylesheet_directory_uri() . '/assets/js/block-editor.css',
+		[ 'material-google-fonts-cdn' ],
 		$version,
 		false
 	);

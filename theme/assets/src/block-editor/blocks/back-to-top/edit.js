@@ -14,10 +14,29 @@
  * limitations under the License.
  */
 
-import './plugins/hide-sections';
-import { registerBlocks } from './util';
+/**
+ * External dependencies
+ */
+/**
+ * WordPress dependencies
+ */
+import { useBlockProps } from '@wordpress/block-editor';
+import ServerSideRender from '@wordpress/server-side-render';
 
 /**
- * Register the blocks.
+ * Internal dependencies
  */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+import meta from './block.json';
+
+/**
+ * Edit.
+ *
+ * @return {JSX.Element} Block edit.
+ */
+const Edit = () => (
+	<div { ...useBlockProps() }>
+		<ServerSideRender block={ meta.name } />
+	</div>
+);
+
+export default Edit;
