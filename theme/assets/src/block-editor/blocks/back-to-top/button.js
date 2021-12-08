@@ -20,18 +20,29 @@
 /**
  * WordPress dependencies
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
+import classname from 'classnames';
 
 /**
- * Internal dependencies
- */
-import Button from './button';
-
-/**
- * Edit.
+ * Back to top button.
  *
+ * @param {Object} props
+ * @param {Object} props.props props to button html element.
  * @return {JSX.Element} Block edit.
  */
-const Edit = () => <Button props={ useBlockProps() } />;
+const Button = ( { props: p } ) => {
+	const props = { ...p };
+	props.className = classname( props.className, 'back-to-top mdc-button' );
+	return (
+		<button
+			{ ...props }
+			aria-label={ __( 'Back to top', 'material-design-google' ) }
+			id={ 'back-to-top' }
+		>
+			<div className="mdc-button__ripple"></div>
+			<i className="material-icons mdc-icon-button__icon">expand_less</i>
+		</button>
+	);
+};
 
-export default Edit;
+export default Button;

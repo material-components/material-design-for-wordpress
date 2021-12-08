@@ -28,11 +28,9 @@ class Blocks {
 
 	/**
 	 * Dynamic blocks.
-	 * [ 'block-name' => 'block-template' ]
+	 * [ 'material/back-to-top' => 'template-parts/blocks/back-to-top.php' ]
 	 */
-	const DYNAMIC_BLOCKS = [
-		'material/back-to-top' => 'template-parts/blocks/back-to-top.php',
-	];
+	const DYNAMIC_BLOCKS = [];
 
 	/**
 	 * Register any needed hooks/filters.
@@ -60,7 +58,7 @@ class Blocks {
 			 *
 			 * @param array $metadata Array of arguments for registering a block type.
 			 */
-			$args = apply_filters( 'material_design_theme_block_type_args', $args );
+			$args = apply_filters( 'material_design_theme_block_type_args', $args, $object->name );
 			// If this is a dynamic block, register render_callback.
 			if ( array_key_exists( $object->name, static::DYNAMIC_BLOCKS ) ) {
 				$args ['render_callback'] = [ static::class, 'render' ];

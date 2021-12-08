@@ -117,3 +117,11 @@ function filter_body_class( $classes ) {
 
 	return $classes;
 }
+
+/**
+ * Is theme in FSE mode.
+ */
+function is_fse() {
+	// Todo implement if theme is in FSE.
+	return true;
+}
