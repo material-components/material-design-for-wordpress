@@ -20,11 +20,11 @@
 const path = require( 'path' );
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
-const OptimizeCSSAssetsPlugin = require( 'optimize-css-assets-webpack-plugin' );
+const OptimizeCSSAssetsPlugin = require( 'css-minimizer-webpack-plugin' );
 const RtlCssPlugin = require( 'rtlcss-webpack-plugin' );
 const TerserPlugin = require( 'terser-webpack-plugin' );
 const WebpackBar = require( 'webpackbar' );
-const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
+const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 const FixLineEndingsPlugin = require( './webpack/fix-line-endings-plugin' );
 const { escapeRegExp } = require( 'lodash' );
 const randomColor = require( 'randomcolor' );
@@ -42,7 +42,7 @@ const {
 
 // Exclude `node_modules` folder from `source-map-loader` to prevent webpack warnings.
 if ( defaultConfig.module && Array.isArray( defaultConfig.module.rules ) ) {
-	defaultConfig.module.rules.some( function( rule ) {
+	defaultConfig.module.rules.some( function ( rule ) {
 		if ( rule.use && rule.use.includes( 'source-map-loader' ) ) {
 			rule.exclude = /node_modules/;
 			return true;
@@ -240,7 +240,8 @@ const getSharedConfig = ( packageType, isBlockEditor ) => {
 						packageType === 'theme' && PROD ? '.min' : ''
 					}-rtl.css`,
 				} ),
-				new FixStyleOnlyEntriesPlugin(),
+				new RemoveEmptyScriptsPlugin(),
+				//				new FixStyleOnlyEntriesPlugin(),
 			],
 			resolve: {
 				alias: {

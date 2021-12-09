@@ -80,9 +80,7 @@ const Content = () => {
 		}
 
 		if ( ACTIONS.INSTALL_DEMO_CONTENT === actionToInstall ) {
-			handleDemoImporter()
-				.then( handleDemoSuccess )
-				.catch( handleError );
+			handleDemoImporter().then( handleDemoSuccess ).catch( handleError );
 		}
 	}, [ actionToInstall ] ); // eslint-disable-line
 

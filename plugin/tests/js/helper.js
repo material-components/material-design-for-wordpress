@@ -15,27 +15,11 @@
  */
 
 /**
- * WordPress dependencies
+ * Get range input element within range controller.
+ *
+ * @param {HTMLElement} container
+ *
+ * @return {HTMLElement} found range input element.
  */
-import { createBlock } from '@wordpress/blocks';
-
-const transforms = {
-	from: [
-		{
-			type: 'block',
-			blocks: [ 'core/buttons' ],
-			transform: ( _buttonsAttributes, buttons ) => {
-				return buttons.map( ( { attributes } ) => {
-					return createBlock( 'material/button', {
-						label: attributes.text,
-						url: attributes.url,
-						linkTarget: attributes.linkTarget,
-						rel: attributes.rel,
-					} );
-				} );
-			},
-		},
-	],
-};
-
-export default transforms;
+export const getRangeInput = container =>
+	container.querySelector( 'input[type="range"]' );

@@ -76,7 +76,7 @@ const UrlInputPopover = ( {
 						icon="admin-links"
 					/>
 					{ onChange &&
-					! disableSuggestions && ( // Auto-suggestions for inputting url.
+						! disableSuggestions && ( // Auto-suggestions for inputting url.
 							<URLInput
 								className="material-design-url-input-control__input"
 								value={ value }
@@ -85,7 +85,7 @@ const UrlInputPopover = ( {
 							/>
 						) }
 					{ onChange &&
-					disableSuggestions && ( // Plain text control for inputting url.
+						disableSuggestions && ( // Plain text control for inputting url.
 							<TextControl
 								className="material-design-url-input-control__input material-design-url-input-control__input--plain"
 								value={ value }
