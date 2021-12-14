@@ -14,10 +14,29 @@
  * limitations under the License.
  */
 
-import './plugins/hide-sections';
-import { registerBlocks } from './util';
+/**
+ * External dependencies
+ */
+import '@material/button/dist/mdc.button.css';
+import '@material/typography/dist/mdc.typography.css';
+import '@material/icon-button/dist/mdc.icon-button.css';
 
 /**
- * Register the blocks.
+ * Internal dependencies
  */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+import metadata from './block.json';
+import { icon } from './icon';
+import edit from './edit';
+import save from './save';
+
+const { name, title } = metadata;
+
+export { metadata, name };
+
+export const settings = {
+	title,
+	description: metadata.description,
+	icon,
+	edit,
+	save,
+};

@@ -14,10 +14,24 @@
  * limitations under the License.
  */
 
-import './plugins/hide-sections';
-import { registerBlocks } from './util';
+/**
+ * External dependencies
+ */
+/**
+ * WordPress dependencies
+ */
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
- * Register the blocks.
+ * Internal dependencies
  */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+import Button from './button';
+
+/**
+ * Edit.
+ *
+ * @return {JSX.Element} Block edit.
+ */
+const Edit = () => <Button props={ useBlockProps() } />;
+
+export default Edit;
