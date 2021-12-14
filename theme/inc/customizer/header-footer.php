@@ -26,6 +26,7 @@
 namespace MaterialDesign\Theme\Customizer\Header_Footer;
 
 use MaterialDesign\Theme\Customizer;
+use function MaterialDesign\Theme\BlockEditor\is_fse;
 
 /**
  * Attach hooks
@@ -58,7 +59,7 @@ function register( $wp_customize ) {
  * @return array
  */
 function get_controls() {
-	return [
+	$controls = [
 		[
 			'id'    => 'header_label',
 			'label' => esc_html__( 'Top app bar', 'material-design-google' ),
@@ -104,13 +105,17 @@ function get_controls() {
 			'type'     => 'text',
 			'priority' => 110,
 		],
-		[
+	];
+	if ( ! is_fse() ) {
+		$controls[] = [
 			'id'       => 'hide_back_to_top',
 			'label'    => esc_html__( 'Hide back to top button', 'material-design-google' ),
 			'type'     => 'checkbox',
 			'priority' => 110,
-		],
-	];
+		];
+	}
+
+	return $controls;
 }
 
 /**
@@ -187,16 +192,18 @@ function add_settings( $wp_customize ) {
 			)
 		);
 
-		$wp_customize->selective_refresh->add_partial(
-			'hide_back_to_top',
-			array(
-				'selector'        => '.back-to-top',
-				'render_callback' => __NAMESPACE__ . '\render_back_to_top',
-				'settings'        => [
-					'hide_back_to_top',
-				],
-			)
-		);
+		if ( ! is_fse() ) {
+			$wp_customize->selective_refresh->add_partial(
+				'hide_back_to_top',
+				[
+					'selector'        => '.back-to-top',
+					'render_callback' => __NAMESPACE__ . '\render_back_to_top',
+					'settings'        => [
+						'hide_back_to_top',
+					],
+				]
+			);
+		}
 	}
 }
 

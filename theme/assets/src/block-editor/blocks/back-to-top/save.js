@@ -14,10 +14,23 @@
  * limitations under the License.
  */
 
-import './plugins/hide-sections';
-import { registerBlocks } from './util';
+/**
+ * External dependencies
+ */
+/**
+ * WordPress dependencies
+ */
+import { useBlockProps } from '@wordpress/block-editor';
+import Button from './button';
 
 /**
- * Register the blocks.
+ * Save.
+ *
+ * @return {JSX.Element} Block edit.
  */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+const Save = () => {
+	const props = { ...useBlockProps.save() };
+	return <Button props={ props } />;
+};
+
+export default Save;
