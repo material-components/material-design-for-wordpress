@@ -36,7 +36,8 @@ use function MaterialDesign\Plugin\get_plugin_instance;
  */
 function setup() {
 
-	add_action( 'init', __NAMESPACE__ . '\restore_customizer' );
+	add_action( 'init', __NAMESPACE__ . '\restore_customizer_gutenberg' );
+	add_action( 'admin_menu', __NAMESPACE__ . '\restore_customizer' );
 	add_action( 'customize_register', __NAMESPACE__ . '\register' );
 	add_action( 'customize_preview_init', __NAMESPACE__ . '\preview_scripts' );
 
@@ -769,10 +770,27 @@ function get_sanitize_callback( $setting_type ) {
 }
 
 /**
- * Restore customizer which is removed by gutenberg.
- * // Todo update this when WP 5.9 is out.
+ * Restore customizer which is removed by WP Core.
  */
 function restore_customizer() {
-	// Remove action has safe check.
+	// WP version is 5.9 beta or later than only add customize.php back.
+	if ( ! version_compare( get_bloginfo( 'version' ), '5.9-beta', '>=' ) ) {
+		return;
+	}
+	// Add customize.php menu.
+	add_submenu_page(
+		'themes.php',
+		__( 'Customize', 'material-design-google' ),
+		__( 'Customize', 'material-design-google' ),
+		'customize',
+		'customize.php'
+	);
+}
+
+/**
+ * Restore customizer which is removed by gutenberg after full site editing.
+ */
+function restore_customizer_gutenberg() {
+	// Following is for gutenberg plugin, Remove action has safe check.
 	remove_action( 'admin_menu', 'gutenberg_remove_legacy_pages' );
 }
