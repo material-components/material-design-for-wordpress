@@ -30,47 +30,19 @@ Object {
     />
     <div>
       <div
-        class="components-toolbar"
-        label="Another label"
+        aria-label="Another label"
+        aria-orientation="horizontal"
+        class="components-accessible-toolbar"
+        controls=""
+        id="mdp-tab-bar-order-toolbar"
+        role="toolbar"
       >
-        <div>
-          <button
-            aria-label="Move left"
-            class="components-button components-toolbar__control has-icon"
-            type="button"
-          >
-            <i
-              class="material-icons"
-            >
-              keyboard_arrow_left
-            </i>
-          </button>
-        </div>
-        <div>
-          <button
-            aria-label="Move right"
-            class="components-button components-toolbar__control has-icon"
-            type="button"
-          >
-            <i
-              class="material-icons"
-            >
-              keyboard_arrow_right
-            </i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="components-toolbar"
-      label="Another label"
-    >
-      <div>
         <button
           aria-label="Move left"
-          class="components-button components-toolbar__control has-icon"
+          class="components-button components-toolbar-button"
+          data-toolbar-item="true"
+          id="mdp-tab-bar-order-toolbar-1"
+          tabindex="0"
           type="button"
         >
           <i
@@ -79,11 +51,12 @@ Object {
             keyboard_arrow_left
           </i>
         </button>
-      </div>
-      <div>
         <button
           aria-label="Move right"
-          class="components-button components-toolbar__control has-icon"
+          class="components-button components-toolbar-button"
+          data-toolbar-item="true"
+          id="mdp-tab-bar-order-toolbar-2"
+          tabindex="-1"
           type="button"
         >
           <i
@@ -93,6 +66,45 @@ Object {
           </i>
         </button>
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      aria-label="Another label"
+      aria-orientation="horizontal"
+      class="components-accessible-toolbar"
+      controls=""
+      id="mdp-tab-bar-order-toolbar"
+      role="toolbar"
+    >
+      <button
+        aria-label="Move left"
+        class="components-button components-toolbar-button"
+        data-toolbar-item="true"
+        id="mdp-tab-bar-order-toolbar-1"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          class="material-icons"
+        >
+          keyboard_arrow_left
+        </i>
+      </button>
+      <button
+        aria-label="Move right"
+        class="components-button components-toolbar-button"
+        data-toolbar-item="true"
+        id="mdp-tab-bar-order-toolbar-2"
+        tabindex="-1"
+        type="button"
+      >
+        <i
+          class="material-icons"
+        >
+          keyboard_arrow_right
+        </i>
+      </button>
     </div>
   </div>,
   "debug": [Function],
@@ -179,47 +191,19 @@ Object {
     />
     <div>
       <div
-        class="components-toolbar"
-        label="Change the tab order"
+        aria-label="Change the tab order"
+        aria-orientation="horizontal"
+        class="components-accessible-toolbar"
+        controls=""
+        id="mdp-tab-bar-order-toolbar"
+        role="toolbar"
       >
-        <div>
-          <button
-            aria-label="Move left"
-            class="components-button components-toolbar__control has-icon"
-            type="button"
-          >
-            <i
-              class="material-icons"
-            >
-              keyboard_arrow_left
-            </i>
-          </button>
-        </div>
-        <div>
-          <button
-            aria-label="Move right"
-            class="components-button components-toolbar__control has-icon"
-            type="button"
-          >
-            <i
-              class="material-icons"
-            >
-              keyboard_arrow_right
-            </i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="components-toolbar"
-      label="Change the tab order"
-    >
-      <div>
         <button
           aria-label="Move left"
-          class="components-button components-toolbar__control has-icon"
+          class="components-button components-toolbar-button"
+          data-toolbar-item="true"
+          id="mdp-tab-bar-order-toolbar-1"
+          tabindex="0"
           type="button"
         >
           <i
@@ -228,11 +212,12 @@ Object {
             keyboard_arrow_left
           </i>
         </button>
-      </div>
-      <div>
         <button
           aria-label="Move right"
-          class="components-button components-toolbar__control has-icon"
+          class="components-button components-toolbar-button"
+          data-toolbar-item="true"
+          id="mdp-tab-bar-order-toolbar-2"
+          tabindex="-1"
           type="button"
         >
           <i
@@ -242,6 +227,45 @@ Object {
           </i>
         </button>
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      aria-label="Change the tab order"
+      aria-orientation="horizontal"
+      class="components-accessible-toolbar"
+      controls=""
+      id="mdp-tab-bar-order-toolbar"
+      role="toolbar"
+    >
+      <button
+        aria-label="Move left"
+        class="components-button components-toolbar-button"
+        data-toolbar-item="true"
+        id="mdp-tab-bar-order-toolbar-1"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          class="material-icons"
+        >
+          keyboard_arrow_left
+        </i>
+      </button>
+      <button
+        aria-label="Move right"
+        class="components-button components-toolbar-button"
+        data-toolbar-item="true"
+        id="mdp-tab-bar-order-toolbar-2"
+        tabindex="-1"
+        type="button"
+      >
+        <i
+          class="material-icons"
+        >
+          keyboard_arrow_right
+        </i>
+      </button>
     </div>
   </div>,
   "debug": [Function],

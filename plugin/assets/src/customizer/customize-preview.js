@@ -73,8 +73,8 @@ export const COLOR_MODES = {
 	const defaultModeControls = {};
 	const darkModeControls = {};
 
-	$( function() {
-		api.preview.bind( 'active', function() {
+	$( function () {
+		api.preview.bind( 'active', function () {
 			api.preview.send( 'materialDesign', {
 				notificationCount:
 					_wpCustomizeSettings.values.material_design_notify,

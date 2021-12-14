@@ -43,5 +43,8 @@
   },
   "globals": {
     "page": true
+  },
+  "parserOptions": {
+    "requireConfigFile": false
   }
 }

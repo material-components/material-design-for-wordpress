@@ -114,8 +114,10 @@ const ColorVariation = ( {
 
 	return (
 		<>
-			{ // translators: %s is size of the color variation.
-			sprintf( __( '%s text: ', 'material-design' ), size ) }
+			{
+				// translators: %s is size of the color variation.
+				sprintf( __( '%s text: ', 'material-design' ), size )
+			}
 			{ textColor }
 			{ __( ' text not legible ', 'material-design' ) }
 			<span style={ { backgroundColor: colorHex, color: textColorHex } }>

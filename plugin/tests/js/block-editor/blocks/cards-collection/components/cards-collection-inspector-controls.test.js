@@ -113,10 +113,7 @@ describe( 'CardsCollectionInspectorControls', () => {
 		const wrapper = setupShallow( baseProps );
 
 		const mockEvent = { target: { value: false } };
-		wrapper
-			.find( 'WithInstanceId(ToggleControl)' )
-			.at( 1 )
-			.simulate( 'change', mockEvent );
+		wrapper.find( 'ToggleControl' ).at( 1 ).simulate( 'change', mockEvent );
 		expect( baseProps.setAttributes ).toHaveBeenCalledWith( {
 			displaySecondaryText: { target: { value: false } },
 			displayTitle: { target: { value: false } },
