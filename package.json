@@ -171,6 +171,7 @@
     "docker": "docker-compose run --rm -u 1000 --workdir=/var/www/html/wp-content/plugins/material-design wordpress",
     "env:logs": "bin/logs.sh",
     "env:start": "bin/start.sh",
+    "env:rebuild": "bin/start.sh --build --force-recreate",
     "env:stop": "bin/stop.sh",
     "format": "npm-run-all --parallel format:*",
     "format:css": "npm run lint:css -- --fix",
