@@ -231,7 +231,7 @@ const api = window.wp.customize;
 			}
 		} );
 
-		styles = `:root {
+		styles = `body {
 			${ styles }
 
 			body[data-color-scheme="dark"] {
