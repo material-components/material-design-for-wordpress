@@ -16,7 +16,7 @@
 
 /* eslint-env node */
 
-module.exports = function( grunt ) {
+module.exports = function ( grunt ) {
 	'use strict';
 
 	// prettier-ignore
