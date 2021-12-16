@@ -43,7 +43,7 @@ function setup() {
 
 	add_action( 'customize_controls_enqueue_scripts', __NAMESPACE__ . '\scripts' );
 
-	add_action( 'admin_head', __NAMESPACE__ . '\print_css_vars', 2 );
+	add_action( 'admin_head', __NAMESPACE__ . '\print_css_vars', 5 );
 }
 
 /**
@@ -513,7 +513,6 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
  * Get custom frontend CSS vars based on the customizer theme settings.
  */
 function get_css_vars() {
-	$css             = '';
 	$color_vars      = [];
 	$color_vars_dark = [];
 	$defaults        = get_default_values();
@@ -571,7 +570,7 @@ function get_css_vars() {
 	$color_vars_dark = implode( $glue, $color_vars_dark );
 
 	$css = "
-		:root {
+		:root, body {
 			{$color_vars}
 		}
 
@@ -589,7 +588,7 @@ function get_css_vars() {
 	if ( material_is_plugin_active() && get_dark_mode_status() !== 'inactive' ) {
 		$css .= "
 			@media (prefers-color-scheme: dark) {
-				:root {
+				:root, body {
 					{$color_vars_dark}
 				}
 			}

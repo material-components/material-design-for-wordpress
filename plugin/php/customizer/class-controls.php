@@ -1002,7 +1002,7 @@ class Controls extends Module_Base {
 		$dark_mode_vars     = implode( $glue, $dark_mode_vars );
 
 		$css = "
-			:root {
+			:root, body {
 				/* Theme color vars */
 				{$color_vars}
 
@@ -1030,7 +1030,7 @@ class Controls extends Module_Base {
 		if ( 'inactive' !== $this->get_dark_mode_status() ) {
 			$css .= "
 				@media (prefers-color-scheme: dark) {
-					:root {
+					:root, body {
 						{$dark_mode_vars}
 					}
 				}
