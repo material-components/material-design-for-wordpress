@@ -38,7 +38,6 @@ const SECTION = 'colors';
 function setup() {
 	add_action( 'customize_register', __NAMESPACE__ . '\register' );
 	add_action( 'customize_save_after', __NAMESPACE__ . '\after_save' );
-	// TODO selective refresh for live preview in customizer with preset variable.
 }
 
 /**
@@ -240,6 +239,7 @@ function get_dark_controls() {
 			'a11y_label'           => __( 'Background', 'material-design-google' ),
 			'related_text_setting' => 'on_background_color_dark',
 			'color_mode_type'      => 'dark',
+			'theme_json'           => 'background',
 		],
 		[
 			'id'              => 'on_background_color_dark',
@@ -248,6 +248,7 @@ function get_dark_controls() {
 			'a11y_label'      => __( 'On Background', 'material-design-google' ),
 			'related_setting' => 'custom_background_color_dark',
 			'color_mode_type' => 'dark',
+			'theme_json'      => 'on_background',
 		],
 		[
 			'id'                   => 'header_color_dark',
@@ -256,6 +257,7 @@ function get_dark_controls() {
 			'a11y_label'           => __( 'On Top app bar', 'material-design-google' ),
 			'related_text_setting' => 'on_header_color_dark',
 			'color_mode_type'      => 'dark',
+			'theme_json'           => 'on-top-app-bar',
 		],
 		[
 			'id'              => 'on_header_color_dark',
@@ -264,6 +266,7 @@ function get_dark_controls() {
 			'a11y_label'      => __( 'Top app bar', 'material-design-google' ),
 			'related_setting' => 'header_color_dark',
 			'color_mode_type' => 'dark',
+			'theme_json'      => 'top-app-bar',
 		],
 		[
 			'id'                   => 'footer_color_dark',
@@ -272,6 +275,7 @@ function get_dark_controls() {
 			'a11y_label'           => __( 'On Footer', 'material-design-google' ),
 			'related_text_setting' => 'on_footer_color_dark',
 			'color_mode_type'      => 'dark',
+			'theme_json'           => 'on-footer',
 		],
 		[
 			'id'              => 'on_footer_color_dark',
@@ -280,6 +284,7 @@ function get_dark_controls() {
 			'a11y_label'      => __( 'Footer', 'material-design-google' ),
 			'related_setting' => 'footer_color_dark',
 			'color_mode_type' => 'dark',
+			'theme_json'      => 'on-footer',
 		],
 	];
 

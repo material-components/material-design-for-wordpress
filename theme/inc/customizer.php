@@ -131,14 +131,17 @@ function preview_scripts() {
 	);
 
 	$css_vars      = [];
+	$theme_vars    = [];
 	$css_vars_dark = [];
 
 	foreach ( Colors\get_controls() as $control ) {
-		$css_vars[ $control['id'] ] = $control['css_var'];
+		$css_vars[ $control['id'] ]   = $control['css_var'];
+		$theme_vars[ $control['id'] ] = sprintf( '--wp--preset--color--%s', $control['theme_json'] );
 	}
 
 	foreach ( Colors\get_dark_controls() as $control ) {
 		$css_vars_dark[ $control['id'] ] = $control['css_var'];
+		$theme_vars[ $control['id'] ]    = sprintf( '--wp--preset--color--%s', $control['theme_json'] );
 	}
 
 	wp_localize_script(
@@ -151,6 +154,12 @@ function preview_scripts() {
 		'material-design-google-customizer-preview',
 		'materialDesignThemeColorControlsDark',
 		$css_vars_dark
+	);
+
+	wp_localize_script(
+		'material-design-google-customizer-preview',
+		'materialDesignThemeColorControlsTheme',
+		$theme_vars
 	);
 }
 

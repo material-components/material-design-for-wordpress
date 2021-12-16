@@ -878,6 +878,7 @@ class Controls extends Module_Base {
 
 			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
 			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
+			$color_vars[] = sprintf( '%s: %s;', esc_html( sprintf( '--wp--preset--color--%s', $control['theme_json'] ) ), esc_html( $value ) );
 		}
 
 		// Generate additional surface variant vars required by some components.
@@ -990,6 +991,7 @@ class Controls extends Module_Base {
 
 			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
 			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
+			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( sprintf( '--wp--preset--color--%s', $control['theme_json'] ) ), esc_html( $value ) );
 		}
 
 		$glue               = "\n\t\t\t\t";

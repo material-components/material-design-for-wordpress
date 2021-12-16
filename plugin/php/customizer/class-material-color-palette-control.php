@@ -25,8 +25,6 @@
 
 namespace MaterialDesign\Plugin\Customizer;
 
-use MaterialDesign\Plugin\Helpers;
-
 /**
  * Material color palette control.
  */
