@@ -485,12 +485,12 @@ function check_if_colors_are_default( $user_color_palette ) {
  */
 function set_settings_array( $target, $array, $value ) {
 	$key     = array_shift( $array );
-	$current =& $target;
+	$current = & $target;
 	while ( 0 < count( $array ) ) { // phpcs:ignore Squiz.PHP.DisallowSizeFunctionsInLoops.Found
 		if ( ! property_exists( $current, $key ) ) {
 			$current->{$key} = (object) [];
 		}
-		$current =& $current->{ $key };
+		$current = & $current->{ $key };
 
 		// Cast to an object in the case where it's been set as an array.
 		$current = (object) $current;
