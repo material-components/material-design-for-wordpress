@@ -61,6 +61,7 @@ exports[`GoogleFontsControl matches snapshot 1`] = `
             text="View more options"
           >
             <button
+              aria-describedby={null}
               aria-label="View more options"
               className="components-button control-settings-expanded google-fonts-control-settings-expanded is-link"
               onBlur={[Function]}
@@ -73,7 +74,7 @@ exports[`GoogleFontsControl matches snapshot 1`] = `
             >
               <span
                 className="dashicons dashicons-admin-settings"
-                key="0,1"
+                key="0,3"
               />
             </button>
           </Tooltip>

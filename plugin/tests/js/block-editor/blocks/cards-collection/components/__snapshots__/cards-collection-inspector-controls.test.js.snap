@@ -15,53 +15,53 @@ exports[`CardsCollectionInspectorControls matches snapshot 1`] = `
     showGutter={true}
     style="masonry"
   />
-  <ForwardRef(PanelBody)
+  <PanelBody
     initialOpen={true}
     title="Content"
   >
-    <WithInstanceId(Component)
+    <ForwardRef(RangeControl)
       label="Number of cards"
       max={20}
       min={1}
       onChange={[Function]}
       value={1}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={false}
       label="Allow individual card override"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show title"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show secondary text"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show image"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show supporting text"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show actions"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show secondary action button"
       onChange={[Function]}
     />
-  </ForwardRef(PanelBody)>
+  </PanelBody>
   <div
     key="0"
   />
@@ -83,23 +83,23 @@ exports[`CardsCollectionInspectorControls matches snapshot when individual overr
     showGutter={true}
     style="masonry"
   />
-  <ForwardRef(PanelBody)
+  <PanelBody
     initialOpen={true}
     title="Content"
   >
-    <WithInstanceId(Component)
+    <ForwardRef(RangeControl)
       label="Number of cards"
       max={20}
       min={1}
       onChange={[Function]}
       value={1}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Allow individual card override"
       onChange={[Function]}
     />
-  </ForwardRef(PanelBody)>
+  </PanelBody>
   <div
     key="0"
   >
@@ -143,48 +143,48 @@ exports[`CardsCollectionInspectorControls matches snapshot when the style attrib
     showGutter={true}
     style="list"
   />
-  <ForwardRef(PanelBody)
+  <PanelBody
     initialOpen={true}
     title="Content"
   >
-    <WithInstanceId(Component)
+    <ForwardRef(RangeControl)
       label="Number of cards"
       max={20}
       min={1}
       onChange={[Function]}
       value={1}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={false}
       label="Allow individual card override"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show title"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show secondary text"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show image"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show actions"
       onChange={[Function]}
     />
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Show secondary action button"
       onChange={[Function]}
     />
-  </ForwardRef(PanelBody)>
+  </PanelBody>
   <div
     key="0"
   />

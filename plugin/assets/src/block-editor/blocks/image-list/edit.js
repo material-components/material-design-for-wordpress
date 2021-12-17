@@ -152,7 +152,9 @@ const ImageListEdit = ( {
 	const hasImages = !! images.length;
 	const hasImagesWithId = hasImages && some( images, ( { id } ) => id );
 
-	const setter = useCallback( genericAttributesSetter( setAttributes ) );
+	const setter = useCallback( genericAttributesSetter( setAttributes ), [
+		setAttributes,
+	] );
 
 	// Get the caption for an image.
 	const getCaption = id => {

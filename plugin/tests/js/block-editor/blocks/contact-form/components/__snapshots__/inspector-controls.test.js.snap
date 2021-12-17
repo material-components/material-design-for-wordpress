@@ -2,32 +2,32 @@
 
 exports[`FormInspectorControls matches snapshot 1`] = `
 <InspectorControls>
-  <ForwardRef(PanelBody)
+  <PanelBody
     initialOpen={true}
     title="Form Email Settings"
   >
-    <TextControl
+    <ForwardRef(TextControl)
       label="Email address"
       value="recipient@test.loc"
     />
-    <TextControl
+    <ForwardRef(TextControl)
       label="Subject"
       value="Test contact form"
     />
-    <TextControl
+    <ForwardRef(TextControl)
       label="Submission confirmation message"
       value="The form was submitted"
     />
-  </ForwardRef(PanelBody)>
-  <ForwardRef(PanelBody)
+  </PanelBody>
+  <PanelBody
     initialOpen={true}
     title="Style"
   >
-    <WithInstanceId(ToggleControl)
+    <ToggleControl
       checked={true}
       label="Outlined"
     />
-  </ForwardRef(PanelBody)>
+  </PanelBody>
   <RecaptchaInspectorControlsPanel />
 </InspectorControls>
 `;

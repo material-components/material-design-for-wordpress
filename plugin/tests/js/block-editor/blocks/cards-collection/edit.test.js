@@ -211,10 +211,7 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 	it( 'updates the card container class when the the card container is focused', () => {
 		const props = cloneDeep( baseProps );
 		const wrapper = setupMount( props );
-		wrapper
-			.find( '.card-container' )
-			.at( 0 )
-			.simulate( 'focus' );
+		wrapper.find( '.card-container' ).at( 0 ).simulate( 'focus' );
 		expect(
 			wrapper
 				.find( '.card-container' )
@@ -226,10 +223,7 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 	it( 'updates the cards props when the second card is move left', () => {
 		const props = cloneDeep( baseProps );
 		const wrapper = setupMount( props );
-		wrapper
-			.find( '.card-container' )
-			.at( 1 )
-			.simulate( 'focus' );
+		wrapper.find( '.card-container' ).at( 1 ).simulate( 'focus' );
 
 		wrapper
 			.find( 'button.material-design-card-move-button-left-up' )
@@ -247,10 +241,7 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 	it( 'updates the cards props when the second card is move right', () => {
 		const props = cloneDeep( baseProps );
 		const wrapper = setupMount( props );
-		wrapper
-			.find( '.card-container' )
-			.at( 1 )
-			.simulate( 'focus' );
+		wrapper.find( '.card-container' ).at( 1 ).simulate( 'focus' );
 
 		wrapper
 			.find( 'button.material-design-card-move-button-right-down' )
@@ -268,10 +259,7 @@ describe( 'blocks: material/cards-collection: Edit', () => {
 	it( 'updates the cards props and the number of cards props when the second card is removed', () => {
 		const props = cloneDeep( baseProps );
 		const wrapper = setupMount( props );
-		wrapper
-			.find( '.card-container' )
-			.at( 1 )
-			.simulate( 'focus' );
+		wrapper.find( '.card-container' ).at( 1 ).simulate( 'focus' );
 
 		wrapper
 			.find( 'button.material-design-card-close-button' )
