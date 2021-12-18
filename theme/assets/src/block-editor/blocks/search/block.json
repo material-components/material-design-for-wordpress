@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "material/search",
+  "category": "material",
+  "attributes": {},
+  "title": "Material Search",
+  "supports": {
+    "align": true
+  },
+  "apiVersion": 2,
+  "description": "Material search bar",
+  "editorStyle": ["material-google-fonts-cdn", "material-block-editor-css-theme"],
+  "editorScript": "material-block-editor-js-theme"
+}
