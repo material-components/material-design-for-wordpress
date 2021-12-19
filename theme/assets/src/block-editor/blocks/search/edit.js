@@ -32,10 +32,8 @@ const Edit = () => {
 	const search = __( 'Search', 'material-design-google' );
 	return (
 		<div { ...useBlockProps() }>
-			<label
-				id="search"
-				className="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon"
-			>
+			{ /* eslint-disable-next-line jsx-a11y/label-has-for */ }
+			<label className="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
 				<input
 					className="mdc-text-field__input"
 					type="text"
