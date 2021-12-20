@@ -55,7 +55,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -63,10 +63,10 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control components-radio-control components-image-radio-control"
+          class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <div
               class="components-radio-control__option active"
@@ -358,16 +358,19 @@ Object {
               </a>
                in Material Design Options to update all cards.
             </p>
+            <div
+              class="components-notice__actions"
+            />
           </div>
         </div>
         <div
-          class="components-base-control components-radio-control"
+          class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-radio-control-0"
             >
               Elevation style
@@ -425,7 +428,7 @@ Object {
             </div>
           </div>
           <p
-            class="components-base-control__help"
+            class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
             id="inspector-radio-control-0__help"
           >
             Elevation style whether elevated or outlined.
@@ -457,7 +460,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -465,13 +468,13 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control components-radio-control"
+          class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-radio-control-1"
             >
               Content layout
@@ -528,28 +531,28 @@ Object {
           </div>
         </div>
         <div
-          class="components-base-control components-range-control"
+          class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-range-control-0"
             >
               Columns
             </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
+            <div
+              class="components-range-control__root css-2cg8er-Root exqw8y214"
             >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
+              <div
+                class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                color="var( --wp-admin-theme-color, #00669b)"
               >
                 <input
                   aria-hidden="false"
                   aria-label="Columns"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                  class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
                   id="inspector-range-control-0"
                   max="4"
                   min="2"
@@ -560,52 +563,73 @@ Object {
                 />
                 <span
                   aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
+                  class="css-43abdt-Rail-railBackgroundColor exqw8y210"
                 />
                 <span
                   aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
+                  class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
                   style="width: 100%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
                   style="left: 100%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-yd4y8u-Thumb-thumbColor exqw8y24"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
                   role="tooltip"
                   style="left: 100%; z-index: 100;"
                 >
                   4
                 </span>
-              </span>
-              <input
-                aria-label="Columns"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="4"
-                min="2"
-                step="1"
-                type="number"
-                value="4"
-              />
-            </span>
+              </div>
+              <div
+                class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                data-wp-c16t="true"
+                data-wp-component="Flex"
+              >
+                <div
+                  class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="FlexItem"
+                />
+                <div
+                  class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                >
+                  <input
+                    aria-label="Columns"
+                    autocomplete="off"
+                    class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                    id="inspector-input-control-0"
+                    inputmode="decimal"
+                    max="4"
+                    min="2"
+                    step="1"
+                    type="number"
+                    value="4"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div
-          class="components-base-control components-range-control"
+          class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-range-control-1"
             >
               Gutter
@@ -641,17 +665,17 @@ Object {
                 </button>
               </div>
             </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
+            <div
+              class="components-range-control__root css-2cg8er-Root exqw8y214"
             >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
+              <div
+                class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                color="var( --wp-admin-theme-color, #00669b)"
               >
                 <input
                   aria-hidden="false"
                   aria-label="[object Object]"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                  class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
                   id="inspector-range-control-1"
                   max="24"
                   min="1"
@@ -662,42 +686,63 @@ Object {
                 />
                 <span
                   aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
+                  class="css-43abdt-Rail-railBackgroundColor exqw8y210"
                 />
                 <span
                   aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
+                  class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
                   style="width: 0%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
                   style="left: 0%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-yd4y8u-Thumb-thumbColor exqw8y24"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
                   role="tooltip"
                   style="left: 0%; z-index: 100;"
                 >
                   1
                 </span>
-              </span>
-              <input
-                aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="24"
-                min="1"
-                step="1"
-                type="number"
-                value="1"
-              />
-            </span>
+              </div>
+              <div
+                class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                data-wp-c16t="true"
+                data-wp-component="Flex"
+              >
+                <div
+                  class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="FlexItem"
+                />
+                <div
+                  class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                >
+                  <input
+                    aria-label="[object Object]"
+                    autocomplete="off"
+                    class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                    id="inspector-input-control-1"
+                    inputmode="decimal"
+                    max="24"
+                    min="1"
+                    step="1"
+                    type="number"
+                    value="1"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -729,7 +774,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -737,10 +782,10 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control components-radio-control components-image-radio-control"
+        class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <div
             class="components-radio-control__option active"
@@ -1032,16 +1077,19 @@ Object {
             </a>
              in Material Design Options to update all cards.
           </p>
+          <div
+            class="components-notice__actions"
+          />
         </div>
       </div>
       <div
-        class="components-base-control components-radio-control"
+        class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-radio-control-0"
           >
             Elevation style
@@ -1099,7 +1147,7 @@ Object {
           </div>
         </div>
         <p
-          class="components-base-control__help"
+          class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
           id="inspector-radio-control-0__help"
         >
           Elevation style whether elevated or outlined.
@@ -1131,7 +1179,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -1139,13 +1187,13 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control components-radio-control"
+        class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-radio-control-1"
           >
             Content layout
@@ -1202,28 +1250,28 @@ Object {
         </div>
       </div>
       <div
-        class="components-base-control components-range-control"
+        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-range-control-0"
           >
             Columns
           </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
+          <div
+            class="components-range-control__root css-2cg8er-Root exqw8y214"
           >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
+            <div
+              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+              color="var( --wp-admin-theme-color, #00669b)"
             >
               <input
                 aria-hidden="false"
                 aria-label="Columns"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
                 id="inspector-range-control-0"
                 max="4"
                 min="2"
@@ -1234,52 +1282,73 @@ Object {
               />
               <span
                 aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
+                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
               />
               <span
                 aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
+                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
                 style="width: 100%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
                 style="left: 100%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
                 role="tooltip"
                 style="left: 100%; z-index: 100;"
               >
                 4
               </span>
-            </span>
-            <input
-              aria-label="Columns"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="4"
-              min="2"
-              step="1"
-              type="number"
-              value="4"
-            />
-          </span>
+            </div>
+            <div
+              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+              data-wp-c16t="true"
+              data-wp-component="Flex"
+            >
+              <div
+                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                data-wp-c16t="true"
+                data-wp-component="FlexItem"
+              />
+              <div
+                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+              >
+                <input
+                  aria-label="Columns"
+                  autocomplete="off"
+                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                  id="inspector-input-control-0"
+                  inputmode="decimal"
+                  max="4"
+                  min="2"
+                  step="1"
+                  type="number"
+                  value="4"
+                />
+                <div
+                  aria-hidden="true"
+                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="components-base-control components-range-control"
+        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-range-control-1"
           >
             Gutter
@@ -1315,17 +1384,17 @@ Object {
               </button>
             </div>
           </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
+          <div
+            class="components-range-control__root css-2cg8er-Root exqw8y214"
           >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
+            <div
+              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+              color="var( --wp-admin-theme-color, #00669b)"
             >
               <input
                 aria-hidden="false"
                 aria-label="[object Object]"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
                 id="inspector-range-control-1"
                 max="24"
                 min="1"
@@ -1336,42 +1405,63 @@ Object {
               />
               <span
                 aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
+                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
               />
               <span
                 aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
+                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
                 style="width: 0%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
                 style="left: 0%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
                 role="tooltip"
                 style="left: 0%; z-index: 100;"
               >
                 1
               </span>
-            </span>
-            <input
-              aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="24"
-              min="1"
-              step="1"
-              type="number"
-              value="1"
-            />
-          </span>
+            </div>
+            <div
+              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+              data-wp-c16t="true"
+              data-wp-component="Flex"
+            >
+              <div
+                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                data-wp-c16t="true"
+                data-wp-component="FlexItem"
+              />
+              <div
+                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+              >
+                <input
+                  aria-label="[object Object]"
+                  autocomplete="off"
+                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                  id="inspector-input-control-1"
+                  inputmode="decimal"
+                  max="24"
+                  min="1"
+                  step="1"
+                  type="number"
+                  value="1"
+                />
+                <div
+                  aria-hidden="true"
+                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1485,7 +1575,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -1493,10 +1583,10 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control components-radio-control components-image-radio-control"
+          class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <div
               class="components-radio-control__option active"
@@ -1788,16 +1878,19 @@ Object {
               </a>
                in Material Design Options to update all cards.
             </p>
+            <div
+              class="components-notice__actions"
+            />
           </div>
         </div>
         <div
-          class="components-base-control components-radio-control"
+          class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-radio-control-2"
             >
               Elevation style
@@ -1855,7 +1948,7 @@ Object {
             </div>
           </div>
           <p
-            class="components-base-control__help"
+            class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
             id="inspector-radio-control-2__help"
           >
             Elevation style whether elevated or outlined.
@@ -1887,7 +1980,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -1895,13 +1988,13 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control components-radio-control"
+          class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-radio-control-3"
             >
               Content layout
@@ -1958,28 +2051,28 @@ Object {
           </div>
         </div>
         <div
-          class="components-base-control components-range-control"
+          class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-range-control-2"
             >
               Columns
             </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
+            <div
+              class="components-range-control__root css-2cg8er-Root exqw8y214"
             >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
+              <div
+                class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                color="var( --wp-admin-theme-color, #00669b)"
               >
                 <input
                   aria-hidden="false"
                   aria-label="Columns"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                  class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
                   id="inspector-range-control-2"
                   max="4"
                   min="2"
@@ -1990,52 +2083,73 @@ Object {
                 />
                 <span
                   aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
+                  class="css-43abdt-Rail-railBackgroundColor exqw8y210"
                 />
                 <span
                   aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
+                  class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
                   style="width: 100%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
                   style="left: 100%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-yd4y8u-Thumb-thumbColor exqw8y24"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
                   role="tooltip"
                   style="left: 100%; z-index: 100;"
                 >
                   4
                 </span>
-              </span>
-              <input
-                aria-label="Columns"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="4"
-                min="2"
-                step="1"
-                type="number"
-                value="4"
-              />
-            </span>
+              </div>
+              <div
+                class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                data-wp-c16t="true"
+                data-wp-component="Flex"
+              >
+                <div
+                  class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="FlexItem"
+                />
+                <div
+                  class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                >
+                  <input
+                    aria-label="Columns"
+                    autocomplete="off"
+                    class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                    id="inspector-input-control-2"
+                    inputmode="decimal"
+                    max="4"
+                    min="2"
+                    step="1"
+                    type="number"
+                    value="4"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div
-          class="components-base-control components-range-control"
+          class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-range-control-3"
             >
               Gutter
@@ -2071,17 +2185,17 @@ Object {
                 </button>
               </div>
             </label>
-            <span
-              class="components-range-control__root css-yaebbd-Root exqw8y20"
+            <div
+              class="components-range-control__root css-2cg8er-Root exqw8y214"
             >
-              <span
-                class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-                color="#00669b"
+              <div
+                class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                color="var( --wp-admin-theme-color, #00669b)"
               >
                 <input
                   aria-hidden="false"
                   aria-label="[object Object]"
-                  class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                  class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
                   id="inspector-range-control-3"
                   max="24"
                   min="1"
@@ -2092,42 +2206,63 @@ Object {
                 />
                 <span
                   aria-hidden="true"
-                  class="css-1lwhlrq-Rail exqw8y24"
+                  class="css-43abdt-Rail-railBackgroundColor exqw8y210"
                 />
                 <span
                   aria-hidden="true"
-                  class="components-range-control__track css-ogrpie-Track exqw8y25"
+                  class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
                   style="width: 0%;"
                 />
                 <span
-                  class="css-kjao9s-ThumbWrapper exqw8y29"
+                  class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
                   style="left: 0%;"
                 >
                   <span
                     aria-hidden="true"
-                    class="css-c88ajq-Thumb exqw8y210"
+                    class="css-yd4y8u-Thumb-thumbColor exqw8y24"
                   />
                 </span>
                 <span
                   aria-hidden="false"
-                  class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                  class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
                   role="tooltip"
                   style="left: 0%; z-index: 100;"
                 >
                   1
                 </span>
-              </span>
-              <input
-                aria-label="[object Object]"
-                class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-                inputmode="decimal"
-                max="24"
-                min="1"
-                step="1"
-                type="number"
-                value="1"
-              />
-            </span>
+              </div>
+              <div
+                class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                data-wp-c16t="true"
+                data-wp-component="Flex"
+              >
+                <div
+                  class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="FlexItem"
+                />
+                <div
+                  class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                >
+                  <input
+                    aria-label="[object Object]"
+                    autocomplete="off"
+                    class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                    id="inspector-input-control-3"
+                    inputmode="decimal"
+                    max="24"
+                    min="1"
+                    step="1"
+                    type="number"
+                    value="1"
+                  />
+                  <div
+                    aria-hidden="true"
+                    class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2159,7 +2294,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -2167,10 +2302,10 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control components-radio-control components-image-radio-control"
+        class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <div
             class="components-radio-control__option active"
@@ -2462,16 +2597,19 @@ Object {
             </a>
              in Material Design Options to update all cards.
           </p>
+          <div
+            class="components-notice__actions"
+          />
         </div>
       </div>
       <div
-        class="components-base-control components-radio-control"
+        class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-radio-control-2"
           >
             Elevation style
@@ -2529,7 +2667,7 @@ Object {
           </div>
         </div>
         <p
-          class="components-base-control__help"
+          class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
           id="inspector-radio-control-2__help"
         >
           Elevation style whether elevated or outlined.
@@ -2561,7 +2699,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -2569,13 +2707,13 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control components-radio-control"
+        class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-radio-control-3"
           >
             Content layout
@@ -2632,28 +2770,28 @@ Object {
         </div>
       </div>
       <div
-        class="components-base-control components-range-control"
+        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-range-control-2"
           >
             Columns
           </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
+          <div
+            class="components-range-control__root css-2cg8er-Root exqw8y214"
           >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
+            <div
+              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+              color="var( --wp-admin-theme-color, #00669b)"
             >
               <input
                 aria-hidden="false"
                 aria-label="Columns"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
                 id="inspector-range-control-2"
                 max="4"
                 min="2"
@@ -2664,52 +2802,73 @@ Object {
               />
               <span
                 aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
+                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
               />
               <span
                 aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
+                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
                 style="width: 100%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
                 style="left: 100%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
                 role="tooltip"
                 style="left: 100%; z-index: 100;"
               >
                 4
               </span>
-            </span>
-            <input
-              aria-label="Columns"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="4"
-              min="2"
-              step="1"
-              type="number"
-              value="4"
-            />
-          </span>
+            </div>
+            <div
+              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+              data-wp-c16t="true"
+              data-wp-component="Flex"
+            >
+              <div
+                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                data-wp-c16t="true"
+                data-wp-component="FlexItem"
+              />
+              <div
+                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+              >
+                <input
+                  aria-label="Columns"
+                  autocomplete="off"
+                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                  id="inspector-input-control-2"
+                  inputmode="decimal"
+                  max="4"
+                  min="2"
+                  step="1"
+                  type="number"
+                  value="4"
+                />
+                <div
+                  aria-hidden="true"
+                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div
-        class="components-base-control components-range-control"
+        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-range-control-3"
           >
             Gutter
@@ -2745,17 +2904,17 @@ Object {
               </button>
             </div>
           </label>
-          <span
-            class="components-range-control__root css-yaebbd-Root exqw8y20"
+          <div
+            class="components-range-control__root css-2cg8er-Root exqw8y214"
           >
-            <span
-              class="components-range-control__wrapper css-okph2p-Wrapper exqw8y21"
-              color="#00669b"
+            <div
+              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+              color="var( --wp-admin-theme-color, #00669b)"
             >
               <input
                 aria-hidden="false"
                 aria-label="[object Object]"
-                class="components-range-control__slider css-15v4a6m-InputRange exqw8y211"
+                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
                 id="inspector-range-control-3"
                 max="24"
                 min="1"
@@ -2766,42 +2925,63 @@ Object {
               />
               <span
                 aria-hidden="true"
-                class="css-1lwhlrq-Rail exqw8y24"
+                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
               />
               <span
                 aria-hidden="true"
-                class="components-range-control__track css-ogrpie-Track exqw8y25"
+                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
                 style="width: 0%;"
               />
               <span
-                class="css-kjao9s-ThumbWrapper exqw8y29"
+                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
                 style="left: 0%;"
               >
                 <span
                   aria-hidden="true"
-                  class="css-c88ajq-Thumb exqw8y210"
+                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
                 />
               </span>
               <span
                 aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ula2je-Tooltip exqw8y212"
+                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
                 role="tooltip"
                 style="left: 0%; z-index: 100;"
               >
                 1
               </span>
-            </span>
-            <input
-              aria-label="[object Object]"
-              class="components-range-control__number css-1r0c7yf-InputNumber exqw8y213"
-              inputmode="decimal"
-              max="24"
-              min="1"
-              step="1"
-              type="number"
-              value="1"
-            />
-          </span>
+            </div>
+            <div
+              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+              data-wp-c16t="true"
+              data-wp-component="Flex"
+            >
+              <div
+                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                data-wp-c16t="true"
+                data-wp-component="FlexItem"
+              />
+              <div
+                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+              >
+                <input
+                  aria-label="[object Object]"
+                  autocomplete="off"
+                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                  id="inspector-input-control-3"
+                  inputmode="decimal"
+                  max="24"
+                  min="1"
+                  step="1"
+                  type="number"
+                  value="1"
+                />
+                <div
+                  aria-hidden="true"
+                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

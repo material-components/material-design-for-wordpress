@@ -15,3 +15,9 @@
  */
 
 import './plugins/hide-sections';
+import { registerBlocks } from './util';
+
+/**
+ * Register the blocks.
+ */
+registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );

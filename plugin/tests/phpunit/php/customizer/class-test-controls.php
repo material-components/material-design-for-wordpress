@@ -623,7 +623,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$css      = $controls->get_frontend_css();
 
 		// Assert we get the default values as CSS vars.
-		$this->assertContains( ':root {', $css );
+		$this->assertContains( ':root, body {', $css );
 		$this->assertContains( '--mdc-theme-primary: #6200ee;', $css );
 		$this->assertContains( '--mdc-theme-primary-rgb: 98,0,238;', $css );
 		$this->assertContains( '--mdc-theme-secondary: #018786;', $css );

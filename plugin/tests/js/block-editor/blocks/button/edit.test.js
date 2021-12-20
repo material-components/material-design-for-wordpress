@@ -29,6 +29,8 @@ jest.unmock( '@wordpress/data' );
 jest.mock( '@wordpress/data', () => ( {
 	combineReducers: jest.fn(),
 	registerStore: jest.fn(),
+	createReduxStore: jest.fn(),
+	register: jest.fn(),
 	select: store => {
 		switch ( store ) {
 			case 'core/block-editor':

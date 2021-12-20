@@ -91,8 +91,9 @@ const Gallery = ( {
 			};
 		} else {
 			itemStyles = {
-				width: `calc(100% / ${ desktopColumns } - ${ desktopGutter +
-					1 / desktopColumns }px)`,
+				width: `calc(100% / ${ desktopColumns } - ${
+					desktopGutter + 1 / desktopColumns
+				}px)`,
 				margin: `${ desktopGutter / 2 }px`,
 			};
 		}

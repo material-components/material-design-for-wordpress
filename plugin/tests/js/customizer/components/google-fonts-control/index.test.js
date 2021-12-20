@@ -133,9 +133,7 @@ describe( 'GoogleFontsControl', () => {
 
 		const app = setupShallow( baseProps );
 
-		app.find( '.google-fonts-control-settings-expanded' )
-			.props()
-			.onClick();
+		app.find( '.google-fonts-control-settings-expanded' ).props().onClick();
 		expect( setState ).toHaveBeenCalledWith( true );
 	} );
 } );

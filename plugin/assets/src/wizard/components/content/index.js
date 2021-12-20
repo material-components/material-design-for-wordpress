@@ -69,18 +69,14 @@ const Content = () => {
 			selectedAddons.includes( ADDONS.THEME ) &&
 			! selectedAddons.includes( ADDONS.DEMO )
 		) {
-			handleThemeActivation()
-				.then( handleSuccess )
-				.catch( handleError );
+			handleThemeActivation().then( handleSuccess ).catch( handleError );
 		}
 
 		if (
 			selectedAddons.includes( ADDONS.DEMO ) &&
 			! selectedAddons.includes( ADDONS.THEME )
 		) {
-			handleDemoImporter()
-				.then( handleSuccess )
-				.catch( handleError );
+			handleDemoImporter().then( handleSuccess ).catch( handleError );
 		}
 
 		if (

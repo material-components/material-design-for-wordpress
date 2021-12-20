@@ -54,7 +54,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -62,13 +62,13 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control"
+          class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-text-control-0"
             >
               Email address
@@ -82,13 +82,13 @@ Object {
           </div>
         </div>
         <div
-          class="components-base-control"
+          class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-text-control-1"
             >
               Subject
@@ -102,13 +102,13 @@ Object {
           </div>
         </div>
         <div
-          class="components-base-control"
+          class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-text-control-2"
             >
               Submission confirmation message
@@ -147,7 +147,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -155,10 +155,10 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control components-toggle-control"
+          class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <span
               class="components-form-toggle is-checked"
@@ -175,20 +175,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -224,7 +210,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -242,13 +228,16 @@ Object {
         >
           Generate keys
           <span
-            class="components-visually-hidden"
+            class="components-visually-hidden css-1mm2cvy-View em57xhy0"
+            data-wp-c16t="true"
+            data-wp-component="VisuallyHidden"
+            style="border: 0px; clip: rect(1px, 1px, 1px, 1px); clip-path: inset( 50% ); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; word-wrap: normal;"
           >
             (opens in a new tab)
           </span>
           <svg
             aria-hidden="true"
-            class="components-external-link__icon"
+            class="components-external-link__icon css-zhyjeo-StyledIcon etxm6pv0"
             focusable="false"
             height="24"
             role="img"
@@ -269,13 +258,16 @@ Object {
         >
           Documentation
           <span
-            class="components-visually-hidden"
+            class="components-visually-hidden css-1mm2cvy-View em57xhy0"
+            data-wp-c16t="true"
+            data-wp-component="VisuallyHidden"
+            style="border: 0px; clip: rect(1px, 1px, 1px, 1px); clip-path: inset( 50% ); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; word-wrap: normal;"
           >
             (opens in a new tab)
           </span>
           <svg
             aria-hidden="true"
-            class="components-external-link__icon"
+            class="components-external-link__icon css-zhyjeo-StyledIcon etxm6pv0"
             focusable="false"
             height="24"
             role="img"
@@ -291,13 +283,13 @@ Object {
         <br />
         <br />
         <div
-          class="components-base-control"
+          class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-text-control-3"
             >
               Site Key
@@ -311,13 +303,13 @@ Object {
           </div>
         </div>
         <div
-          class="components-base-control"
+          class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <label
-              class="components-base-control__label"
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
               for="inspector-text-control-4"
             >
               Client Secret
@@ -412,7 +404,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -420,13 +412,13 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control"
+        class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-text-control-0"
           >
             Email address
@@ -440,13 +432,13 @@ Object {
         </div>
       </div>
       <div
-        class="components-base-control"
+        class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-text-control-1"
           >
             Subject
@@ -460,13 +452,13 @@ Object {
         </div>
       </div>
       <div
-        class="components-base-control"
+        class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-text-control-2"
           >
             Submission confirmation message
@@ -505,7 +497,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -513,10 +505,10 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control components-toggle-control"
+        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <span
             class="components-form-toggle is-checked"
@@ -533,20 +525,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -582,7 +560,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -600,13 +578,16 @@ Object {
       >
         Generate keys
         <span
-          class="components-visually-hidden"
+          class="components-visually-hidden css-1mm2cvy-View em57xhy0"
+          data-wp-c16t="true"
+          data-wp-component="VisuallyHidden"
+          style="border: 0px; clip: rect(1px, 1px, 1px, 1px); clip-path: inset( 50% ); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; word-wrap: normal;"
         >
           (opens in a new tab)
         </span>
         <svg
           aria-hidden="true"
-          class="components-external-link__icon"
+          class="components-external-link__icon css-zhyjeo-StyledIcon etxm6pv0"
           focusable="false"
           height="24"
           role="img"
@@ -627,13 +608,16 @@ Object {
       >
         Documentation
         <span
-          class="components-visually-hidden"
+          class="components-visually-hidden css-1mm2cvy-View em57xhy0"
+          data-wp-c16t="true"
+          data-wp-component="VisuallyHidden"
+          style="border: 0px; clip: rect(1px, 1px, 1px, 1px); clip-path: inset( 50% ); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; word-wrap: normal;"
         >
           (opens in a new tab)
         </span>
         <svg
           aria-hidden="true"
-          class="components-external-link__icon"
+          class="components-external-link__icon css-zhyjeo-StyledIcon etxm6pv0"
           focusable="false"
           height="24"
           role="img"
@@ -649,13 +633,13 @@ Object {
       <br />
       <br />
       <div
-        class="components-base-control"
+        class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-text-control-3"
           >
             Site Key
@@ -669,13 +653,13 @@ Object {
         </div>
       </div>
       <div
-        class="components-base-control"
+        class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <label
-            class="components-base-control__label"
+            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
             for="inspector-text-control-4"
           >
             Client Secret

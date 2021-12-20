@@ -22,7 +22,7 @@
  * @since 1.0.0
  */
 
-/* global jQuery, materialDesignThemeColorControls, materialDesignThemeColorControlsDark */
+/* global jQuery, materialDesignThemeColorControls, materialDesignThemeColorControlsDark, materialDesignThemeColorControlsTheme */
 
 /**
  * External dependencies
@@ -43,7 +43,7 @@ export const COLOR_MODES = {
 
 const api = window.wp.customize;
 
-( function( $ ) {
+( function ( $ ) {
 	// Bail out if this isn't loaded in an iframe.
 	if (
 		! window.parent ||
@@ -77,8 +77,8 @@ const api = window.wp.customize;
 		);
 	}
 
-	$( function() {
-		api.preview.bind( 'active', function() {
+	$( function () {
+		api.preview.bind( 'active', function () {
 			api.preview.bind( 'materialDesignThemePaletteUpdate', message => {
 				updateColorMode( message );
 			} );
@@ -86,20 +86,20 @@ const api = window.wp.customize;
 	} );
 
 	// Site title and description.
-	api( 'blogname', function( value ) {
-		value.bind( function( to ) {
+	api( 'blogname', function ( value ) {
+		value.bind( function ( to ) {
 			$( '.site-title a' ).text( to );
 		} );
 	} );
-	api( 'blogdescription', function( value ) {
-		value.bind( function( to ) {
+	api( 'blogdescription', function ( value ) {
+		value.bind( function ( to ) {
 			$( '.site-description' ).text( to );
 		} );
 	} );
 
 	// Header text color.
-	api( 'header_textcolor', function( value ) {
-		value.bind( function( to ) {
+	api( 'header_textcolor', function ( value ) {
+		value.bind( function ( to ) {
 			if ( 'blank' === to ) {
 				$( '.site-title, .site-description' ).css( {
 					clip: 'rect(1px, 1px, 1px, 1px)',
@@ -118,8 +118,8 @@ const api = window.wp.customize;
 	} );
 
 	// Archive width
-	api( 'archive_width', function( value ) {
-		value.bind( function( to ) {
+	api( 'archive_width', function ( value ) {
+		value.bind( function ( to ) {
 			if ( 'wide' === to ) {
 				$( '.content-area' ).removeClass( 'material-archive__normal' );
 				$( '.content-area' ).addClass( 'material-archive__wide' );
@@ -161,6 +161,9 @@ const api = window.wp.customize;
 			}
 
 			styles += `${ cssVar }: ${ color };`;
+			if ( materialDesignThemeColorControlsTheme[ control ] ) {
+				styles += `${ materialDesignThemeColorControlsTheme[ control ] }: ${ color };`;
+			}
 			styles += `${ cssVar }-rgb: ${ hexToRgb( color ).join( ',' ) };`;
 
 			if ( '--mdc-theme-background' === cssVar ) {
@@ -183,6 +186,9 @@ const api = window.wp.customize;
 				}
 
 				darkStyles += `${ cssVar }: ${ color };`;
+				if ( materialDesignThemeColorControlsTheme[ control ] ) {
+					darkStyles += `${ materialDesignThemeColorControlsTheme[ control ] }: ${ color };`;
+				}
 				darkStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join(
 					','
 				) };`;
@@ -208,6 +214,9 @@ const api = window.wp.customize;
 			}
 
 			lightStyles += `${ cssVar }: ${ color };`;
+			if ( materialDesignThemeColorControlsTheme[ control ] ) {
+				lightStyles += `${ materialDesignThemeColorControlsTheme[ control ] }: ${ color };`;
+			}
 			lightStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join(
 				','
 			) };`;
@@ -222,7 +231,7 @@ const api = window.wp.customize;
 			}
 		} );
 
-		styles = `:root {
+		styles = `body {
 			${ styles }
 
 			body[data-color-scheme="dark"] {
@@ -274,13 +283,14 @@ const api = window.wp.customize;
 					.match( /.{2}/g )
 					.map( x => parseInt( x, 16 ) );
 
-	api.selectiveRefresh.bind( 'partial-content-rendered', function(
-		placement
-	) {
-		if ( 'archive_layout' !== placement.partial.id ) {
-			return;
-		}
+	api.selectiveRefresh.bind(
+		'partial-content-rendered',
+		function ( placement ) {
+			if ( 'archive_layout' !== placement.partial.id ) {
+				return;
+			}
 
-		masonryInit();
-	} );
+			masonryInit();
+		}
+	);
 } )( jQuery );
