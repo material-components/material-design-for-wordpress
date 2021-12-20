@@ -22,7 +22,7 @@
  * @since 1.0.0
  */
 
-/* global jQuery, materialDesignThemeColorControls, materialDesignThemeColorControlsDark */
+/* global jQuery, materialDesignThemeColorControls, materialDesignThemeColorControlsDark, materialDesignThemeColorControlsTheme */
 
 /**
  * External dependencies
@@ -161,6 +161,9 @@ const api = window.wp.customize;
 			}
 
 			styles += `${ cssVar }: ${ color };`;
+			if ( materialDesignThemeColorControlsTheme[ control ] ) {
+				styles += `${ materialDesignThemeColorControlsTheme[ control ] }: ${ color };`;
+			}
 			styles += `${ cssVar }-rgb: ${ hexToRgb( color ).join( ',' ) };`;
 
 			if ( '--mdc-theme-background' === cssVar ) {
@@ -183,6 +186,9 @@ const api = window.wp.customize;
 				}
 
 				darkStyles += `${ cssVar }: ${ color };`;
+				if ( materialDesignThemeColorControlsTheme[ control ] ) {
+					darkStyles += `${ materialDesignThemeColorControlsTheme[ control ] }: ${ color };`;
+				}
 				darkStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join(
 					','
 				) };`;
@@ -208,6 +214,9 @@ const api = window.wp.customize;
 			}
 
 			lightStyles += `${ cssVar }: ${ color };`;
+			if ( materialDesignThemeColorControlsTheme[ control ] ) {
+				lightStyles += `${ materialDesignThemeColorControlsTheme[ control ] }: ${ color };`;
+			}
 			lightStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join(
 				','
 			) };`;
@@ -222,7 +231,7 @@ const api = window.wp.customize;
 			}
 		} );
 
-		styles = `:root {
+		styles = `body {
 			${ styles }
 
 			body[data-color-scheme="dark"] {

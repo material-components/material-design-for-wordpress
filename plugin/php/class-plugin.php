@@ -200,8 +200,8 @@ class Plugin extends Plugin_Base {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_google_fonts' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_front_end_assets' ], 100 );
-		add_action( 'wp_head', [ $this, 'frontend_inline_css' ], 1 );
-		add_action( 'admin_head', [ $this, 'frontend_inline_css' ], 1 );
+		add_action( 'wp_head', [ $this, 'frontend_inline_css' ], 5 );
+		add_action( 'admin_head', [ $this, 'frontend_inline_css' ], 5 );
 		add_action( 'plugin_row_meta', [ $this, 'get_plugin_row_meta' ], 10, 2 );
 	}
 
