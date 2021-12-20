@@ -439,7 +439,7 @@ Object {
             </span>
           </div>
           <span
-            class="components-spinner"
+            class="components-spinner css-pz2hpy-StyledSpinner e1s472tg0"
           />
         </div>
       </div>
@@ -490,7 +490,7 @@ Object {
           </span>
         </div>
         <span
-          class="components-spinner"
+          class="components-spinner css-pz2hpy-StyledSpinner e1s472tg0"
         />
       </div>
     </div>

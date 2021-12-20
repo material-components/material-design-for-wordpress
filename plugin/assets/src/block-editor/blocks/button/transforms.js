@@ -24,7 +24,7 @@ const transforms = {
 		{
 			type: 'block',
 			blocks: [ 'core/buttons' ],
-			transform: ( buttonsAttributes, buttons ) => {
+			transform: ( _buttonsAttributes, buttons ) => {
 				return buttons.map( ( { attributes } ) => {
 					return createBlock( 'material/button', {
 						label: attributes.text,

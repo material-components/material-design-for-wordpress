@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blocks: material/data-table should update table cell content 1`] = `
+"<!-- wp:material/data-table -->
+<div class=\\"wp-block-material-data-table wp-block-table\\"><div class=\\"mdc-data-table\\"><table class=\\"mdc-data-table__table\\"><tbody class=\\"mdc-data-table__content\\"><tr class=\\"mdc-data-table__row\\"><td class=\\"mdc-data-table__cell\\">Column 1</td><td class=\\"mdc-data-table__cell\\"></td></tr><tr class=\\"mdc-data-table__row\\"><td class=\\"mdc-data-table__cell\\"></td><td class=\\"mdc-data-table__cell\\"></td></tr></tbody></table></div></div>
+<!-- /wp:material/data-table -->"
+`;

@@ -24,12 +24,13 @@ import { render, fireEvent } from '@testing-library/react';
  * Internal dependencies
  */
 import GutterWithDevices from '../../../../assets/src/block-editor/components/attribute-with-devices';
+import { getRangeInput } from '../../helper';
 
 /**
  * Render the component.
  *
  * @param {Object} props - Component props.
- * @return {Function} A functional component.
+ * @return {import('@testing-library/react').Element} A functional component.
  */
 const setup = props => {
 	return render( <GutterWithDevices { ...props } /> );
@@ -60,9 +61,9 @@ describe( 'GutterWithDevices', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll(
-				'.components-range-control__number'
-			)[ 0 ],
+			getRangeInput(
+				container.querySelectorAll( '.components-range-control' )[ 0 ]
+			),
 			{
 				target: { value: 10 },
 			}
@@ -72,9 +73,9 @@ describe( 'GutterWithDevices', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll(
-				'.components-range-control__number'
-			)[ 0 ],
+			getRangeInput(
+				container.querySelectorAll( '.components-range-control' )[ 0 ]
+			),
 			{
 				target: { value: 8 },
 			}
@@ -84,9 +85,9 @@ describe( 'GutterWithDevices', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll(
-				'.components-range-control__number'
-			)[ 0 ],
+			getRangeInput(
+				container.querySelectorAll( '.components-range-control' )[ 0 ]
+			),
 			{
 				target: { value: 4 },
 			}

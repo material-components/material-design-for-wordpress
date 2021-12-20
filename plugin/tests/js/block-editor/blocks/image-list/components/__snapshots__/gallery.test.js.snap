@@ -2917,7 +2917,7 @@ Object {
       >
         <li
           class="mdc-image-list__item"
-          style="margin: 12px;"
+          style="width: calc(100% / 4 - 24.25px); margin: 12px;"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -2973,7 +2973,7 @@ Object {
         </li>
         <li
           class="mdc-image-list__item"
-          style="margin: 12px;"
+          style="width: calc(100% / 4 - 24.25px); margin: 12px;"
         >
           <div
             class="mdc-image-list__item-wrap"
@@ -3036,7 +3036,7 @@ Object {
     >
       <li
         class="mdc-image-list__item"
-        style="margin: 12px;"
+        style="width: calc(100% / 4 - 24.25px); margin: 12px;"
       >
         <div
           class="mdc-image-list__item-wrap"
@@ -3092,7 +3092,7 @@ Object {
       </li>
       <li
         class="mdc-image-list__item"
-        style="margin: 12px;"
+        style="width: calc(100% / 4 - 24.25px); margin: 12px;"
       >
         <div
           class="mdc-image-list__item-wrap"

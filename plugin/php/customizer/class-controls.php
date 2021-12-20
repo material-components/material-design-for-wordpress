@@ -82,6 +82,7 @@ class Controls extends Module_Base {
 		add_action( 'wp_ajax_material_design_notification_dismiss', [ $this, 'notification_dismiss' ] );
 
 		add_filter( 'material_design_customizer_section_args', [ $this, 'filter_style_section' ], 10, 2 );
+		add_filter( 'material_design_theme_colors_additional_controls', [ $this, 'add_additional_theme_color_controls' ], 10 );
 	}
 
 	/**
@@ -877,6 +878,7 @@ class Controls extends Module_Base {
 
 			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
 			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
+			$color_vars[] = sprintf( '%s: %s;', esc_html( sprintf( '--wp--preset--color--%s', $control['theme_json'] ) ), esc_html( $value ) );
 		}
 
 		// Generate additional surface variant vars required by some components.
@@ -989,6 +991,7 @@ class Controls extends Module_Base {
 
 			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
 			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
+			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( sprintf( '--wp--preset--color--%s', $control['theme_json'] ) ), esc_html( $value ) );
 		}
 
 		$glue               = "\n\t\t\t\t";
@@ -999,7 +1002,7 @@ class Controls extends Module_Base {
 		$dark_mode_vars     = implode( $glue, $dark_mode_vars );
 
 		$css = "
-			:root {
+			:root, body {
 				/* Theme color vars */
 				{$color_vars}
 
@@ -1027,7 +1030,7 @@ class Controls extends Module_Base {
 		if ( 'inactive' !== $this->get_dark_mode_status() ) {
 			$css .= "
 				@media (prefers-color-scheme: dark) {
-					:root {
+					:root, body {
 						{$dark_mode_vars}
 					}
 				}
@@ -1233,6 +1236,8 @@ class Controls extends Module_Base {
 				'a11y_label'           => __( 'On Primary', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_primary_color' ),
 				'css_var'              => '--mdc-theme-primary',
+				'theme_json'           => 'primary',
+				'order'                => 1,
 			],
 			[
 				'id'              => 'on_primary_color',
@@ -1240,6 +1245,8 @@ class Controls extends Module_Base {
 				'a11y_label'      => __( 'On Primary', 'material-design' ),
 				'related_setting' => $this->prepare_option_name( 'primary_color' ),
 				'css_var'         => '--mdc-theme-on-primary',
+				'theme_json'      => 'on-primary',
+				'order'           => 2,
 			],
 			[
 				'id'                   => 'secondary_color',
@@ -1247,6 +1254,8 @@ class Controls extends Module_Base {
 				'a11y_label'           => __( 'On Secondary', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_secondary_color' ),
 				'css_var'              => '--mdc-theme-secondary',
+				'theme_json'           => 'secondary',
+				'order'                => 3,
 			],
 			[
 				'id'              => 'on_secondary_color',
@@ -1254,6 +1263,8 @@ class Controls extends Module_Base {
 				'a11y_label'      => __( 'On Secondary', 'material-design' ),
 				'related_setting' => $this->prepare_option_name( 'secondary_color' ),
 				'css_var'         => '--mdc-theme-on-secondary',
+				'theme_json'      => 'on-secondary',
+				'order'           => 4,
 			],
 			[
 				'id'                   => 'surface_color',
@@ -1261,6 +1272,8 @@ class Controls extends Module_Base {
 				'a11y_label'           => __( 'On Surface', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_surface_color' ),
 				'css_var'              => '--mdc-theme-surface',
+				'theme_json'           => 'surface',
+				'order'                => 5,
 			],
 			[
 				'id'              => 'on_surface_color',
@@ -1268,6 +1281,8 @@ class Controls extends Module_Base {
 				'a11y_label'      => __( 'On Surface', 'material-design' ),
 				'related_setting' => $this->prepare_option_name( 'surface_color' ),
 				'css_var'         => '--mdc-theme-on-surface',
+				'theme_json'      => 'on-surface',
+				'order'           => 6,
 			],
 		];
 	}
@@ -1999,5 +2014,21 @@ class Controls extends Module_Base {
 
 		$this->add_settings( $settings );
 		$this->add_controls( $controls );
+	}
+
+	/**
+	 * Add additional theme colors.
+	 *
+	 * Used for overriding theme json.
+	 *
+	 * @return array[]
+	 */
+	public function add_additional_theme_color_controls() {
+		$colors = $this->get_color_controls();
+		foreach ( $colors as &$color ) {
+			$color['slug'] = $this->prepare_option_name( $color['id'] );
+		}
+
+		return $colors;
 	}
 }

@@ -140,12 +140,12 @@ export const initReCaptchaToken = () => {
 		getConfig( 'recaptcha_site_key' ) &&
 		tokenField
 	) {
-		grecaptcha.ready( function() {
+		grecaptcha.ready( function () {
 			grecaptcha
 				.execute( getConfig( 'recaptcha_site_key' ), {
 					action: 'contact',
 				} )
-				.then( function( token ) {
+				.then( function ( token ) {
 					tokenField.setAttribute( 'value', token );
 				} );
 		} );

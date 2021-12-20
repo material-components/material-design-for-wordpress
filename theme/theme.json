@@ -1,6 +1,6 @@
 {
-  "$schema": "https://json.schemastore.org/theme-v1.json",
-  "version": 1,
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
   "customTemplates": [
     {
       "name": "blank",
@@ -22,5 +22,87 @@
       "title": "Footer",
       "area": "footer"
     }
-  ]
+  ],
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#6200ee",
+          "name": "Primary"
+        },
+        {
+          "slug": "secondary",
+          "color": "#018786",
+          "name": "Secondary"
+        },
+        {
+          "slug": "on-primary",
+          "color": "#ffffff",
+          "name": "On Primary"
+        },
+        {
+          "slug": "on-secondary",
+          "color": "#000000",
+          "name": "On Secondary"
+        },
+        {
+          "slug": "surface",
+          "color": "#ffffff",
+          "name": "Surface"
+        },
+        {
+          "slug": "on-surface",
+          "color": "#000000",
+          "name": "On Surface"
+        },
+        {
+          "slug": "background",
+          "color": "#ffffff",
+          "name": "Background"
+        },
+        {
+          "slug": "on-background",
+          "color": "#000000",
+          "name": "On Background"
+        },
+        {
+          "slug": "top-app-bar",
+          "color": "#F0F0F0",
+          "name": "Top App Bar"
+        },
+        {
+          "slug": "on-top-app-bar",
+          "color": "#F0F0F0",
+          "name": "On Top App Bar"
+        },
+        {
+          "slug": "footer",
+          "color": "#ffffff",
+          "name": "Footer"
+        },
+        {
+          "slug": "on-footer",
+          "color": "#000000",
+          "name": "On Footer"
+        }
+      ]
+    },
+    "custom": {
+      "color": {
+        "primary": "var(--wp--preset--color--primary)",
+        "secondary": "var(--wp--preset--color--secondary)",
+        "on-primary": "var(--wp--preset--color--on-primary)",
+        "on-secondary": "var(--wp--preset--color--on-secondary)",
+        "surface": "var(--wp--preset--color--surface)",
+        "on-surface": "var(--wp--preset--color--on-surface)",
+        "background": "var(--wp--preset--color--background)",
+        "on-background": "var(--wp--preset--color--on-background)",
+        "top-app-bar": "var(--wp--preset--color--top-app-bar)",
+        "on-top-app-bar": "var(--wp--preset--color--on-top-app-bar)",
+        "footer": "var(--wp--preset--color--footer)",
+        "on-footer": "var(--wp--preset--color--on-footer)"
+      }
+    }
+  }
 }

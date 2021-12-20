@@ -59,9 +59,9 @@ describe( 'PostsOrderbyControl', () => {
 
 		const wrapper = mount( <PostsOrderbyControl { ...props } /> );
 		const select = wrapper.find( '.components-select-control__input' );
-		select.simulate( 'change', {
+		select.at( 1 ).simulate( 'change', {
 			target: { value: 'title' },
 		} );
-		expect( onChangeMock ).toHaveBeenCalledWith( 'title' );
+		expect( onChangeMock.mock.calls[ 0 ][ 0 ] ).toStrictEqual( 'title' );
 	} );
 } );

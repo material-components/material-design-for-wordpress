@@ -122,9 +122,8 @@ describe( 'RecaptchaInspectorControlsPanel', () => {
 			};
 			fireEvent.change( inputs[ 1 ], mockEvent );
 		} );
-
-		expect( setValue.mock.calls[ 0 ][ 0 ] ).toStrictEqual( 'SITE_KEY' );
-		expect( setValue.mock.calls[ 1 ][ 0 ] ).toStrictEqual(
+		expect( setValue.mock.calls[ 1 ][ 0 ] ).toStrictEqual( 'SITE_KEY' );
+		expect( setValue.mock.calls[ 2 ][ 0 ] ).toStrictEqual(
 			'CLIENT_SECRET'
 		);
 	} );

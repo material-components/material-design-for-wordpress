@@ -18,7 +18,7 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Toolbar } from '@wordpress/components';
+import { Toolbar, ToolbarButton } from '@wordpress/components';
 import { BlockControls } from '@wordpress/block-editor';
 
 /**
@@ -36,16 +36,16 @@ const HandPickedPostsBlockControls = ( { attributes, setAttributes } ) => {
 	return (
 		<BlockControls>
 			<Toolbar
-				controls={ [
-					{
-						icon: 'edit',
-						title: __( 'Edit', 'material-design' ),
-						onClick: () =>
-							setAttributes( { editMode: ! editMode } ),
-						isActive: editMode,
-					},
-				] }
-			/>
+				label={ __( 'Hand picked posts', 'material-design' ) }
+				id={ 'hand-picked-posts-toolbar' }
+			>
+				<ToolbarButton
+					icon={ 'edit' }
+					label="Edit"
+					onClick={ () => setAttributes( { editMode: ! editMode } ) }
+					isActive={ editMode }
+				/>
+			</Toolbar>
 		</BlockControls>
 	);
 };

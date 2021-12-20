@@ -101,54 +101,41 @@ describe( 'RangeSliderControl', () => {
 	} );
 
 	it( 'should have its value changed after the input number field value is changed', () => {
-		const wrapper = setupMount( baseProps );
-
-		const input = wrapper.find( 'input.components-range-control__number' );
-
-		input.simulate( 'change', {
+		const { container } = setup( baseProps );
+		const selector = '.components-range-control input[type="number"]';
+		const input = container.querySelector( selector );
+		input.focus();
+		fireEvent.change( input, {
 			target: {
 				value: 5,
-				checkValidity: () => true,
 			},
 		} );
-
-		expect(
-			wrapper
-				.find( 'input.components-range-control__number' )
-				.prop( 'value' )
-		).toBe( 5 );
-
 		expect( mockOnChangeFn ).toHaveBeenCalledTimes( 1 );
+		expect( mockOnChangeFn.mock.calls[ 0 ][ 0 ] ).toBe( 5 );
 	} );
 
 	it( 'should have its value changed after the input range field value is changed', () => {
-		const wrapper = setupMount( baseProps );
+		const { container } = setup( baseProps );
+		const selector = '.components-range-control input[type="range"]';
 
-		const input = wrapper.find( 'input.components-range-control__slider' );
+		const input = container.querySelector( selector );
 
-		input.simulate( 'change', {
+		fireEvent.change( input, {
 			target: {
 				value: 4,
-				checkValidity: () => true,
 			},
 		} );
-
-		expect(
-			wrapper
-				.find( 'input.components-range-control__slider' )
-				.prop( 'value' )
-		).toBe( 4 );
-
 		expect( mockOnChangeFn ).toHaveBeenCalledTimes( 1 );
+		expect( mockOnChangeFn.mock.calls[ 0 ][ 0 ] ).toBe( 4 );
 	} );
 
 	it( 'should show the description when the title is clicked', () => {
 		const wrapper = setupMount( baseProps );
-
-		wrapper.find( '.range-slider-control-title' ).simulate( 'click' );
+		const title = wrapper.find( '.range-slider-control-title span' );
+		title.simulate( 'click' );
 
 		expect(
-			wrapper.find( '.customize-control-description' ).getDOMNode()
-		).toBeVisible();
+			wrapper.exists( '.customize-control-description' )
+		).toStrictEqual( true );
 	} );
 } );

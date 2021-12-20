@@ -147,35 +147,41 @@ Object {
          
       </div>
       <div
-        class="components-toolbar"
-        label="Change the tab order"
+        aria-label="Change the tab order"
+        aria-orientation="horizontal"
+        class="components-accessible-toolbar"
+        controls=""
+        id="mdp-tab-bar-order-toolbar"
+        role="toolbar"
       >
-        <div>
-          <button
-            aria-label="Move left"
-            class="components-button components-toolbar__control has-icon"
-            type="button"
+        <button
+          aria-label="Move left"
+          class="components-button components-toolbar-button"
+          data-toolbar-item="true"
+          id="mdp-tab-bar-order-toolbar-1"
+          tabindex="0"
+          type="button"
+        >
+          <i
+            class="material-icons"
           >
-            <i
-              class="material-icons"
-            >
-              keyboard_arrow_left
-            </i>
-          </button>
-        </div>
-        <div>
-          <button
-            aria-label="Move right"
-            class="components-button components-toolbar__control has-icon"
-            type="button"
+            keyboard_arrow_left
+          </i>
+        </button>
+        <button
+          aria-label="Move right"
+          class="components-button components-toolbar-button"
+          data-toolbar-item="true"
+          id="mdp-tab-bar-order-toolbar-2"
+          tabindex="-1"
+          type="button"
+        >
+          <i
+            class="material-icons"
           >
-            <i
-              class="material-icons"
-            >
-              keyboard_arrow_right
-            </i>
-          </button>
-        </div>
+            keyboard_arrow_right
+          </i>
+        </button>
       </div>
       <div
         class="components-panel__body is-opened"
@@ -202,7 +208,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -369,35 +375,41 @@ Object {
        
     </div>
     <div
-      class="components-toolbar"
-      label="Change the tab order"
+      aria-label="Change the tab order"
+      aria-orientation="horizontal"
+      class="components-accessible-toolbar"
+      controls=""
+      id="mdp-tab-bar-order-toolbar"
+      role="toolbar"
     >
-      <div>
-        <button
-          aria-label="Move left"
-          class="components-button components-toolbar__control has-icon"
-          type="button"
+      <button
+        aria-label="Move left"
+        class="components-button components-toolbar-button"
+        data-toolbar-item="true"
+        id="mdp-tab-bar-order-toolbar-1"
+        tabindex="0"
+        type="button"
+      >
+        <i
+          class="material-icons"
         >
-          <i
-            class="material-icons"
-          >
-            keyboard_arrow_left
-          </i>
-        </button>
-      </div>
-      <div>
-        <button
-          aria-label="Move right"
-          class="components-button components-toolbar__control has-icon"
-          type="button"
+          keyboard_arrow_left
+        </i>
+      </button>
+      <button
+        aria-label="Move right"
+        class="components-button components-toolbar-button"
+        data-toolbar-item="true"
+        id="mdp-tab-bar-order-toolbar-2"
+        tabindex="-1"
+        type="button"
+      >
+        <i
+          class="material-icons"
         >
-          <i
-            class="material-icons"
-          >
-            keyboard_arrow_right
-          </i>
-        </button>
-      </div>
+          keyboard_arrow_right
+        </i>
+      </button>
     </div>
     <div
       class="components-panel__body is-opened"
@@ -424,7 +436,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
