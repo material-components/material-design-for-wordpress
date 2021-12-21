@@ -29,7 +29,6 @@ import {
 	__experimentalLinkControl as LinkControl,
 	useBlockProps,
 	store as blockEditorStore,
-	getColorClassName,
 } from '@wordpress/block-editor';
 import { isURL, prependHTTP, safeDecodeURI } from '@wordpress/url';
 import {
@@ -46,7 +45,7 @@ import { store as coreStore } from '@wordpress/core-data';
 /**
  * Internal dependencies
  */
-import { name } from './block.json';
+import { name } from './index';
 
 const MAX_NESTING = 5;
 
@@ -129,61 +128,6 @@ function getSuggestionsQuery( type, kind ) {
 			}
 			return {};
 	}
-}
-
-/**
- * Determine the colors for a menu.
- *
- * Order of priority is:
- * 1: Overlay custom colors (if submenu)
- * 2: Overlay theme colors (if submenu)
- * 3: Custom colors
- * 4: Theme colors
- * 5: Global styles
- *
- * @param {Object}  context
- * @param {boolean} isSubMenu
- */
-function getColors( context, isSubMenu ) {
-	const {
-		textColor,
-		customTextColor,
-		backgroundColor,
-		customBackgroundColor,
-		overlayTextColor,
-		customOverlayTextColor,
-		overlayBackgroundColor,
-		customOverlayBackgroundColor,
-		style,
-	} = context;
-
-	const colors = {};
-
-	if ( isSubMenu && !! customOverlayTextColor ) {
-		colors.customTextColor = customOverlayTextColor;
-	} else if ( isSubMenu && !! overlayTextColor ) {
-		colors.textColor = overlayTextColor;
-	} else if ( !! customTextColor ) {
-		colors.customTextColor = customTextColor;
-	} else if ( !! textColor ) {
-		colors.textColor = textColor;
-	} else if ( !! style?.color?.text ) {
-		colors.customTextColor = style.color.text;
-	}
-
-	if ( isSubMenu && !! customOverlayBackgroundColor ) {
-		colors.customBackgroundColor = customOverlayBackgroundColor;
-	} else if ( isSubMenu && !! overlayBackgroundColor ) {
-		colors.backgroundColor = overlayBackgroundColor;
-	} else if ( !! customBackgroundColor ) {
-		colors.customBackgroundColor = customBackgroundColor;
-	} else if ( !! backgroundColor ) {
-		colors.backgroundColor = backgroundColor;
-	} else if ( !! style?.color?.background ) {
-		colors.customTextColor = style.color.background;
-	}
-
-	return colors;
 }
 
 /**
@@ -328,6 +272,7 @@ export default function NavigationLinkEdit( {
 	context,
 	clientId,
 } ) {
+	console.log(context);
 	const {
 		label,
 		type,
@@ -551,13 +496,6 @@ export default function NavigationLinkEdit( {
 		};
 	}
 
-	const {
-		textColor,
-		customTextColor,
-		backgroundColor,
-		customBackgroundColor,
-	} = getColors( context, ! isTopLevelLink );
-
 	function onKeyDown( event ) {
 		if (
 			isKeyboardEvent.primary( event, 'k' ) ||
@@ -574,18 +512,7 @@ export default function NavigationLinkEdit( {
 			'is-dragging-within': isDraggingWithin,
 			'has-link': !! url,
 			'has-child': hasDescendants,
-			'has-text-color': !! textColor || !! customTextColor,
-			[ getColorClassName( 'color', textColor ) ]: !! textColor,
-			'has-background': !! backgroundColor || customBackgroundColor,
-			[ getColorClassName(
-				'background-color',
-				backgroundColor
-			) ]: !! backgroundColor,
 		} ),
-		style: {
-			color: ! textColor && customTextColor,
-			backgroundColor: ! backgroundColor && customBackgroundColor,
-		},
 		onKeyDown,
 	} );
 
@@ -688,7 +615,7 @@ export default function NavigationLinkEdit( {
 						<RichText
 							ref={ ref }
 							identifier="label"
-							className="wp-block-navigation-item__label"
+							className="wp-block-navigation-item__label mdc-tab"
 							value={ label }
 							onChange={ ( labelValue ) =>
 								setAttributes( {

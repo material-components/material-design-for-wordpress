@@ -1,60 +1,48 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
-import { addFilter } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
-const addMaterialStyle = ( settings, name ) => {
-	if ( 'core/navigation-link' === name ) {
-		settings.styles = [
-			{
-				name: 'material',
-				label: __( 'Material', 'material-design' ),
-				styleHandle: 'mdc-tab',
-			},
-			{
-				name: 'regular',
-				label: __( 'Regular', 'material-design' ),
-				isDefault: true,
-			},
-		];
-	}
+/**
+ * Internal dependencies
+ */
+import edit from './edit';
+import save from './save';
+import metadata from './block.json';
 
-	return settings;
+const { name, usesContext, title } = metadata;
+
+export { metadata, name };
+
+/**
+ * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, keywords: array, save: *}}
+ */
+export const settings = {
+	description: __(
+		'Display sets of data across rows and columns.',
+		'material-design'
+	),
+	category: 'material-design',
+	keywords: [ __( 'Material Data Table', 'material-design' ) ],
+	icon: () => <i className="material-icons-outlined">link</i>,
+	title,
+	edit,
+	save,
+	usesContext,
 };
-
-const withNavigationLinkEdit = BlockEdit => {
-	return props => {
-		if ( isMaterialNavigationLinkBlock( props.name, props.attributes ) ) {
-			console.log('modified block');
-			return (
-				<>
-					<BlockEdit { ...props } />
-				</>
-			);
-		}
-
-		return <BlockEdit { ...props } />;
-	};
-};
-
-const isMaterialNavigationLinkBlock = ( name, attributes ) => {
-	return (
-		'core/navigation-link' === name &&
-		attributes &&
-		attributes.className &&
-		-1 !== attributes.className.indexOf( 'material' )
-	);
-};
-
-addFilter(
-	'blocks.registerBlockType',
-	'material/navigation-link-style',
-	addMaterialStyle
-);
-
-addFilter(
-	'editor.BlockEdit',
-	'material/navigation-link-edit',
-	withNavigationLinkEdit,
-);
