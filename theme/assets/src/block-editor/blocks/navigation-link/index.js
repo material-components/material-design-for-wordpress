@@ -1,3 +1,6 @@
+/**
+ * WordPress dependencies
+ */
 import { addFilter } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
@@ -22,7 +25,7 @@ const addMaterialStyle = ( settings, name ) => {
 
 const withNavigationLinkEdit = BlockEdit => {
 	return props => {
-		if ( 'core/navigation-link' === props.name ) {
+		if ( isMaterialNavigationLinkBlock( props.name, props.attributes ) ) {
 			console.log('modified block');
 			return (
 				<>
@@ -33,6 +36,15 @@ const withNavigationLinkEdit = BlockEdit => {
 
 		return <BlockEdit { ...props } />;
 	};
+};
+
+const isMaterialNavigationLinkBlock = ( name, attributes ) => {
+	return (
+		'core/navigation-link' === name &&
+		attributes &&
+		attributes.className &&
+		-1 !== attributes.className.indexOf( 'material' )
+	);
 };
 
 addFilter(
