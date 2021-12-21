@@ -7,7 +7,7 @@ The official Material Design Theme for WordPress.
 **Contributors:** [google](https://profiles.wordpress.org/google), [materialdesign](https://profiles.wordpress.org/materialdesign), [xwp](https://profiles.wordpress.org/xwp)
 **Requires at least:** 5.6
 **Tested up to:** 5.8.2
-**Stable tag:** 0.5.0
+**Stable tag:** 0.5.1
 **License:** [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 **Requires PHP:** 5.6
 
@@ -55,4 +55,3 @@ TGMPA
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Source: https://github.com/TGMPA/TGM-Plugin-Activation
-
