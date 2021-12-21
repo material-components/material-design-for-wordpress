@@ -520,7 +520,7 @@ export default function NavigationLinkEdit( {
 		blockProps.onClick = () => setIsLinkOpen( true );
 	}
 
-	const classes = classnames( 'wp-block-navigation-item__content', {
+	const classes = classnames( 'wp-block-navigation-item__content mdc-tab', {
 		'wp-block-navigation-link__placeholder': ! url,
 	} );
 
@@ -612,38 +612,41 @@ export default function NavigationLinkEdit( {
 							</Tooltip>
 						</div>
 					) : (
-						<RichText
-							ref={ ref }
-							identifier="label"
-							className="wp-block-navigation-item__label mdc-tab"
-							value={ label }
-							onChange={ ( labelValue ) =>
-								setAttributes( {
-									label: labelValue,
-								} )
-							}
-							onMerge={ mergeBlocks }
-							onReplace={ onReplace }
-							__unstableOnSplitAtEnd={ () =>
-								insertBlocksAfter(
-									createBlock( 'core/navigation-link' )
-								)
-							}
-							aria-label={ __( 'Navigation link text' ) }
-							placeholder={ itemLabelPlaceholder }
-							withoutInteractiveFormatting
-							allowedFormats={ [
-								'core/bold',
-								'core/italic',
-								'core/image',
-								'core/strikethrough',
-							] }
-							onClick={ () => {
-								if ( ! url ) {
-									setIsLinkOpen( true );
-								}
-							} }
-						/>
+						<span className="mdc-tab__content">
+							<span className="mdc-tab__text-label tab__label-field">
+								<RichText
+									ref={ ref }
+									identifier="label"
+									value={ label }
+									onChange={ ( labelValue ) =>
+										setAttributes( {
+											label: labelValue,
+										} )
+									}
+									onMerge={ mergeBlocks }
+									onReplace={ onReplace }
+									__unstableOnSplitAtEnd={ () =>
+										insertBlocksAfter(
+											createBlock( 'core/navigation-link' )
+										)
+									}
+									aria-label={ __( 'Navigation link text' ) }
+									placeholder={ itemLabelPlaceholder }
+									withoutInteractiveFormatting
+									allowedFormats={ [
+										'core/bold',
+										'core/italic',
+										'core/image',
+										'core/strikethrough',
+									] }
+									onClick={ () => {
+										if ( ! url ) {
+											setIsLinkOpen( true );
+										}
+									} }
+								/>
+							</span>
+						</span>
 					) }
 					{ isLinkOpen && (
 						<Popover

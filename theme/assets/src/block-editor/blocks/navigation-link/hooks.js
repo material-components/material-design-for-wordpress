@@ -31,15 +31,9 @@ const addMaterialStyle = ( settings, name ) => {
 const withNavigationLinkEdit = BlockEdit => {
 	return props => {
 		if ( isMaterialNavigationLinkBlock( props.name, props.attributes ) ) {
-			console.log('modified block');
-			console.log(props);
-			return (
-				<>
-					<MaterialNavigationEdit { ...props } />
-				</>
-			);
+			return <MaterialNavigationEdit { ...props } />;
 		}
-		console.log(props);
+
 		return <BlockEdit { ...props } />;
 	};
 };
@@ -62,5 +56,5 @@ addFilter(
 addFilter(
 	'editor.BlockEdit',
 	'material/navigation-link-edit',
-	withNavigationLinkEdit,
+	withNavigationLinkEdit
 );
