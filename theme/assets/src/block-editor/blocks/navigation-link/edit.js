@@ -272,7 +272,6 @@ export default function NavigationLinkEdit( {
 	context,
 	clientId,
 } ) {
-	console.log(context);
 	const {
 		label,
 		type,
@@ -310,8 +309,9 @@ export default function NavigationLinkEdit( {
 		userCanCreatePosts,
 		thisBlock,
 		blockTransforms,
+		currentPostId,
 	} = useSelect(
-		( select ) => {
+		select => {
 			const {
 				getBlock,
 				getBlocks,
@@ -323,6 +323,8 @@ export default function NavigationLinkEdit( {
 				getBlockParentsByBlockName,
 				getBlockTransformItems,
 			} = select( blockEditorStore );
+
+			const { getCurrentPostId } = select( 'core/editor' );
 
 			const selectedBlockId = getSelectedBlockClientId();
 
@@ -364,6 +366,7 @@ export default function NavigationLinkEdit( {
 					[ getBlock( clientId ) ],
 					getBlockRootClientId( clientId )
 				),
+				currentPostId: getCurrentPostId(),
 			};
 		},
 		[ clientId ]
@@ -520,7 +523,7 @@ export default function NavigationLinkEdit( {
 		blockProps.onClick = () => setIsLinkOpen( true );
 	}
 
-	const classes = classnames( 'wp-block-navigation-item__content mdc-tab', {
+	const classes = classnames( 'mdc-tab', {
 		'wp-block-navigation-link__placeholder': ! url,
 	} );
 
@@ -602,23 +605,23 @@ export default function NavigationLinkEdit( {
 				{ /* eslint-disable jsx-a11y/anchor-is-valid */ }
 				<a className={ classes }>
 					{ /* eslint-enable */ }
-					{ ! url ? (
-						<div className="wp-block-navigation-link__placeholder-text">
-							<Tooltip
-								position="top center"
-								text={ __( 'This item is missing a link' ) }
-							>
-								<span>{ missingText }</span>
-							</Tooltip>
-						</div>
-					) : (
-						<span className="mdc-tab__content">
-							<span className="mdc-tab__text-label tab__label-field">
+					<span className="mdc-tab__content">
+						<span className="mdc-tab__text-label">
+							{ ! url ? (
+								<div className="wp-block-navigation-link__placeholder-text">
+									<Tooltip
+										position="top center"
+										text={ __( 'This item is missing a link' ) }
+									>
+										<span>{ missingText }</span>
+									</Tooltip>
+								</div>
+							) : (
 								<RichText
 									ref={ ref }
 									identifier="label"
 									value={ label }
-									onChange={ ( labelValue ) =>
+									onChange={ labelValue =>
 										setAttributes( {
 											label: labelValue,
 										} )
@@ -645,9 +648,16 @@ export default function NavigationLinkEdit( {
 										}
 									} }
 								/>
-							</span>
+							) }
 						</span>
-					) }
+					</span>
+
+					<span className="mdc-tab-indicator">
+						<span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+					</span>
+
+					<span className="mdc-tab__ripple"></span>
+
 					{ isLinkOpen && (
 						<Popover
 							position="bottom center"

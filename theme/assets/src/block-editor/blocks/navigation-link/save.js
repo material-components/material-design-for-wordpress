@@ -3,6 +3,8 @@
  */
 import { InnerBlocks } from '@wordpress/block-editor';
 
-export default function save() {
+const Save = () => {
 	return <InnerBlocks.Content />;
 };
+
+export default Save;

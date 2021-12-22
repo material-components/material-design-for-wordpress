@@ -8,6 +8,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import MaterialNavigationEdit from './edit';
+import MaterialNavigationSave from './save';
 
 const addMaterialStyle = ( settings, name ) => {
 	if ( 'core/navigation-link' === name ) {
@@ -47,6 +48,21 @@ const isMaterialNavigationLinkBlock = ( name, attributes ) => {
 	);
 };
 
+/**
+ * Maybe use material navigation link save component.
+ *
+ * @param {WPElement} element    Block save result.
+ * @param {WPBlock}   blockType  Block type definition.
+ * @param {Object}    attributes Block attributes.
+ */
+export const save = ( element, blockType, attributes ) => {
+	if ( isMaterialNavigationLinkBlock( blockType.name, attributes ) ) {
+		return <MaterialNavigationSave { ...{ attributes } } />;
+	}
+
+	return element;
+};
+
 addFilter(
 	'blocks.registerBlockType',
 	'material/navigation-link-style',
@@ -58,3 +74,5 @@ addFilter(
 	'material/navigation-link-edit',
 	withNavigationLinkEdit
 );
+
+addFilter( 'blocks.getSaveElement', 'material/navigation-link-save', save );
