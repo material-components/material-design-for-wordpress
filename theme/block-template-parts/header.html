@@ -1,16 +1,18 @@
-<!-- wp:group {"tagName":"header","style":{"spacing":{"padding":{"bottom":"90px"}, "gap":0}},"className":"site-header","layout":{"type":"flex"}} -->
-<header class="wp-block-group site-header" style="padding-bottom:90px;gap:0">
-	<div class="site__navigation" role="banner">
-		<div class="mdc-top-app-bar top-app-bar">
-			<div class="mdc-top-app-bar__row top-app-bar__header">
-				<section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-					<!-- wp:template-part {"slug":"title"} /-->
-				</section>
+<!-- wp:group {"className":"site__navigation"} -->
+<div class="wp-block-group site__navigation">
+	<!-- wp:group {"className":"mdc-top-app-bar top-app-bar"} -->
+	<div class="wp-block-group mdc-top-app-bar top-app-bar">
+		<!-- wp:group {"className":"mdc-top-app-bar__row top-app-bar__header","layout":{"type":"flex","allowOrientation":false}} -->
+		<div class="wp-block-group mdc-top-app-bar__row top-app-bar__header">
+			<!-- wp:group {"className":"mdc-top-app-bar__section mdc-top-app-bar__section\u002d\u002dalign-start","layout":{"type":"flex","allowOrientation":false}} -->
+			<div class="wp-block-group mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+				<!-- wp:site-logo {"className":"logo"} /-->
+				<!-- wp:template-part {"slug":"title","theme":"material-design-google"} /-->
 			</div>
+			<!-- /wp:group -->
 		</div>
-		<!-- wp:site-logo /-->
-		<!-- wp:site-tagline {"style":{"typography":{"fontSize":"var(--wp--custom--font-sizes--tiny)"}}} /-->
-		<!-- wp:navigation {"itemsJustification":"right","isResponsive":true,"__unstableLocation":"primary","__unstableSocialLinks":"social"} /-->
+		<!-- /wp:group -->
 	</div>
-</header>
+	<!-- /wp:group -->
+</div>
 <!-- /wp:group -->
