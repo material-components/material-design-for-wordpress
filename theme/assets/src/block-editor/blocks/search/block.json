@@ -4,9 +4,7 @@
   "category": "material",
   "attributes": {},
   "title": "Material Search",
-  "supports": {
-    "align": true
-  },
+  "supports": {},
   "apiVersion": 2,
   "description": "Material search bar",
   "editorStyle": ["material-google-fonts-cdn", "material-block-editor-css-theme"],
