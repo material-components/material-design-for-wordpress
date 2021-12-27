@@ -40,7 +40,6 @@ const Button = ( { props } ) => {
 		<button
 			{ ...props }
 			aria-label={ __( 'Toggle Dark Mode', 'material-design-google' ) }
-			id={ 'back-to-top' }
 		>
 			<span className="mdc-button__ripple"></span>
 			<span className="dark-mode__icon">dark_mode</span>
