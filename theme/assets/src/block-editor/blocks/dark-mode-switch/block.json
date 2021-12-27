@@ -1,0 +1,11 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "material/dark-mode-switch",
+  "category": "material",
+  "attributes": {},
+  "title": "Dark Mode Switch",
+  "apiVersion": 2,
+  "description": "Material dark mode switch",
+  "editorStyle": ["material-google-fonts-cdn", "material-block-editor-css-theme"],
+  "editorScript": "material-block-editor-js-theme"
+}
