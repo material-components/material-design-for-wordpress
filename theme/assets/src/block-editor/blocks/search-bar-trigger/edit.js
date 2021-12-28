@@ -15,25 +15,20 @@
  */
 
 /**
- * External dependencies
+ * WordPress dependencies
  */
-import '@material/button/dist/mdc.button.css';
-import '@material/typography/dist/mdc.typography.css';
-import '@material/icon-button/dist/mdc.icon-button.css';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
  */
-import metadata from './block.json';
-import edit from './edit';
+import Button from './button';
 
-const { name, title } = metadata;
+/**
+ * Edit.
+ *
+ * @return {JSX.Element} Block edit.
+ */
+const Edit = () => <Button props={ useBlockProps() } />;
 
-export { metadata, name };
-
-export const settings = {
-	title,
-	description: metadata.description,
-	icon: () => <i className="material-icons-outlined">search</i>,
-	edit,
-};
+export default Edit;

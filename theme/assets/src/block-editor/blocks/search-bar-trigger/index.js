@@ -17,37 +17,25 @@
 /**
  * External dependencies
  */
-import { uniqueId } from 'lodash';
-
-/**
- * WordPress dependencies
- */
-import { useBlockProps } from '@wordpress/block-editor';
+import '@material/button/dist/mdc.button.css';
+import '@material/typography/dist/mdc.typography.css';
+import '@material/icon-button/dist/mdc.icon-button.css';
 
 /**
  * Internal dependencies
  */
-import Button from './button';
-import SearchBar from './search-bar';
+import metadata from './block.json';
+import edit from './edit';
+import save from './save';
 
-/**
- * Edit.
- *
- * @return {JSX.Element} Block edit.
- */
-const Edit = () => {
-	return (
-		<div
-			className="mdc-top-app-bar__row top-app-bar__search"
-			{ ...useBlockProps() }
-		>
-			<form className="search-form" id={ uniqueId( 'search-' ) }>
-				<SearchBar />
+const { name, title } = metadata;
 
-				<Button />
-			</form>
-		</div>
-	);
+export { metadata, name };
+
+export const settings = {
+	title,
+	description: metadata.description,
+	icon: () => <i className="material-icons-outlined">search</i>,
+	edit,
+	save,
 };
-
-export default Edit;

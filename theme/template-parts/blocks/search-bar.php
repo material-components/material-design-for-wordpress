@@ -22,6 +22,14 @@
  */
 $search_id = uniqid( 'search-label-' );
 ?>
+<button
+	class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button search__button"
+	aria-label="<?php esc_html_e( 'Search', 'material-design-google' ); ?>"
+>
+	<span class="mdc-button__ripple"></span>
+search
+</button>
+
 <div class="mdc-top-app-bar__row top-app-bar__search">
 	<form class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get" id="<?php echo esc_attr( $search_id ); ?>"">
 		<div class="mdc-text-field mdc-text-field--fullwidth mdc-text-field--no-label">

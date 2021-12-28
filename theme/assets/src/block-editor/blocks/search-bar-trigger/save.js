@@ -15,27 +15,22 @@
  */
 
 /**
+ * External dependencies
+ */
+/**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { useBlockProps } from '@wordpress/block-editor';
+import Button from './button';
 
 /**
- * Back to top button.
+ * Save.
  *
  * @return {JSX.Element} Block edit.
  */
-const Button = () => {
-	return (
-		<button
-			className="mdc-button mdc-button--unelevated button__search"
-			type="submit"
-		>
-			<span className="mdc-button__ripple"></span>
-			<span className="mdc-button__label">
-				{ __( 'Search', 'material-design-google' ) }
-			</span>
-		</button>
-	);
+const Save = () => {
+	const props = { ...useBlockProps.save() };
+	return <Button props={ props } />;
 };
 
-export default Button;
+export default Save;

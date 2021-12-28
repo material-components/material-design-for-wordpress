@@ -19,22 +19,21 @@
  */
 import { __ } from '@wordpress/i18n';
 
-const SearchBar = () => {
+/**
+ * Back to top button.
+ *
+ * @return {JSX.Element} Block edit.
+ */
+const Button = () => {
 	return (
-		<div className="mdc-text-field mdc-text-field--fullwidth mdc-text-field--no-label">
-			<div className="mdc-text-field__ripple"></div>
-			<input
-				className="mdc-text-field__input"
-				placeholder={ __(
-					'Search the site',
-					'material-design-google'
-				) }
-				aria-label={ __( 'Search', 'material-design-google' ) }
-				type="search"
-				name="s"
-			/>
-		</div>
+		<button
+			className="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button search__button"
+			aria-label={ __( 'Search', 'material-design-google' ) }
+		>
+			<span className="mdc-button__ripple"></span>
+			search
+		</button>
 	);
 };
 
-export default SearchBar;
+export default Button;
