@@ -30,7 +30,9 @@ class Blocks {
 	 * Dynamic blocks.
 	 * [ 'material/back-to-top' => 'template-parts/blocks/back-to-top.php' ]
 	 */
-	const DYNAMIC_BLOCKS = [];
+	const DYNAMIC_BLOCKS = [
+		'material/search-bar' => 'template-parts/blocks/search-bar.php',
+	];
 
 	/**
 	 * Register any needed hooks/filters.
