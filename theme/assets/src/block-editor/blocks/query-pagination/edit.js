@@ -13,7 +13,7 @@ import {
 // Override core template.
 const TEMPLATE = [
 	[ 'core/query-pagination-previous' ],
-	[ 'core/query-pagination-next' ],
+	[ 'material/query-pagination-next' ],
 ];
 
 const getDefaultBlockLayout = blockTypeOrName => {

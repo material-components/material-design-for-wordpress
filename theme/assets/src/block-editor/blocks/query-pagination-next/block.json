@@ -6,7 +6,7 @@
 	"category": "material",
 	"parent": [ "material/query-pagination" ],
 	"description": "Displays the next posts page link.",
-	"textdomain": "material-design",
+	"textdomain": "material-design-google",
 	"attributes": {
 		"label": {
 			"type": "string"
