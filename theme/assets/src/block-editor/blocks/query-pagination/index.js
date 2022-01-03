@@ -4,6 +4,7 @@
 
 import metadata from './block.json';
 import './hooks';
+import edit from './edit';
 
 const { name } = metadata;
 export { metadata, name };
@@ -14,5 +15,5 @@ export const settings = {
 			more_horiz
 		</span>
 	),
-	edit: () => <div>Pagination</div>,
+	edit,
 };
