@@ -12,6 +12,7 @@ import {
 
 // Override core template.
 const TEMPLATE = [
+	[ 'material/query-pagination-first' ],
 	[ 'material/query-pagination-previous' ],
 	[ 'material/query-pagination-next' ],
 ];
@@ -37,10 +38,7 @@ const QueryPaginationEdit = ( {
 		const innerBlocks = getBlocks( clientId );
 
 		return innerBlocks?.find( innerBlock => {
-			return [
-				'material/query-pagination-next',
-				'material/query-pagination-previous',
-			].includes( innerBlock.name );
+			return TEMPLATE.includes( innerBlock.name );
 		} );
 	}, [] );
 
