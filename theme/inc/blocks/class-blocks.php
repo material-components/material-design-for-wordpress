@@ -33,6 +33,7 @@ class Blocks {
 	const DYNAMIC_BLOCKS = [
 		'material/search'           => 'template-parts/blocks/search.php',
 		'material/query-pagination' => 'template-parts/blocks/query-pagination.php',
+		'material/query-pagination' => 'template-parts/blocks/query-pagination-next.php',
 	];
 
 	/**
@@ -124,6 +125,7 @@ class Blocks {
 			[
 				'attributes' => $attributes,
 				'content'    => $content,
+				'block'      => $block,
 			]
 		);
 
