@@ -31,6 +31,7 @@ class Blocks {
 	 * [ 'material/back-to-top' => 'template-parts/blocks/back-to-top.php' ]
 	 */
 	const DYNAMIC_BLOCKS = [
+		'material/search'           => 'template-parts/blocks/search.php',
 		'material/query-pagination' => 'template-parts/blocks/query-pagination.php',
 	];
 
