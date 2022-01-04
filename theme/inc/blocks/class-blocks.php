@@ -31,9 +31,10 @@ class Blocks {
 	 * [ 'material/back-to-top' => 'template-parts/blocks/back-to-top.php' ]
 	 */
 	const DYNAMIC_BLOCKS = [
-		'material/search'           => 'template-parts/blocks/search.php',
-		'material/query-pagination' => 'template-parts/blocks/query-pagination.php',
-		'material/query-pagination' => 'template-parts/blocks/query-pagination-next.php',
+		'material/search'                    => 'template-parts/blocks/search.php',
+		'material/query-pagination'          => 'template-parts/blocks/query-pagination.php',
+		'material/query-pagination-next'     => 'template-parts/blocks/query-pagination-next.php',
+		'material/query-pagination-previous' => 'template-parts/blocks/query-pagination-previous.php',
 	];
 
 	/**
