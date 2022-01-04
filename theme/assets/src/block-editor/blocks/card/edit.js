@@ -32,13 +32,10 @@ import InspectControls from './inspectControl';
 /**
  * Edit.
  *
- * @param {Object}   props
- * @param {Object}   props.context
- * @param {string}   props.context.postType
- * @param {number}   props.context.postId
- * @param {number}   props.context.queryId
- * @param {Function} props.setAttributes
- * @param {Object}   props.attributes
+ * @param {Object}                                         props
+ * @param {{postType:string,postId:number,queryId:number}} props.context
+ * @param {Function}                                       props.setAttributes
+ * @param {Object}                                         props.attributes
  * @return {JSX.Element} Block edit.
  */
 const Edit = ( { context, setAttributes, attributes } ) => {
