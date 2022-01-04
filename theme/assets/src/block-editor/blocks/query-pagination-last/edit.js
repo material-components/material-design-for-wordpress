@@ -4,26 +4,26 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 
-const QueryPaginationFirstEdit = ( {
+const QueryPaginationLastEdit = ( {
 	attributes: { label },
 	setAttributes,
 	context: { paginationArrow },
 } ) => {
 	return (
 		<a
-			href="#pagination-first-pseudo-link"
+			href="#pagination-last-pseudo-link"
 			className="mdc-ripple-surface"
 			onClick={ event => event.preventDefault() }
 			{ ...useBlockProps() }
 		>
 			<span className="material-icons" aria-hidden="true">
-				first_page
+				last_page
 			</span>
 			<span className="screen-reader-text">
-				{ __( 'First page', 'material-design-google' ) }
+				{ __( 'Last page', 'material-design-google' ) }
 			</span>
 		</a>
 	);
 };
 
-export default QueryPaginationFirstEdit;
+export default QueryPaginationLastEdit;

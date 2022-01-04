@@ -15,6 +15,7 @@ const TEMPLATE = [
 	[ 'material/query-pagination-first' ],
 	[ 'material/query-pagination-previous' ],
 	[ 'material/query-pagination-next' ],
+	[ 'material/query-pagination-last' ],
 ];
 
 const getDefaultBlockLayout = blockTypeOrName => {
