@@ -15,8 +15,11 @@
  * limitations under the License.
  */
 
+$block              = $args['block'];
+$content            = $args['content'];
+$attributes         = $args['attributes'];
 $page_key           = isset( $block->context['queryId'] ) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
-$page               = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ];
+$page_number        = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ];
 $wrapper_attributes = get_block_wrapper_attributes();
 $default_label      = __( 'Previous Page', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
@@ -40,10 +43,10 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 	$content = get_previous_posts_link( $label );
 
 	remove_filter( 'previous_posts_link_attributes', $filter_link_attributes );
-} elseif ( 1 !== $page ) {
+} elseif ( 1 !== $page_number ) {
 	$content = sprintf(
 		'<a href="%1$s" %2$s>%3$s</a>',
-		esc_url( add_query_arg( $page_key, $page - 1 ) ),
+		esc_url( add_query_arg( $page_key, $page_number - 1 ) ),
 		$wrapper_attributes,
 		$label
 	);

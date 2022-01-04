@@ -5,6 +5,7 @@
 import metadata from './block.json';
 import './hooks';
 import edit from './edit';
+import save from './save';
 
 const { name } = metadata;
 export { metadata, name };
@@ -16,4 +17,5 @@ export const settings = {
 		</span>
 	),
 	edit,
+	save,
 };

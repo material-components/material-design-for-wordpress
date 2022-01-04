@@ -15,6 +15,9 @@
  * limitations under the License.
  */
 
+$block              = $args['block'];
+$content            = $args['content'];
+$attributes         = $args['attributes'];
 $page_key           = isset( $block->context['queryId'] ) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
 $page_number        = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ];
 $max_page           = isset( $block->context['query']['pages'] ) ? (int) $block->context['query']['pages'] : 0;
