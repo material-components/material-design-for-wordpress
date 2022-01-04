@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "material/card-query",
+  "category": "material",
+  "attributes": {
+    "showExcerpt": {
+      "type": "boolean",
+      "default": true
+    },
+    "showDate": {
+      "type": "boolean",
+      "default": true
+    },
+    "showAuthor": {
+      "type": "boolean",
+      "default": true
+    },
+    "showComments": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "title": "Material Card for Query loop",
+  "supports": {},
+  "apiVersion": 2,
+  "description": "Material card for query loop block",
+  "editorStyle": ["material-google-fonts-cdn", "material-block-editor-css-theme"],
+  "editorScript": "material-block-editor-js-theme",
+  "usesContext": [ "postId", "postType", "queryId" ]
+}
