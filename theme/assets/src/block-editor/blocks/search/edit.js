@@ -15,9 +15,6 @@
  */
 
 /**
- * External dependencies
- */
-/**
  * WordPress dependencies
  */
 import { useBlockProps } from '@wordpress/block-editor';
@@ -30,14 +27,15 @@ import { __ } from '@wordpress/i18n';
  */
 const Edit = () => {
 	const search = __( 'Search', 'material-design-google' );
+
 	return (
-		<div { ...useBlockProps() }>
+		<form { ...useBlockProps() }>
 			{ /* eslint-disable-next-line jsx-a11y/label-has-for */ }
 			<label className="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
 				<input
 					className="mdc-text-field__input"
 					type="text"
-					aria-labelledby={ search }
+					aria-label={ search }
 					name="s"
 					value=""
 					disabled={ true }
@@ -58,7 +56,7 @@ const Edit = () => {
 					<div className="mdc-notched-outline__trailing"></div>
 				</div>
 			</label>
-		</div>
+		</form>
 	);
 };
 
