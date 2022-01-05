@@ -20,13 +20,24 @@
 /**
  * Query Pagination block markup
  */
-$content = $args['content'];
+$content    = $args['content'];
+$attributes = get_block_wrapper_attributes();
 
 if ( empty( trim( $content ) ) ) {
 	return;
 }
+
+$attributes = str_replace( 'class="', 'class="mdc-page-navigation ', $attributes );
 ?>
 
-<div <?php echo esc_attr( get_block_wrapper_attributes() ); ?>>
-	<?php echo wp_kses_post( $content ); ?>
-</div>
+<?php
+/**
+ * Esc_attr breaks the markup.
+ * Turns the closing " into &quote;
+ */
+?>
+<ul <?php echo $attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+	<li>
+		<?php echo wp_kses_post( $content ); ?>
+	</li>
+</ul>

@@ -10,7 +10,15 @@
 	"attributes": {
 		"label": {
 			"type": "string"
-		}
+		},
+    "className": {
+      "type": "string",
+      "default": "mdc-ripple-surface"
+    },
+    "class": {
+      "type": "string",
+      "default": "mdc-ripple-surface"
+    }
 	},
 	"usesContext": [ "queryId", "query", "paginationArrow" ],
 	"supports": {
