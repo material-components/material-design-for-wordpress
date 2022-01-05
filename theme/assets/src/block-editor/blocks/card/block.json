@@ -26,5 +26,6 @@
   "description": "Material card for query loop block",
   "editorStyle": ["material-google-fonts-cdn", "material-block-editor-css-theme"],
   "editorScript": "material-block-editor-js-theme",
-  "usesContext": [ "postId", "postType", "queryId" ]
+  "usesContext": [ "postId", "postType", "queryId" ],
+  "textdomain": "material-design-google"
 }
