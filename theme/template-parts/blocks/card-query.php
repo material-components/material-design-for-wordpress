@@ -104,7 +104,7 @@ $post    = get_post( $post_ID ); // phpcs:ignore WordPress.WP.GlobalVariablesOve
 							>
 								<span class="mdc-button__ripple"></span>
 								<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), 18 ); ?>
-								<?php the_author(); ?>
+								<?php echo esc_html( apply_filters( 'the_author', get_the_author_meta( 'display_name', $post->post_author ) ) ); ?>
 							</a>
 						<?php endif; ?>
 
