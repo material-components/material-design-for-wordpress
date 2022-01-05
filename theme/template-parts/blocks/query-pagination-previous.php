@@ -44,12 +44,36 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 
 	remove_filter( 'previous_posts_link_attributes', $filter_link_attributes );
 } elseif ( 1 !== $page_number ) {
-	$content = sprintf(
-		'<a href="%1$s" %2$s>%3$s</a>',
-		esc_url( add_query_arg( $page_key, $page_number - 1 ) ),
-		$wrapper_attributes,
-		$label
-	);
+	$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
+
+	ob_start();
+	?>
+		<a
+			href="<?php echo esc_url( add_query_arg( $page_key, $page_number - 1 ) ); ?>"
+
+			<?php
+			/**
+			 * Esc_attr breaks the markup.
+			 * Turns the closing " into &quote;
+			 */
+			?>
+			<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		>
+			<span class="material-icons" aria-hidden="true">
+				chevron_left
+			</span>
+			<span class="screen-reader-text">
+				<?php
+					printf(
+						/* translators: available page description. */
+						esc_html__( '%s page', 'material-design-google' ),
+						esc_html( $label )
+					);
+				?>
+			</span>
+		</a>
+	<?php
+	$content = ob_get_clean();
 }
 
 echo wp_kses_post( $content );
