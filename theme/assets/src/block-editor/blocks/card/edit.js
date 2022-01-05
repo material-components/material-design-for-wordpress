@@ -56,6 +56,7 @@ const Edit = ( { context, setAttributes, attributes } ) => {
 				<ServerSideRender
 					block={ name }
 					urlQueryArgs={ urlQueryArgs }
+					attributes={ attributes }
 				/>
 			</div>
 		</>
