@@ -21,15 +21,9 @@ $attributes         = $args['attributes'];
 $page_key           = isset( $block->context['queryId'] ) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
 $page_number        = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ];
 $wrapper_attributes = get_block_wrapper_attributes();
-$default_label      = __( 'Previous', 'material-design-google' );
+$default_label      = __( 'First', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
-$pagination_arrow   = get_query_pagination_arrow( $block, false );
-
-if ( $pagination_arrow ) {
-	$label = $pagination_arrow . $label;
-}
-
-$content = '';
+$content            = '';
 
 // Check if the pagination is for Query that inherits the global context
 // and handle appropriately.
@@ -49,7 +43,7 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 	ob_start();
 	?>
 		<a
-			href="<?php echo esc_url( add_query_arg( $page_key, $page_number - 1 ) ); ?>"
+			href="<?php echo esc_url( get_pagenum_link( 1 ) ); ?>"
 
 			<?php
 			/**
