@@ -20,17 +20,21 @@ $content            = $args['content'];
 $attributes         = $args['attributes'];
 $page_key           = isset( $block->context['queryId'] ) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
 $page_number        = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ];
+$max_page           = isset( $block->context['query']['pages'] ) ? (int) $block->context['query']['pages'] : 0;
 $wrapper_attributes = get_block_wrapper_attributes();
-$default_label      = __( 'Previous', 'material-design-google' );
+$default_label      = __( 'Last', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
-$pagination_arrow   = get_query_pagination_arrow( $block, false );
+$content            = '';
 
-if ( $pagination_arrow ) {
-	$label = $pagination_arrow . $label;
-}
+?>
+<pre>
+	<?php var_dump($block->context['queryId']); ?>
+</pre>
+<pre>
 
-$content = '';
-
+	<?php var_dump($block->context['query']); ?>
+</pre>
+<?php
 // Check if the pagination is for Query that inherits the global context
 // and handle appropriately.
 if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['inherit'] ) {
@@ -49,7 +53,7 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 	ob_start();
 	?>
 		<a
-			href="<?php echo esc_url( add_query_arg( $page_key, $page_number - 1 ) ); ?>"
+			href="<?php echo esc_url( get_pagenum_link( $max_page ) ); ?>"
 
 			<?php
 			/**
@@ -60,7 +64,7 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 			<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		>
 			<span class="material-icons" aria-hidden="true">
-				chevron_left
+				last_page
 			</span>
 			<span class="screen-reader-text">
 				<?php
