@@ -55,8 +55,7 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 } elseif ( ! $max_page || $max_page > $page_number ) {
 	$custom_query           = new WP_Query( build_query_vars_from_query_block( $block, $page_number ) );
 	$custom_query_max_pages = (int) $custom_query->max_num_pages;
-
-	$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
+	$wrapper_attributes     = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
 
 	if ( $custom_query_max_pages && $custom_query_max_pages !== $page_number ) :
 		ob_start();
