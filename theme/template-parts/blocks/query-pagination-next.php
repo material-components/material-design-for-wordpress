@@ -19,16 +19,12 @@ $block              = $args['block'];
 $content            = $args['content'];
 $attributes         = $args['attributes'];
 $page_key           = isset( $block->context['queryId'] ) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
-$page_number        = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ];
+$page_number        = empty( get_query_var( $page_key ) ) ? 1 : (int) get_query_var( $page_key );
 $max_page           = isset( $block->context['query']['pages'] ) ? (int) $block->context['query']['pages'] : 0;
 $wrapper_attributes = get_block_wrapper_attributes();
-$default_label      = __( 'Next Page', 'material-design-google' );
+$default_label      = __( 'Next', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
-$pagination_arrow   = get_query_pagination_arrow( $block, true );
 
-if ( $pagination_arrow ) {
-	$label .= $pagination_arrow;
-}
 $content = '';
 
 // Check if the pagination is for Query that inherits the global context.
@@ -48,21 +44,50 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 		$max_page = $wp_query->max_num_pages;
 	}
 
-	$content = get_next_posts_link( $label, $max_page );
+	$content = sprintf(
+		'<a href="%1$s" %2$s>%3$s</a>',
+		get_pagenum_link( $max_page ),
+		$wrapper_attributes,
+		$label
+	);
 
 	remove_filter( 'next_posts_link_attributes', $filter_link_attributes );
 } elseif ( ! $max_page || $max_page > $page_number ) {
 	$custom_query           = new WP_Query( build_query_vars_from_query_block( $block, $page_number ) );
 	$custom_query_max_pages = (int) $custom_query->max_num_pages;
 
-	if ( $custom_query_max_pages && $custom_query_max_pages !== $page_number ) {
-		$content = sprintf(
-			'<a href="%1$s" %2$s>%3$s</a>',
-			esc_url( add_query_arg( $page_key, $page_number + 1 ) ),
-			$wrapper_attributes,
-			$label
-		);
-	}
+	$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
+
+	if ( $custom_query_max_pages && $custom_query_max_pages !== $page_number ) :
+		ob_start();
+		?>
+			<a
+				href="<?php echo esc_url( add_query_arg( $page_key, $page_number + 1 ) ); ?>"
+
+				<?php
+				/**
+				 * Esc_attr breaks the markup.
+				 * Turns the closing " into &quote;
+				 */
+				?>
+				<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			>
+				<span class="material-icons" aria-hidden="true">
+					chevron_right
+				</span>
+				<span class="screen-reader-text">
+					<?php
+						printf(
+							/* translators: available page description. */
+							esc_html__( '%s page', 'material-design-google' ),
+							esc_html( $label )
+						);
+					?>
+				</span>
+			</a>
+		<?php
+		$content = ob_get_clean();
+	endif;
 	wp_reset_postdata(); // Restore original Post Data.
 }
 
