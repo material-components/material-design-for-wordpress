@@ -82,5 +82,11 @@ git commit -F /tmp/commit-message.txt
 echo "Pushing new build to remote repository"
 git push origin $PANTHEON_BRANCH
 
-echo "View site at http://$PANTHEON_BRANCH-$PANTHEON_SITE.pantheonsite.io/"
+if [ "$PANTHEON_BRANCH" == "master" ]; then
+		PANTHEON_ENV="dev"
+else
+		PANTHEON_ENV="$PANTHEON_BRANCH"
+fi
+
+echo "View site at http://$PANTHEON_ENV-$PANTHEON_SITE.pantheonsite.io/"
 echo "Access Pantheon dashboard at https://dashboard.pantheon.io/sites/$PANTHEON_UUID#$PANTHEON_BRANCH"
