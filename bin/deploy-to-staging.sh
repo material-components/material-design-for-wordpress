@@ -55,17 +55,11 @@ git config --global user.name "Travis CI"
 git config --global user.email "travis-ci+$PANTHEON_SITE@example.org"
 
 if [ ! -e "$repo_dir/.git" ]; then
-    git clone -v ssh://codeserver.dev.$PANTHEON_UUID@codeserver.dev.$PANTHEON_UUID.drush.in:2222/~/repository.git "$repo_dir"
+    git clone -v ssh://codeserver.dev.$PANTHEON_UUID@codeserver.dev.$PANTHEON_UUID.drush.in:2222/~/repository.git --depth 1 --branch "$PANTHEON_BRANCH" --single-branch "$repo_dir"
 fi
 
 cd "$repo_dir"
 git fetch
-
-if git rev-parse --verify --quiet "$PANTHEON_BRANCH" > /dev/null; then
-    git checkout "$PANTHEON_BRANCH"
-else
-    git checkout -b "$PANTHEON_BRANCH"
-fi
 
 if git rev-parse --verify --quiet "origin/$PANTHEON_BRANCH" > /dev/null; then
     git reset --hard "origin/$PANTHEON_BRANCH"
@@ -75,12 +69,8 @@ cd "$project_dir"
 
 echo "Moving files to repository"
 
-rm -rf "$repo_dir/wp-content/themes/material-design-google" "$repo_dir/wp-content/plugin/material-design"
-
-unzip material-design.zip -d "$repo_dir/wp-content/themes"
-unzip material-design-google.zip -d "$repo_dir/wp-content/themes/"
-
-rsync -avz --delete ./build/material-design/ "$repo_dir/wp-content/plugins/material-design/"
+rsync -avz --delete ./build/plugin/material-design/ "$repo_dir/wp-content/plugins/material-design/"
+rsync -avz --delete ./build/theme/material-design-google/ "$repo_dir/wp-content/themes/material-design-google/"
 git --no-pager log -1 --format="Build material theme and plugin at %h: %s" > /tmp/commit-message.txt
 
 echo "Committing changes"

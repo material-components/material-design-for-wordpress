@@ -1,0 +1,102 @@
+name: Build plugin
+
+on:
+  push:
+    # Don't run for irrelevant changes.
+    paths-ignore:
+      - '__mocks__/**'
+      - '__static__/**'
+      - 'bin/**'
+      - 'packages/e2e-test-utils/**'
+      - 'packages/e2e-tests/**'
+      - 'packages/karma-*/**'
+      - 'plugin/tests/**'
+      - '**.md'
+      - '**.yml'
+      - '**.js.snap'
+      - '**.neon.dist'
+      - '**.xml.dist'
+      - '.editorconfig'
+      - '.eslint*'
+      - '.prettier*'
+      - '.stylelint*'
+      - '.github/workflows/**'
+      - '!.github/workflows/build-and-deploy.yml'
+    branches:
+      - main
+      - fse
+
+jobs:
+  build:
+    name: Package ZIP files
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2.5.1
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          coverage: none
+          tools: composer
+
+      - name: Install dependencies
+        run: |
+          npm ci
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+
+      - name: Install PHP dependencies
+        uses: 'ramsey/composer-install@v1'
+        with:
+          composer-options: '--prefer-dist --no-progress --no-interaction'
+
+      - name: Build plugin
+        run: |
+          npm run build
+          npm run workflow:version -- --nightly
+          mkdir -p build/plugin/ build/theme
+
+      - name: Bundle regular version
+        run: |
+          unzip material-design.zip -d "build/plugin/"
+          unzip material-design-google.zip -d "build/theme/"
+
+      - name: Upload regular bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: web-stories
+          path: build/
+
+  deploy-to-staging:
+    name: Deploy to staging environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [build]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download full bundle
+        uses: actions/download-artifact@v2
+        with:
+          name: web-stories
+          path: build
+
+      - name: Setup SSH Keys and known_hosts
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.PANTHEON_DEPLOY_KEY }}
+
+      - name: Run deployment
+        run: bash bin/deploy-to-test-environment.sh
