@@ -23,13 +23,12 @@ on:
       - '.github/workflows/**'
       - '!.github/workflows/build-and-deploy.yml'
     branches:
-      - main
-      - fse
-      - add/deploy-action
+      - develop
+      - full-site-editing
 
 jobs:
   build:
-    name: Package ZIP files
+    name: Build and package artifacts
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -81,7 +80,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: [build]
-    if: github.ref == 'refs/heads/add/deploy-action' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
 
     steps:
       - name: Checkout
@@ -100,3 +99,28 @@ jobs:
 
       - name: Run deployment
         run: bash bin/deploy-to-staging.sh master
+
+  deploy-to-fse:
+    name: Deploy to fse environment
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [ build ]
+    if: github.ref == 'refs/heads/full-site-editing' && github.event_name == 'push'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Download full bundle
+        uses: actions/download-artifact@v2
+        with:
+          name: material-design
+          path: build
+
+      - name: Setup SSH Keys and known_hosts
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.PANTHEON_DEPLOY_KEY }}
+
+      - name: Run deployment
+        run: bash bin/deploy-to-staging.sh fse
