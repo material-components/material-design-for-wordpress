@@ -25,6 +25,7 @@ on:
     branches:
       - main
       - fse
+      - add/deploy-action
 
 jobs:
   build:
@@ -62,7 +63,6 @@ jobs:
       - name: Build plugin
         run: |
           npm run build
-          npm run workflow:version -- --nightly
           mkdir -p build/plugin/ build/theme
 
       - name: Bundle regular version
@@ -73,7 +73,7 @@ jobs:
       - name: Upload regular bundle
         uses: actions/upload-artifact@v2
         with:
-          name: web-stories
+          name: material-design
           path: build/
 
   deploy-to-staging:
@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: [build]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/add/deploy-action' && github.event_name == 'push'
 
     steps:
       - name: Checkout
@@ -90,7 +90,7 @@ jobs:
       - name: Download full bundle
         uses: actions/download-artifact@v2
         with:
-          name: web-stories
+          name: material-design
           path: build
 
       - name: Setup SSH Keys and known_hosts
@@ -99,4 +99,4 @@ jobs:
           ssh-private-key: ${{ secrets.PANTHEON_DEPLOY_KEY }}
 
       - name: Run deployment
-        run: bash bin/deploy-to-test-environment.sh
+        run: bash bin/deploy-to-staging.sh master

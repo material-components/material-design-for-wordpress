@@ -59,7 +59,6 @@ if [ ! -e "$repo_dir/.git" ]; then
 fi
 
 cd "$repo_dir"
-git fetch
 
 if git rev-parse --verify --quiet "origin/$PANTHEON_BRANCH" > /dev/null; then
     git reset --hard "origin/$PANTHEON_BRANCH"
@@ -77,7 +76,7 @@ echo "Committing changes"
 
 # Commit and deploy.
 cd "$repo_dir"
-git add -A "wp-content/plugins/material-design/" "wp-content/theme/material-design-google/"
+git add -A "wp-content/plugins/material-design/" "wp-content/themes/material-design-google/"
 git commit -F /tmp/commit-message.txt
 
 echo "Pushing new build to remote repository"
