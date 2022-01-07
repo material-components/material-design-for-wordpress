@@ -157,6 +157,7 @@ const api = window.wp.customize;
 			$( 'body' ).append(
 				'<style class="' + stylesheetID + '"></style>'
 			);
+			footerStylesheet = $( `.${ stylesheetID }` );
 		}
 
 		// Generate the styles.
