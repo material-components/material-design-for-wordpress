@@ -19,7 +19,8 @@
  */
 import { mount } from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
-import { wait, render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 
 /**
  * Internal dependencies
@@ -119,12 +120,18 @@ describe( 'MaterialColorPalette', () => {
 	it( 'should update color if any material color is selected', async () => {
 		const { getByLabelText } = setup( baseProps );
 
-		fireEvent.click( getByLabelText( 'Color palette' ) );
-		fireEvent.click( getByLabelText( 'Color: Red 50' ) );
+		// fireEvent.click( getByLabelText( 'Color palette' ) );
+		// fireEvent.click( getByLabelText( 'Color: Red 50' ) );
 
+		// expect( baseProps.onChange ).toHaveBeenCalledWith( '#ffebee' );
+
+		// // Wait till state changes are complete to prevent `act` warning.
+		// await wait();
+
+		await act( async () => {
+			await fireEvent.click( getByLabelText( 'Color palette' ) );
+			await fireEvent.click( getByLabelText( 'Color: Red 50' ) );
+		} );
 		expect( baseProps.onChange ).toHaveBeenCalledWith( '#ffebee' );
-
-		// Wait till state changes are complete to prevent `act` warning.
-		await wait();
 	} );
 } );

@@ -61,7 +61,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -75,13 +75,13 @@ Object {
             class="icons-search__search-input"
           >
             <div
-              class="components-base-control"
+              class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
             >
               <div
-                class="components-base-control__field"
+                class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
               >
                 <label
-                  class="components-base-control__label"
+                  class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
                   for="inspector-text-control-1"
                 >
                   Search icon
@@ -238,7 +238,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -259,10 +259,10 @@ Object {
            to update all Icons.
         </div>
         <div
-          class="components-base-control material-component-color-palette"
+          class="components-base-control material-component-color-palette css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <span
               class="components-base-control__label"
@@ -293,20 +293,9 @@ Object {
                     style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
                     type="button"
                   />
-                  <svg
-                    aria-hidden="true"
-                    class="dashicon dashicons-saved"
-                    focusable="false"
-                    height="20"
-                    role="img"
-                    viewBox="0 0 20 20"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.3 5.3l-6.8 6.8-2.8-2.8-1.4 1.4 4.2 4.2 8.2-8.2"
-                    />
-                  </svg>
+                  <span
+                    class="dashicon dashicons dashicons-saved"
+                  />
                 </div>
                 <div
                   class="components-circular-option-picker__option-wrapper"
@@ -323,6 +312,7 @@ Object {
                 >
                   <div
                     class="components-dropdown components-circular-option-picker__dropdown-link-action components-material-color-palette__link"
+                    tabindex="-1"
                   >
                     <button
                       aria-expanded="false"
@@ -335,6 +325,7 @@ Object {
                   </div>
                   <div
                     class="components-dropdown components-circular-option-picker__dropdown-link-action"
+                    tabindex="-1"
                   >
                     <button
                       aria-expanded="false"
@@ -382,7 +373,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -483,7 +474,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -497,13 +488,13 @@ Object {
           class="icons-search__search-input"
         >
           <div
-            class="components-base-control"
+            class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
           >
             <div
-              class="components-base-control__field"
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
             >
               <label
-                class="components-base-control__label"
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
                 for="inspector-text-control-1"
               >
                 Search icon
@@ -660,7 +651,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -681,10 +672,10 @@ Object {
          to update all Icons.
       </div>
       <div
-        class="components-base-control material-component-color-palette"
+        class="components-base-control material-component-color-palette css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <span
             class="components-base-control__label"
@@ -715,20 +706,9 @@ Object {
                   style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
                   type="button"
                 />
-                <svg
-                  aria-hidden="true"
-                  class="dashicon dashicons-saved"
-                  focusable="false"
-                  height="20"
-                  role="img"
-                  viewBox="0 0 20 20"
-                  width="20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M15.3 5.3l-6.8 6.8-2.8-2.8-1.4 1.4 4.2 4.2 8.2-8.2"
-                  />
-                </svg>
+                <span
+                  class="dashicon dashicons dashicons-saved"
+                />
               </div>
               <div
                 class="components-circular-option-picker__option-wrapper"
@@ -745,6 +725,7 @@ Object {
               >
                 <div
                   class="components-dropdown components-circular-option-picker__dropdown-link-action components-material-color-palette__link"
+                  tabindex="-1"
                 >
                   <button
                     aria-expanded="false"
@@ -757,6 +738,7 @@ Object {
                 </div>
                 <div
                   class="components-dropdown components-circular-option-picker__dropdown-link-action"
+                  tabindex="-1"
                 >
                   <button
                     aria-expanded="false"
@@ -804,7 +786,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>

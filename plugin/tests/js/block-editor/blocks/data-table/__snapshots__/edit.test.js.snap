@@ -34,6 +34,7 @@ Object {
       >
         <div
           class="components-dropdown components-dropdown-menu"
+          tabindex="-1"
         >
           <button
             aria-expanded="false"
@@ -42,20 +43,9 @@ Object {
             class="components-button components-dropdown-menu__toggle has-icon"
             type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="dashicon dashicons-editor-table"
-              focusable="false"
-              height="20"
-              role="img"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
-              />
-            </svg>
+            <span
+              class="dashicon dashicons dashicons-editor-table"
+            />
           </button>
         </div>
       </div>
@@ -84,7 +74,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -92,10 +82,10 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control components-toggle-control"
+          class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <span
               class="components-form-toggle is-checked"
@@ -112,20 +102,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -136,10 +112,10 @@ Object {
           </div>
         </div>
         <div
-          class="components-base-control components-toggle-control"
+          class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <span
               class="components-form-toggle is-checked"
@@ -156,20 +132,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -440,6 +402,7 @@ Object {
     >
       <div
         class="components-dropdown components-dropdown-menu"
+        tabindex="-1"
       >
         <button
           aria-expanded="false"
@@ -448,20 +411,9 @@ Object {
           class="components-button components-dropdown-menu__toggle has-icon"
           type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-editor-table"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
-            />
-          </svg>
+          <span
+            class="dashicon dashicons dashicons-editor-table"
+          />
         </button>
       </div>
     </div>
@@ -490,7 +442,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -498,10 +450,10 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control components-toggle-control"
+        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <span
             class="components-form-toggle is-checked"
@@ -518,20 +470,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -542,10 +480,10 @@ Object {
         </div>
       </div>
       <div
-        class="components-base-control components-toggle-control"
+        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <span
             class="components-form-toggle is-checked"
@@ -562,20 +500,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -927,6 +851,7 @@ Object {
       >
         <div
           class="components-dropdown components-dropdown-menu"
+          tabindex="-1"
         >
           <button
             aria-expanded="false"
@@ -935,20 +860,9 @@ Object {
             class="components-button components-dropdown-menu__toggle has-icon"
             type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="dashicon dashicons-editor-table"
-              focusable="false"
-              height="20"
-              role="img"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
-              />
-            </svg>
+            <span
+              class="dashicon dashicons dashicons-editor-table"
+            />
           </button>
         </div>
       </div>
@@ -977,7 +891,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -985,10 +899,10 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control components-toggle-control"
+          class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <span
               class="components-form-toggle is-checked"
@@ -1005,20 +919,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1029,10 +929,10 @@ Object {
           </div>
         </div>
         <div
-          class="components-base-control components-toggle-control"
+          class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <span
               class="components-form-toggle is-checked"
@@ -1049,20 +949,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__on"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 2 6"
-                width="2"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h2v6H0z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -1331,6 +1217,7 @@ Object {
     >
       <div
         class="components-dropdown components-dropdown-menu"
+        tabindex="-1"
       >
         <button
           aria-expanded="false"
@@ -1339,20 +1226,9 @@ Object {
           class="components-button components-dropdown-menu__toggle has-icon"
           type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-editor-table"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
-            />
-          </svg>
+          <span
+            class="dashicon dashicons dashicons-editor-table"
+          />
         </button>
       </div>
     </div>
@@ -1381,7 +1257,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -1389,10 +1265,10 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control components-toggle-control"
+        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <span
             class="components-form-toggle is-checked"
@@ -1409,20 +1285,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -1433,10 +1295,10 @@ Object {
         </div>
       </div>
       <div
-        class="components-base-control components-toggle-control"
+        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <span
             class="components-form-toggle is-checked"
@@ -1453,20 +1315,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__on"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 2 6"
-              width="2"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0 0h2v6H0z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -1844,13 +1692,13 @@ Object {
             class="blocks-table__placeholder-form"
           >
             <div
-              class="components-base-control blocks-table__placeholder-input"
+              class="components-base-control blocks-table__placeholder-input css-wdf2ti-Wrapper e1puf3u3"
             >
               <div
-                class="components-base-control__field"
+                class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
               >
                 <label
-                  class="components-base-control__label"
+                  class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
                   for="inspector-text-control-0"
                 >
                   Column count
@@ -1865,13 +1713,13 @@ Object {
               </div>
             </div>
             <div
-              class="components-base-control blocks-table__placeholder-input"
+              class="components-base-control blocks-table__placeholder-input css-wdf2ti-Wrapper e1puf3u3"
             >
               <div
-                class="components-base-control__field"
+                class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
               >
                 <label
-                  class="components-base-control__label"
+                  class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
                   for="inspector-text-control-1"
                 >
                   Row count
@@ -1930,13 +1778,13 @@ Object {
           class="blocks-table__placeholder-form"
         >
           <div
-            class="components-base-control blocks-table__placeholder-input"
+            class="components-base-control blocks-table__placeholder-input css-wdf2ti-Wrapper e1puf3u3"
           >
             <div
-              class="components-base-control__field"
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
             >
               <label
-                class="components-base-control__label"
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
                 for="inspector-text-control-0"
               >
                 Column count
@@ -1951,13 +1799,13 @@ Object {
             </div>
           </div>
           <div
-            class="components-base-control blocks-table__placeholder-input"
+            class="components-base-control blocks-table__placeholder-input css-wdf2ti-Wrapper e1puf3u3"
           >
             <div
-              class="components-base-control__field"
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
             >
               <label
-                class="components-base-control__label"
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
                 for="inspector-text-control-1"
               >
                 Row count
@@ -2069,6 +1917,7 @@ Object {
       >
         <div
           class="components-dropdown components-dropdown-menu"
+          tabindex="-1"
         >
           <button
             aria-expanded="false"
@@ -2077,20 +1926,9 @@ Object {
             class="components-button components-dropdown-menu__toggle has-icon"
             type="button"
           >
-            <svg
-              aria-hidden="true"
-              class="dashicon dashicons-editor-table"
-              focusable="false"
-              height="20"
-              role="img"
-              viewBox="0 0 20 20"
-              width="20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
-              />
-            </svg>
+            <span
+              class="dashicon dashicons dashicons-editor-table"
+            />
           </button>
         </div>
       </div>
@@ -2119,7 +1957,7 @@ Object {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                  d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
                 />
               </svg>
             </span>
@@ -2127,10 +1965,10 @@ Object {
           </button>
         </h2>
         <div
-          class="components-base-control components-toggle-control"
+          class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <span
               class="components-form-toggle"
@@ -2146,20 +1984,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -2170,10 +1994,10 @@ Object {
           </div>
         </div>
         <div
-          class="components-base-control components-toggle-control"
+          class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
         >
           <div
-            class="components-base-control__field"
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
           >
             <span
               class="components-form-toggle"
@@ -2189,20 +2013,6 @@ Object {
               <span
                 class="components-form-toggle__thumb"
               />
-              <svg
-                aria-hidden="true"
-                class="components-form-toggle__off"
-                focusable="false"
-                height="6"
-                role="img"
-                viewBox="0 0 6 6"
-                width="6"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-                />
-              </svg>
             </span>
             <label
               class="components-toggle-control__label"
@@ -2377,6 +2187,7 @@ Object {
     >
       <div
         class="components-dropdown components-dropdown-menu"
+        tabindex="-1"
       >
         <button
           aria-expanded="false"
@@ -2385,20 +2196,9 @@ Object {
           class="components-button components-dropdown-menu__toggle has-icon"
           type="button"
         >
-          <svg
-            aria-hidden="true"
-            class="dashicon dashicons-editor-table"
-            focusable="false"
-            height="20"
-            role="img"
-            viewBox="0 0 20 20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M18 17V3H2v14h16zM16 7H4V5h12v2zm-7 4H4V9h5v2zm7 0h-5V9h5v2zm-7 4H4v-2h5v2zm7 0h-5v-2h5v2z"
-            />
-          </svg>
+          <span
+            class="dashicon dashicons dashicons-editor-table"
+          />
         </button>
       </div>
     </div>
@@ -2427,7 +2227,7 @@ Object {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M12 8l-6 5.4 1 1.2 5-4.6 5 4.6 1-1.2z"
+                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
               />
             </svg>
           </span>
@@ -2435,10 +2235,10 @@ Object {
         </button>
       </h2>
       <div
-        class="components-base-control components-toggle-control"
+        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <span
             class="components-form-toggle"
@@ -2454,20 +2254,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"
@@ -2478,10 +2264,10 @@ Object {
         </div>
       </div>
       <div
-        class="components-base-control components-toggle-control"
+        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <span
             class="components-form-toggle"
@@ -2497,20 +2283,6 @@ Object {
             <span
               class="components-form-toggle__thumb"
             />
-            <svg
-              aria-hidden="true"
-              class="components-form-toggle__off"
-              focusable="false"
-              height="6"
-              role="img"
-              viewBox="0 0 6 6"
-              width="6"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 1.5c.8 0 1.5.7 1.5 1.5S3.8 4.5 3 4.5 1.5 3.8 1.5 3 2.2 1.5 3 1.5M3 0C1.3 0 0 1.3 0 3s1.3 3 3 3 3-1.3 3-3-1.3-3-3-3z"
-              />
-            </svg>
           </span>
           <label
             class="components-toggle-control__label"

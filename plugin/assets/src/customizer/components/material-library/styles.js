@@ -100,6 +100,6 @@ export const Overrides = createGlobalStyle`
 
 export const RippleColor = styled.div`
 	[class*='__ripple']::before {
-		background-color: ${props => props.primaryColor} !important;
+		background-color: ${ props => props.primaryColor } !important;
 	}
 `;

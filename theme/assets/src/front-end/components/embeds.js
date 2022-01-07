@@ -17,7 +17,7 @@
 const makeFit = () => {
 	document
 		.querySelectorAll( 'iframe, object, video' )
-		.forEach( function( video ) {
+		.forEach( function ( video ) {
 			const container = video.parentNode;
 
 			// Skip videos we want to ignore.

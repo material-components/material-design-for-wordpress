@@ -18,7 +18,7 @@
  * External dependencies
  */
 import '@testing-library/jest-dom/extend-expect';
-import { render, wait } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { registerStore } from '@wordpress/data';
 
 /**
@@ -123,6 +123,6 @@ describe( 'Edit', () => {
 		};
 
 		const wrapper = setup( props );
-		await wait( () => expect( wrapper ).toMatchSnapshot() );
+		await waitFor( () => expect( wrapper ).toMatchSnapshot() );
 	} );
 } );
