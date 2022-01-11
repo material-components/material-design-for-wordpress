@@ -21,11 +21,12 @@ $attributes         = $args['attributes'];
 $page_key           = isset( $block->context['queryId'] ) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
 $page_number        = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ];
 $max_page           = isset( $block->context['query']['pages'] ) ? (int) $block->context['query']['pages'] : 0;
-$wrapper_attributes = get_block_wrapper_attributes();
 $default_label      = __( 'Next', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
 $url                = '';
 $content            = '';
+$wrapper_attributes = get_block_wrapper_attributes();
+$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
 
 // Check if the pagination is for Query that inherits the global context.
 if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['inherit'] ) {
@@ -41,7 +42,6 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 } elseif ( ! $max_page || $max_page > $page_number ) {
 	$custom_query           = new WP_Query( build_query_vars_from_query_block( $block, $page_number ) );
 	$custom_query_max_pages = (int) $custom_query->max_num_pages;
-	$wrapper_attributes     = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
 
 	if ( $custom_query_max_pages && $custom_query_max_pages !== $page_number ) :
 		$url = add_query_arg( $page_key, $page_number + 1 );
