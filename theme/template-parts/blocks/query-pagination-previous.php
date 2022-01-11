@@ -20,37 +20,26 @@ $content            = $args['content'];
 $attributes         = $args['attributes'];
 $page_key           = isset( $block->context['queryId'] ) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
 $page_number        = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ];
-$wrapper_attributes = get_block_wrapper_attributes();
 $default_label      = __( 'Previous', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
-$pagination_arrow   = get_query_pagination_arrow( $block, false );
-
-if ( $pagination_arrow ) {
-	$label = $pagination_arrow . $label;
-}
-
-$content = '';
+$content            = '';
+$url                = '';
+$wrapper_attributes = get_block_wrapper_attributes();
+$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
 
 // Check if the pagination is for Query that inherits the global context
 // and handle appropriately.
 if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['inherit'] ) {
-	$filter_link_attributes = function() use ( $wrapper_attributes ) {
-		return $wrapper_attributes;
-	};
-
-	add_filter( 'previous_posts_link_attributes', $filter_link_attributes );
-
-	$content = get_previous_posts_link( $label );
-
-	remove_filter( 'previous_posts_link_attributes', $filter_link_attributes );
+	$url = previous_posts( false );
 } elseif ( 1 !== $page_number ) {
-	$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
+	$url = add_query_arg( $page_key, $page_number - 1 );
+}
 
+if ( ! empty( $url ) ) :
 	ob_start();
 	?>
 		<a
-			href="<?php echo esc_url( add_query_arg( $page_key, $page_number - 1 ) ); ?>"
-
+			href="<?php echo esc_url( $url ); ?>"
 			<?php
 			/**
 			 * Esc_attr breaks the markup.
@@ -74,6 +63,6 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 		</a>
 	<?php
 	$content = ob_get_clean();
-}
 
-echo wp_kses_post( $content );
+	echo wp_kses_post( $content );
+endif;
