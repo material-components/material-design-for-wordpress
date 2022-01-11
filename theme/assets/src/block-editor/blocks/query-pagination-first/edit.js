@@ -4,11 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 
-const QueryPaginationFirstEdit = ( {
-	attributes: { label },
-	setAttributes,
-	context: { paginationArrow },
-} ) => {
+const QueryPaginationFirstEdit = () => {
 	return (
 		<a
 			href="#pagination-first-pseudo-link"

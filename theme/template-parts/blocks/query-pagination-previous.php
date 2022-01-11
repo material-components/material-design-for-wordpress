@@ -13,13 +13,18 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-$block              = $args['block'];
-$content            = $args['content'];
-$attributes         = $args['attributes'];
-$page_key           = isset( $block->context['queryId'] ) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
-$page_number        = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ];
+$block      = $args['block'];
+$content    = $args['content'];
+$attributes = $args['attributes'];
+$page_key   = isset( $block->context['queryId'] ) ? 'query-' . $block->context['queryId'] . '-page' : 'query-page';
+/**
+ * Copied from core without nonce verification.
+ */
+$page_number        = empty( $_GET[ $page_key ] ) ? 1 : (int) $_GET[ $page_key ]; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 $default_label      = __( 'Previous', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
 $content            = '';

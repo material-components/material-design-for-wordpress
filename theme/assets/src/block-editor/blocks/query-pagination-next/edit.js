@@ -4,11 +4,7 @@
 import { __ } from '@wordpress/i18n';
 import { useBlockProps } from '@wordpress/block-editor';
 
-const QueryPaginationNextEdit = ( {
-	attributes: { label },
-	setAttributes,
-	context: { paginationArrow },
-} ) => {
+const QueryPaginationNextEdit = () => {
 	return (
 		<a
 			href="#pagination-next-pseudo-link"
