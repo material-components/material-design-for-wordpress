@@ -1,14 +1,8 @@
 /**
  * WordPress dependencies
  */
-import { __ } from '@wordpress/i18n';
 import { getBlockSupport } from '@wordpress/blocks';
-import { useSelect } from '@wordpress/data';
-import {
-	useBlockProps,
-	useInnerBlocksProps,
-	store as blockEditorStore,
-} from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 // Override core template.
 const TEMPLATE = [
@@ -27,22 +21,8 @@ const getDefaultBlockLayout = blockTypeOrName => {
 	return layoutBlockSupportConfig?.default;
 };
 
-const QueryPaginationEdit = ( {
-	attributes: { paginationArrow, layout },
-	setAttributes,
-	clientId,
-	name,
-} ) => {
+const QueryPaginationEdit = ( { attributes: { layout }, name } ) => {
 	const usedLayout = layout || getDefaultBlockLayout( name );
-	const hasNextPreviousBlocks = useSelect( select => {
-		const { getBlocks } = select( blockEditorStore );
-		const innerBlocks = getBlocks( clientId );
-
-		return innerBlocks?.find( innerBlock => {
-			return TEMPLATE.includes( innerBlock.name );
-		} );
-	}, [] );
-
 	const blockProps = useBlockProps();
 	const innerBlockProps = useInnerBlocksProps( blockProps, {
 		template: TEMPLATE,
