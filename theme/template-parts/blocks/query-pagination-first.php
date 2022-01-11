@@ -33,37 +33,37 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 	$url = get_pagenum_link( 1 );
 } elseif ( 1 !== $page_number ) {
 	$url = add_query_arg( $page_key, 1 );
-} else {
-	return;
 }
 
-ob_start();
-?>
-	<a
-		href="<?php echo esc_url( $url ); ?>"
-		<?php
-		/**
-		 * Esc_attr breaks the markup.
-		 * Turns the closing " into &quote;
-		 */
-		?>
-		<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-	>
-		<span class="material-icons" aria-hidden="true">
-			first_page
-		</span>
-		<span class="screen-reader-text">
+if ( ! empty( $url ) ) :
+	ob_start();
+	?>
+		<a
+			href="<?php echo esc_url( $url ); ?>"
 			<?php
-				printf(
-					/* translators: available page description. */
-					esc_html__( '%s page', 'material-design-google' ),
-					esc_html( $label )
-				);
+			/**
+			 * Esc_attr breaks the markup.
+			 * Turns the closing " into &quote;
+			 */
 			?>
-		</span>
-	</a>
-<?php
+			<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		>
+			<span class="material-icons" aria-hidden="true">
+				first_page
+			</span>
+			<span class="screen-reader-text">
+				<?php
+					printf(
+						/* translators: available page description. */
+						esc_html__( '%s page', 'material-design-google' ),
+						esc_html( $label )
+					);
+				?>
+			</span>
+		</a>
+	<?php
 
-$content = ob_get_clean();
+	$content = ob_get_clean();
 
-echo wp_kses_post( $content );
+	echo wp_kses_post( $content );
+endif;
