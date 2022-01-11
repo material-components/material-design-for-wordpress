@@ -24,50 +24,46 @@ $wrapper_attributes = get_block_wrapper_attributes();
 $default_label      = __( 'First', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
 $content            = '';
+$url                = '';
+$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
 
 // Check if the pagination is for Query that inherits the global context
 // and handle appropriately.
 if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['inherit'] ) {
-	$filter_link_attributes = function() use ( $wrapper_attributes ) {
-		return $wrapper_attributes;
-	};
-
-	add_filter( 'previous_posts_link_attributes', $filter_link_attributes );
-
-	$content = get_previous_posts_link( $label );
-
-	remove_filter( 'previous_posts_link_attributes', $filter_link_attributes );
+	$url = get_pagenum_link( 1 );
 } elseif ( 1 !== $page_number ) {
-	$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
-
-	ob_start();
-	?>
-		<a
-			href="<?php echo esc_url( get_pagenum_link( 1 ) ); ?>"
-
-			<?php
-			/**
-			 * Esc_attr breaks the markup.
-			 * Turns the closing " into &quote;
-			 */
-			?>
-			<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		>
-			<span class="material-icons" aria-hidden="true">
-				chevron_left
-			</span>
-			<span class="screen-reader-text">
-				<?php
-					printf(
-						/* translators: available page description. */
-						esc_html__( '%s page', 'material-design-google' ),
-						esc_html( $label )
-					);
-				?>
-			</span>
-		</a>
-	<?php
-	$content = ob_get_clean();
+	$url = add_query_arg( $page_key, 1 );
+} else {
+	return;
 }
+
+ob_start();
+?>
+	<a
+		href="<?php echo esc_url( $url ); ?>"
+		<?php
+		/**
+		 * Esc_attr breaks the markup.
+		 * Turns the closing " into &quote;
+		 */
+		?>
+		<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	>
+		<span class="material-icons" aria-hidden="true">
+			first_page
+		</span>
+		<span class="screen-reader-text">
+			<?php
+				printf(
+					/* translators: available page description. */
+					esc_html__( '%s page', 'material-design-google' ),
+					esc_html( $label )
+				);
+			?>
+		</span>
+	</a>
+<?php
+
+$content = ob_get_clean();
 
 echo wp_kses_post( $content );
