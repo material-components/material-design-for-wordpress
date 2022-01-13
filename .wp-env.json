@@ -1,0 +1,13 @@
+{
+  "core": "WordPress/WordPress",
+  "port": 8080,
+  "mappings": {
+    "wp-content/plugins/material-design": "./plugin",
+    "wp-content/themes/material-design-google": "./theme"
+  },
+  "env": {
+    "tests": {
+      "port": 8081
+    }
+  }
+}
