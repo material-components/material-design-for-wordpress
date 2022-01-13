@@ -33,7 +33,7 @@ const { name } = metadata;
 export { metadata, name };
 
 /**
- * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string}}
+ * @type {{edit: *, icon: (function(): *), description: string, title: string, keywords: *[], example: *, save: *, deprecated: *}}
  */
 export const settings = {
 	title: __( 'Custom Card (Material)', 'material-design' ),
