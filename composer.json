@@ -11,6 +11,10 @@
     "platform": {
       "php": "7.4.2",
       "ext-filter": "7.1"
+    },
+    "allow-plugins": {
+      "xwp/wordpress-tests-installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
     }
   },
   "require": {
