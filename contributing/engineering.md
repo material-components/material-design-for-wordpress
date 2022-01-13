@@ -55,6 +55,13 @@ git clone git@github.com:material-components/material-design-for-wordpress.git m
 cd material-design
 ```
 
+### Windows local enviorment
+Use WordPress's [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/).
+
+1. Install wp-env as mentioned above.
+2. Start with `wp-env start` (Assuming you have `wp-env` installed globally with updated PATH variable or use `npx wp-env start` to execute from repository's node_modules):
+3. Activate material plugin and theme.
+
 Setup the development tools using [Node.js](https://nodejs.org) and [Composer](https://getcomposer.org):
 
 ```bash
