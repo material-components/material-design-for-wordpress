@@ -15,7 +15,7 @@
  */
 
 .masonry-grid-theme,
-ul.wp-block-post-template.is-flex-container {
+.is-style-material-masonry.wp-block-post-template.is-flex-container {
 	grid-gap: var(--mdc-layout-grid-margin-desktop, 24px);
 	grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
 	grid-auto-rows: var(--mdc-layout-grid-margin-desktop, 24px);
@@ -58,8 +58,8 @@ ul.wp-block-post-template.is-flex-container {
 	}
 }
 
-.wp-block-post-template.is-flex-container.is-flex-container > li,
-.wp-block-query-loop.is-flex-container.is-flex-container > li {
+.is-style-material-masonry.wp-block-post-template.is-flex-container > li,
+.is-style-material-masonry.wp-block-query-loop.is-flex-container > li {
 	width: 100% !important;
 }
 

@@ -40,7 +40,9 @@ const handleResize = mediaQuery => {
 
 const resizeAllGridItems = () => {
 	const cells = materialDesignThemeFeVars?.isFse
-		? gridElement.querySelectorAll( '.wp-block-post' )
+		? gridElement.querySelectorAll(
+				'.is-style-material-masonry .wp-block-post'
+		  )
 		: gridElement.querySelectorAll( '.post-card__container' );
 
 	if ( ! cells ) {
