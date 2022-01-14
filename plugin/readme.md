@@ -8,7 +8,7 @@ The official Material Design plugin for WordPress. Customize your site’s navig
 **Contributors:** [google](https://profiles.wordpress.org/google), [materialdesign](https://profiles.wordpress.org/materialdesign), [xwp](https://profiles.wordpress.org/xwp)
 **Requires at least:** 5.6
 **Tested up to:** 5.8.2
-**Stable tag:** 0.5.0
+**Stable tag:** 0.5.1
 **License:** [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Description ##
@@ -71,4 +71,3 @@ Material Design is a design system created by Google and backed by open-source c
 ## Changelog ##
 
 For the plugin’s changelog, please see [the Releases page on GitHub](https://github.com/material-components/material-design-for-wordpress/releases).
-
