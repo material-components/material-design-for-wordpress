@@ -1,14 +1,18 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
   "name": "material/back-to-top",
+  "textdomain": "material-design-google",
   "category": "material",
   "attributes": {},
   "title": "Back to top",
   "supports": {
     "align": true
   },
-  "apiVersion": 2,
   "description": "Material back to top button",
-  "editorStyle": ["material-google-fonts-cdn", "material-block-editor-css-theme"],
+  "editorStyle": [
+    "material-google-fonts-cdn",
+    "material-block-editor-css-theme"
+  ],
   "editorScript": "material-block-editor-js-theme"
 }

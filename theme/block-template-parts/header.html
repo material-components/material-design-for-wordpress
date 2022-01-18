@@ -5,10 +5,21 @@
 		<!-- wp:group {"className":"mdc-top-app-bar__row top-app-bar__header","layout":{"type":"flex","allowOrientation":false}} -->
 		<div class="wp-block-group mdc-top-app-bar__row top-app-bar__header">
 			<!-- wp:group {"className":"mdc-top-app-bar__section mdc-top-app-bar__section\u002d\u002dalign-start","layout":{"type":"flex","allowOrientation":false}} -->
-			<div class="wp-block-group mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+			<section class="wp-block-group mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
 				<!-- wp:site-logo {"className":"logo"} /-->
 				<!-- wp:template-part {"slug":"title","theme":"material-design-google"} /-->
-			</div>
+			</section>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"tagName":"section","className":"mdc-top-app-bar__section mdc-top-app-bar__section\u002d\u002dalign-end","layout":{"type":"flex","allowOrientation":false}} -->
+			<section class="wp-block-group mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+				<!-- wp:material/dark-mode-switch -->
+				<button class="wp-block-material-dark-mode-switch material-icons mdc-top-app-bar__navigation-icon mdc-icon-button dark-mode__button" aria-label="Toggle Dark Mode">
+					<span class="mdc-button__ripple"></span>
+					<span class="dark-mode__icon">dark_mode</span>
+				</button>
+				<!-- /wp:material/dark-mode-switch -->
+			</section>
 			<!-- /wp:group -->
 		</div>
 		<!-- /wp:group -->

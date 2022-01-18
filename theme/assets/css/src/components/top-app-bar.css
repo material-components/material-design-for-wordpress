@@ -146,12 +146,4 @@
 		display: none;
 	}
 
-	& .dark-mode__button {
-		display: none;
-	}
-
-	&.top-app-bar--has-dark-mode .dark-mode__button {
-		display: block;
-	}
-
 }
