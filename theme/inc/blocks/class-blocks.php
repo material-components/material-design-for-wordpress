@@ -64,7 +64,8 @@ class Blocks {
 			/**
 			 * Filters the arguments for registering a block type.
 			 *
-			 * @param array $metadata Array of arguments for registering a block type.
+			 * @param array  $metadata Array of arguments for registering a block type.
+			 * @param string $name     Block name.
 			 */
 			$args = apply_filters( 'material_design_theme_block_type_args', $args, $object->name );
 			// If this is a dynamic block, register render_callback.
