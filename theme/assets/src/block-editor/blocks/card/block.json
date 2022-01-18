@@ -18,6 +18,10 @@
     "showComments": {
       "type": "boolean",
       "default": true
+    },
+    "isEditMode": {
+      "type": "boolean",
+      "default": false
     }
   },
   "title": "Material Card for Query loop",

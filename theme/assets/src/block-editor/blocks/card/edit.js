@@ -46,6 +46,10 @@ const Edit = ( { context, setAttributes, attributes } ) => {
 	for ( const key in context ) {
 		urlQueryArgs.materialParamContext[ key ] = context[ key ];
 	}
+	const ssrAttributes = {
+		...attributes,
+		...{ isEditMode: true },
+	};
 	return (
 		<>
 			<InspectControls
@@ -56,7 +60,7 @@ const Edit = ( { context, setAttributes, attributes } ) => {
 				<ServerSideRender
 					block={ name }
 					urlQueryArgs={ urlQueryArgs }
-					attributes={ attributes }
+					attributes={ ssrAttributes }
 				/>
 			</div>
 		</>

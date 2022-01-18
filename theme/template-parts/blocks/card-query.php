@@ -31,17 +31,19 @@ $show_comments = $attributes['showComments'];
 $show_author   = $attributes['showAuthor'];
 $show_excerpt  = $attributes['showExcerpt'];
 $show_date     = $attributes['showDate'];
+$is_edit       = $attributes['isEditMode'];
 $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outlined' : '';
 
 if ( empty( $block ) || ! isset( $block->context['postId'] ) ) {
 	return '';
 }
-$post_ID = $block->context['postId']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-$post    = get_post( $post_ID ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+$post_ID   = $block->context['postId']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+$post      = get_post( $post_ID ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+$post_link = $is_edit ? '#link-to-' . $post_ID : get_the_permalink( $post );
 ?>
 	<div class="post-card__container">
 		<div id="<?php echo esc_attr( $post_ID ); ?>" <?php post_class( "mdc-card post-card $classes" ); ?>>
-			<a class="mdc-card__link" href="<?php echo esc_url( get_the_permalink( $post ) ); ?>">
+			<a class="mdc-card__link" href="<?php echo esc_url( $post_link ); ?>">
 				<div class="mdc-card__primary-action post-card__primary-action">
 					<?php if ( has_post_thumbnail( $post ) ) : ?>
 						<div class="mdc-card__media mdc-card__media--16-9 post-card__media">
@@ -88,7 +90,7 @@ $post    = get_post( $post_ID ); // phpcs:ignore WordPress.WP.GlobalVariablesOve
 						<?php if ( ! empty( $show_author ) ) : ?>
 							<a
 								class="mdc-button mdc-card__action mdc-card__action--button"
-								href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post->post_author ) ) ); ?>"
+								href="<?php echo esc_url( $is_edit ? '#author-link' : get_author_posts_url( get_the_author_meta( 'ID', $post->post_author ) ) ); ?>"
 								aria-label="
 								<?php
 								printf(
@@ -109,7 +111,7 @@ $post    = get_post( $post_ID ); // phpcs:ignore WordPress.WP.GlobalVariablesOve
 						<?php endif; ?>
 
 						<?php if ( ! empty( $show_comments ) && ( comments_open( $post_ID ) || ( 0 < get_comments_number( $post_ID ) ) ) ) : ?>
-							<a href="<?php echo esc_url( get_comments_link() ); ?>" class="mdc-button mdc-card__action mdc-card__action--button">
+							<a href="<?php echo esc_url( $is_edit ? '#comment-link' : get_comments_link( $post_ID ) ); ?>" class="mdc-button mdc-card__action mdc-card__action--button">
 								<span class="mdc-button__ripple"></span>
 								<i class="material-icons mdc-button__icon" aria-hidden="true">comment</i>
 								<?php
