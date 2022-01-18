@@ -43,6 +43,7 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 if ( ! empty( $url ) ) :
 	ob_start();
 	?>
+	<li>
 		<a
 			href="<?php echo esc_url( $url ); ?>"
 			<?php
@@ -66,6 +67,7 @@ if ( ! empty( $url ) ) :
 				?>
 			</span>
 		</a>
+	</li>
 	<?php
 	$content = ob_get_clean();
 
