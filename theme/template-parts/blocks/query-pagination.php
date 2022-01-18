@@ -37,7 +37,5 @@ $attributes = str_replace( 'class="', 'class="mdc-page-navigation ', $attributes
  */
 ?>
 <ul <?php echo $attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-	<li>
 		<?php echo wp_kses_post( $content ); ?>
-	</li>
 </ul>
