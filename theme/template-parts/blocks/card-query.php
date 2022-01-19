@@ -78,11 +78,11 @@ $post_link = $is_edit ? '#link-to-' . $post_ID : get_the_permalink( $post );
 								class="post-card__subtitle mdc-typography mdc-typography--subtitle2"><?php echo esc_html( get_the_time( 'F j, Y', $post ) ); ?></time>
 						<?php endif; ?>
 					</div>
-					<?php if ( ! empty( $show_excerpt ) ) : ?>
-						<div
-							class="post-card__secondary mdc-typography mdc-typography--body2"><?php get_the_excerpt( $post ); ?></div>
-					<?php endif; ?>
 				</div>
+				<?php if ( ! empty( $show_excerpt ) ) : ?>
+					<div
+						class="post-card__secondary mdc-typography mdc-typography--body2"><p><?php echo wp_kses_post( get_the_excerpt( $post ) ); ?></p></div>
+				<?php endif; ?>
 			</a>
 			<?php if ( ! empty( $show_author ) || ! empty( $show_comments ) ) : ?>
 				<div class="mdc-card__actions">
