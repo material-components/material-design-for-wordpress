@@ -1,11 +1,11 @@
-/**
- * Copyright 2020 Google LLC
+/*
+ * Copyright 2022. Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *       http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,18 +14,5 @@
  * limitations under the License.
  */
 
-/* Variables */
-@import "./conf/variables.css";
-
-/* Vendor */
-@import "./material-components.css";
-
-/* Custom */
-@import "./conf/index.css";
-@import "./base/index.css";
-@import "./templates/index.css";
-@import "./components/index.css";
-
-/* Block editor */
-@import "./../../src/block-editor/plugins/hide-sections/style.css";
-@import "./../../src/block-editor/style/horizontal-line/style.css";
+import './core-template';
+import './horizontal-line';

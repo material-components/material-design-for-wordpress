@@ -15,7 +15,7 @@
  */
 
 import './plugins/hide-sections';
-import './plugins/style/core-template';
+import './style';
 import { registerBlocks } from './util';
 
 /**
