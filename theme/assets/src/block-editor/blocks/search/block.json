@@ -6,7 +6,9 @@
   "category": "material",
   "attributes": {},
   "title": "Material Search",
-  "supports": {},
+  "supports": {
+    "align": true
+  },
   "description": "Material search bar",
   "editorStyle": [
     "material-google-fonts-cdn",
