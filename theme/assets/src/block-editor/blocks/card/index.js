@@ -14,11 +14,20 @@
  * limitations under the License.
  */
 
-import './plugins/hide-sections';
-import './plugins/style/core-template';
-import { registerBlocks } from './util';
-
 /**
- * Register the blocks.
+ * Internal dependencies
  */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+import metadata from './block.json';
+import { icon } from './icon';
+import edit from './edit';
+
+const { name, title } = metadata;
+
+export { metadata, name };
+
+export const settings = {
+	title,
+	description: metadata.description,
+	icon,
+	edit,
+};

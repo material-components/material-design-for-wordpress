@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-import './plugins/hide-sections';
-import './plugins/style/core-template';
-import { registerBlocks } from './util';
-
 /**
- * Register the blocks.
+ * Block Icon component.
+ *
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+export const icon = () => (
+	<i className="material-icons-outlined">chrome_reader_mode</i>
+);

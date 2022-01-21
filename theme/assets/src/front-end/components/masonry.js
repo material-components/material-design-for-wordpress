@@ -13,11 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/* global materialDesignThemeFeVars */
 let gridElement = null;
 
 export const masonryInit = () => {
-	gridElement = document.querySelector( '.masonry-grid-theme' );
+	/** @type {{isFse:boolean}} */
+	gridElement = materialDesignThemeFeVars?.isFse
+		? document.querySelector( '.is-flex-container' )
+		: document.querySelector( '.masonry-grid-theme' );
 
 	if ( ! gridElement ) {
 		return;
@@ -36,7 +39,11 @@ const handleResize = mediaQuery => {
 };
 
 const resizeAllGridItems = () => {
-	const cells = gridElement.querySelectorAll( '.post-card__container' );
+	const cells = materialDesignThemeFeVars?.isFse
+		? gridElement.querySelectorAll(
+				'.is-style-material-masonry .wp-block-post'
+		  )
+		: gridElement.querySelectorAll( '.post-card__container' );
 
 	if ( ! cells ) {
 		return;

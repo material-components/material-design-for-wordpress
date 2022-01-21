@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-import './plugins/hide-sections';
-import './plugins/style/core-template';
-import { registerBlocks } from './util';
+import { registerBlockStyle } from '@wordpress/blocks';
 
-/**
- * Register the blocks.
- */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+registerBlockStyle( 'core/post-template', {
+	name: 'material-masonry',
+	label: 'Material Masonry Grid',
+} );

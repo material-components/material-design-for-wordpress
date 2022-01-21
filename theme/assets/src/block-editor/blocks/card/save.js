@@ -1,7 +1,7 @@
 /**
  * Copyright 2020 Google LLC
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed uder the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -14,11 +14,27 @@
  * limitations under the License.
  */
 
-import './plugins/hide-sections';
-import './plugins/style/core-template';
-import { registerBlocks } from './util';
-
 /**
- * Register the blocks.
+ * External dependencies
  */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+/**
+ * WordPress dependencies
+ */
+import { useBlockProps } from '@wordpress/block-editor';
+import ServerSideRender from '@wordpress/server-side-render';
+
+import { name } from './block.json';
+/**
+ * Edit.
+ *
+ * @return {JSX.Element} Block edit.
+ */
+const Edit = () => {
+	return (
+		<div { ...useBlockProps.save() }>
+			<ServerSideRender block={ name } />
+		</div>
+	);
+};
+
+export default Edit;

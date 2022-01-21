@@ -25,6 +25,8 @@
  * @package MaterialDesign
  */
 
+use function MaterialDesign\Theme\BlockEditor\is_fse;
+
 if ( ! function_exists( 'material_design_theme_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -180,6 +182,13 @@ function material_design_theme_scripts() {
 	}
 
 	wp_enqueue_script( 'material-design-google-js', get_template_directory_uri() . "/assets/js/front-end{$suffix}.js", [], $theme_version, true );
+	wp_localize_script(
+		'material-design-google-js',
+		'materialDesignThemeFeVars',
+		[
+			'isFse' => is_fse(),
+		]
+	);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
