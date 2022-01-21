@@ -20,7 +20,6 @@
 import '@material/button/dist/mdc.button.css';
 import '@material/typography/dist/mdc.typography.css';
 import '@material/form-field/dist/mdc.form-field.css';
-import './style.css';
 
 /**
  * Internal dependencies

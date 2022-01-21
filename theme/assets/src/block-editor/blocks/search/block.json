@@ -4,11 +4,13 @@
   "name": "material/search",
   "textdomain": "material-design-google",
   "category": "material",
-  "attributes": {},
-  "title": "Material Search",
-  "supports": {
-    "align": true
+  "attributes": {
+    "textAlign": {
+      "type": "string"
+    }
   },
+  "title": "Material Search",
+  "supports": {},
   "description": "Material search bar",
   "editorStyle": [
     "material-google-fonts-cdn",

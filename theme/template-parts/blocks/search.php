@@ -20,8 +20,10 @@
 /**
  * Search dynamic block markup.
  */
+$attributes         = isset( $args['attributes'] ) ? $args['attributes'] : [];
+$align_class_name   = empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
 $search_label_id    = uniqid( 'search-label-' );
-$wrapper_attributes = get_block_wrapper_attributes( [ 'class' => [] ] );
+$wrapper_attributes = get_block_wrapper_attributes( [ 'class' => esc_attr( $align_class_name ) ] );
 
 ?>
 <form <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> role="search" method="get" action="<?php esc_url( home_url( '/' ) ); ?>">
