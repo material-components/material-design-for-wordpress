@@ -180,7 +180,7 @@ function get_controls() {
 				'css_var'         => '--mdc-theme-on-background',
 				'a11y_label'      => __( 'On Background', 'material-design-google' ),
 				'related_setting' => 'custom_background_color',
-				'theme_json'      => 'on_background',
+				'theme_json'      => 'on-background',
 				'order'           => 8,
 			],
 			[
@@ -248,7 +248,7 @@ function get_dark_controls() {
 			'a11y_label'      => __( 'On Background', 'material-design-google' ),
 			'related_setting' => 'custom_background_color_dark',
 			'color_mode_type' => 'dark',
-			'theme_json'      => 'on_background',
+			'theme_json'      => 'on-background',
 		],
 		[
 			'id'                   => 'header_color_dark',
@@ -331,6 +331,7 @@ function after_save( $wp_customize ) {
 	wp_update_post( $user_theme_json_post );
 	clear_wp_global_user_style_cache();
 	delete_transient( 'global_styles' );
+	delete_transient( 'global_styles_' . get_stylesheet() );
 	delete_transient( 'gutenberg_global_styles' );
 	delete_transient( 'gutenberg_global_styles_' . get_stylesheet() );
 }
