@@ -24,6 +24,7 @@ import { render, fireEvent } from '@testing-library/react';
  * Internal dependencies
  */
 import LayoutControls from '../../../../assets/src/block-editor/components/layout-controls';
+import { getRangeInput } from '../../helper';
 
 /**
  * Render the component.
@@ -64,11 +65,11 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll(
-				'.components-range-control__number'
-			)[ 0 ],
+			getRangeInput(
+				container.querySelectorAll( '.components-range-control' )[ 0 ]
+			),
 			{
-				target: { value: 4 },
+				target: { value: '4' },
 			}
 		);
 
@@ -76,11 +77,11 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll(
-				'.components-range-control__number'
-			)[ 0 ],
+			getRangeInput(
+				container.querySelectorAll( '.components-range-control' )[ 0 ]
+			),
 			{
-				target: { value: 2 },
+				target: { value: '2' },
 			}
 		);
 
@@ -88,11 +89,11 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll(
-				'.components-range-control__number'
-			)[ 0 ],
+			getRangeInput(
+				container.querySelectorAll( '.components-range-control' )[ 0 ]
+			),
 			{
-				target: { value: 1 },
+				target: { value: '1' },
 			}
 		);
 
@@ -101,7 +102,6 @@ describe( 'LayoutControls', () => {
 			mobile: 2,
 			tablet: 3,
 		} );
-
 		expect( onColumnsChangeMock.mock.calls[ 1 ][ 0 ] ).toStrictEqual( {
 			desktop: 5,
 			mobile: 2,
@@ -126,9 +126,9 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll(
-				'.components-range-control__number'
-			)[ 1 ],
+			getRangeInput(
+				container.querySelectorAll( '.components-range-control' )[ 1 ]
+			),
 			{
 				target: { value: 10 },
 			}
@@ -138,9 +138,9 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll(
-				'.components-range-control__number'
-			)[ 1 ],
+			getRangeInput(
+				container.querySelectorAll( '.components-range-control' )[ 1 ]
+			),
 			{
 				target: { value: 8 },
 			}
@@ -150,9 +150,9 @@ describe( 'LayoutControls', () => {
 
 		fireEvent.click( button );
 		fireEvent.change(
-			container.querySelectorAll(
-				'.components-range-control__number'
-			)[ 1 ],
+			getRangeInput(
+				container.querySelectorAll( '.components-range-control' )[ 1 ]
+			),
 			{
 				target: { value: 4 },
 			}

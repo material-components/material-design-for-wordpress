@@ -70,10 +70,10 @@ exports[`Settings: Switch matches snapshot 1`] = `
       class="mdc-layout-grid__inner"
     >
       <div
-        class="components-base-control material-settings__api-input mdc-layout-grid__cell"
+        class="components-base-control material-settings__api-input mdc-layout-grid__cell css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <input
             class="components-text-control__input"
@@ -173,10 +173,10 @@ exports[`Settings: Switch matches snapshot when API is not ok 1`] = `
       class="mdc-layout-grid__inner"
     >
       <div
-        class="components-base-control material-settings__api-input mdc-layout-grid__cell"
+        class="components-base-control material-settings__api-input mdc-layout-grid__cell css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <input
             class="components-text-control__input"
@@ -276,10 +276,10 @@ exports[`Settings: Switch matches snapshot when API is ok 1`] = `
       class="mdc-layout-grid__inner"
     >
       <div
-        class="components-base-control material-settings__api-input material-settings__api-input--disabled mdc-layout-grid__cell"
+        class="components-base-control material-settings__api-input material-settings__api-input--disabled mdc-layout-grid__cell css-wdf2ti-Wrapper e1puf3u3"
       >
         <div
-          class="components-base-control__field"
+          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
         >
           <input
             class="components-text-control__input"

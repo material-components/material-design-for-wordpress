@@ -20,16 +20,16 @@
 import { __ } from '@wordpress/i18n';
 
 export const STYLES = {
-	'100': __( 'Thin', 'material-design' ),
-	'200': __( 'Extra Light', 'material-design' ),
-	'300': __( 'Light', 'material-design' ),
+	100: __( 'Thin', 'material-design' ),
+	200: __( 'Extra Light', 'material-design' ),
+	300: __( 'Light', 'material-design' ),
 	regular: __( 'Regular', 'material-design' ),
-	'500': __( 'Medium', 'material-design' ),
-	'600': __( 'Semi Bold', 'material-design' ),
-	'700': __( 'Bold', 'material-design' ),
-	'800': __( 'Extra Bold', 'material-design' ),
-	'900': __( 'Black', 'material-design' ),
-	'950': __( 'Extra Black', 'material-design' ),
+	500: __( 'Medium', 'material-design' ),
+	600: __( 'Semi Bold', 'material-design' ),
+	700: __( 'Bold', 'material-design' ),
+	800: __( 'Extra Bold', 'material-design' ),
+	900: __( 'Black', 'material-design' ),
+	950: __( 'Extra Black', 'material-design' ),
 	// Italics
 	'100italic': __( 'Thin Italic', 'material-design' ),
 	'200italic': __( 'Extra Light Italic', 'material-design' ),

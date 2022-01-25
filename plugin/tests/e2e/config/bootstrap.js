@@ -56,6 +56,11 @@ const pageEvents = [];
 // The Jest timeout is increased because these tests are a bit slow
 jest.setTimeout( PUPPETEER_TIMEOUT || 100000 );
 
+// Todo add `flaky-tests-reporter` and `report-flaky-tests` GitHub action workflow.
+if ( process.env.CI ) {
+	jest.retryTimes( 2 );
+}
+
 // Set default timeout for individual expect-puppeteer assertions. (Default: 500)
 setDefaultOptions( { timeout: EXPECT_PUPPETEER_TIMEOUT || 500 } );
 
@@ -158,7 +163,8 @@ async function removeBeforeunloadEvents() {
  * @return {?Promise} Promise resolving once Axe texts are finished.
  */
 async function runAxeTestsForBlockEditor() {
-	if ( ! ( await page.$( '.block-editor' ) ) ) {
+	// Make sure page exists and if page has .block-editor.
+	if ( ! page || ! ( await page.$( '.block-editor' ) ) ) {
 		return;
 	}
 
@@ -180,6 +186,7 @@ async function runAxeTestsForBlockEditor() {
 			'listitem',
 			'page-has-heading-one',
 			'region',
+			'nested-interactive',
 		],
 		exclude: [
 			// Ignores elements created by metaboxes.
@@ -198,7 +205,7 @@ async function runAxeTestsForBlockEditor() {
 // eslint-disable-next-line jest/require-top-level-describe
 beforeAll( async () => {
 	capturePageEventsForTearDown();
-	removeBeforeunloadEvents();
+	await removeBeforeunloadEvents();
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	// 15inch screen.

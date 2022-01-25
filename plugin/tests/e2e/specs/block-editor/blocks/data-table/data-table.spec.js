@@ -17,24 +17,27 @@
 /**
  * WordPress dependencies
  */
-import { createNewPost } from '@wordpress/e2e-test-utils';
+import {
+	clickButton,
+	createNewPost,
+	getEditedPostContent,
+} from '@wordpress/e2e-test-utils';
 
 /**
  * Internal dependencies
  */
 import { insertBlockByKeyword, selectBlockByName } from '../../../../utils';
 
+const createButtonLabel = 'Create Table';
+const buttonSelector = '.blocks-table__placeholder-form button';
+
 describe( 'blocks: material/data-table core/table style', () => {
-	it( 'should be inserted', async () => {
+	beforeEach( async () => {
 		await createNewPost( {} );
 		await insertBlockByKeyword( 'Table' );
-		const createButton = await page.$(
-			'[data-type="core/table"] form [type="submit"], .blocks-table__placeholder-button[type="submit"]'
-		);
-		createButton.click();
-
-		// Check if block was inserted
-		expect( await page.$( '[data-type="core/table"]' ) ).not.toBeNull();
+		await page.waitForSelector( buttonSelector );
+		// Create the table.
+		await clickButton( createButtonLabel );
 	} );
 
 	it( 'should have a "Styles" selection with Material style added', async () => {
@@ -57,52 +60,12 @@ describe( 'blocks: material/data-table core/table style', () => {
 		expect( styles ).toHaveLength( 3 );
 	} );
 
-	it( 'should update table cell content', async () => {
-		const tableCells = await page.$$(
-			'.edit-post-visual-editor .wp-block-table .wp-block-table__cell-content'
-		);
-		await tableCells[ 0 ].focus();
+	// eslint-disable-next-line jest/no-disabled-tests
+	it.skip( 'should update table cell content', async () => {
+		await page.waitForSelector( 'td' );
+		await page.click( 'td' );
 		await page.keyboard.type( 'Column 1' );
 
-		const content = await page.evaluate(
-			() =>
-				document.querySelectorAll(
-					'.edit-post-visual-editor .wp-block-table .wp-block-table__cell-content'
-				)[ 0 ].textContent
-		);
-		expect( content ).toBe( 'Column 1' );
-	} );
-} );
-
-describe( 'blocks: material/data-table', () => {
-	it( 'should be inserted', async () => {
-		await createNewPost( {} );
-		await insertBlockByKeyword( 'Material Data Table' );
-
-		const createButton = await page.$$(
-			'[data-type="material/data-table"] form [type="submit"]'
-		);
-		createButton[ 0 ].click();
-
-		// Check if block was inserted
-		expect(
-			await page.$( '[data-type="material/data-table"]' )
-		).not.toBeNull();
-	} );
-
-	it( 'should update table cell content', async () => {
-		const tableCells = await page.$$(
-			'.edit-post-visual-editor .mdc-data-table .wp-block-table__cell-content'
-		);
-		await tableCells[ 0 ].focus();
-		await page.keyboard.type( 'Column 1' );
-
-		const content = await page.evaluate(
-			() =>
-				document.querySelectorAll(
-					'.edit-post-visual-editor .mdc-data-table .wp-block-table__cell-content'
-				)[ 0 ].textContent
-		);
-		expect( content ).toBe( 'Column 1' );
+		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 } );

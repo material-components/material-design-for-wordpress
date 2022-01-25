@@ -18,7 +18,7 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { Toolbar } from '@wordpress/components';
+import { Toolbar, ToolbarButton } from '@wordpress/components';
 
 const DIRECTIONS = [
 	{
@@ -39,11 +39,22 @@ const OrderToolbar = ( {
 } ) => (
 	<Toolbar
 		label={ label }
+		id={ 'mdp-tab-bar-order-toolbar' }
 		controls={ DIRECTIONS.map( control => ( {
 			...control,
 			onClick: onChange.bind( this, control.direction ),
 		} ) ) }
-	/>
+	>
+		{ DIRECTIONS.map( ( { icon, title, direction } ) => (
+			<ToolbarButton
+				key={ direction }
+				title={ title }
+				onClick={ onChange.bind( this, direction ) }
+			>
+				{ icon() }
+			</ToolbarButton>
+		) ) }
+	</Toolbar>
 );
 
 export default OrderToolbar;

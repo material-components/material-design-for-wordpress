@@ -80,10 +80,9 @@ describe( 'CardActionsEdit', () => {
 	it( 'updates the primary action button label prop when the label is changed', () => {
 		const wrapper = setupShallow( baseProps );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.first()
-			.prop( 'onChangeLabel' )( 'Test label' );
+		wrapper.find( 'CardActionButton' ).first().prop( 'onChangeLabel' )(
+			'Test label'
+		);
 
 		expect( baseProps.setter ).toHaveBeenCalledWith(
 			'primaryActionButtonLabel',
@@ -97,10 +96,9 @@ describe( 'CardActionsEdit', () => {
 		props.displaySecondaryActionButton = true;
 		const wrapper = setupShallow( props );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.last()
-			.prop( 'onChangeLabel' )( 'Test label' );
+		wrapper.find( 'CardActionButton' ).last().prop( 'onChangeLabel' )(
+			'Test label'
+		);
 
 		expect( props.setter ).toHaveBeenCalledWith(
 			'secondaryActionButtonLabel',
@@ -112,10 +110,9 @@ describe( 'CardActionsEdit', () => {
 	it( 'updates the primary action button url prop when the url is changed', () => {
 		const wrapper = setupShallow( baseProps );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.first()
-			.prop( 'onChangeUrl' )( 'http:/new-test-url.loc' );
+		wrapper.find( 'CardActionButton' ).first().prop( 'onChangeUrl' )(
+			'http:/new-test-url.loc'
+		);
 
 		expect( baseProps.setter ).toHaveBeenCalledWith(
 			'primaryActionButtonUrl',
@@ -129,10 +126,9 @@ describe( 'CardActionsEdit', () => {
 		props.displaySecondaryActionButton = true;
 		const wrapper = setupShallow( props );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.last()
-			.prop( 'onChangeUrl' )( 'http:/new-test-url.loc' );
+		wrapper.find( 'CardActionButton' ).last().prop( 'onChangeUrl' )(
+			'http:/new-test-url.loc'
+		);
 
 		expect( props.setter ).toHaveBeenCalledWith(
 			'secondaryActionButtonUrl',
@@ -144,10 +140,9 @@ describe( 'CardActionsEdit', () => {
 	it( 'updates the primary action button new tab prop when the new tab toggle is changed', () => {
 		const wrapper = setupShallow( baseProps );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.first()
-			.prop( 'onChangeNewTab' )( false );
+		wrapper.find( 'CardActionButton' ).first().prop( 'onChangeNewTab' )(
+			false
+		);
 
 		expect( baseProps.setter ).toHaveBeenCalledWith(
 			'primaryActionButtonNewTab',
@@ -161,10 +156,9 @@ describe( 'CardActionsEdit', () => {
 		props.displaySecondaryActionButton = true;
 		const wrapper = setupShallow( props );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.last()
-			.prop( 'onChangeNewTab' )( false );
+		wrapper.find( 'CardActionButton' ).last().prop( 'onChangeNewTab' )(
+			false
+		);
 
 		expect( props.setter ).toHaveBeenCalledWith(
 			'secondaryActionButtonNewTab',
@@ -176,10 +170,9 @@ describe( 'CardActionsEdit', () => {
 	it( 'updates the primary action button no follow prop when the no follow toggle is changed', () => {
 		const wrapper = setupShallow( baseProps );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.first()
-			.prop( 'onChangeNoFollow' )( false );
+		wrapper.find( 'CardActionButton' ).first().prop( 'onChangeNoFollow' )(
+			false
+		);
 
 		expect( baseProps.setter ).toHaveBeenCalledWith(
 			'primaryActionButtonNoFollow',
@@ -193,10 +186,9 @@ describe( 'CardActionsEdit', () => {
 		props.displaySecondaryActionButton = true;
 		const wrapper = setupShallow( props );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.last()
-			.prop( 'onChangeNoFollow' )( false );
+		wrapper.find( 'CardActionButton' ).last().prop( 'onChangeNoFollow' )(
+			false
+		);
 
 		expect( props.setter ).toHaveBeenCalledWith(
 			'secondaryActionButtonNoFollow',
@@ -208,16 +200,10 @@ describe( 'CardActionsEdit', () => {
 	it( 'set the primary action button isFocused prop to false when the primary action button popup is closed', () => {
 		const wrapper = setupShallow( baseProps );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.first()
-			.prop( 'onPopupClose' )();
+		wrapper.find( 'CardActionButton' ).first().prop( 'onPopupClose' )();
 
 		expect(
-			wrapper
-				.find( 'CardActionButton' )
-				.first()
-				.prop( 'isFocused' )
+			wrapper.find( 'CardActionButton' ).first().prop( 'isFocused' )
 		).toStrictEqual( false );
 	} );
 
@@ -226,16 +212,10 @@ describe( 'CardActionsEdit', () => {
 		props.displaySecondaryActionButton = true;
 		const wrapper = setupShallow( props );
 
-		wrapper
-			.find( 'CardActionButton' )
-			.last()
-			.prop( 'onPopupClose' )();
+		wrapper.find( 'CardActionButton' ).last().prop( 'onPopupClose' )();
 
 		expect(
-			wrapper
-				.find( 'CardActionButton' )
-				.last()
-				.prop( 'isFocused' )
+			wrapper.find( 'CardActionButton' ).last().prop( 'isFocused' )
 		).toStrictEqual( false );
 	} );
 
@@ -248,10 +228,7 @@ describe( 'CardActionsEdit', () => {
 			.prop( 'onPopupFocusOutside' )();
 
 		expect(
-			wrapper
-				.find( 'CardActionButton' )
-				.first()
-				.prop( 'isFocused' )
+			wrapper.find( 'CardActionButton' ).first().prop( 'isFocused' )
 		).toStrictEqual( false );
 	} );
 
@@ -266,10 +243,7 @@ describe( 'CardActionsEdit', () => {
 			.prop( 'onPopupFocusOutside' )();
 
 		expect(
-			wrapper
-				.find( 'CardActionButton' )
-				.last()
-				.prop( 'isFocused' )
+			wrapper.find( 'CardActionButton' ).last().prop( 'isFocused' )
 		).toStrictEqual( false );
 	} );
 
@@ -282,10 +256,7 @@ describe( 'CardActionsEdit', () => {
 			.simulate( 'focus' );
 
 		expect(
-			wrapper
-				.find( 'CardActionButton' )
-				.first()
-				.prop( 'isFocused' )
+			wrapper.find( 'CardActionButton' ).first().prop( 'isFocused' )
 		).toStrictEqual( true );
 	} );
 
@@ -300,10 +271,7 @@ describe( 'CardActionsEdit', () => {
 			.simulate( 'focus' );
 
 		expect(
-			wrapper
-				.find( 'CardActionButton' )
-				.last()
-				.prop( 'isFocused' )
+			wrapper.find( 'CardActionButton' ).last().prop( 'isFocused' )
 		).toStrictEqual( true );
 	} );
 } );

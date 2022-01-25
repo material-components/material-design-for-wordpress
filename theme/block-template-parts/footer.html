@@ -1,9 +1,15 @@
-<!-- wp:group {"className":"site-footer","style":{"spacing":{"padding":{"top":"150px","bottom":"150px"}}}} -->
-<div class="wp-block-group site-footer" style="padding-top:150px;padding-bottom: 150px">
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"1rem","right":"1rem","bottom":"1rem","left":"1rem"}}},"className":"site-footer","layout":{"wideSize":"100vw","contentSize":"960px"}} -->
+<div class="wp-block-group site-footer" style="padding-top:1rem;padding-right:1rem;padding-bottom:1rem;padding-left:1rem"><!-- wp:columns {"style":{"spacing":{"padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"},"margin":{"top":"0px","bottom":"0px"}}}} -->
+	<div class="wp-block-columns" style="margin-top:0px;margin-bottom:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px"><!-- wp:column {"width":"66.66%","style":{"spacing":{"padding":{"top":"0px","right":"0px","bottom":"0px","left":"0px"}}}} -->
+		<div class="wp-block-column" style="padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;flex-basis:66.66%"><!-- wp:paragraph -->
+			<p><small>Material is an adaptable system of guidelines, components, and tools that support the best practices of user interface design. Backed by open-source code, Material streamlines collaboration between designers and developers, and helps teams quickly build beautiful products.</small></p>
+			<!-- /wp:paragraph --></div>
+		<!-- /wp:column -->
 
-<!-- wp:paragraph {"align":"center"} -->
-<p class="has-text-align-center">Proudly Powered by <a href="https://wordpress.org" rel="nofollow">WordPress</a></p>
-<!-- /wp:paragraph -->
-
-</div>
+		<!-- wp:column {"verticalAlignment":"center","width":"33.33%"} -->
+		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:33.33%"><!-- wp:material/back-to-top {"align":"right"} -->
+			<button class="wp-block-material-back-to-top alignright back-to-top mdc-button" aria-label="Back to top" id="back-to-top"><div class="mdc-button__ripple"></div><i class="material-icons mdc-icon-button__icon">expand_less</i></button>
+			<!-- /wp:material/back-to-top --></div>
+		<!-- /wp:column --></div>
+	<!-- /wp:columns --></div>
 <!-- /wp:group -->

@@ -53,6 +53,7 @@ const handleClick = event => {
 
 	const onSuccess = () => {
 		loader.remove();
+		window.wp.customize.previewer.refresh();
 		const materialSuccessIcon = document.createElement( 'span' );
 		materialSuccessIcon.classList.add( 'material-icons-outlined' );
 		materialSuccessIcon.textContent = 'check_circle';
@@ -70,10 +71,10 @@ const handleClick = event => {
  */
 const handleGlobalStyleResetButtonClick = () => {
 	const api = window.wp.customize;
-	api.control( 'material_design[card_reset]', function( control ) {
+	api.control( 'material_design[card_reset]', function ( control ) {
 		control.container
 			.find( '.material-global-style-reset' )
-			.on( 'click', function( /** @type {Event} */ event ) {
+			.on( 'click', function ( /** @type {Event} */ event ) {
 				handleClick( event );
 			} );
 	} );

@@ -55,6 +55,13 @@ git clone git@github.com:material-components/material-design-for-wordpress.git m
 cd material-design
 ```
 
+### Windows local enviorment
+Use WordPress's [wp-env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/).
+
+1. Install wp-env as mentioned above.
+2. Start with `wp-env start` (Assuming you have `wp-env` installed globally with updated PATH variable or use `npx wp-env start` to execute from repository's node_modules):
+3. Activate material plugin and theme.
+
 Setup the development tools using [Node.js](https://nodejs.org) and [Composer](https://getcomposer.org):
 
 ```bash
@@ -150,9 +157,16 @@ To get a production build, run:
 npm run build:js
 ```
 
+To update the WordPress version you can use wp-cli:
+```bash
+npm run wp -- wp core update --version=5.8
+# or
+npm run wp -- wp core update --version=nightly
+```
+
 ## Continuous Integration
 
-We use [Travis CI](https://travis-ci.com) to lint all code, run tests and report test coverage to [Coveralls](https://coveralls.io) as defined in [`.travis.yml`](.travis.yml). Travis CI will run the unit tests and perform sniffs against the WordPress Coding Standards whenever you push changes to your PR. Tests are required to pass successfully for a merge to be considered.
+We use GitHub actions to lint all code, run tests and report test coverage to [Coveralls](https://coveralls.io). GitHub action will run the unit tests and perform sniffs against the WordPress Coding Standards whenever you push changes to your PR. Tests are required to pass successfully for a merge to be considered.
 
 ### Branches
 

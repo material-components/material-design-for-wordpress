@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-.masonry-grid-theme {
+.masonry-grid-theme,
+.is-style-material-masonry.wp-block-post-template.is-flex-container {
 	grid-gap: var(--mdc-layout-grid-margin-desktop, 24px);
 	grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
 	grid-auto-rows: var(--mdc-layout-grid-margin-desktop, 24px);
@@ -28,6 +29,23 @@
 	@nest .material-archive__wide & {
 		grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 	}
+
+	&.columns-3 {
+		grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+	}
+
+	&.columns-4 {
+		grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+	}
+
+	&.columns-5 {
+		grid-template-columns: repeat(auto-fill, minmax(16%, 1fr));
+	}
+
+	&.columns-6 {
+		grid-template-columns: repeat(auto-fill, minmax(14%, 1fr));
+	}
+
 }
 
 .layout-masonry-4 {
@@ -38,6 +56,11 @@
 			width: 25%;
 		}
 	}
+}
+
+.is-style-material-masonry.wp-block-post-template.is-flex-container > li,
+.is-style-material-masonry.wp-block-query-loop.is-flex-container > li {
+	width: 100% !important;
 }
 
 .post-card {

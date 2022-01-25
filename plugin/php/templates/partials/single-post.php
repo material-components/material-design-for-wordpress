@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || exit;
 $attributes     = isset( $attributes ) ? $attributes : [];
 $style          = isset( $attributes['style'] ) ? $attributes['style'] : 'masonry';
 $columns        = absint( isset( $attributes['columns'] ) ? $attributes['columns'] : 3 );
-$card_elevation = isset( $attributes['cardStyle'] ) && in_array( $attributes['cardStyle'], [ 'global', 'outline', 'elevated' ], true ) ? $attributes['cardStyle'] : '';
+$card_elevation = isset( $attributes['cardStyle'] ) && in_array( $attributes['cardStyle'], [ 'global', 'outlined', 'elevated' ], true ) ? $attributes['cardStyle'] : '';
 // Handle fallback for outlined.
 $card_elevation = isset( $attributes['outlined'] ) && ! $card_elevation ? $attributes['outlined'] : $card_elevation;
 $layout         = isset( $attributes['contentLayout'] ) ? $attributes['contentLayout'] : 'text-above-media';
