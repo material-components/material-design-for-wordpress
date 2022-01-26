@@ -19,6 +19,14 @@
       "type": "boolean",
       "default": true
     },
+    "showFeaturedImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTitle": {
+      "type": "boolean",
+      "default": true
+    },
     "isEditMode": {
       "type": "boolean",
       "default": false
