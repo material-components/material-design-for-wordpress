@@ -11,7 +11,7 @@
   },
   "description": "Material back to top button",
   "editorStyle": [
-    "material-google-fonts-cdn",
+    "material-google-fonts",
     "material-block-editor-css-theme"
   ],
   "editorScript": "material-block-editor-js-theme"

@@ -83,9 +83,11 @@ function enqueue_block_editor_assets() {
 		$version,
 		false
 	);
-	if ( ! wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) ) {
+
+	if ( ! wp_style_is( 'material-google-fonts', 'enqueued' ) ) {
+		// Ideally this should be injected by the plugin if not fallback to default fonts.
 		wp_enqueue_style(
-			'material-google-fonts-cdn',
+			'material-google-fonts',
 			esc_url( '//fonts.googleapis.com/css?family=Roboto|Material+Icons' ),
 			[],
 			$theme_version
