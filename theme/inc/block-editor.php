@@ -120,8 +120,19 @@ function filter_body_class( $classes ) {
 
 /**
  * Is theme in FSE mode.
+ *
+ * @return boolean
  */
 function is_fse() {
-	// Todo implement if theme is in FSE.
-	return true;
+	if ( file_exists( get_stylesheet_directory() . '/theme.json' ) ) {
+		$theme_json = file_get_contents( get_stylesheet_directory() . '/theme.json' );
+		$theme_json = json_decode( $theme_json, true );
+		if ( isset( $theme_json['customTemplates'] ) || isset( $theme_json['templateParts'] ) ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	return false;
 }
