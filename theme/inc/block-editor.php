@@ -91,9 +91,10 @@ function enqueue_block_editor_assets() {
 			$theme_version
 		);
 	}
+
 	wp_enqueue_style(
 		'material-block-editor-css-theme',
-		get_stylesheet_directory_uri() . '/assets/js/block-editor.css',
+		get_stylesheet_directory_uri() . '/assets/css/block-editor-compiled.css',
 		[ 'material-google-fonts-cdn' ],
 		$version,
 		false
