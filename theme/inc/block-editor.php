@@ -27,7 +27,9 @@ use MaterialDesign\Theme\Block\Blocks;
 function setup() {
 	add_action( 'init', __NAMESPACE__ . '\\register_disable_section_meta' );
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets' );
-	add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
+	if ( ! is_fse() ) {
+		add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
+	}
 
 	$blocks = new Blocks();
 	$blocks->init();
@@ -83,6 +85,15 @@ function enqueue_block_editor_assets() {
 		$version,
 		false
 	);
+
+	wp_localize_script(
+		'material-block-editor-js-theme',
+		'materialDesignThemeEditorVars',
+		[
+			'isFse' => is_fse(),
+		]
+	);
+
 	if ( ! wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) ) {
 		wp_enqueue_style(
 			'material-google-fonts-cdn',
