@@ -38,12 +38,10 @@ const withAttributeChange = createHigherOrderComponent( BlockEdit => {
 		} = props;
 
 		useEffect( () => {
-			if ( 'core/site-title' === name ) {
+			if ( 'core/site-title' === name && ! className ) {
 				props.setAttributes( {
-					className: classnames(
-						className,
-						'site-title mdc-typography mdc-typography--headline6'
-					),
+					className:
+						'site-title mdc-typography mdc-typography--headline6',
 				} );
 			}
 		}, [] );
