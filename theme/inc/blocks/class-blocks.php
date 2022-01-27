@@ -45,7 +45,6 @@ class Blocks {
 	 */
 	public function init() {
 		$this->action_register_blocks();
-		$this->add_filter_render_block();
 	}
 
 	/**
@@ -155,29 +154,5 @@ class Blocks {
 		);
 
 		return ob_get_clean();
-	}
-
-	/**
-	 * Add filter to modify core dynamic blocks markup.
-	 */
-	public function add_filter_render_block() {
-		add_filter( 'render_block', [ $this, 'filter_render_block' ], 10, 2 );
-	}
-
-	/**
-	 * Filter render_block to add specific classes to site title.
-	 *
-	 * @param string $block_content Block content.
-	 * @param array  $block         Block object.
-	 *
-	 * @return string
-	 */
-	public function filter_render_block( $block_content, $block ) {
-		if ( 'core/site-title' === $block['blockName'] ) {
-			// Add additional classes to markup.
-			$block_content = str_replace( '<h1 class="', '<h1 class="site-title mdc-typography mdc-typography--headline6 ', $block_content );
-		}
-
-		return $block_content;
 	}
 }
