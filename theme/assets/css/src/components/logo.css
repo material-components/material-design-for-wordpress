@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-.logo {
+.logo,
+.wp-block-site-logo {
 	align-items: center;
 	display: flex;
 	padding: 0.75rem;
