@@ -21,8 +21,6 @@ import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
 
-import classnames from 'classnames';
-
 /**
  * Trigger a class change when component is rendered.
  *
@@ -44,6 +42,8 @@ const withAttributeChange = createHigherOrderComponent( BlockEdit => {
 						'site-title mdc-typography mdc-typography--headline6',
 				} );
 			}
+			// Use empty array to make sure this runs only once.
+			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [] );
 
 		return <BlockEdit { ...props } />;
