@@ -124,15 +124,16 @@ function filter_body_class( $classes ) {
  * @return boolean
  */
 function is_fse() {
+	static $material_is_in_fse_mode;
+	if ( isset( $material_is_in_fse_mode ) ) {
+		return $material_is_in_fse_mode;
+	}
+	$material_is_in_fse_mode = false;
 	if ( file_exists( get_stylesheet_directory() . '/theme.json' ) ) {
-		$theme_json = file_get_contents( get_stylesheet_directory() . '/theme.json' );
-		$theme_json = json_decode( $theme_json, true );
-		if ( isset( $theme_json['customTemplates'] ) || isset( $theme_json['templateParts'] ) ) {
-			return true;
-		}
-
-		return false;
+		$theme_json              = file_get_contents( get_stylesheet_directory() . '/theme.json' );
+		$theme_json              = json_decode( $theme_json, true );
+		$material_is_in_fse_mode = isset( $theme_json['customTemplates'] ) || isset( $theme_json['templateParts'] );
 	}
 
-	return false;
+	return $material_is_in_fse_mode;
 }
