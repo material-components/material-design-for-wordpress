@@ -19,18 +19,41 @@
  */
 import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
+import { useEffect } from '@wordpress/element';
 
-const addMaterialClassNames = ( settings, name ) => {
-	if ( 'core/site-title' === name ) {
-		settings.attributes.className.default =
-			'site-title mdc-typography mdc-typography--headline6';
-	}
+import classnames from 'classnames';
 
-	return settings;
-};
+/**
+ * Trigger a class change when component is rendered.
+ *
+ * @param {*} BlockEdit Original component.
+ *
+ * @return {WPComponent} Original component.
+ */
+const withAttributeChange = createHigherOrderComponent( BlockEdit => {
+	return props => {
+		const {
+			attributes: { className },
+			name,
+		} = props;
+
+		useEffect( () => {
+			if ( 'core/site-title' === name ) {
+				props.setAttributes( {
+					className: classnames(
+						className,
+						'site-title mdc-typography mdc-typography--headline6'
+					),
+				} );
+			}
+		}, [] );
+
+		return <BlockEdit { ...props } />;
+	};
+}, 'withAttributeChange' );
 
 addFilter(
-	'blocks.registerBlockType',
-	'material/title-class-name-box',
-	addMaterialClassNames
+	'editor.BlockEdit',
+	'material/title-class-name/block-edit',
+	withAttributeChange
 );
