@@ -50,7 +50,8 @@
 		max-width: var(--mdc-theme-header-width, 76.5625rem);
 	}
 
-	& .logo {
+	& .logo,
+	& .wp-block-site-logo {
 		padding: 0;
 	}
 
