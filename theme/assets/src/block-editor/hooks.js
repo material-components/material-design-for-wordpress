@@ -21,6 +21,11 @@ import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
 
+const blockClassPrefillMap = {
+	'core/site-title': 'site-title mdc-typography mdc-typography--headline6',
+	'core/post-title': 'mdc-typography mdc-typography-headline2 entry-title',
+};
+
 /**
  * Trigger a class change when component is rendered.
  *
@@ -36,10 +41,9 @@ const withAttributeChange = createHigherOrderComponent( BlockEdit => {
 		} = props;
 
 		useEffect( () => {
-			if ( 'core/site-title' === name && ! className ) {
+			if ( blockClassPrefillMap[ name ] && ! className ) {
 				props.setAttributes( {
-					className:
-						'site-title mdc-typography mdc-typography--headline6',
+					className: blockClassPrefillMap[ name ],
 				} );
 			}
 			// Use empty array to make sure this runs only once.
