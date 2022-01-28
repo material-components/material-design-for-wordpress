@@ -19,32 +19,39 @@
  */
 import { addFilter } from '@wordpress/hooks';
 import { createHigherOrderComponent } from '@wordpress/compose';
+import { useEffect } from '@wordpress/element';
 
 /**
- * External dependencies
+ * Trigger a class change when component is rendered.
+ *
+ * @param {*} BlockEdit Original component.
+ *
+ * @return {WPComponent} Original component.
  */
-import classnames from 'classnames';
-
-const withTitleClassNames = createHigherOrderComponent( BlockListBlock => {
+const withAttributeChange = createHigherOrderComponent( BlockEdit => {
 	return props => {
-		if ( 'core/site-title' === props.name ) {
-			return (
-				<BlockListBlock
-					{ ...props }
-					className={ classnames(
-						'site-title mdc-typography mdc-typography--headline6',
-						props.className
-					) }
-				/>
-			);
-		}
+		const {
+			attributes: { className },
+			name,
+		} = props;
 
-		return <BlockListBlock { ...props } />;
+		useEffect( () => {
+			if ( 'core/site-title' === name && ! className ) {
+				props.setAttributes( {
+					className:
+						'site-title mdc-typography mdc-typography--headline6',
+				} );
+			}
+			// Use empty array to make sure this runs only once.
+			// eslint-disable-next-line react-hooks/exhaustive-deps
+		}, [] );
+
+		return <BlockEdit { ...props } />;
 	};
-}, 'withTitleClassNames' );
+}, 'withAttributeChange' );
 
 addFilter(
-	'editor.BlockListBlock',
-	'material/title-class-name',
-	withTitleClassNames
+	'editor.BlockEdit',
+	'material/title-class-name/block-edit',
+	withAttributeChange
 );
