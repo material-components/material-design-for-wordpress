@@ -14,19 +14,20 @@
  * limitations under the License.
  */
 
-/* Variables */
-@import "./conf/variables.css";
+/**
+ * Internal dependencies
+ */
+import metadata from './block.json';
+import { icon } from './icon';
+import edit from './edit';
 
-/* Vendor */
-@import "./material-components.css";
+const { name, title } = metadata;
 
-/* Custom */
-@import "./conf/index.css";
-@import "./base/index.css";
-@import "./templates/index.css";
-@import "./components/index.css";
+export { metadata, name };
 
-/* Block editor */
-@import "./../../src/block-editor/plugins/hide-sections/style.css";
-@import "./../../src/block-editor/style/horizontal-line/style.css";
-@import "./../../src/block-editor/blocks/card-image/style.css";
+export const settings = {
+	title,
+	description: metadata.description,
+	icon,
+	edit,
+};

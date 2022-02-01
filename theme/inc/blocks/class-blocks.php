@@ -33,6 +33,7 @@ class Blocks {
 	const DYNAMIC_BLOCKS = [
 		'material/search'                    => 'template-parts/blocks/search.php',
 		'material/card-query'                => 'template-parts/blocks/card-query.php',
+		'material/image-card-query'          => 'template-parts/blocks/image-card-query.php',
 		'material/query-pagination'          => 'template-parts/blocks/query-pagination.php',
 		'material/query-pagination-next'     => 'template-parts/blocks/query-pagination-next.php',
 		'material/query-pagination-previous' => 'template-parts/blocks/query-pagination-previous.php',
