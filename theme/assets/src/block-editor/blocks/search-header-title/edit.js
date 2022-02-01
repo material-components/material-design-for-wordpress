@@ -15,35 +15,55 @@
  */
 
 /**
+ * External dependencies
+ */
+import classnames from 'classnames';
+
+/**
  * WordPress dependencies
  */
 import {
 	AlignmentControl,
 	BlockControls,
+	InspectorControls,
 	useBlockProps,
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
-import classnames from 'classnames';
+import HeadingLevelDropdown from './heading-level-dropdown';
+import { PanelBody, TextControl } from '@wordpress/components';
 
 /**
  * Edit.
  *
  * @param {Object}   props
- * @param {Function} props.setAttributes
  * @param {Object}   props.attributes
  * @param {string}   props.attributes.textAlign
+ * @param {string}   props.attributes.title
+ * @param {number}   props.attributes.level
+ * @param {Function} props.setAttributes
  * @return {JSX.Element} Block edit.
  */
-const Edit = ( { attributes: { textAlign }, setAttributes } ) => {
-	const search = __( 'Search', 'material-design-google' );
+const Edit = ( { attributes: { textAlign, level, title }, setAttributes } ) => {
+	const TagName = 0 === level ? 'p' : 'h' + level;
 	const blockProps = useBlockProps( {
-		className: classnames( {
-			[ `has-text-align-${ textAlign }` ]: textAlign,
-		} ),
+		className: classnames(
+			{
+				[ `has-text-align-${ textAlign }` ]: textAlign,
+			},
+			'page-title',
+			'mdc-typography',
+			`mdc-typography--headline-${ level }`
+		),
 	} );
 	return (
 		<>
 			<BlockControls group="block">
+				<HeadingLevelDropdown
+					selectedLevel={ level }
+					onChange={ newLevel =>
+						setAttributes( { level: newLevel } )
+					}
+				/>
 				<AlignmentControl
 					value={ textAlign }
 					onChange={ nextAlign => {
@@ -51,34 +71,23 @@ const Edit = ( { attributes: { textAlign }, setAttributes } ) => {
 					} }
 				/>
 			</BlockControls>
-			<form { ...blockProps }>
-				{ /* eslint-disable-next-line jsx-a11y/label-has-for */ }
-				<label className="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
-					<input
-						className="mdc-text-field__input"
-						type="text"
-						aria-label={ search }
-						name="s"
-						value=""
-						disabled={ true }
+			<InspectorControls>
+				<PanelBody title={ __( 'Link settings' ) }>
+					<TextControl
+						label={ __( 'Search title', 'material-design-google' ) }
+						value={ title }
+						onChange={ newTitle =>
+							setAttributes( { title: newTitle } )
+						}
 					/>
-					<i
-						className="material-icons mdc-text-field__icon mdc-text-field__icon--trailing"
-						role="button"
-					>
-						search
-					</i>
-					<div className="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched">
-						<div className="mdc-notched-outline__leading"></div>
-						<div className="mdc-notched-outline__notch">
-							<span className="mdc-floating-label mdc-floating-label--float-above">
-								{ search }
-							</span>
-						</div>
-						<div className="mdc-notched-outline__trailing"></div>
-					</div>
-				</label>
-			</form>
+				</PanelBody>
+			</InspectorControls>
+			<TagName { ...blockProps }>
+				{ title }
+				<span>
+					{ __( ' search keyword', 'material-design-google' ) }
+				</span>
+			</TagName>
 		</>
 	);
 };
