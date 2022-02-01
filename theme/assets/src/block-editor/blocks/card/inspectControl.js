@@ -27,8 +27,11 @@ import { InspectorControls } from '@wordpress/block-editor';
  * Internal dependencies
  */
 import genericAttributesSetter from '../../../../../../plugin/assets/src/block-editor/utils/generic-attributes-setter';
-import { PanelBody, ToggleControl } from '@wordpress/components';
+import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
+
+const MIN_POST_CONTENT_LENGTH = 10;
+const MAX_POST_CONTENT_LENGTH = 30;
 
 /**
  * @param {Object}   props
@@ -40,6 +43,7 @@ import { __ } from '@wordpress/i18n';
  * @param {boolean}  props.attributes.showDate
  * @param {boolean}  props.attributes.showAuthor
  * @param {boolean}  props.attributes.showComments
+ * @param {number}   props.attributes.postContentLength
  */
 const InspectControls = ( {
 	setAttributes,
@@ -50,6 +54,7 @@ const InspectControls = ( {
 		showDate,
 		showAuthor,
 		showComments,
+		postContentLength,
 	},
 } ) => {
 	const setter = genericAttributesSetter( setAttributes );
@@ -58,37 +63,53 @@ const InspectControls = ( {
 			<PanelBody
 				title={ __(
 					'Show / Hide post information',
-					'material-design'
+					'material-design-google'
+				) }
+				description={ __(
+					'Choose which information to show in the card.',
+					'material-design-google'
 				) }
 				initialOpen={ true }
 			>
 				<ToggleControl
-					label={ __( 'Featured Image', 'material-design' ) }
+					label={ __( 'Featured Image', 'material-design-google' ) }
 					checked={ showFeaturedImage }
 					onChange={ setter( 'showFeaturedImage' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post title', 'material-design' ) }
+					label={ __( 'Post title', 'material-design-google' ) }
 					checked={ showTitle }
 					onChange={ setter( 'showTitle' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post date', 'material-design' ) }
+					label={ __( 'Post date', 'material-design-google' ) }
 					checked={ showDate }
 					onChange={ setter( 'showDate' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post excerpt', 'material-design' ) }
+					label={ __( 'Post excerpt', 'material-design-google' ) }
 					checked={ showExcerpt }
 					onChange={ setter( 'showExcerpt' ) }
 				/>
+				{ showExcerpt && (
+					<RangeControl
+						label={ __(
+							'Max number of words in post excerpt',
+							'material-design-google'
+						) }
+						value={ postContentLength }
+						onChange={ setter( 'postContentLength' ) }
+						min={ MIN_POST_CONTENT_LENGTH }
+						max={ MAX_POST_CONTENT_LENGTH }
+					/>
+				) }
 				<ToggleControl
-					label={ __( 'Author', 'material-design' ) }
+					label={ __( 'Author', 'material-design-google' ) }
 					checked={ showAuthor }
 					onChange={ setter( 'showAuthor' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Comments', 'material-design' ) }
+					label={ __( 'Comments', 'material-design-google' ) }
 					checked={ showComments }
 					onChange={ setter( 'showComments' ) }
 				/>

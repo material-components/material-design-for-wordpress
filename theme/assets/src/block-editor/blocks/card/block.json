@@ -30,6 +30,10 @@
     "isEditMode": {
       "type": "boolean",
       "default": false
+    },
+    "postContentLength": {
+      "type": "number",
+      "default": 20
     }
   },
   "title": "Material Card for Query loop",
