@@ -19,6 +19,14 @@
       "type": "boolean",
       "default": true
     },
+    "showFeaturedImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTitle": {
+      "type": "boolean",
+      "default": true
+    },
     "isEditMode": {
       "type": "boolean",
       "default": false
@@ -28,7 +36,7 @@
   "supports": {},
   "apiVersion": 2,
   "description": "Material card for query loop block",
-  "editorStyle": ["material-google-fonts-cdn", "material-block-editor-css-theme"],
+  "editorStyle": ["material-google-fonts", "material-block-editor-css-theme"],
   "editorScript": "material-block-editor-js-theme",
   "usesContext": [ "postId", "postType", "queryId" ],
   "textdomain": "material-design-google"

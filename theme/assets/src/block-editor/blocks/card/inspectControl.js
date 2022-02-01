@@ -34,6 +34,8 @@ import { __ } from '@wordpress/i18n';
  * @param {Object}   props
  * @param {Function} props.setAttributes
  * @param {Object}   props.attributes
+ * @param {boolean}  props.attributes.showFeaturedImage
+ * @param {boolean}  props.attributes.showTitle
  * @param {boolean}  props.attributes.showExcerpt
  * @param {boolean}  props.attributes.showDate
  * @param {boolean}  props.attributes.showAuthor
@@ -41,7 +43,14 @@ import { __ } from '@wordpress/i18n';
  */
 const InspectControls = ( {
 	setAttributes,
-	attributes: { showExcerpt, showDate, showAuthor, showComments },
+	attributes: {
+		showFeaturedImage,
+		showTitle,
+		showExcerpt,
+		showDate,
+		showAuthor,
+		showComments,
+	},
 } ) => {
 	const setter = genericAttributesSetter( setAttributes );
 	return (
@@ -53,6 +62,16 @@ const InspectControls = ( {
 				) }
 				initialOpen={ true }
 			>
+				<ToggleControl
+					label={ __( 'Featured Image', 'material-design' ) }
+					checked={ showFeaturedImage }
+					onChange={ setter( 'showFeaturedImage' ) }
+				/>
+				<ToggleControl
+					label={ __( 'Post title', 'material-design' ) }
+					checked={ showTitle }
+					onChange={ setter( 'showTitle' ) }
+				/>
 				<ToggleControl
 					label={ __( 'Post date', 'material-design' ) }
 					checked={ showDate }

@@ -86,6 +86,7 @@ module.exports = function ( grunt ) {
 					'!theme/assets/js/*.map',
 					'!theme/assets/js/editor*',
 					'!theme/assets/src/**',
+					'theme/assets/src/**/*.json',
 					'!theme/tests/**',
 					'!theme/wp-assets/**',
 					'!theme/composer*',

@@ -24,15 +24,17 @@
  *
  * @package MaterialDesign
  */
-$block         = isset( $args['block'] ) ? $args['block'] : [];
-$attributes    = isset( $args['attributes'] ) ? $args['attributes'] : [];
-$content       = isset( $args['content'] ) ? $args['content'] : [];
-$show_comments = $attributes['showComments'];
-$show_author   = $attributes['showAuthor'];
-$show_excerpt  = $attributes['showExcerpt'];
-$show_date     = $attributes['showDate'];
-$is_edit       = $attributes['isEditMode'];
-$classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outlined' : '';
+$block               = isset( $args['block'] ) ? $args['block'] : [];
+$attributes          = isset( $args['attributes'] ) ? $args['attributes'] : [];
+$content             = isset( $args['content'] ) ? $args['content'] : [];
+$show_comments       = $attributes['showComments'];
+$show_author         = $attributes['showAuthor'];
+$show_excerpt        = $attributes['showExcerpt'];
+$show_date           = $attributes['showDate'];
+$is_edit             = $attributes['isEditMode'];
+$show_featured_image = $attributes['showFeaturedImage'];
+$show_post_title     = $attributes['showTitle'];
+$classes             = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outlined' : '';
 
 if ( empty( $block ) || ! isset( $block->context['postId'] ) ) {
 	return '';
@@ -45,32 +47,34 @@ $post_link = $is_edit ? '#link-to-' . $post_ID : get_the_permalink( $post );
 		<div id="<?php echo esc_attr( $post_ID ); ?>" <?php post_class( "mdc-card post-card $classes" ); ?>>
 			<a class="mdc-card__link" href="<?php echo esc_url( $post_link ); ?>">
 				<div class="mdc-card__primary-action post-card__primary-action">
-					<?php if ( has_post_thumbnail( $post ) ) : ?>
+					<?php if ( has_post_thumbnail( $post ) && $show_featured_image ) : ?>
 						<div class="mdc-card__media mdc-card__media--16-9 post-card__media">
 							<?php echo get_the_post_thumbnail( $post ); ?>
 						</div>
 					<?php endif; ?>
 					<div class="post-card__primary">
-						<?php if ( is_sticky( $post_ID ) ) : ?>
-							<h2
-								class="post-card__title mdc-typography mdc-typography--headline6"
-								aria-label="
-							<?php
-								printf(
-								/* translators: Post title */
-									esc_attr__( 'Sticky post: %s', 'material-design-google' ),
-									esc_attr( get_the_title( $post ) )
-								);
-							?>
-							"
-							>
-								<i class="material-icons" aria-hidden="true">push_pin</i>
-								<?php echo esc_html( get_the_title( $post ) ); ?>
-							</h2>
-						<?php else : ?>
-							<h2 class="post-card__title mdc-typography mdc-typography--headline6">
-								<?php echo esc_html( get_the_title( $post ) ); ?>
-							</h2>
+						<?php if ( $show_post_title ) : ?>
+							<?php if ( is_sticky( $post_ID ) ) : ?>
+								<h2
+									class="post-card__title mdc-typography mdc-typography--headline6"
+									aria-label="
+								<?php
+									printf(
+									/* translators: Post title */
+										esc_attr__( 'Sticky post: %s', 'material-design-google' ),
+										esc_attr( get_the_title( $post ) )
+									);
+								?>
+								"
+								>
+									<i class="material-icons" aria-hidden="true">push_pin</i>
+									<?php echo esc_html( get_the_title( $post ) ); ?>
+								</h2>
+							<?php else : ?>
+								<h2 class="post-card__title mdc-typography mdc-typography--headline6">
+									<?php echo esc_html( get_the_title( $post ) ); ?>
+								</h2>
+							<?php endif; ?>
 						<?php endif; ?>
 
 						<?php if ( ! empty( $show_date ) ) : ?>
