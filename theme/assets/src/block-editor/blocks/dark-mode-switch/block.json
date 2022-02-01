@@ -8,7 +8,7 @@
   "title": "Dark Mode Switch",
   "description": "Material dark mode switch",
   "editorStyle": [
-    "material-google-fonts-cdn",
+    "material-google-fonts",
     "material-block-editor-css-theme"
   ],
   "editorScript": "material-block-editor-js-theme"
