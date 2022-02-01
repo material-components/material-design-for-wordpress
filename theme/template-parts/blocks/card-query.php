@@ -34,14 +34,16 @@ $show_date           = $attributes['showDate'];
 $is_edit             = $attributes['isEditMode'];
 $show_featured_image = $attributes['showFeaturedImage'];
 $show_post_title     = $attributes['showTitle'];
+$content_length      = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 20;
 $classes             = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outlined' : '';
 
 if ( empty( $block ) || ! isset( $block->context['postId'] ) ) {
 	return '';
 }
-$post_ID   = $block->context['postId']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-$post      = get_post( $post_ID ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-$post_link = $is_edit ? '#link-to-' . $post_ID : get_the_permalink( $post );
+$post_ID      = $block->context['postId']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+$post         = get_post( $post_ID ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+$post_link    = $is_edit ? '#link-to-' . $post_ID : get_the_permalink( $post );
+$post_content = wp_trim_words( get_the_excerpt( $post ), $content_length, ' [&hellip;]' );
 ?>
 	<div class="post-card__container">
 		<div id="<?php echo esc_attr( $post_ID ); ?>" <?php post_class( "mdc-card post-card $classes" ); ?>>
@@ -83,9 +85,9 @@ $post_link = $is_edit ? '#link-to-' . $post_ID : get_the_permalink( $post );
 						<?php endif; ?>
 					</div>
 				</div>
-				<?php if ( ! empty( $show_excerpt ) ) : ?>
+				<?php if ( ! empty( $show_excerpt ) && has_excerpt( $post ) ) : ?>
 					<div
-						class="post-card__secondary mdc-typography mdc-typography--body2"><p><?php echo wp_kses_post( get_the_excerpt( $post ) ); ?></p></div>
+						class="post-card__secondary mdc-typography mdc-typography--body2"><p><?php echo wp_kses_post( $post_content ); ?></p></div>
 				<?php endif; ?>
 			</a>
 			<?php if ( ! empty( $show_author ) || ! empty( $show_comments ) ) : ?>
