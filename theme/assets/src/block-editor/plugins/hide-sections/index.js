@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/* global materialDesignThemeEditorVars */
 /**
  * Wordpress Dependencies
  */
@@ -117,7 +117,10 @@ const WrappedSectionControl = compose( [
 	} ),
 ] )( HideSection );
 
-registerPlugin( 'material-hide-sections', {
-	render: WrappedSectionControl,
-	icon: <Icon icon="admin-customizer" />,
-} );
+/** @member {{isFse:boolean}} materialDesignThemeEditorVars */
+if ( ! materialDesignThemeEditorVars?.isFse ) {
+	registerPlugin( 'material-hide-sections', {
+		render: WrappedSectionControl,
+		icon: <Icon icon="admin-customizer" />,
+	} );
+}
