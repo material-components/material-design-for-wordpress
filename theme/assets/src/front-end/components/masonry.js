@@ -57,6 +57,12 @@ const resizeGridItem = cell => {
 		return;
 	}
 
+	const cellCard = cell.querySelector( '.post-card' );
+
+	if ( ! cellCard ) {
+		return;
+	}
+
 	const rowHeight = parseInt(
 		window
 			.getComputedStyle( gridElement )
@@ -71,9 +77,7 @@ const resizeGridItem = cell => {
 		10
 	);
 
-	const contentHeight = cell
-		.querySelector( '.post-card' )
-		.getBoundingClientRect().height;
+	const contentHeight = cellCard.getBoundingClientRect().height;
 
 	const rowSpan = Math.ceil(
 		( contentHeight + rowGap ) / ( rowHeight + rowGap )
