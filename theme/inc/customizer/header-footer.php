@@ -93,26 +93,30 @@ function get_controls() {
 			'type'        => 'hidden',
 			'priority'    => 99,
 		],
-		[
-			'id'       => 'footer_label',
-			'label'    => esc_html__( 'Footer', 'material-design-google' ),
-			'type'     => 'hidden',
-			'priority' => 110,
-		],
-		[
-			'id'       => 'footer_text',
-			'label'    => esc_html__( 'Footer text', 'material-design-google' ),
-			'type'     => 'text',
-			'priority' => 110,
-		],
 	];
+
 	if ( ! is_fse() ) {
-		$controls[] = [
-			'id'       => 'hide_back_to_top',
-			'label'    => esc_html__( 'Hide back to top button', 'material-design-google' ),
-			'type'     => 'checkbox',
-			'priority' => 110,
+		$controls_non_fse = [
+			[
+				'id'       => 'footer_label',
+				'label'    => esc_html__( 'Footer', 'material-design-google' ),
+				'type'     => 'hidden',
+				'priority' => 110,
+			],
+			[
+				'id'       => 'footer_text',
+				'label'    => esc_html__( 'Footer text', 'material-design-google' ),
+				'type'     => 'text',
+				'priority' => 110,
+			],
+			[
+				'id'       => 'hide_back_to_top',
+				'label'    => esc_html__( 'Hide back to top button', 'material-design-google' ),
+				'type'     => 'checkbox',
+				'priority' => 110,
+			],
 		];
+		$controls[]       = array_merge( $controls, $controls_non_fse );
 	}
 
 	return $controls;

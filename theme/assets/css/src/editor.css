@@ -16,6 +16,14 @@
 
 @import "./conf/variables.css";
 @import "./base/typography.css";
+
+/* Following imports are used for card block. */
+@import "./components/post-card.css";
+@import "./components/avatar.css";
+
+/* import site logo in editor to fix editor style. */
+@import "./components/logo.css";
+@import "@material/button/dist/mdc.button.css";
 @mixin selector-typography .wp-block div, body1;
 @mixin selector-typography p, body1;
 @mixin selector-typography .editor-post-title__input, headline2, 6, 6, 300;

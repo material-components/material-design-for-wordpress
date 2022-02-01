@@ -16,6 +16,7 @@
 
 .site-footer {
 	background-color: var(--mdc-theme-footer);
+	color: var(--mdc-theme-on-footer);
 	margin-top: 2rem;
 	min-height: 4rem;
 
@@ -36,6 +37,10 @@
 		margin-right: auto;
 		max-width: var(--material-footer-max-width, 960px);
 		width: 100%;
+	}
+
+	& button.back-to-top {
+		color: inherit;
 	}
 
 	& .back-to-top {

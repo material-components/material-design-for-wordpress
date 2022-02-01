@@ -30,7 +30,16 @@ class Blocks {
 	 * Dynamic blocks.
 	 * [ 'material/back-to-top' => 'template-parts/blocks/back-to-top.php' ]
 	 */
-	const DYNAMIC_BLOCKS = [];
+	const DYNAMIC_BLOCKS = [
+		'material/search'                    => 'template-parts/blocks/search.php',
+		'material/card-query'                => 'template-parts/blocks/card-query.php',
+		'material/query-pagination'          => 'template-parts/blocks/query-pagination.php',
+		'material/query-pagination-next'     => 'template-parts/blocks/query-pagination-next.php',
+		'material/query-pagination-previous' => 'template-parts/blocks/query-pagination-previous.php',
+		'material/query-pagination-first'    => 'template-parts/blocks/query-pagination-first.php',
+		'material/query-pagination-last'     => 'template-parts/blocks/query-pagination-last.php',
+		'material/search-title'              => 'template-parts/blocks/search-title.php',
+	];
 
 	/**
 	 * Register any needed hooks/filters.
@@ -56,7 +65,8 @@ class Blocks {
 			/**
 			 * Filters the arguments for registering a block type.
 			 *
-			 * @param array $metadata Array of arguments for registering a block type.
+			 * @param array  $metadata Array of arguments for registering a block type.
+			 * @param string $name     Block name.
 			 */
 			$args = apply_filters( 'material_design_theme_block_type_args', $args, $object->name );
 			// If this is a dynamic block, register render_callback.
@@ -113,6 +123,25 @@ class Blocks {
 			return false;
 		}
 
+		// Remove this once server side context is available via gutenberg.
+		if ( ! empty( $block->block_type->uses_context ) && empty( $block->context ) ) {
+			foreach ( $block->block_type->uses_context as $context ) {
+				if ( empty( $_GET['materialParamContext'][ $context ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+					continue;
+				}
+				switch ( $context ) {
+					case 'postId':
+					case 'queryId':
+						$sanitize_callback = 'intval';
+						break;
+					case 'postType':
+						$sanitize_callback = 'sanitize_key';
+						break;
+				}
+				$block->context[ $context ] = call_user_func( $sanitize_callback, $_GET['materialParamContext'][ $context ] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+			}
+		}
+
 		ob_start();
 
 		load_template(
@@ -121,6 +150,7 @@ class Blocks {
 			[
 				'attributes' => $attributes,
 				'content'    => $content,
+				'block'      => $block,
 			]
 		);
 

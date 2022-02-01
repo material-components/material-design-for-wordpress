@@ -58,3 +58,11 @@ ul ul {
 ul ul ul {
 	list-style: square;
 }
+
+/**
+ * Prevent white space at the top of screen
+ */
+.wp-site-blocks {
+	display: flex;
+	flex-direction: column;
+}

@@ -27,7 +27,9 @@ use MaterialDesign\Theme\Block\Blocks;
 function setup() {
 	add_action( 'init', __NAMESPACE__ . '\\register_disable_section_meta' );
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets' );
-	add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
+	if ( ! is_fse() ) {
+		add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
+	}
 
 	$blocks = new Blocks();
 	$blocks->init();
@@ -83,17 +85,28 @@ function enqueue_block_editor_assets() {
 		$version,
 		false
 	);
-	if ( ! wp_style_is( 'material-google-fonts-cdn', 'enqueued' ) ) {
+
+	wp_localize_script(
+		'material-block-editor-js-theme',
+		'materialDesignThemeEditorVars',
+		[
+			'isFse' => is_fse(),
+		]
+	);
+
+	if ( ! wp_style_is( 'material-google-fonts', 'enqueued' ) ) {
+		// Ideally this should be injected by the plugin if not fallback to default fonts.
 		wp_enqueue_style(
-			'material-google-fonts-cdn',
+			'material-google-fonts',
 			esc_url( '//fonts.googleapis.com/css?family=Roboto|Material+Icons' ),
 			[],
 			$theme_version
 		);
 	}
+
 	wp_enqueue_style(
 		'material-block-editor-css-theme',
-		get_stylesheet_directory_uri() . '/assets/js/block-editor.css',
+		get_stylesheet_directory_uri() . '/assets/css/block-editor-compiled.css',
 		[ 'material-google-fonts-cdn' ],
 		$version,
 		false
@@ -120,8 +133,20 @@ function filter_body_class( $classes ) {
 
 /**
  * Is theme in FSE mode.
+ *
+ * @return boolean
  */
 function is_fse() {
-	// Todo implement if theme is in FSE.
-	return true;
+	static $material_is_in_fse_mode;
+	if ( isset( $material_is_in_fse_mode ) ) {
+		return $material_is_in_fse_mode;
+	}
+	$material_is_in_fse_mode = false;
+	if ( file_exists( get_stylesheet_directory() . '/theme.json' ) ) {
+		$theme_json              = file_get_contents( get_stylesheet_directory() . '/theme.json' );
+		$theme_json              = json_decode( $theme_json, true );
+		$material_is_in_fse_mode = isset( $theme_json['customTemplates'] ) || isset( $theme_json['templateParts'] );
+	}
+
+	return $material_is_in_fse_mode;
 }

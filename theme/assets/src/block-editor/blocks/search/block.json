@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "material/search",
+  "textdomain": "material-design-google",
+  "category": "material",
+  "attributes": {
+    "textAlign": {
+      "type": "string"
+    }
+  },
+  "title": "Material Search",
+  "supports": {},
+  "description": "Material search bar",
+  "editorStyle": [
+    "material-google-fonts",
+    "material-block-editor-css-theme"
+  ],
+  "editorScript": "material-block-editor-js-theme"
+}

@@ -109,11 +109,11 @@ describe( 'blocks: material/card', () => {
 					type: 'string',
 				},
 				primaryActionButtonNewTab: {
-					type: 'bool',
+					type: 'boolean',
 					default: false,
 				},
 				primaryActionButtonNoFollow: {
-					type: 'bool',
+					type: 'boolean',
 					default: false,
 				},
 				secondaryActionButtonLabel: {
@@ -124,11 +124,11 @@ describe( 'blocks: material/card', () => {
 					type: 'string',
 				},
 				secondaryActionButtonNewTab: {
-					type: 'bool',
+					type: 'boolean',
 					default: false,
 				},
 				secondaryActionButtonNoFollow: {
-					type: 'bool',
+					type: 'boolean',
 					default: false,
 				},
 				displayActions: {
@@ -136,7 +136,7 @@ describe( 'blocks: material/card', () => {
 					default: true,
 				},
 				displaySecondaryActionButton: {
-					type: 'bool',
+					type: 'boolean',
 					default: false,
 				},
 				cornerRadius: {

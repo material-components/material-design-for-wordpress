@@ -15,8 +15,10 @@
  */
 
 import './plugins/hide-sections';
-import './blocks/navigation-link/hooks';
+//import './blocks/navigation-link/hooks';
+import './style';
 import { registerBlocks } from './util';
+import './hooks';
 
 /**
  * Register the blocks.

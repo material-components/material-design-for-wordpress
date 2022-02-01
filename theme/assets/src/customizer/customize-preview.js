@@ -142,6 +142,7 @@ const api = window.wp.customize;
 	const generatePreviewStyles = selectedControls => {
 		const stylesheetID = 'material-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
+			footerStylesheet = $( `.${ stylesheetID }` ),
 			styles = '',
 			darkStyles = '',
 			lightStyles = '';
@@ -150,6 +151,13 @@ const api = window.wp.customize;
 		if ( ! stylesheet.length ) {
 			$( 'head' ).append( '<style id="' + stylesheetID + '"></style>' );
 			stylesheet = $( '#' + stylesheetID );
+		}
+		if ( ! footerStylesheet.length ) {
+			// FSE appends to head and footer both.
+			$( 'body' ).append(
+				'<style class="' + stylesheetID + '"></style>'
+			);
+			footerStylesheet = $( `.${ stylesheetID }` );
 		}
 
 		// Generate the styles.
@@ -245,6 +253,7 @@ const api = window.wp.customize;
 
 		// Add styles.
 		stylesheet.html( styles );
+		footerStylesheet.html( styles );
 	};
 
 	const updateColorMode = debounce( mode => {
