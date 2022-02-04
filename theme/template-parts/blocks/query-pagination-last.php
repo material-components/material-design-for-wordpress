@@ -31,58 +31,49 @@ $default_label      = __( 'Last', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
 $content            = '';
 $url                = '';
-
+$is_disabled        = false;
 // Check if the pagination is for Query that inherits the global context.
 if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['inherit'] ) {
 
 	// Take into account if we have set a bigger `max page`
 	// than what the query has.
 	global $wp_query;
-	$url = get_pagenum_link( $wp_query->max_num_pages );
+	$max_page         = $wp_query->max_num_pages;
+	$url              = get_pagenum_link( $max_page );
+	$current_page_num = get_query_var( 'paged' );
+	$is_disabled      = (int) $current_page_num === (int) $max_page;
 
 } elseif ( ! $max_page || $max_page > $page_number ) {
 	$custom_query           = new WP_Query( build_query_vars_from_query_block( $block, $page_number ) );
 	$custom_query_max_pages = (int) $custom_query->max_num_pages;
-	$wrapper_attributes     = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
-
-	if ( $custom_query_max_pages && $custom_query_max_pages !== $page_number ) :
-		$url = add_query_arg( $page_key, $custom_query_max_pages );
-	endif;
+	$is_disabled            = $custom_query_max_pages === $page_number;
+	$url                    = add_query_arg( $page_key, $custom_query_max_pages );
 
 	wp_reset_postdata(); // Restore original Post Data.
 }
 
 if ( ! empty( $url ) ) :
-	ob_start();
+	$screen_reader = sprintf(
+	/* translators: available page description. */
+		esc_html__( '%s page', 'material-design-google' ),
+		esc_html( $label )
+	);
+	$inner_content             = sprintf(
+		'<span class="material-icons" aria-hidden="true">last_page</span>
+	<span class="screen-reader-text">%s</span>',
+		$screen_reader
+	);
+	$inner_content_with_anchor = $is_disabled ? $inner_content : sprintf(
+		'<a href="%s" class="mdc-ripple-surface">%s</a>',
+		esc_url( $url ),
+		$inner_content
+	);
+	$content                   = sprintf(
+		'<li %s>%s</li>',
+		$wrapper_attributes,
+		$inner_content_with_anchor
+	);
 	?>
-	<li>
-		<a
-			href="<?php echo esc_url( $url ); ?>"
-			<?php
-			/**
-			 * Esc_attr breaks the markup.
-			 * Turns the closing " into &quote;
-			 */
-			?>
-			<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		>
-			<span class="material-icons" aria-hidden="true">
-				last_page
-			</span>
-			<span class="screen-reader-text">
-				<?php
-					printf(
-						/* translators: available page description. */
-						esc_html__( '%s page', 'material-design-google' ),
-						esc_html( $label )
-					);
-				?>
-			</span>
-		</a>
-	</li>
 	<?php
-
-	$content = ob_get_clean();
-
 	echo wp_kses_post( $content );
 endif;
