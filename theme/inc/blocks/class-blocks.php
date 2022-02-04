@@ -124,7 +124,7 @@ class Blocks {
 		}
 
 		// Remove this once server side context is available via gutenberg.
-		if ( ! empty( $block->block_type->uses_context ) && empty( $block->context ) ) {
+		if ( ! empty( $block->block_type->uses_context ) && ! empty( $_GET['materialParamContext'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			foreach ( $block->block_type->uses_context as $context ) {
 				if ( empty( $_GET['materialParamContext'][ $context ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 					continue;
