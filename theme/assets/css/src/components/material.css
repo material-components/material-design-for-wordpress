@@ -21,7 +21,8 @@
 	margin: 0;
 }
 
-.mdc-image-list__item-wrap {
+.mdc-image-list__item-wrap,
+.is-style-material-image-card-block {
 	display: block;
 	text-decoration: none !important;
 
@@ -34,7 +35,8 @@
 	border-radius: var(--mdc-image-list-radius, 4px);
 }
 
-.mdc-image-list--with-text-protection .mdc-image-list__supporting {
+.mdc-image-list--with-text-protection .mdc-image-list__supporting,
+.wp-block-material-image-card-query .mdc-image-list__supporting {
 	align-items: start;
 	border-bottom-left-radius: var(--mdc-image-list-radius, 4px);
 	border-bottom-right-radius: var(--mdc-image-list-radius, 4px);
