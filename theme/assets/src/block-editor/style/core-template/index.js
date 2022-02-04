@@ -20,3 +20,8 @@ registerBlockStyle( 'core/post-template', {
 	name: 'material-masonry',
 	label: 'Material Masonry Grid',
 } );
+
+registerBlockStyle( 'core/post-template', {
+	name: 'material-image-card-block',
+	label: 'Material Image Card Block',
+} );
