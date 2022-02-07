@@ -17,3 +17,23 @@
 .wp-block-material-image-card-query a {
 	display: block;
 }
+
+.wp-block-material-image-card-query {
+	position: relative;
+
+	.mdc-image-list__supporting {
+		position: absolute;
+		background: rgba(0, 0, 0, .6);
+		bottom: 7.5px;
+		color: #fff;
+		height: auto;
+		width: 100%;
+		align-items: start;
+		border-bottom-left-radius: var(--mdc-image-list-radius, 4px);
+		border-bottom-right-radius: var(--mdc-image-list-radius, 4px);
+		max-height: 100%;
+		min-height: 48px;
+		overflow: hidden;
+		padding: 8px 16px;
+	}
+}
