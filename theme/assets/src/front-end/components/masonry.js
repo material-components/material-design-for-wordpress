@@ -15,7 +15,8 @@
  */
 /* global materialDesignThemeFeVars */
 let gridElement = null;
-
+let rowHeight = 24;
+let rowGap = 24;
 export const masonryInit = () => {
 	/** @type {{isFse:boolean}} */
 	gridElement = materialDesignThemeFeVars?.isFse
@@ -23,6 +24,7 @@ export const masonryInit = () => {
 		: document.querySelector( '.masonry-grid-theme' );
 
 	if ( ! gridElement ) {
+		console.error( 'Masonry grid wrapper not found.' );
 		return;
 	}
 
@@ -45,11 +47,35 @@ const resizeAllGridItems = () => {
 		  )
 		: gridElement.querySelectorAll( '.post-card__container' );
 
-	if ( ! cells ) {
+	if ( cells.length <= 0 ) {
+		console.error( 'Masonry cell elements not found.' );
 		return;
 	}
 
+	rowHeight = parseInt(
+		window
+			.getComputedStyle( gridElement )
+			.getPropertyValue( 'grid-auto-rows' ),
+		10
+	);
+
+	rowGap = parseInt(
+		window
+			.getComputedStyle( gridElement )
+			.getPropertyValue( 'grid-row-gap' ),
+		10
+	);
+
+	const hasPostCard = cells[ 0 ].querySelectorAll( '.post-card' ).length > 0;
+	if ( ! hasPostCard ) {
+		gridElement.style.gridAutoRows = 'minmax(min-content,max-content)';
+	}
+
 	cells.forEach( resizeGridItem );
+
+	if ( ! hasPostCard ) {
+		gridElement.style.removeProperty( 'grid-auto-rows' );
+	}
 };
 
 const resizeGridItem = cell => {
@@ -57,25 +83,12 @@ const resizeGridItem = cell => {
 		return;
 	}
 
-	const cellCard = cell.querySelector( '.post-card' );
+	let cellCard = cell.querySelector( '.post-card' );
 
 	if ( ! cellCard ) {
-		return;
+		// If we have a cell without card wrapper inside let's use that, Used for default WP template.
+		cellCard = cell;
 	}
-
-	const rowHeight = parseInt(
-		window
-			.getComputedStyle( gridElement )
-			.getPropertyValue( 'grid-auto-rows' ),
-		10
-	);
-
-	const rowGap = parseInt(
-		window
-			.getComputedStyle( gridElement )
-			.getPropertyValue( 'grid-row-gap' ),
-		10
-	);
 
 	const contentHeight = cellCard.getBoundingClientRect().height;
 
