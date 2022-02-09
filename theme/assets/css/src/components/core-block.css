@@ -39,6 +39,11 @@
 			text-decoration: underline;
 		}
 	}
+
+	.taxonomy-post_tag& {
+		display: flex;
+		gap: 0.25em;
+	}
 }
 
 /* Comment block - remove auto margin which adds space in left and right. */

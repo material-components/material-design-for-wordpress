@@ -279,6 +279,7 @@ require get_template_directory() . '/inc/widgets.php';
  */
 require get_template_directory() . '/inc/block-editor.php';
 require get_template_directory() . '/inc/blocks/class-blocks.php';
+require get_template_directory() . '/inc/blocks/class-override.php';
 
 MaterialDesign\Theme\Admin\setup();
 MaterialDesign\Theme\Customizer\setup();
