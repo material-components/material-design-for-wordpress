@@ -241,6 +241,7 @@ require get_template_directory() . '/inc/customizer/colors.php';
 require get_template_directory() . '/inc/customizer/header-footer.php';
 require get_template_directory() . '/inc/customizer/layout.php';
 require get_template_directory() . '/inc/customizer/menu.php';
+require get_template_directory() . '/inc/customizer/fse-opt-in.php';
 
 /**
  * Custom menu walker
@@ -286,5 +287,6 @@ MaterialDesign\Theme\Customizer\Colors\setup();
 MaterialDesign\Theme\Customizer\Header_Footer\setup();
 MaterialDesign\Theme\Customizer\Layout\setup();
 MaterialDesign\Theme\Customizer\Menu\setup();
+MaterialDesign\Theme\Customizer\OptIn\setup();
 MaterialDesign\Theme\Widgets\setup();
 MaterialDesign\Theme\BlockEditor\setup();
