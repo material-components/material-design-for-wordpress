@@ -321,7 +321,7 @@ function get_default( $setting ) {
  * @return array
  */
 function get_default_values() {
-	$defaults = [
+	return [
 		'primary_color'                => '#6200ee',
 		'on_primary_color'             => '#ffffff',
 		'secondary_color'              => '#018786',
@@ -349,10 +349,8 @@ function get_default_values() {
 		'header_bar_layout'            => 'standard',
 		'footer_text'                  => '',
 		'hide_back_to_top'             => false,
-
+		'fse_opt_option'               => 'out',
 	];
-
-	return $defaults;
 }
 
 /**

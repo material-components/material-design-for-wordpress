@@ -32,13 +32,40 @@ use MaterialDesign\Theme\Customizer;
  */
 function setup() {
 	add_action( 'customize_register', __NAMESPACE__ . '\\register' );
-	add_filter( 'theme_file_path', __NAMESPACE__ . '\\filter_disable_fse', 10, 2 );
+
+	handle_fse_opt_out();
+}
+
+/**
+ * Handle fse opt out.
+ *
+ * @return void
+ */
+function handle_fse_opt_out() {
+	// Todo verify if there is another way to get customizer preview data.
+	// Verify customize preview nonce.
+	$nonce = wp_verify_nonce( isset( $_POST['nonce'] ) ? $_POST['nonce'] : '', 'preview-customize_' . get_stylesheet() ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	// This allows us to check and load appropriate theme mode.
+	$request = json_decode( wp_unslash( isset( $_POST['customized'] ) ? $_POST['customized'] : '' ), true ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	if ( 'out' === get_theme_mod( 'fse_opt_option', 'out' ) || ( $nonce && isset( $request['fse_opt_option'] ) && 'out' === $request['fse_opt_option'] ) ) {
+		remove_theme_support( 'block-templates' );
+		// Disable the FSE template route.
+		$template_types = array_keys( get_default_block_template_types() );
+		foreach ( $template_types as $template_type ) {
+			// Skip 'embed' for now because it is not a regular template type.
+			if ( 'embed' === $template_type ) {
+				continue;
+			}
+			add_filter( str_replace( '-', '', $template_type ) . '_template', __NAMESPACE__ . '\\determine_template', 10, 3 );
+		}
+		add_filter( 'theme_file_path', __NAMESPACE__ . '\\filter_disable_fse', 10, 2 );
+	}
 }
 
 /**
  * Register settings and controls.
  *
- * @param \WP_Customize $wp_customize WP_Customize instance.
+ * @param \WP_Customize_Manager $wp_customize WP_Customize instance.
  *
  * @return void
  */
@@ -57,7 +84,7 @@ function register( $wp_customize ) {
 /**
  * Create settings based on controls
  *
- * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ * @param \WP_Customize_Manager $wp_customize Theme Customizer object.
  *
  * @return void
  */
@@ -67,7 +94,7 @@ function add_settings( $wp_customize ) {
 
 	foreach ( get_controls() as $control ) {
 		$settings[ $control['id'] ] = [
-			'transport'         => '',
+			'transport'         => 'refresh',
 			'sanitize_callback' => 'MaterialDesign\\Theme\\Customizer\\sanitize_select',
 			'default'           => $control['default'],
 		];
@@ -123,4 +150,19 @@ function filter_disable_fse( $path, $file ) {
 	}
 
 	return str_replace( 'index.html', 'index-disabled.html', $path );
+}
+
+/**
+ * Determine template for non FSE theme.
+ *
+ * This will allow fallback to default php template if user has not opted in for FSE template.
+ *
+ * @param string   $_template Path to the template. See locate_template().
+ * @param string   $_type     Sanitized filename without extension.
+ * @param string[] $templates A list of template candidates, in descending order of priority.
+ *
+ * @return string
+ */
+function determine_template( $_template, $_type, $templates ) {
+	return locate_template( $templates );
 }
