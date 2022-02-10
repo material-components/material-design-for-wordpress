@@ -20,6 +20,7 @@
 /* Following imports are used for card block. */
 @import "./components/post-card.css";
 @import "./components/avatar.css";
+@import "./components/tab-bar.css";
 
 /* import site logo in editor to fix editor style. */
 @import "./components/logo.css";
@@ -44,4 +45,29 @@ blockquote {
 	& .wp-block-quote__citation {
 		color: currentColor;
 	}
+}
+
+.mdc-tab-scroller {
+	width: 100%;
+}
+
+
+/* Navigation */
+
+.wp-block-material-navigation .wp-block-navigation-placeholder__preview {
+	display: flex;
+	width: 100%;
+}
+.wp-block-material-navigation.is-selected .wp-block-navigation-placeholder__controls {
+    display: flex;
+	margin-top: -48px;
+}
+
+.wp-block-material-navigation.is-selected .wp-block-navigation-placeholder__preview:not(.is-loading) {
+    display: flex;
+    flex: 0;
+    flex-wrap: nowrap;
+    opacity: 0;
+    overflow: hidden;
+    width: 0;
 }

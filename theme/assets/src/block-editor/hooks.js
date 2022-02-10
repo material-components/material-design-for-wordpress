@@ -52,11 +52,6 @@ const withAttributeChange = createHigherOrderComponent( BlockEdit => {
 			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [] );
 
-		if ( 'core/navigation' === name ) {
-			console.log(props);
-			console.log(BlockEdit);
-		}
-
 		return <BlockEdit { ...props } />;
 	};
 }, 'withAttributeChange' );
