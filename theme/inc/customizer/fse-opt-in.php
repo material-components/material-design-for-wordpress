@@ -42,7 +42,6 @@ function setup() {
  * @return void
  */
 function handle_fse_opt_out() {
-	// Todo verify if there is another way to get customizer preview data.
 	// Verify customize preview nonce.
 	$nonce = wp_verify_nonce( isset( $_POST['nonce'] ) ? $_POST['nonce'] : '', 'preview-customize_' . get_stylesheet() ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 	// This allows us to check and load appropriate theme mode.
