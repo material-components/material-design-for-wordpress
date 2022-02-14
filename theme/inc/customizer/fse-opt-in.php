@@ -28,25 +28,35 @@ namespace MaterialDesign\Theme\Customizer\OptIn;
 use MaterialDesign\Theme\Customizer;
 
 /**
- * Attach hooks
+ * Attach hooks for FSE.
  */
 function setup() {
+	// Only handle this in 5.9 or later.
+	if ( version_compare( get_bloginfo( 'version' ), '5.9', '>' ) ) {
+		return;
+	}
+
 	add_action( 'customize_register', __NAMESPACE__ . '\\register' );
 
 	handle_fse_opt_out();
 }
 
 /**
- * Handle fse opt out.
+ * Handle fse opt out for.
  *
  * @return void
  */
 function handle_fse_opt_out() {
+	global $wp_customize;
+	// Customizer preview happens at wp_loaded hook which is too late as template is selected on init.
+	// See \WP_Customize_Manager::wp_loaded().
 	// Verify customize preview nonce.
-	$nonce = wp_verify_nonce( isset( $_POST['nonce'] ) ? $_POST['nonce'] : '', 'preview-customize_' . get_stylesheet() ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-	// This allows us to check and load appropriate theme mode.
-	$request = json_decode( wp_unslash( isset( $_POST['customized'] ) ? $_POST['customized'] : '' ), true ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-	if ( 'out' === get_theme_mod( 'fse_opt_option', 'out' ) || ( $nonce && isset( $request['fse_opt_option'] ) && 'out' === $request['fse_opt_option'] ) ) {
+	$is_preview    = ( $wp_customize instanceof \WP_Customize_Manager ) && $wp_customize->is_preview();
+	$preview_nonce = $is_preview && isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'preview-customize_' . get_stylesheet() ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	// This allows us to check and load appropriate theme mods.
+	$request = $preview_nonce ? json_decode( wp_unslash( isset( $_POST['customized'] ) ? $_POST['customized'] : '' ), true ) : []; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	if ( ( 'out' === get_theme_mod( 'fse_opt_option', 'out' ) && ! $preview_nonce ) || ( isset( $request['fse_opt_option'] ) && 'out' === $request['fse_opt_option'] ) ) {
+		// Removes fse menu entry and other features.
 		remove_theme_support( 'block-templates' );
 		// Disable the FSE template route.
 		$template_types = array_keys( get_default_block_template_types() );
