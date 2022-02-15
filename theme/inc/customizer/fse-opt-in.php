@@ -205,7 +205,7 @@ function admin_notice() {
 	wp_nonce_field( 'fse_opt_notice', 'fse_opt_nonce' );
 
 	echo '<div class="button-group" style="padding-bottom: 5px;">';
-	printf( '<a href="%s"><button class="button button-primary" style="background-color: var(--mdc-theme-primary); color: var(--mdc-theme-on-primary); margin-right: 5px;">%s</button></a> ', esc_url( $customizer_url ), esc_html__( 'Preview in customizer', 'material-design-google' ) );
+	printf( '<a href="%s"><button class="button button-primary" style="background-color: var(--mdc-theme-primary); color: var(--mdc-theme-on-primary); margin-right: 5px;">%s</button></a> ', esc_url( $customizer_url ), esc_html__( 'Enable in customizer', 'material-design-google' ) );
 	printf( '<button class="button button-secondary" style="/* background-color: var(--mdc-theme-secondary); color: var(--mdc-theme-on-secondary) */">%s</button>', esc_html__( 'Maybe later', 'material-design-google' ) );
 	echo '</div>';
 	?>
