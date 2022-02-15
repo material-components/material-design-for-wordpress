@@ -242,7 +242,7 @@ function admin_notice() {
 								}
 							} );
 						};
-						const targets = notice.querySelectorAll( ".button-secondary, a, .notice-dismiss" );
+						const targets = notice.querySelectorAll( ".button-secondary, a" );
 						for ( var i = 0; i < targets.length; i ++ ) {
 							targets[i].addEventListener( "click", material_click_callback );
 						}
