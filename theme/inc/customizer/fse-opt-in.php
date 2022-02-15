@@ -213,7 +213,7 @@ function admin_notice() {
 			( function() {
 					let callback = function() {
 						const notice = document.querySelector( "#material-theme-opt-in" );
-						var material_click_callback = function( e ) {
+						const material_click_callback = function( e ) {
 							e.preventDefault();
 							const isAnchor = this.tagName === "A";
 							const buttonSecondary = this.classList.contains( "button-secondary" );
@@ -243,7 +243,7 @@ function admin_notice() {
 							} );
 						};
 						const targets = notice.querySelectorAll( ".button-secondary, a" );
-						for ( var i = 0; i < targets.length; i ++ ) {
+						for ( let i = 0; i < targets.length; i ++ ) {
 							targets[i].addEventListener( "click", material_click_callback );
 						}
 					};
