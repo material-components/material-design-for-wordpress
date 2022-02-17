@@ -26,6 +26,7 @@
 namespace MaterialDesign\Theme\Customizer\Layout;
 
 use MaterialDesign\Theme\Customizer;
+use function MaterialDesign\Theme\BlockEditor\is_fse;
 
 /**
  * Attach hooks
@@ -95,61 +96,7 @@ function add_settings( $wp_customize ) {
  * @return array
  */
 function get_controls() {
-	return [
-		[
-			'id'      => 'archive_width',
-			'label'   => esc_html__( 'Posts layout width', 'material-design-google' ),
-			'type'    => 'radio',
-			'choices' => [
-				'wide'   => esc_html__( 'Wide', 'material-design-google' ),
-				'normal' => esc_html__( 'Normal', 'material-design-google' ),
-			],
-		],
-		[
-			'id'      => 'archive_layout',
-			'label'   => esc_html__( 'Posts layout', 'material-design-google' ),
-			'type'    => 'radio',
-			'choices' => [
-				'card'  => esc_html__( 'Card', 'material-design-google' ),
-				'image' => esc_html__( 'Image List', 'material-design-google' ),
-			],
-		],
-		[
-			'id'              => 'archive_card_options',
-			'label'           => esc_html__( 'Card display options', 'material-design-google' ),
-			'type'            => 'hidden',
-			'active_callback' => __NAMESPACE__ . '\is_card_layout',
-		],
-		[
-			'id'              => 'archive_comments',
-			'label'           => esc_html__( 'Comments', 'material-design-google' ),
-			'type'            => 'checkbox',
-			'active_callback' => __NAMESPACE__ . '\is_card_layout',
-		],
-		[
-			'id'              => 'archive_author',
-			'label'           => esc_html__( 'Author', 'material-design-google' ),
-			'type'            => 'checkbox',
-			'active_callback' => __NAMESPACE__ . '\is_card_layout',
-		],
-		[
-			'id'              => 'archive_excerpt',
-			'label'           => esc_html__( 'Excerpt', 'material-design-google' ),
-			'type'            => 'checkbox',
-			'active_callback' => __NAMESPACE__ . '\is_card_layout',
-		],
-		[
-			'id'              => 'archive_date',
-			'label'           => esc_html__( 'Date', 'material-design-google' ),
-			'type'            => 'checkbox',
-			'active_callback' => __NAMESPACE__ . '\is_card_layout',
-		],
-		[
-			'id'              => 'archive_outlined',
-			'label'           => esc_html__( 'Outlined', 'material-design-google' ),
-			'type'            => 'checkbox',
-			'active_callback' => __NAMESPACE__ . '\is_card_layout',
-		],
+	$controls = [
 		[
 			'id'      => 'comment_fields_style',
 			'label'   => esc_html__( 'Comment field display options', 'material-design-google' ),
@@ -161,6 +108,69 @@ function get_controls() {
 			],
 		],
 	];
+
+	if ( ! is_fse() ) {
+		$non_fse_controls = [
+			[
+				'id'      => 'archive_width',
+				'label'   => esc_html__( 'Posts layout width', 'material-design-google' ),
+				'type'    => 'radio',
+				'choices' => [
+					'wide'   => esc_html__( 'Wide', 'material-design-google' ),
+					'normal' => esc_html__( 'Normal', 'material-design-google' ),
+				],
+			],
+			[
+				'id'      => 'archive_layout',
+				'label'   => esc_html__( 'Posts layout', 'material-design-google' ),
+				'type'    => 'radio',
+				'choices' => [
+					'card'  => esc_html__( 'Card', 'material-design-google' ),
+					'image' => esc_html__( 'Image List', 'material-design-google' ),
+				],
+			],
+			[
+				'id'              => 'archive_card_options',
+				'label'           => esc_html__( 'Card display options', 'material-design-google' ),
+				'type'            => 'hidden',
+				'active_callback' => __NAMESPACE__ . '\is_card_layout',
+			],
+			[
+				'id'              => 'archive_comments',
+				'label'           => esc_html__( 'Comments', 'material-design-google' ),
+				'type'            => 'checkbox',
+				'active_callback' => __NAMESPACE__ . '\is_card_layout',
+			],
+			[
+				'id'              => 'archive_author',
+				'label'           => esc_html__( 'Author', 'material-design-google' ),
+				'type'            => 'checkbox',
+				'active_callback' => __NAMESPACE__ . '\is_card_layout',
+			],
+			[
+				'id'              => 'archive_excerpt',
+				'label'           => esc_html__( 'Excerpt', 'material-design-google' ),
+				'type'            => 'checkbox',
+				'active_callback' => __NAMESPACE__ . '\is_card_layout',
+			],
+			[
+				'id'              => 'archive_date',
+				'label'           => esc_html__( 'Date', 'material-design-google' ),
+				'type'            => 'checkbox',
+				'active_callback' => __NAMESPACE__ . '\is_card_layout',
+			],
+			[
+				'id'              => 'archive_outlined',
+				'label'           => esc_html__( 'Outlined', 'material-design-google' ),
+				'type'            => 'checkbox',
+				'active_callback' => __NAMESPACE__ . '\is_card_layout',
+			],
+		];
+
+		$controls = array_merge( $controls, $non_fse_controls );
+	}
+
+	return $controls;
 }
 
 /**

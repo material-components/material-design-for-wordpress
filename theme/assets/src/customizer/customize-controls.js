@@ -89,7 +89,7 @@
 	};
 
 	api.bind( 'ready', () => {
-		api( 'archive_layout' ).bind( value => {
+		api( 'archive_layout' )?.bind( value => {
 			const isCardLayout = 'card' === value;
 
 			const controls = [

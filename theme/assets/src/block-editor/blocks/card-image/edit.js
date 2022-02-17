@@ -27,18 +27,16 @@ import ServerSideRender from '@wordpress/server-side-render';
  * Internal dependencies
  */
 import { name } from './block.json';
-import InspectControls from './inspectControl';
 
 /**
  * Edit.
  *
  * @param {Object}                                         props
  * @param {{postType:string,postId:number,queryId:number}} props.context
- * @param {Function}                                       props.setAttributes
  * @param {Object}                                         props.attributes
  * @return {JSX.Element} Block edit.
  */
-const Edit = ( { context, setAttributes, attributes } ) => {
+const Edit = ( { context, attributes } ) => {
 	const urlQueryArgs = {
 		materialParamContext: [],
 	};
@@ -54,10 +52,6 @@ const Edit = ( { context, setAttributes, attributes } ) => {
 
 	return (
 		<>
-			<InspectControls
-				attributes={ attributes }
-				setAttributes={ setAttributes }
-			/>
 			{ /* Prevent anchor click coming from SSR. */ }
 			{ /* eslint-disable-next-line jsx-a11y/no-static-element-interactions */ }
 			<div { ...useBlockProps() } onClick={ preventAnchorLink }>

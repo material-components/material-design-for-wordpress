@@ -27,10 +27,6 @@
       "type": "boolean",
       "default": true
     },
-    "isEditMode": {
-      "type": "boolean",
-      "default": false
-    },
     "postContentLength": {
       "type": "number",
       "default": 20
