@@ -44,17 +44,21 @@ const Edit = ( { context, attributes } ) => {
 	for ( const key in context ) {
 		urlQueryArgs.materialParamContext[ key ] = context[ key ];
 	}
-	const ssrAttributes = {
-		...attributes,
-		...{ isEditMode: true },
+
+	const preventAnchorLink = e => {
+		e.preventDefault();
+		return false;
 	};
+
 	return (
 		<>
-			<div { ...useBlockProps() }>
+			{ /* Prevent anchor click coming from SSR. */ }
+			{ /* eslint-disable-next-line jsx-a11y/no-static-element-interactions */ }
+			<div { ...useBlockProps() } onClick={ preventAnchorLink }>
 				<ServerSideRender
 					block={ name }
 					urlQueryArgs={ urlQueryArgs }
-					attributes={ ssrAttributes }
+					attributes={ attributes }
 				/>
 			</div>
 		</>

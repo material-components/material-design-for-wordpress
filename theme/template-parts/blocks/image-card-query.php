@@ -23,9 +23,8 @@
 
 $block      = isset( $args['block'] ) ? $args['block'] : [];
 $attributes = isset( $args['attributes'] ) ? $args['attributes'] : [];
-$is_edit    = $attributes['isEditMode'];
 $post_ID    = $block->context['postId']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-$post_link  = $is_edit ? '#link-to-' . $post_ID : get_the_permalink( $post );
+$post_link  = get_the_permalink( $post );
 if ( has_post_thumbnail( $post_ID ) ) {
 	$thumbnail = get_the_post_thumbnail_url( $post_ID );
 } else {

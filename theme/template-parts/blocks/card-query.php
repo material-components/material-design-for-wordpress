@@ -31,7 +31,6 @@ $show_comments       = $attributes['showComments'];
 $show_author         = $attributes['showAuthor'];
 $show_excerpt        = $attributes['showExcerpt'];
 $show_date           = $attributes['showDate'];
-$is_edit             = $attributes['isEditMode'];
 $show_featured_image = $attributes['showFeaturedImage'];
 $show_post_title     = $attributes['showTitle'];
 $content_length      = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 20;
@@ -42,7 +41,7 @@ if ( empty( $block ) || ! isset( $block->context['postId'] ) ) {
 }
 $post_ID      = $block->context['postId']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $post         = get_post( $post_ID ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-$post_link    = $is_edit ? '#link-to-' . $post_ID : get_the_permalink( $post );
+$post_link    = get_the_permalink( $post );
 $post_content = wp_trim_words( get_the_excerpt( $post ), $content_length, ' [&hellip;]' );
 ?>
 	<div class="post-card__container">
@@ -96,7 +95,7 @@ $post_content = wp_trim_words( get_the_excerpt( $post ), $content_length, ' [&he
 						<?php if ( ! empty( $show_author ) ) : ?>
 							<a
 								class="mdc-button mdc-card__action mdc-card__action--button"
-								href="<?php echo esc_url( $is_edit ? '#author-link' : get_author_posts_url( get_the_author_meta( 'ID', $post->post_author ) ) ); ?>"
+								href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post->post_author ) ) ); ?>"
 								aria-label="
 								<?php
 								printf(
@@ -117,7 +116,7 @@ $post_content = wp_trim_words( get_the_excerpt( $post ), $content_length, ' [&he
 						<?php endif; ?>
 
 						<?php if ( ! empty( $show_comments ) && ( comments_open( $post_ID ) || ( 0 < get_comments_number( $post_ID ) ) ) ) : ?>
-							<a href="<?php echo esc_url( $is_edit ? '#comment-link' : get_comments_link( $post_ID ) ); ?>" class="mdc-button mdc-card__action mdc-card__action--button">
+							<a href="<?php echo esc_url( get_comments_link( $post_ID ) ); ?>" class="mdc-button mdc-card__action mdc-card__action--button">
 								<span class="mdc-button__ripple"></span>
 								<i class="material-icons mdc-button__icon" aria-hidden="true">comment</i>
 								<?php

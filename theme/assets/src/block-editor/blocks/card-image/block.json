@@ -2,12 +2,6 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "name": "material/image-card-query",
   "category": "material",
-  "attributes": {
-    "isEditMode": {
-      "type": "boolean",
-      "default": false
-    }
-  },
   "title": "Material Image Card for Query loop",
   "supports": {},
   "apiVersion": 2,
