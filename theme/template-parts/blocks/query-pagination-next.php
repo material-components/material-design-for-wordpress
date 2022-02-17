@@ -31,7 +31,7 @@ $label              = isset( $attributes['label'] ) && ! empty( $attributes['lab
 $url                = '';
 $content            = '';
 $wrapper_attributes = get_block_wrapper_attributes();
-$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
+$is_disabled        = false;
 
 // Check if the pagination is for Query that inherits the global context.
 if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['inherit'] ) {
@@ -42,49 +42,44 @@ if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['i
 	if ( $max_page > $wp_query->max_num_pages ) {
 		$max_page = $wp_query->max_num_pages;
 	}
-
-	$url = next_posts( $max_page, false );
+	$max_page         = $wp_query->max_num_pages;
+	$url              = get_pagenum_link( $max_page );
+	$current_page_num = get_query_var( 'paged' );
+	$is_disabled      = (int) $current_page_num === (int) $max_page;
+	$url              = next_posts( $max_page, false );
+	// Force in loop to show disabled state, as next_posts returns empty when on last page.
+	$url = $url ? $url : '#';
 } elseif ( ! $max_page || $max_page > $page_number ) {
 	$custom_query           = new WP_Query( build_query_vars_from_query_block( $block, $page_number ) );
 	$custom_query_max_pages = (int) $custom_query->max_num_pages;
-
-	if ( $custom_query_max_pages && $custom_query_max_pages !== $page_number ) :
-		$url = add_query_arg( $page_key, $page_number + 1 );
-	endif;
+	$is_disabled            = $custom_query_max_pages === $page_number;
+	// In case of disabled - url won't be used.
+	$url = add_query_arg( $page_key, $page_number + 1 );
 	wp_reset_postdata(); // Restore original Post Data.
 }
 
 if ( ! empty( $url ) ) :
-	ob_start();
+	$screen_reader = sprintf(
+	/* translators: available page description. */
+		esc_html__( '%s page', 'material-design-google' ),
+		esc_html( $label )
+	);
+	$inner_content             = sprintf(
+		'<span class="material-icons" aria-hidden="true">chevron_right</span>
+	<span class="screen-reader-text">%s</span>',
+		$screen_reader
+	);
+	$inner_content_with_anchor = $is_disabled ? $inner_content : sprintf(
+		'<a href="%s" class="mdc-ripple-surface">%s</a>',
+		esc_url( $url ),
+		$inner_content
+	);
+	$content                   = sprintf(
+		'<li %s>%s</li>',
+		$wrapper_attributes,
+		$inner_content_with_anchor
+	);
 	?>
-	<li>
-		<a
-			href="<?php echo esc_url( $url ); ?>"
-			<?php
-			/**
-			 * Esc_attr breaks the markup.
-			 * Turns the closing " into &quote;
-			 */
-			?>
-			<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		>
-			<span class="material-icons" aria-hidden="true">
-				chevron_right
-			</span>
-			<span class="screen-reader-text">
-				<?php
-					printf(
-						/* translators: available page description. */
-						esc_html__( '%s page', 'material-design-google' ),
-						esc_html( $label )
-					);
-				?>
-			</span>
-		</a>
-	</li>
 	<?php
-
-	$content = ob_get_clean();
-
 	echo wp_kses_post( $content );
 endif;

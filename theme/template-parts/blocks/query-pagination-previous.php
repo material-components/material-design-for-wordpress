@@ -30,46 +30,44 @@ $label              = isset( $attributes['label'] ) && ! empty( $attributes['lab
 $content            = '';
 $url                = '';
 $wrapper_attributes = get_block_wrapper_attributes();
-$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
 
 // Check if the pagination is for Query that inherits the global context
 // and handle appropriately.
 if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['inherit'] ) {
+	global $wp_query;
 	$url = previous_posts( false );
-} elseif ( 1 !== $page_number ) {
+	// Force in loop to show disabled state, as previous_posts returns empty when on first page.
+	$url               = $url ? $url : '#';
+	$query_page_number = (int) get_query_var( 'paged' );
+	$page_number       = $query_page_number > 0 ? $query_page_number : $page_number;
+} else {
 	$url = add_query_arg( $page_key, $page_number - 1 );
 }
 
-if ( ! empty( $url ) ) :
-	ob_start();
-	?>
-	<li>
-		<a
-			href="<?php echo esc_url( $url ); ?>"
-			<?php
-			/**
-			 * Esc_attr breaks the markup.
-			 * Turns the closing " into &quote;
-			 */
-			?>
-			<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		>
-			<span class="material-icons" aria-hidden="true">
-				chevron_left
-			</span>
-			<span class="screen-reader-text">
-				<?php
-					printf(
-						/* translators: available page description. */
-						esc_html__( '%s page', 'material-design-google' ),
-						esc_html( $label )
-					);
-				?>
-			</span>
-		</a>
-	</li>
-	<?php
-	$content = ob_get_clean();
+$is_disabled = 1 === $page_number;
 
+if ( ! empty( $url ) ) :
+	$screen_reader = sprintf(
+	/* translators: available page description. */
+		esc_html__( '%s page', 'material-design-google' ),
+		esc_html( $label )
+	);
+	$inner_content             = sprintf(
+		'<span class="material-icons" aria-hidden="true">chevron_left</span>
+	<span class="screen-reader-text">%s</span>',
+		$screen_reader
+	);
+	$inner_content_with_anchor = $is_disabled ? $inner_content : sprintf(
+		'<a href="%s" class="mdc-ripple-surface">%s</a>',
+		esc_url( $url ),
+		$inner_content
+	);
+	$content                   = sprintf(
+		'<li %s>%s</li>',
+		$wrapper_attributes,
+		$inner_content_with_anchor
+	);
+	?>
+	<?php
 	echo wp_kses_post( $content );
 endif;
