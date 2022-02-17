@@ -29,6 +29,7 @@ import { InspectorControls } from '@wordpress/block-editor';
 import genericAttributesSetter from '../../../../../../plugin/assets/src/block-editor/utils/generic-attributes-setter';
 import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
+import ElevationStyleControl from './elevationControl';
 
 const MIN_POST_CONTENT_LENGTH = 10;
 const MAX_POST_CONTENT_LENGTH = 30;
@@ -44,6 +45,7 @@ const MAX_POST_CONTENT_LENGTH = 30;
  * @param {boolean}  props.attributes.showAuthor
  * @param {boolean}  props.attributes.showComments
  * @param {number}   props.attributes.postContentLength
+ * @param {string}   props.attributes.cardStyle
  */
 const InspectControls = ( {
 	setAttributes,
@@ -55,6 +57,7 @@ const InspectControls = ( {
 		showAuthor,
 		showComments,
 		postContentLength,
+		cardStyle,
 	},
 } ) => {
 	const setter = genericAttributesSetter( setAttributes );
@@ -112,6 +115,19 @@ const InspectControls = ( {
 					label={ __( 'Comments', 'material-design-google' ) }
 					checked={ showComments }
 					onChange={ setter( 'showComments' ) }
+				/>
+			</PanelBody>
+			<PanelBody
+				title={ __( 'Style Settings', 'material-design-google' ) }
+				description={ __(
+					'Card style - only applies to current block / template.',
+					'material-design-google'
+				) }
+				initialOpen={ true }
+			>
+				<ElevationStyleControl
+					onChange={ setter( 'cardStyle' ) }
+					selected={ cardStyle }
 				/>
 			</PanelBody>
 		</InspectorControls>

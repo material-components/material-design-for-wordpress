@@ -34,8 +34,12 @@ $show_date           = $attributes['showDate'];
 $is_edit             = $attributes['isEditMode'];
 $show_featured_image = $attributes['showFeaturedImage'];
 $show_post_title     = $attributes['showTitle'];
+$card_style          = $attributes['cardStyle'];
 $content_length      = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 20;
-$classes             = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outlined' : '';
+$global_card_style   = apply_filters( 'material_design_global_card_style', '', $card_style );
+$classes             = $card_style === 'outlined'
+											||
+											( $card_style === 'global' && $global_card_style === 'outlined' ) ? 'mdc-card--outlined' : '';
 
 if ( empty( $block ) || ! isset( $block->context['postId'] ) ) {
 	return '';
