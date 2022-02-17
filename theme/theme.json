@@ -122,6 +122,10 @@
         "vh",
         "vw"
       ]
+    },
+    "layout": {
+      "contentSize": "840px",
+      "wideSize": "100vw"
     }
   }
 }
