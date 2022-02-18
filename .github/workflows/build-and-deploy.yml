@@ -122,5 +122,8 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.PANTHEON_DEPLOY_KEY }}
 
-      - name: Run deployment
+      - name: Run deployment to fse
         run: bash bin/deploy-to-staging.sh fse
+
+      - name: Run deployment to traditional
+        run: bash bin/deploy-to-staging.sh traditional
