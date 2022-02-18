@@ -79,13 +79,10 @@ jobs:
     name: Deploy to staging environment
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    needs: [build]
+    needs: build
     if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: Download full bundle
         uses: actions/download-artifact@v2
         with:
@@ -104,13 +101,10 @@ jobs:
     name: Deploy to fse environment
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    needs: [ build ]
+    needs: build
     if: github.ref == 'refs/heads/full-site-editing' && github.event_name == 'push'
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
       - name: Download full bundle
         uses: actions/download-artifact@v2
         with:
