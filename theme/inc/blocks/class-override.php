@@ -68,6 +68,12 @@ class Override {
 			return $settings;
 		}
 
+		// Add additional attribute for position.
+		$settings['attributes']['position'] = [
+			'type'    => 'string',
+			'default' => 'before',
+		];
+
 		$settings['render_callback'] = [ $this, 'render_post_navigation_links' ];
 
 		return $settings;
@@ -113,6 +119,8 @@ class Override {
 			$link  = $label;
 		}
 
+		$position = isset( $attributes['position'] ) ? $attributes['position'] : 'before';
+
 		// If we want to also show the page title, make the page title a link and prepend the label.
 		if ( isset( $attributes['showTitle'] ) && $attributes['showTitle'] ) {
 			/*
@@ -122,6 +130,9 @@ class Override {
 			if ( ! $attributes['linkLabel'] ) {
 				if ( $label ) {
 					$format = '<span class="post-navigation-link__label">' . wp_kses_post( $label ) . '</span> %link';
+					if ( $position === 'after' ) {
+						$format = '%link <span class="post-navigation-link__label">' . wp_kses_post( $label ) . '</span>';
+					}
 				}
 				$link = '%title';
 			} elseif ( isset( $attributes['linkLabel'] ) && $attributes['linkLabel'] ) {
@@ -129,7 +140,8 @@ class Override {
 				if ( $label ) {
 					$link = '<span class="post-navigation-link__label">' . wp_kses_post( $label ) . '</span> <span class="post-navigation-link__title">%title</span>';
 					// Override-starts.
-					if ( 'next' === $navigation_type ) {
+					$position = isset( $attributes['position'] ) ? $attributes['position'] : 'before';
+					if ( $position === 'after' ) {
 						$link = '<span class="post-navigation-link__title">%title</span> <span class="post-navigation-link__label">' . wp_kses_post( $label ) . '</span>';
 					}
 					// Override-ends.
