@@ -39,6 +39,7 @@ class Blocks {
 		'material/query-pagination-first'    => 'template-parts/blocks/query-pagination-first.php',
 		'material/query-pagination-last'     => 'template-parts/blocks/query-pagination-last.php',
 		'material/search-title'              => 'template-parts/blocks/search-title.php',
+		'material/navigation'                => 'template-parts/blocks/navigation.php',
 	];
 
 	/**

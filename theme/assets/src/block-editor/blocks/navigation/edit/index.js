@@ -26,12 +26,12 @@ import {
 	Warning,
 	BlockControls,
 	store as blockEditorStore,
+	InspectorControls,
 } from '@wordpress/block-editor';
 import {
 	Button,
 	ToolbarGroup,
-	ToolbarDropDownMenu,
-	InspectorControls,
+	ToolbarDropdownMenu,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
@@ -302,7 +302,7 @@ const Edit = ( {
 				<BlockControls>
 					{ ! isDraftNavigationMenu && isEntityAvailable && (
 						<ToolbarGroup>
-							<ToolbarDropDownMenu
+							<ToolbarDropdownMenu
 								label={ __( 'Select Menu', 'material-design-google' ) }
 								text={ __( 'Select Menu', 'material-design-google' ) }
 								icon={ null }
@@ -320,7 +320,7 @@ const Edit = ( {
 										}
 									/>
 								) }
-							</ToolbarDropDownMenu>
+							</ToolbarDropdownMenu>
 						</ToolbarGroup>
 					) }
 				</BlockControls>
@@ -365,6 +365,22 @@ const Edit = ( {
 										canUserCreateNavigation={
 											canUserCreateNavigation
 										}
+									/>
+								) }
+
+								{ ! hasResolvedCanUserCreateNavigation ||
+									( ! isEntityAvailable &&
+										! isPlaceholderShown && (
+											<PlaceholderPreview isLoading />
+										) ) }
+
+								{ ! isPlaceholderShown && isEntityAvailable && (
+									<NavigationInnerBlocks
+										isVisible={ ! isPlaceholderShown}
+										clientId={ clientId }
+										appender={ CustomAppender }
+										hasCustomAppender={ !! CustomPlaceholder }
+										orientation={ orientation }
 									/>
 								) }
 							</div>

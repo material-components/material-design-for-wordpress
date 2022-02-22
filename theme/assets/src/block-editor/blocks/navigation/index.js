@@ -15,11 +15,17 @@
  */
 
 /**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
  * Internal dependencies
  */
 import metadata from './block.json';
 import { icon } from './icon';
 import edit from './edit';
+import save from './save';
 
 const { name, title } = metadata;
 
@@ -30,4 +36,33 @@ export const settings = {
 	description: metadata.description,
 	icon,
 	edit,
+	save,
+	example: {
+		innerBlocks: [
+			{
+				name: 'material/navigation-link',
+				attributes: {
+					// translators: 'Home' as in a website's home page.
+					label: __( 'Home', 'material-design-google' ),
+					url: 'https://make.wordpress.org/',
+				},
+			},
+			{
+				name: 'material/navigation-link',
+				attributes: {
+					// translators: 'About' as in a website's about page.
+					label: __( 'About', 'material-design-google' ),
+					url: 'https://make.wordpress.org/',
+				},
+			},
+			{
+				name: 'material/navigation-link',
+				attributes: {
+					// translators: 'Contact' as in a website's contact page.
+					label: __( 'Contact', 'material-design-google' ),
+					url: 'https://make.wordpress.org/',
+				},
+			},
+		],
+	},
 };

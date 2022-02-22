@@ -18,6 +18,7 @@ import PlaceholderPreview from './placeholder/placeholder-preview';
 
 const ALLOWED_BLOCKS = [
 	'core/navigation-link',
+	'material/navigation-link',
 ];
 
 const DEFAULT_BLOCK = {
