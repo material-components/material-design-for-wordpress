@@ -1,11 +1,11 @@
 /**
- * Copyright 2020 Google LLC
+ * Copyright 2022 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *       http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -13,9 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/**
+ * WordPress dependencies.
+ */
+import { addFilter } from '@wordpress/hooks';
+import { __ } from '@wordpress/i18n';
 
-@custom-media --small-viewport-max  (max-width: 840px);
-@custom-media --medium-viewport  (min-width: 840px);
-@custom-media --medium-large-viewport  (min-width: 1024px);
-@custom-media --medium-large-viewport-max  (max-width: 1024px);
-@custom-media --large-viewport  (min-width: 1440px);
+addFilter(
+	'material.elevation.styleControl.options',
+	'material.plugin.elevation-style-control-options',
+	options => {
+		return [
+			{
+				label: __( 'Inherit from Global Settings', 'material-design' ),
+				value: 'global',
+			},
+			...options,
+		];
+	}
+);

@@ -91,6 +91,8 @@ class Block_Types {
 			$static_block = new Card_Block( $this->plugin, $static_card_block );
 			$static_block->init();
 		}
+
+		add_filter( 'material_design_global_card_style', [ $this, 'global_card_style' ] );
 	}
 
 	/**
@@ -388,5 +390,14 @@ class Block_Types {
 		}
 
 		return ( $key ? ( isset( $defaults[ $key ] ) ? $defaults[ $key ] : '' ) : $defaults );
+	}
+
+	/**
+	 * Returns global card style for theme.
+	 *
+	 * @return string
+	 */
+	public function global_card_style() {
+		return $this->plugin->block_types->get_global_styles( 'card_style' );
 	}
 }

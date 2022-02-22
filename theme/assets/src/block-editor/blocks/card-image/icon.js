@@ -14,19 +14,11 @@
  * limitations under the License.
  */
 
-/* Variables */
-@import "./conf/variables.css";
-
-/* Vendor */
-@import "./material-components.css";
-
-/* Custom */
-@import "./conf/index.css";
-@import "./base/index.css";
-@import "./templates/index.css";
-@import "./components/index.css";
-
-/* Block editor */
-@import "./../../src/block-editor/plugins/hide-sections/style.css";
-@import "./../../src/block-editor/style/horizontal-line/style.css";
-@import "./../../src/block-editor/blocks/card-image/style.css";
+/**
+ * Block Icon component.
+ *
+ * @return {JSX.Element} Function returning the HTML markup for the component.
+ */
+export const icon = () => (
+	<i className="material-icons-outlined">chrome_reader_mode</i>
+);

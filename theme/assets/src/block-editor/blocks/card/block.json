@@ -27,13 +27,14 @@
       "type": "boolean",
       "default": true
     },
-    "isEditMode": {
-      "type": "boolean",
-      "default": false
-    },
     "postContentLength": {
       "type": "number",
       "default": 20
+    },
+    "cardStyle": {
+      "enum": [ "global", "elevated", "outlined"],
+      "default": "global",
+      "type": "string"
     }
   },
   "title": "Material Card for Query loop",

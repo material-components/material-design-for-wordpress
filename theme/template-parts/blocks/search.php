@@ -26,7 +26,7 @@ $search_label_id    = uniqid( 'search-label-' );
 $wrapper_attributes = get_block_wrapper_attributes( [ 'class' => esc_attr( $align_class_name ) ] );
 
 ?>
-<form <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> role="search" method="get" action="<?php esc_url( home_url( '/' ) ); ?>">
+<form <?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label class="mdc-text-field mdc-text-field--outlined mdc-text-field--with-trailing-icon">
 		<input class="mdc-text-field__input" type="text" aria-labelledby="<?php echo esc_attr( $search_label_id ); ?>"
 			name="s" value="<?php echo get_search_query(); ?>" />

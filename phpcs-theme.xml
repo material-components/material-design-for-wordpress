@@ -26,6 +26,7 @@
 		<exclude name="PSR2.Classes.PropertyDeclaration.Underscore" />
 		<exclude name="Squiz.PHP.CommentedOutCode.Found" />
 		<exclude name="WordPress.WP.TimezoneChange" />
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda" />
 		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.get_adjacent_post_get_previous_post_link" />
 		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.get_adjacent_post_get_next_post_link" />
 	</rule>
