@@ -27,7 +27,6 @@ import '@material/icon-button/dist/mdc.icon-button.css';
 import metadata from './block.json';
 import { icon } from '../search/icon';
 import edit from './edit';
-import save from './save';
 
 const { name, title } = metadata;
 
@@ -38,5 +37,4 @@ export const settings = {
 	description: metadata.description,
 	icon,
 	edit,
-	save,
 };
