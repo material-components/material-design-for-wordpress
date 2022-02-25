@@ -88,5 +88,8 @@ else
 		PANTHEON_ENV="$PANTHEON_BRANCH"
 fi
 
+echo "Cleaning up project dir"
+rm -rf "$repo_dir"
+
 echo "View site at http://$PANTHEON_ENV-$PANTHEON_SITE.pantheonsite.io/"
 echo "Access Pantheon dashboard at https://dashboard.pantheon.io/sites/$PANTHEON_UUID#$PANTHEON_BRANCH"
