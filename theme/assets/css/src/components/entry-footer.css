@@ -63,6 +63,11 @@
 	}
 }
 
-.wp-block-post-terms .material-icons {
-	margin-right: 0.25rem;
+.wp-block-post-terms {
+	display: flex;
+	align-items: center;
+
+	.material-icons {
+		margin-right: 0.25rem;
+	}
 }
