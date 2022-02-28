@@ -25,7 +25,7 @@
  * @package MaterialDesign
  */
 
-use function MaterialDesign\Theme\BlockEditor\is_fse;
+use function MaterialDesign\Theme\BlockEditor\is_material_in_fse_mode;
 
 if ( ! function_exists( 'material_design_theme_setup' ) ) :
 	/**
@@ -186,7 +186,7 @@ function material_design_theme_scripts() {
 		'material-design-google-js',
 		'materialDesignThemeFeVars',
 		[
-			'isFse' => is_fse(),
+			'isFse' => is_material_in_fse_mode(),
 		]
 	);
 

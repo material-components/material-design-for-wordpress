@@ -26,7 +26,7 @@
 namespace MaterialDesign\Theme\Customizer\Header_Footer;
 
 use MaterialDesign\Theme\Customizer;
-use function MaterialDesign\Theme\BlockEditor\is_fse;
+use function MaterialDesign\Theme\BlockEditor\is_material_in_fse_mode;
 
 /**
  * Attach hooks
@@ -95,7 +95,7 @@ function get_controls() {
 		],
 	];
 
-	if ( ! is_fse() ) {
+	if ( ! is_material_in_fse_mode() ) {
 		$controls_non_fse = [
 			[
 				'id'       => 'footer_label',
@@ -196,7 +196,7 @@ function add_settings( $wp_customize ) {
 			)
 		);
 
-		if ( ! is_fse() ) {
+		if ( ! is_material_in_fse_mode() ) {
 			$wp_customize->selective_refresh->add_partial(
 				'hide_back_to_top',
 				[

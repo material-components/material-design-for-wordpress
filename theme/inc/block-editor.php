@@ -27,7 +27,7 @@ use MaterialDesign\Theme\Block\Blocks;
 function setup() {
 	add_action( 'init', __NAMESPACE__ . '\\register_disable_section_meta' );
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets' );
-	if ( ! is_fse() ) {
+	if ( ! is_material_in_fse_mode() ) {
 		add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
 	}
 
@@ -90,7 +90,7 @@ function enqueue_block_editor_assets() {
 		'material-block-editor-js-theme',
 		'materialDesignThemeEditorVars',
 		[
-			'isFse' => is_fse(),
+			'isFse' => is_material_in_fse_mode(),
 		]
 	);
 
@@ -136,17 +136,13 @@ function filter_body_class( $classes ) {
  *
  * @return boolean
  */
-function is_fse() {
+function is_material_in_fse_mode() {
 	static $material_is_in_fse_mode;
 	if ( isset( $material_is_in_fse_mode ) ) {
 		return $material_is_in_fse_mode;
 	}
-	$material_is_in_fse_mode = false;
-	if ( file_exists( get_stylesheet_directory() . '/theme.json' ) ) {
-		$theme_json              = file_get_contents( get_stylesheet_directory() . '/theme.json' );
-		$theme_json              = json_decode( $theme_json, true );
-		$material_is_in_fse_mode = isset( $theme_json['customTemplates'] ) || isset( $theme_json['templateParts'] );
-	}
+
+	$material_is_in_fse_mode = 'in' === get_theme_mod( 'fse_opt_option', 'out' );
 
 	return $material_is_in_fse_mode;
 }

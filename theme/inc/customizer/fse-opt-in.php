@@ -26,13 +26,14 @@
 namespace MaterialDesign\Theme\Customizer\OptIn;
 
 use MaterialDesign\Theme\Customizer;
+use function MaterialDesign\Theme\BlockEditor\is_material_in_fse_mode;
 
 /**
  * Attach hooks for FSE.
  */
 function setup() {
 	// Only handle this in 5.9 or later.
-	if ( version_compare( get_bloginfo( 'version' ), '5.9', '>' ) ) {
+	if ( version_compare( get_bloginfo( 'version' ), '5.9', '<=' ) ) {
 		return;
 	}
 
@@ -65,7 +66,7 @@ function handle_fse_opt_out() {
 	$preview_nonce = $is_preview && isset( $_POST['nonce'] ) && wp_verify_nonce( $_POST['nonce'], 'preview-customize_' . get_stylesheet() ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 	// This allows us to check and load appropriate theme mods.
 	$request = $preview_nonce ? json_decode( wp_unslash( isset( $_POST['customized'] ) ? $_POST['customized'] : '' ), true ) : []; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-	if ( ( 'out' === get_theme_mod( 'fse_opt_option', 'out' ) && ! $preview_nonce ) || ( isset( $request['fse_opt_option'] ) && 'out' === $request['fse_opt_option'] ) ) {
+	if ( ( ! is_material_in_fse_mode() && ! $preview_nonce ) || ( isset( $request['fse_opt_option'] ) && 'out' === $request['fse_opt_option'] ) ) {
 		// Removes fse menu entry and other features.
 		remove_theme_support( 'block-templates' );
 		// Disable the FSE template route.
@@ -164,7 +165,7 @@ function filter_disable_fse( $path, $file ) {
 	if ( 'index.html' !== basename( $file ) ) {
 		return $path;
 	}
-	if ( 'in' === get_theme_mod( 'fse_opt_option', 'out' ) ) {
+	if ( is_material_in_fse_mode() ) {
 		return $path;
 	}
 
