@@ -102,11 +102,9 @@ $inner_blocks = $block->inner_blocks;
 	foreach ( $inner_blocks as $inner_block ) {
 		if ( (  'material/navigation-link' === $inner_block->name || 'core/navigation-link' === $inner_block->name || 'core/home-link' === $inner_block->name || 'core/site-title' === $inner_block->name || 'core/site-logo' === $inner_block->name || 'core/navigation-submenu' === $inner_block->name ) && ! $is_list_open ) {
 			$is_list_open       = true;
-			$inner_blocks_html .= '<ul class="wp-block-navigation__container">';
 		}
 		if ( 'material/navigation-link' !== $inner_block->name && 'core/navigation-link' !== $inner_block->name && 'core/home-link' !== $inner_block->name && 'core/site-title' !== $inner_block->name && 'core/site-logo' !== $inner_block->name && 'core/navigation-submenu' !== $inner_block->name && $is_list_open ) {
 			$is_list_open       = false;
-			$inner_blocks_html .= '</ul>';
 		}
 		if ( 'core/site-title' === $inner_block->name || 'core/site-logo' === $inner_block->name ) {
 			$inner_blocks_html .= '<li class="wp-block-navigation-item">' . $inner_block->render() . '</li>';
@@ -170,11 +168,11 @@ $inner_blocks = $block->inner_blocks;
 	);
 ?>
 
-<div <?php echo esc_attr( $wrapper_attributes ); ?>>
+<div class="mdc-tab-bar tab-bar">
 	<div class="mdc-tab-scroller">
 		<div class="mdc-tab-scroller__scroll-area">
 			<div class="mdc-tab-scroller__scroll-content">
-				<?php echo $responsive_container_markup; ?>
+				<?php echo $inner_blocks_html; ?>
 			</div>
 		</div>
 	</div>
