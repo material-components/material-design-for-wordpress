@@ -15,7 +15,7 @@
 -->
 
 <phpunit
-		bootstrap="tests/bootstrap.php"
+		bootstrap="theme/tests/bootstrap.php"
 		backupGlobals="false"
 		colors="true"
 		convertErrorsToExceptions="true"
@@ -25,19 +25,19 @@
 
 	<testsuites>
 		<testsuite name="Material Design theme for WordPress">
-			<directory suffix=".php">./tests/phpunit/</directory>
+			<directory suffix=".php">./theme/tests/phpunit/</directory>
 		</testsuite>
 	</testsuites>
 
 	<filter>
 		<whitelist processUncoveredFilesFromWhitelist="false">
-			<directory suffix=".php">./</directory>
+			<directory suffix=".php">./theme</directory>
 			<exclude>
-				<directory suffix=".php">./assets</directory>
-				<directory suffix=".php">./bin</directory>
-				<directory suffix=".php">./node_modules</directory>
-				<directory suffix=".php">./tests</directory>
-				<directory suffix=".php">./vendor</directory>
+				<directory suffix=".php">./theme/assets</directory>
+				<directory suffix=".php">./theme/bin</directory>
+				<directory suffix=".php">./theme/node_modules</directory>
+				<directory suffix=".php">./theme/tests</directory>
+				<directory suffix=".php">./theme/vendor</directory>
 			</exclude>
 		</whitelist>
 	</filter>
