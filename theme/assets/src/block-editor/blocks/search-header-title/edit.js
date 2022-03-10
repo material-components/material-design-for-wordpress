@@ -73,7 +73,7 @@ const Edit = ( { attributes: { textAlign, level, title }, setAttributes } ) => {
 			<TagName { ...blockProps }>
 				<RichText
 					tagName={ 'span' }
-					onChange={ value => setAttributes( { value } ) }
+					onChange={ value => setAttributes( { title: value } ) }
 					value={ title }
 				/>
 				<span>
