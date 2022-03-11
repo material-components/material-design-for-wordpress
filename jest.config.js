@@ -20,6 +20,7 @@ module.exports = {
 	preset: '@wordpress/jest-preset-default',
 	collectCoverageFrom: [ 'plugin/assets/src/**/*.js' ],
 	testPathIgnorePatterns: [
+		'/.git/',
 		'/node_modules/',
 		'/vendor/',
 		'/bin/',
