@@ -23,14 +23,107 @@ import {
 	insertBlock,
 } from '@wordpress/e2e-test-utils';
 
-describe( 'blocks: material/card-query', () => {
+describe( 'blocks: Material card and image card', () => {
 	beforeEach( async () => {
-		await createNewPost( {} );
+		await createNewPost( { postType: 'page', title: `Query Page` } );
 	} );
 
-	it( 'match card-query snapshot', async () => {
-		await insertBlock( 'Back to top' );
+	it( 'match material card', async () => {
+		await insertBlock( 'Query Loop' );
 
+		await page.waitForSelector(
+			'.block-editor-block-pattern-setup__container .wp-block-post-title'
+		);
+
+		// This inserts a pattern with mdc-card for query.
+		await page.waitForSelector(
+			'li.pattern-slide.active-slide[aria-label="Query with material Card"]'
+		);
+
+		// Choose the selected pattern.
+		const chooseButton = await page.waitForXPath(
+			'//div[contains(@class, "block-editor-block-pattern-setup__actions")]//button[text()="Choose"]'
+		);
+
+		await chooseButton.click();
+
+		// Wait for the block to be inserted and test if mdc-card is added.
+		await page.waitForSelector( 'ul li:first-child .mdc-card.post-card' );
+
+		// Test pagination first.
+		await page.waitForSelector(
+			'.wp-block-material-query-pagination-first'
+		);
+
+		// Test pagination previous.
+		await page.waitForSelector(
+			'.wp-block-material-query-pagination-previous'
+		);
+
+		// Test pagination next.
+		await page.waitForSelector(
+			'.wp-block-material-query-pagination-next'
+		);
+
+		// Test pagination last.
+		await page.waitForSelector(
+			'.wp-block-material-query-pagination-last'
+		);
+
+		// Snapshot.
+		expect( await getEditedPostContent() ).toMatchSnapshot();
+	} );
+
+	it( 'match material image card', async () => {
+		await insertBlock( 'Query Loop' );
+
+		await page.waitForSelector(
+			'.block-editor-block-pattern-setup__container .wp-block-post-title'
+		);
+
+		const nextPatternButton = await page.waitForSelector(
+			'.block-editor-block-pattern-setup__navigation button[aria-label="Next pattern"]'
+		);
+		await nextPatternButton.click();
+
+		// This inserts a pattern with mdc image card for query.
+		await page.waitForSelector(
+			'li.pattern-slide.active-slide[aria-label="Query with material image card."]'
+		);
+
+		// Choose the selected pattern.
+		const chooseButton = await page.waitForXPath(
+			'//div[contains(@class, "block-editor-block-pattern-setup__actions")]//button[text()="Choose"]'
+		);
+
+		await chooseButton.click();
+
+		// Wait for the block to be inserted and test if mdc-card is added.
+		await page.waitForSelector(
+			'ul li:first-child .wp-block-material-image-card-query'
+		);
+
+		// Test pagination first.
+		await page.waitForSelector(
+			'.wp-block-material-query-pagination-first'
+		);
+
+		// Test pagination previous.
+		await page.waitForSelector(
+			'.wp-block-material-query-pagination-previous'
+		);
+
+		// Test pagination next.
+		await page.waitForSelector(
+			'.wp-block-material-query-pagination-next'
+		);
+
+		// Test pagination last.
+		await page.waitForSelector(
+			'.wp-block-material-query-pagination-last'
+		);
+
+		// Snapshot.
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
 } );
