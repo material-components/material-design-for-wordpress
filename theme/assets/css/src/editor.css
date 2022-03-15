@@ -24,7 +24,6 @@
 
 /* import site logo in editor to fix editor style. */
 @import "./components/logo.css";
-@import "@material/button/dist/mdc.button.css";
 @mixin selector-typography .wp-block div, body1;
 @mixin selector-typography p, body1;
 @mixin selector-typography .editor-post-title__input, headline2, 6, 6, 300;
@@ -45,4 +44,16 @@ blockquote {
 	& .wp-block-quote__citation {
 		color: currentColor;
 	}
+}
+
+.mdc-top-app-bar {
+	position: static;
+}
+
+.mdc-top-app-bar__row {
+	height: auto;
+}
+
+.top-app-bar__title a {
+	color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
 }
