@@ -34,3 +34,11 @@
 		max-width: 200px;
 	}
 }
+
+/* FSE Specific Styles */
+.wp-block-site-logo {
+
+	@nest .top-app-bar & img {
+		max-height: none;
+	}
+}
