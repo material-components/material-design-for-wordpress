@@ -15,32 +15,29 @@
  */
 
 /**
- * External dependencies
- */
-/**
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
+
+/**
+ * External dependencies
+ */
 import classname from 'classnames';
 
 /**
  * Search bar button.
  *
- * @param {Object} props
- * @param {Object} props.props props to button html element.
+ * @param {function} onClick - Click handler.
+ *
  * @return {JSX.Element} Block edit.
  */
-const Button = ( { props: p } ) => {
-	const props = { ...p };
-	props.className = classname(
-		props.className,
-		'material-icons mdc-top-app-bar__navigation-icon mdc-icon-button top-app-bar__menu-trigger'
-	);
-
+const Button = ( { onClick } ) => {
 	return (
 		<button
-			{ ...props }
+			className="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button top-app-bar__menu-trigger"
+			type="button"
 			aria-label={ __( 'Open menu', 'material-design-google' ) }
+			onClick={ onClick }
 		>
 			<span className="mdc-button__ripple"></span>
 			menu

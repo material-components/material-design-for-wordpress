@@ -19,6 +19,10 @@
  */
 import { useState } from '@wordpress/element';
 import { useBlockProps } from '@wordpress/block-editor';
+
+/**
+ * Internal dependencies.
+ */
 import Button from './button';
 import Drawer from './drawer';
 
@@ -30,12 +34,16 @@ import Drawer from './drawer';
 const Edit = () => {
 	const [ isOpen, setIsOpen ] = useState( false );
 
-	return (
-		<>
-			<Button props={ useBlockProps() } />
+	const toggleDrawer = () => {
+		setIsOpen( ! isOpen );
+	};
 
-			<Drawer />
-		</>
+	return (
+		<div { ...useBlockProps() }>
+			<Button onClick={ toggleDrawer } />
+
+			<Drawer isOpen={ isOpen } />
+		</div>
 	);
 };
 

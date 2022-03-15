@@ -14,9 +14,46 @@
  * limitations under the License.
  */
 
-const Drawer = () => {
+/**
+ * WordPress dependencies
+ */
+import { useEffect, useRef } from '@wordpress/element';
+
+/**
+ * External dependencies.
+ */
+import { MDCDrawer } from '@material/drawer';
+import classname from 'classnames';
+
+const Drawer = ( { isOpen } ) => {
+	let drawer = null;
+
+	useEffect( () => {
+		if ( drawerRef.current ) {
+			drawer = new MDCDrawer( drawerRef.current );
+
+			drawer.singleSelection = true;
+		}
+	}, [] );
+
+	useEffect( () => {
+		if ( drawer ) {
+			drawer.open = isOpen;
+		}
+	}, [ drawer, isOpen ] );
+
+	const drawerRef = useRef( null );
+
 	return (
-		<aside className="mdc-drawer material-drawer mdc-drawer--modal">
+		<aside
+			className={ classname(
+				'mdc-drawer material-drawer mdc-drawer--modal',
+				{
+					'mdc-drawer--open': isOpen,
+				}
+			) }
+			ref={ drawerRef }
+		>
 
 			<div className="mdc-drawer__header">
 				drawer
