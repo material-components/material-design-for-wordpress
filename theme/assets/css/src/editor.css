@@ -20,6 +20,7 @@
 /* Following imports are used for card block. */
 @import "./components/post-card.css";
 @import "./components/avatar.css";
+@import "./material-components.css";
 
 /* import site logo in editor to fix editor style. */
 @import "./components/logo.css";

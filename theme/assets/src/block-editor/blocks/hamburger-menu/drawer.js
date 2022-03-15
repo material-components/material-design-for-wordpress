@@ -14,26 +14,20 @@
  * limitations under the License.
  */
 
-/**
- * External dependencies
- */
-import '@material/button/dist/mdc.button.css';
-import '@material/typography/dist/mdc.typography.css';
-import '@material/icon-button/dist/mdc.icon-button.css';
+const Drawer = () => {
+	return (
+		<aside className="mdc-drawer material-drawer mdc-drawer--modal">
 
-/**
- * Internal dependencies
- */
-import metadata from './block.json';
-import edit from './edit';
+			<div className="mdc-drawer__header">
+				drawer
+			</div>
+			<div className="mdc-drawer__content">
+				<nav className="mdc-list mdc-drawer__list" role="listbox">
 
-const { name, title } = metadata;
-
-export { metadata, name };
-
-export const settings = {
-	title,
-	description: metadata.description,
-	icon: () => <i className="material-icons-outlined">menu</i>,
-	edit,
+				</nav>
+			</div>
+		</aside>
+	);
 };
+
+export default Drawer;

@@ -17,14 +17,26 @@
 /**
  * WordPress dependencies
  */
+import { useState } from '@wordpress/element';
 import { useBlockProps } from '@wordpress/block-editor';
 import Button from './button';
+import Drawer from './drawer';
 
 /**
  * Edit.
  *
  * @return {JSX.Element} Block edit.
  */
-const Edit = () => <Button props={ useBlockProps() } />;
+const Edit = () => {
+	const [ isOpen, setIsOpen ] = useState( false );
+
+	return (
+		<>
+			<Button props={ useBlockProps() } />
+
+			<Drawer />
+		</>
+	);
+};
 
 export default Edit;
