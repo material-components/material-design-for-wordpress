@@ -26,32 +26,28 @@ import { MDCDrawer } from '@material/drawer';
 import classname from 'classnames';
 
 const Drawer = ( { isOpen } ) => {
-	let drawer = null;
+	const drawer = useRef();
 
 	useEffect( () => {
 		if ( drawerRef.current ) {
-			drawer = new MDCDrawer( drawerRef.current );
+			drawer.current = new MDCDrawer( drawerRef.current );
 
-			drawer.singleSelection = true;
+			drawer.current.singleSelection = true;
 		}
 	}, [] );
 
 	useEffect( () => {
-		if ( drawer ) {
-			drawer.open = isOpen;
+		if ( drawer.current ) {
+			drawer.current.open = isOpen;
 		}
-	}, [ drawer, isOpen ] );
+
+	}, [ isOpen ] );
 
 	const drawerRef = useRef( null );
 
 	return (
 		<aside
-			className={ classname(
-				'mdc-drawer material-drawer mdc-drawer--modal',
-				{
-					'mdc-drawer--open': isOpen,
-				}
-			) }
+			className="mdc-drawer material-drawer mdc-drawer--modal"
 			ref={ drawerRef }
 		>
 
