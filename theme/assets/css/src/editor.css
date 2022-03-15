@@ -45,3 +45,15 @@ blockquote {
 		color: currentColor;
 	}
 }
+
+.mdc-top-app-bar {
+	position: static;
+}
+
+.mdc-top-app-bar__row {
+	height: auto;
+}
+
+.top-app-bar__title a {
+	color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+}
