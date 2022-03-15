@@ -20,14 +20,10 @@
 import { __ } from '@wordpress/i18n';
 
 /**
- * External dependencies
- */
-import classname from 'classnames';
-
-/**
  * Search bar button.
  *
- * @param {function} onClick - Click handler.
+ * @param {Object} props
+ * @param {Object} props.onClick Callback to be called when the button is clicked.
  *
  * @return {JSX.Element} Block edit.
  */

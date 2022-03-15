@@ -23,8 +23,15 @@ import { useEffect, useRef } from '@wordpress/element';
  * External dependencies.
  */
 import { MDCDrawer } from '@material/drawer';
-import classname from 'classnames';
 
+/**
+ * Menu drawer.
+ *
+ * @param {Object}  props
+ * @param {boolean} props.isOpen - Whether or not the drawer is open.
+ *
+ * @returns {JSX.Element}
+ */
 const Drawer = ( { isOpen } ) => {
 	const drawer = useRef();
 
@@ -50,14 +57,9 @@ const Drawer = ( { isOpen } ) => {
 			className="mdc-drawer material-drawer mdc-drawer--modal"
 			ref={ drawerRef }
 		>
-
-			<div className="mdc-drawer__header">
-				drawer
-			</div>
+			<div className="mdc-drawer__header">drawer</div>
 			<div className="mdc-drawer__content">
-				<nav className="mdc-list mdc-drawer__list" role="listbox">
-
-				</nav>
+				<nav className="mdc-list mdc-drawer__list" role="listbox"></nav>
 			</div>
 		</aside>
 	);
