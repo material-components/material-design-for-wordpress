@@ -14,13 +14,9 @@
  * limitations under the License.
  */
 
-import './plugins/hide-sections';
-//import './blocks/navigation-link/hooks';
-import './style';
-import { registerBlocks } from './util';
-import './hooks';
-
 /**
- * Register the blocks.
+ * Block Icon component.
+ *
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+export const icon = () => <i className="material-icons-outlined">explore</i>;
