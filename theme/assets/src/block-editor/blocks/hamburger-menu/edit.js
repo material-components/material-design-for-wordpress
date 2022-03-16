@@ -17,8 +17,9 @@
 /**
  * WordPress dependencies
  */
+import { useSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
-import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls, InnerBlocks } from '@wordpress/block-editor';
 import { ToolbarButton } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { edit } from '@wordpress/icons';
@@ -27,19 +28,30 @@ import { edit } from '@wordpress/icons';
  * Internal dependencies.
  */
 import Button from './button';
-import Drawer from './drawer';
+
+const ALLOWED_BLOCKS = [ 'material-design/drawer' ];
 
 /**
  * Edit.
  *
  * @return {JSX.Element} Block edit.
  */
-const Edit = () => {
+const Edit = ( props ) => {
+	const { clientId } = props;
 	const [ isOpen, setIsOpen ] = useState( false );
+	const innerBlockCount = useSelect( select => select( 'core/block-editor' ).getBlock( clientId ).innerBlocks );
 
 	const toggleDrawer = () => {
 		setIsOpen( ! isOpen );
 	};
+
+	const drawerAppender = () => {
+		if ( innerBlockCount.length < 1 ) {
+			return <InnerBlocks.ButtonBlockAppender />;
+		} else {
+			return false;
+		}
+	}
 
 	return (
 		<>
@@ -53,7 +65,10 @@ const Edit = () => {
 			<div { ...useBlockProps() }>
 				<Button />
 
-				<Drawer isOpen={ isOpen } />
+				<InnerBlocks
+					allowedBlocks={ ALLOWED_BLOCKS }
+					renderAppender={ () => drawerAppender() }
+				/>
 			</div>
 		</>
 	);
