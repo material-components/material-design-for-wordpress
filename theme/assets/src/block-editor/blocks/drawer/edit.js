@@ -18,11 +18,18 @@
  * WordPress dependencies
  */
 import { useEffect, useRef } from '@wordpress/element';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * External dependencies.
  */
 import { MDCDrawer } from '@material/drawer';
+
+const ALLOWED_BLOCKS = [
+	'core/site-logo',
+	'core/site-title',
+	'material/navigation',
+];
 
 /**
  * Menu drawer.
@@ -54,15 +61,18 @@ const Drawer = ( { isOpen } ) => {
 	const drawerRef = useRef( null );
 
 	return (
-		<aside
-			className="mdc-drawer material-drawer mdc-drawer--modal"
-			ref={ drawerRef }
-		>
-			<div className="mdc-drawer__header">drawer</div>
-			<div className="mdc-drawer__content">
-				<nav className="mdc-list mdc-drawer__list" role="listbox"></nav>
-			</div>
-		</aside>
+		<div { ...useBlockProps() }>
+			<aside
+				className="mdc-drawer material-drawer mdc-drawer--modal"
+				ref={ drawerRef }
+			>
+				<div className="mdc-drawer__header">drawer</div>
+				<div className="mdc-drawer__content">
+					<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+					{/* <nav className="mdc-list mdc-drawer__list" role="listbox"></nav> */}
+				</div>
+			</aside>
+		</div>
 	);
 };
 

@@ -19,7 +19,11 @@
  */
 import { useSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
-import { useBlockProps, BlockControls, InnerBlocks } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	BlockControls,
+	InnerBlocks,
+} from '@wordpress/block-editor';
 import { ToolbarButton } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { edit } from '@wordpress/icons';
