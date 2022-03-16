@@ -28,6 +28,7 @@ import { MDCDrawer } from '@material/drawer';
 const ALLOWED_BLOCKS = [
 	'core/site-logo',
 	'core/site-title',
+	'core/group',
 	'material/navigation',
 ];
 

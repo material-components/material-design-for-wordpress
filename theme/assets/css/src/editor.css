@@ -58,6 +58,14 @@ blockquote {
 	color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
 }
 
+.material-drawer .wp-block-site-title {
+	color: var( --mdc-theme-on-surface, #000 );
+}
+
+.material-drawer .wp-block-site-title a {
+	color: currentColor;
+}
+
 .mdc-tab-scroller {
 	width: 100%;
 }
