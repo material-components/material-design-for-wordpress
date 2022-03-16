@@ -40,6 +40,7 @@ const Drawer = ( { isOpen } ) => {
 			drawer.current = new MDCDrawer( drawerRef.current );
 
 			drawer.current.singleSelection = true;
+			drawer.current.open = true;
 		}
 	}, [] );
 
