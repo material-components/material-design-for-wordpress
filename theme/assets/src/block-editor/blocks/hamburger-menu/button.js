@@ -22,18 +22,14 @@ import { __ } from '@wordpress/i18n';
 /**
  * Search bar button.
  *
- * @param {Object} props
- * @param {Object} props.onClick Callback to be called when the button is clicked.
- *
  * @return {JSX.Element} Block edit.
  */
-const Button = ( { onClick } ) => {
+const Button = () => {
 	return (
 		<button
 			className="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button top-app-bar__menu-trigger"
 			type="button"
 			aria-label={ __( 'Open menu', 'material-design-google' ) }
-			onClick={ onClick }
 		>
 			<span className="mdc-button__ripple"></span>
 			menu

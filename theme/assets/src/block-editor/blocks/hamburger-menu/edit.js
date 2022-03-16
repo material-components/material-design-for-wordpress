@@ -18,7 +18,10 @@
  * WordPress dependencies
  */
 import { useState } from '@wordpress/element';
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls } from '@wordpress/block-editor';
+import { ToolbarButton } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+import { edit } from '@wordpress/icons';
 
 /**
  * Internal dependencies.
@@ -39,11 +42,20 @@ const Edit = () => {
 	};
 
 	return (
-		<div { ...useBlockProps() }>
-			<Button onClick={ toggleDrawer } />
+		<>
+			<BlockControls>
+				<ToolbarButton
+					label={ __( 'Edit Drawer', 'material-design' ) }
+					onClick={ toggleDrawer }
+					icon={ edit }
+				/>
+			</BlockControls>
+			<div { ...useBlockProps() }>
+				<Button />
 
-			<Drawer isOpen={ isOpen } />
-		</div>
+				<Drawer isOpen={ isOpen } />
+			</div>
+		</>
 	);
 };
 
