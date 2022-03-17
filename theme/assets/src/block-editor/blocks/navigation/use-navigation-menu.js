@@ -53,7 +53,7 @@ export default function useNavigationMenu( ref ) {
 				? hasFinishedResolution(
 						'getEditedEntityRecord',
 						navigationMenuSingleArgs
-				)
+				  )
 				: false;
 
 			const navigationMenuMultipleArgs = [

@@ -21,7 +21,7 @@ import { useEntityBlockEditor } from '@wordpress/core-data';
 import {
 	useInnerBlocksProps,
 	InnerBlocks,
-	__experimentalBlockContentOverlay as BlockContentOverlay,
+	__experimentalBlockContentOverlay as BlockContentOverlay, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
@@ -32,10 +32,7 @@ import { useMemo } from '@wordpress/element';
  */
 import PlaceholderPreview from './placeholder/placeholder-preview';
 
-const ALLOWED_BLOCKS = [
-	'core/navigation-link',
-	'material/navigation-link',
-];
+const ALLOWED_BLOCKS = [ 'core/navigation-link', 'material/navigation-link' ];
 
 const DEFAULT_BLOCK = {
 	name: 'core/navigation-link',
@@ -57,7 +54,7 @@ export default function NavigationInnerBlocks( {
 		selectedBlockHasDescendants,
 		isSelected,
 	} = useSelect(
-		( select ) => {
+		select => {
 			const {
 				getClientIdsOfDescendants,
 				hasSelectedInnerBlock,

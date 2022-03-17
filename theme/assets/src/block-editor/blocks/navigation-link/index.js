@@ -31,7 +31,7 @@ const { name, usesContext, title } = metadata;
 export { metadata, name };
 
 /**
- * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, keywords: array, save: *}}
+ * @type {{edit: *, icon: (function(): *), description: string, title: string, category: string, keywords: Array, save: *, usesContext: Array}}
  */
 export const settings = {
 	description: __(

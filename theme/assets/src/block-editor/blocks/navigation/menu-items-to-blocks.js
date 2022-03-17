@@ -58,7 +58,7 @@ function mapMenuItemsToBlocks( menuItems ) {
 	// The menuItem should be in menu_order sort order.
 	const sortedItems = sortBy( menuItems, 'menu_order' );
 
-	const innerBlocks = sortedItems.map( ( menuItem ) => {
+	const innerBlocks = sortedItems.map( menuItem => {
 		if ( menuItem.type === 'block' ) {
 			const [ block ] = parse( menuItem.content.raw );
 

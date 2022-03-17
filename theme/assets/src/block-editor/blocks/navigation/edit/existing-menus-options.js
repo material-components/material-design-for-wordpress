@@ -21,6 +21,18 @@ import { MenuGroup, MenuItem } from '@wordpress/components';
 import { __, sprintf } from '@wordpress/i18n';
 import { decodeEntities } from '@wordpress/html-entities';
 
+/**
+ *
+ * @param {Object}   props
+ * @param {boolean}  props.showNavigationMenus
+ * @param {boolean}  props.showClassicMenus
+ * @param {Array}    props.navigationMenus
+ * @param {Array}    props.classicMenus
+ * @param {Function} props.onSelectNavigationMenu
+ * @param {Function} props.onSelectClassicMenu
+ * @param {string}   props.actionLabel
+ * @return {JSX.Element} Menu Options.
+ */
 const ExistingMenusOptions = ( {
 	showNavigationMenus,
 	showClassicMenus = false,
@@ -61,7 +73,7 @@ const ExistingMenusOptions = ( {
 			) }
 			{ showClassicMenus && hasClassicMenus && (
 				<MenuGroup label={ __( 'Classic Menus' ) }>
-					{ classicMenus.map( ( menu ) => {
+					{ classicMenus.map( menu => {
 						const label = decodeEntities( menu.name );
 						return (
 							<MenuItem

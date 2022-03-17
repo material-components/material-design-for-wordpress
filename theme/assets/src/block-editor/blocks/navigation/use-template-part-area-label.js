@@ -81,7 +81,7 @@ export default function useTemplatePartAreaLabel( clientId ) {
 				// that an internationalized label can be used.
 				if ( templatePartEntity?.area ) {
 					return definedAreas.find(
-						( definedArea ) =>
+						definedArea =>
 							definedArea.area !== 'uncategorized' &&
 							definedArea.area === templatePartEntity.area
 					)?.label;

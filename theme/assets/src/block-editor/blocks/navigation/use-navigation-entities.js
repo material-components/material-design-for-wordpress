@@ -50,25 +50,22 @@ export default function useNavigationEntities( menuId ) {
 }
 
 function useMenuEntities() {
-	const { menus, isResolvingMenus, hasResolvedMenus } = useSelect(
-		( select ) => {
-			const { getMenus, isResolving, hasFinishedResolution } = select(
-				coreStore
-			);
+	const { menus, isResolvingMenus, hasResolvedMenus } = useSelect( select => {
+		const { getMenus, isResolving, hasFinishedResolution } = select(
+			coreStore
+		);
 
-			const menusParameters = [ { per_page: -1, context: 'view' } ];
+		const menusParameters = [ { per_page: -1, context: 'view' } ];
 
-			return {
-				menus: getMenus( ...menusParameters ),
-				isResolvingMenus: isResolving( 'getMenus', menusParameters ),
-				hasResolvedMenus: hasFinishedResolution(
-					'getMenus',
-					menusParameters
-				),
-			};
-		},
-		[]
-	);
+		return {
+			menus: getMenus( ...menusParameters ),
+			isResolvingMenus: isResolving( 'getMenus', menusParameters ),
+			hasResolvedMenus: hasFinishedResolution(
+				'getMenus',
+				menusParameters
+			),
+		};
+	}, [] );
 
 	return {
 		menus,
@@ -80,7 +77,7 @@ function useMenuEntities() {
 
 function useMenuItemEntities( menuId ) {
 	const { menuItems, hasResolvedMenuItems } = useSelect(
-		( select ) => {
+		select => {
 			const { getMenuItems, hasFinishedResolution } = select( coreStore );
 
 			const hasSelectedMenu = menuId !== undefined;
@@ -116,40 +113,35 @@ function useMenuItemEntities( menuId ) {
 }
 
 function usePageEntities() {
-	const { pages, isResolvingPages, hasResolvedPages } = useSelect(
-		( select ) => {
-			const {
-				getEntityRecords,
-				isResolving,
-				hasFinishedResolution,
-			} = select( coreStore );
+	const { pages, isResolvingPages, hasResolvedPages } = useSelect( select => {
+		const { getEntityRecords, isResolving, hasFinishedResolution } = select(
+			coreStore
+		);
 
-			const pagesParameters = [
-				'postType',
-				'page',
-				{
-					parent: 0,
-					order: 'asc',
-					orderby: 'id',
-					per_page: -1,
-					context: 'view',
-				},
-			];
+		const pagesParameters = [
+			'postType',
+			'page',
+			{
+				parent: 0,
+				order: 'asc',
+				orderby: 'id',
+				per_page: -1,
+				context: 'view',
+			},
+		];
 
-			return {
-				pages: getEntityRecords( ...pagesParameters ) || null,
-				isResolvingPages: isResolving(
-					'getEntityRecords',
-					pagesParameters
-				),
-				hasResolvedPages: hasFinishedResolution(
-					'getEntityRecords',
-					pagesParameters
-				),
-			};
-		},
-		[]
-	);
+		return {
+			pages: getEntityRecords( ...pagesParameters ) || null,
+			isResolvingPages: isResolving(
+				'getEntityRecords',
+				pagesParameters
+			),
+			hasResolvedPages: hasFinishedResolution(
+				'getEntityRecords',
+				pagesParameters
+			),
+		};
+	}, [] );
 
 	return {
 		pages,

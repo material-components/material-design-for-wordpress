@@ -35,11 +35,10 @@ export default function useConvertClassicMenu( onFinish ) {
 
 	const { menuItems, hasResolvedMenuItems } = useNavigationEntities(
 		selectedMenu
-		);
+	);
 
 	const createFromMenu = useCallback(
-		( name ) => {
-        console.log("🚀 ~ file: use-convert-classic-menu.js ~ line 26 ~ useConvertClassicMenu ~ name", name)
+		name => {
 			const { innerBlocks: blocks } = menuItemsToBlocks( menuItems );
 			onFinish( blocks, name );
 		},

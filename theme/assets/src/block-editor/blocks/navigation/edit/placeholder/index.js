@@ -79,11 +79,9 @@ export default function NavigationPlaceholder( {
 		( canSwitchNavigationMenu || canUserCreateNavigation ) &&
 		( hasNavigationMenus || hasMenus );
 
-
 	return (
 		<>
 			{ ( ! hasResolvedNavigationMenus || isStillLoading ) && (
-
 				<PlaceholderPreview isLoading />
 			) }
 			{ hasResolvedNavigationMenus && ! isStillLoading && (
