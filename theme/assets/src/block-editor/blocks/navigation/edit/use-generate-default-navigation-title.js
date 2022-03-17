@@ -40,6 +40,13 @@ const PUBLISHED_MENU_PARAMS = [
 	{ per_page: -1, status: 'publish' },
 ];
 
+/**
+ * Returns the label for the given menu.
+ *
+ * @param {string} clientId
+ *
+ * @return {Function} A functional component.
+ */
 export default function useGenerateDefaultNavigationTitle( clientId ) {
 	// The block will be disabled in a block preview, use this as a way of
 	// avoiding the side-effects of this component for block previews.

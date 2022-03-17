@@ -27,6 +27,14 @@ import { useDispatch } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 import { __, sprintf } from '@wordpress/i18n';
 
+/**
+ * Delete Control
+ *
+ * @param {Object}   props
+ * @param {Function} props.onDelete
+ *
+ * @return {JSX.Element} Delete controls
+ */
 export default function NavigationMenuDeleteControl( { onDelete } ) {
 	const [ isConfirmModalVisible, setIsConfirmModalVisible ] = useState(
 		false

@@ -19,6 +19,11 @@
  */
 import { SVG, Rect } from '@wordpress/primitives';
 
+/**
+ * Icon
+ *
+ * @return {JSX.Element} Icon
+ */
 export default function OverlayMenuIcon() {
 	return (
 		<SVG

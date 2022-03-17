@@ -25,6 +25,12 @@ import { useCallback, useState, useEffect } from '@wordpress/element';
 import useNavigationEntities from './use-navigation-entities';
 import menuItemsToBlocks from './menu-items-to-blocks';
 
+/**
+ * Convert to classic menu.
+ *
+ * @param {Function} onFinish
+ * @return {Function} Callback
+ */
 export default function useConvertClassicMenu( onFinish ) {
 	const [ selectedMenu, setSelectedMenu ] = useState();
 	const [

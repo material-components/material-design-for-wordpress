@@ -23,14 +23,14 @@ import { decodeEntities } from '@wordpress/html-entities';
 
 /**
  *
- * @param {Object}   props
- * @param {boolean}  props.showNavigationMenus
- * @param {boolean}  props.showClassicMenus
- * @param {Array}    props.navigationMenus
- * @param {Array}    props.classicMenus
- * @param {Function} props.onSelectNavigationMenu
- * @param {Function} props.onSelectClassicMenu
- * @param {string}   props.actionLabel
+ * @param {Object}          props
+ * @param {boolean}         props.showNavigationMenus
+ * @param {boolean}         props.showClassicMenus
+ * @param {Array}           props.navigationMenus
+ * @param {Array|undefined} props.classicMenus
+ * @param {Function}        props.onSelectNavigationMenu
+ * @param {Function}        props.onSelectClassicMenu
+ * @param {string}          [props.actionLabel]
  * @return {JSX.Element} Menu Options.
  */
 const ExistingMenusOptions = ( {
@@ -46,7 +46,7 @@ const ExistingMenusOptions = ( {
 	const hasClassicMenus = !! classicMenus?.length;
 
 	/* translators: %s: The name of a menu. */
-	const createActionLabel = __( "Create from '%s'" );
+	const createActionLabel = __( "Create from '%s'", 'material-design' );
 
 	actionLabel = actionLabel || createActionLabel;
 

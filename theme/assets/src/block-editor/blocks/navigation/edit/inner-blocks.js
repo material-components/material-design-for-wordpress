@@ -43,6 +43,17 @@ const LAYOUT = {
 	alignments: [],
 };
 
+/**
+ * Inner Blocks
+ *
+ * @param {Object}  props
+ * @param {boolean} props.isVisible
+ * @param {string}  props.clientId
+ * @param {boolean} props.hasCustomPlaceholder
+ * @param {string}  props.orientation
+ *
+ * @return {JSX.Element} Inner Blocks
+ */
 export default function NavigationInnerBlocks( {
 	isVisible,
 	clientId,

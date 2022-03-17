@@ -21,6 +21,11 @@ import { TextControl } from '@wordpress/components';
 import { useEntityProp } from '@wordpress/core-data';
 import { __ } from '@wordpress/i18n';
 
+/**
+ * Name Controls
+ *
+ * @return {JSX.Element} Name Controls
+ */
 export default function NavigationMenuNameControl() {
 	const [ title, updateTitle ] = useEntityProp(
 		'postType',

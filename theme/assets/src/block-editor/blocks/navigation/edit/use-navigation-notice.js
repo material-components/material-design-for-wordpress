@@ -21,6 +21,15 @@ import { useRef } from '@wordpress/element';
 import { useDispatch } from '@wordpress/data';
 import { store as noticeStore } from '@wordpress/notices';
 
+/**
+ * Adds a notice to navigation.
+ *
+ * @param {Object} props
+ * @param {string} [props.name]
+ * @param {string} [props.message]
+ *
+ * @return {Array} Notice functions
+ */
 function useNavigationNotice( { name, message } = {} ) {
 	const noticeRef = useRef();
 

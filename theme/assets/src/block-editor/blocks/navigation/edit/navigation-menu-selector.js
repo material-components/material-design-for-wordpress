@@ -31,6 +31,18 @@ import useConvertClassicMenu from '../use-convert-classic-menu';
 import useCreateNavigationMenu from './use-create-navigation-menu';
 import ExistingMenusOptions from './existing-menus-options';
 
+/**
+ * Menu Selector
+ *
+ * @param {Object}   props
+ * @param {string}   props.clientId
+ * @param {Function} props.onSelect
+ * @param {Function} props.onCreateNew
+ * @param {boolean}  props.canUserCreateNavigation
+ * @param {boolean}  props.canUserSwitchNavigation
+ *
+ * @return {JSX.Element|null} Menu Selector
+ */
 export default function NavigationMenuSelector( {
 	clientId,
 	onSelect,

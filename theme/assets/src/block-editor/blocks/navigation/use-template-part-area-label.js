@@ -27,6 +27,12 @@ import { useSelect } from '@wordpress/data';
 
 import { createTemplatePartId } from '../../util';
 
+/**
+ * Add label to template part.
+ *
+ * @param {string} clientId
+ * @return {Function} Select callback
+ */
 export default function useTemplatePartAreaLabel( clientId ) {
 	return useSelect(
 		select => {

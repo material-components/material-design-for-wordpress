@@ -32,6 +32,18 @@ import useCreateNavigationMenu from '../use-create-navigation-menu';
 import useConvertClassicMenu from '../../use-convert-classic-menu';
 import ExistingMenusOptions from '../existing-menus-options';
 
+/**
+ * Placeholder
+ *
+ * @param {Object}   props
+ * @param {string}   props.clientId
+ * @param {Function} props.onFinish
+ * @param {boolean}  props.canSwitchNavigationMenu
+ * @param {boolean}  props.hasResolvedNavigationMenus
+ * @param {boolean}  props.canUserCreateNavigation
+ *
+ * @return {JSX.Element} Placeholder
+ */
 export default function NavigationPlaceholder( {
 	clientId,
 	onFinish,

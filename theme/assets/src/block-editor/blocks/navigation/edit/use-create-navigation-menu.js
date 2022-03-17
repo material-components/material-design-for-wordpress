@@ -27,6 +27,13 @@ import { useCallback } from '@wordpress/element';
  */
 import useGenerateDefaultNavigationTitle from './use-generate-default-navigation-title';
 
+/**
+ * Create a new navigation menu.
+ *
+ * @param {string} clientId
+ *
+ * @return {Function} A functional component.
+ */
 export default function useCreateNavigationMenu( clientId ) {
 	const { saveEntityRecord } = useDispatch( coreStore );
 	const generateDefaultTitle = useGenerateDefaultNavigationTitle( clientId );

@@ -19,6 +19,13 @@
  */
 import { InnerBlocks } from '@wordpress/block-editor';
 
+/**
+ *
+ * @param {Object} props
+ * @param {Object} props.attributes
+ *
+ * @return {JSX.Element|void} Element to save
+ */
 export default function save( { attributes } ) {
 	if ( attributes.ref ) {
 		// Avoid rendering inner blocks when a ref is defined.

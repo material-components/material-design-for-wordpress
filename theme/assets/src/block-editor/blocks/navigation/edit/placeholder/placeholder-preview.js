@@ -25,6 +25,13 @@ import classnames from 'classnames';
 import { Icon, navigation } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
+/**
+ *
+ * @param {Object}  props
+ * @param {boolean} [props.isLoading]
+ *
+ * @return {JSX.Element} Placeholder
+ */
 const PlaceholderPreview = ( { isLoading } ) => {
 	return (
 		<div

@@ -28,6 +28,8 @@ import { applyFilters } from '@wordpress/hooks';
 /**
  * Convert a flat menu item structure to a nested blocks structure.
  *
+ * @type {WPBlock}
+ *
  * @param {Object[]} menuItems An array of menu items.
  *
  * @return {WPBlock[]} An array of blocks.
