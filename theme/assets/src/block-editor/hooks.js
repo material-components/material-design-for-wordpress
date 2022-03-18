@@ -48,6 +48,12 @@ const withAttributeChange = createHigherOrderComponent( BlockEdit => {
 					className: blockClassPrefillMap[ name ],
 				} );
 			}
+
+			return () => {
+				props.setAttributes( {
+					className,
+				} );
+			};
 			// Use empty array to make sure this runs only once.
 			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [] );
