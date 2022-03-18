@@ -64,6 +64,14 @@ blockquote {
 	color: var(--mdc-theme-on-surface, #000);
 }
 
+.material-drawer .site-tagline {
+	color: var(--mdc-theme-on-surface, #000);
+}
+
+.material-drawer .wp-block-site-tagline {
+	color: currentColor;
+}
+
 .material-drawer .wp-block-site-title a {
 	color: currentColor;
 }

@@ -65,6 +65,14 @@ export const BLOCK_TEMPLATE = [
 									],
 								],
 							],
+							[
+								'core/group',
+								{
+									className:
+										'site-tagline mdc-typography--subtitle1',
+								},
+								[ [ 'core/site-tagline' ] ],
+							],
 						],
 					],
 				],
