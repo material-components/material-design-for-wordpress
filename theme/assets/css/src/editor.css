@@ -60,6 +60,15 @@ blockquote {
 	color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
 }
 
+.material-drawer {
+	color: var(--mdc-theme-on-surface, #000);
+	overflow-y: auto;
+}
+
+.material-drawer a {
+	color: var(--mdc-theme-on-surface, #000);
+}
+
 .material-drawer .wp-block-site-title {
 	color: var(--mdc-theme-on-surface, #000);
 }
@@ -74,6 +83,14 @@ blockquote {
 
 .material-drawer .wp-block-site-title a {
 	color: currentColor;
+}
+
+.material-drawer .wp-block-navigation__container {
+	flex-direction: column;
+}
+
+.material-drawer .mdc-list-item__text {
+	width: auto;
 }
 
 .mdc-tab-scroller {
