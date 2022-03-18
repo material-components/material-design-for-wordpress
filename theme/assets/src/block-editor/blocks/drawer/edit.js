@@ -25,11 +25,28 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
  */
 import { MDCDrawer } from '@material/drawer';
 
+/** @type {Array} */
 const ALLOWED_BLOCKS = [
 	'core/site-logo',
 	'core/site-title',
 	'core/group',
 	'material/navigation',
+];
+
+/** @type {Array} */
+const BLOCK_TEMPLATE = [
+	[
+		'core/group',
+		{ className: 'mdc-drawer__header' },
+		[
+			[ 'core/group', { className: 'logo' }, [ [ 'core/site-logo' ] ] ],
+			[
+				'core/group',
+				{ className: 'mdc-drawer__title' },
+				[ [ 'core/site-title' ] ],
+			],
+		],
+	],
 ];
 
 /**
@@ -59,6 +76,7 @@ const Drawer = ( { isOpen } ) => {
 		}
 	}, [ isOpen ] );
 
+	/** @type {Object} */
 	const drawerRef = useRef( null );
 
 	return (
@@ -69,7 +87,10 @@ const Drawer = ( { isOpen } ) => {
 			>
 				<div className="mdc-drawer__header">drawer</div>
 				<div className="mdc-drawer__content">
-					<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+					<InnerBlocks
+						allowedBlocks={ ALLOWED_BLOCKS }
+						template={ BLOCK_TEMPLATE }
+					/>
 				</div>
 			</aside>
 		</div>
