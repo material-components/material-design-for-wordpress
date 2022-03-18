@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { store as blockEditorStore } from '@wordpress/block-editor';
@@ -11,6 +27,12 @@ import { useSelect } from '@wordpress/data';
 
 import { createTemplatePartId } from '../../util';
 
+/**
+ * Add label to template part.
+ *
+ * @param {string} clientId
+ * @return {Function} Select callback
+ */
 export default function useTemplatePartAreaLabel( clientId ) {
 	return useSelect(
 		select => {
@@ -65,7 +87,7 @@ export default function useTemplatePartAreaLabel( clientId ) {
 				// that an internationalized label can be used.
 				if ( templatePartEntity?.area ) {
 					return definedAreas.find(
-						( definedArea ) =>
+						definedArea =>
 							definedArea.area !== 'uncategorized' &&
 							definedArea.area === templatePartEntity.area
 					)?.label;

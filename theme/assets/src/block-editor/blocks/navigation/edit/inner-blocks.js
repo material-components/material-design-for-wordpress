@@ -1,11 +1,27 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { useEntityBlockEditor } from '@wordpress/core-data';
 import {
 	useInnerBlocksProps,
 	InnerBlocks,
-	__experimentalBlockContentOverlay as BlockContentOverlay,
+	__experimentalBlockContentOverlay as BlockContentOverlay, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
 import { useSelect } from '@wordpress/data';
@@ -16,10 +32,7 @@ import { useMemo } from '@wordpress/element';
  */
 import PlaceholderPreview from './placeholder/placeholder-preview';
 
-const ALLOWED_BLOCKS = [
-	'core/navigation-link',
-	'material/navigation-link',
-];
+const ALLOWED_BLOCKS = [ 'core/navigation-link', 'material/navigation-link' ];
 
 const DEFAULT_BLOCK = {
 	name: 'core/navigation-link',
@@ -30,6 +43,17 @@ const LAYOUT = {
 	alignments: [],
 };
 
+/**
+ * Inner Blocks
+ *
+ * @param {Object}  props
+ * @param {boolean} props.isVisible
+ * @param {string}  props.clientId
+ * @param {boolean} props.hasCustomPlaceholder
+ * @param {string}  props.orientation
+ *
+ * @return {JSX.Element} Inner Blocks
+ */
 export default function NavigationInnerBlocks( {
 	isVisible,
 	clientId,
@@ -41,7 +65,7 @@ export default function NavigationInnerBlocks( {
 		selectedBlockHasDescendants,
 		isSelected,
 	} = useSelect(
-		( select ) => {
+		select => {
 			const {
 				getClientIdsOfDescendants,
 				hasSelectedInnerBlock,

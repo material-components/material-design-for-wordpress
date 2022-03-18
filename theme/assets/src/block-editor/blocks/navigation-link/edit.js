@@ -26,7 +26,7 @@ import {
 	BlockIcon,
 	InspectorControls,
 	RichText,
-	__experimentalLinkControl as LinkControl,
+	__experimentalLinkControl as LinkControl, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 	useBlockProps,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
@@ -58,7 +58,7 @@ const MAX_NESTING = 5;
  *
  * @return {boolean} Is dragging within the target element.
  */
-const useIsDraggingWithin = ( elementRef ) => {
+const useIsDraggingWithin = elementRef => {
 	const [ isDraggingWithin, setIsDraggingWithin ] = useState( false );
 
 	useEffect( () => {
@@ -269,7 +269,6 @@ export default function NavigationLinkEdit( {
 	insertBlocksAfter,
 	mergeBlocks,
 	onReplace,
-	context,
 	clientId,
 } ) {
 	const {
@@ -309,7 +308,6 @@ export default function NavigationLinkEdit( {
 		userCanCreatePosts,
 		thisBlock,
 		blockTransforms,
-		currentPostId,
 	} = useSelect(
 		select => {
 			const {
@@ -398,7 +396,7 @@ export default function NavigationLinkEdit( {
 		'core/social-links',
 		'core/search',
 	];
-	const featuredTransforms = blockTransforms.filter( ( item ) => {
+	const featuredTransforms = blockTransforms.filter( item => {
 		return featuredBlocks.includes( item.name );
 	} );
 
@@ -575,7 +573,7 @@ export default function NavigationLinkEdit( {
 				<PanelBody title={ __( 'Link settings' ) }>
 					<TextareaControl
 						value={ description || '' }
-						onChange={ ( descriptionValue ) => {
+						onChange={ descriptionValue => {
 							setAttributes( { description: descriptionValue } );
 						} }
 						label={ __( 'Description' ) }
@@ -585,7 +583,7 @@ export default function NavigationLinkEdit( {
 					/>
 					<TextControl
 						value={ title || '' }
-						onChange={ ( titleValue ) => {
+						onChange={ titleValue => {
 							setAttributes( { title: titleValue } );
 						} }
 						label={ __( 'Link title' ) }
@@ -593,7 +591,7 @@ export default function NavigationLinkEdit( {
 					/>
 					<TextControl
 						value={ rel || '' }
-						onChange={ ( relValue ) => {
+						onChange={ relValue => {
 							setAttributes( { rel: relValue } );
 						} }
 						label={ __( 'Link rel' ) }
@@ -611,7 +609,10 @@ export default function NavigationLinkEdit( {
 								<div className="wp-block-navigation-link__placeholder-text">
 									<Tooltip
 										position="top center"
-										text={ __( 'This item is missing a link' ) }
+										text={ __(
+											'This item is missing a link',
+											'material-design'
+										) }
 									>
 										<span>{ missingText }</span>
 									</Tooltip>
@@ -630,7 +631,9 @@ export default function NavigationLinkEdit( {
 									onReplace={ onReplace }
 									__unstableOnSplitAtEnd={ () =>
 										insertBlocksAfter(
-											createBlock( 'core/navigation-link' )
+											createBlock(
+												'core/navigation-link'
+											)
 										)
 									}
 									aria-label={ __( 'Navigation link text' ) }
@@ -672,7 +675,7 @@ export default function NavigationLinkEdit( {
 								showInitialSuggestions={ true }
 								withCreateSuggestion={ userCanCreate }
 								createSuggestion={ handleCreate }
-								createSuggestionButtonText={ ( searchTerm ) => {
+								createSuggestionButtonText={ searchTerm => {
 									let format;
 									if ( type === 'post' ) {
 										/* translators: %s: search term. */
@@ -696,7 +699,7 @@ export default function NavigationLinkEdit( {
 									type,
 									kind
 								) }
-								onChange={ ( updatedValue ) =>
+								onChange={ updatedValue =>
 									updateNavigationLinkBlockAttributes(
 										updatedValue,
 										setAttributes,

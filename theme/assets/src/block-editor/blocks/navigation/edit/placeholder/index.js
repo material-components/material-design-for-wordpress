@@ -1,4 +1,20 @@
 /**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
  * WordPress dependencies
  */
 import { Placeholder, Button, DropdownMenu } from '@wordpress/components';
@@ -16,6 +32,18 @@ import useCreateNavigationMenu from '../use-create-navigation-menu';
 import useConvertClassicMenu from '../../use-convert-classic-menu';
 import ExistingMenusOptions from '../existing-menus-options';
 
+/**
+ * Placeholder
+ *
+ * @param {Object}   props
+ * @param {string}   props.clientId
+ * @param {Function} props.onFinish
+ * @param {boolean}  props.canSwitchNavigationMenu
+ * @param {boolean}  props.hasResolvedNavigationMenus
+ * @param {boolean}  props.canUserCreateNavigation
+ *
+ * @return {JSX.Element} Placeholder
+ */
 export default function NavigationPlaceholder( {
 	clientId,
 	onFinish,
@@ -63,11 +91,9 @@ export default function NavigationPlaceholder( {
 		( canSwitchNavigationMenu || canUserCreateNavigation ) &&
 		( hasNavigationMenus || hasMenus );
 
-
 	return (
 		<>
 			{ ( ! hasResolvedNavigationMenus || isStillLoading ) && (
-
 				<PlaceholderPreview isLoading />
 			) }
 			{ hasResolvedNavigationMenus && ! isStillLoading && (

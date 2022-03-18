@@ -21,7 +21,7 @@ import { useCallback, useRef, useEffect, useState } from '@wordpress/element';
 import { EntityProvider, useEntityProp } from '@wordpress/core-data';
 import { useRegistry, useSelect, useDispatch } from '@wordpress/data';
 import {
-	__experimentalUseNoRecursiveRenders as useNoRecursiveRenders,
+	__experimentalUseNoRecursiveRenders as useNoRecursiveRenders, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 	useBlockProps,
 	Warning,
 	BlockControls,
@@ -53,13 +53,21 @@ import useNavigationNotice from './/use-navigation-notice';
 import NavigationMenuNameControl from './navigation-menu-name-control';
 import NavigationMenuDeleteControl from './navigation-menu-delete-control';
 
+const EMPTY_ARRAY = [];
+
 /**
  * Edit.
  *
- * @param {Object}                                         props
- * @param {{postType:string,postId:number,queryId:number}} props.context
- * @param {Function}                                       props.setAttributes
- * @param {Object}                                         props.attributes
+ * @param {Object}                  props
+ * @param {{navigationArea:string}} props.context
+ * @param {Function}                props.setAttributes
+ * @param {Object}                  props.attributes
+ * @param {boolean}                 props.isSelected
+ * @param {string}                  props.clientId
+ * @param {*}                       props.layout
+ * @param {string}                  props.className
+ * @param {JSX.Element|null}        props.customPlaceholder
+ * @param {JSX.Element|null}        props.customAppender
  * @return {JSX.Element} Block edit.
  */
 const Edit = ( {
@@ -77,8 +85,6 @@ const Edit = ( {
 
 	// These props are used by the navigation editor to override specific
 	// navigation block settings.
-	hasSubmenuIndicatorSetting = true,
-	hasColorSettings = true,
 	customPlaceholder: CustomPlaceholder = null,
 	customAppender: CustomAppender = null,
 } ) => {
@@ -91,15 +97,13 @@ const Edit = ( {
 	const navigationAreaMenu = areaMenu === 0 ? undefined : areaMenu;
 	const ref = navigationArea ? navigationAreaMenu : attributes.ref;
 	const registry = useRegistry();
-	const setRef = useCallback(
-		postId => {
-			setAttributes( { ref: postId }, ref );
+	const setRef = useCallback( postId => {
+		setAttributes( { ref: postId }, ref );
 
-			if ( navigationArea ) {
-				setAreaMenu( postId );
-			}
+		if ( navigationArea ) {
+			setAreaMenu( postId );
 		}
-	);
+	}, [] );
 
 	const [ hasAlreadyRendered, RecursionProvider ] = useNoRecursiveRenders(
 		`navigationMenu/${ ref }`
@@ -109,13 +113,8 @@ const Edit = ( {
 	// the Select Menu dropdown.
 	useNavigationEntities();
 
-	const {
-		hasUncontrolledInnerBlocks,
-		uncontrolledInnerBlocks,
-		isInnerBlockSelected,
-		hasSubmenus,
-	} = useSelect(
-		( select ) => {
+	const { hasUncontrolledInnerBlocks, isInnerBlockSelected } = useSelect(
+		select => {
 			const { getBlock, getBlocks, hasSelectedInnerBlock } = select(
 				blockEditorStore
 			);
@@ -136,7 +135,7 @@ const Edit = ( {
 
 			return {
 				hasSubmenus: !! innerBlocks.find(
-					( block ) => block.name === 'core/navigation-submenu'
+					block => block.name === 'core/navigation-submenu'
 				),
 				hasUncontrolledInnerBlocks: _hasUncontrolledInnerBlocks,
 				uncontrolledInnerBlocks: _uncontrolledInnerBlocks,
@@ -146,16 +145,7 @@ const Edit = ( {
 		[ clientId ]
 	);
 
-	const {
-		replaceInnerBlocks,
-		selectBlock,
-		__unstableMarkNextChangeAsNotPersistent,
-	} = useDispatch( blockEditorStore );
-
-	const [
-		hasSavedUnsavedInnerBlocks,
-		setHasSavedUnsavedInnerBlocks,
-	] = useState( false );
+	const { replaceInnerBlocks, selectBlock } = useDispatch( blockEditorStore );
 
 	const isWithinUnassignedArea = !! navigationArea && ! ref;
 
@@ -168,7 +158,6 @@ const Edit = ( {
 		isNavigationMenuMissing,
 		canSwitchNavigationMenu,
 		hasResolvedNavigationMenus,
-		navigationMenus,
 		navigationMenu,
 		canUserUpdateNavigationEntity,
 		hasResolvedCanUserUpdateNavigationEntity,
@@ -182,7 +171,7 @@ const Edit = ( {
 	const isDraftNavigationMenu = navigationMenu?.status === 'draft';
 
 	const isEntityAvailable =
-	! isNavigationMenuMissing && isNavigationMenuResolved;
+		! isNavigationMenuMissing && isNavigationMenuResolved;
 
 	const blockProps = useBlockProps( {
 		ref: navRef,
@@ -303,8 +292,14 @@ const Edit = ( {
 					{ ! isDraftNavigationMenu && isEntityAvailable && (
 						<ToolbarGroup>
 							<ToolbarDropdownMenu
-								label={ __( 'Select Menu', 'material-design-google' ) }
-								text={ __( 'Select Menu', 'material-design-google' ) }
+								label={ __(
+									'Select Menu',
+									'material-design-google'
+								) }
+								text={ __(
+									'Select Menu',
+									'material-design-google'
+								) }
 								icon={ null }
 							>
 								{ ( { onClose } ) => (
@@ -376,10 +371,12 @@ const Edit = ( {
 
 								{ ! isPlaceholderShown && isEntityAvailable && (
 									<NavigationInnerBlocks
-										isVisible={ ! isPlaceholderShown}
+										isVisible={ ! isPlaceholderShown }
 										clientId={ clientId }
 										appender={ CustomAppender }
-										hasCustomAppender={ !! CustomPlaceholder }
+										hasCustomAppender={
+											!! CustomPlaceholder
+										}
 										orientation={ orientation }
 									/>
 								) }
