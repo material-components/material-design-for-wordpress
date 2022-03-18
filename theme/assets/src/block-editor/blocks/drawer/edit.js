@@ -38,9 +38,10 @@ const ALLOWED_BLOCKS = [
  * @param {Object}  props
  * @param {boolean} props.isOpen - Whether or not the drawer is open.
  *
- * @returns {JSX.Element}
+ * @return {JSX.Element} Drawer
  */
 const Drawer = ( { isOpen } ) => {
+	/** @type {Object} */
 	const drawer = useRef();
 
 	useEffect( () => {
@@ -56,7 +57,6 @@ const Drawer = ( { isOpen } ) => {
 		if ( drawer.current ) {
 			drawer.current.open = isOpen;
 		}
-
 	}, [ isOpen ] );
 
 	const drawerRef = useRef( null );
@@ -70,7 +70,6 @@ const Drawer = ( { isOpen } ) => {
 				<div className="mdc-drawer__header">drawer</div>
 				<div className="mdc-drawer__content">
 					<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
-					{/* <nav className="mdc-list mdc-drawer__list" role="listbox"></nav> */}
 				</div>
 			</aside>
 		</div>

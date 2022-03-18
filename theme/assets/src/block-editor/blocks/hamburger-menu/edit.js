@@ -38,24 +38,28 @@ const ALLOWED_BLOCKS = [ 'material-design/drawer' ];
 /**
  * Edit.
  *
+ * @param {Object} props
+ *
  * @return {JSX.Element} Block edit.
  */
-const Edit = ( props ) => {
+const Edit = props => {
 	const { clientId } = props;
 	const [ isOpen, setIsOpen ] = useState( false );
-	const innerBlockCount = useSelect( select => select( 'core/block-editor' ).getBlock( clientId ).innerBlocks );
+	const innerBlockCount = useSelect(
+		select => select( 'core/block-editor' ).getBlock( clientId ).innerBlocks
+	);
 
 	const toggleDrawer = () => {
 		setIsOpen( ! isOpen );
 	};
 
 	const drawerAppender = () => {
-		if ( innerBlockCount.length < 1 ) {
-			return <InnerBlocks.ButtonBlockAppender />;
-		} else {
-			return false;
-		}
-	}
+		return innerBlockCount.length < 1 ? (
+			<InnerBlocks.ButtonBlockAppender />
+		) : (
+			false
+		);
+	};
 
 	return (
 		<>
