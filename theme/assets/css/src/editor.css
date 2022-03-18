@@ -92,3 +92,7 @@ blockquote {
 	overflow: hidden;
 	width: 0;
 }
+
+.mdc-drawer__title::before {
+	content: none;
+}

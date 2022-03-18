@@ -38,7 +38,8 @@
 /* FSE Specific Styles */
 .wp-block-site-logo {
 
-	@nest .top-app-bar & img {
-		max-height: none;
+	@nest .mdc-drawer__header & img {
+		max-height: 100%;
+		max-width: 100%;
 	}
 }
