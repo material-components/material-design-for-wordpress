@@ -216,6 +216,22 @@ function material_theme_version_head_tag() {
 
 add_action( 'wp_head', 'material_theme_version_head_tag' );
 
+/**
+ * Add body class for FSE and traditional theme.
+ *
+ * @param array $classes Body classes.
+ *
+ * @return array
+ */
+function material_theme_body_class( $classes ) {
+	if ( ! in_array( 'mdc-typography', $classes ) ) {
+		$classes[] = 'mdc-typography';
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', __NAMESPACE__ . '\\material_theme_body_class' );
 
 /**
  * Custom template tags for this theme.
@@ -280,6 +296,7 @@ require get_template_directory() . '/inc/widgets.php';
 require get_template_directory() . '/inc/block-editor.php';
 require get_template_directory() . '/inc/blocks/class-blocks.php';
 require get_template_directory() . '/inc/blocks/class-override.php';
+require get_template_directory() . '/inc/blocks/block-patterns.php';
 
 MaterialDesign\Theme\Admin\setup();
 MaterialDesign\Theme\Customizer\setup();

@@ -148,3 +148,12 @@
 	}
 
 }
+
+/* FSE Specific */
+.wp-block-group .top-app-bar {
+
+	& .top-app-bar__header {
+		min-height: 64px;
+		height: auto;
+	}
+}
