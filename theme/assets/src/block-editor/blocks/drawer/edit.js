@@ -17,13 +17,12 @@
 /**
  * WordPress dependencies
  */
-import { useEffect, useRef } from '@wordpress/element';
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * External dependencies.
  */
-import { MDCDrawer } from '@material/drawer';
+import classname from 'classnames';
 
 /**
  * Internal dependencies.
@@ -42,38 +41,22 @@ const ALLOWED_BLOCKS = [
 /**
  * Menu drawer.
  *
- * @param {Object}  props
- * @param {boolean} props.isOpen - Whether or not the drawer is open.
+ * @param {Object} props
+ * @param {Array}  props.context
  *
  * @return {JSX.Element} Drawer
  */
-const Drawer = ( { isOpen } ) => {
-	/** @type {Object} */
-	const drawer = useRef();
-
-	useEffect( () => {
-		if ( drawerRef.current ) {
-			drawer.current = new MDCDrawer( drawerRef.current );
-
-			drawer.current.singleSelection = true;
-			drawer.current.open = true;
-		}
-	}, [] );
-
-	useEffect( () => {
-		if ( drawer.current ) {
-			drawer.current.open = isOpen;
-		}
-	}, [ isOpen ] );
-
-	/** @type {Object} */
-	const drawerRef = useRef( null );
+const Drawer = ( { context } ) => {
+	/** @type {boolean} */
+	const isOpen = context[ 'material/isDrawerOpen' ];
 
 	return (
 		<div { ...useBlockProps() }>
 			<aside
-				className="mdc-drawer material-drawer mdc-drawer--modal"
-				ref={ drawerRef }
+				className={ classname(
+					'mdc-drawer material-drawer mdc-drawer--modal',
+					{ 'mdc-drawer--open': isOpen }
+				) }
 			>
 				<InnerBlocks
 					allowedBlocks={ ALLOWED_BLOCKS }
