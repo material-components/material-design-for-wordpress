@@ -26,7 +26,7 @@
 global $_theme_files;
 $_theme_files = [];
 
-$_theme_root = realpath( __DIR__ . '/..' );
+$_theme_root = 'material-design-google';
 $_theme_name = basename( $_theme_root );
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
