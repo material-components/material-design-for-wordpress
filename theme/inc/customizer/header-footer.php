@@ -59,22 +59,25 @@ function register( $wp_customize ) {
  * @return array
  */
 function get_controls() {
-	$controls = [
+	return [
 		[
-			'id'    => 'header_label',
-			'label' => esc_html__( 'Top app bar', 'material-design-google' ),
-			'type'  => 'hidden',
+			'id'              => 'header_label',
+			'label'           => esc_html__( 'Top app bar', 'material-design-google' ),
+			'type'            => 'hidden',
+			'enable_none_fse' => true,
 		],
 		[
-			'id'    => 'header_search_display',
-			'label' => esc_html__( 'Show search in top app bar', 'material-design-google' ),
-			'type'  => 'checkbox',
+			'id'              => 'header_search_display',
+			'label'           => esc_html__( 'Show search in top app bar', 'material-design-google' ),
+			'type'            => 'checkbox',
+			'enable_none_fse' => true,
 		],
 		[
-			'id'          => 'header_title_display',
-			'label'       => esc_html__( 'Hide site title in top app bar', 'material-design-google' ),
-			'type'        => 'checkbox',
-			'description' => esc_html__( 'Site title is hidden but will still be used for SEO purposes', 'material-design-google' ),
+			'id'              => 'header_title_display',
+			'label'           => esc_html__( 'Hide site title in top app bar', 'material-design-google' ),
+			'type'            => 'checkbox',
+			'description'     => esc_html__( 'Site title is hidden but will still be used for SEO purposes', 'material-design-google' ),
+			'enable_none_fse' => true,
 		],
 		[
 			'id'      => 'header_bar_layout',
@@ -93,33 +96,28 @@ function get_controls() {
 			'type'        => 'hidden',
 			'priority'    => 99,
 		],
+		[
+			'id'              => 'footer_label',
+			'label'           => esc_html__( 'Footer', 'material-design-google' ),
+			'type'            => 'hidden',
+			'priority'        => 110,
+			'enable_none_fse' => true,
+		],
+		[
+			'id'              => 'footer_text',
+			'label'           => esc_html__( 'Footer text', 'material-design-google' ),
+			'type'            => 'text',
+			'priority'        => 110,
+			'enable_none_fse' => true,
+		],
+		[
+			'id'              => 'hide_back_to_top',
+			'label'           => esc_html__( 'Hide back to top button', 'material-design-google' ),
+			'type'            => 'checkbox',
+			'priority'        => 110,
+			'enable_none_fse' => true,
+		],
 	];
-
-	if ( ! is_fse() ) {
-		$controls_non_fse = [
-			[
-				'id'       => 'footer_label',
-				'label'    => esc_html__( 'Footer', 'material-design-google' ),
-				'type'     => 'hidden',
-				'priority' => 110,
-			],
-			[
-				'id'       => 'footer_text',
-				'label'    => esc_html__( 'Footer text', 'material-design-google' ),
-				'type'     => 'text',
-				'priority' => 110,
-			],
-			[
-				'id'       => 'hide_back_to_top',
-				'label'    => esc_html__( 'Hide back to top button', 'material-design-google' ),
-				'type'     => 'checkbox',
-				'priority' => 110,
-			],
-		];
-		$controls[]       = array_merge( $controls, $controls_non_fse );
-	}
-
-	return $controls;
 }
 
 /**
@@ -130,10 +128,15 @@ function get_controls() {
  * @return void
  */
 function add_settings( $wp_customize ) {
-	$settings = [];
-	$controls = [];
+	$settings    = [];
+	$controls    = [];
+	$is_fse_mode = is_fse();
 
 	foreach ( get_controls() as $control ) {
+		if ( ! empty( $control['enable_none_fse'] ) && $is_fse_mode ) {
+			continue;
+		}
+
 		$settings[ $control['id'] ] = [
 			'transport'         => 'postMessage',
 			'sanitize_callback' => Customizer\get_sanitize_callback( $control['type'] ),

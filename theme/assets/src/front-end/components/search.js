@@ -29,6 +29,17 @@ class Search {
 		if ( ! element ) {
 			return;
 		}
+		// In case of FSE move search form down from button.
+		const block = element.querySelector( '.top-app-bar__header' );
+		if (
+			block &&
+			element.querySelector( '.wp-block-material-search-header-bar' )
+		) {
+			const formWrapper = block.querySelector( '.top-app-bar__search' );
+			if ( formWrapper ) {
+				element.appendChild( formWrapper );
+			}
+		}
 
 		this.element = element;
 		this.trigger = element.querySelector( '.search__button' );
