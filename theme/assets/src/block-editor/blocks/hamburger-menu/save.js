@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,28 +15,15 @@
  */
 
 /**
- * External dependencies
+ * WordPress dependencies
  */
-import '@material/button/dist/mdc.button.css';
-import '@material/typography/dist/mdc.typography.css';
-import '@material/icon-button/dist/mdc.icon-button.css';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 /**
- * Internal dependencies
+ * Save Markup
  */
-import metadata from './block.json';
-import edit from './edit';
-import save from './save';
-import { Icon as icon } from './icon';
-
-const { name, title } = metadata;
-
-export { metadata, name };
-
-export const settings = {
-	description: metadata.description,
-	title,
-	icon,
-	edit,
-	save,
+const Save = () => {
+	return <InnerBlocks.Content />;
 };
+
+export default Save;

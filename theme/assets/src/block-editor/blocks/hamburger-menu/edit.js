@@ -31,6 +31,7 @@ import { edit } from '@wordpress/icons';
  */
 import Button from './button';
 
+/** @type {Array} */
 const ALLOWED_BLOCKS = [ 'material-design/drawer' ];
 
 /**
