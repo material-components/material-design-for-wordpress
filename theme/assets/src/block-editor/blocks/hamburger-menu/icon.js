@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,32 +15,21 @@
  */
 
 /**
- * WordPress dependencies
- */
-import { __ } from '@wordpress/i18n';
-
-/**
- * Internal dependencies
- */
-import { Icon } from './icon';
-
-/**
- * Search bar button.
+ * Block Icon component.
  *
- * @return {JSX.Element} Block edit.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
-const Button = () => {
-	return (
-		<button
-			className="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button top-app-bar__menu-trigger"
-			type="button"
-			aria-label={ __( 'Open menu', 'material-design-google' ) }
+export const Icon = () => (
+	<span className="material-icons__button">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			height="24px"
+			viewBox="0 0 24 24"
+			width="24px"
+			fill="currentColor"
 		>
-			<span className="mdc-button__ripple"></span>
-
-			<Icon />
-		</button>
-	);
-};
-
-export default Button;
+			<path d="M0 0h24v24H0z" fill="none"/>
+			<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+		</svg>
+	</span>
+);
