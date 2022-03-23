@@ -66,15 +66,19 @@ const resizeAllGridItems = () => {
 	);
 
 	const hasPostCard = cells[ 0 ].querySelectorAll( '.post-card' ).length > 0;
+
 	if ( ! hasPostCard ) {
 		gridElement.style.gridAutoRows = 'minmax(min-content,max-content)';
+
+		// Let it re-render to compute height.
+		setTimeout( () => {
+			cells.forEach( resizeGridItem );
+			gridElement.style.removeProperty( 'grid-auto-rows' );
+		}, 0 );
+		return;
 	}
 
 	cells.forEach( resizeGridItem );
-
-	if ( ! hasPostCard ) {
-		gridElement.style.removeProperty( 'grid-auto-rows' );
-	}
 };
 
 const resizeGridItem = cell => {
