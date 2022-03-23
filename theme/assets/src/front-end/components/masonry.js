@@ -89,8 +89,16 @@ const resizeGridItem = cell => {
 	let cellCard = cell.querySelector( '.post-card' );
 
 	if ( ! cellCard ) {
-		// If we have a cell without card wrapper inside let's use that, Used for default WP template.
-		cellCard = cell;
+		const imageCardBlock = cell.querySelector(
+			'.wp-block-material-image-card-query'
+		);
+		if ( imageCardBlock ) {
+			// For material image card.
+			cellCard = imageCardBlock;
+		} else {
+			// If we have a cell without card wrapper inside let's use that, Used for default WP template.
+			cellCard = cell;
+		}
 	}
 
 	const contentHeight = cellCard.getBoundingClientRect().height;
