@@ -20,7 +20,7 @@
  * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 export const icon = () => (
-	<span className="material-icons__search">
+	<span className="material-icons-outlined">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			height="24px"

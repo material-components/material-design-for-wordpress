@@ -18,7 +18,7 @@
  * Internal dependencies
  */
 import metadata from './block.json';
-import { icon } from './icon';
+import { icon } from '../card/icon';
 import edit from './edit';
 
 const { name, title } = metadata;
