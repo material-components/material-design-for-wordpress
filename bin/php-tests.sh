@@ -233,17 +233,17 @@ install_db
 sync_project_dir
 
 COMMAND_PARAM="test"
-# if IS_THEME then run test-coveralls-theme.
-if ["$IS_THEME" == true ]; then
+if [ "$IS_THEME" == true ]; then
 	COMMAND_PARAM="test-theme"
 fi
+
 if [ "$COVERALLS" == true ]; then
 	echo "Running PHP unit tests with coverage"
-	composer $COMMAND_PARAM-coveralls
+	composer "$COMMAND_PARAM-coveralls"
 else
 	echo "Running PHP unit tests"
 	if [ "$PHPUNIT_PATH" == false ]; then
-		composer $COMMAND_PARAM
+		composer "$COMMAND_PARAM"
 	else
 		echo "Using custom PHPUnit located at $PHPUNIT_PATH"
 		$PHPUNIT_PATH
