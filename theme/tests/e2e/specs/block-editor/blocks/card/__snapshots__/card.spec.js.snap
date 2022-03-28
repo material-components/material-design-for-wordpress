@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`blocks: Material card and image card match material card 1`] = `
-"<!-- wp:query {\\"queryId\\":29,\\"query\\":{\\"perPage\\":10,\\"pages\\":0,\\"offset\\":0,\\"postType\\":\\"post\\",\\"categoryIds\\":[],\\"tagIds\\":[],\\"order\\":\\"desc\\",\\"orderBy\\":\\"date\\",\\"author\\":\\"\\",\\"search\\":\\"\\",\\"exclude\\":[],\\"sticky\\":\\"\\",\\"inherit\\":true},\\"displayLayout\\":{\\"type\\":\\"flex\\",\\"columns\\":3}} -->
+"<!-- wp:query {\\"query\\":{\\"perPage\\":10,\\"pages\\":0,\\"offset\\":0,\\"postType\\":\\"post\\",\\"categoryIds\\":[],\\"tagIds\\":[],\\"order\\":\\"desc\\",\\"orderBy\\":\\"date\\",\\"author\\":\\"\\",\\"search\\":\\"\\",\\"exclude\\":[],\\"sticky\\":\\"\\",\\"inherit\\":true},\\"displayLayout\\":{\\"type\\":\\"flex\\",\\"columns\\":3}} -->
 <div class=\\"wp-block-query\\"><!-- wp:post-template {\\"className\\":\\"is-style-material-masonry\\"} -->
 <!-- wp:material/card-query /-->
 <!-- /wp:post-template -->
@@ -19,7 +19,7 @@ exports[`blocks: Material card and image card match material card 1`] = `
 `;
 
 exports[`blocks: Material card and image card match material image card 1`] = `
-"<!-- wp:query {\\"queryId\\":31,\\"query\\":{\\"perPage\\":10,\\"pages\\":0,\\"offset\\":0,\\"postType\\":\\"post\\",\\"categoryIds\\":[],\\"tagIds\\":[],\\"order\\":\\"desc\\",\\"orderBy\\":\\"date\\",\\"author\\":\\"\\",\\"search\\":\\"\\",\\"exclude\\":[],\\"sticky\\":\\"\\",\\"inherit\\":true},\\"displayLayout\\":{\\"type\\":\\"flex\\",\\"columns\\":3}} -->
+"<!-- wp:query {\\"query\\":{\\"perPage\\":10,\\"pages\\":0,\\"offset\\":0,\\"postType\\":\\"post\\",\\"categoryIds\\":[],\\"tagIds\\":[],\\"order\\":\\"desc\\",\\"orderBy\\":\\"date\\",\\"author\\":\\"\\",\\"search\\":\\"\\",\\"exclude\\":[],\\"sticky\\":\\"\\",\\"inherit\\":true},\\"displayLayout\\":{\\"type\\":\\"flex\\",\\"columns\\":3}} -->
 <div class=\\"wp-block-query\\"><!-- wp:post-template {\\"className\\":\\"is-style-material-masonry\\"} -->
 <!-- wp:material/image-card-query /-->
 <!-- /wp:post-template -->

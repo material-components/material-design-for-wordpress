@@ -23,6 +23,17 @@ import {
 	insertBlock,
 } from '@wordpress/e2e-test-utils';
 
+/**
+ * Get Query without query id to match snapshot.
+ *
+ * @param {string} text string snapshot text.
+ * @return {string} snapshot without query id.
+ */
+const getQueryWithoutId = text => {
+	const regex = /(\"queryId\":\d{1,3}\,)/gm;
+	return text.replace( regex, '' );
+};
+
 describe( 'blocks: Material card and image card', () => {
 	beforeEach( async () => {
 		await createNewPost( { postType: 'page', title: `Query Page` } );
@@ -70,8 +81,9 @@ describe( 'blocks: Material card and image card', () => {
 			'.wp-block-material-query-pagination-last'
 		);
 
+		const snapshot = await getEditedPostContent();
 		// Snapshot.
-		expect( await getEditedPostContent() ).toMatchSnapshot();
+		expect( getQueryWithoutId( snapshot ) ).toMatchSnapshot();
 	} );
 
 	it( 'match material image card', async () => {
@@ -124,6 +136,8 @@ describe( 'blocks: Material card and image card', () => {
 		);
 
 		// Snapshot.
-		expect( await getEditedPostContent() ).toMatchSnapshot();
+		const snapshot = await getEditedPostContent();
+		// Snapshot.
+		expect( getQueryWithoutId( snapshot ) ).toMatchSnapshot();
 	} );
 } );
