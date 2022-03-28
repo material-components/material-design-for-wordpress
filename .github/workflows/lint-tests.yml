@@ -241,7 +241,7 @@ jobs:
 
       - name: Install and Run tests
         if: ${{ matrix.php_versions != '7.0' && matrix.php_versions != '5.6.20' }}
-        run: source bin/php-tests.sh wordpress_test root root localhost
+        run: source bin/php-tests.sh wordpress_test root root localhost false false true
 
   finish:
     needs: [test-e2e, test-js, test-php-plugin, test-php-theme]
