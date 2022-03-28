@@ -88,6 +88,7 @@ jobs:
         run: |
           npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
           npm run wp -- wp plugin activate material-design
+          npm run wp -- wp theme activate material-design-google
 
       - name: Run E2E tests with coverage
         run: |
