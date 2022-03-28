@@ -61,12 +61,16 @@
       "if [ ! -f .env ]; then cp .env.dist .env; fi"
     ],
     "test": [
-      "phpunit",
+      "phpunit"
+    ],
+    "test-theme": [
       "phpunit -c phpunit-theme.xml"
     ],
-    "test-coverage": [
-      "phpunit --coverage-html plugin/tests/coverage/html",
+    "test-theme-coverage": [
       "phpunit -c phpunit-theme.xml --coverage-html theme/tests/coverage/html"
+    ],
+    "test-coverage": [
+      "phpunit --coverage-html plugin/tests/coverage/html"
     ],
     "test-coveralls": [
       "phpunit --coverage-clover plugin/tests/coverage/clover.xml",

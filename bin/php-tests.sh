@@ -13,6 +13,7 @@ DB_PASS=$3
 DB_HOST=${4-localhost}
 SKIP_DB_CREATE=${5-false}
 PHPUNIT_PATH=${6-false}
+IS_THEME=${7-false}
 
 WP_VERSION=${WP_VERSION:-latest}
 TMPDIR=${TMPDIR-/tmp}
@@ -231,13 +232,18 @@ install_test_suite
 install_db
 sync_project_dir
 
+COMMAND_PARAM="test"
+# if IS_THEME then run test-coveralls-theme.
+if ["$IS_THEME" == true ]; then
+	COMMAND_PARAM="test-theme"
+fi
 if [ "$COVERALLS" == true ]; then
 	echo "Running PHP unit tests with coverage"
-	composer test-coveralls
+	composer $COMMAND_PARAM-coveralls
 else
 	echo "Running PHP unit tests"
 	if [ "$PHPUNIT_PATH" == false ]; then
-		composer test
+		composer $COMMAND_PARAM
 	else
 		echo "Using custom PHPUnit located at $PHPUNIT_PATH"
 		$PHPUNIT_PATH

@@ -129,7 +129,7 @@ jobs:
           flag-name: "JS Unit Tests"
           parallel: true
 
-  test-php:
+  test-php-plugin:
     needs: [lint]
     name: "PHP tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
     timeout-minutes: 20
@@ -192,8 +192,59 @@ jobs:
         if: ${{ matrix.php_versions != '7.0' && matrix.php_versions != '5.6.20' }}
         run: source bin/php-tests.sh wordpress_test root root localhost
 
+  test-php-theme:
+    needs: [ lint ]
+    name: "PHP tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
+    timeout-minutes: 20
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental == true }}
+    strategy:
+      fail-fast: false
+      matrix:
+        php_versions: [ 7.4, 7.3, 7.2, 7.1 ]
+        wp_versions: [ "latest" ]
+        os: [ ubuntu-latest ]
+        include:
+          - php_versions: 7.4
+            wp_versions: "trunk"
+            os: ubuntu-latest
+            experimental: true
+
+          - php_versions: "7.0"
+            wp_versions: "latest"
+            os: ubuntu-18.04 # Use ubuntu-18.4 which has MySQL 5.7 for back-compat < PHP7.0
+    env:
+      WP_VERSION: ${{ matrix.wp_versions }}
+      COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      COVERALLS_PARALLEL: true
+      COVERALLS: ${{ matrix.php_versions == 7.4 && matrix.wp_versions == 'latest' }}
+      PROJECT_TYPE: theme
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP ${{ matrix.php_versions }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php_versions }}
+          tools: phpunit
+
+      - name: Start MySQL
+        run: |
+          sudo systemctl enable mysql.service
+          sudo systemctl start mysql.service
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Copy block.json files
+        run: for file in ./theme/assets/src/block-editor/blocks/*/block.json; do dest="${file/.\/theme\/assets\/src\/block-editor\//./theme/assets/js/}"; mkdir -p `dirname $dest`; cp $file $dest; done
+
+      - name: Install and Run tests
+        if: ${{ matrix.php_versions != '7.0' && matrix.php_versions != '5.6.20' }}
+        run: source bin/php-tests.sh wordpress_test root root localhost
+
   finish:
-    needs: [test-e2e, test-js, test-php]
+    needs: [test-e2e, test-js, test-php-plugin, test-php-theme]
     name: Finish
     runs-on: ubuntu-latest
     steps:
