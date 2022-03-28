@@ -197,7 +197,7 @@
     "test:js": "wp-scripts test-unit-js plugin/tests/js",
     "test:js:help": "wp-scripts test-unit-js --help",
     "test:js:watch": "npm run test:js -- --watch",
-    "test:js:coverage": "wp-scripts test-unit-js --coverage --coverageDirectory=plugin/tests/coverage/js",
+    "test:js:coverage": "wp-scripts test-unit-js --coverage --coverageDirectory=plugin/tests/coverage/js plugin/tests/js",
     "test:js:coverage-all": "run-s \"test:js:coverage -- --coverageReporters=json {@}\" \"test:e2e:coverage -- --coverageReporters=json {@}\" test:js:coverage-merge --",
     "test:js:coverage-merge": "node plugin/tests/e2e/merge-coverage.js --reporter=lcov",
     "test:php": "bin/phpunit.sh",
