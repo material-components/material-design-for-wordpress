@@ -22,7 +22,6 @@ TMPDIR=$(echo $TMPDIR | sed -e "s/\/$//")
 PROJECT_DIR=$( git rev-parse --show-toplevel )
 PROJECT_SLUG=${PROJECT_SLUG:-$( basename "$PROJECT_DIR" | sed 's/^wp-//' )}
 
-
 if [ -z "$PROJECT_TYPE" ]; then
 	if [ -e style.css ]; then
 		PROJECT_TYPE=theme
@@ -205,10 +204,8 @@ function sync_project_dir() {
 	elif [ "$PROJECT_TYPE" == theme ]; then
 		INSTALL_PATH="$WP_CORE_DIR/wp-content/themes/$PROJECT_SLUG"
 
-		# Rsync the files into the right location
-		mkdir -p "$INSTALL_PATH"
-		rsync -a $(verbose_arg) --exclude .git/hooks --exclude node_modules --delete "$PROJECT_DIR/" "$INSTALL_PATH/"
-		cd "$INSTALL_PATH"
+		# Link the files into the right location for theme.
+		ln -s "$PROJECT_DIR/theme" "$INSTALL_PATH"
 
 		# Clone the theme dependencies (i.e. plugins) into the plugins directory
 		if [ ! -z "$THEME_GIT_PLUGIN_DEPENDENCIES" ]; then
