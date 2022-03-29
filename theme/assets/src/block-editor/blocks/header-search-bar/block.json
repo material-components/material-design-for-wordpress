@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "material/search-header-bar",
+  "textdomain": "material-design-google",
+  "category": "material",
+  "title": "Material Search Header Bar Icon",
+  "supports": {},
+  "description": "Material search header bar icon which expands to show search bar on click.",
+  "editorStyle": [
+    "material-google-fonts",
+    "material-block-editor-css-theme"
+  ],
+  "editorScript": "material-block-editor-js-theme"
+}

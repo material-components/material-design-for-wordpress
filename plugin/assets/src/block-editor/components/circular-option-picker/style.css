@@ -39,7 +39,6 @@
 	display: inline-block;
 	height: var(--color-palette-circle-size);
 	width: var(--color-palette-circle-size);
-	margin-right: var(--color-palette-circle-spacing);
 	margin-bottom: var(--color-palette-circle-spacing);
 	vertical-align: top;
 	transform: scale(1);

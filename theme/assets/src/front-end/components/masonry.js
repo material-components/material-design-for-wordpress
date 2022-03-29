@@ -24,7 +24,6 @@ export const masonryInit = () => {
 		: document.querySelector( '.masonry-grid-theme' );
 
 	if ( ! gridElement ) {
-		console.error( 'Masonry grid wrapper not found.' );
 		return;
 	}
 
