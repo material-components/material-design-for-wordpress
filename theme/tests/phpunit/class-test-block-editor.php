@@ -90,7 +90,6 @@ class Test_Block_Editor extends \WP_UnitTestCase {
 	public function test_init() {
 		$this->assertEquals( 10, has_action( 'init', 'MaterialDesign\\Theme\\BlockEditor\\register_disable_section_meta' ) );
 		$this->assertEquals( 10, has_action( 'enqueue_block_editor_assets', 'MaterialDesign\\Theme\\BlockEditor\\enqueue_block_editor_assets' ) );
-		$this->assertEquals( 10, has_action( 'body_class', 'MaterialDesign\\Theme\\BlockEditor\\filter_body_class' ) );
 	}
 
 	/**
