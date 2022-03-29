@@ -214,6 +214,7 @@ jobs:
       COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       COVERALLS_PARALLEL: true
       PROJECT_TYPE: theme
+      PROJECT_SLUG: material-design-google
 
     steps:
       - uses: actions/checkout@v2
