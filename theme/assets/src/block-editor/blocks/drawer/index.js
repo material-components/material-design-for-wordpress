@@ -19,6 +19,7 @@
  */
 import metadata from './block.json';
 import edit from './edit';
+import save from './save';
 
 const { name, title } = metadata;
 
@@ -29,4 +30,5 @@ export const settings = {
 	description: metadata.description,
 	icon: () => <i className="material-icons-outlined">menu</i>,
 	edit,
+	save,
 };

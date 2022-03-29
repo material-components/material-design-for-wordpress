@@ -196,7 +196,7 @@ const Edit = ( {
 
 	const blockProps = useBlockProps( {
 		ref: navRef,
-		role: 'tablist',
+		role: ! isInDrawer ? 'tablist' : 'listbox',
 		className: classnames( className, {
 			'items-justified-right': justifyContent === 'right',
 			'items-justified-space-between': justifyContent === 'space-between',
@@ -206,6 +206,7 @@ const Edit = ( {
 			'no-wrap': flexWrap === 'nowrap',
 			'mdc-tab-bar': ! isInDrawer,
 			'tab-bar': ! isInDrawer,
+			'mdc-list mdc-drawer__list': isInDrawer,
 		} ),
 	} );
 
@@ -213,6 +214,10 @@ const Edit = ( {
 	useEffect( () => {
 		setIsPlaceholderShown( ! isEntityAvailable );
 	}, [ isEntityAvailable ] );
+
+	useEffect( () => {
+		setAttributes( isInDrawer );
+	}, [] );
 
 	const [ showCantEditNotice, hideCantEditNotice ] = useNavigationNotice( {
 		name: 'block-library/core/navigation/permissions/update',

@@ -30,6 +30,8 @@ $is_fallback = false;
 
 $inner_blocks = $block->inner_blocks;
 
+var_dump( $attributes );
+
 // Ensure that blocks saved with the legacy ref attribute name (navigationMenuId) continue to render.
 if ( array_key_exists( 'navigationMenuId', $attributes ) ) {
 	$attributes['ref'] = $attributes['navigationMenuId'];

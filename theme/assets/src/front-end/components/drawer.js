@@ -26,13 +26,17 @@ export const drawerInit = () => {
 	const drawer = new MDCDrawer( drawerElement );
 	drawer.singleSelection = true;
 
-	const listElement = drawerElement.querySelector( '.mdc-list' );
+	const listElement =
+		drawerElement.querySelector( '.mdc-list' ) ??
+		drawerElement.querySelector( '.wp-block-page-list' );
 
 	listElement.addEventListener( 'click', () => {
 		drawer.open = false;
 	} );
 
-	const firstElement = listElement.querySelector( '.mdc-list-item' );
+	const firstElement =
+		listElement.querySelector( '.mdc-list-item' ) ??
+		listElement.querySelector( '.wp-block-pages-list__item' );
 
 	if ( firstElement ) {
 		firstElement.setAttribute( 'tabindex', 0 );

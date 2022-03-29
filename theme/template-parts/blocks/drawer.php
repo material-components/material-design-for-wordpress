@@ -1,3 +1,4 @@
+<?php
 /**
  * Copyright 2020 Google LLC
  *
@@ -14,20 +15,17 @@
  * limitations under the License.
  */
 
-/**
- * WordPress dependencies
- */
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+$block               = isset( $args['block'] ) ? $args['block'] : [];
+$attributes          = isset( $args['attributes'] ) ? $args['attributes'] : [];
+$content             = isset( $args['content'] ) ? $args['content'] : [];
+$inner_blocks        = ! empty( $block->inner_blocks ) ? $block->inner_blocks : [];
 
-/**
- * Save Markup
- */
-const Save = () => {
-	return (
-		<div { ...useBlockProps.save() }>
-			<InnerBlocks.Content />
-		</div>
-	);
-};
+?>
 
-export default Save;
+<aside class="mdc-drawer material-drawer mdc-drawer--modal">
+	<?php
+		foreach ( $inner_blocks as $inner_block ) {
+			echo $inner_block->render();
+		}
+	?>
+</aside>
