@@ -342,8 +342,6 @@ const Edit = ( {
 								{ isPlaceholderShown && (
 									<PlaceholderComponent
 										onFinish={ post => {
-											console.log( post );
-											console.log( clientId );
 											setIsPlaceholderShown( false );
 											if ( post ) {
 												setRef( post.id );
