@@ -65,6 +65,10 @@ blockquote {
 	color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
 }
 
+.tab-bar__wrap {
+	width: 100%;
+}
+
 /* Navigation */
 
 .wp-block-material-navigation .wp-block-navigation-placeholder__preview {
