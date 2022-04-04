@@ -61,6 +61,11 @@ blockquote {
 	color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
 }
 
+/* Prevent logo resizing */
+.top-app-bar .components-resizable-box__handle {
+	display: none;
+}
+
 .material-drawer {
 	color: var(--mdc-theme-on-surface, #000);
 	overflow-y: auto;
@@ -102,6 +107,10 @@ blockquote {
 
 .material-drawer .wp-block-navigation-placeholder__actions {
 	align-items: flex-start;
+}
+
+.material-drawer .wp-block-site-logo img {
+	max-height: none;
 }
 
 .mdc-tab-scroller,
