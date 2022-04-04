@@ -54,7 +54,13 @@ export const BLOCK_TEMPLATE = [
 						[
 							[
 								'core/group',
-								{ className: 'site-title__row' },
+								{
+									className: 'site-title__row',
+									layout: {
+										type: 'flex',
+										allowOrientation: false,
+									},
+								},
 								[
 									[
 										'core/site-title',
@@ -63,6 +69,7 @@ export const BLOCK_TEMPLATE = [
 												'site-title mdc-typography mdc-typography--headline6',
 										},
 									],
+									[ 'material/drawer-close' ],
 								],
 							],
 							[
