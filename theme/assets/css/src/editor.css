@@ -66,7 +66,8 @@ blockquote {
 	overflow-y: auto;
 }
 
-.material-drawer a {
+.material-drawer a,
+.mdc-drawer .mdc-list-item {
 	color: var(--mdc-theme-on-surface, #000);
 }
 
@@ -92,6 +93,15 @@ blockquote {
 
 .material-drawer .mdc-list-item__text {
 	width: auto;
+}
+
+.material-drawer .wp-block-navigation-placeholder__controls,
+.material-drawer .components-placeholder__fieldset {
+	width: 100%;
+}
+
+.material-drawer .wp-block-navigation-placeholder__actions {
+	align-items: flex-start;
 }
 
 .mdc-tab-scroller,
