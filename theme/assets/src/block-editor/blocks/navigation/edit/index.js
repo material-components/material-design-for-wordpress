@@ -216,7 +216,7 @@ const Edit = ( {
 	}, [ isEntityAvailable ] );
 
 	useEffect( () => {
-		setAttributes( isInDrawer );
+		setAttributes( { isInDrawer } );
 	}, [] );
 
 	const [ showCantEditNotice, hideCantEditNotice ] = useNavigationNotice( {
