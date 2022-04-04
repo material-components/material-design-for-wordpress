@@ -22,10 +22,14 @@ $inner_blocks        = ! empty( $block->inner_blocks ) ? $block->inner_blocks : 
 
 ?>
 
-<aside class="mdc-drawer material-drawer mdc-drawer--modal">
-	<?php
-		foreach ( $inner_blocks as $inner_block ) {
-			echo $inner_block->render();
-		}
-	?>
-</aside>
+<div class="wp-block-material-drawer">
+	<aside class="mdc-drawer material-drawer mdc-drawer--modal wp-block-material-drawer">
+		<?php
+			foreach ( $inner_blocks as $inner_block ) {
+				echo $inner_block->render();
+			}
+		?>
+	</aside>
+
+	<div class="mdc-drawer-scrim"></div>
+</div>

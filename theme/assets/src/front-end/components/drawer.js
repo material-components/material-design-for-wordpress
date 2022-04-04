@@ -23,6 +23,13 @@ export const drawerInit = () => {
 		return;
 	}
 
+	// If FSE move drawer to correct placement.
+	const blockContainer = document.querySelector( '.wp-block-material-drawer' );
+
+	if ( blockContainer ) {
+		document.body.prepend( blockContainer );
+	}
+
 	const drawer = new MDCDrawer( drawerElement );
 	drawer.singleSelection = true;
 
