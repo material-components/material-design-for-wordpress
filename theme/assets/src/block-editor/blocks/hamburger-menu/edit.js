@@ -25,6 +25,7 @@ import {
 import { ToolbarButton } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { edit } from '@wordpress/icons';
+import { useSelect } from '@wordpress/data';
 
 /**
  * Internal dependencies.
@@ -32,7 +33,7 @@ import { edit } from '@wordpress/icons';
 import Button from './button';
 
 /** @type {Array} */
-const ALLOWED_BLOCKS = [ 'material-design/drawer' ];
+const ALLOWED_BLOCKS = [ 'material/drawer' ];
 
 /**
  * Edit.
@@ -44,11 +45,25 @@ const ALLOWED_BLOCKS = [ 'material-design/drawer' ];
 const Edit = props => {
 	const {
 		setAttributes,
+		clientId,
 		attributes: { isDrawerOpen },
 	} = props;
 
 	const toggleDrawer = () => {
 		setAttributes( { isDrawerOpen: ! isDrawerOpen } );
+	};
+
+	const innerBlockCount = useSelect( select => {
+		return select( 'core/block-editor' ).getBlock( clientId ).innerBlocks
+			.length;
+	} );
+
+	const customAppender = () => {
+		if ( innerBlockCount > 0 ) {
+			return false;
+		}
+
+		return <InnerBlocks.ButtonBlockAppender />;
 	};
 
 	return (
@@ -63,7 +78,11 @@ const Edit = props => {
 			<div { ...useBlockProps() }>
 				<Button />
 
-				<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } />
+				<InnerBlocks
+					allowedBlocks={ ALLOWED_BLOCKS }
+					template={ [ ALLOWED_BLOCKS ] }
+					renderAppender={ customAppender }
+				/>
 			</div>
 		</>
 	);
