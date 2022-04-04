@@ -43,7 +43,7 @@ export const TabLink = props => (
  * @return {JSX.Element} Link
  */
 export const DrawerLink = props => (
-	<>
+	<div className="mdc-list-item">
 		<span className="mdc-list-item__text">{ props.children }</span>
-	</>
+	</div>
 );

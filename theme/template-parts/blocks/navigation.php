@@ -30,8 +30,6 @@ $is_fallback = false;
 
 $inner_blocks = $block->inner_blocks;
 
-var_dump( $attributes );
-
 // Ensure that blocks saved with the legacy ref attribute name (navigationMenuId) continue to render.
 if ( array_key_exists( 'navigationMenuId', $attributes ) ) {
 	$attributes['ref'] = $attributes['navigationMenuId'];
@@ -189,6 +187,8 @@ $responsive_container_markup = sprintf(
 	__( 'Menu', 'material-design-google' ),
 	$toggle_button_content
 );
+
+if ( empty( $attributes['isInDrawer'] ) ) :
 ?>
 
 <div class="mdc-tab-bar tab-bar">
@@ -200,3 +200,11 @@ $responsive_container_markup = sprintf(
 		</div>
 	</div>
 </div>
+
+<?php else: ?>
+
+<nav class="mdc-list mdc-drawer__list">
+	<?php echo $inner_blocks_html; // phpcs:ignore ?>
+</nav>
+
+<?php endif; ?>
