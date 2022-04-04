@@ -89,3 +89,11 @@ blockquote {
 	overflow: hidden;
 	width: 0;
 }
+
+.wp-block-site-logo {
+
+	& .components-resizable-box__container {
+		height: auto !important;
+		width: auto !important;
+	}
+}
