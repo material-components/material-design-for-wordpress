@@ -24,7 +24,12 @@ import { __ } from '@wordpress/i18n';
 import classname from 'classnames';
 
 /**
- * Back to top button.
+ * Internal dependencies
+ */
+import { icon as Icon } from './icon';
+
+/**
+ * Close Drawer button.
  *
  * @param {Object} props
  * @param {Object} props.props props to button html element.
@@ -39,9 +44,18 @@ const Button = ( { props } ) => {
 	return (
 		<button type="button" { ...props }>
 			<span className="mdc-button__ripple"></span>
-			<i className="material-icons mdc-button__icon" aria-hidden="true">
-				close
-			</i>
+
+			{ props.useSvg ? (
+				<Icon />
+			) : (
+				<i
+					className="material-icons-outlined material-icons mdc-button__icon"
+					aria-hidden="true"
+				>
+					close
+				</i>
+			) }
+
 			<span className="screen-reader-text">
 				{ __( 'Close drawer', 'material-design-google' ) }
 			</span>

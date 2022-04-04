@@ -313,3 +313,7 @@
 		}
 	}
 }
+
+.wp-block-material-drawer-close {
+	color: var(--mdc-theme-primary, #6200ee);
+}

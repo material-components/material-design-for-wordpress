@@ -2,11 +2,10 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
   "name": "material/drawer-close",
-  "parent": [ "material/drawer" ],
+  "parent": [ "material/drawer", "core/group" ],
   "textdomain": "material-design-google",
   "category": "material",
   "title": "Material Header Hamburger Menu Drawer Close",
-  "supports": {},
   "description": "Drawer menu close button",
   "editorStyle": [
     "material-google-fonts",

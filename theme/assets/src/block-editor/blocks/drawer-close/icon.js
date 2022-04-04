@@ -1,5 +1,5 @@
 /**
- * Copyright 2022 Google LLC
+ * Copyright 2020 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,20 +15,15 @@
  */
 
 /**
- * WordPress dependencies
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
- * Internal dependencies
- */
-import Button from './button';
-
-/**
- * Menu drawer.
+ * Block Icon component.
  *
- * @return {JSX.Element} Drawer
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
-const Edit = () => <Button props={ useBlockProps( { useSvg: true } ) } />;
-
-export default Edit;
+export const icon = () => (
+	<span className="material-icons__button">
+		<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+			<path d="M0 0h24v24H0z" fill="none" />
+			<path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+		</svg>
+	</span>
+);
