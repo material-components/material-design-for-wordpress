@@ -44,6 +44,7 @@ class Blocks {
 		'material/navigation-link'           => 'template-parts/blocks/navigation-link.php',
 		'material/hamburger-menu'            => 'template-parts/blocks/hamburger-menu.php',
 		'material/drawer'                    => 'template-parts/blocks/drawer.php',
+		'material/search-header-bar'         => 'template-parts/blocks/search-header-bar.php',
 	];
 
 	/**

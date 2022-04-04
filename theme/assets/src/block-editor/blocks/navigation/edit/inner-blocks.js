@@ -32,10 +32,10 @@ import { useMemo } from '@wordpress/element';
  */
 import PlaceholderPreview from './placeholder/placeholder-preview';
 
-const ALLOWED_BLOCKS = [ 'core/navigation-link', 'material/navigation-link' ];
+const ALLOWED_BLOCKS = [ 'material/navigation-link' ];
 
 const DEFAULT_BLOCK = {
-	name: 'core/navigation-link',
+	name: 'material/navigation-link',
 };
 
 const LAYOUT = {
@@ -96,7 +96,7 @@ export default function NavigationInnerBlocks( {
 	);
 
 	const shouldDirectInsert = useMemo(
-		() => blocks.every( ( { name } ) => name === 'core/navigation-link' ),
+		() => blocks.every( ( { name } ) => name === 'material/navigation-link' ),
 		[ blocks ]
 	);
 

@@ -91,7 +91,7 @@ function mapMenuItemsToBlocks( menuItems ) {
 
 		const blockType = menuItem.children?.length
 			? 'core/navigation-submenu'
-			: 'core/navigation-link';
+			: 'material/navigation-link';
 
 		// Create block with nested "innerBlocks".
 		const block = createBlock( blockType, attributes, nestedBlocks );

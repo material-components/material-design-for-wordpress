@@ -24,7 +24,6 @@ export const masonryInit = () => {
 		: document.querySelector( '.masonry-grid-theme' );
 
 	if ( ! gridElement ) {
-		console.error( 'Masonry grid wrapper not found.' );
 		return;
 	}
 
@@ -67,15 +66,19 @@ const resizeAllGridItems = () => {
 	);
 
 	const hasPostCard = cells[ 0 ].querySelectorAll( '.post-card' ).length > 0;
+
 	if ( ! hasPostCard ) {
 		gridElement.style.gridAutoRows = 'minmax(min-content,max-content)';
+
+		// Let it re-render to compute height.
+		setTimeout( () => {
+			cells.forEach( resizeGridItem );
+			gridElement.style.removeProperty( 'grid-auto-rows' );
+		}, 0 );
+		return;
 	}
 
 	cells.forEach( resizeGridItem );
-
-	if ( ! hasPostCard ) {
-		gridElement.style.removeProperty( 'grid-auto-rows' );
-	}
 };
 
 const resizeGridItem = cell => {
@@ -86,8 +89,16 @@ const resizeGridItem = cell => {
 	let cellCard = cell.querySelector( '.post-card' );
 
 	if ( ! cellCard ) {
-		// If we have a cell without card wrapper inside let's use that, Used for default WP template.
-		cellCard = cell;
+		const imageCardBlock = cell.querySelector(
+			'.wp-block-material-image-card-query'
+		);
+		if ( imageCardBlock ) {
+			// For material image card.
+			cellCard = imageCardBlock;
+		} else {
+			// If we have a cell without card wrapper inside let's use that, Used for default WP template.
+			cellCard = cell;
+		}
 	}
 
 	const contentHeight = cellCard.getBoundingClientRect().height;
