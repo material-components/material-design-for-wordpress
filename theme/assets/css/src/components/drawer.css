@@ -22,6 +22,10 @@
 		margin-top: 10px;
 	}
 
+	& .mdc-drawer__list {
+		display: block;
+	}
+
 	& .mdc-drawer__title {
 		align-items: center;
 		display: flex;
