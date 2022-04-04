@@ -42,7 +42,7 @@ const Button = ( { props } ) => {
 	);
 
 	return (
-		<button type="button" { ...props }>
+		<button type="button" className={ props.className }>
 			<span className="mdc-button__ripple"></span>
 
 			{ props.useSvg ? (
