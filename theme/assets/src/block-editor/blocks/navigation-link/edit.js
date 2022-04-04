@@ -393,7 +393,11 @@ export default function NavigationLinkEdit( {
 		// not persistent to avoid undo level creation.
 		// See https://github.com/WordPress/gutenberg/issues/34564.
 		__unstableMarkNextChangeAsNotPersistent();
-		setAttributes( { isTopLevelLink, isInDrawer } );
+		setAttributes( { isTopLevelLink } );
+
+		if ( isInDrawer ) {
+			setAttributes( { isInDrawer } );
+		}
 	}, [ isTopLevelLink ] );
 
 	/**
