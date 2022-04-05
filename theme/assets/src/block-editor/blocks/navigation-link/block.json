@@ -38,11 +38,9 @@
 		},
 		"isTopLevelLink": {
 			"type": "boolean"
-		},
-		"isInDrawer": {
-			"type": "boolean"
 		}
 	},
+  "usesContext": [ "isInDrawer" ],
 	"supports": {
 		"reusable": false,
 		"html": false,

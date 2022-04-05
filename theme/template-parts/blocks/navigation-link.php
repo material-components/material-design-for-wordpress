@@ -62,7 +62,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 	]
 );
 
-if ( empty( $attributes['isInDrawer'] ) ) :
+if ( empty( $block->context['isInDrawer'] ) ) :
 	?>
 
 	<a
