@@ -1,20 +1,82 @@
 <!-- wp:group {"className":"site__navigation"} -->
-<div class="wp-block-group site__navigation"><!-- wp:group {"className":"mdc-top-app-bar top-app-bar"} -->
-	<div class="wp-block-group mdc-top-app-bar top-app-bar"><!-- wp:group {"className":"mdc-top-app-bar__row top-app-bar__header","layout":{"type":"flex","allowOrientation":false}} -->
-		<div class="wp-block-group mdc-top-app-bar__row top-app-bar__header"><!-- wp:group {"className":"mdc-top-app-bar__section mdc-top-app-bar__section--align-start","layout":{"type":"flex","allowOrientation":false}} -->
-			<div class="wp-block-group mdc-top-app-bar__section mdc-top-app-bar__section--align-start"><!-- wp:site-logo {"className":"logo"} /-->
+<div class="wp-block-group site__navigation">
+	<!-- wp:group {"className":"mdc-top-app-bar top-app-bar"} -->
+	<div class="wp-block-group mdc-top-app-bar top-app-bar">
+		<!-- wp:group {"className":"mdc-top-app-bar__row top-app-bar__header","layout":{"type":"flex","allowOrientation":false}} -->
+		<div class="wp-block-group mdc-top-app-bar__row top-app-bar__header">
+			<!-- wp:group {"className":"mdc-top-app-bar__section mdc-top-app-bar__section\u002d\u002dalign-start","layout":{"type":"flex","allowOrientation":false}} -->
+			<div class="wp-block-group mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+				<!-- wp:material/hamburger-menu {"isDrawerOpen":true} -->
+				<div class="wp-block-material-hamburger-menu">
+					<!-- wp:material/drawer -->
+					<div class="wp-block-material-drawer">
+						<!-- wp:group {"className":"mdc-drawer__header"} -->
+						<div class="wp-block-group mdc-drawer__header">
+							<!-- wp:group {"style":{"spacing":{"padding":{"bottom":5,"left":5,"right":5,"top":5}}},"className":"logo"} -->
+							<div class="wp-block-group logo" style="padding-top:5px;padding-right:5px;padding-bottom:5px;padding-left:5px">
+								<!-- wp:site-logo {"width":190} /-->
+							</div>
+							<!-- /wp:group -->
 
-				<!-- wp:template-part {"slug":"title","theme":"material-design-google"} /--></div>
+							<!-- wp:group {"className":"mdc-drawer__title"} -->
+							<div class="wp-block-group mdc-drawer__title">
+								<!-- wp:group {"className":"site-title__wrapper"} -->
+								<div class="wp-block-group site-title__wrapper">
+									<!-- wp:group {"className":"site-title__row","layout":{"type":"flex","allowOrientation":false}} -->
+									<div class="wp-block-group site-title__row">
+										<!-- wp:site-title {"className":"site-title mdc-typography mdc-typography\u002d\u002dheadline6"} /-->
+
+										<!-- wp:material/drawer-close -->
+										<button type="button" class="wp-block-material-drawer-close mdc-icon-button mdc-drawer__close"><span class="mdc-button__ripple"></span><i class="material-icons-outlined material-icons mdc-button__icon" aria-hidden="true">close</i><span class="screen-reader-text">Close drawer</span></button>
+										<!-- /wp:material/drawer-close -->
+									</div>
+									<!-- /wp:group -->
+
+									<!-- wp:group {"className":"site-tagline mdc-typography\u002d\u002dsubtitle1"} -->
+									<div class="wp-block-group site-tagline mdc-typography--subtitle1">
+										<!-- wp:site-tagline /-->
+									</div>
+									<!-- /wp:group -->
+								</div>
+								<!-- /wp:group -->
+							</div>
+							<!-- /wp:group -->
+						</div>
+						<!-- /wp:group -->
+
+						<!-- wp:group {"style":{"spacing":{"padding":{"bottom":10,"left":10,"right":10,"top":10}}},"className":"mdc-drawer__content"} -->
+						<div class="wp-block-group mdc-drawer__content" style="padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px"><!-- wp:material/search /-->
+							<!-- wp:material/navigation {"ref":330,"isInDrawer":true} /-->
+						</div>
+						<!-- /wp:group -->
+					</div>
+					<!-- /wp:material/drawer -->
+				</div>
+				<!-- /wp:material/hamburger-menu -->
+
+				<!-- wp:site-logo {"className":"logo"} /-->
+
+				<!-- wp:template-part {"slug":"title","theme":"material-design-google"} /-->
+			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:group {"tagName":"section","className":"mdc-top-app-bar__section mdc-top-app-bar__section--align-end","layout":{"type":"flex","allowOrientation":false}} -->
-			<section class="wp-block-group mdc-top-app-bar__section mdc-top-app-bar__section--align-end"><!-- wp:material/search-header-bar /-->
+			<!-- wp:group {"tagName":"section","className":"mdc-top-app-bar__section mdc-top-app-bar__section\u002d\u002dalign-end","layout":{"type":"flex","allowOrientation":false}} -->
+			<section class="wp-block-group mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+				<!-- wp:material/search-header-bar /-->
 
 				<!-- wp:material/dark-mode-switch -->
-				<button class="wp-block-material-dark-mode-switch material-icons mdc-top-app-bar__navigation-icon mdc-icon-button dark-mode__button" aria-label="Toggle Dark Mode"><span class="mdc-button__ripple"></span><span class="dark-mode__icon">dark_mode</span></button>
-				<!-- /wp:material/dark-mode-switch --></section>
-			<!-- /wp:group --></div>
-		<!-- /wp:group --></div>
+				<button class="wp-block-material-dark-mode-switch material-icons mdc-top-app-bar__navigation-icon mdc-icon-button dark-mode__button" aria-label="Toggle Dark Mode">
+					<span class="mdc-button__ripple"></span>
+					<span class="dark-mode__icon">dark_mode</span>
+				</button>
+				<!-- /wp:material/dark-mode-switch -->
+			</section>
+			<!-- /wp:group -->
+		</div>
+		<!-- /wp:group -->
+
 		<!-- wp:template-part {"slug":"tab-bar","theme":"material-design-google"} /-->
-	<!-- /wp:group --></div>
+	</div>
+	<!-- /wp:group -->
+</div>
 <!-- /wp:group -->

@@ -52,6 +52,7 @@ import NavigationInnerBlocks from './inner-blocks';
 import useNavigationNotice from './/use-navigation-notice';
 import NavigationMenuNameControl from './navigation-menu-name-control';
 import NavigationMenuDeleteControl from './navigation-menu-delete-control';
+import { TopAppBar, DrawerMenu } from './layout';
 
 const EMPTY_ARRAY = [];
 
@@ -113,11 +114,19 @@ const Edit = ( {
 	// the Select Menu dropdown.
 	useNavigationEntities();
 
-	const { hasUncontrolledInnerBlocks, isInnerBlockSelected } = useSelect(
+	const {
+		hasUncontrolledInnerBlocks,
+		isInnerBlockSelected,
+		isInDrawer,
+	} = useSelect(
 		select => {
-			const { getBlock, getBlocks, hasSelectedInnerBlock } = select(
-				blockEditorStore
-			);
+			const {
+				getBlock,
+				getBlocks,
+				hasSelectedInnerBlock,
+				getBlockParents,
+				getBlocksByClientId,
+			} = select( blockEditorStore );
 
 			// This relies on the fact that `getBlock` won't return controlled
 			// inner blocks, while `getBlocks` does. It might be more stable to
@@ -132,6 +141,17 @@ const Edit = ( {
 			const innerBlocks = _hasUncontrolledInnerBlocks
 				? _uncontrolledInnerBlocks
 				: _controlledInnerBlocks;
+			const blockParentsIds = getBlockParents( clientId );
+			const blockParentsAttributes = getBlocksByClientId(
+				blockParentsIds
+			);
+			let _isInDrawer = false;
+
+			blockParentsAttributes.forEach( block => {
+				if ( block.name === 'material/drawer' ) {
+					_isInDrawer = true;
+				}
+			} );
 
 			return {
 				hasSubmenus: !! innerBlocks.find(
@@ -140,6 +160,7 @@ const Edit = ( {
 				hasUncontrolledInnerBlocks: _hasUncontrolledInnerBlocks,
 				uncontrolledInnerBlocks: _uncontrolledInnerBlocks,
 				isInnerBlockSelected: hasSelectedInnerBlock( clientId, true ),
+				isInDrawer: _isInDrawer,
 			};
 		},
 		[ clientId ]
@@ -175,14 +196,17 @@ const Edit = ( {
 
 	const blockProps = useBlockProps( {
 		ref: navRef,
-		role: 'tablist',
-		className: classnames( className, 'mdc-tab-bar', 'tab-bar', {
+		role: ! isInDrawer ? 'tablist' : 'listbox',
+		className: classnames( className, {
 			'items-justified-right': justifyContent === 'right',
 			'items-justified-space-between': justifyContent === 'space-between',
 			'items-justified-left': justifyContent === 'left',
 			'items-justified-center': justifyContent === 'center',
 			'is-vertical': orientation === 'vertical',
 			'no-wrap': flexWrap === 'nowrap',
+			'mdc-tab-bar': ! isInDrawer,
+			'tab-bar': ! isInDrawer,
+			'mdc-list mdc-drawer__list': isInDrawer,
 		} ),
 	} );
 
@@ -190,6 +214,10 @@ const Edit = ( {
 	useEffect( () => {
 		setIsPlaceholderShown( ! isEntityAvailable );
 	}, [ isEntityAvailable ] );
+
+	useEffect( () => {
+		setAttributes( { isInDrawer } );
+	}, [] );
 
 	const [ showCantEditNotice, hideCantEditNotice ] = useNavigationNotice( {
 		name: 'block-library/core/navigation/permissions/update',
@@ -285,6 +313,8 @@ const Edit = ( {
 		? CustomPlaceholder
 		: Placeholder;
 
+	const LayoutComponent = isInDrawer ? DrawerMenu : TopAppBar;
+
 	return (
 		<EntityProvider kind="postType" type="wp_navigation" id={ ref }>
 			<RecursionProvider>
@@ -336,51 +366,44 @@ const Edit = ( {
 				) }
 
 				<div { ...blockProps }>
-					<div className="mdc-tab-scroller">
-						<div className="mdc-tab-scroller__scroll-area">
-							<div className="mdc-tab-scroller__scroll-content">
-								{ isPlaceholderShown && (
-									<PlaceholderComponent
-										onFinish={ post => {
-											setIsPlaceholderShown( false );
-											if ( post ) {
-												setRef( post.id );
-											}
-											selectBlock( clientId );
-										} }
-										canSwitchNavigationMenu={
-											canSwitchNavigationMenu
-										}
-										hasResolvedNavigationMenus={
-											hasResolvedNavigationMenus
-										}
-										clientId={ clientId }
-										canUserCreateNavigation={
-											canUserCreateNavigation
-										}
-									/>
-								) }
+					<LayoutComponent>
+						{ isPlaceholderShown && (
+							<PlaceholderComponent
+								onFinish={ post => {
+									setIsPlaceholderShown( false );
+									if ( post ) {
+										setRef( post.id );
+									}
+									selectBlock( clientId );
+								} }
+								canSwitchNavigationMenu={
+									canSwitchNavigationMenu
+								}
+								hasResolvedNavigationMenus={
+									hasResolvedNavigationMenus
+								}
+								clientId={ clientId }
+								canUserCreateNavigation={
+									canUserCreateNavigation
+								}
+							/>
+						) }
 
-								{ ! hasResolvedCanUserCreateNavigation ||
-									( ! isEntityAvailable &&
-										! isPlaceholderShown && (
-											<PlaceholderPreview isLoading />
-										) ) }
+						{ ! hasResolvedCanUserCreateNavigation ||
+							( ! isEntityAvailable && ! isPlaceholderShown && (
+								<PlaceholderPreview isLoading />
+							) ) }
 
-								{ ! isPlaceholderShown && isEntityAvailable && (
-									<NavigationInnerBlocks
-										isVisible={ ! isPlaceholderShown }
-										clientId={ clientId }
-										appender={ CustomAppender }
-										hasCustomAppender={
-											!! CustomPlaceholder
-										}
-										orientation={ orientation }
-									/>
-								) }
-							</div>
-						</div>
-					</div>
+						{ ! isPlaceholderShown && isEntityAvailable && (
+							<NavigationInnerBlocks
+								isVisible={ ! isPlaceholderShown }
+								clientId={ clientId }
+								appender={ CustomAppender }
+								hasCustomAppender={ !! CustomPlaceholder }
+								orientation={ orientation }
+							/>
+						) }
+					</LayoutComponent>
 				</div>
 			</RecursionProvider>
 		</EntityProvider>

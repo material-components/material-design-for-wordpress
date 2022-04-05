@@ -187,7 +187,9 @@ $responsive_container_markup = sprintf(
 	__( 'Menu', 'material-design-google' ),
 	$toggle_button_content
 );
-?>
+
+if ( empty( $attributes['isInDrawer'] ) ) :
+	?>
 
 <div class="mdc-tab-bar tab-bar">
 	<div class="mdc-tab-scroller">
@@ -198,3 +200,11 @@ $responsive_container_markup = sprintf(
 		</div>
 	</div>
 </div>
+
+<?php else : ?>
+
+<nav class="mdc-list mdc-drawer__list">
+	<?php echo $inner_blocks_html; // phpcs:ignore ?>
+</nav>
+
+<?php endif; ?>

@@ -46,6 +46,7 @@ import { store as coreStore } from '@wordpress/core-data';
  * Internal dependencies
  */
 import { name } from './index';
+import { TabLink, DrawerLink } from './layout';
 
 const MAX_NESTING = 5;
 
@@ -308,6 +309,7 @@ export default function NavigationLinkEdit( {
 		userCanCreatePosts,
 		thisBlock,
 		blockTransforms,
+		isInDrawer,
 	} = useSelect(
 		select => {
 			const {
@@ -320,6 +322,8 @@ export default function NavigationLinkEdit( {
 				getSelectedBlockClientId,
 				getBlockParentsByBlockName,
 				getBlockTransformItems,
+				getBlockParents,
+				getBlocksByClientId,
 			} = select( blockEditorStore );
 
 			const { getCurrentPostId } = select( 'core/editor' );
@@ -328,6 +332,18 @@ export default function NavigationLinkEdit( {
 
 			const descendants = getClientIdsOfDescendants( [ clientId ] )
 				.length;
+
+			const blockParentsIds = getBlockParents( clientId );
+			const blockParentsAttributes = getBlocksByClientId(
+				blockParentsIds
+			);
+			let _isInDrawer = false;
+
+			blockParentsAttributes.forEach( block => {
+				if ( block.name === 'material/drawer' ) {
+					_isInDrawer = true;
+				}
+			} );
 
 			return {
 				innerBlocks: getBlocks( clientId ),
@@ -365,6 +381,7 @@ export default function NavigationLinkEdit( {
 					getBlockRootClientId( clientId )
 				),
 				currentPostId: getCurrentPostId(),
+				isInDrawer: _isInDrawer,
 			};
 		},
 		[ clientId ]
@@ -376,7 +393,7 @@ export default function NavigationLinkEdit( {
 		// not persistent to avoid undo level creation.
 		// See https://github.com/WordPress/gutenberg/issues/34564.
 		__unstableMarkNextChangeAsNotPersistent();
-		setAttributes( { isTopLevelLink } );
+		setAttributes( { isTopLevelLink, isInDrawer } );
 	}, [ isTopLevelLink ] );
 
 	/**
@@ -514,6 +531,7 @@ export default function NavigationLinkEdit( {
 			'has-link': !! url,
 			'has-child': hasDescendants,
 		} ),
+		tabIndex: 0,
 		onKeyDown,
 	} );
 
@@ -521,8 +539,10 @@ export default function NavigationLinkEdit( {
 		blockProps.onClick = () => setIsLinkOpen( true );
 	}
 
-	const classes = classnames( 'mdc-tab', {
+	const classes = classnames( {
 		'wp-block-navigation-link__placeholder': ! url,
+		'mdc-tab': ! isInDrawer,
+		'mdc-list-item': isInDrawer,
 	} );
 
 	let missingText = '';
@@ -547,6 +567,8 @@ export default function NavigationLinkEdit( {
 			/* translators: label for missing values in navigation link block */
 			missingText = __( 'Add link' );
 	}
+
+	const LayoutComponent = isInDrawer ? DrawerLink : TabLink;
 
 	return (
 		<Fragment>
@@ -603,63 +625,53 @@ export default function NavigationLinkEdit( {
 				{ /* eslint-disable jsx-a11y/anchor-is-valid */ }
 				<a className={ classes }>
 					{ /* eslint-enable */ }
-					<span className="mdc-tab__content">
-						<span className="mdc-tab__text-label">
-							{ ! url ? (
-								<div className="wp-block-navigation-link__placeholder-text">
-									<Tooltip
-										position="top center"
-										text={ __(
-											'This item is missing a link',
-											'material-design'
-										) }
-									>
-										<span>{ missingText }</span>
-									</Tooltip>
-								</div>
-							) : (
-								<RichText
-									ref={ ref }
-									identifier="label"
-									value={ label }
-									onChange={ labelValue =>
-										setAttributes( {
-											label: labelValue,
-										} )
+					<LayoutComponent>
+						{ ! url ? (
+							<div className="wp-block-navigation-link__placeholder-text">
+								<Tooltip
+									position="top center"
+									text={ __(
+										'This item is missing a link',
+										'material-design'
+									) }
+								>
+									<span>{ missingText }</span>
+								</Tooltip>
+							</div>
+						) : (
+							<RichText
+								ref={ ref }
+								identifier="label"
+								value={ label }
+								onChange={ labelValue =>
+									setAttributes( {
+										label: labelValue,
+									} )
+								}
+								onMerge={ mergeBlocks }
+								onReplace={ onReplace }
+								__unstableOnSplitAtEnd={ () =>
+									insertBlocksAfter(
+										createBlock( 'core/navigation-link' )
+									)
+								}
+								aria-label={ __( 'Navigation link text' ) }
+								placeholder={ itemLabelPlaceholder }
+								withoutInteractiveFormatting
+								allowedFormats={ [
+									'core/bold',
+									'core/italic',
+									'core/image',
+									'core/strikethrough',
+								] }
+								onClick={ () => {
+									if ( ! url ) {
+										setIsLinkOpen( true );
 									}
-									onMerge={ mergeBlocks }
-									onReplace={ onReplace }
-									__unstableOnSplitAtEnd={ () =>
-										insertBlocksAfter(
-											createBlock(
-												'core/navigation-link'
-											)
-										)
-									}
-									aria-label={ __( 'Navigation link text' ) }
-									placeholder={ itemLabelPlaceholder }
-									withoutInteractiveFormatting
-									allowedFormats={ [
-										'core/bold',
-										'core/italic',
-										'core/image',
-										'core/strikethrough',
-									] }
-									onClick={ () => {
-										if ( ! url ) {
-											setIsLinkOpen( true );
-										}
-									} }
-								/>
-							) }
-						</span>
-					</span>
-
-					<span className="mdc-tab-indicator">
-						<span className="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-					</span>
-
-					<span className="mdc-tab__ripple"></span>
+								} }
+							/>
+						) }
+					</LayoutComponent>
 
 					{ isLinkOpen && (
 						<Popover

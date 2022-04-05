@@ -61,7 +61,9 @@ $wrapper_attributes = get_block_wrapper_attributes(
 		'style' => $style_attribute,
 	]
 );
-?>
+
+if ( empty( $attributes['isInDrawer'] ) ) :
+	?>
 
 	<a
 		class=" mdc-tab <?php echo $is_active ? esc_attr( 'mdc-tab--active' ) : ''; ?>"
@@ -100,3 +102,13 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 		<span class="mdc-tab__ripple"></span>
 	</a>
+<?php else : ?>
+	<a
+		href="<?php echo esc_url( $attributes['url'] ); ?>"
+		class="mdc-list-item"
+	>
+		<span className="mdc-list-item__text">
+			<?php echo wp_kses_post( $attributes['label'] ); ?>
+		</span>
+	</a>
+<?php endif; ?>

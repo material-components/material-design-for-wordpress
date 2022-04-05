@@ -38,22 +38,11 @@
 		},
 		"isTopLevelLink": {
 			"type": "boolean"
+		},
+		"isInDrawer": {
+			"type": "boolean"
 		}
 	},
-	"usesContext": [
-		"textColor",
-		"customTextColor",
-		"backgroundColor",
-		"customBackgroundColor",
-		"overlayTextColor",
-		"customOverlayTextColor",
-		"overlayBackgroundColor",
-		"customOverlayBackgroundColor",
-		"fontSize",
-		"customFontSize",
-		"showSubmenuIcon",
-		"style"
-	],
 	"supports": {
 		"reusable": false,
 		"html": false,

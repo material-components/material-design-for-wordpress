@@ -1,17 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "material/search",
+  "name": "material/drawer-close",
+  "parent": [ "material/drawer", "core/group" ],
   "textdomain": "material-design-google",
   "category": "material",
-  "attributes": {
-    "textAlign": {
-      "type": "string"
-    }
-  },
-  "title": "Material Search Bar",
-  "supports": {},
-  "description": "Material search bar",
+  "title": "Material Header Hamburger Menu Drawer Close",
+  "description": "Drawer menu close button",
   "editorStyle": [
     "material-google-fonts",
     "material-block-editor-css-theme"

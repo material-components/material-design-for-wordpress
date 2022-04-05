@@ -10,6 +10,10 @@
       "type": "boolean",
       "default": false
     },
+    "isInDrawer": {
+      "type": "boolean",
+      "default": false
+    },
 		"__unstableLocation": {
 			"type": "string"
 		}
@@ -46,7 +50,8 @@
   "usesContext": [ "navigationArea" ],
   "providesContext": {
     "style": "style",
-		"orientation": "orientation"
+		"orientation": "orientation",
+    "material/isInDrawer": "isInDrawer"
   },
   "textdomain": "material-design-google"
 }
