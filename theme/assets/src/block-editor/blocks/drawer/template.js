@@ -90,7 +90,6 @@ export const BLOCK_TEMPLATE = [
 	[
 		'core/group',
 		{
-			className: 'mdc-drawer__content',
 			style: {
 				spacing: {
 					padding: {
