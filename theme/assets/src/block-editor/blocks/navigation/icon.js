@@ -14,23 +14,9 @@
  * limitations under the License.
  */
 
-.logo,
-.wp-block-site-logo {
-	align-items: center;
-	display: flex;
-	padding: 0.75rem;
-
-	& img {
-		display: block;
-	}
-
-	@nest .top-app-bar & img {
-		max-height: 36px;
-		width: auto;
-	}
-
-	@nest .mdc-drawer__header & img {
-		height: auto;
-		max-width: 200px;
-	}
-}
+/**
+ * Block Icon component.
+ *
+ * @return {JSX.Element} Function returning the HTML markup for the component.
+ */
+export const icon = () => <i className="material-icons-outlined">explore</i>;

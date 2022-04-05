@@ -14,23 +14,30 @@
  * limitations under the License.
  */
 
-.logo,
-.wp-block-site-logo {
-	align-items: center;
-	display: flex;
-	padding: 0.75rem;
+/**
+ * WordPress dependencies
+ */
+import { TextControl } from '@wordpress/components';
+import { useEntityProp } from '@wordpress/core-data';
+import { __ } from '@wordpress/i18n';
 
-	& img {
-		display: block;
-	}
+/**
+ * Name Controls
+ *
+ * @return {JSX.Element} Name Controls
+ */
+export default function NavigationMenuNameControl() {
+	const [ title, updateTitle ] = useEntityProp(
+		'postType',
+		'wp_navigation',
+		'title'
+	);
 
-	@nest .top-app-bar & img {
-		max-height: 36px;
-		width: auto;
-	}
-
-	@nest .mdc-drawer__header & img {
-		height: auto;
-		max-width: 200px;
-	}
+	return (
+		<TextControl
+			label={ __( 'Menu name' ) }
+			value={ title }
+			onChange={ updateTitle }
+		/>
+	);
 }

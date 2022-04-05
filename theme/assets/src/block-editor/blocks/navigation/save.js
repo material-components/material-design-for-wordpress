@@ -14,23 +14,24 @@
  * limitations under the License.
  */
 
-.logo,
-.wp-block-site-logo {
-	align-items: center;
-	display: flex;
-	padding: 0.75rem;
+/**
+ * WordPress dependencies
+ */
+import { InnerBlocks } from '@wordpress/block-editor';
 
-	& img {
-		display: block;
+/**
+ *
+ * @param {Object} props
+ * @param {Object} props.attributes
+ *
+ * @return {JSX.Element|void} Element to save
+ */
+export default function save( { attributes } ) {
+	if ( attributes.ref ) {
+		// Avoid rendering inner blocks when a ref is defined.
+		// When this id is defined the inner blocks are loaded from the
+		// `wp_navigation` entity rather than the hard-coded block html.
+		return;
 	}
-
-	@nest .top-app-bar & img {
-		max-height: 36px;
-		width: auto;
-	}
-
-	@nest .mdc-drawer__header & img {
-		height: auto;
-		max-width: 200px;
-	}
+	return <InnerBlocks.Content />;
 }

@@ -14,23 +14,28 @@
  * limitations under the License.
  */
 
-.logo,
-.wp-block-site-logo {
-	align-items: center;
-	display: flex;
-	padding: 0.75rem;
+/**
+ * WordPress dependencies
+ */
+import { SVG, Rect } from '@wordpress/primitives';
 
-	& img {
-		display: block;
-	}
-
-	@nest .top-app-bar & img {
-		max-height: 36px;
-		width: auto;
-	}
-
-	@nest .mdc-drawer__header & img {
-		height: auto;
-		max-width: 200px;
-	}
+/**
+ * Icon
+ *
+ * @return {JSX.Element} Icon
+ */
+export default function OverlayMenuIcon() {
+	return (
+		<SVG
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			width="24"
+			height="24"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<Rect x="4" y="7.5" width="16" height="1.5" />
+			<Rect x="4" y="15" width="16" height="1.5" />
+		</SVG>
+	);
 }

@@ -30,6 +30,7 @@
 	& .tab-bar {
 		background-color: var(--mdc-theme-header, var(--mdc-theme-primary, #6200ee));
 		color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+		display: block;
 
 		& .mdc-tab-scroller__scroll-content {
 			background-color: var(--mdc-theme-header, var(--mdc-theme-primary, #6200ee));
