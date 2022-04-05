@@ -20,9 +20,6 @@
   "title": "Material Search Title",
   "supports": {},
   "description": "Material search title",
-  "editorStyle": [
-    "material-google-fonts",
-    "material-block-editor-css-theme"
-  ],
+  "editorStyle": "material-block-editor-css-theme",
   "editorScript": "material-block-editor-js-theme"
 }

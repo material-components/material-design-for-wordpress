@@ -48,6 +48,6 @@
 		"html": false,
 		"__experimentalSlashInserter": true
 	},
-	"editorStyle": "wp-block-navigation-link-editor",
-	"style": "wp-block-navigation-link"
+	"editorStyle": "material-block-editor-css-theme",
+  "editorScript": "material-block-editor-js-theme"
 }
