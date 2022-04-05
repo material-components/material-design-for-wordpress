@@ -13,21 +13,23 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * @package MaterialDesign
  */
 
-$block               = isset( $args['block'] ) ? $args['block'] : [];
-$attributes          = isset( $args['attributes'] ) ? $args['attributes'] : [];
-$content             = isset( $args['content'] ) ? $args['content'] : [];
-$inner_blocks        = ! empty( $block->inner_blocks ) ? $block->inner_blocks : [];
+$block        = isset( $args['block'] ) ? $args['block'] : [];
+$attributes   = isset( $args['attributes'] ) ? $args['attributes'] : [];
+$content      = isset( $args['content'] ) ? $args['content'] : [];
+$inner_blocks = ! empty( $block->inner_blocks ) ? $block->inner_blocks : [];
 
 ?>
 
 <div class="wp-block-material-drawer">
 	<aside class="mdc-drawer material-drawer mdc-drawer--modal wp-block-material-drawer">
 		<?php
-			foreach ( $inner_blocks as $inner_block ) {
-				echo $inner_block->render();
-			}
+		foreach ( $inner_blocks as $inner_block ) {
+			echo $inner_block->render(); // phpcs:ignore
+		}
 		?>
 	</aside>
 

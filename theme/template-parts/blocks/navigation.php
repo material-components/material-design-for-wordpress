@@ -189,7 +189,7 @@ $responsive_container_markup = sprintf(
 );
 
 if ( empty( $attributes['isInDrawer'] ) ) :
-?>
+	?>
 
 <div class="mdc-tab-bar tab-bar">
 	<div class="mdc-tab-scroller">
@@ -201,7 +201,7 @@ if ( empty( $attributes['isInDrawer'] ) ) :
 	</div>
 </div>
 
-<?php else: ?>
+<?php else : ?>
 
 <nav class="mdc-list mdc-drawer__list">
 	<?php echo $inner_blocks_html; // phpcs:ignore ?>

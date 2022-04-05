@@ -63,7 +63,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 );
 
 if ( empty( $attributes['isInDrawer'] ) ) :
-?>
+	?>
 
 	<a
 		class=" mdc-tab <?php echo $is_active ? esc_attr( 'mdc-tab--active' ) : ''; ?>"
@@ -102,7 +102,7 @@ if ( empty( $attributes['isInDrawer'] ) ) :
 
 		<span class="mdc-tab__ripple"></span>
 	</a>
-<?php else: ?>
+<?php else : ?>
 	<a
 		href="<?php echo esc_url( $attributes['url'] ); ?>"
 		class="mdc-list-item"

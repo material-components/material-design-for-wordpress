@@ -96,7 +96,8 @@ export default function NavigationInnerBlocks( {
 	);
 
 	const shouldDirectInsert = useMemo(
-		() => blocks.every( ( { name } ) => name === 'material/navigation-link' ),
+		() =>
+			blocks.every( ( { name } ) => name === 'material/navigation-link' ),
 		[ blocks ]
 	);
 
