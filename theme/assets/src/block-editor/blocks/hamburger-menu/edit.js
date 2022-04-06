@@ -73,6 +73,7 @@ const Edit = props => {
 					label={ __( 'Edit Drawer', 'material-design' ) }
 					onClick={ toggleDrawer }
 					icon={ edit }
+					isActive={ isDrawerOpen }
 				/>
 			</BlockControls>
 			<div { ...useBlockProps() }>

@@ -31,5 +31,7 @@
 				"fontSize": true
 			}
 		}
-	}
+	},
+  "editorStyle": "material-block-editor-css-theme",
+  "editorScript": "material-block-editor-js-theme"
 }

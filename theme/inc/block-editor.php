@@ -114,6 +114,8 @@ function enqueue_block_editor_assets() {
 		$version,
 		false
 	);
+
+	wp_add_inline_style( 'material-google-fonts', \MaterialDesign\Theme\Customizer\get_css_vars() );
 }
 
 /**

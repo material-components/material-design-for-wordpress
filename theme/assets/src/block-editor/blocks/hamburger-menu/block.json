@@ -7,10 +7,7 @@
   "title": "Material Header Hamburger Menu",
   "supports": {},
   "description": "Material hamburger icon which expands to show menu drawer on click.",
-  "editorStyle": [
-    "material-google-fonts",
-    "material-block-editor-css-theme"
-  ],
+  "editorStyle": "material-block-editor-css-theme",
   "editorScript": "material-block-editor-js-theme",
   "attributes": {
     "isDrawerOpen": {
