@@ -21,6 +21,7 @@
  * Template part for displaying individual navigation links.
  */
 
+global $wp;
 $block                  = isset( $args['block'] ) ? $args['block'] : [];
 $attributes             = isset( $args['attributes'] ) ? $args['attributes'] : [];
 $content                = isset( $args['content'] ) ? $args['content'] : [];
@@ -50,9 +51,12 @@ $classes    = array_merge(
 
 $style_attribute = ( $colors['inline_styles'] . $font_sizes['inline_styles'] );
 
-$css_classes = trim( implode( ' ', $classes ) );
-$has_submenu = count( $block->inner_blocks ) > 0;
-$is_active   = ! empty( $attributes['id'] ) && ( get_the_ID() === $attributes['id'] );
+$css_classes  = trim( implode( ' ', $classes ) );
+$has_submenu  = count( $block->inner_blocks ) > 0;
+$current_link = home_url( $wp->request );
+// When "blog" page is current page it uses first post from query loop as the current post which gives wrong get the id.
+// Hence, url check is required here to activate menu.
+$is_active = ( ! empty( $attributes['id'] ) && ( get_the_ID() === $attributes['id'] ) ) || trailingslashit( $attributes['url'] ) === trailingslashit( $current_link );
 
 $wrapper_attributes = get_block_wrapper_attributes(
 	[
