@@ -66,7 +66,8 @@ export const BLOCK_TEMPLATE = [
 										'core/site-title',
 										{
 											className:
-												'site-title mdc-typography mdc-typography--headline6',
+												'site-title mdc-typography',
+											level: 6,
 										},
 									],
 									[ 'material/drawer-close' ],
@@ -89,7 +90,6 @@ export const BLOCK_TEMPLATE = [
 	[
 		'core/group',
 		{
-			className: 'mdc-drawer__content',
 			style: {
 				spacing: {
 					padding: {

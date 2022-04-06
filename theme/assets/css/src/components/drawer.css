@@ -111,3 +111,7 @@
 		width: 100%;
 	}
 }
+
+.wp-block-material-drawer {
+	overflow-y: auto;
+}

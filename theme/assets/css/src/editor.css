@@ -113,6 +113,10 @@ blockquote {
 	max-height: none;
 }
 
+.material-drawer .wp-block-site-title a {
+	text-decoration: none;
+}
+
 .mdc-tab-scroller,
 .tab-bar__wrap {
 	width: 100%;
