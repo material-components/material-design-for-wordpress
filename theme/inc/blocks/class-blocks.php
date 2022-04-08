@@ -80,7 +80,7 @@ class Blocks {
 				$args ['render_callback'] = [ static::class, 'render' ];
 			}
 
-			register_block_type( $folder, $args );
+			register_block_type_from_metadata( $folder, $args );
 		}
 	}
 
