@@ -19,7 +19,9 @@
  */
 import { useEntityBlockEditor } from '@wordpress/core-data';
 import {
-	useInnerBlocksProps,
+	useInnerBlocksProps as useInnerBlocksPropsGte59,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalUseInnerBlocksProps as useInnerBlocksPropsLte58,
 	InnerBlocks,
 	__experimentalBlockContentOverlay as BlockContentOverlay, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 	store as blockEditorStore,
@@ -37,6 +39,13 @@ const ALLOWED_BLOCKS = [ 'material/navigation-link' ];
 const DEFAULT_BLOCK = {
 	name: 'material/navigation-link',
 };
+
+// In order to support both versions of WP
+// Supports:
+//  - Later or equal 5.8
+//  - Greater or equal 5.9
+const useInnerBlocksProps =
+	useInnerBlocksPropsLte58 || useInnerBlocksPropsGte59;
 
 const LAYOUT = {
 	type: 'default',
