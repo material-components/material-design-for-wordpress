@@ -29,7 +29,7 @@ describe( 'blocks: material/search', () => {
 	} );
 
 	it( 'snapshot match for material search', async () => {
-		await insertBlock( 'Material Search' );
+		await insertBlock( 'Material Search Bar' );
 
 		expect( await getEditedPostContent() ).toMatchSnapshot();
 	} );
