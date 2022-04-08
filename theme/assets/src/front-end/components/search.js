@@ -36,8 +36,8 @@ class Search {
 			element.querySelector( '.wp-block-material-search-header-bar' )
 		) {
 			const formWrapper = block.querySelector( '.top-app-bar__search' );
-			if ( formWrapper ) {
-				element.appendChild( formWrapper );
+			if ( formWrapper && element.nextSibling ) {
+				block.parentNode.insertBefore( formWrapper, block.nextSibling );
 			}
 		}
 

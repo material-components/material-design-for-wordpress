@@ -26,6 +26,11 @@ import { __ } from '@wordpress/i18n';
 import classnames from 'classnames';
 
 /**
+ * Internal dependencies
+ */
+import { icon as Icon } from './icon';
+
+/**
  * Edit.
  *
  * @param {Object}   props
@@ -66,7 +71,7 @@ const Edit = ( { attributes: { textAlign }, setAttributes } ) => {
 						className="material-icons mdc-text-field__icon mdc-text-field__icon--trailing"
 						role="button"
 					>
-						search
+						<Icon />
 					</i>
 					<div className="mdc-notched-outline mdc-notched-outline--upgraded mdc-notched-outline--notched">
 						<div className="mdc-notched-outline__leading"></div>

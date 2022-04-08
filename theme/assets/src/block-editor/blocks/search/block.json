@@ -9,7 +9,7 @@
       "type": "string"
     }
   },
-  "title": "Material Search",
+  "title": "Material Search Bar",
   "supports": {},
   "description": "Material search bar",
   "editorStyle": "material-block-editor-css-theme",

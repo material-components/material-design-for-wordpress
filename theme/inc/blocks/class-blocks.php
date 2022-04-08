@@ -40,6 +40,10 @@ class Blocks {
 		'material/query-pagination-first'    => 'template-parts/blocks/query-pagination-first.php',
 		'material/query-pagination-last'     => 'template-parts/blocks/query-pagination-last.php',
 		'material/search-title'              => 'template-parts/blocks/search-title.php',
+		'material/navigation'                => 'template-parts/blocks/navigation.php',
+		'material/navigation-link'           => 'template-parts/blocks/navigation-link.php',
+		'material/hamburger-menu'            => 'template-parts/blocks/hamburger-menu.php',
+		'material/drawer'                    => 'template-parts/blocks/drawer.php',
 		'material/search-header-bar'         => 'template-parts/blocks/search-header-bar.php',
 	];
 

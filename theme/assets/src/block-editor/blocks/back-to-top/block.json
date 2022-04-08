@@ -10,6 +10,6 @@
     "align": true
   },
   "description": "Material back to top button",
-  "editorStyle": "material-block-editor-css-theme",
+  "editorStyle": "material-google-fonts",
   "editorScript": "material-block-editor-js-theme"
 }

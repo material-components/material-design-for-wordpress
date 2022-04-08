@@ -22,6 +22,10 @@
 		margin-top: 10px;
 	}
 
+	& .mdc-drawer__list {
+		display: block;
+	}
+
 	& .mdc-drawer__title {
 		align-items: center;
 		display: flex;
@@ -106,4 +110,8 @@
 	& .site-title__wrapper {
 		width: 100%;
 	}
+}
+
+.wp-block-material-drawer {
+	overflow-y: auto;
 }

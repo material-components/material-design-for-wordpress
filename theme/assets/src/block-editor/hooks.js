@@ -24,6 +24,8 @@ import { useEffect } from '@wordpress/element';
 const blockClassPrefillMap = {
 	'core/site-title': 'site-title mdc-typography mdc-typography--headline6',
 	'core/post-title': 'mdc-typography mdc-typography-headline2 entry-title',
+	'core/navigation-link': 'mdc-tab',
+	'core/navigation': 'nav-wrap mdc-tab-scroller__scroll-area',
 };
 
 /**
@@ -46,6 +48,12 @@ const withAttributeChange = createHigherOrderComponent( BlockEdit => {
 					className: blockClassPrefillMap[ name ],
 				} );
 			}
+
+			return () => {
+				props.setAttributes( {
+					className,
+				} );
+			};
 			// Use empty array to make sure this runs only once.
 			// eslint-disable-next-line react-hooks/exhaustive-deps
 		}, [] );
