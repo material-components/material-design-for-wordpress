@@ -44,6 +44,8 @@ jobs:
       NODE_ENV: teste2e
       WP_VERSION: ${{ matrix.wp_versions }}
       PHP_VERSION: php${{ matrix.php_versions }}-apache
+      JEST_ALLOW_SKIP_CARD: ${{ matrix.wp_versions == '5.6' || matrix.wp_versions == '5.7' }}
+      JEST_ALLOW_SKIP_SEARCH: ${{ matrix.wp_versions == '5.6' || matrix.wp_versions == '5.7' }}
 
     steps:
       - uses: actions/checkout@v2

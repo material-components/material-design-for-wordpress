@@ -34,7 +34,9 @@ const getQueryWithoutId = text => {
 	return text.replace( regex, '' );
 };
 
-describe( 'blocks: Material card and image card', () => {
+const maybe = process.env.JEST_ALLOW_SKIP_CARD ? describe.skip : describe;
+
+maybe( 'blocks: Material card and image card', async () => {
 	beforeEach( async () => {
 		await createNewPost( { postType: 'page', title: `Query Page` } );
 	} );

@@ -23,8 +23,9 @@ import {
 	insertBlock,
 	pressKeyWithModifier,
 } from '@wordpress/e2e-test-utils';
+const maybe = process.env.JEST_ALLOW_SKIP_SEARCH ? describe.skip : describe;
 
-describe( 'blocks: material/search-title', () => {
+maybe( 'blocks: material/search-title', () => {
 	beforeEach( async () => {
 		await createNewPost( {} );
 	} );
