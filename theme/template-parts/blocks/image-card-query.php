@@ -21,12 +21,12 @@
  * Image list layout
  */
 
-$block      = isset( $args['block'] ) ? $args['block'] : [];
-$attributes = isset( $args['attributes'] ) ? $args['attributes'] : [];
-$post_ID    = $block->context['postId']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-$post_link  = get_the_permalink( $post );
-if ( has_post_thumbnail( $post_ID ) ) {
-	$thumbnail = get_the_post_thumbnail_url( $post_ID );
+$block              = isset( $args['block'] ) ? $args['block'] : [];
+$attributes         = isset( $args['attributes'] ) ? $args['attributes'] : [];
+$post_id_image_card = $block->context['postId'];
+$post_link          = get_the_permalink( $post_id_image_card );
+if ( has_post_thumbnail( $post_id_image_card ) ) {
+	$thumbnail = get_the_post_thumbnail_url( $post_id_image_card );
 } else {
 	$thumbnail = get_template_directory_uri() . '/assets/images/placeholder.png';
 }
@@ -36,7 +36,7 @@ $wrapper_attributes = get_block_wrapper_attributes();
 	<a href="<?php echo esc_url( $post_link ); ?>">
 		<img class="mdc-image-list__image" src="<?php echo esc_url( $thumbnail ); ?>" alt="">
 		<div class="mdc-image-list__supporting">
-			<?php echo esc_html( get_the_title( $post_ID ) ); ?>
+			<?php echo esc_html( get_the_title( $post_id_image_card ) ); ?>
 		</div>
 	</a>
 </div>
