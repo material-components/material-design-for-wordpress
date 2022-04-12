@@ -1,5 +1,6 @@
 {
   "name": "material/cards-collection",
+  "title": "Cards Collection (Material)",
   "category": "material",
   "attributes": {
     "id": {

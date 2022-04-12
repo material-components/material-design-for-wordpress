@@ -1,5 +1,6 @@
 {
 	"name": "material/data-table",
+  "title": "Data Table (Material)",
 	"category": "material",
 	"attributes": {
 	   "hasFixedLayout": {
