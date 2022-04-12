@@ -125,10 +125,10 @@ describe( 'Customize controls', () => {
 			).toEqual( '#121212' );
 		} );
 
-		it( 'should update design style to custom if any value is updated', async () => {
+		// eslint-disable-next-line jest/no-disabled-tests
+		it.skip( 'should update design style to custom if any value is updated', async () => {
 			await page.evaluate( input => {
 				input.value = '#000000';
-				console.log( 'input', input );
 				input.dispatchEvent( new Event( 'change' ), input );
 				input.dispatchEvent( new Event( 'blur' ), input );
 			}, await getPrimaryColorSelector() );
@@ -186,7 +186,7 @@ describe( 'Customize controls', () => {
 			expect( colors.length ).toEqual( 254 );
 		} );
 
-		it( 'should select a color on click', async () => {
+		it( 'should select a color on click and update theme to custom', async () => {
 			const firstColor = await page.$(
 				'#customize-control-material_design-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
 			);
@@ -201,6 +201,16 @@ describe( 'Customize controls', () => {
 					await getPrimaryColorSelector()
 				)
 			).toEqual( '#ffebee' );
+
+			// Theme should be custom on change of color to custom.
+			const selectedOption = await page.$(
+				'#material_design-style-custom'
+			);
+
+			// Assert style is updated to custom.
+			expect(
+				await page.evaluate( input => input.checked, selectedOption )
+			).toBeTruthy();
 		} );
 	} );
 
