@@ -25,7 +25,7 @@ import classNames from 'classnames';
 import { __ } from '@wordpress/i18n';
 import { useState, useEffect } from '@wordpress/element';
 import { PanelBody } from '@wordpress/components';
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
@@ -259,20 +259,20 @@ const ListEdit = ( {
 		? ListItemCompat
 		: ListItem;
 
+	const blockProps = useBlockProps.save( {
+		className: classNames(
+			'mdc-list',
+			className ? className.replace( 'mdc-list--two-line', '' ) : '',
+			{
+				'mdc-list--two-line': isSecondaryEnabled,
+				'mdc-list--avatar-list': 'large' === iconSize,
+			}
+		),
+	} );
+
 	return (
 		<>
-			<ul
-				className={ classNames(
-					'mdc-list',
-					className
-						? className.replace( 'mdc-list--two-line', '' )
-						: '',
-					{
-						'mdc-list--two-line': isSecondaryEnabled,
-						'mdc-list--avatar-list': 'large' === iconSize,
-					}
-				) }
-			>
+			<ul { ...blockProps }>
 				{ items.map( ( item, i ) => (
 					<Item
 						key={ i }

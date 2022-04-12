@@ -19,6 +19,7 @@
  */
 import InspectorControls from './components/inspector-controls';
 import EditWithSelect from '../common-posts-list/edit';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Recent Posts Edit component.
@@ -30,10 +31,13 @@ import EditWithSelect from '../common-posts-list/edit';
  * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const Edit = props => {
+	const blockProps = useBlockProps();
 	return (
 		<>
 			<InspectorControls { ...props } />
-			<EditWithSelect { ...props } />
+			<EditWithSelect
+				{ ...{ ...props, ...{ className: blockProps.className } } }
+			/>
 		</>
 	);
 };

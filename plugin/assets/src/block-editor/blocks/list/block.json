@@ -1,5 +1,6 @@
 {
 	"name": "material/list",
+  "title": "List (Material)",
 	"category": "material",
 	"attributes": {
 	   "style": {
