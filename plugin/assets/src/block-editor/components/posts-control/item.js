@@ -50,6 +50,10 @@ const SearchListItem = ( {
 	}
 	const hasBreadcrumbs = item.breadcrumbs && item.breadcrumbs.length;
 
+	const inputProps = props;
+	// React throws console error for controlId on <input>
+	delete inputProps.controlId;
+
 	return (
 		<label htmlFor={ item.id } className={ classes.join( ' ' ) }>
 			{ isSingle ? (
@@ -61,8 +65,8 @@ const SearchListItem = ( {
 					onChange={ onSelect( item ) }
 					checked={ isSelected }
 					className="woocommerce-search-list__item-input"
-					{ ...props }
-				></input>
+					{ ...inputProps }
+				/>
 			) : (
 				<input
 					type="checkbox"
@@ -72,8 +76,8 @@ const SearchListItem = ( {
 					onChange={ onSelect( item ) }
 					checked={ isSelected }
 					className="woocommerce-search-list__item-input"
-					{ ...props }
-				></input>
+					{ ...inputProps }
+				/>
 			) }
 
 			<span className="woocommerce-search-list__item-label">

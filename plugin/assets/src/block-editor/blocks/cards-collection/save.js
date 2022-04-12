@@ -26,6 +26,7 @@ import VerticalCardLayout from '../card/components/vertical-card-layout';
 import HorizontalCardLayout from '../card/components/horizontal-card-layout';
 import getColumnSpan from './utils/get-column-span';
 import Cards from './components/cards';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Card Collections Save component.
@@ -79,13 +80,14 @@ const Save = ( { attributes, className } ) => {
 		);
 	}
 
+	const blockProps = useBlockProps.save( {
+		className: classnames( className, {
+			[ `align${ align }` ]: align,
+		} ),
+	} );
+
 	return (
-		<div
-			className={ classnames( className, {
-				[ `align${ align }` ]: align,
-			} ) }
-			id={ id }
-		>
+		<div { ...blockProps } id={ id }>
 			<Cards
 				style={ style }
 				gutter={ gutter }

@@ -1,5 +1,6 @@
 {
 	"name": "material/image-list",
+  "title": "Gallery (Material)",
 	"category": "material",
 	"attributes": {
 		"id": {

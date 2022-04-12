@@ -17,7 +17,7 @@
 /**
  * WordPress dependencies
  */
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
@@ -100,6 +100,10 @@ const Edit = ( {
 		} );
 	};
 
+	const blockProps = useBlockProps( {
+		className,
+	} );
+
 	const cardProps = {
 		cardIndex,
 		contentLayout,
@@ -160,7 +164,7 @@ const Edit = ( {
 					{ ...inspectorControlsContentPanelProps }
 				/>
 			</InspectorControls>
-			<div className={ className }>
+			<div { ...blockProps }>
 				{ cardLayout === 'vertical' && (
 					<VerticalCardLayout { ...cardProps } />
 				) }

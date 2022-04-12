@@ -34,21 +34,22 @@ import Image from './image';
 /**
  * Gallery component.
  *
- * @param {Object}   props                 - Component props.
- * @param {Array}    props.images          - List of images in the gallery.
- * @param {string}   props.style           - Layout style of the gallery.
- * @param {number}   props.columns         - Columns in the gallery.
- * @param {Object}   props.gutter          - Column gutter for various devices.
- * @param {number}   props.cornerRadius    - Corner radius.
- * @param {boolean}  props.displayCaptions - Display/hide captions.
- * @param {boolean}  props.textProtection  - Display/hide captions with text protection.
- * @param {number}   props.selectedImage   - Current selected image.
- * @param {string}   props.linkTo          - Image should link to.
- * @param {Function} props.onRemove        - Callback when an image is removed.
- * @param {Function} props.onMove          - Callback when an image is moved.
- * @param {Function} props.onSelect        - Callback when an image is selected.
- * @param {Function} props.onLinkChange    - Callback when linkTo is changed.
- * @param {boolean}  props.isSaveContext   - Is this `Save` context.
+ * @param {Object}   props                       - Component props.
+ * @param {Array}    props.images                - List of images in the gallery.
+ * @param {string}   props.style                 - Layout style of the gallery.
+ * @param {Object}   props.columns               - Columns in the gallery.
+ * @param {Object}   props.gutter                - Column gutter for various devices.
+ * @param {number}   props.cornerRadius          - Corner radius.
+ * @param {boolean}  props.displayCaptions       - Display/hide captions.
+ * @param {boolean}  props.textProtection        - Display/hide captions with text protection.
+ * @param {number}   props.selectedImage         - Current selected image.
+ * @param {string}   props.linkTo                - Image should link to.
+ * @param {Function} props.onRemove              - Callback when an image is removed.
+ * @param {Function} props.onMove                - Callback when an image is moved.
+ * @param {Function} props.onSelect              - Callback when an image is selected.
+ * @param {Function} props.onLinkChange          - Callback when linkTo is changed.
+ * @param {boolean}  [props.isSaveContext=false] - Is this `Save` context.
+ * @param {string}   [props.className='']        - ClassName.
  *
  * @return {JSX.Element} A functional component.
  */
@@ -67,6 +68,7 @@ const Gallery = ( {
 	onSelect,
 	onLinkChange,
 	isSaveContext = false,
+	className = '',
 } ) => {
 	const desktopGutter = gutter.desktop || 0;
 	const desktopColumns =
@@ -134,14 +136,13 @@ const Gallery = ( {
 		Tag = 'div';
 	}
 
+	const classesNames = classNames( className, 'mdc-image-list', {
+		'mdc-image-list--masonry': 'masonry' === style,
+		'mdc-image-list--with-text-protection': textProtection,
+	} );
+
 	return (
-		<ul
-			className={ classNames( 'mdc-image-list', {
-				'mdc-image-list--masonry': 'masonry' === style,
-				'mdc-image-list--with-text-protection': textProtection,
-			} ) }
-			style={ wrapStyles }
-		>
+		<ul className={ classesNames } style={ wrapStyles }>
 			{ images.map( ( image, i ) => {
 				let href = image.link;
 

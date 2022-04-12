@@ -18,6 +18,7 @@
  * External dependencies
  */
 import Masonry from 'react-masonry-css';
+import classnames from 'classnames';
 
 /**
  * Internal dependencies
@@ -30,10 +31,11 @@ import SinglePost from './single-post';
  * @param {Object} props                - Component props.
  * @param {Object} props.attributes     - Block attributes.
  * @param {Array}  props.postsToDisplay - Posts.
+ * @param {string} [props.className=''] - Additional class name.
  *
  * @return {JSX.Element} A functional component.
  */
-const PostsList = ( { attributes, postsToDisplay } ) => {
+const PostsList = ( { attributes, postsToDisplay, className = '' } ) => {
 	const { style, columns } = attributes;
 
 	let columnSpan = 12;
@@ -50,7 +52,12 @@ const PostsList = ( { attributes, postsToDisplay } ) => {
 	return (
 		<>
 			{ ( style === 'grid' || style === 'list' ) && (
-				<div className={ `mdc-layout-grid layout-${ style }` }>
+				<div
+					className={ classnames(
+						className,
+						`mdc-layout-grid layout-${ style }`
+					) }
+				>
 					<div className="mdc-layout-grid__inner">
 						{ postsToDisplay.map( ( post, postIndex ) => {
 							const props = { post, style, attributes };
@@ -70,7 +77,10 @@ const PostsList = ( { attributes, postsToDisplay } ) => {
 			{ style === 'masonry' && (
 				<Masonry
 					breakpointCols={ columns }
-					className={ `masonry-grid layout-${ style }` }
+					className={ classnames(
+						className,
+						`masonry-grid layout-${ style }`
+					) }
 					columnClassName="masonry-grid_column"
 				>
 					{ postsToDisplay.map( ( post, postIndex ) => {

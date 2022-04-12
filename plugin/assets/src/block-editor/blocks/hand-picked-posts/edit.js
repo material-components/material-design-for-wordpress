@@ -29,6 +29,7 @@ import InspectorControls from '../common-posts-list/components/inspector-control
 import './editor.css';
 import { EditWithGetPosts } from '../common-posts-list/edit';
 import getConfig from '../../utils/get-config';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Curated Post Collection Edit component.
@@ -46,6 +47,11 @@ const Edit = props => {
 		attributes: { editMode },
 	} = props;
 
+	const blockProps = {
+		...{ className: useBlockProps().className },
+		...props,
+	};
+
 	if ( props.attributes.preview ) {
 		return (
 			<img
@@ -60,12 +66,12 @@ const Edit = props => {
 
 	return (
 		<>
-			<InspectorControls { ...props } />
-			<HandpickedPostBlockControls { ...props } />
+			<InspectorControls { ...blockProps } />
+			<HandpickedPostBlockControls { ...blockProps } />
 			{ editMode ? (
-				<PostsPicker { ...props } />
+				<PostsPicker { ...blockProps } />
 			) : (
-				<EditWithGetPosts { ...props } />
+				<EditWithGetPosts { ...blockProps } />
 			) }
 		</>
 	);

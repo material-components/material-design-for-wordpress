@@ -27,6 +27,7 @@ import {
 	InspectorControls,
 	AlignmentToolbar,
 	BlockControls,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import { PanelBody, RangeControl } from '@wordpress/components';
 
@@ -66,13 +67,15 @@ const IconEdit = ( {
 	if ( isCustom ) {
 		style[ 'font-size' ] = `${ customSize }px`;
 	}
+
+	const blockProps = useBlockProps( {
+		className: classNames( className, {
+			[ `has-text-align-${ align }` ]: align,
+		} ),
+	} );
 	return (
 		<>
-			<div
-				className={ classNames( className, {
-					[ `has-text-align-${ align }` ]: align,
-				} ) }
-			>
+			<div { ...blockProps }>
 				<i
 					className={ classNames( 'material-icons', {
 						[ `md-${ iconSize }` ]: ! isCustom,

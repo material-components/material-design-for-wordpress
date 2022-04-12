@@ -22,12 +22,20 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
-import { RichText } from '@wordpress/block-editor';
+import { RichText, useBlockProps } from '@wordpress/block-editor';
 
 const Save = ( { attributes, hasCaption } ) => {
 	const { hasFixedLayout, head, body, foot, caption, className } = attributes;
 
 	const isEmpty = ! head.length && ! body.length && ! foot.length;
+
+	// eslint-disable-next-line @wordpress/no-unused-vars-before-return
+	const blockProps = useBlockProps.save( {
+		className: classnames(
+			'wp-block-table',
+			( className || '' ).replace( 'wp-block-table', '' )
+		),
+	} );
 
 	if ( isEmpty ) {
 		return null;
@@ -85,12 +93,7 @@ const Save = ( { attributes, hasCaption } ) => {
 	};
 
 	return (
-		<div
-			className={ classnames(
-				'wp-block-table',
-				( className || '' ).replace( 'wp-block-table', '' )
-			) }
-		>
+		<div { ...blockProps }>
 			<div className="mdc-data-table">
 				<table className={ classes }>
 					<Section type="head" rows={ head } />
