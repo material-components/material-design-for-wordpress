@@ -233,7 +233,7 @@ const ImageListEdit = ( {
 		noticeOperations.createErrorNotice( message );
 	};
 
-	const classNames = useBlockProps().className;
+	const classNames = useBlockProps()?.className;
 
 	const galleryProps = {
 		images: images.map( image => {

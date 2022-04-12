@@ -51,7 +51,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const Edit = props => {
-	const { attributes, setAttributes, className } = props;
+	const { attributes, setAttributes } = props;
 	const {
 		style,
 		columns,
@@ -356,9 +356,7 @@ const Edit = props => {
 		}
 	};
 
-	const blockProps = useBlockProps( {
-		className,
-	} );
+	const blockProps = useBlockProps();
 
 	return (
 		<>
