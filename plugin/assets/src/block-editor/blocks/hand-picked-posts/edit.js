@@ -48,7 +48,7 @@ const Edit = props => {
 	} = props;
 
 	const blockProps = {
-		...{ className: useBlockProps().className },
+		...{ className: useBlockProps()?.className },
 		...props,
 	};
 

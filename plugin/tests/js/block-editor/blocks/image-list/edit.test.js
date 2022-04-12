@@ -89,7 +89,6 @@ const galleryProps = {
 		linkTo: 'media',
 		id: 'block-material-image-list-0',
 	},
-	className: 'wp-block-material-image-list',
 	isSelected: true,
 	setAttributes: jest.fn(),
 	noticeUI: jest.fn(),

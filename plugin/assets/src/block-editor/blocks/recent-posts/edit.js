@@ -36,7 +36,7 @@ const Edit = props => {
 		<>
 			<InspectorControls { ...props } />
 			<EditWithSelect
-				{ ...{ ...props, ...{ className: blockProps.className } } }
+				{ ...{ ...props, ...{ className: blockProps?.className } } }
 			/>
 		</>
 	);
