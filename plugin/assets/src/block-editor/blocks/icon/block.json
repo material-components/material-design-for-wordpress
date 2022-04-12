@@ -1,5 +1,6 @@
 {
   "name": "material/icon",
+  "title": "Icon (Material)",
   "category": "material",
   "attributes": {
     "iconSize": {

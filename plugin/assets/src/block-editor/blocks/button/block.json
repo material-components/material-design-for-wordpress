@@ -1,5 +1,6 @@
 {
   "name": "material/button",
+  "title": "Button (Material)",
   "category": "material",
   "parent": [ "material/buttons" ],
   "attributes": {
