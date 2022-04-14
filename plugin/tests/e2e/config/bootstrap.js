@@ -187,6 +187,7 @@ async function runAxeTestsForBlockEditor() {
 			'page-has-heading-one',
 			'region',
 			'nested-interactive',
+			'duplicate-id-active',
 		],
 		exclude: [
 			// Ignores elements created by metaboxes.
