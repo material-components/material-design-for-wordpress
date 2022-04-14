@@ -65,7 +65,7 @@ describe( 'blocks: all', () => {
 		// Check if buttons block is rendered.
 		expect(
 			await page.$$( '[data-type="material/buttons"]' )
-		).toHaveLength( 1 );
+		).toHaveLength( 2 );
 
 		// Check if button blocks are rendered.
 		expect( await page.$$( '[data-type="material/button"]' ) ).toHaveLength(
@@ -74,13 +74,13 @@ describe( 'blocks: all', () => {
 
 		// Check if card block is rendered.
 		expect( await page.$$( '[data-type="material/card"]' ) ).toHaveLength(
-			1
+			2
 		);
 
 		// Check if cards-collections block is rendered.
 		expect(
 			await page.$$( '[data-type="material/cards-collection"]' )
-		).toHaveLength( 1 );
+		).toHaveLength( 2 );
 
 		// Check if list block is rendered.
 		expect( await page.$$( '[data-type="material/list"]' ) ).toHaveLength(
@@ -90,7 +90,7 @@ describe( 'blocks: all', () => {
 		// Check if material/data-table block is rendered.
 		expect(
 			await page.$$( '[data-type="material/data-table"]' )
-		).toHaveLength( 1 );
+		).toHaveLength( 2 );
 
 		// Check if image-list block is rendered.
 		expect(
@@ -110,6 +110,6 @@ describe( 'blocks: all', () => {
 		// Check if contact form block is rendered.
 		expect(
 			await page.$$( '[data-type="material/contact-form"]' )
-		).toHaveLength( 1 );
+		).toHaveLength( 2 );
 	} );
 } );
