@@ -23,5 +23,6 @@
     "align": {
       "type": "string"
     }
-  }
+  },
+  "apiVersion": 2
 }

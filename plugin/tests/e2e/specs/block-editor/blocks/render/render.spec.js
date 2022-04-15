@@ -74,13 +74,13 @@ describe( 'blocks: all', () => {
 
 		// Check if card block is rendered.
 		expect( await page.$$( '[data-type="material/card"]' ) ).toHaveLength(
-			2
+			1
 		);
 
 		// Check if cards-collections block is rendered.
 		expect(
 			await page.$$( '[data-type="material/cards-collection"]' )
-		).toHaveLength( 2 );
+		).toHaveLength( 1 );
 
 		// Check if list block is rendered.
 		expect( await page.$$( '[data-type="material/list"]' ) ).toHaveLength(
@@ -90,7 +90,7 @@ describe( 'blocks: all', () => {
 		// Check if material/data-table block is rendered.
 		expect(
 			await page.$$( '[data-type="material/data-table"]' )
-		).toHaveLength( 2 );
+		).toHaveLength( 1 );
 
 		// Check if image-list block is rendered.
 		expect(
@@ -110,6 +110,6 @@ describe( 'blocks: all', () => {
 		// Check if contact form block is rendered.
 		expect(
 			await page.$$( '[data-type="material/contact-form"]' )
-		).toHaveLength( 2 );
+		).toHaveLength( 1 );
 	} );
 } );

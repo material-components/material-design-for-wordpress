@@ -68,5 +68,6 @@
 		  "full"
 	   ]
 	},
-  "title": "Recent Posts (Material)"
+  "title": "Recent Posts (Material)",
+  "apiVersion": 2
 }

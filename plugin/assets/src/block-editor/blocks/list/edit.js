@@ -259,20 +259,22 @@ const ListEdit = ( {
 		? ListItemCompat
 		: ListItem;
 
-	const blockProps = useBlockProps.save( {
-		className: classNames(
-			'mdc-list',
-			className ? className.replace( 'mdc-list--two-line', '' ) : '',
-			{
-				'mdc-list--two-line': isSecondaryEnabled,
-				'mdc-list--avatar-list': 'large' === iconSize,
-			}
-		),
-	} );
+	const blockProps = useBlockProps();
 
 	return (
-		<>
-			<ul { ...blockProps }>
+		<div { ...blockProps }>
+			<ul
+				className={ classNames(
+					'mdc-list',
+					className
+						? className.replace( 'mdc-list--two-line', '' )
+						: '',
+					{
+						'mdc-list--two-line': isSecondaryEnabled,
+						'mdc-list--avatar-list': 'large' === iconSize,
+					}
+				) }
+			>
 				{ items.map( ( item, i ) => (
 					<Item
 						key={ i }
@@ -346,7 +348,7 @@ const ListEdit = ( {
 					</PanelBody>
 				) }
 			</InspectorControls>
-		</>
+		</div>
 	);
 };
 

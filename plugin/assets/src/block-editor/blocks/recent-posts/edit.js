@@ -33,12 +33,10 @@ import { useBlockProps } from '@wordpress/block-editor';
 const Edit = props => {
 	const blockProps = useBlockProps();
 	return (
-		<>
+		<div { ...blockProps }>
 			<InspectorControls { ...props } />
-			<EditWithSelect
-				{ ...{ ...props, ...{ className: blockProps?.className } } }
-			/>
-		</>
+			<EditWithSelect { ...props } />
+		</div>
 	);
 };
 

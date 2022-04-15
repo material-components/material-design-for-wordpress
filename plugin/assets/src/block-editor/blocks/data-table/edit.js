@@ -27,7 +27,6 @@ import {
 	BlockControls,
 	RichText,
 	AlignmentToolbar,
-	useBlockProps,
 } from '@wordpress/block-editor';
 import {
 	Button,
@@ -170,16 +169,6 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 	const [ selectedCell, setSelectedCell ] = useState( null );
 	const [ initialColumnCount, setinitialColumnCount ] = useState( 2 );
 	const [ initialRowCount, setinitialRowCount ] = useState( 2 );
-
-	const blockProps = useBlockProps( {
-		className: classnames(
-			'wp-block-table',
-			( className || '' ).replace( 'wp-block-table', '' ),
-			{
-				'is-selected': !! selectedCell,
-			}
-		),
-	} );
 
 	/**
 	 * Changes the content of the currently selected cell.
@@ -513,7 +502,15 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<figure { ...blockProps }>
+			<figure
+				className={ classnames(
+					'wp-block-table',
+					( className || '' ).replace( 'wp-block-table', '' ),
+					{
+						'is-selected': !! selectedCell,
+					}
+				) }
+			>
 				<div className="mdc-data-table">
 					<table className={ tableClasses }>
 						<Section

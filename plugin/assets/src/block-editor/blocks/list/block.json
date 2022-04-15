@@ -57,5 +57,6 @@
 		   "type": "boolean",
 		   "default": false
 	   }
-	}
+	},
+  "apiVersion": 2
  }

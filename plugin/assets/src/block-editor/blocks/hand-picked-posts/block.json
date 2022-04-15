@@ -93,5 +93,6 @@
 		  "wide",
 		  "full"
 	   ]
-	}
+	},
+  "apiVersion": 2
  }

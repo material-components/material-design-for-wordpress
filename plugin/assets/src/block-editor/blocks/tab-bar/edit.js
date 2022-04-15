@@ -31,7 +31,6 @@ import {
 	InspectorControls,
 	BlockControls,
 	InnerBlocks,
-	useBlockProps,
 } from '@wordpress/block-editor';
 import { getBlockTypes } from '@wordpress/blocks';
 
@@ -249,10 +248,6 @@ const TabBarEdit = ( {
 				! blockName.match( /material\/(.+)?-input-field/ )
 		);
 
-	const blockProps = useBlockProps( {
-		className: 'tab-wrap',
-	} );
-
 	// Display preview if available.
 	if ( preview ) {
 		return (
@@ -265,7 +260,7 @@ const TabBarEdit = ( {
 
 	return (
 		<>
-			<div { ...blockProps }>
+			<div className="tab-wrap">
 				<div className="mdc-tab-bar" role="tablist" ref={ tabBar }>
 					<div className="mdc-tab-scroller">
 						<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">

@@ -90,8 +90,8 @@
       "default": true
     }
   },
-
   "supports": {
     "align": [ "wide", "full" ]
-  }
+  },
+  "apiVersion": 2
 }
