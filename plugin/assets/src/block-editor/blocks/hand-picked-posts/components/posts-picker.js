@@ -27,6 +27,7 @@ import { __ } from '@wordpress/i18n';
 import PostsControl from '../../../components/posts-control';
 import genericAttributesSetter from '../../../utils/generic-attributes-setter';
 import getConfig from '../../../utils/get-config';
+import classnames from 'classnames';
 
 /**
  * Posts Picker component.
@@ -35,14 +36,25 @@ import getConfig from '../../../utils/get-config';
  * @param {Object}   props.attributes     - Block attributes.
  * @param {Function} props.debouncedSpeak - Function to debounce the call to the Speak method for accessibility purpose.
  * @param {Function} props.setAttributes  - Function to set block attributes value.
+ * @param {string}   [props.className=''] - ClassNames.
  *
  * @return {JSX.Element} A functional component.
  */
 
-const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
+const PostsPicker = ( {
+	attributes,
+	debouncedSpeak,
+	setAttributes,
+	className = '',
+} ) => {
 	const setter = useCallback( genericAttributesSetter( setAttributes ), [
 		setAttributes,
 	] );
+
+	const classNames = classnames(
+		'material-design-block-products-grid material-design-block-handpicked-posts',
+		className
+	);
 
 	const onDone = () => {
 		setAttributes( { editMode: false } );
@@ -63,7 +75,7 @@ const PostsPicker = ( { attributes, debouncedSpeak, setAttributes } ) => {
 		<Placeholder
 			icon={ <i className="material-icons-outlined">library_books</i> }
 			label={ __( 'Curated Post Collection', 'material-design' ) }
-			className="material-design-block-products-grid material-design-block-handpicked-posts"
+			className={ classNames }
 		>
 			<div className="material-design-block-handpicked-posts__types">
 				<p>

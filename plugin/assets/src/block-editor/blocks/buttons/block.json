@@ -1,5 +1,6 @@
 {
   "name": "material/buttons",
+  "title": "Buttons (Material)",
   "category": "material",
   "supports": {
     "anchor": true,

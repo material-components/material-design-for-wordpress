@@ -6,7 +6,6 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="wp-block-material-image-list"
         id="block-material-image-list-0"
       >
         <ul
@@ -50,7 +49,6 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="wp-block-material-image-list"
       id="block-material-image-list-0"
     >
       <ul

@@ -22,12 +22,12 @@ import Masonry from 'react-masonry-css';
 /**
  * Cards component.
  *
- * @param {Object}  props             - Component props.
- * @param {string}  props.style       - Grid style.
- * @param {Object}  props.gutter      - Grid gutter.
- * @param {number}  props.columns     - Number of columns.
- * @param {Array}   props.cards       - Cards HTML markup.
- * @param {boolean} props.saveContext - Is the context `save` ?.
+ * @param {Object}  props                     - Component props.
+ * @param {string}  props.style               - Grid style.
+ * @param {Object}  props.gutter              - Grid gutter.
+ * @param {number}  props.columns             - Number of columns.
+ * @param {Array}   props.cards               - Cards HTML markup.
+ * @param {boolean} [props.saveContext=false] - Is the context `save` ?.
  *
  * @return {JSX.Element} Function returning the HTML markup for the component.
  */

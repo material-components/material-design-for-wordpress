@@ -20,6 +20,7 @@
 import './style.css';
 import VerticalCardLayout from './components/vertical-card-layout';
 import HorizontalCardLayout from './components/horizontal-card-layout';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Card Save component.
@@ -87,8 +88,12 @@ const Save = ( { attributes, className } ) => {
 		isEditMode: false,
 	};
 
+	const blockProps = useBlockProps.save( {
+		className,
+	} );
+
 	return (
-		<div className={ className }>
+		<div { ...blockProps }>
 			{ cardLayout === 'vertical' && (
 				<VerticalCardLayout { ...cardProps } />
 			) }

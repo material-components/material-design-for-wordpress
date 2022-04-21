@@ -18,7 +18,7 @@
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 import { withSelect, withDispatch } from '@wordpress/data';
 import { compose } from '@wordpress/compose';
 
@@ -59,10 +59,18 @@ const TEMPLATES = [
 /**
  * Contact Form Edit component.
  *
- * @param {Object} props           - Component props.
- * @param {string} props.className - Component classes.
+ * @param {Object}   props                      - Component props.
+ * @param {string}   props.className            - Component classes.
+ * @param {Object}   props.attributes           - Attributes.
+ * @param {boolean}  props.attributes.outlined  - outlined.
+ * @param {boolean}  props.attributes.fullWidth - Full width.
+ * @param {boolean}  props.attributes.preview   - Preview.
+ * @param {Function} props.setAttributes        - Set attribute.
+ * @param {Function} props.createWarningNotice  - Create warning notice.
+ * @param {Function} props.formNotices          - Form notices.
+ * @param {number}   props.insertedForms        - Inserted forms.
  *
- * @return {Function} Function returning the HTML markup for the component.
+ * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const Edit = props => {
 	const {
@@ -73,6 +81,10 @@ const Edit = props => {
 		formNotices,
 		insertedForms,
 	} = props;
+
+	const blockProps = useBlockProps( {
+		className,
+	} );
 
 	if ( ! getConfig( 'allow_contact_form_block' ) ) {
 		return (
@@ -116,7 +128,7 @@ const Edit = props => {
 			} }
 		>
 			<FormInspectorControls setter={ setter } { ...props } />
-			<div className={ className }>
+			<div { ...blockProps }>
 				<InnerBlocks
 					template={ TEMPLATES }
 					allowedBlocks={ ALLOWED_BLOCKS }

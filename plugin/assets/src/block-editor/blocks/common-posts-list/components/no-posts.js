@@ -26,10 +26,11 @@ import { __ } from '@wordpress/i18n';
  * @param {Object} props                - Component props.
  * @param {string} props.name           - Component name.
  * @param {Array}  props.postsToDisplay - Posts.
+ * @param {string} [props.className=''] - Component class name.
  *
  * @return {JSX.Element} A functional component.
  */
-const NoPosts = ( { name, postsToDisplay } ) => {
+const NoPosts = ( { name, postsToDisplay, className = '' } ) => {
 	let placeholderLabel = __( 'Recent Posts', 'material-design' );
 
 	if ( name === 'material/hand-picked-posts' ) {
@@ -38,7 +39,11 @@ const NoPosts = ( { name, postsToDisplay } ) => {
 
 	return (
 		<>
-			<Placeholder icon={ 'sticky' } label={ placeholderLabel }>
+			<Placeholder
+				className={ className }
+				icon={ 'sticky' }
+				label={ placeholderLabel }
+			>
 				{ ! Array.isArray( postsToDisplay ) ? (
 					<Spinner />
 				) : (
