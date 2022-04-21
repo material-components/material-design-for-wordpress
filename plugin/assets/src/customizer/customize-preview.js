@@ -196,7 +196,7 @@ export const COLOR_MODES = {
 
 					if ( 'size' === rule ) {
 						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
-					} else {
+					} else if ( 'weight' === rule ) {
 						const fontStyle = /italic$/.test( rules[ rule ] )
 							? 'italic'
 							: 'normal';
@@ -208,6 +208,8 @@ export const COLOR_MODES = {
 
 						styles += `${ typographyControls[ control ].style }: ${ fontStyle } !important;`;
 						styles += `${ typographyControls[ control ][ rule ] }: ${ weight } !important;`;
+					} else {
+						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] } !important;`;
 					}
 				}
 			}

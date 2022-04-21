@@ -87,7 +87,7 @@ class Controls extends Module_Base {
 	/**
 	 * Register customizer options.
 	 *
-	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 * @param \WP_Customize_Manager $wp_customize Theme Customizer object.
 	 */
 	public function register( $wp_customize ) {
 		$this->wp_customize = $wp_customize;
@@ -393,11 +393,13 @@ class Controls extends Module_Base {
 		/**
 		 * Generate list of all the settings in the Typography section.
 		 */
-		$settings     = [];
+		$settings            = [];
+		$typography_controls = $this->get_typography_controls();
+		$extra_controls      = call_user_func_array( 'array_merge', wp_list_pluck( $typography_controls, 'choices' ) );
+
 		$all_controls = array_merge(
-			$this->get_typography_controls(),
-			$this->get_typography_extra_controls(),
-			$this->get_typography_extra_controls( false )
+			$typography_controls,
+			$extra_controls
 		);
 
 		foreach ( $all_controls as $control ) {
@@ -411,7 +413,7 @@ class Controls extends Module_Base {
 		 */
 		$controls = [];
 
-		foreach ( $all_controls as $control ) {
+		foreach ( $typography_controls as $control ) {
 			$controls[ $control['id'] ] = new Google_Fonts_Control(
 				$this->wp_customize,
 				$this->prepare_option_name( $control['id'] ),
@@ -423,6 +425,20 @@ class Controls extends Module_Base {
 					'choices'  => ( ! empty( $control['choices'] ) ) ? $control['choices'] : [],
 				]
 			);
+
+			foreach ( $control['choices'] as $choice ) {
+				$controls[ $choice['id'] ] = new Google_Fonts_Control(
+					$this->wp_customize,
+					$this->prepare_option_name( $choice['id'] ),
+					[
+						'section'  => 'typography',
+						'priority' => 10,
+						'label'    => $choice['label'],
+						'css_vars' => $choice['css_vars'],
+						'choices'  => ( ! empty( $choice['choices'] ) ) ? $choice['choices'] : [],
+					]
+				);
+			}
 		}
 
 		$this->add_controls( $controls );
@@ -766,35 +782,28 @@ class Controls extends Module_Base {
 
 		// Get the font families used.
 		foreach ( $this->get_typography_controls() as $control ) {
-			$type           = 'head_font_family' === $control['id'] ? 'head' : 'body';
-			$fonts[ $type ] = [
+			$fonts[ $control['id'] ] = [
 				'family'   => $this->get_option( $control['id'] ),
 				'variants' => [],
 			];
 		}
 
-		// Get the extra font controls.
-		$typography_extra_controls = array_merge(
-			$this->get_typography_extra_controls(),
-			$this->get_typography_extra_controls( false )
-		);
-
 		// Get the variant/weight used for each font control.
-		foreach ( $typography_extra_controls as $control ) {
-			$value  = json_decode( $this->get_option( $control['id'] ), true );
-			$weight = 'regular';
+		foreach ( $this->get_typography_controls() as $c ) {
+			$variants = [];
+			foreach ( $c['choices'] as $control ) {
+				$value = json_decode( $this->get_option( $control['id'] ), true );
 
-			if ( ! empty( $value ) && ! empty( $value['weight'] ) ) {
-				$weight = $value['weight'];
-			} else {
-				$weight = $control['weight']['default'];
-			}
+				if ( ! empty( $value ) && ! empty( $value['weight'] ) ) {
+					$weight = $value['weight'];
+				} else {
+					$weight = $control['weight']['default'];
+				}
 
-			if ( false !== strpos( $control['id'], 'headline_' ) ) {
-				$fonts['head']['variants'][] = $weight;
-			} else {
-				$fonts['body']['variants'][] = $weight;
+				$variants[] = $weight;
+
 			}
+			$fonts[ $c['id'] ]['variants'] = $variants;
 		}
 
 		foreach ( $fonts as $font ) {
@@ -891,7 +900,8 @@ class Controls extends Module_Base {
 			$color_vars[] = esc_html( "--mdc-theme-surface-mix-12: $mix_12;" );
 		}
 
-		foreach ( $this->get_typography_controls() as $control ) {
+		$typography_controls = $this->get_typography_controls();
+		foreach ( $typography_controls as $control ) {
 			$value = $this->get_option( $control['id'] );
 
 			$fallback = 'sans-serif';
@@ -913,10 +923,10 @@ class Controls extends Module_Base {
 			}
 		}
 
-		$typography_extra_controls = array_merge(
-			$this->get_typography_extra_controls(),
-			$this->get_typography_extra_controls( false )
-		);
+		$typography_extra_controls = wp_list_pluck( $typography_controls, 'choices' );
+
+		// Merge all controls.
+		$typography_extra_controls = call_user_func_array( 'array_merge', $typography_extra_controls );
 
 		foreach ( $typography_extra_controls as $control ) {
 			$value = json_decode( $this->get_option( $control['id'] ), true );
@@ -1095,7 +1105,10 @@ class Controls extends Module_Base {
 				'on_background_color_dark'     => '#ffffff',
 				'footer_color'                 => '#ffffff',
 				'on_footer_color'              => '#000000',
-				'head_font_family'             => 'Roboto',
+				'display_font_family'          => 'Roboto',
+				'headline_font_family'         => 'Roboto',
+				'title_font_family'            => 'Roboto',
+				'label_font_family'            => 'Roboto',
 				'body_font_family'             => 'Roboto',
 				'global_radius'                => '4',
 				'button_radius'                => '4',
@@ -1130,7 +1143,10 @@ class Controls extends Module_Base {
 				'on_background_color'         => '#000000',
 				'footer_color'                => '#ffffff',
 				'on_footer_color'             => '#000000',
-				'head_font_family'            => 'Raleway',
+				'display_font_family'         => 'Raleway',
+				'headline_font_family'        => 'Raleway',
+				'title_font_family'           => 'Raleway',
+				'label_font_family'           => 'Raleway',
 				'body_font_family'            => 'Raleway',
 				'global_radius'               => '16',
 				'button_radius'               => '16',
@@ -1165,7 +1181,10 @@ class Controls extends Module_Base {
 				'on_background_color'         => '#000000',
 				'footer_color'                => '#ffffff',
 				'on_footer_color'             => '#000000',
-				'head_font_family'            => 'Merriweather',
+				'display_font_family'         => 'Merriweather',
+				'headline_font_family'        => 'Merriweather',
+				'title_font_family'           => 'Merriweather',
+				'label_font_family'           => 'Merriweather',
 				'body_font_family'            => 'Merriweather',
 				'global_radius'               => '0',
 				'button_radius'               => '0',
@@ -1200,7 +1219,10 @@ class Controls extends Module_Base {
 				'on_background_color'         => '#442c2e',
 				'footer_color'                => '#fff1ee',
 				'on_footer_color'             => '#442c2e',
-				'head_font_family'            => 'Rubik',
+				'display_font_family'         => 'Rubik',
+				'headline_font_family'        => 'Rubik',
+				'title_font_family'           => 'Rubik',
+				'label_font_family'           => 'Rubik',
 				'body_font_family'            => 'Rubik',
 				'global_radius'               => '8',
 				'button_radius'               => '8',
@@ -1308,40 +1330,31 @@ class Controls extends Module_Base {
 	 * @return array
 	 */
 	public function get_typography_controls() {
-		return [
-			[
-				'id'       => 'head_font_family',
-				'label'    => __( 'Headlines & Subtitles', 'material-design' ),
-				'css_vars' => [
-					'family' => [
-						'--mdc-typography-headline1-font-family',
-						'--mdc-typography-headline2-font-family',
-						'--mdc-typography-headline3-font-family',
-						'--mdc-typography-headline4-font-family',
-						'--mdc-typography-headline5-font-family',
-						'--mdc-typography-headline6-font-family',
-						'--mdc-typography-subtitle1-font-family',
-						'--mdc-typography-subtitle2-font-family',
-					],
-				],
-				'choices'  => $this->get_typography_extra_controls(),
-			],
-			[
-				'id'       => 'body_font_family',
-				'label'    => __( 'Body & Captions', 'material-design' ),
-				'css_vars' => [
-					'family' => [
-						'--mdc-typography-font-family',
-						'--mdc-typography-body1-font-family',
-						'--mdc-typography-body2-font-family',
-						'--mdc-typography-caption-font-family',
-						'--mdc-typography-button-font-family',
-						'--mdc-typography-overline-font-family',
-					],
-				],
-				'choices'  => $this->get_typography_extra_controls( false ),
-			],
+		$default_fonts = [
+			'display'  => 'Roboto',
+			'headline' => 'Roboto',
+			'title'    => 'Roboto Medium',
+			'label'    => 'Roboto Medium',
+			'body'     => 'Roboto Medium',
 		];
+
+		$controls = [];
+		foreach ( $default_fonts as $base_key => $default_font ) {
+			$controls[] = [
+				'id'       => sprintf( '%s_font_family', $base_key ),
+				'label'    => ucfirst( $base_key ),
+				'css_vars' => [
+					'family' => [
+						sprintf( '--md-sys-typescale-%s-large-font', $base_key ),
+						sprintf( '--md-sys-typescale-%s-medium-font', $base_key ),
+						sprintf( '--md-sys-typescale-%s-small-font', $base_key ),
+					],
+				],
+				'choices'  => $this->get_typography_extra_controls( $base_key ),
+			];
+		}
+
+		return $controls;
 	}
 
 	/**
@@ -1641,142 +1654,202 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Get tracking controls.
+	 *
+	 * @param mixed $args Customized values.
+	 *
+	 * @return array Values to use in control.
+	 */
+	public function get_tracking_controls( $args ) {
+		$args = wp_parse_args(
+			$args,
+			[
+				'label'   => __( 'Letter spacing', 'material-design' ),
+				'type'    => 'number',
+				'min'     => -5,
+				'default' => 0,
+				'max'     => 64,
+			]
+		);
+
+		return $args;
+	}
+
+	/**
+	 * Get tracking controls.
+	 *
+	 * @param mixed $args Customized values.
+	 *
+	 * @return array Values to use in control.
+	 */
+	public function get_line_height_controls( $args ) {
+		$args = wp_parse_args(
+			$args,
+			[
+				'label'   => __( 'Line height', 'material-design' ),
+				'type'    => 'number',
+				'min'     => 0,
+				'default' => 0,
+				'max'     => 64,
+			]
+		);
+
+		return $args;
+	}
+
+	/**
 	 * Build typography size and weight controls.
 	 *
-	 * @param bool $headlines Whether or not this are headlines.
+	 * @param string $token Token name like Display, Headline, Title etc..
 	 *
 	 * @return array Values for controllers.
 	 */
-	public function get_typography_extra_controls( $headlines = true ) {
+	public function get_typography_extra_controls( $token ) {
 		$controls = [];
 
-		if ( $headlines ) {
-			$default_sizes   = [ 96, 60, 48, 34, 24, 20 ];
-			$default_weights = [
-				'100',
-				'100',
-				'regular',
-				'regular',
-				'regular',
-				'500',
+		$default_fonts_size = [
+			'display'  => [
+				'large'  => 57,
+				'medium' => 45,
+				'small'  => 36,
+			],
+			'headline' => [
+				'large'  => 32,
+				'medium' => 28,
+				'small'  => 24,
+			],
+			'title'    => [
+				'large'  => 22,
+				'medium' => 16,
+				'small'  => 14,
+			],
+			'label'    => [
+				'large'  => 14,
+				'medium' => 12,
+				'small'  => 11,
+			],
+			'body'     => [
+				'large'  => 16,
+				'medium' => 14,
+				'small'  => 12,
+			],
+		];
+
+		$default_tracking = [
+			'title' => [
+				'medium' => 0.15,
+				'small'  => 0.1,
+			],
+			'label' => [
+				'large'  => 0.1,
+				'medium' => 0.5,
+				'small'  => 0.5,
+			],
+			'body'  => [
+				'large'  => 0.15,
+				'medium' => 0.25,
+				'small'  => 0.4,
+			],
+		];
+
+		$default_weight = [
+			'display'  => [
+				'large'  => 400,
+				'medium' => 400,
+				'small'  => 400,
+			],
+			'headline' => [
+				'large'  => 400,
+				'medium' => 400,
+				'small'  => 400,
+			],
+			'title'    => [
+				'large'  => 400,
+				'medium' => 500,
+				'small'  => 500,
+			],
+			'label'    => [
+				'large'  => 500,
+				'medium' => 500,
+				'small'  => 500,
+			],
+			'body'     => [
+				'large'  => 400,
+				'medium' => 400,
+				'small'  => 400,
+			],
+		];
+
+		$default_line_height = [
+			'display'  => [
+				'large'  => 64,
+				'medium' => 52,
+				'small'  => 44,
+			],
+			'headline' => [
+				'large'  => 40,
+				'medium' => 36,
+				'small'  => 32,
+			],
+			'title'    => [
+				'large'  => 28,
+				'medium' => 24,
+				'small'  => 20,
+			],
+			'label'    => [
+				'large'  => 20,
+				'medium' => 16,
+				'small'  => 6,
+			],
+			'body'     => [
+				'large'  => 24,
+				'medium' => 20,
+				'small'  => 16,
+			],
+		];
+
+		$sub_tokens = [ 'large', 'medium', 'small' ];
+
+		foreach ( $sub_tokens as $sub_t ) {
+			$id         = sprintf( '%s_%s', $token, $sub_t );
+			$controls[] = [
+				'id'         => $id,
+				'setting'    => $this->prepare_option_name( $id ),
+				'css_vars'   => [
+					'lineHeight' => sprintf( '--md-sys-typescale-%s-%s-line-height', $token, $sub_t ),
+					'size'       => sprintf( '--md-sys-typescale-%s-%s-size', $token, $sub_t ),
+					'tracking'   => sprintf( '--md-sys-typescale-%s-%s-tracking', $token, $sub_t ),
+					'weight'     => sprintf( '--md-sys-typescale-%s-%s-weight', $token, $sub_t ),
+				],
+				'value'      => $this->get_option( $id ),
+				'label'      => sprintf(
+					/* translators: %1$s Token and %2$s Sub-token name. */
+					esc_html__( '%1$s %2$s', 'material-design' ),
+					ucfirst( $token ),
+					$sub_t
+				),
+				'size'       => $this->get_typography_size_controls(
+					[
+						'default' => $default_fonts_size[ $token ][ $sub_t ],
+						'max'     => 96,
+					]
+				),
+				'weight'     => $this->get_typography_weight_controls(
+					[
+						'default' => $default_weight[ $token ][ $sub_t ],
+					]
+				),
+				'lineHeight' => $this->get_line_height_controls(
+					[
+						'default' => $default_line_height[ $token ][ $sub_t ],
+					]
+				),
+				'tracking'   => $this->get_tracking_controls(
+					[
+						'default' => isset( $default_tracking[ $token ][ $sub_t ] ) ? $default_tracking[ $token ][ $sub_t ] : 0,
+					]
+				),
 			];
-
-			for ( $i = 1; $i < 7; $i ++ ) {
-				$id         = sprintf( 'headline_%s', $i );
-				$controls[] = [
-					'id'       => $id,
-					'setting'  => $this->prepare_option_name( $id ),
-					'css_vars' => [
-						'size'   => sprintf( '--mdc-typography-headline%s-font-size', $i ),
-						'weight' => sprintf( '--mdc-typography-headline%s-font-weight', $i ),
-						'style'  => sprintf( '--mdc-typography-headline%s-font-style', $i ),
-					],
-					'value'    => $this->get_option( $id ),
-					'label'    => sprintf(
-					/* translators: Number of heading to display */
-						esc_html__( 'Headline %s', 'material-design' ),
-						$i
-					),
-					'size'     => $this->get_typography_size_controls(
-						[
-							'default' => intval( $default_sizes[ $i - 1 ] ),
-							'max'     => 96,
-						]
-					),
-					'weight'   => $this->get_typography_weight_controls(
-						[
-							'default' => $default_weights[ $i - 1 ],
-						]
-					),
-				];
-			}
-
-			$default_sizes   = [ 16, 14 ];
-			$default_weights = [
-				'regular',
-				'500',
-			];
-
-			for ( $i = 1; $i < 3; $i ++ ) {
-				$id         = sprintf( 'subtitle_%s', $i );
-				$controls[] = [
-					'id'       => $id,
-					'setting'  => $this->prepare_option_name( $id ),
-					'css_vars' => [
-						'size'   => sprintf( '--mdc-typography-subtitle%s-font-size', $i ),
-						'weight' => sprintf( '--mdc-typography-subtitle%s-font-weight', $i ),
-						'style'  => sprintf( '--mdc-typography-subtitle%s-font-style', $i ),
-					],
-					'value'    => $this->get_option( $id ),
-					'label'    => sprintf(
-					/* translators: Number of heading to display */
-						esc_html__( 'Subtitle %s', 'material-design' ),
-						$i
-					),
-					'size'     => $this->get_typography_size_controls(
-						[
-							'default' => intval( $default_sizes[ $i - 1 ] ),
-						]
-					),
-					'weight'   => $this->get_typography_weight_controls(
-						[
-							'default' => $default_weights[ $i - 1 ],
-						]
-					),
-				];
-			}
-		} else {
-			$keys = [
-				'body1'    => [
-					'label'  => __( 'Body 1', 'material-design' ),
-					'size'   => 16,
-					'weight' => 'regular',
-				],
-				'body2'    => [
-					'label'  => __( 'Body 2', 'material-design' ),
-					'size'   => 14,
-					'weight' => 'regular',
-				],
-				'button'   => [
-					'label'  => __( 'Button', 'material-design' ),
-					'size'   => 14,
-					'weight' => '500',
-				],
-				'caption'  => [
-					'label'  => __( 'Caption', 'material-design' ),
-					'size'   => 12,
-					'weight' => 'regular',
-				],
-				'overline' => [
-					'label'  => __( 'Overline', 'material-design' ),
-					'size'   => 10,
-					'weight' => 'regular',
-				],
-			];
-
-			foreach ( $keys as $key => $settings ) {
-				$controls[] = [
-					'id'       => esc_html( $key ),
-					'setting'  => $this->prepare_option_name( $key ),
-					'label'    => esc_html( $settings['label'] ),
-					'css_vars' => [
-						'size'   => sprintf( '--mdc-typography-%s-font-size', $key ),
-						'weight' => sprintf( '--mdc-typography-%s-font-weight', $key ),
-						'style'  => sprintf( '--mdc-typography-%s-font-style', $key ),
-					],
-					'value'    => $this->get_option( $key ),
-					'size'     => $this->get_typography_size_controls(
-						[
-							'default' => intval( $settings['size'] ),
-						]
-					),
-					'weight'   => $this->get_typography_weight_controls(
-						[
-							'default' => $settings['weight'],
-						]
-					),
-				];
-			}
 		}
 
 		return $controls;
