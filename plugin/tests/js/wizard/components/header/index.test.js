@@ -36,7 +36,7 @@ describe( 'Header', () => {
 		const { container } = setup();
 
 		expect(
-			container.querySelectorAll( '.mdc-typography--headline5' )
+			container.querySelectorAll( '.title-large' )
 		).toHaveLength( 1 );
 	} );
 
@@ -44,7 +44,7 @@ describe( 'Header', () => {
 		const { container } = setup();
 
 		expect(
-			container.querySelector( '.mdc-typography--headline5' )
+			container.querySelector( '.title-large' )
 		).toHaveTextContent( 'Material Design for WordPress' );
 	} );
 

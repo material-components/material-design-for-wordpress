@@ -30,12 +30,12 @@ $post_date  = isset( $attributes['displayPostDate'] ) ? $attributes['displayPost
 ?>
 
 <div class="single-post-card__primary">
-	<h2 class="single-post-card__title mdc-typography mdc-typography--headline6">
+	<h2 class="single-post-card__title mdc-typography title-medium">
 		<div><?php echo esc_html( get_the_title() ); ?></div>
 	</h2>
 
 	<?php if ( ! empty( $post_date ) ) : ?>
-		<h3 class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2">
+		<h3 class="single-post-card__subtitle mdc-typography label-medium">
 			<time>
 			<?php echo esc_html( get_the_date() ); ?>
 			</time>

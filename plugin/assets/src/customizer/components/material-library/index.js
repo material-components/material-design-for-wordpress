@@ -119,11 +119,11 @@ const MaterialLibrary = ( {
 			/>
 
 			<div id="material-library-preview">
-				<h2 className="mdc-typography--headline2">
+				<h2 className="headline-large">
 					{ __( 'Material Components', 'material-design' ) }
 				</h2>
 				<section>
-					<h3 className="mdc-typography--headline3">
+					<h3 className="headline-medium">
 						{ __( 'Blocks', 'material-design' ) }
 					</h3>
 					<p>
@@ -157,7 +157,7 @@ const MaterialLibrary = ( {
 				<hr />
 
 				<section style={ { marginTop: '100px' } }>
-					<h3 className="mdc-typography--headline3">
+					<h3 className="headline-medium">
 						{ __( 'Components', 'material-design' ) }
 					</h3>
 					<p>

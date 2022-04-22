@@ -33,7 +33,7 @@ $class_name     = "single-post-card__secondary-{$layout}";
 $post_content   = wp_trim_words( get_the_excerpt(), $content_length, ' [&hellip;]' );
 
 if ( ! empty( $show_content ) && ! empty( $post_content ) ) : ?>
-	<div class="single-post-card__secondary mdc-typography mdc-typography--body2 <?php echo esc_attr( $class_name ); ?>">
+	<div class="single-post-card__secondary mdc-typography body-medium <?php echo esc_attr( $class_name ); ?>">
 		<p>
 			<?php echo wp_kses_post( $post_content ); ?>
 		</p>

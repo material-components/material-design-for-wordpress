@@ -34,7 +34,7 @@ import { RawHTML } from '@wordpress/element';
  */
 const CardHeader = ( { titleTrimmed, displayPostDate, post, dateFormat } ) => (
 	<div className="single-post-card__primary">
-		<h2 className="single-post-card__title mdc-typography mdc-typography--headline6">
+		<h2 className="single-post-card__title mdc-typography title-medium">
 			{ titleTrimmed ? (
 				<RawHTML>{ titleTrimmed }</RawHTML>
 			) : (

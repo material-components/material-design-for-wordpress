@@ -194,6 +194,7 @@ export const COLOR_MODES = {
 						return;
 					}
 
+					// Todo update unit for letter spacing.
 					if ( 'size' === rule ) {
 						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
 					} else if ( 'weight' === rule ) {

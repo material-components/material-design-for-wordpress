@@ -49,7 +49,7 @@ const CardPrimary = ( {
 				{ displayTitle && (
 					<RichText
 						tagName="h2"
-						className="material-design-card__title mdc-typography mdc-typography--headline6"
+						className="material-design-card__title mdc-typography title-medium"
 						value={ title }
 						onChange={ value =>
 							setter( 'title', value, cardIndex )
@@ -78,7 +78,7 @@ const CardPrimary = ( {
 		) : (
 			<>
 				{ displayTitle && (
-					<h2 className="material-design-card__title mdc-typography mdc-typography--headline6">
+					<h2 className="material-design-card__title mdc-typography title-medium">
 						{ title }
 					</h2>
 				) }

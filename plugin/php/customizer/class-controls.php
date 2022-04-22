@@ -939,13 +939,15 @@ class Controls extends Module_Base {
 						continue;
 					}
 
+					// Todo update unit for letter spacing.
+
 					if ( 'size' === $type ) {
 						$font_vars[] = sprintf(
 							'%s: %spx !important;',
 							esc_html( $var ),
 							esc_html( $value[ $type ] )
 						);
-					} else {
+					} elseif ( 'weight' === $type ) {
 						$font_vars[] = sprintf(
 							'%s: %s !important;',
 							esc_html( $var ),
@@ -960,6 +962,12 @@ class Controls extends Module_Base {
 							'%s: %s !important;',
 							esc_html( $control['css_vars']['style'] ),
 							esc_html( $font_style )
+						);
+					} else {
+						$font_vars[] = sprintf(
+							'%s: %s !important;',
+							esc_html( $var ),
+							esc_html( $value[ $type ] )
 						);
 					}
 				}

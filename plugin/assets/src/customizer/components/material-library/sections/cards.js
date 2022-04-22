@@ -27,7 +27,7 @@ import IconButtonLink from '../common/icon-button-link';
 
 const Cards = ( { radius, buttonRadius } ) => (
 	<div>
-		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+		<h4 className="headline-small" style={ { margin: 0 } }>
 			{ __( 'Cards', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/cards"></IconButtonLink>
@@ -59,7 +59,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 					></div>
 					<div style={ { padding: '16px' } }>
 						<h2
-							className="mdc-typography mdc-typography--headline6 material-design-card__title"
+							className="mdc-typography title-medium material-design-card__title"
 							style={ { margin: 0, marginBottom: '5px' } }
 						>
 							{ __( 'Our Changing Planet', 'material-design' ) }
@@ -77,7 +77,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 						</h3>
 					</div>
 					<div
-						className="mdc-typography mdc-typography--body2"
+						className="mdc-typography body-medium"
 						style={ { padding: '16px' } }
 					>
 						{ __(

@@ -64,11 +64,11 @@ class Walker_Comment extends \Walker_Comment {
 				</div><!-- .comment-author-avatar -->
 
 				<div class="comment-content">
-					<h3 class="comment-author vcard mdc-typography--body1">
+					<h3 class="comment-author vcard body-large">
 						<?php echo get_comment_author_link( $comment ); ?>
 					</h3>
 
-					<div class="comment-meta mdc-typography--body2">
+					<div class="comment-meta display-medium">
 						<time datetime="<?php comment_time( 'c' ); ?>">
 							<?php
 								printf(
@@ -83,7 +83,7 @@ class Walker_Comment extends \Walker_Comment {
 					</div><!-- .comment-meta -->
 
 					<?php if ( 0 === absint( $comment->comment_approved ) ) : ?>
-						<em class="comment-awaiting-moderation mdc-typography--caption">
+						<em class="comment-awaiting-moderation display-small">
 							<?php echo esc_html( $moderation_note ); ?>
 						</em>
 					<?php endif; ?>

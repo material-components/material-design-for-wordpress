@@ -72,7 +72,7 @@ const Navigation = () => {
 	return (
 		<div className="material-gsm__navigation mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
 			<div className="material-gsm__heading">
-				<div className="mdc-typography--headline6">
+				<div className="title-medium">
 					{ __( 'Getting Started', 'material-design' ) }
 				</div>
 			</div>

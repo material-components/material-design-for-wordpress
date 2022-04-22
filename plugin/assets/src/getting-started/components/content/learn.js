@@ -26,7 +26,7 @@ export const Learn = () => {
 	return (
 		<Fragment>
 			<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
-				<h2 className="material-gsm__content-title mdc-typography--headline2">
+				<h2 className="material-gsm__content-title headline-large">
 					{ __(
 						'Learn More about Material Design',
 						'material-design'

@@ -33,7 +33,7 @@ if ( is_front_page() && is_home() ) :
 	?>
 	<div class="site-title__wrapper">
 		<div class="site-title__row">
-			<h1 class="site-title mdc-typography mdc-typography--headline6">
+			<h1 class="site-title mdc-typography title-medium">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 			</h1>
 
@@ -43,14 +43,14 @@ if ( is_front_page() && is_home() ) :
 				<span class="screen-reader-text"><?php esc_html_e( 'Close drawer', 'material-design-google' ); ?></span>
 			</button>
 		</div>
-		<div class="site-tagline mdc-typography--subtitle1"><?php bloginfo( 'description' ); ?></div>
+		<div class="site-tagline label-large"><?php bloginfo( 'description' ); ?></div>
 	</div>
 	<?php
 else :
 	?>
 	<div class="site-title__wrapper">
 		<div class="site-title__row">
-			<div class="site-title mdc-typography mdc-typography--headline6">
+			<div class="site-title mdc-typography title-medium">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 			</div>
 
@@ -60,7 +60,7 @@ else :
 				<span class="screen-reader-text"><?php esc_html_e( 'Close drawer', 'material-design-google' ); ?></span>
 			</button>
 		</div>
-		<div class="site-tagline mdc-typography--subtitle1"><?php bloginfo( 'description' ); ?></div>
+		<div class="site-tagline label-large"><?php bloginfo( 'description' ); ?></div>
 	</div>
 	<?php
 endif;
