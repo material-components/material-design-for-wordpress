@@ -194,9 +194,12 @@ export const COLOR_MODES = {
 						return;
 					}
 
-					// Todo update unit for letter spacing.
 					if ( 'size' === rule ) {
 						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
+					} else if ( 'tracking' === rule ) {
+						// Compute tracking to line-height.
+						const lineHeight = rules[ rule ] / ( rules.size || 16 );
+						styles += `${ typographyControls[ control ][ rule ] }: ${ lineHeight }rem !important;`;
 					} else if ( 'weight' === rule ) {
 						const fontStyle = /italic$/.test( rules[ rule ] )
 							? 'italic'

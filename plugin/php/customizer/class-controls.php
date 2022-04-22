@@ -939,8 +939,6 @@ class Controls extends Module_Base {
 						continue;
 					}
 
-					// Todo update unit for letter spacing.
-
 					if ( 'size' === $type ) {
 						$font_vars[] = sprintf(
 							'%s: %spx !important;',
@@ -962,6 +960,14 @@ class Controls extends Module_Base {
 							'%s: %s !important;',
 							esc_html( $control['css_vars']['style'] ),
 							esc_html( $font_style )
+						);
+					} elseif ( 'tracking' === $type ) {
+						$font_size   = isset( $value['size'] ) ? $value['size'] : 16;
+						$line_height = $value[ $type ] / $font_size;
+						$font_vars[] = sprintf(
+							'%s: %srem !important;',
+							esc_html( $var ),
+							esc_html( $line_height )
 						);
 					} else {
 						$font_vars[] = sprintf(
@@ -1672,11 +1678,11 @@ class Controls extends Module_Base {
 		$args = wp_parse_args(
 			$args,
 			[
-				'label'   => __( 'Letter spacing', 'material-design' ),
+				'label'   => __( 'Tracking (Letter spacing)', 'material-design' ),
 				'type'    => 'number',
 				'min'     => -5,
 				'default' => 0,
-				'max'     => 64,
+				'max'     => 100,
 			]
 		);
 
