@@ -16,13 +16,13 @@
 
 /**
  * Material typography styles for html elements.
- * see https://github.com/material-components/material-components-web/blob/master/packages/mdc-typography/_variables.scss#L57
+ * See https://github.com/material-foundation/material-tokens/blob/325df4f3d53fa748298d9f3650ed9cdb951f8af4/css/typography.css
  **/
-@mixin selector-typography h1, headline1, 6, 6, 300;
-@mixin selector-typography h2, headline2, 3.75, 3.75, 300;
-@mixin selector-typography h3, headline3, 3, 3.125, 400;
-@mixin selector-typography h4, headline4, 2.125, 2.5, 400;
-@mixin selector-typography h5, headline5, 1.5, 2, 400;
-@mixin selector-typography h6, headline6, 1.25, 2, 500;
-@mixin selector-typography p, body1, 1, 1.5, 400;
-@mixin selector-typography figcaption, subtitle1, 1, 1.75, 400;
+@mixin selector-typography h1, display-small, 6, 6, 300;
+@mixin selector-typography h2, headline-large, 3.75, 3.75, 300;
+@mixin selector-typography h3, headline-medium, 3, 3.125, 400;
+@mixin selector-typography h4, headline-small, 2.125, 2.5, 400;
+@mixin selector-typography h5, title-large, 1.5, 2, 400;
+@mixin selector-typography h6, title-medium, 1.25, 2, 500;
+@mixin selector-typography p, body-large, 1, 1.5, 400;
+@mixin selector-typography figcaption, label-large, 1, 1.75, 400;
