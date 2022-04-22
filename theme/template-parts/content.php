@@ -44,7 +44,7 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 				<div class="post-card__primary">
 					<?php if ( is_sticky() ) : ?>
 						<h2
-							class="post-card__title mdc-typography title-medium"
+							class="post-card__title mdc-typography title-large"
 							aria-label="
 							<?php
 								printf(
@@ -59,7 +59,7 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 							<?php the_title(); ?>
 						</h2>
 					<?php else : ?>
-						<?php the_title( '<h2 class="post-card__title mdc-typography title-medium">', '</h2>' ); ?>
+						<?php the_title( '<h2 class="post-card__title mdc-typography title-large">', '</h2>' ); ?>
 					<?php endif; ?>
 
 					<?php if ( ! empty( $show_date ) ) : ?>

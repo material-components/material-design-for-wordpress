@@ -116,7 +116,7 @@ const Updater = ( {
 			<div className="mdc-layout-grid">
 				<div className="mdc-layout-grid__inner">
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle">
-						<h3 className="title-medium">{ title }</h3>
+						<h3 className="title-large">{ title }</h3>
 
 						{ isDisabled && (
 							<p

@@ -17,7 +17,7 @@
 /* stylelint-disable */
 
 @define-mixin fontvars $type, $font-size: 1, $line-height: 1.5, $font-weight: 400, $tracking: 0.25, $font-style: normal {
-	--md-sys-typescale-$(type)-font: calc($font-size * 16)px;
+	--md-sys-typescale-$(type)-size: calc($font-size * 16)px;
 	--md-sys-typescale-$(type)-line-height: $line-height;
 	--md-sys-typescale-$(type)-style: $font-style;
 	--md-sys-typescale-$(type)-weight: $font-weight;

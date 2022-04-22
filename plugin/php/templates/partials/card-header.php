@@ -30,7 +30,7 @@ $post_date  = isset( $attributes['displayPostDate'] ) ? $attributes['displayPost
 ?>
 
 <div class="single-post-card__primary">
-	<h2 class="single-post-card__title mdc-typography title-medium">
+	<h2 class="single-post-card__title mdc-typography title-large">
 		<div><?php echo esc_html( get_the_title() ); ?></div>
 	</h2>
 

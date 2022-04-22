@@ -38,7 +38,7 @@ const Integrations = () => {
 
 	return (
 		<div className="material-settings__integrations">
-			<h2 className="title-medium">
+			<h2 className="title-large">
 				{ __( 'Integrations', 'material-design' ) }
 			</h2>
 
@@ -90,7 +90,7 @@ const Integrations = () => {
 				) ) }
 			</div>
 
-			<h2 className="title-medium">
+			<h2 className="title-large">
 				{ __( 'Google API Key', 'material-design' ) }
 			</h2>
 

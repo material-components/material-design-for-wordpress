@@ -33,7 +33,7 @@ if ( is_front_page() && is_home() ) :
 	?>
 	<div class="site-title__wrapper">
 		<div class="site-title__row">
-			<h1 class="site-title mdc-typography title-medium">
+			<h1 class="site-title mdc-typography title-large">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 			</h1>
 
@@ -50,7 +50,7 @@ else :
 	?>
 	<div class="site-title__wrapper">
 		<div class="site-title__row">
-			<div class="site-title mdc-typography title-medium">
+			<div class="site-title mdc-typography title-large">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 			</div>
 
