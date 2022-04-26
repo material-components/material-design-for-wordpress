@@ -27,7 +27,7 @@ Object {
       id="a11y-speak-polite"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     >
-       Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards.
+       Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards. 
     </div>
     <div>
       <div
@@ -349,7 +349,7 @@ Object {
             class="components-notice__content"
           >
             <p>
-              Overrides applies to this Card Block. Change
+              Overrides applies to this Card Block. Change 
               <a
                 href="http://example.com/shape"
                 rel="noreferrer noopener"
@@ -1250,7 +1250,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1269,7 +1269,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1331,7 +1331,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1350,7 +1350,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1412,7 +1412,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1431,7 +1431,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1790,7 +1790,7 @@ Object {
           class="components-notice__content"
         >
           <p>
-            Overrides applies to this Card Block. Change
+            Overrides applies to this Card Block. Change 
             <a
               href="http://example.com/shape"
               rel="noreferrer noopener"
@@ -2691,7 +2691,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2710,7 +2710,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2772,7 +2772,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2791,7 +2791,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2853,7 +2853,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2872,7 +2872,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -3313,7 +3313,7 @@ Object {
             class="components-notice__content"
           >
             <p>
-              Overrides applies to this Card Block. Change
+              Overrides applies to this Card Block. Change 
               <a
                 href="http://example.com/shape"
                 rel="noreferrer noopener"
@@ -4212,7 +4212,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4231,7 +4231,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -4287,7 +4287,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4306,7 +4306,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -4362,7 +4362,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4381,7 +4381,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -4740,7 +4740,7 @@ Object {
           class="components-notice__content"
         >
           <p>
-            Overrides applies to this Card Block. Change
+            Overrides applies to this Card Block. Change 
             <a
               href="http://example.com/shape"
               rel="noreferrer noopener"
@@ -5639,7 +5639,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5658,7 +5658,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -5714,7 +5714,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5733,7 +5733,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -5789,7 +5789,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5808,7 +5808,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -5927,7 +5927,7 @@ Object {
       id="a11y-speak-polite"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     >
-       Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards.
+       Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards. 
     </div>
     <div>
       <div
@@ -6249,7 +6249,7 @@ Object {
             class="components-notice__content"
           >
             <p>
-              Overrides applies to this Card Block. Change
+              Overrides applies to this Card Block. Change 
               <a
                 href="http://example.com/shape"
                 rel="noreferrer noopener"
@@ -6811,7 +6811,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -6877,7 +6877,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -6943,7 +6943,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -7312,7 +7312,7 @@ Object {
           class="components-notice__content"
         >
           <p>
-            Overrides applies to this Card Block. Change
+            Overrides applies to this Card Block. Change 
             <a
               href="http://example.com/shape"
               rel="noreferrer noopener"
@@ -7874,7 +7874,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -7940,7 +7940,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -8006,7 +8006,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -8763,7 +8763,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                   className="components-notice__content"
                 >
                   <p>
-                    Overrides applies to this Card Block. Change
+                    Overrides applies to this Card Block. Change 
                     <a
                       href="http://example.com/shape"
                       rel="noreferrer noopener"
@@ -12449,7 +12449,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         className="material-design-card__primary"
                       >
                         <ForwardRef
-                          className="material-design-card__title mdc-typography--headline6"
+                          className="material-design-card__title title-large"
                           onChange={[Function]}
                           placeholder="Title goes here"
                           tagName="h2"
@@ -12458,7 +12458,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           <h2
                             aria-label="Title goes here"
                             aria-multiline="true"
-                            className="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                            className="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                             onInput={[Function]}
                             role="textbox"
                             style={
@@ -12502,7 +12502,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       supportingText="Supporting text #1"
                     >
                       <ForwardRef
-                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                         onChange={[Function]}
                         placeholder="Supporting text"
                         tagName="div"
@@ -12511,7 +12511,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         <div
                           aria-label="Supporting text"
                           aria-multiline="true"
-                          className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                          className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                           onInput={[Function]}
                           role="textbox"
                           style={
@@ -12768,7 +12768,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         className="material-design-card__primary"
                       >
                         <ForwardRef
-                          className="material-design-card__title mdc-typography--headline6"
+                          className="material-design-card__title title-large"
                           onChange={[Function]}
                           placeholder="Title goes here"
                           tagName="h2"
@@ -12777,7 +12777,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           <h2
                             aria-label="Title goes here"
                             aria-multiline="true"
-                            className="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
+                            className="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                             onInput={[Function]}
                             role="textbox"
                             style={
@@ -12821,7 +12821,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       supportingText="Supporting text #2"
                     >
                       <ForwardRef
-                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                         onChange={[Function]}
                         placeholder="Supporting text"
                         tagName="div"
@@ -12830,7 +12830,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         <div
                           aria-label="Supporting text"
                           aria-multiline="true"
-                          className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                          className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                           onInput={[Function]}
                           role="textbox"
                           style={

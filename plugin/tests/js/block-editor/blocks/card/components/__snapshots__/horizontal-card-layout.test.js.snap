@@ -46,7 +46,7 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
@@ -116,7 +116,7 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
@@ -267,7 +267,7 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
@@ -299,7 +299,7 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
@@ -411,7 +411,7 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
@@ -480,7 +480,7 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
@@ -626,7 +626,7 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
@@ -691,7 +691,7 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>

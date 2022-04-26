@@ -16,7 +16,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -48,7 +48,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title

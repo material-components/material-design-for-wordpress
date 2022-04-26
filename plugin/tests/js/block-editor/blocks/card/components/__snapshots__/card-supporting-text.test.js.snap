@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media--body2"
+        class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
       >
         Test supporting text
       </div>
@@ -14,7 +14,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+      class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
     >
       Test supporting text
     </div>
@@ -81,7 +81,7 @@ Object {
       <div
         aria-label="Supporting text"
         aria-multiline="true"
-        class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+        class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
         role="textbox"
         style="white-space: pre-wrap;"
       >
@@ -93,7 +93,7 @@ Object {
     <div
       aria-label="Supporting text"
       aria-multiline="true"
-      class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+      class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
       role="textbox"
       style="white-space: pre-wrap;"
     >

@@ -54,7 +54,7 @@ Object {
                     class="material-design-card__primary"
                   >
                     <h2
-                      class="material-design-card__title mdc-typography--headline6"
+                      class="material-design-card__title title-large"
                     >
                       Title goes here
                     </h2>
@@ -65,7 +65,7 @@ Object {
                     </h3>
                   </div>
                   <div
-                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   >
                     Supporting text
                   </div>
@@ -124,7 +124,7 @@ Object {
                   class="material-design-card__primary"
                 >
                   <h2
-                    class="material-design-card__title mdc-typography--headline6"
+                    class="material-design-card__title title-large"
                   >
                     Title goes here
                   </h2>
@@ -135,7 +135,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                 >
                   Supporting text
                 </div>
@@ -274,7 +274,7 @@ Object {
                     class="material-design-card__primary"
                   >
                     <h2
-                      class="material-design-card__title mdc-typography--headline6"
+                      class="material-design-card__title title-large"
                     >
                       Title goes here
                     </h2>
@@ -285,7 +285,7 @@ Object {
                     </h3>
                   </div>
                   <div
-                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   >
                     Supporting text
                   </div>
@@ -343,7 +343,7 @@ Object {
                   class="material-design-card__primary"
                 >
                   <h2
-                    class="material-design-card__title mdc-typography--headline6"
+                    class="material-design-card__title title-large"
                   >
                     Title goes here
                   </h2>
@@ -354,7 +354,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
+                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                 >
                   Supporting text
                 </div>
@@ -493,7 +493,7 @@ Object {
                     class="material-design-card__primary"
                   >
                     <h2
-                      class="material-design-card__title mdc-typography--headline6"
+                      class="material-design-card__title title-large"
                     >
                       Title goes here
                     </h2>
@@ -557,7 +557,7 @@ Object {
                   class="material-design-card__primary"
                 >
                   <h2
-                    class="material-design-card__title mdc-typography--headline6"
+                    class="material-design-card__title title-large"
                   >
                     Title goes here
                   </h2>

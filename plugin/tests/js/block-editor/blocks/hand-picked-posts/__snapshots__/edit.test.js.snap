@@ -349,7 +349,7 @@ Object {
             class="components-notice__content"
           >
             <p>
-              Overrides applies to this Card Block. Change
+              Overrides applies to this Card Block. Change 
               <a
                 rel="noreferrer noopener"
                 target="_blank"
@@ -1486,7 +1486,7 @@ Object {
           class="components-notice__content"
         >
           <p>
-            Overrides applies to this Card Block. Change
+            Overrides applies to this Card Block. Change 
             <a
               rel="noreferrer noopener"
               target="_blank"
@@ -2383,7 +2383,7 @@ Object {
       id="a11y-speak-polite"
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     >
-       Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards.
+       Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards. 
     </div>
     <div>
       <div
@@ -2705,7 +2705,7 @@ Object {
             class="components-notice__content"
           >
             <p>
-              Overrides applies to this Card Block. Change
+              Overrides applies to this Card Block. Change 
               <a
                 rel="noreferrer noopener"
                 target="_blank"
@@ -3418,7 +3418,7 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title mdc-typography--headline6"
+                    class="single-post-card__title title-large"
                   >
                     <div>
                       Example 1 Title
@@ -3435,7 +3435,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
                 >
                   <div>
                     Example 1 excerpt
@@ -3485,7 +3485,7 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title mdc-typography--headline6"
+                    class="single-post-card__title title-large"
                   >
                     <div>
                       Example 2 Title
@@ -3502,7 +3502,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
                 >
                   <div>
                     Example 2 excerpt
@@ -3859,7 +3859,7 @@ Object {
           class="components-notice__content"
         >
           <p>
-            Overrides applies to this Card Block. Change
+            Overrides applies to this Card Block. Change 
             <a
               rel="noreferrer noopener"
               target="_blank"
@@ -4572,7 +4572,7 @@ Object {
                 class="single-post-card__primary"
               >
                 <h2
-                  class="single-post-card__title mdc-typography--headline6"
+                  class="single-post-card__title title-large"
                 >
                   <div>
                     Example 1 Title
@@ -4589,7 +4589,7 @@ Object {
                 </h3>
               </div>
               <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
               >
                 <div>
                   Example 1 excerpt
@@ -4639,7 +4639,7 @@ Object {
                 class="single-post-card__primary"
               >
                 <h2
-                  class="single-post-card__title mdc-typography--headline6"
+                  class="single-post-card__title title-large"
                 >
                   <div>
                     Example 2 Title
@@ -4656,7 +4656,7 @@ Object {
                 </h3>
               </div>
               <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
               >
                 <div>
                   Example 2 excerpt

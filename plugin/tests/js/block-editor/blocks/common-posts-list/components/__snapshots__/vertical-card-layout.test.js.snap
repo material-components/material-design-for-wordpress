@@ -16,7 +16,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -37,7 +37,7 @@ Object {
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
           >
             <div>
               This is a test excerpt
@@ -103,7 +103,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -124,7 +124,7 @@ Object {
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
         >
           <div>
             This is a test excerpt
@@ -247,7 +247,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -268,7 +268,7 @@ Object {
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
           >
             <div>
               This is a test excerpt
@@ -334,7 +334,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -355,7 +355,7 @@ Object {
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
         >
           <div>
             This is a test excerpt
@@ -478,7 +478,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -495,7 +495,7 @@ Object {
             </h3>
           </div>
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography body-medium"
           >
             <div>
               This is a test excerpt
@@ -561,7 +561,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -578,7 +578,7 @@ Object {
           </h3>
         </div>
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography body-medium"
         >
           <div>
             This is a test excerpt
@@ -708,7 +708,7 @@ Object {
                 class="single-post-card__primary"
               >
                 <h2
-                  class="single-post-card__title mdc-typography--headline6"
+                  class="single-post-card__title title-large"
                 >
                   <div>
                     Test Title
@@ -727,7 +727,7 @@ Object {
             </div>
           </div>
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography body-medium"
           >
             <div>
               This is a test excerpt
@@ -800,7 +800,7 @@ Object {
               class="single-post-card__primary"
             >
               <h2
-                class="single-post-card__title mdc-typography--headline6"
+                class="single-post-card__title title-large"
               >
                 <div>
                   Test Title
@@ -819,7 +819,7 @@ Object {
           </div>
         </div>
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-over-media mdc-typography body-medium"
         >
           <div>
             This is a test excerpt
@@ -946,7 +946,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -963,7 +963,7 @@ Object {
             </h3>
           </div>
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-under-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-under-media mdc-typography body-medium"
           >
             <div>
               This is a test excerpt
@@ -1033,7 +1033,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -1050,7 +1050,7 @@ Object {
           </h3>
         </div>
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-under-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-under-media mdc-typography body-medium"
         >
           <div>
             This is a test excerpt
@@ -1173,7 +1173,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -1253,7 +1253,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -1390,7 +1390,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -1422,7 +1422,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -1511,7 +1511,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -1532,7 +1532,7 @@ Object {
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
           >
             <div>
               This is a test a ...
@@ -1598,7 +1598,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -1619,7 +1619,7 @@ Object {
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
         >
           <div>
             This is a test a ...
@@ -1742,7 +1742,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -1759,7 +1759,7 @@ Object {
             </h3>
           </div>
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
           >
             <div>
               This is a test excerpt
@@ -1825,7 +1825,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -1842,7 +1842,7 @@ Object {
           </h3>
         </div>
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
         >
           <div>
             This is a test excerpt
@@ -1965,7 +1965,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -1982,7 +1982,7 @@ Object {
             </h3>
           </div>
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
           >
             <div>
               This is a test excerpt
@@ -2004,7 +2004,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -2021,7 +2021,7 @@ Object {
           </h3>
         </div>
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
         >
           <div>
             This is a test excerpt
@@ -2100,7 +2100,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -2121,7 +2121,7 @@ Object {
             style="background-image: url(http://example.com/test.jpg);"
           />
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
           >
             <div>
               This is a test excerpt
@@ -2143,7 +2143,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -2164,7 +2164,7 @@ Object {
           style="background-image: url(http://example.com/test.jpg);"
         />
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
         >
           <div>
             This is a test excerpt
@@ -2243,7 +2243,7 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title mdc-typography--headline6"
+              class="single-post-card__title title-large"
             >
               <div>
                 Test Title
@@ -2260,7 +2260,7 @@ Object {
             </h3>
           </div>
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
           >
             <div>
               This is a test excerpt
@@ -2326,7 +2326,7 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title mdc-typography--headline6"
+            class="single-post-card__title title-large"
           >
             <div>
               Test Title
@@ -2343,7 +2343,7 @@ Object {
           </h3>
         </div>
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography--body2"
+          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
         >
           <div>
             This is a test excerpt
