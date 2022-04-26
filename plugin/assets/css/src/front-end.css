@@ -17,6 +17,7 @@
 /*
  * All Frontend CSS.
  */
+@import "./base/variables.css";
 @import "./tokens/index.css";
 @import "./conf/index.css";
 @import "./material-components.css";
