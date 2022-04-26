@@ -50,6 +50,7 @@ html {
 @mixin typography headline-small, 2.125, 2.5, 400;
 @mixin typography title-large, 1.5, 2, 400;
 @mixin typography title-medium, 1.25, 2, 500;
+@mixin typography title-small, 0.875, 1.57, 500;
 @mixin typography label-large, 1, 1.75, 400;
 @mixin typography label-medium, 0.875, 1.375, 500;
 @mixin typography body-large, 1, 1.5, 400;
@@ -67,3 +68,24 @@ html {
 @mixin selector-typography .mdc-button .mdc-button__label, label-large, 0.875, 2.25, 500;
 @mixin selector-typography .mdc-list-item__primary-text, body-large, 1, 1.5, 400;
 @mixin selector-typography .mdc-list-item__secondary-text, body-medium, 0.875, 1.25, 400;
+
+/* Backward compatibility for old typography classes. */
+@mixin selector-typography .mdc-typography--headline1, display-small, 6, 6, 300;
+@mixin selector-typography .mdc-typography--headline2, headline-large, 3.75, 3.75, 300;
+@mixin selector-typography .mdc-typography--headline3, headline-medium, 3, 3.125, 400;
+@mixin selector-typography .mdc-typography--headline4, headline-small, 2.125, 2.5, 400;
+@mixin selector-typography .mdc-typography--headline5, title-large, 1.5, 2, 400;
+@mixin selector-typography .mdc-typography--headline6, title-medium, 1.25, 2, 500;
+@mixin selector-typography .mdc-typography--subhead1, title-medium, 1.25, 2, 500;
+@mixin selector-typography .mdc-typography--subhead2, title-small, 0.875, 1.57, 500;
+@mixin selector-typography .mdc-typography--body1, body-large, 1, 1.5, 400;
+@mixin selector-typography .mdc-typography--body2, body-medium, 0.875, 1.25, 400;
+@mixin selector-typography .mdc-typography--caption, body-small, 0.75, 1.25, 400;
+@mixin selector-typography .mdc-typography--button, label-large, 1, 1.75, 400;
+@mixin selector-typography .mdc-typography--overline, label-medium, 0.875, 1.375, 500;
+@mixin selector-typography .mdc-typography--subtitle1, label-large, 1, 1.75, 400;
+@mixin selector-typography .mdc-typography--subtitle2, label-medium, 0.875, 1.375, 500;
+
+/* Backward compat: For `body` types typography should be applied to child elements as well */
+@mixin selector-typography .mdc-typography--body1 *, body-large, 1, 1.5, 400;
+@mixin selector-typography .mdc-typography--body2 *, body-large, 0.875, 1.25, 400;

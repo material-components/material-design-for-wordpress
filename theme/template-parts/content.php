@@ -67,7 +67,7 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 					<?php endif; ?>
 				</div>
 				<?php if ( ! empty( $show_excerpt ) ) : ?>
-					<div class="post-card__secondary display-medium"><?php the_excerpt(); ?></div>
+					<div class="post-card__secondary body-medium"><?php the_excerpt(); ?></div>
 				<?php endif; ?>
 			</div>
 		</a>

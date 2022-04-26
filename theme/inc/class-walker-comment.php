@@ -68,7 +68,7 @@ class Walker_Comment extends \Walker_Comment {
 						<?php echo get_comment_author_link( $comment ); ?>
 					</h3>
 
-					<div class="comment-meta display-medium">
+					<div class="comment-meta body-medium">
 						<time datetime="<?php comment_time( 'c' ); ?>">
 							<?php
 								printf(
