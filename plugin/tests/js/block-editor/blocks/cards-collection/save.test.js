@@ -36,6 +36,13 @@ const setup = props => {
 	return render( <Save { ...props } /> );
 };
 
+jest.mock( '@wordpress/block-editor', () => ( {
+	...jest.requireActual( '@wordpress/block-editor' ),
+	useBlockProps: {
+		save: props => props,
+	},
+} ) );
+
 const baseProps = {
 	attributes: {
 		style: 'masonry',

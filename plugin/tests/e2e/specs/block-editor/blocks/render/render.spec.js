@@ -65,7 +65,7 @@ describe( 'blocks: all', () => {
 		// Check if buttons block is rendered.
 		expect(
 			await page.$$( '[data-type="material/buttons"]' )
-		).toHaveLength( 1 );
+		).toHaveLength( 2 );
 
 		// Check if button blocks are rendered.
 		expect( await page.$$( '[data-type="material/button"]' ) ).toHaveLength(
@@ -93,9 +93,9 @@ describe( 'blocks: all', () => {
 		).toHaveLength( 1 );
 
 		// Check if image-list block is rendered.
-		expect(
-			await page.$$( '[data-type="material/image-list"]' )
-		).toHaveLength( 1 );
+		expect( await page.$$( '.wp-block-material-image-list' ) ).toHaveLength(
+			1
+		);
 
 		// Check if recent posts block is rendered.
 		expect(
@@ -104,7 +104,7 @@ describe( 'blocks: all', () => {
 
 		// Check if hand picked posts block is rendered.
 		expect(
-			await page.$$( '[data-type="material/hand-picked-posts"]' )
+			await page.$$( '.wp-block-material-hand-picked-posts' )
 		).toHaveLength( 1 );
 
 		// Check if contact form block is rendered.

@@ -25,7 +25,7 @@ import classNames from 'classnames';
 import { __ } from '@wordpress/i18n';
 import { useState, useEffect } from '@wordpress/element';
 import { PanelBody } from '@wordpress/components';
-import { InspectorControls } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
@@ -259,8 +259,10 @@ const ListEdit = ( {
 		? ListItemCompat
 		: ListItem;
 
+	const blockProps = useBlockProps();
+
 	return (
-		<>
+		<div { ...blockProps }>
 			<ul
 				className={ classNames(
 					'mdc-list',
@@ -346,7 +348,7 @@ const ListEdit = ( {
 					</PanelBody>
 				) }
 			</InspectorControls>
-		</>
+		</div>
 	);
 };
 

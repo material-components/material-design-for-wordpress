@@ -19,6 +19,9 @@ const original = jest.requireActual( '@wordpress/block-editor' );
 // eslint-disable-next-line import/named
 import { __experimentalRichText as RichText } from './rich-text';
 
+const blockprops = props => props;
+blockprops.save = props => props;
+
 module.exports = {
 	...original,
 	AlignmentToolbar: () => null,
@@ -76,4 +79,5 @@ module.exports = {
 	},
 	InspectorControls: ( { children } ) => children,
 	RichText,
+	useBlockProps: blockprops,
 };

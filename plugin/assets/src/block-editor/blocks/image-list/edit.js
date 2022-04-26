@@ -22,7 +22,11 @@ import { some, find, findIndex, get, pick, map } from 'lodash';
 /**
  * WordPress dependencies
  */
-import { InspectorControls, MediaPlaceholder } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	MediaPlaceholder,
+	useBlockProps,
+} from '@wordpress/block-editor';
 import {
 	PanelBody,
 	SelectControl,
@@ -92,7 +96,6 @@ export const pickRelevantMediaFiles = ( image, sizeSlug = 'large' ) => {
  * @param {boolean}  props.attributes.displayCaptions - Display/hide captions.
  * @param {boolean}  props.attributes.textProtection  - Display/hide captions with text protection.
  * @param {string}   props.attributes.linkTo          - Image should link to.
- * @param {string}   props.className                  - Class name for the block.
  * @param {boolean}  props.isSelected                 - Determine if the block is selected.
  * @param {*}        props.noticeUI                   - Null or NoticeUI component.
  * @param {Object}   props.noticeOperations           - Object with methods to show/remove notices.
@@ -113,7 +116,6 @@ const ImageListEdit = ( {
 		textProtection,
 		linkTo,
 	},
-	className,
 	isSelected,
 	noticeUI,
 	noticeOperations,
@@ -231,6 +233,8 @@ const ImageListEdit = ( {
 		noticeOperations.createErrorNotice( message );
 	};
 
+	const classNames = useBlockProps()?.className;
+
 	const galleryProps = {
 		images: images.map( image => {
 			image.caption = getCaption( image.id ) || image.caption;
@@ -248,6 +252,7 @@ const ImageListEdit = ( {
 		onMove: moveImage,
 		onSelect: setSelectedImage,
 		onLinkChange: updateImageLink,
+		className: classNames,
 	};
 
 	return (
@@ -259,7 +264,7 @@ const ImageListEdit = ( {
 			<MediaPlaceholder
 				addToGallery={ hasImagesWithId }
 				isAppender={ hasImages }
-				className={ className }
+				className={ classNames }
 				disableMediaButtons={ hasImages && ! isSelected }
 				icon={
 					! hasImages && (

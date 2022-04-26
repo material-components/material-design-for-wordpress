@@ -18,6 +18,7 @@
  * External dependencies
  */
 import classNames from 'classnames';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Material list save component.
@@ -36,8 +37,10 @@ const ListSave = ( {
 } ) => {
 	const isSecondaryEnabled = style === 'two-line';
 
+	const blockProps = useBlockProps.save();
+
 	return (
-		<div className={ className }>
+		<div { ...blockProps }>
 			<ul
 				className={ classNames(
 					'mdc-list',

@@ -18,6 +18,7 @@
  * External dependencies
  */
 import classNames from 'classnames';
+import { useBlockProps } from '@wordpress/block-editor';
 
 const IconSave = ( {
 	attributes: { icon, textColor, customSize, iconSize, align },
@@ -28,12 +29,13 @@ const IconSave = ( {
 	if ( isCustom ) {
 		style.fontSize = `${ customSize }px`;
 	}
+	const blockProps = useBlockProps.save( {
+		className: classNames( className, {
+			[ `has-text-align-${ align }` ]: align,
+		} ),
+	} );
 	return (
-		<div
-			className={ classNames( className, {
-				[ `has-text-align-${ align }` ]: align,
-			} ) }
-		>
+		<div { ...blockProps }>
 			<i
 				className={ classNames( 'material-icons', {
 					[ `md-${ iconSize }` ]: ! isCustom,

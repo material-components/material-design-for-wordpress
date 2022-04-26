@@ -1217,9 +1217,7 @@ Object {
       <div />
       <div />
       <div />
-      <div
-        class="test"
-      >
+      <div>
         <div
           class="masonry-grid layout-masonry"
         >
@@ -2658,9 +2656,7 @@ Object {
     <div />
     <div />
     <div />
-    <div
-      class="test"
-    >
+    <div>
       <div
         class="masonry-grid layout-masonry"
       >
@@ -4181,9 +4177,7 @@ Object {
       <div />
       <div />
       <div />
-      <div
-        class="test"
-      >
+      <div>
         <div
           class="mdc-layout-grid layout-grid"
         >
@@ -5608,9 +5602,7 @@ Object {
     <div />
     <div />
     <div />
-    <div
-      class="test"
-    >
+    <div>
       <div
         class="mdc-layout-grid layout-grid"
       >
@@ -6780,9 +6772,7 @@ Object {
       <div />
       <div />
       <div />
-      <div
-        class="test"
-      >
+      <div>
         <div
           class="mdc-layout-grid layout-list"
         >
@@ -7843,9 +7833,7 @@ Object {
     <div />
     <div />
     <div />
-    <div
-      class="test"
-    >
+    <div>
       <div
         class="mdc-layout-grid layout-list"
       >
@@ -12204,9 +12192,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
       />
     </InspectorControls>
   </CardsCollectionInspectorControls>
-  <div
-    className="test"
-  >
+  <div>
     <Cards
       cards={
         Array [

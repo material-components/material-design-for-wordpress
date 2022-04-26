@@ -93,5 +93,6 @@
   },
   "supports": {
     "align": [ "left", "right" ]
-  }
+  },
+  "apiVersion": 2
 }
