@@ -73,7 +73,7 @@ else
 	# since http version is no longer working we need to use https.
 	download https://api.wordpress.org/core/version-check/1.7/ /tmp/wp-latest.json
 
-  # which https version we are using first version from array.
+  # with https version we are using first version from array.
 	LATEST_VERSION=$(grep -o '"version":"[^"]*' /tmp/wp-latest.json | sed 's/"version":"//' | head -1)
 	if [[ -z "$LATEST_VERSION" ]]; then
 		echo "Latest WordPress version could not be found"
