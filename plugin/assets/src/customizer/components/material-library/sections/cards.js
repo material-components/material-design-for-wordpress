@@ -59,13 +59,13 @@ const Cards = ( { radius, buttonRadius } ) => (
 					></div>
 					<div style={ { padding: '16px' } }>
 						<h2
-							className="mdc-typography title-large material-design-card__title"
+							className="title-large material-design-card__title"
 							style={ { margin: 0, marginBottom: '5px' } }
 						>
 							{ __( 'Our Changing Planet', 'material-design' ) }
 						</h2>
 						<h3
-							className="mdc-typography material-design-card__secondary-text"
+							className="material-design-card__secondary-text"
 							style={ {
 								fontSize: '0.875rem',
 								fontWeight: 500,
@@ -76,10 +76,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 							{ __( 'by John Smith', 'material-design' ) }
 						</h3>
 					</div>
-					<div
-						className="mdc-typography body-medium"
-						style={ { padding: '16px' } }
-					>
+					<div className="body-medium" style={ { padding: '16px' } }>
 						{ __(
 							'Visit ten places on our planet that are undergoing the biggest changes today.',
 							'material-design'

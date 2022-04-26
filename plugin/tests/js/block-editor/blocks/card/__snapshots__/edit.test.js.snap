@@ -134,7 +134,7 @@ Object {
             Corner Styles
           </label>
           <div>
-            Overrides will only apply to these cards. Change Cards corner styles in 
+            Overrides will only apply to these cards. Change Cards corner styles in
             <a
               href="http://example.com/shape"
               rel="noreferrer noopener"
@@ -566,7 +566,7 @@ Object {
               <h2
                 aria-label="Title goes here"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -575,7 +575,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -585,7 +585,7 @@ Object {
             <div
               aria-label="Supporting text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -744,7 +744,7 @@ Object {
           Corner Styles
         </label>
         <div>
-          Overrides will only apply to these cards. Change Cards corner styles in 
+          Overrides will only apply to these cards. Change Cards corner styles in
           <a
             href="http://example.com/shape"
             rel="noreferrer noopener"
@@ -1176,7 +1176,7 @@ Object {
             <h2
               aria-label="Title goes here"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -1185,7 +1185,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -1195,7 +1195,7 @@ Object {
           <div
             aria-label="Supporting text"
             aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
             role="textbox"
             style="white-space: pre-wrap;"
           >
@@ -1435,7 +1435,7 @@ Object {
             Corner Styles
           </label>
           <div>
-            Overrides will only apply to these cards. Change Cards corner styles in 
+            Overrides will only apply to these cards. Change Cards corner styles in
             <a
               href="http://example.com/shape"
               rel="noreferrer noopener"
@@ -1867,7 +1867,7 @@ Object {
               <h2
                 aria-label="Title goes here"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -1876,7 +1876,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -1886,7 +1886,7 @@ Object {
             <div
               aria-label="Supporting text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -2045,7 +2045,7 @@ Object {
           Corner Styles
         </label>
         <div>
-          Overrides will only apply to these cards. Change Cards corner styles in 
+          Overrides will only apply to these cards. Change Cards corner styles in
           <a
             href="http://example.com/shape"
             rel="noreferrer noopener"
@@ -2477,7 +2477,7 @@ Object {
             <h2
               aria-label="Title goes here"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -2486,7 +2486,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -2496,7 +2496,7 @@ Object {
           <div
             aria-label="Supporting text"
             aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography--body2"
             role="textbox"
             style="white-space: pre-wrap;"
           >
@@ -2736,7 +2736,7 @@ Object {
             Corner Styles
           </label>
           <div>
-            Overrides will only apply to these cards. Change Cards corner styles in 
+            Overrides will only apply to these cards. Change Cards corner styles in
             <a
               href="http://example.com/shape"
               rel="noreferrer noopener"
@@ -3155,7 +3155,7 @@ Object {
               <h2
                 aria-label="Title goes here"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -3164,7 +3164,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -3324,7 +3324,7 @@ Object {
           Corner Styles
         </label>
         <div>
-          Overrides will only apply to these cards. Change Cards corner styles in 
+          Overrides will only apply to these cards. Change Cards corner styles in
           <a
             href="http://example.com/shape"
             rel="noreferrer noopener"
@@ -3743,7 +3743,7 @@ Object {
             <h2
               aria-label="Title goes here"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography--headline6"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -3752,7 +3752,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
               role="textbox"
               style="white-space: pre-wrap;"
             >

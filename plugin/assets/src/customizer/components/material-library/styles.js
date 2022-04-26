@@ -53,7 +53,7 @@ export const Overrides = createGlobalStyle`
 		--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
 	}
 
-	#mcb-material-library-preview .mdc-typography {
+	#mcb-material-library-preview .{
 		font-family: var(--heading-font) !important;
 	}
 

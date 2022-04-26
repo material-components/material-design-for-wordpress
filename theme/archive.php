@@ -40,8 +40,8 @@ $class_name = sprintf( 'material-archive__%s', $max_width );
 
 			<header class="page-header">
 				<?php
-				the_archive_title( '<h1 class="page-title mdc-typography display-small">', '</h1>' );
-				the_archive_description( '<div class="archive-description mdc-typography body-large">', '</div>' );
+				the_archive_title( '<h1 class="page-title display-small">', '</h1>' );
+				the_archive_description( '<div class="archive-description body-large">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 

@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="mdc-layout-grid mdc-typography"
+        class="mdc-layout-grid"
       >
         <div
           class="mdc-layout-grid__inner"
@@ -147,7 +147,7 @@ Object {
               Starter Styles
             </h2>
             <p>
-              Start from our existing styles and use 
+              Start from our existing styles and use
               <a
                 href="https://material.io/design/material-theming/overview.html"
                 rel="noopener noreferrer"
@@ -163,7 +163,7 @@ Object {
               Color Palettes
             </h2>
             <p>
-              Change your primary and secondary colors and see them applied throughout your site. Need help picking colors? Try Material’s 
+              Change your primary and secondary colors and see them applied throughout your site. Need help picking colors? Try Material’s
               <a
                 href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
                 rel="noopener noreferrer"
@@ -179,7 +179,7 @@ Object {
               Typography
             </h2>
             <p>
-              Choose from more than 1,000 typefaces in 
+              Choose from more than 1,000 typefaces in
               <a
                 href="https://fonts.google.com/"
                 rel="noopener noreferrer"
@@ -187,7 +187,7 @@ Object {
               >
                 Google Fonts
               </a>
-               to set your headline and body styles. Want tips on balancing expression with legibility?. Read Material’s 
+               to set your headline and body styles. Want tips on balancing expression with legibility?. Read Material’s
               <a
                 href="https://material.io/design/typography/the-type-system.html"
                 rel="noopener noreferrer"
@@ -211,7 +211,7 @@ Object {
               Icon Style
             </h2>
             <p>
-              All 
+              All
               <a
                 href="http://material.io/icons"
                 rel="noopener noreferrer"
@@ -227,7 +227,7 @@ Object {
               Set Layout & Navigation
             </h2>
             <p>
-              Select how posts display – as either cards or image lists, in a wide or normal width. Additional card display options include raised or outlined cards, and show or hide post comments, author, excerpt, and date. 
+              Select how posts display – as either cards or image lists, in a wide or normal width. Additional card display options include raised or outlined cards, and show or hide post comments, author, excerpt, and date.
               Choose how comment fields display within each post.
             </p>
             <h2
@@ -244,7 +244,7 @@ Object {
               Footer
             </h2>
             <p>
-              Add footer text and give your users a quick way to jump back to the top of the page. Looking to add widgets at the bottom of your site? Use the 
+              Add footer text and give your users a quick way to jump back to the top of the page. Looking to add widgets at the bottom of your site? Use the
               <a
                 href="\${ getConfig( 'customize' ) }?autofocus[panel]=widgets"
                 rel="noopener noreferrer"
@@ -264,7 +264,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-layout-grid mdc-typography"
+      class="mdc-layout-grid"
     >
       <div
         class="mdc-layout-grid__inner"
@@ -405,7 +405,7 @@ Object {
             Starter Styles
           </h2>
           <p>
-            Start from our existing styles and use 
+            Start from our existing styles and use
             <a
               href="https://material.io/design/material-theming/overview.html"
               rel="noopener noreferrer"
@@ -421,7 +421,7 @@ Object {
             Color Palettes
           </h2>
           <p>
-            Change your primary and secondary colors and see them applied throughout your site. Need help picking colors? Try Material’s 
+            Change your primary and secondary colors and see them applied throughout your site. Need help picking colors? Try Material’s
             <a
               href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
               rel="noopener noreferrer"
@@ -437,7 +437,7 @@ Object {
             Typography
           </h2>
           <p>
-            Choose from more than 1,000 typefaces in 
+            Choose from more than 1,000 typefaces in
             <a
               href="https://fonts.google.com/"
               rel="noopener noreferrer"
@@ -445,7 +445,7 @@ Object {
             >
               Google Fonts
             </a>
-             to set your headline and body styles. Want tips on balancing expression with legibility?. Read Material’s 
+             to set your headline and body styles. Want tips on balancing expression with legibility?. Read Material’s
             <a
               href="https://material.io/design/typography/the-type-system.html"
               rel="noopener noreferrer"
@@ -469,7 +469,7 @@ Object {
             Icon Style
           </h2>
           <p>
-            All 
+            All
             <a
               href="http://material.io/icons"
               rel="noopener noreferrer"
@@ -485,7 +485,7 @@ Object {
             Set Layout & Navigation
           </h2>
           <p>
-            Select how posts display – as either cards or image lists, in a wide or normal width. Additional card display options include raised or outlined cards, and show or hide post comments, author, excerpt, and date. 
+            Select how posts display – as either cards or image lists, in a wide or normal width. Additional card display options include raised or outlined cards, and show or hide post comments, author, excerpt, and date.
             Choose how comment fields display within each post.
           </p>
           <h2
@@ -502,7 +502,7 @@ Object {
             Footer
           </h2>
           <p>
-            Add footer text and give your users a quick way to jump back to the top of the page. Looking to add widgets at the bottom of your site? Use the 
+            Add footer text and give your users a quick way to jump back to the top of the page. Looking to add widgets at the bottom of your site? Use the
             <a
               href="\${ getConfig( 'customize' ) }?autofocus[panel]=widgets"
               rel="noopener noreferrer"
