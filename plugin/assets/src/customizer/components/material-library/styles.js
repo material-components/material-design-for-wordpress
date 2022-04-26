@@ -26,8 +26,11 @@ import colorUtils from '../../../common/color-utils';
 
 export const Overrides = createGlobalStyle`
 	:root {
-    	--body-font: ${ props => props.body };
-    	--heading-font: ${ props => props.headings };
+		--md-sys-typescale-headline-large-font: ${ props => props.headline };
+		--md-sys-typescale-body-font: ${ props => props.body };
+		--md-sys-typescale-display-font: ${ props => props.display };
+		--md-sys-typescale-label-font: ${ props => props.label };
+		--md-sys-typescale-title-font: ${ props => props.title };
 
 		--mdc-theme-primary: ${ props => props.primaryColor };
 		--mdc-theme-secondary: ${ props => props.secondaryColor };
