@@ -9,7 +9,7 @@ Object {
         class="material-design-card__primary"
       >
         <h3
-          class="material-design-card__secondary-text mdc-typography--subtitle2"
+          class="material-design-card__secondary-text label-medium"
         >
           Test Secondary text
         </h3>
@@ -21,7 +21,7 @@ Object {
       class="material-design-card__primary"
     >
       <h3
-        class="material-design-card__secondary-text mdc-typography--subtitle2"
+        class="material-design-card__secondary-text label-medium"
       >
         Test Secondary text
       </h3>
@@ -173,7 +173,7 @@ Object {
         <h3
           aria-label="Secondary text"
           aria-multiline="true"
-          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
           role="textbox"
           style="white-space: pre-wrap;"
         >
@@ -189,7 +189,7 @@ Object {
       <h3
         aria-label="Secondary text"
         aria-multiline="true"
-        class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+        class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
         role="textbox"
         style="white-space: pre-wrap;"
       >
@@ -360,7 +360,7 @@ Object {
         <h3
           aria-label="Secondary text"
           aria-multiline="true"
-          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+          class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
           role="textbox"
           style="white-space: pre-wrap;"
         >
@@ -385,7 +385,7 @@ Object {
       <h3
         aria-label="Secondary text"
         aria-multiline="true"
-        class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+        class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
         role="textbox"
         style="white-space: pre-wrap;"
       >
@@ -461,7 +461,7 @@ Object {
           Test Title
         </h2>
         <h3
-          class="material-design-card__secondary-text mdc-typography--subtitle2"
+          class="material-design-card__secondary-text label-medium"
         >
           Test Secondary text
         </h3>
@@ -478,7 +478,7 @@ Object {
         Test Title
       </h2>
       <h3
-        class="material-design-card__secondary-text mdc-typography--subtitle2"
+        class="material-design-card__secondary-text label-medium"
       >
         Test Secondary text
       </h3>

@@ -51,7 +51,7 @@ Object {
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
@@ -121,7 +121,7 @@ Object {
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
@@ -272,7 +272,7 @@ Object {
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
@@ -304,7 +304,7 @@ Object {
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
@@ -416,7 +416,7 @@ Object {
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
@@ -485,7 +485,7 @@ Object {
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
@@ -631,7 +631,7 @@ Object {
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
@@ -696,7 +696,7 @@ Object {
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>

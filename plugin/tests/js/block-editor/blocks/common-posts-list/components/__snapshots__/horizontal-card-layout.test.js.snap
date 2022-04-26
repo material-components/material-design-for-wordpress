@@ -27,7 +27,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle mdc-typography--subtitle2"
+              class="single-post-card__subtitle label-medium"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -107,7 +107,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle mdc-typography--subtitle2"
+            class="single-post-card__subtitle label-medium"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -244,7 +244,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle mdc-typography--subtitle2"
+              class="single-post-card__subtitle label-medium"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -324,7 +324,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle mdc-typography--subtitle2"
+            class="single-post-card__subtitle label-medium"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -457,7 +457,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle mdc-typography--subtitle2"
+              class="single-post-card__subtitle label-medium"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -533,7 +533,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle mdc-typography--subtitle2"
+            class="single-post-card__subtitle label-medium"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -666,7 +666,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle mdc-typography--subtitle2"
+              class="single-post-card__subtitle label-medium"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -698,7 +698,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle mdc-typography--subtitle2"
+            class="single-post-card__subtitle label-medium"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -791,7 +791,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle mdc-typography--subtitle2"
+              class="single-post-card__subtitle label-medium"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -827,7 +827,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle mdc-typography--subtitle2"
+            class="single-post-card__subtitle label-medium"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -916,7 +916,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle mdc-typography--subtitle2"
+              class="single-post-card__subtitle label-medium"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -992,7 +992,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle mdc-typography--subtitle2"
+            class="single-post-card__subtitle label-medium"
           >
             <time
               datetime="2020-02-25 08:20:38"

@@ -3425,7 +3425,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle mdc-typography--subtitle2"
+                    class="single-post-card__subtitle label-medium"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -3492,7 +3492,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle mdc-typography--subtitle2"
+                    class="single-post-card__subtitle label-medium"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -4579,7 +4579,7 @@ Object {
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle mdc-typography--subtitle2"
+                  class="single-post-card__subtitle label-medium"
                 >
                   <time
                     datetime="2020-03-26 12:00:00"
@@ -4646,7 +4646,7 @@ Object {
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle mdc-typography--subtitle2"
+                  class="single-post-card__subtitle label-medium"
                 >
                   <time
                     datetime="2020-03-26 12:00:00"

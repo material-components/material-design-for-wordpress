@@ -1257,7 +1257,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1338,7 +1338,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1419,7 +1419,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -2696,7 +2696,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2777,7 +2777,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2858,7 +2858,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -4215,7 +4215,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4290,7 +4290,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4365,7 +4365,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -5640,7 +5640,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5715,7 +5715,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5790,7 +5790,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -6810,7 +6810,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -6876,7 +6876,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -6942,7 +6942,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -7871,7 +7871,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -7937,7 +7937,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -8003,7 +8003,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -12457,7 +12457,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           </h2>
                         </ForwardRef>
                         <ForwardRef
-                          className="material-design-card__secondary-text mdc-typography--subtitle2"
+                          className="material-design-card__secondary-text label-medium"
                           onChange={[Function]}
                           placeholder="Secondary text"
                           tagName="h3"
@@ -12466,7 +12466,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           <h3
                             aria-label="Secondary text"
                             aria-multiline="true"
-                            className="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                            className="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                             onInput={[Function]}
                             role="textbox"
                             style={
@@ -12776,7 +12776,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           </h2>
                         </ForwardRef>
                         <ForwardRef
-                          className="material-design-card__secondary-text mdc-typography--subtitle2"
+                          className="material-design-card__secondary-text label-medium"
                           onChange={[Function]}
                           placeholder="Secondary text"
                           tagName="h3"
@@ -12785,7 +12785,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           <h3
                             aria-label="Secondary text"
                             aria-multiline="true"
-                            className="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography--subtitle2"
+                            className="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                             onInput={[Function]}
                             role="textbox"
                             style={

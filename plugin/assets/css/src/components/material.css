@@ -52,7 +52,7 @@
 	font-style: var(--md-sys-typescale-label-large-style, normal);
 }
 
-.mdc-typography--subtitle2,
+.label-medium,
 .mdc-data-table__header-cell,
 .mdc-drawer .mdc-list-item,
 .mdc-slider .mdc-slider__value-indicator-text {
