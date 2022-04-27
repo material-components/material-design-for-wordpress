@@ -314,29 +314,34 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 15 ) )
+		$this->wp_customize->expects( $this->exactly( 20 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}[head_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[display_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[title_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[label_font_family]" ) ],
 				[ $this->equalTo( "{$controls->slug}[body_font_family]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_1]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_2]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_3]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_4]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_5]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_6]" ) ],
-				[ $this->equalTo( "{$controls->slug}[subtitle_1]" ) ],
-				[ $this->equalTo( "{$controls->slug}[subtitle_2]" ) ],
-				[ $this->equalTo( "{$controls->slug}[body1]" ) ],
-				[ $this->equalTo( "{$controls->slug}[body2]" ) ],
-				[ $this->equalTo( "{$controls->slug}[button]" ) ],
-				[ $this->equalTo( "{$controls->slug}[caption]" ) ],
-				[ $this->equalTo( "{$controls->slug}[overline]" ) ]
+				[ $this->equalTo( "{$controls->slug}[display_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[display_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[display_small]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_small]" ) ],
+				[ $this->equalTo( "{$controls->slug}[title_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[title_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[title_small]" ) ],
+				[ $this->equalTo( "{$controls->slug}[label_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[label_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[label_small]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body_small]" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 15 ) )
+		$this->wp_customize->expects( $this->exactly( 20 ) )
 			->method( 'add_control' )
 			->withConsecutive(
 				[
@@ -570,7 +575,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Add filters to return `Raleway` for headings and `Open Sans` for body.
 		add_filter(
-			"{$controls->slug}_get_option_head_font_family",
+			"{$controls->slug}_get_option_headline_font_family",
 			function () {
 				return 'Raleway';
 			}
@@ -584,7 +589,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		);
 
 		// Assert we get updated fonts.
-		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway:100,400,500|Open+Sans:400,500' );
+		$this->assertEquals( '//fonts.googleapis.com/css?family=Material+Icons|Roboto:400,500|Raleway:400|Open+Sans:400', $controls->get_google_fonts_url() );
 	}
 
 	/**
@@ -639,19 +644,25 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$this->assertContains( '--mdc-theme-surface-mix-4: #f5f5f5;', $css );
 		$this->assertContains( '--mdc-theme-surface-mix-12: #e0e0e0;', $css );
 
-		$this->assertContains( '--mdc-typography-headline1-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline2-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline3-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline4-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline5-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline6-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-subtitle1-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-subtitle2-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-body1-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-body2-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-caption-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-button-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-overline-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-title-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-title-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-title-small-font: "Roboto", sans-serif;', $css );
+
+		$this->assertContains( '--md-sys-typescale-display-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-display-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-display-small-font: "Roboto", sans-serif;', $css );
+
+		$this->assertContains( '--md-sys-typescale-label-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-label-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-label-small-font: "Roboto", sans-serif;', $css );
+
+		$this->assertContains( '--md-sys-typescale-headline-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-headline-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-headline-small-font: "Roboto", sans-serif;', $css );
+
+		$this->assertContains( '--md-sys-typescale-body-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-body-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-body-small-font: "Roboto", sans-serif;', $css );
 
 		$this->assertContains( '--mdc-button-radius: 4px;', $css );
 		$this->assertContains( '--mdc-card-radius: 4px;', $css );
@@ -692,7 +703,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$baseline = $controls->get_design_styles()['baseline'];
 
 		$this->assertEquals( $controls->get_default( 'primary_color' ), $baseline['primary_color'] );
-		$this->assertEquals( $controls->get_default( 'head_font_family' ), $baseline['head_font_family'] );
+		$this->assertEquals( $controls->get_default( 'body_font_family' ), $baseline['body_font_family'] );
 		$this->assertEquals( $controls->get_default( 'button_radius' ), $baseline['button_radius'] );
 		$this->assertEquals( $controls->get_default( 'card_radius' ), $baseline['card_radius'] );
 		$this->assertEquals( $controls->get_default( 'data_table_radius' ), $baseline['data_table_radius'] );
