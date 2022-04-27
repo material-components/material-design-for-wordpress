@@ -772,12 +772,12 @@ class Controls extends Module_Base {
 	 * @return string
 	 */
 	public function get_google_fonts_url( $context = '' ) {
-		$icons_style   = $this->get_icon_style( '+' );
-		$font_families = [ 'Material+Icons' . $icons_style ];
-		$fonts         = [];
+		$icons_style  = $this->get_icon_style( '+' );
+		$merged_fonts = [ 'Material+Icons' . $icons_style ];
+		$fonts        = [];
 
 		if ( 'block-editor' === $context ) {
-			$font_families[] = 'Material+Icons+Outlined';
+			$merged_fonts[] = 'Material+Icons+Outlined';
 		}
 
 		// Get the font families used.
@@ -806,13 +806,21 @@ class Controls extends Module_Base {
 			$fonts[ $c['id'] ]['variants'] = $variants;
 		}
 
+		// Use font family with key to make it unique and merge it's variants.
+		$font_families = [];
 		foreach ( $fonts as $font ) {
-			$variants        = str_replace( 'regular', '400', implode( ',', array_unique( $font['variants'] ) ) );
-			$font_families[] = str_replace( ' ', '+', $font['family'] ) . ':' . $variants;
+			$variants                      = str_replace( 'regular', '400', implode( ',', array_unique( $font['variants'] ) ) );
+			$font_family                   = str_replace( ' ', '+', $font['family'] );
+			$font_families[ $font_family ] = array_merge( isset( $font_families[ $font_family ] ) ? $font_families[ $font_family ] : [], explode( ',', $variants ) );
+		}
+
+		// Merge variants and make it unique.
+		foreach ( $font_families as $family => $variants ) {
+			$merged_fonts[] = $family . ':' . implode( ',', array_unique( $variants ) );
 		}
 
 		$fonts_url =
-			add_query_arg( 'family', implode( '|', array_unique( $font_families ) ), '//fonts.googleapis.com/css' );
+			add_query_arg( 'family', implode( '|', $merged_fonts ), '//fonts.googleapis.com/css' );
 
 		/**
 		 * Filter Google Fonts URL.
