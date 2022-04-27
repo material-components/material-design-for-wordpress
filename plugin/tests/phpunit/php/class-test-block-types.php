@@ -103,6 +103,7 @@ class Test_Block_Types extends \WP_UnitTestCase {
 				$metadata     = json_decode( file_get_contents( $block_json ), true ); // phpcs:ignore
 
 				$this->assertEquals( $metadata['category'], $block->category );
+				unset( $block->attributes['lock'] );
 				$this->assertEquals( $metadata['attributes'], $block->attributes );
 
 				if ( isset( $metadata['supports'] ) ) {
