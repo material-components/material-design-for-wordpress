@@ -111,6 +111,8 @@ const GoogleFontsControl = props => {
 
 			size.value = size.default;
 			weight.value = weight.default;
+			tracking.value = tracking.default;
+			lineHeight.value = lineHeight.default;
 
 			return child;
 		} );
