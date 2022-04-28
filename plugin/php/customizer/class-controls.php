@@ -1731,23 +1731,23 @@ class Controls extends Module_Base {
 
 		$default_fonts_size = [
 			'display'  => [
-				'large'  => 57,
-				'medium' => 45,
-				'small'  => 36,
+				'large'  => 120,
+				'medium' => 110,
+				'small'  => 96,
 			],
 			'headline' => [
-				'large'  => 32,
-				'medium' => 28,
-				'small'  => 24,
+				'large'  => 60,
+				'medium' => 48,
+				'small'  => 34,
 			],
 			'title'    => [
-				'large'  => 22,
-				'medium' => 16,
-				'small'  => 14,
+				'large'  => 24,
+				'medium' => 20,
+				'small'  => 16,
 			],
 			'label'    => [
-				'large'  => 14,
-				'medium' => 12,
+				'large'  => 16,
+				'medium' => 14,
 				'small'  => 11,
 			],
 			'body'     => [
@@ -1758,30 +1758,39 @@ class Controls extends Module_Base {
 		];
 
 		$default_tracking = [
-			'title' => [
+			'display'  => [
+				'large'  => -1.5,
+				'medium' => -1.5,
+				'small'  => -1.5,
+			],
+			'headline' => [
+				'large' => -0.5,
+				'small' => 0.25,
+			],
+			'title'    => [
 				'medium' => 0.15,
 				'small'  => 0.1,
 			],
-			'label' => [
-				'large'  => 0.1,
-				'medium' => 0.5,
-				'small'  => 0.5,
-			],
-			'body'  => [
+			'label'    => [
 				'large'  => 0.15,
-				'medium' => 0.25,
+				'medium' => 0.1,
+				'small'  => 0.1,
+			],
+			'body'     => [
+				'large'  => 0.25,
+				'medium' => 0.4,
 				'small'  => 0.4,
 			],
 		];
 
 		$default_weight = [
 			'display'  => [
-				'large'  => 400,
-				'medium' => 400,
-				'small'  => 400,
+				'large'  => 300,
+				'medium' => 300,
+				'small'  => 300,
 			],
 			'headline' => [
-				'large'  => 400,
+				'large'  => 300,
 				'medium' => 400,
 				'small'  => 400,
 			],
@@ -1791,7 +1800,7 @@ class Controls extends Module_Base {
 				'small'  => 500,
 			],
 			'label'    => [
-				'large'  => 500,
+				'large'  => 400,
 				'medium' => 500,
 				'small'  => 500,
 			],
@@ -1804,29 +1813,29 @@ class Controls extends Module_Base {
 
 		$default_line_height = [
 			'display'  => [
-				'large'  => 64,
-				'medium' => 52,
-				'small'  => 44,
-			],
-			'headline' => [
-				'large'  => 40,
-				'medium' => 36,
-				'small'  => 32,
-			],
-			'title'    => [
-				'large'  => 28,
-				'medium' => 24,
-				'small'  => 20,
-			],
-			'label'    => [
-				'large'  => 20,
-				'medium' => 16,
+				'large'  => 6,
+				'medium' => 6,
 				'small'  => 6,
 			],
+			'headline' => [
+				'large'  => 3.75,
+				'medium' => 3.125,
+				'small'  => 2.5,
+			],
+			'title'    => [
+				'large'  => 2,
+				'medium' => 2,
+				'small'  => 1.75,
+			],
+			'label'    => [
+				'large'  => 1.75,
+				'medium' => 1.375,
+				'small'  => 1.125,
+			],
 			'body'     => [
-				'large'  => 24,
-				'medium' => 20,
-				'small'  => 16,
+				'large'  => 1.5,
+				'medium' => 1.25,
+				'small'  => 1.25,
 			],
 		];
 
@@ -1853,7 +1862,7 @@ class Controls extends Module_Base {
 				'size'       => $this->get_typography_size_controls(
 					[
 						'default' => $default_fonts_size[ $token ][ $sub_t ],
-						'max'     => 96,
+						'max'     => 140,
 					]
 				),
 				'weight'     => $this->get_typography_weight_controls(

@@ -589,7 +589,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		);
 
 		// Assert we get updated fonts.
-		$this->assertEquals( '//fonts.googleapis.com/css?family=Material+Icons|Roboto:400,500|Raleway:400|Open+Sans:400', $controls->get_google_fonts_url() );
+		$this->assertEquals( '//fonts.googleapis.com/css?family=Material+Icons|Roboto:300,400,500|Raleway:300,400|Open+Sans:400', $controls->get_google_fonts_url() );
 	}
 
 	/**
