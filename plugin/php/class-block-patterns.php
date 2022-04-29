@@ -86,6 +86,8 @@ class Block_Patterns {
 			'pricing',
 			'hero-section-image',
 			'latest-posts',
+			'material-card',
+			'material-card-image',
 		];
 
 		foreach ( $patterns as $pattern ) {

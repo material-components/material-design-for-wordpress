@@ -25,6 +25,7 @@
 
 namespace MaterialDesign\Plugin;
 
+use MaterialDesign\Plugin\Blocks\Blocks;
 use MaterialDesign\Plugin\Blocks\Card_Block;
 use MaterialDesign\Plugin\Blocks\Posts_List_Block;
 use MaterialDesign\Plugin\Blocks\Contact_Form_Block;
@@ -91,6 +92,9 @@ class Block_Types {
 			$static_block = new Card_Block( $this->plugin, $static_card_block );
 			$static_block->init();
 		}
+
+		$blocks = new Blocks( $this->plugin );
+		$blocks->init();
 	}
 
 	/**
