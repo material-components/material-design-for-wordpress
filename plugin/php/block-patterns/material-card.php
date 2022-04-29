@@ -25,7 +25,21 @@
 
 return [
 	'title'       => __( 'Query with material Card', 'material-design' ),
-	'content'     => "<!-- wp:query {\"query\":{\"perPage\":10,\"pages\":0,\"offset\":0,\"postType\":\"post\",\"categoryIds\":[],\"tagIds\":[],\"order\":\"desc\",\"orderBy\":\"date\",\"author\":\"\",\"search\":\"\",\"exclude\":[],\"sticky\":\"\",\"inherit\":true},\"displayLayout\":{\"type\":\"flex\",\"columns\":3}} -->\n<div class=\"wp-block-query\"><!-- wp:post-template {\"className\":\"is-style-material-masonry\"} -->\n<!-- wp:material/card-query /-->\n<!-- /wp:post-template -->\n\n<!-- wp:material/query-pagination {\"layout\":{\"type\":\"flex\",\"justifyContent\":\"center\"}} -->\n<!-- wp:material/query-pagination-first /-->\n\n<!-- wp:material/query-pagination-previous /-->\n\n<!-- wp:material/query-pagination-next /-->\n\n<!-- wp:material/query-pagination-last /-->\n<!-- /wp:material/query-pagination --></div>\n<!-- /wp:query -->",
+	'content'     => '<!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","categoryIds":[],"tagIds":[],"order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"displayLayout":{"type":"flex","columns":3}} -->
+<div class="wp-block-query"><!-- wp:post-template {"className":"is-style-material-masonry"} -->
+<!-- wp:material/card-query /-->
+<!-- /wp:post-template -->
+
+<!-- wp:material/query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:material/query-pagination-first /-->
+
+<!-- wp:material/query-pagination-previous /-->
+
+<!-- wp:material/query-pagination-next /-->
+
+<!-- wp:material/query-pagination-last /-->
+<!-- /wp:material/query-pagination --></div>
+<!-- /wp:query -->',
 	'description' => __( 'Query with material card and pagination.', 'material-design' ),
 	'blockTypes'  => [ 'core/query' ],
 	'categories'  => [ 'material', 'query' ],

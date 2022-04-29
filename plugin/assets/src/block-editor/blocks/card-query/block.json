@@ -41,8 +41,8 @@
   "supports": {},
   "apiVersion": 2,
   "description": "Material card for query loop block",
-  "editorStyle": "material-block-editor-css-theme",
-  "editorScript": "material-block-editor-js-theme",
+  "editorStyle": "material-block-editor-css",
+  "editorScript": "material-block-editor-js",
   "usesContext": [ "postId", "postType", "queryId" ],
   "textdomain": "material-design-google"
 }
