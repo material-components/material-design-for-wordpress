@@ -32,8 +32,13 @@ class Blocks extends Module_Base {
 	 * Dynamic blocks.
 	 */
 	const DYNAMIC_BLOCKS = [
-		'material/card-query'       => 'template-parts/blocks/card-query.php',
-		'material/image-card-query' => 'template-parts/blocks/image-card-query.php',
+		'material/card-query'                => 'template-parts/blocks/card-query.php',
+		'material/image-card-query'          => 'template-parts/blocks/image-card-query.php',
+		'material/query-pagination'          => 'template-parts/blocks/query-pagination.php',
+		'material/query-pagination-next'     => 'template-parts/blocks/query-pagination-next.php',
+		'material/query-pagination-previous' => 'template-parts/blocks/query-pagination-previous.php',
+		'material/query-pagination-first'    => 'template-parts/blocks/query-pagination-first.php',
+		'material/query-pagination-last'     => 'template-parts/blocks/query-pagination-last.php',
 	];
 
 	/**

@@ -50,7 +50,7 @@ class Block_Patterns {
 	 * Initiate the class.
 	 */
 	public function init() {
-		add_action( 'init', [ $this, 'register' ] );
+		add_action( 'init', [ $this, 'register' ], 9 );
 	}
 
 	/**

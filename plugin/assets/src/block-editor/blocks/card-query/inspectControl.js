@@ -66,31 +66,31 @@ const InspectControls = ( {
 			<PanelBody
 				title={ __(
 					'Show / Hide post information',
-					'material-design-google'
+					'material-design'
 				) }
 				description={ __(
 					'Choose which information to show in the card.',
-					'material-design-google'
+					'material-design'
 				) }
 				initialOpen={ true }
 			>
 				<ToggleControl
-					label={ __( 'Featured Image', 'material-design-google' ) }
+					label={ __( 'Featured Image', 'material-design' ) }
 					checked={ showFeaturedImage }
 					onChange={ setter( 'showFeaturedImage' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post title', 'material-design-google' ) }
+					label={ __( 'Post title', 'material-design' ) }
 					checked={ showTitle }
 					onChange={ setter( 'showTitle' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post date', 'material-design-google' ) }
+					label={ __( 'Post date', 'material-design' ) }
 					checked={ showDate }
 					onChange={ setter( 'showDate' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Post excerpt', 'material-design-google' ) }
+					label={ __( 'Post excerpt', 'material-design' ) }
 					checked={ showExcerpt }
 					onChange={ setter( 'showExcerpt' ) }
 				/>
@@ -98,7 +98,7 @@ const InspectControls = ( {
 					<RangeControl
 						label={ __(
 							'Max number of words in post excerpt',
-							'material-design-google'
+							'material-design'
 						) }
 						value={ postContentLength }
 						onChange={ setter( 'postContentLength' ) }
@@ -107,21 +107,21 @@ const InspectControls = ( {
 					/>
 				) }
 				<ToggleControl
-					label={ __( 'Author', 'material-design-google' ) }
+					label={ __( 'Author', 'material-design' ) }
 					checked={ showAuthor }
 					onChange={ setter( 'showAuthor' ) }
 				/>
 				<ToggleControl
-					label={ __( 'Comments', 'material-design-google' ) }
+					label={ __( 'Comments', 'material-design' ) }
 					checked={ showComments }
 					onChange={ setter( 'showComments' ) }
 				/>
 			</PanelBody>
 			<PanelBody
-				title={ __( 'Style Settings', 'material-design-google' ) }
+				title={ __( 'Style Settings', 'material-design' ) }
 				description={ __(
 					'Card style - only applies to current block / template.',
-					'material-design-google'
+					'material-design'
 				) }
 				initialOpen={ true }
 			>

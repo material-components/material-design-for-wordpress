@@ -26,11 +26,11 @@ const ElevationStyleControl = ( { onChange, selected } ) => {
 		'material.elevation.styleControl.options',
 		[
 			{
-				label: __( 'Elevated', 'material-design-google' ),
+				label: __( 'Elevated', 'material-design' ),
 				value: 'elevated',
 			},
 			{
-				label: __( 'Outlined', 'material-design-google' ),
+				label: __( 'Outlined', 'material-design' ),
 				value: 'outlined',
 			},
 		],
@@ -41,7 +41,7 @@ const ElevationStyleControl = ( { onChange, selected } ) => {
 			label={ __( 'Elevation style', 'material-design' ) }
 			help={ __(
 				'Elevation style whether elevated or outlined.',
-				'material-design-google'
+				'material-design'
 			) }
 			selected={ selected }
 			options={ options }
