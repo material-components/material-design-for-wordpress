@@ -16,7 +16,7 @@
 
 module.exports = {
 	verbose: true,
-	rootDir: '../../../',
+	rootDir: './',
 	...require( '@wordpress/scripts/config/jest-e2e.config' ),
 	transform: {
 		'^.+\\.[jt]sx?$':
@@ -38,6 +38,9 @@ module.exports = {
 		'<rootDir>/plugin/tests/js',
 		'<rootDir>/vendor',
 	],
-	collectCoverageFrom: [ '<rootDir>/plugin/assets/src/**/*.js' ],
+	collectCoverageFrom: [
+		'<rootDir>/plugin/assets/src/**/*.js',
+		'<rootDir>/theme/assets/src/**/*.js',
+	],
 	reporters: [ 'default', 'jest-puppeteer-istanbul/lib/reporter' ],
 };

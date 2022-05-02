@@ -17,7 +17,12 @@
  * WordPress dependencies
  */
 import { getBlockSupport } from '@wordpress/blocks';
-import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	useInnerBlocksProps as useInnerBlocksPropsGte59,
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalUseInnerBlocksProps as useInnerBlocksPropsLte58,
+} from '@wordpress/block-editor';
 
 // Override core template.
 const TEMPLATE = [
@@ -26,6 +31,13 @@ const TEMPLATE = [
 	[ 'material/query-pagination-next' ],
 	[ 'material/query-pagination-last' ],
 ];
+
+// In order to support both versions of WP
+// Supports:
+//  - Later or equal 5.8
+//  - Greater or equal 5.9
+const useInnerBlocksProps =
+	useInnerBlocksPropsLte58 || useInnerBlocksPropsGte59;
 
 const getDefaultBlockLayout = blockTypeOrName => {
 	const layoutBlockSupportConfig = getBlockSupport(

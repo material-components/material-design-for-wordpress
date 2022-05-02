@@ -70,6 +70,7 @@ const Edit = ( { attributes: { textAlign }, setAttributes } ) => {
 					<i
 						className="material-icons mdc-text-field__icon mdc-text-field__icon--trailing"
 						role="button"
+						aria-label={ search }
 					>
 						<Icon />
 					</i>

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blocks: material/back-to-top match back to top snapshot 1`] = `
+"<!-- wp:material/back-to-top -->
+<button class=\\"wp-block-material-back-to-top back-to-top mdc-button\\" aria-label=\\"Back to top\\" id=\\"back-to-top\\"><div class=\\"mdc-button__ripple\\"></div><i class=\\"material-icons mdc-icon-button__icon\\">expand_less</i></button>
+<!-- /wp:material/back-to-top -->"
+`;

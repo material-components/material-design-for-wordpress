@@ -63,6 +63,12 @@
     "test": [
       "phpunit"
     ],
+    "test-theme": [
+      "phpunit -c phpunit-theme.xml"
+    ],
+    "test-theme-coverage": [
+      "phpunit -c phpunit-theme.xml --coverage-html theme/tests/coverage/html"
+    ],
     "test-coverage": [
       "phpunit --coverage-html plugin/tests/coverage/html"
     ],

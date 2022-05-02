@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blocks: material/search-title snapshot match for material search 1`] = `"<!-- wp:material/search-title /-->"`;
+
+exports[`blocks: material/search-title snapshot match for material search after modifying 1`] = `"<!-- wp:material/search-title {\\"title\\":\\"Result for:\\"} /-->"`;

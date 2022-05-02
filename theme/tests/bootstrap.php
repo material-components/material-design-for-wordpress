@@ -26,7 +26,7 @@
 global $_theme_files;
 $_theme_files = [];
 
-$_theme_root = realpath( __DIR__ . '/..' );
+$_theme_root = 'material-design-google';
 $_theme_name = basename( $_theme_root );
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
@@ -46,6 +46,19 @@ if ( empty( $_tests_dir ) ) {
 // Composer tests directory.
 if ( ! is_dir( $_tests_dir . '/includes/' ) ) {
 	$_tests_dir = $_theme_root . '/vendor/xwp/wordpress-tests/phpunit';
+}
+
+// Load polyfill which is required by latest WP and some material tests which uses latest phpunit functions.
+$_yoast_polyfill_path_material = __DIR__ . '/../vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
+
+if ( ! class_exists( 'Yoast\PHPUnitPolyfills\Autoload' ) ) {
+	// Load file based on docker where vendor is mapped inside plugin folder.
+	if ( ! file_exists( $_yoast_polyfill_path_material ) ) {
+		$_yoast_polyfill_path_material = __DIR__ . '/../../vendor/yoast/phpunit-polyfills/phpunitpolyfills-autoload.php';
+	}
+	if ( file_exists( $_yoast_polyfill_path_material ) ) {
+		require_once $_yoast_polyfill_path_material;
+	}
 }
 
 if ( ! file_exists( $_tests_dir . '/includes/' ) ) {
