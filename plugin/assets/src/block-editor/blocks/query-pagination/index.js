@@ -23,7 +23,8 @@ import edit from './edit';
 import save from './save';
 
 const { name } = metadata;
-export { metadata, name };
+const isQueryLoopRequired = true;
+export { metadata, name, isQueryLoopRequired };
 
 export const settings = {
 	icon: () => (

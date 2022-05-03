@@ -23,7 +23,8 @@ import edit from './edit';
 
 const { name, title } = metadata;
 
-export { metadata, name };
+const isQueryLoopRequired = true;
+export { metadata, name, isQueryLoopRequired };
 
 export const settings = {
 	title,

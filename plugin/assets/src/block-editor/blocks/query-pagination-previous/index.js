@@ -20,7 +20,8 @@ import metadata from './block.json';
 import edit from './edit';
 
 const { name } = metadata;
-export { metadata, name };
+const isQueryLoopRequired = true;
+export { metadata, name, isQueryLoopRequired };
 
 export const settings = {
 	icon: () => (

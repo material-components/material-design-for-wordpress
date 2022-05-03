@@ -244,6 +244,7 @@ class Block_Types {
 			],
 			'postTypes'                 => $post_types,
 			'doesRequireBackCompatList' => version_compare( get_bloginfo( 'version' ), '5.8', '<' ),
+			'canUseQueryLoop'           => version_compare( '5.8', get_bloginfo( 'version' ), '<=' ),
 		];
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
