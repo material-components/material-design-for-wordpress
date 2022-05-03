@@ -47,7 +47,10 @@ class Blocks extends Module_Base {
 	 * @action init
 	 */
 	public function init() {
-		add_action( 'init', [ $this, 'action_register_blocks' ] );
+		// Only add block for 5.8 or later.
+		if ( version_compare( '5.8', get_bloginfo( 'version' ), '<=' ) ) {
+			add_action( 'init', [ $this, 'action_register_blocks' ] );
+		}
 	}
 
 	/**
