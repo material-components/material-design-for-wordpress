@@ -19,23 +19,22 @@
  */
 import { RadioControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { applyFilters } from '@wordpress/hooks';
 
 const ElevationStyleControl = ( { onChange, selected } ) => {
-	const options = applyFilters(
-		'material.elevation.styleControl.options',
-		[
-			{
-				label: __( 'Elevated', 'material-design' ),
-				value: 'elevated',
-			},
-			{
-				label: __( 'Outlined', 'material-design' ),
-				value: 'outlined',
-			},
-		],
-		'fse'
-	);
+	const options = [
+		{
+			label: __( 'Elevated', 'material-design' ),
+			value: 'elevated',
+		},
+		{
+			label: __( 'Outlined', 'material-design' ),
+			value: 'outlined',
+		},
+		{
+			label: __( 'Inherit from Global Settings', 'material-design' ),
+			value: 'global',
+		},
+	];
 	return (
 		<RadioControl
 			label={ __( 'Elevation style', 'material-design' ) }
