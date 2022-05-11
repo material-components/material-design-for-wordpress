@@ -33,12 +33,18 @@ class Blocks {
 	const DYNAMIC_BLOCKS = [
 		'material/search'                    => 'template-parts/blocks/search.php',
 		'material/card-query'                => 'template-parts/blocks/card-query.php',
+		'material/image-card-query'          => 'template-parts/blocks/image-card-query.php',
 		'material/query-pagination'          => 'template-parts/blocks/query-pagination.php',
 		'material/query-pagination-next'     => 'template-parts/blocks/query-pagination-next.php',
 		'material/query-pagination-previous' => 'template-parts/blocks/query-pagination-previous.php',
 		'material/query-pagination-first'    => 'template-parts/blocks/query-pagination-first.php',
 		'material/query-pagination-last'     => 'template-parts/blocks/query-pagination-last.php',
 		'material/search-title'              => 'template-parts/blocks/search-title.php',
+		'material/navigation'                => 'template-parts/blocks/navigation.php',
+		'material/navigation-link'           => 'template-parts/blocks/navigation-link.php',
+		'material/hamburger-menu'            => 'template-parts/blocks/hamburger-menu.php',
+		'material/drawer'                    => 'template-parts/blocks/drawer.php',
+		'material/search-header-bar'         => 'template-parts/blocks/search-header-bar.php',
 	];
 
 	/**
@@ -74,7 +80,7 @@ class Blocks {
 				$args ['render_callback'] = [ static::class, 'render' ];
 			}
 
-			register_block_type( $folder, $args );
+			register_block_type_from_metadata( $folder, $args );
 		}
 	}
 
@@ -124,7 +130,7 @@ class Blocks {
 		}
 
 		// Remove this once server side context is available via gutenberg.
-		if ( ! empty( $block->block_type->uses_context ) && empty( $block->context ) ) {
+		if ( ! empty( $block->block_type->uses_context ) && ! empty( $_GET['materialParamContext'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			foreach ( $block->block_type->uses_context as $context ) {
 				if ( empty( $_GET['materialParamContext'][ $context ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 					continue;

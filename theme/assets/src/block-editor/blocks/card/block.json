@@ -27,20 +27,21 @@
       "type": "boolean",
       "default": true
     },
-    "isEditMode": {
-      "type": "boolean",
-      "default": false
-    },
     "postContentLength": {
       "type": "number",
       "default": 20
+    },
+    "cardStyle": {
+      "enum": [ "global", "elevated", "outlined"],
+      "default": "global",
+      "type": "string"
     }
   },
   "title": "Material Card for Query loop",
   "supports": {},
   "apiVersion": 2,
   "description": "Material card for query loop block",
-  "editorStyle": ["material-google-fonts", "material-block-editor-css-theme"],
+  "editorStyle": "material-block-editor-css-theme",
   "editorScript": "material-block-editor-js-theme",
   "usesContext": [ "postId", "postType", "queryId" ],
   "textdomain": "material-design-google"

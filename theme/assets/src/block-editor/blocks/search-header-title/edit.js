@@ -25,12 +25,11 @@ import classnames from 'classnames';
 import {
 	AlignmentControl,
 	BlockControls,
-	InspectorControls,
 	useBlockProps,
+	RichText,
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import HeadingLevelDropdown from './heading-level-dropdown';
-import { PanelBody, TextControl } from '@wordpress/components';
 
 /**
  * Edit.
@@ -71,19 +70,12 @@ const Edit = ( { attributes: { textAlign, level, title }, setAttributes } ) => {
 					} }
 				/>
 			</BlockControls>
-			<InspectorControls>
-				<PanelBody title={ __( 'Link settings' ) }>
-					<TextControl
-						label={ __( 'Search title', 'material-design-google' ) }
-						value={ title }
-						onChange={ newTitle =>
-							setAttributes( { title: newTitle } )
-						}
-					/>
-				</PanelBody>
-			</InspectorControls>
 			<TagName { ...blockProps }>
-				{ title }
+				<RichText
+					tagName={ 'span' }
+					onChange={ value => setAttributes( { title: value } ) }
+					value={ title }
+				/>
 				<span>
 					{ __( ' search keyword', 'material-design-google' ) }
 				</span>

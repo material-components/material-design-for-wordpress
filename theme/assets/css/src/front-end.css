@@ -29,3 +29,4 @@
 /* Block editor */
 @import "./../../src/block-editor/plugins/hide-sections/style.css";
 @import "./../../src/block-editor/style/horizontal-line/style.css";
+@import "./../../src/block-editor/blocks/card-image/style.css";

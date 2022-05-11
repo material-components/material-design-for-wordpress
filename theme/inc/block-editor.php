@@ -20,6 +20,7 @@
 namespace MaterialDesign\Theme\BlockEditor;
 
 use MaterialDesign\Theme\Block\Blocks;
+use MaterialDesign\Theme\Block\Override;
 
 /**
  * Add hooks and filters.
@@ -33,6 +34,8 @@ function setup() {
 
 	$blocks = new Blocks();
 	$blocks->init();
+
+	$overrides_block = new Override();
 }
 
 /**
@@ -111,6 +114,8 @@ function enqueue_block_editor_assets() {
 		$version,
 		false
 	);
+
+	wp_add_inline_style( 'material-google-fonts', \MaterialDesign\Theme\Customizer\get_css_vars() );
 }
 
 /**

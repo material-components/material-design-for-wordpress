@@ -17,4 +17,5 @@
 @custom-media --small-viewport-max  (max-width: 840px);
 @custom-media --medium-viewport  (min-width: 840px);
 @custom-media --medium-large-viewport  (min-width: 1024px);
+@custom-media --medium-large-viewport-max  (max-width: 1024px);
 @custom-media --large-viewport  (min-width: 1440px);

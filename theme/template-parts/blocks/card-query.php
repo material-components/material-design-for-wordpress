@@ -31,32 +31,35 @@ $show_comments       = $attributes['showComments'];
 $show_author         = $attributes['showAuthor'];
 $show_excerpt        = $attributes['showExcerpt'];
 $show_date           = $attributes['showDate'];
-$is_edit             = $attributes['isEditMode'];
 $show_featured_image = $attributes['showFeaturedImage'];
 $show_post_title     = $attributes['showTitle'];
+$card_style          = $attributes['cardStyle'];
 $content_length      = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 20;
-$classes             = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outlined' : '';
+$global_card_style   = apply_filters( 'material_design_global_card_style', '', $card_style );
+$classes             = $card_style === 'outlined'
+											||
+											( $card_style === 'global' && $global_card_style === 'outlined' ) ? 'mdc-card--outlined' : '';
 
 if ( empty( $block ) || ! isset( $block->context['postId'] ) ) {
 	return '';
 }
-$post_ID      = $block->context['postId']; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-$post         = get_post( $post_ID ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-$post_link    = $is_edit ? '#link-to-' . $post_ID : get_the_permalink( $post );
-$post_content = wp_trim_words( get_the_excerpt( $post ), $content_length, ' [&hellip;]' );
+$post_id_card = $block->context['postId'];
+$post_card    = get_post( $post_id_card );
+$post_link    = get_the_permalink( $post_card );
+$post_content = wp_trim_words( get_the_excerpt( $post_card ), $content_length, ' [&hellip;]' );
 ?>
 	<div class="post-card__container">
-		<div id="<?php echo esc_attr( $post_ID ); ?>" <?php post_class( "mdc-card post-card $classes" ); ?>>
+		<div id="<?php echo esc_attr( $post_id_card ); ?>" <?php post_class( "mdc-card post-card $classes" ); ?>>
 			<a class="mdc-card__link" href="<?php echo esc_url( $post_link ); ?>">
 				<div class="mdc-card__primary-action post-card__primary-action">
-					<?php if ( has_post_thumbnail( $post ) && $show_featured_image ) : ?>
+					<?php if ( has_post_thumbnail( $post_card ) && $show_featured_image ) : ?>
 						<div class="mdc-card__media mdc-card__media--16-9 post-card__media">
-							<?php echo get_the_post_thumbnail( $post ); ?>
+							<?php echo get_the_post_thumbnail( $post_card ); ?>
 						</div>
 					<?php endif; ?>
 					<div class="post-card__primary">
 						<?php if ( $show_post_title ) : ?>
-							<?php if ( is_sticky( $post_ID ) ) : ?>
+							<?php if ( is_sticky( $post_id_card ) ) : ?>
 								<h2
 									class="post-card__title mdc-typography mdc-typography--headline6"
 									aria-label="
@@ -64,28 +67,28 @@ $post_content = wp_trim_words( get_the_excerpt( $post ), $content_length, ' [&he
 									printf(
 									/* translators: Post title */
 										esc_attr__( 'Sticky post: %s', 'material-design-google' ),
-										esc_attr( get_the_title( $post ) )
+										esc_attr( get_the_title( $post_card ) )
 									);
 								?>
 								"
 								>
 									<i class="material-icons" aria-hidden="true">push_pin</i>
-									<?php echo esc_html( get_the_title( $post ) ); ?>
+									<?php echo esc_html( get_the_title( $post_card ) ); ?>
 								</h2>
 							<?php else : ?>
 								<h2 class="post-card__title mdc-typography mdc-typography--headline6">
-									<?php echo esc_html( get_the_title( $post ) ); ?>
+									<?php echo esc_html( get_the_title( $post_card ) ); ?>
 								</h2>
 							<?php endif; ?>
 						<?php endif; ?>
 
 						<?php if ( ! empty( $show_date ) ) : ?>
 							<time
-								class="post-card__subtitle mdc-typography mdc-typography--subtitle2"><?php echo esc_html( get_the_time( 'F j, Y', $post ) ); ?></time>
+								class="post-card__subtitle mdc-typography mdc-typography--subtitle2"><?php echo esc_html( get_the_time( 'F j, Y', $post_card ) ); ?></time>
 						<?php endif; ?>
 					</div>
 				</div>
-				<?php if ( ! empty( $show_excerpt ) && has_excerpt( $post ) ) : ?>
+				<?php if ( ! empty( $show_excerpt ) && has_excerpt( $post_card ) ) : ?>
 					<div
 						class="post-card__secondary mdc-typography mdc-typography--body2"><p><?php echo wp_kses_post( $post_content ); ?></p></div>
 				<?php endif; ?>
@@ -96,7 +99,7 @@ $post_content = wp_trim_words( get_the_excerpt( $post ), $content_length, ' [&he
 						<?php if ( ! empty( $show_author ) ) : ?>
 							<a
 								class="mdc-button mdc-card__action mdc-card__action--button"
-								href="<?php echo esc_url( $is_edit ? '#author-link' : get_author_posts_url( get_the_author_meta( 'ID', $post->post_author ) ) ); ?>"
+								href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post_card->post_author ) ) ); ?>"
 								aria-label="
 								<?php
 								printf(
@@ -105,19 +108,19 @@ $post_content = wp_trim_words( get_the_excerpt( $post ), $content_length, ' [&he
 										'Author: %s',
 										'material-design-google'
 									),
-									esc_attr( get_the_author_meta( 'display_name', $post->post_author ) )
+									esc_attr( get_the_author_meta( 'display_name', $post_card->post_author ) )
 								);
 								?>
 							"
 							>
 								<span class="mdc-button__ripple"></span>
-								<?php echo get_avatar( get_the_author_meta( 'ID', $post->post_author ), 18 ); ?>
-								<?php echo esc_html( apply_filters( 'the_author', get_the_author_meta( 'display_name', $post->post_author ) ) ); ?>
+								<?php echo get_avatar( get_the_author_meta( 'ID', $post_card->post_author ), 18 ); ?>
+								<?php echo esc_html( apply_filters( 'the_author', get_the_author_meta( 'display_name', $post_card->post_author ) ) ); ?>
 							</a>
 						<?php endif; ?>
 
-						<?php if ( ! empty( $show_comments ) && ( comments_open( $post_ID ) || ( 0 < get_comments_number( $post_ID ) ) ) ) : ?>
-							<a href="<?php echo esc_url( $is_edit ? '#comment-link' : get_comments_link( $post_ID ) ); ?>" class="mdc-button mdc-card__action mdc-card__action--button">
+						<?php if ( ! empty( $show_comments ) && ( comments_open( $post_id_card ) || ( 0 < get_comments_number( $post_id_card ) ) ) ) : ?>
+							<a href="<?php echo esc_url( get_comments_link( $post_id_card ) ); ?>" class="mdc-button mdc-card__action mdc-card__action--button">
 								<span class="mdc-button__ripple"></span>
 								<i class="material-icons mdc-button__icon" aria-hidden="true">comment</i>
 								<?php
@@ -127,11 +130,11 @@ $post_content = wp_trim_words( get_the_excerpt( $post ), $content_length, ' [&he
 										_nx( // phpcs:disable
 											'One Comment', // phpcs:disable
 											'%s Comments',
-											get_comments_number( $post_ID ),
+											get_comments_number( $post_id_card ),
 											'comments title',
 											'material-design-google'
 										),
-										number_format_i18n( get_comments_number( $post_ID ) )
+										number_format_i18n( get_comments_number( $post_id_card ) )
 									)
 								);
 								?>

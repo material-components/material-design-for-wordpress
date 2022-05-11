@@ -9,12 +9,9 @@
       "type": "string"
     }
   },
-  "title": "Material Search",
+  "title": "Material Search Bar",
   "supports": {},
   "description": "Material search bar",
-  "editorStyle": [
-    "material-google-fonts",
-    "material-block-editor-css-theme"
-  ],
+  "editorStyle": "material-block-editor-css-theme",
   "editorScript": "material-block-editor-js-theme"
 }

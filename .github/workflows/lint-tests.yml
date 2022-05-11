@@ -35,7 +35,7 @@ jobs:
       fail-fast: false
       matrix:
         php_versions: [7.4]
-        wp_versions: [5.7, 5.8.2]
+        wp_versions: [5.7, 5.8.2, 5.9.2]
         include:
           - php_versions: 7.3
             wp_versions: 5.6
@@ -44,6 +44,8 @@ jobs:
       NODE_ENV: teste2e
       WP_VERSION: ${{ matrix.wp_versions }}
       PHP_VERSION: php${{ matrix.php_versions }}-apache
+      JEST_ALLOW_SKIP_CARD: ${{ matrix.wp_versions == '5.6' || matrix.wp_versions == '5.7' }}
+      JEST_ALLOW_SKIP_SEARCH: ${{ matrix.wp_versions == '5.6' || matrix.wp_versions == '5.7' }}
 
     steps:
       - uses: actions/checkout@v2
@@ -88,6 +90,7 @@ jobs:
         run: |
           npm run wp -- wp core install --title=WordPress --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email --url=http://localhost:8088 --quiet
           npm run wp -- wp plugin activate material-design
+          npm run wp -- wp theme activate material-design-google
 
       - name: Run E2E tests with coverage
         run: |
@@ -128,9 +131,9 @@ jobs:
           flag-name: "JS Unit Tests"
           parallel: true
 
-  test-php:
+  test-php-plugin:
     needs: [lint]
-    name: "PHP tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
+    name: "PHP Plugin tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
     timeout-minutes: 20
     runs-on: ${{ matrix.os }}
     continue-on-error: ${{ matrix.experimental == true }}
@@ -191,8 +194,54 @@ jobs:
         if: ${{ matrix.php_versions != '7.0' && matrix.php_versions != '5.6.20' }}
         run: source bin/php-tests.sh wordpress_test root root localhost
 
+  test-php-theme:
+    needs: [ lint ]
+    name: "PHP Theme tests (PHP ${{ matrix.php_versions }}, WordPress ${{ matrix.wp_versions }})"
+    timeout-minutes: 20
+    runs-on: ${{ matrix.os }}
+    continue-on-error: ${{ matrix.experimental == true }}
+    strategy:
+      fail-fast: false
+      matrix:
+        php_versions: [ 7.4 ]
+        wp_versions: [ "latest" ]
+        os: [ ubuntu-latest ]
+        include:
+          - php_versions: 7.4
+            wp_versions: "trunk"
+            os: ubuntu-latest
+            experimental: true
+    env:
+      WP_VERSION: ${{ matrix.wp_versions }}
+      COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      COVERALLS_PARALLEL: true
+      PROJECT_TYPE: theme
+      PROJECT_SLUG: material-design-google
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup PHP ${{ matrix.php_versions }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php_versions }}
+          tools: phpunit
+
+      - name: Start MySQL
+        run: |
+          sudo systemctl enable mysql.service
+          sudo systemctl start mysql.service
+
+      - name: Install dependencies
+        run: composer install
+
+      - name: Copy block.json files
+        run: for file in ./theme/assets/src/block-editor/blocks/*/block.json; do dest="${file/.\/theme\/assets\/src\/block-editor\//./theme/assets/js/}"; mkdir -p `dirname $dest`; cp $file $dest; done
+
+      - name: Install and Run tests
+        run: source bin/php-tests.sh wordpress_test root root localhost false false true
+
   finish:
-    needs: [test-e2e, test-js, test-php]
+    needs: [test-e2e, test-js, test-php-plugin, test-php-theme]
     name: Finish
     runs-on: ubuntu-latest
     steps:

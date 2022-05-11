@@ -30,47 +30,41 @@ $default_label      = __( 'First', 'material-design-google' );
 $label              = isset( $attributes['label'] ) && ! empty( $attributes['label'] ) ? $attributes['label'] : $default_label;
 $content            = '';
 $url                = '';
-$wrapper_attributes = str_replace( 'class="', 'class="mdc-ripple-surface ', $wrapper_attributes );
 
 // Check if the pagination is for Query that inherits the global context
 // and handle appropriately.
 if ( isset( $block->context['query']['inherit'] ) && $block->context['query']['inherit'] ) {
-	$url = get_pagenum_link( 1 );
-} elseif ( 1 !== $page_number ) {
+	global $wp_query;
+	$url               = get_pagenum_link( 1 );
+	$query_page_number = (int) get_query_var( 'paged' );
+	$page_number       = $query_page_number > 0 ? $query_page_number : $page_number;
+} else {
 	$url = add_query_arg( $page_key, 1 );
 }
+$is_disabled = 1 === $page_number;
 
 if ( ! empty( $url ) ) :
-	ob_start();
+	$screen_reader = sprintf(
+	/* translators: available page description. */
+		esc_html__( '%s page', 'material-design-google' ),
+		esc_html( $label )
+	);
+	$inner_content             = sprintf(
+		'<span class="material-icons" aria-hidden="true">first_page</span>
+	<span class="screen-reader-text">%s</span>',
+		$screen_reader
+	);
+	$inner_content_with_anchor = $is_disabled ? $inner_content : sprintf(
+		'<a href="%s" class="mdc-ripple-surface">%s</a>',
+		esc_url( $url ),
+		$inner_content
+	);
+	$content                   = sprintf(
+		'<li %s>%s</li>',
+		$wrapper_attributes,
+		$inner_content_with_anchor
+	);
 	?>
-	<li>
-		<a
-			href="<?php echo esc_url( $url ); ?>"
-			<?php
-			/**
-			 * Esc_attr breaks the markup.
-			 * Turns the closing " into &quote;
-			 */
-			?>
-			<?php echo $wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		>
-			<span class="material-icons" aria-hidden="true">
-				first_page
-			</span>
-			<span class="screen-reader-text">
-				<?php
-					printf(
-						/* translators: available page description. */
-						esc_html__( '%s page', 'material-design-google' ),
-						esc_html( $label )
-					);
-				?>
-			</span>
-		</a>
-	</li>
 	<?php
-
-	$content = ob_get_clean();
-
 	echo wp_kses_post( $content );
 endif;

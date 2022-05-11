@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "material/navigation-link",
+	"title": "Custom Link (Material)",
+	"category": "design",
+	"parent": [ "material/navigation" ],
+	"description": "Add a page, link, or another item to your navigation.",
+	"textdomain": "material-design",
+	"attributes": {
+		"label": {
+			"type": "string"
+		},
+		"type": {
+			"type": "string"
+		},
+		"description": {
+			"type": "string"
+		},
+		"rel": {
+			"type": "string"
+		},
+		"id": {
+			"type": "number"
+		},
+		"opensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"url": {
+			"type": "string"
+		},
+		"title": {
+			"type": "string"
+		},
+		"kind": {
+			"type": "string"
+		},
+		"isTopLevelLink": {
+			"type": "boolean"
+		}
+	},
+  "usesContext": [ "isInDrawer" ],
+	"supports": {
+		"reusable": false,
+		"html": false,
+		"__experimentalSlashInserter": true
+	},
+	"editorStyle": "material-block-editor-css-theme",
+  "editorScript": "material-block-editor-js-theme"
+}

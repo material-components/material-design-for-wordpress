@@ -59,22 +59,25 @@ function register( $wp_customize ) {
  * @return array
  */
 function get_controls() {
-	$controls = [
+	return [
 		[
-			'id'    => 'header_label',
-			'label' => esc_html__( 'Top app bar', 'material-design-google' ),
-			'type'  => 'hidden',
+			'id'              => 'header_label',
+			'label'           => esc_html__( 'Top app bar', 'material-design-google' ),
+			'type'            => 'hidden',
+			'enable_none_fse' => true,
 		],
 		[
-			'id'    => 'header_search_display',
-			'label' => esc_html__( 'Show search in top app bar', 'material-design-google' ),
-			'type'  => 'checkbox',
+			'id'              => 'header_search_display',
+			'label'           => esc_html__( 'Show search in top app bar', 'material-design-google' ),
+			'type'            => 'checkbox',
+			'enable_none_fse' => true,
 		],
 		[
-			'id'          => 'header_title_display',
-			'label'       => esc_html__( 'Hide site title in top app bar', 'material-design-google' ),
-			'type'        => 'checkbox',
-			'description' => esc_html__( 'Site title is hidden but will still be used for SEO purposes', 'material-design-google' ),
+			'id'              => 'header_title_display',
+			'label'           => esc_html__( 'Hide site title in top app bar', 'material-design-google' ),
+			'type'            => 'checkbox',
+			'description'     => esc_html__( 'Site title is hidden but will still be used for SEO purposes', 'material-design-google' ),
+			'enable_none_fse' => true,
 		],
 		[
 			'id'      => 'header_bar_layout',
@@ -130,10 +133,15 @@ function get_controls() {
  * @return void
  */
 function add_settings( $wp_customize ) {
-	$settings = [];
-	$controls = [];
+	$settings    = [];
+	$controls    = [];
+	$is_fse_mode = is_fse();
 
 	foreach ( get_controls() as $control ) {
+		if ( ! empty( $control['enable_none_fse'] ) && $is_fse_mode ) {
+			continue;
+		}
+
 		$settings[ $control['id'] ] = [
 			'transport'         => 'postMessage',
 			'sanitize_callback' => Customizer\get_sanitize_callback( $control['type'] ),

@@ -89,7 +89,7 @@
 	};
 
 	api.bind( 'ready', () => {
-		api( 'archive_layout' ).bind( value => {
+		api( 'archive_layout' )?.bind( value => {
 			const isCardLayout = 'card' === value;
 
 			const controls = [
@@ -105,14 +105,6 @@
 			);
 		} );
 
-		const hideHeaderDescription = document.querySelector(
-			'#customize-control-header_title_display'
-		);
-
-		const hideHeaderDescriptionEl = hideHeaderDescription.querySelector(
-			'.description'
-		);
-
 		const colorModeTabs = document.querySelectorAll(
 			'.material-design-section-tabs .material-design-tab-link'
 		);
@@ -123,16 +115,26 @@
 			);
 		}
 
-		if ( hideHeaderDescription.querySelector( 'input:checked' ) ) {
-			hideHeaderDescriptionEl.classList.add( '-display' );
-		}
+		const hideHeaderDescription = document.querySelector(
+			'#customize-control-header_title_display'
+		);
 
-		api( 'header_title_display' ).bind( value => {
-			if ( value ) {
+		if ( hideHeaderDescription ) {
+			const hideHeaderDescriptionEl = hideHeaderDescription.querySelector(
+				'.description'
+			);
+
+			if ( hideHeaderDescription.querySelector( 'input:checked' ) ) {
 				hideHeaderDescriptionEl.classList.add( '-display' );
-			} else {
-				hideHeaderDescriptionEl.classList.remove( '-display' );
 			}
-		} );
+
+			api( 'header_title_display' ).bind( value => {
+				if ( value ) {
+					hideHeaderDescriptionEl.classList.add( '-display' );
+				} else {
+					hideHeaderDescriptionEl.classList.remove( '-display' );
+				}
+			} );
+		}
 	} );
 } )( jQuery, wp.customize );

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "material/navigation",
+  "category": "material",
+  "attributes": {
+    "ref": {
+      "type": "number"
+    },
+    "hasIcon": {
+      "type": "boolean",
+      "default": false
+    },
+    "isInDrawer": {
+      "type": "boolean",
+      "default": false
+    },
+		"__unstableLocation": {
+			"type": "string"
+		}
+  },
+  "title": "Material Navigation",
+  "supports": {
+    "align": [ "wide", "full" ],
+    "anchor": true,
+    "html": false,
+    "inserter": true,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalTextTransform": true,
+			"__experimentalFontFamily": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+    },
+		"__experimentalLayout": {
+			"allowSwitching": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "flex"
+			}
+		}
+  },
+  "apiVersion": 2,
+  "description": "Material Navigation",
+  "editorStyle": "material-block-editor-css-theme",
+  "editorScript": "material-block-editor-js-theme",
+  "usesContext": [ "navigationArea" ],
+  "providesContext": {
+    "style": "style",
+		"orientation": "orientation",
+    "material/isInDrawer": "isInDrawer"
+  },
+  "textdomain": "material-design-google"
+}

@@ -13,6 +13,7 @@ DB_PASS=$3
 DB_HOST=${4-localhost}
 SKIP_DB_CREATE=${5-false}
 PHPUNIT_PATH=${6-false}
+IS_THEME=${7-false}
 
 WP_VERSION=${WP_VERSION:-latest}
 TMPDIR=${TMPDIR-/tmp}
@@ -20,7 +21,6 @@ TMPDIR=$(echo $TMPDIR | sed -e "s/\/$//")
 
 PROJECT_DIR=$( git rev-parse --show-toplevel )
 PROJECT_SLUG=${PROJECT_SLUG:-$( basename "$PROJECT_DIR" | sed 's/^wp-//' )}
-
 
 if [ -z "$PROJECT_TYPE" ]; then
 	if [ -e style.css ]; then
@@ -70,9 +70,11 @@ elif [[ $WP_VERSION == 'nightly' || $WP_VERSION == 'trunk' ]]; then
 	WP_TESTS_TAG="trunk"
 else
 	# http serves a single offer, whereas https serves multiple. we only want one
-	download http://api.wordpress.org/core/version-check/1.7/ /tmp/wp-latest.json
+	# since http version is no longer working we need to use https.
+	download https://api.wordpress.org/core/version-check/1.7/ /tmp/wp-latest.json
 
-	LATEST_VERSION=$(grep -o '"version":"[^"]*' /tmp/wp-latest.json | sed 's/"version":"//')
+  # with https version we are using first version from array.
+	LATEST_VERSION=$(grep -o '"version":"[^"]*' /tmp/wp-latest.json | sed 's/"version":"//' | head -1)
 	if [[ -z "$LATEST_VERSION" ]]; then
 		echo "Latest WordPress version could not be found"
 		exit 1
@@ -202,10 +204,8 @@ function sync_project_dir() {
 	elif [ "$PROJECT_TYPE" == theme ]; then
 		INSTALL_PATH="$WP_CORE_DIR/wp-content/themes/$PROJECT_SLUG"
 
-		# Rsync the files into the right location
-		mkdir -p "$INSTALL_PATH"
-		rsync -a $(verbose_arg) --exclude .git/hooks --exclude node_modules --delete "$PROJECT_DIR/" "$INSTALL_PATH/"
-		cd "$INSTALL_PATH"
+		# Link the files into the right location for theme.
+		ln -s "$PROJECT_DIR/theme" "$INSTALL_PATH"
 
 		# Clone the theme dependencies (i.e. plugins) into the plugins directory
 		if [ ! -z "$THEME_GIT_PLUGIN_DEPENDENCIES" ]; then
@@ -229,13 +229,18 @@ install_test_suite
 install_db
 sync_project_dir
 
+COMMAND_PARAM="test"
+if [ "$IS_THEME" == true ]; then
+	COMMAND_PARAM="test-theme"
+fi
+
 if [ "$COVERALLS" == true ]; then
 	echo "Running PHP unit tests with coverage"
-	composer test-coveralls
+	composer "$COMMAND_PARAM-coveralls"
 else
 	echo "Running PHP unit tests"
 	if [ "$PHPUNIT_PATH" == false ]; then
-		composer test
+		composer "$COMMAND_PARAM"
 	else
 		echo "Using custom PHPUnit located at $PHPUNIT_PATH"
 		$PHPUNIT_PATH
