@@ -197,7 +197,7 @@ function admin_notice() {
 	$customizer_url = add_query_arg( 'autofocus[section]', Customizer\prepend_slug( 'fse_opt' ), $customizer_url );
 
 	printf(
-		'<div id="material-theme-opt-in" class="notice notice-success is-dismissible" style="border-left-color:var(--mdc-theme-primary, #00a32a); transition:opacity 1s; opacity: 1;"><p>%s</p>',
+		'<div id="material-theme-opt-in" class="notice notice-warning is-dismissible" style="transition:opacity 1s; opacity: 1;"><p>%s</p>',
 		esc_html__( 'Google Material Theme full site editing support is available. Please note this WordPress feature is currently in beta. If you wish to enable the full site editing version of the theme, please test it out on a test environment before going live.', 'material-design-google' )
 	);
 
@@ -206,8 +206,8 @@ function admin_notice() {
 	wp_nonce_field( 'fse_opt_notice', 'fse_opt_nonce' );
 
 	echo '<div class="button-group" style="padding-bottom: 5px;">';
-	printf( '<a href="%s"><button class="button button-primary" style="background-color: var(--mdc-theme-primary); color: var(--mdc-theme-on-primary); margin-right: 5px;">%s</button></a> ', esc_url( $customizer_url ), esc_html__( 'Enable in customizer', 'material-design-google' ) );
-	printf( '<button class="button button-secondary" style="/* background-color: var(--mdc-theme-secondary); color: var(--mdc-theme-on-secondary) */">%s</button>', esc_html__( 'Maybe later', 'material-design-google' ) );
+	printf( '<a href="%s"><button class="button button-primary" style="margin-right: 15px;">%s</button></a> ', esc_url( $customizer_url ), esc_html__( 'Enable in customizer', 'material-design-google' ) );
+	printf( '<button class="button button-secondary">%s</button>', esc_html__( 'Maybe later', 'material-design-google' ) );
 	echo '</div>';
 	?>
 	<script type="text/javascript">
