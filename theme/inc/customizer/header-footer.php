@@ -59,7 +59,7 @@ function register( $wp_customize ) {
  * @return array
  */
 function get_controls() {
-	return [
+	$controls = [
 		[
 			'id'              => 'header_label',
 			'label'           => esc_html__( 'Top app bar', 'material-design-google' ),
@@ -135,7 +135,7 @@ function get_controls() {
 function add_settings( $wp_customize ) {
 	$settings    = [];
 	$controls    = [];
-	$is_fse_mode = is_fse();
+	$is_fse_mode = is_material_in_fse_mode();
 
 	foreach ( get_controls() as $control ) {
 		if ( ! empty( $control['enable_none_fse'] ) && $is_fse_mode ) {

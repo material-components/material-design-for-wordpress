@@ -26,7 +26,7 @@
 namespace MaterialDesign\Theme\Customizer\Layout;
 
 use MaterialDesign\Theme\Customizer;
-use function MaterialDesign\Theme\BlockEditor\is_fse;
+use function MaterialDesign\Theme\BlockEditor\is_material_in_fse_mode;
 
 /**
  * Attach hooks
@@ -109,7 +109,7 @@ function get_controls() {
 		],
 	];
 
-	if ( ! is_fse() ) {
+	if ( ! is_material_in_fse_mode() ) {
 		$non_fse_controls = [
 			[
 				'id'      => 'archive_width',
