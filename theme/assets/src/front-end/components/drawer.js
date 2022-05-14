@@ -35,20 +35,23 @@ export const drawerInit = () => {
 	const drawer = new MDCDrawer( drawerElement );
 	drawer.singleSelection = true;
 
-	const listElement =
-		drawerElement.querySelector( '.mdc-list' ) ??
-		drawerElement.querySelector( '.wp-block-page-list' );
+	if ( drawerElement ) {
+		const listElement =
+			drawerElement.querySelector( '.mdc-list' ) ??
+			drawerElement.querySelector( '.wp-block-page-list' );
 
-	listElement.addEventListener( 'click', () => {
-		drawer.open = false;
-	} );
+		if ( listElement ) {
+			listElement.addEventListener( 'click', () => {
+				drawer.open = false;
+			} );
+			const firstElement =
+				listElement.querySelector( '.mdc-list-item' ) ??
+				listElement.querySelector( '.wp-block-pages-list__item' );
 
-	const firstElement =
-		listElement.querySelector( '.mdc-list-item' ) ??
-		listElement.querySelector( '.wp-block-pages-list__item' );
-
-	if ( firstElement ) {
-		firstElement.setAttribute( 'tabindex', 0 );
+			if ( firstElement ) {
+				firstElement.setAttribute( 'tabindex', 0 );
+			}
+		}
 	}
 
 	const closeButton = drawerElement.querySelector( '.mdc-drawer__close' );
