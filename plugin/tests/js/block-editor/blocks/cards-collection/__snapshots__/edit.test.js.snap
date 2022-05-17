@@ -1248,7 +1248,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1257,7 +1257,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1267,7 +1267,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1329,7 +1329,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1338,7 +1338,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1348,7 +1348,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -1410,7 +1410,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1419,7 +1419,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -1429,7 +1429,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2687,7 +2687,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2696,7 +2696,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2706,7 +2706,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2768,7 +2768,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2777,7 +2777,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2787,7 +2787,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -2849,7 +2849,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2858,7 +2858,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -2868,7 +2868,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -4206,7 +4206,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4215,7 +4215,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4225,7 +4225,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -4281,7 +4281,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4290,7 +4290,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4300,7 +4300,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -4356,7 +4356,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4365,7 +4365,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -4375,7 +4375,7 @@ Object {
                   <div
                     aria-label="Supporting text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5631,7 +5631,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5640,7 +5640,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5650,7 +5650,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -5706,7 +5706,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5715,7 +5715,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5725,7 +5725,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -5781,7 +5781,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5790,7 +5790,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -5800,7 +5800,7 @@ Object {
                 <div
                   aria-label="Supporting text"
                   aria-multiline="true"
-                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                   role="textbox"
                   style="white-space: pre-wrap;"
                 >
@@ -6801,7 +6801,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -6810,7 +6810,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -6867,7 +6867,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -6876,7 +6876,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -6933,7 +6933,7 @@ Object {
                     <h2
                       aria-label="Title goes here"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -6942,7 +6942,7 @@ Object {
                     <h3
                       aria-label="Secondary text"
                       aria-multiline="true"
-                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                       role="textbox"
                       style="white-space: pre-wrap;"
                     >
@@ -7862,7 +7862,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -7871,7 +7871,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -7928,7 +7928,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -7937,7 +7937,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -7994,7 +7994,7 @@ Object {
                   <h2
                     aria-label="Title goes here"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -8003,7 +8003,7 @@ Object {
                   <h3
                     aria-label="Secondary text"
                     aria-multiline="true"
-                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                     role="textbox"
                     style="white-space: pre-wrap;"
                   >
@@ -12435,7 +12435,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         className="material-design-card__primary"
                       >
                         <ForwardRef
-                          className="material-design-card__title mdc-typography mdc-typography--headline6"
+                          className="material-design-card__title title-large"
                           onChange={[Function]}
                           placeholder="Title goes here"
                           tagName="h2"
@@ -12444,7 +12444,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           <h2
                             aria-label="Title goes here"
                             aria-multiline="true"
-                            className="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                            className="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                             onInput={[Function]}
                             role="textbox"
                             style={
@@ -12457,7 +12457,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           </h2>
                         </ForwardRef>
                         <ForwardRef
-                          className="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                          className="material-design-card__secondary-text label-medium"
                           onChange={[Function]}
                           placeholder="Secondary text"
                           tagName="h3"
@@ -12466,7 +12466,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           <h3
                             aria-label="Secondary text"
                             aria-multiline="true"
-                            className="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                            className="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                             onInput={[Function]}
                             role="textbox"
                             style={
@@ -12488,7 +12488,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       supportingText="Supporting text #1"
                     >
                       <ForwardRef
-                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                         onChange={[Function]}
                         placeholder="Supporting text"
                         tagName="div"
@@ -12497,7 +12497,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         <div
                           aria-label="Supporting text"
                           aria-multiline="true"
-                          className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                          className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                           onInput={[Function]}
                           role="textbox"
                           style={
@@ -12754,7 +12754,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         className="material-design-card__primary"
                       >
                         <ForwardRef
-                          className="material-design-card__title mdc-typography mdc-typography--headline6"
+                          className="material-design-card__title title-large"
                           onChange={[Function]}
                           placeholder="Title goes here"
                           tagName="h2"
@@ -12763,7 +12763,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           <h2
                             aria-label="Title goes here"
                             aria-multiline="true"
-                            className="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                            className="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                             onInput={[Function]}
                             role="textbox"
                             style={
@@ -12776,7 +12776,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           </h2>
                         </ForwardRef>
                         <ForwardRef
-                          className="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                          className="material-design-card__secondary-text label-medium"
                           onChange={[Function]}
                           placeholder="Secondary text"
                           tagName="h3"
@@ -12785,7 +12785,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                           <h3
                             aria-label="Secondary text"
                             aria-multiline="true"
-                            className="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                            className="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
                             onInput={[Function]}
                             role="textbox"
                             style={
@@ -12807,7 +12807,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                       supportingText="Supporting text #2"
                     >
                       <ForwardRef
-                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                        className="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                         onChange={[Function]}
                         placeholder="Supporting text"
                         tagName="div"
@@ -12816,7 +12816,7 @@ exports[`blocks: material/cards-collection: Edit removes one card from the ui is
                         <div
                           aria-label="Supporting text"
                           aria-multiline="true"
-                          className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                          className="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
                           onInput={[Function]}
                           role="textbox"
                           style={

@@ -33,7 +33,7 @@ exports[`Onboarding Wizard matches snapshot 1`] = `
             class="mdc-layout-grid__cell mdc-layout-grid__cell--span-11 mdc-layout-grid__cell--align-middle"
           >
             <h2
-              class="mdc-typography--headline5"
+              class="title-large"
             >
               Material Design for WordPress
             </h2>
@@ -189,7 +189,7 @@ exports[`Onboarding Wizard matches snapshot 1`] = `
                 class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
               >
                 <h3
-                  class="mdc-typography--headline3"
+                  class="headline-medium"
                 >
                   Start building
                 </h3>

@@ -137,7 +137,7 @@ function material_design_theme_widgets_init() {
 			'description'   => esc_html__( 'Footer left area.', 'material-design-google' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title mdc-typography--headline5">',
+			'before_title'  => '<h2 class="widget-title title-large">',
 			'after_title'   => '</h2>',
 		]
 	);
@@ -149,7 +149,7 @@ function material_design_theme_widgets_init() {
 			'description'   => esc_html__( 'Footer right area.', 'material-design-google' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title mdc-typography--headline5">',
+			'before_title'  => '<h2 class="widget-title title-large">',
 			'after_title'   => '</h2>',
 		]
 	);
