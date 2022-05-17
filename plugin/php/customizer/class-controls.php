@@ -329,13 +329,9 @@ class Controls extends Module_Base {
 		/**
 		 * Generate list of all the settings in the colors section.
 		 */
-		$settings     = [];
-		$all_controls = array_merge(
-			$this->get_color_controls(),
-			$this->get_color_secondary_controls(),
-		);
+		$settings = [];
 
-		foreach ( $all_controls as $control ) {
+		foreach ( $this->get_color_controls() as $control ) {
 			$settings[ $control['id'] ] = [
 				'sanitize_callback' => 'sanitize_hex_color',
 			];
@@ -358,7 +354,7 @@ class Controls extends Module_Base {
 		$dark_mode_controls = [];
 		$contrast_controls  = [];
 
-		foreach ( $all_controls as $control ) {
+		foreach ( $this->get_color_controls() as $control ) {
 			$args = [
 				'label'                => $control['label'],
 				'section'              => 'colors',
@@ -369,7 +365,7 @@ class Controls extends Module_Base {
 					false,
 				'css_var'              => $control['css_var'],
 				'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
-				'secondary_controls'   => ! empty( $control['secondary_controls'] )	 ? $control['secondary_controls'] : [],
+				'secondary_controls'   => ! empty( $control['secondary_controls'] ) ? $control['secondary_controls'] : [],
 			];
 
 			$controls[ $control['id'] ] = new Material_Color_Palette_Control(
@@ -1288,7 +1284,7 @@ class Controls extends Module_Base {
 				'a11y_label'           => __( 'On Primary', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_primary_color' ),
 				'css_var'              => '--mdc-theme-primary',
-				'secondary_controls'   => $this->get_color_secondary_controls( 'primary_color' )
+				'secondary_controls'   => $this->get_color_secondary_controls( 'primary_color' ),
 			],
 			[
 				'id'                   => 'secondary_color',
@@ -1296,7 +1292,7 @@ class Controls extends Module_Base {
 				'a11y_label'           => __( 'On Secondary', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_secondary_color' ),
 				'css_var'              => '--mdc-theme-secondary',
-				'secondary_controls'   => $this->get_color_secondary_controls( 'secondary_color' )
+				'secondary_controls'   => $this->get_color_secondary_controls( 'secondary_color' ),
 			],
 			[
 				'id'                   => 'tertiary_color',
@@ -1304,21 +1300,7 @@ class Controls extends Module_Base {
 				'a11y_label'           => __( 'On Tertiary', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_tertiary_color' ),
 				'css_var'              => '--md-sys-color-tertiary',
-				'secondary_controls'   => $this->get_color_secondary_controls( 'tertiary_color' )
-			],
-			[
-				'id'                   => 'surface_color',
-				'label'                => __( 'Surface Color', 'material-design' ),
-				'a11y_label'           => __( 'On Surface', 'material-design' ),
-				'related_text_setting' => $this->prepare_option_name( 'on_surface_color' ),
-				'css_var'              => '--mdc-theme-surface',
-			],
-			[
-				'id'              => 'on_surface_color',
-				'label'           => __( 'On Surface Color (text and icons)', 'material-design' ),
-				'a11y_label'      => __( 'On Surface', 'material-design' ),
-				'related_setting' => $this->prepare_option_name( 'surface_color' ),
-				'css_var'         => '--mdc-theme-on-surface',
+				'secondary_controls'   => $this->get_color_secondary_controls( 'tertiary_color' ),
 			],
 		];
 	}
@@ -1350,7 +1332,7 @@ class Controls extends Module_Base {
 					'css_var'         => '--mdc-theme-on-secondary',
 				],
 			],
-			'tertiary_color' => [
+			'tertiary_color'  => [
 				[
 					'id'              => 'on_tertiary_color',
 					'label'           => __( 'On Tertiary Color (text and icons)', 'material-design' ),
