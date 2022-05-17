@@ -38,7 +38,7 @@ const Work = () => {
 				) }complete-build-with-blocks.png` }
 				imageSpan="5"
 			>
-				<h3 className="mdc-typography--headline3">
+				<h3 className="headline-medium">
 					{ __( 'Congrats!', 'material-design' ) }
 				</h3>
 

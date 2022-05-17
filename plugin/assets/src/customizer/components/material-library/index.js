@@ -45,25 +45,40 @@ import colorUtils from '../../../common/color-utils';
  * Adds link tag with appropriate google fonts to head.
  *
  * @param {string} headings Import headings font
+ * @param {string} headline Import headline font
  * @param {string} body     Import body font
+ * @param {string} display  Import display font
+ * @param {string} label    Import label font
  *
  * @return {HTMLLinkElement} Link to google fonts.
  */
-const googleFontsUrl = ( headings, body ) => {
+const googleFontsUrl = ( headings, headline, body, display, label ) => {
 	const join = str => str.replace( ' ', '+' );
 	const link = document.createElement( 'link' );
 
+	const fonts = [ headline, headings, body, display, label ];
+
+	// Make fonts unique.
+	const uniqueFonts = [ ...new Set( fonts ) ];
+
+	// Clean up empty fonts.
+	const cleanFonts = uniqueFonts.filter( font => font );
+
+	// Join fonts into string as pipe.
+	const fontString = join( cleanFonts.join( '|' ) );
+
 	link.rel = 'stylesheet';
-	link.href = `https://fonts.googleapis.com/css?family=${ join(
-		headings
-	) }|${ join( body ) }`;
+	link.href = `https://fonts.googleapis.com/css?family=${ fontString }`;
 
 	return link;
 };
 
 const MaterialLibrary = ( {
 	bodyFontFamily,
-	headFontFamily,
+	labelFontFamily,
+	headlineFontFamily,
+	displayFontFamily,
+	titleFontFamily,
 	iconCollection,
 	primaryColor,
 	onPrimaryColor,
@@ -82,7 +97,13 @@ const MaterialLibrary = ( {
 	theme,
 } ) => {
 	const [ link ] = useState(
-		googleFontsUrl( headFontFamily, bodyFontFamily )
+		googleFontsUrl(
+			titleFontFamily,
+			headlineFontFamily,
+			bodyFontFamily,
+			displayFontFamily,
+			labelFontFamily
+		)
 	);
 
 	const iconStyle = materialIconClass( iconCollection );
@@ -95,8 +116,11 @@ const MaterialLibrary = ( {
 	return (
 		<>
 			<Overrides
-				headings={ headFontFamily }
+				headline={ headlineFontFamily }
 				body={ bodyFontFamily }
+				title={ bodyFontFamily }
+				display={ displayFontFamily }
+				label={ labelFontFamily }
 				primaryColor={ primaryColor }
 				secondaryColor={ secondaryColor }
 				onPrimaryColor={ onPrimaryColor }
@@ -119,11 +143,11 @@ const MaterialLibrary = ( {
 			/>
 
 			<div id="material-library-preview">
-				<h2 className="mdc-typography--headline2">
+				<h2 className="headline-large">
 					{ __( 'Material Components', 'material-design' ) }
 				</h2>
 				<section>
-					<h3 className="mdc-typography--headline3">
+					<h3 className="headline-medium">
 						{ __( 'Blocks', 'material-design' ) }
 					</h3>
 					<p>
@@ -157,7 +181,7 @@ const MaterialLibrary = ( {
 				<hr />
 
 				<section style={ { marginTop: '100px' } }>
-					<h3 className="mdc-typography--headline3">
+					<h3 className="headline-medium">
 						{ __( 'Components', 'material-design' ) }
 					</h3>
 					<p>

@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="mdc-layout-grid mdc-typography"
+        class="mdc-layout-grid"
       >
         <div
           class="mdc-layout-grid__inner"
@@ -18,7 +18,7 @@ Object {
               class="material-gsm__heading"
             >
               <div
-                class="mdc-typography--headline6"
+                class="title-large"
               >
                 Getting Started
               </div>
@@ -107,11 +107,13 @@ Object {
             class="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9"
           >
             <h2
-              class="material-gsm__content-title mdc-typography--headline3"
+              class="material-gsm__content-title headline-medium"
             >
               Customize your Theme
             </h2>
-            <p>
+            <p
+              class="body-large"
+            >
               Set and preview your global theme styles using the Material Design options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.
             </p>
             <img
@@ -142,11 +144,13 @@ Object {
               </button>
             </div>
             <h2
-              class="material-gsm__content-title mdc-typography--headline5"
+              class="material-gsm__content-title title-large"
             >
               Starter Styles
             </h2>
-            <p>
+            <p
+              class="body-large"
+            >
               Start from our existing styles and use 
               <a
                 href="https://material.io/design/material-theming/overview.html"
@@ -158,11 +162,13 @@ Object {
                to create a custom look and feel.
             </p>
             <h2
-              class="material-gsm__content-title mdc-typography--headline5"
+              class="material-gsm__content-title title-large"
             >
               Color Palettes
             </h2>
-            <p>
+            <p
+              class="body-large"
+            >
               Change your primary and secondary colors and see them applied throughout your site. Need help picking colors? Try Material’s 
               <a
                 href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
@@ -174,11 +180,13 @@ Object {
                to find complementary, analogous, and triadic tonal palettes.
             </p>
             <h2
-              class="material-gsm__content-title mdc-typography--headline5"
+              class="material-gsm__content-title title-large"
             >
               Typography
             </h2>
-            <p>
+            <p
+              class="body-large"
+            >
               Choose from more than 1,000 typefaces in 
               <a
                 href="https://fonts.google.com/"
@@ -198,19 +206,23 @@ Object {
                for inspiration and best practices.
             </p>
             <h2
-              class="material-gsm__content-title mdc-typography--headline5"
+              class="material-gsm__content-title title-large"
             >
               Corner Styles
             </h2>
-            <p>
+            <p
+              class="body-large"
+            >
               Material Design systematically applies a shape scheme across components. Change the global corner radius for all blocks or individually for each Material block.
             </p>
             <h2
-              class="material-gsm__content-title mdc-typography--headline5"
+              class="material-gsm__content-title title-large"
             >
               Icon Style
             </h2>
-            <p>
+            <p
+              class="body-large"
+            >
               All 
               <a
                 href="http://material.io/icons"
@@ -222,28 +234,34 @@ Object {
                are included with this plugin. Choose from Filled, Outlined, Rounded, Two-tone, or Sharp styles.
             </p>
             <h2
-              class="material-gsm__content-title mdc-typography--headline3"
+              class="material-gsm__content-title headline-medium"
             >
               Set Layout & Navigation
             </h2>
-            <p>
+            <p
+              class="body-large"
+            >
               Select how posts display – as either cards or image lists, in a wide or normal width. Additional card display options include raised or outlined cards, and show or hide post comments, author, excerpt, and date. 
               Choose how comment fields display within each post.
             </p>
             <h2
-              class="material-gsm__content-title mdc-typography--headline5"
+              class="material-gsm__content-title title-large"
             >
               Top app bar
             </h2>
-            <p>
+            <p
+              class="body-large"
+            >
               Choose tabs, navigation drawer, or both for your site navigation. Give users the ability to search your site from within the top app bar. By default, the top app bar will hide when scrolling up, choose “Fixed” to keep the app bar visible at all times.
             </p>
             <h2
-              class="material-gsm__content-title mdc-typography--headline5"
+              class="material-gsm__content-title title-large"
             >
               Footer
             </h2>
-            <p>
+            <p
+              class="body-large"
+            >
               Add footer text and give your users a quick way to jump back to the top of the page. Looking to add widgets at the bottom of your site? Use the 
               <a
                 href="\${ getConfig( 'customize' ) }?autofocus[panel]=widgets"
@@ -264,7 +282,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="mdc-layout-grid mdc-typography"
+      class="mdc-layout-grid"
     >
       <div
         class="mdc-layout-grid__inner"
@@ -276,7 +294,7 @@ Object {
             class="material-gsm__heading"
           >
             <div
-              class="mdc-typography--headline6"
+              class="title-large"
             >
               Getting Started
             </div>
@@ -365,11 +383,13 @@ Object {
           class="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9"
         >
           <h2
-            class="material-gsm__content-title mdc-typography--headline3"
+            class="material-gsm__content-title headline-medium"
           >
             Customize your Theme
           </h2>
-          <p>
+          <p
+            class="body-large"
+          >
             Set and preview your global theme styles using the Material Design options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.
           </p>
           <img
@@ -400,11 +420,13 @@ Object {
             </button>
           </div>
           <h2
-            class="material-gsm__content-title mdc-typography--headline5"
+            class="material-gsm__content-title title-large"
           >
             Starter Styles
           </h2>
-          <p>
+          <p
+            class="body-large"
+          >
             Start from our existing styles and use 
             <a
               href="https://material.io/design/material-theming/overview.html"
@@ -416,11 +438,13 @@ Object {
              to create a custom look and feel.
           </p>
           <h2
-            class="material-gsm__content-title mdc-typography--headline5"
+            class="material-gsm__content-title title-large"
           >
             Color Palettes
           </h2>
-          <p>
+          <p
+            class="body-large"
+          >
             Change your primary and secondary colors and see them applied throughout your site. Need help picking colors? Try Material’s 
             <a
               href="https://material.io/design/color/the-color-system.html#tools-for-picking-colors"
@@ -432,11 +456,13 @@ Object {
              to find complementary, analogous, and triadic tonal palettes.
           </p>
           <h2
-            class="material-gsm__content-title mdc-typography--headline5"
+            class="material-gsm__content-title title-large"
           >
             Typography
           </h2>
-          <p>
+          <p
+            class="body-large"
+          >
             Choose from more than 1,000 typefaces in 
             <a
               href="https://fonts.google.com/"
@@ -456,19 +482,23 @@ Object {
              for inspiration and best practices.
           </p>
           <h2
-            class="material-gsm__content-title mdc-typography--headline5"
+            class="material-gsm__content-title title-large"
           >
             Corner Styles
           </h2>
-          <p>
+          <p
+            class="body-large"
+          >
             Material Design systematically applies a shape scheme across components. Change the global corner radius for all blocks or individually for each Material block.
           </p>
           <h2
-            class="material-gsm__content-title mdc-typography--headline5"
+            class="material-gsm__content-title title-large"
           >
             Icon Style
           </h2>
-          <p>
+          <p
+            class="body-large"
+          >
             All 
             <a
               href="http://material.io/icons"
@@ -480,28 +510,34 @@ Object {
              are included with this plugin. Choose from Filled, Outlined, Rounded, Two-tone, or Sharp styles.
           </p>
           <h2
-            class="material-gsm__content-title mdc-typography--headline3"
+            class="material-gsm__content-title headline-medium"
           >
             Set Layout & Navigation
           </h2>
-          <p>
+          <p
+            class="body-large"
+          >
             Select how posts display – as either cards or image lists, in a wide or normal width. Additional card display options include raised or outlined cards, and show or hide post comments, author, excerpt, and date. 
             Choose how comment fields display within each post.
           </p>
           <h2
-            class="material-gsm__content-title mdc-typography--headline5"
+            class="material-gsm__content-title title-large"
           >
             Top app bar
           </h2>
-          <p>
+          <p
+            class="body-large"
+          >
             Choose tabs, navigation drawer, or both for your site navigation. Give users the ability to search your site from within the top app bar. By default, the top app bar will hide when scrolling up, choose “Fixed” to keep the app bar visible at all times.
           </p>
           <h2
-            class="material-gsm__content-title mdc-typography--headline5"
+            class="material-gsm__content-title title-large"
           >
             Footer
           </h2>
-          <p>
+          <p
+            class="body-large"
+          >
             Add footer text and give your users a quick way to jump back to the top of the page. Looking to add widgets at the bottom of your site? Use the 
             <a
               href="\${ getConfig( 'customize' ) }?autofocus[panel]=widgets"

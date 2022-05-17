@@ -30,8 +30,8 @@ const setupShallow = props => {
 };
 
 const baseProps = {
-	label: 'Test item',
-	id: 'headline1',
+	label: 'Test: Headline Large',
+	id: 'headline-large',
 	size: {
 		label: 'Size',
 		value: 96,
@@ -47,6 +47,19 @@ const baseProps = {
 			{ label: '400', value: '400' },
 			{ label: '500', value: '500' },
 		],
+	},
+	lineHeight: {
+		value: 0,
+		label: 'Line height',
+		min: 0,
+		max: 64,
+		default: 0,
+	},
+	tracking: {
+		label: 'Tracking',
+		min: -5,
+		max: 100,
+		default: 0,
 	},
 };
 
@@ -71,12 +84,64 @@ describe( 'GoogleFontsControl/Item', () => {
 			...baseProps,
 			onChange: onChangeMock,
 		} );
-		wrapper.find( 'input' ).simulate( 'change', event );
+		wrapper
+			.find( '#inspector-size-control-headline-large' )
+			.simulate( 'change', event );
 
 		expect( onChangeMock ).toHaveBeenCalledWith( {
 			id: baseProps.id,
 			weightValue: baseProps.weight.value,
 			sizeValue: 12,
+			lineHeightValue: baseProps.lineHeight.value,
+			trackingValue: baseProps.tracking.value,
+		} );
+	} );
+
+	it( 'should call onChange line height prop', () => {
+		const onChangeMock = jest.fn();
+		const event = {
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
+			preventDefault() {},
+			target: { value: 10 },
+		};
+		const wrapper = setupShallow( {
+			...baseProps,
+			onChange: onChangeMock,
+		} );
+		wrapper
+			.find( '#inspector-line-height-control-headline-large' )
+			.simulate( 'change', event );
+
+		expect( onChangeMock ).toHaveBeenCalledWith( {
+			id: baseProps.id,
+			weightValue: baseProps.weight.value,
+			sizeValue: baseProps.size.value,
+			lineHeightValue: 10,
+			trackingValue: baseProps.tracking.value,
+		} );
+	} );
+
+	it( 'should call onChange tracking prop', () => {
+		const onChangeMock = jest.fn();
+		const event = {
+			// eslint-disable-next-line @typescript-eslint/no-empty-function
+			preventDefault() {},
+			target: { value: 10 },
+		};
+		const wrapper = setupShallow( {
+			...baseProps,
+			onChange: onChangeMock,
+		} );
+		wrapper
+			.find( '#inspector-tracking-control-headline-large' )
+			.simulate( 'change', event );
+
+		expect( onChangeMock ).toHaveBeenCalledWith( {
+			id: baseProps.id,
+			weightValue: baseProps.weight.value,
+			sizeValue: baseProps.size.value,
+			lineHeightValue: baseProps.lineHeight.value,
+			trackingValue: 10,
 		} );
 	} );
 
@@ -95,6 +160,8 @@ describe( 'GoogleFontsControl/Item', () => {
 			id: baseProps.id,
 			weightValue: 100,
 			sizeValue: baseProps.size.value,
+			lineHeightValue: baseProps.lineHeight.value,
+			trackingValue: baseProps.tracking.value,
 		} );
 	} );
 
@@ -119,7 +186,10 @@ describe( 'GoogleFontsControl/Item', () => {
 		};
 
 		const wrapper = setupShallow( props );
-		expect( wrapper.find( 'input' ).props().value ).toStrictEqual( 96 );
+		expect(
+			wrapper.find( '#inspector-size-control-headline-large' ).props()
+				.value
+		).toStrictEqual( 96 );
 		expect(
 			wrapper.find( '.components-google-fonts-control__select' ).props()
 				.value

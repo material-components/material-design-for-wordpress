@@ -16,13 +16,51 @@
 
 /**
  * Material typography styles for html elements.
- * see https://github.com/material-components/material-components-web/blob/master/packages/mdc-typography/_variables.scss#L57
+ * See https://github.com/material-foundation/material-tokens/blob/325df4f3d53fa748298d9f3650ed9cdb951f8af4/css/typography.css
  **/
-@mixin selector-typography h1, headline1, 6, 6, 300;
-@mixin selector-typography h2, headline2, 3.75, 3.75, 300;
-@mixin selector-typography h3, headline3, 3, 3.125, 400;
-@mixin selector-typography h4, headline4, 2.125, 2.5, 400;
-@mixin selector-typography h5, headline5, 1.5, 2, 400;
-@mixin selector-typography h6, headline6, 1.25, 2, 500;
-@mixin selector-typography p, body1, 1, 1.5, 400;
-@mixin selector-typography figcaption, subtitle1, 1, 1.75, 400;
+@mixin selector-typography h1, display-small, 6, 6, 300;
+@mixin selector-typography h2, headline-large, 3.75, 3.75, 300;
+@mixin selector-typography h3, headline-medium, 3, 3.125, 400;
+@mixin selector-typography h4, headline-small, 2.125, 2.5, 400;
+@mixin selector-typography h5, title-large, 1.5, 2, 400;
+@mixin selector-typography h6, title-medium, 1.25, 2, 500;
+@mixin selector-typography p, body-large, 1, 1.5, 400;
+@mixin selector-typography figcaption, label-large, 1, 1.75, 400;
+
+/* Add typography m3 classes. */
+@mixin typography display-large, 7.5, 6, 300;
+@mixin typography display-medium, 6.875, 6, 300;
+@mixin typography display-small, 6, 6, 300;
+@mixin typography headline-large, 3.75, 3.75, 300;
+@mixin typography headline-medium, 3, 3.125, 400;
+@mixin typography headline-small, 2.125, 2.5, 400;
+@mixin typography title-large, 1.5, 2, 400;
+@mixin typography title-medium, 1.25, 2, 500;
+@mixin typography title-small, 0.875, 1.57, 500;
+@mixin typography label-large, 1, 1.75, 400;
+@mixin typography label-medium, 0.875, 1.375, 500;
+@mixin typography label-small, 0.75, 2, 500;
+@mixin typography body-large, 1, 1.5, 400;
+@mixin typography body-medium, 0.875, 1.25, 400;
+@mixin typography body-small, 0.75, 1.25, 400;
+
+/** Backward compatibility for old typography classes. */
+@mixin selector-typography .mdc-typography--headline1, display-small, 6, 6, 300;
+@mixin selector-typography .mdc-typography--headline2, headline-large, 3.75, 3.75, 300;
+@mixin selector-typography .mdc-typography--headline3, headline-medium, 3, 3.125, 400;
+@mixin selector-typography .mdc-typography--headline4, headline-small, 2.125, 2.5, 400;
+@mixin selector-typography .mdc-typography--headline5, title-large, 1.5, 2, 400;
+@mixin selector-typography .mdc-typography--headline6, title-medium, 1.25, 2, 500;
+@mixin selector-typography .mdc-typography--subhead1, title-medium, 1.25, 2, 500;
+@mixin selector-typography .mdc-typography--subhead2, title-small, 0.875, 1.57, 500;
+@mixin selector-typography .mdc-typography--body1, body-large, 1, 1.5, 400;
+@mixin selector-typography .mdc-typography--body2, body-medium, 0.875, 1.25, 400;
+@mixin selector-typography .mdc-typography--caption, body-small, 0.75, 1.25, 400;
+@mixin selector-typography .mdc-typography--button, label-large, 1, 1.75, 400;
+@mixin selector-typography .mdc-typography--overline, label-medium, 0.875, 1.375, 500;
+@mixin selector-typography .mdc-typography--subtitle1, label-large, 1, 1.75, 400;
+@mixin selector-typography .mdc-typography--subtitle2, label-medium, 0.875, 1.375, 500;
+
+/* Backward compat: For `body` types typography should be applied to child elements as well */
+@mixin selector-typography .mdc-typography--body1 *, body-large, 1, 1.5, 400;
+@mixin selector-typography .mdc-typography--body2 *, body-large, 0.875, 1.25, 400;

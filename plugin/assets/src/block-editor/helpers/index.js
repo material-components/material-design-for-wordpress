@@ -26,8 +26,16 @@ import { registerBlockType } from '@wordpress/blocks';
  */
 export const registerBlocks = blocks => {
 	blocks.keys().forEach( modulePath => {
-		const { name, settings, metadata } = blocks( modulePath );
-		registerBlockType( name, { ...settings, ...( metadata || {} ) } );
+		const { name, settings, metadata, isQueryLoopRequired } = blocks(
+			modulePath
+		);
+
+		if (
+			! isQueryLoopRequired ||
+			window?.materialDesign?.canUseQueryLoop
+		) {
+			registerBlockType( name, { ...settings, ...( metadata || {} ) } );
+		}
 	} );
 };
 

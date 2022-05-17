@@ -29,7 +29,7 @@ import Integrations from './integrations';
 const Settings = () => {
 	return (
 		<SettingsProvider>
-			<h1 className="mdc-typography--headline3">
+			<h1 className="headline-medium">
 				{ __( 'Material Settings', 'material-design' ) }
 			</h1>
 

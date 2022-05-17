@@ -21,6 +21,7 @@
 @import "./base/variables.css";
 @import "./conf/index.css";
 @import "./components/masonry-grid.css";
+@import "./components/card.css";
 @import "./overrides.css";
 @import "./material-components.css";
 

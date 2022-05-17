@@ -107,7 +107,7 @@ const VerticalCardLayout = props => {
 							'single-post-card__secondary',
 							`single-post-card__secondary-${ contentLayout }`,
 							'mdc-typography',
-							'mdc-typography--body2'
+							'body-medium'
 						) }
 					>
 						<RawHTML key="html">

@@ -61,7 +61,7 @@ class Test_Block_Patterns extends \WP_UnitTestCase {
 	public function test_init() {
 		$block_patterns = get_plugin_instance()->block_patterns;
 
-		$this->assertEquals( 10, has_action( 'init', [ $block_patterns, 'register' ] ) );
+		$this->assertEquals( 9, has_action( 'init', [ $block_patterns, 'register' ] ) );
 	}
 
 	/**

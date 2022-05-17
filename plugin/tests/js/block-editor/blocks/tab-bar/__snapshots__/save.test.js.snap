@@ -87,10 +87,10 @@ Object {
         </div>
         <div>
           <div
-            class="mdc-tab-content mdc-typography--body1 mdc-tab-content--active"
+            class="mdc-tab-content body-large mdc-tab-content--active"
           />
           <div
-            class="mdc-tab-content mdc-typography--body1"
+            class="mdc-tab-content body-large"
           />
         </div>
       </div>
@@ -179,10 +179,10 @@ Object {
       </div>
       <div>
         <div
-          class="mdc-tab-content mdc-typography--body1 mdc-tab-content--active"
+          class="mdc-tab-content body-large mdc-tab-content--active"
         />
         <div
-          class="mdc-tab-content mdc-typography--body1"
+          class="mdc-tab-content body-large"
         />
       </div>
     </div>

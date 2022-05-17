@@ -27,6 +27,7 @@ import {
 	initTextFields,
 } from '../common/mdc-components-init';
 import { initContactForm } from './contact-form';
+import { masonryInit } from './masonry';
 
 addEventListener( 'DOMContentLoaded', () => {
 	initButtons();
@@ -34,6 +35,7 @@ addEventListener( 'DOMContentLoaded', () => {
 	initTabBar();
 	initContactForm();
 	initToolTips();
+	masonryInit();
 
 	// If material theme is not active then init text fields.
 	if (
