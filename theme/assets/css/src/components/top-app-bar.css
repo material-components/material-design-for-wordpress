@@ -55,7 +55,8 @@
 		padding: 0;
 	}
 
-	& .site-title a {
+	& .site-title a,
+	& .wp-block-site-title a {
 		margin-right: 3px;
 		text-decoration: none;
 
