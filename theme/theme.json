@@ -32,6 +32,7 @@
   ],
   "settings": {
     "color": {
+      "defaultPalette": false,
       "palette": [
         {
           "slug": "primary",
