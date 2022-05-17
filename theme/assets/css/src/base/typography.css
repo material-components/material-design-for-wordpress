@@ -26,3 +26,20 @@
 @mixin selector-typography h6, headline6, 1.25, 2, 500;
 @mixin selector-typography p, body1, 1, 1.5, 400;
 @mixin selector-typography figcaption, subtitle1, 1, 1.75, 400;
+
+/**
+ * Theme.json typography for additional class.
+ */
+@mixin selector-typography .has-headline-1-font-size, headline1, 6, 6, 300;
+@mixin selector-typography .has-headline-2-font-size, headline2, 3.75, 3.75, 300;
+@mixin selector-typography .has-headline-3-font-size, headline3, 3, 3.125, 400;
+@mixin selector-typography .has-headline-4-font-size, headline4, 2.125, 2.5, 400;
+@mixin selector-typography .has-headline-5-font-size, headline5, 1.5, 2, 400;
+@mixin selector-typography .has-headline-6-font-size, headline6, 1.25, 2, 500;
+@mixin selector-typography .has-subtitle-1-font-size, subtitle1, 1, 1.75, 400 ;
+@mixin selector-typography .has-subtitle-2-font-size, subtitle2, 0.875, 1.375, 500;
+@mixin selector-typography .has-body-1-font-size, body1, 1, 1.5, 400;
+@mixin selector-typography .has-body-2-font-size, body2, 0.875, 1.25, 400;
+@mixin selector-typography .has-caption-font-size, caption, 0.75, 1.25, 400;
+@mixin selector-typography .has-button-font-size, button, 0.875, 2.25, 500;
+@mixin selector-typography .has-overline-font-size, overline, 0.75, 2, 500;
