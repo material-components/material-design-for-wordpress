@@ -14,29 +14,13 @@
  * limitations under the License.
  */
 
-/* istanbul ignore file */
-
 /**
  * WordPress dependencies
  */
-import { updateCategory } from '@wordpress/blocks';
+import { InnerBlocks } from '@wordpress/block-editor';
 
-/**
- * Internal dependencies
- */
-import { registerBlocks, MaterialLogo } from './helpers';
-import './blocks/data-table/hooks';
-import './formats';
-import './style/core-template';
+const Save = () => {
+	return <InnerBlocks.Content />;
+};
 
-/**
- * Register the blocks.
- */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
-
-/**
- * Update the material category icon to the material logo.
- */
-updateCategory( 'material', {
-	icon: () => <MaterialLogo />,
-} );
+export default Save;

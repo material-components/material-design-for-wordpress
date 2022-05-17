@@ -13,30 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/* istanbul ignore file */
-
-/**
- * WordPress dependencies
- */
-import { updateCategory } from '@wordpress/blocks';
-
 /**
  * Internal dependencies
  */
-import { registerBlocks, MaterialLogo } from './helpers';
-import './blocks/data-table/hooks';
-import './formats';
-import './style/core-template';
+import metadata from './block.json';
+import edit from './edit';
 
-/**
- * Register the blocks.
- */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+const { name } = metadata;
+const isQueryLoopRequired = true;
+export { metadata, name, isQueryLoopRequired };
 
-/**
- * Update the material category icon to the material logo.
- */
-updateCategory( 'material', {
-	icon: () => <MaterialLogo />,
-} );
+export const settings = {
+	icon: () => (
+		<span className="material-icons-outlined">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				height="24px"
+				viewBox="0 0 24 24"
+				width="24px"
+				fill="#000000"
+			>
+				<path d="M0 0h24v24H0V0z" fill="none" opacity=".87" />
+				<path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6-1.41 1.41zM16 6h2v12h-2V6z" />
+			</svg>
+		</span>
+	),
+	edit,
+};

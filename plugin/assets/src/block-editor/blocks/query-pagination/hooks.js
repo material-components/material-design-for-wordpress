@@ -13,30 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/* istanbul ignore file */
-
 /**
  * WordPress dependencies
  */
-import { updateCategory } from '@wordpress/blocks';
+import { addFilter } from '@wordpress/hooks';
+import { __ } from '@wordpress/i18n';
 
-/**
- * Internal dependencies
- */
-import { registerBlocks, MaterialLogo } from './helpers';
-import './blocks/data-table/hooks';
-import './formats';
-import './style/core-template';
+const addMaterialStyle = ( settings, name ) => {
+	if ( 'core/query-pagination' === name ) {
+		settings.styles = [
+			{
+				name: 'material',
+				label: __( 'Material', 'material-design' ),
+			},
+			{
+				name: 'regular',
+				label: __( 'Regular', 'material-design' ),
+				isDefault: true,
+			},
+		];
+	}
 
-/**
- * Register the blocks.
- */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+	return settings;
+};
 
-/**
- * Update the material category icon to the material logo.
- */
-updateCategory( 'material', {
-	icon: () => <MaterialLogo />,
-} );
+addFilter(
+	'blocks.registerBlockType',
+	'material/query-navigation-style',
+	addMaterialStyle
+);

@@ -14,29 +14,21 @@
  * limitations under the License.
  */
 
-/* istanbul ignore file */
-
-/**
- * WordPress dependencies
- */
-import { updateCategory } from '@wordpress/blocks';
-
 /**
  * Internal dependencies
  */
-import { registerBlocks, MaterialLogo } from './helpers';
-import './blocks/data-table/hooks';
-import './formats';
-import './style/core-template';
+import metadata from './block.json';
+import { icon } from '../card-query/icon';
+import edit from './edit';
 
-/**
- * Register the blocks.
- */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
+const { name, title } = metadata;
 
-/**
- * Update the material category icon to the material logo.
- */
-updateCategory( 'material', {
-	icon: () => <MaterialLogo />,
-} );
+const isQueryLoopRequired = true;
+export { metadata, name, isQueryLoopRequired };
+
+export const settings = {
+	title,
+	description: metadata.description,
+	icon,
+	edit,
+};

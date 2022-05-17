@@ -13,30 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/* istanbul ignore file */
-
 /**
  * WordPress dependencies
  */
-import { updateCategory } from '@wordpress/blocks';
+import { __ } from '@wordpress/i18n';
+import { useBlockProps } from '@wordpress/block-editor';
 
-/**
- * Internal dependencies
- */
-import { registerBlocks, MaterialLogo } from './helpers';
-import './blocks/data-table/hooks';
-import './formats';
-import './style/core-template';
+const QueryPaginationNextEdit = () => {
+	return (
+		<a
+			href="#pagination-next-pseudo-link"
+			className="mdc-ripple-surface"
+			onClick={ event => event.preventDefault() }
+			{ ...useBlockProps() }
+		>
+			<span className="material-icons" aria-hidden="true">
+				chevron_right
+			</span>
+			<span className="screen-reader-text">
+				{ __( 'Next page', 'material-design' ) }
+			</span>
+		</a>
+	);
+};
 
-/**
- * Register the blocks.
- */
-registerBlocks( require.context( './blocks', true, /(?<!test\/)index\.js$/ ) );
-
-/**
- * Update the material category icon to the material logo.
- */
-updateCategory( 'material', {
-	icon: () => <MaterialLogo />,
-} );
+export default QueryPaginationNextEdit;

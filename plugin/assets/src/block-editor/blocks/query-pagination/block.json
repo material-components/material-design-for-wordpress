@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "material/query-pagination",
+	"title": "Material Pagination",
+	"category": "material",
+	"parent": [ "core/query" ],
+	"description": "Displays a paginated navigation to next/previous set of posts, when applicable.",
+	"textdomain": "material-design",
+	"attributes": {
+    "paginationArrow": {
+      "type": "string",
+      "default": "none"
+    }
+  },
+	"usesContext": [ "queryId", "query" ],
+	"supports": {
+		"align": true,
+		"reusable": false,
+		"html": false,
+		"color": {
+			"gradients": true,
+			"link": true
+		},
+		"__experimentalLayout": {
+			"allowSwitching": false,
+			"allowInheriting": false,
+			"default": {
+				"type": "flex"
+			}
+		}
+	},
+  "editorStyle": "material-block-editor-css",
+  "editorScript": "material-block-editor-js"
+}

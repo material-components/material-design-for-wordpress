@@ -50,7 +50,7 @@ class Block_Patterns {
 	 * Initiate the class.
 	 */
 	public function init() {
-		add_action( 'init', [ $this, 'register' ] );
+		add_action( 'init', [ $this, 'register' ], 9 );
 	}
 
 	/**
@@ -86,6 +86,8 @@ class Block_Patterns {
 			'pricing',
 			'hero-section-image',
 			'latest-posts',
+			'material-card',
+			'material-card-image',
 		];
 
 		foreach ( $patterns as $pattern ) {

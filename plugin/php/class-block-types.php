@@ -25,6 +25,7 @@
 
 namespace MaterialDesign\Plugin;
 
+use MaterialDesign\Plugin\Blocks\Blocks;
 use MaterialDesign\Plugin\Blocks\Card_Block;
 use MaterialDesign\Plugin\Blocks\Posts_List_Block;
 use MaterialDesign\Plugin\Blocks\Contact_Form_Block;
@@ -91,6 +92,9 @@ class Block_Types {
 			$static_block = new Card_Block( $this->plugin, $static_card_block );
 			$static_block->init();
 		}
+
+		$blocks = new Blocks( $this->plugin );
+		$blocks->init();
 	}
 
 	/**
@@ -240,6 +244,7 @@ class Block_Types {
 			],
 			'postTypes'                 => $post_types,
 			'doesRequireBackCompatList' => version_compare( get_bloginfo( 'version' ), '5.8', '<' ),
+			'canUseQueryLoop'           => version_compare( '5.8', get_bloginfo( 'version' ), '<=' ),
 		];
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {
