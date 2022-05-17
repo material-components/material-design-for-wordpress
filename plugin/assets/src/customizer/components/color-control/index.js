@@ -25,6 +25,11 @@ import { __ } from '@wordpress/i18n';
  * External dependencies
  */
 import classNames from 'classnames';
+import {
+	argbFromHex,
+	themeFromSourceColor,
+	applyTheme,
+} from '@material/material-color-utilities';
 
 /**
  * Internal dependencies
@@ -36,6 +41,8 @@ import { COLOR_MODES } from '../../customize-preview';
 
 const api = window.customize;
 
+console.log( argbFromHex );
+
 const ColorControl = ( {
 	defaultValue,
 	params,
@@ -44,6 +51,7 @@ const ColorControl = ( {
 	mode,
 } ) => {
 	const [ color, setColor ] = useState( defaultValue );
+	const [ colorPallete, setColorPallete ] = useState( {} );
 	const [ displayColorPalette, setDisplayColorPalette ] = useState( false );
 	const [ materialPickerSelected, setMaterialPickerSelected ] = useState(
 		true
@@ -89,6 +97,17 @@ const ColorControl = ( {
 			setIsLinked( color === range.dark.hex );
 		}
 	}, [ color, mode, range ] );
+
+	useEffect( () => {
+		if ( color ) {
+			const intColor = argbFromHex( color );
+			setColorPallete( themeFromSourceColor( intColor ) );
+		}
+
+		if ( Object.keys( colorPallete ).length > 0 ) {
+			applyTheme( colorPallete, { target: document.body, dark: false } );
+		}
+	}, [ color ] );
 
 	return (
 		<>
