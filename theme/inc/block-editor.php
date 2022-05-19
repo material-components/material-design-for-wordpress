@@ -26,6 +26,7 @@ function setup() {
 	add_action( 'init', __NAMESPACE__ . '\\register_disable_section_meta' );
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets' );
 	add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
+	add_action( 'after_setup_theme', __NAMESPACE__ . '\\add_font_sizes' );
 }
 
 /**
@@ -95,4 +96,87 @@ function filter_body_class( $classes ) {
 	}
 
 	return $classes;
+}
+
+function add_font_sizes(){
+	add_theme_support(
+		'editor-font-sizes',
+		[
+			[
+				'name' => __( 'Display Large', 'material-design-google' ),
+				'size' => '7.5em',
+				'slug' => 'display-large',
+			],
+			[
+				'name' => __( 'Display Medium', 'material-design-google' ),
+				'size' => '6.875em',
+				'slug' => 'display-medium',
+			],
+			[
+				'name' => __( 'Display Small', 'material-design-google' ),
+				'size' => '6em',
+				'slug' => 'display-small',
+			],
+			[
+				'name' => __( 'Headline Large', 'material-design-google' ),
+				'size' => '3.75em',
+				'slug' => 'headline-large',
+			],
+			[
+				'name' => __( 'Headline Medium', 'material-design-google' ),
+				'size' => '3em',
+				'slug' => 'headline-medium',
+			],
+			[
+				'name' => __( 'Headline Small', 'material-design-google' ),
+				'size' => '2.125em',
+				'slug' => 'headline-small',
+			],
+			[
+				'name' => __( 'Title Large', 'material-design-google' ),
+				'size' => '1.5em',
+				'slug' => 'title-large',
+			],
+			[
+				'name' => __( 'Title Medium', 'material-design-google' ),
+				'size' => '1.25em',
+				'slug' => 'title-medium',
+			],
+			[
+				'name' => __( 'Title Small', 'material-design-google' ),
+				'size' => '0.875em',
+				'slug' => 'title-small',
+			],
+			[
+				'name' => __( 'Label Large', 'material-design-google' ),
+				'size' => '1em',
+				'slug' => 'label-large',
+			],
+			[
+				'name' => __( 'Label Medium', 'material-design-google' ),
+				'size' => '0.875em',
+				'slug' => 'label-medium',
+			],
+			[
+				'name' => __( 'Label Small', 'material-design-google' ),
+				'size' => '0.75em',
+				'slug' => 'label-small',
+			],
+			[
+				'name' => __( 'Body Large', 'material-design-google' ),
+				'size' => '1em',
+				'slug' => 'body-large',
+			],
+			[
+				'name' => __( 'Body Medium', 'material-design-google' ),
+				'size' => '0.875em',
+				'slug' => 'body-medium',
+			],
+			[
+				'name' => __( 'Body Small', 'material-design-google' ),
+				'size' => '0.75em',
+				'slug' => 'body-small',
+			],
+		]
+	);
 }
