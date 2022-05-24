@@ -39,9 +39,7 @@ import ColorA11y from './color-a11y';
 import MaterialColorPalette from '../../../block-editor/components/material-color-palette';
 import { COLOR_MODES } from '../../customize-preview';
 
-const api = window.customize;
-
-console.log( argbFromHex );
+const api = window.wp.customize;
 
 const ColorControl = ( {
 	defaultValue,
@@ -51,6 +49,7 @@ const ColorControl = ( {
 	mode,
 } ) => {
 	const [ color, setColor ] = useState( defaultValue );
+	/* @var {Theme} color The current color value. */
 	const [ colorPallete, setColorPallete ] = useState( {} );
 	const [ displayColorPalette, setDisplayColorPalette ] = useState( false );
 	const [ materialPickerSelected, setMaterialPickerSelected ] = useState(
@@ -61,7 +60,7 @@ const ColorControl = ( {
 
 	const onChange = value => {
 		setColor( value );
-		onColorChange( value );
+		//onColorChange( value );
 	};
 
 	const onBlur = event => {
@@ -71,7 +70,7 @@ const ColorControl = ( {
 			return;
 		}
 
-		onColorChange( target.value );
+		//onColorChange( target.value );
 	};
 
 	useEffect( () => {
@@ -84,7 +83,7 @@ const ColorControl = ( {
 
 	useEffect( () => {
 		if ( isLinked ) {
-			onColorChange( color );
+			//onColorChange( color );
 		}
 	}, [ isLinked, color, onColorChange ] );
 
@@ -100,12 +99,7 @@ const ColorControl = ( {
 
 	useEffect( () => {
 		if ( color ) {
-			const intColor = argbFromHex( color );
-			setColorPallete( themeFromSourceColor( intColor ) );
-		}
-
-		if ( Object.keys( colorPallete ).length > 0 ) {
-			applyTheme( colorPallete, { target: document.body, dark: false } );
+			api.previewer.send( 'materialDesignM3PaletteUpdate', color );
 		}
 	}, [ color ] );
 
@@ -126,7 +120,7 @@ const ColorControl = ( {
 
 				<TextControl
 					value={ color }
-					onChange={ onChange }
+					//onChange={ onChange }
 					onBlur={ onBlur }
 					className="material-design-color__input"
 				/>
@@ -198,7 +192,7 @@ const ColorControl = ( {
 								<ColorPicker
 									color={ color }
 									onChangeComplete={ selectedColor => {
-										onChange( selectedColor.hex );
+										//onChange( selectedColor.hex );
 										onColorChange( selectedColor.hex );
 									} }
 									disableAlpha

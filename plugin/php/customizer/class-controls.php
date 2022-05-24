@@ -1046,15 +1046,15 @@ class Controls extends Module_Base {
 				{$corner_styles_vars}
 			}
 
-			/* Forced dark mode */
+			/* Forced dark mode
 			body[data-color-scheme='dark'] {
 				{$dark_mode_vars}
 			}
 
-			/* Forced light mode */
+			 Forced light mode
 			body[data-color-scheme='light'] {
 				{$color_vars}
-			}
+			}*/
 		";
 
 		if ( 'inactive' !== $this->get_dark_mode_status() ) {
@@ -1280,27 +1280,11 @@ class Controls extends Module_Base {
 		return [
 			[
 				'id'                   => 'primary_color',
-				'label'                => __( 'Primary Color', 'material-design' ),
-				'a11y_label'           => __( 'On Primary', 'material-design' ),
+				'label'                => __( 'Source Color', 'material-design' ),
+				'a11y_label'           => __( 'Source Color', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_primary_color' ),
 				'css_var'              => '--mdc-theme-primary',
 				'secondary_controls'   => $this->get_color_secondary_controls( 'primary_color' ),
-			],
-			[
-				'id'                   => 'secondary_color',
-				'label'                => __( 'Secondary Color', 'material-design' ),
-				'a11y_label'           => __( 'On Secondary', 'material-design' ),
-				'related_text_setting' => $this->prepare_option_name( 'on_secondary_color' ),
-				'css_var'              => '--mdc-theme-secondary',
-				'secondary_controls'   => $this->get_color_secondary_controls( 'secondary_color' ),
-			],
-			[
-				'id'                   => 'tertiary_color',
-				'label'                => __( 'Tertiary Color', 'material-design' ),
-				'a11y_label'           => __( 'On Tertiary', 'material-design' ),
-				'related_text_setting' => $this->prepare_option_name( 'on_tertiary_color' ),
-				'css_var'              => '--md-sys-color-tertiary',
-				'secondary_controls'   => $this->get_color_secondary_controls( 'tertiary_color' ),
 			],
 		];
 	}

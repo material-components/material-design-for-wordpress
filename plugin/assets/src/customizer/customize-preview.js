@@ -29,6 +29,7 @@
  * External dependencies
  */
 import debounce from 'lodash/debounce';
+import { argbFromHex, themeFromSourceColor, applyTheme } from '@material/material-color-utilities';
 
 /**
  * Internal dependencies
@@ -82,6 +83,13 @@ export const COLOR_MODES = {
 
 			api.preview.bind( 'materialDesignPaletteUpdate', message => {
 				updateColorMode( message );
+			} );
+
+			api.preview.bind( 'materialDesignM3PaletteUpdate', color => {
+				const intColor = argbFromHex( color );
+				const colorPallete = themeFromSourceColor( intColor );
+
+				applyTheme( colorPallete, { target: document.body, dark: false } );
 			} );
 		} );
 	} );

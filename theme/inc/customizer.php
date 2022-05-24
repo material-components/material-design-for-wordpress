@@ -564,14 +564,14 @@ function get_css_vars() {
 		}
 
 		/* Forced dark mode */
-		body[data-color-scheme='dark'] {
+		/*body[data-color-scheme='dark'] {
 			{$color_vars_dark}
 		}
 
-		/* Forced light mode */
+
 		body[data-color-scheme='light'] {
 			{$color_vars}
-		}
+		}*/
 	";
 
 	if ( material_is_plugin_active() && get_dark_mode_status() !== 'inactive' ) {

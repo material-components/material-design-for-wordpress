@@ -56,23 +56,23 @@ const api = window.wp.customize;
 	const parentApi = window.parent.wp.customize;
 
 	Object.keys( materialDesignThemeColorControls ).forEach( control => {
-		api( control, value =>
+		/* api( control, value =>
 			value.bind( () =>
 				generatePreviewStyles( materialDesignThemeColorControls )
 			)
-		);
+		); */
 	} );
 
 	if ( materialDesignThemeColorControlsDark ) {
 		Object.keys( materialDesignThemeColorControlsDark ).forEach(
 			control => {
-				api( control, value =>
+				/* api( control, value =>
 					value.bind( () =>
 						generatePreviewStyles(
 							materialDesignThemeColorControlsDark
 						)
 					)
-				);
+				); */
 			}
 		);
 	}
@@ -247,7 +247,7 @@ const api = window.wp.customize;
 			colorControls = materialDesignThemeColorControls;
 		}
 
-		generatePreviewStyles( colorControls );
+		//generatePreviewStyles( colorControls );
 
 		const switcherIcon = document.querySelector( '.dark-mode__button' );
 
