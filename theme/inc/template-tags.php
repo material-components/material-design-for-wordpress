@@ -43,7 +43,7 @@ if ( ! function_exists( 'material_design_theme_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		$posted_on = '<a class="date label-medium" href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
+		$posted_on = '<a class="date mdc-typography--overline" href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
 		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore
 
@@ -55,7 +55,7 @@ if ( ! function_exists( 'material_design_theme_posted_on' ) ) :
 		if ( ! empty( $categories ) ) {
 			?>
 		<span class="cat-links">
-			<span class="label-medium">
+			<span class="mdc-typography--overline">
 				<?php foreach ( $categories as $category ) : ?>
 					<?php ob_start(); ?>
 					<a
@@ -104,7 +104,7 @@ if ( ! function_exists( 'material_design_theme_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function material_design_theme_posted_by() {
-		$byline = '<span class="author vcard">' . get_avatar( get_the_author_meta( 'ID' ), 36 ) . '<a class="url fn n body-small" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
+		$byline = '<span class="author vcard">' . get_avatar( get_the_author_meta( 'ID' ), 36 ) . '<a class="url fn n mdc-typography--caption" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
 
 		echo '<div class="byline"> ' . $byline . '</div>'; // phpcs:ignore
 
@@ -126,7 +126,7 @@ if ( ! function_exists( 'material_design_theme_entry_footer' ) ) :
 			<span class="tags-links">
 				<i class="material-icons mdc-button__icon" aria-hidden="true">label</i>
 
-				<span class="body-small">
+				<span class="mdc-typography--caption">
 					<?php foreach ( $tags as $tag ) : ?>
 						<?php ob_start(); ?>
 						<a
@@ -204,7 +204,7 @@ if ( ! function_exists( 'material_design_theme_entry_footer' ) ) :
 				),
 				get_the_title()
 			),
-			'<span class="edit-link body-small"><i class="material-icons mdc-button__icon" aria-hidden="true">create</i>',
+			'<span class="edit-link mdc-typography--caption"><i class="material-icons mdc-button__icon" aria-hidden="true">create</i>',
 			'</span>'
 		);
 	}

@@ -52,7 +52,7 @@ const CardSupportingText = ( {
 					'material-design-card__supporting-text',
 					`material-design-card__supporting-text_${ contentLayout }`,
 					'mdc-typography',
-					'body-medium'
+					'mdc-typography--body2'
 				) }
 				value={ supportingText }
 				onChange={ value =>
@@ -66,7 +66,7 @@ const CardSupportingText = ( {
 					'material-design-card__supporting-text',
 					`material-design-card__supporting-text_${ contentLayout }`,
 					'mdc-typography',
-					'body-medium'
+					'mdc-typography--body2'
 				) }
 			>
 				{ supportingText }

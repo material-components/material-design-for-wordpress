@@ -76,7 +76,7 @@ export const Updates = () => {
 
 	return (
 		<div className="material-gsm__content mdc-layout-grid__cell mdc-layout-grid__cell--span-9">
-			<h2 className="material-gsm__content-title headline-medium">
+			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __( 'Font and Icons Updates', 'material-design' ) }
 			</h2>
 

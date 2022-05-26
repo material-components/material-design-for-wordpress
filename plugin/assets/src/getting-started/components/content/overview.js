@@ -29,11 +29,11 @@ import getConfig from '../../get-config';
 export const Overview = () => {
 	return (
 		<Fragment>
-			<h2 className="material-gsm__content-title headline-medium">
+			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __( 'Build with Material Blocks', 'material-design' ) }
 			</h2>
 
-			<p className="body-large">
+			<p>
 				{ __(
 					'Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor.',
 					'material-design'

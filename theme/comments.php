@@ -56,7 +56,7 @@ $filled_label   = '<span class="mdc-floating-label" id="%s">%s</span>
 
 $args = [
 	'title_reply'        => __( 'Leave a comment', 'material-design-google' ),
-	'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title headline-small">',
+	'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title mdc-typography--headline4">',
 	'title_reply_after'  => '</h2>',
 	'fields'             => [
 		'author' => sprintf(
@@ -163,7 +163,7 @@ if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option
 	if ( have_comments() ) :
 		$count = get_comments_number();
 		?>
-		<h2 class="comments-title headline-small">
+		<h2 class="comments-title mdc-typography--headline4">
 			<?php esc_html_e( 'Join the conversation', 'material-design-google' ); ?>
 		</h2><!-- .comments-title -->
 		<div class="comments-title-count">

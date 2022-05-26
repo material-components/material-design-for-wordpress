@@ -32,7 +32,7 @@ import getConfig from '../../../admin/get-config';
 const Addons = () => {
 	return (
 		<div className="mdc-layout-grid__cell--span-12">
-			<h3 className="headline-medium material-wizard__title">
+			<h3 className="mdc-typography--headline3 material-wizard__title">
 				{ __( 'Install addons', 'material-design' ) }
 			</h3>
 
@@ -43,7 +43,7 @@ const Addons = () => {
 				switch={ ADDONS.THEME }
 				disabled={ 'ok' === getConfig( 'themeStatus' ) }
 			>
-				<h4 className="headline-small">
+				<h4 className="mdc-typography--headline4">
 					{ __( 'Material Design Theme', 'material-design' ) }
 				</h4>
 
@@ -63,7 +63,7 @@ const Addons = () => {
 				) }addon-quick-start-examples.png` }
 				switch={ ADDONS.DEMO }
 			>
-				<h4 className="headline-small">
+				<h4 className="mdc-typography--headline4">
 					{ __( 'Quick Start Examples', 'material-design' ) }
 				</h4>
 

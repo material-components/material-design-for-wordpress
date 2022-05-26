@@ -49,7 +49,7 @@ const CardPrimary = ( {
 				{ displayTitle && (
 					<RichText
 						tagName="h2"
-						className="material-design-card__title title-large"
+						className="material-design-card__title mdc-typography mdc-typography--headline6"
 						value={ title }
 						onChange={ value =>
 							setter( 'title', value, cardIndex )
@@ -63,7 +63,7 @@ const CardPrimary = ( {
 				{ displaySecondaryText && (
 					<RichText
 						tagName="h3"
-						className="material-design-card__secondary-text label-medium"
+						className="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
 						value={ secondaryText }
 						onChange={ value =>
 							setter( 'secondaryText', value, cardIndex )
@@ -78,12 +78,12 @@ const CardPrimary = ( {
 		) : (
 			<>
 				{ displayTitle && (
-					<h2 className="material-design-card__title title-large">
+					<h2 className="material-design-card__title mdc-typography mdc-typography--headline6">
 						{ title }
 					</h2>
 				) }
 				{ displaySecondaryText && (
-					<h3 className="material-design-card__secondary-text label-medium">
+					<h3 className="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2">
 						{ secondaryText }
 					</h3>
 				) }

@@ -26,21 +26,8 @@ import colorUtils from '../../../common/color-utils';
 
 export const Overrides = createGlobalStyle`
 	:root {
-		--md-sys-typescale-headline-large-font: ${ props => props.headline };
-		--md-sys-typescale-headline-medium-font: ${ props => props.headline };
-		--md-sys-typescale-headline-small-font: ${ props => props.headline };
-		--md-sys-typescale-body-large-font: ${ props => props.body };
-		--md-sys-typescale-body-medium-font: ${ props => props.body };
-		--md-sys-typescale-body-small-font: ${ props => props.body };
-		--md-sys-typescale-display-large-font: ${ props => props.display };
-		--md-sys-typescale-display-medium-font: ${ props => props.display };
-		--md-sys-typescale-display-small-font: ${ props => props.display };
-		--md-sys-typescale-label-large-font: ${ props => props.label };
-		--md-sys-typescale-label-medium-font: ${ props => props.label };
-		--md-sys-typescale-label-small-font: ${ props => props.label };
-		--md-sys-typescale-title-large-font: ${ props => props.title };
-		--md-sys-typescale-title-medium-font: ${ props => props.title };
-		--md-sys-typescale-title-small-font: ${ props => props.title };
+    	--body-font: ${ props => props.body };
+    	--heading-font: ${ props => props.headings };
 
 		--mdc-theme-primary: ${ props => props.primaryColor };
 		--mdc-theme-secondary: ${ props => props.secondaryColor };
@@ -66,7 +53,7 @@ export const Overrides = createGlobalStyle`
 		--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
 	}
 
-	#mcb-material-library-preview .{
+	#mcb-material-library-preview .mdc-typography {
 		font-family: var(--heading-font) !important;
 	}
 
@@ -80,7 +67,7 @@ export const Overrides = createGlobalStyle`
 	#mcb-material-library-preview input[type="text"],
 	#mcb-material-library-preview button:not([class*="material-icons"]),
 	#mcb-material-library-preview span:not([class*="material-icons"]) {
-		font-family: var(--md-sys-typescale-body-large-font) !important;
+		font-family: var(--body-font) !important;
 		font-size: 16px;
 	}
 
@@ -89,7 +76,7 @@ export const Overrides = createGlobalStyle`
 	#mcb-material-library-preview h3,
 	#mcb-material-library-preview h4 {
 		color: var(--mdc-theme-on-background) !important;
-		font-family: var(--md-sys-typescale-title-large-font);
+		font-family: var(--heading-font);
 	}
 
 	#mcb-material-library-preview .mdc-list-item__secondary-text {

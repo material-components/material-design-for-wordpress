@@ -29,10 +29,10 @@ import getConfig from '../../get-config';
 export const Customize = () => {
 	return (
 		<Fragment>
-			<h2 className="material-gsm__content-title headline-medium">
+			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __( 'Customize your Theme', 'material-design' ) }
 			</h2>
-			<p className="body-large">
+			<p>
 				{ __(
 					'Set and preview your global theme styles using the Material Design options in the Customize panel. Choose colors, typography, shapes, and icons to express your unique style. Once you’re satisfied with your changes, hit “Publish” to update your site.',
 					'material-design'
@@ -56,11 +56,11 @@ export const Customize = () => {
 				/>
 			</div>
 
-			<h2 className="material-gsm__content-title title-large">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Starter Styles', 'material-design' ) }
 			</h2>
 
-			<p className={ 'body-large' }>
+			<p>
 				{ __(
 					'Start from our existing styles and use ',
 					'material-design'
@@ -78,10 +78,10 @@ export const Customize = () => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title title-large">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Color Palettes', 'material-design' ) }
 			</h2>
-			<p className={ 'body-large' }>
+			<p>
 				{ __(
 					'Change your primary and secondary colors and see them applied throughout your site. Need help picking colors? Try Material’s ',
 					'material-design'
@@ -99,11 +99,11 @@ export const Customize = () => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title title-large">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Typography', 'material-design' ) }
 			</h2>
 
-			<p className={ 'body-large' }>
+			<p>
 				{ __(
 					'Choose from more than 1,000 typefaces in ',
 					'material-design'
@@ -132,20 +132,20 @@ export const Customize = () => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title title-large">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Corner Styles', 'material-design' ) }
 			</h2>
-			<p className={ 'body-large' }>
+			<p>
 				{ __(
 					'Material Design systematically applies a shape scheme across components. Change the global corner radius for all blocks or individually for each Material block.',
 					'material-design'
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title title-large">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Icon Style', 'material-design' ) }
 			</h2>
-			<p className="body-large">
+			<p>
 				{ __( 'All ', 'material-design' ) }
 				<a
 					href="http://material.io/icons"
@@ -160,10 +160,10 @@ export const Customize = () => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title headline-medium">
+			<h2 className="material-gsm__content-title mdc-typography--headline3">
 				{ __( 'Set Layout & Navigation', 'material-design' ) }
 			</h2>
-			<p className="body-large">
+			<p>
 				{ __(
 					'Select how posts display – as either cards or image lists, in a wide or normal width. Additional card display options include raised or outlined cards, and show or hide post comments, author, excerpt, and date. ',
 					'material-design'
@@ -174,21 +174,21 @@ export const Customize = () => {
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title title-large">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Top app bar', 'material-design' ) }
 			</h2>
-			<p className="body-large">
+			<p>
 				{ __(
 					'Choose tabs, navigation drawer, or both for your site navigation. Give users the ability to search your site from within the top app bar. By default, the top app bar will hide when scrolling up, choose “Fixed” to keep the app bar visible at all times.',
 					'material-design'
 				) }
 			</p>
 
-			<h2 className="material-gsm__content-title title-large">
+			<h2 className="material-gsm__content-title mdc-typography--headline5">
 				{ __( 'Footer', 'material-design' ) }
 			</h2>
 
-			<p className="body-large">
+			<p>
 				{ __(
 					'Add footer text and give your users a quick way to jump back to the top of the page. Looking to add widgets at the bottom of your site? Use the ',
 					'material-design'

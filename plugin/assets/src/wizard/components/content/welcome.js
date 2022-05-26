@@ -35,7 +35,7 @@ const Welcome = () => {
 				image={ `${ getConfig( 'assetsPath' ) }welcome.png` }
 				imageSpan="5"
 			>
-				<h3 className="headline-medium">
+				<h3 className="mdc-typography--headline3">
 					{ __( 'Start building', 'material-design' ) }
 				</h3>
 
