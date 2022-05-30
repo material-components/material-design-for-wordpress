@@ -98,83 +98,100 @@ function filter_body_class( $classes ) {
 	return $classes;
 }
 
-function add_font_sizes(){
+/**
+ * Em to px.
+ */
+function em_to_px( $em ) {
+	return (int) ( $em * 16 );
+}
+
+/**
+ * Add font sizes.
+ *
+ * @return void
+ */
+function add_font_sizes() {
+	// Handle for 5.6 and 5.7 WP, 5.8 and later will be handled via theme.json.
+	if ( version_compare( get_bloginfo( 'version' ), '5.6', '<' ) || version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
+		return;
+	}
+
 	add_theme_support(
 		'editor-font-sizes',
 		[
 			[
 				'name' => __( 'Display Large', 'material-design-google' ),
-				'size' => '7.5em',
+				'size' => em_to_px( 7.5 ),
 				'slug' => 'display-large',
 			],
 			[
 				'name' => __( 'Display Medium', 'material-design-google' ),
-				'size' => '6.875em',
+				'size' => em_to_px( 6.875 ),
 				'slug' => 'display-medium',
 			],
 			[
 				'name' => __( 'Display Small', 'material-design-google' ),
-				'size' => '6em',
+				'size' => em_to_px( 6 ),
 				'slug' => 'display-small',
 			],
 			[
 				'name' => __( 'Headline Large', 'material-design-google' ),
-				'size' => '3.75em',
+				'size' => em_to_px( 3.75 ),
 				'slug' => 'headline-large',
 			],
 			[
 				'name' => __( 'Headline Medium', 'material-design-google' ),
-				'size' => '3em',
+				'size' => em_to_px( 3 ),
 				'slug' => 'headline-medium',
 			],
 			[
 				'name' => __( 'Headline Small', 'material-design-google' ),
-				'size' => '2.125em',
+				'size' => em_to_px( 2.125 ),
 				'slug' => 'headline-small',
 			],
 			[
 				'name' => __( 'Title Large', 'material-design-google' ),
-				'size' => '1.5em',
+				'size' => em_to_px( 1.5 ),
 				'slug' => 'title-large',
 			],
 			[
 				'name' => __( 'Title Medium', 'material-design-google' ),
-				'size' => '1.25em',
+				'size' => em_to_px( 1.25 ),
 				'slug' => 'title-medium',
 			],
 			[
 				'name' => __( 'Title Small', 'material-design-google' ),
-				'size' => '0.875em',
+				'size' => em_to_px( 0.875 ),
 				'slug' => 'title-small',
 			],
 			[
 				'name' => __( 'Label Large', 'material-design-google' ),
-				'size' => '1em',
+				'size' => em_to_px( 1 ),
 				'slug' => 'label-large',
 			],
 			[
 				'name' => __( 'Label Medium', 'material-design-google' ),
-				'size' => '0.875em',
+				'size' => em_to_px( 0.875 ),
 				'slug' => 'label-medium',
 			],
 			[
 				'name' => __( 'Label Small', 'material-design-google' ),
-				'size' => '0.75em',
+				'size' => em_to_px( 0.75 ),
 				'slug' => 'label-small',
 			],
 			[
 				'name' => __( 'Body Large', 'material-design-google' ),
-				'size' => '1em',
+				'size' => em_to_px( 1 ),
 				'slug' => 'body-large',
 			],
 			[
 				'name' => __( 'Body Medium', 'material-design-google' ),
-				'size' => '0.875em',
+				'size' => em_to_px( 0.875 ),
 				'slug' => 'body-medium',
 			],
 			[
 				'name' => __( 'Body Small', 'material-design-google' ),
-				'size' => '0.75em',
+				'size' => em_to_px( 0.75 ),
 				'slug' => 'body-small',
 			],
 		]
