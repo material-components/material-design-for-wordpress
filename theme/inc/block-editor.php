@@ -100,6 +100,10 @@ function filter_body_class( $classes ) {
 
 /**
  * Em to px.
+ *
+ * @param float $em Em value.
+ *
+ * @return int
  */
 function em_to_px( $em ) {
 	return (int) ( $em * 16 );
