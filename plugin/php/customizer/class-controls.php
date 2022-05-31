@@ -235,9 +235,12 @@ class Controls extends Module_Base {
 			'style'          => [
 				'default' => 'baseline',
 			],
-			// This setting does not have an associated control.
+			// This settings does not have an associated control.
 			'previous_style' => [
 				'default' => 'baseline',
+			],
+			'color_palette'  => [
+				'default' => [],
 			],
 			/**
 			 * This setting does not have an associated control
@@ -729,6 +732,7 @@ class Controls extends Module_Base {
 				'styleControl'           => $this->prepare_option_name( 'style' ),
 				'styleSettings'          => $this->prepare_option_name( 'style_settings' ),
 				'prevStyleControl'       => $this->prepare_option_name( 'previous_style' ),
+				'colorPalette'           => $this->prepare_option_name( 'color_palette' ),
 				'iconCollectionsControl' => $this->prepare_option_name( 'icon_collection' ),
 				'activeModeControl'      => $this->prepare_option_name( 'active_mode' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
@@ -1030,11 +1034,20 @@ class Controls extends Module_Base {
 		$corner_styles_vars = implode( $glue, $corner_styles_vars );
 		$font_vars          = implode( $glue, $font_vars );
 		$dark_mode_vars     = implode( $glue, $dark_mode_vars );
+		$color_palette      = $this->get_option( 'color_palette' );
+
+		if ( $color_palette ) {
+			$color_palette = json_decode( $color_palette, true );
+		}
+
+
+		$light_mode_vars = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['light'] ) );
+		$dark_mode_vars  = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['dark'] ) );
 
 		$css = "
 			:root {
 				/* Theme color vars */
-				{$color_vars}
+				{$light_mode_vars}
 
 				/* Icon collection type var */
 				{$icon_collection}
@@ -1046,15 +1059,15 @@ class Controls extends Module_Base {
 				{$corner_styles_vars}
 			}
 
-			/* Forced dark mode
+			/* Forced dark mode */
 			body[data-color-scheme='dark'] {
 				{$dark_mode_vars}
 			}
 
-			 Forced light mode
+			/* Forced light mode */
 			body[data-color-scheme='light'] {
-				{$color_vars}
-			}*/
+				{$light_mode_vars}
+			}
 		";
 
 		if ( 'inactive' !== $this->get_dark_mode_status() ) {
@@ -1283,7 +1296,7 @@ class Controls extends Module_Base {
 				'label'                => __( 'Source Color', 'material-design' ),
 				'a11y_label'           => __( 'Source Color', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_primary_color' ),
-				'css_var'              => '--mdc-theme-primary',
+				'css_var'              => '--md-sys-color-primary',
 				'secondary_controls'   => $this->get_color_secondary_controls( 'primary_color' ),
 			],
 		];
@@ -2125,5 +2138,29 @@ class Controls extends Module_Base {
 
 		$this->add_settings( $settings );
 		$this->add_controls( $controls );
+	}
+
+	/**
+	 * Generate color variables based on current palette.
+	 *
+	 * @param $color_palette Current color palette.
+	 *
+	 * @return array Array of variables.
+	 */
+	public function generate_theme_variables( $color_palette ) {
+		$variables = [];
+
+		if ( empty( $color_palette ) ) {
+			return;
+		}
+
+		foreach ( $color_palette as $key => $value ) {
+			$token = '--md-sys-color-' . strtolower( preg_replace( '/([a-z])([A-Z])/', '$1-$2', $key ) );
+			$color = Helpers::rgb_to_hex( $value );
+
+			$variables[ $token ] = sprintf( '%1$s:%2$s;', $token, $color );
+		}
+
+		return $variables;
 	}
 }

@@ -25,11 +25,6 @@ import { __ } from '@wordpress/i18n';
  * External dependencies
  */
 import classNames from 'classnames';
-import {
-	argbFromHex,
-	themeFromSourceColor,
-	applyTheme,
-} from '@material/material-color-utilities';
 
 /**
  * Internal dependencies
@@ -40,16 +35,9 @@ import MaterialColorPalette from '../../../block-editor/components/material-colo
 
 const api = window.wp.customize;
 
-const ColorControl = ( {
-	defaultValue,
-	params,
-	onColorChange,
-	range,
-	mode,
-} ) => {
+const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 	const [ color, setColor ] = useState( defaultValue );
 	/* @var {Theme} color The current color value. */
-	const [ colorPallete, setColorPallete ] = useState( {} );
 	const [ displayColorPalette, setDisplayColorPalette ] = useState( false );
 	const [ materialPickerSelected, setMaterialPickerSelected ] = useState(
 		true
