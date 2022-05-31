@@ -149,6 +149,26 @@ class Helpers {
 	}
 
 	/**
+	 * Convert color rgb to hex
+	 */
+	public static function rgb_to_hex( $rgb ) {
+		$red   = $rgb >> 16 & 255;
+		$green = $rgb >> 8 & 255;
+		$blue  = $rgb & 255;
+
+		$outparts = [ base_convert( $red, 10, 16 ), base_convert( $green, 10, 16 ), base_convert( $blue, 10, 16 ) ];
+
+		// Pad single-digit output values.
+		foreach ( $outparts as &$part ) {
+			if ( 1 === strlen( $part ) ) {
+				$part = '0' . $part;
+			}
+		}
+
+		return '#' . implode( '', $outparts );
+	}
+
+	/**
 	 * Mix 2 colors with a weight.
 	 *
 	 * @see https://sass-lang.com/documentation/modules/color#mix
