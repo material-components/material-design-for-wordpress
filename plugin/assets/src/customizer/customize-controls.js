@@ -28,6 +28,11 @@
  * External dependencies
  */
 import 'select-woo';
+import {
+	argbFromHex,
+	themeFromSourceColor,
+	applyTheme,
+} from '@material/material-color-utilities';
 
 /**
  * WordPress dependencies
@@ -729,7 +734,13 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 		const props = {
 			defaultValue: setting.get(),
 			onColorChange: value => {
+				const colorPaletteControl = api( getConfig( 'colorPalette' ) );
+
+				const intColor = argbFromHex( value );
+				const colorPalette = themeFromSourceColor( intColor );
+
 				control.setting.set( value );
+				colorPaletteControl.set( JSON.stringify( colorPalette ) );
 			},
 			params,
 			api,
