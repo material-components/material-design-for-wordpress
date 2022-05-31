@@ -18,7 +18,6 @@
  * All Frontend CSS.
  */
 @import "./base/variables.css";
-@import "./tokens/index.css";
 @import "./conf/index.css";
 @import "typography.css";
 @import "./material-components.css";
@@ -30,3 +29,4 @@
 @import "../../src/block-editor/blocks/card/style.css";
 @import "./block/style/masonry.css";
 @import "overrides.css";
+@import "./tokens/index.css";

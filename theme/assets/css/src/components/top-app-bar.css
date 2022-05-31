@@ -139,7 +139,7 @@
 	}
 
 	& .button__search.mdc-button--unelevated {
-		background-color: var(--mdc-theme-primary, #6200ee);
+		background-color: var(--md-sys-color-primary, #6200ee);
 	}
 
 	& .mdc-drawer__close {

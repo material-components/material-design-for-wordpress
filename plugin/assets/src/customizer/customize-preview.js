@@ -89,7 +89,10 @@ export const COLOR_MODES = {
 				const intColor = argbFromHex( color );
 				const colorPallete = themeFromSourceColor( intColor );
 
-				applyTheme( colorPallete, { target: document.body, dark: false } );
+				applyTheme( colorPallete, {
+					target: document.body,
+					dark: false,
+				} );
 			} );
 		} );
 	} );
@@ -227,51 +230,6 @@ export const COLOR_MODES = {
 			}
 		} );
 
-		// Generate the styles.
-		Object.keys( colorControls ).forEach( control => {
-			const color = parentApi( control ).get();
-
-			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
-
-			if ( ! color ) {
-				return;
-			}
-
-			styles += `${ colorControls[ control ] }: ${ color };
-				${ colorControls[ control ] }-rgb: ${ colorRgb };
-			`;
-		} );
-
-		// Generate the styles of forced dark mode.
-		Object.keys( darkModeControls ).forEach( control => {
-			const color = parentApi( control ).get();
-
-			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
-
-			if ( ! color ) {
-				return;
-			}
-
-			darkStyles += `${ darkModeControls[ control ] }: ${ color };
-				${ darkModeControls[ control ] }-rgb: ${ colorRgb };
-			`;
-		} );
-
-		// Generate the styles of forced light mode.
-		Object.keys( defaultModeControls ).forEach( control => {
-			const color = parentApi( control ).get();
-
-			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
-
-			if ( ! color ) {
-				return;
-			}
-
-			lightStyles += `${ defaultModeControls[ control ] }: ${ color };
-				${ defaultModeControls[ control ] }-rgb: ${ colorRgb };
-			`;
-		} );
-
 		Object.keys( cornerStyleControls ).forEach( control => {
 			let settingValue = parentApi( control ).get();
 			const args = cornerStyleControls[ control ];
@@ -299,7 +257,10 @@ export const COLOR_MODES = {
 			toggleDarkModeSwitch( settings );
 		} );
 
-		styles = `:root {
+		styles +=
+			'--mdc-theme-primary: var(--md-sys-color-primary);--mdc-theme-on-primary: var(--md-sys--coloron-primary);--mdc-theme-background: var(--md-sys--colorbackground);--mdc-theme-on-background: var(--md-sys--coloron-background);--mdc-theme-on-surface-variant: var(--md-sys--coloron-surface-variant);--mdc-theme-surface-variant: var(--md-sys--colorsurface-variant);--mdc-theme-on-surface: var(--md-sys--coloron-surface);--mdc-theme-surface: var(--md-sys--colorsurface);--mdc-theme-text-primary-on-background: var(--md-sys--coloron-surface-variant);--mdc-theme-outline: var(--md-sys-color-outline);';
+
+		styles = `body {
 			${ styles }
 		}
 

@@ -37,7 +37,6 @@ import {
 import './style.css';
 import ColorA11y from './color-a11y';
 import MaterialColorPalette from '../../../block-editor/components/material-color-palette';
-import { COLOR_MODES } from '../../customize-preview';
 
 const api = window.wp.customize;
 
@@ -60,7 +59,7 @@ const ColorControl = ( {
 
 	const onChange = value => {
 		setColor( value );
-		//onColorChange( value );
+		onColorChange( value );
 	};
 
 	const onBlur = event => {
@@ -72,30 +71,6 @@ const ColorControl = ( {
 
 		//onColorChange( target.value );
 	};
-
-	useEffect( () => {
-		if ( 'dark' === mode && isLinked ) {
-			setColor( range.dark.hex );
-		} else if ( 'contrast' === mode && isLinked ) {
-			setColor( range.light.hex );
-		}
-	}, [ mode, isLinked, range ] );
-
-	useEffect( () => {
-		if ( isLinked ) {
-			//onColorChange( color );
-		}
-	}, [ isLinked, color, onColorChange ] );
-
-	useEffect( () => {
-		if ( ! range ) {
-			return;
-		}
-
-		if ( COLOR_MODES.dark === mode ) {
-			setIsLinked( color === range.dark.hex );
-		}
-	}, [ color, mode, range ] );
 
 	useEffect( () => {
 		if ( color ) {
