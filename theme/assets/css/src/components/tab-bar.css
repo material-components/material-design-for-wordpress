@@ -17,7 +17,7 @@
 .site__navigation {
 
 	&.-has-tab-bar {
-		background-color: var(--mdc-theme-header, var(--mdc-theme-primary, #6200ee));
+		background-color: var(--mdc-theme-header, var(--md-sys-color-primary, #6200ee));
 		box-shadow: 1px 0 5px rgba(0, 0, 0, .5);
 	}
 
@@ -28,15 +28,15 @@
 	}
 
 	& .tab-bar {
-		background-color: var(--mdc-theme-header, var(--mdc-theme-primary, #6200ee));
-		color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+		background-color: var(--mdc-theme-header, var(--md-sys-color-primary, #6200ee));
+		color: var(--mdc-theme-on-header, var(--md-sys-color-on-primary, #fff));
 
 		& .mdc-tab-scroller__scroll-content {
-			background-color: var(--mdc-theme-header, var(--mdc-theme-primary, #6200ee));
+			background-color: var(--mdc-theme-header, var(--md-sys-color-primary, #6200ee));
 		}
 
 		& .mdc-tab {
-			background-color: var(--mdc-theme-header, var(--mdc-theme-primary, #6200ee));
+			background-color: var(--mdc-theme-header, var(--md-sys-color-primary, #6200ee));
 			padding-left: 2rem;
 			padding-right: 2rem;
 
@@ -46,7 +46,7 @@
 			}
 
 			&:hover {
-				border-bottom: 2px solid var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+				border-bottom: 2px solid var(--mdc-theme-on-header, var(--md-sys-color-on-primary, #fff));
 			}
 
 			&:hover .mdc-tab-indicator--active {
@@ -54,16 +54,16 @@
 			}
 
 			& .mdc-tab__text-label {
-				color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+				color: var(--mdc-theme-on-header, var(--md-sys-color-on-primary, #fff));
 			}
 
 			& .mdc-tab__ripple::before,
 			& .mdc-tab__ripple::after {
-				background-color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+				background-color: var(--mdc-theme-on-header, var(--md-sys-color-on-primary, #fff));
 			}
 
 			& .mdc-tab-indicator .mdc-tab-indicator__content--underline {
-				border-color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+				border-color: var(--mdc-theme-on-header, var(--md-sys-color-on-primary, #fff));
 			}
 		}
 	}
