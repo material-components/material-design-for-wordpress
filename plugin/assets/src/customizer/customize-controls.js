@@ -264,8 +264,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 			{ allowMultiple: true }
 		),
 
-		template: window.wp.template( 'customize-section-material_color-tabs' ),
-
 		/**
 		 * wp.customize.ColorsSection
 		 *
@@ -297,76 +295,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 						.addClass( 'control-section-collapse-parent' );
 				}
 			}
-		},
-
-		ready() {
-			const section = this;
-
-			api.Section.prototype.ready.call( section );
-
-			const content = section.contentContainer.html();
-
-			section.contentContainer.html(
-				section.template( { id: section.id, content } )
-			);
-
-			section.contentContainer
-				.find(
-					'.material-design-section-tabs .material-design-tab-link'
-				)
-				.on( 'click', event => {
-					const { target } = event;
-
-					if ( ! target ) {
-						return;
-					}
-
-					const { palette } = target.dataset;
-
-					if ( ! palette ) {
-						return;
-					}
-
-					section.contentContainer.removeClass(
-						'material-design-colors--default'
-					);
-					section.contentContainer.removeClass(
-						'material-design-colors--dark'
-					);
-
-					section.contentContainer.addClass(
-						`material-design-colors--${ palette }`
-					);
-
-					section.contentContainer
-						.find( '.material-design-tab-link--active' )
-						.removeClass( 'material-design-tab-link--active' );
-
-					target.classList.add( 'material-design-tab-link--active' );
-
-					// Display content.
-					const activeTab = section.contentContainer.find(
-						`.material-design-tab-content.tab-${ palette }`
-					);
-
-					if ( 0 === activeTab.length ) {
-						return;
-					}
-
-					section.contentContainer
-						.find( `.material-design-tab-content` )
-						.removeClass( 'active' );
-
-					section.contentContainer
-						.find( `.material-design-tab-content.tab-${ palette }` )
-						.addClass( 'active' );
-
-					// Setup new colors.
-					api.previewer.send(
-						'materialDesignPaletteUpdate',
-						palette
-					);
-				} );
 		},
 	} );
 
