@@ -29,7 +29,11 @@
  * External dependencies
  */
 import debounce from 'lodash/debounce';
-import { argbFromHex, themeFromSourceColor, applyTheme } from '@material/material-color-utilities';
+import {
+	argbFromHex,
+	themeFromSourceColor,
+	applyTheme,
+} from '@material/material-color-utilities';
 
 /**
  * Internal dependencies

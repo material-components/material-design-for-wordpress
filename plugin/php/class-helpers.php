@@ -150,6 +150,10 @@ class Helpers {
 
 	/**
 	 * Convert color rgb to hex
+	 *
+	 * @param string $rgb Color value.
+	 *
+	 * @return string Hex value.
 	 */
 	public static function rgb_to_hex( $rgb ) {
 		$red   = $rgb >> 16 & 255;

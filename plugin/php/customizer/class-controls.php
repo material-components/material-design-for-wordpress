@@ -1297,88 +1297,8 @@ class Controls extends Module_Base {
 				'a11y_label'           => __( 'Source Color', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_primary_color' ),
 				'css_var'              => '--md-sys-color-primary',
-				'secondary_controls'   => $this->get_color_secondary_controls( 'primary_color' ),
 			],
 		];
-	}
-
-	/**
-	 * Get list of secondary control settings in the Colors section.
-	 *
-	 * @param string $color_control_id Color control ID.
-	 *
-	 * @return array List of secondary control settings.
-	 */
-	public function get_color_secondary_controls( $color_control = '' ) {
-		$secondary_color_controls = [
-			'primary_color'   => [
-				[
-					'id'              => 'on_primary_color',
-					'label'           => __( 'On Primary Color (text and icons)', 'material-design' ),
-					'a11y_label'      => __( 'On Primary', 'material-design' ),
-					'related_setting' => $this->prepare_option_name( 'primary_color' ),
-					'css_var'         => '--mdc-theme-on-primary',
-				],
-			],
-			'secondary_color' => [
-				[
-					'id'              => 'on_secondary_color',
-					'label'           => __( 'On Secondary Color (text and icons)', 'material-design' ),
-					'a11y_label'      => __( 'On Secondary', 'material-design' ),
-					'related_setting' => $this->prepare_option_name( 'secondary_color' ),
-					'css_var'         => '--mdc-theme-on-secondary',
-				],
-			],
-			'tertiary_color'  => [
-				[
-					'id'              => 'on_tertiary_color',
-					'label'           => __( 'On Tertiary Color (text and icons)', 'material-design' ),
-					'a11y_label'      => __( 'On Tertiary', 'material-design' ),
-					'related_setting' => $this->prepare_option_name( 'tertiary_color' ),
-					'css_var'         => '--md-sys-color-on-tertiary',
-				],
-			],
-		];
-
-		if ( ! empty( $color_control ) ) {
-			return $secondary_color_controls[ $color_control ];
-		}
-
-		return array_merge(
-			$secondary_color_controls['primary_color'],
-			$secondary_color_controls['secondary_color'],
-			$secondary_color_controls['tertiary_color']
-		);
-	}
-
-	/**
-	 * Get a list of dark / contrast control settings.
-	 *
-	 * @param string $variant Color prefix to return.
-	 *
-	 * @return array New color controls.
-	 */
-	public function get_color_controls_variant( $variant ) {
-		$controls      = $this->get_color_controls();
-		$dark_controls = [];
-
-		foreach ( $controls as $control ) {
-			$dark_control = $control;
-
-			$dark_control['id'] .= sprintf( '_%s', $variant );
-
-			if ( isset( $dark_control['related_text_setting'] ) ) {
-				$dark_control['related_text_setting'] = $this->prepare_option_name( $dark_control['id'] );
-			}
-
-			if ( isset( $dark_control['related_setting'] ) ) {
-				$dark_control['related_setting'] = $this->prepare_option_name( $dark_control['id'] );
-			}
-
-			$dark_controls[] = $dark_control;
-		}
-
-		return $dark_controls;
 	}
 
 	/**
@@ -2143,7 +2063,7 @@ class Controls extends Module_Base {
 	/**
 	 * Generate color variables based on current palette.
 	 *
-	 * @param $color_palette Current color palette.
+	 * @param array $color_palette Current color palette.
 	 *
 	 * @return array Array of variables.
 	 */
@@ -2151,7 +2071,7 @@ class Controls extends Module_Base {
 		$variables = [];
 
 		if ( empty( $color_palette ) ) {
-			return;
+			return [];
 		}
 
 		foreach ( $color_palette as $key => $value ) {
