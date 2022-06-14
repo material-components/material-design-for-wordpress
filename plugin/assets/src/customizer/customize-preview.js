@@ -258,18 +258,10 @@ export const COLOR_MODES = {
 		} );
 
 		styles +=
-			'--mdc-theme-primary: var(--md-sys-color-primary);--mdc-theme-on-primary: var(--md-sys--coloron-primary);--mdc-theme-background: var(--md-sys--colorbackground);--mdc-theme-on-background: var(--md-sys--coloron-background);--mdc-theme-on-surface-variant: var(--md-sys--coloron-surface-variant);--mdc-theme-surface-variant: var(--md-sys--colorsurface-variant);--mdc-theme-on-surface: var(--md-sys--coloron-surface);--mdc-theme-surface: var(--md-sys--colorsurface);--mdc-theme-text-primary-on-background: var(--md-sys--coloron-surface-variant);--mdc-theme-outline: var(--md-sys-color-outline);';
+			'--mdc-theme-primary: var(--md-sys-color-primary);--mdc-theme-on-primary: var(--md-sys-color-on-primary);--mdc-theme-background: var(--md-sys-color-background);--mdc-theme-on-background: var(--md-sys-color-on-background);--mdc-theme-on-surface-variant: var(--md-sys-color-on-surface-variant);--mdc-theme-surface-variant: var(--md-sys-color-surface-variant);--mdc-theme-on-surface: var(--md-sys-color-on-surface);--mdc-theme-surface: var(--md-sys-color-surface);--mdc-theme-text-primary-on-background: var(--md-sys-color-on-surface-variant);--mdc-theme-outline: var(--md-sys-color-outline);';
 
 		styles = `body {
 			${ styles }
-		}
-
-		body[data-color-scheme="dark"] {
-			${ darkStyles }
-		}
-
-		body[data-color-scheme="light"] {
-			${ lightStyles }
 		}
 		`;
 
