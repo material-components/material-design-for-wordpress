@@ -21,8 +21,8 @@
 @mixin selector-typography .editor-post-title__input, headline-large, 6, 6, 300;
 
 body {
-	background: var(--mdc-theme-background, #fff);
-	color: var(--mdc-theme-on-background, #000);
+	background: var(--md-sys-color-background, #fff);
+	color: var(--md-sys-color-on-background, #000);
 }
 
 blockquote {

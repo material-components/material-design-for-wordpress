@@ -16,17 +16,17 @@
 
 .top-app-bar {
 	background-color: var(--md-sys-color-primary, #6200ee);
-	color: var(--mdc-theme-on-primary, #fff);
+	color: var(--md-sys-color-on-primary, #fff);
 	display: block; /* Ensure tabs container gets correct width */
 
 	& .mdc-top-app-bar__action-item,
 	& .mdc-top-app-bar__navigation-icon {
-		color: var(--mdc-theme-on-primary, #fff);
+		color: var(--md-sys-color-on-primary, #fff);
 
 		&:hover,
 		&:focus,
 		&:visited {
-			color: var(--mdc-theme-on-primary, #fff);
+			color: var(--md-sys-color-on-primary, #fff);
 		}
 	}
 
@@ -80,7 +80,7 @@
 	}
 
 	& .top-app-bar__title {
-		color: var(--mdc-theme-on-primary, #fff);
+		color: var(--md-sys-color-on-primary, #fff);
 		padding-left: 1rem;
 
 		& .site-title__wrapper {
@@ -100,7 +100,7 @@
 	}
 
 	& .search__button:not(:disabled) {
-		color: var(--mdc-theme-on-primary, #fff);
+		color: var(--md-sys-color-on-primary, #fff);
 		max-width: 48px;
 		min-width: auto;
 		--md-sys-typescale-label-large-size: 24px;
@@ -115,7 +115,7 @@
 		}
 
 		&::before {
-			background-color: var(--mdc-theme-on-primary, #fff);
+			background-color: var(--md-sys-color-on-primary, #fff);
 		}
 
 		&:focus::before {

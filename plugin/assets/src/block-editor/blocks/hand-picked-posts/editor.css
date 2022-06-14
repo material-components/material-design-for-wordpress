@@ -23,7 +23,7 @@
 }
 
 .editor-styles-wrapper .editor-block-list__layout a.mdc-button {
-	color: var(--mdc-theme-primary, #6200ee) !important;
+	color: var(--md-sys-color-primary, #6200ee) !important;
 	text-decoration: none !important;
 }
 

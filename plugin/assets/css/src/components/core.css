@@ -17,5 +17,5 @@
 /* Cover */
 .wp-block-cover-image,
 .wp-block-cover {
-	background-color: var(--mdc-theme-surface, #000);
+	background-color: var(--md-sys-color-surface, #000);
 }

@@ -237,7 +237,7 @@
 
 .mdc-drawer {
 	border-color: rgba(var(--mdc-theme-on-surface-rgb, 255, 255, 255), 0.12);
-	background-color: var(--mdc-theme-surface, #fff);
+	background-color: var(--md-sys-color-surface, #fff);
 
 	& .mdc-drawer__title,
 	& .mdc-list-item {
@@ -250,7 +250,7 @@
 
 	& .mdc-list-item--selected,
 	& .mdc-list-item--activated {
-		color: var(--mdc-theme-primary, #6200ee);
+		color: var(--md-sys-color-primary, #6200ee);
 	}
 }
 
@@ -277,7 +277,7 @@
 	color: rgba(var(--mdc-theme-on-surface-rgb, 255, 255, 255), 0.87);
 
 	&.mdc-chip--selected {
-		color: var(--mdc-theme-primary, #6200ee);
+		color: var(--md-sys-color-primary, #6200ee);
 	}
 }
 
@@ -292,7 +292,7 @@
 }
 
 .mdc-tab-bar {
-	background-color: var(--mdc-theme-background, var(--mdc-theme-surface, #fff));
+	background-color: var(--md-sys-color-background, var(--md-sys-color-surface, #fff));
 }
 
 .mdc-tab {
@@ -309,7 +309,7 @@
 
 		& .mdc-tab__icon,
 		& .mdc-tab__text-label {
-			color: var(--mdc-theme-primary, #6200ee);
+			color: var(--md-sys-color-primary, #6200ee);
 		}
 	}
 }
