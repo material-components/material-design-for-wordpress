@@ -34,7 +34,7 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title headline-large">
+				<h1 class="page-title mdc-typography mdc-typography--headline2">
 					<?php
 					/* translators: %s: search query. */
 					printf( esc_html__( 'Search Results for: %s', 'material-design-google' ), '<span>' . get_search_query() . '</span>' );

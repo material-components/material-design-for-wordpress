@@ -12,7 +12,7 @@ Object {
           class="material-gsm__heading"
         >
           <div
-            class="title-large"
+            class="mdc-typography--headline6"
           >
             Getting Started
           </div>
@@ -107,7 +107,7 @@ Object {
         class="material-gsm__heading"
       >
         <div
-          class="title-large"
+          class="mdc-typography--headline6"
         >
           Getting Started
         </div>

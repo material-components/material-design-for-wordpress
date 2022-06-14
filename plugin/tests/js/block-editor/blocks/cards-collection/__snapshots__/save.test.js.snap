@@ -54,18 +54,18 @@ Object {
                     class="material-design-card__primary"
                   >
                     <h2
-                      class="material-design-card__title title-large"
+                      class="material-design-card__title mdc-typography mdc-typography--headline6"
                     >
                       Title goes here
                     </h2>
                     <h3
-                      class="material-design-card__secondary-text label-medium"
+                      class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     >
                       Secondary text
                     </h3>
                   </div>
                   <div
-                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   >
                     Supporting text
                   </div>
@@ -124,18 +124,18 @@ Object {
                   class="material-design-card__primary"
                 >
                   <h2
-                    class="material-design-card__title title-large"
+                    class="material-design-card__title mdc-typography mdc-typography--headline6"
                   >
                     Title goes here
                   </h2>
                   <h3
-                    class="material-design-card__secondary-text label-medium"
+                    class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                   >
                     Secondary text
                   </h3>
                 </div>
                 <div
-                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                 >
                   Supporting text
                 </div>
@@ -274,18 +274,18 @@ Object {
                     class="material-design-card__primary"
                   >
                     <h2
-                      class="material-design-card__title title-large"
+                      class="material-design-card__title mdc-typography mdc-typography--headline6"
                     >
                       Title goes here
                     </h2>
                     <h3
-                      class="material-design-card__secondary-text label-medium"
+                      class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     >
                       Secondary text
                     </h3>
                   </div>
                   <div
-                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                   >
                     Supporting text
                   </div>
@@ -343,18 +343,18 @@ Object {
                   class="material-design-card__primary"
                 >
                   <h2
-                    class="material-design-card__title title-large"
+                    class="material-design-card__title mdc-typography mdc-typography--headline6"
                   >
                     Title goes here
                   </h2>
                   <h3
-                    class="material-design-card__secondary-text label-medium"
+                    class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                   >
                     Secondary text
                   </h3>
                 </div>
                 <div
-                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
                 >
                   Supporting text
                 </div>
@@ -493,12 +493,12 @@ Object {
                     class="material-design-card__primary"
                   >
                     <h2
-                      class="material-design-card__title title-large"
+                      class="material-design-card__title mdc-typography mdc-typography--headline6"
                     >
                       Title goes here
                     </h2>
                     <h3
-                      class="material-design-card__secondary-text label-medium"
+                      class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                     >
                       Secondary text
                     </h3>
@@ -557,12 +557,12 @@ Object {
                   class="material-design-card__primary"
                 >
                   <h2
-                    class="material-design-card__title title-large"
+                    class="material-design-card__title mdc-typography mdc-typography--headline6"
                   >
                     Title goes here
                   </h2>
                   <h3
-                    class="material-design-card__secondary-text label-medium"
+                    class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
                   >
                     Secondary text
                   </h3>

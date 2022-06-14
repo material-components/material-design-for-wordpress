@@ -41,9 +41,9 @@
 
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title headline-large">', '</h1>' );
+			the_title( '<h1 class="entry-title mdc-typography mdc-typography--headline2">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title headline-large"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title mdc-typography mdc-typography--headline2"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) :
@@ -71,7 +71,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links label-large">' . esc_html__( 'Pages:', 'material-design-google' ),
+				'before' => '<div class="page-links mdc-typography mdc-typography--subtitle1">' . esc_html__( 'Pages:', 'material-design-google' ),
 				'after'  => '</div>',
 			)
 		);

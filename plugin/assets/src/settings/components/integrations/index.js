@@ -38,12 +38,12 @@ const Integrations = () => {
 
 	return (
 		<div className="material-settings__integrations">
-			<h2 className="title-large">
+			<h2 className="mdc-typography--headline6">
 				{ __( 'Integrations', 'material-design' ) }
 			</h2>
 
 			<p
-				className="body-large"
+				className="mdc-typography--body1"
 				dangerouslySetInnerHTML={ {
 					__html: sprintf(
 						// translators: %1$s: google font anchor tag, %2$s material icon resources link.
@@ -63,7 +63,7 @@ const Integrations = () => {
 				} }
 			></p>
 
-			<p className="body-large">
+			<p className="mdc-typography--body1">
 				{ __(
 					'Turn on auto-updater or update your resources manually.',
 					'material-design'
@@ -90,12 +90,12 @@ const Integrations = () => {
 				) ) }
 			</div>
 
-			<h2 className="title-large">
+			<h2 className="mdc-typography--headline6">
 				{ __( 'Google API Key', 'material-design' ) }
 			</h2>
 
 			<p
-				className="body-large"
+				className="mdc-typography--body1"
 				dangerouslySetInnerHTML={ {
 					__html: sprintf(
 						// translators: %s google api key anchor tag.
