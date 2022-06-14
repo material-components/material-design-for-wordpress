@@ -27,6 +27,7 @@ use MaterialDesign\Theme\Block\Override;
  */
 function setup() {
 	add_action( 'init', __NAMESPACE__ . '\\register_disable_section_meta' );
+	add_action( 'admin_init', __NAMESPACE__ . '\\force_enqueue_block_editor_assets' );
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets' );
 	if ( ! is_fse() ) {
 		add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
@@ -36,6 +37,21 @@ function setup() {
 	$blocks->init();
 
 	$overrides_block = new Override();
+}
+
+/**
+ * Force enqueue block editor assets for FSE.
+ *
+ * @return void
+ */
+function force_enqueue_block_editor_assets() {
+	global $pagenow;
+	if ( $pagenow !== 'site-editor.php' ) {
+		return;
+	}
+	// Force registration of block editor assets early so .
+
+	do_action( 'enqueue_block_editor_assets' );
 }
 
 /**

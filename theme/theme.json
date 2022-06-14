@@ -32,6 +32,7 @@
   ],
   "settings": {
     "color": {
+      "defaultPalette": false,
       "palette": [
         {
           "slug": "primary",
@@ -126,6 +127,75 @@
     "layout": {
       "contentSize": "840px",
       "wideSize": "100vw"
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "Headline 1",
+          "size": "var(--mdc-typography-headline1-font-size, 6em)",
+          "slug": "headline1"
+        },
+        {
+          "name": "Headline 2",
+          "size": "var(--mdc-typography-headline2-font-size, 3.75em)",
+          "slug": "headline2"
+        },
+        {
+          "name": "Headline 3",
+          "size": "var(--mdc-typography-headline3-font-size, 3em)",
+          "slug": "headline3"
+        },
+        {
+          "name": "Headline 4",
+          "size": "var(--mdc-typography-headline4-font-size, 2.125em)",
+          "slug": "headline4"
+        },
+        {
+          "name": "Headline 5",
+          "size": "var(--mdc-typography-headline5-font-size, 1.5em)",
+          "slug": "headline5"
+        },
+        {
+          "name": "Headline 6",
+          "size": "var(--mdc-typography-headline6-font-size, 1.25em)",
+          "slug": "headline6"
+        },
+        {
+          "name": "Body 1",
+          "size": "var(--mdc-typography-body1-font-size, 1em)",
+          "slug": "body1"
+        },
+        {
+          "name": "Body 2",
+          "size": "var(--mdc-typography-body2-font-size, 0.875em)",
+          "slug": "body2"
+        },
+        {
+          "name": "Subtitle 1",
+          "size": "var(--mdc-typography-subtitle1-font-size, 1em)",
+          "slug": "subtitle1"
+        },
+        {
+          "name": "Subtitle 2",
+          "size": "var(--mdc-typography-subtitle2-font-size, 0.875em)",
+          "slug": "subtitle2"
+        },
+        {
+          "name": "Caption",
+          "size": "var(--mdc-typography-caption-font-size, 0.75em)",
+          "slug": "caption"
+        },
+        {
+          "name": "Button",
+          "size": "var(--mdc-typography-button-font-size, 0.875em)",
+          "slug": "button"
+        },
+        {
+          "name": "Overline",
+          "size": "var(--mdc-typography-overline-font-size, 0.75em)",
+          "slug": "overline"
+        }
+      ]
     }
   }
 }
