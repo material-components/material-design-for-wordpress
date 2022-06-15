@@ -34,7 +34,7 @@ export const ACTIONS = {
 	SET_UPDATED: 'SET_UPDATED',
 };
 
-const ASSET_UPDATES = {
+export const ASSET_UPDATES = {
 	FONTS: {
 		title: __( 'Google Fonts', 'material-design' ),
 		type: 'FONTS',

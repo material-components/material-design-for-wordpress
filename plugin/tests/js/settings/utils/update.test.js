@@ -24,11 +24,11 @@ jest.mock( '../../../../assets/src/settings/utils/promises', () => ( {
 /**
  * Internal dependencies
  */
-import { update } from '../../../../assets/src/settings/utils/update';
 import {
+	update,
 	updateFonts,
 	updateIcons,
-} from '../../../../assets/src/settings/utils/promises';
+} from '../../../../assets/src/settings/utils';
 
 describe( 'Settings: Update', () => {
 	it( 'should call fonts', () => {
