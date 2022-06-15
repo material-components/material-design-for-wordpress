@@ -712,8 +712,8 @@ a:hover, a:active {
 .aligncenter {
 	clear: both;
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
 
 /*--------------------------------------------------------------
