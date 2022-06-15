@@ -193,12 +193,12 @@ function determine_template( $_template, $_type, $templates ) {
  * @return void
  */
 function admin_notice() {
-	$customizer_url = admin_url( 'customize.php?autofocus[panel]=' . Customizer\get_slug() );
-	$customizer_url = add_query_arg( 'autofocus[section]', Customizer\prepend_slug( 'fse_opt' ), $customizer_url );
+	$material_page_url = admin_url( 'admin.php?page=material-settings-page' );
 
 	printf(
-		'<div id="material-theme-opt-in" class="notice notice-info is-dismissible" style="transition:opacity 1s; opacity: 1;"><p>%s</p>',
-		esc_html__( 'Google Material Theme full site editing support is available. Please note this WordPress feature is currently in beta. If you wish to enable the full site editing version of the theme, please test it out on a test environment before going live.', 'material-design-google' )
+		'<div id="material-theme-opt-in" class="notice notice-info is-dismissible" style="transition:opacity 1s; opacity: 1;"><p>%s <a href="https://developer.wordpress.org/block-editor/getting-started/full-site-editing/">%s</a></p>',
+		esc_html__( 'Google Material Theme full site editing support is available. Please note this WordPress feature is currently in beta and testing on a separate environment is advised before enabling it in production.', 'material-design-google' ),
+		esc_html__( 'Read more.', 'material-design-google' )
 	);
 
 	printf( '<p class="hidden">%s</p>', esc_html__( 'You can enable this feature from customizer.', 'material-design-google' ) );
@@ -206,7 +206,7 @@ function admin_notice() {
 	wp_nonce_field( 'fse_opt_notice', 'fse_opt_nonce' );
 
 	echo '<div class="button-group" style="padding-bottom: 5px;">';
-	printf( '<a href="%s"><button class="button button-primary" style="margin-right: 7px;">%s</button></a> ', esc_url( $customizer_url ), esc_html__( 'Enable', 'material-design-google' ) );
+	printf( '<a href="%s"><button class="button button-primary" style="margin-right: 7px;">%s</button></a> ', esc_url( $material_page_url ), esc_html__( 'Enable', 'material-design-google' ) );
 	printf( '<button class="button button-secondary">%s</button>', esc_html__( 'Maybe later', 'material-design-google' ) );
 	echo '</div>';
 	?>

@@ -161,6 +161,14 @@ const assets = {
 			],
 		},
 		{
+			name: 'Settings',
+			chunk: 'settings',
+			entry: [
+				'./plugin/assets/src/settings/index.js',
+				'./plugin/assets/css/src/settings.css',
+			],
+		},
+		{
 			name: 'Editor',
 			chunk: 'editor',
 			entry: [ './theme/assets/css/src/editor.css' ],

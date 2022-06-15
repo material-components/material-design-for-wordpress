@@ -23,7 +23,17 @@
  * @return {string|Object|undefined} Value of config.
  */
 const getConfig = name => {
-	const configData = window.materialDesignWizard;
+	const configData = window?.materialDesignWizard;
+
+	if ( undefined === configData ) {
+		return undefined;
+	}
+
+	return configData[ name ];
+};
+
+export const getConfigTheme = name => {
+	const configData = window?.materialDesignWizardTheme;
 
 	if ( undefined === configData ) {
 		return undefined;

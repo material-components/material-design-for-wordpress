@@ -29,89 +29,105 @@ import { useContext } from '@wordpress/element';
  * Internal dependencies
  */
 import SettingsContext from '../../context';
-import { UPDATERS } from '../../constants';
+import { isPluginActive, UPDATERS, isThemeActive } from '../../constants';
 import Updater from './updater';
 import Api from './api';
+import FseOptIn from './fse-opt-in';
 
 const Integrations = () => {
 	const { state } = useContext( SettingsContext );
 
 	return (
 		<div className="material-settings__integrations">
-			<h2 className="mdc-typography--headline6">
-				{ __( 'Integrations', 'material-design' ) }
-			</h2>
+			{ isPluginActive && (
+				<>
+					<h2 className="mdc-typography--headline6">
+						{ __( 'Integrations', 'material-design' ) }
+					</h2>
 
-			<p
-				className="mdc-typography--body1"
-				dangerouslySetInnerHTML={ {
-					__html: sprintf(
-						// translators: %1$s: google font anchor tag, %2$s material icon resources link.
-						__(
-							'Integrate %1$s and %1$s to get the most out of the Material Theme.',
-							'material-design'
-						),
-						`<a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">${ __(
-							'Google Fonts',
-							'material-design'
-						) }</a>`,
-						`<a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="noopener noreferrer">${ __(
-							'Material icons',
-							'material-design'
-						) }</a>`
-					),
-				} }
-			></p>
+					<p
+						className="mdc-typography--body1"
+						dangerouslySetInnerHTML={ {
+							__html: sprintf(
+								// translators: %1$s: google font anchor tag, %2$s material icon resources link.
+								__(
+									'Integrate %1$s and %1$s to get the most out of the Material Theme.',
+									'material-design'
+								),
+								`<a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">${ __(
+									'Google Fonts',
+									'material-design'
+								) }</a>`,
+								`<a href="https://material.io/resources/icons/?style=baseline" target="_blank" rel="noopener noreferrer">${ __(
+									'Material icons',
+									'material-design'
+								) }</a>`
+							),
+						} }
+					/>
 
-			<p className="mdc-typography--body1">
-				{ __(
-					'Turn on auto-updater or update your resources manually.',
-					'material-design'
-				) }
-			</p>
+					<p className="mdc-typography--body1">
+						{ __(
+							'Turn on auto-updater or update your resources manually.',
+							'material-design'
+						) }
+					</p>
+				</>
+			) }
 
 			<div className="material-settings__updates">
-				{ Object.keys( UPDATERS ).map( key => (
-					<Updater
-						key={ uniqueId( 'updater-' ) }
-						title={ UPDATERS[ key ].title }
-						needsKey={ UPDATERS[ key ].needsKey }
-						checked={ state.updaters[ key ].autoUpdates }
-						lastUpdated={ state.updaters[ key ].lastUpdated }
-						type={ UPDATERS[ key ].type }
-						displayUpdatedOn={ UPDATERS[ key ].displayUpdatedOn }
-						versionAvailable={ UPDATERS[ key ].versionAvailable }
-						apiStatus={ state.apiStatus }
-						updateAvailable={
-							state.updaters[ UPDATERS[ key ].type ]
-								.updateAvailable
-						}
-					/>
-				) ) }
+				{ Object.keys( UPDATERS ).map( key =>
+					key === 'OPT_IN' ? null : (
+						<Updater
+							key={ uniqueId( 'updater-' ) }
+							title={ UPDATERS[ key ].title }
+							needsKey={ UPDATERS[ key ].needsKey }
+							checked={ state.updaters[ key ].autoUpdates }
+							lastUpdated={ state.updaters[ key ].lastUpdated }
+							type={ UPDATERS[ key ].type }
+							displayUpdatedOn={
+								UPDATERS[ key ].displayUpdatedOn
+							}
+							versionAvailable={
+								UPDATERS[ key ].versionAvailable
+							}
+							apiStatus={ state.apiStatus }
+							updateAvailable={
+								state.updaters[ UPDATERS[ key ].type ]
+									.updateAvailable
+							}
+						/>
+					)
+				) }
+				{ isThemeActive && <FseOptIn /> }
 			</div>
 
-			<h2 className="mdc-typography--headline6">
-				{ __( 'Google API Key', 'material-design' ) }
-			</h2>
+			{ isPluginActive && (
+				<>
+					<h2 className="mdc-typography--headline6">
+						{ __( 'Google API Key', 'material-design' ) }
+					</h2>
 
-			<p
-				className="mdc-typography--body1"
-				dangerouslySetInnerHTML={ {
-					__html: sprintf(
-						// translators: %s google api key anchor tag.
-						__(
-							'To use Google Fonts in Material Theme, please activate your %s and enable updates',
-							'material-design'
-						),
-						`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey" target="_blank" rel="noopener noreferrer">${ __(
-							'Google API Key',
-							'material-design'
-						) }</a>`
-					),
-				} }
-			></p>
+					<p
+						className="mdc-typography--body1"
+						dangerouslySetInnerHTML={ {
+							__html: sprintf(
+								// translators: %s google api key anchor tag.
+								__(
+									'To use Google Fonts in Material Theme, please activate your %s and enable updates',
+									'material-design'
+								),
+								`<a href="https://developers.google.com/fonts/docs/developer_api#APIKey" target="_blank" rel="noopener noreferrer">${ __(
+									'Google API Key',
+									'material-design'
+								) }</a>`
+							),
+						} }
+					/>
 
-			<Api apiStatus={ state.apiStatus } />
+					<Api apiStatus={ state.apiStatus } />
+				</>
+			) }
 		</div>
 	);
 };

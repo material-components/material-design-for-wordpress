@@ -134,7 +134,7 @@ const Updater = ( {
 										) }</a>`
 									),
 								} }
-							></p>
+							/>
 						) }
 
 						{ ! isDisabled && false !== displayUpdatedOn && (
