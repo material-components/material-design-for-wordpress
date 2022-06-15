@@ -23,6 +23,7 @@ import apiFetch from '@wordpress/api-fetch';
  * Internal dependencies
  */
 import getConfig, { getConfigTheme } from '../../admin/get-config';
+import { isPluginActive } from '../constants';
 
 /**
  * Update fonts.
@@ -129,7 +130,9 @@ export const toggleAutoUpdate = ( type, currentStatus ) => {
 export const toggleFseOptIn = checked => {
 	return new Promise( ( resolve, reject ) => {
 		apiFetch( {
-			path: getConfigTheme( 'restPath' ),
+			path: isPluginActive
+				? getConfigTheme( 'restPath' )
+				: getConfigTheme( 'restUrl' ),
 			method: 'POST',
 			data: { checked },
 			headers: {

@@ -101,7 +101,8 @@ function admin_enqueue_scripts_material_setting() {
 			'material-settings',
 			'materialDesignWizardTheme',
 			[
-				'restPath' => get_rest_url( null, '/material-design-theme/v1/fse/toggle-fse-opt-in' ),
+				'restUrl'  => get_rest_url( null, '/material-design-theme/v1/fse/toggle-fse-opt-in' ),
+				'restPath' => '/material-design-theme/v1/fse/toggle-fse-opt-in',
 				'nonce'    => wp_create_nonce( 'wp_rest' ),
 				'isOptIn'  => get_theme_mod( 'fse_opt_option', 'out' ) === 'in',
 			]

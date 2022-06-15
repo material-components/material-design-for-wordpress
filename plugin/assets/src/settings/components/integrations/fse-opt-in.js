@@ -62,7 +62,7 @@ const FseOptIn = () => {
 
 						<p className="mdc-typography--body1">
 							{ __(
-								'This setting won’t be available when Full Site Editing is out of Beta and fully supported by Wordpress.',
+								'This setting won’t be available when Full Site Editing is out of Beta and fully supported by WordPress.',
 								'material-design'
 							) }
 						</p>
