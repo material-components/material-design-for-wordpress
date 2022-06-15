@@ -80,13 +80,7 @@ const FSE = {
 	OPT_IN: {
 		title: __( 'Opt-in', 'material-design' ),
 		type: 'OPT_IN',
-		lastUpdated: false,
-		needsKey: false,
-		updateAvailable: false,
-		versionAvailable: getConfig( 'themeUpdateStatus' ),
 		autoUpdates: parseInt( getConfigTheme( 'isOptIn' ) || 0, 10 ),
-		displayUpdatedOn: false,
-		isAutoUpdateDisabled: true,
 	},
 };
 export const isPluginActive = !! window?.materialDesignWizard;
