@@ -72,7 +72,7 @@ class Fse_Opt_In_Rest_Controller extends \WP_REST_Controller {
 			[
 				[
 					'methods'             => \WP_REST_Server::CREATABLE,
-					'callback'            => [ $this, 'toggle_auto_updates' ],
+					'callback'            => [ $this, 'fse_opt_in_out' ],
 					'permission_callback' => [ $this, 'has_permissions' ],
 				],
 				'schema' => [ $this, 'get_item_schema' ],
@@ -122,7 +122,7 @@ class Fse_Opt_In_Rest_Controller extends \WP_REST_Controller {
 	 *
 	 * @return mixed
 	 */
-	public function toggle_auto_updates( $request ) {
+	public function fse_opt_in_out( $request ) {
 		$checked = $request->get_param( 'checked' );
 
 		$response = set_theme_mod( 'fse_opt_option', $checked ? 'in' : 'out' );

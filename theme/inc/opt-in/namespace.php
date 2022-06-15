@@ -23,17 +23,38 @@
 
 namespace MaterialDesign\Theme\OptIn;
 
+use function MaterialDesign\Theme\BlockEditor\is_material_in_fse_mode;
+
 /**
  * Setup opt in.
  *
  * @return void
  */
 function setup() {
+	// Only handle this in 5.9 or later.
+	if ( version_compare( get_bloginfo( 'version' ), '5.9', '<=' ) ) {
+		return;
+	}
+
 	$controller = new Fse_Opt_In_Rest_Controller();
 	$controller->init();
 
+	// Admin notice for opt in.
+	if ( is_admin() && ! get_theme_mod( 'fse_opt_option', '' ) ) {
+		$notice_option = get_option( 'material_design_google', [] );
+		if ( ! isset( $notice_option['fse_opt_notice'] ) ) {
+			// Show notice to opt in.
+			add_action( 'admin_notices', __NAMESPACE__ . '\\admin_notice' );
+			add_action( 'wp_ajax_material_fse_notice', __NAMESPACE__ . '\\admin_dismiss_notice' );
+			add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_enqueue_scripts' );
+		}
+	}
+
+	// Register theme page if plugin is not active; Add variables.
 	add_action( 'admin_enqueue_scripts', __NAMESPACE__ . '\\admin_enqueue_scripts_material_setting' );
 	add_action( 'admin_menu', __NAMESPACE__ . '\\add_pages' );
+
+	handle_fse_opt_out();
 }
 
 /**
@@ -118,4 +139,160 @@ function render_settings_page() {
 	?>
 	<div id="material-settings" class="material-settings mdc-layout-grid mdc-typography"></div>
 	<?php
+}
+
+
+/**
+ * Handle fse opt out for.
+ *
+ * @return void
+ */
+function handle_fse_opt_out() {
+	if ( ! is_material_in_fse_mode() ) {
+		// Removes fse menu entry and other features.
+		remove_theme_support( 'block-templates' );
+		// Disable the FSE template route.
+		$template_types = array_keys( get_default_block_template_types() );
+		foreach ( $template_types as $template_type ) {
+			// Skip 'embed' for now because it is not a regular template type.
+			if ( 'embed' === $template_type ) {
+				continue;
+			}
+			add_filter( str_replace( '-', '', $template_type ) . '_template', __NAMESPACE__ . '\\determine_template', 10, 3 );
+		}
+		add_filter( 'theme_file_path', __NAMESPACE__ . '\\filter_disable_fse', 10, 2 );
+	}
+}
+
+/**
+ * Filter site path to enable and disable FSE.
+ *
+ * @param string $path File path.
+ * @param string $file Relative theme path.
+ *
+ * @return string
+ */
+function filter_disable_fse( $path, $file ) {
+	if ( 'index.html' !== basename( $file ) ) {
+		return $path;
+	}
+	if ( is_material_in_fse_mode() ) {
+		return $path;
+	}
+
+	return str_replace( 'index.html', 'index-disabled.html', $path );
+}
+
+/**
+ * Determine template for non FSE theme.
+ *
+ * This will allow fallback to default php template if user has not opted in for FSE template.
+ *
+ * @param string   $_template Path to the template. See locate_template().
+ * @param string   $_type     Sanitized filename without extension.
+ * @param string[] $templates A list of template candidates, in descending order of priority.
+ *
+ * @return string
+ */
+function determine_template( $_template, $_type, $templates ) {
+	return locate_template( $templates );
+}
+
+/**
+ * Add admin notice to opt in or out.
+ *
+ * @return void
+ */
+function admin_notice() {
+	$material_page_url = admin_url( 'admin.php?page=material-settings-page' );
+
+	printf(
+		'<div id="material-theme-opt-in" class="notice notice-info is-dismissible" style="transition:opacity 1s; opacity: 1;"><p>%s <a href="https://developer.wordpress.org/block-editor/getting-started/full-site-editing/">%s</a></p>',
+		esc_html__( 'Google Material Theme full site editing support is available. Please note this WordPress feature is currently in beta and testing on a separate environment is advised before enabling it in production.', 'material-design-google' ),
+		esc_html__( 'Read more.', 'material-design-google' )
+	);
+
+	printf( '<p class="hidden">%s</p>', esc_html__( 'You can enable this feature from material settings.', 'material-design-google' ) );
+
+	wp_nonce_field( 'fse_opt_notice', 'fse_opt_nonce' );
+
+	echo '<div class="button-group" style="padding-bottom: 5px;">';
+	printf( '<a href="%s"><button class="button button-primary" style="margin-right: 7px;">%s</button></a> ', esc_url( $material_page_url ), esc_html__( 'Enable', 'material-design-google' ) );
+	printf( '<button class="button button-secondary">%s</button>', esc_html__( 'Maybe later', 'material-design-google' ) );
+	echo '</div>';
+	?>
+	<script type="text/javascript">
+		( function() {
+				let callback = function() {
+					const notice = document.querySelector( "#material-theme-opt-in" );
+					const material_click_callback = function( e ) {
+						e.preventDefault();
+						const isAnchor = this.tagName === "A";
+						const buttonSecondary = this.classList.contains( "button-secondary" );
+						if ( buttonSecondary ) {
+							const p = document.querySelectorAll( "p" );
+							for ( let i = 0; i < p.length; i ++ ) {
+								p[i].classList.toggle( "hidden" );
+							}
+						}
+						const link = this.href;
+						wp.ajax.post( "material_fse_notice", {
+							_wpnonce: notice.querySelector( "input#fse_opt_nonce" ).value
+						} ).done( function( response ) {
+							if ( isAnchor ) {
+								location.href = link;
+							}
+							if ( buttonSecondary ) {
+								setTimeout( function() {
+									notice.style.opacity = 0;
+									setTimeout( function() {
+										notice.remove();
+									}, 1000 );
+								}, 3000 );
+							} else {
+								notice.remove();
+							}
+						} );
+					};
+					const targets = notice.querySelectorAll( ".button-secondary, a" );
+					for ( let i = 0; i < targets.length; i ++ ) {
+						targets[i].addEventListener( "click", material_click_callback );
+					}
+				};
+				document.addEventListener( "DOMContentLoaded", () => setTimeout( callback, 1 ) );
+			}
+		)();
+	</script>
+
+	<?php
+
+	echo '</div>';
+}
+
+/**
+ * Save dismiss notice for opt in.
+ *
+ * @return void
+ */
+function admin_dismiss_notice() {
+	if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( $_POST['_wpnonce'], 'fse_opt_notice' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		return;
+	}
+
+	$value = get_option( 'material_design_google', [] );
+
+	$value['fse_opt_notice'] = true;
+
+	update_option( 'material_design_google', $value );
+
+	wp_send_json_success();
+}
+
+/**
+ * Admin enqueue scripts dependency.
+ *
+ * @return void
+ */
+function admin_enqueue_scripts() {
+	wp_enqueue_script( 'wp-util' );
 }
