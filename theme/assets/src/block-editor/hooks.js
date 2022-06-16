@@ -22,8 +22,6 @@ import { createHigherOrderComponent } from '@wordpress/compose';
 import { useEffect } from '@wordpress/element';
 
 const blockClassPrefillMap = {
-	'core/site-title': 'site-title mdc-typography mdc-typography--headline6',
-	'core/post-title': 'mdc-typography mdc-typography-headline2 entry-title',
 	'core/navigation-link': 'mdc-tab',
 	'core/navigation': 'nav-wrap mdc-tab-scroller__scroll-area',
 };

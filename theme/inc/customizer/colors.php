@@ -294,7 +294,7 @@ function get_dark_controls() {
 /**
  * Handle updating theme.json color palette.
  *
- * @param \WP_Customize $wp_customize WP_Customize instance.
+ * @param \WP_Customize_Manager $wp_customize WP_Customize instance.
  */
 function after_save( $wp_customize ) {
 	if ( ! is_material_in_fse_mode() ) {
@@ -379,7 +379,7 @@ function get_all_color_controls() {
 /**
  * Get user color palette.
  *
- * @param \WP_Customize $wp_customize WP_Customize instance.
+ * @param \WP_Customize_Manager $wp_customize WP_Customize instance.
  *
  * @return array
  */
