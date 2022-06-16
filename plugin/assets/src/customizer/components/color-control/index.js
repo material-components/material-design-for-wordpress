@@ -48,7 +48,6 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 
 	const onChange = value => {
 		setColor( value );
-		onColorChange( value );
 	};
 
 	const onBlur = event => {
@@ -58,7 +57,8 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 			return;
 		}
 
-		//onColorChange( target.value );
+		setColor( target.value );
+		onColorChange( target.value );
 	};
 
 	const onShuffle = () => {
@@ -83,6 +83,7 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 			return;
 		}
 
+		onColorChange( `#${ hexColor }` );
 		api.previewer.send( 'materialDesignM3PaletteUpdate', color );
 	}, [ color ] );
 
@@ -103,7 +104,7 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 
 				<TextControl
 					value={ color }
-					//onChange={ onChange }
+					onChange={ onChange }
 					onBlur={ onBlur }
 					className="material-design-color__input"
 				/>
