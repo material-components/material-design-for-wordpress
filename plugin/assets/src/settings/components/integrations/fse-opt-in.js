@@ -57,7 +57,10 @@ const FseOptIn = () => {
 				<div className="mdc-layout-grid__inner">
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-10 mdc-layout-grid__cell--align-middle">
 						<h3 className="mdc-typography--headline6">
-							{ __( 'FSE Opt In', 'material-design' ) }{ ' ' }
+							{ __(
+								'Full Site Editing Opt In',
+								'material-design'
+							) }{ ' ' }
 						</h3>
 
 						<p className="mdc-typography--body1">
