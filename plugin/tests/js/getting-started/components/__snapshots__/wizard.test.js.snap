@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <h2
-        class="material-gsm__content-title headline-small"
+        class="material-gsm__content-title mdc-typography--headline3"
       >
         Install the Material Design Theme and quick start examples
       </h2>
@@ -48,7 +48,7 @@ Object {
   </body>,
   "container": <div>
     <h2
-      class="material-gsm__content-title headline-small"
+      class="material-gsm__content-title mdc-typography--headline3"
     >
       Install the Material Design Theme and quick start examples
     </h2>

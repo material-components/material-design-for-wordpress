@@ -23,16 +23,14 @@ Object {
             class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
           >
             <h3
-              class="headline-medium"
+              class="mdc-typography--headline3"
             >
               Congrats!
             </h3>
             <p>
               You've installed Material. Click "Finish" and check out the rest of the Getting Started guide to customize your theme, build with Material Blocks, and apply the theme to your site.
             </p>
-            <p
-              class="body-large"
-            >
+            <p>
               Learn about the concepts behind material Design
             </p>
             <div
@@ -56,9 +54,7 @@ Object {
                 </i>
               </a>
             </div>
-            <p
-              class="body-large"
-            >
+            <p>
               Sign up to get updates and news about material design via email
             </p>
             <div
@@ -106,16 +102,14 @@ Object {
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
           <h3
-            class="headline-medium"
+            class="mdc-typography--headline3"
           >
             Congrats!
           </h3>
           <p>
             You've installed Material. Click "Finish" and check out the rest of the Getting Started guide to customize your theme, build with Material Blocks, and apply the theme to your site.
           </p>
-          <p
-            class="body-large"
-          >
+          <p>
             Learn about the concepts behind material Design
           </p>
           <div
@@ -139,9 +133,7 @@ Object {
               </i>
             </a>
           </div>
-          <p
-            class="body-large"
-          >
+          <p>
             Sign up to get updates and news about material design via email
           </p>
           <div

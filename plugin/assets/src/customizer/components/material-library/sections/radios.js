@@ -26,7 +26,7 @@ import IconButtonLink from '../common/icon-button-link';
 
 const Radios = () => (
 	<div>
-		<h4 className="headline-small" style={ { margin: 0 } }>
+		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Radio buttons', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/develop/web/components/input-controls/radio-buttons"></IconButtonLink>

@@ -1042,14 +1042,14 @@ Object {
                     class="single-post-card__primary"
                   >
                     <h2
-                      class="single-post-card__title title-large"
+                      class="single-post-card__title mdc-typography mdc-typography--headline6"
                     >
                       <div>
                         Example 1 Title
                       </div>
                     </h2>
                     <h3
-                      class="single-post-card__subtitle label-medium"
+                      class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
                     >
                       <time
                         datetime="2020-03-26 12:00:00"
@@ -1059,7 +1059,7 @@ Object {
                     </h3>
                   </div>
                   <div
-                    class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                    class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
                   >
                     <div>
                       Example 1 excerpt
@@ -1109,14 +1109,14 @@ Object {
                     class="single-post-card__primary"
                   >
                     <h2
-                      class="single-post-card__title title-large"
+                      class="single-post-card__title mdc-typography mdc-typography--headline6"
                     >
                       <div>
                         Example 2 Title
                       </div>
                     </h2>
                     <h3
-                      class="single-post-card__subtitle label-medium"
+                      class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
                     >
                       <time
                         datetime="2020-03-26 12:00:00"
@@ -1126,7 +1126,7 @@ Object {
                     </h3>
                   </div>
                   <div
-                    class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                    class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
                   >
                     <div>
                       Example 2 excerpt
@@ -2177,14 +2177,14 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title title-large"
+                    class="single-post-card__title mdc-typography mdc-typography--headline6"
                   >
                     <div>
                       Example 1 Title
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -2194,7 +2194,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
                 >
                   <div>
                     Example 1 excerpt
@@ -2244,14 +2244,14 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title title-large"
+                    class="single-post-card__title mdc-typography mdc-typography--headline6"
                   >
                     <div>
                       Example 2 Title
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -2261,7 +2261,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
                 >
                   <div>
                     Example 2 excerpt

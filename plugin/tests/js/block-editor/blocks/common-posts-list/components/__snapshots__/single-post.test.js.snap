@@ -16,14 +16,14 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title title-large"
+              class="single-post-card__title mdc-typography mdc-typography--headline6"
             >
               <div>
                 This is a test post title #1
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -37,7 +37,7 @@ Object {
             style="background-image: url(http://example.com/test1.jpg);"
           />
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
           >
             <div>
               This is a test post excerpt #1
@@ -85,14 +85,14 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title title-large"
+            class="single-post-card__title mdc-typography mdc-typography--headline6"
           >
             <div>
               This is a test post title #1
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -106,7 +106,7 @@ Object {
           style="background-image: url(http://example.com/test1.jpg);"
         />
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
         >
           <div>
             This is a test post excerpt #1
@@ -215,14 +215,14 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title title-large"
+              class="single-post-card__title mdc-typography mdc-typography--headline6"
             >
               <div>
                 This is a test post title #1
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -277,14 +277,14 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title title-large"
+            class="single-post-card__title mdc-typography mdc-typography--headline6"
           >
             <div>
               This is a test post title #1
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -392,14 +392,14 @@ Object {
             class="single-post-card__primary"
           >
             <h2
-              class="single-post-card__title title-large"
+              class="single-post-card__title mdc-typography mdc-typography--headline6"
             >
               <div>
                 This is a test post title #1
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -413,7 +413,7 @@ Object {
             style="background-image: url(http://example.com/test1.jpg);"
           />
           <div
-            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+            class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
           >
             <div>
               This is a test post excerpt #1
@@ -461,14 +461,14 @@ Object {
           class="single-post-card__primary"
         >
           <h2
-            class="single-post-card__title title-large"
+            class="single-post-card__title mdc-typography mdc-typography--headline6"
           >
             <div>
               This is a test post title #1
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -482,7 +482,7 @@ Object {
           style="background-image: url(http://example.com/test1.jpg);"
         />
         <div
-          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+          class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
         >
           <div>
             This is a test post excerpt #1

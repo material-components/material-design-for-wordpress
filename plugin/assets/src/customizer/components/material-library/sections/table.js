@@ -26,7 +26,7 @@ import IconButtonLink from '../common/icon-button-link';
 
 const Table = ( { radius } ) => (
 	<div>
-		<h4 className="headline-small" style={ { margin: 0 } }>
+		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
 			{ __( 'Data Tables', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/data-tables"></IconButtonLink>

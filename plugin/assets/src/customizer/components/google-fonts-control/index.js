@@ -80,8 +80,6 @@ const GoogleFontsControl = props => {
 		const settings = {
 			size: child.sizeValue,
 			weight: child.weightValue,
-			tracking: child.trackingValue,
-			lineHeight: child.lineHeightValue,
 		};
 
 		childControl.setting.set( JSON.stringify( settings ) );
@@ -99,20 +97,16 @@ const GoogleFontsControl = props => {
 		}
 
 		const newChildren = children.map( child => {
-			const { size, weight, tracking, lineHeight } = child;
+			const { size, weight } = child;
 
 			setChildValues( {
 				id: child.id,
 				sizeValue: size.default,
 				weightValue: weight.default,
-				trackingValue: tracking.default,
-				lineHeightValue: lineHeight.default,
 			} );
 
 			size.value = size.default;
 			weight.value = weight.default;
-			tracking.value = tracking.default;
-			lineHeight.value = lineHeight.default;
 
 			return child;
 		} );
@@ -130,8 +124,6 @@ const GoogleFontsControl = props => {
 
 			child.size.value = values.sizeValue;
 			child.weight.value = values.weightValue;
-			child.tracking.value = values.trackingValue;
-			child.lineHeight.value = values.lineHeightValue;
 
 			return child;
 		} );

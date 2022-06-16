@@ -27,21 +27,19 @@
 
 	.google-fonts-control__values {
 		display: flex;
-		flex-direction: column;
-		gap: 20px;
 	}
 
 	.components-base-control {
+		width: 40%;
 
-		&:last-child .components-base-control__field {
-			display: block;
+		&:last-child {
+			width: 52%;
 		}
 	}
 
 	.components-base-control__field {
 		align-items: center;
 		display: flex;
-		justify-content: space-between;
 
 		& input {
 			max-width: 50%;
@@ -57,16 +55,6 @@
 		background-color: #ddd;
 		margin-top: 8px;
 		padding: 8px 0 8px 8px;
-	}
-
-	.components-google-fonts-control__select {
-		flex-direction: row;
-		align-items: center;
-
-		& .components-input-control__container {
-			flex: auto;
-			max-width: 50%;
-		}
 	}
 
 	.components-google-fonts-control__select select {

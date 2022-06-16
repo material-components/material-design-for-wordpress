@@ -6,13 +6,11 @@ Object {
   "baseElement": <body>
     <div>
       <h2
-        class="material-gsm__content-title headline-medium"
+        class="material-gsm__content-title mdc-typography--headline3"
       >
         Build with Material Blocks
       </h2>
-      <p
-        class="body-large"
-      >
+      <p>
         Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor.
       </p>
       <img
@@ -49,13 +47,11 @@ Object {
   </body>,
   "container": <div>
     <h2
-      class="material-gsm__content-title headline-medium"
+      class="material-gsm__content-title mdc-typography--headline3"
     >
       Build with Material Blocks
     </h2>
-    <p
-      class="body-large"
-    >
+    <p>
       Add Material Components like buttons and cards, and create layouts for things like image-heavy pages or styled contact forms. Customize the look of your blocks by adjusting global theme styles, or setting the style of a single component in the block editor.
     </p>
     <img
