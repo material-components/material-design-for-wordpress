@@ -872,6 +872,7 @@ class Controls extends Module_Base {
 		$font_vars          = [];
 		$google_fonts       = Google_Fonts::get_fonts();
 		$dark_mode_vars     = [];
+		$light_mode_vars	= [];
 
 		foreach ( $this->get_color_controls() as $control ) {
 			$value = $this->get_option( $control['id'] );
@@ -985,23 +986,11 @@ class Controls extends Module_Base {
 			);
 		}
 
-		foreach ( $this->get_color_controls_variant( 'dark' ) as $control ) {
-			$value = $this->get_option( $control['id'] );
-			$rgb   = Helpers::hex_to_rgb( $value );
-			if ( ! empty( $rgb ) ) {
-				$rgb = implode( ',', $rgb );
-			}
-
-			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
-			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
-		}
-
 		$glue               = "\n\t\t\t\t";
 		$icon_collection    = $this->get_icon_collection_css();
 		$color_vars         = implode( $glue, $color_vars );
 		$corner_styles_vars = implode( $glue, $corner_styles_vars );
 		$font_vars          = implode( $glue, $font_vars );
-		$dark_mode_vars     = implode( $glue, $dark_mode_vars );
 		$color_palette      = $this->get_option( 'color_palette' );
 
 		if ( $color_palette ) {

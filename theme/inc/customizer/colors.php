@@ -62,7 +62,11 @@ function register( $wp_customize ) {
  * @return void
  */
 function add_settings( $wp_customize ) {
-	$settings = [];
+	$settings = [
+		'color_palette'  => [
+			'default' => [],
+		],
+	];
 
 	foreach ( get_controls() as $control ) {
 		$settings[ $control['id'] ] = [
