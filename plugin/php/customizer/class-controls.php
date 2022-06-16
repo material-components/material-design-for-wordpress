@@ -734,7 +734,6 @@ class Controls extends Module_Base {
 				'images'                 => $demo_images,
 				'styleChoices'           => $this->get_style_choices(),
 				'colorControls'          => $this->get_color_controls(),
-				'colorControlsDark'      => $this->get_color_controls_variant( 'dark' ),
 			]
 		);
 
