@@ -61,7 +61,11 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 	};
 
 	const onShuffle = () => {
-		console.log( 'shuffle' );
+		const shuffledColor = randomColor();
+
+		if ( shuffledColor ) {
+			setColor( shuffledColor );
+		}
 	};
 
 	useEffect( () => {
