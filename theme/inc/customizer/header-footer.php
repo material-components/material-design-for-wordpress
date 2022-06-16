@@ -119,7 +119,8 @@ function get_controls() {
 				'priority' => 110,
 			],
 		];
-		$controls[]       = array_merge( $controls, $controls_non_fse );
+
+		$controls = array_merge( $controls, $controls_non_fse );
 	}
 
 	return $controls;
