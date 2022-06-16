@@ -69,9 +69,20 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 	};
 
 	useEffect( () => {
-		if ( color ) {
-			api.previewer.send( 'materialDesignM3PaletteUpdate', color );
+		let hexColor = color.substring( 1 );
+
+		if ( hexColor.length === 3 ) {
+			hexColor = hexColor
+				.split( '' )
+				.map( hex => hex + hex )
+				.join( '' );
 		}
+
+		if ( 6 !== hexColor.length ) {
+			return;
+		}
+
+		api.previewer.send( 'materialDesignM3PaletteUpdate', color );
 	}, [ color ] );
 
 	return (
