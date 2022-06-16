@@ -232,78 +232,25 @@ class Controls extends Module_Base {
 		 * List of all the control settings in the Theme section.
 		 */
 		$settings = [
-			'style'          => [
-				'default' => 'baseline',
-			],
-			// This settings does not have an associated control.
-			'previous_style' => [
-				'default' => 'baseline',
-			],
-			'color_palette'  => [
+			'color_palette' => [
 				'default' => [],
 			],
 			/**
 			 * This setting does not have an associated control
 			 * it's used to display material components notification.
 			 */
-			'notify'         => [
+			'notify'        => [
 				'default' => 0,
 			],
-		];
-
-		$this->add_settings( $settings );
-
-		$choices = $this->get_style_choices();
-
-		/**
-		 * List of all the controls in the Theme section.
-		 */
-		$controls_theme = [
-			'style' => new Image_Radio_Control(
-				$this->wp_customize,
-				$this->prepare_option_name( 'style' ),
-				[
-					'section'  => 'style',
-					'priority' => 10,
-					'choices'  => $choices,
-				]
-			),
-		];
-
-		$default_settings = [];
-
-		foreach ( $choices as $key => $value ) {
-			$default_settings[ $key ] = [
+			'dark_mode'     => [
 				'dark'     => 'auto',
 				'contrast' => 'auto',
 				'switcher' => false,
 				'active'   => 'default',
-			];
-		}
-
-		$style_settings = [
-			'style_settings' => [
-				'default' => $default_settings,
 			],
 		];
 
-		$this->add_settings( $style_settings );
-
-		$controls_settings = [
-			'style_settings' => new Style_Settings_Control(
-				$this->wp_customize,
-				$this->prepare_option_name( 'style_settings' ),
-				[
-					'section'  => 'style_settings',
-					'priority' => 200,
-					'style'    => get_option( $this->prepare_option_name( 'style' ) ),
-					'css_var'  => '--mdc-theme-setting',
-				]
-			),
-		];
-
-		$this->add_controls( $controls_theme );
-		$this->add_controls( $controls_settings );
+		$this->add_settings( $settings );
 
 		$active_mode_settings = [
 			'active_mode' => [
@@ -732,7 +679,6 @@ class Controls extends Module_Base {
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'resetCardStyleRest'     => esc_url( $this->plugin->reset_card_style_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
-				'styleChoices'           => $this->get_style_choices(),
 				'colorControls'          => $this->get_color_controls(),
 			]
 		);
@@ -1772,36 +1718,6 @@ class Controls extends Module_Base {
 		}
 
 		return $args;
-	}
-
-	/**
-	 * Get array of existing default choices.
-	 *
-	 * @return array Existing choices.
-	 */
-	public function get_style_choices() {
-		return [
-			'baseline'    => [
-				'label' => __( 'Baseline', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
-			],
-			'crane'       => [
-				'label' => __( 'Crane', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
-			],
-			'fortnightly' => [
-				'label' => __( 'Fortnightly', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
-			],
-			'blossom'     => [
-				'label' => __( 'Blossom', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/blossom.svg' ),
-			],
-			'custom'      => [
-				'label' => __( 'Custom', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
-			],
-		];
 	}
 
 	/**
