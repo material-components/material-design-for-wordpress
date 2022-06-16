@@ -32,6 +32,7 @@ import classNames from 'classnames';
 import './style.css';
 import ColorA11y from './color-a11y';
 import MaterialColorPalette from '../../../block-editor/components/material-color-palette';
+import { randomColor } from '../../utils';
 
 const api = window.wp.customize;
 
