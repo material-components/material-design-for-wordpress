@@ -17,7 +17,7 @@
 /**
  * WordPress dependencies
  */
-import { TextControl, ColorPicker } from '@wordpress/components';
+import { TextControl, ColorPicker, Button } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -58,6 +58,10 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 		}
 
 		//onColorChange( target.value );
+	};
+
+	const onShuffle = () => {
+		console.log( 'shuffle' );
 	};
 
 	useEffect( () => {
@@ -103,6 +107,13 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 						</span>
 					</button>
 				) }
+
+				<Button
+					className="material-design-color__shuffle"
+					variant="tertiary"
+					icon="randomize"
+					onClick={ onShuffle }
+				/>
 			</div>
 
 			{ displayColorPalette && (
