@@ -213,12 +213,10 @@ function admin_notice() {
 		esc_html__( 'Read more.', 'material-design-google' )
 	);
 
-	printf( '<p class="hidden">%s</p>', esc_html__( 'You can enable this feature from material settings.', 'material-design-google' ) );
-
 	wp_nonce_field( 'fse_opt_notice', 'fse_opt_nonce' );
 
 	echo '<div class="button-group" style="padding-bottom: 5px;">';
-	printf( '<a href="%s"><button class="button button-primary" style="margin-right: 7px;">%s</button></a> ', esc_url( $material_page_url ), esc_html__( 'Enable', 'material-design-google' ) );
+	printf( '<a class="fse-opt-in-link-primary" href="%s"><button class="button button-primary" style="margin-right: 7px;">%s</button></a> ', esc_url( $material_page_url ), esc_html__( 'Enable', 'material-design-google' ) );
 	printf( '<button class="button button-secondary">%s</button>', esc_html__( 'Maybe later', 'material-design-google' ) );
 	echo '</div>';
 	?>
@@ -229,13 +227,6 @@ function admin_notice() {
 					const material_click_callback = function( e ) {
 						e.preventDefault();
 						const isAnchor = this.tagName === "A";
-						const buttonSecondary = this.classList.contains( "button-secondary" );
-						if ( buttonSecondary ) {
-							const p = document.querySelectorAll( "p" );
-							for ( let i = 0; i < p.length; i ++ ) {
-								p[i].classList.toggle( "hidden" );
-							}
-						}
 						const link = this.href;
 						wp.ajax.post( "material_fse_notice", {
 							_wpnonce: notice.querySelector( "input#fse_opt_nonce" ).value
@@ -243,19 +234,10 @@ function admin_notice() {
 							if ( isAnchor ) {
 								location.href = link;
 							}
-							if ( buttonSecondary ) {
-								setTimeout( function() {
-									notice.style.opacity = 0;
-									setTimeout( function() {
-										notice.remove();
-									}, 1000 );
-								}, 3000 );
-							} else {
-								notice.remove();
-							}
+							notice.remove();
 						} );
 					};
-					const targets = notice.querySelectorAll( ".button-secondary, a" );
+					const targets = notice.querySelectorAll( ".button-secondary, .fse-opt-in-link-primary" );
 					for ( let i = 0; i < targets.length; i ++ ) {
 						targets[i].addEventListener( "click", material_click_callback );
 					}
