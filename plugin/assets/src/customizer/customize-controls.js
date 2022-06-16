@@ -31,7 +31,6 @@ import 'select-woo';
 import {
 	argbFromHex,
 	themeFromSourceColor,
-	applyTheme,
 } from '@material/material-color-utilities';
 
 /**
@@ -744,7 +743,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 
 		reRenderMaterialLibrary();
 		reRenderColorControls( { limitToDark: false } );
-		updateActiveStyleName();
 		showHideNotification( loadMaterialLibrary );
 	};
 
@@ -752,16 +750,7 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 	 * Callback when any of our control value is changed.
 	 */
 	const onCustomValueChange = () => {
-		const styleSetting = api( getConfig( 'styleControl' ) );
-
-		// If the style is not custom, change it to custom.
-		if ( 'custom' !== styleSetting.get() ) {
-			api( getConfig( 'prevStyleControl' ) ).set( styleSetting.get() );
-			styleSetting.set( 'custom' );
-		}
-
 		reRenderMaterialLibrary();
-		updateActiveStyleName();
 	};
 
 	/**
@@ -788,34 +777,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 			// Rebind the custom value change event.
 			setting.bind( onCustomValueChange );
 		}
-	};
-
-	const updateActiveStyleName = () => {
-		const sectionTitleElement = document.querySelector(
-			'#accordion-section-material_design_style .customize-title'
-		);
-
-		if ( ! sectionTitleElement ) {
-			return;
-		}
-
-		const currentStyle = api( getConfig( 'styleControl' ) ).get();
-		const control = api.control( getConfig( 'styleSettings' ) );
-		const controlsSectionElement = document.querySelector(
-			'#js-customize-section-style'
-		);
-		const sectionPreview = document.querySelector(
-			'#accordion-section-material_design_style .control-section-styles-preview'
-		);
-
-		sectionTitleElement.textContent = currentStyle;
-		controlsSectionElement.textContent = currentStyle;
-
-		sectionPreview.src = getConfig( 'styleChoices' )[ currentStyle ].url;
-
-		unmountComponentAtNode( control.container.get( 0 ) );
-
-		renderStyleSettingsControl( control );
 	};
 
 	const reRenderColorControls = ( { limitToDark = false } ) => {
