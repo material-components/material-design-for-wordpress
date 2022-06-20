@@ -22,7 +22,7 @@
  * @since 1.0.0
  */
 
-/* global jQuery, materialDesignThemeColorControls, materialDesignThemeColorControlsDark */
+/* global jQuery */
 
 /**
  * External dependencies
@@ -51,30 +51,6 @@ const api = window.wp.customize;
 		! window.parent._wpCustomizeSettings
 	) {
 		return;
-	}
-
-	const parentApi = window.parent.wp.customize;
-
-	Object.keys( materialDesignThemeColorControls ).forEach( control => {
-		/* api( control, value =>
-			value.bind( () =>
-				generatePreviewStyles( materialDesignThemeColorControls )
-			)
-		); */
-	} );
-
-	if ( materialDesignThemeColorControlsDark ) {
-		Object.keys( materialDesignThemeColorControlsDark ).forEach(
-			control => {
-				/* api( control, value =>
-					value.bind( () =>
-						generatePreviewStyles(
-							materialDesignThemeColorControlsDark
-						)
-					)
-				); */
-			}
-		);
 	}
 
 	$( function () {
@@ -130,125 +106,7 @@ const api = window.wp.customize;
 		} );
 	} );
 
-	/**
-	 * Add styles to elements in the preview pane.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @param {Array} selectedControls Variables to generate.
-	 *
-	 * @return {void}
-	 */
-	const generatePreviewStyles = selectedControls => {
-		const stylesheetID = 'material-customizer-preview-styles';
-		let stylesheet = $( '#' + stylesheetID ),
-			styles = '',
-			darkStyles = '',
-			lightStyles = '';
-
-		// If the stylesheet doesn't exist, create it and append it to <head>.
-		if ( ! stylesheet.length ) {
-			$( 'head' ).append( '<style id="' + stylesheetID + '"></style>' );
-			stylesheet = $( '#' + stylesheetID );
-		}
-
-		// Generate the styles.
-		Object.keys( selectedControls ).forEach( control => {
-			const cssVar = selectedControls[ control ];
-			const color = parentApi( control ).get();
-			if ( ! color ) {
-				return;
-			}
-
-			styles += `${ cssVar }: ${ color };`;
-			styles += `${ cssVar }-rgb: ${ hexToRgb( color ).join( ',' ) };`;
-
-			if ( '--mdc-theme-background' === cssVar ) {
-				styles += `
-					--mdc-theme-text-primary-on-background: rgba(--mdc-theme-on-background-rgb, 0.87);
-					--mdc-theme-text-secondary-on-background: rgba(--mdc-theme-on-background-rgb, 0.54);
-					--mdc-theme-text-hint-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
-					--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
-					--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);`;
-			}
-		} );
-
-		// Generate the styles.
-		Object.keys( materialDesignThemeColorControlsDark ).forEach(
-			control => {
-				const cssVar = materialDesignThemeColorControlsDark[ control ];
-				const color = parentApi( control ).get();
-				if ( ! color ) {
-					return;
-				}
-
-				darkStyles += `${ cssVar }: ${ color };`;
-				darkStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join(
-					','
-				) };`;
-
-				if ( '--mdc-theme-background' === cssVar ) {
-					darkStyles += `
-					--mdc-theme-text-primary-on-background: rgba(--mdc-theme-on-background-rgb, 0.87);
-					--mdc-theme-text-secondary-on-background: rgba(--mdc-theme-on-background-rgb, 0.54);
-					--mdc-theme-text-hint-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
-					--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
-					--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);`;
-				}
-			}
-		);
-
-		// Generate the styles.
-		Object.keys( materialDesignThemeColorControls ).forEach( control => {
-			const cssVar = materialDesignThemeColorControls[ control ];
-			const color = parentApi( control ).get();
-
-			if ( ! color ) {
-				return;
-			}
-
-			lightStyles += `${ cssVar }: ${ color };`;
-			lightStyles += `${ cssVar }-rgb: ${ hexToRgb( color ).join(
-				','
-			) };`;
-
-			if ( '--mdc-theme-background' === cssVar ) {
-				lightStyles += `
-					--mdc-theme-text-primary-on-background: rgba(--mdc-theme-on-background-rgb, 0.87);
-					--mdc-theme-text-secondary-on-background: rgba(--mdc-theme-on-background-rgb, 0.54);
-					--mdc-theme-text-hint-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
-					--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
-					--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);`;
-			}
-		} );
-
-		styles = `:root {
-			${ styles }
-
-			body[data-color-scheme="dark"] {
-				${ darkStyles }
-			}
-
-			body[data-color-scheme="light"] {
-				${ lightStyles }
-			}
-		}`;
-
-		// Add styles.
-		stylesheet.html( styles );
-	};
-
 	const updateColorMode = debounce( mode => {
-		let colorControls;
-
-		if ( COLOR_MODES.dark === mode ) {
-			colorControls = materialDesignThemeColorControlsDark;
-		} else {
-			colorControls = materialDesignThemeColorControls;
-		}
-
-		//generatePreviewStyles( colorControls );
-
 		const switcherIcon = document.querySelector( '.dark-mode__button' );
 
 		if ( ! switcherIcon ) {
@@ -261,18 +119,6 @@ const api = window.wp.customize;
 			switcherIcon.innerText = SWITCHER_ICONS.DARK_MODE;
 		}
 	}, 300 );
-
-	const hexToRgb = hex =>
-		! hex
-			? []
-			: hex
-					.replace(
-						/^#?([a-f\d])([a-f\d])([a-f\d])$/i,
-						( m, r, g, b ) => '#' + r + r + g + g + b + b
-					)
-					.substring( 1 )
-					.match( /.{2}/g )
-					.map( x => parseInt( x, 16 ) );
 
 	api.selectiveRefresh.bind(
 		'partial-content-rendered',

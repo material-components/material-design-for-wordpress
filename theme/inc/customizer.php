@@ -688,6 +688,13 @@ function get_sanitize_callback( $setting_type ) {
 	}
 }
 
+/**
+ * Generate variables from settings.
+ *
+ * @param mixed $color_palette Colors.
+ *
+ * @return array Array of variables
+ */
 function generate_theme_variables( $color_palette ) {
 	$variables = [];
 

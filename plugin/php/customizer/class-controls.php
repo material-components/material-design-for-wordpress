@@ -817,7 +817,7 @@ class Controls extends Module_Base {
 		$font_vars          = [];
 		$google_fonts       = Google_Fonts::get_fonts();
 		$dark_mode_vars     = [];
-		$light_mode_vars	= [];
+		$light_mode_vars    = [];
 
 		foreach ( $this->get_color_controls() as $control ) {
 			$value = $this->get_option( $control['id'] );

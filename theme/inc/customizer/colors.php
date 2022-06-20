@@ -63,7 +63,7 @@ function register( $wp_customize ) {
  */
 function add_settings( $wp_customize ) {
 	$settings = [
-		'color_palette'  => [
+		'color_palette' => [
 			'default' => [],
 		],
 	];

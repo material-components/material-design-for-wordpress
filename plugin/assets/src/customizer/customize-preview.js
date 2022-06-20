@@ -38,7 +38,6 @@ import {
 /**
  * Internal dependencies
  */
-import colorUtils from '../common/color-utils';
 import { STYLES } from '../customizer/components/google-fonts-control/styles';
 
 const getIconFontName = iconStyle => {
@@ -170,10 +169,7 @@ export const COLOR_MODES = {
 	const generatePreviewStyles = debounce( () => {
 		const stylesheetID = 'material-design-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
-			styles = '',
-			darkStyles = '',
-			lightStyles = '',
-			colorRgb;
+			styles = '';
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
 		if ( ! stylesheet.length ) {

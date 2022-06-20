@@ -92,6 +92,8 @@ html {
 
 	&--raised:not(:disabled),
 	&--unelevated:not(:disabled) {
+		background-color: var(--md-sys-color-primary);
+		color: var(--md-sys-color-on-primary);
 
 		&:hover,
 		&:focus {
