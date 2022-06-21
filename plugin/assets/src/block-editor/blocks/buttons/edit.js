@@ -31,9 +31,7 @@ const ALLOWED_BLOCKS = [ name ];
 const BUTTONS_TEMPLATE = [ [ name ] ];
 
 const Edit = () => {
-	const blockProps = useBlockProps( {
-		className: 'wp-block-material-buttons',
-	} );
+	const blockProps = useBlockProps();
 	return (
 		<div { ...blockProps }>
 			<InnerBlocks
