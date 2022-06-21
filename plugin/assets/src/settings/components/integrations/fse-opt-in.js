@@ -45,10 +45,11 @@ const FseOptIn = () => {
 
 	const checked = state.updaters.OPT_IN.autoUpdates;
 
-	const handleAutoUpdateToggle = () => {
+	const handleAutoUpdateToggle = async () => {
 		dispatch( { type: ACTIONS.TOGGLE_UPDATES, payload: { type } } );
 
-		toggleFseOptIn( ! checked );
+		await toggleFseOptIn( ! checked );
+		window.location.reload();
 	};
 
 	return (
