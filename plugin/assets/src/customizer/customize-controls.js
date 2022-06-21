@@ -307,7 +307,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 	} );
 
 	api.MaterialColorControl = api.ColorControl.extend( {
-		template: wp.template( 'customize-control-material_color-tabs' ),
 		accessibilityTemplate: wp.template(
 			'customize-control-material_color-accessibility'
 		),
@@ -742,7 +741,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 		} );
 
 		reRenderMaterialLibrary();
-		reRenderColorControls( { limitToDark: false } );
 		showHideNotification( loadMaterialLibrary );
 	};
 
@@ -779,93 +777,7 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 		}
 	};
 
-	const reRenderColorControls = ( { limitToDark = false } ) => {
-		let controlObjectsDefault = [];
-		let controlObjectsDark = [];
-
-		if ( limitToDark ) {
-			controlObjectsDark = getConfig( 'colorControlsDark' );
-		} else {
-			controlObjectsDefault = getConfig( 'colorControls' );
-			controlObjectsDark = getConfig( 'colorControlsDark' );
-		}
-
-		const controlObjects = [
-			...controlObjectsDefault,
-			...controlObjectsDark,
-		];
-
-		controlObjects.forEach( controlObject => {
-			const setting =
-				controlObject.related_text_setting ||
-				controlObject.related_setting;
-			const control = api.control( setting );
-
-			if ( ! control ) {
-				return;
-			}
-
-			if ( unmountComponentAtNode( control.container.get( 0 ) ) ) {
-				renderColorControl( control );
-			}
-		} );
-	};
-
 	api.bind( 'ready', () => {
-		const controls = getConfig( 'controls' );
-		const styleControl = getConfig( 'styleControl' );
-		const styleSettings = getConfig( 'styleSettings' );
-
-		// Iterate through our controls and bind events for value change.
-		if ( controls && Array.isArray( controls ) ) {
-			controls.forEach( name => {
-				api( name, setting => {
-					// Design style control has it's own change handler.
-					if ( styleControl === name ) {
-						return setting.bind( onStyleChange );
-					}
-
-					// Style settings don't trigger custom style handler.
-					if ( styleSettings === name ) {
-						return;
-					}
-
-					setting.bind( onCustomValueChange );
-
-					// Maybe trigger linked color.
-					if ( name.includes( '_color_dark' ) ) {
-						const parentSettingName = name.replace( '_dark', '' );
-						const control = api.control( name );
-
-						if ( parentSettingName ) {
-							api( parentSettingName, parentSetting => {
-								parentSetting.bind( value => {
-									const link = document.querySelector(
-										`${ control.selector } .material-design-color__link`
-									)?.innerText;
-
-									if ( link && 'link_off' !== link ) {
-										return;
-									}
-
-									const range = colorUtils.getColorRangeFromHex(
-										value
-									);
-
-									if ( range && range.dark ) {
-										setting.set( range.dark.hex );
-										reRenderColorControls( {
-											limitToDark: true,
-										} );
-									}
-								} );
-							} );
-						}
-					}
-				} );
-			} );
-		}
-
 		const focusSection = api.settings.autofocus.section;
 		if (
 			focusSection &&
