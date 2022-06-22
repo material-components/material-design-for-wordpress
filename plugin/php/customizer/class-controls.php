@@ -315,7 +315,6 @@ class Controls extends Module_Base {
 					false,
 				'css_var'              => $control['css_var'],
 				'a11y_label'           => ! empty( $control['a11y_label'] ) ? $control['a11y_label'] : '',
-				'secondary_controls'   => ! empty( $control['secondary_controls'] ) ? $control['secondary_controls'] : [],
 			];
 
 			$controls[ $control['id'] ] = new Material_Color_Palette_Control(
@@ -323,12 +322,6 @@ class Controls extends Module_Base {
 				$this->prepare_option_name( $control['id'] ),
 				$args
 			);
-
-			// Dark mode overrides.
-			$dark_mode_controls[ $control['id'] . $this->dark_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'dark_colors' );
-
-			// High contrast overrides.
-			$contrast_controls[ $control['id'] . $this->contrast_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'contrast_colors' );
 		}
 
 		$this->add_controls( $controls );
@@ -804,7 +797,6 @@ class Controls extends Module_Base {
 	 * Render custom templates.
 	 */
 	public function templates() {
-		Material_Color_Palette_Section::tabs_template();
 		Material_Color_Palette_Control::tabs_template();
 	}
 
@@ -818,29 +810,6 @@ class Controls extends Module_Base {
 		$google_fonts       = Google_Fonts::get_fonts();
 		$dark_mode_vars     = [];
 		$light_mode_vars    = [];
-
-		foreach ( $this->get_color_controls() as $control ) {
-			$value = $this->get_option( $control['id'] );
-			$rgb   = Helpers::hex_to_rgb( $value );
-			if ( ! empty( $rgb ) ) {
-				$rgb = implode( ',', $rgb );
-			}
-
-			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
-			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
-		}
-
-		// Generate additional surface variant vars required by some components.
-		$surface    = $this->get_option( 'surface_color' );
-		$on_surface = $this->get_option( 'on_surface_color' );
-
-		if ( ! empty( $surface ) && ! empty( $on_surface ) ) {
-			$mix_4        = Helpers::mix_colors( $on_surface, $surface, 0.04 );
-			$color_vars[] = esc_html( "--mdc-theme-surface-mix-4: $mix_4;" );
-
-			$mix_12       = Helpers::mix_colors( $on_surface, $surface, 0.12 );
-			$color_vars[] = esc_html( "--mdc-theme-surface-mix-12: $mix_12;" );
-		}
 
 		foreach ( $this->get_typography_controls() as $control ) {
 			$value = $this->get_option( $control['id'] );
@@ -942,7 +911,6 @@ class Controls extends Module_Base {
 			$color_palette = json_decode( $color_palette, true );
 		}
 
-
 		$light_mode_vars = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['light'] ) );
 		$dark_mode_vars  = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['dark'] ) );
 
@@ -964,11 +932,6 @@ class Controls extends Module_Base {
 			/* Forced dark mode */
 			body[data-color-scheme='dark'] {
 				{$dark_mode_vars}
-			}
-
-			/* Forced light mode */
-			body[data-color-scheme='light'] {
-				{$light_mode_vars}
 			}
 		";
 

@@ -62,6 +62,11 @@ function register( $wp_customize ) {
  * @return void
  */
 function add_settings( $wp_customize ) {
+	// If plugin is available take precedense.
+	if ( material_is_plugin_active() ) {
+		return;
+	}
+
 	$settings = [
 		'color_palette' => [
 			'default' => [],
