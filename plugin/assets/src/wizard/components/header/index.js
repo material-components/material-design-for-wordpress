@@ -34,7 +34,7 @@ const Header = () => {
 				{ <Logo /> }
 			</div>
 			<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-11 mdc-layout-grid__cell--align-middle">
-				<h2 className="mdc-typography--headline5">
+				<h2 className="title-large">
 					{ __( 'Material Design for WordPress', 'material-design' ) }
 				</h2>
 			</div>

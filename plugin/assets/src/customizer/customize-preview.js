@@ -196,7 +196,11 @@ export const COLOR_MODES = {
 
 					if ( 'size' === rule ) {
 						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
-					} else {
+					} else if ( 'tracking' === rule ) {
+						// Compute tracking to line-height.
+						const lineHeight = rules[ rule ] / ( rules.size || 16 );
+						styles += `${ typographyControls[ control ][ rule ] }: ${ lineHeight }rem !important;`;
+					} else if ( 'weight' === rule ) {
 						const fontStyle = /italic$/.test( rules[ rule ] )
 							? 'italic'
 							: 'normal';
@@ -208,6 +212,8 @@ export const COLOR_MODES = {
 
 						styles += `${ typographyControls[ control ].style }: ${ fontStyle } !important;`;
 						styles += `${ typographyControls[ control ][ rule ] }: ${ weight } !important;`;
+					} else {
+						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] } !important;`;
 					}
 				}
 			}

@@ -7,7 +7,7 @@ exports[`GoogleFontsControl/Item matches snapshot 1`] = `
   <span
     className="customize-control-title google-fonts-control-title__child"
   >
-    Test item
+    Test: Headline Large
   </span>
   <div
     className="google-fonts-control__values"
@@ -20,19 +20,68 @@ exports[`GoogleFontsControl/Item matches snapshot 1`] = `
       >
         <label
           className="components-base-control__label"
-          htmlFor="inspector-number-control-headline1"
-          id="inspector-number-label-headline1"
+          htmlFor="inspector-line-height-control-headline-large"
+          id="inspector-line-height-label-headline-large"
+        >
+          Line height
+        </label>
+        <input
+          className="components-google-fonts-control__number"
+          id="inspector-line-height-control-headline-large"
+          max={64}
+          min={0}
+          onChange={[Function]}
+          step="0.01"
+          type="number"
+          value={0}
+        />
+      </div>
+    </div>
+    <div
+      className="components-base-control"
+    >
+      <div
+        className="components-base-control__field"
+      >
+        <label
+          className="components-base-control__label"
+          htmlFor="inspector-size-control-headline-large"
+          id="inspector-size-label-headline-large"
         >
           Size
         </label>
         <input
           className="components-google-fonts-control__number"
-          id="inspector-number-control-headline1"
+          id="inspector-size-control-headline-large"
           max={96}
           min={2}
           onChange={[Function]}
           type="number"
           value={96}
+        />
+      </div>
+    </div>
+    <div
+      className="components-base-control"
+    >
+      <div
+        className="components-base-control__field"
+      >
+        <label
+          className="components-base-control__label"
+          htmlFor="inspector-tracking-control-headline-large"
+          id="inspector-tracking-label-headline-large"
+        >
+          Tracking
+        </label>
+        <input
+          className="components-google-fonts-control__number"
+          id="inspector-tracking-control-headline-large"
+          max={100}
+          min={-5}
+          onChange={[Function]}
+          type="number"
+          value={0}
         />
       </div>
     </div>

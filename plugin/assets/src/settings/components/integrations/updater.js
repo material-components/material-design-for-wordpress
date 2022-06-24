@@ -116,11 +116,11 @@ const Updater = ( {
 			<div className="mdc-layout-grid">
 				<div className="mdc-layout-grid__inner">
 					<div className="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle">
-						<h3 className="mdc-typography--headline6">{ title }</h3>
+						<h3 className="title-large">{ title }</h3>
 
 						{ isDisabled && (
 							<p
-								className="mdc-typography--body1"
+								className="body-large"
 								dangerouslySetInnerHTML={ {
 									__html: sprintf(
 										// translators: %s: google api link with message.
@@ -138,7 +138,7 @@ const Updater = ( {
 						) }
 
 						{ ! isDisabled && false !== displayUpdatedOn && (
-							<p className="mdc-typography--body1">
+							<p className="body-large">
 								{ sprintf(
 									// translators: %s: last updated date.
 									__(
@@ -151,7 +151,7 @@ const Updater = ( {
 						) }
 
 						{ versionAvailable && (
-							<p className="mdc-typography--body1">
+							<p className="body-large">
 								{ sprintf(
 									// translators: %s: version number.
 									__(
