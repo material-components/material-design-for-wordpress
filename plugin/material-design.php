@@ -3,8 +3,8 @@
  * Plugin Name: Material Design
  * Plugin URI: https://github.com/material-components/material-design-for-wordpress
  * Description: The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
- * Version: 0.5.1
- * Requires at least: 5.6
+ * Version: 0.10.0-beta
+ * Requires at least: 5.9
  * Requires PHP:      5.6.20+
  * Author:  Material Design
  * Author URI: http://material.io
