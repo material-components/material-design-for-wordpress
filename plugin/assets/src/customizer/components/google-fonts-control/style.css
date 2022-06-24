@@ -59,6 +59,10 @@
 		padding: 8px 0 8px 8px;
 	}
 
+	.google-fonts-control-child + .google-fonts-control-child {
+		margin-top: 20px;
+	}
+
 	.components-google-fonts-control__select {
 		flex-direction: row;
 		align-items: center;
