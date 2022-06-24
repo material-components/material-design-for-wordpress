@@ -103,7 +103,7 @@
 		color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
 		max-width: 48px;
 		min-width: auto;
-		--mdc-typography-button-font-size: 24px;
+		--md-sys-typescale-label-large-size: 24px;
 
 		&:focus {
 			outline: 1px dotted;

@@ -15,7 +15,11 @@
  */
 
 .material-wizard {
-	--mdc-typography-headline5-font-family: "Roboto Mono", monospace;
+	--md-sys-typescale-headline-large-line-height: 2em;
+	--md-sys-typescale-headline-medium-line-height: 2em;
+	--md-sys-typescale-headline-small-line-height: 2em;
+	--md-sys-typescale-title-large-font: "Roboto Mono", monospace;
+
 	--material-design-wizard-primary-color: #212121;
 	--material-design-wizard-primary-text: #fff;
 	max-width: 1024px;
@@ -47,10 +51,5 @@
 }
 
 #material-onboarding-wizard {
-	--mdc-typography-font-family: "Roboto", sans-serif;
-	--mdc-typography-headline3-font-family: "Roboto", sans-serif;
-	--mdc-typography-headline4-font-family: "Roboto", sans-serif;
-	--mdc-typography-body1-font-family: "Roboto", sans-serif;
-	--mdc-typography-button-font-family: "Roboto", sans-serif;
 	margin-top: -32px;
 }

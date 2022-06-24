@@ -27,7 +27,7 @@ import IconButtonLink from '../common/icon-button-link';
 
 const Cards = ( { radius, buttonRadius } ) => (
 	<div>
-		<h4 className="mdc-typography--headline4" style={ { margin: 0 } }>
+		<h4 className="headline-small" style={ { margin: 0 } }>
 			{ __( 'Cards', 'material-design' ) }
 		</h4>
 		<IconButtonLink href="https://material.io/components/cards"></IconButtonLink>
@@ -59,13 +59,13 @@ const Cards = ( { radius, buttonRadius } ) => (
 					></div>
 					<div style={ { padding: '16px' } }>
 						<h2
-							className="mdc-typography mdc-typography--headline6 material-design-card__title"
+							className="title-large material-design-card__title"
 							style={ { margin: 0, marginBottom: '5px' } }
 						>
 							{ __( 'Our Changing Planet', 'material-design' ) }
 						</h2>
 						<h3
-							className="mdc-typography material-design-card__secondary-text"
+							className="material-design-card__secondary-text"
 							style={ {
 								fontSize: '0.875rem',
 								fontWeight: 500,
@@ -76,10 +76,7 @@ const Cards = ( { radius, buttonRadius } ) => (
 							{ __( 'by John Smith', 'material-design' ) }
 						</h3>
 					</div>
-					<div
-						className="mdc-typography mdc-typography--body2"
-						style={ { padding: '16px' } }
-					>
+					<div className="body-medium" style={ { padding: '16px' } }>
 						{ __(
 							'Visit ten places on our planet that are undergoing the biggest changes today.',
 							'material-design'

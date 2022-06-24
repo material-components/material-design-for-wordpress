@@ -9,7 +9,7 @@ Object {
         class="mdc-layout-grid__cell--span-12"
       >
         <h3
-          class="mdc-typography--headline3 material-wizard__title"
+          class="headline-medium material-wizard__title"
         >
           Install addons
         </h3>
@@ -28,7 +28,7 @@ Object {
             class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
           >
             <h4
-              class="mdc-typography--headline4"
+              class="headline-small"
             >
               Material Design Theme
             </h4>
@@ -79,7 +79,7 @@ Object {
             class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
           >
             <h4
-              class="mdc-typography--headline4"
+              class="headline-small"
             >
               Quick Start Examples
             </h4>
@@ -121,7 +121,7 @@ Object {
       class="mdc-layout-grid__cell--span-12"
     >
       <h3
-        class="mdc-typography--headline3 material-wizard__title"
+        class="headline-medium material-wizard__title"
       >
         Install addons
       </h3>
@@ -140,7 +140,7 @@ Object {
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
           <h4
-            class="mdc-typography--headline4"
+            class="headline-small"
           >
             Material Design Theme
           </h4>
@@ -191,7 +191,7 @@ Object {
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
           <h4
-            class="mdc-typography--headline4"
+            class="headline-small"
           >
             Quick Start Examples
           </h4>
