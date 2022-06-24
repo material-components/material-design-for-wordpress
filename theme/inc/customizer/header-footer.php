@@ -26,7 +26,7 @@
 namespace MaterialDesign\Theme\Customizer\Header_Footer;
 
 use MaterialDesign\Theme\Customizer;
-use function MaterialDesign\Theme\BlockEditor\is_fse;
+use function MaterialDesign\Theme\BlockEditor\is_material_in_fse_mode;
 
 /**
  * Attach hooks
@@ -59,7 +59,7 @@ function register( $wp_customize ) {
  * @return array
  */
 function get_controls() {
-	return [
+	$controls = [
 		[
 			'id'              => 'header_label',
 			'label'           => esc_html__( 'Top app bar', 'material-design-google' ),
@@ -96,28 +96,34 @@ function get_controls() {
 			'type'        => 'hidden',
 			'priority'    => 99,
 		],
-		[
-			'id'              => 'footer_label',
-			'label'           => esc_html__( 'Footer', 'material-design-google' ),
-			'type'            => 'hidden',
-			'priority'        => 110,
-			'enable_none_fse' => true,
-		],
-		[
-			'id'              => 'footer_text',
-			'label'           => esc_html__( 'Footer text', 'material-design-google' ),
-			'type'            => 'text',
-			'priority'        => 110,
-			'enable_none_fse' => true,
-		],
-		[
-			'id'              => 'hide_back_to_top',
-			'label'           => esc_html__( 'Hide back to top button', 'material-design-google' ),
-			'type'            => 'checkbox',
-			'priority'        => 110,
-			'enable_none_fse' => true,
-		],
 	];
+
+	if ( ! is_material_in_fse_mode() ) {
+		$controls_non_fse = [
+			[
+				'id'       => 'footer_label',
+				'label'    => esc_html__( 'Footer', 'material-design-google' ),
+				'type'     => 'hidden',
+				'priority' => 110,
+			],
+			[
+				'id'       => 'footer_text',
+				'label'    => esc_html__( 'Footer text', 'material-design-google' ),
+				'type'     => 'text',
+				'priority' => 110,
+			],
+			[
+				'id'       => 'hide_back_to_top',
+				'label'    => esc_html__( 'Hide back to top button', 'material-design-google' ),
+				'type'     => 'checkbox',
+				'priority' => 110,
+			],
+		];
+
+		$controls = array_merge( $controls, $controls_non_fse );
+	}
+
+	return $controls;
 }
 
 /**
@@ -130,7 +136,7 @@ function get_controls() {
 function add_settings( $wp_customize ) {
 	$settings    = [];
 	$controls    = [];
-	$is_fse_mode = is_fse();
+	$is_fse_mode = is_material_in_fse_mode();
 
 	foreach ( get_controls() as $control ) {
 		if ( ! empty( $control['enable_none_fse'] ) && $is_fse_mode ) {
@@ -199,7 +205,7 @@ function add_settings( $wp_customize ) {
 			)
 		);
 
-		if ( ! is_fse() ) {
+		if ( ! is_material_in_fse_mode() ) {
 			$wp_customize->selective_refresh->add_partial(
 				'hide_back_to_top',
 				[

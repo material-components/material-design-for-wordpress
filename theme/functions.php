@@ -25,7 +25,7 @@
  * @package MaterialDesign
  */
 
-use function MaterialDesign\Theme\BlockEditor\is_fse;
+use function MaterialDesign\Theme\BlockEditor\is_material_in_fse_mode;
 
 if ( ! function_exists( 'material_design_theme_setup' ) ) :
 	/**
@@ -186,7 +186,7 @@ function material_design_theme_scripts() {
 		'material-design-google-js',
 		'materialDesignThemeFeVars',
 		[
-			'isFse' => is_fse(),
+			'isFse' => is_material_in_fse_mode(),
 		]
 	);
 
@@ -247,6 +247,8 @@ require get_template_directory() . '/inc/template-functions.php';
  * Admin additions.
  */
 require get_template_directory() . '/inc/admin.php';
+require get_template_directory() . '/inc/opt-in/class-fse-opt-in-rest-controller.php';
+require get_template_directory() . '/inc/opt-in/namespace.php';
 
 /**
  * Customizer additions.
@@ -299,6 +301,7 @@ require get_template_directory() . '/inc/blocks/class-override.php';
 require get_template_directory() . '/inc/blocks/block-patterns.php';
 
 MaterialDesign\Theme\Admin\setup();
+MaterialDesign\Theme\OptIn\setup();
 MaterialDesign\Theme\Customizer\setup();
 MaterialDesign\Theme\Customizer\Colors\setup();
 MaterialDesign\Theme\Customizer\Header_Footer\setup();

@@ -26,7 +26,7 @@
 namespace MaterialDesign\Theme\Customizer\Colors;
 
 use MaterialDesign\Theme\Customizer;
-use function MaterialDesign\Theme\BlockEditor\is_fse;
+use function MaterialDesign\Theme\BlockEditor\is_material_in_fse_mode;
 
 const SECTION = 'colors';
 
@@ -297,7 +297,7 @@ function get_dark_controls() {
  * @param \WP_Customize_Manager $wp_customize WP_Customize instance.
  */
 function after_save( $wp_customize ) {
-	if ( ! is_fse() ) {
+	if ( ! is_material_in_fse_mode() ) {
 		return;
 	}
 	$user_color_palette = get_user_color_palette( $wp_customize );

@@ -2,6 +2,7 @@ export {};
 
 declare global {
     interface Window {
+		materialDesignWizardTheme: materialDesignWizard;
         materialDesignWizard: materialDesignWizard;
         wp: any;
         _wpCustomizeSettings: any;

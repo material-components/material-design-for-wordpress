@@ -26,7 +26,7 @@ import { MDCSwitch } from '@material/switch';
 import { __ } from '@wordpress/i18n';
 import { useEffect } from '@wordpress/element';
 
-const Switch = ( { checked, id, onChange } ) => {
+const Switch = ( { checked, id, onChange, showLabel = true } ) => {
 	useEffect( () => {
 		const mdcSwitches = document.querySelectorAll( '.mdc-switch' );
 
@@ -58,9 +58,11 @@ const Switch = ( { checked, id, onChange } ) => {
 					/>
 				</div>
 			</div>
-			<label id={ `label-${ id }` } htmlFor={ id }>
-				{ __( 'Auto-updates enabled', 'material-design' ) }
-			</label>
+			{ showLabel && (
+				<label id={ `label-${ id }` } htmlFor={ id }>
+					{ __( 'Auto-updates enabled', 'material-design' ) }
+				</label>
+			) }
 		</div>
 	);
 };

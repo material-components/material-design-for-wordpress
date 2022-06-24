@@ -11,6 +11,9 @@ import { registerBlockType } from '@wordpress/blocks';
 export const registerBlocks = blocks => {
 	blocks.keys().forEach( modulePath => {
 		const { name, settings, metadata } = blocks( modulePath );
+		if ( typeof name !== 'string' ) {
+			return;
+		}
 		registerBlockType( name, { ...settings, ...( metadata || {} ) } );
 	} );
 };

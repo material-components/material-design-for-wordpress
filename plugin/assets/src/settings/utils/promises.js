@@ -22,7 +22,8 @@ import apiFetch from '@wordpress/api-fetch';
 /**
  * Internal dependencies
  */
-import getConfig from '../../admin/get-config';
+import getConfig, { getConfigTheme } from '../../admin/get-config';
+import { isPluginActive } from '../constants';
 
 /**
  * Update fonts.
@@ -119,6 +120,23 @@ export const toggleAutoUpdate = ( type, currentStatus ) => {
 			data: { type },
 			headers: {
 				'X-WP-Nonce': getConfig( 'nonce' ),
+			},
+		} )
+			.then( resolve )
+			.catch( reject );
+	} );
+};
+
+export const toggleFseOptIn = checked => {
+	return new Promise( ( resolve, reject ) => {
+		apiFetch( {
+			path: isPluginActive
+				? getConfigTheme( 'restPath' )
+				: getConfigTheme( 'restUrl' ),
+			method: 'POST',
+			data: { checked },
+			headers: {
+				'X-WP-Nonce': getConfigTheme( 'nonce' ),
 			},
 		} )
 			.then( resolve )

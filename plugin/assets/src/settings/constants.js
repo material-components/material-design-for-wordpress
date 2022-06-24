@@ -22,7 +22,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import getConfig from '../admin/get-config';
+import getConfig, { getConfigTheme } from '../admin/get-config';
 
 export const ACTIONS = {
 	ADD_ERROR: 'ADD_ERROR',
@@ -34,7 +34,7 @@ export const ACTIONS = {
 	SET_UPDATED: 'SET_UPDATED',
 };
 
-const ASSET_UPDATES = {
+export const ASSET_UPDATES = {
 	FONTS: {
 		title: __( 'Google Fonts', 'material-design' ),
 		type: 'FONTS',
@@ -76,9 +76,22 @@ const CORE_UPDATES = {
 	},
 };
 
+const FSE = {
+	OPT_IN: {
+		title: __( 'Opt-in', 'material-design' ),
+		type: 'OPT_IN',
+		autoUpdates: parseInt( getConfigTheme( 'isOptIn' ) || 0, 10 ),
+	},
+};
+export const isPluginActive = !! window?.materialDesignWizard;
+export const isThemeActive = !! window?.materialDesignWizardTheme;
+
 export const UPDATERS = {
-	...ASSET_UPDATES,
-	...( getConfig( 'coreUpdatesEnabled' ) ? CORE_UPDATES : {} ),
+	...( isPluginActive ? ASSET_UPDATES : {} ),
+	...( isPluginActive && getConfig( 'coreUpdatesEnabled' )
+		? CORE_UPDATES
+		: {} ),
+	...( isThemeActive ? FSE : {} ),
 };
 
 export const KEY_PLACEHOLDER = '•••••••••••••••••••••••••••••';
