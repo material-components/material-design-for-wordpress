@@ -20,6 +20,30 @@ exports[`GoogleFontsControl/Item matches snapshot 1`] = `
       >
         <label
           className="components-base-control__label"
+          htmlFor="inspector-size-control-headline-large"
+          id="inspector-size-label-headline-large"
+        >
+          Size
+        </label>
+        <input
+          className="components-google-fonts-control__number"
+          id="inspector-size-control-headline-large"
+          max={96}
+          min={2}
+          onChange={[Function]}
+          type="number"
+          value={96}
+        />
+      </div>
+    </div>
+    <div
+      className="components-base-control"
+    >
+      <div
+        className="components-base-control__field"
+      >
+        <label
+          className="components-base-control__label"
           htmlFor="inspector-line-height-control-headline-large"
           id="inspector-line-height-label-headline-large"
         >
@@ -34,30 +58,6 @@ exports[`GoogleFontsControl/Item matches snapshot 1`] = `
           step="0.01"
           type="number"
           value={0}
-        />
-      </div>
-    </div>
-    <div
-      className="components-base-control"
-    >
-      <div
-        className="components-base-control__field"
-      >
-        <label
-          className="components-base-control__label"
-          htmlFor="inspector-size-control-headline-large"
-          id="inspector-size-label-headline-large"
-        >
-          Size
-        </label>
-        <input
-          className="components-google-fonts-control__number"
-          id="inspector-size-control-headline-large"
-          max={96}
-          min={2}
-          onChange={[Function]}
-          type="number"
-          value={96}
         />
       </div>
     </div>

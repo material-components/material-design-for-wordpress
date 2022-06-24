@@ -59,6 +59,36 @@ const Item = props => {
 					<div className="components-base-control__field">
 						<label
 							className="components-base-control__label"
+							htmlFor={ `inspector-size-control-${ id }` }
+							id={ `inspector-size-label-${ id }` }
+						>
+							{ size.label }
+						</label>
+						<input
+							id={ `inspector-size-control-${ id }` }
+							className="components-google-fonts-control__number"
+							type="number"
+							value={ size.value || size.default }
+							min={ size.min }
+							max={ size.max }
+							onChange={ event => {
+								const sizeValue = event.target.value;
+
+								onChange( {
+									id,
+									sizeValue,
+									trackingValue: tracking.value,
+									weightValue: weight.value,
+									lineHeightValue: lineHeight.value,
+								} );
+							} }
+						/>
+					</div>
+				</div>
+				<div className="components-base-control">
+					<div className="components-base-control__field">
+						<label
+							className="components-base-control__label"
 							htmlFor={ `inspector-line-height-control-${ id }` }
 							id={ `inspector-line-height-label-${ id }` }
 						>
@@ -81,36 +111,6 @@ const Item = props => {
 									trackingValue: tracking.value,
 									sizeValue: size.value,
 									weightValue: weight.value,
-								} );
-							} }
-						/>
-					</div>
-				</div>
-				<div className="components-base-control">
-					<div className="components-base-control__field">
-						<label
-							className="components-base-control__label"
-							htmlFor={ `inspector-size-control-${ id }` }
-							id={ `inspector-size-label-${ id }` }
-						>
-							{ size.label }
-						</label>
-						<input
-							id={ `inspector-size-control-${ id }` }
-							className="components-google-fonts-control__number"
-							type="number"
-							value={ size.value || size.default }
-							min={ size.min }
-							max={ size.max }
-							onChange={ event => {
-								const sizeValue = event.target.value;
-
-								onChange( {
-									id,
-									sizeValue,
-									trackingValue: tracking.value,
-									weightValue: weight.value,
-									lineHeightValue: lineHeight.value,
 								} );
 							} }
 						/>
