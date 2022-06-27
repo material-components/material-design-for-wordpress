@@ -57,13 +57,9 @@ import {
 	collapseSection,
 	expandSection,
 	removeOptionPrefix,
-	getControlName,
 	sanitizeControlId,
 } from './utils';
-import {
-	init as notificationsInit,
-	showHideNotification,
-} from './notifications';
+import { init as notificationsInit } from './notifications';
 import getConfig from '../block-editor/utils/get-config';
 import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 
@@ -480,34 +476,25 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 	 * @param {boolean} setDefault Should the default value be set for the global control ?
 	 */
 	const onResetGlobalRangeSliderControl = ( control, setDefault = false ) => {
-		let style = api( getConfig( 'styleControl' ) ).get();
-		if ( 'custom' === style ) {
-			style = api( getConfig( 'prevStyleControl' ) ).get();
+		const defaults = getConfig( 'designStyles' ).baseline;
+		let settingId = removeOptionPrefix( control.id );
+
+		if ( setDefault ) {
+			setSettingDefault( control.id, defaults[ settingId ] );
 		}
 
-		if ( style && getConfig( 'designStyles' ).hasOwnProperty( style ) ) {
-			const defaults = getConfig( 'designStyles' )[ style ];
-			let settingId = removeOptionPrefix( control.id );
-
-			if ( setDefault ) {
-				setSettingDefault( control.id, defaults[ settingId ] );
-			}
-
-			if ( control.params.children ) {
-				control.params.children.forEach( slider => {
-					settingId = removeOptionPrefix( slider.id );
-					setSettingDefault( slider.id, defaults[ settingId ] );
-				} );
-			}
-
-			unmountComponentAtNode(
-				control.container
-					.find( '.material-design-range_slider' )
-					.get( 0 )
-			);
-			renderRangeSliderControl( control );
-			reRenderMaterialLibrary();
+		if ( control.params.children ) {
+			control.params.children.forEach( slider => {
+				settingId = removeOptionPrefix( slider.id );
+				setSettingDefault( slider.id, defaults[ settingId ] );
+			} );
 		}
+
+		unmountComponentAtNode(
+			control.container.find( '.material-design-range_slider' ).get( 0 )
+		);
+		renderRangeSliderControl( control );
+		reRenderMaterialLibrary();
 	};
 
 	/**
@@ -675,75 +662,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 		};
 
 		render( <ColorControl { ...props } />, control.container.get( 0 ) );
-	};
-
-	/**
-	 * Callback when a "Design Style" is changed.
-	 *
-	 * @param {string} newValue Updated value.
-	 * @param {string} oldValue Previous Value.
-	 */
-	const onStyleChange = ( newValue, oldValue ) => {
-		const designStyles = getConfig( 'designStyles' );
-
-		// Bail out if custom style is selected or if we don't have a valid style.
-		if (
-			'custom' === newValue ||
-			! designStyles ||
-			! designStyles.hasOwnProperty( newValue )
-		) {
-			return;
-		}
-
-		// If a style is selected from custom, show confirm dialogue.
-		if (
-			'custom' === oldValue &&
-			! window.confirm( getConfig( 'l10n' ).confirmChange ) // eslint-disable-line
-		) {
-			api.control( getConfig( 'styleControl' ) ).setting.set( oldValue );
-			return;
-		}
-
-		// Get defaults for selected design style.
-		const defaults = designStyles[ newValue ];
-
-		// Iterate through all the default values for the selected style
-		// and update the corresponding control value.
-		Object.keys( defaults ).forEach( name => {
-			if (
-				! name.includes( 'global_radius' ) &&
-				name.includes( '_radius' )
-			) {
-				return;
-			}
-
-			const value = defaults[ name ];
-			const settingName = getControlName( name );
-
-			setSettingDefault( settingName, value, () => {
-				const control = api.control( settingName );
-
-				// Force unmount and re render the Ranger Slider control.
-				if (
-					control &&
-					control.params.type === 'range_slider' &&
-					control.params.children &&
-					control.params.children.length
-				) {
-					onResetGlobalRangeSliderControl( control );
-				}
-
-				if ( settingName.includes( 'font_family' ) ) {
-					api.control( settingName )
-						.container.find( '.google-fonts-control-selection' )
-						.val( value )
-						.trigger( 'change' );
-				}
-			} );
-		} );
-
-		reRenderMaterialLibrary();
-		showHideNotification( loadMaterialLibrary );
 	};
 
 	/**

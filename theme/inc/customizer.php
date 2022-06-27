@@ -476,9 +476,13 @@ function get_css_vars() {
 	$glue            = "\n\t\t\t";
 	$color_vars      = implode( $glue, $color_vars );
 	$color_vars_dark = implode( $glue, $color_vars_dark );
+	$light_mode_vars = '';
+	$dark_mode_vars  = '';
 
-	$light_mode_vars = implode( $glue, generate_theme_variables( $color_palette['schemes']['light'] ) );
-	$dark_mode_vars  = implode( $glue, generate_theme_variables( $color_palette['schemes']['dark'] ) );
+	if ( ! empty( $color_palette ) ) {
+		$light_mode_vars = implode( $glue, generate_theme_variables( $color_palette['schemes']['light'] ) );
+		$dark_mode_vars  = implode( $glue, generate_theme_variables( $color_palette['schemes']['dark'] ) );
+	}
 
 	$css = "
 		:root {

@@ -938,13 +938,18 @@ class Controls extends Module_Base {
 		$corner_styles_vars = implode( $glue, $corner_styles_vars );
 		$font_vars          = implode( $glue, $font_vars );
 		$color_palette      = $this->get_option( 'color_palette' );
+		$light_mode_vars    = '';
+		$dark_mode_vars     = '';
 
 		if ( $color_palette ) {
 			$color_palette = json_decode( $color_palette, true );
 		}
 
-		$light_mode_vars = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['light'] ) );
-		$dark_mode_vars  = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['dark'] ) );
+		if ( ! empty( $color_palette ) ) {
+			$light_mode_vars = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['light'] ) );
+			$dark_mode_vars  = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['dark'] ) );
+		}
+
 
 		$css = "
 			:root {
