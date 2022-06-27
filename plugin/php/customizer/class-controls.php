@@ -961,6 +961,11 @@ class Controls extends Module_Base {
 				{$corner_styles_vars}
 			}
 
+			/* Forced light mode */
+			body[data-color-scheme='light'] {
+				{$light_mode_vars}
+			}
+
 			/* Forced dark mode */
 			body[data-color-scheme='dark'] {
 				{$dark_mode_vars}
@@ -969,6 +974,12 @@ class Controls extends Module_Base {
 
 		if ( 'inactive' !== $this->get_dark_mode_status() ) {
 			$css .= "
+				@media (prefers-color-scheme: light) {
+					:root {
+						{$light_mode_vars}
+					}
+				}
+
 				@media (prefers-color-scheme: dark) {
 					:root {
 						{$dark_mode_vars}
