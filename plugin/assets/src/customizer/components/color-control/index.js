@@ -189,8 +189,7 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 								<ColorPicker
 									color={ color }
 									onChangeComplete={ selectedColor => {
-										//onChange( selectedColor.hex );
-										onColorChange( selectedColor.hex );
+										onChange( selectedColor.hex );
 									} }
 									disableAlpha
 								/>
