@@ -233,8 +233,6 @@ const ImageListEdit = ( {
 		noticeOperations.createErrorNotice( message );
 	};
 
-	const classNames = useBlockProps()?.className;
-
 	const galleryProps = {
 		images: images.map( image => {
 			image.caption = getCaption( image.id ) || image.caption;
@@ -252,11 +250,10 @@ const ImageListEdit = ( {
 		onMove: moveImage,
 		onSelect: setSelectedImage,
 		onLinkChange: updateImageLink,
-		className: classNames,
 	};
 
 	return (
-		<>
+		<div { ...useBlockProps() }>
 			{ 'function' === typeof noticeUI ? noticeUI() : noticeUI }
 
 			{ hasImages && <Gallery { ...galleryProps } /> }
@@ -264,7 +261,6 @@ const ImageListEdit = ( {
 			<MediaPlaceholder
 				addToGallery={ hasImagesWithId }
 				isAppender={ hasImages }
-				className={ classNames }
 				disableMediaButtons={ hasImages && ! isSelected }
 				icon={
 					! hasImages && (
@@ -400,7 +396,7 @@ const ImageListEdit = ( {
 					/>
 				</PanelBody>
 			</InspectorControls>
-		</>
+		</div>
 	);
 };
 

@@ -583,6 +583,8 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 
 				child.size.value = valueObject.size;
 				child.weight.value = valueObject.weight;
+				child.tracking.value = valueObject.tracking;
+				child.lineHeight.value = valueObject.lineHeight;
 
 				return child;
 			} );

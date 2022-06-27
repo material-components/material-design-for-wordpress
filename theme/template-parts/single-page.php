@@ -29,7 +29,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header section-inner">
-		<?php the_title( '<h1 class="entry-title mdc-typography mdc-typography--headline2">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title headline-large">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php material_design_theme_post_thumbnail(); ?>
@@ -40,7 +40,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links mdc-typography mdc-typography--subtitle1">' . esc_html__( 'Pages:', 'material-design-google' ),
+				'before' => '<div class="page-links label-large">' . esc_html__( 'Pages:', 'material-design-google' ),
 				'after'  => '</div>',
 			)
 		);

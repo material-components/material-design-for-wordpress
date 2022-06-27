@@ -146,6 +146,13 @@ class Plugin extends Plugin_Base {
 	public $frontend;
 
 	/**
+	 * Migration class.
+	 *
+	 * @var Migration
+	 */
+	public $migration;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * @throws \Exception Generic Exception.
@@ -188,6 +195,9 @@ class Plugin extends Plugin_Base {
 
 		$this->frontend = new Frontend( $this );
 		$this->frontend->init();
+
+		$this->migration = new Migration( $this );
+		$this->migration->init();
 
 		// Init CLI.
 		if ( defined( 'WP_CLI' ) && false !== WP_CLI ) {

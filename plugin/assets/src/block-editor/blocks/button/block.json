@@ -77,6 +77,5 @@
       "type": "string",
       "default": "normal"
     }
-  },
-  "apiVersion": 2
+  }
 }

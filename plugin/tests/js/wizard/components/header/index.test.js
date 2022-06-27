@@ -35,17 +35,17 @@ describe( 'Header', () => {
 	it( 'should render title', () => {
 		const { container } = setup();
 
-		expect(
-			container.querySelectorAll( '.mdc-typography--headline5' )
-		).toHaveLength( 1 );
+		expect( container.querySelectorAll( '.title-large' ) ).toHaveLength(
+			1
+		);
 	} );
 
 	it( 'should render title text', () => {
 		const { container } = setup();
 
-		expect(
-			container.querySelector( '.mdc-typography--headline5' )
-		).toHaveTextContent( 'Material Design for WordPress' );
+		expect( container.querySelector( '.title-large' ) ).toHaveTextContent(
+			'Material Design for WordPress'
+		);
 	} );
 
 	it( 'should render logo', () => {

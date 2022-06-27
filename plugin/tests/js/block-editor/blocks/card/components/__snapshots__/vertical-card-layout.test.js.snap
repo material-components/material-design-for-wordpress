@@ -46,18 +46,18 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
           >
             Test supporting text
           </div>
@@ -121,18 +121,18 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
         >
           Test supporting text
         </div>
@@ -277,18 +277,18 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
           >
             Test supporting text
           </div>
@@ -314,18 +314,18 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
         >
           Test supporting text
         </div>
@@ -427,12 +427,12 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
@@ -443,7 +443,7 @@ Object {
             tabindex="0"
           />
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-above-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-above-media mdc-typography body-medium"
           >
             Test supporting text
           </div>
@@ -502,12 +502,12 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
@@ -518,7 +518,7 @@ Object {
           tabindex="0"
         />
         <div
-          class="material-design-card__supporting-text material-design-card__supporting-text_text-above-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-above-media mdc-typography body-medium"
         >
           Test supporting text
         </div>
@@ -666,12 +666,12 @@ Object {
                 class="material-design-card__primary"
               >
                 <h2
-                  class="material-design-card__title mdc-typography mdc-typography--headline6"
+                  class="material-design-card__title title-large"
                 >
                   Test title
                 </h2>
                 <h3
-                  class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                  class="material-design-card__secondary-text label-medium"
                 >
                   Test secondary text
                 </h3>
@@ -679,7 +679,7 @@ Object {
             </div>
           </div>
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography body-medium"
           >
             Test supporting text
           </div>
@@ -746,12 +746,12 @@ Object {
               class="material-design-card__primary"
             >
               <h2
-                class="material-design-card__title mdc-typography mdc-typography--headline6"
+                class="material-design-card__title title-large"
               >
                 Test title
               </h2>
               <h3
-                class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="material-design-card__secondary-text label-medium"
               >
                 Test secondary text
               </h3>
@@ -759,7 +759,7 @@ Object {
           </div>
         </div>
         <div
-          class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography body-medium"
         >
           Test supporting text
         </div>
@@ -899,18 +899,18 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography body-medium"
           >
             Test supporting text
           </div>
@@ -969,18 +969,18 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography body-medium"
         >
           Test supporting text
         </div>
@@ -1120,12 +1120,12 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
@@ -1142,12 +1142,12 @@ Object {
                 class="material-design-card__primary"
               >
                 <h2
-                  class="material-design-card__title mdc-typography mdc-typography--headline6"
+                  class="material-design-card__title title-large"
                 >
                   Test title
                 </h2>
                 <h3
-                  class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                  class="material-design-card__secondary-text label-medium"
                 >
                   Test secondary text
                 </h3>
@@ -1155,7 +1155,7 @@ Object {
             </div>
           </div>
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography body-medium"
           >
             Test supporting text
           </div>
@@ -1214,12 +1214,12 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
@@ -1236,12 +1236,12 @@ Object {
               class="material-design-card__primary"
             >
               <h2
-                class="material-design-card__title mdc-typography mdc-typography--headline6"
+                class="material-design-card__title title-large"
               >
                 Test title
               </h2>
               <h3
-                class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="material-design-card__secondary-text label-medium"
               >
                 Test secondary text
               </h3>
@@ -1249,7 +1249,7 @@ Object {
           </div>
         </div>
         <div
-          class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-over-media mdc-typography body-medium"
         >
           Test supporting text
         </div>
@@ -1393,18 +1393,18 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
           >
             Test supporting text
           </div>
@@ -1467,18 +1467,18 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
         >
           Test supporting text
         </div>
@@ -1618,18 +1618,18 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
           >
             Test supporting text
           </div>
@@ -1688,18 +1688,18 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>
         </div>
         <div
-          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+          class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
         >
           Test supporting text
         </div>
@@ -1844,12 +1844,12 @@ Object {
             class="material-design-card__primary"
           >
             <h2
-              class="material-design-card__title mdc-typography mdc-typography--headline6"
+              class="material-design-card__title title-large"
             >
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="material-design-card__secondary-text label-medium"
             >
               Test secondary text
             </h3>
@@ -1914,12 +1914,12 @@ Object {
           class="material-design-card__primary"
         >
           <h2
-            class="material-design-card__title mdc-typography mdc-typography--headline6"
+            class="material-design-card__title title-large"
           >
             Test title
           </h2>
           <h3
-            class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+            class="material-design-card__secondary-text label-medium"
           >
             Test secondary text
           </h3>

@@ -30,7 +30,7 @@ import { SelectControl } from '@wordpress/components';
 import { STYLES } from './styles';
 
 const Item = props => {
-	const { label, size, weight, id, onChange } = props;
+	const { label, size, weight, lineHeight, id, onChange, tracking } = props;
 	const [ choices, setChoices ] = useState( [] );
 
 	useEffect( () => {
@@ -59,13 +59,13 @@ const Item = props => {
 					<div className="components-base-control__field">
 						<label
 							className="components-base-control__label"
-							htmlFor={ `inspector-number-control-${ id }` }
-							id={ `inspector-number-label-${ id }` }
+							htmlFor={ `inspector-size-control-${ id }` }
+							id={ `inspector-size-label-${ id }` }
 						>
 							{ size.label }
 						</label>
 						<input
-							id={ `inspector-number-control-${ id }` }
+							id={ `inspector-size-control-${ id }` }
 							className="components-google-fonts-control__number"
 							type="number"
 							value={ size.value || size.default }
@@ -77,13 +77,75 @@ const Item = props => {
 								onChange( {
 									id,
 									sizeValue,
+									trackingValue: tracking.value,
+									weightValue: weight.value,
+									lineHeightValue: lineHeight.value,
+								} );
+							} }
+						/>
+					</div>
+				</div>
+				<div className="components-base-control">
+					<div className="components-base-control__field">
+						<label
+							className="components-base-control__label"
+							htmlFor={ `inspector-line-height-control-${ id }` }
+							id={ `inspector-line-height-label-${ id }` }
+						>
+							{ lineHeight.label }
+						</label>
+						<input
+							id={ `inspector-line-height-control-${ id }` }
+							className="components-google-fonts-control__number"
+							type="number"
+							value={ lineHeight.value || lineHeight.default }
+							min={ lineHeight.min }
+							max={ lineHeight.max }
+							step="0.01"
+							onChange={ event => {
+								const lineHeightValue = event.target.value;
+
+								onChange( {
+									id,
+									lineHeightValue,
+									trackingValue: tracking.value,
+									sizeValue: size.value,
 									weightValue: weight.value,
 								} );
 							} }
 						/>
 					</div>
 				</div>
+				<div className="components-base-control">
+					<div className="components-base-control__field">
+						<label
+							className="components-base-control__label"
+							htmlFor={ `inspector-tracking-control-${ id }` }
+							id={ `inspector-tracking-label-${ id }` }
+						>
+							{ tracking.label }
+						</label>
+						<input
+							id={ `inspector-tracking-control-${ id }` }
+							className="components-google-fonts-control__number"
+							type="number"
+							value={ tracking.value || tracking.default }
+							min={ tracking.min }
+							max={ tracking.max }
+							onChange={ event => {
+								const trackingValue = event.target.value;
 
+								onChange( {
+									id,
+									trackingValue,
+									sizeValue: size.value,
+									weightValue: weight.value,
+									lineHeightValue: lineHeight.value,
+								} );
+							} }
+						/>
+					</div>
+				</div>
 				<SelectControl
 					className="components-google-fonts-control__select"
 					value={ weight.value || weight.default }
@@ -93,7 +155,9 @@ const Item = props => {
 						onChange( {
 							id,
 							sizeValue: size.value,
+							trackingValue: tracking.value,
 							weightValue: value,
+							lineHeightValue: lineHeight.value,
 						} )
 					}
 				/>

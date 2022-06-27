@@ -15,12 +15,12 @@ exports[`Settings: Updater matches snapshot 1`] = `
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
           <h3
-            class="mdc-typography--headline6"
+            class="title-large"
           >
             Google Fonts
           </h3>
           <p
-            class="mdc-typography--body1"
+            class="body-large"
           >
             Last update on Tue, 13 Apr 2021 14:58:26 GMT
           </p>
@@ -101,12 +101,12 @@ exports[`Settings: Updater matches snapshot when disabled 1`] = `
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
           <h3
-            class="mdc-typography--headline6"
+            class="title-large"
           >
             Google Fonts
           </h3>
           <p
-            class="mdc-typography--body1"
+            class="body-large"
           >
             To enable Google Fonts updates please 
             <a
@@ -162,12 +162,12 @@ exports[`Settings: Updater matches snapshot when never updated 1`] = `
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
           <h3
-            class="mdc-typography--headline6"
+            class="title-large"
           >
             Google Fonts
           </h3>
           <p
-            class="mdc-typography--body1"
+            class="body-large"
           >
             Last update on never
           </p>
@@ -248,12 +248,12 @@ exports[`Settings: Updater matches snapshot when should not update 1`] = `
           class="mdc-layout-grid__cell mdc-layout-grid__cell--span-7 mdc-layout-grid__cell--align-middle"
         >
           <h3
-            class="mdc-typography--headline6"
+            class="title-large"
           >
             Google Fonts
           </h3>
           <p
-            class="mdc-typography--body1"
+            class="body-large"
           >
             Last update on Tue, 13 Apr 2021 14:58:26 GMT
           </p>

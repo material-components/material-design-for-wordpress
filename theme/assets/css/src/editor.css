@@ -16,9 +16,9 @@
 
 @import "./conf/variables.css";
 @import "./base/typography.css";
-@mixin selector-typography .wp-block div, body1;
-@mixin selector-typography p, body1;
-@mixin selector-typography .editor-post-title__input, headline2, 6, 6, 300;
+@mixin selector-typography .wp-block div, body-large;
+@mixin selector-typography p, body-large;
+@mixin selector-typography .editor-post-title__input, headline-large, 6, 6, 300;
 
 body {
 	background: var(--md-sys-color-background, #fff);
