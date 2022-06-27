@@ -88,15 +88,18 @@ export const COLOR_MODES = {
 				updateColorMode( message );
 			} );
 
-			api.preview.bind( 'materialDesignM3PaletteUpdate', color => {
-				const intColor = argbFromHex( color );
-				const colorPallete = themeFromSourceColor( intColor );
+			api.preview.bind(
+				'materialDesignM3PaletteUpdate',
+				( { color, isDarkMode } ) => {
+					const intColor = argbFromHex( color );
+					const colorPallete = themeFromSourceColor( intColor );
 
-				applyTheme( colorPallete, {
-					target: document.body,
-					dark: false,
-				} );
-			} );
+					applyTheme( colorPallete, {
+						target: document.body,
+						dark: isDarkMode,
+					} );
+				}
+			);
 		} );
 	} );
 

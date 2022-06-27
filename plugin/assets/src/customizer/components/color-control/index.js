@@ -46,6 +46,9 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 	const [ isLinked, setIsLinked ] = useState( false );
 	const { label } = params;
 
+	const isDarkMode = window.matchMedia( '(prefers-color-scheme: dark)' )
+		.matches;
+
 	const onChange = value => {
 		setColor( value );
 	};
@@ -84,7 +87,10 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 		}
 
 		onColorChange( `#${ hexColor }` );
-		api.previewer.send( 'materialDesignM3PaletteUpdate', color );
+		api.previewer.send( 'materialDesignM3PaletteUpdate', {
+			color,
+			isDarkMode,
+		} );
 	}, [ color ] );
 
 	return (
