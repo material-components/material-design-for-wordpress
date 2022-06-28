@@ -97,7 +97,7 @@ export const Overrides = createGlobalStyle`
 	}
 
 	#mcb-material-library-preview hr {
-		border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .12);
+		border-color: var(--mdc-theme-on-surface, #000);
 	}
 
 	#material-library-preview {
