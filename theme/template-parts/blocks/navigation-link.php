@@ -109,8 +109,13 @@ if ( empty( $block->context['isInDrawer'] ) ) :
 <?php else : ?>
 	<a
 		href="<?php echo esc_url( $attributes['url'] ); ?>"
-		class="mdc-list-item"
-	>
+		class="mdc-list-item
+		<?php
+		if ( $is_active ) {
+			echo 'mdc-list-item--activated';
+		}
+		?>
+	">
 		<span className="mdc-list-item__text">
 			<?php echo wp_kses_post( $attributes['label'] ); ?>
 		</span>
