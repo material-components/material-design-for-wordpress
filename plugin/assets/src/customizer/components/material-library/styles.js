@@ -52,7 +52,7 @@ export const Overrides = createGlobalStyle`
 			colorUtils.hexToRgbValues( props.onSurfaceColor ).join( ',' ) };
 		--mdc-theme-surface-mix-4: ${ props => props.surfaceColorMix4 };
 		--mdc-theme-surface-mix-12: ${ props => props.surfaceColorMix12 };
-		--mdc-theme-background: ${ props => props.backgroundColor };
+		--md-sys-color-background: ${ props => props.backgroundColor };
 		--mdc-theme-on-background: ${ props => props.onBackgroundColor };
 		--mdc-theme-on-background-rgb: ${ props =>
 			colorUtils.hexToRgbValues( props.onBackgroundColor ).join( ',' ) };
