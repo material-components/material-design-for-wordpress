@@ -60,7 +60,7 @@ class Test_Material_Color_Palette_Control extends \WP_UnitTestCase {
 				'priority'             => 10,
 				'related_text_setting' => 'material_design_on_primary_color',
 				'related_setting'      => false,
-				'css_var'              => '--mdc-theme-primary',
+				'css_var'              => '--md-sys-color-primary',
 			]
 		);
 
@@ -82,7 +82,7 @@ class Test_Material_Color_Palette_Control extends \WP_UnitTestCase {
 		$this->assertEquals( 'material_color', $json['type'] );
 		$this->assertEquals( 'material_design_on_primary_color', $json['relatedTextSetting'] );
 		$this->assertEquals( false, $json['relatedSetting'] );
-		$this->assertEquals( '--mdc-theme-primary', $json['cssVar'] );
+		$this->assertEquals( '--md-sys-color-primary', $json['cssVar'] );
 
 		$json = $primary_text_control->json();
 

@@ -42,7 +42,7 @@ export const Overrides = createGlobalStyle`
 		--md-sys-typescale-title-medium-font: ${ props => props.title };
 		--md-sys-typescale-title-small-font: ${ props => props.title };
 
-		--mdc-theme-primary: ${ props => props.primaryColor };
+		--md-sys-color-primary: ${ props => props.primaryColor };
 		--mdc-theme-secondary: ${ props => props.secondaryColor };
 		--mdc-theme-on-primary: ${ props => props.onPrimaryColor };
 		--mdc-theme-on-secondary: ${ props => props.onSecondaryColor };
@@ -71,7 +71,7 @@ export const Overrides = createGlobalStyle`
 	}
 
 	#mcb-material-library-preview .mdc-text-field--focused .mdc-floating-label {
-		color: var(--mdc-theme-primary) !important;
+		color: var(--md-sys-color-primary) !important;
 	}
 
 	#mcb-material-library-preview p,

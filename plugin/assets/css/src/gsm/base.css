@@ -30,7 +30,7 @@
 	}
 
 	& .mdc-button {
-		--mdc-theme-primary: var(--material-design-gsm-primary-color);
+		--md-sys-color-primary: var(--material-design-gsm-primary-color);
 		--mdc-theme-on-primary: var(--material-design-gsm-primary-text);
 	}
 

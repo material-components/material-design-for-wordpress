@@ -200,7 +200,7 @@
 }
 
 .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-	color: rgba(var(--mdc-theme-primary-rgb, 98, 0, 238), .87);
+	color: var(--md-sys-color-primary);
 }
 
 .mdc-select:not(.mdc-select--disabled) {

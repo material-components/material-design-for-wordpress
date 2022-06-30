@@ -26,7 +26,7 @@
 	--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
 	--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
 	--wp-cover-block-text: #fff;
-	--back-to-top-boder: var(--mdc-theme-primary, #18191a);
+	--back-to-top-boder: var(--md-sys-color-primary, #18191a);
 	--outline-color: rgb(0, 95, 204);
 
 	@mixin fontvars display-small, 6, 1, 300, -1.5;
