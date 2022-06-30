@@ -60,14 +60,14 @@
 
 .mdc-button--outlined:not(:disabled) {
 	border-color: rgba(0, 0, 0, 0.12) !important;
-	border-color: var(--mdc-theme-on-surface, #000) !important;
+	border-color: var(--md-sys-color-on-surface, #000) !important;
 }
 
 .mdc-icon-button {
 
 	&::before,
 	&::after {
-		background-color: var(--mdc-theme-on-surface, #000) !important;
+		background-color: var(--md-sys-color-on-surface, #000) !important;
 	}
 
 	&:hover,
@@ -81,7 +81,7 @@
 .mdc-data-table {
 	background-color: var(--md-sys-color-surface, #fff) !important;
 	border-color: rgba(0, 0, 0, 0.12) !important;
-	border-color: var(--mdc-theme-on-surface, #000) !important;
+	border-color: var(--md-sys-color-on-surface, #000) !important;
 
 	& thead {
 		border: none !important;
@@ -95,7 +95,7 @@
 
 .mdc-data-table__row {
 	border-top-color: rgba(0, 0, 0, 0.12) !important;
-	border-top-color: var(--mdc-theme-on-surface, #000) !important;
+	border-top-color: var(--md-sys-color-on-surface, #000) !important;
 	border-top-width: 1px !important;
 	border-top-style: solid !important;
 }
@@ -143,6 +143,6 @@ ul.mdc-list {
 /* Text fields */
 .mdc-text-field__input {
 	background-color: transparent !important;
-	color: var(--mdc-theme-on-surface, #000) !important;
+	color: var(--md-sys-color-on-surface, #000) !important;
 	margin: 0 !important;
 }

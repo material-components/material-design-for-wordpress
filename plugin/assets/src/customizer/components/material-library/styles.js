@@ -47,7 +47,7 @@ export const Overrides = createGlobalStyle`
 		--mdc-theme-on-primary: ${ props => props.onPrimaryColor };
 		--mdc-theme-on-secondary: ${ props => props.onSecondaryColor };
 		--mdc-theme-surface: ${ props => props.surfaceColor };
-		--mdc-theme-on-surface: ${ props => props.onSurfaceColor };
+		--md-sys-color-on-surface: ${ props => props.onSurfaceColor };
 		--mdc-theme-on-surface-rgb: ${ props =>
 			colorUtils.hexToRgbValues( props.onSurfaceColor ).join( ',' ) };
 		--mdc-theme-surface-mix-4: ${ props => props.surfaceColorMix4 };
@@ -97,7 +97,7 @@ export const Overrides = createGlobalStyle`
 	}
 
 	#mcb-material-library-preview hr {
-		border-color: var(--mdc-theme-on-surface, #000);
+		border-color: var(--md-sys-color-on-surface, #000);
 	}
 
 	#material-library-preview {

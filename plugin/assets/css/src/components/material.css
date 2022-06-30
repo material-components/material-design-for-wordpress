@@ -172,11 +172,11 @@
 .mdc-data-table__header-cell,
 .mdc-data-table__cell,
 .mdc-menu .mdc-list {
-	color: var(--mdc-theme-on-surface, #000);
+	color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-data-table__row {
-	border-color: var(--mdc-theme-on-surface, #000);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 /* Tabs */
@@ -247,18 +247,18 @@
 /* Surface and On-Surface styles */
 .mdc-button--outlined:not(:disabled),
 .mdc-button--outlined:disabled {
-	border-color: var(--mdc-theme-on-surface, #000);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-button--outlined:disabled {
-	color: var(--mdc-theme-on-surface, #000);
+	color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-card,
 .mdc-card__link,
 .single-post-card__title,
 .material-design-card__title {
-	color: var(--mdc-theme-on-surface, #000);
+	color: var(--md-sys-color-on-surface, #000);
 	text-decoration: none;
 }
 
@@ -269,7 +269,7 @@
 .single-post-card__subtitle,
 .material-design-card__secondary-text,
 .material-design-card__supporting-text {
-	color: var(--mdc-theme-on-surface, #000);
+	color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-text-field:not(.mdc-text-field--disabled) {
@@ -280,19 +280,19 @@
 	}
 
 	& .mdc-text-field__input {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-floating-label,
 	& + .mdc-text-field-helper-line .mdc-text-field-helper-text,
 	& .mdc-text-field-character-counter,
 	& + .mdc-text-field-helper-line .mdc-text-field-character-counter {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	.mdc-text-field__icon--leading,
 	.mdc-text-field__icon--trailing {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 }
 
@@ -310,39 +310,39 @@
 	& .mdc-select__native-control,
 	& .mdc-select__selected-text,
 	& .mdc-floating-label {
-		color: var(--mdc-theme-on-surface, #000);
-		border-bottom-color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
+		border-bottom-color: var(--md-sys-color-on-surface, #000);
 	}
 }
 
 .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
-	border-color: var(--mdc-theme-on-surface, #000);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
-	border-color: var(--mdc-theme-on-surface, #000);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-checkbox__native-control[disabled]:checked ~ .mdc-checkbox__background,
 .mdc-checkbox__native-control[disabled]:indeterminate ~ .mdc-checkbox__background {
-	background-color: var(--mdc-theme-on-surface, #000);
+	background-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-radio .mdc-radio__native-control:enabled:not(:checked) + .mdc-radio__background .mdc-radio__outer-circle {
-	border-color: var(--mdc-theme-on-surface, #000);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-drawer {
-	border-color: var(--mdc-theme-on-surface, #000);
+	border-color: var(--md-sys-color-on-surface, #000);
 	background-color: var(--md-sys-color-surface, #fff);
 
 	& .mdc-drawer__title,
 	& .mdc-list-item {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-drawer__subtitle {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-list-item--selected,
@@ -353,25 +353,25 @@
 
 :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::before,
 :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::after {
-	background-color: var(--mdc-theme-on-surface, #000);
+	background-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-dialog {
 
 	& .mdc-dialog__title {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-dialog__content,
 	& .mdc-list {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 }
 
 .mdc-chip {
 	background-color: var(--mdc-theme-surface-mix-12, #e0e0e0);
 	border-radius: var(--mdc-chip-radius, 16px);
-	color: var(--mdc-theme-on-surface, #000);
+	color: var(--md-sys-color-on-surface, #000);
 
 	&.mdc-chip--selected {
 		color: var(--md-sys-color-primary, #6200ee);
@@ -389,13 +389,13 @@
 
 	&::before,
 	&::after {
-		background-color: var(--mdc-theme-on-surface, #000);
+		background-color: var(--md-sys-color-on-surface, #000);
 	}
 }
 
 .mdc-switch:not(.mdc-switch--checked)
 .mdc-switch__track {
-	background-color: var(--mdc-theme-on-surface, #000);
+	background-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-tab-bar {
@@ -405,11 +405,11 @@
 .mdc-tab {
 
 	& .mdc-tab__text-label {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-tab__icon {
-		color: var(--mdc-theme-on-surface, #000);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	&--active {
