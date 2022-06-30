@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "material/image-card-query",
+  "category": "material",
+  "title": "Material Image Card for Query loop",
+  "supports": {},
+  "apiVersion": 2,
+  "description": "Material image card for query loop block",
+  "editorStyle": "material-block-editor-css",
+  "editorScript": "material-block-editor-js",
+  "usesContext": [ "postId", "postType", "queryId" ],
+  "textdomain": "material-design-google"
+}

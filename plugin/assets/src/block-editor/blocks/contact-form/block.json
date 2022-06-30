@@ -1,5 +1,6 @@
 {
 	"name": "material/contact-form",
+  "title": "Contact Form (Material)",
 	"category": "material",
 	"attributes": {
 		"emailTo": {
@@ -26,5 +27,6 @@
 		   "type": "boolean",
 		   "default": false
 		}
-	}
+	},
+  "apiVersion": 2
 }

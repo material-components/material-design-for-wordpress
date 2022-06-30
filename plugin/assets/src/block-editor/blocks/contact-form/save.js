@@ -17,7 +17,7 @@
 /**
  * WordPress dependencies
  */
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Contact Form Save component.
@@ -29,9 +29,11 @@ import { InnerBlocks } from '@wordpress/block-editor';
  */
 const Save = props => {
 	const { className } = props;
-
+	const blockProps = useBlockProps.save( {
+		className,
+	} );
 	return (
-		<div className={ className }>
+		<div { ...blockProps }>
 			<InnerBlocks.Content />
 		</div>
 	);

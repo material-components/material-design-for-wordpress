@@ -5,9 +5,7 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="wp-block-material-buttons"
-      >
+      <div>
         <div>
            
           {"id":"button-1","name":"material/button"}
@@ -17,9 +15,7 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div
-      class="wp-block-material-buttons"
-    >
+    <div>
       <div>
          
         {"id":"button-1","name":"material/button"}

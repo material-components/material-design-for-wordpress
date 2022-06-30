@@ -29,46 +29,52 @@ import { Tab } from './components/tab';
  */
 import { RawHTML } from '@wordpress/element';
 import { getBlockContent } from '@wordpress/blocks';
+import { useBlockProps } from '@wordpress/block-editor';
 
-const TabBarSave = ( { attributes: { tabs, iconPosition } } ) => (
-	<div className="mdc-tab-bar-container">
-		<div className="mdc-tab-bar" role="tablist">
-			<div className="mdc-tab-scroller">
-				<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
-					<div className="mdc-tab-scroller__scroll-content">
-						{ tabs.map( ( props, index ) => (
-							<Tab
-								frontend
-								{ ...props }
-								active={ index === 0 }
-								key={ index }
-								iconPosition={ iconPosition }
-							/>
-						) ) }
+const TabBarSave = ( { attributes: { tabs, iconPosition } } ) => {
+	const blockProps = useBlockProps.save( {
+		className: 'mdc-tab-bar-container',
+	} );
+	return (
+		<div { ...blockProps }>
+			<div className="mdc-tab-bar" role="tablist">
+				<div className="mdc-tab-scroller">
+					<div className="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll">
+						<div className="mdc-tab-scroller__scroll-content">
+							{ tabs.map( ( props, index ) => (
+								<Tab
+									frontend
+									{ ...props }
+									active={ index === 0 }
+									key={ index }
+									iconPosition={ iconPosition }
+								/>
+							) ) }
+						</div>
 					</div>
 				</div>
 			</div>
+			<div>
+				{ tabs.map( ( tab, index ) => (
+					<RawHTML
+						key={ tab.label + tab.position }
+						className={ classNames(
+							'mdc-tab-content mdc-typography--body1',
+							{
+								'mdc-tab-content--active': index === 0,
+							}
+						) }
+					>
+						{ tab.content &&
+							Array.isArray( tab.content ) &&
+							tab.content
+								.map( content => getBlockContent( content ) )
+								.join( ' ' ) }
+					</RawHTML>
+				) ) }
+			</div>
 		</div>
-		<div>
-			{ tabs.map( ( tab, index ) => (
-				<RawHTML
-					key={ tab.label + tab.position }
-					className={ classNames(
-						'mdc-tab-content mdc-typography--body1',
-						{
-							'mdc-tab-content--active': index === 0,
-						}
-					) }
-				>
-					{ tab.content &&
-						Array.isArray( tab.content ) &&
-						tab.content
-							.map( content => getBlockContent( content ) )
-							.join( ' ' ) }
-				</RawHTML>
-			) ) }
-		</div>
-	</div>
-);
+	);
+};
 
 export default TabBarSave;

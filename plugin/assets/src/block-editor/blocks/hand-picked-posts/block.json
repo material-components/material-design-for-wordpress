@@ -1,5 +1,6 @@
 {
 	"name": "material/hand-picked-posts",
+  "title": "Curated Card Collection (Material)",
 	"category": "material",
 	"attributes": {
 		"className": {
@@ -92,5 +93,6 @@
 		  "wide",
 		  "full"
 	   ]
-	}
+	},
+  "apiVersion": 2
  }

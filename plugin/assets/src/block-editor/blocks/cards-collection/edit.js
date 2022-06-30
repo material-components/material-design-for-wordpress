@@ -41,6 +41,7 @@ import getColumnSpan from './utils/get-column-span';
  * Internal dependencies
  */
 import { withId } from '../../components/with-id';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Card Collections Edit component.
@@ -50,7 +51,7 @@ import { withId } from '../../components/with-id';
  * @return {JSX.Element} Function returning the HTML markup for the component.
  */
 const Edit = props => {
-	const { attributes, setAttributes, className } = props;
+	const { attributes, setAttributes } = props;
 	const {
 		style,
 		columns,
@@ -355,10 +356,12 @@ const Edit = props => {
 		}
 	};
 
+	const blockProps = useBlockProps();
+
 	return (
 		<>
 			<CardsCollectionInspectorControls { ...inspectorControlsProps } />
-			<div className={ className }>
+			<div { ...blockProps }>
 				<Cards
 					style={ style }
 					gutter={ gutter }

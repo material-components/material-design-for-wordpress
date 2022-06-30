@@ -29,6 +29,922 @@ Object {
       style="position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;overflow: hidden;clip: rect(1px, 1px, 1px, 1px);-webkit-clip-path: inset(50%);clip-path: inset(50%);border: 0;word-wrap: normal !important;"
     />
     <div>
+      <div>
+        <ul
+          class="mdc-image-list mdc-image-list--masonry"
+          style="column-count: 4; column-gap: 24px;"
+        >
+          <li
+            class="mdc-image-list__item"
+          >
+            <div
+              class="mdc-image-list__item-wrap"
+              style="margin-bottom: 24px;"
+            >
+              <img
+                alt="Example Image 1 alt"
+                class="mdc-image-list__image"
+                data-id="1"
+                data-link="http://example.com/image-1"
+                src="https://i.picsum.photos/id/22/500/500.jpg"
+                style="border-radius: 4px;"
+              />
+              <div
+                class="mdc-image-list__supporting"
+                style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"
+              >
+                <span
+                  class="mdc-image-list__label"
+                >
+                  Example Image 1 caption
+                </span>
+              </div>
+              <div
+                class="move-image"
+              >
+                <button
+                  title="Move left"
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    arrow_left
+                  </i>
+                </button>
+                <button
+                  title="Move right"
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    arrow_right
+                  </i>
+                </button>
+              </div>
+              <div
+                class="remove-image"
+              >
+                <button
+                  title="Remove image"
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    close
+                  </i>
+                </button>
+              </div>
+            </div>
+          </li>
+          <li
+            class="mdc-image-list__item"
+          >
+            <div
+              class="mdc-image-list__item-wrap"
+              style="margin-bottom: 24px;"
+            >
+              <img
+                alt="Example Image 2 alt"
+                class="mdc-image-list__image"
+                data-id="2"
+                data-link="http://example.com/image-2"
+                src="https://i.picsum.photos/id/22/500/500.jpg"
+                style="border-radius: 4px;"
+              />
+              <div
+                class="mdc-image-list__supporting"
+                style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"
+              >
+                <span
+                  class="mdc-image-list__label"
+                >
+                  Example Image 2 caption
+                </span>
+              </div>
+              <div
+                class="move-image"
+              >
+                <button
+                  title="Move left"
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    arrow_left
+                  </i>
+                </button>
+                <button
+                  title="Move right"
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    arrow_right
+                  </i>
+                </button>
+              </div>
+              <div
+                class="remove-image"
+              >
+                <button
+                  title="Remove image"
+                >
+                  <i
+                    class="material-icons"
+                  >
+                    close
+                  </i>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div
+          class="components-placeholder block-editor-media-placeholder is-small"
+        >
+          Placeholder
+        </div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Styles
+            </button>
+          </h2>
+          <div
+            class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <div
+                class="components-radio-control__option active"
+              >
+                <input
+                  checked=""
+                  class="components-radio-control__input"
+                  id="image-radio-control-0-0"
+                  name="image-radio-control-0"
+                  type="radio"
+                  value="masonry"
+                />
+                <label
+                  for="image-radio-control-0-0"
+                >
+                  <div
+                    class="components-image-radio-control__image"
+                  >
+                    <svg
+                      fill="none"
+                      height="37"
+                      viewBox="0 0 37 37"
+                      width="37"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="0.133057"
+                        y="16.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.133057"
+                        y="34.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="20.3596"
+                        y="0.0395508"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.3596"
+                        y="18.0396"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="8"
+                        width="16"
+                        x="20.1624"
+                        y="24.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.1624"
+                        y="34.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="8"
+                        width="16"
+                        x="0.321533"
+                        y="0.0395508"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.321533"
+                        y="10.0396"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="components-image-radio-control__label"
+                  >
+                    Masonry
+                  </span>
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="image-radio-control-0-1"
+                  name="image-radio-control-0"
+                  type="radio"
+                  value="grid"
+                />
+                <label
+                  for="image-radio-control-0-1"
+                >
+                  <div
+                    class="components-image-radio-control__image"
+                  >
+                    <svg
+                      fill="none"
+                      height="45"
+                      viewBox="0 0 37 45"
+                      width="37"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="0.24646"
+                        y="24.8232"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.24646"
+                        y="42.8232"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="20.2465"
+                        y="24.5835"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.2465"
+                        y="42.5835"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="0.24646"
+                        y="0.583496"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.24646"
+                        y="18.5835"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="20.2465"
+                        y="0.583496"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.2465"
+                        y="18.5835"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="components-image-radio-control__label"
+                  >
+                    Grid
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Settings
+            </button>
+          </h2>
+          <div
+            class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-base-control__label components-base-control__layout-controls-label"
+              >
+                Layout
+                <div
+                  class="components-base-control__label-actions components-base-control__layout-controls"
+                >
+                  <button
+                    class="is-selected"
+                  >
+                    <i
+                      class="material-icons"
+                    >
+                      computer
+                    </i>
+                  </button>
+                  <button
+                    class=""
+                  >
+                    <i
+                      class="material-icons"
+                    >
+                      tablet
+                    </i>
+                  </button>
+                  <button
+                    class=""
+                  >
+                    <i
+                      class="material-icons"
+                    >
+                      smartphone
+                    </i>
+                  </button>
+                </div>
+              </span>
+              <div
+                class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
+              >
+                <div
+                  class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+                >
+                  <label
+                    class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                    for="inspector-range-control-0"
+                  >
+                    Columns
+                  </label>
+                  <div
+                    class="components-range-control__root css-2cg8er-Root exqw8y214"
+                  >
+                    <div
+                      class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                      color="var( --wp-admin-theme-color, #00669b)"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Columns"
+                        class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
+                        id="inspector-range-control-0"
+                        max="6"
+                        min="1"
+                        step="1"
+                        tabindex="0"
+                        type="range"
+                        value="1"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="css-43abdt-Rail-railBackgroundColor exqw8y210"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
+                        style="width: 0%;"
+                      />
+                      <span
+                        class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
+                        style="left: 0%;"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="css-yd4y8u-Thumb-thumbColor exqw8y24"
+                        />
+                      </span>
+                      <span
+                        aria-hidden="false"
+                        class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
+                        role="tooltip"
+                        style="left: 0%; z-index: 100;"
+                      >
+                        1
+                      </span>
+                    </div>
+                    <div
+                      class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                      data-wp-c16t="true"
+                      data-wp-component="Flex"
+                    >
+                      <div
+                        class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                        data-wp-c16t="true"
+                        data-wp-component="FlexItem"
+                      />
+                      <div
+                        class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                      >
+                        <input
+                          aria-label="Columns"
+                          autocomplete="off"
+                          class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                          id="inspector-input-control-0"
+                          inputmode="decimal"
+                          max="6"
+                          min="1"
+                          step="1"
+                          type="number"
+                          value="1"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
+              >
+                <div
+                  class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+                >
+                  <label
+                    class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                    for="inspector-range-control-1"
+                  >
+                    Gutter
+                  </label>
+                  <div
+                    class="components-range-control__root css-2cg8er-Root exqw8y214"
+                  >
+                    <div
+                      class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                      color="var( --wp-admin-theme-color, #00669b)"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Gutter"
+                        class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
+                        id="inspector-range-control-1"
+                        max="24"
+                        min="0"
+                        step="1"
+                        tabindex="0"
+                        type="range"
+                        value="24"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="css-43abdt-Rail-railBackgroundColor exqw8y210"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
+                        style="width: 100%;"
+                      />
+                      <span
+                        class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
+                        style="left: 100%;"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="css-yd4y8u-Thumb-thumbColor exqw8y24"
+                        />
+                      </span>
+                      <span
+                        aria-hidden="false"
+                        class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
+                        role="tooltip"
+                        style="left: 100%; z-index: 100;"
+                      >
+                        24
+                      </span>
+                    </div>
+                    <div
+                      class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                      data-wp-c16t="true"
+                      data-wp-component="Flex"
+                    >
+                      <div
+                        class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                        data-wp-c16t="true"
+                        data-wp-component="FlexItem"
+                      />
+                      <div
+                        class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                      >
+                        <input
+                          aria-label="Gutter"
+                          autocomplete="off"
+                          class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                          id="inspector-input-control-1"
+                          inputmode="decimal"
+                          max="24"
+                          min="0"
+                          step="1"
+                          type="number"
+                          value="24"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="components-base-control"
+          >
+            <label
+              class="components-base-control__label"
+              for="shape-size"
+            >
+              Corner Styles
+            </label>
+            <div>
+              Overrides will only apply to these images. Change Image Lists corner styles in 
+              <a
+                href="http://example.com/shape"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Material Design Options
+              </a>
+               to update all Image Lists.
+            </div>
+            <div
+              class="components-base-control components-global-shape-size"
+            >
+              <div
+                class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
+              >
+                <div
+                  class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+                >
+                  <label
+                    class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                    for="inspector-range-control-2"
+                  >
+                    Corner Styles
+                  </label>
+                  <div
+                    class="components-range-control__root css-2cg8er-Root exqw8y214"
+                  >
+                    <div
+                      class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                      color="var( --wp-admin-theme-color, #00669b)"
+                    >
+                      <input
+                        aria-hidden="false"
+                        aria-label="Corner Styles"
+                        class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
+                        id="inspector-range-control-2"
+                        max="16"
+                        min="0"
+                        step="1"
+                        tabindex="0"
+                        type="range"
+                        value="4"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="css-43abdt-Rail-railBackgroundColor exqw8y210"
+                      />
+                      <span
+                        aria-hidden="true"
+                        class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
+                        style="width: 25%;"
+                      />
+                      <span
+                        class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
+                        style="left: 25%;"
+                      >
+                        <span
+                          aria-hidden="true"
+                          class="css-yd4y8u-Thumb-thumbColor exqw8y24"
+                        />
+                      </span>
+                      <span
+                        aria-hidden="false"
+                        class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
+                        role="tooltip"
+                        style="left: 25%; z-index: 100;"
+                      >
+                        4
+                      </span>
+                    </div>
+                    <div
+                      class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                      data-wp-c16t="true"
+                      data-wp-component="Flex"
+                    >
+                      <div
+                        class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                        data-wp-c16t="true"
+                        data-wp-component="FlexItem"
+                      />
+                      <div
+                        class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                      >
+                        <input
+                          aria-label="Corner Styles"
+                          autocomplete="off"
+                          class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                          id="inspector-input-control-2"
+                          inputmode="decimal"
+                          max="16"
+                          min="0"
+                          step="1"
+                          type="number"
+                          value="4"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="components-button global-shape-size-reset is-small"
+                type="button"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle is-checked"
+              >
+                <input
+                  checked=""
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-0"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-0"
+              >
+                Captions
+              </label>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle"
+              >
+                <input
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-1"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-1"
+              >
+                Text Protection
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Link Settings
+            </button>
+          </h2>
+          <div
+            class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <div
+                class="components-flex components-select-control em5sgkm7 css-c0mqng-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles em57xhy0"
+                data-wp-c16t="true"
+                data-wp-component="Flex"
+              >
+                <div
+                  class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="FlexItem"
+                >
+                  <label
+                    class="components-truncate components-text components-input-control__label em5sgkm4 css-uhi73o-View-Text-sx-Base-BaseLabel-labelPadding em57xhy0"
+                    data-wp-c16t="true"
+                    data-wp-component="Text"
+                    for="inspector-select-control-0"
+                  >
+                    Link to
+                  </label>
+                </div>
+                <div
+                  class="components-input-control__container css-1t6cb2b-Container-containerDisabledStyles-containerWidthStyles em5sgkm6"
+                >
+                  <select
+                    class="components-select-control__input css-vsvrv2-Select-fontSizeStyles-sizeStyles e1mv6sxx1"
+                    id="inspector-select-control-0"
+                  >
+                    <option
+                      value="media"
+                    >
+                      Media File
+                    </option>
+                    <option
+                      value="attachment"
+                    >
+                      Attachment Page
+                    </option>
+                    <option
+                      value="custom"
+                    >
+                      Custom URL
+                    </option>
+                    <option
+                      value="none"
+                    >
+                      None
+                    </option>
+                  </select>
+                  <span
+                    class="components-input-control__suffix css-6tfwoi-Suffix em5sgkm0"
+                  >
+                    <div
+                      class="css-1einvap-DownArrowWrapper e1mv6sxx0"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        height="18"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="18"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M17.5 11.6L12 16l-5.5-4.4.9-1.2L12 14l4.5-3.6 1 1.2z"
+                        />
+                      </svg>
+                    </div>
+                  </span>
+                  <div
+                    aria-hidden="true"
+                    class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
       <ul
         class="mdc-image-list mdc-image-list--masonry"
         style="column-count: 4; column-gap: 24px;"
@@ -935,918 +1851,6 @@ Object {
                   class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
                 />
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <ul
-      class="mdc-image-list mdc-image-list--masonry"
-      style="column-count: 4; column-gap: 24px;"
-    >
-      <li
-        class="mdc-image-list__item"
-      >
-        <div
-          class="mdc-image-list__item-wrap"
-          style="margin-bottom: 24px;"
-        >
-          <img
-            alt="Example Image 1 alt"
-            class="mdc-image-list__image"
-            data-id="1"
-            data-link="http://example.com/image-1"
-            src="https://i.picsum.photos/id/22/500/500.jpg"
-            style="border-radius: 4px;"
-          />
-          <div
-            class="mdc-image-list__supporting"
-            style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"
-          >
-            <span
-              class="mdc-image-list__label"
-            >
-              Example Image 1 caption
-            </span>
-          </div>
-          <div
-            class="move-image"
-          >
-            <button
-              title="Move left"
-            >
-              <i
-                class="material-icons"
-              >
-                arrow_left
-              </i>
-            </button>
-            <button
-              title="Move right"
-            >
-              <i
-                class="material-icons"
-              >
-                arrow_right
-              </i>
-            </button>
-          </div>
-          <div
-            class="remove-image"
-          >
-            <button
-              title="Remove image"
-            >
-              <i
-                class="material-icons"
-              >
-                close
-              </i>
-            </button>
-          </div>
-        </div>
-      </li>
-      <li
-        class="mdc-image-list__item"
-      >
-        <div
-          class="mdc-image-list__item-wrap"
-          style="margin-bottom: 24px;"
-        >
-          <img
-            alt="Example Image 2 alt"
-            class="mdc-image-list__image"
-            data-id="2"
-            data-link="http://example.com/image-2"
-            src="https://i.picsum.photos/id/22/500/500.jpg"
-            style="border-radius: 4px;"
-          />
-          <div
-            class="mdc-image-list__supporting"
-            style="border-bottom-left-radius: 4px; border-bottom-right-radius: 4px;"
-          >
-            <span
-              class="mdc-image-list__label"
-            >
-              Example Image 2 caption
-            </span>
-          </div>
-          <div
-            class="move-image"
-          >
-            <button
-              title="Move left"
-            >
-              <i
-                class="material-icons"
-              >
-                arrow_left
-              </i>
-            </button>
-            <button
-              title="Move right"
-            >
-              <i
-                class="material-icons"
-              >
-                arrow_right
-              </i>
-            </button>
-          </div>
-          <div
-            class="remove-image"
-          >
-            <button
-              title="Remove image"
-            >
-              <i
-                class="material-icons"
-              >
-                close
-              </i>
-            </button>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <div
-      class="components-placeholder block-editor-media-placeholder is-small"
-    >
-      Placeholder
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Styles
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <div
-            class="components-radio-control__option active"
-          >
-            <input
-              checked=""
-              class="components-radio-control__input"
-              id="image-radio-control-0-0"
-              name="image-radio-control-0"
-              type="radio"
-              value="masonry"
-            />
-            <label
-              for="image-radio-control-0-0"
-            >
-              <div
-                class="components-image-radio-control__image"
-              >
-                <svg
-                  fill="none"
-                  height="37"
-                  viewBox="0 0 37 37"
-                  width="37"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="0.133057"
-                    y="16.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.133057"
-                    y="34.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="20.3596"
-                    y="0.0395508"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.3596"
-                    y="18.0396"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="8"
-                    width="16"
-                    x="20.1624"
-                    y="24.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.1624"
-                    y="34.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="8"
-                    width="16"
-                    x="0.321533"
-                    y="0.0395508"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.321533"
-                    y="10.0396"
-                  />
-                </svg>
-              </div>
-              <span
-                class="components-image-radio-control__label"
-              >
-                Masonry
-              </span>
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="image-radio-control-0-1"
-              name="image-radio-control-0"
-              type="radio"
-              value="grid"
-            />
-            <label
-              for="image-radio-control-0-1"
-            >
-              <div
-                class="components-image-radio-control__image"
-              >
-                <svg
-                  fill="none"
-                  height="45"
-                  viewBox="0 0 37 45"
-                  width="37"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="0.24646"
-                    y="24.8232"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.24646"
-                    y="42.8232"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="20.2465"
-                    y="24.5835"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.2465"
-                    y="42.5835"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="0.24646"
-                    y="0.583496"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.24646"
-                    y="18.5835"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="20.2465"
-                    y="0.583496"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.2465"
-                    y="18.5835"
-                  />
-                </svg>
-              </div>
-              <span
-                class="components-image-radio-control__label"
-              >
-                Grid
-              </span>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-base-control__label components-base-control__layout-controls-label"
-          >
-            Layout
-            <div
-              class="components-base-control__label-actions components-base-control__layout-controls"
-            >
-              <button
-                class="is-selected"
-              >
-                <i
-                  class="material-icons"
-                >
-                  computer
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  tablet
-                </i>
-              </button>
-              <button
-                class=""
-              >
-                <i
-                  class="material-icons"
-                >
-                  smartphone
-                </i>
-              </button>
-            </div>
-          </span>
-          <div
-            class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
-          >
-            <div
-              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-            >
-              <label
-                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-                for="inspector-range-control-0"
-              >
-                Columns
-              </label>
-              <div
-                class="components-range-control__root css-2cg8er-Root exqw8y214"
-              >
-                <div
-                  class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
-                  color="var( --wp-admin-theme-color, #00669b)"
-                >
-                  <input
-                    aria-hidden="false"
-                    aria-label="Columns"
-                    class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
-                    id="inspector-range-control-0"
-                    max="6"
-                    min="1"
-                    step="1"
-                    tabindex="0"
-                    type="range"
-                    value="1"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="css-43abdt-Rail-railBackgroundColor exqw8y210"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
-                    style="width: 0%;"
-                  />
-                  <span
-                    class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
-                    style="left: 0%;"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="css-yd4y8u-Thumb-thumbColor exqw8y24"
-                    />
-                  </span>
-                  <span
-                    aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
-                    role="tooltip"
-                    style="left: 0%; z-index: 100;"
-                  >
-                    1
-                  </span>
-                </div>
-                <div
-                  class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
-                  data-wp-c16t="true"
-                  data-wp-component="Flex"
-                >
-                  <div
-                    class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-                    data-wp-c16t="true"
-                    data-wp-component="FlexItem"
-                  />
-                  <div
-                    class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
-                  >
-                    <input
-                      aria-label="Columns"
-                      autocomplete="off"
-                      class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
-                      id="inspector-input-control-0"
-                      inputmode="decimal"
-                      max="6"
-                      min="1"
-                      step="1"
-                      type="number"
-                      value="1"
-                    />
-                    <div
-                      aria-hidden="true"
-                      class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
-          >
-            <div
-              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-            >
-              <label
-                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-                for="inspector-range-control-1"
-              >
-                Gutter
-              </label>
-              <div
-                class="components-range-control__root css-2cg8er-Root exqw8y214"
-              >
-                <div
-                  class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
-                  color="var( --wp-admin-theme-color, #00669b)"
-                >
-                  <input
-                    aria-hidden="false"
-                    aria-label="Gutter"
-                    class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
-                    id="inspector-range-control-1"
-                    max="24"
-                    min="0"
-                    step="1"
-                    tabindex="0"
-                    type="range"
-                    value="24"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="css-43abdt-Rail-railBackgroundColor exqw8y210"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
-                    style="width: 100%;"
-                  />
-                  <span
-                    class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
-                    style="left: 100%;"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="css-yd4y8u-Thumb-thumbColor exqw8y24"
-                    />
-                  </span>
-                  <span
-                    aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
-                    role="tooltip"
-                    style="left: 100%; z-index: 100;"
-                  >
-                    24
-                  </span>
-                </div>
-                <div
-                  class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
-                  data-wp-c16t="true"
-                  data-wp-component="Flex"
-                >
-                  <div
-                    class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-                    data-wp-c16t="true"
-                    data-wp-component="FlexItem"
-                  />
-                  <div
-                    class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
-                  >
-                    <input
-                      aria-label="Gutter"
-                      autocomplete="off"
-                      class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
-                      id="inspector-input-control-1"
-                      inputmode="decimal"
-                      max="24"
-                      min="0"
-                      step="1"
-                      type="number"
-                      value="24"
-                    />
-                    <div
-                      aria-hidden="true"
-                      class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-base-control"
-      >
-        <label
-          class="components-base-control__label"
-          for="shape-size"
-        >
-          Corner Styles
-        </label>
-        <div>
-          Overrides will only apply to these images. Change Image Lists corner styles in 
-          <a
-            href="http://example.com/shape"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            Material Design Options
-          </a>
-           to update all Image Lists.
-        </div>
-        <div
-          class="components-base-control components-global-shape-size"
-        >
-          <div
-            class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
-          >
-            <div
-              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-            >
-              <label
-                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-                for="inspector-range-control-2"
-              >
-                Corner Styles
-              </label>
-              <div
-                class="components-range-control__root css-2cg8er-Root exqw8y214"
-              >
-                <div
-                  class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
-                  color="var( --wp-admin-theme-color, #00669b)"
-                >
-                  <input
-                    aria-hidden="false"
-                    aria-label="Corner Styles"
-                    class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
-                    id="inspector-range-control-2"
-                    max="16"
-                    min="0"
-                    step="1"
-                    tabindex="0"
-                    type="range"
-                    value="4"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="css-43abdt-Rail-railBackgroundColor exqw8y210"
-                  />
-                  <span
-                    aria-hidden="true"
-                    class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
-                    style="width: 25%;"
-                  />
-                  <span
-                    class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
-                    style="left: 25%;"
-                  >
-                    <span
-                      aria-hidden="true"
-                      class="css-yd4y8u-Thumb-thumbColor exqw8y24"
-                    />
-                  </span>
-                  <span
-                    aria-hidden="false"
-                    class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
-                    role="tooltip"
-                    style="left: 25%; z-index: 100;"
-                  >
-                    4
-                  </span>
-                </div>
-                <div
-                  class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
-                  data-wp-c16t="true"
-                  data-wp-component="Flex"
-                >
-                  <div
-                    class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-                    data-wp-c16t="true"
-                    data-wp-component="FlexItem"
-                  />
-                  <div
-                    class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
-                  >
-                    <input
-                      aria-label="Corner Styles"
-                      autocomplete="off"
-                      class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
-                      id="inspector-input-control-2"
-                      inputmode="decimal"
-                      max="16"
-                      min="0"
-                      step="1"
-                      type="number"
-                      value="4"
-                    />
-                    <div
-                      aria-hidden="true"
-                      class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button
-            class="components-button global-shape-size-reset is-small"
-            type="button"
-          >
-            Reset
-          </button>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-0"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-0"
-          >
-            Captions
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle"
-          >
-            <input
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-1"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-1"
-          >
-            Text Protection
-          </label>
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Link Settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <div
-            class="components-flex components-select-control em5sgkm7 css-c0mqng-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles em57xhy0"
-            data-wp-c16t="true"
-            data-wp-component="Flex"
-          >
-            <div
-              class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-              data-wp-c16t="true"
-              data-wp-component="FlexItem"
-            >
-              <label
-                class="components-truncate components-text components-input-control__label em5sgkm4 css-uhi73o-View-Text-sx-Base-BaseLabel-labelPadding em57xhy0"
-                data-wp-c16t="true"
-                data-wp-component="Text"
-                for="inspector-select-control-0"
-              >
-                Link to
-              </label>
-            </div>
-            <div
-              class="components-input-control__container css-1t6cb2b-Container-containerDisabledStyles-containerWidthStyles em5sgkm6"
-            >
-              <select
-                class="components-select-control__input css-vsvrv2-Select-fontSizeStyles-sizeStyles e1mv6sxx1"
-                id="inspector-select-control-0"
-              >
-                <option
-                  value="media"
-                >
-                  Media File
-                </option>
-                <option
-                  value="attachment"
-                >
-                  Attachment Page
-                </option>
-                <option
-                  value="custom"
-                >
-                  Custom URL
-                </option>
-                <option
-                  value="none"
-                >
-                  None
-                </option>
-              </select>
-              <span
-                class="components-input-control__suffix css-6tfwoi-Suffix em5sgkm0"
-              >
-                <div
-                  class="css-1einvap-DownArrowWrapper e1mv6sxx0"
-                >
-                  <svg
-                    aria-hidden="true"
-                    focusable="false"
-                    height="18"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="18"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M17.5 11.6L12 16l-5.5-4.4.9-1.2L12 14l4.5-3.6 1 1.2z"
-                    />
-                  </svg>
-                </div>
-              </span>
-              <div
-                aria-hidden="true"
-                class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-              />
             </div>
           </div>
         </div>

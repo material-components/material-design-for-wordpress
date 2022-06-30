@@ -17,7 +17,7 @@
 /**
  * WordPress dependencies
  */
-import { InnerBlocks } from '@wordpress/block-editor';
+import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
@@ -31,8 +31,9 @@ const ALLOWED_BLOCKS = [ name ];
 const BUTTONS_TEMPLATE = [ [ name ] ];
 
 const Edit = () => {
+	const blockProps = useBlockProps();
 	return (
-		<div className="wp-block-material-buttons">
+		<div { ...blockProps }>
 			<InnerBlocks
 				allowedBlocks={ ALLOWED_BLOCKS }
 				template={ BUTTONS_TEMPLATE }
