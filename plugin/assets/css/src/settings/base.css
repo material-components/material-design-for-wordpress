@@ -27,7 +27,7 @@
 
 	& .mdc-button {
 		--md-sys-color-primary: var(--material-design-settings-primary-color);
-		--mdc-theme-on-primary: var(--material-design-settings-primary-text);
+		--md-sys-color-on-primary: var(--material-design-settings-primary-text);
 	}
 
 	& h1,

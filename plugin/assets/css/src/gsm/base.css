@@ -31,7 +31,7 @@
 
 	& .mdc-button {
 		--md-sys-color-primary: var(--material-design-gsm-primary-color);
-		--mdc-theme-on-primary: var(--material-design-gsm-primary-text);
+		--md-sys-color-on-primary: var(--material-design-gsm-primary-text);
 	}
 
 	& h1,

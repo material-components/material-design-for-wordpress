@@ -44,7 +44,7 @@ export const Overrides = createGlobalStyle`
 
 		--md-sys-color-primary: ${ props => props.primaryColor };
 		--mdc-theme-secondary: ${ props => props.secondaryColor };
-		--mdc-theme-on-primary: ${ props => props.onPrimaryColor };
+		--md-sys-color-on-primary: ${ props => props.onPrimaryColor };
 		--mdc-theme-on-secondary: ${ props => props.onSecondaryColor };
 		--mdc-theme-surface: ${ props => props.surfaceColor };
 		--md-sys-color-on-surface: ${ props => props.onSurfaceColor };

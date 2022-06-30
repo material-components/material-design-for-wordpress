@@ -26,7 +26,7 @@
 
 	& .mdc-button {
 		--md-sys-color-primary: var(--material-design-wizard-primary-color);
-		--mdc-theme-on-primary: var(--material-design-wizard-primary-text);
+		--md-sys-color-on-primary: var(--material-design-wizard-primary-text);
 	}
 
 	& h3,
