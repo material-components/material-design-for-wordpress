@@ -46,9 +46,9 @@ export const Overrides = createGlobalStyle`
 		--mdc-theme-secondary: ${ props => props.secondaryColor };
 		--md-sys-color-on-primary: ${ props => props.onPrimaryColor };
 		--mdc-theme-on-secondary: ${ props => props.onSecondaryColor };
-		--mdc-theme-surface: ${ props => props.surfaceColor };
+		--md-sys-color-surface: ${ props => props.surfaceColor };
 		--md-sys-color-on-surface: ${ props => props.onSurfaceColor };
-		--mdc-theme-on-surface-rgb: ${ props =>
+		--md-sys-color-on-surface-rgb: ${ props =>
 			colorUtils.hexToRgbValues( props.onSurfaceColor ).join( ',' ) };
 		--mdc-theme-surface-mix-4: ${ props => props.surfaceColorMix4 };
 		--mdc-theme-surface-mix-12: ${ props => props.surfaceColorMix12 };
