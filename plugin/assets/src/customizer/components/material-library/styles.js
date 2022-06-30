@@ -59,7 +59,7 @@ export const Overrides = createGlobalStyle`
 
 		--mdc-icons-font-family: ${ props => props.iconCollection };
 
-		--mdc-theme-text-primary-on-background: rgba(--md-sys-color-on-background-rgb, 0.87);
+		--md-sys-color-on-surface-variant: rgba(--md-sys-color-on-background-rgb, 0.87);
 		--mdc-theme-text-secondary-on-background: rgba(--md-sys-color-on-background-rgb, 0.54);
 		--mdc-theme-text-hint-on-background: rgba(--md-sys-color-on-background-rgb, 0.38);
 		--mdc-theme-text-disabled-on-background: rgba(--md-sys-color-on-background-rgb, 0.38);

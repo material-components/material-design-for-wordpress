@@ -261,7 +261,7 @@ export const COLOR_MODES = {
 		} );
 
 		styles +=
-			'--md-sys-color-primary: var(--md-sys-color-primary);--md-sys-color-on-primary: var(--md-sys-color-on-primary);--md-sys-color-background: var(--md-sys-color-background);--md-sys-color-on-background: var(--md-sys-color-on-background);--md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant);--md-sys-color-surface-variant: var(--md-sys-color-surface-variant);--md-sys-color-on-surface: var(--md-sys-color-on-surface);--md-sys-color-surface: var(--md-sys-color-surface);--mdc-theme-text-primary-on-background: var(--md-sys-color-on-surface-variant);--mdc-theme-outline: var(--md-sys-color-outline);';
+			'--md-sys-color-primary: var(--md-sys-color-primary);--md-sys-color-on-primary: var(--md-sys-color-on-primary);--md-sys-color-background: var(--md-sys-color-background);--md-sys-color-on-background: var(--md-sys-color-on-background);--md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant);--md-sys-color-surface-variant: var(--md-sys-color-surface-variant);--md-sys-color-on-surface: var(--md-sys-color-on-surface);--md-sys-color-surface: var(--md-sys-color-surface);--md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant);--md-sys-color-outline: var(--md-sys-color-outline);';
 
 		styles = `body {
 			${ styles }

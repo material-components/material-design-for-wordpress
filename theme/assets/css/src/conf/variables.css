@@ -20,7 +20,7 @@
 	--search-background: #fff;
 	--mdc-theme-max-content-width: 840px;
 	--material-footer-max-width: 960px;
-	--mdc-theme-text-primary-on-background: var(--md-sys-color-on-background);
+	--md-sys-color-on-surface-variant: var(--md-sys-color-on-background);
 	--mdc-theme-text-secondary-on-background: var(--md-sys-color-on-background);
 	--mdc-theme-text-hint-on-background: var(--md-sys-color-on-background);
 	--mdc-theme-text-disabled-on-background: var(--md-sys-color-on-background);
