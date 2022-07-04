@@ -27,7 +27,61 @@ function setup() {
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets' );
 	add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
 	add_action( 'after_setup_theme', __NAMESPACE__ . '\\add_font_sizes' );
+
+	handle_fse_opt_out();
 }
+
+/**
+ * Handle fse opt out for.
+ *
+ * @return void
+ */
+function handle_fse_opt_out() {
+	// Removes fse menu entry and other features.
+	remove_theme_support( 'block-templates' );
+	// Disable the FSE template route.
+	$template_types = array_keys( get_default_block_template_types() );
+	foreach ( $template_types as $template_type ) {
+		// Skip 'embed' for now because it is not a regular template type.
+		if ( 'embed' === $template_type ) {
+			continue;
+		}
+		add_filter( str_replace( '-', '', $template_type ) . '_template', __NAMESPACE__ . '\\determine_template', 10, 3 );
+	}
+	add_filter( 'theme_file_path', __NAMESPACE__ . '\\filter_disable_fse', 10, 2 );
+}
+
+/**
+ * Filter site path to enable and disable FSE.
+ *
+ * @param string $path File path.
+ * @param string $file Relative theme path.
+ *
+ * @return string
+ */
+function filter_disable_fse( $path, $file ) {
+	if ( 'index.html' !== basename( $file ) ) {
+		return $path;
+	}
+
+	return str_replace( 'index.html', 'index-disabled.html', $path );
+}
+
+/**
+ * Determine template for non FSE theme.
+ *
+ * This will allow fallback to default php template if user has not opted in for FSE template.
+ *
+ * @param string   $_template Path to the template. See locate_template().
+ * @param string   $_type     Sanitized filename without extension.
+ * @param string[] $templates A list of template candidates, in descending order of priority.
+ *
+ * @return string
+ */
+function determine_template( $_template, $_type, $templates ) {
+	return locate_template( $templates );
+}
+
 
 /**
  * Register disable section meta.
