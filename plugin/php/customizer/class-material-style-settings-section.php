@@ -79,20 +79,6 @@ class Material_Style_Settings_Section extends \WP_Customize_Section {
 	}
 
 	/**
-	 * Get section parameters for JS.
-	 *
-	 * @since 4.9.0
-	 * @return array Exported parameters.
-	 */
-	public function json() {
-		$options           = get_option( 'material_design' );
-		$exported          = parent::json();
-		$exported['style'] = ucfirst( $options['style'] );
-
-		return $exported;
-	}
-
-	/**
 	 * An Underscore (JS) template for rendering this panel's container.
 	 *
 	 * The themes panel renders a custom panel heading with the current theme and a switch themes button.

@@ -79,38 +79,6 @@ class Material_Color_Palette_Section extends \WP_Customize_Section {
 	}
 
 	/**
-	 * Render a JS template for the Material color palette tabs.
-	 *
-	 * @return void
-	 */
-	public static function tabs_template() {
-		?>
-		<script type="text/html" id="tmpl-customize-section-material_color-tabs">
-			<# var id = materialDesignSanitizeControlId( data.id ) #>
-			<div class="material-design-section-tabs">
-				<a class="material-design-tab-link material-design-tab-link--active" href="#material-design-default-{{id}}" data-palette="default"><?php esc_html_e( 'Default', 'material-design' ); ?></a>
-				<a class="material-design-tab-link" href="#material-design-dark-{{id}}" data-palette="dark"><?php esc_html_e( 'Dark Mode', 'material-design' ); ?></a>
-			</div>
-			<ul class="material-design-tab-content tab-palette" id="material-design-default-{{id}}">
-				<?php // phpcs:ignore WordPressVIPMinimum.Security.Mustache.OutputNotation ?>
-				{{{ data.content }}}
-			</ul>
-			<ul class="material-design-tab-content tab-default tab-default active" id="material-design-default"></ul>
-			<ul class="material-design-tab-content tab-dark tab-dark-mode" id="material-design-dark">
-				<h3><?php esc_html_e( 'Dark Mode', 'material-design' ); ?></h3>
-				<div class="description">
-					<?php esc_html_e( 'We have picked optimal colors based on your default palette', 'material-design' ); ?>
-				</div>
-			</ul>
-		</script>
-
-		<script type="text/html" id="tmpl-customize-section-material_color-palette-template">
-			<div id="material-design-color-palette-template"></div>
-		</script>
-		<?php
-	}
-
-	/**
 	 * Add our custom args for JSON output as params.
 	 */
 	public function to_json() {

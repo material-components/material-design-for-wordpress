@@ -235,7 +235,7 @@ class Block_Types {
 			'contact_form_preview'      => $this->plugin->asset_url( 'assets/images/preview/contact-form.jpg' ),
 			'defaults'                  => [
 				'blocks'      => $this->get_block_defaults(),
-				'colors'      => $this->get_color_defaults(),
+				'colors'      => $this->get_color_defaults(), // Todo - pass m3 token and update color picker.
 				'globalStyle' => $this->get_global_styles(),
 			],
 			'customizerUrls'            => [

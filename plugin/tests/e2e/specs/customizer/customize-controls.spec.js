@@ -55,15 +55,15 @@ describe( 'Customize controls', () => {
 
 			await page.waitFor( 500 );
 
-			// Assert style section is displayed.
+			// Assert Color section is displayed.
 			expect(
-				await isVisible( '#accordion-section-material_design_style' )
+				await isVisible( '#accordion-section-material_design_colors' )
 			).toBeTruthy();
 		} );
 
 		it( 'should expand collapsible section', async () => {
 			const title = await page.$(
-				'#accordion-section-material_design_style h3'
+				'#accordion-section-material_design_colors h3'
 			);
 			await page.evaluate( btn => {
 				btn.click();
@@ -74,14 +74,14 @@ describe( 'Customize controls', () => {
 			// Assert style section is displayed.
 			expect(
 				await isVisible(
-					'#sub-accordion-section-material_design_style'
+					'#sub-accordion-section-material_design_colors'
 				)
 			).toBeTruthy();
 		} );
 
 		it( 'should collapse collapsible section', async () => {
 			const title = await page.$(
-				'#accordion-section-material_design_style h3'
+				'#accordion-section-material_design_colors h3'
 			);
 			await page.evaluate( btn => {
 				btn.click();
@@ -89,58 +89,12 @@ describe( 'Customize controls', () => {
 
 			await page.waitFor( 500 );
 
-			// Assert style section is displayed.
+			// Assert colors section is displayed.
 			expect(
 				await isVisible(
-					'#sub-accordion-section-material_design_style'
+					'#sub-accordion-section-material_design_colors'
 				)
 			).toBeFalsy();
-		} );
-	} );
-
-	describe( 'Design Style section', () => {
-		it( 'should update primary color if a style is selected', async () => {
-			const crane = await page.$( '#material_design-style-crane' );
-			await page.evaluate( radio => radio.click(), crane );
-
-			// Assert primary color is updated.
-			expect(
-				await page.evaluate(
-					input => input.value,
-					await getPrimaryColorSelector()
-				)
-			).toEqual( '#5d1049' );
-
-			const fortnightly = await page.$(
-				'#material_design-style-fortnightly'
-			);
-			await page.evaluate( radio => radio.click(), fortnightly );
-
-			// Assert primary color is updated.
-			expect(
-				await page.evaluate(
-					input => input.value,
-					await getPrimaryColorSelector()
-				)
-			).toEqual( '#121212' );
-		} );
-
-		// eslint-disable-next-line jest/no-disabled-tests
-		it.skip( 'should update design style to custom if any value is updated', async () => {
-			await page.evaluate( input => {
-				input.value = '#000000';
-				input.dispatchEvent( new Event( 'change' ), input );
-				input.dispatchEvent( new Event( 'blur' ), input );
-			}, await getPrimaryColorSelector() );
-
-			const selectedOption = await page.$(
-				'#material_design-style-custom:checked'
-			);
-
-			// Assert style is updated to custom.
-			expect(
-				await page.evaluate( input => input.value, selectedOption )
-			).toEqual( 'custom' );
 		} );
 	} );
 
@@ -186,7 +140,7 @@ describe( 'Customize controls', () => {
 			expect( colors.length ).toEqual( 254 );
 		} );
 
-		it( 'should select a color on click and update theme to custom', async () => {
+		it( 'should select a color on click', async () => {
 			const firstColor = await page.$(
 				'#customize-control-material_design-primary_color .components-circular-option-picker__option-wrapper__row:first-child .components-circular-option-picker__option-wrapper:first-child button'
 			);
@@ -201,23 +155,6 @@ describe( 'Customize controls', () => {
 					await getPrimaryColorSelector()
 				)
 			).toEqual( '#ffebee' );
-
-			// Theme should be custom on change of color to custom.
-			const selectedOption = await page.$(
-				'#material_design-style-custom'
-			);
-
-			// Assert style is updated to custom.
-			expect(
-				await page.evaluate( input => input.checked, selectedOption )
-			).toBeTruthy();
-		} );
-	} );
-
-	describe( 'Dark mode', () => {
-		it( 'should show two tabs for default and dark mode', async () => {
-			const tabs = await page.$$( '.material-design-section-tabs a' );
-			expect( tabs.length ).toEqual( 2 );
 		} );
 	} );
 

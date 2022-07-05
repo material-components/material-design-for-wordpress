@@ -25,8 +25,8 @@
 	max-width: 1024px;
 
 	& .mdc-button {
-		--mdc-theme-primary: var(--material-design-wizard-primary-color);
-		--mdc-theme-on-primary: var(--material-design-wizard-primary-text);
+		--md-sys-color-primary: var(--material-design-wizard-primary-color);
+		--md-sys-color-on-primary: var(--material-design-wizard-primary-text);
 	}
 
 	& h3,

@@ -26,8 +26,8 @@
 	--material-design-settings-error-color: #dc3232;
 
 	& .mdc-button {
-		--mdc-theme-primary: var(--material-design-settings-primary-color);
-		--mdc-theme-on-primary: var(--material-design-settings-primary-text);
+		--md-sys-color-primary: var(--material-design-settings-primary-color);
+		--md-sys-color-on-primary: var(--material-design-settings-primary-text);
 	}
 
 	& h1,
@@ -50,7 +50,7 @@
 	}
 
 	& .mdc-button--raised .mdc-circular-progress {
-		--mdc-theme-primary: #fff;
+		--md-sys-color-primary: #fff;
 	}
 
 	& .mdc-button.is-loading {

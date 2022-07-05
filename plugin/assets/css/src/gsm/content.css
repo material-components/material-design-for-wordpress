@@ -18,7 +18,7 @@
 	padding-right: 1rem;
 
 	& .mdc-circular-progress {
-		--mdc-theme-primary: #fff;
+		--md-sys-color-primary: #fff;
 	}
 
 	& .mdc-button.is-loading {

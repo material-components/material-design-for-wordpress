@@ -41,6 +41,7 @@
     "@material/image-list": "5.1.0",
     "@material/layout-grid": "5.1.0",
     "@material/list": "5.1.0",
+    "@material/material-color-utilities": "0.1.2",
     "@material/ripple": "5.1.0",
     "@material/switch": "6.0.0",
     "@material/tab-bar": "5.1.0",

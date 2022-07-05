@@ -92,11 +92,11 @@
 .mdc-data-table__header-cell,
 .mdc-data-table__cell,
 .mdc-menu .mdc-list {
-	color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .87);
+	color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-data-table__row {
-	border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .12);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 /* Tabs */
@@ -150,18 +150,18 @@
 /* Surface and On-Surface styles */
 .mdc-button--outlined:not(:disabled),
 .mdc-button--outlined:disabled {
-	border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .12);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-button--outlined:disabled {
-	color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .38);
+	color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-card,
 .mdc-card__link,
 .single-post-card__title,
 .mtb-card__title {
-	color: var(--mdc-theme-on-surface, #000);
+	color: var(--md-sys-color-on-surface, #000);
 	text-decoration: none;
 }
 
@@ -172,7 +172,7 @@
 .single-post-card__subtitle,
 .mtb-card__secondary-text,
 .mtb-card__supporting-text {
-	color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .54);
+	color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-text-field:not(.mdc-text-field--disabled) {
@@ -183,24 +183,24 @@
 	}
 
 	& .mdc-text-field__input {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .87);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-floating-label,
 	& + .mdc-text-field-helper-line .mdc-text-field-helper-text,
 	& .mdc-text-field-character-counter,
 	& + .mdc-text-field-helper-line .mdc-text-field-character-counter {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .6);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	.mdc-text-field__icon--leading,
 	.mdc-text-field__icon--trailing {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .54);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 }
 
 .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-	color: rgba(var(--mdc-theme-primary-rgb, 98, 0, 238), .87);
+	color: var(--md-sys-color-primary);
 }
 
 .mdc-select:not(.mdc-select--disabled) {
@@ -213,103 +213,103 @@
 	& .mdc-select__native-control,
 	& .mdc-select__selected-text,
 	& .mdc-floating-label {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .87);
-		border-bottom-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .42);
+		color: var(--md-sys-color-on-surface, #000);
+		border-bottom-color: var(--md-sys-color-on-surface, #000);
 	}
 }
 
 .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
-	border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .54);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-checkbox__native-control[disabled]:not(:checked):not(:indeterminate) ~ .mdc-checkbox__background {
-	border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .38);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-checkbox__native-control[disabled]:checked ~ .mdc-checkbox__background,
 .mdc-checkbox__native-control[disabled]:indeterminate ~ .mdc-checkbox__background {
-	background-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .38);
+	background-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-radio .mdc-radio__native-control:enabled:not(:checked) + .mdc-radio__background .mdc-radio__outer-circle {
-	border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .54);
+	border-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-drawer {
-	border-color: rgba(var(--mdc-theme-on-surface-rgb, 255, 255, 255), 0.12);
-	background-color: var(--mdc-theme-surface, #fff);
+	border-color: var(--md-sys-color-on-surface, #000);
+	background-color: var(--md-sys-color-surface, #fff);
 
 	& .mdc-drawer__title,
 	& .mdc-list-item {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 255, 255, 255), 0.87);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-drawer__subtitle {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 255, 255, 255), 0.6);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-list-item--selected,
 	& .mdc-list-item--activated {
-		color: var(--mdc-theme-primary, #6200ee);
+		color: var(--md-sys-color-primary, #6200ee);
 	}
 }
 
 :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::before,
 :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::after {
-	background-color: var(--mdc-theme-on-surface, #000);
+	background-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-dialog {
 
 	& .mdc-dialog__title {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 255, 255, 255), 0.87);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-dialog__content,
 	& .mdc-list {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 255, 255, 255), 0.6);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 }
 
 .mdc-chip {
 	background-color: var(--mdc-theme-surface-mix-12, #e0e0e0);
 	border-radius: var(--mdc-chip-radius, 16px);
-	color: rgba(var(--mdc-theme-on-surface-rgb, 255, 255, 255), 0.87);
+	color: var(--md-sys-color-on-surface, #000);
 
 	&.mdc-chip--selected {
-		color: var(--mdc-theme-primary, #6200ee);
+		color: var(--md-sys-color-primary, #6200ee);
 	}
 }
 
 .mdc-icon-button::before,
 .mdc-icon-button::after {
-	background-color: var(--mdc-theme-on-surface, #000);
+	background-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-switch:not(.mdc-switch--checked)
 .mdc-switch__track {
-	background-color: var(--mdc-theme-on-surface, #000);
+	background-color: var(--md-sys-color-on-surface, #000);
 }
 
 .mdc-tab-bar {
-	background-color: var(--mdc-theme-background, var(--mdc-theme-surface, #fff));
+	background-color: var(--md-sys-color-background, var(--md-sys-color-surface, #fff));
 }
 
 .mdc-tab {
 
 	& .mdc-tab__text-label {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), 0.6);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	& .mdc-tab__icon {
-		color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), 0.5);
+		color: var(--md-sys-color-on-surface, #000);
 	}
 
 	&--active {
 
 		& .mdc-tab__icon,
 		& .mdc-tab__text-label {
-			color: var(--mdc-theme-primary, #6200ee);
+			color: var(--md-sys-color-primary, #6200ee);
 		}
 	}
 }
