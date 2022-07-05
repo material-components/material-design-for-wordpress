@@ -603,7 +603,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 	const renderStyleSettingsControl = control => {
 		const { setting } = control;
 		let defaultValue = setting.get();
-		const selectedStyle = api( getConfig( 'styleControl' ) ).get();
 
 		if ( 'string' === typeof defaultValue ) {
 			defaultValue = JSON.parse( defaultValue );
@@ -611,14 +610,11 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 
 		const props = {
 			defaultValue,
-			selectedStyle,
 			setValue: value => {
 				setting.set(
 					JSON.stringify( {
 						...defaultValue,
-						[ selectedStyle ]: {
-							...value,
-						},
+						...value,
 					} )
 				);
 			},

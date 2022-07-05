@@ -39,13 +39,11 @@ const localStorageDarkMode = window.localStorage.getItem(
 	'materialDesignDarkMode'
 );
 
-const StyleSettingsControl = ( { defaultValue, selectedStyle, setValue } ) => {
-	const [ currentValue, setCurrentValue ] = useState(
-		defaultValue[ selectedStyle ]
-	);
+const StyleSettingsControl = ( { defaultValue, setValue } ) => {
+	const [ currentValue, setCurrentValue ] = useState( defaultValue );
 	const { dark, switcher } = currentValue;
 	const [ isSwitcherDisabled, setIsSwitcherDisabled ] = useState(
-		'inactive' === defaultValue[ selectedStyle ].dark
+		'inactive' === defaultValue.dark
 	);
 	const isThemeActive = 'ok' === getConfig( 'themeStatus' );
 
