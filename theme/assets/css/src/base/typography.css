@@ -61,6 +61,23 @@
 @mixin selector-typography .mdc-typography--subtitle1, label-large, 1, 1.75, 400;
 @mixin selector-typography .mdc-typography--subtitle2, label-medium, 0.875, 1.375, 500;
 
+/** WordPress Gutenberg typography class registered in theme support / theme.json. */
+@mixin selector-typography .has-display-large-font-size, display-large, 7.5, 6, 300;
+@mixin selector-typography .has-display-medium-font-size, display-medium, 6.875, 6, 300;
+@mixin selector-typography .has-display-small-font-size, display-small, 6, 6, 300;
+@mixin selector-typography .has-headline-large-font-size, headline-large, 3.75, 3.75, 300;
+@mixin selector-typography .has-headline-medium-font-size, headline-medium, 3, 3.125, 400;
+@mixin selector-typography .has-headline-small-font-size, headline-small, 2.125, 2.5, 400;
+@mixin selector-typography .has-title-large-font-size, title-large, 1.5, 2, 400;
+@mixin selector-typography .has-title-medium-font-size, title-medium, 1.25, 2, 500;
+@mixin selector-typography .has-title-small-font-size, title-small, 0.875, 1.57, 500;
+@mixin selector-typography .has-body-large-font-size, body-large, 1, 1.5, 400;
+@mixin selector-typography .has-body-medium-font-size, body-medium, 0.875, 1.25, 400;
+@mixin selector-typography .has-body-small-font-size, body-small, 0.75, 1.25, 400;
+@mixin selector-typography .has-label-large-font-size, label-large, 1, 1.75, 400;
+@mixin selector-typography .has-label-medium-font-size, label-medium, 0.875, 1.375, 500;
+@mixin selector-typography .has-label-small-font-size, label-small, 0.75, 2, 500;
+
 /* Backward compat: For `body` types typography should be applied to child elements as well */
 @mixin selector-typography .mdc-typography--body1 *, body-large, 1, 1.5, 400;
 @mixin selector-typography .mdc-typography--body2 *, body-large, 0.875, 1.25, 400;
