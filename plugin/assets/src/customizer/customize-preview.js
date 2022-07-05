@@ -285,7 +285,7 @@ export const COLOR_MODES = {
 			toggleDarkModeSwitch( settings );
 		} );
 
-		styles = `:root {
+		styles = `:root, body {
 			${ styles }
 		}
 
