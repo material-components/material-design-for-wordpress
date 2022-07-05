@@ -218,6 +218,12 @@ const getSharedConfig = ( packageType, isBlockEditor ) => {
 							'postcss-loader',
 						],
 					},
+					{
+						test: /\.m?js/,
+						resolve: {
+							fullySpecified: false,
+						},
+					},
 				],
 			},
 			plugins: [

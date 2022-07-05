@@ -17,7 +17,7 @@
 /**
  * WordPress dependencies
  */
-import { TextControl, ColorPicker } from '@wordpress/components';
+import { TextControl, ColorPicker, Button } from '@wordpress/components';
 import { useState, useEffect } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -32,18 +32,13 @@ import classNames from 'classnames';
 import './style.css';
 import ColorA11y from './color-a11y';
 import MaterialColorPalette from '../../../block-editor/components/material-color-palette';
-import { COLOR_MODES } from '../../customize-preview';
+import { randomColor } from '../../utils';
 
-const api = window.customize;
+const api = window.wp.customize;
 
-const ColorControl = ( {
-	defaultValue,
-	params,
-	onColorChange,
-	range,
-	mode,
-} ) => {
+const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 	const [ color, setColor ] = useState( defaultValue );
+	/* @var {Theme} color The current color value. */
 	const [ displayColorPalette, setDisplayColorPalette ] = useState( false );
 	const [ materialPickerSelected, setMaterialPickerSelected ] = useState(
 		true
@@ -51,9 +46,11 @@ const ColorControl = ( {
 	const [ isLinked, setIsLinked ] = useState( false );
 	const { label } = params;
 
+	const isDarkMode = window.matchMedia( '(prefers-color-scheme: dark)' )
+		.matches;
+
 	const onChange = value => {
 		setColor( value );
-		onColorChange( value );
 	};
 
 	const onBlur = event => {
@@ -63,32 +60,38 @@ const ColorControl = ( {
 			return;
 		}
 
+		setColor( target.value );
 		onColorChange( target.value );
 	};
 
-	useEffect( () => {
-		if ( 'dark' === mode && isLinked ) {
-			setColor( range.dark.hex );
-		} else if ( 'contrast' === mode && isLinked ) {
-			setColor( range.light.hex );
+	const onShuffle = () => {
+		const shuffledColor = randomColor();
+
+		if ( shuffledColor ) {
+			setColor( shuffledColor );
 		}
-	}, [ mode, isLinked, range ] );
+	};
 
 	useEffect( () => {
-		if ( isLinked ) {
-			onColorChange( color );
-		}
-	}, [ isLinked, color, onColorChange ] );
+		let hexColor = color.substring( 1 );
 
-	useEffect( () => {
-		if ( ! range ) {
+		if ( hexColor.length === 3 ) {
+			hexColor = hexColor
+				.split( '' )
+				.map( hex => hex + hex )
+				.join( '' );
+		}
+
+		if ( 6 !== hexColor.length ) {
 			return;
 		}
 
-		if ( COLOR_MODES.dark === mode ) {
-			setIsLinked( color === range.dark.hex );
-		}
-	}, [ color, mode, range ] );
+		onColorChange( `#${ hexColor }` );
+		api.previewer.send( 'materialDesignM3PaletteUpdate', {
+			color,
+			isDarkMode,
+		} );
+	}, [ color ] );
 
 	return (
 		<>
@@ -127,6 +130,13 @@ const ColorControl = ( {
 						</span>
 					</button>
 				) }
+
+				<Button
+					className="material-design-color__shuffle"
+					variant="tertiary"
+					icon="randomize"
+					onClick={ onShuffle }
+				/>
 			</div>
 
 			{ displayColorPalette && (
@@ -180,7 +190,6 @@ const ColorControl = ( {
 									color={ color }
 									onChangeComplete={ selectedColor => {
 										onChange( selectedColor.hex );
-										onColorChange( selectedColor.hex );
 									} }
 									disableAlpha
 								/>

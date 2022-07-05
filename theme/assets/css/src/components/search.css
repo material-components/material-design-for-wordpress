@@ -46,12 +46,12 @@
 
 			& .mdc-text-field__input {
 				border: 0;
-				caret-color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
-				color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+				caret-color: var(--md-sys-color-on-primary, #fff);
+				color: var(--md-sys-color-on-primary, #fff);
 				padding-left: 1rem;
 
 				&::placeholder {
-					color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+					color: var(--md-sys-color-on-primary, #fff);
 				}
 
 				/* clears the 'X' for `input[type=search]` */
@@ -88,7 +88,7 @@
 
 		& .button__back {
 			background-color: transparent;
-			color: var(--mdc-theme-on-header, var(--mdc-theme-on-primary, #fff));
+			color: var(--md-sys-color-on-primary, #fff);
 			margin-right: 0;
 
 			&:focus {
@@ -96,7 +96,7 @@
 			}
 
 			&::before {
-				background-color: var(--mdc-theme-on-primary, #fff);
+				background-color: var(--md-sys-color-on-primary, #fff);
 			}
 
 			&:focus::before {

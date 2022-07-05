@@ -232,75 +232,25 @@ class Controls extends Module_Base {
 		 * List of all the control settings in the Theme section.
 		 */
 		$settings = [
-			'style'          => [
-				'default' => 'baseline',
-			],
-			// This setting does not have an associated control.
-			'previous_style' => [
-				'default' => 'baseline',
+			'color_palette' => [
+				'default' => [],
 			],
 			/**
 			 * This setting does not have an associated control
 			 * it's used to display material components notification.
 			 */
-			'notify'         => [
+			'notify'        => [
 				'default' => 0,
 			],
-		];
-
-		$this->add_settings( $settings );
-
-		$choices = $this->get_style_choices();
-
-		/**
-		 * List of all the controls in the Theme section.
-		 */
-		$controls_theme = [
-			'style' => new Image_Radio_Control(
-				$this->wp_customize,
-				$this->prepare_option_name( 'style' ),
-				[
-					'section'  => 'style',
-					'priority' => 10,
-					'choices'  => $choices,
-				]
-			),
-		];
-
-		$default_settings = [];
-
-		foreach ( $choices as $key => $value ) {
-			$default_settings[ $key ] = [
+			'dark_mode'     => [
 				'dark'     => 'auto',
 				'contrast' => 'auto',
 				'switcher' => false,
 				'active'   => 'default',
-			];
-		}
-
-		$style_settings = [
-			'style_settings' => [
-				'default' => $default_settings,
 			],
 		];
 
-		$this->add_settings( $style_settings );
-
-		$controls_settings = [
-			'style_settings' => new Style_Settings_Control(
-				$this->wp_customize,
-				$this->prepare_option_name( 'style_settings' ),
-				[
-					'section'  => 'style_settings',
-					'priority' => 200,
-					'style'    => get_option( $this->prepare_option_name( 'style' ) ),
-					'css_var'  => '--mdc-theme-setting',
-				]
-			),
-		];
-
-		$this->add_controls( $controls_theme );
-		$this->add_controls( $controls_settings );
+		$this->add_settings( $settings );
 
 		$active_mode_settings = [
 			'active_mode' => [
@@ -372,12 +322,6 @@ class Controls extends Module_Base {
 				$this->prepare_option_name( $control['id'] ),
 				$args
 			);
-
-			// Dark mode overrides.
-			$dark_mode_controls[ $control['id'] . $this->dark_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'dark_colors' );
-
-			// High contrast overrides.
-			$contrast_controls[ $control['id'] . $this->contrast_mode_suffix ] = $this->get_dark_mode_controls_override( $control, $args, 'contrast_colors' );
 		}
 
 		$this->add_controls( $controls );
@@ -728,6 +672,7 @@ class Controls extends Module_Base {
 				'styleControl'           => $this->prepare_option_name( 'style' ),
 				'styleSettings'          => $this->prepare_option_name( 'style_settings' ),
 				'prevStyleControl'       => $this->prepare_option_name( 'previous_style' ),
+				'colorPalette'           => $this->prepare_option_name( 'color_palette' ),
 				'iconCollectionsControl' => $this->prepare_option_name( 'icon_collection' ),
 				'activeModeControl'      => $this->prepare_option_name( 'active_mode' ),
 				'iconCollectionsOptions' => $this->get_icon_collection_controls(),
@@ -743,9 +688,7 @@ class Controls extends Module_Base {
 				'restPath'               => esc_url( $this->plugin->onboarding_rest_controller->get_base_path() ),
 				'resetCardStyleRest'     => esc_url( $this->plugin->reset_card_style_rest_controller->get_base_path() ),
 				'images'                 => $demo_images,
-				'styleChoices'           => $this->get_style_choices(),
 				'colorControls'          => $this->get_color_controls(),
-				'colorControlsDark'      => $this->get_color_controls_variant( 'dark' ),
 			]
 		);
 
@@ -871,7 +814,6 @@ class Controls extends Module_Base {
 	 * Render custom templates.
 	 */
 	public function templates() {
-		Material_Color_Palette_Section::tabs_template();
 		Material_Color_Palette_Control::tabs_template();
 	}
 
@@ -884,29 +826,7 @@ class Controls extends Module_Base {
 		$font_vars          = [];
 		$google_fonts       = Google_Fonts::get_fonts();
 		$dark_mode_vars     = [];
-
-		foreach ( $this->get_color_controls() as $control ) {
-			$value = $this->get_option( $control['id'] );
-			$rgb   = Helpers::hex_to_rgb( $value );
-			if ( ! empty( $rgb ) ) {
-				$rgb = implode( ',', $rgb );
-			}
-
-			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
-			$color_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
-		}
-
-		// Generate additional surface variant vars required by some components.
-		$surface    = $this->get_option( 'surface_color' );
-		$on_surface = $this->get_option( 'on_surface_color' );
-
-		if ( ! empty( $surface ) && ! empty( $on_surface ) ) {
-			$mix_4        = Helpers::mix_colors( $on_surface, $surface, 0.04 );
-			$color_vars[] = esc_html( "--mdc-theme-surface-mix-4: $mix_4;" );
-
-			$mix_12       = Helpers::mix_colors( $on_surface, $surface, 0.12 );
-			$color_vars[] = esc_html( "--mdc-theme-surface-mix-12: $mix_12;" );
-		}
+		$light_mode_vars    = [];
 
 		$typography_controls = $this->get_typography_controls();
 		foreach ( $typography_controls as $control ) {
@@ -1012,28 +932,29 @@ class Controls extends Module_Base {
 			);
 		}
 
-		foreach ( $this->get_color_controls_variant( 'dark' ) as $control ) {
-			$value = $this->get_option( $control['id'] );
-			$rgb   = Helpers::hex_to_rgb( $value );
-			if ( ! empty( $rgb ) ) {
-				$rgb = implode( ',', $rgb );
-			}
-
-			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
-			$dark_mode_vars[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
-		}
-
 		$glue               = "\n\t\t\t\t";
 		$icon_collection    = $this->get_icon_collection_css();
 		$color_vars         = implode( $glue, $color_vars );
 		$corner_styles_vars = implode( $glue, $corner_styles_vars );
 		$font_vars          = implode( $glue, $font_vars );
-		$dark_mode_vars     = implode( $glue, $dark_mode_vars );
+		$color_palette      = $this->get_option( 'color_palette' );
+		$light_mode_vars    = '';
+		$dark_mode_vars     = '';
+
+		if ( $color_palette ) {
+			$color_palette = json_decode( $color_palette, true );
+		}
+
+		if ( ! empty( $color_palette ) ) {
+			$light_mode_vars = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['light'] ) );
+			$dark_mode_vars  = implode( $glue, $this->generate_theme_variables( $color_palette['schemes']['dark'] ) );
+		}
+
 
 		$css = "
 			:root {
 				/* Theme color vars */
-				{$color_vars}
+				{$light_mode_vars}
 
 				/* Icon collection type var */
 				{$icon_collection}
@@ -1045,19 +966,25 @@ class Controls extends Module_Base {
 				{$corner_styles_vars}
 			}
 
+			/* Forced light mode */
+			body[data-color-scheme='light'] {
+				{$light_mode_vars}
+			}
+
 			/* Forced dark mode */
 			body[data-color-scheme='dark'] {
 				{$dark_mode_vars}
-			}
-
-			/* Forced light mode */
-			body[data-color-scheme='light'] {
-				{$color_vars}
 			}
 		";
 
 		if ( 'inactive' !== $this->get_dark_mode_status() ) {
 			$css .= "
+				@media (prefers-color-scheme: light) {
+					:root {
+						{$light_mode_vars}
+					}
+				}
+
 				@media (prefers-color-scheme: dark) {
 					:root {
 						{$dark_mode_vars}
@@ -1115,6 +1042,12 @@ class Controls extends Module_Base {
 				'on_secondary_color'           => '#000000',
 				'on_secondary_color_dark'      => '#000000',
 				'on_secondary_color_contrast'  => '#000000',
+				'tertiary_color'               => '#7D5260',
+				'tertiary_dark'                => '#7D5260',
+				'tertiary_contrast'            => '#7D5260',
+				'on_tertiary_color'            => '#FFFFFF',
+				'on_tertiary_color_dark'       => '#FFFFFF',
+				'on_tertiary_color_contrast'   => '#FFFFFF',
 				'surface_color'                => '#ffffff',
 				'surface_color_dark'           => '#121212',
 				'surface_color_contrast'       => '#ffffff',
@@ -1273,77 +1206,12 @@ class Controls extends Module_Base {
 		return [
 			[
 				'id'                   => 'primary_color',
-				'label'                => __( 'Primary Color', 'material-design' ),
-				'a11y_label'           => __( 'On Primary', 'material-design' ),
+				'label'                => __( 'Source Color', 'material-design' ),
+				'a11y_label'           => __( 'Source Color', 'material-design' ),
 				'related_text_setting' => $this->prepare_option_name( 'on_primary_color' ),
-				'css_var'              => '--mdc-theme-primary',
-			],
-			[
-				'id'              => 'on_primary_color',
-				'label'           => __( 'On Primary Color (text and icons)', 'material-design' ),
-				'a11y_label'      => __( 'On Primary', 'material-design' ),
-				'related_setting' => $this->prepare_option_name( 'primary_color' ),
-				'css_var'         => '--mdc-theme-on-primary',
-			],
-			[
-				'id'                   => 'secondary_color',
-				'label'                => __( 'Secondary Color', 'material-design' ),
-				'a11y_label'           => __( 'On Secondary', 'material-design' ),
-				'related_text_setting' => $this->prepare_option_name( 'on_secondary_color' ),
-				'css_var'              => '--mdc-theme-secondary',
-			],
-			[
-				'id'              => 'on_secondary_color',
-				'label'           => __( 'On Secondary Color (text and icons)', 'material-design' ),
-				'a11y_label'      => __( 'On Secondary', 'material-design' ),
-				'related_setting' => $this->prepare_option_name( 'secondary_color' ),
-				'css_var'         => '--mdc-theme-on-secondary',
-			],
-			[
-				'id'                   => 'surface_color',
-				'label'                => __( 'Surface Color', 'material-design' ),
-				'a11y_label'           => __( 'On Surface', 'material-design' ),
-				'related_text_setting' => $this->prepare_option_name( 'on_surface_color' ),
-				'css_var'              => '--mdc-theme-surface',
-			],
-			[
-				'id'              => 'on_surface_color',
-				'label'           => __( 'On Surface Color (text and icons)', 'material-design' ),
-				'a11y_label'      => __( 'On Surface', 'material-design' ),
-				'related_setting' => $this->prepare_option_name( 'surface_color' ),
-				'css_var'         => '--mdc-theme-on-surface',
+				'css_var'              => '--md-sys-color-primary',
 			],
 		];
-	}
-
-	/**
-	 * Get a list of dark / contrast control settings.
-	 *
-	 * @param string $variant Color prefix to return.
-	 *
-	 * @return array New color controls.
-	 */
-	public function get_color_controls_variant( $variant ) {
-		$controls      = $this->get_color_controls();
-		$dark_controls = [];
-
-		foreach ( $controls as $control ) {
-			$dark_control = $control;
-
-			$dark_control['id'] .= sprintf( '_%s', $variant );
-
-			if ( isset( $dark_control['related_text_setting'] ) ) {
-				$dark_control['related_text_setting'] = $this->prepare_option_name( $dark_control['id'] );
-			}
-
-			if ( isset( $dark_control['related_setting'] ) ) {
-				$dark_control['related_setting'] = $this->prepare_option_name( $dark_control['id'] );
-			}
-
-			$dark_controls[] = $dark_control;
-		}
-
-		return $dark_controls;
 	}
 
 	/**
@@ -1936,36 +1804,6 @@ class Controls extends Module_Base {
 	}
 
 	/**
-	 * Get array of existing default choices.
-	 *
-	 * @return array Existing choices.
-	 */
-	public function get_style_choices() {
-		return [
-			'baseline'    => [
-				'label' => __( 'Baseline', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/baseline.svg' ),
-			],
-			'crane'       => [
-				'label' => __( 'Crane', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/crane.svg' ),
-			],
-			'fortnightly' => [
-				'label' => __( 'Fortnightly', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/fortnightly.svg' ),
-			],
-			'blossom'     => [
-				'label' => __( 'Blossom', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/blossom.svg' ),
-			],
-			'custom'      => [
-				'label' => __( 'Custom', 'material-design' ),
-				'url'   => $this->plugin->asset_url( 'assets/images/custom.svg' ),
-			],
-		];
-	}
-
-	/**
 	 * Override control arguments for dark mode variants.
 	 *
 	 * @param array  $control Control to override.
@@ -2103,5 +1941,29 @@ class Controls extends Module_Base {
 
 		$this->add_settings( $settings );
 		$this->add_controls( $controls );
+	}
+
+	/**
+	 * Generate color variables based on current palette.
+	 *
+	 * @param array $color_palette Current color palette.
+	 *
+	 * @return array Array of variables.
+	 */
+	public function generate_theme_variables( $color_palette ) {
+		$variables = [];
+
+		if ( empty( $color_palette ) ) {
+			return [];
+		}
+
+		foreach ( $color_palette as $key => $value ) {
+			$token = '--md-sys-color-' . strtolower( preg_replace( '/([a-z])([A-Z])/', '$1-$2', $key ) );
+			$color = Helpers::rgb_to_hex( $value );
+
+			$variables[ $token ] = sprintf( '%1$s:%2$s;', $token, $color );
+		}
+
+		return $variables;
 	}
 }

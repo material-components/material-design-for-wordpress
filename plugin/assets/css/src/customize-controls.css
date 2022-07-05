@@ -269,8 +269,8 @@
 }
 
 #material-library-preview {
-	background: var(--mdc-theme-background, #fff);
-	color: var(--mdc-theme-on-background, #000);
+	background: var(--md-sys-color-background, #fff);
+	color: var(--md-sys-color-on-background, #000);
 	padding: 30px 50px;
 
 	button {

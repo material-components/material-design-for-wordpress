@@ -29,11 +29,15 @@
  * External dependencies
  */
 import debounce from 'lodash/debounce';
+import {
+	argbFromHex,
+	themeFromSourceColor,
+	applyTheme,
+} from '@material/material-color-utilities';
 
 /**
  * Internal dependencies
  */
-import colorUtils from '../common/color-utils';
 import { STYLES } from '../customizer/components/google-fonts-control/styles';
 
 const getIconFontName = iconStyle => {
@@ -83,6 +87,19 @@ export const COLOR_MODES = {
 			api.preview.bind( 'materialDesignPaletteUpdate', message => {
 				updateColorMode( message );
 			} );
+
+			api.preview.bind(
+				'materialDesignM3PaletteUpdate',
+				( { color, isDarkMode } ) => {
+					const intColor = argbFromHex( color );
+					const colorPallete = themeFromSourceColor( intColor );
+
+					applyTheme( colorPallete, {
+						target: document.body,
+						dark: isDarkMode,
+					} );
+				}
+			);
 		} );
 	} );
 
@@ -155,10 +172,7 @@ export const COLOR_MODES = {
 	const generatePreviewStyles = debounce( () => {
 		const stylesheetID = 'material-design-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
-			styles = '',
-			darkStyles = '',
-			lightStyles = '',
-			colorRgb;
+			styles = '';
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
 		if ( ! stylesheet.length ) {
@@ -219,51 +233,6 @@ export const COLOR_MODES = {
 			}
 		} );
 
-		// Generate the styles.
-		Object.keys( colorControls ).forEach( control => {
-			const color = parentApi( control ).get();
-
-			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
-
-			if ( ! color ) {
-				return;
-			}
-
-			styles += `${ colorControls[ control ] }: ${ color };
-				${ colorControls[ control ] }-rgb: ${ colorRgb };
-			`;
-		} );
-
-		// Generate the styles of forced dark mode.
-		Object.keys( darkModeControls ).forEach( control => {
-			const color = parentApi( control ).get();
-
-			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
-
-			if ( ! color ) {
-				return;
-			}
-
-			darkStyles += `${ darkModeControls[ control ] }: ${ color };
-				${ darkModeControls[ control ] }-rgb: ${ colorRgb };
-			`;
-		} );
-
-		// Generate the styles of forced light mode.
-		Object.keys( defaultModeControls ).forEach( control => {
-			const color = parentApi( control ).get();
-
-			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
-
-			if ( ! color ) {
-				return;
-			}
-
-			lightStyles += `${ defaultModeControls[ control ] }: ${ color };
-				${ defaultModeControls[ control ] }-rgb: ${ colorRgb };
-			`;
-		} );
-
 		Object.keys( cornerStyleControls ).forEach( control => {
 			let settingValue = parentApi( control ).get();
 			const args = cornerStyleControls[ control ];
@@ -291,16 +260,11 @@ export const COLOR_MODES = {
 			toggleDarkModeSwitch( settings );
 		} );
 
-		styles = `:root {
+		styles +=
+			'--md-sys-color-primary: var(--md-sys-color-primary);--md-sys-color-on-primary: var(--md-sys-color-on-primary);--md-sys-color-background: var(--md-sys-color-background);--md-sys-color-on-background: var(--md-sys-color-on-background);--md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant);--md-sys-color-surface-variant: var(--md-sys-color-surface-variant);--md-sys-color-on-surface: var(--md-sys-color-on-surface);--md-sys-color-surface: var(--md-sys-color-surface);--md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant);--md-sys-color-outline: var(--md-sys-color-outline);';
+
+		styles = `body {
 			${ styles }
-		}
-
-		body[data-color-scheme="dark"] {
-			${ darkStyles }
-		}
-
-		body[data-color-scheme="light"] {
-			${ lightStyles }
 		}
 		`;
 

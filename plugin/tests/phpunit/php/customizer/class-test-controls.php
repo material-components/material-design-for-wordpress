@@ -262,46 +262,6 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test for add_theme_controls() method.
-	 *
-	 * @see Controls::add_theme_controls()
-	 */
-	public function test_add_theme_controls() {
-		$controls = get_plugin_instance()->customizer_controls;
-
-		// Set $wp_customize to the mocked object.
-		$controls->wp_customize = $this->wp_customize;
-
-		// Set up the expectation for the add_setting() method
-		// to be called.
-		$this->wp_customize->expects( $this->exactly( 5 ) )
-			->method( 'add_setting' )
-			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}[style]" ) ],
-				[ $this->equalTo( "{$controls->slug}[previous_style]" ) ],
-				[ $this->equalTo( "{$controls->slug}[notify]" ) ],
-				[ $this->equalTo( "{$controls->slug}[style_settings]" ) ],
-				[ $this->equalTo( "{$controls->slug}[active_mode]" ) ]
-			);
-
-		// Set up the expectation for the add_control() method
-		// to be called.
-		$this->wp_customize->expects( $this->exactly( 3 ) )
-			->method( 'add_control' )
-			->withConsecutive(
-				[
-					$this->callback(
-						function ( $control ) use ( $controls ) {
-							return "{$controls->slug}[style]" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'blossom', 'custom' ] === array_keys( $control->choices );
-						}
-					),
-				]
-			);
-
-		$controls->add_theme_controls();
-	}
-
-	/**
 	 * Test for add_typography_controls() method.
 	 *
 	 * @see Controls::add_typography_controls()
@@ -629,20 +589,6 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Assert we get the default values as CSS vars.
 		$this->assertContains( ':root {', $css );
-		$this->assertContains( '--mdc-theme-primary: #6200ee;', $css );
-		$this->assertContains( '--mdc-theme-primary-rgb: 98,0,238;', $css );
-		$this->assertContains( '--mdc-theme-secondary: #018786;', $css );
-		$this->assertContains( '--mdc-theme-secondary-rgb: 1,135,134;', $css );
-		$this->assertContains( '--mdc-theme-on-primary: #ffffff;', $css );
-		$this->assertContains( '--mdc-theme-on-primary-rgb: 255,255,255;', $css );
-		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
-		$this->assertContains( '--mdc-theme-on-secondary-rgb: 0,0,0;', $css );
-		$this->assertContains( '--mdc-theme-surface: #ffffff;', $css );
-		$this->assertContains( '--mdc-theme-surface-rgb: 255,255,255;', $css );
-		$this->assertContains( '--mdc-theme-on-surface: #000000;', $css );
-		$this->assertContains( '--mdc-theme-on-surface-rgb: 0,0,0;', $css );
-		$this->assertContains( '--mdc-theme-surface-mix-4: #f5f5f5;', $css );
-		$this->assertContains( '--mdc-theme-surface-mix-12: #e0e0e0;', $css );
 
 		$this->assertContains( '--md-sys-typescale-title-large-font: "Roboto", sans-serif;', $css );
 		$this->assertContains( '--md-sys-typescale-title-medium-font: "Roboto", sans-serif;', $css );
