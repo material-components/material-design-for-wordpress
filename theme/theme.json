@@ -1,0 +1,89 @@
+{
+  "$schema": "https://schemas.wp.org/wp/5.8/theme.json",
+  "version": 1,
+  "settings": {
+    "layout": {
+      "contentSize": "840px",
+      "wideSize": "84rem"
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "Display Large",
+          "size": "var(--md-sys-typescale-display-large-size, 7.5em)",
+          "slug": "display-large"
+        },
+        {
+          "name": "Display Medium",
+          "size": "var(--md-sys-typescale-display-medium-size, 6.875em)",
+          "slug": "display-medium"
+        },
+        {
+          "name": "Display Small",
+          "size": "var(--md-sys-typescale-display-small-size, 6em)",
+          "slug": "display-small"
+        },
+        {
+          "name": "Headline Large",
+          "size": "var(--md-sys-typescale-headline-large-size, 3.75em)",
+          "slug": "headline-large"
+        },
+        {
+          "name": "Headline Medium",
+          "size": "var(--md-sys-typescale-headline-medium-size, 3em)",
+          "slug": "headline-medium"
+        },
+        {
+          "name": "Headline Small",
+          "size": "var(--md-sys-typescale-headline-small-size, 2.125em)",
+          "slug": "headline-small"
+        },
+        {
+          "name": "Title Large",
+          "size": "var(--md-sys-typescale-title-large-size, 1.5em)",
+          "slug": "title-large"
+        },
+        {
+          "name": "Title Medium",
+          "size": "var(--md-sys-typescale-title-medium-size, 1.25em)",
+          "slug": "title-medium"
+        },
+        {
+          "name": "Title Small",
+          "size": "var(--md-sys-typescale-title-small-size, 0.875em)",
+          "slug": "title-small"
+        },
+        {
+          "name": "Label Large",
+          "size": "var(--md-sys-typescale-label-large-size, 1em)",
+          "slug": "label-large"
+        },
+        {
+          "name": "Label Medium",
+          "size": "var(--md-sys-typescale-label-medium-size, 0.875em)",
+          "slug": "label-medium"
+        },
+        {
+          "name": "Label Small",
+          "size": "var(--md-sys-typescale-label-small-size, 0.75em)",
+          "slug": "label-small"
+        },
+        {
+          "name": "Body Large",
+          "size": "var(--md-sys-typescale-body-large-size, 1)",
+          "slug": "body-large"
+        },
+        {
+          "name": "Body Medium",
+          "size": "var(--md-sys-typescale-body-medium-size, 0.857em)",
+          "slug": "body-medium"
+        },
+        {
+          "name": "Body Small",
+          "size": "var(--md-sys-typescale-body-small-size, 0.75em)",
+          "slug": "body-small"
+        }
+      ]
+    }
+  }
+}

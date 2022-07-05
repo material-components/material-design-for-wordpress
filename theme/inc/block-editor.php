@@ -26,7 +26,62 @@ function setup() {
 	add_action( 'init', __NAMESPACE__ . '\\register_disable_section_meta' );
 	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_block_editor_assets' );
 	add_action( 'body_class', __NAMESPACE__ . '\\filter_body_class' );
+	add_action( 'after_setup_theme', __NAMESPACE__ . '\\add_font_sizes' );
+
+	handle_fse_opt_out();
 }
+
+/**
+ * Handle fse opt out for.
+ *
+ * @return void
+ */
+function handle_fse_opt_out() {
+	// Removes fse menu entry and other features.
+	remove_theme_support( 'block-templates' );
+	// Disable the FSE template route.
+	$template_types = array_keys( get_default_block_template_types() );
+	foreach ( $template_types as $template_type ) {
+		// Skip 'embed' for now because it is not a regular template type.
+		if ( 'embed' === $template_type ) {
+			continue;
+		}
+		add_filter( str_replace( '-', '', $template_type ) . '_template', __NAMESPACE__ . '\\determine_template', 10, 3 );
+	}
+	add_filter( 'theme_file_path', __NAMESPACE__ . '\\filter_disable_fse', 10, 2 );
+}
+
+/**
+ * Filter site path to enable and disable FSE.
+ *
+ * @param string $path File path.
+ * @param string $file Relative theme path.
+ *
+ * @return string
+ */
+function filter_disable_fse( $path, $file ) {
+	if ( 'index.html' !== basename( $file ) ) {
+		return $path;
+	}
+
+	return str_replace( 'index.html', 'index-disabled.html', $path );
+}
+
+/**
+ * Determine template for non FSE theme.
+ *
+ * This will allow fallback to default php template if user has not opted in for FSE template.
+ *
+ * @param string   $_template Path to the template. See locate_template().
+ * @param string   $_type     Sanitized filename without extension.
+ * @param string[] $templates A list of template candidates, in descending order of priority.
+ *
+ * @return string
+ */
+function determine_template( $_template, $_type, $templates ) {
+	return locate_template( $templates );
+}
+
 
 /**
  * Register disable section meta.
@@ -95,4 +150,108 @@ function filter_body_class( $classes ) {
 	}
 
 	return $classes;
+}
+
+/**
+ * Em to px.
+ *
+ * @param float $em Em value.
+ *
+ * @return int
+ */
+function em_to_px( $em ) {
+	return (int) ( $em * 16 );
+}
+
+/**
+ * Add font sizes.
+ *
+ * @return void
+ */
+function add_font_sizes() {
+	// Handle for 5.6 and 5.7 WP, 5.8 and later will be handled via theme.json.
+	if ( version_compare( get_bloginfo( 'version' ), '5.6', '<' ) || version_compare( get_bloginfo( 'version' ), '5.8', '>=' ) ) {
+		return;
+	}
+
+	add_theme_support(
+		'editor-font-sizes',
+		[
+			[
+				'name' => __( 'Display Large', 'material-design-google' ),
+				'size' => em_to_px( 7.5 ),
+				'slug' => 'display-large',
+			],
+			[
+				'name' => __( 'Display Medium', 'material-design-google' ),
+				'size' => em_to_px( 6.875 ),
+				'slug' => 'display-medium',
+			],
+			[
+				'name' => __( 'Display Small', 'material-design-google' ),
+				'size' => em_to_px( 6 ),
+				'slug' => 'display-small',
+			],
+			[
+				'name' => __( 'Headline Large', 'material-design-google' ),
+				'size' => em_to_px( 3.75 ),
+				'slug' => 'headline-large',
+			],
+			[
+				'name' => __( 'Headline Medium', 'material-design-google' ),
+				'size' => em_to_px( 3 ),
+				'slug' => 'headline-medium',
+			],
+			[
+				'name' => __( 'Headline Small', 'material-design-google' ),
+				'size' => em_to_px( 2.125 ),
+				'slug' => 'headline-small',
+			],
+			[
+				'name' => __( 'Title Large', 'material-design-google' ),
+				'size' => em_to_px( 1.5 ),
+				'slug' => 'title-large',
+			],
+			[
+				'name' => __( 'Title Medium', 'material-design-google' ),
+				'size' => em_to_px( 1.25 ),
+				'slug' => 'title-medium',
+			],
+			[
+				'name' => __( 'Title Small', 'material-design-google' ),
+				'size' => em_to_px( 0.875 ),
+				'slug' => 'title-small',
+			],
+			[
+				'name' => __( 'Label Large', 'material-design-google' ),
+				'size' => em_to_px( 1 ),
+				'slug' => 'label-large',
+			],
+			[
+				'name' => __( 'Label Medium', 'material-design-google' ),
+				'size' => em_to_px( 0.875 ),
+				'slug' => 'label-medium',
+			],
+			[
+				'name' => __( 'Label Small', 'material-design-google' ),
+				'size' => em_to_px( 0.75 ),
+				'slug' => 'label-small',
+			],
+			[
+				'name' => __( 'Body Large', 'material-design-google' ),
+				'size' => em_to_px( 1 ),
+				'slug' => 'body-large',
+			],
+			[
+				'name' => __( 'Body Medium', 'material-design-google' ),
+				'size' => em_to_px( 0.875 ),
+				'slug' => 'body-medium',
+			],
+			[
+				'name' => __( 'Body Small', 'material-design-google' ),
+				'size' => em_to_px( 0.75 ),
+				'slug' => 'body-small',
+			],
+		]
+	);
 }

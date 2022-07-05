@@ -78,3 +78,10 @@
 .mdc-image-list__label {
 	white-space: normal;
 }
+
+/*
+ * Fix dropdown font size on Gutenberg with 5.6.
+ */
+.components-font-size-picker__select > ul > li {
+	font-size: inherit !important;
+}
