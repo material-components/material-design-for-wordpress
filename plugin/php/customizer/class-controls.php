@@ -232,25 +232,42 @@ class Controls extends Module_Base {
 		 * List of all the control settings in the Theme section.
 		 */
 		$settings = [
-			'color_palette' => [
+			'color_palette'  => [
 				'default' => [],
 			],
 			/**
 			 * This setting does not have an associated control
 			 * it's used to display material components notification.
 			 */
-			'notify'        => [
+			'notify'         => [
 				'default' => 0,
 			],
-			'dark_mode'     => [
-				'dark'     => 'auto',
-				'contrast' => 'auto',
-				'switcher' => false,
-				'active'   => 'default',
+			'style_settings' => [
+				'default' => [
+					'dark'     => 'auto',
+					'contrast' => 'auto',
+					'switcher' => false,
+					'active'   => 'default',
+				],
 			],
 		];
 
 		$this->add_settings( $settings );
+
+		$controls_settings = [
+			'style_settings' => new Style_Settings_Control(
+				$this->wp_customize,
+				$this->prepare_option_name( 'style_settings' ),
+				[
+					'section'  => 'colors',
+					'priority' => 200,
+					'style'    => get_option( $this->prepare_option_name( 'style' ) ),
+					'css_var'  => '--mdc-theme-setting',
+				]
+			),
+		];
+
+		$this->add_controls( $controls_settings );
 
 		$active_mode_settings = [
 			'active_mode' => [
@@ -259,15 +276,6 @@ class Controls extends Module_Base {
 		];
 
 		$this->add_settings( $active_mode_settings );
-
-		$this->add_controls(
-			[
-				'active_mode' => [
-					'section' => 'dark_colors',
-					'type'    => 'text',
-				],
-			]
-		);
 	}
 
 	/**
@@ -1796,10 +1804,6 @@ class Controls extends Module_Base {
 			);
 		}
 
-		if ( 'material_design_dark_colors' === $id || 'material_design_contrast_colors' === $id ) {
-			$args['type'] = 'dark_mode';
-		}
-
 		return $args;
 	}
 
@@ -1850,6 +1854,15 @@ class Controls extends Module_Base {
 
 		// Auto and active is dark mode active.
 		return $style_settings[ $selected_style ]['dark'];
+	}
+
+	/**
+	 * Retrieve source color.
+	 *
+	 * @return string hex source color.
+	 */
+	public function get_source_color() {
+		return $this->get_option( 'primary_color' );
 	}
 
 	/**
