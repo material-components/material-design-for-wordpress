@@ -24,7 +24,7 @@ import classnames from 'classnames';
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 
-const Save = ( { attributes, hasCaption } ) => {
+const Save = ( { attributes } ) => {
 	const { hasFixedLayout, head, body, foot, caption, className } = attributes;
 
 	const isEmpty = ! head.length && ! body.length && ! foot.length;
@@ -45,7 +45,7 @@ const Save = ( { attributes, hasCaption } ) => {
 		'has-fixed-layout': hasFixedLayout,
 	} );
 
-	hasCaption = hasCaption && ! RichText.isEmpty( caption );
+	const hasCaption = ! RichText.isEmpty( caption );
 
 	const Section = ( { type, rows } ) => {
 		if ( ! rows.length ) {
