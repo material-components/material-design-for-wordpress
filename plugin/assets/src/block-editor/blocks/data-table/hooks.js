@@ -22,11 +22,6 @@ import domReady from '@wordpress/dom-ready';
 import { addFilter } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
-/**
- * Internal dependencies
- */
-import DataTableSave from './save';
-
 const targetBlock = 'core/table';
 
 export const isMaterialTableBlock = ( name, attributes ) => {
@@ -36,21 +31,6 @@ export const isMaterialTableBlock = ( name, attributes ) => {
 		attributes.className &&
 		-1 !== attributes.className.indexOf( 'material' )
 	);
-};
-
-/**
- * Maybe use material data table save component.
- *
- * @param {WPElement} element    Block save result.
- * @param {WPBlock}   blockType  Block type definition.
- * @param {Object}    attributes Block attributes.
- */
-export const save = ( element, blockType, attributes ) => {
-	if ( isMaterialTableBlock( blockType.name, attributes ) ) {
-		return <DataTableSave { ...{ attributes } } />;
-	}
-
-	return element;
 };
 
 /**
@@ -83,8 +63,6 @@ addFilter(
 	'material/data-table-style',
 	addMaterialStyle
 );
-
-addFilter( 'blocks.getSaveElement', 'material/data-table-save', save );
 
 domReady( () => {
 	const stylePreferences = select( 'core/edit-post' ).getPreference(

@@ -15,55 +15,7 @@
  *
  */
 
-/* Core table with material style */
-.wp-block-table.is-style-material {
-
-	table {
-		max-width: calc(100vw - 2 * 40px);
-		border: 1px solid var(--md-sys-color-surface-variant);
-		border-radius: var(--mdc-data-table-radius, 24px);
-		overflow-x: auto;
-		width: 100%;
-
-		@media screen and (max-width: 480px) {
-			max-width: calc(100vw - 2 * 24px);
-		}
-
-		thead tr,
-		tbody th {
-			border: none;
-		}
-
-		th {
-			background: var(--md-sys-color-surface-variant);
-			color: var(--md-sys-color-on-surface-variant);
-			font-weight: bold;
-		}
-
-		th,
-		td {
-			padding: 16px 24px;
-			border-top: 1px solid var(--md-sys-color-surface-variant);
-			border-left: 1px solid var(--md-sys-color-surface-variant);
-			vertical-align: middle;
-
-			&:first-child {
-				border-left: 0;
-			}
-		}
-
-		td:empty,
-		th:empty {
-			border-top: 0;
-		}
-
-		thead:first-child tr:first-child th,
-		tbody:first-child tr:first-child td {
-			border-top: 0;
-		}
-	}
-}
-
+/* Datatable editor style. */
 .wp-block-table td,
 .wp-block-table th {
 	border: none;
