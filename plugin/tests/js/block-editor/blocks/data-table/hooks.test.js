@@ -193,28 +193,13 @@ const attributes = {
 
 describe( 'Data Table Filters', () => {
 	it( 'filters should be added', () => {
-		expect( addFilter ).toHaveBeenCalledTimes( 3 );
+		expect( addFilter ).toHaveBeenCalledTimes( 1 );
 
 		// eslint-disable-next-line jest/prefer-strict-equal
 		expect( addFilter.mock.calls[ 0 ] ).toEqual( [
 			'blocks.registerBlockType',
 			'material/data-table-style',
 			addMaterialStyle,
-		] );
-
-		// eslint-disable-next-line jest/prefer-strict-equal
-		expect( addFilter.mock.calls[ 1 ] ).toEqual( [
-			'editor.BlockEdit',
-			'material/data-table-edit',
-			withDataTableEdit,
-			1,
-		] );
-
-		// eslint-disable-next-line jest/prefer-strict-equal
-		expect( addFilter.mock.calls[ 2 ] ).toEqual( [
-			'blocks.getSaveElement',
-			'material/data-table-save',
-			save,
 		] );
 	} );
 
@@ -256,36 +241,5 @@ describe( 'Data Table Filters', () => {
 				className: 'is-style-material',
 			} )
 		).toStrictEqual( false );
-	} );
-
-	it( 'withDataTableEdit should include DataTableEdit', () => {
-		const Component = withDataTableEdit( () => {
-			return <div>Original Edit component</div>;
-		} );
-		let wrapper = render(
-			<Component { ...{ name: 'core/table', attributes } } />
-		);
-
-		expect( wrapper ).toMatchSnapshot();
-
-		wrapper = render(
-			<Component { ...{ name: 'core/paragraph', attributes } } />
-		);
-
-		expect( wrapper ).toMatchSnapshot();
-	} );
-
-	it( 'save should invoke DataTableSave', () => {
-		const Component = () => {
-			return <div>Original Save component</div>;
-		};
-		const element = <Component />;
-		let saveElement = save( element, { name: 'core/table' }, attributes );
-
-		expect( saveElement ).toMatchSnapshot();
-
-		saveElement = save( element, { name: 'core/paragraph' }, attributes );
-
-		expect( saveElement ).toMatchSnapshot();
 	} );
 } );

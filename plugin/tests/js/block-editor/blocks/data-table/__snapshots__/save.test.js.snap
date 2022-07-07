@@ -153,6 +153,17 @@ Object {
             </tfoot>
           </table>
         </div>
+        <div
+          class="mdc-data-table__caption"
+        >
+          <figcaption
+            class=""
+          >
+            <div>
+              Material Data Table
+            </div>
+          </figcaption>
+        </div>
       </div>
     </div>
   </body>,
@@ -304,6 +315,17 @@ Object {
             </tr>
           </tfoot>
         </table>
+      </div>
+      <div
+        class="mdc-data-table__caption"
+      >
+        <figcaption
+          class=""
+        >
+          <div>
+            Material Data Table
+          </div>
+        </figcaption>
       </div>
     </div>
   </div>,
@@ -517,6 +539,17 @@ Object {
             </tbody>
           </table>
         </div>
+        <div
+          class="mdc-data-table__caption"
+        >
+          <figcaption
+            class=""
+          >
+            <div>
+              Material Data Table
+            </div>
+          </figcaption>
+        </div>
       </div>
     </div>
   </body>,
@@ -610,6 +643,17 @@ Object {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div
+        class="mdc-data-table__caption"
+      >
+        <figcaption
+          class=""
+        >
+          <div>
+            Material Data Table
+          </div>
+        </figcaption>
       </div>
     </div>
   </div>,
