@@ -40,6 +40,10 @@ function handle_fse_opt_out() {
 	// Removes fse menu entry and other features.
 	remove_theme_support( 'block-templates' );
 	// Disable the FSE template route.
+	if ( ! function_exists( 'get_default_block_template_types' ) ) {
+		return;
+	}
+
 	$template_types = array_keys( get_default_block_template_types() );
 	foreach ( $template_types as $template_type ) {
 		// Skip 'embed' for now because it is not a regular template type.
