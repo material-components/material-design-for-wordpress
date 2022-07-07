@@ -121,6 +121,5 @@
 	},
 	"supports": {
 	   "align": true
-	},
-  "apiVersion": 2
+	}
  }
