@@ -17,7 +17,6 @@
 /**
  * WordPress dependencies
  */
-import { createHigherOrderComponent } from '@wordpress/compose';
 import { select, dispatch } from '@wordpress/data';
 import domReady from '@wordpress/dom-ready';
 import { addFilter } from '@wordpress/hooks';
@@ -27,37 +26,17 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies
  */
 import DataTableSave from './save';
-import DataTableEdit from './edit';
+
+const targetBlock = 'core/table';
 
 export const isMaterialTableBlock = ( name, attributes ) => {
 	return (
-		'core/table' === name &&
+		targetBlock === name &&
 		attributes &&
 		attributes.className &&
 		-1 !== attributes.className.indexOf( 'material' )
 	);
 };
-
-/**
- * Maybe use material data table edit component.
- *
- * @param {WPElement} element    Block save result.
- * @param {WPBlock}   blockType  Block type definition.
- * @param {Object}    attributes Block attributes.
- */
-export const withDataTableEdit = createHigherOrderComponent( BlockEdit => {
-	return props => {
-		if ( isMaterialTableBlock( props.name, props.attributes ) ) {
-			return (
-				<>
-					<DataTableEdit { ...props } />
-				</>
-			);
-		}
-
-		return <BlockEdit { ...props } />;
-	};
-}, 'withMaterialDataTableEdit' );
 
 /**
  * Maybe use material data table save component.
@@ -81,7 +60,7 @@ export const save = ( element, blockType, attributes ) => {
  * @param {string} name     Block name.
  */
 export const addMaterialStyle = ( settings, name ) => {
-	if ( 'core/table' === name ) {
+	if ( targetBlock === name ) {
 		settings.styles = [
 			{
 				name: 'material',
@@ -105,13 +84,6 @@ addFilter(
 	addMaterialStyle
 );
 
-addFilter(
-	'editor.BlockEdit',
-	'material/data-table-edit',
-	withDataTableEdit,
-	1
-);
-
 addFilter( 'blocks.getSaveElement', 'material/data-table-save', save );
 
 domReady( () => {
@@ -121,11 +93,11 @@ domReady( () => {
 
 	if (
 		stylePreferences &&
-		( ! stylePreferences[ 'core/table' ] ||
-			'material' !== stylePreferences[ 'core/table' ] )
+		( ! stylePreferences[ targetBlock ] ||
+			'material' !== stylePreferences[ targetBlock ] )
 	) {
 		dispatch( 'core/edit-post' ).updatePreferredStyleVariations(
-			'core/table',
+			targetBlock,
 			'material'
 		);
 	}
