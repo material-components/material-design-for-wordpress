@@ -39,6 +39,7 @@ import {
  * Internal dependencies
  */
 import { STYLES } from '../customizer/components/google-fonts-control/styles';
+import { setConfig } from '../block-editor/utils/get-config';
 
 const getIconFontName = iconStyle => {
 	return iconStyle === 'filled'
@@ -93,6 +94,7 @@ export const COLOR_MODES = {
 				( { color, isDarkMode } ) => {
 					const intColor = argbFromHex( color );
 					const colorPallete = themeFromSourceColor( intColor );
+					setConfig( 'sourceColor', color );
 
 					applyTheme( colorPallete, {
 						target: document.body,
@@ -260,9 +262,6 @@ export const COLOR_MODES = {
 			toggleDarkModeSwitch( settings );
 		} );
 
-		styles +=
-			'--md-sys-color-primary: var(--md-sys-color-primary);--md-sys-color-on-primary: var(--md-sys-color-on-primary);--md-sys-color-background: var(--md-sys-color-background);--md-sys-color-on-background: var(--md-sys-color-on-background);--md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant);--md-sys-color-surface-variant: var(--md-sys-color-surface-variant);--md-sys-color-on-surface: var(--md-sys-color-on-surface);--md-sys-color-surface: var(--md-sys-color-surface);--md-sys-color-on-surface-variant: var(--md-sys-color-on-surface-variant);--md-sys-color-outline: var(--md-sys-color-outline);';
-
 		styles = `body {
 			${ styles }
 		}
@@ -318,13 +317,6 @@ export const COLOR_MODES = {
 	const toggleDarkModeSwitch = debounce( value => {
 		const darkModeData =
 			'string' === typeof value ? JSON.parse( value ) : value;
-		const currentStyle = parentApi(
-			window.parent.materialDesign.styleControl
-		).get();
-
-		if ( ! currentStyle ) {
-			return;
-		}
 
 		const topAppBar = document.querySelector( '.mdc-top-app-bar' );
 
@@ -332,7 +324,7 @@ export const COLOR_MODES = {
 			return;
 		}
 
-		if ( darkModeData[ currentStyle ].switcher ) {
+		if ( darkModeData.switcher ) {
 			topAppBar.classList.add( HAS_DARK_MODE_CLASS );
 		} else {
 			topAppBar.classList.remove( HAS_DARK_MODE_CLASS );

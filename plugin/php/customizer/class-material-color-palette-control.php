@@ -82,13 +82,6 @@ class Material_Color_Palette_Control extends \WP_Customize_Control {
 	public $color_mode_type = 'default';
 
 	/**
-	 * Secondary controls
-	 *
-	 * @var string
-	 */
-	public $secondary_controls = [];
-
-	/**
 	 * Render a JS template for the Material color palette tabs.
 	 *
 	 * @return void
@@ -159,6 +152,5 @@ class Material_Color_Palette_Control extends \WP_Customize_Control {
 		$this->json['id']                 = ! empty( $this->id ) ? $this->id : '';
 		$this->json['defaultModeSetting'] = ! empty( $this->default_mode_setting ) ? $this->default_mode_setting : '';
 		$this->json['colorModeType']      = ! empty( $this->color_mode_type ) ? $this->color_mode_type : '';
-		$this->json['secondaryControls']  = ! empty( $this->secondary_controls ) ? $this->secondary_controls : [];
 	}
 }
