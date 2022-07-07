@@ -15,10 +15,17 @@
  *
  */
 
-/* Datatable editor style. */
+/* Table editor style. */
 .wp-block-table td,
 .wp-block-table th {
 	border: none;
 	border-top: 1px solid var(--md-sys-color-surface-variant);
 	border-left: 1px solid var(--md-sys-color-surface-variant);
+}
+
+.mdc-data-table {
+
+	table {
+		border: none !important;
+	}
 }
