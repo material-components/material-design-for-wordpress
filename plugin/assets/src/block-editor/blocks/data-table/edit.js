@@ -36,8 +36,6 @@ import {
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
-import { compose } from '@wordpress/compose';
-import { withSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -164,7 +162,7 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	);
 };
 
-const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
+const DataTableEdit = ( { attributes, setAttributes } ) => {
 	const { className, hasFixedLayout, caption, head, body, foot } = attributes;
 	const [ selectedCell, setSelectedCell ] = useState( null );
 	const [ initialColumnCount, setinitialColumnCount ] = useState( 2 );
@@ -537,41 +535,28 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 					</table>
 				</div>
 
-				{ hasCaption && (
-					<div className="mdc-data-table__caption">
-						<RichText
-							tagName="figcaption"
-							placeholder={ __(
-								'Write caption…',
-								'material-design'
-							) }
-							value={ caption }
-							onChange={
-								/* istanbul ignore next */
-								value => setAttributes( { caption: value } )
-							}
-							// Deselect the selected table cell when the caption is focused.
-							unstableOnFocus={
-								/* istanbul ignore next */
-								() => setSelectedCell( null )
-							}
-						/>
-					</div>
-				) }
+				<div className="mdc-data-table__caption">
+					<RichText
+						tagName="figcaption"
+						placeholder={ __(
+							'Write caption…',
+							'material-design'
+						) }
+						value={ caption }
+						onChange={
+							/* istanbul ignore next */
+							value => setAttributes( { caption: value } )
+						}
+						// Deselect the selected table cell when the caption is focused.
+						unstableOnFocus={
+							/* istanbul ignore next */
+							() => setSelectedCell( null )
+						}
+					/>
+				</div>
 			</figure>
 		</>
 	);
 };
 
-export default compose( [
-	withSelect( select => {
-		const tableBlock = select( 'core/blocks' ).getBlockType( 'core/table' );
-
-		return {
-			hasCaption:
-				tableBlock &&
-				tableBlock.attributes &&
-				'caption' in tableBlock.attributes,
-		};
-	} ),
-] )( DataTableEdit );
+export default DataTableEdit;
