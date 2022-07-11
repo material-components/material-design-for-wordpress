@@ -73,24 +73,26 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 	};
 
 	useEffect( () => {
-		let hexColor = color.substring( 1 );
+		if ( color ) {
+			let hexColor = color.substring( 1 );
 
-		if ( hexColor.length === 3 ) {
-			hexColor = hexColor
-				.split( '' )
-				.map( hex => hex + hex )
-				.join( '' );
+			if ( hexColor.length === 3 ) {
+				hexColor = hexColor
+					.split( '' )
+					.map( hex => hex + hex )
+					.join( '' );
+			}
+
+			if ( 6 !== hexColor.length ) {
+				return;
+			}
+
+			onColorChange( `#${ hexColor }` );
+			api.previewer.send( 'materialDesignM3PaletteUpdate', {
+				color,
+				isDarkMode,
+			} );
 		}
-
-		if ( 6 !== hexColor.length ) {
-			return;
-		}
-
-		onColorChange( `#${ hexColor }` );
-		api.previewer.send( 'materialDesignM3PaletteUpdate', {
-			color,
-			isDarkMode,
-		} );
 	}, [ color ] );
 
 	return (
