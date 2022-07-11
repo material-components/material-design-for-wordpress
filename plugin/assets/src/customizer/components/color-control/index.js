@@ -181,7 +181,7 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 								<MaterialColorPalette
 									value={ color }
 									onChange={ value => {
-										onChange( value );
+										onChange( value ?? '#ffffff' ); // Use white as default.
 									} }
 									materialColorsOnly={ true }
 								/>
