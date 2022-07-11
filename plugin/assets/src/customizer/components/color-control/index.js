@@ -38,6 +38,7 @@ const api = window.wp.customize;
 
 const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 	const [ color, setColor ] = useState( defaultValue );
+	const [ previousColor, setPreviousColor ] = useState( defaultValue );
 	/* @var {Theme} color The current color value. */
 	const [ displayColorPalette, setDisplayColorPalette ] = useState( false );
 	const [ materialPickerSelected, setMaterialPickerSelected ] = useState(
@@ -50,6 +51,7 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 		.matches;
 
 	const onChange = value => {
+		setPreviousColor( color );
 		setColor( value );
 	};
 
@@ -181,7 +183,7 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 								<MaterialColorPalette
 									value={ color }
 									onChange={ value => {
-										onChange( value ?? '#ffffff' ); // Use white as default.
+										onChange( value ?? previousColor );
 									} }
 									materialColorsOnly={ true }
 								/>
