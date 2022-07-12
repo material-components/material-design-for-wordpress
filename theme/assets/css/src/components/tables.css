@@ -57,3 +57,7 @@ thead:first-child tr:first-child th,
 tbody:first-child tr:first-child td {
 	border-top: 0;
 }
+
+.wp-block-table figcaption {
+	text-align: center;
+}

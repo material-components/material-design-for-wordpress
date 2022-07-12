@@ -71,3 +71,7 @@
 		border-left: 0;
 	}
 }
+
+.mdc-data-table__caption figcaption {
+	text-align: center;
+}
