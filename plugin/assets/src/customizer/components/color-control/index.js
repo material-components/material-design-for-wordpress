@@ -73,6 +73,10 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 	};
 
 	useEffect( () => {
+		if ( ! color ) {
+			return;
+		}
+
 		let hexColor = color.substring( 1 );
 
 		if ( hexColor.length === 3 ) {
@@ -179,7 +183,7 @@ const ColorControl = ( { defaultValue, params, onColorChange, mode } ) => {
 								<MaterialColorPalette
 									value={ color }
 									onChange={ value => {
-										onChange( value );
+										onChange( value ?? defaultValue );
 									} }
 									materialColorsOnly={ true }
 								/>
