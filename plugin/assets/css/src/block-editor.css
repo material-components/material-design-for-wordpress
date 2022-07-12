@@ -24,6 +24,7 @@
 @import "./components/card.css";
 @import "./overrides.css";
 @import "./material-components.css";
+@import "./tokens/index.css";
 
 @media (min-width: 600px) {
 
