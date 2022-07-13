@@ -84,6 +84,9 @@
           "slug": "body-small"
         }
       ]
+    },
+    "color": {
+      "defaultPalette": false
     }
   }
 }
