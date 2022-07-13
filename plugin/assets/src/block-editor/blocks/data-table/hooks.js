@@ -21,7 +21,7 @@
  * WordPress dependencies.
  */
 import { addFilter } from '@wordpress/hooks';
-import coreDeprecatedV1 from './core-deprecated';
+import coreDeprecatedV1 from './deprecated';
 
 const blockName = 'core/table';
 

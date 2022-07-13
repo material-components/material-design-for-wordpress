@@ -16,14 +16,11 @@
 
 import SaveV1 from './deprecated/dataTableV1';
 
-const coreDeprecatedV1 = {
+const deprecatedV1 = {
 	attributes: {
 		hasFixedLayout: {
 			type: 'boolean',
 			default: false,
-		},
-		backgroundColor: {
-			type: 'string',
 		},
 		caption: {
 			type: 'string',
@@ -139,4 +136,4 @@ const coreDeprecatedV1 = {
 	},
 	save: SaveV1,
 };
-export default coreDeprecatedV1;
+export default deprecatedV1;
