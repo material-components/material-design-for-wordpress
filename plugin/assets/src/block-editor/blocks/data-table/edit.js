@@ -82,8 +82,8 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	const Tag = `t${ name }`;
 	const tagClass = 'body' === name ? 'mdc-data-table__content' : '';
 	const trClass = classnames( {
-		'mdc-data-table__header-row': 'head' === name,
-		'mdc-data-table__row': 'head' !== name,
+		'mdc-data-table__header-row': [ 'head', 'foot' ].includes( name ),
+		'mdc-data-table__row': 'body' === name,
 	} );
 
 	return (
@@ -109,8 +109,11 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 							);
 
 							const tdClasses = classnames( {
-								'mdc-data-table__cell': 'head' !== name,
-								'mdc-data-table__header-cell': 'head' === name,
+								'mdc-data-table__cell': 'body' === name,
+								'mdc-data-table__header-cell': [
+									'head',
+									'foot',
+								].includes( name ),
 								'is-selected':
 									selectedCell &&
 									selectedCell.sectionName ===

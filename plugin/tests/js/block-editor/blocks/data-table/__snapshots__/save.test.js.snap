@@ -126,24 +126,24 @@ Object {
               class=""
             >
               <tr
-                class="mdc-data-table__row"
+                class="mdc-data-table__header-row mdc-data-table__row"
               >
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div>
                     Footer Col 1
                   </div>
                 </td>
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div>
                     Footer Col 2
                   </div>
                 </td>
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div>
                     Footer Col 3
@@ -289,24 +289,24 @@ Object {
             class=""
           >
             <tr
-              class="mdc-data-table__row"
+              class="mdc-data-table__header-row mdc-data-table__row"
             >
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div>
                   Footer Col 1
                 </div>
               </td>
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div>
                   Footer Col 2
                 </div>
               </td>
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div>
                   Footer Col 3

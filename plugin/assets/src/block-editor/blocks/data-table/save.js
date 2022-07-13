@@ -55,7 +55,7 @@ const Save = ( { attributes } ) => {
 		const Tag = `t${ type }`;
 		const tagClass = 'body' === type ? 'mdc-data-table__content' : '';
 		const trClass = classnames( {
-			'mdc-data-table__header-row': 'head' === type,
+			'mdc-data-table__header-row': [ 'head', 'foot' ].includes( type ),
 			'mdc-data-table__row': 'head' !== type,
 		} );
 
@@ -67,9 +67,11 @@ const Save = ( { attributes } ) => {
 							( { content, tag, scope, align }, cellIndex ) => {
 								const cellClasses = classnames( {
 									[ `has-text-align-${ align }` ]: align,
-									'mdc-data-table__cell': 'head' !== type,
-									'mdc-data-table__header-cell':
-										'head' === type,
+									'mdc-data-table__cell': 'body' === type,
+									'mdc-data-table__header-cell': [
+										'head',
+										'foot',
+									].includes( type ),
 								} );
 
 								return (

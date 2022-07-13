@@ -58,6 +58,7 @@
 	background: var(--md-sys-color-surface-variant);
 	color: var(--md-sys-color-on-surface-variant);
 	font-weight: bold;
+	text-align: center;
 }
 
 .mdc-data-table__header-cell,
