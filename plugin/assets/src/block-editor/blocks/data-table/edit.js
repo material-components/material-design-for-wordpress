@@ -74,6 +74,18 @@ const ALIGNMENT_CONTROLS = [
 	},
 ];
 
+/**
+ * Table section.
+ *
+ * @param {Object}   props               Props.
+ * @param {string}   props.name          Table section type - tfoot tbody thead.
+ * @param {Array}    props.rows          Rows.
+ * @param {Function} props.onChange      Callback to update table section.
+ * @param {Function} props.createOnFocus Create callback on focus.
+ * @param {Object}   props.selectedCell  Selected cell.
+ *
+ * @return {JSX.Element|null} JXS.
+ */
 const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	if ( isEmptyTableSection( rows ) ) {
 		return null;
@@ -87,6 +99,7 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	} );
 
 	return (
+		// @ts-ignore
 		<Tag className={ tagClass }>
 			{ rows.map( ( { cells }, rowIndex ) => (
 				<tr key={ rowIndex } className={ trClass }>
@@ -223,7 +236,7 @@ const DataTableEdit = ( { attributes, setAttributes } ) => {
 	/**
 	 * Get the alignment of the currently selected cell.
 	 *
-	 * @return {string} The new alignment to apply to the column.
+	 * @return {string|void} The new alignment to apply to the column.
 	 */
 	const getCellAlignment = () => {
 		if ( ! selectedCell ) {

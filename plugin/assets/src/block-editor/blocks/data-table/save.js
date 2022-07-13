@@ -47,6 +47,15 @@ const Save = ( { attributes } ) => {
 
 	const hasCaption = ! RichText.isEmpty( caption );
 
+	/**
+	 * Section component.
+	 *
+	 * @param {Object} Props      props.
+	 * @param {string} Props.type Table section type - tfoot tbody thead.
+	 * @param {Array}  Props.rows rows.
+	 *
+	 * @return {JSX.Element|null} Table section JSX.
+	 */
 	const Section = ( { type, rows } ) => {
 		if ( ! rows.length ) {
 			return null;
