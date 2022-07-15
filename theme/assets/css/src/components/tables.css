@@ -17,7 +17,7 @@
 /* Setup default table style with m3 without radius */
 table {
 	max-width: calc(100vw - 2 * 40px);
-	border: 1px solid var(--md-sys-color-surface-variant);
+	border: 1px solid var(--md-sys-color-outline);
 	width: 100%;
 
 	@media screen and (max-width: 480px) {
@@ -34,18 +34,22 @@ th {
 	background: var(--md-sys-color-surface-variant);
 	color: var(--md-sys-color-on-surface-variant);
 	font-weight: bold;
+	border-left: 1px solid var(--md-sys-color-on-surface-variant);
 }
 
 th,
 td {
 	padding: 16px 24px;
-	border-top: 1px solid var(--md-sys-color-surface-variant);
-	border-left: 1px solid var(--md-sys-color-surface-variant);
+	border-top: 1px solid var(--md-sys-color-outline);
 	vertical-align: middle;
 
 	&:first-child {
 		border-left: 0;
 	}
+}
+
+td {
+	border-left: 1px solid var(--md-sys-color-outline);
 }
 
 td:empty,
