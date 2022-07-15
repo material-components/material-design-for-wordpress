@@ -18,7 +18,7 @@
 /* Data Table */
 .mdc-data-table {
 	max-width: calc(100vw - 2 * 40px);
-	border: 1px solid var(--md-sys-color-surface-variant);
+	border: 1px solid var(--md-sys-color-outline);
 	border-radius: var(--mdc-data-table-radius, 24px);
 	overflow-x: auto;
 
@@ -64,14 +64,22 @@
 .mdc-data-table__header-cell,
 .mdc-data-table__cell {
 	padding: 16px 24px;
-	border-top: 1px solid var(--md-sys-color-surface-variant);
-	border-left: 1px solid var(--md-sys-color-surface-variant);
+	border-top: 1px solid var(--md-sys-color-outline);
 	vertical-align: middle;
 
 	&:first-child {
 		border-left: 0;
 	}
 }
+
+.mdc-data-table__cell {
+	border-left: 1px solid var(--md-sys-color-outline);
+}
+
+.mdc-data-table__header-cell {
+	border-left: 1px solid var(--md-sys-color-on-surface-variant);
+}
+
 
 .mdc-data-table__caption figcaption {
 	text-align: center;
