@@ -173,6 +173,21 @@ class Helpers {
 	}
 
 	/**
+	 * Convert color rgb to hex
+	 *
+	 * @param string $rgb Color value.
+	 *
+	 * @return string Hex value.
+	 */
+	public static function rgb_to_rgb_string( $rgb ) {
+		$red   = $rgb >> 16 & 255;
+		$green = $rgb >> 8 & 255;
+		$blue  = $rgb & 255;
+
+		return $red . ',' . $green . ',' . $blue ;
+	}
+
+	/**
 	 * Mix 2 colors with a weight.
 	 *
 	 * @see https://sass-lang.com/documentation/modules/color#mix

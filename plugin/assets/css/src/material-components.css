@@ -18,7 +18,6 @@
  * Material components used in the blocks and frontend.
  */
 
-@import "@material/button/dist/mdc.button.css";
 @import "@material/data-table/dist/mdc.data-table.css";
 @import "@material/icon-button/dist/mdc.icon-button.css";
 @import "@material/image-list/dist/mdc.image-list.css";
