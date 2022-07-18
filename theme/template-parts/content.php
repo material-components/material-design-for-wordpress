@@ -63,7 +63,7 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 					<?php endif; ?>
 
 					<?php if ( ! empty( $show_date ) ) : ?>
-						<time class="post-card__subtitle label-medium"><?php the_time( 'F j, Y' ); ?></time>
+						<time class="post-card__subtitle label-small"><?php the_time( 'F j, Y' ); ?></time>
 					<?php endif; ?>
 				</div>
 				<?php if ( ! empty( $show_excerpt ) ) : ?>

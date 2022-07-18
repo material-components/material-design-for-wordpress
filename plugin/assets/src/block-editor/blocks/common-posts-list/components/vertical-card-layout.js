@@ -75,6 +75,7 @@ const VerticalCardLayout = props => {
 							isGlobalCardStyleOutlined() &&
 							isEditMode ),
 				},
+				{ [ `mdc-card--${ cardStyle }` ]: cardStyle !== 'global' },
 				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'single-post-card',
 				'single-post-basic'

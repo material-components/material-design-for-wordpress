@@ -25,7 +25,7 @@ import classnames from 'classnames';
 import CardImage from './card-image';
 import CardHeader from './card-header';
 import CardActions from './card-actions';
-import { isGlobalCardStyleOutlined } from '../../../utils';
+import { getConfig, isGlobalCardStyleOutlined } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
@@ -55,6 +55,7 @@ const HorizontalCardLayout = props => {
 		<div
 			className={ classnames(
 				'mdc-card',
+				{ [ `mdc-card--${ cardStyle }` ]: cardStyle !== 'global' },
 				{
 					'mdc-card--outlined':
 						cardStyle === 'outlined' ||

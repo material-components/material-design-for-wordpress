@@ -31,6 +31,10 @@ const ElevationStyleControl = ( { onChange, selected } ) => {
 			value: 'outlined',
 		},
 		{
+			label: __( 'Filled', 'material-design' ),
+			value: 'filled',
+		},
+		{
 			label: __( 'Inherit from Global Settings', 'material-design' ),
 			value: 'global',
 		},

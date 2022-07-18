@@ -132,6 +132,7 @@ const VerticalCardLayout = ( {
 							isGlobalCardStyleOutlined() &&
 							isEditMode ),
 				},
+				{ [ `mdc-card--${ cardStyle }` ]: cardStyle !== 'global' },
 				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'material-design-card' // Class order is important for resetting state to global.
 			) }

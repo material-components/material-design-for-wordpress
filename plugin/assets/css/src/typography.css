@@ -59,8 +59,6 @@ html {
 @mixin typography body-large, 1, 1.5, 400;
 @mixin typography body-medium, 0.875, 1.25, 400;
 @mixin typography body-small, 0.75, 1.25, 400;
-@mixin typography label-large, 0.875, 2.25, 500;
-@mixin typography label-medium, 0.75, 2, 500;
 
 /* For `body` types typography should be applied to child elements as well */
 @mixin typography body-large, 1, 1.5, 400, *;
