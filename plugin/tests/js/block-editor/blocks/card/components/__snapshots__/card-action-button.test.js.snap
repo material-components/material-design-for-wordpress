@@ -35,9 +35,6 @@ Object {
         rel="noopener noreferrer nofollow"
         target="_blank"
       >
-        <div
-          class="mdc-button__ripple"
-        />
         <span
           class="mdc-button__label"
         >
@@ -53,9 +50,6 @@ Object {
       rel="noopener noreferrer nofollow"
       target="_blank"
     >
-      <div
-        class="mdc-button__ripple"
-      />
       <span
         class="mdc-button__label"
       >
@@ -150,9 +144,6 @@ Object {
         class="mdc-button mdc-card__action mdc-card__action--button"
         href="#"
       >
-        <div
-          class="mdc-button__ripple"
-        />
         <span
           class="mdc-button__label"
         >
@@ -166,9 +157,6 @@ Object {
       class="mdc-button mdc-card__action mdc-card__action--button"
       href="#"
     >
-      <div
-        class="mdc-button__ripple"
-      />
       <span
         class="mdc-button__label"
       >

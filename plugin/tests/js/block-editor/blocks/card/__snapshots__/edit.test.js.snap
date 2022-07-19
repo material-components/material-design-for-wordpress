@@ -303,6 +303,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-1__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-1-3"
+                name="inspector-radio-control-1"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-1-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -575,7 +592,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -585,7 +602,7 @@ Object {
             <div
               aria-label="Supporting text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -913,6 +930,23 @@ Object {
               Outlined
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-1__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-1-3"
+              name="inspector-radio-control-1"
+              type="radio"
+              value="filled"
+            />
+            <label
+              for="inspector-radio-control-1-3"
+            >
+              Filled
+            </label>
+          </div>
         </div>
         <p
           class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -1185,7 +1219,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -1195,7 +1229,7 @@ Object {
           <div
             aria-label="Supporting text"
             aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
             role="textbox"
             style="white-space: pre-wrap;"
           >
@@ -1604,6 +1638,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-5__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-5-3"
+                name="inspector-radio-control-5"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-5-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -1876,7 +1927,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -1886,7 +1937,7 @@ Object {
             <div
               aria-label="Supporting text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -2214,6 +2265,23 @@ Object {
               Outlined
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-5__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-5-3"
+              name="inspector-radio-control-5"
+              type="radio"
+              value="filled"
+            />
+            <label
+              for="inspector-radio-control-5-3"
+            >
+              Filled
+            </label>
+          </div>
         </div>
         <p
           class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -2486,7 +2554,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -2496,7 +2564,7 @@ Object {
           <div
             aria-label="Supporting text"
             aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
             role="textbox"
             style="white-space: pre-wrap;"
           >
@@ -2905,6 +2973,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-3__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-3-3"
+                name="inspector-radio-control-3"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-3-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -3164,7 +3249,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -3493,6 +3578,23 @@ Object {
               Outlined
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-3__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-3-3"
+              name="inspector-radio-control-3"
+              type="radio"
+              value="filled"
+            />
+            <label
+              for="inspector-radio-control-3-3"
+            >
+              Filled
+            </label>
+          </div>
         </div>
         <p
           class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -3752,7 +3854,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text label-medium"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >
