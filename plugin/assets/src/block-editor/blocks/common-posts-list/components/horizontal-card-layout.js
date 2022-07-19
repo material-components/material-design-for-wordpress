@@ -56,8 +56,14 @@ const HorizontalCardLayout = props => {
 		<div
 			className={ classnames(
 				'mdc-card',
-				{ [ `mdc-card--${ cardStyle }` ]: cardStyle !== 'global' },
-				{ [ `mdc-card--${ globalStyle }` ]: cardStyle === 'global' },
+				{
+					[ `mdc-card--${ cardStyle }` ]:
+						cardStyle && cardStyle !== 'global',
+				},
+				{
+					[ `mdc-card--${ globalStyle }` ]:
+						globalStyle && cardStyle === 'global',
+				},
 				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'single-post-card',
 				'single-post-card__list',
