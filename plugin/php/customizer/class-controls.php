@@ -1727,7 +1727,7 @@ class Controls extends Module_Base {
 					'size'       => sprintf( '--md-sys-typescale-%s-%s-size', $token, $sub_t ),
 					'tracking'   => sprintf( '--md-sys-typescale-%s-%s-tracking', $token, $sub_t ),
 					'weight'     => sprintf( '--md-sys-typescale-%s-%s-weight', $token, $sub_t ),
-					'style'     => sprintf( '--md-sys-typescale-%s-%s-style', $token, $sub_t ),
+					'style'      => sprintf( '--md-sys-typescale-%s-%s-style', $token, $sub_t ),
 				],
 				'value'      => $this->get_option( $id ),
 				'label'      => sprintf(
@@ -1909,6 +1909,7 @@ class Controls extends Module_Base {
 				'choices' => [
 					'elevated' => esc_html__( 'Elevated', 'material-design' ),
 					'outlined' => esc_html__( 'Outlined', 'material-design' ),
+					'filled'   => esc_html__( 'Filled', 'material-design' ),
 				],
 			],
 		];

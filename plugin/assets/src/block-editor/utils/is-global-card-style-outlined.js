@@ -25,4 +25,8 @@ const isGlobalCardStyleOutlined = () =>
 	// eslint-disable-next-line camelcase
 	getConfig( 'defaults' )?.globalStyle?.card_style === 'outlined';
 
-export default isGlobalCardStyleOutlined;
+const getGlobalCardStyle = () =>
+	// eslint-disable-next-line camelcase
+	getConfig( 'defaults' )?.globalStyle?.card_style;
+
+export { isGlobalCardStyleOutlined, getGlobalCardStyle };

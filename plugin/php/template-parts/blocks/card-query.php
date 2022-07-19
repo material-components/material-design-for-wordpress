@@ -38,9 +38,7 @@ $show_post_title     = $attributes['showTitle'];
 $card_style          = $attributes['cardStyle'];
 $content_length      = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 20;
 $global_card_style   = $material_design_plugin->block_types->get_global_styles( 'card_style' );
-$classes             = $card_style === 'outlined'
-											||
-											( $card_style === 'global' && $global_card_style === 'outlined' ) ? 'mdc-card--outlined' : '';
+$classes             = sprintf( 'mdc-card--%s', $card_style === 'global' ? $global_card_style : $card_style );
 
 if ( empty( $block ) || ! isset( $block->context['postId'] ) ) {
 	return '';

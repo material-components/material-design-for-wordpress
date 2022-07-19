@@ -25,14 +25,14 @@ import classnames from 'classnames';
 import CardImage from './card-image';
 import CardHeader from './card-header';
 import CardActions from './card-actions';
-import { getConfig, isGlobalCardStyleOutlined } from '../../../utils';
+import { getGlobalCardStyle } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
  *
  * @param {Object}  props                      - Component props.
  * @param {string}  props.imageSourceUrl       - Image source URL.
- * @param {boolean} props.outlined             - Whether or not the card has an outlined style.
+ * @param {string}  props.cardStyle            - Whether card has an outlined, elevated, filled or global style.
  * @param {boolean} props.displayFeaturedImage - Whether or not to display the featured image.
  * @param {boolean} props.displayCommentsCount - Whether or not to display the comments count field.
  * @param {boolean} props.displayPostAuthor    - Whether or not to display the post author field.
@@ -48,21 +48,16 @@ const HorizontalCardLayout = props => {
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
-		isEditMode,
 	} = props;
+
+	const globalStyle = getGlobalCardStyle();
 
 	return (
 		<div
 			className={ classnames(
 				'mdc-card',
 				{ [ `mdc-card--${ cardStyle }` ]: cardStyle !== 'global' },
-				{
-					'mdc-card--outlined':
-						cardStyle === 'outlined' ||
-						( cardStyle === 'global' &&
-							isGlobalCardStyleOutlined() &&
-							isEditMode ),
-				},
+				{ [ `mdc-card--${ globalStyle }` ]: cardStyle === 'global' },
 				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'single-post-card',
 				'single-post-card__list',

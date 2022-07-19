@@ -184,7 +184,7 @@ class Helpers {
 		$green = $rgb >> 8 & 255;
 		$blue  = $rgb & 255;
 
-		return $red . ',' . $green . ',' . $blue ;
+		return $red . ',' . $green . ',' . $blue;
 	}
 
 	/**

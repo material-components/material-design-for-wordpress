@@ -54,28 +54,28 @@
 		color: var(--md-sys-color-on-surface, #000);
 	}
 
-	.mdc-card__media {
-		background-position: 50%;
-		background-repeat: no-repeat;
-		background-size: cover;
-		box-sizing: border-box;
-		position: relative;
-		height: 100%;
-		padding: 1em;
-
-		& img {
-			bottom: 0;
-			height: 100%;
-			object-fit: cover;
-			position: absolute;
-			top: 0;
-			width: 100%;
-		}
-	}
-
 	.avatar {
 		border-radius: 50%;
 		margin-right: 1rem;
+	}
+}
+
+.mdc-card__media {
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-sizing: border-box;
+	position: relative;
+	height: 100%;
+	padding: 1em;
+
+	& img {
+		bottom: 0;
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		width: 100%;
 	}
 }
 
@@ -250,4 +250,11 @@
 			margin-right: 0;
 		}
 	}
+}
+
+.mdc-button__post-author,
+.mdc-button__comment-count {
+	display: flex;
+	gap: 8px;
+	align-items: center;
 }

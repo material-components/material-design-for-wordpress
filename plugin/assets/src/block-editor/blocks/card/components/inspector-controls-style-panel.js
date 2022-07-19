@@ -57,7 +57,7 @@ const MAX_CARD_ROUND_CORNERS = 20;
  * @param {number}   props.cardIndex            - Card index.
  * @param {boolean}  props.isPanelInitialOpened - Whether or not the control panel is initially opened.
  * @param {string}   props.contentLayout        - Content layout
- * @param {string}   props.cardStyle            - Card style
+ * @param {string}   props.cardStyle            - Whether card has an outlined, elevated, filled or global style.
  * @return {JSX.Element} Function returning the JSX of the component
  */
 const InspectorControlsStylePanel = ( {
