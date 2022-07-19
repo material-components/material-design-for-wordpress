@@ -1905,7 +1905,7 @@ class Controls extends Module_Base {
 				'id'      => 'card_style',
 				'label'   => esc_html__( 'Cards', 'material-design' ),
 				'type'    => 'radio',
-				'default' => 'elevated',
+				'default' => 'filled',
 				'choices' => [
 					'elevated' => esc_html__( 'Elevated', 'material-design' ),
 					'outlined' => esc_html__( 'Outlined', 'material-design' ),
