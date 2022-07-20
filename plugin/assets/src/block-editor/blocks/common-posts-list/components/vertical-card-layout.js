@@ -108,7 +108,6 @@ const VerticalCardLayout = props => {
 						className={ classnames(
 							'single-post-card__secondary',
 							`single-post-card__secondary-${ contentLayout }`,
-							'mdc-typography',
 							'body-medium'
 						) }
 					>
