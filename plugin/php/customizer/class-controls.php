@@ -1976,9 +1976,8 @@ class Controls extends Module_Base {
 			$token = '--md-sys-color-' . strtolower( preg_replace( '/([a-z])([A-Z])/', '$1-$2', $key ) );
 			$color = Helpers::rgb_to_hex( $value );
 
-			if ( in_array( $key, [ 'primary', 'surface', true ] ) ) {
-				$variables[ $token . '-rgb' ] = sprintf( '%1$s:%2$s;', $token . '-rgb', Helpers::rgb_to_rgb_string( $value ) );
-			}
+			// RGB in csv format `0,0,0` - used in rgba function.
+			$variables[ $token . '-rgb' ] = sprintf( '%1$s:%2$s;', $token . '-rgb', Helpers::rgb_to_rgb_string( $value ) );
 
 			$variables[ $token ] = sprintf( '%1$s:%2$s;', $token, $color );
 		}
