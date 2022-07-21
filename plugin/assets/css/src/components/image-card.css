@@ -21,12 +21,14 @@
 	padding: 0;
 }
 
+.wp-block-material-image-card-query,
 .mdc-image-list__item,
 .mdc-image-list__image-aspect-container {
 	position: relative;
 	box-sizing: border-box;
 }
 
+.wp-block-material-image-card-query,
 .mdc-image-list__item {
 	list-style-type: none;
 	margin: 0;
@@ -54,24 +56,6 @@
 	padding-bottom: calc(100% / 1);
 }
 
-.mdc-image-list__image {
-	border-radius: 0;
-}
-
-.mdc-image-list--with-text-protection .mdc-image-list__supporting {
-	border-radius: 0 0 0 0;
-}
-
-.mdc-image-list__supporting {
-	color: var(--md-sys-color-on-surface, rgba(0, 0, 0, 0.87));
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	box-sizing: border-box;
-	padding: 8px 0;
-	line-height: 24px;
-}
-
 .mdc-image-list__label {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -92,32 +76,46 @@
 	text-decoration: none !important;
 }
 
+.wp-block-post-template .mdc-image-list__supporting,
 .mdc-image-list--with-text-protection .mdc-image-list__supporting {
-	align-items: start;
-	border-bottom-left-radius: var(--mdc-image-list-radius, 4px);
-	border-bottom-right-radius: var(--mdc-image-list-radius, 4px);
+	color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	line-height: 24px;
+	border-bottom-left-radius: var(--mdc-image-list-radius, 12px);
+	border-bottom-right-radius: var(--mdc-image-list-radius, 12px);
 	max-height: 100%;
 	min-height: 48px;
 	overflow: hidden;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 48px;
-	padding: 0 16px;
-	background: rgba(0, 0, 0, 0.6);
-	color: #fff;
+	height: auto;
+	padding: 8px 16px;
+	background: rgba(var(--md-sys-color-surface-rgb), 0.6);
+}
+
+.wp-block-material-image-card-query a {
+	display: block;
+
+	&:focus {
+		outline: 1px dotted;
+	}
 }
 
 .mdc-image-list--masonry {
 	display: block;
 }
 
-.mdc-image-list--masonry .mdc-image-list__item {
+.wp-block-material-image-card-query,
+.mdc-image-list__item {
 	-webkit-column-break-inside: avoid;
 	break-inside: avoid-column;
 }
 
-.mdc-image-list--masonry .mdc-image-list__image {
+.mdc-image-list__image {
 	display: block;
 	height: auto;
 }
