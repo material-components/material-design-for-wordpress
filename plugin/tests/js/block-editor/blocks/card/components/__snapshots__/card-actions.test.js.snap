@@ -41,9 +41,6 @@ Object {
             rel="noopener noreferrer nofollow"
             target="_blank"
           >
-            <div
-              class="mdc-button__ripple"
-            />
             <span
               class="mdc-button__label"
             >
@@ -67,9 +64,6 @@ Object {
           rel="noopener noreferrer nofollow"
           target="_blank"
         >
-          <div
-            class="mdc-button__ripple"
-          />
           <span
             class="mdc-button__label"
           >
@@ -174,9 +168,6 @@ Object {
             rel="noopener noreferrer nofollow"
             target="_blank"
           >
-            <div
-              class="mdc-button__ripple"
-            />
             <span
               class="mdc-button__label"
             >
@@ -189,9 +180,6 @@ Object {
             rel="noopener noreferrer nofollow"
             target="_blank"
           >
-            <div
-              class="mdc-button__ripple"
-            />
             <span
               class="mdc-button__label"
             >
@@ -215,9 +203,6 @@ Object {
           rel="noopener noreferrer nofollow"
           target="_blank"
         >
-          <div
-            class="mdc-button__ripple"
-          />
           <span
             class="mdc-button__label"
           >
@@ -230,9 +215,6 @@ Object {
           rel="noopener noreferrer nofollow"
           target="_blank"
         >
-          <div
-            class="mdc-button__ripple"
-          />
           <span
             class="mdc-button__label"
           >

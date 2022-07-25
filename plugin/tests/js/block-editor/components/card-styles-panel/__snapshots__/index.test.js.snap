@@ -426,6 +426,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-0__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-3"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-0-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -1143,6 +1160,23 @@ Object {
               for="inspector-radio-control-0-2"
             >
               Outlined
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-0__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-0-3"
+              name="inspector-radio-control-0"
+              type="radio"
+              value="filled"
+            />
+            <label
+              for="inspector-radio-control-0-3"
+            >
+              Filled
             </label>
           </div>
         </div>
@@ -1946,6 +1980,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-2__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-2-3"
+                name="inspector-radio-control-2"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-2-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -2663,6 +2714,23 @@ Object {
               for="inspector-radio-control-2-2"
             >
               Outlined
+            </label>
+          </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-2__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-2-3"
+              name="inspector-radio-control-2"
+              type="radio"
+              value="filled"
+            />
+            <label
+              for="inspector-radio-control-2-3"
+            >
+              Filled
             </label>
           </div>
         </div>

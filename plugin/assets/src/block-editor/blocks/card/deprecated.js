@@ -25,10 +25,12 @@ import { omit } from 'lodash';
 import save from './save';
 import metadata from './block.json';
 import getElevationStyleMigration from '../../helpers/get-outline-migration';
+import { SaveM2 } from './deprecated/m2/m2-version';
 
 const { attributes } = metadata;
 
 const deprecated = [
+	SaveM2,
 	{
 		attributes: { ...omit( attributes, [ 'imageElement' ] ) },
 		save,

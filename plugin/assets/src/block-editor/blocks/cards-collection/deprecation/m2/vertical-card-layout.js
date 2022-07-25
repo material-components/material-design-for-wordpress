@@ -1,17 +1,17 @@
-/**
- * Copyright 2020 Google LLC
+/*
+ *  Copyright 2022 Google LLC
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *        http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 
 /**
@@ -22,13 +22,14 @@ import classnames from 'classnames';
 /**
  * Internal dependencies
  */
-import CardImage from './card-image';
+import CardImage from '../../../card/components/card-image';
 import CardPrimary from './card-primary';
+import CardSupportingText from './card-supporting-text';
 import CardActions from './card-actions';
-import { getGlobalCardStyle } from '../../../utils';
+import { isGlobalCardStyleOutlined } from '../../../../utils';
 
 /**
- * Horizontal Card Layout component.
+ * Vertical Card Layout component.
  *
  * @param {Object}   props                               - Component props.
  * @param {number}   props.cardIndex                     - Card index.
@@ -40,6 +41,8 @@ import { getGlobalCardStyle } from '../../../utils';
  * @param {string}   props.imageSourceUrl                - Image Source URL.
  * @param {boolean}  props.isImageEditMode               - Image Edit mode.
  * @param {boolean}  props.displayImage                  - Whether or not to display the image.
+ * @param {string}   props.supportingText                - Card supporting text.
+ * @param {boolean}  props.displaySupportingText         - PWhether or not to display the supporting text.
  * @param {string}   props.primaryActionButtonLabel      - Primary action button label.
  * @param {string}   props.primaryActionButtonUrl        - Primary action button URL.
  * @param {boolean}  props.primaryActionButtonNewTab     - Whether or not the primary action button url should open in a new tab.
@@ -59,7 +62,7 @@ import { getGlobalCardStyle } from '../../../utils';
  *
  * @return {JSX.Element} Function returning the HTML markup for the component.
  */
-const HorizontalCardLayout = ( {
+const VerticalCardLayout = ( {
 	cardIndex,
 	contentLayout,
 	title,
@@ -69,6 +72,8 @@ const HorizontalCardLayout = ( {
 	imageSourceUrl,
 	isImageEditMode,
 	displayImage,
+	supportingText,
+	displaySupportingText,
 	primaryActionButtonLabel,
 	primaryActionButtonUrl,
 	primaryActionButtonNewTab,
@@ -86,8 +91,6 @@ const HorizontalCardLayout = ( {
 	isEditMode,
 	isFocused,
 } ) => {
-	contentLayout = 'text-under-media';
-
 	const cardPrimaryProps = {
 		title,
 		displayTitle,
@@ -96,6 +99,7 @@ const HorizontalCardLayout = ( {
 		cardIndex,
 		setter,
 		isEditMode,
+		isFocused,
 	};
 
 	const cardImageProps = {
@@ -103,12 +107,11 @@ const HorizontalCardLayout = ( {
 		isImageEditMode,
 		contentLayout,
 		displayImage,
-		type: 'square',
+		type: '16-9',
 		cardPrimaryProps,
 		cardIndex,
 		setter,
 		isEditMode,
-		isFocused,
 		imageElement,
 	};
 
@@ -118,33 +121,55 @@ const HorizontalCardLayout = ( {
 		styles.borderRadius = `${ cornerRadius }px`;
 	}
 
-	const globalStyle = getGlobalCardStyle();
-
 	return (
 		<div
 			className={ classnames(
 				'mdc-card',
 				{
-					[ `mdc-card--${ cardStyle }` ]:
-						cardStyle && cardStyle !== 'global',
-				},
-				{
-					[ `mdc-card--${ globalStyle }` ]:
-						globalStyle && cardStyle === 'global',
+					'mdc-card--outlined':
+						cardStyle === 'outlined' ||
+						( cardStyle === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
 				},
 				{ 'mdc-card--global-override': cardStyle === 'global' },
-				'material-design-card',
-				'material-design-card__list',
-				'material-design-basic'
+				'material-design-card' // Class order is important for resetting state to global.
 			) }
 			style={ styles }
 		>
 			<div
-				className="mdc-card__primary-action material-design-card__primary-action"
+				className="mdc-card__primary-action material-design-card__primary-action mdc-ripple-upgraded"
 				tabIndex={ 0 }
 			>
+				{ contentLayout === 'text-above-media' && (
+					<CardPrimary { ...cardPrimaryProps } />
+				) }
+
+				{ contentLayout === 'text-over-media' &&
+					displayImage &&
+					! imageSourceUrl && (
+						<CardPrimary { ...cardPrimaryProps } />
+					) }
+
+				{ contentLayout === 'text-over-media' && ! displayImage && (
+					<CardPrimary { ...cardPrimaryProps } />
+				) }
+
 				{ displayImage && <CardImage { ...cardImageProps } /> }
-				<CardPrimary { ...cardPrimaryProps } />
+
+				{ contentLayout === 'text-under-media' && (
+					<CardPrimary { ...cardPrimaryProps } />
+				) }
+
+				{ displaySupportingText && (
+					<CardSupportingText
+						supportingText={ supportingText }
+						contentLayout={ contentLayout }
+						cardIndex={ cardIndex }
+						setter={ setter }
+						isEditMode={ isEditMode }
+					/>
+				) }
 			</div>
 			{ displayActions && (
 				<CardActions
@@ -171,4 +196,4 @@ const HorizontalCardLayout = ( {
 	);
 };
 
-export default HorizontalCardLayout;
+export default VerticalCardLayout;

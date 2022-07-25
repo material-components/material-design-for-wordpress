@@ -38,9 +38,7 @@ $show_post_title     = $attributes['showTitle'];
 $card_style          = $attributes['cardStyle'];
 $content_length      = isset( $attributes['postContentLength'] ) ? $attributes['postContentLength'] : 20;
 $global_card_style   = $material_design_plugin->block_types->get_global_styles( 'card_style' );
-$classes             = $card_style === 'outlined'
-											||
-											( $card_style === 'global' && $global_card_style === 'outlined' ) ? 'mdc-card--outlined' : '';
+$classes             = sprintf( 'mdc-card--%s', $card_style === 'global' ? $global_card_style : $card_style );
 
 if ( empty( $block ) || ! isset( $block->context['postId'] ) ) {
 	return '';
@@ -63,7 +61,7 @@ $post_content = wp_trim_words( get_the_excerpt( $post_card ), $content_length, '
 						<?php if ( $show_post_title ) : ?>
 							<?php if ( is_sticky( $post_id_card ) ) : ?>
 								<h2
-									class="post-card__title mdc-typography mdc-typography--headline6"
+									class="post-card__title title-large"
 									aria-label="
 								<?php
 									printf(
@@ -78,7 +76,7 @@ $post_content = wp_trim_words( get_the_excerpt( $post_card ), $content_length, '
 									<?php echo esc_html( get_the_title( $post_card ) ); ?>
 								</h2>
 							<?php else : ?>
-								<h2 class="post-card__title mdc-typography mdc-typography--headline6">
+								<h2 class="post-card__title title-large">
 									<?php echo esc_html( get_the_title( $post_card ) ); ?>
 								</h2>
 							<?php endif; ?>
@@ -86,13 +84,13 @@ $post_content = wp_trim_words( get_the_excerpt( $post_card ), $content_length, '
 
 						<?php if ( ! empty( $show_date ) ) : ?>
 							<time
-								class="post-card__subtitle mdc-typography mdc-typography--subtitle2"><?php echo esc_html( get_the_time( 'F j, Y', $post_card ) ); ?></time>
+								class="post-card__subtitle label-small"><?php echo esc_html( get_the_time( 'F j, Y', $post_card ) ); ?></time>
 						<?php endif; ?>
 					</div>
 				</div>
 				<?php if ( ! empty( $show_excerpt ) && has_excerpt( $post_card ) ) : ?>
 					<div
-						class="post-card__secondary mdc-typography mdc-typography--body2"><p><?php echo wp_kses_post( $post_content ); ?></p></div>
+						class="post-card__secondary body-medium"><p><?php echo wp_kses_post( $post_content ); ?></p></div>
 				<?php endif; ?>
 			</a>
 			<?php if ( ! empty( $show_author ) || ! empty( $show_comments ) ) : ?>
@@ -115,7 +113,6 @@ $post_content = wp_trim_words( get_the_excerpt( $post_card ), $content_length, '
 								?>
 							"
 							>
-								<span class="mdc-button__ripple"></span>
 								<?php echo get_avatar( get_the_author_meta( 'ID', $post_card->post_author ), 18 ); ?>
 								<?php echo esc_html( apply_filters( 'the_author', get_the_author_meta( 'display_name', $post_card->post_author ) ) ); ?>
 							</a>
@@ -123,7 +120,6 @@ $post_content = wp_trim_words( get_the_excerpt( $post_card ), $content_length, '
 
 						<?php if ( ! empty( $show_comments ) && ( comments_open( $post_id_card ) || ( 0 < get_comments_number( $post_id_card ) ) ) ) : ?>
 							<a href="<?php echo esc_url( get_comments_link( $post_id_card ) ); ?>" class="mdc-button mdc-card__action mdc-card__action--button">
-								<span class="mdc-button__ripple"></span>
 								<i class="material-icons mdc-button__icon" aria-hidden="true">comment</i>
 								<?php
 								echo esc_html(

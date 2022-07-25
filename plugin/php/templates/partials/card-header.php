@@ -35,7 +35,7 @@ $post_date  = isset( $attributes['displayPostDate'] ) ? $attributes['displayPost
 	</h2>
 
 	<?php if ( ! empty( $post_date ) ) : ?>
-		<h3 class="single-post-card__subtitle label-medium">
+		<h3 class="single-post-card__subtitle label-small">
 			<time>
 			<?php echo esc_html( get_the_date() ); ?>
 			</time>

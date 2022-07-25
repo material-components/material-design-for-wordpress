@@ -427,6 +427,23 @@ Object {
                   Outlined
                 </label>
               </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-0__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-0-3"
+                  name="inspector-radio-control-0"
+                  type="radio"
+                  value="filled"
+                />
+                <label
+                  for="inspector-radio-control-0-3"
+                >
+                  Filled
+                </label>
+              </div>
             </div>
             <p
               class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -1049,7 +1066,7 @@ Object {
                       </div>
                     </h2>
                     <h3
-                      class="single-post-card__subtitle label-medium"
+                      class="single-post-card__subtitle label-small"
                     >
                       <time
                         datetime="2020-03-26 12:00:00"
@@ -1059,7 +1076,7 @@ Object {
                     </h3>
                   </div>
                   <div
-                    class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                    class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                   >
                     <div>
                       Example 1 excerpt
@@ -1075,9 +1092,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <i
                         aria-hidden="true"
                         class="material-icons mdc-button__icon"
@@ -1116,7 +1130,7 @@ Object {
                       </div>
                     </h2>
                     <h3
-                      class="single-post-card__subtitle label-medium"
+                      class="single-post-card__subtitle label-small"
                     >
                       <time
                         datetime="2020-03-26 12:00:00"
@@ -1126,7 +1140,7 @@ Object {
                     </h3>
                   </div>
                   <div
-                    class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                    class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                   >
                     <div>
                       Example 2 excerpt
@@ -1142,9 +1156,6 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                     >
-                      <span
-                        class="mdc-button__ripple"
-                      />
                       <i
                         aria-hidden="true"
                         class="material-icons mdc-button__icon"
@@ -1560,6 +1571,23 @@ Object {
                 for="inspector-radio-control-0-2"
               >
                 Outlined
+              </label>
+            </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-0__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-3"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-0-3"
+              >
+                Filled
               </label>
             </div>
           </div>
@@ -2184,7 +2212,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -2194,7 +2222,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     Example 1 excerpt
@@ -2210,9 +2238,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -2251,7 +2276,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -2261,7 +2286,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     Example 2 excerpt
@@ -2277,9 +2302,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"

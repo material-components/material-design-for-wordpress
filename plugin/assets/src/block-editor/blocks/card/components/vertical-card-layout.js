@@ -26,7 +26,7 @@ import CardImage from './card-image';
 import CardPrimary from './card-primary';
 import CardSupportingText from './card-supporting-text';
 import CardActions from './card-actions';
-import { isGlobalCardStyleOutlined } from '../../../utils';
+import { getGlobalCardStyle } from '../../../utils';
 
 /**
  * Vertical Card Layout component.
@@ -53,7 +53,7 @@ import { isGlobalCardStyleOutlined } from '../../../utils';
  * @param {boolean}  props.secondaryActionButtonNoFollow - Whether or not the secondary action button url rel property should be noFollow.
  * @param {boolean}  props.displaySecondaryActionButton  - Whether or not to show the secondary action button.
  * @param {boolean}  props.displayActions                - Whether or not to show the card actions row.
- * @param {string}   props.cardStyle                     - Whether card has an outlined, elevated or global style.
+ * @param {string}   props.cardStyle                     - Whether card has an outlined, elevated, filled or global style.
  * @param {number}   props.cornerRadius                  - Card corner radius.
  * @param {Function} props.setter                        - Function to set block attributes value.
  * @param {boolean}  props.isEditMode                    - Whether or not the block is in edit mode (inside Gutenberg editor or not).
@@ -121,16 +121,19 @@ const VerticalCardLayout = ( {
 		styles.borderRadius = `${ cornerRadius }px`;
 	}
 
+	const globalStyle = getGlobalCardStyle();
+
 	return (
 		<div
 			className={ classnames(
 				'mdc-card',
 				{
-					'mdc-card--outlined':
-						cardStyle === 'outlined' ||
-						( cardStyle === 'global' &&
-							isGlobalCardStyleOutlined() &&
-							isEditMode ),
+					[ `mdc-card--${ cardStyle }` ]:
+						cardStyle && cardStyle !== 'global',
+				},
+				{
+					[ `mdc-card--${ globalStyle }` ]:
+						globalStyle && cardStyle === 'global',
 				},
 				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'material-design-card' // Class order is important for resetting state to global.

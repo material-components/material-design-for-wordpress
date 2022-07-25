@@ -97,12 +97,17 @@ class Reset_Card_Style_Rest_Controller extends API_Base {
 				[
 					'"cardStyle":"outlined"',
 					'"cardStyle":"elevated"',
+					'"cardStyle":"filled"',
 				],
 				'"cardStyle":"global"',
 				$post->post_content
 			);
 			$post->post_content = str_replace(
-				' mdc-card--outlined',
+				[
+					' mdc-card--outlined',
+					' mdc-card--elevated',
+					' mdc-card--filled',
+				],
 				'',
 				$post->post_content
 			);

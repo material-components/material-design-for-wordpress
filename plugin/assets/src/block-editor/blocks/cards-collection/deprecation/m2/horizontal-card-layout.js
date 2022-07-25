@@ -1,17 +1,17 @@
-/**
- * Copyright 2020 Google LLC
+/*
+ *  Copyright 2022 Google LLC
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *        http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 
 /**
@@ -22,10 +22,10 @@ import classnames from 'classnames';
 /**
  * Internal dependencies
  */
-import CardImage from './card-image';
 import CardPrimary from './card-primary';
 import CardActions from './card-actions';
-import { getGlobalCardStyle } from '../../../utils';
+import CardImage from '../../../card/components/card-image';
+import { isGlobalCardStyleOutlined } from '../../../../utils';
 
 /**
  * Horizontal Card Layout component.
@@ -118,19 +118,16 @@ const HorizontalCardLayout = ( {
 		styles.borderRadius = `${ cornerRadius }px`;
 	}
 
-	const globalStyle = getGlobalCardStyle();
-
 	return (
 		<div
 			className={ classnames(
 				'mdc-card',
 				{
-					[ `mdc-card--${ cardStyle }` ]:
-						cardStyle && cardStyle !== 'global',
-				},
-				{
-					[ `mdc-card--${ globalStyle }` ]:
-						globalStyle && cardStyle === 'global',
+					'mdc-card--outlined':
+						cardStyle === 'outlined' ||
+						( cardStyle === 'global' &&
+							isGlobalCardStyleOutlined() &&
+							isEditMode ),
 				},
 				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'material-design-card',

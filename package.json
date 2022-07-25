@@ -29,7 +29,6 @@
     "@babel/plugin-transform-react-jsx": "7.8.3",
     "@babel/preset-env": "7.11.5",
     "@material/button": "5.1.0",
-    "@material/card": "5.1.0",
     "@material/checkbox": "5.1.0",
     "@material/circular-progress": "7.0.0",
     "@material/dialog": "10.0.0",

@@ -17,4 +17,7 @@
 export { default as findIcon } from './find-icon';
 export { default as getConfig } from './get-config';
 export { default as getIconName } from './get-icon-name';
-export { default as isGlobalCardStyleOutlined } from './is-global-card-style-outlined.js';
+export {
+	isGlobalCardStyleOutlined,
+	getGlobalCardStyle,
+} from './is-global-card-style-outlined';

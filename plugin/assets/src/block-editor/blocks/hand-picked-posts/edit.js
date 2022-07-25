@@ -47,14 +47,12 @@ const Edit = props => {
 		attributes: { editMode },
 	} = props;
 
-	const blockProps = {
-		...{ className: useBlockProps()?.className },
-		...props,
-	};
+	const blockProps = useBlockProps();
 
 	if ( props.attributes.preview ) {
 		return (
 			<img
+				{ ...blockProps }
 				src={ getConfig( 'handpicked_posts_preview' ) }
 				alt={ __(
 					'Curated Post Collection Preview',
@@ -65,15 +63,15 @@ const Edit = props => {
 	}
 
 	return (
-		<>
-			<InspectorControls { ...blockProps } />
-			<HandpickedPostBlockControls { ...blockProps } />
+		<div { ...blockProps }>
+			<InspectorControls { ...props } />
+			<HandpickedPostBlockControls { ...props } />
 			{ editMode ? (
-				<PostsPicker { ...blockProps } />
+				<PostsPicker { ...props } />
 			) : (
-				<EditWithGetPosts { ...blockProps } />
+				<EditWithGetPosts { ...props } />
 			) }
-		</>
+		</div>
 	);
 };
 
