@@ -24,9 +24,12 @@
 @import "@material/checkbox/dist/mdc.checkbox.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/ripple/dist/mdc.ripple.css";
-@import "@material/image-list/dist/mdc.image-list.css";
 @import "@material/tab-bar/dist/mdc.tab-bar.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
 @import "@material/tab-indicator/dist/mdc.tab-indicator.css";
 @import "@material/tab/dist/mdc.tab.css";
 @import "./components/material.css";
+
+/**
+  Todo: Add style from plugin for material card and image card.
+ */

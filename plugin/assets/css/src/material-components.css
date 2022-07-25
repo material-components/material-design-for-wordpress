@@ -19,7 +19,6 @@
  */
 
 @import "@material/icon-button/dist/mdc.icon-button.css";
-@import "@material/image-list/dist/mdc.image-list.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/list/dist/mdc.list.css";
 @import "@material/tab/dist/mdc.tab.css";
@@ -28,5 +27,6 @@
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
 @import "@material/textfield/dist/mdc.textfield.css";
 @import "@material/tooltip/dist/mdc.tooltip.css";
+@import "components/image-card.css";
 @import "./components/material.css";
 @import "./components/datatable.css";
