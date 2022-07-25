@@ -1,30 +1,25 @@
-/**
- * Copyright 2020 Google LLC
+/*
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *  Copyright 2022 Google LLC
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ *
  */
 
-/**
- * External dependencies
- */
-import classnames from 'classnames';
-
-/**
- * WordPress dependencies
- */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
-
-const Save = ( { attributes } ) => {
+import classnames from 'classnames';
+const SaveV1 = ( { attributes } ) => {
 	const { hasFixedLayout, head, body, foot, caption, className } = attributes;
 
 	const isEmpty = ! head.length && ! body.length && ! foot.length;
@@ -47,15 +42,6 @@ const Save = ( { attributes } ) => {
 
 	const hasCaption = ! RichText.isEmpty( caption );
 
-	/**
-	 * Section component.
-	 *
-	 * @param {Object} Props      props.
-	 * @param {string} Props.type Table section type - tfoot tbody thead.
-	 * @param {Array}  Props.rows rows.
-	 *
-	 * @return {JSX.Element|null} Table section JSX.
-	 */
 	const Section = ( { type, rows } ) => {
 		if ( ! rows.length ) {
 			return null;
@@ -64,7 +50,7 @@ const Save = ( { attributes } ) => {
 		const Tag = `t${ type }`;
 		const tagClass = 'body' === type ? 'mdc-data-table__content' : '';
 		const trClass = classnames( {
-			'mdc-data-table__header-row': [ 'head', 'foot' ].includes( type ),
+			'mdc-data-table__header-row': 'head' === type,
 			'mdc-data-table__row': 'head' !== type,
 		} );
 
@@ -76,11 +62,9 @@ const Save = ( { attributes } ) => {
 							( { content, tag, scope, align }, cellIndex ) => {
 								const cellClasses = classnames( {
 									[ `has-text-align-${ align }` ]: align,
-									'mdc-data-table__cell': 'body' === type,
-									'mdc-data-table__header-cell': [
-										'head',
-										'foot',
-									].includes( type ),
+									'mdc-data-table__cell': 'head' !== type,
+									'mdc-data-table__header-cell':
+										'head' === type,
 								} );
 
 								return (
@@ -122,4 +106,4 @@ const Save = ( { attributes } ) => {
 	);
 };
 
-export default Save;
+export default SaveV1;

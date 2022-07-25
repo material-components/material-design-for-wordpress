@@ -335,10 +335,10 @@ Object {
               class=""
             >
               <tr
-                class="mdc-data-table__row"
+                class="mdc-data-table__header-row"
               >
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div
                     aria-label="Footer label"
@@ -351,7 +351,7 @@ Object {
                   </div>
                 </td>
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div
                     aria-label="Footer label"
@@ -364,7 +364,7 @@ Object {
                   </div>
                 </td>
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div
                     aria-label="Footer label"
@@ -703,10 +703,10 @@ Object {
             class=""
           >
             <tr
-              class="mdc-data-table__row"
+              class="mdc-data-table__header-row"
             >
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div
                   aria-label="Footer label"
@@ -719,7 +719,7 @@ Object {
                 </div>
               </td>
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div
                   aria-label="Footer label"
@@ -732,7 +732,7 @@ Object {
                 </div>
               </td>
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div
                   aria-label="Footer label"
@@ -1152,10 +1152,10 @@ Object {
               class=""
             >
               <tr
-                class="mdc-data-table__row"
+                class="mdc-data-table__header-row"
               >
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div
                     aria-label="Footer label"
@@ -1168,7 +1168,7 @@ Object {
                   </div>
                 </td>
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div
                     aria-label="Footer label"
@@ -1181,7 +1181,7 @@ Object {
                   </div>
                 </td>
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div
                     aria-label="Footer label"
@@ -1518,10 +1518,10 @@ Object {
             class=""
           >
             <tr
-              class="mdc-data-table__row"
+              class="mdc-data-table__header-row"
             >
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div
                   aria-label="Footer label"
@@ -1534,7 +1534,7 @@ Object {
                 </div>
               </td>
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div
                   aria-label="Footer label"
@@ -1547,7 +1547,7 @@ Object {
                 </div>
               </td>
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div
                   aria-label="Footer label"

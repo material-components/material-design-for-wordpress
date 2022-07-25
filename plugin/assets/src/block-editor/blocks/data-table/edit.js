@@ -36,8 +36,6 @@ import {
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
-import { compose } from '@wordpress/compose';
-import { withSelect } from '@wordpress/data';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -76,6 +74,18 @@ const ALIGNMENT_CONTROLS = [
 	},
 ];
 
+/**
+ * Table section.
+ *
+ * @param {Object}   props               Props.
+ * @param {string}   props.name          Table section type - tfoot tbody thead.
+ * @param {Array}    props.rows          Rows.
+ * @param {Function} props.onChange      Callback to update table section.
+ * @param {Function} props.createOnFocus Create callback on focus.
+ * @param {Object}   props.selectedCell  Selected cell.
+ *
+ * @return {JSX.Element|null} JXS.
+ */
 const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	if ( isEmptyTableSection( rows ) ) {
 		return null;
@@ -84,11 +94,12 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	const Tag = `t${ name }`;
 	const tagClass = 'body' === name ? 'mdc-data-table__content' : '';
 	const trClass = classnames( {
-		'mdc-data-table__header-row': 'head' === name,
-		'mdc-data-table__row': 'head' !== name,
+		'mdc-data-table__header-row': [ 'head', 'foot' ].includes( name ),
+		'mdc-data-table__row': 'body' === name,
 	} );
 
 	return (
+		// @ts-ignore
 		<Tag className={ tagClass }>
 			{ rows.map( ( { cells }, rowIndex ) => (
 				<tr key={ rowIndex } className={ trClass }>
@@ -111,8 +122,11 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 							);
 
 							const tdClasses = classnames( {
-								'mdc-data-table__cell': 'head' !== name,
-								'mdc-data-table__header-cell': 'head' === name,
+								'mdc-data-table__cell': 'body' === name,
+								'mdc-data-table__header-cell': [
+									'head',
+									'foot',
+								].includes( name ),
 								'is-selected':
 									selectedCell &&
 									selectedCell.sectionName ===
@@ -164,7 +178,7 @@ const Section = ( { name, rows, onChange, createOnFocus, selectedCell } ) => {
 	);
 };
 
-const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
+const DataTableEdit = ( { attributes, setAttributes } ) => {
 	const { className, hasFixedLayout, caption, head, body, foot } = attributes;
 	const [ selectedCell, setSelectedCell ] = useState( null );
 	const [ initialColumnCount, setinitialColumnCount ] = useState( 2 );
@@ -222,7 +236,7 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 	/**
 	 * Get the alignment of the currently selected cell.
 	 *
-	 * @return {string} The new alignment to apply to the column.
+	 * @return {string|void} The new alignment to apply to the column.
 	 */
 	const getCellAlignment = () => {
 		if ( ! selectedCell ) {
@@ -537,41 +551,28 @@ const DataTableEdit = ( { attributes, setAttributes, hasCaption } ) => {
 					</table>
 				</div>
 
-				{ hasCaption && (
-					<div className="mdc-data-table__caption">
-						<RichText
-							tagName="figcaption"
-							placeholder={ __(
-								'Write caption…',
-								'material-design'
-							) }
-							value={ caption }
-							onChange={
-								/* istanbul ignore next */
-								value => setAttributes( { caption: value } )
-							}
-							// Deselect the selected table cell when the caption is focused.
-							unstableOnFocus={
-								/* istanbul ignore next */
-								() => setSelectedCell( null )
-							}
-						/>
-					</div>
-				) }
+				<div className="mdc-data-table__caption">
+					<RichText
+						tagName="figcaption"
+						placeholder={ __(
+							'Write caption…',
+							'material-design'
+						) }
+						value={ caption }
+						onChange={
+							/* istanbul ignore next */
+							value => setAttributes( { caption: value } )
+						}
+						// Deselect the selected table cell when the caption is focused.
+						unstableOnFocus={
+							/* istanbul ignore next */
+							() => setSelectedCell( null )
+						}
+					/>
+				</div>
 			</figure>
 		</>
 	);
 };
 
-export default compose( [
-	withSelect( select => {
-		const tableBlock = select( 'core/blocks' ).getBlockType( 'core/table' );
-
-		return {
-			hasCaption:
-				tableBlock &&
-				tableBlock.attributes &&
-				'caption' in tableBlock.attributes,
-		};
-	} ),
-] )( DataTableEdit );
+export default DataTableEdit;
