@@ -24,41 +24,6 @@
 	letter-spacing: normal;
 }
 
-/* Data Table */
-.mdc-data-table {
-	background-color: var(--md-sys-color-surface, #fff) !important;
-	border-color: rgba(0, 0, 0, 0.12) !important;
-	border-color: var(--md-sys-color-on-surface, #000) !important;
-
-	& thead {
-		border: none !important;
-	}
-}
-
-
-.mdc-data-table__table {
-	margin: 0 !important;
-}
-
-.mdc-data-table__row {
-	border-top-color: rgba(0, 0, 0, 0.12) !important;
-	border-top-color: var(--md-sys-color-on-surface, #000) !important;
-	border-top-width: 1px !important;
-	border-top-style: solid !important;
-}
-
-.mdc-data-table__header-cell {
-	border: none !important;
-	vertical-align: middle !important;
-}
-
-.mdc-data-table__header-cell,
-.mdc-data-table__cell {
-	border: none !important;
-	padding-left: 16px !important;
-	padding-right: 16px !important;
-}
-
 /* List */
 ul.mdc-list {
 	list-style-type: none !important;

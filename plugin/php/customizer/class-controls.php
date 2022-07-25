@@ -1307,7 +1307,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Data table', 'material-design' ),
 				'min'           => 0,
 				'max'           => 36,
-				'initial_value' => 0,
+				'initial_value' => 24,
 				'css_var'       => '--mdc-data-table-radius',
 				'blocks'        => [
 					'material/data-table',

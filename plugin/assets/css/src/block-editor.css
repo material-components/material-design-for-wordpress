@@ -25,6 +25,7 @@
 @import "./overrides.css";
 @import "./material-components.css";
 @import "./tokens/index.css";
+@import "./components/datatable-editor.css";
 
 @media (min-width: 600px) {
 

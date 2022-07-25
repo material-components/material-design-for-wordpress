@@ -111,17 +111,6 @@
 	width: 860px;
 }
 
-/* Data Table */
-.mdc-data-table {
-	border-radius: var(--mdc-data-table-radius, 4px);
-}
-
-.mdc-data-table__header-cell {
-	font-weight: bold;
-}
-
-.mdc-data-table__header-cell,
-.mdc-data-table__cell,
 .mdc-menu .mdc-list {
 	color: var(--md-sys-color-on-surface, #000);
 }

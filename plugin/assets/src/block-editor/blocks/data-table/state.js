@@ -156,23 +156,27 @@ export function isCellSelected( cellLocation, selection ) {
 				cellLocation.rowIndex === selection.rowIndex
 			);
 	}
+	return false;
 }
 
 /**
  * Inserts a row in the table state.
  *
- * @param {Object} state               Current table state.
- * @param {Object} options
- * @param {string} options.sectionName Section in which to insert the row.
- * @param {number} options.rowIndex    Row index at which to insert the row.
- * @param {number} options.columnCount
+ * @param {Object}  state               Current table state.
+ * @param {Object}  options
+ * @param {string}  options.sectionName Section in which to insert the row.
+ * @param {number}  options.rowIndex    Row index at which to insert the row.
+ * @param {?number} options.columnCount
  *
  * @return {Object} New table state.
  */
-export function insertRow( state, { sectionName, rowIndex, columnCount } ) {
+export function insertRow(
+	state,
+	{ sectionName, rowIndex, columnCount = null }
+) {
 	const firstRow = getFirstRow( state );
 	const cellCount =
-		columnCount === undefined
+		columnCount === null
 			? get( firstRow, [ 'cells', 'length' ] )
 			: columnCount;
 
