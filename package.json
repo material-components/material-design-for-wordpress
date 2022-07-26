@@ -55,7 +55,6 @@
     "@types/lodash": "^4.14.175",
     "@typescript-eslint/eslint-plugin": "5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
-    "@woocommerce/components": "8.1.1",
     "@wordpress/babel-plugin-import-jsx-pragma": "^3.1.0",
     "@wordpress/block-editor": "^8.0.3",
     "@wordpress/blocks": "11.0.1",
