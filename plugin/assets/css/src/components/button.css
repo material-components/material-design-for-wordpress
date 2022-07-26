@@ -19,22 +19,50 @@
 	display: flex;
 	justify-content: center;
 	letter-spacing: 0.1px;
+	padding: 0 24px;
 }
 
 .mdc-button--raised {
-	background-color: var(--md-sys-color-surface);
-	color: var(--md-sys-color-on-surface);
-}
-
-.mdc-button--outlined {
-	background: transparent;
-	border: 1px solid var(--md-sys-color-outline);
+	background-color: var(--md-sys-color-surface-variant);
+	border: 0 !important; /* Use !important to override the default style of the button. */
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
 	color: var(--md-sys-color-primary);
-	padding: 10px 24px;
 
-	&:hover,
+	&:hover {
+		background-color: rgba(var(--md-sys-color-primary-rgb), 0.08);
+	}
+
 	&:focus,
 	&:active {
+		background-color: rgba(var(--md-sys-color-primary-rgb), 0.12);
+		outline: thin dotted;
+	}
+}
+
+.mdc-button--outlined,
+.mdc-button--outlined:not(:disabled),
+.mdc-button--text,
+.mdc-button--text:not(:disabled) {
+	background: transparent;
+	border: 1px solid var(--md-sys-color-outline) !important; /* Use !important to override the default style of the button. */
+	color: var(--md-sys-color-primary);
+
+	&:hover {
 		background-color: rgba(var(--md-sys-color-primary-rgb), 0.08);
+	}
+
+	&:focus,
+	&:active {
+		background-color: rgba(var(--md-sys-color-primary-rgb), 0.12);
+		outline: thin dotted;
+	}
+}
+
+.mdc-button--text,
+.mdc-button--text:not(:disabled) {
+	border: 0 !important; /* Use !important to override the default style of the button. */;
+
+	&:hover {
+		background-color: transparent;
 	}
 }
