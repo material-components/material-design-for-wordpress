@@ -30,14 +30,248 @@ Object {
     />
     <div>
       <div
-        class="mtd-posts"
-      />
+        class="material-design-search-list mtd-posts"
+      >
+        <div
+          class="material-design-search-list__selected"
+        >
+          <div
+            class="material-design-search-list__selected-header"
+          >
+            <strong>
+              1 post selected
+            </strong>
+            <button
+              aria-label="Clear all posts"
+              class="components-button is-link is-destructive"
+              type="button"
+            >
+              Clear all
+            </button>
+          </div>
+          <ul>
+            <li />
+          </ul>
+        </div>
+        <div
+          class="material-design-search-list__search"
+        >
+          <div
+            class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-text-control-0"
+              >
+                Search for posts to display
+              </label>
+              <input
+                class="components-text-control__input"
+                id="inspector-text-control-0"
+                type="search"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+        <ul
+          class="material-design-search-list__list"
+        >
+          <li>
+            <label
+              class=" material-design-search-list__item depth-0"
+              for="1"
+            >
+              <input
+                class="material-design-search-list__item-input"
+                id="1"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="material-design-search-list__item-label"
+              >
+                <span
+                  class="material-design-search-list__item-name"
+                >
+                  (no title)
+                </span>
+              </span>
+            </label>
+          </li>
+          <li>
+            <label
+              class=" material-design-search-list__item depth-0"
+              for="2"
+            >
+              <input
+                checked=""
+                class="material-design-search-list__item-input"
+                id="2"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="material-design-search-list__item-label"
+              >
+                <span
+                  class="material-design-search-list__item-name"
+                >
+                  (no title)
+                </span>
+              </span>
+            </label>
+          </li>
+          <li>
+            <label
+              class=" material-design-search-list__item depth-0"
+              for="3"
+            >
+              <input
+                class="material-design-search-list__item-input"
+                id="3"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="material-design-search-list__item-label"
+              >
+                <span
+                  class="material-design-search-list__item-name"
+                >
+                  (no title)
+                </span>
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="mtd-posts"
-    />
+      class="material-design-search-list mtd-posts"
+    >
+      <div
+        class="material-design-search-list__selected"
+      >
+        <div
+          class="material-design-search-list__selected-header"
+        >
+          <strong>
+            1 post selected
+          </strong>
+          <button
+            aria-label="Clear all posts"
+            class="components-button is-link is-destructive"
+            type="button"
+          >
+            Clear all
+          </button>
+        </div>
+        <ul>
+          <li />
+        </ul>
+      </div>
+      <div
+        class="material-design-search-list__search"
+      >
+        <div
+          class="components-base-control css-wdf2ti-Wrapper e1puf3u3"
+        >
+          <div
+            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+          >
+            <label
+              class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+              for="inspector-text-control-0"
+            >
+              Search for posts to display
+            </label>
+            <input
+              class="components-text-control__input"
+              id="inspector-text-control-0"
+              type="search"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <ul
+        class="material-design-search-list__list"
+      >
+        <li>
+          <label
+            class=" material-design-search-list__item depth-0"
+            for="1"
+          >
+            <input
+              class="material-design-search-list__item-input"
+              id="1"
+              type="checkbox"
+              value=""
+            />
+            <span
+              class="material-design-search-list__item-label"
+            >
+              <span
+                class="material-design-search-list__item-name"
+              >
+                (no title)
+              </span>
+            </span>
+          </label>
+        </li>
+        <li>
+          <label
+            class=" material-design-search-list__item depth-0"
+            for="2"
+          >
+            <input
+              checked=""
+              class="material-design-search-list__item-input"
+              id="2"
+              type="checkbox"
+              value=""
+            />
+            <span
+              class="material-design-search-list__item-label"
+            >
+              <span
+                class="material-design-search-list__item-name"
+              >
+                (no title)
+              </span>
+            </span>
+          </label>
+        </li>
+        <li>
+          <label
+            class=" material-design-search-list__item depth-0"
+            for="3"
+          >
+            <input
+              class="material-design-search-list__item-input"
+              id="3"
+              type="checkbox"
+              value=""
+            />
+            <span
+              class="material-design-search-list__item-label"
+            >
+              <span
+                class="material-design-search-list__item-name"
+              >
+                (no title)
+              </span>
+            </span>
+          </label>
+        </li>
+      </ul>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
