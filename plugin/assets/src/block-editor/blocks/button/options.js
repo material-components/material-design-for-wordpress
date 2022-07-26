@@ -47,11 +47,11 @@ export const BUTTON_STYLES = [
 		value: 'outlined',
 	},
 	{
-		label: __( 'Raised', 'material-design' ),
+		label: __( 'Elevated', 'material-design' ),
 		value: 'raised',
 	},
 	{
-		label: __( 'Unelevated', 'material-design' ),
+		label: __( 'Filled', 'material-design' ),
 		value: 'unelevated',
 	},
 ];
