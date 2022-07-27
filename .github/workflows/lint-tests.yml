@@ -44,6 +44,7 @@ jobs:
       NODE_ENV: teste2e
       WP_VERSION: ${{ matrix.wp_versions }}
       PHP_VERSION: php${{ matrix.php_versions }}-apache
+      WORDPRESS_DEBUG: 0
 
     steps:
       - uses: actions/checkout@v2
