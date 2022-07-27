@@ -125,7 +125,7 @@
     "jquery": "3.5.0",
     "jsdom": "16.2.2",
     "json-loader": "0.5.7",
-    "lodash": "4.17.20",
+    "lodash": "4.17.21",
     "mini-css-extract-plugin": "^2.2.2",
     "minimist": "1.2.5",
     "node-fetch": "3.2.9",
