@@ -6,26 +6,26 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class=" woocommerce-search-list__item depth-0"
+        class=" material-design-search-list__item depth-0"
         for="2"
       >
         <input
-          class="woocommerce-search-list__item-input"
+          class="material-design-search-list__item-input"
           id="2"
           name="Example Post"
           type="checkbox"
           value=""
         />
         <span
-          class="woocommerce-search-list__item-label"
+          class="material-design-search-list__item-label"
         >
           <span
-            class="woocommerce-search-list__item-name"
+            class="material-design-search-list__item-name"
           >
             Example Post
           </span>
           <a
-            class="woocommerce-search-list__item-preview"
+            class="material-design-search-list__item-preview"
             href="http://example.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -38,26 +38,26 @@ Object {
   </body>,
   "container": <div>
     <label
-      class=" woocommerce-search-list__item depth-0"
+      class=" material-design-search-list__item depth-0"
       for="2"
     >
       <input
-        class="woocommerce-search-list__item-input"
+        class="material-design-search-list__item-input"
         id="2"
         name="Example Post"
         type="checkbox"
         value=""
       />
       <span
-        class="woocommerce-search-list__item-label"
+        class="material-design-search-list__item-label"
       >
         <span
-          class="woocommerce-search-list__item-name"
+          class="material-design-search-list__item-name"
         >
           Example Post
         </span>
         <a
-          class="woocommerce-search-list__item-preview"
+          class="material-design-search-list__item-preview"
           href="http://example.com"
           rel="noopener noreferrer"
           target="_blank"
@@ -127,21 +127,21 @@ Object {
   "baseElement": <body>
     <div>
       <label
-        class=" woocommerce-search-list__item depth-0"
+        class=" material-design-search-list__item depth-0"
         for="2"
       >
         <input
-          class="woocommerce-search-list__item-input"
+          class="material-design-search-list__item-input"
           id="2"
           name="Example Post"
           type="checkbox"
           value=""
         />
         <span
-          class="woocommerce-search-list__item-label"
+          class="material-design-search-list__item-label"
         >
           <span
-            class="woocommerce-search-list__item-name"
+            class="material-design-search-list__item-name"
           >
             Example Post
           </span>
@@ -151,21 +151,21 @@ Object {
   </body>,
   "container": <div>
     <label
-      class=" woocommerce-search-list__item depth-0"
+      class=" material-design-search-list__item depth-0"
       for="2"
     >
       <input
-        class="woocommerce-search-list__item-input"
+        class="material-design-search-list__item-input"
         id="2"
         name="Example Post"
         type="checkbox"
         value=""
       />
       <span
-        class="woocommerce-search-list__item-label"
+        class="material-design-search-list__item-label"
       >
         <span
-          class="woocommerce-search-list__item-name"
+          class="material-design-search-list__item-name"
         >
           Example Post
         </span>

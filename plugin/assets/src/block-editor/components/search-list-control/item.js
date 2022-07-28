@@ -1,20 +1,26 @@
 /**
  * External dependencies
  */
-import { __ } from '@wordpress/i18n';
+import { Fragment } from '@wordpress/element';
 import { escapeRegExp, first, last, isNil } from 'lodash';
-
-/**
- * Internal dependencies
- */
-import './style.css';
 
 function getHighlightedName( name, search ) {
 	if ( ! search ) {
 		return name;
 	}
 	const re = new RegExp( escapeRegExp( search ), 'ig' );
-	return name.replace( re, '<strong>$&</strong>' );
+	const nameParts = name.split( re );
+	return nameParts.map( ( part, i ) => {
+		if ( i === 0 ) {
+			return part;
+		}
+		return (
+			<Fragment key={ i }>
+				<strong>{ search }</strong>
+				{ part }
+			</Fragment>
+		);
+	} );
 }
 
 function getBreadcrumbsForDisplay( breadcrumbs ) {
@@ -32,6 +38,7 @@ const SearchListItem = ( {
 	countLabel,
 	className,
 	depth = 0,
+	controlId = '',
 	item,
 	isSelected,
 	isSingle,
@@ -49,35 +56,33 @@ const SearchListItem = ( {
 		classes.push( 'has-count' );
 	}
 	const hasBreadcrumbs = item.breadcrumbs && item.breadcrumbs.length;
-
-	const inputProps = props;
-	// React throws console error for controlId on <input>
-	delete inputProps.controlId;
+	const name = props.name || `search-list-item-${ controlId }`;
+	const id = `${ name }-${ item.id }`;
 
 	return (
-		<label htmlFor={ item.id } className={ classes.join( ' ' ) }>
+		<label htmlFor={ id } className={ classes.join( ' ' ) }>
 			{ isSingle ? (
 				<input
 					type="radio"
-					id={ item.id }
-					name={ item.name }
+					id={ id }
+					name={ name }
 					value={ item.value }
 					onChange={ onSelect( item ) }
 					checked={ isSelected }
 					className="material-design-search-list__item-input"
-					{ ...inputProps }
-				/>
+					{ ...props }
+				></input>
 			) : (
 				<input
 					type="checkbox"
-					id={ item.id }
-					name={ item.name }
+					id={ id }
+					name={ name }
 					value={ item.value }
 					onChange={ onSelect( item ) }
 					checked={ isSelected }
 					className="material-design-search-list__item-input"
-					{ ...inputProps }
-				/>
+					{ ...props }
+				></input>
 			) }
 
 			<span className="material-design-search-list__item-label">
@@ -86,25 +91,9 @@ const SearchListItem = ( {
 						{ getBreadcrumbsForDisplay( item.breadcrumbs ) }
 					</span>
 				) : null }
-				<span
-					className="material-design-search-list__item-name"
-					dangerouslySetInnerHTML={ {
-						__html: getHighlightedName(
-							item.name || __( '(no title)', 'material-design' ),
-							search
-						),
-					} }
-				/>
-				{ item.link ? (
-					<a
-						className="material-design-search-list__item-preview"
-						href={ item.link }
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						{ __( 'Preview', 'material-design' ) }
-					</a>
-				) : null }
+				<span className="material-design-search-list__item-name">
+					{ getHighlightedName( item.name, search ) }
+				</span>
 			</span>
 
 			{ !! showCount && (
