@@ -27,7 +27,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle label-small"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -46,9 +46,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <i
                 aria-hidden="true"
                 class="material-icons mdc-button__icon"
@@ -64,9 +61,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <i
                 aria-hidden="true"
                 class="material-icons mdc-button__icon"
@@ -107,7 +101,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle label-small"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -126,9 +120,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <i
               aria-hidden="true"
               class="material-icons mdc-button__icon"
@@ -144,9 +135,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <i
               aria-hidden="true"
               class="material-icons mdc-button__icon"
@@ -244,7 +232,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle label-small"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -263,9 +251,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <i
                 aria-hidden="true"
                 class="material-icons mdc-button__icon"
@@ -281,9 +266,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <i
                 aria-hidden="true"
                 class="material-icons mdc-button__icon"
@@ -324,7 +306,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle label-small"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -343,9 +325,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <i
               aria-hidden="true"
               class="material-icons mdc-button__icon"
@@ -361,9 +340,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <i
               aria-hidden="true"
               class="material-icons mdc-button__icon"
@@ -457,7 +433,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle label-small"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -476,9 +452,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <i
                 aria-hidden="true"
                 class="material-icons mdc-button__icon"
@@ -494,9 +467,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <i
                 aria-hidden="true"
                 class="material-icons mdc-button__icon"
@@ -533,7 +503,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle label-small"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -552,9 +522,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <i
               aria-hidden="true"
               class="material-icons mdc-button__icon"
@@ -570,9 +537,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <i
               aria-hidden="true"
               class="material-icons mdc-button__icon"
@@ -666,7 +630,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle label-small"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -698,7 +662,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle label-small"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -791,7 +755,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle label-small"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -827,7 +791,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle label-small"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -916,7 +880,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle label-small"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -935,9 +899,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <i
                 aria-hidden="true"
                 class="material-icons mdc-button__icon"
@@ -953,9 +914,6 @@ Object {
             <button
               class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
             >
-              <span
-                class="mdc-button__ripple"
-              />
               <i
                 aria-hidden="true"
                 class="material-icons mdc-button__icon"
@@ -992,7 +950,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle label-small"
           >
             <time
               datetime="2020-02-25 08:20:38"
@@ -1011,9 +969,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <i
               aria-hidden="true"
               class="material-icons mdc-button__icon"
@@ -1029,9 +984,6 @@ Object {
           <button
             class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
           >
-            <span
-              class="mdc-button__ripple"
-            />
             <i
               aria-hidden="true"
               class="material-icons mdc-button__icon"

@@ -52,13 +52,13 @@ Object {
                 Test title
               </h2>
               <h3
-                class="material-design-card__secondary-text label-medium"
+                class="material-design-card__secondary-text body-medium"
               >
                 Test secondary text
               </h3>
             </div>
             <div
-              class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+              class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
             >
               Test supporting text
             </div>
@@ -75,9 +75,6 @@ Object {
                 rel="noopener noreferrer nofollow"
                 target="_blank"
               >
-                <div
-                  class="mdc-button__ripple"
-                />
                 <span
                   class="mdc-button__label"
                 >
@@ -90,9 +87,6 @@ Object {
                 rel="noopener noreferrer nofollow"
                 target="_blank"
               >
-                <div
-                  class="mdc-button__ripple"
-                />
                 <span
                   class="mdc-button__label"
                 >
@@ -129,13 +123,13 @@ Object {
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text label-medium"
+              class="material-design-card__secondary-text body-medium"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
           >
             Test supporting text
           </div>
@@ -152,9 +146,6 @@ Object {
               rel="noopener noreferrer nofollow"
               target="_blank"
             >
-              <div
-                class="mdc-button__ripple"
-              />
               <span
                 class="mdc-button__label"
               >
@@ -167,9 +158,6 @@ Object {
               rel="noopener noreferrer nofollow"
               target="_blank"
             >
-              <div
-                class="mdc-button__ripple"
-              />
               <span
                 class="mdc-button__label"
               >
@@ -287,13 +275,13 @@ Object {
                 Test title
               </h2>
               <h3
-                class="material-design-card__secondary-text label-medium"
+                class="material-design-card__secondary-text body-medium"
               >
                 Test secondary text
               </h3>
             </div>
             <div
-              class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+              class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
             >
               Test supporting text
             </div>
@@ -310,9 +298,6 @@ Object {
                 rel="noopener noreferrer nofollow"
                 target="_blank"
               >
-                <div
-                  class="mdc-button__ripple"
-                />
                 <span
                   class="mdc-button__label"
                 >
@@ -325,9 +310,6 @@ Object {
                 rel="noopener noreferrer nofollow"
                 target="_blank"
               >
-                <div
-                  class="mdc-button__ripple"
-                />
                 <span
                   class="mdc-button__label"
                 >
@@ -364,13 +346,13 @@ Object {
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text label-medium"
+              class="material-design-card__secondary-text body-medium"
             >
               Test secondary text
             </h3>
           </div>
           <div
-            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography body-medium"
+            class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
           >
             Test supporting text
           </div>
@@ -387,9 +369,6 @@ Object {
               rel="noopener noreferrer nofollow"
               target="_blank"
             >
-              <div
-                class="mdc-button__ripple"
-              />
               <span
                 class="mdc-button__label"
               >
@@ -402,9 +381,6 @@ Object {
               rel="noopener noreferrer nofollow"
               target="_blank"
             >
-              <div
-                class="mdc-button__ripple"
-              />
               <span
                 class="mdc-button__label"
               >
@@ -522,7 +498,7 @@ Object {
                 Test title
               </h2>
               <h3
-                class="material-design-card__secondary-text label-medium"
+                class="material-design-card__secondary-text body-medium"
               >
                 Test secondary text
               </h3>
@@ -540,9 +516,6 @@ Object {
                 rel="noopener noreferrer nofollow"
                 target="_blank"
               >
-                <div
-                  class="mdc-button__ripple"
-                />
                 <span
                   class="mdc-button__label"
                 >
@@ -555,9 +528,6 @@ Object {
                 rel="noopener noreferrer nofollow"
                 target="_blank"
               >
-                <div
-                  class="mdc-button__ripple"
-                />
                 <span
                   class="mdc-button__label"
                 >
@@ -594,7 +564,7 @@ Object {
               Test title
             </h2>
             <h3
-              class="material-design-card__secondary-text label-medium"
+              class="material-design-card__secondary-text body-medium"
             >
               Test secondary text
             </h3>
@@ -612,9 +582,6 @@ Object {
               rel="noopener noreferrer nofollow"
               target="_blank"
             >
-              <div
-                class="mdc-button__ripple"
-              />
               <span
                 class="mdc-button__label"
               >
@@ -627,9 +594,6 @@ Object {
               rel="noopener noreferrer nofollow"
               target="_blank"
             >
-              <div
-                class="mdc-button__ripple"
-              />
               <span
                 class="mdc-button__label"
               >

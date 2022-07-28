@@ -25,9 +25,9 @@ import { updateCategory } from '@wordpress/blocks';
  * Internal dependencies
  */
 import { registerBlocks, MaterialLogo } from './helpers';
-import './blocks/data-table/hooks';
 import './formats';
 import './style/core-template';
+import './blocks/data-table/hooks';
 
 /**
  * Register the blocks.

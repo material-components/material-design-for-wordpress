@@ -32,7 +32,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-02-25 08:20:38"
@@ -46,7 +46,7 @@ Object {
                   style="background-image: url(http://example.com/test1.jpg);"
                 />
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     This is a test post excerpt #1
@@ -62,9 +62,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -102,7 +99,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-02-25 09:20:38"
@@ -116,7 +113,7 @@ Object {
                   style="background-image: url(http://example.com/test2.jpg);"
                 />
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     This is a test post excerpt #2
@@ -132,9 +129,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -183,7 +177,7 @@ Object {
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle label-medium"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-02-25 08:20:38"
@@ -197,7 +191,7 @@ Object {
                 style="background-image: url(http://example.com/test1.jpg);"
               />
               <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
               >
                 <div>
                   This is a test post excerpt #1
@@ -213,9 +207,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -253,7 +244,7 @@ Object {
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle label-medium"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-02-25 09:20:38"
@@ -267,7 +258,7 @@ Object {
                 style="background-image: url(http://example.com/test2.jpg);"
               />
               <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
               >
                 <div>
                   This is a test post excerpt #2
@@ -283,9 +274,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -395,7 +383,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-02-25 08:20:38"
@@ -414,9 +402,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -458,7 +443,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-02-25 09:20:38"
@@ -477,9 +462,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -532,7 +514,7 @@ Object {
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle label-medium"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-02-25 08:20:38"
@@ -551,9 +533,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -595,7 +574,7 @@ Object {
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle label-medium"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-02-25 09:20:38"
@@ -614,9 +593,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -721,7 +697,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-02-25 08:20:38"
@@ -735,7 +711,7 @@ Object {
                   style="background-image: url(http://example.com/test1.jpg);"
                 />
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     This is a test post excerpt #1
@@ -751,9 +727,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -794,7 +767,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-02-25 09:20:38"
@@ -808,7 +781,7 @@ Object {
                   style="background-image: url(http://example.com/test2.jpg);"
                 />
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     This is a test post excerpt #2
@@ -824,9 +797,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -874,7 +844,7 @@ Object {
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle label-medium"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-02-25 08:20:38"
@@ -888,7 +858,7 @@ Object {
                 style="background-image: url(http://example.com/test1.jpg);"
               />
               <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
               >
                 <div>
                   This is a test post excerpt #1
@@ -904,9 +874,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -947,7 +914,7 @@ Object {
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle label-medium"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-02-25 09:20:38"
@@ -961,7 +928,7 @@ Object {
                 style="background-image: url(http://example.com/test2.jpg);"
               />
               <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
               >
                 <div>
                   This is a test post excerpt #2
@@ -977,9 +944,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"

@@ -54,7 +54,7 @@ const maybeToggleDarkMode = event => {
 			target: document.body,
 			dark: true,
 		} );
-
+		body.setAttribute( 'data-color-scheme', 'dark' );
 		switcherIcon.textContent = ICONS.LIGHT_MODE;
 	} else {
 		applyTheme( colorPallete, {
@@ -62,6 +62,7 @@ const maybeToggleDarkMode = event => {
 			dark: false,
 		} );
 
+		body.setAttribute( 'data-color-scheme', 'light' );
 		switcherIcon.textContent = ICONS.DARK_MODE;
 	}
 };

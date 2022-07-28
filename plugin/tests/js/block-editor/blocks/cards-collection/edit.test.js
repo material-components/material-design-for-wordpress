@@ -86,7 +86,7 @@ const firstCardProps = {
 	secondaryActionButtonNoFollow: false,
 	displayActions: true,
 	displaySecondaryActionButton: false,
-	cardStyle: 'global',
+	cardStyle: 'filled',
 	cornerRadius: undefined,
 };
 
@@ -111,7 +111,7 @@ const secondCardProps = {
 	secondaryActionButtonNoFollow: false,
 	displayActions: true,
 	displaySecondaryActionButton: false,
-	outlined: false,
+	cardStyle: 'filled',
 	cornerRadius: undefined,
 };
 
@@ -136,7 +136,7 @@ const thirdCardProps = {
 	secondaryActionButtonNoFollow: false,
 	displayActions: true,
 	displaySecondaryActionButton: false,
-	outlined: false,
+	cardStyle: 'filled',
 	cornerRadius: undefined,
 };
 

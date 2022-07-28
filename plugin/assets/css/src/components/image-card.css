@@ -1,0 +1,121 @@
+/*
+ *  Copyright 2022 Google LLC
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+.mdc-image-list {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.wp-block-material-image-card-query,
+.mdc-image-list__item,
+.mdc-image-list__image-aspect-container {
+	position: relative;
+	box-sizing: border-box;
+}
+
+.wp-block-material-image-card-query,
+.mdc-image-list__item {
+	list-style-type: none;
+	margin: 0;
+}
+
+.mdc-image-list__image {
+	width: 100%;
+	border-radius: var(--mdc-image-list-radius, 4px);
+}
+
+.mdc-image-list__image-aspect-container .mdc-image-list__image {
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.mdc-image-list__image-aspect-container {
+	padding-bottom: calc(100% / 1);
+}
+
+.mdc-image-list__label {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: var(--md-sys-typescale-label-large-font, var(--md-ref-typeface-plain, Roboto, sans-serif));
+	font-size: var(--md-sys-typescale-label-large-size, 1em);
+	line-height: var(--md-sys-typescale-label-large-line-height, 1.75);
+	font-style: var(--md-sys-typescale-label-large-style, normal);
+	font-weight: var(--md-sys-typescale-label-large-weight, 400);
+	letter-spacing: var(--md-sys-typescale-label-large-tracking);
+	text-decoration: inherit;
+	text-overflow: ellipsis;
+	white-space: normal;
+	overflow: hidden;
+}
+
+.mdc-image-list__item-wrap {
+	display: block;
+	text-decoration: none !important;
+}
+
+.wp-block-post-template .mdc-image-list__supporting,
+.mdc-image-list--with-text-protection .mdc-image-list__supporting {
+	color: rgba(var(--md-sys-color-on-surface-rgb), 0.87);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	line-height: 24px;
+	border-bottom-left-radius: var(--mdc-image-list-radius, 12px);
+	border-bottom-right-radius: var(--mdc-image-list-radius, 12px);
+	max-height: 100%;
+	min-height: 48px;
+	overflow: hidden;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	padding: 8px 16px;
+	background: rgba(var(--md-sys-color-surface-rgb), 0.6);
+}
+
+.wp-block-material-image-card-query a {
+	display: block;
+
+	&:focus {
+		outline: 1px dotted;
+	}
+}
+
+.mdc-image-list--masonry {
+	display: block;
+}
+
+.wp-block-material-image-card-query,
+.mdc-image-list__item {
+	-webkit-column-break-inside: avoid;
+	break-inside: avoid-column;
+}
+
+.mdc-image-list__image {
+	display: block;
+	height: auto;
+}

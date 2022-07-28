@@ -30,7 +30,7 @@ import { RawHTML } from '@wordpress/element';
 import CardImage from './card-image';
 import CardHeader from './card-header';
 import CardActions from './card-actions';
-import { isGlobalCardStyleOutlined } from '../../../utils';
+import { getGlobalCardStyle } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
@@ -39,7 +39,7 @@ import { isGlobalCardStyleOutlined } from '../../../utils';
  * @param {string}  props.excerpt              - Post excerpt.
  * @param {string}  props.imageSourceUrl       - Image source URL.
  * @param {string}  props.contentLayout        - Content layout ('text-above-media', 'text-over-media' or text-under-media).
- * @param {boolean} props.outlined             - Whether or not the card has an outlined style.
+ * @param {string}  props.cardStyle            - Whether card has an outlined, elevated, filled or global style.
  * @param {boolean} props.displayPostContent   - Whether or not to display the post content.
  * @param {number}  props.postContentLength    - Post content length.
  * @param {boolean} props.displayFeaturedImage - Whether or not to display the featured image.
@@ -59,21 +59,23 @@ const VerticalCardLayout = props => {
 		displayFeaturedImage,
 		displayCommentsCount,
 		displayPostAuthor,
-		isEditMode,
 	} = props;
 
 	const cardImageProps = { type: '16-9', ...props };
+
+	const globalStyle = getGlobalCardStyle();
 
 	return (
 		<div
 			className={ classnames(
 				'mdc-card',
 				{
-					'mdc-card--outlined':
-						cardStyle === 'outlined' ||
-						( cardStyle === 'global' &&
-							isGlobalCardStyleOutlined() &&
-							isEditMode ),
+					[ `mdc-card--${ cardStyle }` ]:
+						cardStyle && cardStyle !== 'global',
+				},
+				{
+					[ `mdc-card--${ globalStyle }` ]:
+						globalStyle && cardStyle === 'global',
 				},
 				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'single-post-card',
@@ -106,7 +108,6 @@ const VerticalCardLayout = props => {
 						className={ classnames(
 							'single-post-card__secondary',
 							`single-post-card__secondary-${ contentLayout }`,
-							'mdc-typography',
 							'body-medium'
 						) }
 					>

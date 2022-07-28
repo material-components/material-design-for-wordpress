@@ -30,6 +30,1159 @@ Object {
        Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards.  
     </div>
     <div>
+      <div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Styles
+            </button>
+          </h2>
+          <div
+            class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <div
+                class="components-radio-control__option active"
+              >
+                <input
+                  checked=""
+                  class="components-radio-control__input"
+                  id="image-radio-control-1-0"
+                  name="image-radio-control-1"
+                  type="radio"
+                  value="masonry"
+                />
+                <label
+                  for="image-radio-control-1-0"
+                >
+                  <div
+                    class="components-image-radio-control__image"
+                  >
+                    <svg
+                      fill="none"
+                      height="37"
+                      viewBox="0 0 37 37"
+                      width="37"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="0.133057"
+                        y="16.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.133057"
+                        y="34.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="20.3596"
+                        y="0.0395508"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.3596"
+                        y="18.0396"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="8"
+                        width="16"
+                        x="20.1624"
+                        y="24.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.1624"
+                        y="34.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="8"
+                        width="16"
+                        x="0.321533"
+                        y="0.0395508"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.321533"
+                        y="10.0396"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="components-image-radio-control__label"
+                  >
+                    Masonry
+                  </span>
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="image-radio-control-1-1"
+                  name="image-radio-control-1"
+                  type="radio"
+                  value="list"
+                />
+                <label
+                  for="image-radio-control-1-1"
+                >
+                  <div
+                    class="components-image-radio-control__image"
+                  >
+                    <svg
+                      fill="none"
+                      height="39"
+                      viewBox="0 0 39 39"
+                      width="39"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        fill="#565D66"
+                        height="10"
+                        width="10"
+                        x="0.386353"
+                        y="28.7036"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="24"
+                        x="14.3864"
+                        y="30.4526"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="18"
+                        x="14.3864"
+                        y="34.4526"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="10"
+                        width="10"
+                        x="0.386353"
+                        y="14.7036"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="24"
+                        x="14.3864"
+                        y="16.4526"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="18"
+                        x="14.3864"
+                        y="20.4526"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="10"
+                        width="10"
+                        x="0.386353"
+                        y="0.703613"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="24"
+                        x="14.3864"
+                        y="2.45264"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="18"
+                        x="14.3864"
+                        y="6.45264"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="components-image-radio-control__label"
+                  >
+                    List
+                  </span>
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="image-radio-control-1-2"
+                  name="image-radio-control-1"
+                  type="radio"
+                  value="grid"
+                />
+                <label
+                  for="image-radio-control-1-2"
+                >
+                  <div
+                    class="components-image-radio-control__image"
+                  >
+                    <svg
+                      fill="none"
+                      height="45"
+                      viewBox="0 0 37 45"
+                      width="37"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="0.24646"
+                        y="24.8232"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.24646"
+                        y="42.8232"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="20.2465"
+                        y="24.5835"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.2465"
+                        y="42.5835"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="0.24646"
+                        y="0.583496"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.24646"
+                        y="18.5835"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="20.2465"
+                        y="0.583496"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.2465"
+                        y="18.5835"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="components-image-radio-control__label"
+                  >
+                    Grid
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="components-notice is-warning"
+          >
+            <div
+              class="components-notice__content"
+            >
+              <p>
+                Overrides applies to this Card Block. Change 
+                <a
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
+                  Global Styles
+                </a>
+                 in Material Design Options to update all cards.
+              </p>
+              <div
+                class="components-notice__actions"
+              />
+            </div>
+          </div>
+          <div
+            class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-radio-control-2"
+              >
+                Elevation style
+              </label>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-2__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-2-0"
+                  name="inspector-radio-control-2"
+                  type="radio"
+                  value="global"
+                />
+                <label
+                  for="inspector-radio-control-2-0"
+                >
+                  Inherit from Global Settings
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-2__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-2-1"
+                  name="inspector-radio-control-2"
+                  type="radio"
+                  value="elevated"
+                />
+                <label
+                  for="inspector-radio-control-2-1"
+                >
+                  Elevated
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-2__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-2-2"
+                  name="inspector-radio-control-2"
+                  type="radio"
+                  value="outlined"
+                />
+                <label
+                  for="inspector-radio-control-2-2"
+                >
+                  Outlined
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-2__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-2-3"
+                  name="inspector-radio-control-2"
+                  type="radio"
+                  value="filled"
+                />
+                <label
+                  for="inspector-radio-control-2-3"
+                >
+                  Filled
+                </label>
+              </div>
+            </div>
+            <p
+              class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
+              id="inspector-radio-control-2__help"
+            >
+              Elevation style whether elevated or outlined.
+            </p>
+          </div>
+        </div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Card Settings
+            </button>
+          </h2>
+          <div
+            class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-radio-control-3"
+              >
+                Content layout
+              </label>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  checked=""
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-3-0"
+                  name="inspector-radio-control-3"
+                  type="radio"
+                  value="text-above-media"
+                />
+                <label
+                  for="inspector-radio-control-3-0"
+                >
+                  Text above media
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-3-1"
+                  name="inspector-radio-control-3"
+                  type="radio"
+                  value="text-over-media"
+                />
+                <label
+                  for="inspector-radio-control-3-1"
+                >
+                  Text over media
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-3-2"
+                  name="inspector-radio-control-3"
+                  type="radio"
+                  value="text-under-media"
+                />
+                <label
+                  for="inspector-radio-control-3-2"
+                >
+                  Text under media
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-range-control-3"
+              >
+                Columns
+              </label>
+              <div
+                class="components-range-control__root css-2cg8er-Root exqw8y214"
+              >
+                <div
+                  class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                  color="var( --wp-admin-theme-color, #00669b)"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Columns"
+                    class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
+                    id="inspector-range-control-3"
+                    max="4"
+                    min="2"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="3"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-43abdt-Rail-railBackgroundColor exqw8y210"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
+                    style="width: 50%;"
+                  />
+                  <span
+                    class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
+                    style="left: 50%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-yd4y8u-Thumb-thumbColor exqw8y24"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
+                    role="tooltip"
+                    style="left: 50%; z-index: 100;"
+                  >
+                    3
+                  </span>
+                </div>
+                <div
+                  class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="Flex"
+                >
+                  <div
+                    class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                    data-wp-c16t="true"
+                    data-wp-component="FlexItem"
+                  />
+                  <div
+                    class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                  >
+                    <input
+                      aria-label="Columns"
+                      autocomplete="off"
+                      class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                      id="inspector-input-control-3"
+                      inputmode="decimal"
+                      max="4"
+                      min="2"
+                      step="1"
+                      type="number"
+                      value="3"
+                    />
+                    <div
+                      aria-hidden="true"
+                      class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Content
+            </button>
+          </h2>
+          <div
+            class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-range-control-4"
+              >
+                Number of posts
+              </label>
+              <div
+                class="components-range-control__root css-2cg8er-Root exqw8y214"
+              >
+                <div
+                  class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                  color="var( --wp-admin-theme-color, #00669b)"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Number of posts"
+                    class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
+                    id="inspector-range-control-4"
+                    max="12"
+                    min="1"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="12"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-43abdt-Rail-railBackgroundColor exqw8y210"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
+                    style="width: 100%;"
+                  />
+                  <span
+                    class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
+                    style="left: 100%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-yd4y8u-Thumb-thumbColor exqw8y24"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
+                    role="tooltip"
+                    style="left: 100%; z-index: 100;"
+                  >
+                    12
+                  </span>
+                </div>
+                <div
+                  class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="Flex"
+                >
+                  <div
+                    class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                    data-wp-c16t="true"
+                    data-wp-component="FlexItem"
+                  />
+                  <div
+                    class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                  >
+                    <input
+                      aria-label="Number of posts"
+                      autocomplete="off"
+                      class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                      id="inspector-input-control-4"
+                      inputmode="decimal"
+                      max="12"
+                      min="1"
+                      step="1"
+                      type="number"
+                      value="12"
+                    />
+                    <div
+                      aria-hidden="true"
+                      class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Post meta settings
+            </button>
+          </h2>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle is-checked"
+              >
+                <input
+                  checked=""
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-5"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-5"
+              >
+                Post date
+              </label>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle is-checked"
+              >
+                <input
+                  checked=""
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-6"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-6"
+              >
+                Post excerpt
+              </label>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-range-control-5"
+              >
+                Max number of words in post excerpt
+              </label>
+              <div
+                class="components-range-control__root css-2cg8er-Root exqw8y214"
+              >
+                <div
+                  class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                  color="var( --wp-admin-theme-color, #00669b)"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Max number of words in post excerpt"
+                    class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
+                    id="inspector-range-control-5"
+                    max="30"
+                    min="10"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="20"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-43abdt-Rail-railBackgroundColor exqw8y210"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
+                    style="width: 50%;"
+                  />
+                  <span
+                    class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
+                    style="left: 50%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-yd4y8u-Thumb-thumbColor exqw8y24"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
+                    role="tooltip"
+                    style="left: 50%; z-index: 100;"
+                  >
+                    20
+                  </span>
+                </div>
+                <div
+                  class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="Flex"
+                >
+                  <div
+                    class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                    data-wp-c16t="true"
+                    data-wp-component="FlexItem"
+                  />
+                  <div
+                    class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                  >
+                    <input
+                      aria-label="Max number of words in post excerpt"
+                      autocomplete="off"
+                      class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                      id="inspector-input-control-5"
+                      inputmode="decimal"
+                      max="30"
+                      min="10"
+                      step="1"
+                      type="number"
+                      value="20"
+                    />
+                    <div
+                      aria-hidden="true"
+                      class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle is-checked"
+              >
+                <input
+                  checked=""
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-7"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-7"
+              >
+                Featured image
+              </label>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle is-checked"
+              >
+                <input
+                  checked=""
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-8"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-8"
+              >
+                Comments count
+              </label>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle"
+              >
+                <input
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-9"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-9"
+              >
+                Post author
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-label="Hand picked posts"
+          aria-orientation="horizontal"
+          class="components-accessible-toolbar"
+          id="hand-picked-posts-toolbar"
+          role="toolbar"
+        >
+          <button
+            aria-label="Edit"
+            aria-pressed="true"
+            class="components-button components-toolbar-button is-pressed has-icon"
+            data-toolbar-item="true"
+            id="hand-picked-posts-toolbar-1"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="dashicon dashicons dashicons-edit"
+            />
+          </button>
+        </div>
+        <div
+          class="components-placeholder material-design-block-products-grid material-design-block-handpicked-posts is-small"
+        >
+          <iframe
+            aria-hidden="true"
+            frameborder="0"
+            src="about:blank"
+            style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
+            tabindex="-1"
+          />
+          <div
+            class="components-placeholder__label"
+          >
+            <i
+              class="material-icons-outlined"
+              size="24"
+            >
+              library_books
+            </i>
+            Curated Post Collection
+          </div>
+          <div
+            class="components-placeholder__fieldset"
+          >
+            <div
+              class="material-design-block-handpicked-posts__types"
+            >
+              <p>
+                Display a selection of hand-picked posts.
+              </p>
+              <p
+                style="font-weight: bold; text-align: left;"
+              >
+                Content
+              </p>
+              <div
+                class="components-base-control material-design-block-handpicked-posts__types__list components-radio-control css-wdf2ti-Wrapper e1puf3u3"
+              >
+                <div
+                  class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+                >
+                  <div
+                    class="components-radio-control__option"
+                  >
+                    <input
+                      class="components-radio-control__input"
+                      id="inspector-radio-control-4-0"
+                      name="inspector-radio-control-4"
+                      type="radio"
+                      value="posts-pages"
+                    />
+                    <label
+                      for="inspector-radio-control-4-0"
+                    >
+                      Posts and Pages
+                    </label>
+                  </div>
+                  <div
+                    class="components-radio-control__option"
+                  >
+                    <input
+                      class="components-radio-control__input"
+                      id="inspector-radio-control-4-1"
+                      name="inspector-radio-control-4"
+                      type="radio"
+                      value="portfolio"
+                    />
+                    <label
+                      for="inspector-radio-control-4-1"
+                    >
+                      Portfolios
+                    </label>
+                  </div>
+                  <div
+                    class="components-radio-control__option"
+                  >
+                    <input
+                      class="components-radio-control__input"
+                      id="inspector-radio-control-4-2"
+                      name="inspector-radio-control-4"
+                      type="radio"
+                      value="recipe"
+                    />
+                    <label
+                      for="inspector-radio-control-4-2"
+                    >
+                      Recipes
+                    </label>
+                  </div>
+                  <div
+                    class="components-radio-control__option"
+                  >
+                    <input
+                      class="components-radio-control__input"
+                      id="inspector-radio-control-4-3"
+                      name="inspector-radio-control-4"
+                      type="radio"
+                      value="book"
+                    />
+                    <label
+                      for="inspector-radio-control-4-3"
+                    >
+                      Books
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="material-design-block-handpicked-posts__selection"
+            >
+              <div />
+              <button
+                class="components-button is-primary"
+                type="button"
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
       <div
         class="components-panel__body is-opened"
       >
@@ -49,7 +1202,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -426,6 +1578,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-2__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-2-3"
+                name="inspector-radio-control-2"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-2-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -454,7 +1623,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -642,7 +1810,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -767,7 +1934,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1165,1142 +2331,6 @@ Object {
         </div>
       </div>
     </div>
-  </body>,
-  "container": <div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Styles
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <div
-            class="components-radio-control__option active"
-          >
-            <input
-              checked=""
-              class="components-radio-control__input"
-              id="image-radio-control-1-0"
-              name="image-radio-control-1"
-              type="radio"
-              value="masonry"
-            />
-            <label
-              for="image-radio-control-1-0"
-            >
-              <div
-                class="components-image-radio-control__image"
-              >
-                <svg
-                  fill="none"
-                  height="37"
-                  viewBox="0 0 37 37"
-                  width="37"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="0.133057"
-                    y="16.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.133057"
-                    y="34.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="20.3596"
-                    y="0.0395508"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.3596"
-                    y="18.0396"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="8"
-                    width="16"
-                    x="20.1624"
-                    y="24.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.1624"
-                    y="34.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="8"
-                    width="16"
-                    x="0.321533"
-                    y="0.0395508"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.321533"
-                    y="10.0396"
-                  />
-                </svg>
-              </div>
-              <span
-                class="components-image-radio-control__label"
-              >
-                Masonry
-              </span>
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="image-radio-control-1-1"
-              name="image-radio-control-1"
-              type="radio"
-              value="list"
-            />
-            <label
-              for="image-radio-control-1-1"
-            >
-              <div
-                class="components-image-radio-control__image"
-              >
-                <svg
-                  fill="none"
-                  height="39"
-                  viewBox="0 0 39 39"
-                  width="39"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#565D66"
-                    height="10"
-                    width="10"
-                    x="0.386353"
-                    y="28.7036"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="24"
-                    x="14.3864"
-                    y="30.4526"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="18"
-                    x="14.3864"
-                    y="34.4526"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="10"
-                    width="10"
-                    x="0.386353"
-                    y="14.7036"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="24"
-                    x="14.3864"
-                    y="16.4526"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="18"
-                    x="14.3864"
-                    y="20.4526"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="10"
-                    width="10"
-                    x="0.386353"
-                    y="0.703613"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="24"
-                    x="14.3864"
-                    y="2.45264"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="18"
-                    x="14.3864"
-                    y="6.45264"
-                  />
-                </svg>
-              </div>
-              <span
-                class="components-image-radio-control__label"
-              >
-                List
-              </span>
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="image-radio-control-1-2"
-              name="image-radio-control-1"
-              type="radio"
-              value="grid"
-            />
-            <label
-              for="image-radio-control-1-2"
-            >
-              <div
-                class="components-image-radio-control__image"
-              >
-                <svg
-                  fill="none"
-                  height="45"
-                  viewBox="0 0 37 45"
-                  width="37"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="0.24646"
-                    y="24.8232"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.24646"
-                    y="42.8232"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="20.2465"
-                    y="24.5835"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.2465"
-                    y="42.5835"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="0.24646"
-                    y="0.583496"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.24646"
-                    y="18.5835"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="20.2465"
-                    y="0.583496"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.2465"
-                    y="18.5835"
-                  />
-                </svg>
-              </div>
-              <span
-                class="components-image-radio-control__label"
-              >
-                Grid
-              </span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-notice is-warning"
-      >
-        <div
-          class="components-notice__content"
-        >
-          <p>
-            Overrides applies to this Card Block. Change 
-            <a
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              Global Styles
-            </a>
-             in Material Design Options to update all cards.
-          </p>
-          <div
-            class="components-notice__actions"
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-radio-control-2"
-          >
-            Elevation style
-          </label>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              aria-describedby="inspector-radio-control-2__help"
-              class="components-radio-control__input"
-              id="inspector-radio-control-2-0"
-              name="inspector-radio-control-2"
-              type="radio"
-              value="global"
-            />
-            <label
-              for="inspector-radio-control-2-0"
-            >
-              Inherit from Global Settings
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              aria-describedby="inspector-radio-control-2__help"
-              class="components-radio-control__input"
-              id="inspector-radio-control-2-1"
-              name="inspector-radio-control-2"
-              type="radio"
-              value="elevated"
-            />
-            <label
-              for="inspector-radio-control-2-1"
-            >
-              Elevated
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              aria-describedby="inspector-radio-control-2__help"
-              class="components-radio-control__input"
-              id="inspector-radio-control-2-2"
-              name="inspector-radio-control-2"
-              type="radio"
-              value="outlined"
-            />
-            <label
-              for="inspector-radio-control-2-2"
-            >
-              Outlined
-            </label>
-          </div>
-        </div>
-        <p
-          class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
-          id="inspector-radio-control-2__help"
-        >
-          Elevation style whether elevated or outlined.
-        </p>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Card Settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-radio-control-3"
-          >
-            Content layout
-          </label>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              checked=""
-              class="components-radio-control__input"
-              id="inspector-radio-control-3-0"
-              name="inspector-radio-control-3"
-              type="radio"
-              value="text-above-media"
-            />
-            <label
-              for="inspector-radio-control-3-0"
-            >
-              Text above media
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="inspector-radio-control-3-1"
-              name="inspector-radio-control-3"
-              type="radio"
-              value="text-over-media"
-            />
-            <label
-              for="inspector-radio-control-3-1"
-            >
-              Text over media
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="inspector-radio-control-3-2"
-              name="inspector-radio-control-3"
-              type="radio"
-              value="text-under-media"
-            />
-            <label
-              for="inspector-radio-control-3-2"
-            >
-              Text under media
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-range-control-3"
-          >
-            Columns
-          </label>
-          <div
-            class="components-range-control__root css-2cg8er-Root exqw8y214"
-          >
-            <div
-              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
-              color="var( --wp-admin-theme-color, #00669b)"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="Columns"
-                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
-                id="inspector-range-control-3"
-                max="4"
-                min="2"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="3"
-              />
-              <span
-                aria-hidden="true"
-                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
-                style="width: 50%;"
-              />
-              <span
-                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
-                style="left: 50%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
-                role="tooltip"
-                style="left: 50%; z-index: 100;"
-              >
-                3
-              </span>
-            </div>
-            <div
-              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
-              data-wp-c16t="true"
-              data-wp-component="Flex"
-            >
-              <div
-                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-                data-wp-c16t="true"
-                data-wp-component="FlexItem"
-              />
-              <div
-                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
-              >
-                <input
-                  aria-label="Columns"
-                  autocomplete="off"
-                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
-                  id="inspector-input-control-3"
-                  inputmode="decimal"
-                  max="4"
-                  min="2"
-                  step="1"
-                  type="number"
-                  value="3"
-                />
-                <div
-                  aria-hidden="true"
-                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Content
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-range-control-4"
-          >
-            Number of posts
-          </label>
-          <div
-            class="components-range-control__root css-2cg8er-Root exqw8y214"
-          >
-            <div
-              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
-              color="var( --wp-admin-theme-color, #00669b)"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="Number of posts"
-                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
-                id="inspector-range-control-4"
-                max="12"
-                min="1"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="12"
-              />
-              <span
-                aria-hidden="true"
-                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
-                style="width: 100%;"
-              />
-              <span
-                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
-                style="left: 100%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
-                role="tooltip"
-                style="left: 100%; z-index: 100;"
-              >
-                12
-              </span>
-            </div>
-            <div
-              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
-              data-wp-c16t="true"
-              data-wp-component="Flex"
-            >
-              <div
-                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-                data-wp-c16t="true"
-                data-wp-component="FlexItem"
-              />
-              <div
-                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
-              >
-                <input
-                  aria-label="Number of posts"
-                  autocomplete="off"
-                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
-                  id="inspector-input-control-4"
-                  inputmode="decimal"
-                  max="12"
-                  min="1"
-                  step="1"
-                  type="number"
-                  value="12"
-                />
-                <div
-                  aria-hidden="true"
-                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Post meta settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-5"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-5"
-          >
-            Post date
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-6"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-6"
-          >
-            Post excerpt
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-range-control-5"
-          >
-            Max number of words in post excerpt
-          </label>
-          <div
-            class="components-range-control__root css-2cg8er-Root exqw8y214"
-          >
-            <div
-              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
-              color="var( --wp-admin-theme-color, #00669b)"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="Max number of words in post excerpt"
-                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
-                id="inspector-range-control-5"
-                max="30"
-                min="10"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="20"
-              />
-              <span
-                aria-hidden="true"
-                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
-                style="width: 50%;"
-              />
-              <span
-                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
-                style="left: 50%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
-                role="tooltip"
-                style="left: 50%; z-index: 100;"
-              >
-                20
-              </span>
-            </div>
-            <div
-              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
-              data-wp-c16t="true"
-              data-wp-component="Flex"
-            >
-              <div
-                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-                data-wp-c16t="true"
-                data-wp-component="FlexItem"
-              />
-              <div
-                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
-              >
-                <input
-                  aria-label="Max number of words in post excerpt"
-                  autocomplete="off"
-                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
-                  id="inspector-input-control-5"
-                  inputmode="decimal"
-                  max="30"
-                  min="10"
-                  step="1"
-                  type="number"
-                  value="20"
-                />
-                <div
-                  aria-hidden="true"
-                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-7"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-7"
-          >
-            Featured image
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-8"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-8"
-          >
-            Comments count
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle"
-          >
-            <input
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-9"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-9"
-          >
-            Post author
-          </label>
-        </div>
-      </div>
-    </div>
-    <div
-      aria-label="Hand picked posts"
-      aria-orientation="horizontal"
-      class="components-accessible-toolbar"
-      id="hand-picked-posts-toolbar"
-      role="toolbar"
-    >
-      <button
-        aria-label="Edit"
-        aria-pressed="true"
-        class="components-button components-toolbar-button is-pressed has-icon"
-        data-toolbar-item="true"
-        id="hand-picked-posts-toolbar-1"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="dashicon dashicons dashicons-edit"
-        />
-      </button>
-    </div>
-    <div
-      class="components-placeholder material-design-block-products-grid material-design-block-handpicked-posts is-small"
-    >
-      <iframe
-        aria-hidden="true"
-        frameborder="0"
-        src="about:blank"
-        style="display: block; opacity: 0; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1;"
-        tabindex="-1"
-      />
-      <div
-        class="components-placeholder__label"
-      >
-        <i
-          class="material-icons-outlined"
-          size="24"
-        >
-          library_books
-        </i>
-        Curated Post Collection
-      </div>
-      <div
-        class="components-placeholder__fieldset"
-      >
-        <div
-          class="material-design-block-handpicked-posts__types"
-        >
-          <p>
-            Display a selection of hand-picked posts.
-          </p>
-          <p
-            style="font-weight: bold; text-align: left;"
-          >
-            Content
-          </p>
-          <div
-            class="components-base-control material-design-block-handpicked-posts__types__list components-radio-control css-wdf2ti-Wrapper e1puf3u3"
-          >
-            <div
-              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-            >
-              <div
-                class="components-radio-control__option"
-              >
-                <input
-                  class="components-radio-control__input"
-                  id="inspector-radio-control-4-0"
-                  name="inspector-radio-control-4"
-                  type="radio"
-                  value="posts-pages"
-                />
-                <label
-                  for="inspector-radio-control-4-0"
-                >
-                  Posts and Pages
-                </label>
-              </div>
-              <div
-                class="components-radio-control__option"
-              >
-                <input
-                  class="components-radio-control__input"
-                  id="inspector-radio-control-4-1"
-                  name="inspector-radio-control-4"
-                  type="radio"
-                  value="portfolio"
-                />
-                <label
-                  for="inspector-radio-control-4-1"
-                >
-                  Portfolios
-                </label>
-              </div>
-              <div
-                class="components-radio-control__option"
-              >
-                <input
-                  class="components-radio-control__input"
-                  id="inspector-radio-control-4-2"
-                  name="inspector-radio-control-4"
-                  type="radio"
-                  value="recipe"
-                />
-                <label
-                  for="inspector-radio-control-4-2"
-                >
-                  Recipes
-                </label>
-              </div>
-              <div
-                class="components-radio-control__option"
-              >
-                <input
-                  class="components-radio-control__input"
-                  id="inspector-radio-control-4-3"
-                  name="inspector-radio-control-4"
-                  type="radio"
-                  value="book"
-                />
-                <label
-                  for="inspector-radio-control-4-3"
-                >
-                  Books
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="material-design-block-handpicked-posts__selection"
-        >
-          <div />
-          <button
-            class="components-button is-primary"
-            type="button"
-          >
-            Done
-          </button>
-        </div>
-      </div>
-    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -2386,6 +2416,1170 @@ Object {
        Overrides applies to this Card Block. Change  Global Styles  in Material Design Options to update all cards. 
     </div>
     <div>
+      <div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Styles
+            </button>
+          </h2>
+          <div
+            class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <div
+                class="components-radio-control__option active"
+              >
+                <input
+                  checked=""
+                  class="components-radio-control__input"
+                  id="image-radio-control-0-0"
+                  name="image-radio-control-0"
+                  type="radio"
+                  value="masonry"
+                />
+                <label
+                  for="image-radio-control-0-0"
+                >
+                  <div
+                    class="components-image-radio-control__image"
+                  >
+                    <svg
+                      fill="none"
+                      height="37"
+                      viewBox="0 0 37 37"
+                      width="37"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="0.133057"
+                        y="16.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.133057"
+                        y="34.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="20.3596"
+                        y="0.0395508"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.3596"
+                        y="18.0396"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="8"
+                        width="16"
+                        x="20.1624"
+                        y="24.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.1624"
+                        y="34.3413"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="8"
+                        width="16"
+                        x="0.321533"
+                        y="0.0395508"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.321533"
+                        y="10.0396"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="components-image-radio-control__label"
+                  >
+                    Masonry
+                  </span>
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="image-radio-control-0-1"
+                  name="image-radio-control-0"
+                  type="radio"
+                  value="list"
+                />
+                <label
+                  for="image-radio-control-0-1"
+                >
+                  <div
+                    class="components-image-radio-control__image"
+                  >
+                    <svg
+                      fill="none"
+                      height="39"
+                      viewBox="0 0 39 39"
+                      width="39"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        fill="#565D66"
+                        height="10"
+                        width="10"
+                        x="0.386353"
+                        y="28.7036"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="24"
+                        x="14.3864"
+                        y="30.4526"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="18"
+                        x="14.3864"
+                        y="34.4526"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="10"
+                        width="10"
+                        x="0.386353"
+                        y="14.7036"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="24"
+                        x="14.3864"
+                        y="16.4526"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="18"
+                        x="14.3864"
+                        y="20.4526"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="10"
+                        width="10"
+                        x="0.386353"
+                        y="0.703613"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="24"
+                        x="14.3864"
+                        y="2.45264"
+                      />
+                      <rect
+                        fill="#545D67"
+                        height="2"
+                        width="18"
+                        x="14.3864"
+                        y="6.45264"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="components-image-radio-control__label"
+                  >
+                    List
+                  </span>
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="image-radio-control-0-2"
+                  name="image-radio-control-0"
+                  type="radio"
+                  value="grid"
+                />
+                <label
+                  for="image-radio-control-0-2"
+                >
+                  <div
+                    class="components-image-radio-control__image"
+                  >
+                    <svg
+                      fill="none"
+                      height="45"
+                      viewBox="0 0 37 45"
+                      width="37"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="0.24646"
+                        y="24.8232"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.24646"
+                        y="42.8232"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="20.2465"
+                        y="24.5835"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.2465"
+                        y="42.5835"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="0.24646"
+                        y="0.583496"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="0.24646"
+                        y="18.5835"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="16"
+                        width="16"
+                        x="20.2465"
+                        y="0.583496"
+                      />
+                      <rect
+                        fill="#565D66"
+                        height="2"
+                        width="10"
+                        x="20.2465"
+                        y="18.5835"
+                      />
+                    </svg>
+                  </div>
+                  <span
+                    class="components-image-radio-control__label"
+                  >
+                    Grid
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="components-notice is-warning"
+          >
+            <div
+              class="components-notice__content"
+            >
+              <p>
+                Overrides applies to this Card Block. Change 
+                <a
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
+                  Global Styles
+                </a>
+                 in Material Design Options to update all cards.
+              </p>
+              <div
+                class="components-notice__actions"
+              />
+            </div>
+          </div>
+          <div
+            class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-radio-control-0"
+              >
+                Elevation style
+              </label>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-0__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-0-0"
+                  name="inspector-radio-control-0"
+                  type="radio"
+                  value="global"
+                />
+                <label
+                  for="inspector-radio-control-0-0"
+                >
+                  Inherit from Global Settings
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-0__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-0-1"
+                  name="inspector-radio-control-0"
+                  type="radio"
+                  value="elevated"
+                />
+                <label
+                  for="inspector-radio-control-0-1"
+                >
+                  Elevated
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-0__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-0-2"
+                  name="inspector-radio-control-0"
+                  type="radio"
+                  value="outlined"
+                />
+                <label
+                  for="inspector-radio-control-0-2"
+                >
+                  Outlined
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-0__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-0-3"
+                  name="inspector-radio-control-0"
+                  type="radio"
+                  value="filled"
+                />
+                <label
+                  for="inspector-radio-control-0-3"
+                >
+                  Filled
+                </label>
+              </div>
+            </div>
+            <p
+              class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
+              id="inspector-radio-control-0__help"
+            >
+              Elevation style whether elevated or outlined.
+            </p>
+          </div>
+        </div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Card Settings
+            </button>
+          </h2>
+          <div
+            class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-radio-control-1"
+              >
+                Content layout
+              </label>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  checked=""
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-1-0"
+                  name="inspector-radio-control-1"
+                  type="radio"
+                  value="text-above-media"
+                />
+                <label
+                  for="inspector-radio-control-1-0"
+                >
+                  Text above media
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-1-1"
+                  name="inspector-radio-control-1"
+                  type="radio"
+                  value="text-over-media"
+                />
+                <label
+                  for="inspector-radio-control-1-1"
+                >
+                  Text over media
+                </label>
+              </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-1-2"
+                  name="inspector-radio-control-1"
+                  type="radio"
+                  value="text-under-media"
+                />
+                <label
+                  for="inspector-radio-control-1-2"
+                >
+                  Text under media
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-range-control-0"
+              >
+                Columns
+              </label>
+              <div
+                class="components-range-control__root css-2cg8er-Root exqw8y214"
+              >
+                <div
+                  class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                  color="var( --wp-admin-theme-color, #00669b)"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Columns"
+                    class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
+                    id="inspector-range-control-0"
+                    max="4"
+                    min="2"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="3"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-43abdt-Rail-railBackgroundColor exqw8y210"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
+                    style="width: 50%;"
+                  />
+                  <span
+                    class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
+                    style="left: 50%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-yd4y8u-Thumb-thumbColor exqw8y24"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
+                    role="tooltip"
+                    style="left: 50%; z-index: 100;"
+                  >
+                    3
+                  </span>
+                </div>
+                <div
+                  class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="Flex"
+                >
+                  <div
+                    class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                    data-wp-c16t="true"
+                    data-wp-component="FlexItem"
+                  />
+                  <div
+                    class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                  >
+                    <input
+                      aria-label="Columns"
+                      autocomplete="off"
+                      class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                      id="inspector-input-control-0"
+                      inputmode="decimal"
+                      max="4"
+                      min="2"
+                      step="1"
+                      type="number"
+                      value="3"
+                    />
+                    <div
+                      aria-hidden="true"
+                      class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Content
+            </button>
+          </h2>
+          <div
+            class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-range-control-1"
+              >
+                Number of posts
+              </label>
+              <div
+                class="components-range-control__root css-2cg8er-Root exqw8y214"
+              >
+                <div
+                  class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                  color="var( --wp-admin-theme-color, #00669b)"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Number of posts"
+                    class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
+                    id="inspector-range-control-1"
+                    max="12"
+                    min="1"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="12"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-43abdt-Rail-railBackgroundColor exqw8y210"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
+                    style="width: 100%;"
+                  />
+                  <span
+                    class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
+                    style="left: 100%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-yd4y8u-Thumb-thumbColor exqw8y24"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
+                    role="tooltip"
+                    style="left: 100%; z-index: 100;"
+                  >
+                    12
+                  </span>
+                </div>
+                <div
+                  class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="Flex"
+                >
+                  <div
+                    class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                    data-wp-c16t="true"
+                    data-wp-component="FlexItem"
+                  />
+                  <div
+                    class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                  >
+                    <input
+                      aria-label="Number of posts"
+                      autocomplete="off"
+                      class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                      id="inspector-input-control-1"
+                      inputmode="decimal"
+                      max="12"
+                      min="1"
+                      step="1"
+                      type="number"
+                      value="12"
+                    />
+                    <div
+                      aria-hidden="true"
+                      class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="components-panel__body is-opened"
+        >
+          <h2
+            class="components-panel__body-title"
+          >
+            <button
+              aria-expanded="true"
+              class="components-button components-panel__body-toggle"
+              type="button"
+            >
+              <span
+                aria-hidden="true"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="components-panel__arrow"
+                  focusable="false"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
+                  />
+                </svg>
+              </span>
+              Post meta settings
+            </button>
+          </h2>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle is-checked"
+              >
+                <input
+                  checked=""
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-0"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-0"
+              >
+                Post date
+              </label>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle is-checked"
+              >
+                <input
+                  checked=""
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-1"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-1"
+              >
+                Post excerpt
+              </label>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <label
+                class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
+                for="inspector-range-control-2"
+              >
+                Max number of words in post excerpt
+              </label>
+              <div
+                class="components-range-control__root css-2cg8er-Root exqw8y214"
+              >
+                <div
+                  class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
+                  color="var( --wp-admin-theme-color, #00669b)"
+                >
+                  <input
+                    aria-hidden="false"
+                    aria-label="Max number of words in post excerpt"
+                    class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
+                    id="inspector-range-control-2"
+                    max="30"
+                    min="10"
+                    step="1"
+                    tabindex="0"
+                    type="range"
+                    value="20"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="css-43abdt-Rail-railBackgroundColor exqw8y210"
+                  />
+                  <span
+                    aria-hidden="true"
+                    class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
+                    style="width: 50%;"
+                  />
+                  <span
+                    class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
+                    style="left: 50%;"
+                  >
+                    <span
+                      aria-hidden="true"
+                      class="css-yd4y8u-Thumb-thumbColor exqw8y24"
+                    />
+                  </span>
+                  <span
+                    aria-hidden="false"
+                    class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
+                    role="tooltip"
+                    style="left: 50%; z-index: 100;"
+                  >
+                    20
+                  </span>
+                </div>
+                <div
+                  class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
+                  data-wp-c16t="true"
+                  data-wp-component="Flex"
+                >
+                  <div
+                    class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
+                    data-wp-c16t="true"
+                    data-wp-component="FlexItem"
+                  />
+                  <div
+                    class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
+                  >
+                    <input
+                      aria-label="Max number of words in post excerpt"
+                      autocomplete="off"
+                      class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
+                      id="inspector-input-control-2"
+                      inputmode="decimal"
+                      max="30"
+                      min="10"
+                      step="1"
+                      type="number"
+                      value="20"
+                    />
+                    <div
+                      aria-hidden="true"
+                      class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle is-checked"
+              >
+                <input
+                  checked=""
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-2"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-2"
+              >
+                Featured image
+              </label>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle is-checked"
+              >
+                <input
+                  checked=""
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-3"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-3"
+              >
+                Comments count
+              </label>
+            </div>
+          </div>
+          <div
+            class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
+          >
+            <div
+              class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            >
+              <span
+                class="components-form-toggle"
+              >
+                <input
+                  class="components-form-toggle__input"
+                  id="inspector-toggle-control-4"
+                  type="checkbox"
+                />
+                <span
+                  class="components-form-toggle__track"
+                />
+                <span
+                  class="components-form-toggle__thumb"
+                />
+              </span>
+              <label
+                class="components-toggle-control__label"
+                for="inspector-toggle-control-4"
+              >
+                Post author
+              </label>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-label="Hand picked posts"
+          aria-orientation="horizontal"
+          class="components-accessible-toolbar"
+          id="hand-picked-posts-toolbar"
+          role="toolbar"
+        >
+          <button
+            aria-label="Edit"
+            aria-pressed="false"
+            class="components-button components-toolbar-button has-icon"
+            data-toolbar-item="true"
+            id="hand-picked-posts-toolbar-1"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="dashicon dashicons dashicons-edit"
+            />
+          </button>
+        </div>
+        <div
+          class="masonry-grid layout-masonry"
+        >
+          <div
+            class="masonry-grid_column"
+            style="width: 33.333333333333336%;"
+          >
+            <div>
+              <div
+                class="mdc-card single-post-card single-post-basic"
+              >
+                <div
+                  class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
+                  tabindex="0"
+                >
+                  <div
+                    class="single-post-card__primary"
+                  >
+                    <h2
+                      class="single-post-card__title title-large"
+                    >
+                      <div>
+                        Example 1 Title
+                      </div>
+                    </h2>
+                    <h3
+                      class="single-post-card__subtitle label-small"
+                    >
+                      <time
+                        datetime="2020-03-26 12:00:00"
+                      >
+                        March 26, 2020
+                      </time>
+                    </h3>
+                  </div>
+                  <div
+                    class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
+                  >
+                    <div>
+                      Example 1 excerpt
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mdc-card__actions"
+                >
+                  <div
+                    class="mdc-card__action-buttons"
+                  >
+                    <button
+                      class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="material-icons mdc-button__icon"
+                      >
+                        comment
+                      </i>
+                      <span
+                        class="mdc-button__label"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="masonry-grid_column"
+            style="width: 33.333333333333336%;"
+          >
+            <div>
+              <div
+                class="mdc-card single-post-card single-post-basic"
+              >
+                <div
+                  class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
+                  tabindex="0"
+                >
+                  <div
+                    class="single-post-card__primary"
+                  >
+                    <h2
+                      class="single-post-card__title title-large"
+                    >
+                      <div>
+                        Example 2 Title
+                      </div>
+                    </h2>
+                    <h3
+                      class="single-post-card__subtitle label-small"
+                    >
+                      <time
+                        datetime="2020-03-26 12:00:00"
+                      >
+                        March 26, 2020
+                      </time>
+                    </h3>
+                  </div>
+                  <div
+                    class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
+                  >
+                    <div>
+                      Example 2 excerpt
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="mdc-card__actions"
+                >
+                  <div
+                    class="mdc-card__action-buttons"
+                  >
+                    <button
+                      class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
+                    >
+                      <i
+                        aria-hidden="true"
+                        class="material-icons mdc-button__icon"
+                      >
+                        comment
+                      </i>
+                      <span
+                        class="mdc-button__label"
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
       <div
         class="components-panel__body is-opened"
       >
@@ -2405,7 +3599,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2782,6 +3975,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-0__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-3"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-0-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -2810,7 +4020,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2998,7 +4207,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -3123,7 +4331,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -3425,7 +4632,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -3435,7 +4642,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     Example 1 excerpt
@@ -3451,9 +4658,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -3492,7 +4696,7 @@ Object {
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle label-medium"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -3502,7 +4706,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     Example 2 excerpt
@@ -3518,9 +4722,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -3532,1159 +4733,6 @@ Object {
                     />
                   </button>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Styles
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-radio-control components-image-radio-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <div
-            class="components-radio-control__option active"
-          >
-            <input
-              checked=""
-              class="components-radio-control__input"
-              id="image-radio-control-0-0"
-              name="image-radio-control-0"
-              type="radio"
-              value="masonry"
-            />
-            <label
-              for="image-radio-control-0-0"
-            >
-              <div
-                class="components-image-radio-control__image"
-              >
-                <svg
-                  fill="none"
-                  height="37"
-                  viewBox="0 0 37 37"
-                  width="37"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="0.133057"
-                    y="16.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.133057"
-                    y="34.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="20.3596"
-                    y="0.0395508"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.3596"
-                    y="18.0396"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="8"
-                    width="16"
-                    x="20.1624"
-                    y="24.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.1624"
-                    y="34.3413"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="8"
-                    width="16"
-                    x="0.321533"
-                    y="0.0395508"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.321533"
-                    y="10.0396"
-                  />
-                </svg>
-              </div>
-              <span
-                class="components-image-radio-control__label"
-              >
-                Masonry
-              </span>
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="image-radio-control-0-1"
-              name="image-radio-control-0"
-              type="radio"
-              value="list"
-            />
-            <label
-              for="image-radio-control-0-1"
-            >
-              <div
-                class="components-image-radio-control__image"
-              >
-                <svg
-                  fill="none"
-                  height="39"
-                  viewBox="0 0 39 39"
-                  width="39"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#565D66"
-                    height="10"
-                    width="10"
-                    x="0.386353"
-                    y="28.7036"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="24"
-                    x="14.3864"
-                    y="30.4526"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="18"
-                    x="14.3864"
-                    y="34.4526"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="10"
-                    width="10"
-                    x="0.386353"
-                    y="14.7036"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="24"
-                    x="14.3864"
-                    y="16.4526"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="18"
-                    x="14.3864"
-                    y="20.4526"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="10"
-                    width="10"
-                    x="0.386353"
-                    y="0.703613"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="24"
-                    x="14.3864"
-                    y="2.45264"
-                  />
-                  <rect
-                    fill="#545D67"
-                    height="2"
-                    width="18"
-                    x="14.3864"
-                    y="6.45264"
-                  />
-                </svg>
-              </div>
-              <span
-                class="components-image-radio-control__label"
-              >
-                List
-              </span>
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="image-radio-control-0-2"
-              name="image-radio-control-0"
-              type="radio"
-              value="grid"
-            />
-            <label
-              for="image-radio-control-0-2"
-            >
-              <div
-                class="components-image-radio-control__image"
-              >
-                <svg
-                  fill="none"
-                  height="45"
-                  viewBox="0 0 37 45"
-                  width="37"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="0.24646"
-                    y="24.8232"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.24646"
-                    y="42.8232"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="20.2465"
-                    y="24.5835"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.2465"
-                    y="42.5835"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="0.24646"
-                    y="0.583496"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="0.24646"
-                    y="18.5835"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="16"
-                    width="16"
-                    x="20.2465"
-                    y="0.583496"
-                  />
-                  <rect
-                    fill="#565D66"
-                    height="2"
-                    width="10"
-                    x="20.2465"
-                    y="18.5835"
-                  />
-                </svg>
-              </div>
-              <span
-                class="components-image-radio-control__label"
-              >
-                Grid
-              </span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-notice is-warning"
-      >
-        <div
-          class="components-notice__content"
-        >
-          <p>
-            Overrides applies to this Card Block. Change 
-            <a
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              Global Styles
-            </a>
-             in Material Design Options to update all cards.
-          </p>
-          <div
-            class="components-notice__actions"
-          />
-        </div>
-      </div>
-      <div
-        class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-radio-control-0"
-          >
-            Elevation style
-          </label>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              aria-describedby="inspector-radio-control-0__help"
-              class="components-radio-control__input"
-              id="inspector-radio-control-0-0"
-              name="inspector-radio-control-0"
-              type="radio"
-              value="global"
-            />
-            <label
-              for="inspector-radio-control-0-0"
-            >
-              Inherit from Global Settings
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              aria-describedby="inspector-radio-control-0__help"
-              class="components-radio-control__input"
-              id="inspector-radio-control-0-1"
-              name="inspector-radio-control-0"
-              type="radio"
-              value="elevated"
-            />
-            <label
-              for="inspector-radio-control-0-1"
-            >
-              Elevated
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              aria-describedby="inspector-radio-control-0__help"
-              class="components-radio-control__input"
-              id="inspector-radio-control-0-2"
-              name="inspector-radio-control-0"
-              type="radio"
-              value="outlined"
-            />
-            <label
-              for="inspector-radio-control-0-2"
-            >
-              Outlined
-            </label>
-          </div>
-        </div>
-        <p
-          class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
-          id="inspector-radio-control-0__help"
-        >
-          Elevation style whether elevated or outlined.
-        </p>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Card Settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-radio-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-radio-control-1"
-          >
-            Content layout
-          </label>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              checked=""
-              class="components-radio-control__input"
-              id="inspector-radio-control-1-0"
-              name="inspector-radio-control-1"
-              type="radio"
-              value="text-above-media"
-            />
-            <label
-              for="inspector-radio-control-1-0"
-            >
-              Text above media
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="inspector-radio-control-1-1"
-              name="inspector-radio-control-1"
-              type="radio"
-              value="text-over-media"
-            />
-            <label
-              for="inspector-radio-control-1-1"
-            >
-              Text over media
-            </label>
-          </div>
-          <div
-            class="components-radio-control__option"
-          >
-            <input
-              class="components-radio-control__input"
-              id="inspector-radio-control-1-2"
-              name="inspector-radio-control-1"
-              type="radio"
-              value="text-under-media"
-            />
-            <label
-              for="inspector-radio-control-1-2"
-            >
-              Text under media
-            </label>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-range-control-0"
-          >
-            Columns
-          </label>
-          <div
-            class="components-range-control__root css-2cg8er-Root exqw8y214"
-          >
-            <div
-              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
-              color="var( --wp-admin-theme-color, #00669b)"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="Columns"
-                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
-                id="inspector-range-control-0"
-                max="4"
-                min="2"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="3"
-              />
-              <span
-                aria-hidden="true"
-                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
-                style="width: 50%;"
-              />
-              <span
-                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
-                style="left: 50%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
-                role="tooltip"
-                style="left: 50%; z-index: 100;"
-              >
-                3
-              </span>
-            </div>
-            <div
-              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
-              data-wp-c16t="true"
-              data-wp-component="Flex"
-            >
-              <div
-                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-                data-wp-c16t="true"
-                data-wp-component="FlexItem"
-              />
-              <div
-                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
-              >
-                <input
-                  aria-label="Columns"
-                  autocomplete="off"
-                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
-                  id="inspector-input-control-0"
-                  inputmode="decimal"
-                  max="4"
-                  min="2"
-                  step="1"
-                  type="number"
-                  value="3"
-                />
-                <div
-                  aria-hidden="true"
-                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Content
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-range-control-1"
-          >
-            Number of posts
-          </label>
-          <div
-            class="components-range-control__root css-2cg8er-Root exqw8y214"
-          >
-            <div
-              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
-              color="var( --wp-admin-theme-color, #00669b)"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="Number of posts"
-                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
-                id="inspector-range-control-1"
-                max="12"
-                min="1"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="12"
-              />
-              <span
-                aria-hidden="true"
-                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
-                style="width: 100%;"
-              />
-              <span
-                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
-                style="left: 100%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
-                role="tooltip"
-                style="left: 100%; z-index: 100;"
-              >
-                12
-              </span>
-            </div>
-            <div
-              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
-              data-wp-c16t="true"
-              data-wp-component="Flex"
-            >
-              <div
-                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-                data-wp-c16t="true"
-                data-wp-component="FlexItem"
-              />
-              <div
-                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
-              >
-                <input
-                  aria-label="Number of posts"
-                  autocomplete="off"
-                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
-                  id="inspector-input-control-1"
-                  inputmode="decimal"
-                  max="12"
-                  min="1"
-                  step="1"
-                  type="number"
-                  value="12"
-                />
-                <div
-                  aria-hidden="true"
-                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="components-panel__body is-opened"
-    >
-      <h2
-        class="components-panel__body-title"
-      >
-        <button
-          aria-expanded="true"
-          class="components-button components-panel__body-toggle"
-          type="button"
-        >
-          <span
-            aria-hidden="true"
-          >
-            <svg
-              aria-hidden="true"
-              class="components-panel__arrow"
-              focusable="false"
-              height="24"
-              role="img"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M6.5 12.4L12 8l5.5 4.4-.9 1.2L12 10l-4.5 3.6-1-1.2z"
-              />
-            </svg>
-          </span>
-          Post meta settings
-        </button>
-      </h2>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-0"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-0"
-          >
-            Post date
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-1"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-1"
-          >
-            Post excerpt
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-range-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <label
-            class="components-base-control__label css-13ck15n-StyledLabel e1puf3u1"
-            for="inspector-range-control-2"
-          >
-            Max number of words in post excerpt
-          </label>
-          <div
-            class="components-range-control__root css-2cg8er-Root exqw8y214"
-          >
-            <div
-              class="components-range-control__wrapper css-2udiwk-Wrapper-wrapperColor-rangeHeight-wrapperMargin exqw8y213"
-              color="var( --wp-admin-theme-color, #00669b)"
-            >
-              <input
-                aria-hidden="false"
-                aria-label="Max number of words in post excerpt"
-                class="components-range-control__slider css-12dovbr-InputRange exqw8y23"
-                id="inspector-range-control-2"
-                max="30"
-                min="10"
-                step="1"
-                tabindex="0"
-                type="range"
-                value="20"
-              />
-              <span
-                aria-hidden="true"
-                class="css-43abdt-Rail-railBackgroundColor exqw8y210"
-              />
-              <span
-                aria-hidden="true"
-                class="components-range-control__track css-1d41935-Track-trackBackgroundColor exqw8y29"
-                style="width: 50%;"
-              />
-              <span
-                class="css-11060oh-ThumbWrapper-thumbColor exqw8y25"
-                style="left: 50%;"
-              >
-                <span
-                  aria-hidden="true"
-                  class="css-yd4y8u-Thumb-thumbColor exqw8y24"
-                />
-              </span>
-              <span
-                aria-hidden="false"
-                class="components-simple-tooltip components-range-control__tooltip css-1ct94j4-Tooltip-tooltipShow-tooltipPosition exqw8y22"
-                role="tooltip"
-                style="left: 50%; z-index: 100;"
-              >
-                20
-              </span>
-            </div>
-            <div
-              class="components-flex components-input-control components-number-control components-range-control__number exqw8y21 ep48uk90 em5sgkm7 css-ep9ym1-View-Flex-sx-Base-sx-Items-ItemsColumn-Root-rootLabelPositionStyles-Input-InputNumber-rangeHeight em57xhy0"
-              data-wp-c16t="true"
-              data-wp-component="Flex"
-            >
-              <div
-                class="components-flex-item em5sgkm3 css-1fmchc6-View-Item-sx-Base-LabelWrapper em57xhy0"
-                data-wp-c16t="true"
-                data-wp-component="FlexItem"
-              />
-              <div
-                class="components-input-control__container css-1sy20aj-Container-containerDisabledStyles-containerMarginStyles-containerWidthStyles em5sgkm6"
-              >
-                <input
-                  aria-label="Max number of words in post excerpt"
-                  autocomplete="off"
-                  class="components-input-control__input css-zq8abe-Input-dragStyles-fontSizeStyles-sizeStyles em5sgkm5"
-                  id="inspector-input-control-2"
-                  inputmode="decimal"
-                  max="30"
-                  min="10"
-                  step="1"
-                  type="number"
-                  value="20"
-                />
-                <div
-                  aria-hidden="true"
-                  class="components-input-control__backdrop css-1gb9p1j-BackdropUI-backdropFocusedStyles em5sgkm2"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-2"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-2"
-          >
-            Featured image
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle is-checked"
-          >
-            <input
-              checked=""
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-3"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-3"
-          >
-            Comments count
-          </label>
-        </div>
-      </div>
-      <div
-        class="components-base-control components-toggle-control css-wdf2ti-Wrapper e1puf3u3"
-      >
-        <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
-        >
-          <span
-            class="components-form-toggle"
-          >
-            <input
-              class="components-form-toggle__input"
-              id="inspector-toggle-control-4"
-              type="checkbox"
-            />
-            <span
-              class="components-form-toggle__track"
-            />
-            <span
-              class="components-form-toggle__thumb"
-            />
-          </span>
-          <label
-            class="components-toggle-control__label"
-            for="inspector-toggle-control-4"
-          >
-            Post author
-          </label>
-        </div>
-      </div>
-    </div>
-    <div
-      aria-label="Hand picked posts"
-      aria-orientation="horizontal"
-      class="components-accessible-toolbar"
-      id="hand-picked-posts-toolbar"
-      role="toolbar"
-    >
-      <button
-        aria-label="Edit"
-        aria-pressed="false"
-        class="components-button components-toolbar-button has-icon"
-        data-toolbar-item="true"
-        id="hand-picked-posts-toolbar-1"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="dashicon dashicons dashicons-edit"
-        />
-      </button>
-    </div>
-    <div
-      class="masonry-grid layout-masonry"
-    >
-      <div
-        class="masonry-grid_column"
-        style="width: 33.333333333333336%;"
-      >
-        <div>
-          <div
-            class="mdc-card single-post-card single-post-basic"
-          >
-            <div
-              class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
-              tabindex="0"
-            >
-              <div
-                class="single-post-card__primary"
-              >
-                <h2
-                  class="single-post-card__title title-large"
-                >
-                  <div>
-                    Example 1 Title
-                  </div>
-                </h2>
-                <h3
-                  class="single-post-card__subtitle label-medium"
-                >
-                  <time
-                    datetime="2020-03-26 12:00:00"
-                  >
-                    March 26, 2020
-                  </time>
-                </h3>
-              </div>
-              <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
-              >
-                <div>
-                  Example 1 excerpt
-                </div>
-              </div>
-            </div>
-            <div
-              class="mdc-card__actions"
-            >
-              <div
-                class="mdc-card__action-buttons"
-              >
-                <button
-                  class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
-                >
-                  <span
-                    class="mdc-button__ripple"
-                  />
-                  <i
-                    aria-hidden="true"
-                    class="material-icons mdc-button__icon"
-                  >
-                    comment
-                  </i>
-                  <span
-                    class="mdc-button__label"
-                  />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="masonry-grid_column"
-        style="width: 33.333333333333336%;"
-      >
-        <div>
-          <div
-            class="mdc-card single-post-card single-post-basic"
-          >
-            <div
-              class="mdc-card__primary-action single-post-card__primary-action mdc-ripple-upgraded"
-              tabindex="0"
-            >
-              <div
-                class="single-post-card__primary"
-              >
-                <h2
-                  class="single-post-card__title title-large"
-                >
-                  <div>
-                    Example 2 Title
-                  </div>
-                </h2>
-                <h3
-                  class="single-post-card__subtitle label-medium"
-                >
-                  <time
-                    datetime="2020-03-26 12:00:00"
-                  >
-                    March 26, 2020
-                  </time>
-                </h3>
-              </div>
-              <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography body-medium"
-              >
-                <div>
-                  Example 2 excerpt
-                </div>
-              </div>
-            </div>
-            <div
-              class="mdc-card__actions"
-            >
-              <div
-                class="mdc-card__action-buttons"
-              >
-                <button
-                  class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
-                >
-                  <span
-                    class="mdc-button__ripple"
-                  />
-                  <i
-                    aria-hidden="true"
-                    class="material-icons mdc-button__icon"
-                  >
-                    comment
-                  </i>
-                  <span
-                    class="mdc-button__label"
-                  />
-                </button>
               </div>
             </div>
           </div>

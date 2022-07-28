@@ -41,12 +41,6 @@
 		color: var(--md-sys-color-primary, #6200ee);
 	}
 
-	.post-card__primary,
-	.post-card__secondary {
-		padding-left: 1rem;
-		padding-right: 1rem;
-	}
-
 	.post-card__subtitle {
 		color: var(--md-sys-color-on-surface, #000);
 	}

@@ -51,7 +51,6 @@ const CardSupportingText = ( {
 				className={ classnames(
 					'material-design-card__supporting-text',
 					`material-design-card__supporting-text_${ contentLayout }`,
-					'mdc-typography',
 					'body-medium'
 				) }
 				value={ supportingText }
@@ -65,7 +64,6 @@ const CardSupportingText = ( {
 				className={ classnames(
 					'material-design-card__supporting-text',
 					`material-design-card__supporting-text_${ contentLayout }`,
-					'mdc-typography',
 					'body-medium'
 				) }
 			>

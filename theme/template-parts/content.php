@@ -63,7 +63,7 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 					<?php endif; ?>
 
 					<?php if ( ! empty( $show_date ) ) : ?>
-						<time class="post-card__subtitle label-medium"><?php the_time( 'F j, Y' ); ?></time>
+						<time class="post-card__subtitle label-small"><?php the_time( 'F j, Y' ); ?></time>
 					<?php endif; ?>
 				</div>
 				<?php if ( ! empty( $show_excerpt ) ) : ?>
@@ -91,7 +91,6 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 								?>
 							"
 						>
-							<span class="mdc-button__ripple"></span>
 							<?php echo get_avatar( get_the_author_meta( 'ID' ), 18 ); ?>
 							<?php the_author(); ?>
 						</a>
@@ -99,7 +98,6 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 
 					<?php if ( ! empty( $show_comments ) && ( comments_open() || ( 0 < get_comments_number() ) ) ) : ?>
 						<a href="<?php comments_link(); ?>" class="mdc-button mdc-card__action mdc-card__action--button">
-							<span class="mdc-button__ripple"></span>
 							<i class="material-icons mdc-button__icon" aria-hidden="true">comment</i>
 							<?php
 							echo esc_html(

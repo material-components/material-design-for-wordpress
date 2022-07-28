@@ -25,7 +25,7 @@ import classnames from 'classnames';
 import CardImage from './card-image';
 import CardPrimary from './card-primary';
 import CardActions from './card-actions';
-import { isGlobalCardStyleOutlined } from '../../../utils';
+import { getGlobalCardStyle } from '../../../utils';
 
 /**
  * Horizontal Card Layout component.
@@ -118,16 +118,19 @@ const HorizontalCardLayout = ( {
 		styles.borderRadius = `${ cornerRadius }px`;
 	}
 
+	const globalStyle = getGlobalCardStyle();
+
 	return (
 		<div
 			className={ classnames(
 				'mdc-card',
 				{
-					'mdc-card--outlined':
-						cardStyle === 'outlined' ||
-						( cardStyle === 'global' &&
-							isGlobalCardStyleOutlined() &&
-							isEditMode ),
+					[ `mdc-card--${ cardStyle }` ]:
+						cardStyle && cardStyle !== 'global',
+				},
+				{
+					[ `mdc-card--${ globalStyle }` ]:
+						globalStyle && cardStyle === 'global',
 				},
 				{ 'mdc-card--global-override': cardStyle === 'global' },
 				'material-design-card',

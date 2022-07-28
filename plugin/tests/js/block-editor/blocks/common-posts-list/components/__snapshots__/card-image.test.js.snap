@@ -23,7 +23,7 @@ Object {
               </div>
             </h2>
             <h3
-              class="single-post-card__subtitle label-medium"
+              class="single-post-card__subtitle label-small"
             >
               <time
                 datetime="2020-02-25 08:20:38"
@@ -55,7 +55,7 @@ Object {
             </div>
           </h2>
           <h3
-            class="single-post-card__subtitle label-medium"
+            class="single-post-card__subtitle label-small"
           >
             <time
               datetime="2020-02-25 08:20:38"
