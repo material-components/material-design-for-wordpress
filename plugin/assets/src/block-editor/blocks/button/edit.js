@@ -41,6 +41,7 @@ import {
 } from './options';
 import { name as ButtonBlockName } from './index';
 import hasBg from './utils/has-bg';
+import ColorPanel from './components/color-panel';
 import { getConfig, getIconName } from '../../utils';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
@@ -202,6 +203,23 @@ const ButtonEdit = ( {
 		}
 	}, [ isSubmitButton ] ); // eslint-disable-line
 
+	const colorSettings = {
+		text: {
+			label: __( 'Text Color', 'material-design' ),
+			colorValue: textColor,
+			onColorChange: setter( 'textColor' ),
+			gradients: [], // Disable gradients
+			disableCustomGradients: true,
+		},
+		container: {
+			label: __( 'Container Color', 'material-design' ),
+			colorValue: backgroundColor,
+			onColorChange: setter( 'backgroundColor' ),
+			gradients: [], // Disable gradients
+			disableCustomGradients: true,
+		},
+	};
+
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
 	 *
@@ -332,6 +350,9 @@ const ButtonEdit = ( {
 						/>
 					) }
 				</PanelBody>
+
+				<ColorPanel colors={ colorSettings } />
+
 				<PanelBody
 					title={ __( 'Colors', 'material-design' ) }
 					initialOpen={ true }
