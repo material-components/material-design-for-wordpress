@@ -54,18 +54,18 @@ Object {
                     class="material-design-card__primary"
                   >
                     <h2
-                      class="material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="material-design-card__title title-large"
                     >
                       Title goes here
                     </h2>
                     <h3
-                      class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="material-design-card__secondary-text body-medium"
                     >
                       Secondary text
                     </h3>
                   </div>
                   <div
-                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
                   >
                     Supporting text
                   </div>
@@ -80,9 +80,6 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                       href="#"
                     >
-                      <div
-                        class="mdc-button__ripple"
-                      />
                       <span
                         class="mdc-button__label"
                       >
@@ -124,18 +121,18 @@ Object {
                   class="material-design-card__primary"
                 >
                   <h2
-                    class="material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="material-design-card__title title-large"
                   >
                     Title goes here
                   </h2>
                   <h3
-                    class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="material-design-card__secondary-text body-medium"
                   >
                     Secondary text
                   </h3>
                 </div>
                 <div
-                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
                 >
                   Supporting text
                 </div>
@@ -150,9 +147,6 @@ Object {
                     class="mdc-button mdc-card__action mdc-card__action--button"
                     href="#"
                   >
-                    <div
-                      class="mdc-button__ripple"
-                    />
                     <span
                       class="mdc-button__label"
                     >
@@ -274,18 +268,18 @@ Object {
                     class="material-design-card__primary"
                   >
                     <h2
-                      class="material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="material-design-card__title title-large"
                     >
                       Title goes here
                     </h2>
                     <h3
-                      class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="material-design-card__secondary-text body-medium"
                     >
                       Secondary text
                     </h3>
                   </div>
                   <div
-                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                    class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
                   >
                     Supporting text
                   </div>
@@ -300,9 +294,6 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                       href="#"
                     >
-                      <div
-                        class="mdc-button__ripple"
-                      />
                       <span
                         class="mdc-button__label"
                       >
@@ -343,18 +334,18 @@ Object {
                   class="material-design-card__primary"
                 >
                   <h2
-                    class="material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="material-design-card__title title-large"
                   >
                     Title goes here
                   </h2>
                   <h3
-                    class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="material-design-card__secondary-text body-medium"
                   >
                     Secondary text
                   </h3>
                 </div>
                 <div
-                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+                  class="material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
                 >
                   Supporting text
                 </div>
@@ -369,9 +360,6 @@ Object {
                     class="mdc-button mdc-card__action mdc-card__action--button"
                     href="#"
                   >
-                    <div
-                      class="mdc-button__ripple"
-                    />
                     <span
                       class="mdc-button__label"
                     >
@@ -493,12 +481,12 @@ Object {
                     class="material-design-card__primary"
                   >
                     <h2
-                      class="material-design-card__title mdc-typography mdc-typography--headline6"
+                      class="material-design-card__title title-large"
                     >
                       Title goes here
                     </h2>
                     <h3
-                      class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                      class="material-design-card__secondary-text body-medium"
                     >
                       Secondary text
                     </h3>
@@ -514,9 +502,6 @@ Object {
                       class="mdc-button mdc-card__action mdc-card__action--button"
                       href="#"
                     >
-                      <div
-                        class="mdc-button__ripple"
-                      />
                       <span
                         class="mdc-button__label"
                       >
@@ -557,12 +542,12 @@ Object {
                   class="material-design-card__primary"
                 >
                   <h2
-                    class="material-design-card__title mdc-typography mdc-typography--headline6"
+                    class="material-design-card__title title-large"
                   >
                     Title goes here
                   </h2>
                   <h3
-                    class="material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                    class="material-design-card__secondary-text body-medium"
                   >
                     Secondary text
                   </h3>
@@ -578,9 +563,6 @@ Object {
                     class="mdc-button mdc-card__action mdc-card__action--button"
                     href="#"
                   >
-                    <div
-                      class="mdc-button__ripple"
-                    />
                     <span
                       class="mdc-button__label"
                     >

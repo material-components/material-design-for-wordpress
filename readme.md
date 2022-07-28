@@ -3,9 +3,9 @@
 
 The official Material Design plugin for WordPress. Customize your site’s navigation, colors, typography, and shapes, use Material Components, and choose from over 1,000 Google Fonts and Material Design icons. From the team behind Google’s open-source design system.
 
-**Contributors:** [google](https://profiles.wordpress.org/google), [materialdesign](https://profiles.wordpress.org/materialdesign), [xwp](https://profiles.wordpress.org/xwp)
+**Contributors:** [google](https://profiles.wordpress.org/google), [materialdesign](https://profiles.wordpress.org/materialdesign), [xwp](https://profiles.wordpress.org/xwp)  
 
-![workflow](https://github.com/material-components/material-design-for-wordpress/actions/workflows/lint-tests.yml/badge.svg) [![Coverage Status](https://coveralls.io/repos/material-components/material-design-for-wordpress/badge.svg?branch=develop)](https://coveralls.io/github/material-components/material-design-for-wordpress) [![Built with Grunt](https://gruntjs.com/cdn/builtwith.svg)](http://gruntjs.com)
+[![Build Status](https://travis-ci.com/material-components/material-design-for-wordpress.svg?branch=develop)](https://travis-ci.com/material-components/material-design-for-wordpress) [![Coverage Status](https://coveralls.io/repos/material-components/material-design-for-wordpress/badge.svg?branch=develop)](https://coveralls.io/github/material-components/material-design-for-wordpress) [![Built with Grunt](https://gruntjs.com/cdn/builtwith.svg)](http://gruntjs.com) 
 
 ## Description ##
 

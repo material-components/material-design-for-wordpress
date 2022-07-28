@@ -53,14 +53,14 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title mdc-typography mdc-typography--headline6"
+                    class="single-post-card__title title-large"
                   >
                     <div>
                       Example 1 Title
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -79,9 +79,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -110,14 +107,14 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title mdc-typography mdc-typography--headline6"
+                    class="single-post-card__title title-large"
                   >
                     <div>
                       Example 2 Title
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -136,9 +133,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -182,14 +176,14 @@ Object {
                 class="single-post-card__primary"
               >
                 <h2
-                  class="single-post-card__title mdc-typography mdc-typography--headline6"
+                  class="single-post-card__title title-large"
                 >
                   <div>
                     Example 1 Title
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-03-26 12:00:00"
@@ -208,9 +202,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -239,14 +230,14 @@ Object {
                 class="single-post-card__primary"
               >
                 <h2
-                  class="single-post-card__title mdc-typography mdc-typography--headline6"
+                  class="single-post-card__title title-large"
                 >
                   <div>
                     Example 2 Title
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-03-26 12:00:00"
@@ -265,9 +256,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -387,14 +375,14 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title mdc-typography mdc-typography--headline6"
+                    class="single-post-card__title title-large"
                   >
                     <div>
                       Example 1 Title
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -404,7 +392,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     Example 1 excerpt
@@ -420,9 +408,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -454,14 +439,14 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title mdc-typography mdc-typography--headline6"
+                    class="single-post-card__title title-large"
                   >
                     <div>
                       Example 2 Title
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -471,7 +456,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     Example 2 excerpt
@@ -487,9 +472,6 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
-                    <span
-                      class="mdc-button__ripple"
-                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -528,14 +510,14 @@ Object {
                 class="single-post-card__primary"
               >
                 <h2
-                  class="single-post-card__title mdc-typography mdc-typography--headline6"
+                  class="single-post-card__title title-large"
                 >
                   <div>
                     Example 1 Title
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-03-26 12:00:00"
@@ -545,7 +527,7 @@ Object {
                 </h3>
               </div>
               <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
               >
                 <div>
                   Example 1 excerpt
@@ -561,9 +543,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -595,14 +574,14 @@ Object {
                 class="single-post-card__primary"
               >
                 <h2
-                  class="single-post-card__title mdc-typography mdc-typography--headline6"
+                  class="single-post-card__title title-large"
                 >
                   <div>
                     Example 2 Title
                   </div>
                 </h2>
                 <h3
-                  class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                  class="single-post-card__subtitle label-small"
                 >
                   <time
                     datetime="2020-03-26 12:00:00"
@@ -612,7 +591,7 @@ Object {
                 </h3>
               </div>
               <div
-                class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
               >
                 <div>
                   Example 2 excerpt
@@ -628,9 +607,6 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
-                  <span
-                    class="mdc-button__ripple"
-                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"

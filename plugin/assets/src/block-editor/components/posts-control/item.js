@@ -40,7 +40,7 @@ const SearchListItem = ( {
 	...props
 } ) => {
 	const showCount = ! isNil( countLabel ) || ! isNil( item.count );
-	const classes = [ className, 'woocommerce-search-list__item' ];
+	const classes = [ className, 'material-design-search-list__item' ];
 	classes.push( `depth-${ depth }` );
 	if ( isSingle ) {
 		classes.push( 'is-radio-button' );
@@ -64,7 +64,7 @@ const SearchListItem = ( {
 					value={ item.value }
 					onChange={ onSelect( item ) }
 					checked={ isSelected }
-					className="woocommerce-search-list__item-input"
+					className="material-design-search-list__item-input"
 					{ ...inputProps }
 				/>
 			) : (
@@ -75,19 +75,19 @@ const SearchListItem = ( {
 					value={ item.value }
 					onChange={ onSelect( item ) }
 					checked={ isSelected }
-					className="woocommerce-search-list__item-input"
+					className="material-design-search-list__item-input"
 					{ ...inputProps }
 				/>
 			) }
 
-			<span className="woocommerce-search-list__item-label">
+			<span className="material-design-search-list__item-label">
 				{ hasBreadcrumbs ? (
-					<span className="woocommerce-search-list__item-prefix">
+					<span className="material-design-search-list__item-prefix">
 						{ getBreadcrumbsForDisplay( item.breadcrumbs ) }
 					</span>
 				) : null }
 				<span
-					className="woocommerce-search-list__item-name"
+					className="material-design-search-list__item-name"
 					dangerouslySetInnerHTML={ {
 						__html: getHighlightedName(
 							item.name || __( '(no title)', 'material-design' ),
@@ -97,7 +97,7 @@ const SearchListItem = ( {
 				/>
 				{ item.link ? (
 					<a
-						className="woocommerce-search-list__item-preview"
+						className="material-design-search-list__item-preview"
 						href={ item.link }
 						target="_blank"
 						rel="noopener noreferrer"
@@ -108,7 +108,7 @@ const SearchListItem = ( {
 			</span>
 
 			{ !! showCount && (
-				<span className="woocommerce-search-list__item-count">
+				<span className="material-design-search-list__item-count">
 					{ countLabel || item.count }
 				</span>
 			) }

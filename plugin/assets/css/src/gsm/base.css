@@ -15,20 +15,6 @@
  */
 
 .material-gsm {
-	--mdc-typography-headline1-font-family: "Roboto", sans-serif;
-	--mdc-typography-headline2-font-family: "Roboto", sans-serif;
-	--mdc-typography-headline3-font-family: "Roboto", sans-serif;
-	--mdc-typography-headline4-font-family: "Roboto", sans-serif;
-	--mdc-typography-headline5-font-family: "Roboto", sans-serif;
-	--mdc-typography-headline6-font-family: "Roboto", sans-serif;
-	--mdc-typography-subtitle1-font-family: "Roboto", sans-serif;
-	--mdc-typography-subtitle2-font-family: "Roboto", sans-serif;
-	--mdc-typography-font-family: "Roboto", sans-serif;
-	--mdc-typography-body1-font-family: "Roboto", sans-serif;
-	--mdc-typography-body2-font-family: "Roboto", sans-serif;
-	--mdc-typography-caption-font-family: "Roboto", sans-serif;
-	--mdc-typography-button-font-family: "Roboto", sans-serif;
-	--mdc-typography-overline-font-family: "Roboto", sans-serif;
 	--material-design-gsm-primary-color: #212121;
 	--material-design-gsm-primary-text: #fff;
 	--material-design-gsm-background-color: #fff;
@@ -44,14 +30,20 @@
 	}
 
 	& .mdc-button {
-		--mdc-theme-primary: var(--material-design-gsm-primary-color);
-		--mdc-theme-on-primary: var(--material-design-gsm-primary-text);
+		--md-sys-color-primary: var(--material-design-gsm-primary-color);
+		--md-sys-color-on-primary: var(--material-design-gsm-primary-text);
 	}
 
 	& h1,
+	& h2,
 	& h3,
 	& h4 {
 		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.material-gsm__content-actions + h2 {
+		margin-top: 2rem;
 	}
 
 	& p {

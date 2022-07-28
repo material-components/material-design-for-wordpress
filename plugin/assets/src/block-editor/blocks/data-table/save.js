@@ -24,7 +24,7 @@ import classnames from 'classnames';
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 
-const Save = ( { attributes, hasCaption } ) => {
+const Save = ( { attributes } ) => {
 	const { hasFixedLayout, head, body, foot, caption, className } = attributes;
 
 	const isEmpty = ! head.length && ! body.length && ! foot.length;
@@ -45,8 +45,17 @@ const Save = ( { attributes, hasCaption } ) => {
 		'has-fixed-layout': hasFixedLayout,
 	} );
 
-	hasCaption = hasCaption && ! RichText.isEmpty( caption );
+	const hasCaption = ! RichText.isEmpty( caption );
 
+	/**
+	 * Section component.
+	 *
+	 * @param {Object} Props      props.
+	 * @param {string} Props.type Table section type - tfoot tbody thead.
+	 * @param {Array}  Props.rows rows.
+	 *
+	 * @return {JSX.Element|null} Table section JSX.
+	 */
 	const Section = ( { type, rows } ) => {
 		if ( ! rows.length ) {
 			return null;
@@ -55,7 +64,7 @@ const Save = ( { attributes, hasCaption } ) => {
 		const Tag = `t${ type }`;
 		const tagClass = 'body' === type ? 'mdc-data-table__content' : '';
 		const trClass = classnames( {
-			'mdc-data-table__header-row': 'head' === type,
+			'mdc-data-table__header-row': [ 'head', 'foot' ].includes( type ),
 			'mdc-data-table__row': 'head' !== type,
 		} );
 
@@ -67,9 +76,11 @@ const Save = ( { attributes, hasCaption } ) => {
 							( { content, tag, scope, align }, cellIndex ) => {
 								const cellClasses = classnames( {
 									[ `has-text-align-${ align }` ]: align,
-									'mdc-data-table__cell': 'head' !== type,
-									'mdc-data-table__header-cell':
-										'head' === type,
+									'mdc-data-table__cell': 'body' === type,
+									'mdc-data-table__header-cell': [
+										'head',
+										'foot',
+									].includes( type ),
 								} );
 
 								return (

@@ -1,0 +1,229 @@
+{
+  "$schema": "https://schemas.wp.org/wp/5.8/theme.json",
+  "version": 1,
+  "settings": {
+    "layout": {
+      "contentSize": "840px",
+      "wideSize": "84rem"
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "Display Large",
+          "size": "var(--md-sys-typescale-display-large-size, 7.5em)",
+          "slug": "display-large"
+        },
+        {
+          "name": "Display Medium",
+          "size": "var(--md-sys-typescale-display-medium-size, 6.875em)",
+          "slug": "display-medium"
+        },
+        {
+          "name": "Display Small",
+          "size": "var(--md-sys-typescale-display-small-size, 6em)",
+          "slug": "display-small"
+        },
+        {
+          "name": "Headline Large",
+          "size": "var(--md-sys-typescale-headline-large-size, 3.75em)",
+          "slug": "headline-large"
+        },
+        {
+          "name": "Headline Medium",
+          "size": "var(--md-sys-typescale-headline-medium-size, 3em)",
+          "slug": "headline-medium"
+        },
+        {
+          "name": "Headline Small",
+          "size": "var(--md-sys-typescale-headline-small-size, 2.125em)",
+          "slug": "headline-small"
+        },
+        {
+          "name": "Title Large",
+          "size": "var(--md-sys-typescale-title-large-size, 1.5em)",
+          "slug": "title-large"
+        },
+        {
+          "name": "Title Medium",
+          "size": "var(--md-sys-typescale-title-medium-size, 1.25em)",
+          "slug": "title-medium"
+        },
+        {
+          "name": "Title Small",
+          "size": "var(--md-sys-typescale-title-small-size, 0.875em)",
+          "slug": "title-small"
+        },
+        {
+          "name": "Label Large",
+          "size": "var(--md-sys-typescale-label-large-size, 1em)",
+          "slug": "label-large"
+        },
+        {
+          "name": "Label Medium",
+          "size": "var(--md-sys-typescale-label-medium-size, 0.875em)",
+          "slug": "label-medium"
+        },
+        {
+          "name": "Label Small",
+          "size": "var(--md-sys-typescale-label-small-size, 0.75em)",
+          "slug": "label-small"
+        },
+        {
+          "name": "Body Large",
+          "size": "var(--md-sys-typescale-body-large-size, 1)",
+          "slug": "body-large"
+        },
+        {
+          "name": "Body Medium",
+          "size": "var(--md-sys-typescale-body-medium-size, 0.857em)",
+          "slug": "body-medium"
+        },
+        {
+          "name": "Body Small",
+          "size": "var(--md-sys-typescale-body-small-size, 0.75em)",
+          "slug": "body-small"
+        }
+      ]
+    },
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        {
+          "slug": "primary",
+          "name": "Primary",
+          "color": "var(--md-sys-color-primary)"
+        },
+        {
+          "slug": "on-primary",
+          "name": "On Primary",
+          "color": "var(--md-sys-color-on-primary)"
+        },
+        {
+          "slug": "primary-container",
+          "name": "Primary Container",
+          "color": "var(--md-sys-color-primary-container)"
+        },
+        {
+          "slug": "on-primary-container",
+          "name": "On Primary Container",
+          "color": "var(--md-sys-color-on-primary-container)"
+        },
+        {
+          "slug": "secondary",
+          "name": "Secondary",
+          "color": "var(--md-sys-color-secondary)"
+        },
+        {
+          "slug": "on-secondary",
+          "name": "On Secondary",
+          "color": "var(--md-sys-color-on-secondary)"
+        },
+        {
+          "slug": "secondary-container",
+          "name": "Secondary Container",
+          "color": "var(--md-sys-color-secondary-container)"
+        },
+        {
+          "slug": "on-secondary-container",
+          "name": "On Secondary Container",
+          "color": "var(--md-sys-color-on-secondary-container)"
+        },
+        {
+          "slug": "tertiary",
+          "name": "Tertiary",
+          "color": "var(--md-sys-color-tertiary)"
+        },
+        {
+          "slug": "on-tertiary",
+          "name": "On Tertiary",
+          "color": "var(--md-sys-color-on-tertiary)"
+        },
+        {
+          "slug": "tertiary-container",
+          "name": "Tertiary Container",
+          "color": "var(--md-sys-color-tertiary-container)"
+        },
+        {
+          "slug": "on-tertiary-container",
+          "name": "On Tertiary Container",
+          "color": "var(--md-sys-color-on-tertiary-container)"
+        },
+        {
+          "slug": "error",
+          "name": "Error",
+          "color": "var(--md-sys-color-error)"
+        },
+        {
+          "slug": "on-error",
+          "name": "On Error",
+          "color": "var(--md-sys-color-on-error)"
+        },
+        {
+          "slug": "error-container",
+          "name": "Error Container",
+          "color": "var(--md-sys-color-error-container)"
+        },
+        {
+          "slug": "on-error-container",
+          "name": "On Error Container",
+          "color": "var(--md-sys-color-on-error-container)"
+        },
+        {
+          "slug": "background",
+          "name": "Background",
+          "color": "var(--md-sys-color-background)"
+        },
+        {
+          "slug": "on-background",
+          "name": "On Background",
+          "color": "var(--md-sys-color-on-background)"
+        },
+        {
+          "slug": "surface",
+          "name": "Surface",
+          "color": "var(--md-sys-color-surface)"
+        },
+        {
+          "slug": "on-surface",
+          "name": "On Surface",
+          "color": "var(--md-sys-color-on-surface)"
+        },
+        {
+          "slug": "surface-variant",
+          "name": "Surface Variant",
+          "color": "var(--md-sys-color-surface-variant)"
+        },
+        {
+          "slug": "on-surface-variant",
+          "name": "On Surface Variant",
+          "color": "var(--md-sys-color-on-surface-variant)"
+        },
+        {
+          "slug": "outline",
+          "name": "Outline",
+          "color": "var(--md-sys-color-outline)"
+        },
+        {
+          "slug": "shadow",
+          "name": "Shadow",
+          "color": "var(--md-sys-color-shadow)"
+        },
+        {
+          "slug": "inverse-surface",
+          "name": "Surface",
+          "color": "var(--md-sys-color-inverse-surface)"
+        },
+        {
+          "slug": "inverse-on-surface",
+          "name": "Inverse On Surface",
+          "color": "var(--md-sys-color-inverse-on-surface)"
+        },
+        {
+          "slug": "inverse-primary",
+          "name": "Inverse Primary",
+          "color": "var(--md-sys-color-inverse-primary)"
+        }
+      ]
+    }
+  }
+}

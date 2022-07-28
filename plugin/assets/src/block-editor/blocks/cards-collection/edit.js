@@ -25,23 +25,21 @@ import {
 	useRef,
 	useState,
 } from '@wordpress/element';
-
+import { useBlockProps } from '@wordpress/block-editor';
+/**
+ * Internal dependencies
+ */
 import { CARD_ATTRIBUTES_VALUE } from './constants';
 import Cards from './components/cards';
 import CardsCollectionInspectorControls from './components/cards-collection-inspector-controls';
 import FocusedCardControls from './components/focused-card-controls';
 import HorizontalCardLayout from '../card/components/horizontal-card-layout';
 import VerticalCardLayout from '../card/components/vertical-card-layout';
+import getColumnSpan from './utils/get-column-span';
 /**
  * External dependencies
  */
 import classnames from 'classnames';
-import getColumnSpan from './utils/get-column-span';
-/**
- * Internal dependencies
- */
-import { withId } from '../../components/with-id';
-import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Card Collections Edit component.
@@ -359,18 +357,16 @@ const Edit = props => {
 	const blockProps = useBlockProps();
 
 	return (
-		<>
+		<div { ...blockProps }>
 			<CardsCollectionInspectorControls { ...inspectorControlsProps } />
-			<div { ...blockProps }>
-				<Cards
-					style={ style }
-					gutter={ gutter }
-					columns={ columns }
-					cards={ cards }
-				/>
-			</div>
-		</>
+			<Cards
+				style={ style }
+				gutter={ gutter }
+				columns={ columns }
+				cards={ cards }
+			/>
+		</div>
 	);
 };
 
-export default withId( Edit );
+export default Edit;

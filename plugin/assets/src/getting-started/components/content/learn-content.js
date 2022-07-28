@@ -24,7 +24,7 @@ import Button from '../../../wizard/components/navigation/button';
 export const LearnContent = ( { materialUrl, newsLetterUrl } ) => {
 	return (
 		<Fragment>
-			<p>
+			<p className="body-large">
 				{ __(
 					'Learn about the concepts behind material Design',
 					'material-design'
@@ -41,7 +41,7 @@ export const LearnContent = ( { materialUrl, newsLetterUrl } ) => {
 				/>
 			</div>
 
-			<p>
+			<p className="body-large">
 				{ __(
 					'Sign up to get updates and news about material design via email',
 					'material-design'

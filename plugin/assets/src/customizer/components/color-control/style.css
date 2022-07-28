@@ -22,6 +22,10 @@
 	width: 40px;
 }
 
-.material-design-color__input input {
-	width: 50% !important; /* Override core */
+.material-design-color__input {
+	width: 82px;
+}
+
+.material-design-color__shuffle.material-design-color__shuffle {
+	margin-left: 15px;
 }

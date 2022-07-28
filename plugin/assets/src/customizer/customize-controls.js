@@ -28,6 +28,10 @@
  * External dependencies
  */
 import 'select-woo';
+import {
+	argbFromHex,
+	themeFromSourceColor,
+} from '@material/material-color-utilities';
 
 /**
  * WordPress dependencies
@@ -53,13 +57,9 @@ import {
 	collapseSection,
 	expandSection,
 	removeOptionPrefix,
-	getControlName,
 	sanitizeControlId,
 } from './utils';
-import {
-	init as notificationsInit,
-	showHideNotification,
-} from './notifications';
+import { init as notificationsInit } from './notifications';
 import getConfig from '../block-editor/utils/get-config';
 import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 
@@ -259,8 +259,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 			{ allowMultiple: true }
 		),
 
-		template: window.wp.template( 'customize-section-material_color-tabs' ),
-
 		/**
 		 * wp.customize.ColorsSection
 		 *
@@ -293,76 +291,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 				}
 			}
 		},
-
-		ready() {
-			const section = this;
-
-			api.Section.prototype.ready.call( section );
-
-			const content = section.contentContainer.html();
-
-			section.contentContainer.html(
-				section.template( { id: section.id, content } )
-			);
-
-			section.contentContainer
-				.find(
-					'.material-design-section-tabs .material-design-tab-link'
-				)
-				.on( 'click', event => {
-					const { target } = event;
-
-					if ( ! target ) {
-						return;
-					}
-
-					const { palette } = target.dataset;
-
-					if ( ! palette ) {
-						return;
-					}
-
-					section.contentContainer.removeClass(
-						'material-design-colors--default'
-					);
-					section.contentContainer.removeClass(
-						'material-design-colors--dark'
-					);
-
-					section.contentContainer.addClass(
-						`material-design-colors--${ palette }`
-					);
-
-					section.contentContainer
-						.find( '.material-design-tab-link--active' )
-						.removeClass( 'material-design-tab-link--active' );
-
-					target.classList.add( 'material-design-tab-link--active' );
-
-					// Display content.
-					const activeTab = section.contentContainer.find(
-						`.material-design-tab-content.tab-${ palette }`
-					);
-
-					if ( 0 === activeTab.length ) {
-						return;
-					}
-
-					section.contentContainer
-						.find( `.material-design-tab-content` )
-						.removeClass( 'active' );
-
-					section.contentContainer
-						.find( `.material-design-tab-content.tab-${ palette }` )
-						.addClass( 'active' );
-
-					// Setup new colors.
-					api.previewer.send(
-						'materialDesignPaletteUpdate',
-						palette
-					);
-				} );
-		},
 	} );
 
 	/**
@@ -375,7 +303,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 	} );
 
 	api.MaterialColorControl = api.ColorControl.extend( {
-		template: wp.template( 'customize-control-material_color-tabs' ),
 		accessibilityTemplate: wp.template(
 			'customize-control-material_color-accessibility'
 		),
@@ -549,34 +476,25 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 	 * @param {boolean} setDefault Should the default value be set for the global control ?
 	 */
 	const onResetGlobalRangeSliderControl = ( control, setDefault = false ) => {
-		let style = api( getConfig( 'styleControl' ) ).get();
-		if ( 'custom' === style ) {
-			style = api( getConfig( 'prevStyleControl' ) ).get();
+		const defaults = getConfig( 'designStyles' ).baseline;
+		let settingId = removeOptionPrefix( control.id );
+
+		if ( setDefault ) {
+			setSettingDefault( control.id, defaults[ settingId ] );
 		}
 
-		if ( style && getConfig( 'designStyles' ).hasOwnProperty( style ) ) {
-			const defaults = getConfig( 'designStyles' )[ style ];
-			let settingId = removeOptionPrefix( control.id );
-
-			if ( setDefault ) {
-				setSettingDefault( control.id, defaults[ settingId ] );
-			}
-
-			if ( control.params.children ) {
-				control.params.children.forEach( slider => {
-					settingId = removeOptionPrefix( slider.id );
-					setSettingDefault( slider.id, defaults[ settingId ] );
-				} );
-			}
-
-			unmountComponentAtNode(
-				control.container
-					.find( '.material-design-range_slider' )
-					.get( 0 )
-			);
-			renderRangeSliderControl( control );
-			reRenderMaterialLibrary();
+		if ( control.params.children ) {
+			control.params.children.forEach( slider => {
+				settingId = removeOptionPrefix( slider.id );
+				setSettingDefault( slider.id, defaults[ settingId ] );
+			} );
 		}
+
+		unmountComponentAtNode(
+			control.container.find( '.material-design-range_slider' ).get( 0 )
+		);
+		renderRangeSliderControl( control );
+		reRenderMaterialLibrary();
 	};
 
 	/**
@@ -652,6 +570,8 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 
 				child.size.value = valueObject.size;
 				child.weight.value = valueObject.weight;
+				child.tracking.value = valueObject.tracking;
+				child.lineHeight.value = valueObject.lineHeight;
 
 				return child;
 			} );
@@ -683,7 +603,6 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 	const renderStyleSettingsControl = control => {
 		const { setting } = control;
 		let defaultValue = setting.get();
-		const selectedStyle = api( getConfig( 'styleControl' ) ).get();
 
 		if ( 'string' === typeof defaultValue ) {
 			defaultValue = JSON.parse( defaultValue );
@@ -691,14 +610,11 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 
 		const props = {
 			defaultValue,
-			selectedStyle,
 			setValue: value => {
 				setting.set(
 					JSON.stringify( {
 						...defaultValue,
-						[ selectedStyle ]: {
-							...value,
-						},
+						...value,
 					} )
 				);
 			},
@@ -727,7 +643,13 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 		const props = {
 			defaultValue: setting.get(),
 			onColorChange: value => {
+				const colorPaletteControl = api( getConfig( 'colorPalette' ) );
+
+				const intColor = argbFromHex( value );
+				const colorPalette = themeFromSourceColor( intColor );
+
 				control.setting.set( value );
+				colorPaletteControl.set( JSON.stringify( colorPalette ) );
 			},
 			params,
 			api,
@@ -739,90 +661,10 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 	};
 
 	/**
-	 * Callback when a "Design Style" is changed.
-	 *
-	 * @param {string} newValue Updated value.
-	 * @param {string} oldValue Previous Value.
-	 */
-	const onStyleChange = ( newValue, oldValue ) => {
-		const designStyles = getConfig( 'designStyles' );
-
-		// Bail out if custom style is selected or if we don't have a valid style.
-		if (
-			'custom' === newValue ||
-			! designStyles ||
-			! designStyles.hasOwnProperty( newValue )
-		) {
-			return;
-		}
-
-		// If a style is selected from custom, show confirm dialogue.
-		if (
-			'custom' === oldValue &&
-			! window.confirm( getConfig( 'l10n' ).confirmChange ) // eslint-disable-line
-		) {
-			api.control( getConfig( 'styleControl' ) ).setting.set( oldValue );
-			return;
-		}
-
-		// Get defaults for selected design style.
-		const defaults = designStyles[ newValue ];
-
-		// Iterate through all the default values for the selected style
-		// and update the corresponding control value.
-		Object.keys( defaults ).forEach( name => {
-			if (
-				! name.includes( 'global_radius' ) &&
-				name.includes( '_radius' )
-			) {
-				return;
-			}
-
-			const value = defaults[ name ];
-			const settingName = getControlName( name );
-
-			setSettingDefault( settingName, value, () => {
-				const control = api.control( settingName );
-
-				// Force unmount and re render the Ranger Slider control.
-				if (
-					control &&
-					control.params.type === 'range_slider' &&
-					control.params.children &&
-					control.params.children.length
-				) {
-					onResetGlobalRangeSliderControl( control );
-				}
-
-				if ( settingName.includes( 'font_family' ) ) {
-					api.control( settingName )
-						.container.find( '.google-fonts-control-selection' )
-						.val( value )
-						.trigger( 'change' );
-				}
-			} );
-		} );
-
-		reRenderMaterialLibrary();
-		reRenderColorControls( { limitToDark: false } );
-		updateActiveStyleName();
-		showHideNotification( loadMaterialLibrary );
-	};
-
-	/**
 	 * Callback when any of our control value is changed.
 	 */
 	const onCustomValueChange = () => {
-		const styleSetting = api( getConfig( 'styleControl' ) );
-
-		// If the style is not custom, change it to custom.
-		if ( 'custom' !== styleSetting.get() ) {
-			api( getConfig( 'prevStyleControl' ) ).set( styleSetting.get() );
-			styleSetting.set( 'custom' );
-		}
-
 		reRenderMaterialLibrary();
-		updateActiveStyleName();
 	};
 
 	/**
@@ -851,121 +693,7 @@ import handleGlobalStyleResetButtonClick from './components/reset-card-style';
 		}
 	};
 
-	const updateActiveStyleName = () => {
-		const sectionTitleElement = document.querySelector(
-			'#accordion-section-material_design_style .customize-title'
-		);
-
-		if ( ! sectionTitleElement ) {
-			return;
-		}
-
-		const currentStyle = api( getConfig( 'styleControl' ) ).get();
-		const control = api.control( getConfig( 'styleSettings' ) );
-		const controlsSectionElement = document.querySelector(
-			'#js-customize-section-style'
-		);
-		const sectionPreview = document.querySelector(
-			'#accordion-section-material_design_style .control-section-styles-preview'
-		);
-
-		sectionTitleElement.textContent = currentStyle;
-		controlsSectionElement.textContent = currentStyle;
-
-		sectionPreview.src = getConfig( 'styleChoices' )[ currentStyle ].url;
-
-		unmountComponentAtNode( control.container.get( 0 ) );
-
-		renderStyleSettingsControl( control );
-	};
-
-	const reRenderColorControls = ( { limitToDark = false } ) => {
-		let controlObjectsDefault = [];
-		let controlObjectsDark = [];
-
-		if ( limitToDark ) {
-			controlObjectsDark = getConfig( 'colorControlsDark' );
-		} else {
-			controlObjectsDefault = getConfig( 'colorControls' );
-			controlObjectsDark = getConfig( 'colorControlsDark' );
-		}
-
-		const controlObjects = [
-			...controlObjectsDefault,
-			...controlObjectsDark,
-		];
-
-		controlObjects.forEach( controlObject => {
-			const setting =
-				controlObject.related_text_setting ||
-				controlObject.related_setting;
-			const control = api.control( setting );
-
-			if ( ! control ) {
-				return;
-			}
-
-			if ( unmountComponentAtNode( control.container.get( 0 ) ) ) {
-				renderColorControl( control );
-			}
-		} );
-	};
-
 	api.bind( 'ready', () => {
-		const controls = getConfig( 'controls' );
-		const styleControl = getConfig( 'styleControl' );
-		const styleSettings = getConfig( 'styleSettings' );
-
-		// Iterate through our controls and bind events for value change.
-		if ( controls && Array.isArray( controls ) ) {
-			controls.forEach( name => {
-				api( name, setting => {
-					// Design style control has it's own change handler.
-					if ( styleControl === name ) {
-						return setting.bind( onStyleChange );
-					}
-
-					// Style settings don't trigger custom style handler.
-					if ( styleSettings === name ) {
-						return;
-					}
-
-					setting.bind( onCustomValueChange );
-
-					// Maybe trigger linked color.
-					if ( name.includes( '_color_dark' ) ) {
-						const parentSettingName = name.replace( '_dark', '' );
-						const control = api.control( name );
-
-						if ( parentSettingName ) {
-							api( parentSettingName, parentSetting => {
-								parentSetting.bind( value => {
-									const link = document.querySelector(
-										`${ control.selector } .material-design-color__link`
-									)?.innerText;
-
-									if ( link && 'link_off' !== link ) {
-										return;
-									}
-
-									const range = colorUtils.getColorRangeFromHex(
-										value
-									);
-
-									if ( range && range.dark ) {
-										setting.set( range.dark.hex );
-										reRenderColorControls( {
-											limitToDark: true,
-										} );
-									}
-								} );
-							} );
-						}
-					}
-				} );
-			} );
-		}
-
 		const focusSection = api.settings.autofocus.section;
 		if (
 			focusSection &&

@@ -29,12 +29,17 @@
  * External dependencies
  */
 import debounce from 'lodash/debounce';
+import {
+	argbFromHex,
+	themeFromSourceColor,
+	applyTheme,
+} from '@material/material-color-utilities';
 
 /**
  * Internal dependencies
  */
-import colorUtils from '../common/color-utils';
 import { STYLES } from '../customizer/components/google-fonts-control/styles';
+import { setConfig } from '../block-editor/utils/get-config';
 
 const getIconFontName = iconStyle => {
 	return iconStyle === 'filled'
@@ -83,6 +88,20 @@ export const COLOR_MODES = {
 			api.preview.bind( 'materialDesignPaletteUpdate', message => {
 				updateColorMode( message );
 			} );
+
+			api.preview.bind(
+				'materialDesignM3PaletteUpdate',
+				( { color, isDarkMode } ) => {
+					const intColor = argbFromHex( color );
+					const colorPallete = themeFromSourceColor( intColor );
+					setConfig( 'sourceColor', color );
+
+					applyTheme( colorPallete, {
+						target: document.body,
+						dark: isDarkMode,
+					} );
+				}
+			);
 		} );
 	} );
 
@@ -155,10 +174,7 @@ export const COLOR_MODES = {
 	const generatePreviewStyles = debounce( () => {
 		const stylesheetID = 'material-design-customizer-preview-styles';
 		let stylesheet = $( '#' + stylesheetID ),
-			styles = '',
-			darkStyles = '',
-			lightStyles = '',
-			colorRgb;
+			styles = '';
 
 		// If the stylesheet doesn't exist, create it and append it to <head>.
 		if ( ! stylesheet.length ) {
@@ -196,7 +212,11 @@ export const COLOR_MODES = {
 
 					if ( 'size' === rule ) {
 						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] }px !important;`;
-					} else {
+					} else if ( 'tracking' === rule ) {
+						// Compute tracking to line-height.
+						const lineHeight = rules[ rule ] / ( rules.size || 16 );
+						styles += `${ typographyControls[ control ][ rule ] }: ${ lineHeight }rem !important;`;
+					} else if ( 'weight' === rule ) {
 						const fontStyle = /italic$/.test( rules[ rule ] )
 							? 'italic'
 							: 'normal';
@@ -208,54 +228,11 @@ export const COLOR_MODES = {
 
 						styles += `${ typographyControls[ control ].style }: ${ fontStyle } !important;`;
 						styles += `${ typographyControls[ control ][ rule ] }: ${ weight } !important;`;
+					} else {
+						styles += `${ typographyControls[ control ][ rule ] }: ${ rules[ rule ] } !important;`;
 					}
 				}
 			}
-		} );
-
-		// Generate the styles.
-		Object.keys( colorControls ).forEach( control => {
-			const color = parentApi( control ).get();
-
-			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
-
-			if ( ! color ) {
-				return;
-			}
-
-			styles += `${ colorControls[ control ] }: ${ color };
-				${ colorControls[ control ] }-rgb: ${ colorRgb };
-			`;
-		} );
-
-		// Generate the styles of forced dark mode.
-		Object.keys( darkModeControls ).forEach( control => {
-			const color = parentApi( control ).get();
-
-			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
-
-			if ( ! color ) {
-				return;
-			}
-
-			darkStyles += `${ darkModeControls[ control ] }: ${ color };
-				${ darkModeControls[ control ] }-rgb: ${ colorRgb };
-			`;
-		} );
-
-		// Generate the styles of forced light mode.
-		Object.keys( defaultModeControls ).forEach( control => {
-			const color = parentApi( control ).get();
-
-			colorRgb = colorUtils.hexToRgbValues( color ).join( ',' );
-
-			if ( ! color ) {
-				return;
-			}
-
-			lightStyles += `${ defaultModeControls[ control ] }: ${ color };
-				${ defaultModeControls[ control ] }-rgb: ${ colorRgb };
-			`;
 		} );
 
 		Object.keys( cornerStyleControls ).forEach( control => {
@@ -285,16 +262,8 @@ export const COLOR_MODES = {
 			toggleDarkModeSwitch( settings );
 		} );
 
-		styles = `:root {
+		styles = `body {
 			${ styles }
-		}
-
-		body[data-color-scheme="dark"] {
-			${ darkStyles }
-		}
-
-		body[data-color-scheme="light"] {
-			${ lightStyles }
 		}
 		`;
 
@@ -348,13 +317,6 @@ export const COLOR_MODES = {
 	const toggleDarkModeSwitch = debounce( value => {
 		const darkModeData =
 			'string' === typeof value ? JSON.parse( value ) : value;
-		const currentStyle = parentApi(
-			window.parent.materialDesign.styleControl
-		).get();
-
-		if ( ! currentStyle ) {
-			return;
-		}
 
 		const topAppBar = document.querySelector( '.mdc-top-app-bar' );
 
@@ -362,7 +324,7 @@ export const COLOR_MODES = {
 			return;
 		}
 
-		if ( darkModeData[ currentStyle ].switcher ) {
+		if ( darkModeData.switcher ) {
 			topAppBar.classList.add( HAS_DARK_MODE_CLASS );
 		} else {
 			topAppBar.classList.remove( HAS_DARK_MODE_CLASS );

@@ -134,10 +134,6 @@ function preview_scripts() {
 		$css_vars[ $control['id'] ] = $control['css_var'];
 	}
 
-	foreach ( Colors\get_dark_controls() as $control ) {
-		$css_vars_dark[ $control['id'] ] = $control['css_var'];
-	}
-
 	wp_localize_script(
 		'material-design-google-customizer-preview',
 		'materialDesignThemeColorControls',
@@ -402,14 +398,6 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 	 */
 	$controls = [];
 
-	/**
-	 * Controls to nest in the more options section.
-	 */
-	$more_controls = [
-		'default' => [],
-		'dark'    => [],
-	];
-
 	$section = prepend_slug( $section );
 
 	foreach ( $color_controls as $control ) {
@@ -435,64 +423,7 @@ function add_color_controls( $wp_customize, $color_controls, $section ) {
 				'type'    => 'color',
 			];
 		}
-
-		// Group header and footer colors into more options.
-		if (
-			(
-				false !== strpos( $control['id'], 'header_color' ) ||
-				false !== strpos( $control['id'], 'footer_color' )
-			) &&
-			! strpos( $control['id'], '_dark' )
-		) {
-			$more_controls['default'][] = $control['id'];
-		}
-
-		if (
-			(
-				false !== strpos( $control['id'], 'header_color' ) ||
-				false !== strpos( $control['id'], 'footer_color' )
-			) &&
-			strpos( $control['id'], '_dark' )
-		) {
-			$more_controls['dark'][] = $control['id'];
-		}
 	}
-
-	$wp_customize->add_setting(
-		'colors_more_options',
-		[
-			'sanitize_callback' => 'wp_kses_post',
-		]
-	);
-
-	$wp_customize->add_setting(
-		'colors_more_options_dark',
-		[
-			'sanitize_callback' => 'wp_kses_post',
-		]
-	);
-
-	$controls['colors_more_options'] = new More_Options(
-		$wp_customize,
-		'colors_more_options',
-		[
-			'section'       => $section,
-			'priority'      => 300,
-			'controls'      => $more_controls['default'],
-			'controls_type' => 'default',
-		]
-	);
-
-	$controls['colors_more_options_dark'] = new More_Options(
-		$wp_customize,
-		'colors_more_options_dark',
-		[
-			'section'       => $section,
-			'priority'      => 300,
-			'controls'      => $more_controls['dark'],
-			'controls_type' => 'dark',
-		]
-	);
 
 	add_controls( $wp_customize, $controls );
 }
@@ -506,7 +437,6 @@ function get_css_vars() {
 	$color_vars_dark = [];
 	$defaults        = get_default_values();
 	$controls        = Colors\get_controls();
-	$controls_dark   = Colors\get_dark_controls();
 
 	foreach ( $controls as $control ) {
 		$default = isset( $defaults[ $control['id'] ] ) ? $defaults[ $control['id'] ] : '';
@@ -525,23 +455,6 @@ function get_css_vars() {
 		}
 	}
 
-	foreach ( $controls_dark as $control ) {
-		$default = isset( $defaults[ $control['id'] ] ) ? $defaults[ $control['id'] ] : '';
-		$value   = get_theme_mod( $control['id'], $default );
-
-		if ( empty( $value ) ) {
-			continue;
-		}
-
-		$color_vars_dark[] = sprintf( '%s: %s;', esc_html( $control['css_var'] ), esc_html( $value ) );
-		$rgb               = hex_to_rgb( $value );
-
-		if ( ! empty( $rgb ) ) {
-			$rgb               = implode( ',', $rgb );
-			$color_vars_dark[] = sprintf( '%s: %s;', esc_html( $control['css_var'] . '-rgb' ), esc_html( $rgb ) );
-		}
-	}
-
 	// Generate additional surface variant vars required by some components.
 	$surface    = get_theme_mod( 'surface_color' );
 	$on_surface = get_theme_mod( 'on_surface_color' );
@@ -554,23 +467,36 @@ function get_css_vars() {
 		$color_vars[] = esc_html( "--mdc-theme-surface-mix-12: $mix_12;" );
 	}
 
+	$color_palette = ! empty( get_material_design_option( 'color_palette' ) ) ? get_material_design_option( 'color_palette' ) : get_theme_mod( 'color_palette' );
+
+	if ( $color_palette ) {
+		$color_palette = json_decode( $color_palette, true );
+	}
+
 	$glue            = "\n\t\t\t";
 	$color_vars      = implode( $glue, $color_vars );
 	$color_vars_dark = implode( $glue, $color_vars_dark );
+	$light_mode_vars = '';
+	$dark_mode_vars  = '';
+
+	if ( ! empty( $color_palette ) ) {
+		$light_mode_vars = implode( $glue, generate_theme_variables( $color_palette['schemes']['light'] ) );
+		$dark_mode_vars  = implode( $glue, generate_theme_variables( $color_palette['schemes']['dark'] ) );
+	}
 
 	$css = "
 		:root {
-			{$color_vars}
+			{$light_mode_vars}
 		}
 
 		/* Forced dark mode */
 		body[data-color-scheme='dark'] {
-			{$color_vars_dark}
+			{$dark_mode_vars}
 		}
 
-		/* Forced light mode */
+
 		body[data-color-scheme='light'] {
-			{$color_vars}
+			{$light_mode_vars}
 		}
 	";
 
@@ -578,7 +504,7 @@ function get_css_vars() {
 		$css .= "
 			@media (prefers-color-scheme: dark) {
 				:root {
-					{$color_vars_dark}
+					{$dark_mode_vars}
 				}
 			}
 		";
@@ -764,4 +690,52 @@ function get_sanitize_callback( $setting_type ) {
 		default:
 			return 'sanitize_text_field';
 	}
+}
+
+/**
+ * Generate variables from settings.
+ *
+ * @param mixed $color_palette Colors.
+ *
+ * @return array Array of variables
+ */
+function generate_theme_variables( $color_palette ) {
+	$variables = [];
+
+	if ( empty( $color_palette ) ) {
+		return [];
+	}
+
+	foreach ( $color_palette as $key => $value ) {
+		$token = '--md-sys-color-' . strtolower( preg_replace( '/([a-z])([A-Z])/', '$1-$2', $key ) );
+		$color = rgb_to_hex( $value );
+
+		$variables[ $token ] = sprintf( '%1$s:%2$s;', $token, $color );
+	}
+
+	return $variables;
+}
+
+/**
+ * Convert color rgb to hex
+ *
+ * @param string $rgb Color value.
+ *
+ * @return string Hex value.
+ */
+function rgb_to_hex( $rgb ) {
+	$red   = $rgb >> 16 & 255;
+	$green = $rgb >> 8 & 255;
+	$blue  = $rgb & 255;
+
+	$outparts = [ base_convert( $red, 10, 16 ), base_convert( $green, 10, 16 ), base_convert( $blue, 10, 16 ) ];
+
+	// Pad single-digit output values.
+	foreach ( $outparts as &$part ) {
+		if ( 1 === strlen( $part ) ) {
+			$part = '0' . $part;
+		}
+	}
+
+	return '#' . implode( '', $outparts );
 }

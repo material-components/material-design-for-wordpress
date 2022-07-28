@@ -25,14 +25,6 @@ import { render } from '@testing-library/react';
  */
 import PostsControl from '../../../../../assets/src/block-editor/components/posts-control';
 
-jest.mock( '@woocommerce/components', () => {
-	return {
-		SearchListControl: props => {
-			return <div className={ props.className } />;
-		},
-	};
-} );
-
 jest.mock(
 	'../../../../../assets/src/block-editor/hocs/with-searched-posts.js',
 	() => {

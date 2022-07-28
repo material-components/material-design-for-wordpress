@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-@import "@material/typography/dist/mdc.typography.css";
-@import "@material/button/dist/mdc.button.css";
 @import "@material/top-app-bar/dist/mdc.top-app-bar.css";
 @import "@material/icon-button/dist/mdc.icon-button.css";
 @import "@material/drawer/dist/mdc.drawer.css";
@@ -24,12 +22,14 @@
 @import "@material/floating-label/dist/mdc.floating-label.css";
 @import "@material/textfield/dist/mdc.textfield.css";
 @import "@material/checkbox/dist/mdc.checkbox.css";
-@import "@material/card/dist/mdc.card.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/ripple/dist/mdc.ripple.css";
-@import "@material/image-list/dist/mdc.image-list.css";
 @import "@material/tab-bar/dist/mdc.tab-bar.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
 @import "@material/tab-indicator/dist/mdc.tab-indicator.css";
 @import "@material/tab/dist/mdc.tab.css";
 @import "./components/material.css";
+
+/**
+  Todo: Add style from plugin for material card and image card.
+ */

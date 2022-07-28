@@ -126,24 +126,24 @@ Object {
               class=""
             >
               <tr
-                class="mdc-data-table__row"
+                class="mdc-data-table__header-row mdc-data-table__row"
               >
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div>
                     Footer Col 1
                   </div>
                 </td>
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div>
                     Footer Col 2
                   </div>
                 </td>
                 <td
-                  class="mdc-data-table__cell"
+                  class="mdc-data-table__header-cell"
                 >
                   <div>
                     Footer Col 3
@@ -152,6 +152,17 @@ Object {
               </tr>
             </tfoot>
           </table>
+        </div>
+        <div
+          class="mdc-data-table__caption"
+        >
+          <figcaption
+            class=""
+          >
+            <div>
+              Material Data Table
+            </div>
+          </figcaption>
         </div>
       </div>
     </div>
@@ -278,24 +289,24 @@ Object {
             class=""
           >
             <tr
-              class="mdc-data-table__row"
+              class="mdc-data-table__header-row mdc-data-table__row"
             >
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div>
                   Footer Col 1
                 </div>
               </td>
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div>
                   Footer Col 2
                 </div>
               </td>
               <td
-                class="mdc-data-table__cell"
+                class="mdc-data-table__header-cell"
               >
                 <div>
                   Footer Col 3
@@ -304,6 +315,17 @@ Object {
             </tr>
           </tfoot>
         </table>
+      </div>
+      <div
+        class="mdc-data-table__caption"
+      >
+        <figcaption
+          class=""
+        >
+          <div>
+            Material Data Table
+          </div>
+        </figcaption>
       </div>
     </div>
   </div>,
@@ -517,6 +539,17 @@ Object {
             </tbody>
           </table>
         </div>
+        <div
+          class="mdc-data-table__caption"
+        >
+          <figcaption
+            class=""
+          >
+            <div>
+              Material Data Table
+            </div>
+          </figcaption>
+        </div>
       </div>
     </div>
   </body>,
@@ -610,6 +643,17 @@ Object {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div
+        class="mdc-data-table__caption"
+      >
+        <figcaption
+          class=""
+        >
+          <div>
+            Material Data Table
+          </div>
+        </figcaption>
       </div>
     </div>
   </div>,
