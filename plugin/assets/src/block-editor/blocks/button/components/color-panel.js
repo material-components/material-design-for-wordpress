@@ -19,21 +19,38 @@
  */
 
 import {
-	__experimentalColorGradientSettingsDropdown as ColorGradientDropdown,
+	__experimentalColorGradientSettingsDropdown as ColorGradientDropdown, // eslint-disable-line @wordpress/no-unsafe-wp-apis
 	ContrastChecker,
+	useSetting,
 } from '@wordpress/block-editor';
-import { PanelBody } from '@wordpress/components';
+import {
+	PanelBody,
+	__experimentalSpacer as Spacer, // eslint-disable-line @wordpress/no-unsafe-wp-apis
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 const ColorPanel = ( { colors: { text, container } } ) => {
 	const settings = [ text, container ];
+	const colors = useSetting( 'color.palette' );
+	const colorPalette = [
+		{
+			name: __( 'Theme', 'material-design' ),
+			colors,
+		},
+	];
 
 	return (
 		<PanelBody
 			title={ __( 'Color', 'material-design' ) }
-			initialOpen={ false }
+			initialOpen={ true }
 		>
-			<ColorGradientDropdown settings={ settings } />
+			<ColorGradientDropdown
+				settings={ settings }
+				colors={ colorPalette }
+				__experimentalHasMultipleOrigins={ true } // Allow multiple color palettes.
+			/>
+
+			<Spacer marginY={ 4 } />
 
 			<ContrastChecker
 				textColor={ text.colorValue }
