@@ -202,6 +202,12 @@ const ButtonEdit = ( {
 		}
 	}, [ isSubmitButton ] ); // eslint-disable-line
 
+	useEffect( () => {
+		if ( 'raised' === style ) {
+			setAttributes( { style: 'elevated' } );
+		}
+	}, [ style ] ); // eslint-disable-line
+
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
 	 *

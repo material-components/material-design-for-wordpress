@@ -48,11 +48,11 @@ export const BUTTON_STYLES = [
 	},
 	{
 		label: __( 'Elevated', 'material-design' ),
-		value: 'raised',
+		value: 'elevated',
 	},
 	{
 		label: __( 'Filled', 'material-design' ),
-		value: 'unelevated',
+		value: 'filled',
 	},
 ];
 
