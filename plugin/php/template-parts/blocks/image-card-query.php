@@ -28,7 +28,8 @@ $post_link          = get_the_permalink( $post_id_image_card );
 if ( has_post_thumbnail( $post_id_image_card ) ) {
 	$thumbnail = get_the_post_thumbnail_url( $post_id_image_card );
 } else {
-	$thumbnail = get_template_directory_uri() . '/assets/images/placeholder.png';
+	global $material_design_plugin;
+	$thumbnail = $material_design_plugin->asset_url( 'assets/images/placeholder-image-card.png' );
 }
 $wrapper_attributes = get_block_wrapper_attributes();
 ?>

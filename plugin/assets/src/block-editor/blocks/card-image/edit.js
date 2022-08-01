@@ -20,48 +20,81 @@
 /**
  * WordPress dependencies
  */
+import { useEntityProp, store as coreStore } from '@wordpress/core-data';
 import { useBlockProps } from '@wordpress/block-editor';
-import ServerSideRender from '@wordpress/server-side-render';
 
 /**
  * Internal dependencies
  */
-import { name } from './block.json';
+import { useSelect } from '@wordpress/data';
+import { getConfig } from '../../utils';
+
+function getMediaSourceUrlBySizeSlug( media, slug ) {
+	return (
+		media?.media_details?.sizes?.[ slug ]?.source_url || media?.source_url
+	);
+}
 
 /**
  * Edit.
  *
  * @param {Object}                                         props
  * @param {{postType:string,postId:number,queryId:number}} props.context
- * @param {Object}                                         props.attributes
  * @return {JSX.Element} Block edit.
  */
-const Edit = ( { context, attributes } ) => {
-	const urlQueryArgs = {
-		materialParamContext: [],
-	};
-	// Server side rendering doesn't support passing context yet. This hack adds context as url param to later manually parse in php.
-	for ( const key in context ) {
-		urlQueryArgs.materialParamContext[ key ] = context[ key ];
-	}
+const Edit = ( { context } ) => {
+	const { postId, postType: postTypeSlug } = context;
 
 	const preventAnchorLink = e => {
 		e.preventDefault();
 		return false;
 	};
 
+	const fallbackImage = getConfig( 'fallBackImageCard' );
+	const [ featuredImage ] = useEntityProp(
+		'postType',
+		postTypeSlug,
+		'featured_media',
+		postId
+	);
+
+	const { media } = useSelect(
+		select => {
+			const { getMedia } = select( coreStore );
+			return {
+				media:
+					featuredImage &&
+					getMedia( featuredImage, {
+						context: 'view',
+					} ),
+			};
+		},
+		[ featuredImage, postTypeSlug ]
+	);
+
+	const [ , , fullTitle ] = useEntityProp(
+		'postType',
+		postTypeSlug,
+		'title',
+		postId
+	);
+	const imageUrl = getMediaSourceUrlBySizeSlug( media, 'post-thumbnail' );
+
 	return (
-		<>
-			{ /* Prevent anchor click coming from SSR. */ }
-			{ /* eslint-disable-next-line jsx-a11y/no-static-element-interactions */ }
-			<div { ...useBlockProps() } onClick={ preventAnchorLink }>
-				<ServerSideRender
-					block={ name }
-					urlQueryArgs={ urlQueryArgs }
-					attributes={ attributes }
+		<div { ...useBlockProps() }>
+			{ /* eslint-disable-next-line jsx-a11y/anchor-is-valid */ }
+			<a href="#" onClick={ preventAnchorLink }>
+				<img
+					className="mdc-image-list__image"
+					src={ imageUrl || fallbackImage }
+					alt={ media?.alt_text }
 				/>
-			</div>
-		</>
+				<div
+					className="mdc-image-list__supporting"
+					dangerouslySetInnerHTML={ { __html: fullTitle?.rendered } }
+				/>
+			</a>
+		</div>
 	);
 };
 
