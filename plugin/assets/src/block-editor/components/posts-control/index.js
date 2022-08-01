@@ -15,12 +15,6 @@
  */
 
 /**
- * External dependencies
- */
-import { SearchListControl } from '@woocommerce/components';
-import '@woocommerce/components/build-style/style.css';
-
-/**
  * WordPress dependencies
  */
 import { __, _n, sprintf } from '@wordpress/i18n';
@@ -28,6 +22,7 @@ import { __, _n, sprintf } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
+import SearchListControl from '../search-list-control';
 import withSearchedPosts from '../../hocs/with-searched-posts';
 import ErrorMessage from '../error-message';
 import SearchListItem from './item';

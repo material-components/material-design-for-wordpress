@@ -97,7 +97,7 @@ class Blocks extends Module_Base {
 	 * @return array
 	 */
 	public static function get_blocks_folders() {
-		$root_folder = __DIR__ . '/../../assets/src/block-editor/blocks';
+		$root_folder = __DIR__ . '/../../assets/js/blocks';
 
 		return glob( $root_folder . '/*', GLOB_ONLYDIR | GLOB_MARK );
 	}
