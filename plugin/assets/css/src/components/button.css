@@ -16,6 +16,7 @@
 
 .mdc-button {
 	align-items: center;
+	border: 0;
 	display: flex;
 	justify-content: center;
 	letter-spacing: 0.1px;
@@ -71,4 +72,13 @@
 .mdc-button--filled {
 	background-color: var(--md-sys-color-primary);
 	color: var(--md-sys-color-on-primary);
+
+	&:hover {
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+	}
+
+	&:focus,
+	&:active {
+		outline: thin dotted;
+	}
 }
