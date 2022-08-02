@@ -20,6 +20,7 @@
 /**
  * WordPress dependencies
  */
+// eslint-disable-next-line import/no-unresolved
 import { useEntityProp, store as coreStore } from '@wordpress/core-data';
 import { useBlockProps } from '@wordpress/block-editor';
 
