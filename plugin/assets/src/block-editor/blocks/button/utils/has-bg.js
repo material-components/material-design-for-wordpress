@@ -14,4 +14,9 @@
  * limitations under the License.
  */
 
-export default style => style === 'unelevated' || style === 'raised';
+/**
+ * @type {Array}
+ */
+const allowedStyles = [ 'filled', 'elevated', 'raised', 'unelevated' ];
+
+export default style => allowedStyles.includes( style );
