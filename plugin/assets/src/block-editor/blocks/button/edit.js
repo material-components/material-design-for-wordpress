@@ -206,6 +206,10 @@ const ButtonEdit = ( {
 		if ( 'raised' === style ) {
 			setAttributes( { style: 'elevated' } );
 		}
+
+		if ( 'unelevated' === style ) {
+			setAttributes( { style: 'filled' } );
+		}
 	}, [ style ] ); // eslint-disable-line
 
 	/**
