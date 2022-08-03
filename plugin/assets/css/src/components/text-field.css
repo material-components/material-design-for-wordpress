@@ -27,13 +27,13 @@
 	font-family: var(--md-sys-typescale-label-large-font, Roboto, sans-serif);
 	font-size: var(--md-sys-typescale-label-large-size, 1rem);
 	font-weight: var(--md-sys-typescale-label-large-weight, 400);
+	line-height: var(--md-sys-typescale-label-large-line-height);
 	letter-spacing: var(--md-sys-typescale-label-large-tracking, 0.009375em);
 	text-transform: inherit;
 	position: absolute;
 	left: 0;
 	-webkit-transform-origin: left top;
 	transform-origin: left top;
-	line-height: 1.15rem;
 	text-align: left;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -274,7 +274,7 @@
 	-webkit-font-smoothing: antialiased;
 	font-family: var(--md-sys-typescale-body-small-font, Roboto, sans-serif);
 	font-size: var(--md-sys-typescale-body-small-size, 0.75rem);
-	line-height: var(--md-sys-typescale-body-small-line-height, 1.25rem);
+	line-height: var(--md-sys-typescale-body-small-line-height);
 	font-weight: var(--md-sys-typescale-body-small-weight, 400);
 	letter-spacing: var(--md-sys-typescale-body-small-tracking, 0.0333333333em);
 	display: block;
@@ -670,6 +670,7 @@
 	font-family: var(--md-sys-typescale-label-large-font, Roboto, sans-serif);
 	font-size: var(--md-sys-typescale-label-large-size, 1rem);
 	font-weight: var(--md-sys-typescale-label-large-weight, 400);
+	line-height: var(--md-sys-typescale-label-large-line-height);
 	letter-spacing: var(--md-sys-typescale-label-large-tracking, 0.009375em);
 	text-transform: inherit;
 	padding: 20px 16px 7px;
@@ -1479,7 +1480,6 @@
 	height: auto;
 	margin: 8px 1px 1px 0;
 	padding: 0 16px 16px;
-	line-height: 1.75rem;
 }
 
 .mdc-text-field--textarea .mdc-text-field-character-counter + .mdc-text-field__input {
