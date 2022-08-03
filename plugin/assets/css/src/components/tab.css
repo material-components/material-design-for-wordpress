@@ -17,35 +17,13 @@
 .mdc-tab {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	font-family: Roboto, sans-serif;
-
-	/* @alternate */
-	font-family: var(--mdc-typography-button-font-family, var(--mdc-typography-font-family, Roboto, sans-serif));
-	font-size: 0.875rem;
-
-	/* @alternate */
-	font-size: var(--mdc-typography-button-font-size, 0.875rem);
-	line-height: 2.25rem;
-
-	/* @alternate */
-	line-height: var(--mdc-typography-button-line-height, 2.25rem);
-	font-weight: 500;
-
-	/* @alternate */
-	font-weight: var(--mdc-typography-button-font-weight, 500);
-	letter-spacing: 0.0892857143em;
-
-	/* @alternate */
-	letter-spacing: var(--mdc-typography-button-letter-spacing, 0.0892857143em);
+	font-family: var(--md-sys-typescale-label-large-font, Roboto, sans-serif);
+	font-size: var(--md-sys-typescale-label-large-size, 0.875rem);
+	line-height: var(--md-sys-typescale-label-large-line-height);
+	font-weight: var(--md-sys-typescale-label-large-weight, 500);
+	letter-spacing: var(--md-sys-typescale-label-large-tracking, 0.0892857143em);
 	text-decoration: none;
-
-	/* @alternate */
-	-webkit-text-decoration: var(--mdc-typography-button-text-decoration, none);
-	text-decoration: var(--mdc-typography-button-text-decoration, none);
 	text-transform: uppercase;
-
-	/* @alternate */
-	text-transform: var(--mdc-typography-button-text-transform, uppercase);
 	padding-right: 24px;
 	padding-left: 24px;
 	position: relative;
@@ -120,17 +98,11 @@
 }
 
 .mdc-tab--active .mdc-tab__text-label {
-	color: #6200ee;
-
-	/* @alternate */
-	color: var(--mdc-theme-primary, #6200ee);
+	color: var(--md-sys-color-primary, #6200ee);
 }
 
 .mdc-tab--active .mdc-tab__icon {
-	color: #6200ee;
-
-	/* @alternate */
-	color: var(--mdc-theme-primary, #6200ee);
+	color: var(--md-sys-color-primary, #6200ee);
 	fill: currentColor;
 }
 
