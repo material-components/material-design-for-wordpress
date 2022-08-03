@@ -21,6 +21,15 @@
 	justify-content: center;
 	letter-spacing: 0.1px;
 	padding: 10px 24px;
+
+	& .mdc-button__icon ~ .mdc-button__label {
+		margin-left: 8px;
+	}
+
+	&.is-large {
+		height: 50px;
+		padding: 16px 32px;
+	}
 }
 
 .mdc-button--raised,
@@ -63,13 +72,10 @@
 .mdc-button--text,
 .mdc-button--text:not(:disabled) {
 	border: 0 !important; /* Use !important to override the default style of the button. */;
-
-	&:hover {
-		background-color: transparent;
-	}
 }
 
-.mdc-button--filled {
+.mdc-button--filled,
+.mdc-button--unelevated {
 	background-color: var(--md-sys-color-primary);
 	color: var(--md-sys-color-on-primary);
 
