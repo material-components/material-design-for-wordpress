@@ -511,7 +511,7 @@
 }
 
 .mdc-text-field:hover .mdc-text-field__ripple::before {
-	opacity: 0.04;
+	opacity: 0.08;
 }
 
 .mdc-text-field.mdc-ripple-upgraded--background-focused .mdc-text-field__ripple::before,
@@ -851,10 +851,6 @@
 .mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__notch,
 .mdc-text-field--outlined.mdc-text-field--focused .mdc-notched-outline__trailing {
 	border-width: 2px;
-}
-
-.mdc-text-field--focused:not(.mdc-text-field--disabled) {
-	background-color: rgba(var(--md-sys-color-surface-rgb), 1);
 }
 
 .mdc-text-field--outlined.mdc-text-field--disabled {
