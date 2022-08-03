@@ -22,7 +22,6 @@
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/list/dist/mdc.list.css";
 @import "@material/tab-bar/dist/mdc.tab-bar.css";
-@import "@material/tab-indicator/dist/mdc.tab-indicator.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
 @import "@material/tooltip/dist/mdc.tooltip.css";
 @import "components/image-card.css";
@@ -32,3 +31,4 @@
 @import "./components/form-field.css";
 @import "./components/floating-label.css";
 @import "./components/tab.css";
+@import "./components/tab-indicator.css";
