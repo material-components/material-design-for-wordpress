@@ -58,3 +58,8 @@ ul.mdc-list {
 	color: var(--md-sys-color-on-surface, #000) !important;
 	margin: 0 !important;
 }
+
+/* Top app bar search */
+.mdc-top-app-bar .mdc-text-field__input {
+	color: var(--md-sys-color-on-primary, #000) !important;
+}
