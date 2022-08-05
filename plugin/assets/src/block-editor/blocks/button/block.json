@@ -16,7 +16,7 @@
     },
     "style": {
       "default": "raised",
-      "enum": [ "text", "outlined", "unelevated", "filled" ]
+      "enum": [ "text", "outlined", "elevated", "filled" ]
     },
     "iconPosition": {
       "type": "string",
