@@ -155,7 +155,7 @@ const ButtonSave = ( {
 				</a>
 			) : (
 				<button
-					className={ classNames( 'mdc-button', {
+					className={ classNames( 'mdc-button label-large', {
 						[ `mdc-button--${ style }` ]: true,
 						[ `is-large` ]: size === 'large',
 					} ) }
