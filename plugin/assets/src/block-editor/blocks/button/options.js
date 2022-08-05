@@ -54,6 +54,10 @@ export const BUTTON_STYLES = [
 		label: __( 'Filled', 'material-design' ),
 		value: 'filled',
 	},
+	{
+		label: __( 'Tonal', 'material-design' ),
+		value: 'tonal',
+	},
 ];
 
 export const ICON_POSITIONS = [
