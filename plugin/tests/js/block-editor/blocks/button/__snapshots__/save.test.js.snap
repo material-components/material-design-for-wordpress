@@ -565,7 +565,7 @@ Object {
     <div>
       <div>
         <button
-          class="mdc-button mdc-button--raised"
+          class="mdc-button label-large mdc-button--raised"
         >
           <div
             class="mdc-button__ripple"
@@ -580,7 +580,7 @@ Object {
   "container": <div>
     <div>
       <button
-        class="mdc-button mdc-button--raised"
+        class="mdc-button label-large mdc-button--raised"
       >
         <div
           class="mdc-button__ripple"
