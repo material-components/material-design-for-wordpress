@@ -23,11 +23,11 @@
 // eslint-disable-next-line import/no-unresolved
 import { useEntityProp, store as coreStore } from '@wordpress/core-data';
 import { useBlockProps } from '@wordpress/block-editor';
+import { useSelect } from '@wordpress/data';
 
 /**
  * Internal dependencies
  */
-import { useSelect } from '@wordpress/data';
 import { getConfig } from '../../utils';
 
 function getMediaSourceUrlBySizeSlug( media, slug ) {
