@@ -506,7 +506,7 @@ a.mdc-list-item {
 
 :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::before,
 :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::after {
-	background-color: var(--md-sys-color-primary);
+	background-color: #000;
 }
 
 :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item:hover::before {
