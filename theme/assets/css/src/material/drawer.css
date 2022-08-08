@@ -88,14 +88,11 @@
 	border-left-style: solid;
 }
 
+@mixin selector-typography .mdc-drawer .mdc-list-item, label-medium, 0.875, 1.5, 500;
+
 .mdc-drawer .mdc-list-item {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	font-family: var(--md-sys-typescale-label-medium-font, Roboto, sans-serif);
-	font-size: var(--md-sys-typescale-label-medium-size, 0.875rem);
-	line-height: var(--md-sys-typescale-label-medium-line-height);
-	font-weight: var(--md-sys-typescale-label-medium-weight, 500);
-	letter-spacing: var(--md-sys-typescale-label-medium-tracking, 0.0071428571em);
 	text-transform: inherit;
 	height: calc(48px - 2 * 4px);
 	margin: 8px 8px;
@@ -110,14 +107,12 @@
 	margin-bottom: 0;
 }
 
+@mixin selector-typography .mdc-drawer .mdc-list-group__subheader, body-medium, 0.875, 1.5, 400;
+
 .mdc-drawer .mdc-list-group__subheader {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	font-family: var(--md-sys-typescale-body-medium-font, Roboto, sans-serif);
-	font-size: var(--md-sys-typescale-body-medium-size, 0.875rem);
 	line-height: normal;
-	font-weight: var(--md-sys-typescale-body-medium-weight, 400);
-	letter-spacing: var(--md-sys-typescale-body-medium-tracking, 0.0178571429em);
 	display: block;
 	margin: 0;
 	padding: 0 16px;
@@ -176,13 +171,11 @@
 	padding: 0 16px 4px;
 }
 
+@mixin selector-typography .mdc-drawer__title, title-large, 1.25, 1.5, 500;
+
 .mdc-drawer__title {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	font-family: var(--md-sys-typescale-title-large-font, var(--mdc-typography-font-family, Roboto, sans-serif));
-	font-size: var(--md-sys-typescale-title-large-size, 1.25rem);
-	font-weight: var(--md-sys-typescale-title-large-weight, 500);
-	letter-spacing: var(--md-sys-typescale-title-large-tracking, 0.0125em);
 	text-decoration: inherit;
 	display: block;
 	margin-top: 0;
@@ -206,13 +199,11 @@
 	vertical-align: -20px;
 }
 
+@mixin selector-typography .mdc-drawer__subtitle, label-medium, 0.875, 1.5, 400;
+
 .mdc-drawer__subtitle {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	font-family: var(--md-sys-typescale-body-medium-font, Roboto, sans-serif);
-	font-size: var(--md-sys-typescale-body-medium-size, 0.875rem);
-	font-weight: var(--md-sys-typescale-body-medium-weight, 400);
-	letter-spacing: var(--md-sys-typescale-body-medium-tracking, 0.0178571429em);
 	display: block;
 	margin-top: 0;
 	line-height: normal;
