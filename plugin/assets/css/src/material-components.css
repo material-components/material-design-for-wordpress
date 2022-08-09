@@ -18,6 +18,7 @@
  * Material components used in the blocks and frontend.
  */
 
+@import "mixins.css";
 @import "@material/icon-button/dist/mdc.icon-button.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/tab-bar/dist/mdc.tab-bar.css";
