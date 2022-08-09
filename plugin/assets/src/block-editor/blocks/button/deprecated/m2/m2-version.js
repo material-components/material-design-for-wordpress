@@ -15,14 +15,10 @@
  */
 
 /**
- * WordPress dependencies
- */
-import { useBlockProps } from '@wordpress/block-editor';
-
-/**
  * External dependencies
  */
 import classNames from 'classnames';
+import { omit } from 'lodash';
 
 /**
  * Internal dependencies
@@ -134,11 +130,6 @@ const Save = ( {
 	},
 	className,
 } ) => {
-	const blockProps = useBlockProps.save( {
-		className,
-		id,
-	} );
-
 	if ( 'icon' === type ) {
 		const tooltipId = tooltip ? `${ id }-tooltip` : false;
 		const tooltipProps = tooltipId
@@ -148,7 +139,7 @@ const Save = ( {
 			: {};
 
 		return (
-			<div { ...blockProps }>
+			<div className={ className } id={ id }>
 				{ url && ! isSubmit ? (
 					<a
 						href={ url }
@@ -199,7 +190,7 @@ const Save = ( {
 	}
 
 	return (
-		<div { ...blockProps }>
+		<div className={ className } id={ id }>
 			{ url && ! isSubmit ? (
 				<a
 					href={ url }
@@ -255,5 +246,26 @@ const Save = ( {
 
 export const SaveM2 = {
 	attributes: attributesM2,
+	migrate( attributes ) {
+		const { style } = attributes;
+
+		let elevationStyle = style;
+
+		if ( 'raised' === style ) {
+			elevationStyle = 'elevated';
+		} else if ( 'unelevated' === style ) {
+			elevationStyle = 'filled';
+		}
+
+		return {
+			...attributes,
+			...{
+				elevationStyle,
+			},
+		};
+	},
+	isEligible( attr ) {
+		return 'undefined' === typeof attr.elevationStyle;
+	},
 	save: Save,
 };

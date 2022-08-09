@@ -54,7 +54,6 @@ const ButtonSave = ( {
 		icon,
 		type,
 		label,
-		style,
 		textColor,
 		linkTarget,
 		cornerRadius,
@@ -64,6 +63,7 @@ const ButtonSave = ( {
 		tooltip,
 		id,
 		size,
+		elevationStyle,
 	},
 	className,
 } ) => {
@@ -134,7 +134,7 @@ const ButtonSave = ( {
 					rel={ rel && ! isSubmit ? rel : undefined }
 					target={ linkTarget && ! isSubmit ? linkTarget : undefined }
 					style={ {
-						...( backgroundColor && hasBg( style )
+						...( backgroundColor && hasBg( elevationStyle )
 							? { backgroundColor }
 							: {} ),
 						...( textColor ? { color: textColor } : {} ),
@@ -143,7 +143,7 @@ const ButtonSave = ( {
 							: {} ),
 					} }
 					className={ classNames( 'mdc-button', {
-						[ `mdc-button--${ style }` ]: true,
+						[ `mdc-button--${ elevationStyle }` ]: true,
 						[ `is-large` ]: size === 'large',
 					} ) }
 				>
@@ -156,11 +156,11 @@ const ButtonSave = ( {
 			) : (
 				<button
 					className={ classNames( 'mdc-button label-large', {
-						[ `mdc-button--${ style }` ]: true,
+						[ `mdc-button--${ elevationStyle }` ]: true,
 						[ `is-large` ]: size === 'large',
 					} ) }
 					style={ {
-						...( backgroundColor && hasBg( style )
+						...( backgroundColor && hasBg( elevationStyle )
 							? { backgroundColor }
 							: {} ),
 						...( textColor ? { color: textColor } : {} ),
