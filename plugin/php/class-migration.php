@@ -36,7 +36,34 @@ class Migration extends Module_Base {
 	 * Initiate the class and hooks.
 	 */
 	public function init() {
-		add_action( 'admin_init', [ $this, 'migrate_m2_typography_settings_to_m3' ], 10, 2 );
+		add_action( 'admin_init', [ $this, 'migrate_m2_typography_settings_to_m3' ], 10 );
+		add_action( 'admin_init', [ $this, 'migrate_m2_corner_radius' ], 10 );
+	}
+
+	/**
+	 * Get option for a given key.
+	 *
+	 * @param string $key Sub key.
+	 *
+	 * @return false|mixed
+	 */
+	public function get( $key ) {
+		$migration_option = get_option( self::MIGRATION_KEY, [] );
+
+		return isset( $migration_option[ $key ] ) ? $migration_option[ $key ] : false;
+	}
+
+	/**
+	 * Update option.
+	 *
+	 * @param string $key Sub key.
+	 *
+	 * @return void
+	 */
+	public function update( $key ) {
+		$migration_option         = get_option( self::MIGRATION_KEY, [] );
+		$migration_option[ $key ] = true;
+		update_option( self::MIGRATION_KEY, $migration_option );
 	}
 
 	/**
@@ -45,9 +72,7 @@ class Migration extends Module_Base {
 	 * @return void
 	 */
 	public function migrate_m2_typography_settings_to_m3() {
-		$migration_option = get_option( self::MIGRATION_KEY, [] );
-
-		if ( ! empty( $migration_option['typography'] ) ) {
+		if ( $this->get( 'typography' ) ) {
 			return;
 		}
 
@@ -92,8 +117,32 @@ class Migration extends Module_Base {
 
 		update_option( $slug, $option );
 
-		$migration_option['typography'] = true;
-		update_option( self::MIGRATION_KEY, $migration_option );
+		$this->update( 'typography' );
+	}
+
+	/**
+	 * Migrate m2 corner radius to m3.
+	 *
+	 * @return void
+	 */
+	public function migrate_m2_corner_radius() {
+		if ( $this->get( 'corner_radius' ) ) {
+			return;
+		}
+		$slug   = $this->plugin->customizer_controls->slug;
+		$option = get_option( $slug, [] );
+		$radius = [
+			'button_radius'     => '36',
+			'card_radius'       => '12',
+			'chip_radius'       => '8',
+			'data_table_radius' => '24',
+			'image_list_radius' => '12',
+			'nav_drawer_radius' => '4',
+			'text_field_radius' => '4',
+		];
+		$option = array_merge( $option, $radius );
+		update_option( $slug, $option );
+		$this->update( 'corner_radius' );
 	}
 
 }
