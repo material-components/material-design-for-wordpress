@@ -54,6 +54,7 @@ import GlobalColor, {
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
+import { getColor } from '../../components/with-global-default';
 
 /**
  * @typedef MdcButtonProps
@@ -206,17 +207,20 @@ const ButtonEdit = ( {
 	const colorSettings = {
 		text: {
 			label: __( 'Text Color', 'material-design' ),
-			colorValue: textColor,
+			colorValue: getColor( 'on_primary_color', textColor ),
 			onColorChange: setter( 'textColor' ),
 			gradients: [], // Disable gradients
 			disableCustomGradients: true,
 		},
 		container: {
 			label: __( 'Container Color', 'material-design' ),
-			colorValue: backgroundColor,
+			colorValue: getColor( 'primary_color', backgroundColor ),
 			onColorChange: setter( 'backgroundColor' ),
 			gradients: [], // Disable gradients
 			disableCustomGradients: true,
+			globalPropName: hasBg( style )
+				? 'on_primary_color'
+				: 'primary_color',
 		},
 	};
 
@@ -353,63 +357,6 @@ const ButtonEdit = ( {
 
 				<ColorPanel colors={ colorSettings } />
 
-				<PanelBody
-					title={ __( 'Colors', 'material-design' ) }
-					initialOpen={ true }
-				>
-					<div className="components-base-control">
-						{ __(
-							'Overrides will only apply to this button. Change Primary Color in ',
-							'material-design'
-						) }
-						<a
-							href={ getConfig( 'customizerUrls' ).colors }
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							{ __(
-								'Material Design Options',
-								'material-design'
-							) }
-						</a>
-						{ __( ' to update all buttons.', 'material-design' ) }
-					</div>
-
-					{ hasBg( style ) && type === 'text' && (
-						<GlobalColor
-							label={ __( 'Container Color', 'material-design' ) }
-							value={ backgroundColor }
-							onChange={ setter( 'backgroundColor' ) }
-							globalPropName={
-								hasBg( style )
-									? 'primary_color'
-									: 'on_primary_color'
-							}
-						/>
-					) }
-					<GlobalColor
-						label={ __(
-							'Text and icons Color',
-							'material-design'
-						) }
-						value={ textColor }
-						onChange={ setter( 'textColor' ) }
-						globalPropName={
-							hasBg( style )
-								? 'on_primary_color'
-								: 'primary_color'
-						}
-					/>
-
-					{ hasBg( style ) && type === 'text' && (
-						<GlobalColorContrastChecker
-							textColor={ textColor }
-							backgroundColor={ backgroundColor }
-							textProp="on_primary_color"
-							backgroundProp="primary_color"
-						/>
-					) }
-				</PanelBody>
 				{ type === 'text' && (
 					<PanelBody
 						title={ __( 'Corner Styles', 'material-design' ) }

@@ -29,6 +29,11 @@ import {
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
+/**
+ * Internal dependencies
+ */
+import { getColor } from '../../../components/with-global-default';
+
 const ColorPanel = ( { colors: { text, container } } ) => {
 	const settings = [ text, container ];
 	const colors = useSetting( 'color.palette' );
