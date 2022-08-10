@@ -1275,7 +1275,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Buttons', 'material-design' ),
 				'min'           => 0,
 				'max'           => 20,
-				'initial_value' => 4,
+				'initial_value' => 36,
 				'css_var'       => '--mdc-button-radius',
 				'blocks'        => [
 					'material/button',
@@ -1286,7 +1286,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Card', 'material-design' ),
 				'min'           => 0,
 				'max'           => 24,
-				'initial_value' => 0,
+				'initial_value' => 12,
 				'css_var'       => '--mdc-card-radius',
 				'blocks'        => [
 					'material/card',
@@ -1299,7 +1299,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Chip', 'material-design' ),
 				'min'           => 0,
 				'max'           => 16,
-				'initial_value' => 0,
+				'initial_value' => 8,
 				'css_var'       => '--mdc-chip-radius',
 			],
 			[
@@ -1318,7 +1318,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Image List', 'material-design' ),
 				'min'           => 0,
 				'max'           => 24,
-				'initial_value' => 0,
+				'initial_value' => 12,
 				'css_var'       => '--mdc-image-list-radius',
 				'blocks'        => [
 					'material/image-list',
@@ -1337,7 +1337,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Text Field', 'material-design' ),
 				'min'           => 0,
 				'max'           => 20,
-				'initial_value' => 0,
+				'initial_value' => 4,
 				'css_var'       => '--mdc-text-field-radius',
 			],
 		];
