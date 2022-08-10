@@ -41,20 +41,17 @@ import {
 } from './options';
 import { name as ButtonBlockName } from './index';
 import hasBg from './utils/has-bg';
-import ColorPanel from './components/color-panel';
 import { getConfig, getIconName } from '../../utils';
 import IconPicker from '../../components/icon-picker';
 import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
 import { withId } from '../../components/with-id';
 import GlobalShapeSize from '../../components/global-shape-size';
-import GlobalColor, {
-	GlobalColorContrastChecker,
-} from '../../components/global-color';
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
 import { getColor } from '../../components/with-global-default';
+import ColorPanel from '../../components/global-color/color-panel';
 
 /**
  * @typedef MdcButtonProps

@@ -29,18 +29,14 @@ import {
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
-/**
- * Internal dependencies
- */
-import { getColor } from '../../../components/with-global-default';
-
-const ColorPanel = ( { colors: { text, container } } ) => {
+const ColorPanel = ( { colors } ) => {
+	const { text, container } = colors;
 	const settings = [ text, container ];
-	const colors = useSetting( 'color.palette' );
+	const colorSettings = useSetting( 'color.palette' );
 	const colorPalette = [
 		{
 			name: __( 'Theme', 'material-design' ),
-			colors,
+			colors: colorSettings,
 		},
 	];
 
@@ -57,10 +53,12 @@ const ColorPanel = ( { colors: { text, container } } ) => {
 
 			<Spacer marginY={ 4 } />
 
-			<ContrastChecker
-				textColor={ text.colorValue }
-				backgroundColor={ container.colorValue }
-			/>
+			{ colors.length > 1 && (
+				<ContrastChecker
+					textColor={ text.colorValue }
+					backgroundColor={ container.colorValue }
+				/>
+			) }
 		</PanelBody>
 	);
 };
