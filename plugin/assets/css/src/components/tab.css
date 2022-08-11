@@ -45,7 +45,7 @@
 }
 
 .mdc-tab .mdc-tab__text-label {
-	color: rgba(0, 0, 0, 0.6);
+	color: rgba(var(--md-sys-color-on-background-rgb, 0, 0, 0), 0.54);
 }
 
 .mdc-tab .mdc-tab__icon {
