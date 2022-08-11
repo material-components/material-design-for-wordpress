@@ -80,4 +80,32 @@ module.exports = {
 	InspectorControls: ( { children } ) => children,
 	RichText,
 	useBlockProps: blockprops,
+	__experimentalColorGradientSettingsDropdown: () => (
+		<div
+			className="components-item-group block-editor-panel-color-gradient-settings__item-group"
+			role="list"
+			data-wp-c16t="true"
+			data-wp-component="ItemGroup"
+		>
+			<div className="components-dropdown block-editor-panel-color-gradient-settings__dropdown">
+				<div role="listitem">
+					<button className="components-item block-editor-panel-color-gradient-settings__item">
+						<div className="components-flex components-h-stack">
+							<span
+								className="component-color-indicator block-editor-panel-color-gradient-settings__color-indicator"
+								style={ { background: 'rgb(172, 39, 109)' } }
+							></span>
+							<div
+								data-wp-c16t="true"
+								data-wp-component="FlexItem"
+								className="components-flex-item"
+							>
+								Text Color
+							</div>
+						</div>
+					</button>
+				</div>
+			</div>
+		</div>
+	),
 };
