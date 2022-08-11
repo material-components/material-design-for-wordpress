@@ -7,9 +7,9 @@ Object {
     <div>
       <div>
         <a
-          class="mdc-button mdc-button--raised"
+          class="mdc-button mdc-button--undefined"
           href="https://google.com"
-          style="background-color: rgb(51, 51, 51); color: rgb(241, 241, 241); border-radius: 5px;"
+          style="color: rgb(241, 241, 241); border-radius: 5px;"
         >
           <div
             class="mdc-button__ripple"
@@ -24,9 +24,9 @@ Object {
   "container": <div>
     <div>
       <a
-        class="mdc-button mdc-button--raised"
+        class="mdc-button mdc-button--undefined"
         href="https://google.com"
-        style="background-color: rgb(51, 51, 51); color: rgb(241, 241, 241); border-radius: 5px;"
+        style="color: rgb(241, 241, 241); border-radius: 5px;"
       >
         <div
           class="mdc-button__ripple"
@@ -98,9 +98,9 @@ Object {
     <div>
       <div>
         <a
-          class="mdc-button mdc-button--raised"
+          class="mdc-button mdc-button--undefined"
           href="https://google.com"
-          style="background-color: rgb(51, 51, 51); color: rgb(241, 241, 241); border-radius: 5px;"
+          style="color: rgb(241, 241, 241); border-radius: 5px;"
         >
           <i
             class="material-icons mdc-button__icon"
@@ -120,9 +120,9 @@ Object {
   "container": <div>
     <div>
       <a
-        class="mdc-button mdc-button--raised"
+        class="mdc-button mdc-button--undefined"
         href="https://google.com"
-        style="background-color: rgb(51, 51, 51); color: rgb(241, 241, 241); border-radius: 5px;"
+        style="color: rgb(241, 241, 241); border-radius: 5px;"
       >
         <i
           class="material-icons mdc-button__icon"
@@ -199,9 +199,9 @@ Object {
     <div>
       <div>
         <a
-          class="mdc-button mdc-button--raised"
+          class="mdc-button mdc-button--undefined"
           href="https://google.com"
-          style="background-color: rgb(51, 51, 51); color: rgb(241, 241, 241); border-radius: 5px;"
+          style="color: rgb(241, 241, 241); border-radius: 5px;"
         >
           <div
             class="mdc-button__ripple"
@@ -221,9 +221,9 @@ Object {
   "container": <div>
     <div>
       <a
-        class="mdc-button mdc-button--raised"
+        class="mdc-button mdc-button--undefined"
         href="https://google.com"
-        style="background-color: rgb(51, 51, 51); color: rgb(241, 241, 241); border-radius: 5px;"
+        style="color: rgb(241, 241, 241); border-radius: 5px;"
       >
         <div
           class="mdc-button__ripple"
@@ -464,9 +464,9 @@ Object {
     <div>
       <div>
         <a
-          class="mdc-button mdc-button--raised is-large"
+          class="mdc-button mdc-button--undefined is-large"
           href="https://google.com"
-          style="background-color: rgb(51, 51, 51); color: rgb(241, 241, 241); border-radius: 5px;"
+          style="color: rgb(241, 241, 241); border-radius: 5px;"
         >
           <i
             class="material-icons mdc-button__icon"
@@ -486,9 +486,9 @@ Object {
   "container": <div>
     <div>
       <a
-        class="mdc-button mdc-button--raised is-large"
+        class="mdc-button mdc-button--undefined is-large"
         href="https://google.com"
-        style="background-color: rgb(51, 51, 51); color: rgb(241, 241, 241); border-radius: 5px;"
+        style="color: rgb(241, 241, 241); border-radius: 5px;"
       >
         <i
           class="material-icons mdc-button__icon"
@@ -565,7 +565,7 @@ Object {
     <div>
       <div>
         <button
-          class="mdc-button label-large mdc-button--raised"
+          class="mdc-button label-large mdc-button--undefined"
         >
           <div
             class="mdc-button__ripple"
@@ -580,7 +580,7 @@ Object {
   "container": <div>
     <div>
       <button
-        class="mdc-button label-large mdc-button--raised"
+        class="mdc-button label-large mdc-button--undefined"
       >
         <div
           class="mdc-button__ripple"
