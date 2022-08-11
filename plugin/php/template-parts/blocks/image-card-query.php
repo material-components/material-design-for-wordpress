@@ -21,6 +21,8 @@
  * Image list layout
  */
 
+use function MaterialDesign\Plugin\get_plugin_instance;
+
 $block              = isset( $args['block'] ) ? $args['block'] : [];
 $attributes         = isset( $args['attributes'] ) ? $args['attributes'] : [];
 $post_id_image_card = $block->context['postId'];
@@ -28,7 +30,7 @@ $post_link          = get_the_permalink( $post_id_image_card );
 if ( has_post_thumbnail( $post_id_image_card ) ) {
 	$thumbnail = get_the_post_thumbnail_url( $post_id_image_card );
 } else {
-	$thumbnail = get_template_directory_uri() . '/assets/images/placeholder.png';
+	$thumbnail = get_plugin_instance()->asset_url( 'assets/images/placeholder-image-card.png' );
 }
 $wrapper_attributes = get_block_wrapper_attributes();
 ?>

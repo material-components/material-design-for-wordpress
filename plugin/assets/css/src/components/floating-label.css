@@ -1,0 +1,114 @@
+/*
+ *  Copyright 2022 Google LLC
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+
+.mdc-floating-label {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: var(--md-sys-typescale-label-large-font, Roboto, sans-serif);
+	font-size: var(--md-sys-typescale-label-large-size, 1rem);
+	font-weight: var(--md-sys-typescale-label-large-weight, 400);
+	letter-spacing: var(--md-sys-typescale-label-large-tracking, 0.009375em);
+	text-decoration: inherit;
+	position: absolute;
+	left: 0;
+	-webkit-transform-origin: left top;
+	transform-origin: left top;
+	text-align: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: text;
+	overflow: hidden;
+	will-change: transform;
+	transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[dir="rtl"] .mdc-floating-label,
+.mdc-floating-label[dir="rtl"] {
+	right: 0;
+	left: auto;
+	-webkit-transform-origin: right top;
+	transform-origin: right top;
+	text-align: right;
+}
+
+.mdc-floating-label--float-above {
+	cursor: auto;
+}
+
+.mdc-floating-label--float-above {
+	-webkit-transform: translateY(-106%) scale(0.75);
+	transform: translateY(-106%) scale(0.75);
+}
+
+.mdc-floating-label--shake {
+	-webkit-animation: mdc-floating-label-shake-float-above-standard 250ms 1;
+	animation: mdc-floating-label-shake-float-above-standard 250ms 1;
+}
+
+@-webkit-keyframes mdc-floating-label-shake-float-above-standard {
+
+	0% {
+		-webkit-transform: translateX(calc(0 - 0%)) translateY(-106%) scale(0.75);
+		transform: translateX(calc(0 - 0%)) translateY(-106%) scale(0.75);
+	}
+
+	33% {
+		-webkit-animation-timing-function: cubic-bezier(0.5, 0, 0.701732, 0.495819);
+		animation-timing-function: cubic-bezier(0.5, 0, 0.701732, 0.495819);
+		-webkit-transform: translateX(calc(4% - 0%)) translateY(-106%) scale(0.75);
+		transform: translateX(calc(4% - 0%)) translateY(-106%) scale(0.75);
+	}
+
+	66% {
+		-webkit-animation-timing-function: cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);
+		animation-timing-function: cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);
+		-webkit-transform: translateX(calc(-4% - 0%)) translateY(-106%) scale(0.75);
+		transform: translateX(calc(-4% - 0%)) translateY(-106%) scale(0.75);
+	}
+
+	100% {
+		-webkit-transform: translateX(calc(0 - 0%)) translateY(-106%) scale(0.75);
+		transform: translateX(calc(0 - 0%)) translateY(-106%) scale(0.75);
+	}
+}
+
+@keyframes mdc-floating-label-shake-float-above-standard {
+
+	0% {
+		-webkit-transform: translateX(calc(0 - 0%)) translateY(-106%) scale(0.75);
+		transform: translateX(calc(0 - 0%)) translateY(-106%) scale(0.75);
+	}
+
+	33% {
+		-webkit-animation-timing-function: cubic-bezier(0.5, 0, 0.701732, 0.495819);
+		animation-timing-function: cubic-bezier(0.5, 0, 0.701732, 0.495819);
+		-webkit-transform: translateX(calc(4% - 0%)) translateY(-106%) scale(0.75);
+		transform: translateX(calc(4% - 0%)) translateY(-106%) scale(0.75);
+	}
+
+	66% {
+		-webkit-animation-timing-function: cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);
+		animation-timing-function: cubic-bezier(0.302435, 0.381352, 0.55, 0.956352);
+		-webkit-transform: translateX(calc(-4% - 0%)) translateY(-106%) scale(0.75);
+		transform: translateX(calc(-4% - 0%)) translateY(-106%) scale(0.75);
+	}
+
+	100% {
+		-webkit-transform: translateX(calc(0 - 0%)) translateY(-106%) scale(0.75);
+		transform: translateX(calc(0 - 0%)) translateY(-106%) scale(0.75);
+	}
+}

@@ -1,0 +1,306 @@
+/*
+ *  Copyright 2022 Google LLC
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ */
+.mdc-drawer {
+	border-color: rgba(0, 0, 0, 0.12);
+	background-color: #fff;
+	border-radius: 0 0 0 0;
+	z-index: 6;
+	width: 256px;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	box-sizing: border-box;
+	height: 100%;
+	border-right-width: 1px;
+	border-right-style: solid;
+	overflow: hidden;
+	transition-property: transform, -webkit-transform;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mdc-drawer .mdc-drawer__title {
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.mdc-drawer .mdc-list-group__subheader {
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.mdc-drawer .mdc-drawer__subtitle {
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.mdc-drawer .mdc-list-item__graphic {
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.mdc-drawer .mdc-list-item {
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.mdc-drawer .mdc-list-item--activated .mdc-list-item__graphic {
+	color: #6200ee;
+}
+
+.mdc-drawer .mdc-list-item--activated {
+	color: rgba(98, 0, 238, 0.87);
+}
+
+[dir="rtl"] .mdc-drawer,
+.mdc-drawer[dir="rtl"] {
+	border-radius: 0 0 0 0;
+}
+
+.mdc-drawer .mdc-list-item {
+	border-radius: 4px;
+}
+
+.mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content {
+	margin-left: 256px;
+	margin-right: 0;
+}
+
+[dir="rtl"] .mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content,
+.mdc-drawer.mdc-drawer--open:not(.mdc-drawer--closing) + .mdc-drawer-app-content[dir="rtl"] {
+	margin-left: 0;
+	margin-right: 256px;
+}
+
+[dir="rtl"] .mdc-drawer,
+.mdc-drawer[dir="rtl"] {
+	border-right-width: 0;
+	border-left-width: 1px;
+	border-right-style: none;
+	border-left-style: solid;
+}
+
+@mixin selector-typography .mdc-drawer .mdc-list-item, label-medium, 0.875, 1.5, 500;
+
+.mdc-drawer .mdc-list-item {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-transform: inherit;
+	height: calc(48px - 2 * 4px);
+	margin: 8px 8px;
+	padding: 0 8px;
+}
+
+.mdc-drawer .mdc-list-item:nth-child(1) {
+	margin-top: 2px;
+}
+
+.mdc-drawer .mdc-list-item:nth-last-child(1) {
+	margin-bottom: 0;
+}
+
+@mixin selector-typography .mdc-drawer .mdc-list-group__subheader, body-medium, 0.875, 1.5, 400;
+
+.mdc-drawer .mdc-list-group__subheader {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	line-height: normal;
+	display: block;
+	margin: 0;
+	padding: 0 16px;
+}
+
+.mdc-drawer .mdc-list-group__subheader::before {
+	display: inline-block;
+	width: 0;
+	height: 24px;
+	content: "";
+	vertical-align: 0;
+}
+
+.mdc-drawer .mdc-list-divider {
+	margin: 3px 0 4px;
+}
+
+.mdc-drawer .mdc-list-item__text,
+.mdc-drawer .mdc-list-item__graphic {
+	pointer-events: none;
+}
+
+.mdc-drawer--animate {
+	transform: translateX(-100%);
+}
+
+[dir="rtl"] .mdc-drawer--animate,
+.mdc-drawer--animate[dir="rtl"] {
+	transform: translateX(100%);
+}
+
+.mdc-drawer--opening {
+	transform: translateX(0);
+	transition-duration: 250ms;
+}
+
+[dir="rtl"] .mdc-drawer--opening,
+.mdc-drawer--opening[dir="rtl"] {
+	transform: translateX(0);
+}
+
+.mdc-drawer--closing {
+	transform: translateX(-100%);
+	transition-duration: 200ms;
+}
+
+[dir="rtl"] .mdc-drawer--closing,
+.mdc-drawer--closing[dir="rtl"] {
+	transform: translateX(100%);
+}
+
+.mdc-drawer__header {
+	flex-shrink: 0;
+	box-sizing: border-box;
+	min-height: 64px;
+	padding: 0 16px 4px;
+}
+
+@mixin selector-typography .mdc-drawer__title, title-large, 1.25, 1.5, 500;
+
+.mdc-drawer__title {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-decoration: inherit;
+	display: block;
+	margin-top: 0;
+	line-height: normal;
+	margin-bottom: -20px;
+}
+
+.mdc-drawer__title::before {
+	display: inline-block;
+	width: 0;
+	height: 36px;
+	content: "";
+	vertical-align: 0;
+}
+
+.mdc-drawer__title::after {
+	display: inline-block;
+	width: 0;
+	height: 20px;
+	content: "";
+	vertical-align: -20px;
+}
+
+@mixin selector-typography .mdc-drawer__subtitle, label-medium, 0.875, 1.5, 400;
+
+.mdc-drawer__subtitle {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	display: block;
+	margin-top: 0;
+	line-height: normal;
+	margin-bottom: 0;
+}
+
+.mdc-drawer__subtitle::before {
+	display: inline-block;
+	width: 0;
+	height: 20px;
+	content: "";
+	vertical-align: 0;
+}
+
+.mdc-drawer__content {
+	height: 100%;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.mdc-drawer--dismissible {
+	left: 0;
+	right: initial;
+	display: none;
+	position: absolute;
+}
+
+[dir="rtl"] .mdc-drawer--dismissible,
+.mdc-drawer--dismissible[dir="rtl"] {
+	left: initial;
+	right: 0;
+}
+
+.mdc-drawer--dismissible.mdc-drawer--open {
+	display: flex;
+}
+
+.mdc-drawer-app-content {
+	margin-left: 0;
+	margin-right: 0;
+	position: relative;
+}
+
+[dir="rtl"] .mdc-drawer-app-content,
+.mdc-drawer-app-content[dir="rtl"] {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.mdc-drawer--modal {
+	box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+	left: 0;
+	right: initial;
+	display: none;
+	position: fixed;
+}
+
+.mdc-drawer--modal + .mdc-drawer-scrim {
+	background-color: rgba(0, 0, 0, 0.32);
+}
+
+[dir="rtl"] .mdc-drawer--modal,
+.mdc-drawer--modal[dir="rtl"] {
+	left: initial;
+	right: 0;
+}
+
+.mdc-drawer--modal.mdc-drawer--open {
+	display: flex;
+}
+
+.mdc-drawer-scrim {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	transition-property: opacity;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mdc-drawer--open + .mdc-drawer-scrim {
+	display: block;
+}
+
+.mdc-drawer--animate + .mdc-drawer-scrim {
+	opacity: 0;
+}
+
+.mdc-drawer--opening + .mdc-drawer-scrim {
+	transition-duration: 250ms;
+	opacity: 1;
+}
+
+.mdc-drawer--closing + .mdc-drawer-scrim {
+	transition-duration: 200ms;
+	opacity: 0;
+}
