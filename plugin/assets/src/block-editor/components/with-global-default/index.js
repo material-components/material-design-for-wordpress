@@ -24,7 +24,6 @@ import { omit } from 'lodash';
  */
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { useMemo } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies

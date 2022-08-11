@@ -248,7 +248,6 @@ module.exports = {
 						color: 'var(--md-sys-color-inverse-primary)',
 					},
 				];
-				break;
 		}
 	},
 };
