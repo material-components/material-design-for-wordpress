@@ -5,7 +5,9 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div>
+      <div
+        class="mdc-buttons-block"
+      >
         <div>
            
           {"id":"button-1","name":"material/button"}
@@ -15,7 +17,9 @@ Object {
     </div>
   </body>,
   "container": <div>
-    <div>
+    <div
+      class="mdc-buttons-block"
+    >
       <div>
          
         {"id":"button-1","name":"material/button"}
