@@ -79,7 +79,8 @@
     },
     "elevationStyle": {
       "default": "elevated",
-      "enum": [ "text", "outlined", "elevated", "filled", "tonal" ]
+      "enum": [ "text", "outlined", "elevated", "filled", "tonal" ],
+      "type": "string"
     }
   }
 }

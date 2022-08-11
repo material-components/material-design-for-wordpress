@@ -18,7 +18,6 @@
  * External dependencies
  */
 import classNames from 'classnames';
-import { omit } from 'lodash';
 
 /**
  * Internal dependencies
@@ -51,6 +50,8 @@ const ButtonChildren = ( { icon, iconPosition, label } ) => (
 const attributesM2 = {
 	label: {
 		type: 'string',
+		source: 'html',
+		selector: '.mdc-button__label',
 		default: '',
 	},
 	type: {
@@ -67,38 +68,50 @@ const attributesM2 = {
 	},
 	cornerRadius: {
 		type: 'number',
-		default: '',
 	},
 	url: {
 		type: 'string',
+		source: 'attribute',
+		selector: 'a',
+		attribute: 'href',
 		default: '',
 	},
 	rel: {
 		type: 'string',
+		source: 'attribute',
+		selector: 'a',
+		attribute: 'rel',
 		default: '',
 	},
 	linkTarget: {
 		type: 'string',
-		default: '',
+		source: 'attribute',
+		selector: 'a',
+		attribute: 'target',
 	},
 	icon: {
 		type: 'string',
 		default: '',
+		source: 'text',
+		selector: '.material-icons',
 	},
 	backgroundColor: {
 		type: 'string',
 	},
 	textColor: {
 		type: 'string',
-		default: '',
 	},
 	tooltip: {
 		type: 'string',
 		default: '',
+		source: 'text',
+		selector: '.mdc-tooltip',
 	},
 	id: {
 		type: 'string',
-		default: '',
+		source: 'attribute',
+		attribute: 'id',
+		selector: '*',
 	},
 	isSubmit: {
 		type: 'boolean',
