@@ -295,7 +295,7 @@ const ButtonEdit = ( {
 							<ButtonGroup
 								buttons={ BUTTON_STYLES }
 								current={ elevationStyle }
-								onClick={ setter( 'style' ) }
+								onClick={ setter( 'elevationStyle' ) }
 							/>
 						</>
 					) }
