@@ -485,12 +485,39 @@ svg.mdc-button__icon {
 	height: 36px;
 }
 
-.mdc-button--filled:not(:disabled) {
+.mdc-button:not(:disabled),
+.mdc-button--outlined:not(:disabled) {
+
+	&:hover {
+		background-color: rgba(var(--md-sys-color-primary-rgb), 0.08);
+	}
+
+	&:focus,
+	&:active {
+		background-color: rgba(var(--md-sys-color-primary-rgb), 0.12);
+	}
+
+	&:disabled {
+		border: 1px solid rgba(31, 31, 31, 0.12);
+		color: var(--md-sys-color-on-surface);
+	}
+}
+
+.mdc-button--filled:not(:disabled),
+.mdc-button--unelevated:not(:disabled) {
 	background-color: var(--md-sys-color-primary);
 	color: var(--md-sys-color-on-primary);
 
 	&:hover {
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+		background-color: var(--md-sys-color-primary);
+		color: var(--md-sys-color-on-primary);
+	}
+
+	&:focus,
+	&:active {
+		background-color: var(--md-sys-color-primary);
+		color: var(--md-sys-color-on-primary);
 	}
 }
 
@@ -501,5 +528,18 @@ svg.mdc-button__icon {
 	&:hover {
 		background-color: rgba(var(--md-sys-color-secondary-container-rgb), 0.8);
 		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+	}
+}
+
+.mdc-button--elevated:not(:disabled),
+.mdc-button--raised:not(:disabled) {
+
+	&:hover {
+		background-color: var(--md-sys-color-surface-variant);
+	}
+
+	&:focus,
+	&:active {
+		background-color: var(--md-sys-color-surface);
 	}
 }
