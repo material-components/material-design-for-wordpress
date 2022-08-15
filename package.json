@@ -19,8 +19,8 @@
     "url": "https://github.com/material-components/material-design-for-wordpress/issues"
   },
   "engines": {
-    "node": ">=10",
-    "npm": ">=6.9"
+    "node": ">=14",
+    "npm": ">=7.24"
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
