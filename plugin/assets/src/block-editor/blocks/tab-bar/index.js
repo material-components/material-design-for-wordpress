@@ -25,6 +25,7 @@ import { __ } from '@wordpress/i18n';
 import edit from './edit';
 import save from './save';
 import metadata from './block.json';
+import deprecated from './deprecated';
 
 const { name } = metadata;
 
@@ -43,6 +44,7 @@ export const settings = {
 	icon: () => <i className="material-icons-outlined">tab</i>,
 	edit,
 	save,
+	deprecated,
 	example: {
 		attributes: {
 			preview: true,
