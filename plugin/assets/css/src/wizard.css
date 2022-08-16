@@ -18,5 +18,5 @@
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "components/switch.css";
 @import "components/ripple.css";
-@import "@material/circular-progress/dist/mdc.circular-progress.css";
+@import "components/circular-progress.css";
 @import "./wizard/index.css";
