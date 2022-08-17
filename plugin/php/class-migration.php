@@ -34,6 +34,11 @@ class Migration extends Module_Base {
 
 	const MIGRATION_KEY = 'material_m2_to_m3_migration';
 
+	/**
+	 * Control slug key.
+	 *
+	 * @var string
+	 */
 	private $slug = '';
 
 	/**
@@ -223,7 +228,7 @@ class Migration extends Module_Base {
 			wp_send_json_success();
 		}
 
-		$color_palette = json_decode( wp_unslash( $_POST['colorPalette'] ), true ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$color_palette = json_decode( wp_unslash( isset( $_POST['colorPalette'] ) ? $_POST['colorPalette'] : [] ), true ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
 		$sanitized_color = [
 			'source'   => intval( $color_palette['source'] ),
@@ -233,9 +238,12 @@ class Migration extends Module_Base {
 
 		foreach ( $color_palette['schemes'] as $key => $values ) {
 			// Sanitize value by passing as ref and changing the value.
-			array_walk( $values, function ( &$val ) {
-				$val = intval( $val );
-			} );
+			array_walk(
+				$values,
+				function ( &$val ) {
+					$val = intval( $val );
+				}
+			);
 			$sanitized_color['schemes'][ $key ] = $values;
 		}
 
@@ -243,11 +251,11 @@ class Migration extends Module_Base {
 			$sanitized_color['palettes'][ $key ] = [
 				'primary' => floatval( $palette['hue'] ),
 				'chroma'  => intval( $palette['chroma'] ),
-				'cache'   => []
+				'cache'   => [],
 			];
 		}
 
-		$option['color_palette'] = json_encode( $sanitized_color );
+		$option['color_palette'] = wp_json_encode( $sanitized_color );
 		update_option( $this->slug, $option );
 		$this->update( 'color_migration' );
 		wp_send_json_success();
@@ -283,10 +291,10 @@ class Migration extends Module_Base {
 		$customizer_url = admin_url( 'customize.php?autofocus[panel]=' . get_slug() );
 		printf(
 			'<div id="material-theme-m3-migration" class="notice notice-info is-dismissible" style="transition:opacity 1s; opacity: 1;"><p>%s</p>',
-			esc_html__( 'Your site has been updated with Material Design 3. The color palette will be generated dynamically from primary color. You can preview the site and change the source color from customizer.', 'material-design-google' )
+			esc_html__( 'Your site has been updated with Material Design 3. The color palette will be generated dynamically from primary color. You can preview the site and change the source color from customizer.', 'material-design' )
 		);
 		echo '<div class="button-group" style="padding-bottom: 5px;">';
-		printf( '<a class="material-theme-m3-migration__primary" href="%s"><button class="button button-primary" style="margin-right: 7px;">%s</button></a> ', esc_url( $customizer_url ), esc_html__( 'Go to customizer', 'material-design-google' ) );
+		printf( '<a class="material-theme-m3-migration__primary" href="%s"><button class="button button-primary" style="margin-right: 7px;">%s</button></a> ', esc_url( $customizer_url ), esc_html__( 'Go to customizer', 'material-design' ) );
 		echo '</div></div>';
 	}
 
