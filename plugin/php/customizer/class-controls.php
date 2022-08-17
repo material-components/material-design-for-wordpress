@@ -223,6 +223,20 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Sanitize serialized json.
+	 *
+	 * @param string $json_color_palette json string.
+	 *
+	 * @return false|string
+	 */
+	public function sanitize_color_palette_json( $json_color_palette ) {
+		$color_palette   = json_decode( $json_color_palette, true );
+		$sanitized_color = Helpers::sanitize_js_generated_colors( $color_palette );
+
+		return wp_json_encode( $sanitized_color );
+	}
+
+	/**
 	 * Add all controls in the "Theme" section.
 	 *
 	 * @return void
@@ -233,7 +247,8 @@ class Controls extends Module_Base {
 		 */
 		$settings = [
 			'color_palette'  => [
-				'default' => [],
+				'default'           => [],
+				'sanitize_callback' => [ $this, 'sanitize_color_palette_json' ],
 			],
 			/**
 			 * This setting does not have an associated control
