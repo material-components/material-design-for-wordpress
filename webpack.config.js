@@ -136,6 +136,13 @@ const assets = {
 			chunk: 'admin-m3-color-migration',
 			entry: [ './plugin/assets/src/admin-m3-color-migration/index.js' ],
 		},
+		{
+			name: 'Admin Notice M3 Migration',
+			chunk: 'admin-notice-m3-migration',
+			entry: [
+				'./plugin/assets/src/admin-m3-color-migration/admin-notice',
+			],
+		},
 	],
 	theme: [
 		{
