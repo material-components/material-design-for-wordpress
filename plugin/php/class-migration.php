@@ -25,8 +25,6 @@
 
 namespace MaterialDesign\Plugin;
 
-use function MaterialDesign\Theme\Customizer\get_slug;
-
 /**
  * Migration class from m2 to m3.
  */
@@ -230,30 +228,7 @@ class Migration extends Module_Base {
 
 		$color_palette = json_decode( wp_unslash( isset( $_POST['colorPalette'] ) ? $_POST['colorPalette'] : [] ), true ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
-		$sanitized_color = [
-			'source'   => intval( $color_palette['source'] ),
-			'schemes'  => [],
-			'palettes' => [],
-		];
-
-		foreach ( $color_palette['schemes'] as $key => $values ) {
-			// Sanitize value by passing as ref and changing the value.
-			array_walk(
-				$values,
-				function ( &$val ) {
-					$val = intval( $val );
-				}
-			);
-			$sanitized_color['schemes'][ $key ] = $values;
-		}
-
-		foreach ( $color_palette['palettes'] as $key => $palette ) {
-			$sanitized_color['palettes'][ $key ] = [
-				'primary' => floatval( $palette['hue'] ),
-				'chroma'  => intval( $palette['chroma'] ),
-				'cache'   => [],
-			];
-		}
+		$sanitized_color = Helpers::sanitize_js_generated_colors( $color_palette );
 
 		$option['color_palette'] = wp_json_encode( $sanitized_color );
 		update_option( $this->slug, $option );
@@ -288,7 +263,7 @@ class Migration extends Module_Base {
 			]
 		);
 
-		$customizer_url = admin_url( 'customize.php?autofocus[panel]=' . get_slug() );
+		$customizer_url = admin_url( 'customize.php?autofocus[panel]=' . $this->plugin->customizer_controls->slug );
 		printf(
 			'<div id="material-theme-m3-migration" class="notice notice-info is-dismissible" style="transition:opacity 1s; opacity: 1;"><p>%s</p>',
 			esc_html__( 'Your site has been updated with Material Design 3. The color palette will be generated dynamically from primary color. You can preview the site and change the source color from customizer.', 'material-design' )
