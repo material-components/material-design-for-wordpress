@@ -131,6 +131,11 @@ const assets = {
 				'./plugin/assets/css/src/settings.css',
 			],
 		},
+		{
+			name: 'Admin M3 Color Migration',
+			chunk: 'admin-m3-color-migration',
+			entry: [ './plugin/assets/src/admin-m3-color-migration/index.js' ],
+		},
 	],
 	theme: [
 		{
