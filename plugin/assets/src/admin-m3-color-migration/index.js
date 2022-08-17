@@ -13,5 +13,23 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+import {
+	argbFromHex,
+	themeFromSourceColor,
+} from '@material/material-color-utilities';
 
-console.log( 'admin' );
+const colorMigration = () => {
+	const intColor = argbFromHex(
+		window.material_m3_migration_color.primaryColor
+	);
+	const colorPalette = themeFromSourceColor( intColor );
+	// @ts-ignore
+	wp.ajax.post( 'm3_migrate_colors', {
+		_wpnonce: window.material_m3_migration_color.nonce,
+		colorPalette: JSON.stringify( colorPalette ),
+	} );
+};
+
+document.addEventListener( 'DOMContentLoaded', () =>
+	setTimeout( colorMigration, 1 )
+);
