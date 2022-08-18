@@ -205,7 +205,7 @@ class Migration extends Module_Base {
 			'material_m3_migration_color',
 			[
 				'nonce'        => wp_create_nonce( 'material_m3_migration_color' ),
-				'primaryColor' => $option['primary_color'],
+				'primaryColor' => isset( $option['primary_color'] ) ? $option['primary_color'] : $this->plugin->customizer_controls->get_default( 'primary_color' ),
 			]
 		);
 	}
