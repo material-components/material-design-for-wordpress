@@ -22,7 +22,7 @@
 @import "./components/material.css";
 @import "./material/drawer.css";
 @import "./material/top-app-bar.css";
-@import "./material/ripple.css";
+@import "../../../../plugin/assets/css/src/components/ripple.css";
 
 /**
   Todo: Add style from plugin for material card, image card, checkbox.
