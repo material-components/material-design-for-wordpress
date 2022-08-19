@@ -29,6 +29,7 @@ const CardActions = ( { displayPostAuthor, displayCommentsCount, post } ) => (
 		<div className="mdc-card__action-buttons">
 			{ displayPostAuthor && (
 				<button className="mdc-button mdc-card__action mdc-card__action--button mdc-button__post-author">
+					<span className="mdc-button__ripple"></span>
 					<i
 						className="material-icons mdc-button__icon"
 						aria-hidden="true"
@@ -43,6 +44,7 @@ const CardActions = ( { displayPostAuthor, displayCommentsCount, post } ) => (
 			{ displayCommentsCount && (
 				<>
 					<button className="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count">
+						<span className="mdc-button__ripple"></span>
 						<i
 							className="material-icons mdc-button__icon"
 							aria-hidden="true"
