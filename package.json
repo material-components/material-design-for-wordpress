@@ -19,8 +19,8 @@
     "url": "https://github.com/material-components/material-design-for-wordpress/issues"
   },
   "engines": {
-    "node": ">=16",
-    "npm": ">=7.24"
+    "node": ">=10",
+    "npm": ">=6.9"
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
@@ -164,7 +164,7 @@
   "scripts": {
     "build": "npm-run-all build:*",
     "build:prepare": "grunt clean",
-    "build:js": "wp-scripts build",
+    "build:js": "NODE_ENV=dev wp-scripts build && wp-scripts build",
     "build:run": "grunt build",
     "build:zip": "grunt create-build-zip",
     "deploy": "npm run build && grunt deploy",
