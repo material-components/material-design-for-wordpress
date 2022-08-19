@@ -79,6 +79,9 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
+                    <span
+                      class="mdc-button__ripple"
+                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -133,6 +136,9 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
+                    <span
+                      class="mdc-button__ripple"
+                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -202,6 +208,9 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
+                  <span
+                    class="mdc-button__ripple"
+                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -256,6 +265,9 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
+                  <span
+                    class="mdc-button__ripple"
+                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -408,6 +420,9 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
+                    <span
+                      class="mdc-button__ripple"
+                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -472,6 +487,9 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
+                    <span
+                      class="mdc-button__ripple"
+                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -543,6 +561,9 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
+                  <span
+                    class="mdc-button__ripple"
+                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
@@ -607,6 +628,9 @@ Object {
                 <button
                   class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                 >
+                  <span
+                    class="mdc-button__ripple"
+                  />
                   <i
                     aria-hidden="true"
                     class="material-icons mdc-button__icon"
