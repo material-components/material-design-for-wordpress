@@ -31,7 +31,7 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-button mdc-button--text"
+          class="mdc-button label-large mdc-button--text"
         >
           <div
             aria-label="Add text…"
@@ -221,7 +221,7 @@ Object {
                 class="btn-group__list__list-item__button"
                 type="button"
               >
-                Raised
+                Elevated
               </button>
             </li>
             <li
@@ -231,7 +231,17 @@ Object {
                 class="btn-group__list__list-item__button"
                 type="button"
               >
-                Unelevated
+                Filled
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Tonal
               </button>
             </li>
           </ul>
@@ -706,7 +716,7 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-button mdc-button--text"
+        class="mdc-button label-large mdc-button--text"
       >
         <div
           aria-label="Add text…"
@@ -896,7 +906,7 @@ Object {
               class="btn-group__list__list-item__button"
               type="button"
             >
-              Raised
+              Elevated
             </button>
           </li>
           <li
@@ -906,7 +916,17 @@ Object {
               class="btn-group__list__list-item__button"
               type="button"
             >
-              Unelevated
+              Filled
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Tonal
             </button>
           </li>
         </ul>

@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,10 @@
  */
 
 /**
- * @type {Array}
+ * Internal dependencies
  */
-const allowedStyles = [ 'filled', 'elevated', 'raised', 'unelevated' ];
+import { SaveM2 } from './deprecated/m2/m2-version';
 
-export default style => allowedStyles.includes( style );
+const deprecated = [ SaveM2 ];
+
+export default deprecated;

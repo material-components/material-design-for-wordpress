@@ -15,8 +15,8 @@
       "default": "text"
     },
     "style": {
-      "type": "string",
-      "default": "raised"
+      "default": "raised",
+      "type": "string"
     },
     "iconPosition": {
       "type": "string",
@@ -76,6 +76,11 @@
     "size": {
       "type": "string",
       "default": "normal"
+    },
+    "elevationStyle": {
+      "default": "elevated",
+      "enum": [ "text", "outlined", "elevated", "filled", "tonal" ],
+      "type": "string"
     }
   }
 }

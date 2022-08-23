@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Google LLC
+ * Copyright 2022 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-/**
- * @type {Array}
- */
-const allowedStyles = [ 'filled', 'elevated', 'raised', 'unelevated' ];
+.editor-styles-wrapper .mdc-buttons-block .block-editor-block-list__layout {
+	display: flex;
+}
 
-export default style => allowedStyles.includes( style );
+.editor-styles-wrapper .mdc-button {
+	margin-right: 8px;
+}

@@ -26,6 +26,7 @@
 @import "./material-components.css";
 @import "./tokens/index.css";
 @import "./components/datatable-editor.css";
+@import "./components/button.css";
 
 @media (min-width: 600px) {
 
