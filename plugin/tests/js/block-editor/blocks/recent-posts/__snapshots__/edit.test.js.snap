@@ -50,7 +50,6 @@ Object {
                   class="components-panel__arrow"
                   focusable="false"
                   height="24"
-                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -472,7 +471,6 @@ Object {
                   class="components-panel__arrow"
                   focusable="false"
                   height="24"
-                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -660,7 +658,6 @@ Object {
                   class="components-panel__arrow"
                   focusable="false"
                   height="24"
-                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -785,7 +782,6 @@ Object {
                   class="components-panel__arrow"
                   focusable="false"
                   height="24"
-                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1092,6 +1088,9 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                     >
+                      <span
+                        class="mdc-button__ripple"
+                      />
                       <i
                         aria-hidden="true"
                         class="material-icons mdc-button__icon"
@@ -1156,6 +1155,9 @@ Object {
                     <button
                       class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                     >
+                      <span
+                        class="mdc-button__ripple"
+                      />
                       <i
                         aria-hidden="true"
                         class="material-icons mdc-button__icon"
@@ -1196,7 +1198,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1618,7 +1619,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1806,7 +1806,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1931,7 +1930,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2238,6 +2236,9 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
+                    <span
+                      class="mdc-button__ripple"
+                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"
@@ -2302,6 +2303,9 @@ Object {
                   <button
                     class="mdc-button mdc-card__action mdc-card__action--button mdc-button__comment-count"
                   >
+                    <span
+                      class="mdc-button__ripple"
+                    />
                     <i
                       aria-hidden="true"
                       class="material-icons mdc-button__icon"

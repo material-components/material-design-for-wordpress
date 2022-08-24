@@ -1,0 +1,269 @@
+/*
+ *  Copyright 2022 Google LLC
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+@import "../tag/variables.css";
+
+.material-design-search-list {
+	width: 100%;
+	padding: 0 0 $gap;
+	text-align: left;
+}
+
+.material-design-search-list__selected {
+	margin: $gap 0;
+	padding: $gap 0 0;
+	min-height: 76px;
+	border-top: 1px solid $gray-100;
+
+	.material-design-search-list__selected-header {
+		margin-bottom: $gap-smaller;
+
+		button {
+			margin-left: $gap-small;
+		}
+	}
+
+	.material-design-tag__text {
+		max-width: 13em;
+	}
+
+	ul {
+		list-style: none;
+
+		li {
+			float: left;
+		}
+	}
+}
+
+.material-design-search-list__search {
+	margin: $gap 0;
+	padding: $gap 0 0;
+	border-top: 1px solid $gray-100;
+
+	.components-base-control__field {
+		margin-bottom: $gap;
+	}
+}
+
+.material-design-search-list__list {
+	border: 1px solid $gray-200;
+	padding: 0;
+	max-height: 17em;
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	li {
+		margin-bottom: 0;
+	}
+
+	&.is-loading {
+		padding: $gap-small 0;
+		text-align: center;
+		border: none;
+	}
+
+	&.is-not-found {
+		padding: $gap-small 0;
+		text-align: center;
+		border: none;
+
+		.material-design-search-list__not-found-icon,
+		.material-design-search-list__not-found-text {
+			display: inline-block;
+		}
+
+		.material-design-search-list__not-found-icon {
+			margin-right: $gap;
+
+			.gridicon {
+				vertical-align: top;
+				margin-top: -1px;
+			}
+		}
+	}
+
+	.components-spinner {
+		float: none;
+		margin: 0 auto;
+	}
+
+	.components-menu-group__label {
+
+		clip: rect(1px, 1px, 1px, 1px);
+		clip-path: inset(50%);
+		height: 1px;
+		width: 1px;
+		margin: -1px;
+		overflow: hidden;
+
+		/* Many screen reader and browser combinations announce broken words as they would appear visually. */
+		overflow-wrap: normal !important;
+		word-wrap: normal !important;
+	}
+
+	& > [role="menu"] {
+		border: 1px solid $gray-100;
+		border-bottom: none;
+	}
+
+	.material-design-search-list__item {
+		display: flex;
+		align-items: center;
+		margin-bottom: 0;
+		padding: $gap-small $gap;
+		background: $studio-white;
+		border-bottom: 1px solid $gray-100;
+		color: $gray-700;
+
+		&:hover {
+			background: $gray-100;
+		}
+
+		&:active,
+		&:focus {
+			box-shadow: none;
+		}
+
+		.material-design-search-list__item-input {
+			margin: 0 $gap-smaller 0 0;
+		}
+
+		.material-design-search-list__item-label {
+			display: flex;
+			flex: 1;
+		}
+
+		&.depth-0 + .depth-1 {
+			margin-top: -1px;
+		}
+
+		&:not(.depth-0) {
+			border-bottom: 0 !important;
+		}
+
+		&:not(.depth-0) + .depth-0 {
+			border-top: 1px solid $gray-100;
+		}
+
+		/* Anything deeper than 5 levels will use this fallback depth */
+		&[class*="depth-"] .material-design-search-list__item-label::before {
+			margin-right: $gap-smallest;
+			content: "— — — — — ";
+		}
+
+		&.depth-0 .material-design-search-list__item-label::before {
+			margin-right: 0;
+			content: "";
+		}
+
+		&.depth-1 .material-design-search-list__item-label::before {
+			content: "— ";
+		}
+
+		&.depth-2 .material-design-search-list__item-label::before {
+			content: "— — ";
+		}
+
+		&.depth-3 .material-design-search-list__item-label::before {
+			content: "— — — ";
+		}
+
+		&.depth-4 .material-design-search-list__item-label::before {
+			content: "— — — — ";
+		}
+
+		&.depth-5 .material-design-search-list__item-label::before {
+			content: "— — — — — ";
+		}
+
+		.material-design-search-list__item-name {
+			display: inline-block;
+		}
+
+		.material-design-search-list__item-prefix {
+			display: none;
+			color: $gray-700;
+		}
+
+		&.is-searching,
+		&.is-skip-level {
+
+			.material-design-search-list__item-label {
+
+				/* Un-flex the label, so the prefix (breadcrumbs) and name are aligned. */
+				display: inline-block;
+			}
+
+			.material-design-search-list__item-prefix {
+				display: inline;
+
+				&::after {
+					margin-right: $gap-smallest;
+					content: " ›";
+				}
+			}
+		}
+
+		&.is-searching {
+
+			.material-design-search-list__item-name {
+				color: $gray-900;
+			}
+		}
+
+		&.has-count {
+
+			> .components-menu-item__item {
+				width: 100%;
+			}
+		}
+
+		.material-design-search-list__item-count {
+			flex: 0 1 auto;
+			padding: calc($gap-smallest / 2) $gap-smaller;
+			border: 1px solid $gray-100;
+			border-radius: 12px;
+			font-size: 0.8em;
+			line-height: 1.4;
+			color: $gray-700;
+			background: $studio-white;
+			white-space: nowrap;
+		}
+	}
+
+	li:last-child .material-design-search-list__item {
+		border-bottom: none;
+	}
+}
+
+.material-design-search-list.is-compact {
+
+	.material-design-search-list__selected {
+		margin: 0 0 $gap;
+		padding: 0;
+		border-top: none;
+
+		/* 54px is the height of 1 row of tags in the sidebar. */
+		min-height: 54px;
+	}
+
+	.material-design-search-list__search {
+		margin: 0 0 $gap;
+		padding: 0;
+		border-top: none;
+	}
+}

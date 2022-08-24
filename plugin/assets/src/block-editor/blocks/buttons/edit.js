@@ -23,6 +23,7 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
  * Internal dependencies
  */
 import './style.css';
+import './editor.css';
 import metadata from '../button/block.json';
 
 const { name } = metadata;
@@ -31,7 +32,10 @@ const ALLOWED_BLOCKS = [ name ];
 const BUTTONS_TEMPLATE = [ [ name ] ];
 
 const Edit = () => {
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps( {
+		className: 'mdc-buttons-block',
+	} );
+
 	return (
 		<div { ...blockProps }>
 			<InnerBlocks

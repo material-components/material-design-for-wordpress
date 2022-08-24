@@ -32,7 +32,6 @@ use MaterialDesign\Plugin\Customizer\Controls;
 use MaterialDesign\Plugin\Rest\Design_Assets_REST_Controller;
 use MaterialDesign\Plugin\Rest\Posts_REST_Controller;
 use MaterialDesign\Plugin\Rest\Onboarding_REST_Controller;
-use MaterialDesign\Plugin\Rest\Reset_Card_Style_Controller;
 use MaterialDesign\Plugin\Rest\Reset_Card_Style_Rest_Controller;
 
 /**

@@ -31,7 +31,7 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-button mdc-button--text"
+          class="mdc-button label-large mdc-button--text"
         >
           <div
             aria-label="Add text…"
@@ -61,7 +61,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -222,7 +221,7 @@ Object {
                 class="btn-group__list__list-item__button"
                 type="button"
               >
-                Raised
+                Elevated
               </button>
             </li>
             <li
@@ -232,7 +231,17 @@ Object {
                 class="btn-group__list__list-item__button"
                 type="button"
               >
-                Unelevated
+                Filled
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Tonal
               </button>
             </li>
           </ul>
@@ -257,7 +266,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -472,7 +480,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -607,7 +614,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -643,7 +649,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -711,7 +716,7 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-button mdc-button--text"
+        class="mdc-button label-large mdc-button--text"
       >
         <div
           aria-label="Add text…"
@@ -741,7 +746,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -902,7 +906,7 @@ Object {
               class="btn-group__list__list-item__button"
               type="button"
             >
-              Raised
+              Elevated
             </button>
           </li>
           <li
@@ -912,7 +916,17 @@ Object {
               class="btn-group__list__list-item__button"
               type="button"
             >
-              Unelevated
+              Filled
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Tonal
             </button>
           </li>
         </ul>
@@ -937,7 +951,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -1152,7 +1165,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -1287,7 +1299,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -1323,7 +1334,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
