@@ -38,8 +38,9 @@ import {
 /**
  * Internal dependencies
  */
-import { STYLES } from '../customizer/components/google-fonts-control/styles';
+import { STYLES } from './components/google-fonts-control/styles';
 import { setConfig } from '../block-editor/utils/get-config';
+import { applyRgbValue } from '../../../../theme/assets/src/helper/apply-rgb-value';
 
 const getIconFontName = iconStyle => {
 	return iconStyle === 'filled'
@@ -97,6 +98,11 @@ export const COLOR_MODES = {
 					setConfig( 'sourceColor', color );
 
 					applyTheme( colorPallete, {
+						target: document.body,
+						dark: isDarkMode,
+					} );
+
+					applyRgbValue( colorPallete, {
 						target: document.body,
 						dark: isDarkMode,
 					} );
