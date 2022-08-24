@@ -47,12 +47,11 @@ import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
 import { withId } from '../../components/with-id';
 import GlobalShapeSize from '../../components/global-shape-size';
-import GlobalColor, {
-	GlobalColorContrastChecker,
-} from '../../components/global-color';
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
+import { getColor } from '../../components/with-global-default';
+import ColorPanel from '../../components/global-color/color-panel';
 
 /**
  * @typedef MdcButtonProps
@@ -202,6 +201,26 @@ const ButtonEdit = ( {
 		}
 	}, [ isSubmitButton ] ); // eslint-disable-line
 
+	const colorSettings = {
+		text: {
+			label: __( 'Text Color', 'material-design' ),
+			colorValue: getColor( 'on_primary_color', textColor ),
+			onColorChange: setter( 'textColor' ),
+			gradients: [], // Disable gradients
+			disableCustomGradients: true,
+		},
+		container: {
+			label: __( 'Container Color', 'material-design' ),
+			colorValue: getColor( 'primary_color', backgroundColor ),
+			onColorChange: setter( 'backgroundColor' ),
+			gradients: [], // Disable gradients
+			disableCustomGradients: true,
+			globalPropName: hasBg( elevationStyle )
+				? 'on_primary_color'
+				: 'primary_color',
+		},
+	};
+
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
 	 *
@@ -332,63 +351,9 @@ const ButtonEdit = ( {
 						/>
 					) }
 				</PanelBody>
-				<PanelBody
-					title={ __( 'Colors', 'material-design' ) }
-					initialOpen={ true }
-				>
-					<div className="components-base-control">
-						{ __(
-							'Overrides will only apply to this button. Change Primary Color in ',
-							'material-design'
-						) }
-						<a
-							href={ getConfig( 'customizerUrls' ).colors }
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							{ __(
-								'Material Design Options',
-								'material-design'
-							) }
-						</a>
-						{ __( ' to update all buttons.', 'material-design' ) }
-					</div>
 
-					{ hasBg( elevationStyle ) && type === 'text' && (
-						<GlobalColor
-							label={ __( 'Container Color', 'material-design' ) }
-							value={ backgroundColor }
-							onChange={ setter( 'backgroundColor' ) }
-							globalPropName={
-								hasBg( elevationStyle )
-									? 'primary_color'
-									: 'on_primary_color'
-							}
-						/>
-					) }
-					<GlobalColor
-						label={ __(
-							'Text and icons Color',
-							'material-design'
-						) }
-						value={ textColor }
-						onChange={ setter( 'textColor' ) }
-						globalPropName={
-							hasBg( elevationStyle )
-								? 'on_primary_color'
-								: 'primary_color'
-						}
-					/>
+				<ColorPanel colors={ colorSettings } />
 
-					{ hasBg( elevationStyle ) && type === 'text' && (
-						<GlobalColorContrastChecker
-							textColor={ textColor }
-							backgroundColor={ backgroundColor }
-							textProp="on_primary_color"
-							backgroundProp="primary_color"
-						/>
-					) }
-				</PanelBody>
 				{ type === 'text' && (
 					<PanelBody
 						title={ __( 'Corner Styles', 'material-design' ) }

@@ -98,7 +98,7 @@ describe( 'ButtonEdit', () => {
 	it( 'displays all the panels', () => {
 		setup( baseProps );
 		expect( screen.getByText( 'Styles' ) ).toBeInTheDocument();
-		expect( screen.getByText( 'Colors' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Color' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Corner Styles' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Link Settings' ) ).toBeInTheDocument();
 	} );
@@ -120,7 +120,7 @@ describe( 'ButtonEdit', () => {
 		expect( screen.queryByText( 'Container Color' ) ).toBeNull();
 	} );
 
-	it( 'should display an text with outlined style', () => {
+	it( 'should display a text with outlined style', () => {
 		setup( {
 			attributes: { type: 'text', elevationStyle: 'outlined' },
 			setAttributes: jest.fn(),
@@ -147,7 +147,6 @@ describe( 'ButtonEdit', () => {
 		);
 
 		expect( matches ).toBeInTheDocument();
-		expect( screen.getByText( 'Container Color' ) ).toBeInTheDocument();
 	} );
 
 	it( 'should display an text with filled style', () => {
@@ -162,7 +161,6 @@ describe( 'ButtonEdit', () => {
 		);
 
 		expect( matches ).toBeInTheDocument();
-		expect( screen.getByText( 'Container Color' ) ).toBeInTheDocument();
 	} );
 
 	it( 'should display an text with tonal style', () => {
