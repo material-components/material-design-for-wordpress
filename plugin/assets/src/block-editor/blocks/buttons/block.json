@@ -6,5 +6,6 @@
     "anchor": true,
     "align": true,
     "alignWide": false
-  }
+  },
+  "apiVersion": 2
 }

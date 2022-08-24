@@ -36,11 +36,12 @@ import { PanelBody, RangeControl } from '@wordpress/components';
  */
 import './style.css';
 import { ICON_SIZES } from './options';
-import { getConfig, getIconName } from '../../utils';
+import { getIconName } from '../../utils';
 import IconPicker from '../../components/icon-picker';
-import GlobalColor from '../../components/global-color';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import ButtonGroup from '../../components/button-group';
+import { getColor } from '../../components/with-global-default';
+import ColorPanel from '../../components/global-color/color-panel';
 
 /**
  * Material icon edit component.
@@ -67,6 +68,16 @@ const IconEdit = ( {
 	if ( isCustom ) {
 		style[ 'font-size' ] = `${ customSize }px`;
 	}
+
+	const colorSettings = {
+		text: {
+			label: __( 'Text Color', 'material-design' ),
+			colorValue: getColor( 'primary_color', textColor ),
+			onColorChange: setter( 'textColor' ),
+			gradients: [], // Disable gradients
+			disableCustomGradients: true,
+		},
+	};
 
 	const blockProps = useBlockProps( {
 		className: classNames( className, {
@@ -104,35 +115,9 @@ const IconEdit = ( {
 						/>
 					}
 				</PanelBody>
-				<PanelBody
-					title={ __( 'Colors', 'material-design' ) }
-					initialOpen={ true }
-				>
-					<div className="components-base-control">
-						{ __(
-							'Overrides will only apply to this Icon. Change Primary Color in ',
-							'material-design'
-						) }
-						<a
-							href={ getConfig( 'customizerUrls' ).colors }
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							{ __(
-								'Material Design Options',
-								'material-design'
-							) }
-						</a>
-						{ __( ' to update all Icons.', 'material-design' ) }
-					</div>
 
-					<GlobalColor
-						label={ __( 'Icon Color', 'material-design' ) }
-						value={ textColor }
-						onChange={ setter( 'textColor' ) }
-						globalPropName={ 'primary_color' }
-					/>
-				</PanelBody>
+				<ColorPanel colors={ colorSettings } />
+
 				<PanelBody
 					title={ __( 'Size', 'material-design' ) }
 					initialOpen={ true }
