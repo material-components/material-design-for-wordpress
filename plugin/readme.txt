@@ -1,6 +1,6 @@
 === Material Design for WordPress ===
 Contributors: google, materialdesign, xwp
-Requires at least: 5.6
+Requires at least: 5.9
 Tested up to: 6.0
 Stable tag: 0.6.1
 License: Apache License, Version 2.0
