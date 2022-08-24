@@ -29,6 +29,20 @@ import {
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
+/**
+ * @param {string} color Color input in 'var(--md-sys-color-on-primary)' format.
+ *
+ * @return {string} variable name example: '--md-sys-color-on-primary'.
+ */
+const getColorFromVarString = color => {
+	if ( color.includes( 'var(' ) ) {
+		const colorVar = color.split( '(' )[ 1 ].split( ')' )[ 0 ];
+		const style = getComputedStyle( document.body );
+		return style.getPropertyValue( colorVar );
+	}
+	return color;
+};
+
 const ColorPanel = ( { colors } ) => {
 	const { text, container } = colors;
 	const settings = [ text, container ];
@@ -39,6 +53,9 @@ const ColorPanel = ( { colors } ) => {
 			colors: colorSettings,
 		},
 	];
+
+	const colorText = getColorFromVarString( text.colorValue );
+	const containerText = getColorFromVarString( container.colorValue );
 
 	return (
 		<PanelBody
@@ -53,10 +70,10 @@ const ColorPanel = ( { colors } ) => {
 
 			<Spacer marginY={ 4 } />
 
-			{ colors.length > 1 && (
+			{ colorText && containerText && (
 				<ContrastChecker
-					textColor={ text.colorValue }
-					backgroundColor={ container.colorValue }
+					textColor={ colorText }
+					backgroundColor={ containerText }
 				/>
 			) }
 		</PanelBody>
