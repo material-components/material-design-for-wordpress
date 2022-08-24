@@ -531,6 +531,13 @@ Object {
           data-wp-c16t="true"
           data-wp-component="Spacer"
         />
+        <div
+          class="components-contrast-checked"
+        >
+          #ffffff
+           - 
+          #6200ee
+        </div>
       </div>
       <div
         class="components-panel__body is-opened"
@@ -1153,6 +1160,13 @@ Object {
         data-wp-c16t="true"
         data-wp-component="Spacer"
       />
+      <div
+        class="components-contrast-checked"
+      >
+        #ffffff
+         - 
+        #6200ee
+      </div>
     </div>
     <div
       class="components-panel__body is-opened"

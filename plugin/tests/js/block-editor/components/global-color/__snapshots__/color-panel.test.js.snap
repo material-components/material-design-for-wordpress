@@ -99,6 +99,13 @@ Object {
           data-wp-c16t="true"
           data-wp-component="Spacer"
         />
+        <div
+          class="components-contrast-checked"
+        >
+          #fff
+           - 
+          #000
+        </div>
       </div>
     </div>
   </body>,
@@ -173,6 +180,13 @@ Object {
         data-wp-c16t="true"
         data-wp-component="Spacer"
       />
+      <div
+        class="components-contrast-checked"
+      >
+        #fff
+         - 
+        #000
+      </div>
     </div>
   </div>,
   "debug": [Function],
