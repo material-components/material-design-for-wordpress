@@ -54,8 +54,10 @@ const ColorPanel = ( { colors } ) => {
 		},
 	];
 
-	const colorText = getColorFromVarString( text.colorValue );
-	const containerText = getColorFromVarString( container.colorValue );
+	const colorText = text ? getColorFromVarString( text.colorValue ) : null;
+	const containerText = container
+		? getColorFromVarString( container.colorValue )
+		: null;
 
 	return (
 		<PanelBody
