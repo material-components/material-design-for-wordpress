@@ -65,7 +65,7 @@ describe( 'blocks: all', () => {
 		// Check if buttons block is rendered.
 		expect(
 			await page.$$( '[data-type="material/buttons"]' )
-		).toHaveLength( 2 );
+		).toHaveLength( 1 );
 
 		// Check if button blocks are rendered.
 		expect( await page.$$( '[data-type="material/button"]' ) ).toHaveLength(

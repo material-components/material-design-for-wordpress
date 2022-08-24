@@ -26,7 +26,7 @@
 	margin: 0;
 	padding: 8px 0;
 	list-style-type: none;
-	color: rgba(var(--md-sys-color-on-background-rgb, 0, 0, 0), 0.87);
+	color: var(--md-sys-color-on-background-rgb, rgba(0, 0, 0, 0.87));
 }
 
 .mdc-list:focus {
@@ -38,7 +38,7 @@
 }
 
 .mdc-list-item__secondary-text {
-	color: rgba(var(--md-sys-color-on-background-rgb, 0, 0, 0), 0.54);
+	color: var(--md-sys-color-on-background, rgba(0, 0, 0, 0.54));
 }
 
 .mdc-list-item__graphic {
@@ -46,15 +46,15 @@
 }
 
 .mdc-list-item__graphic {
-	color: rgba(var(--md-sys-color-on-background-rgb, 0, 0, 0), 0.38);
+	color: var(--md-sys-color-on-background, rgba(0, 0, 0, 0.38));
 }
 
 .mdc-list-item__meta {
-	color: rgba(var(--md-sys-color-on-background-rgb, 0, 0, 0), 0.38);
+	color: var(--md-sys-color-on-background, rgba(0, 0, 0, 0.38));
 }
 
 .mdc-list-group__subheader {
-	color: rgba(var(--md-sys-color-on-background-rgb, 0, 0, 0), 0.87);
+	color: var(--md-sys-color-on-background, rgba(0, 0, 0, 0.87));
 }
 
 .mdc-list-item--disabled .mdc-list-item__text {

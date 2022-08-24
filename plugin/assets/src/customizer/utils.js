@@ -124,7 +124,7 @@ export const sanitizeControlId = id =>
  *
  * @return {string} Hex color
  */
-export function randomColor() {
+export const randomColor = () => {
 	let hexColor = Math.floor( Math.random() * MAX_HEX_COLORS ).toString( 16 );
 
 	// Pad to make sure it's 6 characters.
@@ -133,4 +133,4 @@ export function randomColor() {
 	}
 
 	return '#' + hexColor;
-}
+};
