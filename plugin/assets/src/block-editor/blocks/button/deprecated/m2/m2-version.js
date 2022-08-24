@@ -1,17 +1,17 @@
-/**
- * Copyright 2020 Google LLC
+/*
+ *  Copyright 2022 Google LLC
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *        http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
  */
 
 /**
@@ -22,7 +22,7 @@ import classNames from 'classnames';
 /**
  * Internal dependencies
  */
-import hasBg from './utils/has-bg';
+import hasBg from '../../utils/has-bg';
 
 /**
  * Button Children component.
@@ -47,13 +47,90 @@ const ButtonChildren = ( { icon, iconPosition, label } ) => (
 	</>
 );
 
-const ButtonSave = ( {
+const attributesM2 = {
+	label: {
+		type: 'string',
+		source: 'html',
+		selector: '.mdc-button__label',
+		default: '',
+	},
+	type: {
+		type: 'string',
+		default: 'text',
+	},
+	style: {
+		type: 'string',
+		default: 'raised',
+	},
+	iconPosition: {
+		type: 'string',
+		default: 'leading',
+	},
+	cornerRadius: {
+		type: 'number',
+	},
+	url: {
+		type: 'string',
+		source: 'attribute',
+		selector: 'a',
+		attribute: 'href',
+		default: '',
+	},
+	rel: {
+		type: 'string',
+		source: 'attribute',
+		selector: 'a',
+		attribute: 'rel',
+		default: '',
+	},
+	linkTarget: {
+		type: 'string',
+		source: 'attribute',
+		selector: 'a',
+		attribute: 'target',
+	},
+	icon: {
+		type: 'string',
+		default: '',
+		source: 'text',
+		selector: '.material-icons',
+	},
+	backgroundColor: {
+		type: 'string',
+	},
+	textColor: {
+		type: 'string',
+	},
+	tooltip: {
+		type: 'string',
+		default: '',
+		source: 'text',
+		selector: '.mdc-tooltip',
+	},
+	id: {
+		type: 'string',
+		source: 'attribute',
+		attribute: 'id',
+		selector: '*',
+	},
+	isSubmit: {
+		type: 'boolean',
+		default: false,
+	},
+	size: {
+		type: 'string',
+		default: 'normal',
+	},
+};
+
+const Save = ( {
 	attributes: {
 		rel,
 		url,
 		icon,
 		type,
 		label,
+		style,
 		textColor,
 		linkTarget,
 		cornerRadius,
@@ -63,7 +140,6 @@ const ButtonSave = ( {
 		tooltip,
 		id,
 		size,
-		elevationStyle,
 	},
 	className,
 } ) => {
@@ -134,7 +210,7 @@ const ButtonSave = ( {
 					rel={ rel && ! isSubmit ? rel : undefined }
 					target={ linkTarget && ! isSubmit ? linkTarget : undefined }
 					style={ {
-						...( backgroundColor && hasBg( elevationStyle )
+						...( backgroundColor && hasBg( style )
 							? { backgroundColor }
 							: {} ),
 						...( textColor ? { color: textColor } : {} ),
@@ -143,7 +219,7 @@ const ButtonSave = ( {
 							: {} ),
 					} }
 					className={ classNames( 'mdc-button', {
-						[ `mdc-button--${ elevationStyle }` ]: true,
+						[ `mdc-button--${ style }` ]: true,
 						[ `is-large` ]: size === 'large',
 					} ) }
 				>
@@ -155,12 +231,12 @@ const ButtonSave = ( {
 				</a>
 			) : (
 				<button
-					className={ classNames( 'mdc-button label-large', {
-						[ `mdc-button--${ elevationStyle }` ]: true,
+					className={ classNames( 'mdc-button', {
+						[ `mdc-button--${ style }` ]: true,
 						[ `is-large` ]: size === 'large',
 					} ) }
 					style={ {
-						...( backgroundColor && hasBg( elevationStyle )
+						...( backgroundColor && hasBg( style )
 							? { backgroundColor }
 							: {} ),
 						...( textColor ? { color: textColor } : {} ),
@@ -181,4 +257,28 @@ const ButtonSave = ( {
 	);
 };
 
-export default ButtonSave;
+export const SaveM2 = {
+	attributes: attributesM2,
+	migrate( attributes ) {
+		const { style } = attributes;
+
+		let elevationStyle = style;
+
+		if ( 'raised' === style ) {
+			elevationStyle = 'elevated';
+		} else if ( 'unelevated' === style ) {
+			elevationStyle = 'filled';
+		}
+
+		return {
+			...attributes,
+			...{
+				elevationStyle,
+			},
+		};
+	},
+	isEligible( attr ) {
+		return 'undefined' === typeof attr.elevationStyle;
+	},
+	save: Save,
+};

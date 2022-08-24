@@ -223,6 +223,20 @@ class Controls extends Module_Base {
 	}
 
 	/**
+	 * Sanitize serialized json.
+	 *
+	 * @param string $json_color_palette json string.
+	 *
+	 * @return false|string
+	 */
+	public function sanitize_color_palette_json( $json_color_palette ) {
+		$color_palette   = json_decode( $json_color_palette, true );
+		$sanitized_color = Helpers::sanitize_js_generated_colors( $color_palette );
+
+		return wp_json_encode( $sanitized_color );
+	}
+
+	/**
 	 * Add all controls in the "Theme" section.
 	 *
 	 * @return void
@@ -233,7 +247,8 @@ class Controls extends Module_Base {
 		 */
 		$settings = [
 			'color_palette'  => [
-				'default' => [],
+				'default'           => [],
+				'sanitize_callback' => [ $this, 'sanitize_color_palette_json' ],
 			],
 			/**
 			 * This setting does not have an associated control
@@ -1275,7 +1290,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Buttons', 'material-design' ),
 				'min'           => 0,
 				'max'           => 20,
-				'initial_value' => 4,
+				'initial_value' => 36,
 				'css_var'       => '--mdc-button-radius',
 				'blocks'        => [
 					'material/button',
@@ -1286,7 +1301,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Card', 'material-design' ),
 				'min'           => 0,
 				'max'           => 24,
-				'initial_value' => 0,
+				'initial_value' => 12,
 				'css_var'       => '--mdc-card-radius',
 				'blocks'        => [
 					'material/card',
@@ -1299,7 +1314,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Chip', 'material-design' ),
 				'min'           => 0,
 				'max'           => 16,
-				'initial_value' => 0,
+				'initial_value' => 8,
 				'css_var'       => '--mdc-chip-radius',
 			],
 			[
@@ -1318,7 +1333,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Image List', 'material-design' ),
 				'min'           => 0,
 				'max'           => 24,
-				'initial_value' => 0,
+				'initial_value' => 12,
 				'css_var'       => '--mdc-image-list-radius',
 				'blocks'        => [
 					'material/image-list',
@@ -1337,7 +1352,7 @@ class Controls extends Module_Base {
 				'label'         => __( 'Text Field', 'material-design' ),
 				'min'           => 0,
 				'max'           => 20,
-				'initial_value' => 0,
+				'initial_value' => 4,
 				'css_var'       => '--mdc-text-field-radius',
 			],
 		];

@@ -246,4 +246,43 @@ class Helpers {
 	public static function sanitize_control_id( $id ) {
 		return str_replace( [ '[', ']' ], [ '-', '' ], $id );
 	}
+
+	/**
+	 * Sanitize material generated colors.
+	 *
+	 * Colors are generated using `themeFromSourceColor` js function and are stored in the customizer in serialized form.
+	 *
+	 * @param array $color_palette color palette in array format from `themeFromSourceColor`.
+	 *
+	 * @return array
+	 */
+	public static function sanitize_js_generated_colors( $color_palette ) {
+		$sanitized_color = [
+			'source'   => intval( $color_palette['source'] ),
+			'schemes'  => [],
+			'palettes' => [],
+		];
+
+		foreach ( $color_palette['schemes'] as $key => $values ) {
+			// Sanitize value by passing as ref and changing the value.
+			array_walk(
+				$values,
+				function ( &$val ) {
+					$val = intval( $val );
+				}
+			);
+			$sanitized_color['schemes'][ $key ] = $values;
+		}
+
+		foreach ( $color_palette['palettes'] as $key => $palette ) {
+			$sanitized_color['palettes'][ $key ] = [
+				'primary' => floatval( $palette['hue'] ),
+				'chroma'  => intval( $palette['chroma'] ),
+				'cache'   => [],
+			];
+		}
+
+		return $sanitized_color;
+	}
+
 }

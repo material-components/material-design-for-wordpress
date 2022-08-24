@@ -263,12 +263,14 @@
 }
 
 .mdc-chip {
-	background-color: var(--mdc-theme-surface-mix-12, #e0e0e0);
-	border-radius: var(--mdc-chip-radius, 16px);
-	color: var(--md-sys-color-on-surface, #000);
+	background-color: var(--md-sys-color-surface-variant, #e0e0e0);
+	border-radius: var(--mdc-chip-radius, 8px);
+	border-color: var(--md-sys-color-outline);
+	color: var(--md-sys-color-on-surface-variant, #000);
 
 	&.mdc-chip--selected {
-		color: var(--md-sys-color-primary, #6200ee);
+		color: var(--md-sys-color-on-secondary-container, #6200ee);
+		background-color: var(--md-sys-color-secondary-container, #6200ee);
 	}
 }
 

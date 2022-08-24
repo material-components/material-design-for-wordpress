@@ -14,13 +14,6 @@
  *  limitations under the License.
  */
 
-
-.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
-	color: var(--md-sys-color-primary);
-}
-
-/* M2 style with m3 customisation */
-
 .mdc-floating-label {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -553,6 +546,10 @@
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon--trailing,
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__icon--leading {
 	color: inherit;
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+	color: var(--md-sys-color-primary);
 }
 
 .mdc-text-field:not(.mdc-text-field--disabled) {

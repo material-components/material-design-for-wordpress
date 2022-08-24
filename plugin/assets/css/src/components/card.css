@@ -158,7 +158,7 @@
 .mdc-card__link,
 .single-post-card__title,
 .material-design-card__title {
-	color: var(--md-sys-color-on-surface, #000);
+
 	text-decoration: none;
 }
 

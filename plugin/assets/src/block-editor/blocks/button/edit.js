@@ -58,7 +58,7 @@ import ColorPanel from '../../components/global-color/color-panel';
  *
  * @property {string}   type            - The type of button.
  * @property {string}   backgroundColor - The background color of the button.
- * @property {string}   style           - The style of the button.
+ * @property {string}   elevationStyle  - The style of the button.
  * @property {string}   textColor       - The text color of the button.
  * @property {string}   cornerRadius    - The corner radius of the button.
  * @property {string}   icon            - The icon of the button.
@@ -78,7 +78,7 @@ import ColorPanel from '../../components/global-color/color-panel';
 const MdcButton = ( {
 	type,
 	backgroundColor,
-	style,
+	elevationStyle,
 	textColor,
 	cornerRadius,
 	icon,
@@ -103,7 +103,7 @@ const MdcButton = ( {
 	return (
 		<div
 			style={ {
-				...( backgroundColor && hasBg( style )
+				...( backgroundColor && hasBg( elevationStyle )
 					? { backgroundColor }
 					: {} ),
 				...( textColor ? { color: textColor } : {} ),
@@ -111,8 +111,8 @@ const MdcButton = ( {
 					? { borderRadius: `${ cornerRadius }px` }
 					: {} ),
 			} }
-			className={ classNames( 'mdc-button', {
-				[ `mdc-button--${ style }` ]: true,
+			className={ classNames( 'mdc-button label-large', {
+				[ `mdc-button--${ elevationStyle }` ]: true,
 				[ `is-large` ]: size === 'large',
 			} ) }
 		>
@@ -143,7 +143,7 @@ const MdcButton = ( {
  * @property {string}  icon            - The icon of the button.
  * @property {string}  type            - Type of button.
  * @property {string}  label           - Label of button.
- * @property {string}  style           - Style of button.
+ * @property {string}  elevationStyle  - Style of button.
  * @property {string}  textColor       - Text color of button.
  * @property {string}  linkTarget      - Link target of button.
  * @property {string}  cornerRadius    - Corner radius of button.
@@ -172,7 +172,6 @@ const ButtonEdit = ( {
 		icon,
 		type,
 		label,
-		style,
 		textColor,
 		linkTarget,
 		cornerRadius,
@@ -181,6 +180,7 @@ const ButtonEdit = ( {
 		isSubmit,
 		tooltip,
 		size,
+		elevationStyle,
 	},
 	setAttributes,
 	isSelected,
@@ -215,7 +215,7 @@ const ButtonEdit = ( {
 			onColorChange: setter( 'backgroundColor' ),
 			gradients: [], // Disable gradients
 			disableCustomGradients: true,
-			globalPropName: hasBg( style )
+			globalPropName: hasBg( elevationStyle )
 				? 'on_primary_color'
 				: 'primary_color',
 		},
@@ -262,7 +262,7 @@ const ButtonEdit = ( {
 					{ ...{
 						type,
 						backgroundColor,
-						style,
+						elevationStyle,
 						textColor,
 						cornerRadius,
 						icon,
@@ -313,8 +313,8 @@ const ButtonEdit = ( {
 							</span>
 							<ButtonGroup
 								buttons={ BUTTON_STYLES }
-								current={ style }
-								onClick={ setter( 'style' ) }
+								current={ elevationStyle }
+								onClick={ setter( 'elevationStyle' ) }
 							/>
 						</>
 					) }
@@ -359,7 +359,7 @@ const ButtonEdit = ( {
 						title={ __( 'Corner Styles', 'material-design' ) }
 						initialOpen={ true }
 					>
-						{ style !== 'text' ? (
+						{ elevationStyle !== 'text' ? (
 							<>
 								<div className="components-base-control">
 									{ __(
