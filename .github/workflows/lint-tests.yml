@@ -35,10 +35,10 @@ jobs:
       fail-fast: false
       matrix:
         php_versions: [7.4]
-        wp_versions: [5.7, 5.8, 5.9, 6.0]
+        wp_versions: [5.9, 6.0]
         include:
           - php_versions: 7.3
-            wp_versions: 5.6
+            wp_versions: 5.9
 
     env:
       NODE_ENV: teste2e
