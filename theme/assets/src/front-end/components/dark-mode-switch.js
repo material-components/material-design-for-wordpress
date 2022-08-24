@@ -23,6 +23,7 @@ import {
 	themeFromSourceColor,
 	applyTheme,
 } from '@material/material-color-utilities';
+import { applyRgbValue } from '../../helper/apply-rgb-value';
 
 const body = document.body;
 export const ICONS = {
@@ -54,6 +55,10 @@ const maybeToggleDarkMode = event => {
 			target: document.body,
 			dark: true,
 		} );
+		applyRgbValue( colorPallete, {
+			target: document.body,
+			dark: true,
+		} );
 		body.setAttribute( 'data-color-scheme', 'dark' );
 		switcherIcon.textContent = ICONS.LIGHT_MODE;
 	} else {
@@ -61,7 +66,10 @@ const maybeToggleDarkMode = event => {
 			target: document.body,
 			dark: false,
 		} );
-
+		applyRgbValue( colorPallete, {
+			target: document.body,
+			dark: false,
+		} );
 		body.setAttribute( 'data-color-scheme', 'light' );
 		switcherIcon.textContent = ICONS.DARK_MODE;
 	}
