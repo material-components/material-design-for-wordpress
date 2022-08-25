@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-@import "@material/icon-button/dist/mdc.icon-button.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/tab-bar/dist/mdc.tab-bar.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
@@ -28,6 +27,7 @@
  */
 @import "../../../../plugin/assets/css/src/components/ripple.css";
 @import "../../../../plugin/assets/css/src/components/button.css";
+@import "../../../../plugin/assets/css/src/components/icon-button.css";
 @import "../../../../plugin/assets/css/src/components/list.css";
 @import "../../../../plugin/assets/css/src/components/form-field.css";
 @import "../../../../plugin/assets/css/src/components/floating-label.css";
