@@ -679,7 +679,10 @@ svg.mdc-button__icon {
 
 .mdc-button.is-large > i {
 	font-size: 24px;
+	height: auto;
+	margin-left: auto;
     margin-right: 8px;
+	width: auto;
 }
 
 .mdc-button.is-large:hover,
