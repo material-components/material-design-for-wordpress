@@ -306,7 +306,7 @@ const ButtonEdit = ( {
 						</>
 					) }
 
-					{ type === 'text' && (
+					{ type === 'text' && size !== 'large' && (
 						<>
 							<span>
 								{ __( 'Variations', 'material-design' ) }
