@@ -187,7 +187,7 @@ class Block_Types {
 		wp_register_style(
 			'material-block-editor-css',
 			$this->plugin->asset_url( 'assets/css/block-editor-compiled.css' ),
-			[],
+			[ 'material-google-fonts' ],
 			$version
 		);
 

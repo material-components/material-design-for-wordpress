@@ -21,9 +21,19 @@
 @import "./components/material.css";
 @import "./material/drawer.css";
 @import "./material/top-app-bar.css";
-@import "../../../../plugin/assets/css/src/components/ripple.css";
-@import "../../../../plugin/assets/css/src/components/icon-button.css";
 
-/**
-  Todo: Add style from plugin for material card, image card, checkbox.
+/*
+ * Imported from plugin.
  */
+@import "../../../../plugin/assets/css/src/components/ripple.css";
+@import "../../../../plugin/assets/css/src/components/button.css";
+@import "../../../../plugin/assets/css/src/components/icon-button.css";
+@import "../../../../plugin/assets/css/src/components/list.css";
+@import "../../../../plugin/assets/css/src/components/form-field.css";
+@import "../../../../plugin/assets/css/src/components/floating-label.css";
+@import "../../../../plugin/assets/css/src/components/text-field.css";
+@import "../../../../plugin/assets/css/src/components/checkbox.css";
+@import "../../../../plugin/assets/css/src/components/card.css";
+@import "../../../../plugin/assets/css/src/components/image-card.css";
+@import "../../../../plugin/assets/css/src/components/tab-indicator.css";
+@import "../../../../plugin/assets/css/src/components/tab.css";

@@ -19,7 +19,6 @@
  */
 
 @import "mixins.css";
-@import "@material/icon-button/dist/mdc.icon-button.css";
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/tab-bar/dist/mdc.tab-bar.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
@@ -35,3 +34,4 @@
 @import "./components/tooltip.css";
 @import "./components/checkbox.css";
 @import "./components/button.css";
+@import "./components/icon-button.css";
