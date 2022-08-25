@@ -359,7 +359,7 @@ const ButtonEdit = ( {
 						title={ __( 'Corner Styles', 'material-design' ) }
 						initialOpen={ true }
 					>
-						{ elevationStyle !== 'text' ? (
+						{ elevationStyle !== 'text' && size !== 'large' && (
 							<>
 								<div className="components-base-control">
 									{ __(
@@ -391,7 +391,9 @@ const ButtonEdit = ( {
 									blockName={ ButtonBlockName }
 								/>
 							</>
-						) : (
+						) }
+
+						{ ( elevationStyle === 'text' || size === 'large' ) && (
 							<p>
 								{ __(
 									'Current button style does not support rounded corners.',
