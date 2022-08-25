@@ -665,3 +665,43 @@ svg.mdc-button__icon {
 		background-color: var(--md-sys-color-surface);
 	}
 }
+
+.mdc-button.is-large {
+    background-color: var(--md-sys-color-primary-container);
+	border-radius: var(--md-sys-shape-medium);
+    box-shadow: var(--md-sys-elevation-1);
+    color: var(--md-sys-color-on-primary-container);
+	font-size: 16px;
+	height: 56px;
+    padding: 16px;
+	width: unset;
+}
+
+.mdc-button.is-large > i {
+	font-size: 24px;
+    margin-right: 8px;
+}
+
+.mdc-button.is-large:hover,
+.mdc-button.is-large .hover {
+    background-color: rgba(var(--md-sys-color-on-primary-container-rgb), var(--md-sys-state-hover-state-layer-opacity));
+    box-shadow: var(--md-sys-elevation-4);
+}
+
+.mdc-button.is-large:focus,
+.mdc-button.is-large .focus {
+    background-color: rgba(var(--md-sys-color-on-primary-container-rgb), var(--md-sys-state-focus-state-layer-opacity));
+    box-shadow: var(--md-sys-elevation-2);
+}
+
+.mdc-button.is-large:active,
+.mdc-button.is-large .active {
+    background-color: rgba(var(--md-sys-color-on-primary-container-rgb), var(--md-sys-state-pressed-state-layer-opacity));
+    box-shadow: var(--md-sys-elevation-2);
+}
+
+.mdc-button.is-large[disabled] {
+    background-color: rgba(var(--md-sys-color-on-surface-rgb),.12);
+    box-shadow: var(--md-sys-elevation-0);
+    color: rgba(var(--md-sys-color-on-surface-rgb),.38)
+}
