@@ -201,6 +201,12 @@ const ButtonEdit = ( {
 		}
 	}, [ isSubmitButton ] ); // eslint-disable-line
 
+	useEffect( () => {
+		if ( 'large' === size ) {
+			setAttributes( { elevationStyle: 'filled' } );
+		}
+	}, [ size ] ); //eslint-disable-line react-hooks/exhaustive-deps
+
 	const colorSettings = {
 		text: {
 			label: __( 'Text Color', 'material-design' ),
