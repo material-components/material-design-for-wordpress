@@ -655,6 +655,7 @@ svg.mdc-button__icon {
 
 .mdc-button--elevated:not(:disabled),
 .mdc-button--raised:not(:disabled) {
+	color: var(--md-sys-color-primary);
 
 	&:hover {
 		background-color: var(--md-sys-color-surface-variant);
@@ -662,7 +663,7 @@ svg.mdc-button__icon {
 
 	&:focus,
 	&:active {
-		background-color: var(--md-sys-color-surface);
+		background-color: var(--md-sys-color-surface-variant);
 	}
 }
 
