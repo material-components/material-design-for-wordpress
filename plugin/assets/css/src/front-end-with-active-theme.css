@@ -17,5 +17,5 @@
 /*
  * All Frontend CSS.
  */
-@import "material-components.css";
+@import "material-components-with-active-theme.css";
 @import "_frontend.css";

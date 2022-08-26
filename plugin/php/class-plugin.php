@@ -263,12 +263,21 @@ class Plugin extends Plugin_Base {
 
 		wp_localize_script( 'material-front-end-js', 'materialDesign', $wp_localized_script_data );
 
-		wp_enqueue_style(
-			'material-front-end-css',
-			$this->asset_url( 'assets/css/front-end-compiled.css' ),
-			[],
-			$this->asset_version()
-		);
+		if ( self::THEME_SLUG === get_template() ) {
+			wp_enqueue_style(
+				'material-front-end-css',
+				$this->asset_url( 'assets/css/front-end-w-theme-compiled.css' ),
+				[],
+				$this->asset_version()
+			);
+		} else {
+			wp_enqueue_style(
+				'material-front-end-css',
+				$this->asset_url( 'assets/css/front-end-compiled.css' ),
+				[],
+				$this->asset_version()
+			);
+		}
 
 		/**
 		 * Enqueue material style overrides if the theme is not material.
