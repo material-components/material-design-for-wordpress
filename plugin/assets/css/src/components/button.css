@@ -668,6 +668,7 @@ svg.mdc-button__icon {
 
 .mdc-button.is-large {
 	background-color: var(--md-sys-color-primary-container);
+	border: 0;
 	border-radius: var(--md-sys-shape-medium);
 	box-shadow: var(--md-sys-elevation-1);
 	color: var(--md-sys-color-on-primary-container);
