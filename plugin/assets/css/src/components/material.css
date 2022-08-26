@@ -331,16 +331,6 @@
 	}
 }
 
-.wp-block-material-buttons,
-.wp-block-material-button {
-
-	& .mdc-button.is-large {
-		height: 50px;
-		padding: 16px 32px;
-	}
-}
-
-
 /* Icon */
 .wp-block-material-icon {
 

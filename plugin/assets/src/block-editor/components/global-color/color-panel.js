@@ -35,11 +35,12 @@ import { __ } from '@wordpress/i18n';
  * @return {string} variable name example: '--md-sys-color-on-primary'.
  */
 const getColorFromVarString = color => {
-	if ( color.includes( 'var(' ) ) {
+	if ( color && color.includes( 'var(' ) ) {
 		const colorVar = color.split( '(' )[ 1 ].split( ')' )[ 0 ];
 		const style = getComputedStyle( document.body );
 		return style.getPropertyValue( colorVar );
 	}
+
 	return color;
 };
 
