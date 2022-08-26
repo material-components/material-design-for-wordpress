@@ -201,6 +201,12 @@ const ButtonEdit = ( {
 		}
 	}, [ isSubmitButton ] ); // eslint-disable-line
 
+	useEffect( () => {
+		if ( 'large' === size ) {
+			setAttributes( { elevationStyle: 'filled' } );
+		}
+	}, [ size ] ); //eslint-disable-line react-hooks/exhaustive-deps
+
 	const colorSettings = {
 		text: {
 			label: __( 'Text Color', 'material-design' ),
@@ -306,7 +312,7 @@ const ButtonEdit = ( {
 						</>
 					) }
 
-					{ type === 'text' && (
+					{ type === 'text' && size !== 'large' && (
 						<>
 							<span>
 								{ __( 'Variations', 'material-design' ) }
@@ -359,7 +365,7 @@ const ButtonEdit = ( {
 						title={ __( 'Corner Styles', 'material-design' ) }
 						initialOpen={ true }
 					>
-						{ elevationStyle !== 'text' ? (
+						{ elevationStyle !== 'text' && size !== 'large' && (
 							<>
 								<div className="components-base-control">
 									{ __(
@@ -391,7 +397,9 @@ const ButtonEdit = ( {
 									blockName={ ButtonBlockName }
 								/>
 							</>
-						) : (
+						) }
+
+						{ ( elevationStyle === 'text' || size === 'large' ) && (
 							<p>
 								{ __(
 									'Current button style does not support rounded corners.',

@@ -1,5 +1,5 @@
 /**
- * Copyright 2020 Google LLC
+ * Copyright 2022 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-/*
- * All Frontend CSS.
- */
-@import "material-components.css";
-@import "_frontend.css";
+:root {
+	--md-sys-state-dragged-state-layer-opacity: 0.16;
+	--md-sys-state-pressed-state-layer-opacity: 0.12;
+	--md-sys-state-focus-state-layer-opacity: 0.12;
+	--md-sys-state-hover-state-layer-opacity: 0.08;
+}

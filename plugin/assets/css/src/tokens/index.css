@@ -16,3 +16,6 @@
 
 @import "./palette.css";
 @import "./colors.css";
+@import "./shape.css";
+@import "./opacity.css";
+@import "./elevation.css";
