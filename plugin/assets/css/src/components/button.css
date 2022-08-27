@@ -655,6 +655,7 @@ svg.mdc-button__icon {
 
 .mdc-button--elevated:not(:disabled),
 .mdc-button--raised:not(:disabled) {
+	color: var(--md-sys-color-primary);
 
 	&:hover {
 		background-color: var(--md-sys-color-surface-variant);
@@ -662,12 +663,13 @@ svg.mdc-button__icon {
 
 	&:focus,
 	&:active {
-		background-color: var(--md-sys-color-surface);
+		background-color: var(--md-sys-color-surface-variant);
 	}
 }
 
 .mdc-button.is-large {
 	background-color: var(--md-sys-color-primary-container);
+	border: 0;
 	border-radius: var(--md-sys-shape-medium);
 	box-shadow: var(--md-sys-elevation-1);
 	color: var(--md-sys-color-on-primary-container);
