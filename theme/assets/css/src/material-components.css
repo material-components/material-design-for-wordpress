@@ -25,6 +25,9 @@
 /*
  * Imported from plugin.
  */
+@import "../../../../plugin/assets/css/src/tokens/shape.css";
+@import "../../../../plugin/assets/css/src/tokens/opacity.css";
+@import "../../../../plugin/assets/css/src/tokens/elevation.css";
 @import "../../../../plugin/assets/css/src/components/ripple.css";
 @import "../../../../plugin/assets/css/src/components/button.css";
 @import "../../../../plugin/assets/css/src/components/icon-button.css";
