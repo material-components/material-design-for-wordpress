@@ -85,6 +85,14 @@ const assets = {
 			],
 		},
 		{
+			name: 'Front End with material theme ', // Remove duplicate css from theme when theme is active.
+			chunk: 'front-end-w-theme',
+			entry: [
+				'./plugin/assets/src/front-end/index.js',
+				'./plugin/assets/css/src/front-end-with-active-theme.css',
+			],
+		},
+		{
 			name: 'Admin',
 			chunk: 'admin',
 			entry: [

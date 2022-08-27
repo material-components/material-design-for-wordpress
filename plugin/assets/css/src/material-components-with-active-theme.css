@@ -15,7 +15,13 @@
  */
 
 /*
- * All Frontend CSS.
+ * Required Material components when material theme is active.
  */
-@import "material-components.css";
-@import "_frontend.css";
+
+@import "mixins.css";
+@import "@material/layout-grid/dist/mdc.layout-grid.css";
+@import "@material/tab-bar/dist/mdc.tab-bar.css";
+@import "@material/tab-scroller/dist/mdc.tab-scroller.css";
+@import "./components/material.css";
+@import "./components/datatable.css";
+@import "./components/tooltip.css";
