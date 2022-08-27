@@ -17,7 +17,6 @@
 @import "@material/layout-grid/dist/mdc.layout-grid.css";
 @import "@material/tab-bar/dist/mdc.tab-bar.css";
 @import "@material/tab-scroller/dist/mdc.tab-scroller.css";
-@import "@material/tab/dist/mdc.tab.css";
 @import "./components/material.css";
 @import "./material/drawer.css";
 @import "./material/top-app-bar.css";
