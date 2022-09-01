@@ -23,7 +23,7 @@ import {
 	themeFromSourceColor,
 	applyTheme,
 } from '@material/material-color-utilities';
-import { applyRgbValue } from '../../../../theme/assets/src/helper/apply-rgb-value';
+import { applyRgbValue } from '../helper/apply-rgb-value';
 
 const body = document.body;
 export const ICONS = {

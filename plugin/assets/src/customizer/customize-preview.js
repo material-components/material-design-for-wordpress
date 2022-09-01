@@ -40,7 +40,7 @@ import {
  */
 import { STYLES } from './components/google-fonts-control/styles';
 import { setConfig } from '../block-editor/utils/get-config';
-import { applyRgbValue } from '../../../../theme/assets/src/helper/apply-rgb-value';
+import { applyRgbValue } from '../helper/apply-rgb-value';
 
 const getIconFontName = iconStyle => {
 	return iconStyle === 'filled'
