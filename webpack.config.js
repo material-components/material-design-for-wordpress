@@ -122,16 +122,6 @@ const assets = {
 			],
 		},
 		{
-			name: 'Polyfills',
-			chunk: 'polyfills',
-			entry: [ './plugin/assets/src/polyfills/index.js' ],
-			toBundle: [
-				'@wordpress/data',
-				'@wordpress/escape-html',
-				'@wordpress/rich-text',
-			],
-		},
-		{
 			name: 'Settings',
 			chunk: 'settings',
 			entry: [
