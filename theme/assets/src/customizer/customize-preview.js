@@ -33,7 +33,8 @@ import { debounce } from 'lodash';
  * Internal dependencies
  */
 import { masonryInit } from '../front-end/components/masonry';
-import { ICONS as SWITCHER_ICONS } from '../front-end/components/dark-mode-switch';
+
+import { ICONS as SWITCHER_ICONS } from '../../../../plugin/assets/src/front-end/dark-mode-switch';
 
 export const COLOR_MODES = {
 	default: 'default',
