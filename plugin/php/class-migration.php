@@ -195,7 +195,7 @@ class Migration extends Module_Base {
 		wp_enqueue_script(
 			'material-m3-migration-color',
 			$this->plugin->asset_url( 'assets/js/admin-m3-color-migration.js' ),
-			$version['dependencies'],
+			array_merge( $version['dependencies'], [ 'wp-util' ] ),
 			$version['version'],
 			true
 		);
@@ -250,7 +250,7 @@ class Migration extends Module_Base {
 		wp_enqueue_script(
 			'material-m3-notice-migration-color',
 			$this->plugin->asset_url( 'assets/js/admin-notice-m3-migration.js' ),
-			$version['dependencies'],
+			array_merge( $version['dependencies'], [ 'wp-util' ] ),
 			$version['version'],
 			true
 		);
