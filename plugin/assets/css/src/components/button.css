@@ -55,7 +55,7 @@
 
 	/* @alternate */
 	-webkit-text-decoration: var(--mdc-typography-button-text-decoration, none);
-	padding: 0 8px 0 8px;
+	padding: 10px 8px;
 
 	/* @alternate */
 	position: relative;
@@ -250,7 +250,7 @@ svg.mdc-button__icon {
 .mdc-button--elevated,
 .mdc-button--filled,
 .mdc-button--unelevated {
-	padding: 0 16px 0 16px;
+	padding: 10px 16px;
 }
 
 .mdc-button--raised:not(:disabled),
@@ -319,7 +319,7 @@ svg.mdc-button__icon {
 }
 
 .mdc-button--outlined {
-	padding: 0 15px 0 15px;
+	padding: 10px 15px;
 	border-width: 1px;
 	border-style: solid;
 }
