@@ -25,7 +25,6 @@
 @import "typography.css";
 @import "./components/contact-form.css";
 @import "./components/masonry-grid.css";
-@import "./components/card.css";
 @import "./components/core.css";
 @import "../../src/block-editor/blocks/common-posts-list/style.css";
 @import "../../src/block-editor/blocks/contact-form/inner-blocks/common/style.css";
