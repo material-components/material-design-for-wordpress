@@ -192,6 +192,7 @@
 	color: var(--md-sys-color-on-surface, #000);
 }
 
+.entry-content h2.post-card__title,
 .post-card__title {
 	margin: 0;
 	padding: 0;
