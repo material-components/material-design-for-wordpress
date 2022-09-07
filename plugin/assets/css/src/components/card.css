@@ -60,6 +60,10 @@
 	}
 }
 
+.mdc-card__action--button {
+	height: 40px;
+}
+
 .mdc-card__media {
 	background-position: 50%;
 	background-repeat: no-repeat;
