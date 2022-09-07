@@ -60,6 +60,10 @@
 	}
 }
 
+.mdc-card__action--button {
+	height: 40px;
+}
+
 .mdc-card__media {
 	background-position: 50%;
 	background-repeat: no-repeat;
@@ -192,6 +196,7 @@
 	color: var(--md-sys-color-on-surface, #000);
 }
 
+.entry-content h2.post-card__title,
 .post-card__title {
 	margin: 0;
 	padding: 0;

@@ -913,12 +913,12 @@ class Controls extends Module_Base {
 							esc_html( $font_style )
 						);
 					} elseif ( 'tracking' === $type ) {
-						$font_size   = isset( $value['size'] ) ? $value['size'] : 16;
-						$line_height = $value[ $type ] / $font_size;
-						$font_vars[] = sprintf(
+						$font_size     = isset( $value['size'] ) ? $value['size'] : 16;
+						$line_tracking = $value[ $type ] / $font_size;
+						$font_vars[]   = sprintf(
 							'%s: %srem !important;',
 							esc_html( $var ),
-							esc_html( $line_height )
+							esc_html( $line_tracking )
 						);
 					} else {
 						$font_vars[] = sprintf(
@@ -1714,9 +1714,9 @@ class Controls extends Module_Base {
 				'small'  => 2.5,
 			],
 			'title'    => [
-				'large'  => 2,
-				'medium' => 2,
-				'small'  => 1.75,
+				'large'  => 1.33,
+				'medium' => 1.75,
+				'small'  => 1.57,
 			],
 			'label'    => [
 				'large'  => 1.75,
