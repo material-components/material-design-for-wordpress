@@ -29,33 +29,14 @@
 .mdc-button {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	font-family: Roboto, sans-serif;
-
-	/* @alternate */
 	font-family: var(--md-sys-typescale-label-large-font, Roboto, sans-serif);
-	font-size: 0.875rem;
-
-	/* @alternate */
 	font-size: var(--md-sys-typescale-label-large-size, 0.875rem);
 	/* stylelint-disable-next-line declaration-property-unit-allowed-list */
-	line-height: 2.25rem;
-
-	/* @alternate */
-	/* stylelint-disable-next-line declaration-property-unit-allowed-list */
 	line-height: var(--md-sys-typescale-label-large-line-height, 1.25rem);
-	font-weight: 500;
-
-	/* @alternate */
 	font-weight: var(--md-sys-typescale-label-large-weight, 500);
-	letter-spacing: 0.0892857143em;
-
-	/* @alternate */
 	letter-spacing: 0.1px;
-	text-decoration: none;
-
-	/* @alternate */
 	-webkit-text-decoration: var(--mdc-typography-button-text-decoration, none);
-	padding: 10px 8px;
+	padding: 8px;
 
 	/* @alternate */
 	position: relative;
@@ -66,6 +47,7 @@
 	min-width: 64px;
 	border: none;
 	outline: none;
+	white-space: nowrap;
 
 	/* @alternate */
 	-webkit-user-select: none;
