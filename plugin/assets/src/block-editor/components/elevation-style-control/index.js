@@ -36,6 +36,10 @@ const ElevationStyleControl = ( { onChange, selected } ) => {
 				},
 				{ label: __( 'Elevated' ), value: 'elevated' },
 				{ label: __( 'Outlined' ), value: 'outlined' },
+				{
+					label: __( 'Filled', 'material-design' ),
+					value: 'filled',
+				},
 			] }
 			onChange={ onChange }
 		/>

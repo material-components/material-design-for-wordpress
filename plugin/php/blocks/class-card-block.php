@@ -76,7 +76,7 @@ class Card_Block extends Module_Base {
 			$global_card_style = $this->plugin->block_types->get_global_styles( 'card_style' );
 			$replace_string    = '';
 			if ( $global_card_style === 'outlined' ) {
-				$replace_string = 'mdc-card--outlined';
+				$replace_string = sprintf( 'mdc-card--%s', $global_card_style );
 			}
 			$content = str_replace( self::GLOBAL_CARD_CLASS, $replace_string, $content );
 		}

@@ -85,6 +85,14 @@ const assets = {
 			],
 		},
 		{
+			name: 'Front End with material theme ', // Remove duplicate css from theme when theme is active.
+			chunk: 'front-end-w-theme',
+			entry: [
+				'./plugin/assets/src/front-end/index.js',
+				'./plugin/assets/css/src/front-end-with-active-theme.css',
+			],
+		},
+		{
 			name: 'Admin',
 			chunk: 'admin',
 			entry: [
@@ -114,21 +122,23 @@ const assets = {
 			],
 		},
 		{
-			name: 'Polyfills',
-			chunk: 'polyfills',
-			entry: [ './plugin/assets/src/polyfills/index.js' ],
-			toBundle: [
-				'@wordpress/data',
-				'@wordpress/escape-html',
-				'@wordpress/rich-text',
-			],
-		},
-		{
 			name: 'Settings',
 			chunk: 'settings',
 			entry: [
 				'./plugin/assets/src/settings/index.js',
 				'./plugin/assets/css/src/settings.css',
+			],
+		},
+		{
+			name: 'Admin M3 Color Migration',
+			chunk: 'admin-m3-color-migration',
+			entry: [ './plugin/assets/src/admin-m3-color-migration/index.js' ],
+		},
+		{
+			name: 'Admin Notice M3 Migration',
+			chunk: 'admin-notice-m3-migration',
+			entry: [
+				'./plugin/assets/src/admin-m3-color-migration/admin-notice',
 			],
 		},
 	],
@@ -217,6 +227,12 @@ const getSharedConfig = ( packageType, isBlockEditor ) => {
 							'css-loader',
 							'postcss-loader',
 						],
+					},
+					{
+						test: /\.m?js/,
+						resolve: {
+							fullySpecified: false,
+						},
 					},
 				],
 			},

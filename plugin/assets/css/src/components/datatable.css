@@ -1,0 +1,86 @@
+/*
+ * Copyright 2022 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+/* Data Table */
+.mdc-data-table {
+	max-width: calc(100vw - 2 * 40px);
+	border: 1px solid var(--md-sys-color-outline);
+	border-radius: var(--mdc-data-table-radius, 24px);
+	overflow-x: auto;
+
+	@media screen and (max-width: 480px) {
+		max-width: calc(100vw - 2 * 24px);
+	}
+
+	& table {
+		width: 100%;
+		border: 0;
+	}
+
+	table p {
+		-webkit-margin-before: 0;
+		margin-block-start: 0;
+		-webkit-margin-after: 0;
+		margin-block-end: 0;
+	}
+
+	td:empty,
+	th:empty {
+		border-top: 0;
+	}
+
+	thead:first-child tr:first-child th,
+	tbody:first-child tr:first-child td {
+		border-top: 0;
+	}
+}
+
+.mdc-data-table__row,
+.mdc-data-table__header-row {
+	border: none;
+}
+
+.mdc-data-table__header-cell {
+	background: var(--md-sys-color-surface-variant);
+	color: var(--md-sys-color-on-surface-variant);
+	font-weight: bold;
+	text-align: center;
+}
+
+.mdc-data-table__header-cell,
+.mdc-data-table__cell {
+	padding: 16px 24px;
+	border-top: 1px solid var(--md-sys-color-outline);
+	vertical-align: middle;
+
+	&:first-child {
+		border-left: 0;
+	}
+}
+
+.mdc-data-table__cell {
+	border-left: 1px solid var(--md-sys-color-outline);
+}
+
+.mdc-data-table__header-cell {
+	border-left: 1px solid var(--md-sys-color-on-surface-variant);
+}
+
+
+.mdc-data-table__caption figcaption {
+	text-align: center;
+}

@@ -47,12 +47,16 @@ export const BUTTON_STYLES = [
 		value: 'outlined',
 	},
 	{
-		label: __( 'Raised', 'material-design' ),
-		value: 'raised',
+		label: __( 'Elevated', 'material-design' ),
+		value: 'elevated',
 	},
 	{
-		label: __( 'Unelevated', 'material-design' ),
-		value: 'unelevated',
+		label: __( 'Filled', 'material-design' ),
+		value: 'filled',
+	},
+	{
+		label: __( 'Tonal', 'material-design' ),
+		value: 'tonal',
 	},
 ];
 

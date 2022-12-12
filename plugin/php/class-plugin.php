@@ -32,7 +32,6 @@ use MaterialDesign\Plugin\Customizer\Controls;
 use MaterialDesign\Plugin\Rest\Design_Assets_REST_Controller;
 use MaterialDesign\Plugin\Rest\Posts_REST_Controller;
 use MaterialDesign\Plugin\Rest\Onboarding_REST_Controller;
-use MaterialDesign\Plugin\Rest\Reset_Card_Style_Controller;
 use MaterialDesign\Plugin\Rest\Reset_Card_Style_Rest_Controller;
 
 /**
@@ -146,6 +145,13 @@ class Plugin extends Plugin_Base {
 	public $frontend;
 
 	/**
+	 * Migration class.
+	 *
+	 * @var Migration
+	 */
+	public $migration;
+
+	/**
 	 * Initiate the plugin resources.
 	 *
 	 * @throws \Exception Generic Exception.
@@ -188,6 +194,9 @@ class Plugin extends Plugin_Base {
 
 		$this->frontend = new Frontend( $this );
 		$this->frontend->init();
+
+		$this->migration = new Migration( $this );
+		$this->migration->init();
 
 		// Init CLI.
 		if ( defined( 'WP_CLI' ) && false !== WP_CLI ) {
@@ -234,6 +243,7 @@ class Plugin extends Plugin_Base {
 		$material_design_recaptcha_site_key = get_option( 'material_design_recaptcha_site_key', '' );
 		$wp_localized_script_data           = [
 			'ajax_url'              => admin_url( 'admin-ajax.php' ),
+			'sourceColor'           => $this->customizer_controls->get_source_color(),
 			'darkModeStatus'        => $this->customizer_controls->get_dark_mode_status(),
 			'globalStyle'           => $this->block_types->get_global_styles(),
 			'isMaterialThemeActive' => $this->theme_status() === 'ok',
@@ -253,12 +263,21 @@ class Plugin extends Plugin_Base {
 
 		wp_localize_script( 'material-front-end-js', 'materialDesign', $wp_localized_script_data );
 
-		wp_enqueue_style(
-			'material-front-end-css',
-			$this->asset_url( 'assets/css/front-end-compiled.css' ),
-			[],
-			$this->asset_version()
-		);
+		if ( self::THEME_SLUG === get_template() ) {
+			wp_enqueue_style(
+				'material-front-end-css',
+				$this->asset_url( 'assets/css/front-end-w-theme-compiled.css' ),
+				[],
+				$this->asset_version()
+			);
+		} else {
+			wp_enqueue_style(
+				'material-front-end-css',
+				$this->asset_url( 'assets/css/front-end-compiled.css' ),
+				[],
+				$this->asset_version()
+			);
+		}
 
 		/**
 		 * Enqueue material style overrides if the theme is not material.

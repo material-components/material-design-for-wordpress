@@ -47,19 +47,18 @@ import ButtonGroup from '../../components/button-group';
 import ImageRadioControl from '../../components/image-radio-control';
 import { withId } from '../../components/with-id';
 import GlobalShapeSize from '../../components/global-shape-size';
-import GlobalColor, {
-	GlobalColorContrastChecker,
-} from '../../components/global-color';
 import ToolbarUrlInputPopover from '../../components/toolbar-url-input-popover';
 import genericAttributesSetter from '../../utils/generic-attributes-setter';
 import { name as ContactFormBlockName } from '../contact-form';
+import { getColor } from '../../components/with-global-default';
+import ColorPanel from '../../components/global-color/color-panel';
 
 /**
  * @typedef MdcButtonProps
  *
  * @property {string}   type            - The type of button.
  * @property {string}   backgroundColor - The background color of the button.
- * @property {string}   style           - The style of the button.
+ * @property {string}   elevationStyle  - The style of the button.
  * @property {string}   textColor       - The text color of the button.
  * @property {string}   cornerRadius    - The corner radius of the button.
  * @property {string}   icon            - The icon of the button.
@@ -79,7 +78,7 @@ import { name as ContactFormBlockName } from '../contact-form';
 const MdcButton = ( {
 	type,
 	backgroundColor,
-	style,
+	elevationStyle,
 	textColor,
 	cornerRadius,
 	icon,
@@ -104,7 +103,7 @@ const MdcButton = ( {
 	return (
 		<div
 			style={ {
-				...( backgroundColor && hasBg( style )
+				...( backgroundColor && hasBg( elevationStyle )
 					? { backgroundColor }
 					: {} ),
 				...( textColor ? { color: textColor } : {} ),
@@ -112,8 +111,8 @@ const MdcButton = ( {
 					? { borderRadius: `${ cornerRadius }px` }
 					: {} ),
 			} }
-			className={ classNames( 'mdc-button', {
-				[ `mdc-button--${ style }` ]: true,
+			className={ classNames( 'mdc-button label-large', {
+				[ `mdc-button--${ elevationStyle }` ]: true,
 				[ `is-large` ]: size === 'large',
 			} ) }
 		>
@@ -144,7 +143,7 @@ const MdcButton = ( {
  * @property {string}  icon            - The icon of the button.
  * @property {string}  type            - Type of button.
  * @property {string}  label           - Label of button.
- * @property {string}  style           - Style of button.
+ * @property {string}  elevationStyle  - Style of button.
  * @property {string}  textColor       - Text color of button.
  * @property {string}  linkTarget      - Link target of button.
  * @property {string}  cornerRadius    - Corner radius of button.
@@ -173,7 +172,6 @@ const ButtonEdit = ( {
 		icon,
 		type,
 		label,
-		style,
 		textColor,
 		linkTarget,
 		cornerRadius,
@@ -182,6 +180,7 @@ const ButtonEdit = ( {
 		isSubmit,
 		tooltip,
 		size,
+		elevationStyle,
 	},
 	setAttributes,
 	isSelected,
@@ -201,6 +200,32 @@ const ButtonEdit = ( {
 			setAttributes( { isSubmit: true } );
 		}
 	}, [ isSubmitButton ] ); // eslint-disable-line
+
+	useEffect( () => {
+		if ( 'large' === size ) {
+			setAttributes( { elevationStyle: 'filled' } );
+		}
+	}, [ size ] ); //eslint-disable-line react-hooks/exhaustive-deps
+
+	const colorSettings = {
+		text: {
+			label: __( 'Text Color', 'material-design' ),
+			colorValue: getColor( 'on_primary_color', textColor ),
+			onColorChange: setter( 'textColor' ),
+			gradients: [], // Disable gradients
+			disableCustomGradients: true,
+		},
+		container: {
+			label: __( 'Container Color', 'material-design' ),
+			colorValue: getColor( 'primary_color', backgroundColor ),
+			onColorChange: setter( 'backgroundColor' ),
+			gradients: [], // Disable gradients
+			disableCustomGradients: true,
+			globalPropName: hasBg( elevationStyle )
+				? 'on_primary_color'
+				: 'primary_color',
+		},
+	};
 
 	/**
 	 * Sets ref and linkTarget when the toggle is touched.
@@ -243,7 +268,7 @@ const ButtonEdit = ( {
 					{ ...{
 						type,
 						backgroundColor,
-						style,
+						elevationStyle,
 						textColor,
 						cornerRadius,
 						icon,
@@ -287,15 +312,15 @@ const ButtonEdit = ( {
 						</>
 					) }
 
-					{ type === 'text' && (
+					{ type === 'text' && size !== 'large' && (
 						<>
 							<span>
 								{ __( 'Variations', 'material-design' ) }
 							</span>
 							<ButtonGroup
 								buttons={ BUTTON_STYLES }
-								current={ style }
-								onClick={ setter( 'style' ) }
+								current={ elevationStyle }
+								onClick={ setter( 'elevationStyle' ) }
 							/>
 						</>
 					) }
@@ -332,69 +357,15 @@ const ButtonEdit = ( {
 						/>
 					) }
 				</PanelBody>
-				<PanelBody
-					title={ __( 'Colors', 'material-design' ) }
-					initialOpen={ true }
-				>
-					<div className="components-base-control">
-						{ __(
-							'Overrides will only apply to this button. Change Primary Color in ',
-							'material-design'
-						) }
-						<a
-							href={ getConfig( 'customizerUrls' ).colors }
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							{ __(
-								'Material Design Options',
-								'material-design'
-							) }
-						</a>
-						{ __( ' to update all buttons.', 'material-design' ) }
-					</div>
 
-					{ hasBg( style ) && type === 'text' && (
-						<GlobalColor
-							label={ __( 'Container Color', 'material-design' ) }
-							value={ backgroundColor }
-							onChange={ setter( 'backgroundColor' ) }
-							globalPropName={
-								hasBg( style )
-									? 'primary_color'
-									: 'on_primary_color'
-							}
-						/>
-					) }
-					<GlobalColor
-						label={ __(
-							'Text and icons Color',
-							'material-design'
-						) }
-						value={ textColor }
-						onChange={ setter( 'textColor' ) }
-						globalPropName={
-							hasBg( style )
-								? 'on_primary_color'
-								: 'primary_color'
-						}
-					/>
+				<ColorPanel colors={ colorSettings } />
 
-					{ hasBg( style ) && type === 'text' && (
-						<GlobalColorContrastChecker
-							textColor={ textColor }
-							backgroundColor={ backgroundColor }
-							textProp="on_primary_color"
-							backgroundProp="primary_color"
-						/>
-					) }
-				</PanelBody>
 				{ type === 'text' && (
 					<PanelBody
 						title={ __( 'Corner Styles', 'material-design' ) }
 						initialOpen={ true }
 					>
-						{ style !== 'text' ? (
+						{ elevationStyle !== 'text' && size !== 'large' && (
 							<>
 								<div className="components-base-control">
 									{ __(
@@ -426,7 +397,9 @@ const ButtonEdit = ( {
 									blockName={ ButtonBlockName }
 								/>
 							</>
-						) : (
+						) }
+
+						{ ( elevationStyle === 'text' || size === 'large' ) && (
 							<p>
 								{ __(
 									'Current button style does not support rounded corners.',

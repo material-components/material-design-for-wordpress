@@ -165,17 +165,6 @@ class Block_Types {
 			}
 		}
 
-		// Enqueue RichText polyfills if WP version is less than 5.3.
-		if ( version_compare( get_bloginfo( 'version' ), '5.3', '<' ) ) {
-			wp_enqueue_script(
-				'material-block-editor-polyfills',
-				$this->plugin->asset_url( 'assets/js/polyfills.js' ),
-				[],
-				$version,
-				false
-			);
-		}
-
 		wp_register_script(
 			'material-block-editor-js',
 			$this->plugin->asset_url( 'assets/js/block-editor.js' ),
@@ -187,7 +176,7 @@ class Block_Types {
 		wp_register_style(
 			'material-block-editor-css',
 			$this->plugin->asset_url( 'assets/css/block-editor-compiled.css' ),
-			[],
+			[ 'material-google-fonts' ],
 			$version
 		);
 
@@ -235,7 +224,7 @@ class Block_Types {
 			'contact_form_preview'      => $this->plugin->asset_url( 'assets/images/preview/contact-form.jpg' ),
 			'defaults'                  => [
 				'blocks'      => $this->get_block_defaults(),
-				'colors'      => $this->get_color_defaults(),
+				'colors'      => $this->get_color_defaults(), // Todo - pass m3 token and update color picker.
 				'globalStyle' => $this->get_global_styles(),
 			],
 			'customizerUrls'            => [
@@ -245,6 +234,7 @@ class Block_Types {
 			'postTypes'                 => $post_types,
 			'doesRequireBackCompatList' => version_compare( get_bloginfo( 'version' ), '5.8', '<' ),
 			'canUseQueryLoop'           => version_compare( '5.8', get_bloginfo( 'version' ), '<=' ),
+			'fallBackImageCard'         => $this->plugin->asset_url( 'assets/images/placeholder-image-card.png' ),
 		];
 
 		if ( Helpers::is_current_user_admin_or_editor_with_manage_options() ) {

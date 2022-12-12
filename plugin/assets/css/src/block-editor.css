@@ -24,6 +24,9 @@
 @import "./components/card.css";
 @import "./overrides.css";
 @import "./material-components.css";
+@import "./tokens/index.css";
+@import "./components/datatable-editor.css";
+@import "./components/button.css";
 
 @media (min-width: 600px) {
 
@@ -77,4 +80,11 @@
 
 .mdc-image-list__label {
 	white-space: normal;
+}
+
+/*
+ * Fix dropdown font size on Gutenberg with 5.6.
+ */
+.components-font-size-picker__select > ul > li {
+	font-size: inherit !important;
 }

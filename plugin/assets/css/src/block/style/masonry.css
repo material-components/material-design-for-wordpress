@@ -54,7 +54,3 @@
 .is-style-material-masonry.wp-block-query-loop.is-flex-container > li {
 	width: 100% !important;
 }
-
-.entry-content h2.post-card__title {
-	margin: revert;
-}

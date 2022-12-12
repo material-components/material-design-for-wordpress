@@ -28,6 +28,8 @@ export const THEME_COLOR_CONTROLS = [
 	'on_footer_color',
 ];
 
+const MAX_HEX_COLORS = 16777215;
+
 /**
  * Collapse a DOM node by animating it's height to 0.
  *
@@ -116,3 +118,19 @@ export const getControlName = name => {
  */
 export const sanitizeControlId = id =>
 	id.replace( /\]$/, '' ).replace( /\[|\]/g, '-' );
+
+/**
+ * Generate a random seed color
+ *
+ * @return {string} Hex color
+ */
+export const randomColor = () => {
+	let hexColor = Math.floor( Math.random() * MAX_HEX_COLORS ).toString( 16 );
+
+	// Pad to make sure it's 6 characters.
+	while ( hexColor.length < 6 ) {
+		hexColor = '0' + hexColor;
+	}
+
+	return '#' + hexColor;
+};

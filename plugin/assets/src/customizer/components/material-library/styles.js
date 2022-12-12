@@ -26,39 +26,52 @@ import colorUtils from '../../../common/color-utils';
 
 export const Overrides = createGlobalStyle`
 	:root {
-    	--body-font: ${ props => props.body };
-    	--heading-font: ${ props => props.headings };
+		--md-sys-typescale-headline-large-font: ${ props => props.headline };
+		--md-sys-typescale-headline-medium-font: ${ props => props.headline };
+		--md-sys-typescale-headline-small-font: ${ props => props.headline };
+		--md-sys-typescale-body-large-font: ${ props => props.body };
+		--md-sys-typescale-body-medium-font: ${ props => props.body };
+		--md-sys-typescale-body-small-font: ${ props => props.body };
+		--md-sys-typescale-display-large-font: ${ props => props.display };
+		--md-sys-typescale-display-medium-font: ${ props => props.display };
+		--md-sys-typescale-display-small-font: ${ props => props.display };
+		--md-sys-typescale-label-large-font: ${ props => props.label };
+		--md-sys-typescale-label-medium-font: ${ props => props.label };
+		--md-sys-typescale-label-small-font: ${ props => props.label };
+		--md-sys-typescale-title-large-font: ${ props => props.title };
+		--md-sys-typescale-title-medium-font: ${ props => props.title };
+		--md-sys-typescale-title-small-font: ${ props => props.title };
 
-		--mdc-theme-primary: ${ props => props.primaryColor };
+		--md-sys-color-primary: ${ props => props.primaryColor };
 		--mdc-theme-secondary: ${ props => props.secondaryColor };
-		--mdc-theme-on-primary: ${ props => props.onPrimaryColor };
+		--md-sys-color-on-primary: ${ props => props.onPrimaryColor };
 		--mdc-theme-on-secondary: ${ props => props.onSecondaryColor };
-		--mdc-theme-surface: ${ props => props.surfaceColor };
-		--mdc-theme-on-surface: ${ props => props.onSurfaceColor };
-		--mdc-theme-on-surface-rgb: ${ props =>
+		--md-sys-color-surface: ${ props => props.surfaceColor };
+		--md-sys-color-on-surface: ${ props => props.onSurfaceColor };
+		--md-sys-color-on-surface-rgb: ${ props =>
 			colorUtils.hexToRgbValues( props.onSurfaceColor ).join( ',' ) };
 		--mdc-theme-surface-mix-4: ${ props => props.surfaceColorMix4 };
 		--mdc-theme-surface-mix-12: ${ props => props.surfaceColorMix12 };
-		--mdc-theme-background: ${ props => props.backgroundColor };
-		--mdc-theme-on-background: ${ props => props.onBackgroundColor };
-		--mdc-theme-on-background-rgb: ${ props =>
+		--md-sys-color-background: ${ props => props.backgroundColor };
+		--md-sys-color-on-background: ${ props => props.onBackgroundColor };
+		--md-sys-color-on-background-rgb: ${ props =>
 			colorUtils.hexToRgbValues( props.onBackgroundColor ).join( ',' ) };
 
 		--mdc-icons-font-family: ${ props => props.iconCollection };
 
-		--mdc-theme-text-primary-on-background: rgba(--mdc-theme-on-background-rgb, 0.87);
-		--mdc-theme-text-secondary-on-background: rgba(--mdc-theme-on-background-rgb, 0.54);
-		--mdc-theme-text-hint-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
-		--mdc-theme-text-disabled-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
-		--mdc-theme-text-icon-on-background: rgba(--mdc-theme-on-background-rgb, 0.38);
+		--md-sys-color-on-surface-variant: rgba(--md-sys-color-on-background-rgb, 0.87);
+		--mdc-theme-text-secondary-on-background: rgba(--md-sys-color-on-background-rgb, 0.54);
+		--mdc-theme-text-hint-on-background: rgba(--md-sys-color-on-background-rgb, 0.38);
+		--mdc-theme-text-disabled-on-background: rgba(--md-sys-color-on-background-rgb, 0.38);
+		--mdc-theme-text-icon-on-background: rgba(--md-sys-color-on-background-rgb, 0.38);
 	}
 
-	#mcb-material-library-preview .mdc-typography {
+	#mcb-material-library-preview .{
 		font-family: var(--heading-font) !important;
 	}
 
 	#mcb-material-library-preview .mdc-text-field--focused .mdc-floating-label {
-		color: var(--mdc-theme-primary) !important;
+		color: var(--md-sys-color-primary) !important;
 	}
 
 	#mcb-material-library-preview p,
@@ -67,7 +80,7 @@ export const Overrides = createGlobalStyle`
 	#mcb-material-library-preview input[type="text"],
 	#mcb-material-library-preview button:not([class*="material-icons"]),
 	#mcb-material-library-preview span:not([class*="material-icons"]) {
-		font-family: var(--body-font) !important;
+		font-family: var(--md-sys-typescale-body-large-font) !important;
 		font-size: 16px;
 	}
 
@@ -75,8 +88,8 @@ export const Overrides = createGlobalStyle`
 	#mcb-material-library-preview h2,
 	#mcb-material-library-preview h3,
 	#mcb-material-library-preview h4 {
-		color: var(--mdc-theme-on-background) !important;
-		font-family: var(--heading-font);
+		color: var(--md-sys-color-on-background) !important;
+		font-family: var(--md-sys-typescale-title-large-font);
 	}
 
 	#mcb-material-library-preview .mdc-list-item__secondary-text {
@@ -84,14 +97,14 @@ export const Overrides = createGlobalStyle`
 	}
 
 	#mcb-material-library-preview hr {
-		border-color: rgba(var(--mdc-theme-on-surface-rgb, 0, 0, 0), .12);
+		border-color: var(--md-sys-color-on-surface, #000);
 	}
 
 	#material-library-preview {
 		h4, form, button {
 			display: inline-block;
 			button {
-				color: var(--mdc-theme-on-background) !important;
+				color: var(--md-sys-color-on-background) !important;
 				vertical-align: sub;
 			}
 		}

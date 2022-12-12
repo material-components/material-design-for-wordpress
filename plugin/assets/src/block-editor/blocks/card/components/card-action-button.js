@@ -88,7 +88,6 @@ const CardActionButton = ( {
 					target={ url && newTab ? '_blank' : undefined }
 					className="mdc-button mdc-card__action mdc-card__action--button"
 				>
-					<div className="mdc-button__ripple"></div>
 					<span
 						className="mdc-button__label"
 						dangerouslySetInnerHTML={ { __html: label } }

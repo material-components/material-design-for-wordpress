@@ -48,7 +48,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -303,6 +302,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-1__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-1-3"
+                name="inspector-radio-control-1"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-1-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -331,7 +347,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -566,7 +581,7 @@ Object {
               <h2
                 aria-label="Title goes here"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -575,7 +590,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -585,7 +600,7 @@ Object {
             <div
               aria-label="Supporting text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -658,7 +673,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -913,6 +927,23 @@ Object {
               Outlined
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-1__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-1-3"
+              name="inspector-radio-control-1"
+              type="radio"
+              value="filled"
+            />
+            <label
+              for="inspector-radio-control-1-3"
+            >
+              Filled
+            </label>
+          </div>
         </div>
         <p
           class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -941,7 +972,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -1176,7 +1206,7 @@ Object {
             <h2
               aria-label="Title goes here"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+              class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -1185,7 +1215,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -1195,7 +1225,7 @@ Object {
           <div
             aria-label="Supporting text"
             aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
             role="textbox"
             style="white-space: pre-wrap;"
           >
@@ -1349,7 +1379,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1604,6 +1633,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-5__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-5-3"
+                name="inspector-radio-control-5"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-5-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -1632,7 +1678,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1867,7 +1912,7 @@ Object {
               <h2
                 aria-label="Title goes here"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -1876,7 +1921,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -1886,7 +1931,7 @@ Object {
             <div
               aria-label="Supporting text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+              class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -1959,7 +2004,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -2214,6 +2258,23 @@ Object {
               Outlined
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-5__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-5-3"
+              name="inspector-radio-control-5"
+              type="radio"
+              value="filled"
+            />
+            <label
+              for="inspector-radio-control-5-3"
+            >
+              Filled
+            </label>
+          </div>
         </div>
         <p
           class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -2242,7 +2303,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -2477,7 +2537,7 @@ Object {
             <h2
               aria-label="Title goes here"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+              class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -2486,7 +2546,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -2496,7 +2556,7 @@ Object {
           <div
             aria-label="Supporting text"
             aria-multiline="true"
-            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media mdc-typography mdc-typography--body2"
+            class="rich-text block-editor-rich-text__editable material-design-card__supporting-text material-design-card__supporting-text_text-under-media body-medium"
             role="textbox"
             style="white-space: pre-wrap;"
           >
@@ -2650,7 +2710,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2905,6 +2964,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-3__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-3-3"
+                name="inspector-radio-control-3"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-3-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -2933,7 +3009,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -3155,7 +3230,7 @@ Object {
               <h2
                 aria-label="Title goes here"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+                class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -3164,7 +3239,7 @@ Object {
               <h3
                 aria-label="Secondary text"
                 aria-multiline="true"
-                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+                class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
                 role="textbox"
                 style="white-space: pre-wrap;"
               >
@@ -3238,7 +3313,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -3493,6 +3567,23 @@ Object {
               Outlined
             </label>
           </div>
+          <div
+            class="components-radio-control__option"
+          >
+            <input
+              aria-describedby="inspector-radio-control-3__help"
+              class="components-radio-control__input"
+              id="inspector-radio-control-3-3"
+              name="inspector-radio-control-3"
+              type="radio"
+              value="filled"
+            />
+            <label
+              for="inspector-radio-control-3-3"
+            >
+              Filled
+            </label>
+          </div>
         </div>
         <p
           class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -3521,7 +3612,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -3743,7 +3833,7 @@ Object {
             <h2
               aria-label="Title goes here"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__title mdc-typography mdc-typography--headline6"
+              class="rich-text block-editor-rich-text__editable material-design-card__title title-large"
               role="textbox"
               style="white-space: pre-wrap;"
             >
@@ -3752,7 +3842,7 @@ Object {
             <h3
               aria-label="Secondary text"
               aria-multiline="true"
-              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text mdc-typography mdc-typography--subtitle2"
+              class="rich-text block-editor-rich-text__editable material-design-card__secondary-text body-medium"
               role="textbox"
               style="white-space: pre-wrap;"
             >

@@ -69,7 +69,7 @@ jest.mock( '@wordpress/data', () => ( {
 } ) );
 
 const baseProps = {
-	attributes: { type: 'text', style: 'text' },
+	attributes: { type: 'text', elevationStyle: 'text' },
 	setAttributes: jest.fn(),
 };
 
@@ -98,7 +98,7 @@ describe( 'ButtonEdit', () => {
 	it( 'displays all the panels', () => {
 		setup( baseProps );
 		expect( screen.getByText( 'Styles' ) ).toBeInTheDocument();
-		expect( screen.getByText( 'Colors' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Color' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Corner Styles' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Link Settings' ) ).toBeInTheDocument();
 	} );
@@ -120,9 +120,9 @@ describe( 'ButtonEdit', () => {
 		expect( screen.queryByText( 'Container Color' ) ).toBeNull();
 	} );
 
-	it( 'should display an text with outlined style', () => {
+	it( 'should display a text with outlined style', () => {
 		setup( {
-			attributes: { type: 'text', style: 'outlined' },
+			attributes: { type: 'text', elevationStyle: 'outlined' },
 			setAttributes: jest.fn(),
 		} );
 
@@ -135,34 +135,47 @@ describe( 'ButtonEdit', () => {
 		expect( screen.queryByText( 'Container Color' ) ).toBeNull();
 	} );
 
-	it( 'should display an text with raised style', () => {
+	it( 'should display an text with elevated style', () => {
 		setup( {
-			attributes: { type: 'text', style: 'raised' },
+			attributes: { type: 'text', elevationStyle: 'elevated' },
 			setAttributes: jest.fn(),
 		} );
 
 		const container = document.body;
 		const matches = container.querySelector(
-			'.mdc-button.mdc-button--raised'
+			'.mdc-button.mdc-button--elevated'
 		);
 
 		expect( matches ).toBeInTheDocument();
-		expect( screen.getByText( 'Container Color' ) ).toBeInTheDocument();
 	} );
 
-	it( 'should display an text with unelevated style', () => {
+	it( 'should display an text with filled style', () => {
 		setup( {
-			attributes: { type: 'text', style: 'unelevated' },
+			attributes: { type: 'text', elevationStyle: 'filled' },
 			setAttributes: jest.fn(),
 		} );
 
 		const container = document.body;
 		const matches = container.querySelector(
-			'.mdc-button.mdc-button--unelevated'
+			'.mdc-button.mdc-button--filled'
 		);
 
 		expect( matches ).toBeInTheDocument();
-		expect( screen.getByText( 'Container Color' ) ).toBeInTheDocument();
+	} );
+
+	it( 'should display an text with tonal style', () => {
+		setup( {
+			attributes: { type: 'text', elevationStyle: 'tonal' },
+			setAttributes: jest.fn(),
+		} );
+
+		const container = document.body;
+		const matches = container.querySelector(
+			'.mdc-button.mdc-button--tonal'
+		);
+
+		expect( matches ).toBeInTheDocument();
+		expect( screen.queryByText( 'Container Color' ) ).toBeNull();
 	} );
 
 	it( 'should display icon picker if icon position is set', () => {

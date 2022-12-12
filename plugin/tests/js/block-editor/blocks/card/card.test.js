@@ -143,7 +143,7 @@ describe( 'blocks: material/card', () => {
 					type: 'number',
 				},
 				cardStyle: {
-					enum: [ 'global', 'elevated', 'outlined' ],
+					enum: [ 'global', 'elevated', 'outlined', 'filled' ],
 					default: 'global',
 					type: 'string',
 				},

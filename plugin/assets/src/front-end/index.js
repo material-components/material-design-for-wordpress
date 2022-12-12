@@ -28,6 +28,7 @@ import {
 } from '../common/mdc-components-init';
 import { initContactForm } from './contact-form';
 import { masonryInit } from './masonry';
+import { initDarkModeSwitch } from './dark-mode-switch';
 
 addEventListener( 'DOMContentLoaded', () => {
 	initButtons();
@@ -45,3 +46,5 @@ addEventListener( 'DOMContentLoaded', () => {
 		initTextFields();
 	}
 } );
+
+initDarkModeSwitch();

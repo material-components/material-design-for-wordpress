@@ -14,6 +14,17 @@
  * limitations under the License.
  */
 
+/**
+ * External dependencies
+ */
+
+import {
+	argbFromHex,
+	themeFromSourceColor,
+	applyTheme,
+} from '@material/material-color-utilities';
+import { applyRgbValue } from '../helper/apply-rgb-value';
+
 const body = document.body;
 export const ICONS = {
 	DARK_MODE: 'dark_mode',
@@ -35,10 +46,30 @@ const maybeToggleDarkMode = event => {
 		return;
 	}
 
+	const color = window.materialDesign.sourceColor;
+	const intColor = argbFromHex( color );
+	const colorPallete = themeFromSourceColor( intColor );
+
 	if ( darkModeEnabled ) {
+		applyTheme( colorPallete, {
+			target: document.body,
+			dark: true,
+		} );
+		applyRgbValue( colorPallete, {
+			target: document.body,
+			dark: true,
+		} );
 		body.setAttribute( 'data-color-scheme', 'dark' );
 		switcherIcon.textContent = ICONS.LIGHT_MODE;
 	} else {
+		applyTheme( colorPallete, {
+			target: document.body,
+			dark: false,
+		} );
+		applyRgbValue( colorPallete, {
+			target: document.body,
+			dark: false,
+		} );
 		body.setAttribute( 'data-color-scheme', 'light' );
 		switcherIcon.textContent = ICONS.DARK_MODE;
 	}

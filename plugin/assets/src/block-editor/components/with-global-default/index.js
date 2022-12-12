@@ -24,7 +24,6 @@ import { omit } from 'lodash';
  */
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { useMemo } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -79,67 +78,6 @@ export const withGlobalBlockDefault = createHigherOrderComponent(
 		};
 	},
 	'withGlobalBlockDefault'
-);
-
-/**
- * A Higher Order Component used to set the default attribute of a
- * color control from global customizer settings.
- *
- * @param {JSX.Element} WrappedComponent The wrapped component.
- *
- * @return {JSX.Element} Component with an attribute.id prop.
- */
-export const withGlobalColorDefault = createHigherOrderComponent(
-	WrappedComponent => {
-		return props => {
-			const materialDesignDefaults = getConfig( 'defaults' );
-
-			const { globalPropName, value } = props;
-
-			// If empty set value to global default.
-			const newValue = getColor( globalPropName, value );
-
-			// Determine the color props to use.
-			let primayColorProp = 'primary_color',
-				secondaryColorProp = 'secondary_color';
-
-			// If the control is a text color, use the text color props.
-			if ( globalPropName.toLowerCase().includes( 'text' ) ) {
-				primayColorProp = 'on_primary_color';
-				secondaryColorProp = 'on_secondary_color';
-			}
-
-			let colors = [
-				{
-					color: materialDesignDefaults.colors[ primayColorProp ],
-					name: __( 'Primary', 'material-design' ),
-				},
-				{
-					color: materialDesignDefaults.colors[ secondaryColorProp ],
-					name: __( 'Secondary', 'material-design' ),
-				},
-			];
-
-			// If both primary and secondary colors at same, show only one color.
-			if (
-				materialDesignDefaults.colors[ primayColorProp ] ===
-				materialDesignDefaults.colors[ secondaryColorProp ]
-			) {
-				colors = colors.slice( 0, 1 );
-			}
-
-			return (
-				<WrappedComponent
-					{ ...omit( props, [ 'globalPropName' ] ) }
-					{ ...{
-						value: newValue,
-						colors,
-					} }
-				/>
-			);
-		};
-	},
-	'withGlobalColorDefault'
 );
 
 /**

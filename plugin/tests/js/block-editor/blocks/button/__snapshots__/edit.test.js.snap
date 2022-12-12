@@ -31,7 +31,7 @@ Object {
     <div>
       <div>
         <div
-          class="mdc-button mdc-button--text"
+          class="mdc-button label-large mdc-button--text"
         >
           <div
             aria-label="Add text…"
@@ -61,7 +61,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -222,7 +221,7 @@ Object {
                 class="btn-group__list__list-item__button"
                 type="button"
               >
-                Raised
+                Elevated
               </button>
             </li>
             <li
@@ -232,7 +231,17 @@ Object {
                 class="btn-group__list__list-item__button"
                 type="button"
               >
-                Unelevated
+                Filled
+              </button>
+            </li>
+            <li
+              class="btn-group__list__list-item"
+            >
+              <button
+                class="btn-group__list__list-item__button"
+                type="button"
+              >
+                Tonal
               </button>
             </li>
           </ul>
@@ -257,7 +266,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -472,7 +480,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -482,110 +489,54 @@ Object {
                 />
               </svg>
             </span>
-            Colors
+            Color
           </button>
         </h2>
         <div
-          class="components-base-control"
-        >
-          Overrides will only apply to this button. Change Primary Color in 
-          <a
-            href="http://example.com/colors"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            Material Design Options
-          </a>
-           to update all buttons.
-        </div>
-        <div
-          class="components-base-control material-component-color-palette css-wdf2ti-Wrapper e1puf3u3"
+          class="components-item-group block-editor-panel-color-gradient-settings__item-group"
+          data-wp-c16t="true"
+          data-wp-component="ItemGroup"
+          role="list"
         >
           <div
-            class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+            class="components-dropdown block-editor-panel-color-gradient-settings__dropdown"
           >
-            <span
-              class="components-base-control__label"
-            >
-              <span
-                class="material-component-color-palette__label"
-              >
-                Text and icons Color
-              </span>
-              <span
-                aria-label="Text and icons Color"
-                class="component-color-indicator"
-                style="background: rgb(98, 0, 238);"
-              />
-            </span>
             <div
-              class="material-colors-wrap"
+              role="listitem"
             >
-              <div
-                class="components-circular-option-picker"
+              <button
+                class="components-item block-editor-panel-color-gradient-settings__item"
               >
                 <div
-                  class="components-circular-option-picker__option-wrapper"
+                  class="components-flex components-h-stack"
                 >
-                  <button
-                    aria-label="Color: Primary"
-                    class="components-button components-circular-option-picker__option is-pressed"
-                    style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
-                    type="button"
-                  />
                   <span
-                    class="dashicon dashicons dashicons-saved"
+                    class="component-color-indicator block-editor-panel-color-gradient-settings__color-indicator"
+                    style="background: rgb(172, 39, 109);"
                   />
-                </div>
-                <div
-                  class="components-circular-option-picker__option-wrapper"
-                >
-                  <button
-                    aria-label="Color: Secondary"
-                    class="components-button components-circular-option-picker__option"
-                    style="background-color: rgb(1, 135, 134); color: rgb(1, 135, 134);"
-                    type="button"
-                  />
-                </div>
-                <div
-                  class="components-circular-option-picker__custom-clear-wrapper"
-                >
                   <div
-                    class="components-dropdown components-circular-option-picker__dropdown-link-action components-material-color-palette__link"
-                    tabindex="-1"
+                    class="components-flex-item"
+                    data-wp-c16t="true"
+                    data-wp-component="FlexItem"
                   >
-                    <button
-                      aria-expanded="false"
-                      aria-label="Color palette"
-                      class="components-button is-link"
-                      type="button"
-                    >
-                      Color palette
-                    </button>
+                    Text Color
                   </div>
-                  <div
-                    class="components-dropdown components-circular-option-picker__dropdown-link-action"
-                    tabindex="-1"
-                  >
-                    <button
-                      aria-expanded="false"
-                      aria-label="Custom color picker"
-                      class="components-button is-link"
-                      type="button"
-                    >
-                      Custom Color
-                    </button>
-                  </div>
-                  <button
-                    class="components-button components-circular-option-picker__clear is-small"
-                    type="button"
-                  >
-                    Reset
-                  </button>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
+        </div>
+        <div
+          class="components-spacer css-76v8xp-View-classes-classes em57xhy0"
+          data-wp-c16t="true"
+          data-wp-component="Spacer"
+        />
+        <div
+          class="components-contrast-checked"
+        >
+          #ffffff
+           - 
+          #6200ee
         </div>
       </div>
       <div
@@ -607,7 +558,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -643,7 +593,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -711,7 +660,7 @@ Object {
   "container": <div>
     <div>
       <div
-        class="mdc-button mdc-button--text"
+        class="mdc-button label-large mdc-button--text"
       >
         <div
           aria-label="Add text…"
@@ -741,7 +690,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -902,7 +850,7 @@ Object {
               class="btn-group__list__list-item__button"
               type="button"
             >
-              Raised
+              Elevated
             </button>
           </li>
           <li
@@ -912,7 +860,17 @@ Object {
               class="btn-group__list__list-item__button"
               type="button"
             >
-              Unelevated
+              Filled
+            </button>
+          </li>
+          <li
+            class="btn-group__list__list-item"
+          >
+            <button
+              class="btn-group__list__list-item__button"
+              type="button"
+            >
+              Tonal
             </button>
           </li>
         </ul>
@@ -937,7 +895,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -1152,7 +1109,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -1162,110 +1118,54 @@ Object {
               />
             </svg>
           </span>
-          Colors
+          Color
         </button>
       </h2>
       <div
-        class="components-base-control"
-      >
-        Overrides will only apply to this button. Change Primary Color in 
-        <a
-          href="http://example.com/colors"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          Material Design Options
-        </a>
-         to update all buttons.
-      </div>
-      <div
-        class="components-base-control material-component-color-palette css-wdf2ti-Wrapper e1puf3u3"
+        class="components-item-group block-editor-panel-color-gradient-settings__item-group"
+        data-wp-c16t="true"
+        data-wp-component="ItemGroup"
+        role="list"
       >
         <div
-          class="components-base-control__field css-igk9ll-StyledField e1puf3u2"
+          class="components-dropdown block-editor-panel-color-gradient-settings__dropdown"
         >
-          <span
-            class="components-base-control__label"
-          >
-            <span
-              class="material-component-color-palette__label"
-            >
-              Text and icons Color
-            </span>
-            <span
-              aria-label="Text and icons Color"
-              class="component-color-indicator"
-              style="background: rgb(98, 0, 238);"
-            />
-          </span>
           <div
-            class="material-colors-wrap"
+            role="listitem"
           >
-            <div
-              class="components-circular-option-picker"
+            <button
+              class="components-item block-editor-panel-color-gradient-settings__item"
             >
               <div
-                class="components-circular-option-picker__option-wrapper"
+                class="components-flex components-h-stack"
               >
-                <button
-                  aria-label="Color: Primary"
-                  class="components-button components-circular-option-picker__option is-pressed"
-                  style="background-color: rgb(98, 0, 238); color: rgb(98, 0, 238);"
-                  type="button"
-                />
                 <span
-                  class="dashicon dashicons dashicons-saved"
+                  class="component-color-indicator block-editor-panel-color-gradient-settings__color-indicator"
+                  style="background: rgb(172, 39, 109);"
                 />
-              </div>
-              <div
-                class="components-circular-option-picker__option-wrapper"
-              >
-                <button
-                  aria-label="Color: Secondary"
-                  class="components-button components-circular-option-picker__option"
-                  style="background-color: rgb(1, 135, 134); color: rgb(1, 135, 134);"
-                  type="button"
-                />
-              </div>
-              <div
-                class="components-circular-option-picker__custom-clear-wrapper"
-              >
                 <div
-                  class="components-dropdown components-circular-option-picker__dropdown-link-action components-material-color-palette__link"
-                  tabindex="-1"
+                  class="components-flex-item"
+                  data-wp-c16t="true"
+                  data-wp-component="FlexItem"
                 >
-                  <button
-                    aria-expanded="false"
-                    aria-label="Color palette"
-                    class="components-button is-link"
-                    type="button"
-                  >
-                    Color palette
-                  </button>
+                  Text Color
                 </div>
-                <div
-                  class="components-dropdown components-circular-option-picker__dropdown-link-action"
-                  tabindex="-1"
-                >
-                  <button
-                    aria-expanded="false"
-                    aria-label="Custom color picker"
-                    class="components-button is-link"
-                    type="button"
-                  >
-                    Custom Color
-                  </button>
-                </div>
-                <button
-                  class="components-button components-circular-option-picker__clear is-small"
-                  type="button"
-                >
-                  Reset
-                </button>
               </div>
-            </div>
+            </button>
           </div>
         </div>
+      </div>
+      <div
+        class="components-spacer css-76v8xp-View-classes-classes em57xhy0"
+        data-wp-c16t="true"
+        data-wp-component="Spacer"
+      />
+      <div
+        class="components-contrast-checked"
+      >
+        #ffffff
+         - 
+        #6200ee
       </div>
     </div>
     <div
@@ -1287,7 +1187,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
@@ -1323,7 +1222,6 @@ Object {
               class="components-panel__arrow"
               focusable="false"
               height="24"
-              role="img"
               viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"

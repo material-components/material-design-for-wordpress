@@ -53,7 +53,7 @@ describe( 'Icon', () => {
 	it( 'displays all the panels', () => {
 		setup( baseProps );
 		expect( screen.getByText( 'Icon' ) ).toBeInTheDocument();
-		expect( screen.getByText( 'Colors' ) ).toBeInTheDocument();
+		expect( screen.getByText( 'Color' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Size' ) ).toBeInTheDocument();
 		expect( screen.getByText( 'Search icon' ) ).toBeInTheDocument();
 	} );

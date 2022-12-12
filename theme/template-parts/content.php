@@ -44,7 +44,7 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 				<div class="post-card__primary">
 					<?php if ( is_sticky() ) : ?>
 						<h2
-							class="post-card__title mdc-typography mdc-typography--headline6"
+							class="post-card__title title-large"
 							aria-label="
 							<?php
 								printf(
@@ -59,15 +59,15 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 							<?php the_title(); ?>
 						</h2>
 					<?php else : ?>
-						<?php the_title( '<h2 class="post-card__title mdc-typography mdc-typography--headline6">', '</h2>' ); ?>
+						<?php the_title( '<h2 class="post-card__title title-large">', '</h2>' ); ?>
 					<?php endif; ?>
 
 					<?php if ( ! empty( $show_date ) ) : ?>
-						<time class="post-card__subtitle mdc-typography mdc-typography--subtitle2"><?php the_time( 'F j, Y' ); ?></time>
+						<time class="post-card__subtitle label-small"><?php the_time( 'F j, Y' ); ?></time>
 					<?php endif; ?>
 				</div>
 				<?php if ( ! empty( $show_excerpt ) ) : ?>
-					<div class="post-card__secondary mdc-typography mdc-typography--body2"><?php the_excerpt(); ?></div>
+					<div class="post-card__secondary body-medium"><?php the_excerpt(); ?></div>
 				<?php endif; ?>
 			</div>
 		</a>
@@ -91,7 +91,6 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 								?>
 							"
 						>
-							<span class="mdc-button__ripple"></span>
 							<?php echo get_avatar( get_the_author_meta( 'ID' ), 18 ); ?>
 							<?php the_author(); ?>
 						</a>
@@ -99,7 +98,6 @@ $classes       = get_theme_mod( 'archive_outlined', false ) ? 'mdc-card--outline
 
 					<?php if ( ! empty( $show_comments ) && ( comments_open() || ( 0 < get_comments_number() ) ) ) : ?>
 						<a href="<?php comments_link(); ?>" class="mdc-button mdc-card__action mdc-card__action--button">
-							<span class="mdc-button__ripple"></span>
 							<i class="material-icons mdc-button__icon" aria-hidden="true">comment</i>
 							<?php
 							echo esc_html(

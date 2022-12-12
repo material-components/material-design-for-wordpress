@@ -24,6 +24,7 @@ import { render } from '@testing-library/react';
  * Internal dependencies
  */
 import HorizontalCardLayout from '../../../../../../assets/src/block-editor/blocks/card/components/horizontal-card-layout';
+import { getGlobalCardStyle } from '../../../../../../assets/src/block-editor/utils';
 
 /**
  * Render the component.
@@ -55,13 +56,24 @@ const baseProps = {
 	secondaryActionButtonNoFollow: true,
 	displaySecondaryActionButton: true,
 	displayActions: true,
-	cardStyle: 'global',
+	cardStyle: 'filled',
 	cornerRadius: 4,
 	setter: jest.fn(),
 	isEditMode: false,
 };
 
+jest.mock( '../../../../../../assets/src/block-editor/utils', () => ( {
+	getGlobalCardStyle: jest.fn(),
+} ) );
+
 describe( 'HorizontalCardLayout', () => {
+	beforeAll( () => {
+		getGlobalCardStyle.mockReturnValue( 'elevated' );
+	} );
+	afterAll( () => {
+		getGlobalCardStyle.mockRestore();
+	} );
+
 	it( 'matches snapshot', () => {
 		const wrapper = setup( baseProps );
 		expect( wrapper ).toMatchSnapshot();
@@ -70,6 +82,12 @@ describe( 'HorizontalCardLayout', () => {
 	it( 'matches snapshot when the image should not be displayed', () => {
 		const props = { ...baseProps };
 		props.displayImage = false;
+		const wrapper = setup( props );
+		expect( wrapper ).toMatchSnapshot();
+	} );
+
+	it( 'matches snapshot when the global is set to filled', () => {
+		const props = { ...baseProps, cardStyle: 'global' };
 		const wrapper = setup( props );
 		expect( wrapper ).toMatchSnapshot();
 	} );

@@ -262,46 +262,6 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 	}
 
 	/**
-	 * Test for add_theme_controls() method.
-	 *
-	 * @see Controls::add_theme_controls()
-	 */
-	public function test_add_theme_controls() {
-		$controls = get_plugin_instance()->customizer_controls;
-
-		// Set $wp_customize to the mocked object.
-		$controls->wp_customize = $this->wp_customize;
-
-		// Set up the expectation for the add_setting() method
-		// to be called.
-		$this->wp_customize->expects( $this->exactly( 5 ) )
-			->method( 'add_setting' )
-			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}[style]" ) ],
-				[ $this->equalTo( "{$controls->slug}[previous_style]" ) ],
-				[ $this->equalTo( "{$controls->slug}[notify]" ) ],
-				[ $this->equalTo( "{$controls->slug}[style_settings]" ) ],
-				[ $this->equalTo( "{$controls->slug}[active_mode]" ) ]
-			);
-
-		// Set up the expectation for the add_control() method
-		// to be called.
-		$this->wp_customize->expects( $this->exactly( 3 ) )
-			->method( 'add_control' )
-			->withConsecutive(
-				[
-					$this->callback(
-						function ( $control ) use ( $controls ) {
-							return "{$controls->slug}[style]" === $control->id && [ 'baseline', 'crane', 'fortnightly', 'blossom', 'custom' ] === array_keys( $control->choices );
-						}
-					),
-				]
-			);
-
-		$controls->add_theme_controls();
-	}
-
-	/**
 	 * Test for add_typography_controls() method.
 	 *
 	 * @see Controls::add_typography_controls()
@@ -314,29 +274,34 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Set up the expectation for the add_setting() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 15 ) )
+		$this->wp_customize->expects( $this->exactly( 20 ) )
 			->method( 'add_setting' )
 			->withConsecutive(
-				[ $this->equalTo( "{$controls->slug}[head_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[display_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[title_font_family]" ) ],
+				[ $this->equalTo( "{$controls->slug}[label_font_family]" ) ],
 				[ $this->equalTo( "{$controls->slug}[body_font_family]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_1]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_2]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_3]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_4]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_5]" ) ],
-				[ $this->equalTo( "{$controls->slug}[headline_6]" ) ],
-				[ $this->equalTo( "{$controls->slug}[subtitle_1]" ) ],
-				[ $this->equalTo( "{$controls->slug}[subtitle_2]" ) ],
-				[ $this->equalTo( "{$controls->slug}[body1]" ) ],
-				[ $this->equalTo( "{$controls->slug}[body2]" ) ],
-				[ $this->equalTo( "{$controls->slug}[button]" ) ],
-				[ $this->equalTo( "{$controls->slug}[caption]" ) ],
-				[ $this->equalTo( "{$controls->slug}[overline]" ) ]
+				[ $this->equalTo( "{$controls->slug}[display_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[display_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[display_small]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[headline_small]" ) ],
+				[ $this->equalTo( "{$controls->slug}[title_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[title_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[title_small]" ) ],
+				[ $this->equalTo( "{$controls->slug}[label_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[label_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[label_small]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body_large]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body_medium]" ) ],
+				[ $this->equalTo( "{$controls->slug}[body_small]" ) ]
 			);
 
 		// Set up the expectation for the add_control() method
 		// to be called.
-		$this->wp_customize->expects( $this->exactly( 15 ) )
+		$this->wp_customize->expects( $this->exactly( 20 ) )
 			->method( 'add_control' )
 			->withConsecutive(
 				[
@@ -570,7 +535,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Add filters to return `Raleway` for headings and `Open Sans` for body.
 		add_filter(
-			"{$controls->slug}_get_option_head_font_family",
+			"{$controls->slug}_get_option_headline_font_family",
 			function () {
 				return 'Raleway';
 			}
@@ -584,7 +549,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		);
 
 		// Assert we get updated fonts.
-		$this->assertEquals( $controls->get_google_fonts_url(), '//fonts.googleapis.com/css?family=Material+Icons|Raleway:100,400,500|Open+Sans:400,500' );
+		$this->assertEquals( '//fonts.googleapis.com/css?family=Material+Icons|Roboto:300,400,500|Raleway:300,400|Open+Sans:400', $controls->get_google_fonts_url() );
 	}
 
 	/**
@@ -624,34 +589,26 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 
 		// Assert we get the default values as CSS vars.
 		$this->assertContains( ':root {', $css );
-		$this->assertContains( '--mdc-theme-primary: #6200ee;', $css );
-		$this->assertContains( '--mdc-theme-primary-rgb: 98,0,238;', $css );
-		$this->assertContains( '--mdc-theme-secondary: #018786;', $css );
-		$this->assertContains( '--mdc-theme-secondary-rgb: 1,135,134;', $css );
-		$this->assertContains( '--mdc-theme-on-primary: #ffffff;', $css );
-		$this->assertContains( '--mdc-theme-on-primary-rgb: 255,255,255;', $css );
-		$this->assertContains( '--mdc-theme-on-secondary: #000000;', $css );
-		$this->assertContains( '--mdc-theme-on-secondary-rgb: 0,0,0;', $css );
-		$this->assertContains( '--mdc-theme-surface: #ffffff;', $css );
-		$this->assertContains( '--mdc-theme-surface-rgb: 255,255,255;', $css );
-		$this->assertContains( '--mdc-theme-on-surface: #000000;', $css );
-		$this->assertContains( '--mdc-theme-on-surface-rgb: 0,0,0;', $css );
-		$this->assertContains( '--mdc-theme-surface-mix-4: #f5f5f5;', $css );
-		$this->assertContains( '--mdc-theme-surface-mix-12: #e0e0e0;', $css );
 
-		$this->assertContains( '--mdc-typography-headline1-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline2-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline3-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline4-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline5-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-headline6-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-subtitle1-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-subtitle2-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-body1-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-body2-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-caption-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-button-font-family: "Roboto", sans-serif;', $css );
-		$this->assertContains( '--mdc-typography-overline-font-family: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-title-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-title-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-title-small-font: "Roboto", sans-serif;', $css );
+
+		$this->assertContains( '--md-sys-typescale-display-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-display-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-display-small-font: "Roboto", sans-serif;', $css );
+
+		$this->assertContains( '--md-sys-typescale-label-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-label-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-label-small-font: "Roboto", sans-serif;', $css );
+
+		$this->assertContains( '--md-sys-typescale-headline-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-headline-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-headline-small-font: "Roboto", sans-serif;', $css );
+
+		$this->assertContains( '--md-sys-typescale-body-large-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-body-medium-font: "Roboto", sans-serif;', $css );
+		$this->assertContains( '--md-sys-typescale-body-small-font: "Roboto", sans-serif;', $css );
 
 		$this->assertContains( '--mdc-button-radius: 4px;', $css );
 		$this->assertContains( '--mdc-card-radius: 4px;', $css );
@@ -692,7 +649,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 		$baseline = $controls->get_design_styles()['baseline'];
 
 		$this->assertEquals( $controls->get_default( 'primary_color' ), $baseline['primary_color'] );
-		$this->assertEquals( $controls->get_default( 'head_font_family' ), $baseline['head_font_family'] );
+		$this->assertEquals( $controls->get_default( 'body_font_family' ), $baseline['body_font_family'] );
 		$this->assertEquals( $controls->get_default( 'button_radius' ), $baseline['button_radius'] );
 		$this->assertEquals( $controls->get_default( 'card_radius' ), $baseline['card_radius'] );
 		$this->assertEquals( $controls->get_default( 'data_table_radius' ), $baseline['data_table_radius'] );
@@ -722,7 +679,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 					'label'         => __( 'Buttons', 'material-design' ),
 					'min'           => 0,
 					'max'           => 20,
-					'initial_value' => 4,
+					'initial_value' => 36,
 					'css_var'       => '--mdc-button-radius',
 					'blocks'        => [
 						'material/button',
@@ -733,7 +690,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 					'label'         => __( 'Card', 'material-design' ),
 					'min'           => 0,
 					'max'           => 24,
-					'initial_value' => 0,
+					'initial_value' => 12,
 					'css_var'       => '--mdc-card-radius',
 					'blocks'        => [
 						'material/card',
@@ -746,7 +703,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 					'label'         => __( 'Chip', 'material-design' ),
 					'min'           => 0,
 					'max'           => 16,
-					'initial_value' => 0,
+					'initial_value' => 8,
 					'css_var'       => '--mdc-chip-radius',
 				],
 				[
@@ -754,7 +711,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 					'label'         => __( 'Data table', 'material-design' ),
 					'min'           => 0,
 					'max'           => 36,
-					'initial_value' => 0,
+					'initial_value' => 24,
 					'css_var'       => '--mdc-data-table-radius',
 					'blocks'        => [
 						'material/data-table',
@@ -765,7 +722,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 					'label'         => __( 'Image List', 'material-design' ),
 					'min'           => 0,
 					'max'           => 24,
-					'initial_value' => 0,
+					'initial_value' => 12,
 					'css_var'       => '--mdc-image-list-radius',
 					'blocks'        => [
 						'material/image-list',
@@ -784,7 +741,7 @@ class Test_Controls extends \WP_Ajax_UnitTestCase {
 					'label'         => __( 'Text Field', 'material-design' ),
 					'min'           => 0,
 					'max'           => 20,
-					'initial_value' => 0,
+					'initial_value' => 4,
 					'css_var'       => '--mdc-text-field-radius',
 				],
 			],

@@ -32,4 +32,16 @@ const getConfig = name => {
 	return configData[ name ];
 };
 
+export const setConfig = ( name, value ) => {
+	const configData = window.materialDesign;
+
+	if ( undefined === configData ) {
+		return false;
+	}
+
+	configData[ name ] = value;
+
+	return configData[ name ];
+};
+
 export default getConfig;

@@ -50,7 +50,6 @@ Object {
                   class="components-panel__arrow"
                   focusable="false"
                   height="24"
-                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -427,6 +426,23 @@ Object {
                   Outlined
                 </label>
               </div>
+              <div
+                class="components-radio-control__option"
+              >
+                <input
+                  aria-describedby="inspector-radio-control-0__help"
+                  class="components-radio-control__input"
+                  id="inspector-radio-control-0-3"
+                  name="inspector-radio-control-0"
+                  type="radio"
+                  value="filled"
+                />
+                <label
+                  for="inspector-radio-control-0-3"
+                >
+                  Filled
+                </label>
+              </div>
             </div>
             <p
               class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -455,7 +471,6 @@ Object {
                   class="components-panel__arrow"
                   focusable="false"
                   height="24"
-                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -643,7 +658,6 @@ Object {
                   class="components-panel__arrow"
                   focusable="false"
                   height="24"
-                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -768,7 +782,6 @@ Object {
                   class="components-panel__arrow"
                   focusable="false"
                   height="24"
-                  role="img"
                   viewBox="0 0 24 24"
                   width="24"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1042,14 +1055,14 @@ Object {
                     class="single-post-card__primary"
                   >
                     <h2
-                      class="single-post-card__title mdc-typography mdc-typography--headline6"
+                      class="single-post-card__title title-large"
                     >
                       <div>
                         Example 1 Title
                       </div>
                     </h2>
                     <h3
-                      class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                      class="single-post-card__subtitle label-small"
                     >
                       <time
                         datetime="2020-03-26 12:00:00"
@@ -1059,7 +1072,7 @@ Object {
                     </h3>
                   </div>
                   <div
-                    class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                    class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                   >
                     <div>
                       Example 1 excerpt
@@ -1109,14 +1122,14 @@ Object {
                     class="single-post-card__primary"
                   >
                     <h2
-                      class="single-post-card__title mdc-typography mdc-typography--headline6"
+                      class="single-post-card__title title-large"
                     >
                       <div>
                         Example 2 Title
                       </div>
                     </h2>
                     <h3
-                      class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                      class="single-post-card__subtitle label-small"
                     >
                       <time
                         datetime="2020-03-26 12:00:00"
@@ -1126,7 +1139,7 @@ Object {
                     </h3>
                   </div>
                   <div
-                    class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                    class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                   >
                     <div>
                       Example 2 excerpt
@@ -1185,7 +1198,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1562,6 +1574,23 @@ Object {
                 Outlined
               </label>
             </div>
+            <div
+              class="components-radio-control__option"
+            >
+              <input
+                aria-describedby="inspector-radio-control-0__help"
+                class="components-radio-control__input"
+                id="inspector-radio-control-0-3"
+                name="inspector-radio-control-0"
+                type="radio"
+                value="filled"
+              />
+              <label
+                for="inspector-radio-control-0-3"
+              >
+                Filled
+              </label>
+            </div>
           </div>
           <p
             class="components-base-control__help css-1gbp77-StyledHelp e1puf3u0"
@@ -1590,7 +1619,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1778,7 +1806,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1903,7 +1930,6 @@ Object {
                 class="components-panel__arrow"
                 focusable="false"
                 height="24"
-                role="img"
                 viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -2177,14 +2203,14 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title mdc-typography mdc-typography--headline6"
+                    class="single-post-card__title title-large"
                   >
                     <div>
                       Example 1 Title
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -2194,7 +2220,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     Example 1 excerpt
@@ -2244,14 +2270,14 @@ Object {
                   class="single-post-card__primary"
                 >
                   <h2
-                    class="single-post-card__title mdc-typography mdc-typography--headline6"
+                    class="single-post-card__title title-large"
                   >
                     <div>
                       Example 2 Title
                     </div>
                   </h2>
                   <h3
-                    class="single-post-card__subtitle mdc-typography mdc-typography--subtitle2"
+                    class="single-post-card__subtitle label-small"
                   >
                     <time
                       datetime="2020-03-26 12:00:00"
@@ -2261,7 +2287,7 @@ Object {
                   </h3>
                 </div>
                 <div
-                  class="single-post-card__secondary single-post-card__secondary-text-above-media mdc-typography mdc-typography--body2"
+                  class="single-post-card__secondary single-post-card__secondary-text-above-media body-medium"
                 >
                   <div>
                     Example 2 excerpt

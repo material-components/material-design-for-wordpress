@@ -54,7 +54,7 @@ services:
       - ./composer.lock:/var/www/html/wp-content/themes/material-design-google/composer.lock
     restart: always
     environment:
-      WORDPRESS_DEBUG: 1
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG-1}
       WORDPRESS_DB_USER: ${WP_DB_USER}
       WORDPRESS_DB_PASSWORD: ${WP_DB_PASSWORD}
 
